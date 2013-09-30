@@ -1,44 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ionic: The Most Advanced HTML5 Mobile App Framework">
+    <meta name="author" content="Drifty">
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+    <title>{{page.title}}</title>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
 
-    </head>
-    <body>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
 
-          {{ content }}
+  <body>
+    {{ content }}
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
+    <div class="container">
+    </div>
+    <footer>
+      <div class="container">
+        Copyright &copy; <a href="http://drifty.com/">Drifty</a> 2013
+        <div class="pull-right credits">
+          Built by <a href="http://twitter.com/helloimben">@helloimben</a> <a href="http://twitter.com/maxlynch">@maxlynch</a> and <a href="http://twitter.com/adamdbradley">@adamdbradley</a>
         </div>
+      </div>
+    </footer>
 
-    </body>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+
+  </body>
+
 </html>

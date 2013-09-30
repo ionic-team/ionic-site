@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Announcing The Ionic Framework"
+date:   2013-09-30 11:35:24
+lead: 'Today we at <a href="http://drifty.com/" target="_blank">Drifty</a> are incredibly excited to announce Ionic, the next
+generation HTML5 mobile app development framework for building amazing native mobile apps.'
+categories: ionic
+---
+
+<p>Ever since we launched our first product <a href="http://codiqa.com/">Codiqa</a> to make it incredibly easy to build HTML5 mobile websites and apps, we knew HTML5 had huge potential on mobile.</p>
+
+<p>But as devices got more powerful, the frameworks weren't keeping up. They were spending too much time supporting old, slow, and <a href="blackberry.com">failing devices</a>. They weren't focused on native development, or they <a href="http://www.sencha.com/">weren't permissively open source</a>.</p>
+
+<p>Too many frameworks were approaching mobile apps as an extension of web apps, tying themselves to the URL, when native apps used the more flexible view controller pattern. Others were trying to just duplicate the default native look without adding much else.</p>
+
+<p>We wanted a framework that was incredibly well designed, that would make it easy to build the amazing, custom apps that the best app developers were making. <strong>We wanted a serious fucking HTML5 framework.</strong></p>
+
+<p>We also wanted a framework that would be best friends with <a href="http://angularjs.com/">AngularJS</a> while not requiring it, letting developers use extensions for our favorite framework- but only if they wanted to.</p>
+
+<p>So we built Ionic to be the framework we wanted to use.</p>
+
+<p>Ionic is 100% open source, with a permissive MIT license that can be used in any kind of app. We will also be building services around the framework and integrating it into our <a href="http://codiqa.com/">drag-and-drop builder</a>. Ionic has a <a href="http://drifty.com/">profitable company</a> supporting it, so you can expect the project to get a lot of love.</p>
+
+<p>With Ionic, we realized we needed to be vigilant about only supporting new devices that were powerful enough to make HTML5 feel native. So Ionic will only support new iOS and Android releases on recent generation devices. It will focus on native apps, not web apps. It will probably not support Windows Phone or any other platform unless those devices gain more market share. This means we are incredibly focused on making a great experience on the devices that matter most.</p>
+
+<p>Ionic will come with an awesome <a href="http://ionicons.com">icon font pack</a> filled with both iOS 7 style icons and custom default icons designed by <a href="http://twitter.com/helloimben">Ben</a>. Ionic's visual style is inspired by iOS 7 but not restricted to it. See the screenshot above for an early rough preview.</p>
+
+<p>Ionic is a new framework, and we aren't quite ready to release it yet. We are shooting for mid to late October, 2013.</p>
+
+<p>We'd love to have you <a href="http://twitter.com/ionicframework">follow us</a> on Twitter and signup for the <a href="http://ionicframework.com/">announcement mailing list</a>. Stay tuned for more updates in the coming weeks, and thanks for checking out Ionic!</p>
+
+<p>The Ionic Crew</p>
+<p><a href="http://twitter.com/maxlynch">@maxlynch</a>, <a href="http://twitter.com/helloimben">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a></p>
+
+<a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+    <p>
+        <label for="fieldEmail">Email</label><br />
+        <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" required />
+    </p>
+    <p>
+        <button type="submit">Subscribe</button>
+    </p>
+</form>

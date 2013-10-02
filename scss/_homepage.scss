@@ -107,4 +107,22 @@
     background-image: url("/img/nerds.png");
   }
 
+  .examples-row {
+    h3 {
+      padding-top: 10px;
+    }
+  }
+
+  .continue-row {
+    background: #F7F7F7;
+
+    .row {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h4 {
+      padding-top: 30px;
+    }
+  }
+
 }

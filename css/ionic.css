@@ -4994,6 +4994,15 @@ td.visible-print {
     background-image: url("/img/design.png"); }
   .homepage .img-nerds {
     background-image: url("/img/nerds.png"); }
+  .homepage .examples-row h3 {
+    padding-top: 10px; }
+  .homepage .continue-row {
+    background: #F7F7F7; }
+    .homepage .continue-row .row {
+      max-width: 900px;
+      margin: 0 auto; }
+    .homepage .continue-row h4 {
+      padding-top: 30px; }
 
 .highlight {
   background: #ffffff; }

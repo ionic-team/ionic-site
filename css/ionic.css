@@ -4978,12 +4978,22 @@ td.visible-print {
   .homepage .features-row {
     max-width: 900px;
     margin: 0 auto; }
+    .homepage .features-row p {
+      line-height: 30px; }
   .homepage .img {
     min-width: 256px;
     min-height: 256px;
     background: no-repeat center top; }
   .homepage .img-performance {
     background-image: url("/img/performance.png"); }
+  .homepage .img-angular {
+    background-image: url("/img/angular_ionic.png"); }
+  .homepage .img-native {
+    background-image: url("/img/native.png"); }
+  .homepage .img-design {
+    background-image: url("/img/design.png"); }
+  .homepage .img-nerds {
+    background-image: url("/img/nerds.png"); }
 
 .highlight {
   background: #ffffff; }

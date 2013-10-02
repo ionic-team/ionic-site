@@ -74,6 +74,10 @@
   .features-row {
     max-width: 900px;
     margin: 0 auto;
+
+    p {
+      line-height: 30px;
+    }
   }
 
   .img {
@@ -84,6 +88,22 @@
 
   .img-performance {
     background-image: url("/img/performance.png");
+  }
+
+  .img-angular {
+    background-image: url("/img/angular_ionic.png");
+  }
+
+  .img-native {
+    background-image: url("/img/native.png");
+  }
+
+  .img-design {
+    background-image: url("/img/design.png");
+  }
+
+  .img-nerds {
+    background-image: url("/img/nerds.png");
   }
 
 }

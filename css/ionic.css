@@ -3175,8 +3175,8 @@ input[type="button"].btn-block {
       margin-right: 15px; } }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  /*background-color: $navbar-default-bg;
+  border-color: $navbar-default-border;*/
   font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal; }
   .navbar-default .navbar-brand {
@@ -4927,7 +4927,7 @@ td.visible-print {
   src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
 
 .homepage {
-  background: url("/img/phone_bg.png") no-repeat center -200px; }
+  background: url("/img/phone_bg.png") no-repeat center top; }
   .homepage .primary-row {
     text-align: center; }
     .homepage .primary-row h2 {

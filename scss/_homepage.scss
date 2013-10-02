@@ -13,8 +13,8 @@
 
     h3 {
       margin-top: 10px;
-      font-size: 16px;
       color: #aaa;
+      font-size: 16px;
     }
   }
 
@@ -23,15 +23,48 @@
 
     .btn {
       padding: 15px 35px;
+      border: 0;
       font-size: 22px;
       opacity: 1;
-      border: 0;
     }
   }
 
   .version-text {
-    font-size: 12px;
     color: #ccc;
+    font-size: 12px;
+  }
+
+  .content-container {
+    padding: 0;
+    max-width: 100% !important;
+  }
+
+  .social-row {
+    margin-top: 90px;
+    padding: 45px;
+    border-bottom: 1px solid #ddd;
+    background: #eee;
+    text-align: center;
+  }
+
+  .desc-row {
+    background: white;
+    text-align: center;
+
+    > * {
+      margin: 0 auto;
+    }
+
+    h3 {
+      max-width: 900px;
+      font-size: 28px;
+      padding: 70px 0 14px;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 16px;
+    }
   }
 
 }

@@ -43,6 +43,8 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !defaul
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
+$font-family-medium:      "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-regular:      "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
@@ -54,6 +56,7 @@ $line-height-computed:    floor($font-size-base * $line-height-base) !default; /
 $headings-font-family:    $font-family-base !default;
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
+$headings-color:          #444444;
 
 // Iconography
 // -------------------------

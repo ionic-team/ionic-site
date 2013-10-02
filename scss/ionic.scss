@@ -17,15 +17,15 @@ a {
 }
 
 h1, h2 {
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font-family-medium;
   font-weight: normal;
 }
 
 h3, h4, h5, h6, .btn {
-  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font-family-regular;
   font-weight: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: $headings-color
 }

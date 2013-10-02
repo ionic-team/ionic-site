@@ -357,6 +357,8 @@
 .navbar-default {
   background-color: $navbar-default-bg;
   border-color: $navbar-default-border;
+  font-family: $font-family-regular;
+  font-weight: normal;
 
   .navbar-brand {
     color: $navbar-default-brand-color;
@@ -374,6 +376,8 @@
   .navbar-nav {
     > li > a {
       color: $navbar-default-link-color;
+      padding-left: 30px;
+      padding-right: 30px;
 
       &:hover,
       &:focus {

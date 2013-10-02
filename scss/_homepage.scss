@@ -38,11 +38,19 @@
     max-width: 100% !important;
   }
 
-  .social-row {
+  .social-row-gray {
     margin-top: 90px;
-    padding: 45px;
+    height: 100px;
+    background: #fff;
     border-bottom: 1px solid #ddd;
-    background: #eee;
+    opacity: 0.8;
+  }
+
+  .social-row {
+    position: relative;
+    margin-top: -100px;
+    height: 100px;
+    padding: 45px;
     text-align: center;
   }
 

@@ -256,7 +256,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #888888;
@@ -376,7 +376,7 @@ cite {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 500;
   line-height: 1.1; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
@@ -2960,7 +2960,7 @@ input[type="button"].btn-block {
 .navbar {
   position: relative;
   z-index: 1000;
-  min-height: 72px;
+  min-height: 76px;
   margin-bottom: 20px;
   border: 0; }
   .navbar:before, .navbar:after {
@@ -3069,8 +3069,8 @@ input[type="button"].btn-block {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 19px;
-  margin-bottom: 19px;
+  margin-top: 21px;
+  margin-bottom: 21px;
   background-color: transparent;
   border: 1px solid transparent; }
   .navbar-toggle .icon-bar {
@@ -3085,7 +3085,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 .navbar-nav {
-  margin: 13px -15px;
+  margin: 14px -15px;
   font-size: 16px; }
   .navbar-nav > li > a {
     padding-top: 10px;
@@ -3114,8 +3114,8 @@ input[type="button"].btn-block {
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {
-          padding-top: 26px;
-          padding-bottom: 26px; } }
+          padding-top: 28px;
+          padding-bottom: 28px; } }
 
 @media (min-width: 768px) {
   .navbar-left {
@@ -3131,8 +3131,8 @@ input[type="button"].btn-block {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 19px;
-  margin-bottom: 19px; }
+  margin-top: 21px;
+  margin-bottom: 21px; }
   @media (max-width: 767px) {
     .navbar-form .form-group {
       margin-bottom: 5px; } }
@@ -3162,13 +3162,13 @@ input[type="button"].btn-block {
   right: 0; }
 
 .navbar-btn {
-  margin-top: 19px;
-  margin-bottom: 19px; }
+  margin-top: 21px;
+  margin-bottom: 21px; }
 
 .navbar-text {
   float: left;
-  margin-top: 26px;
-  margin-bottom: 26px; }
+  margin-top: 28px;
+  margin-bottom: 28px; }
   @media (min-width: 768px) {
     .navbar-text {
       margin-left: 15px;
@@ -4950,11 +4950,17 @@ td.visible-print {
   .homepage .content-container {
     padding: 0;
     max-width: 100% !important; }
-  .homepage .social-row {
+  .homepage .social-row-gray {
     margin-top: 90px;
-    padding: 45px;
+    height: 100px;
+    background: #fff;
     border-bottom: 1px solid #dddddd;
-    background: #eee;
+    opacity: 0.8; }
+  .homepage .social-row {
+    position: relative;
+    margin-top: -100px;
+    height: 100px;
+    padding: 45px;
     text-align: center; }
   .homepage .bg-cover {
     background: white; }
@@ -5262,7 +5268,7 @@ a {
   a:hover, a:focus {
     opacity: 1; }
 
-h1, h2 {
+h1, h2, h3, h4 {
   font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal; }
 

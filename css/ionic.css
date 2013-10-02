@@ -259,7 +259,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  color: #888888;
   background-color: white; }
 
 input,
@@ -303,7 +303,7 @@ img {
   line-height: 1.42857;
   background-color: white;
   border: 1px solid #dddddd;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
@@ -540,7 +540,7 @@ code {
   color: #c7254e;
   background-color: #f9f2f4;
   white-space: nowrap;
-  border-radius: 4px; }
+  border-radius: 2px; }
 
 pre {
   display: block;
@@ -553,7 +553,7 @@ pre {
   color: #333333;
   background-color: whitesmoke;
   border: 1px solid #cccccc;
-  border-radius: 4px; }
+  border-radius: 2px; }
   pre.prettyprint {
     margin-bottom: 20px; }
   pre code {
@@ -1418,7 +1418,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   vertical-align: middle;
   background-color: white;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -1587,7 +1587,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373; }
+  color: #c8c8c8; }
 
 @media (min-width: 768px) {
   .form-inline .form-group, .navbar-form .form-group {
@@ -1642,7 +1642,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   white-space: nowrap;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1672,11 +1672,10 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-default {
   color: #333333;
   background-color: white;
-  border-color: #cccccc; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
     color: #333333;
-    background-color: #ebebeb;
-    border-color: #adadad; }
+    background-color: #ebebeb; }
   .open .btn-default.dropdown-toggle {
     color: #333333;
     background-color: #ebebeb;
@@ -1692,31 +1691,29 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-primary {
   color: white;
   background-color: #4f8ef7;
-  border-color: #377ef6; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
     color: white;
-    background-color: #2875f5;
-    border-color: #0a5ce5; }
+    background-color: #2875f5; }
   .open .btn-primary.dropdown-toggle {
     color: white;
     background-color: #2875f5;
-    border-color: #0a5ce5; }
+    border-color: #1468f4; }
   .btn-primary:active, .btn-primary.active {
     background-image: none; }
   .open .btn-primary.dropdown-toggle {
     background-image: none; }
   .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
     background-color: #4f8ef7;
-    border-color: #377ef6; }
+    border-color: #4f8ef7; }
 
 .btn-warning {
   color: white;
   background-color: #f0ad4e;
-  border-color: #eea236; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
     color: white;
-    background-color: #ed9c28;
-    border-color: #d58512; }
+    background-color: #ed9c28; }
   .open .btn-warning.dropdown-toggle {
     color: white;
     background-color: #ed9c28;
@@ -1732,11 +1729,10 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-danger {
   color: white;
   background-color: #d9534f;
-  border-color: #d43f3a; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
     color: white;
-    background-color: #d2322d;
-    border-color: #ac2925; }
+    background-color: #d2322d; }
   .open .btn-danger.dropdown-toggle {
     color: white;
     background-color: #d2322d;
@@ -1752,11 +1748,10 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-success {
   color: white;
   background-color: #5cb85c;
-  border-color: #4cae4c; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
     color: white;
-    background-color: #47a447;
-    border-color: #398439; }
+    background-color: #47a447; }
   .open .btn-success.dropdown-toggle {
     color: white;
     background-color: #47a447;
@@ -1772,11 +1767,10 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-info {
   color: white;
   background-color: #5bc0de;
-  border-color: #46b8da; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
     color: white;
-    background-color: #39b3d7;
-    border-color: #269abc; }
+    background-color: #39b3d7; }
   .open .btn-info.dropdown-toggle {
     color: white;
     background-color: #39b3d7;
@@ -2506,7 +2500,7 @@ input[type="button"].btn-block {
   background-color: white;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
@@ -2721,11 +2715,11 @@ input[type="button"].btn-block {
 .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
   border-radius: 0; }
 .btn-group-vertical > .btn:first-child:not(:last-child) {
-  border-top-right-radius: 4px;
+  border-top-right-radius: 2px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 .btn-group-vertical > .btn:last-child:not(:first-child) {
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 2px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2790,7 +2784,7 @@ input[type="button"].btn-block {
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
-  border-radius: 4px; }
+  border-radius: 2px; }
   .input-group-addon.input-sm,
   .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn {
@@ -2888,7 +2882,7 @@ input[type="button"].btn-block {
       margin-right: 2px;
       line-height: 1.42857;
       border: 1px solid transparent;
-      border-radius: 4px 4px 0 0; }
+      border-radius: 2px 2px 0 0; }
       .nav-tabs > li > a:hover {
         border-color: #eeeeee #eeeeee #dddddd; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -2977,7 +2971,7 @@ input[type="button"].btn-block {
     clear: both; }
   @media (min-width: 768px) {
     .navbar {
-      border-radius: 4px; } }
+      border-radius: 2px; } }
 
 .navbar-header:before, .navbar-header:after {
   content: " ";
@@ -3064,8 +3058,7 @@ input[type="button"].btn-block {
 .navbar-brand {
   float: left;
   padding: 10px 0 0 0;
-  opacity: 0.7;
-  transition: opacity 0.1s ease-in-out; }
+  opacity: 0.7; }
   .navbar-brand:hover, .navbar-brand:focus {
     opacity: 1;
     text-decoration: none; }
@@ -3082,7 +3075,7 @@ input[type="button"].btn-block {
   margin-bottom: 19px;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 4px; }
+  border-radius: 2px; }
   .navbar-toggle .icon-bar {
     display: block;
     width: 22px;
@@ -3188,14 +3181,14 @@ input[type="button"].btn-block {
   background-color: #f8f8f8;
   border-color: #e7e7e7; }
   .navbar-default .navbar-brand {
-    color: #b1cdfb; }
+    color: #4f8ef7; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-      color: #80adf9;
+      color: #1e6ff5;
       background-color: transparent; }
   .navbar-default .navbar-text {
     color: #777777; }
   .navbar-default .navbar-nav > li > a {
-    color: #b1cdfb; }
+    color: #4f8ef7; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #4f8ef7;
       background-color: transparent; }
@@ -3225,11 +3218,11 @@ input[type="button"].btn-block {
       border-top-color: #4f8ef7;
       border-bottom-color: #4f8ef7; }
   .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #b1cdfb;
-    border-bottom-color: #b1cdfb; }
+    border-top-color: #4f8ef7;
+    border-bottom-color: #4f8ef7; }
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #b1cdfb; }
+      color: #4f8ef7; }
       .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #4f8ef7;
         background-color: transparent; }
@@ -3240,7 +3233,7 @@ input[type="button"].btn-block {
       color: #cccccc;
       background-color: transparent; } }
   .navbar-default .navbar-link {
-    color: #b1cdfb; }
+    color: #4f8ef7; }
     .navbar-default .navbar-link:hover {
       color: #4f8ef7; }
 
@@ -3310,7 +3303,7 @@ input[type="button"].btn-block {
   margin-bottom: 20px;
   list-style: none;
   background-color: whitesmoke;
-  border-radius: 4px; }
+  border-radius: 2px; }
   .breadcrumb > li {
     display: inline-block; }
     .breadcrumb > li + li:before {
@@ -3324,7 +3317,7 @@ input[type="button"].btn-block {
   display: inline-block;
   padding-left: 0;
   margin: 20px 0;
-  border-radius: 4px; }
+  border-radius: 2px; }
   .pagination > li {
     display: inline; }
     .pagination > li > a,
@@ -3340,12 +3333,12 @@ input[type="button"].btn-block {
     .pagination > li:first-child > a,
     .pagination > li:first-child > span {
       margin-left: 0;
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px; }
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px; }
     .pagination > li:last-child > a,
     .pagination > li:last-child > span {
-      border-bottom-right-radius: 4px;
-      border-top-right-radius: 4px; }
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px; }
   .pagination > li > a:hover, .pagination > li > a:focus,
   .pagination > li > span:hover,
   .pagination > li > span:focus {
@@ -3556,13 +3549,13 @@ a.thumbnail:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #333333; }
+  color: #888888; }
 
 .alert {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
-  border-radius: 4px; }
+  border-radius: 2px; }
   .alert h4 {
     margin-top: 0;
     color: inherit; }
@@ -3651,7 +3644,7 @@ a.thumbnail:focus {
   height: 20px;
   margin-bottom: 20px;
   background-color: whitesmoke;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
 
@@ -3753,12 +3746,12 @@ a.thumbnail:focus {
   background-color: white;
   border: 1px solid #dddddd; }
   .list-group-item:first-child {
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px; }
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px; }
   .list-group-item:last-child {
     margin-bottom: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px; }
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px; }
   .list-group-item > .badge {
     float: right; }
   .list-group-item > .badge + .badge {
@@ -3793,7 +3786,7 @@ a.list-group-item {
   margin-bottom: 20px;
   background-color: white;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
@@ -3828,8 +3821,8 @@ a.list-group-item {
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px; }
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px; }
 
 .panel-title {
   margin-top: 0;
@@ -3842,12 +3835,12 @@ a.list-group-item {
   padding: 10px 15px;
   background-color: whitesmoke;
   border-top: 1px solid #dddddd;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px; }
+  border-bottom-right-radius: 1px;
+  border-bottom-left-radius: 1px; }
 
 .panel-group .panel {
   margin-bottom: 0;
-  border-radius: 4px;
+  border-radius: 2px;
   overflow: hidden; }
   .panel-group .panel + .panel {
     margin-top: 5px; }
@@ -3932,7 +3925,7 @@ a.list-group-item {
   margin-bottom: 20px;
   background-color: whitesmoke;
   border: 1px solid #e3e3e3;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
   .well blockquote {
@@ -4114,7 +4107,7 @@ body.modal-open {
   text-align: center;
   text-decoration: none;
   background-color: black;
-  border-radius: 4px; }
+  border-radius: 2px; }
 
 .tooltip-arrow {
   position: absolute;
@@ -4898,6 +4891,63 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important; } }
+/* @license
+ * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Avenir Next Pro Regular by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
+ * 
+ * Webfont: Avenir Next Pro Medium by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
+ * 
+ * © 2013 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work 
+@import url("//hello.myfonts.net/count/28882f");*/
+@font-face {
+  font-family: 'AvenirNextLTPro-Regular';
+  src: url("/fonts/28882F_0_0.eot");
+  src: url("/fonts/28882F_0_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_0_0.woff") format("woff"), url("/fonts/28882F_0_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Medium';
+  src: url("/fonts/28882F_1_0.eot");
+  src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
+
+.homepage {
+  padding-top: 120px;
+  background: url("/img/phone_bg.png") no-repeat center -200px; }
+  .homepage .primary-row {
+    text-align: center; }
+    .homepage .primary-row h2 {
+      margin-top: 70px;
+      font-size: 20px; }
+    .homepage .primary-row h3 {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #aaa; }
+  .homepage .download-link {
+    margin-top: 60px; }
+    .homepage .download-link .btn {
+      padding: 15px 35px;
+      font-size: 22px;
+      opacity: 1;
+      border: 0; }
+  .homepage .version-text {
+    font-size: 12px;
+    color: #ccc; }
+
 .highlight {
   background: #ffffff; }
 
@@ -5154,3 +5204,20 @@ td.visible-print {
 /* Literal.Number.Integer.Long */
 body {
   padding-top: 80px; }
+
+a {
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0.75; }
+  a:hover, a:focus {
+    opacity: 1; }
+
+h1, h2 {
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal; }
+
+h3, h4, h5, h6, .btn {
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444; }

@@ -1,0 +1,37 @@
+
+.homepage {
+  padding-top: 120px;
+  background: url("/img/phone_bg.png") no-repeat center -200px;
+
+  .primary-row {
+    text-align: center;
+
+    h2 {
+      margin-top: 70px;
+      font-size: 20px;
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #aaa;
+    }
+  }
+
+  .download-link {
+    margin-top:60px;
+
+    .btn {
+      padding: 15px 35px;
+      font-size: 22px;
+      opacity: 1;
+      border: 0;
+    }
+  }
+
+  .version-text {
+    font-size: 12px;
+    color: #ccc;
+  }
+
+}

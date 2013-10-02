@@ -28,7 +28,7 @@ $brand-info:            #5bc0de !default;
 // -------------------------
 
 $body-bg:               #fff !default;
-$text-color:            $gray-dark !default;
+$text-color:            #888888 !default;
 
 // Links
 // -------------------------
@@ -78,7 +78,7 @@ $padding-small-horizontal:       10px !default;
 $line-height-large:              1.33 !default;
 $line-height-small:              1.5 !default;
 
-$border-radius-base:             4px !default;
+$border-radius-base:             2px !default;
 $border-radius-large:            6px !default;
 $border-radius-small:            3px !default;
 
@@ -112,7 +112,7 @@ $btn-default-border:             #ccc !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-border:             $brand-primary !default;
 
 $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-success !default;
@@ -246,7 +246,7 @@ $navbar-padding-horizontal:        floor($grid-gutter-width / 2) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 
 // Navbar links
-$navbar-default-link-color:                lighten($brand-primary, 20%) !default;
+$navbar-default-link-color:                $brand-primary  !default;
 $navbar-default-link-hover-color:          $brand-primary !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         $brand-primary !default;

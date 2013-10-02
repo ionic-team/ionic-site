@@ -1,7 +1,31 @@
 @import "bootstrap/bootstrap";
+@import "fonts";
 @import "homepage";
 @import "syntax";
 
 body {
   padding-top: 80px;
+}
+
+a {
+  transition: opacity .1s ease-in-out;
+  opacity: 0.75;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+h1, h2 {
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+h3, h4, h5, h6, .btn {
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
 }

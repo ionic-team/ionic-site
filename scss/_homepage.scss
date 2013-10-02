@@ -132,6 +132,21 @@
     p {
       line-height: 28px;
     }
+    a:hover {
+      text-decoration: none;
+    }
+    span {
+      padding-left: 5px;
+    }
+    @media (min-width: 768px) {
+    .col-a {
+      border-right: 1px solid #ddd;
+      padding-right: 40px;
+    }
+    .col-b {
+      padding-left: 45px;
+    }
+    }
   }
 
 }

@@ -4955,7 +4955,7 @@ td.visible-print {
     height: 100px;
     background: #fff;
     border-bottom: 1px solid #dddddd;
-    opacity: 0.8; }
+    opacity: 0.9; }
   .homepage .social-row {
     position: relative;
     margin-top: -100px;
@@ -4974,7 +4974,7 @@ td.visible-print {
       padding: 70px 0 14px; }
     .homepage .desc-row p {
       max-width: 700px;
-      font-size: 16px;
+      font-size: 18px;
       padding-bottom: 80px; }
   .homepage .features-row {
     max-width: 900px;
@@ -5007,6 +5007,16 @@ td.visible-print {
       margin: 0 auto; }
     .homepage .continue-row p {
       line-height: 28px; }
+    .homepage .continue-row a:hover {
+      text-decoration: none; }
+    .homepage .continue-row span {
+      padding-left: 5px; }
+    @media (min-width: 768px) {
+      .homepage .continue-row .col-a {
+        border-right: 1px solid #dddddd;
+        padding-right: 40px; }
+      .homepage .continue-row .col-b {
+        padding-left: 45px; } }
 
 .highlight {
   background: #ffffff; }

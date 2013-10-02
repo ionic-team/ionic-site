@@ -116,7 +116,7 @@
 
 // Static top (unfixed, but 100% wide) navbar
 .navbar-static-top {
-  border-width: 0 0 1px;
+  border-width: 0;
   @media (min-width: $grid-float-breakpoint) {
     border-radius: 0;
   }
@@ -128,7 +128,7 @@
   position: fixed;
   right: 0;
   left: 0;
-  border-width: 0 0 1px;
+  border-width: 0;
 
   // Undo the rounded corners
   @media (min-width: $grid-float-breakpoint) {
@@ -149,11 +149,12 @@
 
 .navbar-brand {
   float: left;
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
-  font-size: $font-size-large;
-  line-height: $line-height-computed;
+  padding: 10px 0 0 0;
+  opacity: 0.7;
+  transition: opacity .1s ease-in-out;
   &:hover,
   &:focus {
+    opacity: 1;
     text-decoration: none;
   }
 
@@ -204,7 +205,7 @@
 
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
-
+  font-size: 16px;
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;

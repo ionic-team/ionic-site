@@ -29,3 +29,12 @@ h3, h4, h5, h6, .btn {
 h1, h2, h3, h4, h5, h6 {
   color: $headings-color
 }
+
+.footer {
+  text-align: center;
+  margin: 60px;
+
+  p {
+    line-height: 32px
+  }
+}

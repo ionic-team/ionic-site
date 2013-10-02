@@ -4979,7 +4979,8 @@ td.visible-print {
     max-width: 900px;
     margin: 0 auto; }
     .homepage .features-row p {
-      line-height: 30px; }
+      line-height: 28px;
+      margin-top: 28px; }
   .homepage .img {
     min-width: 256px;
     min-height: 256px;
@@ -4997,12 +4998,13 @@ td.visible-print {
   .homepage .examples-row h3 {
     padding-top: 10px; }
   .homepage .continue-row {
-    background: #F7F7F7; }
+    background: #F7F7F7;
+    padding: 40px; }
     .homepage .continue-row .row {
       max-width: 900px;
       margin: 0 auto; }
-    .homepage .continue-row h4 {
-      padding-top: 30px; }
+    .homepage .continue-row p {
+      line-height: 28px; }
 
 .highlight {
   background: #ffffff; }
@@ -5277,3 +5279,9 @@ h3, h4, h5, h6, .btn {
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444; }
+
+.footer {
+  text-align: center;
+  margin: 60px; }
+  .footer p {
+    line-height: 32px; }

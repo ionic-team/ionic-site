@@ -2962,7 +2962,7 @@ input[type="button"].btn-block {
   z-index: 1000;
   min-height: 72px;
   margin-bottom: 20px;
-  border: 1px solid transparent; }
+  border: 0; }
   .navbar:before, .navbar:after {
     content: " ";
     /* 1 */
@@ -2970,9 +2970,6 @@ input[type="button"].btn-block {
     /* 2 */ }
   .navbar:after {
     clear: both; }
-  @media (min-width: 768px) {
-    .navbar {
-      border-radius: 2px; } }
 
 .navbar-header:before, .navbar-header:after {
   content: " ";
@@ -3075,8 +3072,7 @@ input[type="button"].btn-block {
   margin-top: 19px;
   margin-bottom: 19px;
   background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 2px; }
+  border: 1px solid transparent; }
   .navbar-toggle .icon-bar {
     display: block;
     width: 22px;
@@ -4931,7 +4927,6 @@ td.visible-print {
   src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
 
 .homepage {
-  padding-top: 120px;
   background: url("/img/phone_bg.png") no-repeat center -200px; }
   .homepage .primary-row {
     text-align: center; }
@@ -5261,9 +5256,6 @@ td.visible-print {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
-body {
-  padding-top: 80px; }
-
 a {
   transition: opacity 0.1s ease-in-out;
   opacity: 0.75; }

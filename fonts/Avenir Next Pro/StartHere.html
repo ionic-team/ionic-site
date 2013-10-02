@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>MyFontsWebfontsKit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--
+/* @license
+ * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Avenir Next Pro Regular by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
+ * 
+ * Webfont: Avenir Next Pro Medium by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
+ * 
+ * © 2013 MyFonts Inc
+*/
+
+-->
+
+<!-- 1. load the webfonts -->
+<link rel="stylesheet" type="text/css" href="MyFontsWebfontsKit.css">
+
+<!-- 2. set up some css styles using the webfonts -->
+<style type="text/css">
+.AvenirNextLTPro-Regular { font-family: AvenirNextLTPro-Regular; }
+.AvenirNextLTPro-Medium { font-family: AvenirNextLTPro-Medium; }
+</style>
+
+
+<!-- not relevant to webfonts. just example code highlighting. -->
+<script type="text/javascript" src="Start here files/highlight.js"></script>
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+</script>
+
+<!-- also not relavent to webfonts. just layout css for this doc. -->
+<link rel="stylesheet" type="text/css" href="Start here files/layout.css">
+
+
+</head>
+<body>
+<div id="header"><br>
+  <img src="Start here files/header.png" alt="MyFonts Webfonts" style="padding-bottom: 12px;" width="720" border="0" height="66"> 
+</div>
+<div id="main_container">
+		
+<div id="headline">
+<h2 class="webfont-article-block">MyFontsWebfontsKit</h2>
+<div class="container-article"><p style="font-size:36px;line-height:40px;">
+  <span class="AvenirNextLTPro-Regular" contenteditable="true">Avenir Next Pro Regular </span>
+  <span class="AvenirNextLTPro-Medium" contenteditable="true">Avenir Next Pro Medium </span>
+</div>
+</div>
+<div id="webfont_instructions">
+	<h1>How To:</h1>
+	<p>The MyFonts Webfonts Kit is a collection of code and font files which allow all modern browsers to use webfonts in a standardized way.  
+	All you need to do is copy and paste some sample code, and make some edits to your CSS.  Three simple steps then you're on your way.</p>
+	
+	<h2>1. Upload your Kit</h2>
+
+	<p><strong>Upload the contents of the Kit to your server.</strong> This is
+	typically done using some type of FTP program — the same way that you upload images and other files
+	to your website. Typically it is easiest if you upload all the files and folders to
+	the root folder of your site.  You can alternately create a subfolder (or use an existing one) and put
+	the Kit there, put them wherever you want.  Be sure to make note of the location you'll need it in step two. </p>
+
+	<p><em>Note: You do not need to upload the <code>StartHere.html</code> file or
+	the <code>Start here files</code> folder.</em> </p>
+
+	<h2>2. Edit your site</h2>
+
+	<p><strong>Include a reference to the Kit. </strong> Locate the CSS file in the Kit’s main folder.  You should place a reference to this file in the
+	<code>head</code> section of your website’s HTML code. Make
+	sure that the reference appears on <strong>all</strong> HTML pages of your site.
+
+	<p>This will link the webfonts from the Kit to your website. 
+	If you uploaded the Kit to the root folder of your site, then
+	you can just copy and paste the code below into your site's 
+	<code>head</code>. If you uploaded the Kit to a
+	subfolder, you’ll need to adjust the path to the font files in the CSS file. </p>
+
+	<pre><code class="html">&lt;!--
+/* @license
+ * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Avenir Next Pro Regular by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
+ * 
+ * Webfont: Avenir Next Pro Medium by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&amp;buildid=2656303
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright &amp;#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com.
+ * All rights reserved. This font software may not be reproduced, modified, disclosed or
+ * transferred without the express written approval of Linotype GmbH. Avenir is a
+ * trademark of Linotype GmbH
+ * 
+ * © 2013 MyFonts Inc
+*/
+
+--&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;MyFontsWebfontsKit.css&quot;&gt;
+</code></pre>
+	
+	<h2>3. Edit your CSS</h2>
+
+	<p><strong>Now for the fun part!</strong>
+	You'll need to assign the webfonts (font-family) to tags, classes and other CSS selectors.
+	You need to decide where on your site you would like to use the webfonts.  
+	Using CSS, you can assign webfonts to specific areas of your site.  
+	There are several ways to do it, here are the basics and we’ll explore more advanced options in the 'Sample code' section below. </p>
+
+	<p>A simple method is to make a new class selector and
+	then assign the family names of the webfonts.  Whereever you want to use AvenirNextLTPro-Medium just assign the class in your HTML. Here’s how it is done: </p>
+	
+	
+	<pre><code class="css">.AvenirNextLTPro-Regular { 
+	font-family: AvenirNextLTPro-Regular;
+	font-weight: normal;
+	font-style: normal;
+}
+.AvenirNextLTPro-Medium { 
+	font-family: AvenirNextLTPro-Medium;
+	font-weight: normal;
+	font-style: normal;
+}
+</code></pre>
+</div>
+<div id="webfont_code">
+	<h1>Sample CSS</h1>
+	<p><strong>Lets look at some fancy</strong> ways you can use CSS &amp; CSS selectors to apply webfonts to your site!
+	Have a look at our <a href='http://webfonts.myfonts.com'>Webfont Showcase</a> site for more tutorials, and examples of sites built using our webfonts.
+	</p>
+	
+	<p>If you'd like to assign a font to the entire site, simply use the <code>body</code> tag selector in your stylesheet.
+	
+	 
+	<pre><code class="css">body { font-family: AvenirNextLTPro-Medium; }</code></pre>
+
+	<p>If you’d like all <strong>headings</strong> to be formatted using this
+	webfont, you need to assign it to the <code>h1…h5</code> elements.  
+	Remember to assign the weight and style of the font, especially if you don't have the entire family.
+	Use the following CSS declaration in the stylesheet for your website: </p>
+
+ 
+	<pre><code class="css">h1, h2, h3, h4, h5 { 
+	font-family: AvenirNextLTPro-Medium; 
+	font-weight: normal; 
+	font-style: normal; 
+}</code></pre>
+
+	<p>You can also assign the webfont to a specific HTML <strong>class</strong>, which will allow
+	you to easily mix different webfonts on the same page. Use the following CSS
+	declaration in the stylesheet for your website: </p>
+
+	
+	<pre><code class="css">.AvenirNextLTPro-Medium { 
+	font-family: AvenirNextLTPro-Medium;
+	font-weight: normal;
+	font-style: normal;
+}
+</code></pre>
+
+	<p>Then, use the class as follows in the <code>body</code> section of your HTML: </p>
+
+		<pre><code class="html">&lt;p class=&quot;AvenirNextLTPro-Medium&quot;&gt;Hello World!&lt;/p&gt;</code></pre>
+
+	<p>You can use any valid CSS selector (such as an HTML tag name, a class or an
+	ID, or a combination of those) if you want to format a specific portion of the
+	document.  There are tons of different things you can do with CSS, so have some fun!</p>
+	
+</div>
+
+<div id="webfont_troubleshooting">
+	
+	<h1>Webfont Kit Troubleshooting</h1>
+	
+	<p><strong>So it's not working, bummer.</strong>  Here are some tricks and tips to make this process a little easier.</p>
+	
+	<p><h3>Webfonts not working at all?</h3>
+	This is usually a problem with the path to either your CSS file or the actual font files referenced by the CSS file.  Double check all your paths and make sure that you're pointing to the locations which you uploaded the kit to.
+	It also might be worth double checking your CSS inside of a debugging tool such as Firebug (for Firefox) or Chrome Developer tools.
+	</p>
+
+	<p><h3>Webfonts not working on an iPhone or other iDevice?</h3>
+	This happens frequently when using IIS as a webserver. IIS will not serve file types (MIME types) it is unfamilar with, so
+	you must set the MIME type for SVG to "image/svg+xml" in the server settings.</p>
+
+	<p><h3>Webfonts not working in Firefox or IE9+?</h3>
+	Newer versions of Firefox and Internet Explorer have cross domain restrictions on font loading.
+	This is a security feature which can get really frustrating if you're not aware of it.  The best thing to do is to host the font on the same domain,
+	however if you have to host it on a different subdomain or on a CDN service you can get around this issue by adding a custom header, something like 'Access-Control-Allow-Origin: *'
+	this <a href='http://tech.davemx.com/2010/firefox-font-face-not-working-on-different-domain/'>article</a> explains it in detail.
+	Your other option is to rebuild your webfont kit with Data URI encoded TTF's, it's an option under the Advanced section in our kit builder.</p>
+	
+	<p><h3>The WOFF file isn't loading</h3>
+	This happens frequently when using IIS as a webserver also, IIS will not serve file types (MIME types) it is unfamilar with, so
+	you must set the MIME type for WOFF to "application/x-font-woff" in the server settings.</p>
+	</div>
+
+<div id="webfont_specimen">
+	<div class="clearer">&nbsp;</div>
+	
+		  <div class="clearer">&nbsp;</div>
+  <div class="webfont-sample-block">
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:72px;">Avenir Next Pro Regular</p>
+  </div>
+  <div class="webfont-sample-block nowrap">
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:36px;"><span>36 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:30px;"><span>30 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:24px;"><span>24 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:21px;"><span>21 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:18px;"><span>18 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:14px;"><span>14 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:12px;"><span>12 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Regular webfont-sample" style="font-size:10px;"><span>10 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+  </div>
+  <div class="webfont-twocolumns">
+    <p class="AvenirNextLTPro-Regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla arcu nisi, fringilla nec pharetra ac, dictum eget lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam viverra lectus nec erat viverra gravida. Nulla leo dolor, tristique elementum tempor sed, malesuada eget libero. Praesent congue, ipsum nec elementum tristique, dui enim fermentum nunc, in eleifend felis arcu at nulla. In augue massa, lobortis in fermentum non, euismod vel libero. </p>
+  </div>
+  <div class="webfont-twocolumns last">
+    <p class="AvenirNextLTPro-Regular">Mauris feugiat porta tincidunt. Cras eget dui diam, a viverra tortor. Proin dictum, diam ut vulputate imperdiet, enim nulla blandit est, in accumsan erat nisl in dolor. Nunc ante orci, tincidunt non luctus quis, congue a sem. Nulla non vehicula nisi. Vestibulum suscipit egestas massa eget convallis. Curabitur sapien magna, imperdiet eu consequat non, bibendum vel magna. Nulla neque lectus, lacinia vitae commodo scelerisque, tempus sit amet tellus. In semper arcu ut massa egestas posuere. </p>
+  </div>
+  <div class="clearer">&nbsp;</div>
+    	  <div class="clearer">&nbsp;</div>
+  <div class="webfont-sample-block">
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:72px;">Avenir Next Pro Medium</p>
+  </div>
+  <div class="webfont-sample-block nowrap">
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:36px;"><span>36 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:30px;"><span>30 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:24px;"><span>24 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:21px;"><span>21 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:18px;"><span>18 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:14px;"><span>14 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:12px;"><span>12 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+    <p class="AvenirNextLTPro-Medium webfont-sample" style="font-size:10px;"><span>10 </span>A very bad quack might jinx zippy fowls. Pellentesque ac felis eu tortor convallis iaculis vitae eget neque. Sed leo est, volutpat sed laoreet non, convallis at metus. Nam facilisis risus eget orci posuere sodales. Aliquam eleifend quam vel ipsum euismod aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut ultrices tellus. Aliquam quis metus diam, id commodo mi. Aenean ac urna mi, sit amet gravida lacus. Aliquam urna nunc, pulvinar vel egestas ac, tincidunt non dui. Maecenas in orci sit amet lacus mollis viverra eu vitae arcu. Vestibulum eros quam, viverra et fermentum ac, ultrices sit amet risus. Nulla tristique magna vel urna tempus cursus. </p>
+  </div>
+  <div class="webfont-twocolumns">
+    <p class="AvenirNextLTPro-Medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla arcu nisi, fringilla nec pharetra ac, dictum eget lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam viverra lectus nec erat viverra gravida. Nulla leo dolor, tristique elementum tempor sed, malesuada eget libero. Praesent congue, ipsum nec elementum tristique, dui enim fermentum nunc, in eleifend felis arcu at nulla. In augue massa, lobortis in fermentum non, euismod vel libero. </p>
+  </div>
+  <div class="webfont-twocolumns last">
+    <p class="AvenirNextLTPro-Medium">Mauris feugiat porta tincidunt. Cras eget dui diam, a viverra tortor. Proin dictum, diam ut vulputate imperdiet, enim nulla blandit est, in accumsan erat nisl in dolor. Nunc ante orci, tincidunt non luctus quis, congue a sem. Nulla non vehicula nisi. Vestibulum suscipit egestas massa eget convallis. Curabitur sapien magna, imperdiet eu consequat non, bibendum vel magna. Nulla neque lectus, lacinia vitae commodo scelerisque, tempus sit amet tellus. In semper arcu ut massa egestas posuere. </p>
+  </div>
+  <div class="clearer">&nbsp;</div>
+    </div>
+
+
+</div>
+</body>
+</html>

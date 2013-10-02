@@ -1,0 +1,182 @@
+body {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	background-color: #F1F1F1;
+	margin: 0px;
+	background-position: top;
+}
+#header, #footer {
+	font-size: 10px;
+	width: 720px;
+	margin: 10px auto 0px auto;
+	text-align: center;
+	line-height: 1.2em;
+}
+#main_container {
+	width: 680px;
+	margin: 0px auto 20px auto;
+	background-color: #FFFFFF;
+	padding: 40px 20px;
+}
+a:link, a:visited {
+	color: #0099FF;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;	/*border-bottom: 1px dotted #999;*/
+}
+a:active {
+	color: #6699FF;
+}
+p {
+	margin: 0px 0px 1em 0px;
+	padding: 0;
+}
+h1, h2, h3, h4, h5 {
+	font-weight: normal;
+	line-height: 1em;
+	padding: 0;
+	margin: 5px 0;
+}
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+h3 {
+	font-size: 18px;
+	margin-bottom: 14px;
+}
+h4 {
+	font-size: 12px;
+}
+h5 {
+	font-size: 14px;
+	font-weight: bold;
+}
+ul {
+	margin: 0px;
+	padding-left: 18px;
+}
+li {
+	line-height: 2em;
+}
+hr {
+	height: 0px;
+	border-width: 1px 0px 0px 0px;
+	border-style: dotted none none none;
+	border-color: #CCC;
+	padding-bottom: 5px;
+}
+div.container-article {
+	padding-top: 40px !important;
+	margin-top: 20px;
+	border-top: 1px dotted #CCC;
+}
+div.webfont-credits, .webfont-twocolumns, .webfont-sample-block {
+	padding: 0px;
+	/*border: 1px solid #CCC;*/
+	float: left; 
+}
+.webfont-article-block {
+	margin: 0 auto 20px auto;
+	padding: 0;
+}
+.webfont-sample-block {
+	width: 680px;
+}
+.webfont-sample {
+	margin-top:20px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1em;
+}
+.nowrap {
+	white-space:nowrap;
+	overflow: hidden;
+}
+.last {
+	margin: 0;
+}
+.webfont-twocolumns {
+	width: 330px;
+	margin: 0 10px 0 0;
+}
+.webfont-credits {
+	width: 160px;
+	font-size: 11px;
+	line-height: 1.5em;
+	margin: 0 10px 0 0;
+}
+div.clearer {
+	font-size: 0px;
+	height: 5px;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	line-height: 0px;
+}
+cite, em {
+	font-style: italic;
+}
+
+/* 
+	Code formatting
+*/
+pre code {
+  display: block;
+  color: #000;
+  background: #F3F3F3;
+	font-family: "Consolas", "Menlo", "DejaVu Sans Mono", monospace;
+}
+pre .subst,
+pre .title {
+  font-weight: normal;
+  color: #000;
+}
+pre .comment {
+  color: #535353;
+  font-style: italic;
+}
+pre .doctype {
+  color: #535353;
+}
+pre .tag {
+  background: #F3F3F3;
+}
+pre .tag .title,
+pre .id,
+pre .attr_selector,
+pre .pseudo,
+pre .literal,
+pre .keyword,
+pre .hexcolor,
+pre .css .function,
+pre .ini .title,
+pre .css .class,
+pre .list .title,
+pre .tex .command {
+  font-weight: normal;
+  color: #FF0C64;
+}
+pre .attribute,
+pre .rules .keyword,
+pre .number,
+pre .date {
+  font-weight: normal;
+  color: #008CFF;
+}
+pre .number {
+  font-weight: normal;
+}
+pre .string,
+pre .value,
+pre .filter .argument,
+pre .css .function .params {
+  color: #008900;
+  font-weight: normal;
+}

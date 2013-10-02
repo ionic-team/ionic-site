@@ -47,8 +47,11 @@
     text-align: center;
   }
 
-  .desc-row {
+  .bg-cover {
     background: white;
+  }
+
+  .desc-row {
     text-align: center;
 
     > * {
@@ -64,7 +67,23 @@
     p {
       max-width: 700px;
       font-size: 16px;
+      padding-bottom: 80px;
     }
+  }
+
+  .features-row {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .img {
+    min-width: 256px;
+    min-height: 256px;
+    background: no-repeat center top;
+  }
+
+  .img-performance {
+    background-image: url("/img/performance.png");
   }
 
 }

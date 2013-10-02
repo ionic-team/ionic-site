@@ -4961,8 +4961,9 @@ td.visible-print {
     border-bottom: 1px solid #dddddd;
     background: #eee;
     text-align: center; }
+  .homepage .bg-cover {
+    background: white; }
   .homepage .desc-row {
-    background: white;
     text-align: center; }
     .homepage .desc-row > * {
       margin: 0 auto; }
@@ -4972,7 +4973,17 @@ td.visible-print {
       padding: 70px 0 14px; }
     .homepage .desc-row p {
       max-width: 700px;
-      font-size: 16px; }
+      font-size: 16px;
+      padding-bottom: 80px; }
+  .homepage .features-row {
+    max-width: 900px;
+    margin: 0 auto; }
+  .homepage .img {
+    min-width: 256px;
+    min-height: 256px;
+    background: no-repeat center top; }
+  .homepage .img-performance {
+    background-image: url("/img/performance.png"); }
 
 .highlight {
   background: #ffffff; }

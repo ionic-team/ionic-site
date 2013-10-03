@@ -1,6 +1,7 @@
 @import "bootstrap/bootstrap";
 @import "fonts";
 @import "homepage";
+@import "about";
 @import "syntax";
 
 body {
@@ -31,6 +32,19 @@ h1, h2, h3, h4, h5, h6 {
   &:first-child {
     margin-top: 0;
   }
+}
+
+h1 + h2 {
+  margin-top: 0;
+  color: #666;
+  font-size: 18px;
+}
+h1 + h2 + p {
+  margin-top: 20px;
+}
+
+.main-content {
+  padding-left: 30px;
 }
 
 .footer {

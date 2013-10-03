@@ -398,28 +398,28 @@ h6 {
   margin-bottom: 10px; }
 
 h1, .h1 {
-  font-size: 36px; }
-
-h2, .h2 {
   font-size: 30px; }
 
-h3, .h3 {
+h2, .h2 {
   font-size: 24px; }
+
+h3, .h3 {
+  font-size: 21px; }
 
 h4, .h4 {
   font-size: 18px; }
 
 h5, .h5 {
-  font-size: 14px; }
+  font-size: 16px; }
 
 h6, .h6 {
-  font-size: 12px; }
+  font-size: 14px; }
 
 h1 small, .h1 small {
-  font-size: 24px; }
+  font-size: 18px; }
 
 h2 small, .h2 small {
-  font-size: 18px; }
+  font-size: 16px; }
 
 h3 small, .h3 small,
 h4 small, .h4 small {
@@ -5326,6 +5326,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444; }
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0; }
+
+h1 + h2 {
+  margin-top: 0;
+  color: #666;
+  font-size: 18px; }
+
+h1 + h2 + p {
+  margin-top: 20px; }
+
+.main-content {
+  padding-left: 30px; }
 
 .footer {
   text-align: center;

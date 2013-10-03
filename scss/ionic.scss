@@ -10,7 +10,8 @@ body {
 
 a {
   opacity: 0.75;
-  transition: opacity .1s ease-in-out;
+  transition: .1s ease-in-out;
+  transition-property: opacity, border-color;
   &:hover,
   &:focus {
     opacity: 1;

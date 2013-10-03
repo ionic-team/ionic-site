@@ -4984,27 +4984,27 @@ td.visible-print {
       font-size: 18px; }
   .home .feature-row {
     max-width: 900px;
-    margin: 30px auto;
+    margin: 50px auto;
     min-height: 150px;
-    background: no-repeat 10px 30px;
-    background-size: 120px 102px; }
+    background: no-repeat 5px 32px;
+    background-size: 130px 111px; }
     .home .feature-row p {
       padding-left: 150px; }
   @media (min-width: 768px) {
     .home .feature-row {
       min-height: 210px;
-      background: no-repeat 13% top;
+      background: no-repeat 18% 5px;
       background-size: 247 210px; }
       .home .feature-row h4, .home .feature-row p {
-        padding-left: 52%;
-        padding-right: 80px;
+        padding-left: 55%;
+        padding-right: 50px;
         line-height: 28px; }
       .home .feature-row h4 {
         line-height: 34px; }
     .home .feature-row.img-right {
-      background-position: 78% top; }
+      background-position: 77% 5px; }
       .home .feature-row.img-right h4, .home .feature-row.img-right p {
-        padding-left: 20px;
+        padding-left: 30px;
         padding-right: 57%; } }
   .home .img-performance {
     background-image: url("/img/performance.png"); }

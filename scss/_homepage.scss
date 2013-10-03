@@ -82,10 +82,10 @@
 
   .feature-row {
     max-width: 900px;
-    margin: 30px auto;
+    margin: 50px auto;
     min-height: 150px;
-    background: no-repeat 10px 30px;
-    background-size: 120px 102px; 
+    background: no-repeat 5px 32px;
+    background-size: 130px 111px; 
 
     p {
       padding-left: 150px;
@@ -95,12 +95,12 @@
   @media (min-width: 768px) {
     .feature-row {
       min-height: 210px;
-      background: no-repeat 13% top;
+      background: no-repeat 18% 5px;
       background-size: 247 210px; 
 
       h4, p {
-        padding-left: 52%;
-        padding-right: 80px;
+        padding-left: 55%;
+        padding-right: 50px;
         line-height: 28px;
       }
       h4 {
@@ -108,10 +108,10 @@
       }
     }
     .feature-row.img-right {
-      background-position: 78% top;
+      background-position: 77% 5px;
 
       h4, p {
-        padding-left: 20px;
+        padding-left: 30px;
         padding-right: 57%;
       }
     }

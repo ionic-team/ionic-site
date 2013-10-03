@@ -2983,11 +2983,13 @@ input[type="button"].btn-block {
     float: left; } }
 
 .navbar-collapse {
+  background-color: #f7f7f7;
   max-height: 340px;
   overflow-x: visible;
   padding-right: 15px;
   padding-left: 15px;
   border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch; }
   .navbar-collapse:before, .navbar-collapse:after {
@@ -3003,6 +3005,8 @@ input[type="button"].btn-block {
     .navbar-collapse {
       width: auto;
       border-top: 0;
+      border-bottom: 0;
+      background-color: transparent;
       box-shadow: none; }
       .navbar-collapse.collapse {
         display: block !important;
@@ -3055,7 +3059,7 @@ input[type="button"].btn-block {
 
 .navbar-brand {
   float: left;
-  padding: 10px 0 0 0;
+  padding: 10px 0 0 10px;
   opacity: 0.7; }
   .navbar-brand:hover, .navbar-brand:focus {
     opacity: 1;
@@ -3086,7 +3090,7 @@ input[type="button"].btn-block {
 
 .navbar-nav {
   margin: 14px -15px;
-  font-size: 16px; }
+  font-size: 14px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -4926,96 +4930,114 @@ td.visible-print {
   src: url("/fonts/28882F_1_0.eot");
   src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
 
-.homepage {
+.home {
   background: url("/img/phone_bg.png") no-repeat center top; }
-  .homepage .primary-row {
+  .home .primary-row {
+    padding: 0 10px;
     text-align: center; }
-    .homepage .primary-row h2 {
+    .home .primary-row h2 {
       margin-top: 70px;
       font-size: 20px; }
-    .homepage .primary-row h3 {
+    .home .primary-row h3 {
       margin-top: 10px;
       color: #aaa;
       font-size: 16px; }
-  .homepage .download-link {
+  .home .download-link {
     margin-top: 60px; }
-    .homepage .download-link .btn {
+    .home .download-link .btn {
       padding: 15px 35px;
       border: 0;
       font-size: 22px;
       opacity: 1; }
-  .homepage .version-text {
+  .home .version-text {
     color: #ccc;
     font-size: 12px; }
-  .homepage .content-container {
+  .home .content-container {
     padding: 0;
     max-width: 100% !important; }
-  .homepage .social-row-gray {
+  .home .social-row-gray {
     margin-top: 90px;
     height: 100px;
+    border-bottom: 1px solid #eeeeee;
     background: #fff;
-    border-bottom: 1px solid #dddddd;
-    opacity: 0.9; }
-  .homepage .social-row {
+    opacity: 0.93; }
+  .home .social-row {
     position: relative;
     margin-top: -100px;
+    padding: 45px 10px;
     height: 100px;
-    padding: 45px;
     text-align: center; }
-  .homepage .bg-cover {
+  .home .bg-cover {
+    padding: 0 10px;
     background: white; }
-  .homepage .desc-row {
+  .home .desc-row {
     text-align: center; }
-    .homepage .desc-row > * {
+    .home .desc-row > * {
       margin: 0 auto; }
-    .homepage .desc-row h3 {
+    .home .desc-row h3 {
+      padding: 70px 0 14px;
       max-width: 900px;
-      font-size: 28px;
-      padding: 70px 0 14px; }
-    .homepage .desc-row p {
+      font-size: 28px; }
+    .home .desc-row p {
+      padding-bottom: 40px;
       max-width: 700px;
-      font-size: 18px;
-      padding-bottom: 80px; }
-  .homepage .features-row {
+      font-size: 18px; }
+  .home .feature-row {
     max-width: 900px;
-    margin: 0 auto; }
-    .homepage .features-row p {
-      line-height: 28px;
-      margin-top: 28px;
-      padding-right: 20px; }
-  .homepage .img {
-    min-width: 256px;
-    min-height: 256px;
-    background: no-repeat center top; }
-  .homepage .img-performance {
+    margin: 30px auto;
+    min-height: 150px;
+    background: no-repeat 10px 30px;
+    background-size: 120px 102px; }
+    .home .feature-row p {
+      padding-left: 150px; }
+  @media (min-width: 768px) {
+    .home .feature-row {
+      min-height: 210px;
+      background: no-repeat 13% top;
+      background-size: 247 210px; }
+      .home .feature-row h4, .home .feature-row p {
+        padding-left: 52%;
+        padding-right: 80px;
+        line-height: 28px; }
+      .home .feature-row h4 {
+        line-height: 34px; }
+    .home .feature-row.img-right {
+      background-position: 78% top; }
+      .home .feature-row.img-right h4, .home .feature-row.img-right p {
+        padding-left: 20px;
+        padding-right: 57%; } }
+  .home .img-performance {
     background-image: url("/img/performance.png"); }
-  .homepage .img-angular {
+  .home .img-angular {
     background-image: url("/img/angular_ionic.png"); }
-  .homepage .img-native {
+  .home .img-native {
     background-image: url("/img/native.png"); }
-  .homepage .img-design {
+  .home .img-design {
     background-image: url("/img/design.png"); }
-  .homepage .img-nerds {
+  .home .img-nerds {
     background-image: url("/img/nerds.png"); }
-  .homepage .examples-row h3 {
+  .home .examples-row h3 {
     padding-top: 10px; }
-  .homepage .continue-row {
-    background: #F7F7F7;
-    padding: 40px; }
-    .homepage .continue-row .row {
-      max-width: 900px;
-      margin: 0 auto; }
-    .homepage .continue-row p {
+  .home .continue-row {
+    padding: 40px;
+    background: #F7F7F7; }
+    .home .continue-row .row {
+      margin: 0 auto;
+      max-width: 900px; }
+    .home .continue-row p {
       line-height: 28px; }
-    .homepage .continue-row a:hover {
+    .home .continue-row a:hover {
       text-decoration: none; }
-    .homepage .continue-row span {
+    .home .continue-row span {
       padding-left: 5px; }
+    .home .continue-row .col-a {
+      padding-bottom: 15px; }
     @media (min-width: 768px) {
-      .homepage .continue-row .col-a {
-        border-right: 1px solid #dddddd;
-        padding-right: 40px; }
-      .homepage .continue-row .col-b {
+      .home .continue-row .col-a {
+        padding-right: 40px;
+        padding-bottom: 0;
+        border-right: 1px solid #dddddd; }
+      .home .continue-row .col-b {
         padding-left: 45px; } }
 
 .highlight {
@@ -5272,6 +5294,9 @@ td.visible-print {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
+body {
+  border-top: 1px solid #4f8ef7; }
+
 a {
   transition: opacity 0.1s ease-in-out;
   opacity: 0.75; }
@@ -5291,6 +5316,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   text-align: center;
-  margin: 60px; }
+  margin: 60px 10px; }
   .footer p {
     line-height: 32px; }

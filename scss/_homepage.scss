@@ -1,8 +1,9 @@
 
-.homepage {
+.home {
   background: url("/img/phone_bg.png") no-repeat center top;
 
   .primary-row {
+    padding: 0 10px;
     text-align: center;
 
     h2 {
@@ -41,20 +42,21 @@
   .social-row-gray {
     margin-top: 90px;
     height: 100px;
-    background: #fff;
     border-bottom: 1px solid #eee;
+    background: #fff;
     opacity: 0.93;
   }
 
   .social-row {
     position: relative;
     margin-top: -100px;
+    padding: 45px 10px;
     height: 100px;
-    padding: 45px;
     text-align: center;
   }
 
   .bg-cover {
+    padding: 0 10px;
     background: white;
   }
 
@@ -66,33 +68,53 @@
     }
 
     h3 {
+      padding: 70px 0 14px;
       max-width: 900px;
       font-size: 28px;
-      padding: 70px 0 14px;
     }
 
     p {
+      padding-bottom: 40px;
       max-width: 700px;
       font-size: 18px;
-      padding-bottom: 80px;
     }
   }
 
-  .features-row {
+  .feature-row {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 30px auto;
+    min-height: 150px;
+    background: no-repeat 10px 30px;
+    background-size: 120px 102px; 
 
     p {
-      line-height: 28px;
-      margin-top: 28px;
-      padding-right:20px;
+      padding-left: 150px;
     }
   }
 
-  .img {
-    min-width: 256px;
-    min-height: 256px;
-    background: no-repeat center top;
+  @media (min-width: 768px) {
+    .feature-row {
+      min-height: 210px;
+      background: no-repeat 13% top;
+      background-size: 247 210px; 
+
+      h4, p {
+        padding-left: 52%;
+        padding-right: 80px;
+        line-height: 28px;
+      }
+      h4 {
+        line-height: 34px;
+      }
+    }
+    .feature-row.img-right {
+      background-position: 78% top;
+
+      h4, p {
+        padding-left: 20px;
+        padding-right: 57%;
+      }
+    }
   }
 
   .img-performance {
@@ -122,12 +144,12 @@
   }
 
   .continue-row {
-    background: #F7F7F7;
     padding: 40px;
+    background: #F7F7F7;
 
     .row {
-      max-width: 900px;
       margin: 0 auto;
+      max-width: 900px;
     }
     p {
       line-height: 28px;
@@ -138,14 +160,18 @@
     span {
       padding-left: 5px;
     }
-    @media (min-width: 768px) {
     .col-a {
-      border-right: 1px solid #ddd;
-      padding-right: 40px;
+      padding-bottom: 15px;
     }
-    .col-b {
-      padding-left: 45px;
-    }
+    @media (min-width: 768px) {
+      .col-a {
+        padding-right: 40px;
+        padding-bottom: 0;
+        border-right: 1px solid #ddd;
+      }
+      .col-b {
+        padding-left: 45px;
+      }
     }
   }
 

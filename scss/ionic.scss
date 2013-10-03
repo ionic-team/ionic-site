@@ -3,6 +3,10 @@
 @import "homepage";
 @import "syntax";
 
+body {
+  border-top: 1px solid $brand-primary;
+}
+
 a {
   transition: opacity .1s ease-in-out;
   opacity: 0.75;
@@ -28,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   text-align: center;
-  margin: 60px;
+  margin: 60px 10px;
 
   p {
     line-height: 32px

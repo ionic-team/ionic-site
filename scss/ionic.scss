@@ -9,8 +9,8 @@ body {
 }
 
 a {
-  transition: opacity .1s ease-in-out;
   opacity: 0.75;
+  transition: opacity .1s ease-in-out;
   &:hover,
   &:focus {
     opacity: 1;
@@ -18,13 +18,13 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: $font-family-medium;
   font-weight: normal;
+  font-family: $font-family-medium;
 }
 
 h5, h6, .btn {
-  font-family: $font-family-regular;
   font-weight: normal;
+  font-family: $font-family-regular;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,11 +47,42 @@ h1 + h2 + p {
   padding-left: 30px;
 }
 
+.heading-tile {
+  background: url("/img/heading-tile.png") repeat-x;
+}
+
+.header {
+  margin: 0 auto 40px;
+  padding: 50px 0 0 0;
+  height: 227px;
+  h3 {
+    font-size: 28px;
+    color: white;
+  }
+  h4 {
+    color: white;
+  }
+}
+
+.nav-link {
+  border-bottom: 3px solid transparent;
+}
+
+.getting-started .getting-started-nav,
+.docs .docs-nav,
+.examples .examples-nav,
+.blog .blog-nav,
+.nav-link:hover,
+.nav-link:focus {
+  border-bottom: 3px solid $brand-primary;
+  opacity: 1;
+}
+
 .footer {
-  text-align: center;
   margin: 60px 10px;
+  text-align: center;
 
   p {
-    line-height: 32px
+    line-height: 32px;
   }
 }

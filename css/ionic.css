@@ -2960,7 +2960,7 @@ input[type="button"].btn-block {
 .navbar {
   position: relative;
   z-index: 1000;
-  min-height: 76px;
+  min-height: 73px;
   margin-bottom: 20px;
   border: 0; }
   .navbar:before, .navbar:after {
@@ -3073,8 +3073,8 @@ input[type="button"].btn-block {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 21px;
-  margin-bottom: 21px;
+  margin-top: 19.5px;
+  margin-bottom: 19.5px;
   background-color: transparent;
   border: 1px solid transparent; }
   .navbar-toggle .icon-bar {
@@ -3089,7 +3089,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 .navbar-nav {
-  margin: 14px -15px;
+  margin: 13.25px -15px;
   font-size: 14px; }
   .navbar-nav > li > a {
     padding-top: 10px;
@@ -3118,8 +3118,8 @@ input[type="button"].btn-block {
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {
-          padding-top: 28px;
-          padding-bottom: 28px; } }
+          padding-top: 26.5px;
+          padding-bottom: 26.5px; } }
 
 @media (min-width: 768px) {
   .navbar-left {
@@ -3135,8 +3135,8 @@ input[type="button"].btn-block {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 21px;
-  margin-bottom: 21px; }
+  margin-top: 19.5px;
+  margin-bottom: 19.5px; }
   @media (max-width: 767px) {
     .navbar-form .form-group {
       margin-bottom: 5px; } }
@@ -3166,13 +3166,13 @@ input[type="button"].btn-block {
   right: 0; }
 
 .navbar-btn {
-  margin-top: 21px;
-  margin-bottom: 21px; }
+  margin-top: 19.5px;
+  margin-bottom: 19.5px; }
 
 .navbar-text {
   float: left;
-  margin-top: 28px;
-  margin-bottom: 28px; }
+  margin-top: 26.5px;
+  margin-bottom: 26.5px; }
   @media (min-width: 768px) {
     .navbar-text {
       margin-left: 15px;
@@ -3192,8 +3192,9 @@ input[type="button"].btn-block {
     color: #777777; }
   .navbar-default .navbar-nav > li > a {
     color: #4f8ef7;
-    padding-left: 30px;
-    /* padding-right: 30px; */ }
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 30px; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #4f8ef7;
       background-color: transparent; }
@@ -4935,8 +4936,10 @@ td.visible-print {
   .home .primary-row {
     padding: 0 10px;
     text-align: center; }
+    .home .primary-row h1 {
+      margin-top: 40px; }
     .home .primary-row h2 {
-      margin-top: 70px;
+      margin-top: 55px;
       font-size: 20px; }
     .home .primary-row h3 {
       margin-top: 10px;
@@ -5309,18 +5312,18 @@ body {
   border-top: 1px solid #4f8ef7; }
 
 a {
-  transition: opacity 0.1s ease-in-out;
-  opacity: 0.75; }
+  opacity: 0.75;
+  transition: opacity 0.1s ease-in-out; }
   a:hover, a:focus {
     opacity: 1; }
 
 h1, h2, h3, h4 {
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal; }
+  font-weight: normal;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h5, h6, .btn {
-  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal; }
+  font-weight: normal;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444; }
@@ -5338,8 +5341,33 @@ h1 + h2 + p {
 .main-content {
   padding-left: 30px; }
 
+.heading-tile {
+  background: url("/img/heading-tile.png") repeat-x; }
+
+.header {
+  margin: 0 auto 40px;
+  padding: 50px 0 0 0;
+  height: 227px; }
+  .header h3 {
+    font-size: 28px;
+    color: white; }
+  .header h4 {
+    color: white; }
+
+.nav-link {
+  border-bottom: 3px solid transparent; }
+
+.getting-started .getting-started-nav,
+.docs .docs-nav,
+.examples .examples-nav,
+.blog .blog-nav,
+.nav-link:hover,
+.nav-link:focus {
+  border-bottom: 3px solid #4f8ef7;
+  opacity: 1; }
+
 .footer {
-  text-align: center;
-  margin: 60px 10px; }
+  margin: 60px 10px;
+  text-align: center; }
   .footer p {
     line-height: 32px; }

@@ -4932,7 +4932,11 @@ td.visible-print {
   src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
 
 .home {
-  background: url("/img/phone_bg.png") no-repeat center top; }
+  background: url("/img/phone-bg.png") no-repeat center top; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+    .home {
+      background-image: url("/img/phone-bg@2x.png");
+      background-size: 1880px 1024px; } }
   .home .primary-row {
     padding: 0 10px;
     text-align: center; }
@@ -5344,6 +5348,10 @@ h1 + h2 + p {
 .heading-tile {
   background: url("/img/heading-tile.png") repeat-x; }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+  .heading-tile {
+    background-image: url("/img/heading-tile@2x.png");
+    background-size: 391px 324px; } }
 .header {
   margin: 0 auto 40px;
   padding: 50px 0 0 0;

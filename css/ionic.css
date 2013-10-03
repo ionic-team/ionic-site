@@ -3193,7 +3193,7 @@ input[type="button"].btn-block {
   .navbar-default .navbar-nav > li > a {
     color: #4f8ef7;
     padding-left: 30px;
-    padding-right: 30px; }
+    /* padding-right: 30px; */ }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #4f8ef7;
       background-color: transparent; }
@@ -4994,7 +4994,7 @@ td.visible-print {
     .home .feature-row {
       min-height: 210px;
       background: no-repeat 18% 5px;
-      background-size: 247 210px; }
+      background-size: 247px 210px; }
       .home .feature-row h4, .home .feature-row p {
         padding-left: 55%;
         padding-right: 50px;
@@ -5009,13 +5009,24 @@ td.visible-print {
   .home .img-performance {
     background-image: url("/img/performance.png"); }
   .home .img-angular {
-    background-image: url("/img/angular_ionic.png"); }
+    background-image: url("/img/angular-ionic.png"); }
   .home .img-native {
     background-image: url("/img/native.png"); }
   .home .img-design {
     background-image: url("/img/design.png"); }
   .home .img-nerds {
     background-image: url("/img/nerds.png"); }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+    .home .feature-row.img-performance {
+      background-image: url("/img/performance@2x.png"); }
+    .home .feature-row.img-angular {
+      background-image: url("/img/angular-ionic@2x.png"); }
+    .home .feature-row.img-native {
+      background-image: url("/img/native@2x.png"); }
+    .home .feature-row.img-design {
+      background-image: url("/img/design@2x.png"); }
+    .home .feature-row.img-nerds {
+      background-image: url("/img/nerds@2x.png"); } }
   .home .examples-row h3 {
     padding-top: 10px; }
   .home .continue-row {

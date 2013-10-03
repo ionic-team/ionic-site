@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ionic: The Most Advanced HTML5 Mobile App Framework">
+    <title>{{page.title}}</title>
+    {% include head_styles.html %}
+  </head>
+
+  <body class="docs {{page.body_css}}">
+
+    {% include nav_links.html %}
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+
+          <ul class="left-menu" id="getting-started-menu">
+              <li><a href="#">Download</a></li>
+              <li><a href="#">What's included</a></li>
+              <li><a href="#">Basic Template</a></li>
+              <li><a href="#">SASS</a></li>
+              <li><a href="#">AngularJS</a></li>
+              <li><a href="#">Phonegap</a></li>
+              <li><a href="#">Examples</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">Browser Support</a></li>
+              <li><a href="/blog/">Blog</a></li>
+          </ul>
+          
+        </div>
+
+        <div class="col-md-9 main-content">
+          {{ content }}
+        </div>
+
+      </div>
+      
+    </div>
+	
+    {% include footer.html %}
+
+    {% include base_scripts.html %}
+
+  </body>
+</html>

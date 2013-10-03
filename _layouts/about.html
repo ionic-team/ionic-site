@@ -13,7 +13,21 @@
     {% include nav_links.html %}
 
     <div class="container content-container">
-      {{ content }}
+
+      <div class="row">
+
+        <div class="col-md-3">
+
+          menu
+          
+        </div>
+
+        <div class="col-md-9">
+          {{ content }}
+        </div>
+
+      </div>
+      
     </div>
 	
     {% include footer.html %}

@@ -5063,7 +5063,10 @@ td.visible-print {
   list-style: none; }
   .left-menu a {
     color: #666;
-    display: block; }
+    display: block;
+    text-decoration: none; }
+    .left-menu a:hover {
+      background: transparent !important; }
   .left-menu li {
     display: block;
     margin: 8px 0;
@@ -5078,9 +5081,6 @@ td.visible-print {
     display: block; }
   .left-menu.nav > li > a {
     padding: 1px 6px; }
-    .left-menu.nav > li > a.active, .left-menu.nav > li > a:hover, .left-menu.nav > li > a:active, .left-menu.nav > li > a:focus {
-      text-decoration: none;
-      color: #4f8ef7; }
 
 .docs-section {
   padding-bottom: 20px; }

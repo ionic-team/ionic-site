@@ -6,6 +6,10 @@
   a {
     color: #666; 
     display: block; 
+    text-decoration: none;
+    &:hover {
+      background: transparent !important;
+    }
   }
 
   li {
@@ -31,13 +35,6 @@
 
   &.nav > li > a {
     padding: 1px 6px;
-    &.active, 
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: none;
-      color: $brand-primary;
-    }
   }
 }
 

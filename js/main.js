@@ -19,7 +19,7 @@
 
     function windowScroll(e) {
       if(window.scrollY + topPadding > fixedOrgTop) {
-        var w = $fixedMenu.width()
+        var w = $fixedMenu.width();
         $fixedMenu.css({
           position: 'fixed',
           width: w + 'px'

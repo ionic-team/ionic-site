@@ -5350,7 +5350,7 @@ body {
   border-top: 1px solid #4f8ef7; }
 
 a {
-  opacity: 0.75;
+  opacity: 0.65;
   transition: 0.1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {

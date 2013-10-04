@@ -3,22 +3,34 @@
   padding-left: 0;
   list-style: none;
 
-  li {
-    display: block;
-    margin: 6px 0;
-    list-style: none;
+  a {
+    color: #666; 
+    display: block; 
   }
 
-  &.nav > li.active {
-    border-right: 2px solid $brand-primary;
-    a {
+  li {
+    display: block;
+    margin: 8px 0;
+    list-style: none;
+
+    ul {
+      display: none;
+      padding-left: 24px;
+    }
+  }
+
+  &.nav li.active {
+    > a {
       color: $brand-primary;
+      border-right: 2px solid $brand-primary;
+    }
+    ul {
+      display: block; 
     }
   }
 
   &.nav > li > a {
-    padding: 3px 6px;
-    color: #666; 
+    padding: 1px 6px;
     &.active, 
     &:hover,
     &:active,
@@ -35,4 +47,9 @@
 
 .docs-section + .docs-section {
   padding-top: 20px;
+}
+
+.docs-section h2 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 16px;
 }

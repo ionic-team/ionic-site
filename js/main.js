@@ -12,20 +12,21 @@
     $(document.body).scrollspy({ target: '.fixed-menu' });
 
     var fixedOrgTop = $fixedMenu.offset().top;
-    var fixedOrgWidth = $fixedMenu.width();
     var topPadding = 20;
+    $fixedMenu.css({
+      top: topPadding + 'px'
+    });
 
     function windowScroll(e) {
       if(window.scrollY + topPadding > fixedOrgTop) {
+        var w = $fixedMenu.width()
         $fixedMenu.css({
           position: 'fixed',
-          top: topPadding + 'px',
-          width: fixedOrgWidth + 'px'
+          width: w + 'px'
         });
       } else {
         $fixedMenu.css({
           position: 'static',
-          top: undefined,
           width: 'auto'
         });
       }

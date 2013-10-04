@@ -1,0 +1,38 @@
+
+.left-menu {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    display: block;
+    margin: 6px 0;
+    list-style: none;
+  }
+
+  &.nav > li.active {
+    border-right: 2px solid $brand-primary;
+    a {
+      color: $brand-primary;
+    }
+  }
+
+  &.nav > li > a {
+    padding: 3px 6px;
+    color: #666; 
+    &.active, 
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: $brand-primary;
+    }
+  }
+}
+
+.docs-section {
+  padding-bottom: 20px;
+}
+
+.docs-section + .docs-section {
+  padding-top: 20px;
+}

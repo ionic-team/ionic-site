@@ -23,25 +23,31 @@
 
       <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-2">
 
-          <ul class="left-menu" id="getting-started-menu">
-              <li><a href="#">Download</a></li>
-              <li><a href="#">What's included</a></li>
-              <li><a href="#">Basic Template</a></li>
-              <li><a href="#">SASS</a></li>
-              <li><a href="#">AngularJS</a></li>
-              <li><a href="#">Phonegap</a></li>
-              <li><a href="#">Examples</a></li>
-              <li><a href="#">Tutorials</a></li>
-              <li><a href="#">Browser Support</a></li>
+          <div class="fixed-menu">
+
+            <ul class="nav left-menu">
+              <li class="active"><a href="#getting-started">Getting Started</a></li>
+              <li><a href="#download">Download</a></li>
+              <li><a href="#whats-included">What's included</a></li>
+              <li><a href="#basic-template">Basic Template</a></li>
+              <li><a href="#sass">SASS</a></li>
+              <li><a href="#angularjs">AngularJS</a></li>
+              <li><a href="#phonegap">Phonegap</a></li>
+              <li><a href="#examples">Examples</a></li>
+              <li><a href="#tutorials">Tutorials</a></li>
+              <li><a href="#browser-support">Browser Support</a></li>
+              <li><a href="/docs/">Documentation</a></li>
               <li><a href="/about/">About Ionic</a></li>
               <li><a href="/blog/">Blog</a></li>
-          </ul>
-          
+            </ul>
+            
+          </div>
+
         </div>
 
-        <div class="col-md-9 main-content">
+        <div class="col-md-10 main-content">
           {{ content }}
         </div>
 

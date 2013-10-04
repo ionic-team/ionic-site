@@ -5058,6 +5058,30 @@ td.visible-print {
       .home .continue-row .col-b {
         padding-left: 45px; } }
 
+.left-menu {
+  padding-left: 0;
+  list-style: none; }
+  .left-menu li {
+    display: block;
+    margin: 6px 0;
+    list-style: none; }
+  .left-menu.nav > li.active {
+    border-right: 2px solid #4f8ef7; }
+    .left-menu.nav > li.active a {
+      color: #4f8ef7; }
+  .left-menu.nav > li > a {
+    padding: 3px 6px;
+    color: #666; }
+    .left-menu.nav > li > a.active, .left-menu.nav > li > a:hover, .left-menu.nav > li > a:active, .left-menu.nav > li > a:focus {
+      text-decoration: none;
+      color: #4f8ef7; }
+
+.docs-section {
+  padding-bottom: 20px; }
+
+.docs-section + .docs-section {
+  padding-top: 20px; }
+
 .highlight {
   background: #ffffff; }
 

@@ -40,6 +40,12 @@
 
 .docs-section {
   padding-bottom: 20px;
+  line-height: 28px;
+  font-size: 16px;
+
+  .panel-heading {
+    font-family: $font-family-monospace;
+  }
 }
 
 .docs-section + .docs-section {

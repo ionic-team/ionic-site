@@ -56,6 +56,22 @@
     padding: 45px 10px;
     height: 100px;
     text-align: center;
+
+    li {
+      height: 25px;
+      display: inline-block;
+      margin: 0 1em;
+      vertical-align: top;
+    }
+    .twitter-share {
+      width: 110px;
+    }
+    .twitter-follow {
+      width: 110px;
+    }
+    .github-watch {
+      width: 105px;
+    }
   }
 
   .bg-cover {

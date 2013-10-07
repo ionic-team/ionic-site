@@ -4968,6 +4968,17 @@ td.visible-print {
   padding: 45px 10px;
   height: 100px;
   text-align: center; }
+  .home .social-row li {
+    height: 25px;
+    display: inline-block;
+    margin: 0 1em;
+    vertical-align: top; }
+  .home .social-row .twitter-share {
+    width: 110px; }
+  .home .social-row .twitter-follow {
+    width: 110px; }
+  .home .social-row .github-watch {
+    width: 105px; }
 .home .bg-cover {
   padding: 0 10px;
   background: white; }

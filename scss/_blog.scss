@@ -1,0 +1,43 @@
+#blog-wrapper {
+  max-width: 600px;
+  margin: auto;
+}
+#blog-top {
+  text-align: center;
+  margin: 50px 0px 80px;
+}
+#posts {
+  font-size: 16px;
+  color: #000;
+}
+.post {
+  line-height: 24px;
+
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    color: #437FE6;
+    opacity: 1;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+
+  .showcase-image {
+    margin: 10px 0px;
+  }
+  .post-title {
+    font-size: 25px;
+  }
+  .post-time {
+    font-style: italic;
+    font-size: 13px;
+    margin: 10px 0px 30px;
+    display: block;
+  }
+}

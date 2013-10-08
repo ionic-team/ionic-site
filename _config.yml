@@ -1,3 +1,5 @@
 name: Ionic Framework
 markdown: redcarpet
 pygments: true
+permalink: /blog/:title
+paginate: 5

@@ -84,7 +84,6 @@
     right: 0;
     width: 400px;
     height: 810px;
-    margin-top: 20px;
     background: url("/img/phone_case.png") no-repeat right top;
   }
 
@@ -109,10 +108,11 @@
 
   .preview-screen {
     position: absolute;
-    width: 320px;
-    height: 568px;
-    top: 105px;
-    left: 57px;
+    width: 328px;
+    height: 576px;
+    border: 4px solid #22272d;
+    top: 104px;
+    left: 53px;
     background: white;
   }
 

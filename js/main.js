@@ -54,7 +54,7 @@
 
     function previewReset() {
 
-      if(window.scrollY + 20 > previewTop) {
+      if(window.scrollY > previewTop) {
         var offset = $devicePreview.offset();
         $devicePreview
           .css({

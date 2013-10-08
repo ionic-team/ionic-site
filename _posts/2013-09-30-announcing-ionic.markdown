@@ -13,13 +13,13 @@ published: true
 
 <p>But until recently, it was just too easy to say that HTML5 would never be a legitimate replacement for native on mobile.</p>
 
-<p>Devices were too slow, browsers too buggy, and frameworks were supporting too many devices and platforms, many of which were not finding meaningful share in the market.</p>
+<p>Historically, devices were too slow, browsers too buggy, and frameworks were supporting too many devices and platforms, many of which were not finding meaningful share in the market.</p>
 
 <p>We knew HTML5 was ready for real native development, but it needed a framework that was ready to let go of the past and create a new HTML5-powered future.</p>
 
 <p>We knew a great HTML5 framework needed to be incredibly well designed, and would make it easy to build the amazing, custom apps that the best app developers were making.</p>
 
-<p>And the framework had to be fun to develop in, which for us mean it had to be best friends with <a href="http://angularjs.com/">AngularJS</a>. But we didn't want to tie ourselves to any single framework, so we wanted to build the framework such that developers could build extensions for their framework of choice.</p>
+<p>And the framework had to be fun to develop in, which for us meant it had to be best friends with <a href="http://angularjs.com/">AngularJS</a>. But we didn't want to tie ourselves to any single framework, so we wanted to build the framework such that developers could build extensions for their framework of choice.</p>
 
 <p>We wanted to throw out the URL as a required concept, and build off of lower-level View Controller concepts that were popular in native SDKs. This would make it easy to build
 really unique and powerful apps that weren't restricted to "pages."</p>
@@ -30,9 +30,9 @@ really unique and powerful apps that weren't restricted to "pages."</p>
 
 <p>With Ionic, we realized we needed to be vigilant about only supporting new devices that were powerful enough to make HTML5 feel native. So Ionic will only support new iOS and Android releases on recent generation devices, at least to start. And it will focus on native apps, not web apps.</p>
 
-<p>Ionic will come with an awesome icon font pack filled with both iOS 7 style icons and custom default icons designed by <a href="http://twitter.com/helloimben">Ben</a>. Ionic's visual style is inspired by iOS 7 but not restricted to it.</p>
+<p>Ionic will come with an awesome icon font pack filled with both iOS 7 style icons and custom default icons designed by <a href="http://twitter.com/helloimben">Ben</a>. Ionic's visual style is inspired by iOS 7 but not restricted to it. See the screenshot above for a rough early preview.</p>
 
-<p>Ionic is a new framework, and we aren't quite ready to release it yet. We are shooting for late October, 2013.</p>
+<p>Since Ionic is a new framework, we aren't quite ready to release it. We are shooting for late October, 2013.</p>
 
 <p>We'd love to have you <a href="http://twitter.com/ionicframework">follow us</a> on Twitter and signup for the <a href="http://ionicframework.com/">announcement mailing list</a>. Stay tuned for more updates in the coming weeks, and thanks for checking out Ionic!</p>
 

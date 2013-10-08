@@ -5123,21 +5123,30 @@ td.visible-print {
 .device-preview-page {
   position: relative; }
   .device-preview-page .device-preview {
-    display: none;
     position: absolute;
     right: 0;
     width: 400px;
     height: 810px;
-    background: no-repeat right top; }
+    margin-top: 20px;
+    background: url("/img/phone_case.png") no-repeat right top; }
   .device-preview-page .fixed-preview {
-    position: fixed; }
-  @media (min-width: 768px) {
-    .device-preview-page .device-preview {
-      display: block; } }
-  .device-preview-page .iphone5 {
-    background-image: url("/img/iphone5.png"); }
+    position: fixed;
+    top: 0;
+    right: auto; }
   .device-preview-page .docs-section {
     padding-right: 400px; }
+  @media (max-width: 767px) {
+    .device-preview-page .device-preview {
+      display: none; }
+    .device-preview-page .docs-section {
+      padding-right: 0; } }
+  .device-preview-page .preview-screen {
+    position: absolute;
+    width: 320px;
+    height: 568px;
+    top: 105px;
+    left: 57px;
+    background: white; }
 
 .highlight {
   background: #ffffff; }

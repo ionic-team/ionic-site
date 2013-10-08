@@ -80,30 +80,40 @@
   position: relative;
 
   .device-preview {
-    display: none;
     position: absolute;
     right: 0;
     width: 400px;
     height: 810px;
-    background: no-repeat right top;
+    margin-top: 20px;
+    background: url("/img/phone_case.png") no-repeat right top;
   }
 
   .fixed-preview {
     position: fixed;
-  }
-
-  @media (min-width: 768px) {
-    .device-preview {
-      display: block;
-    }
-  }
-
-  .iphone5 {
-    background-image: url("/img/iphone5.png");
+    top: 0;
+    right: auto;
   }
 
   .docs-section {
     padding-right: 400px;
+  }
+
+  @media (max-width: 767px) {
+    .device-preview {
+      display: none;
+    }
+    .docs-section {
+      padding-right: 0;
+    }
+  }
+
+  .preview-screen {
+    position: absolute;
+    width: 320px;
+    height: 568px;
+    top: 105px;
+    left: 57px;
+    background: white;
   }
 
 }

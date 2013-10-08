@@ -1,12 +1,24 @@
-/*   DO NOT USE ANY OF THIS CODE, ITS ONLY FOR OUR DOCS PAGE   */
+/*   
+!! DO NOT USE ANY OF THIS CODE, ITS ONLY FOR OUR DOCS PAGE !!
+ _             _      
+(_)           (_)     
+ _  ___  _ __  _  ___ 
+| |/ _ \| '_ \| |/ __|
+| | (_) | | | | | (__ 
+|_|\___/|_| |_|_|\___|
+
+*/
 
 (function(){
 
+  /* Header menu toggle for mobile */
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $(this).toggleClass("active");
   });
 
+
+  /* Fixed left menu */
   var $fixedMenu = $('.docked-menu');
   if($fixedMenu.length) {
     $(document.body).scrollspy({ target: '.docked-menu' });
@@ -35,32 +47,39 @@
     $(window).scroll(docScroll);
   }
 
+  /* Fixed device preview on the docs page */
   var $devicePreview = $('.device-preview');
   if($devicePreview.length) {
+    var previewTop = $devicePreview.offset().top;
 
-    var previewTop = $fixedMenu.offset().top;
-    var previewTopPadding = 10;
-    $devicePreview.css({
-      top: previewTopPadding + 'px'
-    });
+    function previewReset() {
 
-    function previewScroll(e) {
-      if(window.scrollY + previewTopPadding > previewTop) {
+      if(window.scrollY + 20 > previewTop) {
+        var offset = $devicePreview.offset();
         $devicePreview
           .css({
-            left: Math.round($devicePreview.offset().left) + 'px'
+            left: Math.round(offset.left) + 'px'
           })
           .addClass("fixed-preview");
       } else {
         $devicePreview
           .removeClass("fixed-preview")
           .css({
-            left: 0
+            left: 'auto'
           });
       }
-    }
-    $(window).scroll(previewScroll);
 
+    }
+    $(window).resize(function(){
+      $devicePreview
+          .removeClass("fixed-preview")
+          .css({
+            left: 'auto'
+          });
+      previewReset();
+    });
+    $(window).scroll(previewReset);
+    previewReset();
   }
 
 })();

@@ -3,4 +3,25 @@ layout: blog
 title: "Ionic Blog"
 ---
 
-<h1>Ionic Blog</h1>
+{% for post in site.posts %}
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+    <time class="post-time">By {{post.author}} on {{post.date | date: "%B %d, %Y" }}</time>
+  </div>
+  {{post.content}}
+  <hr>
+</div>
+
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="/page{{ paginator.previous_page }}" class="previous">Newer</a>
+  {% endif %}
+  <!--<span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>-->
+  {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next">Older</a>
+  {% endif %}
+</div>

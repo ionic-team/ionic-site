@@ -10,14 +10,24 @@
   </head>
 
   <body class="blog-page {{page.body_css}}">
-
-    {% include nav_links.html %}
-
-    <div class="container content-container">
-      {{ content }}
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h5>The Official <a href="/">Ionic Blog</a></h5>
+      </div>
+      <div id="posts">
+        {{ content }}
+      </div>
     </div>
 	
-    {% include footer.html %}
+    <footer class="footer">
+  <p>
+    Created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+    <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+    <a href="https://twitter.com/helloimben">@helloimben</a>. Licensed under 
+    <a href="http://opensource.org/licenses/MIT">MIT</a>.
+  </p>
+</footer>
 
     {% include base_scripts.html %}
 

@@ -1,0 +1,52 @@
+#spinner {
+    -webkit-animation: rotation 30s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
+
+#blog-wrapper {
+  max-width: 600px;
+  margin: auto;
+}
+#blog-top {
+  text-align: center;
+  margin: 50px 0px 100px;
+}
+#posts {
+  font-size: 16px;
+  color: #444;
+}
+.post {
+  line-height: 26px;
+
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    color: #437FE6;
+    opacity: 1;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+
+  .showcase-image {
+    margin: 10px 0px;
+  }
+  .post-title {
+    font-size: 25px;
+  }
+  .post-time {
+    font-style: italic;
+    font-size: 13px;
+    margin: 10px 0px 30px;
+    display: block;
+  }
+}

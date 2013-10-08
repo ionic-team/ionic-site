@@ -64,11 +64,29 @@ h1 + h2 + p {
   padding: 50px 0 0 0;
   height: 227px;
   h3 {
-    font-size: 28px;
     color: white;
+    font-size: 28px;
   }
   h4 {
     color: white;
+  }
+  ul {
+    position: absolute;
+    top: 133px;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    float: left;
+    margin: 0 5px;
+    list-style: none;
+    font-family: $font-family-regular;
+    font-size: 14px;
+  }
+  a {
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
   }
 }
 

@@ -5072,12 +5072,18 @@ td.visible-print {
     .home .continue-row .col-b {
       padding-left: 45px; } }
 
+.fixed-menu {
+  position: fixed; }
+
+@media (max-width: 991px) {
+  .fixed-menu {
+    display: none; } }
 .left-menu {
   padding-left: 0;
   list-style: none; }
   .left-menu a {
-    color: #444;
     display: block;
+    color: #444;
     text-decoration: none; }
     .left-menu a:hover {
       background: transparent !important; }
@@ -5089,8 +5095,8 @@ td.visible-print {
       display: none;
       padding-left: 24px; }
   .left-menu.nav li.active > a {
-    color: #4f8ef7;
-    border-right: 2px solid #4f8ef7; }
+    border-right: 2px solid #4f8ef7;
+    color: #4f8ef7; }
   .left-menu.nav li.active ul {
     display: block; }
   .left-menu.nav > li > a {
@@ -5098,8 +5104,8 @@ td.visible-print {
 
 .docs-section {
   padding-bottom: 20px;
-  line-height: 28px;
-  font-size: 16px; }
+  font-size: 16px;
+  line-height: 28px; }
   .docs-section .panel-heading {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
   .docs-section .highlight {
@@ -5111,8 +5117,27 @@ td.visible-print {
   padding-top: 20px; }
 
 .docs-section h2 {
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 16px; }
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dddddd; }
+
+.device-preview-page {
+  position: relative; }
+  .device-preview-page .device-preview {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 400px;
+    height: 810px;
+    background: no-repeat right top; }
+  .device-preview-page .fixed-preview {
+    position: fixed; }
+  @media (min-width: 768px) {
+    .device-preview-page .device-preview {
+      display: block; } }
+  .device-preview-page .iphone5 {
+    background-image: url("/img/iphone5.png"); }
+  .device-preview-page .docs-section {
+    padding-right: 400px; }
 
 .highlight {
   background: #ffffff; }
@@ -5398,9 +5423,6 @@ h1 + h2 {
 
 h1 + h2 + p {
   margin-top: 20px; }
-
-.main-content {
-  padding-left: 30px; }
 
 .heading-tile {
   background: url("/img/heading-tile.png") repeat-x; }

@@ -7,31 +7,60 @@
       $(this).toggleClass("active");
   });
 
-  var $fixedMenu = $('.fixed-menu');
-  if($fixedMenu.length === 1) {
-    $(document.body).scrollspy({ target: '.fixed-menu' });
+  var $fixedMenu = $('.docked-menu');
+  if($fixedMenu.length) {
+    $(document.body).scrollspy({ target: '.docked-menu' });
 
-    var fixedOrgTop = $fixedMenu.offset().top;
-    var topPadding = 20;
+    var fixedMenuTop = $fixedMenu.offset().top;
+    var menuTopPadding = 20;
     $fixedMenu.css({
-      top: topPadding + 'px'
+      top: menuTopPadding + 'px'
     });
 
-    function windowScroll(e) {
-      if(window.scrollY + topPadding > fixedOrgTop) {
-        var w = $fixedMenu.width();
-        $fixedMenu.css({
-          position: 'fixed',
-          width: w + 'px'
-        });
+    function docScroll(e) {
+      if(window.scrollY + menuTopPadding > fixedMenuTop) {
+        $fixedMenu
+          .css({
+            width: $fixedMenu.width() + 'px'
+          })
+          .addClass("fixed-menu");
       } else {
-        $fixedMenu.css({
-          position: 'static',
-          width: 'auto'
-        });
+        $fixedMenu
+          .removeClass("fixed-menu")
+          .css({
+            width: 'auto'
+          });
       }
     }
-    $(window).scroll(windowScroll);
+    $(window).scroll(docScroll);
+  }
+
+  var $devicePreview = $('.device-preview');
+  if($devicePreview.length) {
+
+    var previewTop = $fixedMenu.offset().top;
+    var previewTopPadding = 10;
+    $devicePreview.css({
+      top: previewTopPadding + 'px'
+    });
+
+    function previewScroll(e) {
+      if(window.scrollY + previewTopPadding > previewTop) {
+        $devicePreview
+          .css({
+            left: Math.round($devicePreview.offset().left + 'px'
+          })
+          .addClass("fixed-preview");
+      } else {
+        $devicePreview
+          .removeClass("fixed-preview")
+          .css({
+            left: 0
+          });
+      }
+    }
+    $(window).scroll(previewScroll);
+
   }
 
 })();

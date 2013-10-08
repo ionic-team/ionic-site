@@ -1,11 +1,21 @@
 
+.fixed-menu {
+  position: fixed;
+}
+
+@media (max-width: 991px) {
+  .fixed-menu {
+    display: none;
+  }
+}
+
 .left-menu {
   padding-left: 0;
   list-style: none;
 
-  a {
+  a { 
+    display: block;
     color: #444; 
-    display: block; 
     text-decoration: none;
     &:hover {
       background: transparent !important;
@@ -25,8 +35,8 @@
 
   &.nav li.active {
     > a {
-      color: $brand-primary;
       border-right: 2px solid $brand-primary;
+      color: $brand-primary;
     }
     ul {
       display: block; 
@@ -40,8 +50,8 @@
 
 .docs-section {
   padding-bottom: 20px;
-  line-height: 28px;
   font-size: 16px;
+  line-height: 28px;
 
   .panel-heading {
     font-family: $font-family-monospace;
@@ -61,11 +71,39 @@
 }
 
 .docs-section h2 {
-  border-bottom: 1px solid #ddd;
   padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
 }
 
 
-.device-preview {
+.device-preview-page {
+  position: relative;
+
+  .device-preview {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 400px;
+    height: 810px;
+    background: no-repeat right top;
+  }
+
+  .fixed-preview {
+    position: fixed;
+  }
+
+  @media (min-width: 768px) {
+    .device-preview {
+      display: block;
+    }
+  }
+
+  .iphone5 {
+    background-image: url("/img/iphone5.png");
+  }
+
+  .docs-section {
+    padding-right: 400px;
+  }
 
 }

@@ -46,6 +46,14 @@
   .panel-heading {
     font-family: $font-family-monospace;
   }
+
+  .highlight {
+    margin: 10px 0 0 0;
+  }
+
+  pre {
+    margin-bottom: 0;
+  }
 }
 
 .docs-section + .docs-section {

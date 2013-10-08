@@ -28,6 +28,33 @@ title: "Ionic Framework - Documentation and Guide"
     To accomplish the web app effect within a web browser you'll need to follow certain HTML/CSS
     guidelines.
   </p>
+
+</div>
+
+
+
+<!-- Layout: Basic Template
+  ================================================== -->
+<div class="docs-section" id="layout-template">
+
+  <h3>Basic Template</h3>
+
+{% highlight html %}
+<body>
+  <div class="header">
+    ...
+  </div>
+  <div class="content-wrapper">
+    <div class="content has-header has-footer">
+      ...
+    </div>
+  </div>
+  <div class="footer">
+    ...
+  </div>
+</body>
+{% endhighlight %}
+
 </div>
 
 
@@ -35,7 +62,7 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Layout: Utility Classes
   ================================================== -->
 <div class="docs-section" id="layout-utility">
-  <h3>Utility Classes</h3>
+  <h3>Layout Utility Classes</h3>
   <p>
     One common theme throughout Ionic is to give the developers more control of margins and
     padding the layout. Going this route allows the developer
@@ -69,21 +96,15 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3>Content</h3>
 
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
-  <p>Content</p>
+{% highlight html %}
+<body>
+  <div class="content-wrapper">
+    <div class="content">
+      ...
+    </div>
+  </div>
+</body>
+{% endhighlight %}
 
 </div>
 
@@ -95,22 +116,11 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3>Header</h3>
 
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
-  <p>Header</p>
+{% highlight html %}
+<div class="header">
+  ...
+</div>
+{% endhighlight %}
 
 </div>
 
@@ -122,20 +132,39 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3>Footer</h3>
 
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
-  <p>Footer</p>
+{% highlight html %}
+<div class="footer">
+  ...
+</div>
+{% endhighlight %}
+
+</div>
+
+
+
+<!-- Layout: Forms
+  ================================================== -->
+<div class="docs-section" id="layout-forms">
+
+  <h3>Forms</h3>
+  <p>
+    Forms and their inner fields are a large part of layout, and often they're
+    not one size fits all. How inputs are grouped and laid out is highly customizable.
+  </p>
+  <div class="panel panel-default">
+    <div class="panel-heading">input-group</div>
+    <div class="panel-body">
+      The <code>input-group</code> class is used to combine input fields into one area,
+      which often shares borders.
+
+{% highlight html %}
+<div class="input-group">
+  ...
+</div>
+{% endhighlight %}
+
+    </div>
+  </div>
 
 </div>
 
@@ -175,35 +204,5 @@ title: "Ionic Framework - Documentation and Guide"
   <p>whats included</p>
   <p>whats included</p>
   <p>whats included</p>
-
-</div>
-
-
-
-<!-- Basic Template
-  ================================================== -->
-<div class="docs-section" id="basic-template">
-
-  <h3>Basic Template</h3>
-
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
-  <p>basic template</p>
 
 </div>

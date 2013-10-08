@@ -11,8 +11,10 @@ pre {
 
 // Inline code
 code {
+  margin-left: 3px;
+  margin-right: 3px;
   padding: 2px 4px;
-  font-size: 90%;
+  font-size: 85%;
   color: $code-color;
   background-color: $code-bg;
   white-space: nowrap;

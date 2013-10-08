@@ -5508,6 +5508,8 @@ h1 + h2 + p {
     color: #fff;
     padding: 10px 20px;
     display: inline-block; }
+    .header a:first-child {
+      padding-left: 0; }
 
 .nav-link {
   border-bottom: 3px solid transparent; }

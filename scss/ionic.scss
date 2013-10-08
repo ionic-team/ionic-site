@@ -87,6 +87,9 @@ h1 + h2 + p {
     color: #fff;
     padding: 10px 20px;
     display: inline-block;
+    &:first-child {
+      padding-left: 0;
+    }
   }
 }
 

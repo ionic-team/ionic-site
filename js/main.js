@@ -48,7 +48,7 @@
       if(window.scrollY + previewTopPadding > previewTop) {
         $devicePreview
           .css({
-            left: Math.round($devicePreview.offset().left + 'px'
+            left: Math.round($devicePreview.offset().left) + 'px'
           })
           .addClass("fixed-preview");
       } else {

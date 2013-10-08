@@ -26,7 +26,9 @@ really unique and powerful apps that weren't restricted to "pages."</p>
 
 <p><strong>So we built Ionic to be that framework.</strong></p>
 
-<p>Ionic is 100% free and open source, with a permissive MIT license that can be used in any kind of app. We will also be building services around the framework and integrating it into our <a href="http://codiqa.com/">drag-and-drop builder</a>. Ionic has a <a href="http://drifty.com/">profitable company</a> supporting it, so you can expect the project to get a lot of love.</p>
+<p>Ionic will be 100% free and open source, with a permissive MIT license that can be used in any kind of app. We will also be building services around the framework and integrating it into our <a href="http://codiqa.com/">drag-and-drop builder</a>. Ionic has a <a href="http://drifty.com/">profitable company</a> supporting it, so you can expect the project to get a lot of love.</p>
+
+<p>On the technical side, Ionic uses Sass to make it easy to integrate into your own styles, and has no external dependencies, unless you'd like to use our recommended Angular extensions. Ionic is well tested and optimized for mobile.</p>
 
 <p>With Ionic, we realized we needed to be vigilant about only supporting new devices that were powerful enough to make HTML5 feel native. So Ionic will only support new iOS and Android releases on recent generation devices, at least to start. And it will focus on native apps, not web apps.</p>
 
@@ -40,14 +42,21 @@ really unique and powerful apps that weren't restricted to "pages."</p>
 <p><a href="http://twitter.com/helloimben">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a> and <a href="http://twitter.com/maxlynch">@maxlynch</a></p>
 
 <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
-    <p>
-        <label for="fieldEmail">Email</label><br />
-        <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" required />
-    </p>
-    <p>
-        <button type="submit">Subscribe</button>
-    </p>
+<form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+        <div class="form-group">
+          <label for="fieldEmail">Join our list and get Ionic updates!</label><br />
+          <div class="row">
+            <div class="col-sm-5">
+              <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </div>
 </form>

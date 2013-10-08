@@ -5422,10 +5422,10 @@ h1 + h2 + p {
 .nav-link {
   border-bottom: 3px solid transparent; }
 
-.getting-started .getting-started-nav,
-.docs .docs-nav,
-.examples .examples-nav,
-.blog .blog-nav,
+.getting-started-page .getting-started-nav,
+.docs-page .docs-nav,
+.examples-page .examples-nav,
+.blog-page .blog-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid #4f8ef7;

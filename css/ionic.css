@@ -5504,12 +5504,12 @@ h1 + h2 + p {
     list-style: none;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px; }
+    .header li:first-child a {
+      padding-left: 0; }
   .header a {
     color: #fff;
     padding: 10px 20px;
     display: inline-block; }
-    .header a:first-child {
-      padding-left: 0; }
 
 .nav-link {
   border-bottom: 3px solid transparent; }

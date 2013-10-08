@@ -82,14 +82,16 @@ h1 + h2 + p {
     list-style: none;
     font-family: $font-family-regular;
     font-size: 14px;
+    &:first-child {
+      a {
+        padding-left: 0;
+      }
+    }
   }
   a {
     color: #fff;
     padding: 10px 20px;
     display: inline-block;
-    &:first-child {
-      padding-left: 0;
-    }
   }
 }
 

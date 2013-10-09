@@ -5104,7 +5104,7 @@ td.visible-print {
     padding: 1px 6px; }
 
 .docs-section {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-size: 16px;
   line-height: 28px; }
   .docs-section .panel-heading {
@@ -5113,13 +5113,18 @@ td.visible-print {
     margin: 10px 0 0 0; }
   .docs-section pre {
     margin-bottom: 0; }
+  .docs-section h2 {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dddddd; }
+  .docs-section h3 {
+    border-bottom: 1px solid transparent;
+    line-height: 2em; }
+  .docs-section.active h2, .docs-section.active h3 {
+    color: #4f8ef7;
+    border-bottom: 1px solid #4f8ef7; }
 
 .docs-section + .docs-section {
-  padding-top: 20px; }
-
-.docs-section h2 {
-  padding-bottom: 16px;
-  border-bottom: 1px solid #dddddd; }
+  padding-top: 30px; }
 
 .device-preview-page {
   position: relative; }

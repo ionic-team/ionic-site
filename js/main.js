@@ -58,17 +58,21 @@
 
     function previewReset() {
       if(window.scrollY > $docContent.offset().top) {
-        $devicePreview
-          .css({
-            left: Math.round($devicePreview.offset().left) + 'px'
-          })
-          .addClass("fixed-preview");
+        if( !$devicePreview.hasClass('fixed-preview') ) {
+          $devicePreview
+            .css({
+              left: Math.round($devicePreview.offset().left) + 'px'
+            })
+            .addClass("fixed-preview");
+          }
       } else {
-        $devicePreview
-          .removeClass("fixed-preview")
-          .css({
-            left: 'auto'
-          });
+        if( $devicePreview.hasClass('fixed-preview') ) {
+          $devicePreview
+            .removeClass("fixed-preview")
+            .css({
+              left: 'auto'
+            });
+        }
       }
     }
     $(window).resize(function(){

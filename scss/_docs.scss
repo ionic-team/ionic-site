@@ -49,7 +49,7 @@
 }
 
 .docs-section {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-size: 16px;
   line-height: 28px;
 
@@ -64,17 +64,27 @@
   pre {
     margin-bottom: 0;
   }
+
+  h2 {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  h3 {
+    border-bottom: 1px solid transparent;
+    line-height: 2em;
+  }
+
+  &.active {
+    h2, h3 {
+      color: $brand-primary;
+      border-bottom: 1px solid $brand-primary;
+    }
+  }
 }
 
 .docs-section + .docs-section {
-  padding-top: 20px;
+  padding-top: 30px;
 }
-
-.docs-section h2 {
-  padding-bottom: 16px;
-  border-bottom: 1px solid #ddd;
-}
-
 
 .device-preview-page {
   position: relative;
@@ -96,9 +106,7 @@
   .docs-section {
     padding-right: 400px;
     
-    &.active {
-      
-    }
+
   }
 
   @media (max-width: 767px) {

@@ -19,25 +19,25 @@
 
 
   /* Fixed left menu */
-  var $fixedMenu = $('.docked-menu');
-  if($fixedMenu.length) {
+  var fixedMenu = $('.docked-menu');
+  if(fixedMenu.length) {
     $(document.body).scrollspy({ target: '.docked-menu' });
 
-    var fixedMenuTop = $fixedMenu.offset().top;
+    var fixedMenuTop = fixedMenu.offset().top;
     var menuTopPadding = 20;
-    $fixedMenu.css({
+    fixedMenu.css({
       top: menuTopPadding + 'px'
     });
 
     function docScroll(e) {
       if(window.scrollY + menuTopPadding > fixedMenuTop) {
-        $fixedMenu
+        fixedMenu
           .css({
-            width: $fixedMenu.width() + 'px'
+            width: fixedMenu.width() + 'px'
           })
           .addClass("fixed-menu");
       } else {
-        $fixedMenu
+        fixedMenu
           .removeClass("fixed-menu")
           .css({
             width: 'auto'
@@ -51,23 +51,23 @@
   }
 
   /* Fixed device preview on the docs page */
-  var $devicePreview = $('.device-preview');
-  if($devicePreview.length) {
-    var $docContent = $('.main-content');
-    var $defaultScreen = $devicePreview.find('.default-screen');
+  var devicePreview = $('.device-preview');
+  if(devicePreview.length) {
+    var docContent = $('.main-content');
+    var $defaultScreen = devicePreview.find('.default-screen');
 
     function previewReset() {
-      if(window.scrollY > $docContent.offset().top) {
-        if( !$devicePreview.hasClass('fixed-preview') ) {
-          $devicePreview
+      if(window.scrollY > docContent.offset().top) {
+        if( !devicePreview.hasClass('fixed-preview') ) {
+          devicePreview
             .css({
-              left: Math.round($devicePreview.offset().left) + 'px'
+              left: Math.round(devicePreview.offset().left) + 'px'
             })
             .addClass("fixed-preview");
           }
       } else {
-        if( $devicePreview.hasClass('fixed-preview') ) {
-          $devicePreview
+        if( devicePreview.hasClass('fixed-preview') ) {
+          devicePreview
             .removeClass("fixed-preview")
             .css({
               left: 'auto'
@@ -76,7 +76,7 @@
       }
     }
     $(window).resize(function(){
-      $devicePreview
+      devicePreview
           .removeClass("fixed-preview")
           .css({
             left: 'auto'
@@ -102,34 +102,34 @@
       }
 
       if(id) {
-        var $activeSection = $(id);
-        if($activeSection.length) {
-          previewSection($activeSection);
+        var activeSection = $(id);
+        if(activeSection.length) {
+          previewSection(activeSection);
         }
       }
     }
-    $fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
+    fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
 
-    function previewSection($activeSection) {
-      $docContent.find('.active').removeClass('active');
-      $activeSection.addClass("active");
+    function previewSection(activeSection) {
+      docContent.find('.active').removeClass('active');
+      activeSection.addClass("active");
 
-      $devicePreview.find('.active-preview').removeClass('active-preview');
-      var $componentExample = $activeSection.find('.component-example');
-      if( $componentExample.length ) {
-        var exampleId = 'example-' + $activeSection.attr('id');
-        var $examplePreview = $('#' + exampleId);
-        if(!$examplePreview.length) {
-          $devicePreview.append( '<div id="' + exampleId + '" class="preview-example">' + $componentExample.html() + '</div>' );
-          $examplePreview = $('#' + exampleId);
+      devicePreview.find('.active-preview').removeClass('active-preview');
+      var componentExample = activeSection.find('.component-example');
+      if( componentExample.length ) {
+        var exampleId = 'example-' + activeSection.attr('id');
+        var examplePreview = $('#' + exampleId);
+        if(!examplePreview.length) {
+          devicePreview.append( '<div id="' + exampleId + '" class="preview-example">' + componentExample.html() + '</div>' );
+          examplePreview = $('#' + exampleId);
         }
 
         setTimeout(function(){
           $('#' + exampleId).addClass('active-preview');
-          $devicePreview.removeClass('default-enabled');
+          devicePreview.removeClass('default-enabled');
         });
       } else {
-        $devicePreview.addClass('default-enabled');
+        devicePreview.addClass('default-enabled');
       }
     }
 

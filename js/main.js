@@ -50,15 +50,13 @@
   /* Fixed device preview on the docs page */
   var $devicePreview = $('.device-preview');
   if($devicePreview.length) {
-    var previewTop = $devicePreview.offset().top;
+    var $docContent = $('.main-content');
 
     function previewReset() {
-
-      if(window.scrollY > previewTop) {
-        var offset = $devicePreview.offset();
+      if(window.scrollY > $docContent.offset().top) {
         $devicePreview
           .css({
-            left: Math.round(offset.left) + 'px'
+            left: Math.round($devicePreview.offset().left) + 'px'
           })
           .addClass("fixed-preview");
       } else {
@@ -68,7 +66,6 @@
             left: 'auto'
           });
       }
-
     }
     $(window).resize(function(){
       $devicePreview

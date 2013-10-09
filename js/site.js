@@ -116,18 +116,22 @@
       activeSection.addClass("active");
 
       devicePreview.find('.active-preview').removeClass('active-preview');
-      var componentExample = activeSection.find('.component-example');
-      if( componentExample.length ) {
+      var docExample = activeSection.find('.doc-example');
+      if( docExample.length ) {
+        // this 
         var exampleId = 'example-' + activeSection.attr('id');
         var examplePreview = $('#' + exampleId);
-        if(!examplePreview.length) {
-          devicePreview.append( '<div id="' + exampleId + '">' + componentExample.html() + '</div>' );
-          examplePreview = $('#' + exampleId);
+        if(examplePreview.length) {
+          // preview has already been added
+          examplePreview.addClass('active-preview');
+        } else {
+          // create a new example preview
+          devicePreview.append( '<div id="' + exampleId + '">' + docExample.html() + '</div>' );
+          setTimeout(function(){
+            $('#' + exampleId).addClass('active-preview');
+          });
         }
 
-        setTimeout(function(){
-          $('#' + exampleId).addClass('active-preview');
-        });
       } else {
         defaultScreen.addClass('active-preview');
       }

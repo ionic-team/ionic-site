@@ -8,6 +8,6 @@ Repo for the ionicframework.com site
 
     jekyll serve -w
 
-    sass --watch scss/ionic.scss:css/ionic.css
+    sass --watch scss/site.scss:css/site.css
 
     http://localhost:4000/

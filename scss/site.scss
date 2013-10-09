@@ -6,6 +6,7 @@
 @import "syntax";
 
 body {
+  position: static !important;
   border-top: 1px solid $brand-primary;
 }
 

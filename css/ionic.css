@@ -5118,10 +5118,13 @@ td.visible-print {
     border-bottom: 1px solid #dddddd; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
-    line-height: 2em; }
+    line-height: 1.9em; }
   .docs-section.active h2, .docs-section.active h3 {
     color: #4f8ef7;
     border-bottom: 1px solid #4f8ef7; }
+
+.component-example {
+  display: none; }
 
 .docs-section + .docs-section {
   padding-top: 30px; }
@@ -5134,6 +5137,10 @@ td.visible-print {
     width: 400px;
     height: 810px;
     background: url("/img/phone_case.png") no-repeat right top; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+    .device-preview-page {
+      background-image: url("/img/phone_case@2x.png");
+      background-size: 365px 792px; } }
   .device-preview-page .fixed-preview {
     position: fixed;
     top: 0;
@@ -5145,7 +5152,7 @@ td.visible-print {
       display: none; }
     .device-preview-page .docs-section {
       padding-right: 0; } }
-  .device-preview-page .preview-screen {
+  .device-preview-page .preview-screen, .device-preview-page .default-screen {
     position: absolute;
     width: 328px;
     height: 576px;
@@ -5153,6 +5160,9 @@ td.visible-print {
     top: 104px;
     left: 53px;
     background: white; }
+  .device-preview-page .default-screen {
+    background: url("/img/ionic_icon.svg") no-repeat center 50px white;
+    background-size: 280px 280px; }
 
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }

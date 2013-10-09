@@ -55,6 +55,7 @@
   if($devicePreview.length) {
     var $docContent = $('.main-content');
     var $previewScreen = $devicePreview.find('.preview-screen');
+    var $defaultScreen = $devicePreview.find('.default-screen');
 
     function previewReset() {
       if(window.scrollY > $docContent.offset().top) {
@@ -114,7 +115,14 @@
       $docContent.find('.active').removeClass('active');
       $activeSection.addClass("active");
 
-      $previewScreen.html( $activeSection.attr('id') );
+      var $example = $activeSection.find('.component-example');
+      if( $example.length ) {
+        $defaultScreen.hide();
+        $previewScreen.html( $example.html() ).show();
+      } else {
+        $previewScreen.hide();
+        $defaultScreen.show();
+      }
     }
 
   }

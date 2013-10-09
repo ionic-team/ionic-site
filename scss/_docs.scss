@@ -71,7 +71,7 @@
   }
   h3 {
     border-bottom: 1px solid transparent;
-    line-height: 2em;
+    line-height: 1.9em;
   }
 
   &.active {
@@ -80,6 +80,10 @@
       border-bottom: 1px solid $brand-primary;
     }
   }
+}
+
+.component-example {
+  display: none;
 }
 
 .docs-section + .docs-section {
@@ -96,6 +100,14 @@
     height: 810px;
     background: url("/img/phone_case.png") no-repeat right top;
   }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+           only screen and (   min--moz-device-pixel-ratio: 1.3),
+           only screen and (        min-device-pixel-ratio: 1.3),
+           only screen and (             min-resolution: 124dpi)
+    { 
+      background-image: url("/img/phone_case@2x.png");
+      background-size: 365px 792px;
+    }
 
   .fixed-preview {
     position: fixed;
@@ -105,8 +117,6 @@
 
   .docs-section {
     padding-right: 400px;
-    
-
   }
 
   @media (max-width: 767px) {
@@ -118,7 +128,7 @@
     }
   }
 
-  .preview-screen {
+  .preview-screen, .default-screen {
     position: absolute;
     width: 328px;
     height: 576px;
@@ -126,6 +136,11 @@
     top: 104px;
     left: 53px;
     background: white;
+  }
+
+  .default-screen {
+    background: url('/img/ionic_icon.svg') no-repeat center 50px white;
+    background-size: 280px 280px;
   }
 
 }

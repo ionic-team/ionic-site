@@ -5115,10 +5115,12 @@ td.visible-print {
     margin-bottom: 0; }
   .docs-section h2 {
     padding-bottom: 16px;
-    border-bottom: 1px solid #dddddd; }
+    border-bottom: 1px solid #dddddd;
+    transition: color 0.1s ease-in-out; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
-    line-height: 1.9em; }
+    line-height: 1.9em;
+    transition: color 0.1s ease-in-out; }
   .docs-section.active h2, .docs-section.active h3 {
     color: #4f8ef7;
     border-bottom: 1px solid #4f8ef7; }

@@ -80,6 +80,28 @@
     });
     $(window).scroll(previewReset);
     previewReset();
+
+    $fixedMenu.on('activate.bs.scrollspy', function (e) {
+      if(e.target) {
+
+        var id;
+        if(e.target.children.length > 1) {
+          // this is a top level nav link
+          var activeSublinks = $(e.target.children[0]).find('.active');
+          if(!activeSublinks.length) {
+            // no children are active for this top level link
+            id = e.target.children[0].hash.replace("#", "");
+          }
+        } else if(e.target.children.length === 1) {
+          // this is a sub nav link
+          id = e.target.children[0].hash.replace("#", "");
+        }
+
+        if(id) {
+          console.log(id)
+        }
+      }
+    });
   }
 
 })();

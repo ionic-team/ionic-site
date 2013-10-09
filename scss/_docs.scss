@@ -95,6 +95,10 @@
 
   .docs-section {
     padding-right: 400px;
+    
+    &.active {
+      
+    }
   }
 
   @media (max-width: 767px) {

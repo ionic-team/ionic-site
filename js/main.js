@@ -42,6 +42,9 @@
           .css({
             width: 'auto'
           });
+        if(window.scrollY < 200) {
+          $('.active').removeClass(".active");
+        }
       }
     }
     $(window).scroll(docScroll);
@@ -79,26 +82,28 @@
     previewReset();
 
     $fixedMenu.on('activate.bs.scrollspy', function (e) {
-      if(e.target) {
-
-        var id;
-        if(e.target.children.length > 1) {
-          // this is a top level nav link
-          var activeSublinks = $(e.target.children[0]).find('.active');
-          if(!activeSublinks.length) {
-            // no children are active for this top level link
-            id = e.target.children[0].hash.replace("#", "");
-          }
-        } else if(e.target.children.length === 1) {
-          // this is a sub nav link
-          id = e.target.children[0].hash.replace("#", "");
+      var id;
+      if(e.target.children.length > 1) {
+        // this is a top level nav link
+        var activeSublinks = $(e.target).find('.active');
+        if(!activeSublinks.length) {
+          // no children are active for this top level link
+          id = e.target.children[0].hash;
         }
+      } else if(e.target.children.length === 1) {
+        // this is a sub nav link
+        id = e.target.children[0].hash;
+      }
 
-        if(id) {
-          console.log(id)
+      if(id) {
+        var activeContent = $(id);
+        if(activeContent.length) {
+          $docContent.find('.active').removeClass('active');
+          activeContent.addClass("active");
         }
       }
     });
+
   }
 
 })();

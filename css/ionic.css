@@ -5152,15 +5152,21 @@ td.visible-print {
       display: none; }
     .device-preview-page .docs-section {
       padding-right: 0; } }
-  .device-preview-page .preview-screen, .device-preview-page .default-screen {
+  .device-preview-page .device-preview > div {
     position: absolute;
     width: 328px;
     height: 576px;
     border: 4px solid #22272d;
     top: 104px;
     left: 53px;
-    background: white; }
-  .device-preview-page .default-screen {
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out; }
+    .device-preview-page .device-preview > div.active-preview {
+      opacity: 1; }
+  .device-preview-page .device-preview .default-screen {
+    opacity: 1; }
+  .device-preview-page .device-preview.default-enabled .default-screen {
     background: url("/img/ionic_icon.svg") no-repeat center center white;
     background-size: 280px 280px; }
 

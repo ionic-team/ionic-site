@@ -54,7 +54,6 @@
   var $devicePreview = $('.device-preview');
   if($devicePreview.length) {
     var $docContent = $('.main-content');
-    var $previewScreen = $devicePreview.find('.preview-screen');
     var $defaultScreen = $devicePreview.find('.default-screen');
 
     function previewReset() {
@@ -115,13 +114,22 @@
       $docContent.find('.active').removeClass('active');
       $activeSection.addClass("active");
 
-      var $example = $activeSection.find('.component-example');
-      if( $example.length ) {
-        $defaultScreen.hide();
-        $previewScreen.html( $example.html() ).show();
+      $devicePreview.find('.active-preview').removeClass('active-preview');
+      var $componentExample = $activeSection.find('.component-example');
+      if( $componentExample.length ) {
+        var exampleId = 'example-' + $activeSection.attr('id');
+        var $examplePreview = $('#' + exampleId);
+        if(!$examplePreview.length) {
+          $devicePreview.append( '<div id="' + exampleId + '" class="preview-example">' + $componentExample.html() + '</div>' );
+          $examplePreview = $('#' + exampleId);
+        }
+
+        setTimeout(function(){
+          $('#' + exampleId).addClass('active-preview');
+          $devicePreview.removeClass('default-enabled');
+        });
       } else {
-        $previewScreen.hide();
-        $defaultScreen.show();
+        $devicePreview.addClass('default-enabled');
       }
     }
 

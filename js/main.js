@@ -54,6 +54,7 @@
   var $devicePreview = $('.device-preview');
   if($devicePreview.length) {
     var $docContent = $('.main-content');
+    var $previewScreen = $devicePreview.find('.preview-screen');
 
     function previewReset() {
       if(window.scrollY > $docContent.offset().top) {
@@ -81,7 +82,8 @@
     $(window).scroll(previewReset);
     previewReset();
 
-    $fixedMenu.on('activate.bs.scrollspy', function (e) {
+
+    function scrollSpyChange(e) {
       var id;
       if(e.target.children.length > 1) {
         // this is a top level nav link
@@ -96,13 +98,20 @@
       }
 
       if(id) {
-        var activeContent = $(id);
-        if(activeContent.length) {
-          $docContent.find('.active').removeClass('active');
-          activeContent.addClass("active");
+        var $activeSection = $(id);
+        if($activeSection.length) {
+          previewSection($activeSection);
         }
       }
-    });
+    }
+    $fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
+
+    function previewSection($activeSection) {
+      $docContent.find('.active').removeClass('active');
+      $activeSection.addClass("active");
+
+      $previewScreen.html( $activeSection.attr('id') );
+    }
 
   }
 

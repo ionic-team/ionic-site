@@ -5166,11 +5166,11 @@ td.visible-print {
     transition: opacity 0.2s ease-in-out; }
     .device-preview-page .device-preview > div.active-preview {
       opacity: 1; }
-  .device-preview-page .device-preview .default-screen {
-    opacity: 1; }
-  .device-preview-page .device-preview.default-enabled .default-screen {
-    background: url("/img/ionic_icon.svg") no-repeat center center white;
-    background-size: 280px 280px; }
+    .device-preview-page .device-preview > div.screen-bg {
+      opacity: 1 !important; }
+  .device-preview-page .default-screen .content {
+    background: url("/img/ionic_icon.svg") no-repeat center center;
+    background-size: 250px 250px; }
 
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }

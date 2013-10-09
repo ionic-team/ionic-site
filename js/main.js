@@ -110,6 +110,7 @@
     }
     fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
 
+    var defaultScreen = devicePreview.find('.default-screen');
     function previewSection(activeSection) {
       docContent.find('.active').removeClass('active');
       activeSection.addClass("active");
@@ -120,16 +121,15 @@
         var exampleId = 'example-' + activeSection.attr('id');
         var examplePreview = $('#' + exampleId);
         if(!examplePreview.length) {
-          devicePreview.append( '<div id="' + exampleId + '" class="preview-example">' + componentExample.html() + '</div>' );
+          devicePreview.append( '<div id="' + exampleId + '">' + componentExample.html() + '</div>' );
           examplePreview = $('#' + exampleId);
         }
 
         setTimeout(function(){
           $('#' + exampleId).addClass('active-preview');
-          devicePreview.removeClass('default-enabled');
         });
       } else {
-        devicePreview.addClass('default-enabled');
+        defaultScreen.addClass('active-preview');
       }
     }
 

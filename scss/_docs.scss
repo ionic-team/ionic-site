@@ -144,16 +144,15 @@
     &.active-preview {
       opacity: 1;
     }
-  }
-  .device-preview {
-    .default-screen {
-      opacity: 1;
-    }
 
-    &.default-enabled .default-screen {
-      background: url('/img/ionic_icon.svg') no-repeat center center white;
-      background-size: 280px 280px;
+    &.screen-bg {
+      opacity: 1 !important;
     }
+  }
+
+  .default-screen .content {
+    background: url('/img/ionic_icon.svg') no-repeat center center;
+    background-size: 250px 250px;
   }
 
 }

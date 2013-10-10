@@ -5563,4 +5563,7 @@ h1 + h2 + p {
   margin: 60px 10px;
   text-align: center; }
   .footer p {
-    line-height: 32px; }
+    line-height: 28px; }
+  .footer .base-links a {
+    display: inline-block;
+    padding: 3px 6px; }

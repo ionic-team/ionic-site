@@ -5169,7 +5169,7 @@ td.visible-print {
     .device-preview-page .device-preview > div.screen-bg {
       opacity: 1 !important; }
   .device-preview-page .default-screen .content {
-    background: url("/img/ionic_icon.svg") no-repeat center center;
+    background: url("/img/ionic_icon.svg") no-repeat center 123px;
     background-size: 250px 250px; }
 
 #spinner {
@@ -5480,7 +5480,6 @@ td.visible-print {
 
 /* Literal.Number.Integer.Long */
 body {
-  position: static !important;
   border-top: 1px solid #4f8ef7; }
 
 a {
@@ -5544,7 +5543,8 @@ h1 + h2 + p {
   .header a {
     color: #fff;
     padding: 10px 20px;
-    display: inline-block; }
+    display: inline-block;
+    font-weight: bold; }
 
 .nav-link {
   border-bottom: 3px solid transparent; }

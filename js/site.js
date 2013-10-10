@@ -126,7 +126,7 @@
           examplePreview.addClass('active-preview');
         } else {
           // create a new example preview
-          devicePreview.append( '<div id="' + exampleId + '">' + docExample.html() + '</div>' );
+          devicePreview.append( '<div id="' + exampleId + '" class="ionic-body">' + docExample.html() + '</div>' );
           setTimeout(function(){
             $('#' + exampleId).addClass('active-preview');
           });

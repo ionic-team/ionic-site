@@ -6,7 +6,6 @@
 @import "syntax";
 
 body {
-  position: static !important;
   border-top: 1px solid $brand-primary;
 }
 
@@ -94,6 +93,7 @@ h1 + h2 + p {
     color: #fff;
     padding: 10px 20px;
     display: inline-block;
+    font-weight: bold;
   }
 }
 

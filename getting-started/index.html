@@ -11,9 +11,13 @@ title: "Getting Started with Ionic Framework"
 
   <h1>Getting Started</h1>
 
-  <p>Getting started.</p>
-  <p>Getting started.</p>
-
+  <p>Welcome to Ionic! Ionic is a powerful HTML5 native app development framework that helps you build native-feeling mobile apps all with web technologies like HTML, CSS, and Javascript.</p>
+  <p>
+  Ionic is focused mainly on the look and feel, and UI interaction of your app. That means we aren't a replacement for PhoneGap or your favorite Javascript framework. Instead, Ionic tries to fit in well with these projects in order to simplify one big part of your app: the front end.
+  </p>
+  <p>
+  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think AngularJS is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy.
+  </p>
 </div>
 
 
@@ -92,7 +96,7 @@ title: "Getting Started with Ionic Framework"
   <h2>SASS</h2>
 
   <p>
-    SASS
+  To really integrate Ionic into your project, we recommend using and modifying the core SASS files. To do this, copy the <code>scss/</code> folder into your project and simply <code>@import 'ionic.scss'</code> to import the SASS files into your project.
   </p>
 
 </div>
@@ -106,9 +110,12 @@ title: "Getting Started with Ionic Framework"
   <h2>AngularJS</h2>
 
   <p>
-    AngularJS
+    Ionic ships with some great AngularJS extensions by default. This makes it easy to use Angular directives instead of the raw HTML/CSS markup, and also makes it easy to
+    use common Ionic services in your controllers and directives.
   </p>
-
+  <p>
+    To use the AngularJS extensions, copy <code>dist/ionic-angular.js</code> and include it after <code>dist/ionic.js</code> in your app. See the Angular doc section for more details on using the extensions.
+  </p>
 </div>
 
 
@@ -134,8 +141,11 @@ title: "Getting Started with Ionic Framework"
   <h2>Browser Support</h2>
 
   <p>
-    Browser Support
+    Ionic is meant for building <strong>native</strong> mobile apps. That means we aren't focusing on web apps or desktop apps. Since mobile browsers often exhibit issues
+    while in browsing mode that don't show while running under a "wrapped" native app, we recommend running all Ionic examples under PhoneGap or another native wrapper.
   </p>
-
+  <p>
+    As such, our browser support tends to be whatever Web View API is available to native apps on a given platform. For Ionic 1.0 beta, that means UIWebView for iOS 6 and 7. (Android 4.2+ support coming soon!)
+  </p>
 </div>
 

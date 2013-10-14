@@ -5135,6 +5135,9 @@ td.visible-print {
     border-bottom: 1px solid #4f8ef7;
     color: #4f8ef7; }
 
+.docs-section:last-child {
+  padding-bottom: 400px; }
+
 .doc-example {
   display: none; }
 

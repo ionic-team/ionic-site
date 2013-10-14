@@ -166,13 +166,34 @@ title: "Ionic Framework - Documentation and Guide"
 
 <div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
 {% endhighlight %}
+</div>
 
+<div class="docs-section" id="layout-header-secondary">
+
+  <h3>Secondary Header</h3>
+  <p>
+    A secondary bar can be placed below the header bar:
+  </p>
+{% highlight html %}
+<div class="bar bar-header bar-default"><h1 class="title">Header</h1></div>
+<div class="bar bar-header-secondary bar-default">
+  <div class="button-bar">
+    <a class="button">Success</a>
+    <a class="button">Warning</a>
+    <a class="button">Danger</a>
+  </div>
+</div>
+{% endhighlight %}
   <div class="doc-example ionic">
-    <div class="bar bar-header bar-secondary">
-      <h1 class="title">Header</h1>
+    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
+    <div class="bar bar-header-secondary bar-secondary">
+      <div class="button-bar">
+        <a class="button">Success</a>
+        <a class="button">Warning</a>
+        <a class="button">Danger</a>
+      </div>
     </div>
   </div>
-
 </div>
 
 

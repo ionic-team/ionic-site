@@ -73,7 +73,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 {% highlight html %}
 <body>
-  <div class="header">
+  <div class="bar bar-header">
     ...
   </div>
   <div class="content-wrapper">
@@ -81,7 +81,7 @@ title: "Ionic Framework - Documentation and Guide"
       ...
     </div>
   </div>
-  <div class="footer">
+  <div class="bar bar-footer">
     ...
   </div>
 </body>
@@ -140,8 +140,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example">
-    content example
-    <div style="width: 75%; height: 200px; background: green">asdf</div>
+    <div class="content-wrapper">
+      <div class="content padded">
+        <h1>I'm a content!</h1>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -160,9 +163,10 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 {% endhighlight %}
 
-  <div class="doc-example">
-    header example
-    <div style="width: 20%; height: 300px; background: blue">asdf</div>
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-secondary">
+      <h1 class="title">Header</h1>
+    </div>
   </div>
 
 </div>
@@ -180,6 +184,11 @@ title: "Ionic Framework - Documentation and Guide"
   ...
 </div>
 {% endhighlight %}
+  <div class="doc-example ionic">
+    <div class="bar bar-footer bar-secondary">
+      <h1 class="title">Footer</h1>
+    </div>
+  </div>
 
 </div>
 

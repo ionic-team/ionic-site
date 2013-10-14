@@ -257,6 +257,24 @@ title: "Ionic Framework - Documentation and Guide"
     so that when any part of the row is tapped then the input receives focus.
   </p>
 
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <h1 class="title">Forms</h1>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group">
+          <label class="input-row">
+            <input type="text" placeholder="First Name">
+          </label>
+          <label class="input-row">
+            <input type="text" placeholder="Last Name">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -298,6 +316,9 @@ title: "Ionic Framework - Documentation and Guide"
             <input type="text" placeholder="Last Name">
           </label>
         </div>
+        <div class="inset">
+          <button class="button button-primary">Sign In</button>
+        </div>
       </div>
     </div>
   </div>
@@ -313,7 +334,9 @@ title: "Ionic Framework - Documentation and Guide"
   <h3>Inline Labels</h3>
 
   <p>
-    Use <code>input-label</code> to place a label to the left of the input element. 
+    Use <code>input-label</code> to place a label to the left of the input element. When the user 
+    enters text the label does not hide. Note that there's nothing stopping you from also
+    using a <code>placeholder</code> label too.
   </p>
   
 {% highlight html %}
@@ -331,7 +354,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Placeholder Labels</h1>
+      <h1 class="title">Inline Labels</h1>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -384,7 +407,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Placeholder Labels</h1>
+      <h1 class="title">Stacked Labels</h1>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">

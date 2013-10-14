@@ -137,7 +137,7 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 {% endhighlight %}
 
-<p>Headers come in a variety of flavors:</p>
+  <p>Headers come in a variety of fun flavors:</p>
   <div class="ionic ionic-example">
     <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
     <div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
@@ -148,6 +148,24 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
     <div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
   </div>
+
+{% highlight html %}
+<div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
+
+<div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
+
+<div class="bar bar-header bar-primary"><h1 class="title">Primary</h1></div>
+
+<div class="bar bar-header bar-info"><h1 class="title">Info</h1></div>
+
+<div class="bar bar-header bar-success"><h1 class="title">Success</h1></div>
+
+<div class="bar bar-header bar-warning"><h1 class="title">Warning</h1></div>
+
+<div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
+
+<div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
+{% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-secondary">
@@ -166,10 +184,15 @@ title: "Ionic Framework - Documentation and Guide"
   <h3>Footer</h3>
 
 {% highlight html %}
-<div class="footer">
+<div class="bar bar-footer">
   ...
 </div>
 {% endhighlight %}
+
+  <p>
+  Footers have the same color options as the headers, just use <code>bar-footer</code> instead of <code>bar-header</code>
+  </p>
+
   <div class="doc-example ionic">
     <div class="bar bar-footer bar-secondary">
       <h1 class="title">Footer</h1>
@@ -179,10 +202,96 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
+<!-- Components
+  ================================================== -->
+<div class="docs-section" id="components">
+  <h2>Components</h2>
+  <p>Components are things.</p>
+</div>
+
+<div class="docs-section" id="components-buttons">
+  <h3>Buttons</h3>
+  <p>
+    Buttons can be displayed inline, block, icon-only, or text only, and come in 
+    many different styles.
+  </p>
+  <div class="ionic ionic-example">
+    <button class="button button-default">Default</button>
+    <button class="button button-secondary">Secondary</button>
+    <button class="button button-primary">Primary</button>
+    <button class="button button-info">Info</button>
+    <button class="button button-success">Success</button>
+    <button class="button button-warning">Warning</button>
+    <button class="button button-danger">Danger</button>
+    <button class="button button-dark">Dark</button>
+  </div>
+{% highlight html %}
+<button class="button button-default">Default</button>
+
+<button class="button button-secondary">Secondary</button>
+
+<button class="button button-primary">Primary</button>
+
+<button class="button button-info">Info</button>
+
+<button class="button button-success">Success</button>
+
+<button class="button button-warning">Warning</button>
+
+<button class="button button-danger">Danger</button>
+
+<button class="button button-dark">Dark</button>
+{% endhighlight %}
+  <div class="doc-example ionic">
+    <div class="padded">
+      <button class="button button-block button-default">Default</button>
+      <button class="button button-block button-secondary">Secondary</button>
+      <button class="button button-block button-primary">Primary</button>
+      <button class="button button-block button-info">Info</button>
+      <button class="button button-block button-success">Success</button>
+      <button class="button button-block button-warning">Warning</button>
+      <button class="button button-block button-danger">Danger</button>
+      <button class="button button-block button-dark">Dark</button>
+    </div>
+  </div>
+
+  <h3>Block Buttons</h3>
+  <p>
+  Block buttons take up the full width of their parent container, and make themselves really hard to miss. Add the <code>button-block</code> class to make any button a block button.
+  </p>
+  <div class="doc-example ionic">
+    <div class="padded">
+      <button class="button block button-default">Default</button>
+      <button class="button button-block button-secondary">Secondary</button>
+      <button class="button button-block button-primary">Primary</button>
+      <button class="button button-block button-info">Info</button>
+      <button class="button button-block button-success">Success</button>
+      <button class="button button-block button-warning">Warning</button>
+      <button class="button button-block button-danger">Danger</button>
+      <button class="button button-block button-dark">Dark</button>
+    </div>
+  </div>
+
+  <h3>Text-only Buttons</h3>
+  <p>
+  Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to remove the border and make the text stand out. Note: The text will take the color of the applied button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
+  </p>
+  <div class="doc-example ionic">
+    <div class="padded">
+      <div class="bar bar-header bar-secondary">
+        <button class="button button-clear button-primary">Edit</button>
+      </div>
+    </div>
+  </div>
+  <h3>Icon-only Buttons</h3>
+  <p>
+    While icons can be added to any button at any time, to remove any border and make the icon stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
+  </p>
+</div>
 
 <!-- Layout: Forms
   ================================================== -->
-<div class="docs-section" id="layout-forms">
+<div class="docs-section" id="components-forms">
 
   <h3>Forms</h3>
   <p>
@@ -206,14 +315,6 @@ title: "Ionic Framework - Documentation and Guide"
 
 </div>
 
-
-
-<!-- Components
-  ================================================== -->
-<div class="docs-section" id="components">
-  <h2>Components</h2>
-  <p>Components are things.</p>
-</div>
 
 
 

@@ -5112,7 +5112,7 @@ td.visible-print {
   .docs-section .panel-heading {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
   .docs-section .highlight {
-    margin: 10px 0 0 0; }
+    margin: 10px 0 20px 0; }
   .docs-section pre {
     margin-bottom: 0; }
   .docs-section h2 {

@@ -441,6 +441,8 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
+<!-- Buttons
+  ================================================== -->
 <div class="docs-section" id="components-buttons">
   <h3>Buttons</h3>
   <p>
@@ -484,25 +486,44 @@ title: "Ionic Framework - Documentation and Guide"
       </div>
     </div>
   </div>
+</div>
 
-  <h4>Block Buttons</h4>
+
+
+<!-- Block Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-block">
+  <h3>Block Buttons</h3>
   <p>
-  Block buttons take up the full width of their parent container, and make themselves really hard to miss. Add the <code>button-block</code> class to make any button a block button.
+  Block buttons take up the full width of their parent container, and make themselves really hard to miss. 
+  Add the <code>button-block</code> class to make any button a block button.
   </p>
   <div class="doc-example ionic">
     <div class="padded">
-      <button class="button block button-default">Default</button>
-      <button class="button button-block button-secondary">Secondary</button>
-      <button class="button button-block button-primary">Primary</button>
-      <button class="button button-block button-info">Info</button>
-      <button class="button button-block button-success">Success</button>
-      <button class="button button-block button-warning">Warning</button>
-      <button class="button button-block button-danger">Danger</button>
-      <button class="button button-block button-dark">Dark</button>
+      <div class="bar bar-header bar-secondary">
+        <button class="button button-clear button-primary">Edit</button>
+        <button class="button button-icon"><i class="icon-navicon"></i></button>
+      </div>
+      <div class="content has-header">
+        <button class="button button-block button-default">Default</button>
+        <button class="button button-block button-secondary">Secondary</button>
+        <button class="button button-block button-primary">Primary</button>
+        <button class="button button-block button-info">Info</button>
+        <button class="button button-block button-success">Success</button>
+        <button class="button button-block button-warning">Warning</button>
+        <button class="button button-block button-danger">Danger</button>
+        <button class="button button-block button-dark">Dark</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <h4>Text-only Buttons</h4>
+
+
+<!-- Text-only Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-text-only">
+  <h3>Text-only Buttons</h3>
   <p>
   Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to remove the border and make the text stand out. Note: The text will take the color of the applied button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
   </p>
@@ -513,13 +534,25 @@ title: "Ionic Framework - Documentation and Guide"
       </div>
     </div>
   </div>
+</div>
 
-  <h4>Icon-only Buttons</h4>
+
+
+<!-- Icon-only Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-icon-only">
+  <h3>Icon-only Buttons</h3>
   <p>
     While icons can be added to any button at any time, to remove any border and make the icon stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
   </p>
+</div>
 
-  <h4>Buttons in Headers/Footers</h4>
+
+
+<!-- Buttons in Headers/Footers
+  ================================================== -->
+<div class="docs-section" id="buttons-headers-footers">
+  <h3>Buttons in Headers/Footers</h3>
   <p>
     When buttons are placed in headers or footers, they take the style of the 
     bar by default, so you don't have to use the extra style classes. To change this, add the desired style class.

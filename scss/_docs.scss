@@ -64,6 +64,10 @@
   &.nav > li > a {
     padding: 1px 6px;
   }
+
+  > li > ul > li > ul {
+    display: none !important;
+  }
 }
 
 .docs-section {

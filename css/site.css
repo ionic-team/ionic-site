@@ -5112,6 +5112,8 @@ td.visible-print {
     display: block; }
   .left-menu.nav > li > a {
     padding: 1px 6px; }
+  .left-menu > li > ul > li > ul {
+    display: none !important; }
 
 .docs-section {
   padding-bottom: 10px;

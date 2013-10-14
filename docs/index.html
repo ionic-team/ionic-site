@@ -110,14 +110,14 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>Headers come in a variety of fun flavors:</p>
   <div class="ionic ionic-example">
-    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
-    <div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
-    <div class="bar bar-header bar-primary"><h1 class="title">Primary</h1></div>
-    <div class="bar bar-header bar-info"><h1 class="title">Info</h1></div>
-    <div class="bar bar-header bar-success"><h1 class="title">Success</h1></div>
-    <div class="bar bar-header bar-warning"><h1 class="title">Warning</h1></div>
-    <div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
-    <div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
+    <div class="bar bar-header bar-default"><div class="h1 title">Default</div></div>
+    <div class="bar bar-header bar-secondary"><div class="h1 title">Secondary</div></div>
+    <div class="bar bar-header bar-primary"><div class="h1 title">Primary</div></div>
+    <div class="bar bar-header bar-info"><div class="h1 title">Info</div></div>
+    <div class="bar bar-header bar-success"><div class="h1 title">Success</div></div>
+    <div class="bar bar-header bar-warning"><div class="h1 title">Warning</div></div>
+    <div class="bar bar-header bar-danger"><div class="h1 title">Danger</div></div>
+    <div class="bar bar-header bar-dark"><div class="h1 title">Dark</div></div>
   </div>
 
 {% highlight html %}
@@ -172,7 +172,9 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 {% endhighlight %}
   <div class="doc-example ionic">
-    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Default</div>
+    </div>
     <div class="bar bar-header-secondary bar-secondary">
       <div class="button-bar">
         <a class="button">Success</a>
@@ -205,7 +207,7 @@ title: "Ionic Framework - Documentation and Guide"
   <div class="doc-example">
     <div class="content-wrapper">
       <div class="content padded">
-        <h1>I'm a content!</h1>
+        <div class="h1">I'm a content!</div>
       </div>
     </div>
   </div>
@@ -232,7 +234,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-footer bar-secondary">
-      <h1 class="title">Footer</h1>
+      <div class="h1 title">Footer</div>
     </div>
   </div>
 
@@ -259,7 +261,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Forms</h1>
+      <div class="h1 title">Forms</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -304,7 +306,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Placeholder Labels</h1>
+      <div class="h1 title">Placeholder Labels</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -354,7 +356,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Inline Labels</h1>
+      <div class="h1 title">Inline Labels</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -407,7 +409,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Stacked Labels</h1>
+      <div class="h1 title">Stacked Labels</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -494,25 +496,22 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="buttons-block">
   <h3>Block Buttons</h3>
+
   <p>
   Block buttons take up the full width of their parent container, and make themselves really hard to miss. 
   Add the <code>button-block</code> class to make any button a block button.
   </p>
+
+{% highlight html %}
+<button class="button button-block button-primary">
+  Primary
+</button>
+{% endhighlight %}
+
   <div class="doc-example ionic">
     <div class="padded">
-      <div class="bar bar-header bar-secondary">
-        <button class="button button-clear button-primary">Edit</button>
-        <button class="button button-icon"><i class="icon-navicon"></i></button>
-      </div>
-      <div class="content has-header">
-        <button class="button button-block button-default">Default</button>
-        <button class="button button-block button-secondary">Secondary</button>
-        <button class="button button-block button-primary">Primary</button>
-        <button class="button button-block button-info">Info</button>
-        <button class="button button-block button-success">Success</button>
-        <button class="button button-block button-warning">Warning</button>
-        <button class="button button-block button-danger">Danger</button>
-        <button class="button button-block button-dark">Dark</button>
+      <div class="content">
+        <button class="button button-block button-primary">Button Block</button>
       </div>
     </div>
   </div>
@@ -525,7 +524,9 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="buttons-text-only">
   <h3>Text-only Buttons</h3>
   <p>
-  Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to remove the border and make the text stand out. Note: The text will take the color of the applied button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
+  Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to 
+  remove the border and make the text stand out. Note: The text will take the color of the applied 
+  button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
   </p>
   <div class="doc-example ionic">
     <div class="padded">
@@ -543,8 +544,16 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="buttons-icon-only">
   <h3>Icon-only Buttons</h3>
   <p>
-    While icons can be added to any button at any time, to remove any border and make the icon stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
+    While icons can be added to any button at any time, to remove any border and make the icon 
+    stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
   </p>
+  <div class="doc-example ionic">
+    <div class="padded">
+      <div class="bar bar-header bar-secondary">
+        <button class="button button-icon"><i class="icon-navicon"></i></button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -579,7 +588,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Nav Bar</h1>
+      <div class="h1 title">Nav Bar</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -610,7 +619,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Side Menu</h1>
+      <div class="h1 title">Side Menu</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -641,7 +650,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Tab Bar</h1>
+      <div class="h1 title">Tab Bar</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -672,7 +681,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">List View</h1>
+      <div class="h1 title">List View</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -703,7 +712,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Cards</h1>
+      <div class="h1 title">Cards</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -734,7 +743,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Text Inputs</h1>
+      <div class="h1 title">Text Inputs</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -754,22 +763,37 @@ title: "Ionic Framework - Documentation and Guide"
   <h3>Toggle</h3>
 
   <p>
-    ...
+    A toggle technically is the same thing as an HTML checkbox input, 
+    except it looks prettier and easier to use on a touch device.
   </p>
 
 {% highlight html %}
-<div class="">
-  ...
+<div class="toggle">
+   <input type="checkbox">
+   <div class="track">
+    <div class="handle"></div>
+  </div>
 </div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Toggle</h1>
+      <div class="h1 title">Toggle</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        ...
+        <div class="toggle">
+           <input type="checkbox">
+           <div class="track">
+            <div class="handle"></div>
+          </div>
+        </div>
+        <div class="toggle">
+           <input type="checkbox">
+           <div class="track">
+            <div class="handle"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -796,7 +820,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Radio Buttons</h1>
+      <div class="h1 title">Radio Buttons</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -828,7 +852,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <h1 class="title">Alerts</h1>
+      <div class="h1 title">Alerts</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">

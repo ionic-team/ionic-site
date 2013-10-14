@@ -6,16 +6,9 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="device-preview ionic">
   <div class="screen-bg"></div>
   <div class="default-screen ionic-body active-preview">
-    <div class="bar bar-header bar-dark">
-      
-    </div>
     <div class="content-wrapper">
-      <div class="content padded has-header has-footer">
-        
+      <div class="content padded has-header">
       </div>
-    </div>
-    <div class="bar bar-footer bar-dark">
-      
     </div>
   </div>
 </div>
@@ -39,9 +32,7 @@ title: "Ionic Framework - Documentation and Guide"
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-
-    <!-- Sets initial viewport load and disables zooming  -->
+    <title>My App</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 {% endhighlight %}
 </div>
@@ -86,6 +77,34 @@ title: "Ionic Framework - Documentation and Guide"
   </div>
 </body>
 {% endhighlight %}
+
+</div>
+
+
+
+<!-- Layout: Content
+  ================================================== -->
+<div class="docs-section" id="layout-content">
+
+  <h3>Content</h3>
+
+{% highlight html %}
+<body>
+  <div class="content-wrapper">
+    <div class="content">
+      ...
+    </div>
+  </div>
+</body>
+{% endhighlight %}
+
+  <div class="doc-example">
+    <div class="content-wrapper">
+      <div class="content padded">
+        <div class="h1">I'm a content!</div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -187,35 +206,6 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-
-<!-- Layout: Content
-  ================================================== -->
-<div class="docs-section" id="layout-content">
-
-  <h3>Content</h3>
-
-{% highlight html %}
-<body>
-  <div class="content-wrapper">
-    <div class="content">
-      ...
-    </div>
-  </div>
-</body>
-{% endhighlight %}
-
-  <div class="doc-example">
-    <div class="content-wrapper">
-      <div class="content padded">
-        <div class="h1">I'm a content!</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
 <!-- Layout: Footer
   ================================================== -->
 <div class="docs-section" id="layout-footer">
@@ -235,199 +225,6 @@ title: "Ionic Framework - Documentation and Guide"
   <div class="doc-example ionic">
     <div class="bar bar-footer bar-secondary">
       <div class="h1 title">Footer</div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Forms
-  ================================================== -->
-<div class="docs-section" id="forms">
-
-  <h3>Forms</h3>
-
-  <p>
-    An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
-    is used to designate each individual input field and it's associated label. By default each 
-    input row will fill 100% of the width of its parent element. However, you can use the utility
-    classnames of <code>inset</code> and <code>padded</code> to change their placement.
-  </p>
-  <p>
-    Ionic prefers to create an <code>input-row</code> out of the <code>&lt;label&gt;</code> element 
-    so that when any part of the row is tapped then the input receives focus.
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Forms</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <div class="input-group">
-          <label class="input-row">
-            <input type="text" placeholder="First Name">
-          </label>
-          <label class="input-row">
-            <input type="text" placeholder="Last Name">
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Forms: Placeholder Labels
-  ================================================== -->
-<div class="docs-section" id="forms-placeholder-labels">
-
-  <h3>Placeholder Labels</h3>
-
-  <p>
-    In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
-    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
-    text into the input the placeholder label will be hidden.
-  </p>
-
-{% highlight html %}
-<div class="input-group">
-  <label class="input-row">
-    <input type="text" placeholder="First Name">
-  </label>
-  <label class="input-row">
-    <input type="text" placeholder="Last Name">
-  </label>
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Placeholder Labels</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <div class="input-group">
-          <label class="input-row">
-            <input type="text" placeholder="First Name">
-          </label>
-          <label class="input-row">
-            <input type="text" placeholder="Last Name">
-          </label>
-        </div>
-        <div class="inset">
-          <button class="button button-primary">Sign In</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Forms: Inline Labels
-  ================================================== -->
-<div class="docs-section" id="forms-inline-labels">
-
-  <h3>Inline Labels</h3>
-
-  <p>
-    Use <code>input-label</code> to place a label to the left of the input element. When the user 
-    enters text the label does not hide. Note that there's nothing stopping you from also
-    using a <code>placeholder</code> label too.
-  </p>
-  
-{% highlight html %}
-<div class="input-group">
-  <label class="input-row">
-    <span class="input-label">Username</span>
-    <input type="text">
-  </label>
-  <label class="input-row">
-    <span class="input-label">Password</span>
-    <input type="password">
-  </label>
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Inline Labels</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <div class="input-group">
-          <label class="input-row">
-            <span class="input-label">Username</span>
-            <input type="text">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Password</span>
-            <input type="password">
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Forms: Stacked Labels
-  ================================================== -->
-<div class="docs-section" id="forms-stacked-labels">
-
-  <h3>Stacked Labels</h3>
-
-  <p>
-    Stacked labels always places the label on top of the input.
-    This example also uses the <code>placeholder</code> attribute so 
-    user's have a hint of what type of text the input is looking for.
-  </p>
-
-{% highlight html %}
-<div class="input-group stacked-label">
-  <label class="input-row">
-    <span class="input-label">First Name</span>
-    <input type="text" placeholder="John">
-  </label>
-  <label class="input-row">
-    <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Suhr">
-  </label>
-  <label class="input-row">
-    <span class="input-label">Email</span>
-    <input type="text" placeholder="john@suhr.com">
-  </label>
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Stacked Labels</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <div class="input-group stacked-label">
-          <label class="input-row">
-            <span class="input-label">First Name</span>
-            <input type="text" placeholder="John">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Last Name</span>
-            <input type="text" placeholder="Suhr">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Email</span>
-            <input type="text" placeholder="john@suhr.com">
-          </label>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -752,29 +549,191 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Text Inputs
+<!-- Forms
   ================================================== -->
-<div class="docs-section" id="components-textinputs">
+<div class="docs-section" id="forms">
 
-  <h3>Text Inputs</h3>
+  <h3>Forms &amp; Inputs</h3>
 
   <p>
-    ...
+    An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
+    is used to designate each individual input field and it's associated label. By default each 
+    input row will fill 100% of the width of its parent element. However, you can use the utility
+    classnames of <code>inset</code> and <code>padded</code> to change their placement.
+  </p>
+  <p>
+    Ionic prefers to create an <code>input-row</code> out of the <code>&lt;label&gt;</code> element 
+    so that when any part of the row is tapped then the input receives focus.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Forms</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group">
+          <label class="input-row">
+            <input type="text" placeholder="First Name">
+          </label>
+          <label class="input-row">
+            <input type="text" placeholder="Last Name">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Placeholder Labels
+  ================================================== -->
+<div class="docs-section" id="forms-placeholder-labels">
+
+  <h3>Text Input: Placeholder Labels</h3>
+
+  <p>
+    In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
+    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
+    text into the input the placeholder label will be hidden.
   </p>
 
 {% highlight html %}
-<div class="">
-  ...
+<div class="input-group">
+  <label class="input-row">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="input-row">
+    <input type="text" placeholder="Last Name">
+  </label>
 </div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Text Inputs</div>
+      <div class="h1 title">Placeholder Labels</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        ...
+        <div class="input-group">
+          <label class="input-row">
+            <input type="text" placeholder="First Name">
+          </label>
+          <label class="input-row">
+            <input type="text" placeholder="Last Name">
+          </label>
+        </div>
+        <div class="inset">
+          <button class="button button-primary">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Inline Labels
+  ================================================== -->
+<div class="docs-section" id="forms-inline-labels">
+
+  <h3>Text Input: Inline Labels</h3>
+
+  <p>
+    Use <code>input-label</code> to place a label to the left of the input element. When the user 
+    enters text the label does not hide. Note that there's nothing stopping you from also
+    using a <code>placeholder</code> label too.
+  </p>
+  
+{% highlight html %}
+<div class="input-group">
+  <label class="input-row">
+    <span class="input-label">Username</span>
+    <input type="text">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Password</span>
+    <input type="password">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inline Labels</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group">
+          <label class="input-row">
+            <span class="input-label">Username</span>
+            <input type="text">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Password</span>
+            <input type="password">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Stacked Labels
+  ================================================== -->
+<div class="docs-section" id="forms-stacked-labels">
+
+  <h3>Text Input: Stacked Labels</h3>
+
+  <p>
+    Stacked labels always places the label on top of the input.
+    This example also uses the <code>placeholder</code> attribute so 
+    user's have a hint of what type of text the input is looking for.
+  </p>
+
+{% highlight html %}
+<div class="input-group stacked-label">
+  <label class="input-row">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="John">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Suhr">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@suhr.com">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Stacked Labels</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group stacked-label">
+          <label class="input-row">
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="John">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Suhr">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="john@suhr.com">
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -867,8 +826,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3>Alerts</h3>
 
   <p>
-    Buttons can be displayed inline, block, icon-only, or text only, and come in 
-    many different styles.
+    ...
   </p>
 
 {% highlight html %}
@@ -891,7 +849,8 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
-<!-- Layout: Utility Classes
+
+<!-- Utility Classes
   ================================================== -->
 <div class="docs-section" id="utility">
   <h3>Utility Classes</h3>

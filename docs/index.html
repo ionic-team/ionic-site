@@ -26,12 +26,25 @@ title: "Ionic Framework - Documentation and Guide"
 
 <div class="docs-section active" id="overview">
 
-  <h1>Ionic Documentation</h1>
+  <h2>Preamble</h2>
 
-  <p>Here are the docs. Go forth and build great things.</p>
+  <p>Before you start building your Ionic app, you'll need to have a few things in place.<p>
 
+  <h3>Doctype and Viewport</h3>
+  <p>
+    For Ionic to work properly, make sure you have the HTML5 DOCTYPE specified and you are using correct meta viewport settings:
+  </p>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+{% endhighlight %}
 </div>
-
 
 
 <!-- Layout
@@ -39,7 +52,7 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="layout">
   <h2>Layout &amp; Structure</h2>
   <p>
-    Ionic's layout is first based off the concept of an application, which is in contrast to a
+    Ionic's layout is based off the concept of an application, which is in contrast to a
     traditional web site. An application has fixed areas, and can scroll its content, whereas
     with a traditional web site the entire area is scrollable.
     To accomplish the web app effect within a web browser you'll need to follow certain HTML/CSS

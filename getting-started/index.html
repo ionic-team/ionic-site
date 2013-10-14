@@ -18,6 +18,9 @@ title: "Getting Started with Ionic Framework"
   <p>
   You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think AngularJS is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy.
   </p>
+  <p>
+  We are fans of PhoneGap/Cordova so we will be releasing plugins in the future to expand the capabilities of your apps.
+  </p>
 </div>
 
 
@@ -29,7 +32,12 @@ title: "Getting Started with Ionic Framework"
   <h2>Download</h2>
 
   <p>
+    To get the latest official release of Ionic, simply click the button below to download:
+    <br>
     <a class="btn btn-primary" href="#">Download v1.0</a>
+  </p>
+  <p>
+    You can also <a href="http://twitter.com/driftyco/ionic">clone it on GitHub</a> to get the bleeding edge release.
   </p>
 
 </div>
@@ -41,17 +49,19 @@ title: "Getting Started with Ionic Framework"
 <div class="docs-section" id="whats-included">
 
   <h2>What's Included</h2>
-
+  <p>
+    Ionic comes with compiled Javascript and CSS for your app, optional SASS files and JS Framework extensions, along with a great <a href="http://ionicons.com/">icon pack</a>.
+  </p>
+  <p>
+    The project structure is organized as follows:
+  </p>
   <ul>
-    <li>
-      CSS
-    </li>
-    <li>
-      Font
-    </li>
-    <li>
-      JavaScript
-    </li>
+    <li><code>dist/</code> - compiled versions of Ionic JS and CSS, along with the required font files for the Ionicons icon pack.</li>
+    <li><code>example/</code> - examples of full-featured Ionic projects. Feel free to copy these and base your next project on them.</li>
+    <li><code>js/</code> - the Javascript code for the project and any framework extensions (like AngularJS) that we have provided.</li>
+    <li><code>scss/</code> - the raw SCSS files that can be used to integrate the Ionic SCSS into your own project. Or you can use the compiled CSS in the dist folder above.</li>
+    <li><code>test/</code> - Unit tests for the Javascript files, along with visual tests of components.</li>
+    <li><code>tools/</code> - Tools for creating and administering Ionic projects.</li>
   </ul>
 
 </div>
@@ -124,10 +134,10 @@ title: "Getting Started with Ionic Framework"
   ================================================== -->
 <div class="docs-section" id="phonegap">
 
-  <h2>Phonegap</h2>
+  <h2>PhoneGap/Cordova/Trigger.io</h2>
 
   <p>
-    Phonegap
+    Our examples were tested on Cordova 3.1.0, but should work for any version since we aren't shipping plugins (yet). To add Ionic to your PhoneGap, Cordova, or Trigger.io project, just reference the Ionic CSS and JS files from the web root of your app.
   </p>
 
 </div>
@@ -149,3 +159,23 @@ title: "Getting Started with Ionic Framework"
   </p>
 </div>
 
+
+<div class="docs-section" id="examples">
+  <h2>Examples</h2>
+  <p>
+    We have plenty of starter templates, live apps, and other examples to get you started.
+    To view our Ionic examples, take a look at the <a href="/examples/">Examples</a> page. 
+  </p>
+</div>
+
+<div class="docs-section" id="license">
+  <h2>License</h2>
+  <p>Ionic is an open source framework released under a permisive <a href="http://opensource.org/licenses/MIT">MIT</a> license. This means you can use Ionic in your own personal or commercial projects for free. MIT is the same license used by such popular projects as jQuery and Ruby on Rails.
+  </p>
+</div>
+<div class="docs-section" id="contribute">
+  <h2>Contribute to Ionic Development</h2>
+  <p>
+    We'd love to have you help improve Ionic. For more information on Contributing, check out our <a href="/contribute">Contributor Guide</a>.
+  </p>
+</div>

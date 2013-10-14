@@ -5146,6 +5146,8 @@ td.visible-print {
 
 .device-preview-page {
   position: relative; }
+  .device-preview-page .ionic .content-wrapper {
+    overflow: hidden !important; }
   .device-preview-page .device-preview {
     position: absolute;
     right: 0;

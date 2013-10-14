@@ -3,6 +3,13 @@
   position: fixed;
 }
 
+.ionic-example {
+  // Make sure all bars stay relative in examples
+  .bar {
+    position: relative !important;
+  }
+}
+
 @media (max-width: 991px) {
   .fixed-menu {
     display: none;

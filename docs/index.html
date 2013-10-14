@@ -91,37 +91,6 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Layout: Utility Classes
-  ================================================== -->
-<div class="docs-section" id="layout-utility">
-  <h3>Layout Utility Classes</h3>
-  <p>
-    One common theme throughout Ionic is to give the developers more control of margins and
-    padding the layout. Going this route allows the developer
-    to explicitly state how the element fits within the layout, and doesn't require a mess of
-    overrides to accomplish the layout your looking for.
-    As a general rule, most elements throughout the framework are set to
-    <code>margin: 0;</code> and <code>padding: 0;</code> which allows more explicit classes to
-    be easily assigned.
-  </p>
-  <div class="panel panel-default">
-    <div class="panel-heading">inset</div>
-    <div class="panel-body">
-      The <code>inset</code> class it used to "inset" any element, meaning it adds a margin 
-      around the element.
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">padded</div>
-    <div class="panel-body">
-      The <code>padded</code> class it used to give the element's content some breathing room, 
-      meaning it adds padding between the edge of the element and the inner content.
-    </div>
-  </div>
-
-</div>
-
-
 
 <!-- Layout: Content
   ================================================== -->
@@ -157,11 +126,28 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3>Header</h3>
 
+  <p>
+    Headers are fixed regions at the top of a view that can contain
+    a title label, and left/right buttons.
+  </p>
+
 {% highlight html %}
 <div class="header">
   ...
 </div>
 {% endhighlight %}
+
+<p>Headers come in a variety of flavors:</p>
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
+    <div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
+    <div class="bar bar-header bar-primary"><h1 class="title">Primary</h1></div>
+    <div class="bar bar-header bar-info"><h1 class="title">Info</h1></div>
+    <div class="bar bar-header bar-success"><h1 class="title">Success</h1></div>
+    <div class="bar bar-header bar-warning"><h1 class="title">Warning</h1></div>
+    <div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
+    <div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
+  </div>
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-secondary">
@@ -249,3 +235,29 @@ title: "Ionic Framework - Documentation and Guide"
   <p>whats included</p>
 
 </div>
+
+
+<!-- Layout: Utility Classes
+  ================================================== -->
+<div class="docs-section" id="layout-utility">
+  <h3>Layout Utility Classes</h3>
+  <p>
+    Many components in Ionic do not have padding or margin by default, to make it easier to control the inset look of certain controls like lists and content areas.
+  </p>
+  <div class="panel panel-default">
+    <div class="panel-heading">inset</div>
+    <div class="panel-body">
+      The <code>inset</code> class it used to "inset" any element, meaning it adds a margin 
+      around the element.
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">padded</div>
+    <div class="panel-body">
+      The <code>padded</code> class it used to give the element's content some breathing room, 
+      meaning it adds padding between the edge of the element and the inner content.
+    </div>
+  </div>
+
+</div>
+

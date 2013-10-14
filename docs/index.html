@@ -214,16 +214,6 @@ title: "Ionic Framework - Documentation and Guide"
     Buttons can be displayed inline, block, icon-only, or text only, and come in 
     many different styles.
   </p>
-  <div class="ionic ionic-example">
-    <button class="button button-default">Default</button>
-    <button class="button button-secondary">Secondary</button>
-    <button class="button button-primary">Primary</button>
-    <button class="button button-info">Info</button>
-    <button class="button button-success">Success</button>
-    <button class="button button-warning">Warning</button>
-    <button class="button button-danger">Danger</button>
-    <button class="button button-dark">Dark</button>
-  </div>
 {% highlight html %}
 <button class="button button-default">Default</button>
 
@@ -243,14 +233,20 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
   <div class="doc-example ionic">
     <div class="padded">
-      <button class="button button-block button-default">Default</button>
-      <button class="button button-block button-secondary">Secondary</button>
-      <button class="button button-block button-primary">Primary</button>
-      <button class="button button-block button-info">Info</button>
-      <button class="button button-block button-success">Success</button>
-      <button class="button button-block button-warning">Warning</button>
-      <button class="button button-block button-danger">Danger</button>
-      <button class="button button-block button-dark">Dark</button>
+      <div class="bar bar-header bar-secondary">
+        <button class="button button-clear button-primary">Edit</button>
+        <button class="button button-icon"><i class="icon-navicon"></i></button>
+      </div>
+      <div class="content has-header">
+        <button class="button button-block button-default">Default</button>
+        <button class="button button-block button-secondary">Secondary</button>
+        <button class="button button-block button-primary">Primary</button>
+        <button class="button button-block button-info">Info</button>
+        <button class="button button-block button-success">Success</button>
+        <button class="button button-block button-warning">Warning</button>
+        <button class="button button-block button-danger">Danger</button>
+        <button class="button button-block button-dark">Dark</button>
+      </div>
     </div>
   </div>
 
@@ -285,6 +281,12 @@ title: "Ionic Framework - Documentation and Guide"
   <h3>Icon-only Buttons</h3>
   <p>
     While icons can be added to any button at any time, to remove any border and make the icon stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
+  </p>
+
+  <h3>Buttons in Headers/Footers</h3>
+  <p>
+    When buttons are placed in headers or footers, they take the style of the 
+    bar by default, so you don't have to use the extra style classes. To change this, add the desired style class.
   </p>
 </div>
 

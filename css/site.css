@@ -5100,10 +5100,11 @@ td.visible-print {
   .left-menu li {
     display: block;
     margin: 8px 0;
-    list-style: none; }
+    list-style: none;
+    border-right: 2px solid transparent; }
     .left-menu li ul {
       display: none;
-      padding-left: 24px; }
+      padding-left: 18px; }
   .left-menu.nav li.active > a {
     border-right: 2px solid #4f8ef7;
     color: #4f8ef7; }
@@ -5138,7 +5139,7 @@ td.visible-print {
   display: none; }
 
 .docs-section + .docs-section {
-  padding-top: 30px; }
+  padding-top: 40px; }
 
 .device-preview-page {
   position: relative; }

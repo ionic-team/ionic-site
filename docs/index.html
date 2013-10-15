@@ -147,11 +147,11 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Layout: Secondary Header
+<!-- Sub Header
   ================================================== -->
-<div class="docs-section" id="header-secondary">
+<div class="docs-section" id="subheader">
 
-  <h3><a href="#header-secondary">Secondary Header</a></h3>
+  <h3><a href="#subheader">Sub Header</a></h3>
   <p>
     A secondary bar can be placed below the header bar. Also take a look at 
     <a href="#header-button-group">Button Groups</a> to get other ideas on how it could be used.
@@ -160,8 +160,8 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="bar bar-header bar-default">
   <h1 class="title">Header</h1>
 </div>
-<div class="bar bar-header-secondary bar-default">
-  <h2 class="title">Secondary Header</h2>
+<div class="bar bar-subheader bar-default">
+  <h2 class="title">Sub Header</h2>
 </div>
 {% endhighlight %}
 
@@ -169,8 +169,8 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Header</div>
     </div>
-    <div class="bar bar-header-secondary bar-secondary">
-      <div class="h2 title">Secondary Header</div>
+    <div class="bar bar-subheader bar-secondary">
+      <div class="h2 title">Sub Header</div>
     </div>
   </div>
 
@@ -178,7 +178,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Layout: Content
+<!-- Content
   ================================================== -->
 <div class="docs-section" id="content">
 
@@ -563,11 +563,12 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="buttons-headers-footers">
 
-  <h3><a href="#buttons-headers-footers">Buttons in Headers/Footers</a></h3>
+  <h3><a href="#buttons-headers-footers">Bar Buttons</a></h3>
 
   <p>
     When buttons are placed in headers or footers, they take the style of the 
-    bar by default, so you don't have to use the extra style classes. To change this, add the desired style class.
+    bar by default, so you don't have to use the extra style classes. 
+    To change this, add the desired style class.
   </p>
 
 {% highlight html %}
@@ -602,24 +603,27 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Button Group Header
   ================================================== -->
-<div class="docs-section" id="header-button-group">
+<div class="docs-section" id="button-group">
 
-  <h3><a href="#header-button-group">Button Group Header</a></h3>
+  <h3><a href="#button-group">Button Group</a></h3>
   <p>
-    A secondary bar can be placed below the header bar:
+    Buttons can be grouped together using the <code>button-bar</code> classname. 
+    In the example, a button group was added to the secondary bar, below the header bar.
   </p>
+
 {% highlight html %}
-<div class="bar bar-header bar-secondary">
-  <div class="button-bar">
-    <a class="button">Success</a>
-    <a class="button">Warning</a>
-    <a class="button">Danger</a>
-  </div>
+<div class="button-bar">
+  <a class="button">Success</a>
+  <a class="button">Warning</a>
+  <a class="button">Danger</a>
 </div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
-    <div class="bar bar-header bar-secondary">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Button Group</div>
+    </div>
+    <div class="bar bar-subheader bar-secondary">
       <div class="button-bar">
         <a class="button">Success</a>
         <a class="button">Warning</a>

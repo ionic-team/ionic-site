@@ -7,7 +7,7 @@ title: "Ionic Framework - Documentation and Guide"
   <div class="screen-bg"></div>
   <div class="default-screen ionic-body active-preview">
     <div class="content-wrapper">
-      <div class="content padded has-header">
+      <div class="content padding has-header">
       </div>
     </div>
   </div>
@@ -194,7 +194,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example">
     <div class="content-wrapper">
-      <div class="content padded">
+      <div class="content padding">
         <h1>I'm an H1!</h1>
         <h2>I'm an H2!</h2>
         <h3>I'm an H3!</h3>
@@ -241,22 +241,28 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="utility">
   <h3><a href="#utility">Utility Classes</a></h3>
   <p>
-    Many components in Ionic purposely do not have padding or margin by default.
-    By starting each component at zero, this allows developers to easily 
-    control the inset and layout look of any component.
+    Many components in Ionic purposely have both padding and margin reset set to zero.
+    I many instances mobile apps let components bleed to the edge of the screen, and 
+    by starting each component at zero this allows developers to easily 
+    control the common margins and padding throughout the app. 
   </p>
   <div class="panel panel-default">
-    <div class="panel-heading">inset</div>
+    <div class="panel-heading">margin</div>
     <div class="panel-body">
-      The <code>inset</code> class it used to "inset" any element, meaning it adds a margin 
-      around the element.
+      The <code>margin</code> classname is used to "inset" any element from its parent container. 
+      Meaning it adds a common margin between itself and its parent. Margin is useful when its
+      parent has no margins at all, but a specific element should be inset a common distance. 
+    </p>
+    <p>
+      For example, text inputs may want to stretch 100% of the display, however, 
+      the button to submit the form may need to be inset for a better apperance.
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">padded</div>
+    <div class="panel-heading">padding</div>
     <div class="panel-body">
-      The <code>padded</code> class it used to give the element's content some breathing room, 
-      meaning it adds padding between the edge of the element and the inner content.
+      The <code>padding</code> class it used to give the element's content some breathing room, 
+      meaning it adds padding between the edge of the element and its inner content.
     </div>
   </div>
 
@@ -286,7 +292,7 @@ title: "Ionic Framework - Documentation and Guide"
     Buttons can be displayed inline, block, icon-only, or text only, and come in 
     many different styles. By default a button has <code>display: block</code>  
     applied so it goes the full width of its parent. For the full width to take
-    affect, a parent cannot have the <code>padded</code> classname assigned.
+    affect, a parent cannot have the <code>padding</code> classname assigned.
   </p>
 
 {% highlight html %}
@@ -351,7 +357,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Inset Buttons</div>
     </div>
     <div class="content-wrapper">
-      <div class="content padded has-header" style="padding-top: 1px">
+      <div class="content padding has-header" style="padding-top: 1px">
         <button class="button button-default">button-default</button>
         <button class="button button-secondary">button-secondary</button>
         <button class="button button-primary">button-primary</button>
@@ -390,7 +396,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Inline Buttons</div>
     </div>
     <div class="content-wrapper">
-      <div class="content padded has-header">
+      <div class="content padding has-header">
         <p>
           <button class="button button-inline button-default">button-default</button>
         </p>
@@ -445,7 +451,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Outlined Buttons</div>
     </div>
     <div class="content-wrapper">
-      <div class="content padded has-header">
+      <div class="content padding has-header">
         <p>
           <button class="button button-outline button-default">button-default</button>
         </p>
@@ -502,7 +508,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Clear Buttons</div>
     </div>
     <div class="content-wrapper">
-      <div class="content padded has-header">
+      <div class="content padding has-header">
         <p>
           <button class="button button-clear button-default">button-default</button>
         </p>
@@ -553,7 +559,7 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
-    <div class="padded">
+    <div class="padding">
       <div class="bar bar-header bar-default">
         <button class="button button-icon"><i class="icon-navicon"></i></button>
         <div class="h1 title">Icon Only</div>
@@ -625,7 +631,7 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
-    <div class="padded">
+    <div class="padding">
       <div class="bar bar-header bar-default">
         <button class="button button-clear button-primary">
           Edit
@@ -807,7 +813,7 @@ title: "Ionic Framework - Documentation and Guide"
     An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
     is used to designate each individual input field and it's associated label. By default each 
     input row will fill 100% of the width of its parent element. However, you can use the <a href="#utility">utility</a>
-    classnames of <code>inset</code> and <code>padded</code> to change their placement.
+    classnames of <code>inset</code> and <code>padding</code> to change their placement.
   </p>
   <p>
     Ionic prefers to create an <code>input-row</code> out of the <code>&lt;label&gt;</code> element 
@@ -819,7 +825,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Forms</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header padded-top">
+      <div class="content has-header padding-top">
         <div class="input-group">
           <label class="input-row">
             <input type="text" placeholder="First Name">

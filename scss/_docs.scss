@@ -88,8 +88,11 @@
 
   h2 {
     padding-bottom: 16px;
-    border-bottom: 1px solid #ddd;
     transition: color .1s ease-in-out;
+    a {
+    line-height: 1.9em;
+      border-bottom: 1px solid #ddd;
+    }
   }
   h3 {
     border-bottom: 1px solid transparent;

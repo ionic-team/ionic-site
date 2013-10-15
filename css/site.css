@@ -5126,8 +5126,10 @@ td.visible-print {
     margin-bottom: 0; }
   .docs-section h2 {
     padding-bottom: 16px;
-    border-bottom: 1px solid #dddddd;
     transition: color 0.1s ease-in-out; }
+    .docs-section h2 a {
+      line-height: 1.9em;
+      border-bottom: 1px solid #dddddd; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;

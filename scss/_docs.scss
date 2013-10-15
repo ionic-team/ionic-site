@@ -107,10 +107,10 @@
   h2 a:hover,
   h3 a:hover {
     text-decoration: none;
-    opacity: .7;
   }
 
   &.active {
+    opacity: 1;
     h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
       color: $brand-primary;
@@ -118,7 +118,7 @@
   }
 }
 .docs-section:last-child {
-  padding-bottom: 400px;
+  padding-bottom: 500px;
 }
 
 .doc-example {

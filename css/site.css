@@ -259,7 +259,7 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #888888;
+  color: #777777;
   background-color: white; }
 
 input,
@@ -1589,7 +1589,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #c8c8c8; }
+  color: #b7b7b7; }
 
 @media (min-width: 768px) {
   .form-inline .form-group, .navbar-form .form-group {
@@ -3557,7 +3557,7 @@ a.thumbnail:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #888888; }
+  color: #777777; }
 
 .alert {
   padding: 15px;
@@ -5140,14 +5140,15 @@ td.visible-print {
     opacity: 1; }
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
-    text-decoration: none;
-    opacity: .7; }
-  .docs-section.active h2 a, .docs-section.active h3 a {
-    border-bottom: 1px solid #4f8ef7;
-    color: #4f8ef7; }
+    text-decoration: none; }
+  .docs-section.active {
+    opacity: 1; }
+    .docs-section.active h2 a, .docs-section.active h3 a {
+      border-bottom: 1px solid #4f8ef7;
+      color: #4f8ef7; }
 
 .docs-section:last-child {
-  padding-bottom: 400px; }
+  padding-bottom: 500px; }
 
 .doc-example {
   display: none; }

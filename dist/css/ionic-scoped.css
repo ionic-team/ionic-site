@@ -1117,6 +1117,14 @@
     display: none !important; }
   .ionic .padded {
     padding: 10px; }
+  .ionic .padded-top {
+    padding-top: 10px; }
+  .ionic .padded-right {
+    padding-right: 10px; }
+  .ionic .padded-bottom {
+    padding-bottom: 10px; }
+  .ionic .padded-left {
+    padding-left: 10px; }
   .ionic .padded-2 {
     padding: 20px; }
   .ionic .inset {

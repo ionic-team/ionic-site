@@ -279,7 +279,8 @@ title: "Ionic Framework - Documentation and Guide"
   <p>
     Buttons can be displayed inline, block, icon-only, or text only, and come in 
     many different styles. By default a button has <code>display: block</code>  
-    applied so it goes the full width of its parent.
+    applied so it goes the full width of its parent. For the full width to take
+    affect, a parent cannot have the <code>padded</code> classname assigned.
   </p>
 
 {% highlight html %}
@@ -301,8 +302,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
-    <div class="">
-      <div class="content">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header" style="padding-top: 1px">
         <button class="button button-default">button-default</button>
         <button class="button button-secondary">button-secondary</button>
         <button class="button button-primary">button-primary</button>
@@ -337,8 +341,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inset Buttons</div>
+    </div>
     <div class="content-wrapper">
-      <div class="content padded">
+      <div class="content padded has-header" style="padding-top: 1px">
         <button class="button button-default">button-default</button>
         <button class="button button-secondary">button-secondary</button>
         <button class="button button-primary">button-primary</button>
@@ -373,8 +380,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inline Buttons</div>
+    </div>
     <div class="content-wrapper">
-      <div class="content padded">
+      <div class="content padded has-header">
         <p>
           <button class="button button-inline button-default">button-default</button>
         </p>
@@ -425,8 +435,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Outlined Buttons</div>
+    </div>
     <div class="content-wrapper">
-      <div class="content padded">
+      <div class="content padded has-header">
         <p>
           <button class="button button-outline button-default">button-default</button>
         </p>
@@ -466,7 +479,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#buttons-text-only">Text-only Buttons</a></h3>
 
   <p>
-    Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to 
+    Text-only buttons are a predominate feature in modern apps. Add <code>button-clear</code> to any button to 
     remove the border and make the text stand out. Note: The text will take the color of the applied 
     button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
     By default clear buttons have <code>display: inline-block</code> applied.
@@ -474,13 +487,16 @@ title: "Ionic Framework - Documentation and Guide"
 
 {% highlight html %}
 <button class="button button-clear button-primary">
-  Clear Button
+  Text-only Buttons
 </button>
 {% endhighlight %}
 
   <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Clear Buttons</div>
+    </div>
     <div class="content-wrapper">
-      <div class="content padded">
+      <div class="content padded has-header">
         <p>
           <button class="button button-clear button-default">button-default</button>
         </p>
@@ -516,18 +532,29 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Icon-only Buttons
   ================================================== -->
 <div class="docs-section" id="buttons-icon-only">
+
   <h3><a href="#buttons-icon-only">Icon-only Buttons</a></h3>
+
   <p>
     While icons can be added to any button at any time, to remove any border and make the icon 
     stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
   </p>
+
+{% highlight html %}
+<button class="button button-icon">
+  <i class="icon-navicon"></i>
+</button>
+{% endhighlight %}
+
   <div class="doc-example ionic">
     <div class="padded">
       <div class="bar bar-header bar-secondary">
         <button class="button button-icon"><i class="icon-navicon"></i></button>
+        <div class="h1 title">Icon Only</div>
       </div>
     </div>
   </div>
+
 </div>
 
 
@@ -548,6 +575,7 @@ title: "Ionic Framework - Documentation and Guide"
   <button class="button button-clear button-primary">
     Edit
   </button>
+  <h1 class="title">Header Buttons</h1>
   <button class="button button-icon">
     <i class="icon-navicon"></i>
   </button>
@@ -560,6 +588,7 @@ title: "Ionic Framework - Documentation and Guide"
         <button class="button button-clear button-primary">
           Edit
         </button>
+        <div class="h1 title">Header Buttons</div>
         <button class="button button-icon">
           <i class="icon-navicon"></i>
         </button>

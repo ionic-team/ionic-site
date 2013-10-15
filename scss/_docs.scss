@@ -42,7 +42,6 @@
   li {
     display: block;
     margin: 8px 0;
-    border-right: 2px solid transparent;
     list-style: none;
 
     ul {
@@ -97,9 +96,19 @@
     line-height: 1.9em;
     transition: color .1s ease-in-out;
   }
+  h2 a, h3 a {
+    color: #222;
+    display: block;
+    opacity: 1;
+  }
+  h2 a:hover,
+  h3 a:hover {
+    text-decoration: none;
+    opacity: .7;
+  }
 
   &.active {
-    h2, h3 {
+    h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
       color: $brand-primary;
     }

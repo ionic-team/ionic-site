@@ -5100,7 +5100,6 @@ td.visible-print {
   .left-menu li {
     display: block;
     margin: 8px 0;
-    border-right: 2px solid transparent;
     list-style: none; }
     .left-menu li ul {
       display: none;
@@ -5133,7 +5132,15 @@ td.visible-print {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;
     transition: color 0.1s ease-in-out; }
-  .docs-section.active h2, .docs-section.active h3 {
+  .docs-section h2 a, .docs-section h3 a {
+    color: #222;
+    display: block;
+    opacity: 1; }
+  .docs-section h2 a:hover,
+  .docs-section h3 a:hover {
+    text-decoration: none;
+    opacity: .7; }
+  .docs-section.active h2 a, .docs-section.active h3 a {
     border-bottom: 1px solid #4f8ef7;
     color: #4f8ef7; }
 

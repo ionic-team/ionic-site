@@ -19,7 +19,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 <div class="docs-section active" id="overview">
 
-  <h2>Preamble</h2>
+  <h2><a href="#overview">Preamble</a></h2>
 
   <p>Before you start building your Ionic app, you'll need to have a few things in place.<p>
 
@@ -41,7 +41,7 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Layout
   ================================================== -->
 <div class="docs-section" id="layout">
-  <h2>Layout &amp; Structure</h2>
+  <h2><a href="#layout">Layout &amp; Structure</a></h2>
   <p>
     Ionic's layout is based off common native app layouts. In order to make your app feel native, you'll need to make sure you follow
     certain HTML markup guidelines. Check out the <a href="/getting-started/#basic-template">Basic Template</a> in the 
@@ -54,13 +54,13 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Layout: Header
   ================================================== -->
-<div class="docs-section" id="layout-header">
+<div class="docs-section" id="header">
 
-  <h3>Header</h3>
+  <h3><a href="#header">Header</a></h3>
 
   <p>
     Headers are fixed regions at the top of a view that can contain
-    a title label, and left/right buttons.
+    a title label, and <a href="#buttons-headers-footers">left/right buttons</a>.
   </p>
 
   <p>Headers come in a variety of fun flavors:</p>
@@ -149,9 +149,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Layout: Secondary Header
   ================================================== -->
-<div class="docs-section" id="layout-header-secondary">
+<div class="docs-section" id="header-secondary">
 
-  <h3>Secondary Header</h3>
+  <h3><a href="#header-secondary">Secondary Header</a></h3>
   <p>
     A secondary bar can be placed below the header bar. Also take a look at 
     <a href="#header-button-group">Button Groups</a> to get other ideas on how it could be used.
@@ -180,9 +180,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Layout: Content
   ================================================== -->
-<div class="docs-section" id="layout-content">
+<div class="docs-section" id="content">
 
-  <h3>Content</h3>
+  <h3><a href="#content">Content</a></h3>
 
 {% highlight html %}
 <div class="content-wrapper">
@@ -212,9 +212,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Layout: Footer
   ================================================== -->
-<div class="docs-section" id="layout-footer">
+<div class="docs-section" id="footer">
 
-  <h3>Footer</h3>
+  <h3><a href="#footer">Footer</a></h3>
 
 {% highlight html %}
 <div class="bar bar-footer">
@@ -239,7 +239,7 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Utility Classes
   ================================================== -->
 <div class="docs-section" id="utility">
-  <h3>Utility Classes</h3>
+  <h3><a href="#utility">Utility Classes</a></h3>
   <p>
     Many components in Ionic purposely do not have padding or margin by default.
     By starting each component at zero, this allows developers to easily 
@@ -267,7 +267,7 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Components
   ================================================== -->
 <div class="docs-section" id="components">
-  <h2>Components</h2>
+  <h2><a href="#components">Components</a></h2>
 </div>
 
 
@@ -275,10 +275,11 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Buttons
   ================================================== -->
 <div class="docs-section" id="buttons">
-  <h3>Buttons</h3>
+  <h3><a href="#buttons">Buttons</a></h3>
   <p>
     Buttons can be displayed inline, block, icon-only, or text only, and come in 
-    many different styles.
+    many different styles. By default a button has <code>display: block</code>  
+    applied so it goes the full width of its parent.
   </p>
 
 {% highlight html %}
@@ -302,44 +303,18 @@ title: "Ionic Framework - Documentation and Guide"
   <div class="doc-example ionic">
     <div class="">
       <div class="content">
-        <button class="button button-block button-default">button-default</button>
-        <button class="button button-block button-secondary">button-secondary</button>
-        <button class="button button-block button-primary">button-primary</button>
-        <button class="button button-block button-info">button-info</button>
-        <button class="button button-block button-success">button-success</button>
-        <button class="button button-block button-warning">button-warning</button>
-        <button class="button button-block button-danger">button-danger</button>
-        <button class="button button-block button-dark">button-dark</button>
+        <button class="button button-default">button-default</button>
+        <button class="button button-secondary">button-secondary</button>
+        <button class="button button-primary">button-primary</button>
+        <button class="button button-info">button-info</button>
+        <button class="button button-success">button-success</button>
+        <button class="button button-warning">button-warning</button>
+        <button class="button button-danger">button-danger</button>
+        <button class="button button-dark">button-dark</button>
       </div>
     </div>
   </div>
-</div>
 
-
-
-<!-- Block Buttons
-  ================================================== -->
-<div class="docs-section" id="buttons-block">
-  <h3>Block Buttons</h3>
-
-  <p>
-  Block buttons take up the full width of their parent container, and make themselves really hard to miss. 
-  Add the <code>button-block</code> class to make any button a block button.
-  </p>
-
-{% highlight html %}
-<button class="button button-block button-primary">
-  Primary
-</button>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="padded">
-      <div class="content">
-        <button class="button button-block button-primary">Block Button</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 
@@ -347,25 +322,51 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Inline Buttons
   ================================================== -->
 <div class="docs-section" id="buttons-inline">
-  <h3>Inline Buttons</h3>
+
+  <h3><a href="#buttons-inline">Inline Buttons</a></h3>
 
   <p>
-  ...
+    Use the <code>button-inline</code> classname to apply a 
+    <code>display: inline-block</code> display.
   </p>
 
 {% highlight html %}
-<button class="button button-block button-primary">
-  Primary
+<button class="button button-inline button-primary">
+  Inline Button
 </button>
 {% endhighlight %}
 
   <div class="doc-example ionic">
-    <div class="padded">
-      <div class="content">
-        <button class="button button-primary">Inline Button</button>
+    <div class="content-wrapper">
+      <div class="content padded">
+        <p>
+          <button class="button button-inline button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-inline button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-inline button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-inline button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-inline button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-inline button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-inline button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-inline button-dark">button-dark</button>
+        </p>
       </div>
     </div>
   </div>
+
 </div>
 
 
@@ -373,15 +374,51 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Outlined Buttons
   ================================================== -->
 <div class="docs-section" id="buttons-outlined">
-  <h3>Outlined Buttons</h3>
+
+  <h3><a href="#buttons-outlined">Outlined Buttons</a></h3>
+
   <p>
-  ...
+    Use the <code>button-outline</code> classname to apply an outline button style.
+    By default outlined buttons have <code>display: inline-block</code> applied.
   </p>
+
+{% highlight html %}
+<button class="button button-outline button-primary">
+  Outlined Button
+</button>
+{% endhighlight %}
+
   <div class="doc-example ionic">
-    <div class="padded">
-      <button class="button button-clear button-primary">Open</button>
+    <div class="content-wrapper">
+      <div class="content padded">
+        <p>
+          <button class="button button-outline button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-outline button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-outline button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-outline button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-outline button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-outline button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-outline button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-outline button-dark">button-dark</button>
+        </p>
+      </div>
     </div>
   </div>
+
 </div>
 
 
@@ -389,17 +426,53 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Text-only Buttons
   ================================================== -->
 <div class="docs-section" id="buttons-text-only">
-  <h3>Text-only Buttons</h3>
+
+  <h3><a href="#buttons-text-only">Text-only Buttons</a></h3>
+
   <p>
-  Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to 
-  remove the border and make the text stand out. Note: The text will take the color of the applied 
-  button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
+    Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to 
+    remove the border and make the text stand out. Note: The text will take the color of the applied 
+    button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
+    By default clear buttons have <code>display: inline-block</code> applied.
   </p>
+
+{% highlight html %}
+<button class="button button-clear button-primary">
+  Clear Button
+</button>
+{% endhighlight %}
+
   <div class="doc-example ionic">
-    <div class="padded">
-      <button class="button button-clear button-primary">Edit</button>
+    <div class="content-wrapper">
+      <div class="content padded">
+        <p>
+          <button class="button button-clear button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-clear button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-clear button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-clear button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-clear button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-clear button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-clear button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-clear button-dark">button-dark</button>
+        </p>
+      </div>
     </div>
   </div>
+
 </div>
 
 
@@ -407,7 +480,7 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Icon-only Buttons
   ================================================== -->
 <div class="docs-section" id="buttons-icon-only">
-  <h3>Icon-only Buttons</h3>
+  <h3><a href="#buttons-icon-only">Icon-only Buttons</a></h3>
   <p>
     While icons can be added to any button at any time, to remove any border and make the icon 
     stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
@@ -427,7 +500,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="buttons-headers-footers">
 
-  <h3>Buttons in Headers/Footers</h3>
+  <h3><a href="#buttons-headers-footers">Buttons in Headers/Footers</a></h3>
 
   <p>
     When buttons are placed in headers or footers, they take the style of the 
@@ -466,7 +539,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="header-button-group">
 
-  <h3>Button Group Header</h3>
+  <h3><a href="#header-button-group">Button Group Header</a></h3>
   <p>
     A secondary bar can be placed below the header bar:
   </p>
@@ -498,7 +571,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="navbar">
 
-  <h3>Nav Bar</h3>
+  <h3><a href="#navbar">Nav Bar</a></h3>
 
   <p>
     ...
@@ -529,7 +602,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="sidemenu">
 
-  <h3>Side Menu</h3>
+  <h3><a href="#sidemenu">Side Menu</a></h3>
 
   <p>
     ...
@@ -560,7 +633,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="tabbar">
 
-  <h3>Tab Bar</h3>
+  <h3><a href="#tabbar">Tab Bar</a></h3>
 
   <p>
     ...
@@ -591,7 +664,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="listview">
 
-  <h3>List View</h3>
+  <h3><a href="#listview">List View</a></h3>
 
   <p>
     ...
@@ -622,7 +695,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="cards">
 
-  <h3>Cards</h3>
+  <h3><a href="#cards">Cards</a></h3>
 
   <p>
     ...
@@ -653,7 +726,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="modals">
 
-  <h3>Modals</h3>
+  <h3><a href="#modals">Modals</a></h3>
 
   <p>
     ...
@@ -684,7 +757,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="action-sheets">
 
-  <h3>Action Sheets</h3>
+  <h3><a href="#action-sheets">Action Sheets</a></h3>
 
   <p>
     ...
@@ -715,7 +788,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="forms">
 
-  <h3>Forms &amp; Inputs</h3>
+  <h3><a href="#forms">Forms &amp; Inputs</a></h3>
 
   <p>
     An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
@@ -754,7 +827,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="forms-placeholder-labels">
 
-  <h3>Text Input: Placeholder Labels</h3>
+  <h3><a href="#forms-placeholder-labels">Text Input: Placeholder Labels</a></h3>
 
   <p>
     In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
@@ -802,7 +875,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="forms-inline-labels">
 
-  <h3>Text Input: Inline Labels</h3>
+  <h3><a href="#forms-inline-labels">Text Input: Inline Labels</a></h3>
 
   <p>
     Use <code>input-label</code> to place a label to the left of the input element. When the user 
@@ -851,7 +924,7 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="forms-stacked-labels">
 
-  <h3>Text Input: Stacked Labels</h3>
+  <h3><a href="#forms-stacked-labels">Text Input: Stacked Labels</a></h3>
 
   <p>
     Stacked labels always places the label on top of the input.
@@ -904,11 +977,42 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
+<!-- Checkbox
+  ================================================== -->
+<div class="docs-section" id="checkbox">
+
+  <h3><a href="#checkbox">Checkbox</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Checkbox</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <!-- Toggle
   ================================================== -->
-<div class="docs-section" id="components-toggle">
+<div class="docs-section" id="toggle">
 
-  <h3>Toggle</h3>
+  <h3><a href="#toggle">Toggle</a></h3>
 
   <p>
     A toggle technically is the same thing as an HTML checkbox input, 
@@ -952,9 +1056,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Radio Buttons
   ================================================== -->
-<div class="docs-section" id="components-radiobuttons">
+<div class="docs-section" id="radio-buttons">
 
-  <h3>Radio Buttons</h3>
+  <h3><a href="#radio-buttons">Radio Buttons</a></h3>
 
   <p>
     ...
@@ -983,9 +1087,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Alerts
   ================================================== -->
-<div class="docs-section" id="components-alerts">
+<div class="docs-section" id="alerts">
 
-  <h3>Alerts</h3>
+  <h3><a href="#alerts">Alerts</a></h3>
 
   <p>
     ...

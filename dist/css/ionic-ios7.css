@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * Adapted from normalize.css and some reset.css. We don't care even one
 * bit about old IE, so we don't need any hacks for that in here.
@@ -19,7 +20,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
+article, aside, canvas, details, embed, fieldset,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -306,6 +307,13 @@ table {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+a {
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent; }
+
+a:focus, button:focus {
+  outline: 0; }
+
 body, .ionic-body {
   position: fixed;
   top: 0;
@@ -315,6 +323,7 @@ body, .ionic-body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  color: black;
   word-wrap: break-word;
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -323,7 +332,9 @@ body, .ionic-body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  -webkit-user-select: none; }
 
 .view-full {
   position: fixed;
@@ -341,16 +352,19 @@ body, .ionic-body {
 .content-wrapper {
   position: absolute;
   top: 0;
-  height: 100%;
-  width: 100%;
   overflow: auto;
+  width: 100%;
+  height: 100%;
   -webkit-overflow-scrolling: touch; }
 
 .has-header {
   margin-top: 44px; }
 
+.has-footer {
+  margin-bottom: 44px; }
+
 .has-tabs {
-  bottom: 49px; }
+  margin-bottom: 84px; }
 
 .page, .full-section {
   position: fixed;
@@ -372,14 +386,21 @@ body, .ionic-body {
 .platform-ios7 .has-header {
   margin-top: 64px; }
 
-.hidden, .hide {
+.hidden,
+.hide {
   display: none !important; }
 
 .padded {
   padding: 10px; }
 
+.padded-2 {
+  padding: 20px; }
+
 .inset {
   margin: 10px; }
+
+.inset-2 {
+  margin: 20px; }
 
 .rounded {
   border-radius: 4px; }
@@ -389,8 +410,8 @@ p {
 
 .lead {
   margin-bottom: 20px;
-  font-size: 16.1px;
   font-weight: 200;
+  font-size: 16.1px;
   line-height: 1.4; }
 
 small {
@@ -410,8 +431,9 @@ cite {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
   font-weight: 500;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.1; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
   .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
@@ -472,12 +494,12 @@ dd {
   margin-left: 0; }
 
 blockquote {
-  padding: 10px 20px;
   margin: 0 0 20px;
+  padding: 10px 20px;
   border-left: 5px solid gray; }
   blockquote p {
-    font-size: 17.5px;
     font-weight: 300;
+    font-size: 17.5px;
     line-height: 1.25; }
   blockquote p:last-child {
     margin-bottom: 0; }
@@ -538,34 +560,50 @@ address {
     background-color: rgba(255, 255, 255, 0.9);
     border-color: #dddddd;
     color: #333333; }
+    .bar.bar-default .title {
+      color: #333333; }
   .bar.bar-secondary {
     background-color: rgba(245, 245, 245, 0.9);
     border-color: #bbbbbb;
     color: #333333; }
+    .bar.bar-secondary .title {
+      color: #333333; }
   .bar.bar-primary {
     background-color: rgba(74, 135, 238, 0.9);
     border-color: #3b6dc2;
     color: white; }
+    .bar.bar-primary .title {
+      color: white; }
   .bar.bar-info {
     background-color: rgba(67, 206, 230, 0.9);
     border-color: #3bb3c8;
     color: white; }
+    .bar.bar-info .title {
+      color: white; }
   .bar.bar-success {
     background-color: rgba(102, 204, 51, 0.9);
     border-color: #5bb22f;
     color: white; }
+    .bar.bar-success .title {
+      color: white; }
   .bar.bar-warning {
     background-color: rgba(240, 184, 64, 0.9);
     border-color: #d29f31;
     color: white; }
+    .bar.bar-warning .title {
+      color: white; }
   .bar.bar-danger {
     background-color: rgba(239, 78, 58, 0.9);
     border-color: #c73927;
     color: white; }
+    .bar.bar-danger .title {
+      color: white; }
   .bar.bar-dark {
     background-color: rgba(68, 68, 68, 0.9);
     border-color: #111111;
     color: white; }
+    .bar.bar-dark .title {
+      color: white; }
   .bar .title {
     position: absolute;
     z-index: 0;
@@ -743,7 +781,8 @@ address {
 
 .bar .button-icon {
   background-color: transparent;
-  border: 1px solid transparent; }
+  border: 1px solid transparent;
+  font-size: 24px; }
 
 .bar-header {
   top: 0; }
@@ -908,6 +947,7 @@ address {
 .list {
   margin-bottom: 20px;
   padding-left: 0;
+  position: relative;
   color: #333333;
   background-color: white;
   border-color: #dddddd; }
@@ -930,11 +970,13 @@ address {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12);
       border-color: #52a329; }
 
+/**
+ * An individual list item.
+ */
 .list-item {
   position: relative;
   display: block;
   margin-bottom: -1px;
-  padding: 15px 15px;
   background-color: white;
   border: 1px solid #dddddd; }
   .list-item:last-child {
@@ -959,6 +1001,9 @@ address {
       color: #333333;
       background-color: white;
       border-color: #333333; }
+      .list-item.list-item-default.active .list-item-content, .list-item.list-item-default:active .list-item-content {
+        background-color: white;
+        color: #333333; }
   .list-item.list-item-secondary {
     /*
     color: $color;
@@ -969,6 +1014,9 @@ address {
       color: #333333;
       background-color: white;
       border-color: #333333; }
+      .list-item.list-item-secondary.active .list-item-content, .list-item.list-item-secondary:active .list-item-content {
+        background-color: white;
+        color: #333333; }
   .list-item.list-item-primary {
     /*
     color: $color;
@@ -979,6 +1027,9 @@ address {
       color: white;
       background-color: #4a87ee;
       border-color: #333333; }
+      .list-item.list-item-primary.active .list-item-content, .list-item.list-item-primary:active .list-item-content {
+        background-color: #4a87ee;
+        color: white; }
   .list-item.list-item-info {
     /*
     color: $color;
@@ -989,6 +1040,9 @@ address {
       color: white;
       background-color: #43cee6;
       border-color: #333333; }
+      .list-item.list-item-info.active .list-item-content, .list-item.list-item-info:active .list-item-content {
+        background-color: #43cee6;
+        color: white; }
   .list-item.list-item-success {
     /*
     color: $color;
@@ -999,6 +1053,9 @@ address {
       color: white;
       background-color: #66cc33;
       border-color: #333333; }
+      .list-item.list-item-success.active .list-item-content, .list-item.list-item-success:active .list-item-content {
+        background-color: #66cc33;
+        color: white; }
   .list-item.list-item-warning {
     /*
     color: $color;
@@ -1009,6 +1066,9 @@ address {
       color: white;
       background-color: #f0b840;
       border-color: #333333; }
+      .list-item.list-item-warning.active .list-item-content, .list-item.list-item-warning:active .list-item-content {
+        background-color: #f0b840;
+        color: white; }
   .list-item.list-item-danger {
     /*
     color: $color;
@@ -1019,6 +1079,9 @@ address {
       color: white;
       background-color: #ef4e3a;
       border-color: #333333; }
+      .list-item.list-item-danger.active .list-item-content, .list-item.list-item-danger:active .list-item-content {
+        background-color: #ef4e3a;
+        color: white; }
   .list-item.list-item-dark {
     /*
     color: $color;
@@ -1029,6 +1092,9 @@ address {
       color: white;
       background-color: #444444;
       border-color: #333333; }
+      .list-item.list-item-dark.active .list-item-content, .list-item.list-item-dark:active .list-item-content {
+        background-color: #444444;
+        color: white; }
 
 a.list-item {
   color: #333333;
@@ -1036,22 +1102,108 @@ a.list-item {
   a.list-item:hover, a.list-item:focus {
     text-decoration: none; }
 
-.list-item-content {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background-color: white;
-  -webkit-transition: left 1s ease-in-out, right 1s ease-in-out; }
+/**
+ * List editing styles. These trigger when the entire list goes into
+ * "edit mode"
+ */
+.list-editing .list-item-content {
+  margin-left: 30px;
+  margin-right: 30px; }
+.list-editing .list-item-edit {
+  left: 0px;
+  opacity: 1; }
 
-.list-item-buttons {
+/**
+ * The content area of a complex list item. This area can
+ * Slide left and right and be dragged to support different
+ * UI interactions.
+ */
+.list-item-content {
+  position: relative;
+  background-color: #fff;
+  z-index: 2;
+  padding: 15px 15px;
+  -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
+  .list-item-content > i:last-child {
+    float: right; }
+  .list-item-content > .toggle:last-child, .list-item-content input:last-child, .list-item-content > button:last-child {
+    float: right; }
+  .list-item-content > .toggle:last-child {
+    margin-top: -5px; }
+
+.list-item-sliding {
+  -webkit-transition: -webkit-transform 0.1s ease-in-out; }
+
+.list-item-reordering {
+  position: absolute;
+  width: 100%; }
+
+.list-item-placeholder {
+  opacity: 0.7; }
+
+/**
+ * The left-side edit area of a complex list item. This area shows
+ * whe the list item is in edit mode.
+ */
+.list-item-edit {
+  position: absolute;
+  z-index: 0;
+  left: -48px;
+  top: 0;
+  width: 48px;
+  height: 100%;
+  line-height: 100%;
+  opacity: 0;
+  -webkit-transition: left 0.2s ease-in-out, opacity 0.2s ease-in-out; }
+  .list-item-edit .button {
+    height: 100%; }
+  .list-item-edit i {
+    color: #ef4e3a;
+    font-size: 24px; }
+  .list-item-edit.ng-enter {
+    -webkit-transition: left 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    left: -48px;
+    opacity: 0; }
+  .list-item-edit.ng-enter-active {
+    opacity: 1;
+    left: 0; }
+  .list-item-edit.ng-leave {
+    -webkit-transition: left 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    left: 0px;
+    opacity: 1; }
+  .list-item-edit.ng-leave-active {
+    opacity: 0;
+    left: -48px; }
+
+.list-item-drag {
   position: absolute;
   z-index: 0;
   right: 0;
-  top: 0; }
+  top: 0;
+  height: 100%; }
+  .list-item-drag .button {
+    height: 100%;
+    border-radius: 0;
+    border: none; }
 
+/**
+ * The hidden right-side buttons that can be exposed under a list item
+ * with dragging.
+ */
+.list-item-buttons {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  height: 100%; }
+  .list-item-buttons .button {
+    height: 100%;
+    border-radius: 0;
+    border: none; }
+
+/**
+ * A list divider.
+ */
 .list-divider {
   padding: 5px 15px;
   background-color: whitesmoke;
@@ -1068,11 +1220,6 @@ a.list-item {
 
 form {
   margin: 0 0 1.42857; }
-
-fieldset {
-  margin: 0;
-  padding: 0;
-  border: 0; }
 
 legend {
   display: block;
@@ -1104,49 +1251,67 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .input-group {
+  display: block;
   overflow: hidden;
-  /*
-  border-top: $input-border-width solid $input-border-color;
-  border-bottom: $input-border-width solid $input-border-color;
-  background-color: $input-bg;
-  */ }
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  background-color: white; }
 
 .padded > .input-group,
 .input-group.inset {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  /*
-  border-right: $input-border-width solid $input-border-color;
-  border-left: $input-border-width solid $input-border-color;
-  */ }
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc; }
 
-.input-group .input-wrapper + .input-wrapper {
+.input-group .input-row + .input-row {
   border-top: 1px solid #cccccc; }
 
 .input-group + .input-group {
   margin-top: 10px; }
 
-.input-wrapper {
+.input-row {
   position: relative;
-  display: block;
+  display: -webkit-flex;
+  display: flex;
   overflow: hidden;
   padding: 6px 8px 5px; }
-  .input-wrapper input {
+  .input-row input {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
     margin: 0;
     background-color: transparent;
+    flex: 1 0 220px;
     -webkit-appearance: none; }
-  .input-wrapper .input-label {
+  .input-row .input-label {
+    padding: 7px 10px 7px 3px;
+    max-width: 200px;
+    color: black;
     font-weight: bold;
-    line-height: 34px; }
+    flex: 1 0 100px; }
+  .input-row [class^="icon-"], .input-row [class*=" icon-"] {
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    flex: 0 0 24px;
+    align-self: center; }
+  .input-row .placeholder-icon {
+    color: #999; }
 
 .input-group.stacked-label,
-.input-group.stacked-label .input-wrapper {
+.input-group.stacked-label .input-row {
+  display: block;
   border: 0;
   background-color: transparent; }
+  .input-group.stacked-label .input-label, .input-group.stacked-label [class^="icon-"], .input-group.stacked-label [class*=" icon-"],
+  .input-group.stacked-label .input-row .input-label,
+  .input-group.stacked-label .input-row [class^="icon-"],
+  .input-group.stacked-label .input-row [class*=" icon-"] {
+    display: inline-block;
+    padding: 4px 0;
+    vertical-align: middle; }
 
 .input-group.stacked-label input,
 .input-group.stacked-label textarea {
@@ -1160,13 +1325,6 @@ textarea {
 
 .input-group.stacked-label input {
   height: 46px; }
-
-.input-wrapper.row {
-  margin-right: 0;
-  margin-left: 0; }
-  .input-wrapper.row [class*='col-'] {
-    padding-right: 0;
-    padding-left: 0; }
 
 select,
 textarea,
@@ -1393,34 +1551,37 @@ input[type="checkbox"][readonly] {
 
 .button {
   position: relative;
-  display: inline-block;
-  margin: 0;
+  display: block;
+  margin: 10px 0 10px 0;
   padding: 8px 12px;
-  border-width: 1px;
+  width: 100%;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   border-style: solid;
-  border-radius: 2px;
   color: #222222;
   vertical-align: middle;
   text-align: center;
   font-size: 16px;
   cursor: pointer; }
   .button.button-icon {
-    border: none;
-    background: none;
-    padding: 4px 5px; }
-  .button.button-clear {
-    border: none;
-    background: none;
-    box-shadow: none;
+    display: inline-block;
+    margin: 0;
     padding: 4px 5px;
+    width: auto;
+    border: none;
+    background: none; }
+  .button.button-clear {
     -webkit-transition: opacity 0.1s;
-    transition: opacity 0.1s; }
+    transition: opacity 0.1s;
+    display: inline-block;
+    margin: 0;
+    padding: 4px 5px;
+    width: auto;
+    border: none;
+    background: none;
+    box-shadow: none; }
     .button.button-clear:active, .button.button-clear.active {
       opacity: 0.3; }
-  .button.button-block {
-    display: block;
-    margin: 10px 0 10px 0;
-    width: 100%; }
   .button.button-default {
     color: #333333;
     background-color: white;
@@ -1584,21 +1745,36 @@ input[type="checkbox"][readonly] {
         color: #fff;
         box-shadow: none; }
   .button.button-outline {
-    background: none;
-    box-shadow: none;
-    /* padding: $button-clear-padding; */
     -webkit-transition: opacity 0.1s;
-    transition: opacity 0.1s; }
+    transition: opacity 0.1s;
+    display: inline-block;
+    margin: 0;
+    width: auto;
+    background: none;
+    box-shadow: none; }
   .button.button-icon {
     border: none;
     background: none; }
     .button.button-icon:active, .button.button-icon.active {
-      text-shadow: 0px 0px 10px white;
+      background: none;
       box-shadow: none;
-      background: none; }
+      text-shadow: 0px 0px 10px white; }
+  .button.button-inline {
+    display: inline-block;
+    margin: 0;
+    width: auto; }
+  .button.button-block {
+    display: block;
+    margin: 10px 0 10px 0; }
 
 a.button {
   text-decoration: none; }
+
+.inset .button,
+.padded .button {
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-radius: 2px; }
 
 .button-group {
   position: relative;

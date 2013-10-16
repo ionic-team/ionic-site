@@ -39,7 +39,7 @@ published: true
 
 <p>Knowing this, I constructed a series of artboards in Illustrator to represent my drawing canvas for the icons. Each artboard is set to 512 x 512 pixels, with a grid dividing them into 16 x16 squares. Each square represents one pixel unit (technically there are 4 square pixels within each box). I used this grid as my guide for where to place and align each icon shape.</p>
 
-<img class="body-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-artboards.png">
 
 <p>Then came the hard part. What icons do we include, and how many should we start with? I started looking closer at all of the icons used in popular apps and websites, and took note of those most commonly used. At the top of this list were icons relating to navigation, utility, help, searching, and sharing. Ultimately, I feel we did a good job curating the most necessary and frequently used icons for this first iteration of Ionicons.</p>
 
@@ -47,21 +47,21 @@ published: true
 
 <p>It took me a solid three to four weeks to construct the initial designs of each icon in Illustrator and organize them accordingly. We went through several revisions and tweaks before we were confident they were ready for prime time. Once we reached that point, I exported each individual icon as an SVG file. From there, I imported them all into IcoMoon.</p>
 
-<img class="body-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-list.png">
 
 <p>Once each and every SVG file was in IcoMoon, I set the font name to “ionicons” and the prefix to “icon-” for consistency. There is also a setting in IcoMoon called Font Metrics, which allows you to set your font’s Crisp Size. It’s important to have this set to whatever your chosen Crisp Size is, which in our case is 16px. This will ensure that our icons will appear crisp at the correct sizing units.</p>
 
-<img class="body-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-metrics.png">
 
 <p>Then I exported the font. It compiled and packaged up the necessary CSS and font files required by all the various browsers. We were really pleased with the ease of use and speed offered through IcoMoon. It made the transition from SVG to fonts a breeze.</p>
 
 <h3>To the Internets!</h3>
 
-<p>I designed over 130 custom default icons, and then added another 200+ iOS 7-styled icons and social icons to boot. As of this moment, there are roughly 350 Ionicons. I’d be surprised if you don’t find something to fit what you’re looking for from this pack. But, on the off chance that you do, let me know. We are actively adding to the font, and my next goal is to design and include popular Android-style icons.</p>
+<p>I designed over 130 custom default icons, and then added another 200+ iOS 7-styled icons and social icons to boot. As of this moment, there are roughly 350 <a href="http://ionicons.com" target="_blank">Ionicons</a>. I’d be surprised if you don’t find something to fit what you’re looking for from this pack. But, on the off chance that you do, let me know. We are actively adding to the font, and my next goal is to design and include popular Android-style icons.</p>
 
-<p>We’ve created a public repo page for Ionicons, as well as a nifty little website for perusing and searching. Definitely check out the search feature, which has keywords identifying common icon names and styles. For example, if you search for “arrow” we call up every icon that could possibly be used as an arrow. We’ve also included each icon’s class name for easy copy/pasting when you’re developing!</p>
+<p>We’ve created a public <a href="https://github.com/driftyco/ionicons" target="_blank">repo page</a> for Ionicons, as well as a nifty little <a href="http://ionicons.com" target="_blank">website</a> for perusing and searching. Definitely check out the search feature, which has keywords identifying common icon names and styles. For example, if you search for “arrow” we call up every icon that could possibly be used as an arrow. We’ve also included each icon’s class name for easy copy/pasting when you’re developing!</p>
 
-<p>We intend for this icon pack to be used with Ionic, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under MIT. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store.</p>
+<p>We intend for this icon pack to be used with <a href="http://ionicframework.com" target="_blank">Ionic</a>, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store.</p>
 
 <p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
 

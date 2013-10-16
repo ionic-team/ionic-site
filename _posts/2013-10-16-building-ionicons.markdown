@@ -61,11 +61,11 @@ published: true
 
 <p>We’ve created a public <a href="https://github.com/driftyco/ionicons" target="_blank">repo page</a> for Ionicons, as well as a nifty little <a href="http://ionicons.com" target="_blank">website</a> for perusing and searching. Definitely check out the search feature, which has keywords identifying common icon names and styles. For example, if you search for “arrow” we call up every icon that could possibly be used as an arrow. We’ve also included each icon’s class name for easy copy/pasting when you’re developing!</p>
 
-<p>We intend for this icon pack to be used with <a href="http://ionicframework.com" target="_blank">Ionic</a>, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store.</p>
-
-<p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
+<p>We intend for this icon pack to be used with <a href="http://ionicframework.com" target="_blank">Ionic</a>, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store. Now go <strong><a href="http://ionicons.com" target="_blank">check out the Ionicons</a></strong>!</p>
 
 <p><a href="http://twitter.com/helloimben">Ben</a></p>
+
+<p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
 
 <p></p>
 

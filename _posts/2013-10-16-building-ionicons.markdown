@@ -25,7 +25,7 @@ published: true
 
 <p>The tools required to build Ionicons were minimal: Adobe Illustrator for designing the vector icons, IcoMoon for converting the vector shapes into font files, and a browser to preview them all in. All of these were free, with the exception of Illustrator.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-preview.png">
+<img class="showcase-image" src="/img/blog/ionicons-tools.png">
 
 <p>If you’re unfamiliar with IcoMoon, do take some time to check it out. It’s a very cool open source tool for creating custom icon font packs. There are some legal usecase limitations if you build a custom pack from other existing icon fonts, but not if you create and import your own icons from scratch.</p>
 
@@ -35,7 +35,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/ionicons-preview.png">
 
-<p>We decided to go with the common crisp size of 16px with Ionicons for several reasons. Having a number divisible by 8 was a good step to improve crisp scalability at various sizes, which in this case produces crisp looking icons at font sizes of 16px, 32px, 48px, 64px, etc.</p>
+<p>We decided to go with the common crisp size of 16px with Ionicons for several reasons. Having a number divisible by 2, 4 and 8 was a good step to improve crisp scalability at various sizes, which in this case produces crisp looking icons at font sizes of 16px, 32px, 48px, 64px, etc.</p>
 
 <p>Knowing this, I constructed a series of artboards in Illustrator to represent my drawing canvas for the icons. Each artboard is set to 512 x 512 pixels, with a grid dividing them into 16 x16 squares. Each square represents one pixel unit (technically there are 4 square pixels within each box). I used this grid as my guide for where to place and align each icon shape.</p>
 
@@ -63,10 +63,11 @@ published: true
 
 <p>We intend for this icon pack to be used with Ionic, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under MIT. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store.</p>
 
-<p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us</a> on Twitter and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
+<p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
 
-<p>The Ionic Crew</p>
-<p><a href="http://twitter.com/helloimben">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a> and <a href="http://twitter.com/maxlynch">@maxlynch</a></p>
+<p><a href="http://twitter.com/helloimben">Ben</a></p>
+
+<p />
 
 <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
 

@@ -908,7 +908,7 @@
   .ionic dl, .ionic dt, .ionic dd, .ionic ol, .ionic ul, .ionic li,
   .ionic fieldset, .ionic form, .ionic label, .ionic legend,
   .ionic table, .ionic caption, .ionic tbody, .ionic tfoot, .ionic thead, .ionic tr, .ionic th, .ionic td,
-  .ionic article, .ionic aside, .ionic canvas, .ionic details, .ionic embed, .ionic fieldset,
+  .ionic article, .ionic aside, .ionic canvas, .ionic details, .ionic embed,
   .ionic figure, .ionic figcaption, .ionic footer, .ionic header, .ionic hgroup,
   .ionic menu, .ionic nav, .ionic output, .ionic ruby, .ionic section, .ionic summary,
   .ionic time, .ionic mark, .ionic audio, .ionic video {
@@ -1066,7 +1066,6 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-    color: black;
     word-wrap: break-word;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1090,16 +1089,14 @@
   .ionic .content-wrapper {
     position: absolute;
     top: 0;
-    overflow: auto;
-    width: 100%;
     height: 100%;
+    width: 100%;
+    overflow: auto;
     -webkit-overflow-scrolling: touch; }
   .ionic .has-header {
     margin-top: 44px; }
-  .ionic .has-footer {
-    margin-bottom: 44px; }
   .ionic .has-tabs {
-    margin-bottom: 84px; }
+    bottom: 49px; }
   .ionic .page, .ionic .full-section {
     position: fixed;
     top: 0;
@@ -1112,49 +1109,20 @@
     height: 100%;
     background-color: #fff;
     -webkit-overflow-scrolling: touch; }
-  .ionic .hidden,
-  .ionic .hide {
+  .ionic .hidden, .ionic .hide {
     display: none !important; }
-  .ionic .padding {
+  .ionic .padded {
     padding: 10px; }
-  .ionic .padding-vertical {
-    padding-top: 10px;
-    padding-bottom: 10px; }
-  .ionic .padding-horizontal {
-    padding-left: 10px;
-    padding-right: 10px; }
-  .ionic .padding-top {
-    padding-top: 10px; }
-  .ionic .padding-right {
-    padding-right: 10px; }
-  .ionic .padding-bottom {
-    padding-bottom: 10px; }
-  .ionic .padding-left {
-    padding-left: 10px; }
-  .ionic .margin {
+  .ionic .inset {
     margin: 10px; }
-  .ionic .margin-vertical {
-    margin-top: 10px;
-    margin-bottom: 10px; }
-  .ionic .margin-horizontal {
-    margin-left: 10px;
-    margin-right: 10px; }
-  .ionic .margin-top {
-    margin-top: 10px; }
-  .ionic .margin-right {
-    margin-right: 10px; }
-  .ionic .margin-bottom {
-    margin-bottom: 10px; }
-  .ionic .margin-left {
-    margin-left: 10px; }
   .ionic .rounded {
     border-radius: 4px; }
   .ionic p {
     margin: 0 0 10px; }
   .ionic .lead {
     margin-bottom: 20px;
-    font-weight: 200;
     font-size: 16.1px;
+    font-weight: 200;
     line-height: 1.4; }
   .ionic small {
     font-size: 85%; }
@@ -1168,9 +1136,8 @@
     text-align: center; }
   .ionic h1, .ionic h2, .ionic h3, .ionic h4, .ionic h5, .ionic h6,
   .ionic .h1, .ionic .h2, .ionic .h3, .ionic .h4, .ionic .h5, .ionic .h6 {
-    color: black;
-    font-weight: 500;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
     line-height: 1.1; }
     .ionic h1 small, .ionic h2 small, .ionic h3 small, .ionic h4 small, .ionic h5 small, .ionic h6 small,
     .ionic .h1 small, .ionic .h2 small, .ionic .h3 small, .ionic .h4 small, .ionic .h5 small, .ionic .h6 small {
@@ -1215,12 +1182,12 @@
   .ionic dd {
     margin-left: 0; }
   .ionic blockquote {
-    margin: 0 0 20px;
     padding: 10px 20px;
+    margin: 0 0 20px;
     border-left: 5px solid gray; }
     .ionic blockquote p {
-      font-weight: 300;
       font-size: 17.5px;
+      font-weight: 300;
       line-height: 1.25; }
     .ionic blockquote p:last-child {
       margin-bottom: 0; }
@@ -1279,24 +1246,24 @@
     background-color: rgba(255, 255, 255, 0.95);
     margin-bottom: 10px; }
   .ionic .bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: -webkit-box;
+    display: box;
+    width: 100%;
+    height: 44px;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    border-style: solid;
+    border-width: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    user-select: none;
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 10;
-    display: -webkit-box;
-    display: box;
-    box-sizing: border-box;
-    padding: 5px;
-    width: 100%;
-    height: 44px;
-    border-width: 0;
-    border-style: solid;
-    background-color: white; }
+    user-select: none; }
     .ionic .bar.bar-header {
       border-bottom-width: 1px; }
     .ionic .bar.bar-footer {
@@ -1351,32 +1318,31 @@
         color: white; }
     .ionic .bar .title {
       position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
       z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      line-height: 44px;
       margin: 0;
       min-width: 30px;
-      text-align: center;
       text-overflow: ellipsis;
+      text-align: center;
       white-space: nowrap;
-      font-size: 17px;
-      line-height: 44px; }
+      font-size: 17px; }
     .ionic .bar .title a {
       color: inherit; }
     .ionic .bar .button {
       box-flex: 1;
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
-      z-index: 1;
-      margin: 0;
-      padding: 4px 12px;
       background-color: transparent;
+      line-height: 23px;
       font-size: 12px;
-      line-height: 23px; }
+      padding: 4px 12px;
+      z-index: 1; }
       .ionic .bar .button.button-clear {
-        padding: 0 5px;
-        line-height: 34px; }
+        line-height: 34px;
+        padding: 0 5px; }
     .ionic .bar .button-bar {
       line-height: 18px; }
     .ionic .bar .button-bar + .button, .ionic .bar .button + .button-bar {
@@ -1517,8 +1483,8 @@
       box-shadow: none;
       font-size: 17px; }
   .ionic .bar .button-icon {
-    border: 1px solid transparent;
     background-color: transparent;
+    border: 1px solid transparent;
     font-size: 24px; }
   .ionic .bar-header {
     top: 0; }
@@ -1526,10 +1492,10 @@
     bottom: 0; }
   .ionic .bar-tabs {
     padding: 0; }
-  .ionic .bar-subheader {
+  .ionic .bar-header-secondary {
     top: 44px;
     display: block; }
-  .ionic .bar-subfooter {
+  .ionic .bar-footer-secondary {
     bottom: 44px;
     display: block; }
   .ionic .tabs {
@@ -1656,7 +1622,6 @@
   .ionic .list {
     margin-bottom: 20px;
     padding-left: 0;
-    position: relative;
     color: #333333;
     background-color: white;
     border-color: #dddddd; }
@@ -1682,7 +1647,6 @@
     position: relative;
     display: block;
     margin-bottom: -1px;
-    z-index: 2;
     background-color: white;
     border: 1px solid #dddddd; }
     .ionic .list-item:last-child {
@@ -1826,11 +1790,6 @@
       margin-top: -5px; }
   .ionic .list-item-sliding {
     -webkit-transition: -webkit-transform 0.1s ease-in-out; }
-  .ionic .list-item-reordering {
-    position: absolute;
-    width: 100%; }
-  .ionic .list-item-placeholder {
-    opacity: 0.7; }
   .ionic .list-item-edit {
     position: absolute;
     z-index: 0;
@@ -1893,6 +1852,10 @@
     line-height: 1.3; }
   .ionic form {
     margin: 0 0 1.42857; }
+  .ionic fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0; }
   .ionic legend {
     display: block;
     margin-bottom: 1.42857;
@@ -1920,13 +1883,12 @@
   .ionic textarea {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .ionic .input-group {
-    display: block;
     overflow: hidden;
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
     background-color: white; }
   .ionic .padded > .input-group,
-  .ionic .input-group.margin {
+  .ionic .input-group.inset {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -1953,7 +1915,6 @@
     .ionic .input-row .input-label {
       padding: 7px 10px 7px 3px;
       max-width: 200px;
-      color: black;
       font-weight: bold;
       flex: 1 0 100px; }
     .ionic .input-row [class^="icon-"], .ionic .input-row [class*=" icon-"] {
@@ -2212,37 +2173,34 @@
         display: inline; }
   .ionic .button {
     position: relative;
-    display: block;
+    display: inline-block;
+    margin: 0;
     padding: 8px 12px;
-    width: 100%;
-    border-width: 0;
+    border-width: 1px;
     border-style: solid;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
+    border-radius: 2px;
     color: #222222;
     vertical-align: middle;
     text-align: center;
     font-size: 16px;
     cursor: pointer; }
     .ionic .button.button-icon {
-      display: inline-block;
-      margin: 0;
-      padding: 4px 5px;
-      width: auto;
-      border: none;
-      background: none; }
-    .ionic .button.button-clear {
-      -webkit-transition: opacity 0.1s;
-      transition: opacity 0.1s;
-      display: inline-block;
-      margin: 0;
-      padding: 4px 5px;
-      width: auto;
       border: none;
       background: none;
-      box-shadow: none; }
+      padding: 4px 5px; }
+    .ionic .button.button-clear {
+      border: none;
+      background: none;
+      box-shadow: none;
+      padding: 4px 5px;
+      -webkit-transition: opacity 0.1s;
+      transition: opacity 0.1s; }
       .ionic .button.button-clear:active, .ionic .button.button-clear.active {
         opacity: 0.3; }
+    .ionic .button.button-block {
+      display: block;
+      margin: 10px 0 10px 0;
+      width: 100%; }
     .ionic .button.button-default {
       color: #333333;
       background-color: white;
@@ -2255,16 +2213,9 @@
         box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
         border-color: #bbbbbb; }
       .ionic .button.button-default.button-clear {
-        color: #dddddd;
+        color: #333333;
         background: none;
         box-shadow: none; }
-      .ionic .button.button-default.button-outline {
-        border-color: #dddddd;
-        color: #333333; }
-        .ionic .button.button-default.button-outline.active, .ionic .button.button-default.button-outline:active {
-          background-color: #dddddd;
-          color: #fff;
-          box-shadow: none; }
     .ionic .button.button-secondary {
       color: #333333;
       background-color: whitesmoke;
@@ -2277,16 +2228,9 @@
         box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
         border-color: #999999; }
       .ionic .button.button-secondary.button-clear {
-        color: #bbbbbb;
+        color: #333333;
         background: none;
         box-shadow: none; }
-      .ionic .button.button-secondary.button-outline {
-        border-color: #bbbbbb;
-        color: #333333; }
-        .ionic .button.button-secondary.button-outline.active, .ionic .button.button-secondary.button-outline:active {
-          background-color: #bbbbbb;
-          color: #fff;
-          box-shadow: none; }
     .ionic .button.button-primary {
       color: white;
       background-color: #4a87ee;
@@ -2420,34 +2364,73 @@
           color: #fff;
           box-shadow: none; }
     .ionic .button.button-outline {
-      -webkit-transition: opacity 0.1s;
-      transition: opacity 0.1s;
-      display: inline-block;
-      margin: 0;
-      width: auto;
       background: none;
-      box-shadow: none; }
+      box-shadow: none;
+      /* padding: $button-clear-padding; */
+      -webkit-transition: opacity 0.1s;
+      transition: opacity 0.1s; }
     .ionic .button.button-icon {
       border: none;
       background: none; }
       .ionic .button.button-icon:active, .ionic .button.button-icon.active {
-        background: none;
+        text-shadow: 0px 0px 10px white;
         box-shadow: none;
-        text-shadow: 0px 0px 10px white; }
-    .ionic .button.button-inline {
-      display: inline-block;
-      margin: 0;
-      width: auto; }
-    .ionic .button.button-block {
-      display: block;
-      margin: 10px 0 10px 0; }
+        background: none; }
   .ionic a.button {
     text-decoration: none; }
-  .ionic .margin .button,
-  .ionic .padding .button {
-    border-right-width: 1px;
-    border-left-width: 1px;
-    border-radius: 2px; }
+  .ionic .button-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle; }
+    .ionic .button-group > .button {
+      position: relative;
+      float: left; }
+      .ionic .button-group > .button:hover, .ionic .button-group > .button:focus, .ionic .button-group > .button:active, .ionic .button-group > .button.active {
+        z-index: 2; }
+      .ionic .button-group > .button:focus {
+        outline: none; }
+  .ionic .button-group .button + .button,
+  .ionic .button-group .button + .button-group,
+  .ionic .button-group .button-group + .button,
+  .ionic .button-group .button-group + .button-group {
+    margin-left: -1px; }
+  .ionic .button-group > .button:not(:first-child):not(:last-child) {
+    border-radius: 0; }
+  .ionic .button-group > .button:first-child {
+    margin-left: 0; }
+    .ionic .button-group > .button:first-child:not(:last-child) {
+      -webkit-border-top-right-radius: 0;
+      -moz-border-radius-topright: 0;
+      border-top-right-radius: 0;
+      -webkit-border-bottom-right-radius: 0;
+      -moz-border-radius-bottomright: 0;
+      border-bottom-right-radius: 0; }
+  .ionic .button-group > .button:last-child:not(:first-child) {
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0; }
+  .ionic .button-group > .button-group {
+    float: left; }
+  .ionic .button-group > .button-group:not(:first-child):not(:last-child) > .button {
+    border-radius: 0; }
+  .ionic .button-group > .button-group:first-child > .button:last-child,
+  .ionic .button-group > .button-group:first-child > .dropdown-toggle {
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0; }
+  .ionic .button-group > .button-group:last-child > .button:first-child {
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0; }
   .ionic .button-bar {
     box-flex: 1;
     -webkit-box-flex: 1;
@@ -2462,9 +2445,9 @@
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     display: block;
+    width: 0;
     overflow: hidden;
     padding: 8px 16px;
-    width: 0;
     border-width: 1px 0px 1px 1px;
     border-radius: 0;
     text-align: center;

@@ -259,7 +259,7 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #888888;
+  color: #777777;
   background-color: white; }
 
 input,
@@ -1589,7 +1589,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #c8c8c8; }
+  color: #b7b7b7; }
 
 @media (min-width: 768px) {
   .form-inline .form-group, .navbar-form .form-group {
@@ -3557,7 +3557,7 @@ a.thumbnail:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #888888; }
+  color: #777777; }
 
 .alert {
   padding: 15px;
@@ -5073,11 +5073,11 @@ td.visible-print {
       padding-left: 45px; } }
 
 @font-face {
+  font-weight: normal;
+  font-style: normal;
   font-family: 'ionicons';
   src: url("fonts/ionicons.eot");
-  src: url("fonts/ionicons.eot?#iefix") format("embedded-opentype"), url("fonts/ionicons.woff") format("woff"), url("fonts/ionicons.ttf") format("truetype"), url("fonts/ionicons.svg#ionicons") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  src: url("fonts/ionicons.eot?#iefix") format("embedded-opentype"), url("fonts/ionicons.woff") format("woff"), url("fonts/ionicons.ttf") format("truetype"), url("fonts/ionicons.svg#ionicons") format("svg"); }
 
 .fixed-menu {
   position: fixed; }
@@ -5103,14 +5103,16 @@ td.visible-print {
     list-style: none; }
     .left-menu li ul {
       display: none;
-      padding-left: 24px; }
+      padding-left: 18px; }
   .left-menu.nav li.active > a {
     border-right: 2px solid #4f8ef7;
     color: #4f8ef7; }
-  .left-menu.nav li.active ul {
+  .left-menu.nav li.active > ul {
     display: block; }
   .left-menu.nav > li > a {
     padding: 1px 6px; }
+  .left-menu > li > ul > li > ul {
+    display: none !important; }
 
 .docs-section {
   padding-bottom: 10px;
@@ -5124,24 +5126,40 @@ td.visible-print {
     margin-bottom: 0; }
   .docs-section h2 {
     padding-bottom: 16px;
-    border-bottom: 1px solid #dddddd;
     transition: color 0.1s ease-in-out; }
+    .docs-section h2 a {
+      line-height: 1.9em;
+      border-bottom: 1px solid #dddddd; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;
     transition: color 0.1s ease-in-out; }
-  .docs-section.active h2, .docs-section.active h3 {
-    color: #4f8ef7;
-    border-bottom: 1px solid #4f8ef7; }
+  .docs-section h2 a, .docs-section h3 a {
+    color: #222;
+    display: block;
+    opacity: 1; }
+  .docs-section h2 a:hover,
+  .docs-section h3 a:hover {
+    text-decoration: none; }
+  .docs-section.active {
+    opacity: 1; }
+    .docs-section.active h2 a, .docs-section.active h3 a {
+      border-bottom: 1px solid #4f8ef7;
+      color: #4f8ef7; }
+
+.docs-section:last-child {
+  padding-bottom: 600px; }
 
 .doc-example {
   display: none; }
 
 .docs-section + .docs-section {
-  padding-top: 30px; }
+  padding-top: 40px; }
 
 .device-preview-page {
   position: relative; }
+  .device-preview-page .ionic .content-wrapper {
+    overflow: hidden !important; }
   .device-preview-page .device-preview {
     position: absolute;
     right: 0;
@@ -5149,7 +5167,7 @@ td.visible-print {
     height: 810px;
     background: url("/img/phone-case.png") no-repeat right top; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
-    .device-preview-page {
+    .device-preview-page .device-preview {
       background-image: url("/img/phone-case@2x.png");
       background-size: 365px 792px; } }
   .device-preview-page .fixed-preview {
@@ -5165,22 +5183,24 @@ td.visible-print {
       padding-right: 0; } }
   .device-preview-page .device-preview > div {
     position: absolute;
+    top: 104px;
+    left: 53px;
+    z-index: 0;
     width: 328px;
     height: 576px;
     border: 4px solid #22272d;
-    top: 104px;
-    left: 53px;
     background-color: white;
     opacity: 0;
     transition: opacity 0.2s ease-in-out; }
     .device-preview-page .device-preview > div.active-preview {
+      z-index: 100;
       opacity: 1; }
     .device-preview-page .device-preview > div.screen-bg {
       opacity: 1 !important; }
   .device-preview-page .default-screen .content {
+    height: 100%;
     background: url("/img/ionic_icon.svg") no-repeat center 115px;
-    background-size: 250px 250px;
-    height: 100%; }
+    background-size: 250px 250px; }
 
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }
@@ -5493,7 +5513,7 @@ body {
   border-top: 1px solid #4f8ef7; }
 
 a {
-  opacity: 0.65;
+  opacity: 0.7;
   transition: 0.1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {

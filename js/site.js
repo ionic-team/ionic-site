@@ -112,6 +112,10 @@
 
     var defaultScreen = devicePreview.find('.default-screen');
     function previewSection(activeSection) {
+      var title = activeSection.find('h1,h2,h3').first();
+      if(title.length) {
+        document.title = title.text() + " - Ionic Docs";
+      }
       docContent.find('.active').removeClass('active');
       activeSection.addClass("active");
 

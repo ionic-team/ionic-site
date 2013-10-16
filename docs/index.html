@@ -6,16 +6,9 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="device-preview ionic">
   <div class="screen-bg"></div>
   <div class="default-screen ionic-body active-preview">
-    <div class="bar bar-header bar-dark">
-      
-    </div>
     <div class="content-wrapper">
-      <div class="content padded has-header has-footer">
-        
+      <div class="content padding has-header">
       </div>
-    </div>
-    <div class="bar bar-footer bar-dark">
-      
     </div>
   </div>
 </div>
@@ -26,7 +19,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 <div class="docs-section active" id="overview">
 
-  <h2>Preamble</h2>
+  <h1>Preamble</h1>
 
   <p>Before you start building your Ionic app, you'll need to have a few things in place.<p>
 
@@ -39,9 +32,7 @@ title: "Ionic Framework - Documentation and Guide"
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-
-    <!-- Sets initial viewport load and disables zooming  -->
+    <title>My App</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 {% endhighlight %}
 </div>
@@ -50,68 +41,168 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Layout
   ================================================== -->
 <div class="docs-section" id="layout">
-  <h2>Layout &amp; Structure</h2>
+  <h2><a href="#layout">Layout &amp; Structure</a></h2>
   <p>
     Ionic's layout is based off common native app layouts. In order to make your app feel native, you'll need to make sure you follow
-    certain HTML markup guidelines.
+    certain HTML markup guidelines. Check out the <a href="/getting-started/#basic-template">Basic Template</a> in the 
+    <a href="/getting-started/">Getting started</a> page.
   </p>
 
 </div>
 
 
 
-<!-- Layout: Basic Template
+<!-- Header
   ================================================== -->
-<div class="docs-section" id="layout-template">
+<div class="docs-section" id="header">
 
-  <h3>Basic Template</h3>
+  <h3><a href="#header">Header</a></h3>
 
   <p>
-    In the example below we have set the header, content and footer in logical order, but note that
-    their order within the document does not matter.
+    Headers are fixed regions at the top of a view that can contain
+    a title label, and <a href="#buttons-headers-footers">left/right buttons</a>.
   </p>
 
-{% highlight html %}
-<body>
-  <div class="bar bar-header">
-    ...
+  <p>Headers come in a variety of fun flavors:</p>
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-default"><div class="h1 title">bar-default</div></div>
   </div>
-  <div class="content-wrapper">
-    <div class="content has-header has-footer">
-      ...
+{% highlight html %}
+<div class="bar bar-header bar-default">
+  <h1 class="title">Default</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-secondary"><div class="h1 title">bar-secondary</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-secondary">
+  <h1 class="title">Secondary</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-primary"><div class="h1 title">bar-primary</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-primary">
+  <h1 class="title">Primary</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-info"><div class="h1 title">bar-info</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-info">
+  <h1 class="title">Info</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-success"><div class="h1 title">bar-success</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-success">
+  <h1 class="title">Success</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-warning"><div class="h1 title">bar-warning</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-warning">
+  <h1 class="title">Warning</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-danger"><div class="h1 title">bar-danger</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-danger">
+  <h1 class="title">Danger</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-dark"><div class="h1 title">bar-dark</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-dark">
+  <h1 class="title">Dark</h1>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Header</div>
     </div>
   </div>
-  <div class="bar bar-footer">
-    ...
-  </div>
-</body>
-{% endhighlight %}
 
 </div>
 
 
 
-
-<!-- Layout: Content
+<!-- Sub Header
   ================================================== -->
-<div class="docs-section" id="layout-content">
+<div class="docs-section" id="subheader">
 
-  <h3>Content</h3>
-
+  <h3><a href="#subheader">Sub Header</a></h3>
+  <p>
+    A secondary bar can be placed below the header bar. Also take a look at 
+    <a href="#button-bar">Button Bars</a> to get other ideas on how it could be used.
+  </p>
 {% highlight html %}
-<body>
-  <div class="content-wrapper">
-    <div class="content">
-      ...
+<div class="bar bar-header bar-default">
+  <h1 class="title">Header</h1>
+</div>
+<div class="bar bar-subheader bar-default">
+  <h2 class="title">Sub Header</h2>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Header</div>
+    </div>
+    <div class="bar bar-subheader bar-secondary">
+      <div class="h2 title">Sub Header</div>
     </div>
   </div>
-</body>
+
+</div>
+
+
+
+<!-- Content
+  ================================================== -->
+<div class="docs-section" id="content">
+
+  <h3><a href="#content">Content</a></h3>
+
+{% highlight html %}
+=======
+<div class="content-wrapper">
+  <div class="content">
+    ...
+  </div>
+</div>
 {% endhighlight %}
 
   <div class="doc-example">
     <div class="content-wrapper">
-      <div class="content padded">
-        <h1>I'm a content!</h1>
+      <div class="content padding">
+        <h1>I'm an H1!</h1>
+        <h2>I'm an H2!</h2>
+        <h3>I'm an H3!</h3>
+        <h4>I'm an H4!</h4>
+        <h5>I'm an H5!</h5>
+        <h6>I'm an H6!</h6>
+        <p>I'm a paragraph with a <a href="#">link</a>!</p>
       </div>
     </div>
   </div>
@@ -120,89 +211,11 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Layout: Header
+<!-- Footer
   ================================================== -->
-<div class="docs-section" id="layout-header">
+<div class="docs-section" id="footer">
 
-  <h3>Header</h3>
-
-  <p>
-    Headers are fixed regions at the top of a view that can contain
-    a title label, and left/right buttons.
-  </p>
-
-{% highlight html %}
-<div class="header">
-  ...
-</div>
-{% endhighlight %}
-
-  <p>Headers come in a variety of fun flavors:</p>
-  <div class="ionic ionic-example">
-    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
-    <div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
-    <div class="bar bar-header bar-primary"><h1 class="title">Primary</h1></div>
-    <div class="bar bar-header bar-info"><h1 class="title">Info</h1></div>
-    <div class="bar bar-header bar-success"><h1 class="title">Success</h1></div>
-    <div class="bar bar-header bar-warning"><h1 class="title">Warning</h1></div>
-    <div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
-    <div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
-  </div>
-
-{% highlight html %}
-<div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
-
-<div class="bar bar-header bar-secondary"><h1 class="title">Secondary</h1></div>
-
-<div class="bar bar-header bar-primary"><h1 class="title">Primary</h1></div>
-
-<div class="bar bar-header bar-info"><h1 class="title">Info</h1></div>
-
-<div class="bar bar-header bar-success"><h1 class="title">Success</h1></div>
-
-<div class="bar bar-header bar-warning"><h1 class="title">Warning</h1></div>
-
-<div class="bar bar-header bar-danger"><h1 class="title">Danger</h1></div>
-
-<div class="bar bar-header bar-dark"><h1 class="title">Dark</h1></div>
-{% endhighlight %}
-</div>
-
-<div class="docs-section" id="layout-header-secondary">
-
-  <h3>Secondary Header</h3>
-  <p>
-    A secondary bar can be placed below the header bar:
-  </p>
-{% highlight html %}
-<div class="bar bar-header bar-default"><h1 class="title">Header</h1></div>
-<div class="bar bar-header-secondary bar-default">
-  <div class="button-bar">
-    <a class="button">This</a>
-    <a class="button">That</a>
-    <a class="button">Other</a>
-  </div>
-</div>
-{% endhighlight %}
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default"><h1 class="title">Default</h1></div>
-    <div class="bar bar-header-secondary bar-secondary">
-      <div class="button-bar">
-        <a class="button">This</a>
-        <a class="button">That</a>
-        <a class="button">Other</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Layout: Footer
-  ================================================== -->
-<div class="docs-section" id="layout-footer">
-
-  <h3>Footer</h3>
+  <h3><a href="#footer">Footer</a></h3>
 
 {% highlight html %}
 <div class="bar bar-footer">
@@ -216,25 +229,73 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-footer bar-secondary">
-      <h1 class="title">Footer</h1>
+      <div class="h1 title">Footer</div>
     </div>
   </div>
 
 </div>
 
 
+
+<!-- Utility Classes
+  ================================================== -->
+<div class="docs-section" id="utility">
+  <h3><a href="#utility">Utility Classes</a></h3>
+  <p>
+    Many components in Ionic purposely have both padding and margin reset set to zero.
+    I many instances mobile apps let components bleed to the edge of the screen, and 
+    by starting each component at zero this allows developers to easily 
+    control the common margins and padding throughout the app. 
+  </p>
+  <div class="panel panel-default">
+    <div class="panel-heading">margin</div>
+    <div class="panel-body">
+      The <code>margin</code> classname is used to "inset" any element from its parent container. 
+      Meaning it adds a common margin between itself and its parent. Margin is useful when its
+      parent has no margins at all, but a specific element should be inset a common distance. 
+    </p>
+    <p>
+      For example, text inputs may want to stretch 100% of the display, however, 
+      the button to submit the form may need to be inset for a better apperance.
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">padding</div>
+    <div class="panel-body">
+      The <code>padding</code> class it used to give the element's content some breathing room, 
+      meaning it adds padding between the edge of the element and its inner content.
+    </div>
+  </div>
+
+</div>
+
+
+
 <!-- Components
   ================================================== -->
 <div class="docs-section" id="components">
-  <h2>Components</h2>
+
+  <h2><a href="#components">Components</a></h2>
+
+  <p>
+    ...
+  </p>
+
 </div>
 
-<div class="docs-section" id="components-buttons">
-  <h3>Buttons</h3>
+
+
+<!-- Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons">
+  <h3><a href="#buttons">Buttons</a></h3>
   <p>
     Buttons can be displayed inline, block, icon-only, or text only, and come in 
-    many different styles.
+    many different styles. By default a button has <code>display: block</code>  
+    applied so it goes the full width of its parent. For the full width to take
+    affect, a parent cannot have the <code>padding</code> classname assigned.
   </p>
+
 {% highlight html %}
 <button class="button button-default">Default</button>
 
@@ -252,132 +313,928 @@ title: "Ionic Framework - Documentation and Guide"
 
 <button class="button button-dark">Dark</button>
 {% endhighlight %}
+
   <div class="doc-example ionic">
-    <div class="padded">
-      <div class="bar bar-header bar-secondary">
-        <button class="button button-icon"><i class="icon-navicon"></i></button>
-        <h1 class="title">Buttons!</h1>
-        <button class="button button-clear button-primary">Edit</button>
-      </div>
-      <div class="content has-header">
-        <button class="button button-block button-default">Default</button>
-        <button class="button button-block button-secondary">Secondary</button>
-        <button class="button button-block button-primary">Primary</button>
-        <button class="button button-block button-info">Info</button>
-        <button class="button button-block button-success">Success</button>
-        <button class="button button-block button-warning">Warning</button>
-        <button class="button button-block button-danger">Danger</button>
-        <button class="button button-block button-dark">Dark</button>
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header" style="padding-top: 1px">
+        <button class="button button-default">button-default</button>
+        <button class="button button-secondary">button-secondary</button>
+        <button class="button button-primary">button-primary</button>
+        <button class="button button-info">button-info</button>
+        <button class="button button-success">button-success</button>
+        <button class="button button-warning">button-warning</button>
+        <button class="button button-danger">button-danger</button>
+        <button class="button button-dark">button-dark</button>
       </div>
     </div>
   </div>
 
-  <h3>Block Buttons</h3>
-  <p>
-  Block buttons take up the full width of their parent container, and make themselves really hard to miss. Add the <code>button-block</code> class to make any button a block button.
-  </p>
-  <div class="doc-example ionic">
-    <div class="padded">
-      <button class="button block button-default">Default</button>
-      <button class="button button-block button-secondary">Secondary</button>
-      <button class="button button-block button-primary">Primary</button>
-      <button class="button button-block button-info">Info</button>
-      <button class="button button-block button-success">Success</button>
-      <button class="button button-block button-warning">Warning</button>
-      <button class="button button-block button-danger">Danger</button>
-      <button class="button button-block button-dark">Dark</button>
-    </div>
-  </div>
-
-  <h3>Text-only Buttons</h3>
-  <p>
-  Text-only buttons are a predominate feature of iOS 7. Add <code>button-clear</code> to any button to remove the border and make the text stand out. Note: The text will take the color of the applied button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
-  </p>
-  <div class="doc-example ionic">
-    <div class="padded">
-      <div class="bar bar-header bar-secondary">
-        <button class="button button-clear button-primary">Edit</button>
-      </div>
-    </div>
-  </div>
-  <h3>Icon-only Buttons</h3>
-  <p>
-    While icons can be added to any button at any time, to remove any border and make the icon stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
-  </p>
-
-  <h3>Buttons in Headers/Footers</h3>
-  <p>
-    When buttons are placed in headers or footers, they take the style of the 
-    bar by default, so you don't have to use the extra style classes. To change this, add the desired style class.
-  </p>
 </div>
 
-<!-- Layout: Forms
-  ================================================== -->
-<div class="docs-section" id="components-forms">
 
-  <h3>Forms</h3>
+
+<!-- Buttons Inset
+  ================================================== -->
+<div class="docs-section" id="buttons-inset">
+
+  <h3><a href="#buttons-inset">Inset Buttons</a></h3>
   <p>
+    ...
   </p>
-  <div class="panel panel-default">
-    <div class="panel-heading">input-group</div>
-    <div class="panel-body">
-      The <code>input-group</code> class is used to combine input fields into one area,
-      which often shares borders.
 
 {% highlight html %}
-<div class="input-group">
+<div class="inset">
+  <button class="button button-primary">
+    Inset Button
+  </button>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inset Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content padding has-header" style="padding-top: 1px">
+        <button class="button button-default">button-default</button>
+        <button class="button button-secondary">button-secondary</button>
+        <button class="button button-primary">button-primary</button>
+        <button class="button button-info">button-info</button>
+        <button class="button button-success">button-success</button>
+        <button class="button button-warning">button-warning</button>
+        <button class="button button-danger">button-danger</button>
+        <button class="button button-dark">button-dark</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Inline Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-inline">
+
+  <h3><a href="#buttons-inline">Inline Buttons</a></h3>
+
+  <p>
+    Use the <code>button-inline</code> classname to apply a 
+    <code>display: inline-block</code> display.
+  </p>
+
+{% highlight html %}
+<button class="button button-inline button-primary">
+  Inline Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inline Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content padding has-header">
+        <p>
+          <button class="button button-inline button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-inline button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-inline button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-inline button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-inline button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-inline button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-inline button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-inline button-dark">button-dark</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Outlined Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-outlined">
+
+  <h3><a href="#buttons-outlined">Outlined Buttons</a></h3>
+
+  <p>
+    Use the <code>button-outline</code> classname to apply an outline button style.
+    By default outlined buttons have <code>display: inline-block</code> applied.
+  </p>
+
+{% highlight html %}
+<button class="button button-outline button-primary">
+  Outlined Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Outlined Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content padding has-header">
+        <p>
+          <button class="button button-outline button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-outline button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-outline button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-outline button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-outline button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-outline button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-outline button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-outline button-dark">button-dark</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Clear Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-clear">
+
+  <h3><a href="#buttons-clear">Clear Buttons</a></h3>
+
+  <p>
+    Clear buttons are a predominate feature in modern apps. Add <code>button-clear</code> to any 
+    button to remove the border and make the text stand out. Note: The text will take the color of the applied 
+    button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
+    By default clear buttons have <code>display: inline-block</code> applied.
+  </p>
+
+{% highlight html %}
+<button class="button button-clear button-primary">
+  Text-only Buttons
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Clear Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content padding has-header">
+        <p>
+          <button class="button button-clear button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-clear button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-clear button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-clear button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-clear button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-clear button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-clear button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-clear button-dark">button-dark</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icon-only Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons-icon-only">
+
+  <h3><a href="#buttons-icon-only">Icon-only Buttons</a></h3>
+
+  <p>
+    While icons can be added to any button at any time, to remove any border and make the icon 
+    stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
+  </p>
+
+{% highlight html %}
+<button class="button button-icon">
+  <i class="icon-navicon"></i>
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="padding">
+      <div class="bar bar-header bar-default">
+        <button class="button button-icon"><i class="icon-navicon"></i></button>
+        <div class="h1 title">Icon Only</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Button Bar
+  ================================================== -->
+<div class="docs-section" id="button-bar">
+
+  <h3><a href="#button-bar">Button Bar</a></h3>
+  <p>
+    Buttons can be grouped together using the <code>button-bar</code> classname. 
+    In the example, a button bar was added to the secondary bar, below the header bar.
+  </p>
+
+{% highlight html %}
+<div class="button-bar">
+  <a class="button">Success</a>
+  <a class="button">Warning</a>
+  <a class="button">Danger</a>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Button Bar</div>
+    </div>
+    <div class="bar bar-subheader bar-secondary">
+      <div class="button-bar">
+        <a class="button">Success</a>
+        <a class="button">Warning</a>
+        <a class="button">Danger</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Buttons in Headers/Footers
+  ================================================== -->
+<div class="docs-section" id="buttons-headers-footers">
+
+  <h3><a href="#buttons-headers-footers">Buttons in Headers/Footers</a></h3>
+
+  <p>
+    When buttons are placed in headers or footers, they take the style of the 
+    bar by default, so you don't have to use the extra style classes. 
+    To change this, add the desired style class.
+  </p>
+
+{% highlight html %}
+<div class="bar bar-header bar-default">
+  <button class="button button-clear button-primary">
+    Edit
+  </button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button button-icon">
+    <i class="icon-navicon"></i>
+  </button>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="padding">
+      <div class="bar bar-header bar-default">
+        <button class="button button-clear button-primary">
+          Edit
+        </button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button button-icon">
+          <i class="icon-navicon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Nav Bar
+  ================================================== -->
+<div class="docs-section" id="navbar">
+
+  <h3><a href="#navbar">Nav Bar</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
   ...
 </div>
 {% endhighlight %}
 
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Nav Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
     </div>
   </div>
 
 </div>
 
+
+
+<!-- Side Menu
+  ================================================== -->
+<div class="docs-section" id="sidemenu">
+
+  <h3><a href="#sidemenu">Side Menu</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Side Menu</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Tab Bar
+  ================================================== -->
+<div class="docs-section" id="tabbar">
+
+  <h3><a href="#tabbar">Tab Bar</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Tab Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- List View
+  ================================================== -->
+<div class="docs-section" id="listview">
+
+  <h3><a href="#listview">List View</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">List View</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Cards
+  ================================================== -->
+<div class="docs-section" id="cards">
+
+  <h3><a href="#cards">Cards</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms
+  ================================================== -->
+<div class="docs-section" id="forms">
+
+  <h3><a href="#forms">Forms &amp; Inputs</a></h3>
+
+  <p>
+    An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
+    is used to designate each individual input field and it's associated label. By default each 
+    input row will fill 100% of the width of its parent element. However, you can use the <a href="#utility">utility</a>
+    classnames of <code>inset</code> and <code>padding</code> to change their placement.
+  </p>
+  <p>
+    Ionic prefers to create an <code>input-row</code> out of the <code>&lt;label&gt;</code> element 
+    so that when any part of the row is tapped then the input receives focus.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Forms</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding-top">
+        <div class="input-group">
+          <label class="input-row">
+            <input type="text" placeholder="First Name">
+          </label>
+          <label class="input-row">
+            <input type="text" placeholder="Last Name">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Placeholder Labels
+  ================================================== -->
+<div class="docs-section" id="forms-placeholder-labels">
+
+  <h3><a href="#forms-placeholder-labels">Text Input: Placeholder Labels</a></h3>
+
+  <p>
+    In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
+    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
+    text into the input the placeholder label will be hidden.
+  </p>
+
+{% highlight html %}
+<div class="input-group">
+  <label class="input-row">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="input-row">
+    <input type="text" placeholder="Last Name">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Placeholder Labels</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group">
+          <label class="input-row">
+            <input type="text" placeholder="First Name">
+          </label>
+          <label class="input-row">
+            <input type="text" placeholder="Last Name">
+          </label>
+        </div>
+        <div class="inset">
+          <button class="button button-primary">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Inline Labels
+  ================================================== -->
+<div class="docs-section" id="forms-inline-labels">
+
+  <h3><a href="#forms-inline-labels">Text Input: Inline Labels</a></h3>
+
+  <p>
+    Use <code>input-label</code> to place a label to the left of the input element. When the user 
+    enters text the label does not hide. Note that there's nothing stopping you from also
+    using a <code>placeholder</code> label too.
+  </p>
+  
+{% highlight html %}
+<div class="input-group">
+  <label class="input-row">
+    <span class="input-label">Username</span>
+    <input type="text">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Password</span>
+    <input type="password">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inline Labels</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group">
+          <label class="input-row">
+            <span class="input-label">Username</span>
+            <input type="text">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Password</span>
+            <input type="password">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Stacked Labels
+  ================================================== -->
+<div class="docs-section" id="forms-stacked-labels">
+
+  <h3><a href="#forms-stacked-labels">Text Input: Stacked Labels</a></h3>
+
+  <p>
+    Stacked labels always places the label on top of the input.
+    This example also uses the <code>placeholder</code> attribute so 
+    user's have a hint of what type of text the input is looking for.
+  </p>
+
+{% highlight html %}
+<div class="input-group stacked-label">
+  <label class="input-row">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="John">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Suhr">
+  </label>
+  <label class="input-row">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@suhr.com">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Stacked Labels</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="input-group stacked-label">
+          <label class="input-row">
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="John">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Suhr">
+          </label>
+          <label class="input-row">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="john@suhr.com">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Checkbox
+  ================================================== -->
+<div class="docs-section" id="checkbox">
+
+  <h3><a href="#checkbox">Checkbox</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Checkbox</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Toggle
+  ================================================== -->
+<div class="docs-section" id="toggle">
+
+  <h3><a href="#toggle">Toggle</a></h3>
+
+  <p>
+    A toggle technically is the same thing as an HTML checkbox input, 
+    except it looks prettier and easier to use on a touch device.
+  </p>
+
+{% highlight html %}
+<div class="toggle">
+   <input type="checkbox">
+   <div class="track">
+    <div class="handle"></div>
+  </div>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Toggle</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <div class="toggle">
+           <input type="checkbox">
+           <div class="track">
+            <div class="handle"></div>
+          </div>
+        </div>
+        <div class="toggle">
+           <input type="checkbox">
+           <div class="track">
+            <div class="handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Radio Buttons
+  ================================================== -->
+<div class="docs-section" id="radio-buttons">
+
+  <h3><a href="#radio-buttons">Radio Buttons</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Radio Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Range
+  ================================================== -->
+<div class="docs-section" id="range">
+
+  <h3><a href="#range">Range</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Range</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 
 <!-- Alerts
   ================================================== -->
-<div class="docs-section" id="components-alerts">
+<div class="docs-section" id="alerts">
 
-  <h3>Alerts</h3>
+  <h3><a href="#alerts">Alerts</a></h3>
 
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
-  <p>whats included</p>
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Alerts</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
 
 </div>
 
 
-<!-- Layout: Utility Classes
+<!-- Layout
   ================================================== -->
-<div class="docs-section" id="layout-utility">
-  <h3>Layout Utility Classes</h3>
+<div class="docs-section" id="javascript">
+
+  <h2><a href="#javascript">JavaScript</a></h2>
+
   <p>
-    Many components in Ionic do not have padding or margin by default, to make it easier to control the inset look of certain controls like lists and content areas.
+    ...
   </p>
-  <div class="panel panel-default">
-    <div class="panel-heading">inset</div>
-    <div class="panel-body">
-      The <code>inset</code> class it used to "inset" any element, meaning it adds a margin 
-      around the element.
+
+</div>
+
+
+
+<!-- Modals
+  ================================================== -->
+<div class="docs-section" id="modals">
+
+  <h3><a href="#modals">Modals</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Modals</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">padded</div>
-    <div class="panel-body">
-      The <code>padded</code> class it used to give the element's content some breathing room, 
-      meaning it adds padding between the edge of the element and the inner content.
+
+</div>
+
+
+
+<!-- Action Sheets
+  ================================================== -->
+<div class="docs-section" id="action-sheets">
+
+  <h3><a href="#action-sheets">Action Sheets</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Action Sheets</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
     </div>
   </div>
 

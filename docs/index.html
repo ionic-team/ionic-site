@@ -184,10 +184,17 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3><a href="#content">Content</a></h3>
 
+  <p>
+    Primary content should be wrapped with a <code>content</code> elements.
+    No thrills here other than default appearances for the various type element.
+    Note that the containing <code>content</code> element also has the
+    <code>padding</code> class applied (more about <a href="#utility">padding</a> is
+    discussed a few sections later).
+  </p>
+
 {% highlight html %}
-=======
 <div class="content-wrapper">
-  <div class="content">
+  <div class="content padding">
     ...
   </div>
 </div>
@@ -240,30 +247,25 @@ title: "Ionic Framework - Documentation and Guide"
 <!-- Utility Classes
   ================================================== -->
 <div class="docs-section" id="utility">
+
   <h3><a href="#utility">Utility Classes</a></h3>
+
   <p>
     Many components in Ionic purposely have both padding and margin reset set to zero.
-    I many instances mobile apps let components bleed to the edge of the screen, and 
-    by starting each component at zero this allows developers to easily 
-    control the common margins and padding throughout the app. 
+    I many instances mobile apps will have components bleed to the edge of the screen, and 
+    by starting each component at zero allows developers to easily control padding throughout the app. 
   </p>
-  <div class="panel panel-default">
-    <div class="panel-heading">margin</div>
-    <div class="panel-body">
-      The <code>margin</code> classname is used to "inset" any element from its parent container. 
-      Meaning it adds a common margin between itself and its parent. Margin is useful when its
-      parent has no margins at all, but a specific element should be inset a common distance. 
-    </p>
-    <p>
-      For example, text inputs may want to stretch 100% of the display, however, 
-      the button to submit the form may need to be inset for a better apperance.
-    </div>
-  </div>
   <div class="panel panel-default">
     <div class="panel-heading">padding</div>
     <div class="panel-body">
-      The <code>padding</code> class it used to give the element's content some breathing room, 
+      The <code>padding</code> class it used to give any element's content some breathing room, 
       meaning it adds padding between the edge of the element and its inner content.
+    </div>
+  </div>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-footer bar-secondary">
+      <div class="h1 title">Footer</div>
     </div>
   </div>
 
@@ -872,7 +874,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Placeholder Labels</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header">
+      <div class="content has-header padding-top">
         <div class="input-group">
           <label class="input-row">
             <input type="text" placeholder="First Name">
@@ -881,8 +883,8 @@ title: "Ionic Framework - Documentation and Guide"
             <input type="text" placeholder="Last Name">
           </label>
         </div>
-        <div class="inset">
-          <button class="button button-primary">Sign In</button>
+        <div class="padding">
+          <button class="button block button-primary">Submit</button>
         </div>
       </div>
     </div>
@@ -922,7 +924,7 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Inline Labels</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header">
+      <div class="content has-header padding-top">
         <div class="input-group">
           <label class="input-row">
             <span class="input-label">Username</span>
@@ -932,6 +934,9 @@ title: "Ionic Framework - Documentation and Guide"
             <span class="input-label">Password</span>
             <input type="password">
           </label>
+        </div>
+        <div class="padding">
+          <button class="button block button-primary">Sign In</button>
         </div>
       </div>
     </div>
@@ -989,6 +994,9 @@ title: "Ionic Framework - Documentation and Guide"
             <span class="input-label">Email</span>
             <input type="text" placeholder="john@suhr.com">
           </label>
+        </div>
+        <div class="padding">
+          <button class="button block button-primary">Create Account</button>
         </div>
       </div>
     </div>

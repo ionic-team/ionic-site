@@ -290,10 +290,9 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="buttons">
   <h3><a href="#buttons">Buttons</a></h3>
   <p>
-    Buttons can be displayed inline, block, icon-only, or text only, and come in 
-    many different styles. By default a button has <code>display: block</code>  
-    applied so it goes the full width of its parent. For the full width to take
-    affect, a parent cannot have the <code>padding</code> classname assigned.
+    Buttons can be displayed inline, block, outlined, icon-only, or clear (text only), and come in 
+    many different styles. By default a button has <code>display: inline-block</code>  
+    applied. Other options include <code>block</code> buttons for a full width.
   </p>
 
 {% highlight html %}
@@ -319,15 +318,31 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Buttons</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header" style="padding-top: 1px">
-        <button class="button button-default">button-default</button>
-        <button class="button button-secondary">button-secondary</button>
-        <button class="button button-primary">button-primary</button>
-        <button class="button button-info">button-info</button>
-        <button class="button button-success">button-success</button>
-        <button class="button button-warning">button-warning</button>
-        <button class="button button-danger">button-danger</button>
-        <button class="button button-dark">button-dark</button>
+      <div class="content has-header padding">
+        <p>
+          <button class="button button-default">button-default</button>
+        </p>
+        <p>
+          <button class="button button-secondary">button-secondary</button>
+        </p>
+        <p>
+          <button class="button button-primary">button-primary</button>
+        </p>
+        <p>
+          <button class="button button-info">button-info</button>
+        </p>
+        <p>
+          <button class="button button-success">button-success</button>
+        </p>
+        <p>
+          <button class="button button-warning">button-warning</button>
+        </p>
+        <p>
+          <button class="button button-danger">button-danger</button>
+        </p>
+        <p>
+          <button class="button button-dark">button-dark</button>
+        </p>
       </div>
     </div>
   </div>
@@ -336,92 +351,78 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Buttons Inset
+<!-- Block Buttons
   ================================================== -->
-<div class="docs-section" id="buttons-inset">
+<div class="docs-section" id="block-buttons">
 
-  <h3><a href="#buttons-inset">Inset Buttons</a></h3>
+  <h3><a href="#block-buttons">Block Buttons</a></h3>
   <p>
-    ...
+    Adding <code>block</code> to a button applies <code>display: block</code> display. 
+    A block button will however go 100% of its parent's width.
+    In the example, the button's containing content element also has <code>padding</code> applied,
+    so there is some breathing room between the edge of the device and the buttons.
   </p>
 
 {% highlight html %}
-<div class="inset">
-  <button class="button button-primary">
-    Inset Button
-  </button>
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Inset Buttons</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content padding has-header" style="padding-top: 1px">
-        <button class="button button-default">button-default</button>
-        <button class="button button-secondary">button-secondary</button>
-        <button class="button button-primary">button-primary</button>
-        <button class="button button-info">button-info</button>
-        <button class="button button-success">button-success</button>
-        <button class="button button-warning">button-warning</button>
-        <button class="button button-danger">button-danger</button>
-        <button class="button button-dark">button-dark</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Inline Buttons
-  ================================================== -->
-<div class="docs-section" id="buttons-inline">
-
-  <h3><a href="#buttons-inline">Inline Buttons</a></h3>
-
-  <p>
-    Use the <code>button-inline</code> classname to apply a 
-    <code>display: inline-block</code> display.
-  </p>
-
-{% highlight html %}
-<button class="button button-inline button-primary">
-  Inline Button
+<button class="button block button-primary">
+  Block Button
 </button>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Inline Buttons</div>
+      <div class="h1 title">Block Buttons</div>
     </div>
     <div class="content-wrapper">
       <div class="content padding has-header">
-        <p>
-          <button class="button button-inline button-default">button-default</button>
-        </p>
-        <p>
-          <button class="button button-inline button-secondary">button-secondary</button>
-        </p>
-        <p>
-          <button class="button button-inline button-primary">button-primary</button>
-        </p>
-        <p>
-          <button class="button button-inline button-info">button-info</button>
-        </p>
-        <p>
-          <button class="button button-inline button-success">button-success</button>
-        </p>
-        <p>
-          <button class="button button-inline button-warning">button-warning</button>
-        </p>
-        <p>
-          <button class="button button-inline button-danger">button-danger</button>
-        </p>
-        <p>
-          <button class="button button-inline button-dark">button-dark</button>
-        </p>
+        <button class="button block button-default">button-default</button>
+        <button class="button block button-secondary">button-secondary</button>
+        <button class="button block button-primary">button-primary</button>
+        <button class="button block button-info">button-info</button>
+        <button class="button block button-success">button-success</button>
+        <button class="button block button-warning">button-warning</button>
+        <button class="button block button-danger">button-danger</button>
+        <button class="button block button-dark">button-dark</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Full Width Block Buttons
+  ================================================== -->
+<div class="docs-section" id="full-buttons">
+
+  <h3><a href="#full-buttons">Full Width Block Buttons</a></h3>
+  <p>
+    Adding <code>button-full</code> to a button not only applies <code>display: block</code>,
+    but also removes borders on the left and right, and any border-radius which may be applied. 
+    This style is useful when th button should stretch across the entire width of the display.
+    Additionally, the button's parent element <em>does not</em> have <code>padding</code> applied.
+  </p>
+
+{% highlight html %}
+<button class="button button-full button-primary">
+  Full Width Block Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Full Width Block Buttons</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <button class="button button-full button-default">button-default</button>
+        <button class="button button-full button-secondary">button-secondary</button>
+        <button class="button button-full button-primary">button-primary</button>
+        <button class="button button-full button-info">button-info</button>
+        <button class="button button-full button-success">button-success</button>
+        <button class="button button-full button-warning">button-warning</button>
+        <button class="button button-full button-danger">button-danger</button>
+        <button class="button button-full button-dark">button-dark</button>
       </div>
     </div>
   </div>
@@ -432,13 +433,14 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Outlined Buttons
   ================================================== -->
-<div class="docs-section" id="buttons-outlined">
+<div class="docs-section" id="outlined-buttons">
 
-  <h3><a href="#buttons-outlined">Outlined Buttons</a></h3>
+  <h3><a href="#outlined-buttons">Outlined Buttons</a></h3>
 
   <p>
-    Use the <code>button-outline</code> classname to apply an outline button style.
-    By default outlined buttons have <code>display: inline-block</code> applied.
+    Use <code>button-outline</code> to apply an outline button style, which also
+    has a transparent background. Note: The text and border will take the color of the applied button style, meaning 
+    <code>button-primary</code> will result in blue text and border, with a transparent background.
   </p>
 
 {% highlight html %}
@@ -487,20 +489,19 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Clear Buttons
   ================================================== -->
-<div class="docs-section" id="buttons-clear">
+<div class="docs-section" id="clear-buttons">
 
-  <h3><a href="#buttons-clear">Clear Buttons</a></h3>
+  <h3><a href="#clear-buttons">Clear Buttons</a></h3>
 
   <p>
-    Clear buttons are a predominate feature in modern apps. Add <code>button-clear</code> to any 
-    button to remove the border and make the text stand out. Note: The text will take the color of the applied 
-    button style. Meaning <code>button-primary</code> will result in blue text instead of a blue background.
-    By default clear buttons have <code>display: inline-block</code> applied.
+    Add <code>button-clear</code> to remove the border and make the text stand out. 
+    Note: The text will take the color of the applied button style, meaning 
+    <code>button-primary</code> will result in blue text and no border instead of a blue background.
   </p>
 
 {% highlight html %}
 <button class="button button-clear button-primary">
-  Text-only Buttons
+  Clear Button
 </button>
 {% endhighlight %}
 
@@ -544,12 +545,12 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Icon-only Buttons
   ================================================== -->
-<div class="docs-section" id="buttons-icon-only">
+<div class="docs-section" id="icon-only-buttons">
 
-  <h3><a href="#buttons-icon-only">Icon-only Buttons</a></h3>
+  <h3><a href="#icon-only-buttons">Icon-only Buttons</a></h3>
 
   <p>
-    While icons can be added to any button at any time, to remove any border and make the icon 
+    While icons can be added to any button at any time, to remove borders and text to make the icon 
     stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
   </p>
 

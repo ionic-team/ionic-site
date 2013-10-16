@@ -5245,6 +5245,8 @@ td.visible-print {
     margin-bottom: 15px; }
   .post .showcase-image {
     margin: 10px 0px; }
+  .post .body-image {
+    margin: 10px 0px; }
   .post .post-title {
     font-size: 25px; }
   .post .post-time {
@@ -5254,6 +5256,9 @@ td.visible-print {
     display: block; }
   .post .post-social {
     margin-bottom: 10px; }
+
+.disqus {
+  margin-top: 40px; }
 
 .highlight {
   background: #ffffff; }

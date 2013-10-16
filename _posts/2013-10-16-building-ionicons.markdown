@@ -19,13 +19,13 @@ published: true
 
 <p>It was an easy decision to go the route of making an icon font instead of using images. Icon fonts are better in pretty much every way imaginable, most notably the fact that they are vector based, which means they scale perfectly to any resolution. They look great on high-resolution displays such as iPhones and most Android devices. Moreover, they are all from one resource! That means fewer HTTP requests for various images, and zero sprite sheets.</p>
 
-<p>It took over a month from start to “finish” (we’re still adding icons) to build Ionicons. During that time I learned a ton about how to build an icon font, and I thought it would be interesting to detail some of that here.</p>
+<p>It took over a month from start to “finish” (we’re still adding icons) to build <a href="http://ionicons.com" target="_blank">Ionicons</a>. During that time I learned a ton about how to build an icon font, and I thought it would be interesting to detail some of that here.</p>
 
 <h3>Tools</h3>
 
-<p>The tools required to build Ionicons were minimal: Adobe Illustrator for designing the vector icons, IcoMoon for converting the vector shapes into font files, and a browser to preview them all in. All of these were free, with the exception of Illustrator.</p>
+<p>The tools required to build Ionicons were minimal: <a href="http://www.adobe.com/mena_en/products/illustrator.html" target="_blank">Adobe Illustrator</a> for designing the vector icons, <a href="http://icomoon.io/" target="_blank">IcoMoon</a> for converting the vector shapes into font files, and <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">a browser</a> to preview them all in. All of these were free, with the exception of Illustrator.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-tools.png">
+<img class="body-image" src="/img/blog/ionicons-tools.png" style="width:50%;">
 
 <p>If you’re unfamiliar with IcoMoon, do take some time to check it out. It’s a very cool open source tool for creating custom icon font packs. There are some legal usecase limitations if you build a custom pack from other existing icon fonts, but not if you create and import your own icons from scratch.</p>
 
@@ -33,13 +33,13 @@ published: true
 
 <p>The concept of a “crisp size” took a bit of time for me to understand, so I will try to explain it as simply as possible. Basically, “crisp size” is the default size at which an icon renders sharply on a screen. For an icon to render sharply, its lines and edges must line up perfectly with the pixel grid of the screen. If any edges of the icon shape are not aligned to the pixel grid, they will appear blurry because the screen cannot definitively decipher where the edge ends/begins.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-pixelgrid.png">
 
 <p>We decided to go with the common crisp size of 16px with Ionicons for several reasons. Having a number divisible by 2, 4 and 8 was a good step to improve crisp scalability at various sizes, which in this case produces crisp looking icons at font sizes of 16px, 32px, 48px, 64px, etc.</p>
 
 <p>Knowing this, I constructed a series of artboards in Illustrator to represent my drawing canvas for the icons. Each artboard is set to 512 x 512 pixels, with a grid dividing them into 16 x16 squares. Each square represents one pixel unit (technically there are 4 square pixels within each box). I used this grid as my guide for where to place and align each icon shape.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-preview.png">
 
 <p>Then came the hard part. What icons do we include, and how many should we start with? I started looking closer at all of the icons used in popular apps and websites, and took note of those most commonly used. At the top of this list were icons relating to navigation, utility, help, searching, and sharing. Ultimately, I feel we did a good job curating the most necessary and frequently used icons for this first iteration of Ionicons.</p>
 
@@ -47,11 +47,11 @@ published: true
 
 <p>It took me a solid three to four weeks to construct the initial designs of each icon in Illustrator and organize them accordingly. We went through several revisions and tweaks before we were confident they were ready for prime time. Once we reached that point, I exported each individual icon as an SVG file. From there, I imported them all into IcoMoon.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-preview.png">
 
 <p>Once each and every SVG file was in IcoMoon, I set the font name to “ionicons” and the prefix to “icon-” for consistency. There is also a setting in IcoMoon called Font Metrics, which allows you to set your font’s Crisp Size. It’s important to have this set to whatever your chosen Crisp Size is, which in our case is 16px. This will ensure that our icons will appear crisp at the correct sizing units.</p>
 
-<img class="showcase-image" src="/img/blog/ionicons-preview.png">
+<img class="body-image" src="/img/blog/ionicons-preview.png">
 
 <p>Then I exported the font. It compiled and packaged up the necessary CSS and font files required by all the various browsers. We were really pleased with the ease of use and speed offered through IcoMoon. It made the transition from SVG to fonts a breeze.</p>
 

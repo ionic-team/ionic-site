@@ -4,7 +4,7 @@ title:  "Announcing The Ionic Framework"
 date:   "2013-10-08 11:35:24"
 categories: ionic
 author: '<a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
-published: true
+published: false
 ---
 
 <img class="showcase-image" src="/img/blog/preview.jpg">

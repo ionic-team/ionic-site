@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Building Ionicons, Our Open Source Icon Font"
-date:   "2013-10-16 10:35:24"
+date:   "2013-10-16 11:00:24"
 categories: ionic
 author: '<a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>'
 published: true
@@ -67,7 +67,7 @@ published: true
 
 <p><a href="http://twitter.com/helloimben">Ben</a></p>
 
-<p />
+<p></p>
 
 <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
 

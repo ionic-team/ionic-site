@@ -7,7 +7,7 @@ author: '<a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>
 published: true
 ---
 
-<img class="showcase-image" src="/img/blog/preview.jpg">
+<img class="showcase-image" src="/img/blog/ionicons-preview.png">
 
 <p>When we went to build <a href="http://ionicframework.com">Ionic</a>, we knew that great design would be crucial in an amazing HTML5 mobile app development framework. We knew we had to cover a lot of (visual) bases with the design, but few design challenges were as daunting as iconography.</p>
 

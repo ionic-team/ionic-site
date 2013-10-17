@@ -838,6 +838,9 @@ title: "Ionic Framework - Documentation and Guide"
             <input type="text" placeholder="Last Name">
           </label>
         </div>
+        <div class="padding">
+          <button class="button block button-primary">Submit</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1013,13 +1016,15 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#checkbox">Checkbox</a></h3>
 
   <p>
-    ...
+    A checkbox is no different than the HTML checkbox input, except it is
+    styled with a modern app interaction.
   </p>
 
 {% highlight html %}
-<div class="">
-  ...
-</div>
+<label class="checkbox">
+   <input type="checkbox">
+   <div class="handle"></div>
+</label>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -1028,7 +1033,10 @@ title: "Ionic Framework - Documentation and Guide"
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        ...
+        <label class="checkbox">
+           <input type="checkbox">
+           <div class="handle"></div>
+        </label>
       </div>
     </div>
   </div>
@@ -1087,15 +1095,28 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="radio-buttons">
 
-  <h3><a href="#radio-buttons">Radio Buttons</a></h3>
+  <h3><a href="#radio-buttons">Radio Button List</a></h3>
 
   <p>
-    ...
+    Radio buttons act no differently as standard radio input elements. Following this 
+    convention will display a group of radio buttons similar to a modern app.
   </p>
 
 {% highlight html %}
-<div class="">
+<div class="radio-buttton-list">
+
+  <label class="list-item">
+    <div class="list-item-content">
+      Go
+    </div>
+    <div class="list-item-buttons">
+      <input type="radio" name="serverside" value="go" checked="checked">
+      <i class="icon-checkmark"></i>
+    </div>
+  </label>
+
   ...
+
 </div>
 {% endhighlight %}
 
@@ -1105,7 +1126,71 @@ title: "Ionic Framework - Documentation and Guide"
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        ...
+
+        <div class="radio-buttton-list">
+
+          <label class="list-item">
+            <div class="list-item-content">
+              Go
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value="go" checked="checked">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+          <label class="list-item">
+            <div class="list-item-content">
+              Python
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value="python">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+          <label class="list-item">
+            <div class="list-item-content">
+              Ruby
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value="ruby">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+          <label class="list-item">
+            <div class="list-item-content">
+              .Net
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value=".net">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+          <label class="list-item">
+            <div class="list-item-content">
+              Java
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value="java">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+          <label class="list-item">
+            <div class="list-item-content">
+              PHP
+            </div>
+            <div class="list-item-buttons">
+              <input type="radio" name="serverside" value="php">
+              <i class="icon-checkmark"></i>
+            </div>
+          </label>
+
+        </div>
+
       </div>
     </div>
   </div>

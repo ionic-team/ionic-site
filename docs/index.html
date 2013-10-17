@@ -1009,40 +1009,6 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Checkbox
-  ================================================== -->
-<div class="docs-section" id="checkbox">
-
-  <h3><a href="#checkbox">Checkbox</a></h3>
-
-  <p>
-    A checkbox is no different than the HTML checkbox input, except it is
-    styled with a modern app interaction.
-  </p>
-
-{% highlight html %}
-<label class="checkbox">
-   <input type="checkbox">
-</label>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Checkbox</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <label class="checkbox">
-           <input type="checkbox">
-        </label>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
 <!-- Toggle
   ================================================== -->
 <div class="docs-section" id="toggle">
@@ -1051,7 +1017,9 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     A toggle technically is the same thing as an HTML checkbox input, 
-    except it looks prettier and easier to use on a touch device.
+    except it looks prettier and easier to use on a touch device. Ionic prefers
+    to wrap the checkbox input with the <code>&lt;label&gt;</code> in order
+    to make the entire toggle easy to tap or drag.
   </p>
 
 {% highlight html %}
@@ -1061,20 +1029,175 @@ title: "Ionic Framework - Documentation and Guide"
 </label>
 {% endhighlight %}
 
+  <p>
+    Below is an example of multiple toggles within a list. Note the <code>toggle-item</code>
+    class was added along side <code>list-item</code> for each item.
+  </p>
+
+{% highlight html %}
+<ul>
+
+  <li class="list-item toggle-item">
+     <div class="list-item-content">
+      HTML5
+     </div>
+     <label class="toggle">
+       <input type="checkbox">
+       <div class="handle"></div>
+     </label>
+  </li>
+
+  ...
+
+</ul>
+{% endhighlight %}
+
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
       <div class="h1 title">Toggle</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        <label class="toggle">
-           <input type="checkbox">
-           <div class="handle"></div>
-        </label>
-        <label class="toggle">
-           <input type="checkbox">
-           <div class="handle"></div>
-        </label>
+        
+        <ul>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              HTML5
+             </div>
+             <label class="toggle">
+               <input type="checkbox" checked>
+               <div class="handle"></div>
+             </label>
+          </li>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              CSS3
+             </div>
+             <label class="toggle">
+               <input type="checkbox" checked>
+               <div class="handle"></div>
+             </label>
+          </li>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              Flashplayer
+             </div>
+             <label class="toggle">
+               <input type="checkbox">
+               <div class="handle"></div>
+             </label>
+          </li>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              Java Applets
+             </div>
+             <label class="toggle">
+               <input type="checkbox">
+               <div class="handle"></div>
+             </label>
+          </li>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              JavaScript
+             </div>
+             <label class="toggle">
+               <input type="checkbox" checked>
+               <div class="handle"></div>
+             </label>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Checkbox
+  ================================================== -->
+<div class="docs-section" id="checkbox">
+
+  <h3><a href="#checkbox">Checkbox</a></h3>
+
+  <p>
+    A checkbox is no different than the HTML checkbox input, except it's
+    styled all nice like.
+  </p>
+
+{% highlight html %}
+<label class="checkbox">
+   <input type="checkbox">
+</label>
+{% endhighlight %}
+
+  <p>
+    Below is an example of multiple checkboxes within a list. 
+    Note the <code>checkbox-item</code> class was added along side 
+    <code>list-item</code> for each item.
+  </p>
+
+{% highlight html %}
+<ul>
+
+  <li class="list-item toggle-item">
+     <div class="list-item-content">
+      Flux Capacitor
+     </div>
+     <label class="toggle">
+       <input type="checkbox">
+       <div class="handle"></div>
+     </label>
+  </li>
+
+  ...
+
+</ul>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Checkbox</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        
+        <ul class="padding">
+          <li class="list-item checkbox-item">
+             <div class="list-item-content">
+              Flux Capacitor
+             </div>
+             <label class="checkbox">
+               <input type="checkbox" checked>
+             </label>
+          </li>
+          <li class="list-item checkbox-item">
+             <div class="list-item-content">
+              1.21 Gigawatts
+             </div>
+             <label class="checkbox">
+               <input type="checkbox" checked>
+             </label>
+          </li>
+          <li class="list-item checkbox-item">
+             <div class="list-item-content">
+              88 MPH
+             </div>
+             <label class="checkbox">
+               <input type="checkbox" checked>
+             </label>
+          </li>
+          <li class="list-item checkbox-item">
+             <div class="list-item-content">
+              Plutonium Resupply
+             </div>
+             <label class="checkbox">
+               <input type="checkbox">
+             </label>
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>

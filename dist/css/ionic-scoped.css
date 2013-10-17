@@ -180,11 +180,15 @@
   /* the checkmark within the box */
   /* what the background looks like when its checked */
   /* what the checkmark looks like when its checked */
+  /* make sure list item content have enough padding on left to fit the checkbox */
+  /* position the checkbox to the left within a list item */
   /* the overall container of the toggle */
   /* the handle (circle) thats inside the toggle's track area */
   /* also the appearance when the handle is "off" */
   /* The track when the toggle is "on" */
   /* the handle when the toggle is "on" */
+  /* make sure list item content have enough padding on right to fit the toggle */
+  /* position the toggle to the right within a list item */
   @keyframes fadein {
     from {
       opacity: 0.7; }
@@ -2126,14 +2130,14 @@
       transition: background-color 0.1s ease-in-out; }
   .ionic .checkbox input:after {
     position: absolute;
-    top: 37%;
+    top: 34%;
     left: 26%;
     display: table;
     width: 14px;
-    height: 7px;
-    border: 1px solid white;
-    border-top: none;
-    border-right: none;
+    height: 10.33333px;
+    border: 3px solid white;
+    border-top: 0;
+    border-right: 0;
     content: ' ';
     opacity: 0;
     transition: opacity 0.05s ease-in-out;
@@ -2144,6 +2148,13 @@
     background: #049cdb; }
   .ionic .checkbox input:checked:after {
     opacity: 1; }
+  .ionic .checkbox-item .list-item-content {
+    padding-left: 58px; }
+  .ionic .checkbox-item .checkbox {
+    position: absolute;
+    top: 1px;
+    left: 7.5px;
+    z-index: 3; }
   .ionic .toggle {
     position: relative;
     display: inline-block; }
@@ -2193,6 +2204,13 @@
   .ionic .toggle input:checked + .handle {
     background-color: white;
     -webkit-transform: translate3d(22px, 0, 0); }
+  .ionic .toggle-item .list-item-content {
+    padding-right: 99px; }
+  .ionic .toggle-item .toggle {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 3; }
   .ionic .radio-buttton-list .list-item-content {
     /* give some room to the right for the checkmark icon */
     padding-right: 60px; }

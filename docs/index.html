@@ -1122,7 +1122,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Radio Buttons</div>
+      <div class="h1 title">Radio Button Lists</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -1206,13 +1206,11 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#range">Range</a></h3>
 
   <p>
-    ...
+    Nothing special here except some good clean HTML5 and CSS3.
   </p>
 
 {% highlight html %}
-<div class="">
-  ...
-</div>
+<input type="range" name="awesomeness" min="0" max="10">
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -1220,8 +1218,15 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Range</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header">
-        ...
+      <div class="content has-header padding">
+
+        <p>
+          Level of Awesomeness:
+        </p>
+        <p>
+          <input type="range" name="awesomeness" min="0" max="10" value="10">
+        </p>
+
       </div>
     </div>
   </div>

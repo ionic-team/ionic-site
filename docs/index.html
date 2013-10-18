@@ -185,7 +185,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#content">Content</a></h3>
 
   <p>
-    Primary content should be wrapped with a <code>content</code> elements.
+    Primary content element should have the <code>content</code> class applied.
     No thrills here other than default appearances for the various type element.
     Note that the containing <code>content</code> element also has the
     <code>padding</code> class applied (more about <a href="#utility">padding</a> is
@@ -252,8 +252,8 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     Many components in Ionic purposely have both padding and margin reset set to zero.
-    I many instances mobile apps will have components bleed to the edge of the screen, and 
-    by starting each component at zero allows developers to easily control padding throughout the app. 
+    In many instances mobile apps will have components bleed to the edge of the screen, 
+    and by starting each component at zero, developers can easily control padding throughout the app. 
   </p>
   <div class="panel panel-default">
     <div class="panel-heading">padding</div>
@@ -762,7 +762,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <li class="list-item">
    <div class="list-item-content">
-    The Raiders of the Lost Ark
+    Ellie Mae
    </div>
   </li>
 
@@ -778,25 +778,30 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="content-wrapper">
       <div class="content has-header">
         
-        <ul class="padding-vertical">
+        <ul class="list">
           <li class="list-item">
            <div class="list-item-content">
-            The Raiders of the Lost Ark
+            Ellie Mae
            </div>
           </li>
           <li class="list-item">
            <div class="list-item-content">
-            The Temple of Doom 
+            Harvey
            </div>
           </li>
           <li class="list-item">
            <div class="list-item-content">
-            The Last Crusade 
+            Henry
            </div>
           </li>
           <li class="list-item">
            <div class="list-item-content">
-            The Kingdom of the Crystal Skull
+            Tobias
+           </div>
+          </li>
+          <li class="list-item">
+           <div class="list-item-content">
+            Buster
            </div>
           </li>
         </ul>
@@ -809,47 +814,92 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Navigation List View
+<!-- List View Icons
   ================================================== -->
-<div class="docs-section" id="navigation-listview">
+<div class="docs-section" id="listview-icons">
 
-  <h3><a href="#navigation-listview">Navigation List View</a></h3>
+  <h3><a href="#listview-icons">List View Icons</a></h3>
 
   <p>
-    A navigational list item uses an <code>&lt;a&gt;</code> element with the
-    <code>list-item</code> class applied. This allows the entire list item to be
-    tappable. Note that both a list and its list items can be any element.
+    Lists can have icons assigned either to the left and/or right side of each list item,
+    and the alignment classes should be assigned to each <code>list-item</code> element.
+  </p>
+  <p>
+    Use <code>list-icon-left</code> to line up the icon to the left, and <code>list-icon-right</code>
+    to set the icon to the right. When a list item has an icon on both sides then both classes
+    will need to be applied.
+  </p>
+  <p>
+    In the example, the first list item only has a left aligned icon. The second item has both 
+    left and right side icons, and the third only has a right side icon. Additionally, the first
+    icon has <code>fill-icon</code> applied so it inverts the background and foreground.
+  </p>
+  <p>
+    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire 
+    list item to be tappable. Note that both a list and its list items can be any element, meaning
+    they're not restricted to just <code>&lt;ul&gt;</code> with <code>&lt;li&gt;</code> elements.
   </p>
 
 {% highlight html %}
 <div class="list">
 
-  <a class="list-item">
+  <a class="list-item list-icon-left">
    <div class="list-item-content">
-    The Raiders of the Lost Ark
+    <i class="icon-gear-a fill-icon"></i>
+    Settings
    </div>
   </a>
 
-  ...
+  <a class="list-item list-icon-left list-icon-right">
+   <div class="list-item-content">
+    <i class="icon-wifi"></i>
+    Wifi
+    <i class="icon-chevron-right"></i>
+   </div>
+  </a>
+
+  <a class="list-item list-icon-right">
+   <div class="list-item-content">
+    Advanced
+    <i class="icon-chevron-right"></i>
+   </div>
+  </a>
 
 </div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Navigation List View</div>
+      <div class="h1 title">List View Icons</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
         
-        <ul class="padding-vertical">
-          <li class="list-item">
-           <div class="list-item-icon"></div>
+        <div class="list">
+
+          <a class="list-item list-icon-left">
            <div class="list-item-content">
-            The Raiders of the Lost Ark
+            <i class="icon-gear-a fill-icon"></i>
+            Settings
            </div>
-          </li>
-        </ul>
+          </a>
+
+          <a class="list-item list-icon-left list-icon-right">
+           <div class="list-item-content">
+            <i class="icon-wifi"></i>
+            Wifi
+            <i class="icon-chevron-right"></i>
+           </div>
+          </a>
+
+          <a class="list-item list-icon-right">
+           <div class="list-item-content">
+            Advanced
+            <i class="icon-chevron-right"></i>
+           </div>
+          </a>
+
+        </div>
 
       </div>
     </div>
@@ -897,7 +947,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#forms">Forms &amp; Inputs</a></h3>
 
   <p>
-    An <code>inputs-group</code> is used to group related input elements. An <code>input-row</code>
+    An <code>input-group</code> is used to group related input elements. An <code>input-row</code>
     is used to designate each individual input field and it's associated label. By default each 
     input row will fill 100% of the width of its parent element. However, you can use the <a href="#utility">utility</a>
     classnames of <code>inset</code> and <code>padding</code> to change their placement.

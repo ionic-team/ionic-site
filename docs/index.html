@@ -752,13 +752,23 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#listview">List View</a></h3>
 
   <p>
-    ...
+    Both the list which contains the list items, and the list items themselves
+    can be any HTML element. The containing element requires the <code>list</code> 
+    class and each list item requires the <code>list-item</code> class.
   </p>
 
 {% highlight html %}
-<div class="">
+<ul class="list">
+
+  <li class="list-item">
+   <div class="list-item-content">
+    The Raiders of the Lost Ark
+   </div>
+  </li>
+
   ...
-</div>
+
+</ul>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -767,7 +777,80 @@ title: "Ionic Framework - Documentation and Guide"
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        ...
+        
+        <ul class="padding-vertical">
+          <li class="list-item">
+           <div class="list-item-content">
+            The Raiders of the Lost Ark
+           </div>
+          </li>
+          <li class="list-item">
+           <div class="list-item-content">
+            The Temple of Doom 
+           </div>
+          </li>
+          <li class="list-item">
+           <div class="list-item-content">
+            The Last Crusade 
+           </div>
+          </li>
+          <li class="list-item">
+           <div class="list-item-content">
+            The Kingdom of the Crystal Skull
+           </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Navigation List View
+  ================================================== -->
+<div class="docs-section" id="navigation-listview">
+
+  <h3><a href="#navigation-listview">Navigation List View</a></h3>
+
+  <p>
+    A navigational list item uses an <code>&lt;a&gt;</code> element with the
+    <code>list-item</code> class applied. This allows the entire list item to be
+    tappable. Note that both a list and its list items can be any element.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <a class="list-item">
+   <div class="list-item-content">
+    The Raiders of the Lost Ark
+   </div>
+  </a>
+
+  ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Navigation List View</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        
+        <ul class="padding-vertical">
+          <li class="list-item">
+           <div class="list-item-icon"></div>
+           <div class="list-item-content">
+            The Raiders of the Lost Ark
+           </div>
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>
@@ -1105,6 +1188,15 @@ title: "Ionic Framework - Documentation and Guide"
                <div class="handle"></div>
              </label>
           </li>
+          <li class="list-item toggle-item">
+             <div class="list-item-content">
+              Silverlight
+             </div>
+             <label class="toggle">
+               <input type="checkbox">
+               <div class="handle"></div>
+             </label>
+          </li>
         </ul>
 
       </div>
@@ -1216,6 +1308,10 @@ title: "Ionic Framework - Documentation and Guide"
     Radio buttons act no differently as standard radio input elements. Following this 
     convention will display a group of radio buttons similar to a modern app.
   </p>
+  <p>
+    The containing element requires the <code>radio-buttton-list</code> class, each
+    <code>list-item</code> must have a radio input with the same name, and 
+    <code>radio-button-icon</code> is used to show and hide the icon.
 
 {% highlight html %}
 <div class="radio-buttton-list">
@@ -1225,7 +1321,7 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="list-item-content">
       Go
     </div>
-    <div class="list-item-icon icon-checkmark"></div>
+    <div class="list-icon-right icon-checkmark"></div>
   </label>
 
   ...
@@ -1247,7 +1343,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               Go
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
           <label class="list-item">
@@ -1255,7 +1351,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               Python
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
           <label class="list-item">
@@ -1263,7 +1359,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               Ruby
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
           <label class="list-item">
@@ -1271,7 +1367,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               .Net
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
           <label class="list-item">
@@ -1279,7 +1375,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               Java
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
           <label class="list-item">
@@ -1287,7 +1383,7 @@ title: "Ionic Framework - Documentation and Guide"
             <div class="list-item-content">
               PHP
             </div>
-            <div class="list-item-icon icon-checkmark"></div>
+            <div class="radio-button-icon icon-checkmark"></div>
           </label>
 
         </div>

@@ -560,28 +560,82 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Icon-only Buttons
+<!-- Buttons in Headers/Footers
   ================================================== -->
-<div class="docs-section" id="icon-only-buttons">
+<div class="docs-section" id="buttons-headers-footers">
 
-  <h3><a href="#icon-only-buttons">Icon-only Buttons</a></h3>
+  <h3><a href="#buttons-headers-footers">Buttons in Headers</a></h3>
 
   <p>
-    While icons can be added to any button at any time, to remove borders and text to make the icon 
-    stand alone, add <code>button-icon</code> to the button. This also reduces the padding applied to the button.
+    When buttons are placed in headers or footers, they take the style of the 
+    bar by default, so you don't have to use the extra style classes. 
+    To change this, add the desired style class.
+  </p>
+
+{% highlight html %}
+<div class="bar bar-header bar-default">
+  <button class="button">
+    <i class="icon-navicon"></i>
+  </button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button">
+    Edit
+  </button>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="padding">
+      <div class="bar bar-header bar-default">
+        <button class="button">
+          <i class="icon-navicon"></i>
+        </button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button pull-right">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Clear Buttons in Headers
+  ================================================== -->
+<div class="docs-section" id="clear-buttons-headers">
+
+  <h3><a href="#clear-buttons-headers">Clear Buttons in Headers</a></h3>
+
+  <p>
+    ...
   </p>
 
 {% highlight html %}
 <button class="button button-icon">
-  <i class="icon-navicon"></i>
+  <div class="bar bar-header bar-default">
+    <button class="button button-icon">
+      <i class="icon-navicon"></i>
+    </button>
+    <h1 class="title">Header Buttons</div>
+    <button class="button button-clear button-primary">
+      Edit
+    </button>
+  </div>
 </button>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="padding">
       <div class="bar bar-header bar-default">
-        <button class="button button-icon"><i class="icon-navicon"></i></button>
-        <div class="h1 title">Icon Only</div>
+        <button class="button button-icon">
+          <i class="icon-navicon"></i>
+        </button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button button-clear button-primary">
+          Edit
+        </button>
       </div>
     </div>
   </div>
@@ -610,9 +664,6 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Button Bar</div>
-    </div>
-    <div class="bar bar-subheader bar-secondary">
       <div class="button-bar">
         <a class="button">Success</a>
         <a class="button">Warning</a>
@@ -625,53 +676,11 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Buttons in Headers/Footers
+<!-- List
   ================================================== -->
-<div class="docs-section" id="buttons-headers-footers">
+<div class="docs-section" id="list">
 
-  <h3><a href="#buttons-headers-footers">Buttons in Headers/Footers</a></h3>
-
-  <p>
-    When buttons are placed in headers or footers, they take the style of the 
-    bar by default, so you don't have to use the extra style classes. 
-    To change this, add the desired style class.
-  </p>
-
-{% highlight html %}
-<div class="bar bar-header bar-default">
-  <button class="button button-clear button-primary">
-    Edit
-  </button>
-  <h1 class="title">Header Buttons</h1>
-  <button class="button button-icon">
-    <i class="icon-navicon"></i>
-  </button>
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="padding">
-      <div class="bar bar-header bar-default">
-        <button class="button button-clear button-primary">
-          Edit
-        </button>
-        <div class="h1 title">Header Buttons</div>
-        <button class="button button-icon">
-          <i class="icon-navicon"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- List View
-  ================================================== -->
-<div class="docs-section" id="listview">
-
-  <h3><a href="#listview">List View</a></h3>
+  <h3><a href="#list">List</a></h3>
 
   <p>
     Both the list which contains the list items, and the list items themselves
@@ -695,7 +704,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">List View</div>
+      <div class="h1 title">List</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -736,11 +745,11 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- List View Dividers
+<!-- List Dividers
   ================================================== -->
-<div class="docs-section" id="listview-dividers">
+<div class="docs-section" id="list-dividers">
 
-  <h3><a href="#listview-dividers">List View Dividers</a></h3>
+  <h3><a href="#list-dividers">List Dividers</a></h3>
 
   <p>
     List items can also be dividers to organize and group the list items. Use the <code>list-divider</code>
@@ -750,26 +759,26 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 {% highlight html %}
-<ul class="list">
+<div class="list">
 
-  <li class="list-divider">
+  <div class="list-divider">
     Candy Bars
-  </li>
+  </div>
 
-  <li class="list-item">
+  <a class="list-item" href="#">
    <div class="list-item-content">
     Butterfinger
    </div>
-  </li>
+  </a>
 
   ...
 
-</ul>
+</div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">List View Dividers</div>
+      <div class="h1 title">List Dividers</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -778,51 +787,51 @@ title: "Ionic Framework - Documentation and Guide"
           Candy Bars
         </div>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Butterfinger
          </div>
-        </div>
+        </a>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Kit Kat
          </div>
-        </div>
+        </a>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Snickers
          </div>
-        </div>
+        </a>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Twix
          </div>
-        </div>
+        </a>
         
         <div class="list-divider">
           Hard Candy
         </div>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Jolly Rancher
          </div>
-        </div>
+        </a>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           LifeSavers
          </div>
-        </div>
+        </a>
 
-        <div class="list-item">
+        <a class="list-item" href="#list-dividers">
          <div class="list-item-content">
           Skittles
          </div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -831,11 +840,11 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
-<!-- List View Icons
+<!-- List Icons
   ================================================== -->
-<div class="docs-section" id="listview-icons">
+<div class="docs-section" id="list-icons">
 
-  <h3><a href="#listview-icons">List View Icons</a></h3>
+  <h3><a href="#list-icons">List Icons</a></h3>
 
   <p>
     Lists can have icons assigned either to the left and/or right side of each list item,
@@ -867,11 +876,10 @@ title: "Ionic Framework - Documentation and Guide"
    </div>
   </a>
 
-  <a class="list-item list-icon-left list-icon-right">
+  <a class="list-item list-icon-left">
    <div class="list-item-content">
     <i class="icon-wifi"></i>
     Wifi
-    <i class="icon-chevron-right"></i>
    </div>
   </a>
 
@@ -887,7 +895,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">List View Icons</div>
+      <div class="h1 title">List Icons</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -905,18 +913,17 @@ title: "Ionic Framework - Documentation and Guide"
            </div>
           </a>
 
-          <a class="list-item list-icon-left list-icon-right">
+          <a class="list-item list-icon-left">
            <div class="list-item-content">
             <i class="icon-wifi"></i>
             Wifi
-            <i class="icon-chevron-right"></i>
            </div>
           </a>
 
           <a class="list-item list-icon-right">
            <div class="list-item-content">
             Advanced
-            <i class="icon-chevron-right"></i>
+            <i class="icon-arrow-right-c"></i>
            </div>
           </a>
 
@@ -930,11 +937,11 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- List View Thumbnails
+<!-- List Thumbnails
   ================================================== -->
-<div class="docs-section" id="listview-thumbnails">
+<div class="docs-section" id="list-thumbnails">
 
-  <h3><a href="#listview-thumbnails">List View Thumbnails</a></h3>
+  <h3><a href="#list-thumbnails">List Thumbnails</a></h3>
 
   <p>
     ...
@@ -943,12 +950,11 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-    <a class="list-item list-thumbnail list-icon-right">
+    <a class="list-item list-thumbnail" href="#">
       <div class="list-item-content">
-        <img src="cover.jpg">
+        <img class="thumbnail" src="cover.jpg">
         <h2>Pretty Hate Machine</h2>
         <p>Nine Inch Nails</p>
-        <i class="icon-chevron-right"></i>
       </div>
     </a>
 
@@ -959,7 +965,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">List View Thumbnails</div>
+      <div class="h1 title">List Thumbnails</div>
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
@@ -970,57 +976,51 @@ title: "Ionic Framework - Documentation and Guide"
             Albums
           </div>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
               <h2>Pretty Hate Machine</h2>
               <p>Nine Inch Nails</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
               <h2>Siamese Dream</h2>
               <p>Smashing Pumpkins</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
               <h2>Nevermind</h2>
               <p>Nirvana</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
               <h2>License To Ill</h2>
               <p>Bestie Boys</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
               <h2>Dookie</h2>
               <p>Green Day</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 
-          <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
+          <a href="#list-thumbnails" class="list-item list-thumbnail">
             <div class="list-item-content">
-              <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
+              <img class="thumbnail" src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
               <h2>Core</h2>
               <p>Stone Temple Pilots</p>
-              <i class="icon-chevron-right"></i>
             </div>
           </a>
 

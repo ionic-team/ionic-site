@@ -5122,8 +5122,6 @@ td.visible-print {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
   .docs-section .highlight {
     margin: 10px 0 20px 0; }
-  .docs-section .module-info td {
-    border-color: #eee; }
   .docs-section pre {
     margin-bottom: 0; }
   .docs-section h2 {

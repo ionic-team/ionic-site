@@ -18,9 +18,10 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 
 <div class="docs-section active" id="overview">
-  <h1>Structure</h1>
 
-  <p>Before you start building your Ionic app, you'll need to have a few structural things in place.<p>
+  <h1>Preamble</h1>
+
+  <p>Before you start building your Ionic app, you'll need to have a few things in place.<p>
 
   <h3>Doctype and Viewport</h3>
   <p>
@@ -42,8 +43,8 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="layout">
   <h2><a href="#layout">Layout &amp; Structure</a></h2>
   <p>
-    Ionic's layout is based off common native app layouts. In order to make your app feel native, you'll need to make sure you
-    include specific Ionic HTML markup in your code. Check out the <a href="/getting-started/#basic-template">Basic Template</a> in the 
+    Ionic's layout is based off common native app layouts. In order to make your app feel native, you'll need to make sure you follow
+    certain HTML markup guidelines. Check out the <a href="/getting-started/#basic-template">Basic Template</a> in the 
     <a href="/getting-started/">Getting started</a> page.
   </p>
 
@@ -58,13 +59,8 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#header">Header</a></h3>
 
   <p>
-<<<<<<< HEAD
     Headers are fixed regions at the top of a screen that can contain
     a title label, and <a href="#buttons-headers-footers">left/right buttons</a> for navigation or to carry out varoius actions.
-=======
-    Headers are fixed regions at the top of a view that can contain
-    a title label, <a href="#buttons-headers-footers">left/right buttons</a>, and button bars.
->>>>>>> 62c22b8f28af659440e2e1de97a414671f53afc5
   </p>
 
   <p>Headers come in a variety of fun flavors:</p>
@@ -189,7 +185,6 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#content">Content</a></h3>
 
   <p>
-<<<<<<< HEAD
     Primary content element should have the <code>content</code> class applied.
     No thrills here other than default appearances for the various type element.
   </p>
@@ -197,38 +192,15 @@ title: "Ionic Framework - Documentation and Guide"
     <strong>Note:</strong> The containing <code>content</code> element also has the
     <code>padding</code> class applied (more about <a href="#utility">padding</a> is
     discussed a few sections later).
-=======
-    The content area in Ionic is the scrollable viewport of your app.
-    While your headers and footers will be fixed to the top and 
-    bottom, respectively, the content area will fill the remaining available space.
-  </p>
-  <p>
-    The content area also sits "behind" the header and footer to provide
-    a see-through effect.
->>>>>>> 62c22b8f28af659440e2e1de97a414671f53afc5
   </p>
 
-<ul class="nav nav-tabs">
-  <li><a href="#content-angular" data-toggle="tab">Angular</a></li>
-  <li><a href="#content-plain" data-toggle="tab">Raw</a></li>
-</ul>
-<div class="tab-content">
-  <div class="tab-pane fade in active" id="content-angular">
-{% highlight html %}
-<content>
-</content>
-{% endhighlight %}
-  </div>
-  <div class="tab-pane fade" id="content-plain">
 {% highlight html %}
 <div class="content-wrapper">
-  <div class="content">
-    <h1>Content here</h1>
+  <div class="content padding">
+    ...
   </div>
 </div>
 {% endhighlight %}
-  </div>
-</div>
 
   <div class="doc-example">
     <div class="content-wrapper">
@@ -797,7 +769,7 @@ title: "Ionic Framework - Documentation and Guide"
     Candy Bars
   </div>
 
-  <a class="list-item">
+  <a class="list-item" href="#">
    <div class="list-item-content">
     Butterfinger
    </div>
@@ -878,6 +850,7 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
+
 <!-- List Icons
   ================================================== -->
 <div class="docs-section" id="list-icons">
@@ -921,10 +894,9 @@ title: "Ionic Framework - Documentation and Guide"
    </div>
   </a>
 
-  <a class="list-item list-icon-right">
+  <a class="list-item">
    <div class="list-item-content">
     Advanced
-    <i class="icon-chevron-right"></i>
    </div>
   </a>
 
@@ -961,7 +933,7 @@ title: "Ionic Framework - Documentation and Guide"
           <a class="list-item list-icon-right">
            <div class="list-item-content">
             Advanced
-            <i class="icon-arrow-right-c"></i>
+            <i class="icon-chevron-right"></i>
            </div>
           </a>
 
@@ -1102,6 +1074,38 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
+
+<!-- Side Menu
+  ================================================== -->
+<div class="docs-section" id="sidemenu">
+
+  <h3><a href="#sidemenu">Side Menu</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Side Menu</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <!-- Tab Bar
   ================================================== -->
 <div class="docs-section" id="tabbar">
@@ -1109,58 +1113,28 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#tabbar">Tab Bar</a></h3>
 
   <p>
-    A Tab Bar is a reusable tab strip. Note, the Tab Bar is not functional on its own. To power a multi-tabbed app,
-    the Tab Bar Controller should be used instead.
+    ...
   </p>
 
 {% highlight html %}
-<div class="tabs">
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 1
-  </a>
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 2
-  </a>
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 3
-  </a>
+<div class="">
+  ...
 </div>
 {% endhighlight %}
 
-  <p>
-    The Tab Bar can be styled to match the standard colors. Use these classes to change the
-    color of the tab bar:
-    <code>tabs-default</code>
-    <code>tabs-secondary</code>
-    <code>tabs-primary</code>
-    <code>tabs-info</code>
-    <code>tabs-success</code>
-    <code>tabs-warning</code>
-    <code>tabs-danger</code>
-    <code>tabs-dark</code>
-  </p>
-
   <div class="doc-example ionic">
-    <div class="tabs">
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 1
-      </a>
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 2
-      </a>
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 3
-      </a>
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Tab Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
     </div>
   </div>
 
 </div>
+
 
 
 <!-- Cards
@@ -1736,391 +1710,64 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
+<!-- Alerts
+  ================================================== -->
+<div class="docs-section" id="alerts">
 
-<!-- View Controllers
+  <h3><a href="#alerts">Alerts</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Alerts</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Layout
   ================================================== -->
 <div class="docs-section" id="javascript">
 
-  <h2><a href="#javascript">View Controllers</a></h2>
+  <h2><a href="#javascript">JavaScript</a></h2>
 
   <p>
-    View Controllers are complex Javascript controllers for such common app user experiences as 
-    tabs, navigation stacks, side menus, and modals.
-  </p>
-  <p>
-    The recommended way to use View Controllers is with the Angular
-    extensions. Make sure to include <code>ionic-angular.js</code> and 
-    include the required module for each feature in your module
-    dependencies.
-  </p>
-</div>
-
-
-<div class="docs-section" id="lists">
-  <h2><a href="#javascript">Lists</a></h2>
-  <p>
-    The list view is a very versitile and powerful component used to display lists of 
-    data. List views support various interaction modes such as editing, swipe to edit,
-    drag to reorder, and pull to refresh. List views can be used in virtual mode to efficiently handle
-    large lists of data by only rendering the items the user can see.
-  </p>
-
-{% highlight html %}
-<list
-  is-editing=".."
-  on-refresh-holding=".."
-  on-refresh-opening=".."
-  on-refresh=".."
-  animation=".."
-  delete-icon=".."
-  reorder-icon="..">
-    <!-- items here -->
-    <list-item ng-repeat="item in items">
-    </list-item>
-</list>
-{% endhighlight %}
-
-  <p>
-    Lists have many options that can be configured and events that can be handled:
-  </p>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Attribute</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>virtual</td>
-        <td><b>boolean</b></td>
-        <td>false</b>
-        <td>Whether to virtually handle list items, offloading items that are not in the viewport. This option
-          may have unintended side-effects for certain applications, so it is not enabled by default. However,
-          it is recommended for large lists.
-        </td>
-      </tr>
-      <tr>
-        <td>is-editing</td>
-        <td><b>boolean</b></td>
-        <td>false</b>
-        <td>A boolean value indicating whether to put the list in "edit mode"</td>
-      </tr>
-      <tr>
-        <td>on-refresh</td>
-        <td><b>function</b></td>
-        <td></b>
-        <td>Called when the list has been pulled to refresh and is now refreshing.</td>
-      </tr>
-      <tr>
-        <td>on-refresh-opening</td>
-        <td><b>function(ratio)</b></td>
-        <td></b>
-        <td>A callback triggered as the list is being pulled to refresh. This triggers for every drag event and sends the
-          ratio of how far down the list is being pulled before it refreshes (between 0 and 1).</td>
-      </tr>
-      <tr>
-        <td>on-refresh-holding</td>
-        <td><b>function</b></td>
-        <td></b>
-        <td>A callback triggered when the list is being pulled down and held before refreshing.</td>
-      </tr>
-      <tr>
-        <td>animation</td>
-        <td><b>className</b></td>
-        <td></b>
-        <td>An animation class to apply on the list for animating children.</td>
-      </tr>
-      <tr>
-        <td>delete-icon</td>
-        <td><b>icon className</b></td>
-        <td>icon-minus-circled</b>
-        <td>The class name of the icon to show for all deletion items. We recommend the default
-          <a href="http://ionicons.com/">ionicon</a> <b>icon-minus-circled</b>
-        </td>
-      </tr>
-      <tr>
-        <td>reorder-icon</td>
-        <td><b>icon className</b></td>
-        <td>icon-navicon</td>
-        <td>The class name of the icon to show for reordering. The recommended default is
-          <b>icon-navicon</b>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>List Items</h3>
-  
-  <p>
-    List items make up the bulk of lists. List items can be swiped,
-    reordered, deleted, and selected. They support hidden button bars
-    that are exposed after swiping, and trigger events on deletion and
-    selection.
-  </p>
-  <p>
-    List items also support embedded form elements and right-hand icons.
-  </p>
-
-{% highlight html %}
-
-  <list-item 
-    buttons="item.buttons"
-    can-delete="true"
-    can-reorder="true"
-    can-swipe="true"
-    on-delete="deleteProject(project)"
-    on-select="selectProject(project)">
-    
-    <!-- item content -->
-
-  </list-item>
-{% endhighlight %}
-  <p>
-    The content specified in the item content area will be the main content of the displayed item.
-    Make sure to add an icon at the end if you want a right-handed icon.
-  </p>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Attribute</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>buttons</td>
-        <td><b>Array</b></td>
-        <td>Buttons is an array of objects specifying the hidden buttons show underneath an item when swiped. The format of each
-          button object is:
-<code>
-<pre>
-{
-  text: 'Delete',
-  type: 'button-danger',
-  buttonClicked: function(item) {},
-}
-</pre>
-</code></td>
-      </tr>
-      <tr>
-        <td>can-delete</td>
-        <td><b>boolean</b></td>
-        <td>Whether this item can be deleted by the user.</td>
-      </tr>
-      <tr>
-        <td>can-reorder</td>
-        <td><b>boolean</b></td>
-        <td>Whether this item can be reordered.</td>
-      </tr>
-      <tr>
-        <td>can-swipe</td>
-        <td><b>boolean</b></td>
-        <td>Wheter this item can be swiped to expose the hidden buttons.</td>
-      </tr>
-      <tr>
-        <td>on-delete</td>
-        <td><b>function</b></td>
-        <td>Called when an item is deleted by the user.</td>
-      </tr>
-      <tr>
-        <td>on-select</td>
-        <td><b>function</b></td>
-        <td>Called when an item is selected or "tapped" by the user.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Tab Bar</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- Tabs
-  ================================================== -->
-<div class="docs-section" id="tabs-vc">
-
-  <h3><a href="#tabs-vc">Tabs</a></h3>
-
-  <p>
-    Tabs are multi-paned interfaces that are powered
-    through a Tab Bar.
-  </p>
-
-{% highlight html %}
-<tabs>
-  <tab title="Home" icon-on="icon-ios7-filing" icon-off="icon-ios7-filing-outline">
-    <!-- Content of tab 1 -->
-  </tab>
-  <tab title="About" icon-on="icon-ios7-clock" icon-off="icon-ios7-clock-outline">
-    <!-- Content of tab 2 -->
-  </tab>
-  
-  <tab title="Settings" icon-on="icon-ios7-gear" icon-off="icon-ios7-gear-outline">
-    <!-- Content of tab 3 -->
-  </tab>
-  
-</tabs>
-{% endhighlight %}
-  
-  <p>
-    In the example above, a Tab Bar will be added to the layout and each <code>&lt;tab&gt;</code> will be cycled through based on user input.
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Modals</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- Side Menu
-  ================================================== -->
-<div class="docs-section" id="sidemenu-vc">
-
-  <h3><a href="#sidemenu-vc">Side Menus</a></h3>
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.sideMenu</code></td>
-    </tr>
-    <tr>
-      <td>Directive</td><td><code>side-menu-ctrl (attribute or class)</code></td>
-    </tr>
-  </table>
-  <p>
-    Side Menus are exposable side menus seen at various tiems in popular
-    apps like Path and Facebook.
-    Each menu can be exposed through dragging the content area left and/or right, or through a Javascript API.
-  </p>
-
-{% highlight html %}
-<div side-menu-ctrl>
-  <div class="full-section" side-menu-content>
-    <h1>Content area</h1>
-  </div>
-  <menu side="left">
-    <h2>Left Menu</h2>
-  </menu>
-  <menu side="right">
-    <h2>Right Menu</h2>
-  </menu>
-</div>
-{% endhighlight %}
-
-</div>
-
-<!-- Navigation Stack
-  ================================================== -->
-<div class="docs-section" id="navs-vc">
-
-  <h3><a href="#navs-vc">Navigation Stack</a></h3>
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.nav</code></td>
-    </tr>
-    <tr>
-      <td>Directive</td><td><code>navs (element)</code></td>
-    </tr>
-  </table>
-  <p>
-    The Navigation Stack is a stack of screens the user has navigated
-    to, and can travel back in history to. This API is modeled from
-    the UINavigationController in iOS.
-  </p>
-  <p>
-    The Navigation Stack powers a Header Bar, including changing the
-    active title of the bar, to hiding and showing a back button
-    if available.
-  </p>
-
-{% highlight html %}
-<navs>
-  <nav-bar></nav-bar>
-
-  <content has-header="true">
-  </content>
-</navs>
-{% endhighlight %}
-  <p>
-    To interact with the Nav Controller from your own controllers or
-    directives, access the <code>$scope.navController</code> object
-    on prototypically-inherited child scopes.
-  </p>
-  <p>
-    To add new screens to the navigation controller,
-    call <code>$scope.navController.pushFromTemplate(templateUrl)</code> to navigate to a new content area.
-  </p>
-  <p>
-    
+    ...
   </p>
 
 </div>
+
+
 
 <!-- Modals
   ================================================== -->
 <div class="docs-section" id="modals">
 
   <h3><a href="#modals">Modals</a></h3>
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.service.modal</code></td>
-    </tr>
-    <tr>
-      <td>Service</td><td><code>Modal</code></td>
-    </tr>
-  </table>
 
   <p>
-  Modals are independent "screens" that can be slid into view.
+    ...
   </p>
 
 {% highlight html %}
-<div class="modal slide-in-up">
-  <header class="bar bar-header">
-    <h1 class="title">Modal</h1>
-    <button class="button button-clear button-primary">Done</button>
-  </header>
-  <main class="content padding has-header">
-    <h1>Modal Content</h1>
-  </main>
+<div class="">
+  ...
 </div>
-{% endhighlight %}
-<p>
-To show the modal, import the <code>ionic.ui.modal</code> module and use the <code>Modal</code> service in your controllers:
-</p>
-{% highlight javascript %}
-app.controller('MyCtrl', function($scope, Modal) {
-  // Initialize modal from template
-  var modal = Modal.fromTemplateUrl('myModal.html', function(modal) {
-    $scope.modal = modal;
-  });
-  
-  $scope.showModal = function() {
-    $scope.modal.show();
-  };
-
-  $scope.hideModal = function() {
-    $scope.modal.hide();
-  };
-});
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -2143,38 +1790,15 @@ app.controller('MyCtrl', function($scope, Modal) {
 <div class="docs-section" id="action-sheets">
 
   <h3><a href="#action-sheets">Action Sheets</a></h3>
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.actionSheet</code></td>
-    </tr>
-    <tr>
-      <td>Service</td><td><code>ActionSheet</code></td>
-    </tr>
-  </table>
+
   <p>
-    Action Sheets are slide-up buttons shown in response to a user action, often asking the user to confirm the decision. Action Sheets are modeled off of the iOS UIActionSheet.
-  </p>
-  <p>
-    
+    ...
   </p>
 
-{% highlight javascript %}
-ActionSheet.show({
-  buttons: [],
-  destructiveText: 'Delete Thing',
-  cancelText: 'Cancel',
-  cancel: function() {
-    // Return true to close the Action Sheet
-    return true;
-  },
-  destructiveButtonClicked: function() {
-    // Do the dangerous thing here
-    // ...
-
-    // Return true to close the Action Sheet
-    return true;
-  }
-});
+{% highlight html %}
+<div class="">
+  ...
+</div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -2183,68 +1807,10 @@ ActionSheet.show({
     </div>
     <div class="content-wrapper">
       <div class="content has-header">
-        <button class="button-primary">Show Actions</button>
+        ...
       </div>
     </div>
   </div>
 
 </div>
-
-<!-- Popups
-  ================================================== -->
-<div class="docs-section" id="popups-vc">
-
-  <h3><a href="#popups-vc">Popups</a></h3>
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.service.popup</code></td>
-    </tr>
-    <tr>
-      <td>Service</td><td><code>Popup</code></td>
-    </tr>
-  </table>
-  <p>
-    Popups are "modal" popup windows like alert, confirm, and prompt popups used in many Javascript-powered websites. In a web-powered web or native app, alert(), confirm(), and prompt() can still be used, but 
-    to get more control over the experience, use the Popup service. Note,
-    these popups are asynchronous unlike the core native versions, and will not suspend running application.
-  </p>
-  <p>
-  </p>
-{% highlight javascript %}
-// Show an alert popup
-Popup.alert('Bad user!');
-
-// Show a prompt popup
-Popup.prompt('I never asked, do you like Guacamole?', function(response) {
-});
-
-// Show a confirm popup
-Popup.confirm('Are you sure you want to throw it all away?', function(response) {
-});
-
-// Show a custom popup with two custom buttons
-Popup.show({
-  title: 'Custom popup',
-  buttons: [
-    { 'title': 'Button 1', onClick: function() {} },
-    { 'title': 'Button 2', onClick: function() {} },
-  ]
-});
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Action Sheets</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <button class="button-primary">Show Actions</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-<script>
-  $('.nav-tabs').tab();
-</script>
 

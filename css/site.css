@@ -5204,6 +5204,14 @@ td.visible-print {
     background: url("/img/ionic_icon.svg") no-repeat center 115px;
     background-size: 250px 250px; }
 
+.attention-arrow {
+  position: absolute;
+  background: url("/img/attention-arrow.png") no-repeat; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+  .attention-arrow {
+    background: url("/img/attention-arrow@2x.png") no-repeat;
+    background-size: 40px 74px; } }
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }
 

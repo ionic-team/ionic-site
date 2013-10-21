@@ -59,8 +59,8 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#header">Header</a></h3>
 
   <p>
-    Headers are fixed regions at the top of a view that can contain
-    a title label, and <a href="#buttons-headers-footers">left/right buttons</a>.
+    Headers are fixed regions at the top of a screen that can contain
+    a title label, and <a href="#buttons-headers-footers">left/right buttons</a> for navigation or to carry out varoius actions.
   </p>
 
   <p>Headers come in a variety of fun flavors:</p>
@@ -153,7 +153,7 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3><a href="#subheader">Sub Header</a></h3>
   <p>
-    A secondary bar can be placed below the header bar. Also take a look at 
+    But wait! There's more! A secondary header bar can be placed below the original header bar. There are quite a few more ways to customize Headers. Have a look at 
     <a href="#button-bar">Button Bars</a> to get other ideas on how it could be used.
   </p>
 {% highlight html %}
@@ -187,7 +187,9 @@ title: "Ionic Framework - Documentation and Guide"
   <p>
     Primary content element should have the <code>content</code> class applied.
     No thrills here other than default appearances for the various type element.
-    Note that the containing <code>content</code> element also has the
+  </p>
+  <p>
+    <strong>Note:</strong> The containing <code>content</code> element also has the
     <code>padding</code> class applied (more about <a href="#utility">padding</a> is
     discussed a few sections later).
   </p>
@@ -223,6 +225,10 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="footer">
 
   <h3><a href="#footer">Footer</a></h3>
+
+  <p>
+    Footers are regions at the bottom of a screen that can contain varoius types of content.
+  </p>
 
 {% highlight html %}
 <div class="bar bar-footer">
@@ -280,7 +286,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h2><a href="#components">Components</a></h2>
 
   <p>
-    ...
+    Ionic comes with tons of CSS and Javascript components found in most modern mobile devices. We've made sure to include some of the most popular mobile paradigms and interactions such as, <a href="#buttons">Buttons</a>, <a href="#navbar">Nav Bars</a>, <a href="#cards">Cards</a>, <a href="#forms">Forms</a>, and <a href="#action-sheets">Action Sheets</a>. Pick and choose what you need, customize to your heart's desire.
   </p>
 
 </div>
@@ -291,6 +297,10 @@ title: "Ionic Framework - Documentation and Guide"
   ================================================== -->
 <div class="docs-section" id="buttons">
   <h3><a href="#buttons">Buttons</a></h3>
+
+  <p>
+    Ah, the Button, an essential part of any mobile experience. Buttons are commonly used to send/retrieve data and form navigation between screens. Like the <a href="#header">Header</a>, they come in the full spectrum of Ionic's color options.
+  </P>
   <p>
     Buttons can be displayed inline, block, outlined, icon-only, or clear (text only), and come in 
     many different styles. By default a button has <code>display: inline-block</code>  
@@ -441,7 +451,10 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     Use <code>button-outline</code> to apply an outline button style, which also
-    has a transparent background. Note: The text and border will take the color of the applied button style, meaning 
+    has a transparent background. 
+  </p>
+  <p>
+    <strong>Note:</strong> The text and border will take the color of the applied button style, meaning 
     <code>button-primary</code> will result in blue text and border, with a transparent background.
   </p>
 
@@ -496,8 +509,10 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#clear-buttons">Clear Buttons</a></h3>
 
   <p>
-    Add <code>button-clear</code> to remove the border and make the text stand out. 
-    Note: The text will take the color of the applied button style, meaning 
+    Add <code>button-clear</code> to remove the border and make the text stand out.
+  </p>
+  <p>
+    <strong>Note:</strong> The text will take the color of the applied button style, meaning 
     <code>button-primary</code> will result in blue text and no border instead of a blue background.
   </p>
 
@@ -594,7 +609,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#clear-buttons-headers">Clear Buttons in Headers</a></h3>
 
   <p>
-    ...
+    For a more minimal approach to header buttons, simply add the <code>button-clear</code> classname to remove the background button color and border.
   </p>
 
 {% highlight html %}
@@ -635,8 +650,8 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3><a href="#button-bar">Button Bar</a></h3>
   <p>
-    Buttons can be grouped together using the <code>button-bar</code> classname. 
-    In the example, a button bar was added to the secondary bar, below the header bar.
+    Buttons can also be easily grouped together using the <code>button-bar</code> classname. 
+    In this example, a button bar was added to the default header bar, as well as in the main content area of the screen.
   </p>
 
 {% highlight html %}
@@ -668,7 +683,11 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#list">List</a></h3>
 
   <p>
-    Both the list which contains the list items, and the list items themselves
+    The List is a common and simple way of displaying... that's right, a list. This is a widely used interface across in most current mobile OS's, and can include content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+  </p>
+
+  <p>
+    Both the list, which contains the list items, and the list items themselves
     can be any HTML element. The containing element requires the <code>list</code> 
     class and each list item requires the <code>list-item</code> class.
   </p>
@@ -818,6 +837,12 @@ title: "Ionic Framework - Documentation and Guide"
          </div>
         </a>
 
+        <a class="list-item" href="#list-dividers">
+         <div class="list-item-content">
+          Gobstoppers
+         </div>
+        </a>
+
       </div>
     </div>
   </div>
@@ -929,7 +954,7 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#list-thumbnails">List Thumbnails</a></h3>
 
   <p>
-    ...
+    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail</code> classname. In this example, we are using images of album covers.
   </p>
 
 {% highlight html %}

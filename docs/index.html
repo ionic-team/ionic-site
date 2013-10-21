@@ -721,6 +721,102 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
+<!-- List View Dividers
+  ================================================== -->
+<div class="docs-section" id="listview-dividers">
+
+  <h3><a href="#listview-dividers">List View Dividers</a></h3>
+
+  <p>
+    List items can also be dividers to organize and group the list items. Use the <code>list-divider</code>
+    class to create a divider for any child element of the list. 
+    By default list item dividers will have a different background color and font-weight,
+    but this is highly customizable. 
+  </p>
+
+{% highlight html %}
+<ul class="list">
+
+  <li class="list-divider">
+    Candy Bars
+  </li>
+
+  <li class="list-item">
+   <div class="list-item-content">
+    Butterfinger
+   </div>
+  </li>
+
+  ...
+
+</ul>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">List View Dividers</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        
+        <div class="list-divider">
+          Candy Bars
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Butterfinger
+         </div>
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Kit Kat
+         </div>
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Snickers
+         </div>
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Twix
+         </div>
+        </div>
+        
+        <div class="list-divider">
+          Hard Candy
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Jolly Rancher
+         </div>
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          LifeSavers
+         </div>
+        </div>
+
+        <div class="list-item">
+         <div class="list-item-content">
+          Skittles
+         </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <!-- List View Icons
   ================================================== -->
 <div class="docs-section" id="listview-icons">
@@ -783,6 +879,10 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="content has-header">
         
         <div class="list">
+
+          <div class="list-divider">
+            Control Panel
+          </div>
 
           <a class="list-item list-icon-left">
            <div class="list-item-content">
@@ -851,6 +951,10 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="content has-header">
 
         <div class="list">
+
+          <div class="list-divider">
+            Albums
+          </div>
 
           <a href="#listview-thumbnails" class="list-item list-thumbnail list-icon-right">
             <div class="list-item-content">

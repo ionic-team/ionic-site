@@ -5147,9 +5147,6 @@ td.visible-print {
       border-bottom: 1px solid #4f8ef7;
       color: #4f8ef7; }
 
-.docs-section:last-child {
-  padding-bottom: 600px; }
-
 .doc-example {
   display: none; }
 
@@ -5158,6 +5155,8 @@ td.visible-print {
 
 .device-preview-page {
   position: relative; }
+  .device-preview-page .docs-section:last-child {
+    padding-bottom: 600px; }
   .device-preview-page .ionic .content-wrapper {
     overflow: hidden !important; }
   .device-preview-page .device-preview {

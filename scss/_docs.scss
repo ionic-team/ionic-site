@@ -117,9 +117,6 @@
     }
   }
 }
-.docs-section:last-child {
-  padding-bottom: 600px;
-}
 
 .doc-example {
   display: none;
@@ -132,6 +129,10 @@
 .device-preview-page {
   position: relative;
 
+  .docs-section:last-child {
+    padding-bottom: 600px;
+  }
+  
   .ionic .content-wrapper {
     overflow: hidden !important;
   }

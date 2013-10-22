@@ -30,10 +30,10 @@
 // Webkit-style focus
 @mixin tab-focus() {
   // Default
-  outline: thin dotted #333;
+  outline: none
   // Webkit
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  //outline: 5px auto -webkit-focus-ring-color;
+  //outline-offset: -2px;
 }
 
 // Center-align a block level element

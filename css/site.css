@@ -283,9 +283,7 @@ a {
     color: #0b60ef;
     text-decoration: underline; }
   a:focus {
-    outline: thin dotted #333333;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px; }
+    outline: none; }
 
 img {
   vertical-align: middle; }
@@ -1393,9 +1391,7 @@ select optgroup {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted #333333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px; }
+  outline: none; }
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
   height: auto; }
@@ -1653,9 +1649,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   -o-user-select: none;
   user-select: none; }
   .btn:focus {
-    outline: thin dotted #333333;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px; }
+    outline: none; }
   .btn:hover, .btn:focus {
     color: #333333;
     text-decoration: none; }
@@ -5291,11 +5285,7 @@ td.visible-print {
   font-style: italic; }
 
 /* Comment */
-.highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2; }
-
-/* Error */
+/* COMMENTED OUT CUZ IT THINKS DIRECTIVES ARE INVALID .highlight .err { color: #a61717; background-color: #e3d2d2 } Error */
 .highlight .k {
   font-weight: bold; }
 

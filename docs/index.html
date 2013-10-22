@@ -258,20 +258,53 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     Many components in Ionic purposely have both padding and margin reset set to zero.
-    In many instances mobile apps will have components bleed to the edge of the screen, 
+    In many instances apps will have components bleed to the edge of the screen, 
     and by starting each component at zero, developers can easily control padding throughout the app. 
   </p>
-  <div class="panel panel-default">
-    <div class="panel-heading">padding</div>
-    <div class="panel-body">
-      The <code>padding</code> class it used to give any element's content some breathing room, 
-      meaning it adds padding between the edge of the element and its inner content.
-    </div>
-  </div>
+  <p>
+    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
+    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
+    The following classes are not required for any element, but may be helpful with your designs. 
+  </p>
+  <ul>
+    <li>
+      <code>padding</code> Adds padding around every side.
+    </li>
+    <li>
+      <code>padding-vertical</code> Adds padding to the top and bottom.
+    </li>
+    <li>
+      <code>padding-horizontal</code> Adds padding to the left and right.
+    </li>
+    <li>
+      <code>padding-top</code> Adds padding to the top.
+    </li>
+    <li>
+      <code>padding-right</code> Adds padding to the right.
+    </li>
+    <li>
+      <code>padding-bottom</code> Adds padding to the bottom.
+    </li>
+    <li>
+      <code>padding-left</code> Adds padding to the left.
+    </li>
+  </ul>
 
   <div class="doc-example ionic">
-    <div class="bar bar-footer bar-secondary">
-      <div class="h1 title">Footer</div>
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Utility Classes: Padding</div>
+    </div>
+    <div class="content has-header padding">
+      
+      <div class="padding-example">
+        <div></div>
+      </div>
+
+      <p style="margin:0 24px">
+        The gray square represents an element, and the blue square represents
+        the element's content when <code>padding</code> has been applied.
+      </p>
+
     </div>
   </div>
 

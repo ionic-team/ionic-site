@@ -5128,15 +5128,15 @@ td.visible-print {
     padding-bottom: 16px;
     transition: color 0.1s ease-in-out; }
     .docs-section h2 a {
-      line-height: 1.9em;
-      border-bottom: 1px solid #dddddd; }
+      border-bottom: 1px solid #dddddd;
+      line-height: 1.9em; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;
     transition: color 0.1s ease-in-out; }
   .docs-section h2 a, .docs-section h3 a {
-    color: #222;
     display: block;
+    color: #222;
     opacity: 1; }
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
@@ -5211,6 +5211,20 @@ td.visible-print {
   .attention-arrow {
     background: url("/img/attention-arrow@2x.png") no-repeat;
     background-size: 40px 74px; } }
+.ionic div.padding-example {
+  position: relative;
+  margin: 50px auto;
+  max-width: 240px;
+  height: 240px;
+  background: #ccc; }
+  .ionic div.padding-example :first-child {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 140px;
+    height: 140px;
+    background: #4A87EE; }
+
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }
 

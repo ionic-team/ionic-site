@@ -90,8 +90,8 @@
     padding-bottom: 16px;
     transition: color .1s ease-in-out;
     a {
-    line-height: 1.9em;
       border-bottom: 1px solid #ddd;
+    line-height: 1.9em;
     }
   }
   h3 {
@@ -100,8 +100,8 @@
     transition: color .1s ease-in-out;
   }
   h2 a, h3 a {
-    color: #222;
     display: block;
+    color: #222;
     opacity: 1;
   }
   h2 a:hover,
@@ -132,7 +132,7 @@
   .docs-section:last-child {
     padding-bottom: 600px;
   }
-  
+
   .ionic .content-wrapper {
     overflow: hidden !important;
   }
@@ -221,5 +221,22 @@
   .attention-arrow {
     background: url("/img/attention-arrow@2x.png") no-repeat;
     background-size: 40px 74px;
+  }
+}
+
+.ionic div.padding-example {
+  position: relative;
+  margin: 50px auto;
+  max-width: 240px;
+  height: 240px;
+  background: #ccc;
+
+  :first-child {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 140px;
+    height: 140px;
+    background: #4A87EE;
   }
 }

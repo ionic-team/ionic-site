@@ -5219,6 +5219,17 @@ td.visible-print {
     height: 140px;
     background: #4A87EE; }
 
+.sub-links {
+  margin-top: -10px;
+  padding-bottom: 10px; }
+
+.sub-links a {
+  display: inline-block;
+  margin: 0 18px 0 0;
+  font-size: 12px; }
+  .sub-links a:last-child {
+    margin-right: 0; }
+
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }
 

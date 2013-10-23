@@ -2570,11 +2570,11 @@
   .ionic .badge {
     display: inline-block;
     min-width: 10px;
-    padding: 3px 7px;
-    font-size: 11px;
+    padding: 3px 8px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
-    line-height: 1;
+    line-height: 16px;
     vertical-align: baseline;
     white-space: nowrap;
     text-align: center;
@@ -2585,6 +2585,32 @@
   .ionic .button .badge {
     position: relative;
     top: -1px; }
+  .ionic .badge-default {
+    background: white; }
+  .ionic .badge-secondary {
+    background: whitesmoke; }
+  .ionic .badge-primary {
+    background: #4a87ee; }
+  .ionic .badge-info {
+    background: #43cee6; }
+  .ionic .badge-success {
+    background: #66cc33; }
+  .ionic .badge-warning {
+    background: #f0b840; }
+  .ionic .badge-danger {
+    background: #ef4e3a; }
+  .ionic .badge-dark {
+    background: #444444; }
+  .ionic .badge-gray-darker {
+    background: #222222; }
+  .ionic .badge-gray-dark {
+    background: #333333; }
+  .ionic .badge-gray {
+    background: #555555; }
+  .ionic .badge-gray-light {
+    background: #999999; }
+  .ionic .badge-gray-ligher {
+    background: #eeeeee; }
   .ionic .alert {
     margin: 10px;
     padding: 8px 35px 8px 14px;

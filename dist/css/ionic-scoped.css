@@ -1138,8 +1138,7 @@
   .ionic .content {
     position: absolute;
     width: 100%;
-    top: 0;
-    bottom: 0;
+    height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch; }
   .ionic .has-header {
@@ -1312,6 +1311,14 @@
       border-bottom-width: 1px; }
     .ionic .bar.bar-footer {
       border-top-width: 1px; }
+    .ionic .bar.bar-clear {
+      background: none;
+      color: #fff;
+      border: none; }
+      .ionic .bar.bar-clear .button {
+        color: #fff; }
+      .ionic .bar.bar-clear .title {
+        color: #fff; }
     .ionic .bar.bar-default {
       background-color: rgba(255, 255, 255, 0.9);
       border-color: #dddddd;
@@ -1825,6 +1832,21 @@
     white-space: nowrap;
     font-size: 16px;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
+    .ionic .list-item-content h2 {
+      margin: 0 0 4px 0;
+      font-size: 16px; }
+    .ionic .list-item-content h3 {
+      margin: 0 0 4px 0;
+      font-size: 14px; }
+    .ionic .list-item-content h3 {
+      margin: 0 0 4px 0;
+      font-size: 12px; }
+    .ionic .list-item-content h4, .ionic .list-item-content h5, .ionic .list-item-content h6 {
+      margin: 0 0 3px 0;
+      font-size: 10px; }
+    .ionic .list-item-content p {
+      font-size: 14px;
+      color: #666; }
     .ionic .list-item-content h1:last-child,
     .ionic .list-item-content h2:last-child,
     .ionic .list-item-content h3:last-child,
@@ -1874,10 +1896,6 @@
   .ionic a.list-icon-right .list-item-content:after,
   .ionic button.list-icon-right .list-item-content:after {
     display: none; }
-  .ionic .list-thumbnail h2,
-  .ionic .list-thumbnail-lrg h2 {
-    margin: 0 0 8px 0;
-    font-size: 16px; }
   .ionic .list-thumbnail .list-item-content {
     padding-left: 70px;
     min-height: 70px; }

@@ -1657,6 +1657,13 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3><a href="#cards">Cards</a></h3>
 
+  <div class="sub-links">
+    <a href="#card-headers-footers">Headers and Footers</a>
+    <a href="#card-lists">Lists</a>
+    <a href="#card-images">Images</a>
+    <a href="#card-showcase">Showcase</a>
+  </div>
+
   <p>
     ...
   </p>
@@ -1688,9 +1695,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Cards Headers/Footers
   ================================================== -->
-<div class="docs-section" id="cards-headers-footers">
+<div class="docs-section" id="card-headers-footers">
 
-  <h3><a href="#cards-headers-footers">Card Headers and Footers</a></h3>
+  <h3><a href="#card-headers-footers">Card Headers and Footers</a></h3>
 
   <p>
     ...
@@ -1812,7 +1819,7 @@ title: "Ionic Framework - Documentation and Guide"
     
       <div class="list card">
 
-        <div href="#" class="list-item list-item-thumbnail">
+        <div class="list-item list-item-thumbnail">
           <div class="list-item-content">
             <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
             <h2>Pretty Hate Machine</h2>
@@ -1820,7 +1827,7 @@ title: "Ionic Framework - Documentation and Guide"
           </div>
         </div>
 
-        <div href="#" class="list-item list-item-image">
+        <div class="list-item list-item-image">
           <div class="list-item-content">
             <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
           </div>
@@ -1832,6 +1839,64 @@ title: "Ionic Framework - Documentation and Guide"
             Start listening
           </div>
         </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Showcase
+  ================================================== -->
+<div class="docs-section" id="card-showcase">
+
+  <h3><a href="#card-showcase">Card Showcase</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="list card">
+
+        <div class="list-item list-item-thumbnail">
+          <div class="list-item-content">
+            <img src="http://mimg.ugo.com/201001/34590/cuts/marty-mcfly_288x288.jpg">
+            <h2>Marty McFly</h2>
+            <p>November 05, 1955</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <img class="full-image" src="http://paulaubin.com/wp/wp-content/uploads/2012/05/back-to-the-future-delorean.jpg">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a Tab Bar, icons aligned left, within the card-footer.
+          </p>
+          <p>
+            <a href="#">1 Like</a>
+            <a href="#">5 Comments</a>
+          </p>
+        </div>
+
+        <div class="card-footer">
+          Like Comment Share
+        </div>
 
       </div>
 
@@ -2667,7 +2732,7 @@ Popup.show({
 
 </div>
 <script>
-  $('.nav-tabs').tab();
+  //$('.nav-tabs').tab();
 </script>
 
 

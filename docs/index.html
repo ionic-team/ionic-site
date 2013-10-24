@@ -734,10 +734,10 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#list">List</a></h3>
 
   <div class="sub-links">
-    <a href="#list-dividers">Divider</a>
-    <a href="#list-icons">Icons</a>
-    <a href="#list-thumbnails">Thumbnails</a>
-    <a href="#list-thumbnails-lrg">Large Thumbnails</a>
+    <a href="#item-dividers">Divider</a>
+    <a href="#item-icons">Icons</a>
+    <a href="#item-thumbnails">Thumbnails</a>
+    <a href="#item-thumbnails-lrg">Large Thumbnails</a>
   </div>
 
   <p>
@@ -754,7 +754,7 @@ title: "Ionic Framework - Documentation and Guide"
   <p>
     Both the list, which contains the list items, and the list items themselves
     can be any HTML element. The containing element requires the <code>list</code> 
-    class and each list item requires the <code>list-item</code> class.
+    class and each list item requires the <code>item</code> class.
   </p>
 
 {% highlight html %}
@@ -767,8 +767,8 @@ title: "Ionic Framework - Documentation and Guide"
   delete-icon=".."
   reorder-icon="..">
     <!-- items here -->
-    <list-item ng-repeat="item in items">
-    </list-item>
+    <item ng-repeat="item in items">
+    </item>
 </list>
 {% endhighlight %}
 
@@ -853,84 +853,84 @@ title: "Ionic Framework - Documentation and Guide"
       
         <div class="list">
 
-          <div class="list-divider">
+          <div class="item-divider">
             Work
           </div>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-email"></i>
               Check mail
               <span class="badge badge-info">5</span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-chatbubble-working"></i>
               Call Ma
-              <span class="list-label-right">
+              <span class="item-label-right">
                 Cell
               </span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-mic-a"></i>
               Record album
-              <span class="list-label-right">
+              <span class="item-label-right">
                 Grammy
               </span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-flask"></i>
               Breaking Bad
-              <span class="list-label-right">
+              <span class="item-label-right">
                 Blue, yellow, pink
               </span>
             </div>
           </a>
 
-          <div class="list-divider">
+          <div class="item-divider">
             Leisure
           </div>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-game-controller-b"></i>
               Games
-              <span class="list-label-right">
+              <span class="item-label-right">
                 Super Mario
               </span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-music-note"></i>
               Music
-              <span class="list-label-right">
+              <span class="item-label-right">
                 JT
               </span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left">
+            <div class="item-content">
               <i class="icon-plane"></i>
               Travel
-              <span class="list-label-right">
+              <span class="item-label-right">
                 Mile High
               </span>
             </div>
           </a>
 
-          <a href="#" class="list-item list-icon-left list-icon-right">
-            <div class="list-item-content">
+          <a href="#" class="item item-icon-left item-icon-right">
+            <div class="item-content">
               <i class="icon-person-stalker"></i>
               Friends
               <span class="badge badge-danger">0</span>
@@ -961,7 +961,7 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 {% highlight html %}
-<list-item 
+<item 
   buttons="item.buttons"
   can-delete="true"
   can-reorder="true"
@@ -969,7 +969,7 @@ title: "Ionic Framework - Documentation and Guide"
   on-delete="deleteProject(project)"
   on-select="selectProject(project)">
   <!-- item content -->
-</list-item>
+</item>
 {% endhighlight %}
   <p>
     The content specified in the item content area will be the main content of the displayed item.
@@ -1044,12 +1044,12 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- List Dividers
   ================================================== -->
-<div class="docs-section" id="list-dividers">
+<div class="docs-section" id="item-dividers">
 
-  <h3><a href="#list-dividers">List Dividers</a></h3>
+  <h3><a href="#item-dividers">List Dividers</a></h3>
 
   <p>
-    List items can also be dividers to organize and group the list items. Use the <code>list-divider</code>
+    List items can also be dividers to organize and group the list items. Use the <code>item-divider</code>
     class to create a divider for any child element of the list. 
     By default list item dividers will have a different background color and font-weight,
     but this is highly customizable. 
@@ -1058,12 +1058,12 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-  <div class="list-divider">
+  <div class="item-divider">
     Candy Bars
   </div>
 
-  <a class="list-item" href="#">
-   <div class="list-item-content">
+  <a class="item" href="#">
+   <div class="item-content">
     Butterfinger
    </div>
   </a>
@@ -1082,58 +1082,58 @@ title: "Ionic Framework - Documentation and Guide"
         
         <div class="list">
 
-          <div class="list-divider">
+          <div class="item-divider">
             Candy Bars
           </div>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Butterfinger
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Kit Kat
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Snickers
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Twix
            </div>
           </a>
           
-          <div class="list-divider">
+          <div class="item-divider">
             Hard Candy
           </div>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Jolly Rancher
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             LifeSavers
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Skittles
            </div>
           </a>
 
-          <a class="list-item" href="#list-dividers">
-           <div class="list-item-content">
+          <a class="item" href="#item-dividers">
+           <div class="item-content">
             Gobstoppers
            </div>
           </a>
@@ -1150,16 +1150,16 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- List Icons
   ================================================== -->
-<div class="docs-section" id="list-icons">
+<div class="docs-section" id="item-icons">
 
-  <h3><a href="#list-icons">List Icons</a></h3>
+  <h3><a href="#item-icons">List Icons</a></h3>
 
   <p>
     Lists can have icons assigned either to the left and/or right side of each list item,
-    and the alignment classes should be assigned to each <code>list-item</code> element.
+    and the alignment classes should be assigned to each <code>item</code> element.
   </p>
   <p>
-    Use <code>list-icon-left</code> to line up the icon to the left, and <code>list-icon-right</code>
+    Use <code>item-icon-left</code> to line up the icon to the left, and <code>item-icon-right</code>
     to set the icon to the right. When a list item has an icon on both sides then both classes
     will need to be applied.
   </p>
@@ -1177,28 +1177,28 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-  <a class="list-item list-icon-left">
-   <div class="list-item-content">
+  <a class="item item-icon-left">
+   <div class="item-content">
     <i class="icon-gear-a fill-icon"></i>
     Settings
    </div>
   </a>
 
-  <a class="list-item list-icon-left">
-   <div class="list-item-content">
+  <a class="item item-icon-left">
+   <div class="item-content">
     <i class="icon-wifi"></i>
     Wifi
    </div>
   </a>
 
-  <a class="list-item">
-   <div class="list-item-content">
+  <a class="item">
+   <div class="item-content">
     Advanced
     <i class="icon-arrow-right-c"></i>
    </div>
   </a>
 
-  <a class="list-item list-icon-right">
+  <a class="item item-icon-right">
    <div class="icon-document-text">
     More Info
     <i class="icon-arrow-right-c"></i>
@@ -1217,34 +1217,34 @@ title: "Ionic Framework - Documentation and Guide"
         
         <div class="list">
 
-          <div class="list-divider">
+          <div class="item-divider">
             Control Panel
           </div>
 
-          <a class="list-item list-icon-left">
-           <div class="list-item-content">
+          <a class="item item-icon-left">
+           <div class="item-content">
             <i class="icon-gear-a fill-icon"></i>
             Settings
            </div>
           </a>
 
-          <a class="list-item list-icon-left">
-           <div class="list-item-content">
+          <a class="item item-icon-left">
+           <div class="item-content">
             <i class="icon-wifi"></i>
             Wifi
            </div>
           </a>
 
-          <a class="list-item list-icon-left list-icon-right">
-           <div class="list-item-content">
+          <a class="item item-icon-left item-icon-right">
+           <div class="item-content">
             <i class="icon-help"></i>
             More Info
             <i class="icon-arrow-right-c"></i>
            </div>
           </a>
 
-          <a class="list-item list-icon-right">
-           <div class="list-item-content">
+          <a class="item item-icon-right">
+           <div class="item-content">
             Advanced
             <i class="icon-chevron-right"></i>
            </div>
@@ -1262,9 +1262,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- List Thumbnails
   ================================================== -->
-<div class="docs-section" id="list-thumbnails">
+<div class="docs-section" id="item-thumbnails">
 
-  <h3><a href="#list-thumbnails">List Thumbnails</a></h3>
+  <h3><a href="#item-thumbnails">List Thumbnails</a></h3>
 
   <p>
     List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail</code> classname. In this example, we are using images of album covers.
@@ -1273,8 +1273,8 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-    <a class="list-item list-item-thumbnail" href="#">
-      <div class="list-item-content">
+    <a class="item item-thumbnail" href="#">
+      <div class="item-content">
         <img src="cover.jpg">
         <h2>Pretty Hate Machine</h2>
         <p>Nine Inch Nails</p>
@@ -1295,52 +1295,52 @@ title: "Ionic Framework - Documentation and Guide"
 
         <div class="list">
 
-          <div class="list-divider">
+          <div class="item-divider">
             Albums
           </div>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
               <h2>Nine Inch Nailes</h2>
               <p>Pretty Hate Machine</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
               <h2>Smashing Pumpkins</h2>
               <p>Siamese Dream</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
               <h2>Nirvana</h2>
               <p>Nevermind</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
               <h2>Beastie Boys</h2>
               <p>License To Ill</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
               <h2>Green Day</h2>
               <p>Dookie</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
               <h2>Stone Temple Pilots</h2>
               <p>Core</p>
@@ -1359,9 +1359,9 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- List Large Thumbnails
   ================================================== -->
-<div class="docs-section" id="list-thumbnails-lrg">
+<div class="docs-section" id="item-thumbnails-lrg">
 
-  <h3><a href="#list-thumbnails-lrg">List Large Thumbnails</a></h3>
+  <h3><a href="#item-thumbnails-lrg">List Large Thumbnails</a></h3>
 
   <p>
     List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail-lrg</code> classname. In this example, we are using images of album covers.
@@ -1370,8 +1370,8 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-    <a class="list-item list-item-thumbnail-lrg" href="#">
-      <div class="list-item-content">
+    <a class="item item-thumbnail-lrg" href="#">
+      <div class="item-content">
         <img src="cover.jpg">
         <h2>Pretty Hate Machine</h2>
         <p>Nine Inch Nails</p>
@@ -1392,52 +1392,52 @@ title: "Ionic Framework - Documentation and Guide"
 
         <div class="list">
 
-          <div class="list-divider">
+          <div class="item-divider">
             Albums
           </div>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
               <h2>Nine Inch Nailes</h2>
               <p>Pretty Hate Machine</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
               <h2>Smashing Pumpkins</h2>
               <p>Siamese Dream</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
               <h2>Nirvana</h2>
               <p>Nevermind</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
               <h2>Beastie Boys</h2>
               <p>License To Ill</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
               <h2>Green Day</h2>
               <p>Dookie</p>
             </div>
           </a>
 
-          <a href="#list-thumbnails" class="list-item list-item-thumbnail-lrg">
-            <div class="list-item-content">
+          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
+            <div class="item-content">
               <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
               <h2>Stone Temple Pilots</h2>
               <p>Core</p>
@@ -1447,6 +1447,262 @@ title: "Ionic Framework - Documentation and Guide"
         </div>
 
       </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Cards
+  ================================================== -->
+<div class="docs-section" id="cards">
+
+  <h3><a href="#cards">Cards</a></h3>
+
+  <div class="sub-links">
+    <a href="#card-headers-footers">Headers and Footers</a>
+    <a href="#card-lists">Lists</a>
+    <a href="#card-images">Images</a>
+    <a href="#card-showcase">Showcase</a>
+  </div>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="card">
+        <div class="card-body">
+          This is a basic Card with some text.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Cards Headers/Footers
+  ================================================== -->
+<div class="docs-section" id="card-headers-footers">
+
+  <h3><a href="#card-headers-footers">Card Headers and Footers</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="card">
+        <div class="card-header">
+          I'm a Header in a Card!
+        </div>
+        <div class="card-body">
+          This is a basic Card with some text.
+        </div>
+        <div class="card-footer">
+          I'm a Footer in a Card!
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Lists
+  ================================================== -->
+<div class="docs-section" id="card-lists">
+
+  <h3><a href="#card-lists">Card Lists</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Card Lists</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="list card">
+
+        <a href="#" class="item item-icon-left">
+          <div class="item-content">
+            <i class="icon-home"></i>
+            Enter home address
+          </div>
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <div class="item-content">
+            <i class="icon-ios7-telephone"></i>
+            Enter phone number
+          </div>
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <div class="item-content">
+            <i class="icon-wifi"></i>
+            Enter wireless password
+          </div>
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <div class="item-content">
+            <i class="icon-card"></i>
+            Enter card information
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Images
+  ================================================== -->
+<div class="docs-section" id="card-images">
+
+  <h3><a href="#card-images">Card Images</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="list card">
+
+        <div class="item item-thumbnail">
+          <div class="item-content">
+            <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
+            <h2>Pretty Hate Machine</h2>
+            <p>Nine Inch Nails</p>
+          </div>
+        </div>
+
+        <div class="item item-image">
+          <div class="item-content">
+            <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
+          </div>
+        </div>
+
+        <a href="#" class="item item-icon-left">
+          <div class="item-content">
+            <i class="icon-music-note"></i>
+            Start listening
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Showcase
+  ================================================== -->
+<div class="docs-section" id="card-showcase">
+
+  <h3><a href="#card-showcase">Card Showcase</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header">
+    
+      <div class="list card">
+
+        <div class="item item-thumbnail">
+          <div class="item-content">
+            <img src="http://mimg.ugo.com/201001/34590/cuts/marty-mcfly_288x288.jpg">
+            <h2>Marty McFly</h2>
+            <p>November 05, 1955</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <img class="full-image" src="http://paulaubin.com/wp/wp-content/uploads/2012/05/back-to-the-future-delorean.jpg">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a Tab Bar, icons aligned left, within the card-footer.
+          </p>
+          <p>
+            <a href="#">1 Like</a>
+            <a href="#">5 Comments</a>
+          </p>
+        </div>
+
+        <div class="card-footer">
+          Like Comment Share
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -1646,262 +1902,6 @@ title: "Ionic Framework - Documentation and Guide"
   </menu>
 </div>
 {% endhighlight %}
-
-</div>
-
-
-
-<!-- Cards
-  ================================================== -->
-<div class="docs-section" id="cards">
-
-  <h3><a href="#cards">Cards</a></h3>
-
-  <div class="sub-links">
-    <a href="#card-headers-footers">Headers and Footers</a>
-    <a href="#card-lists">Lists</a>
-    <a href="#card-images">Images</a>
-    <a href="#card-showcase">Showcase</a>
-  </div>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Cards</div>
-    </div>
-    <div class="content has-header">
-    
-      <div class="card">
-        <div class="card-body">
-          This is a basic Card with some text.
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Cards Headers/Footers
-  ================================================== -->
-<div class="docs-section" id="card-headers-footers">
-
-  <h3><a href="#card-headers-footers">Card Headers and Footers</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Cards</div>
-    </div>
-    <div class="content has-header">
-    
-      <div class="card">
-        <div class="card-header">
-          I'm a Header in a Card!
-        </div>
-        <div class="card-body">
-          This is a basic Card with some text.
-        </div>
-        <div class="card-footer">
-          I'm a Footer in a Card!
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Card Lists
-  ================================================== -->
-<div class="docs-section" id="card-lists">
-
-  <h3><a href="#card-lists">Card Lists</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Card Lists</div>
-    </div>
-    <div class="content has-header">
-    
-      <div class="list card">
-
-        <a href="#" class="list-item list-icon-left">
-          <div class="list-item-content">
-            <i class="icon-home"></i>
-            Enter home address
-          </div>
-        </a>
-
-        <a href="#" class="list-item list-icon-left">
-          <div class="list-item-content">
-            <i class="icon-ios7-telephone"></i>
-            Enter phone number
-          </div>
-        </a>
-
-        <a href="#" class="list-item list-icon-left">
-          <div class="list-item-content">
-            <i class="icon-wifi"></i>
-            Enter wireless password
-          </div>
-        </a>
-
-        <a href="#" class="list-item list-icon-left">
-          <div class="list-item-content">
-            <i class="icon-card"></i>
-            Enter card information
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Card Images
-  ================================================== -->
-<div class="docs-section" id="card-images">
-
-  <h3><a href="#card-images">Card Images</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Cards</div>
-    </div>
-    <div class="content has-header">
-    
-      <div class="list card">
-
-        <div class="list-item list-item-thumbnail">
-          <div class="list-item-content">
-            <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
-            <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-          </div>
-        </div>
-
-        <div class="list-item list-item-image">
-          <div class="list-item-content">
-            <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
-          </div>
-        </div>
-
-        <a href="#" class="list-item list-icon-left">
-          <div class="list-item-content">
-            <i class="icon-music-note"></i>
-            Start listening
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Card Showcase
-  ================================================== -->
-<div class="docs-section" id="card-showcase">
-
-  <h3><a href="#card-showcase">Card Showcase</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Cards</div>
-    </div>
-    <div class="content has-header">
-    
-      <div class="list card">
-
-        <div class="list-item list-item-thumbnail">
-          <div class="list-item-content">
-            <img src="http://mimg.ugo.com/201001/34590/cuts/marty-mcfly_288x288.jpg">
-            <h2>Marty McFly</h2>
-            <p>November 05, 1955</p>
-          </div>
-        </div>
-
-        <div class="card-body">
-          <img class="full-image" src="http://paulaubin.com/wp/wp-content/uploads/2012/05/back-to-the-future-delorean.jpg">
-          <p>
-            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-            the content is from a card-body consisting of an image and paragraph text. The footer
-            consists of a Tab Bar, icons aligned left, within the card-footer.
-          </p>
-          <p>
-            <a href="#">1 Like</a>
-            <a href="#">5 Comments</a>
-          </p>
-        </div>
-
-        <div class="card-footer">
-          Like Comment Share
-        </div>
-
-      </div>
-
-    </div>
-  </div>
 
 </div>
 
@@ -2136,15 +2136,15 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <p>
-    Below is an example of multiple toggles within a list. Note the <code>toggle-item</code>
-    class was added along side <code>list-item</code> for each item.
+    Below is an example of multiple toggles within a list. Note the <code>item-toggle</code>
+    class was added along side <code>item</code> for each item.
   </p>
 
 {% highlight html %}
 <ul class="list">
 
-  <li class="list-item toggle-item">
-     <div class="list-item-content">
+  <li class="item item-toggle">
+     <div class="item-content">
       HTML5
      </div>
      <label class="toggle">
@@ -2162,67 +2162,65 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Toggle</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
+    <div class="content has-header">
         
-        <ul class="list">
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              HTML5
-             </div>
-             <label class="toggle">
-               <input type="checkbox" checked>
-               <div class="handle"></div>
-             </label>
-          </li>
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              CSS3
-             </div>
-             <label class="toggle">
-               <input type="checkbox" checked>
-               <div class="handle"></div>
-             </label>
-          </li>
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              Flashplayer
-             </div>
-             <label class="toggle">
-               <input type="checkbox">
-               <div class="handle"></div>
-             </label>
-          </li>
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              Java Applets
-             </div>
-             <label class="toggle">
-               <input type="checkbox">
-               <div class="handle"></div>
-             </label>
-          </li>
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              JavaScript
-             </div>
-             <label class="toggle">
-               <input type="checkbox" checked>
-               <div class="handle"></div>
-             </label>
-          </li>
-          <li class="list-item toggle-item">
-             <div class="list-item-content">
-              Silverlight
-             </div>
-             <label class="toggle">
-               <input type="checkbox">
-               <div class="handle"></div>
-             </label>
-          </li>
-        </ul>
+      <ul class="list">
+        <li class="item item-toggle">
+           <div class="item-content">
+            HTML5
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="handle"></div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            CSS3
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="handle"></div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Flashplayer
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="handle"></div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Java Applets
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="handle"></div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            JavaScript
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="handle"></div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Silverlight
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="handle"></div>
+           </label>
+        </li>
+      </ul>
 
-      </div>
     </div>
   </div>
 
@@ -2238,31 +2236,24 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     A checkbox is no different than the HTML checkbox input, except it's
-    styled all nice like.
+    styled all nice like. Below is an example of multiple checkboxes within a list. 
+    Note the <code>item-checkbox</code> class was added along side 
+    <code>item</code> for each item.
   </p>
-
-{% highlight html %}
-<label class="checkbox">
-   <input type="checkbox">
-</label>
-{% endhighlight %}
-
   <p>
-    Below is an example of multiple checkboxes within a list. 
-    Note the <code>checkbox-item</code> class was added along side 
-    <code>list-item</code> for each item.
+    Ionic prefers to use the <code>&lt;label&gt;</code> element for a checkbox 
+    item in order to make the entire checkbox tappable.
   </p>
 
 {% highlight html %}
-<ul>
+<ul class="list">
 
-  <li class="list-item toggle-item">
-     <div class="list-item-content">
+  <li class="item item-checkbox">
+     <div class="item-content">
       Flux Capacitor
      </div>
-     <label class="toggle">
+     <label class="checkbox">
        <input type="checkbox">
-       <div class="handle"></div>
      </label>
   </li>
 
@@ -2275,46 +2266,46 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Checkbox</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        
-        <ul class="padding">
-          <li class="list-item checkbox-item">
-             <div class="list-item-content">
-              Flux Capacitor
-             </div>
-             <label class="checkbox">
-               <input type="checkbox" checked>
-             </label>
-          </li>
-          <li class="list-item checkbox-item">
-             <div class="list-item-content">
-              1.21 Gigawatts
-             </div>
-             <label class="checkbox">
-               <input type="checkbox" checked>
-             </label>
-          </li>
-          <li class="list-item checkbox-item">
-             <div class="list-item-content">
-              88 MPH
-             </div>
-             <label class="checkbox">
-               <input type="checkbox" checked>
-             </label>
-          </li>
-          <li class="list-item checkbox-item">
-             <div class="list-item-content">
-              Plutonium Resupply
-             </div>
-             <label class="checkbox">
-               <input type="checkbox">
-             </label>
-          </li>
-        </ul>
 
-      </div>
+    <div class="content has-header">
+        
+      <ul class="list">
+        <li class="item item-checkbox">
+           <div class="item-content">
+            Flux Capacitor
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            1.21 Gigawatts
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            88 MPH
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            Plutonium Resupply
+           </div>
+           <label class="checkbox">
+             <input type="checkbox">
+           </label>
+        </li>
+      </ul>
+
     </div>
+
   </div>
 
 </div>
@@ -2329,22 +2320,26 @@ title: "Ionic Framework - Documentation and Guide"
 
   <p>
     Radio buttons act no differently as standard radio input elements. Following this 
-    convention will display a group of radio buttons similar to a modern app.
+    convention will display a list of radio buttons similarly seen in modern app.
   </p>
   <p>
-    The containing element requires the <code>radio-buttton-list</code> class, each
-    <code>list-item</code> must have a radio input with the same name, and 
-    <code>radio-button-icon</code> is used to show and hide the icon.
+    Each <code>item-radio</code> must have a radio input with the same input <code>name</code> attribute.
+    The <code>radio-icon</code> class is used to designate when to show and hide the icon element.
+  </p>
+  <p>
+    Ionic prefers to use the <code>&lt;label&gt;</code> element for a radio item in order to make the
+    entire area tappable.
+  </p>
 
 {% highlight html %}
-<div class="list radio-buttton-list">
+<div class="list">
 
-  <label class="list-item">
-    <input type="radio" name="serverside">
-    <div class="list-item-content">
+  <label class="item item-radio">
+    <input type="radio" name="group">
+    <div class="item-content">
       Go
     </div>
-    <div class="list-icon-right icon-checkmark"></div>
+    <i class="radio-icon icon-checkmark"></i>
   </label>
 
   ...
@@ -2356,63 +2351,63 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Radio Button List</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
 
-        <div class="list radio-buttton-list">
+    <div class="content has-header">
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value="go" checked="checked">
-            <div class="list-item-content">
-              Go
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+      <div class="list">
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value="python">
-            <div class="list-item-content">
-              Python
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+        <label class="item item-radio">
+          <input type="radio" name="group" value="go" checked="checked">
+          <div class="item-content">
+            Go
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value="ruby">
-            <div class="list-item-content">
-              Ruby
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+        <label class="item item-radio">
+          <input type="radio" name="group" value="python">
+          <div class="item-content">
+            Python
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value=".net">
-            <div class="list-item-content">
-              .Net
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+        <label class="item item-radio">
+          <input type="radio" name="group" value="ruby">
+          <div class="item-content">
+            Ruby
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value="java">
-            <div class="list-item-content">
-              Java
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+        <label class="item item-radio">
+          <input type="radio" name="group" value=".net">
+          <div class="item-content">
+            .Net
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
-          <label class="list-item">
-            <input type="radio" name="serverside" value="php">
-            <div class="list-item-content">
-              PHP
-            </div>
-            <div class="radio-button-icon icon-checkmark"></div>
-          </label>
+        <label class="item item-radio">
+          <input type="radio" name="group" value="java">
+          <div class="item-content">
+            Java
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
-        </div>
+        <label class="item item-radio">
+          <input type="radio" name="group" value="php">
+          <div class="item-content">
+            PHP
+          </div>
+          <i class="radio-icon icon-checkmark"></i>
+        </label>
 
       </div>
+
     </div>
+
   </div>
 
 </div>

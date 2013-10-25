@@ -1861,22 +1861,24 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#forms-stacked-labels">Text Input: Stacked Labels</a></h3>
 
   <p>
-    Stacked labels always places the label on top of the input.
+    Stacked labels always places the label on top of the input. Each item should
+    have <code>item-stacked-label</code> assigned, and the input's label
+    should have <code>input-label</code> assigned.
     This example also uses the <code>placeholder</code> attribute so 
     user's have a hint of what type of text the input is looking for.
   </p>
 
 {% highlight html %}
-<div class="list stacked-label">
+<div class="list">
   <label class="item item-input">
     <span class="input-label">First Name</span>
     <input type="text" placeholder="John">
   </label>
-  <label class="item item-input">
+  <label class="item item-input item-stacked-label">
     <span class="input-label">Last Name</span>
     <input type="text" placeholder="Suhr">
   </label>
-  <label class="item item-input">
+  <label class="item item-input item-stacked-label">
     <span class="input-label">Email</span>
     <input type="text" placeholder="john@suhr.com">
   </label>
@@ -1888,16 +1890,16 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="h1 title">Stacked Labels</div>
     </div>
     <div class="content has-header">
-      <div class="list stacked-label">
-        <label class="item item-input">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">First Name</span>
           <input type="text" placeholder="John">
         </label>
-        <label class="item item-input">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">Last Name</span>
           <input type="text" placeholder="Suhr">
         </label>
-        <label class="item item-input">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">Email</span>
           <input type="text" placeholder="john@suhr.com">
         </label>

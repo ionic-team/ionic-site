@@ -5120,27 +5120,38 @@ td.visible-print {
   .docs-section pre {
     margin-bottom: 0; }
   .docs-section h2 {
-    padding-bottom: 16px;
-    transition: color .1s ease-in-out; }
+    padding-bottom: 16px; }
     .docs-section h2 a {
       border-bottom: 1px solid #ddd;
       line-height: 1.9em; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
-    line-height: 1.9em;
-    transition: color .1s ease-in-out; }
+    line-height: 1.9em; }
   .docs-section h2 a, .docs-section h3 a {
     display: block;
-    color: #222;
-    opacity: 1; }
+    color: #999;
+    opacity: 1;
+    transition: color .15s ease-in-out; }
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
+    color: #333;
     text-decoration: none; }
-  .docs-section.active {
+  .docs-section .sub-links {
+    margin-top: -10px;
+    padding-bottom: 2px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out; }
+  .docs-section .sub-links a {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    font-size: 12px; }
+    .docs-section .sub-links a:last-child {
+      margin-right: 0; }
+  .docs-section.active h2 a, .docs-section.active h3 a {
+    border-bottom: 1px solid #4f8ef7;
+    color: #4f8ef7; }
+  .docs-section.active .sub-links {
     opacity: 1; }
-    .docs-section.active h2 a, .docs-section.active h3 a {
-      border-bottom: 1px solid #4f8ef7;
-      color: #4f8ef7; }
   .docs-section td, .docs-section th, .docs-section pre {
     font-size: 12px !important; }
 
@@ -5221,17 +5232,6 @@ td.visible-print {
     width: 140px;
     height: 140px;
     background: #4A87EE; }
-
-.sub-links {
-  margin-top: -10px;
-  padding-bottom: 10px; }
-
-.sub-links a {
-  display: inline-block;
-  margin: 0 18px 0 0;
-  font-size: 12px; }
-  .sub-links a:last-child {
-    margin-right: 0; }
 
 #spinner {
   -webkit-animation: rotation 45s infinite linear; }

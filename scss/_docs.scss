@@ -88,32 +88,50 @@
 
   h2 {
     padding-bottom: 16px;
-    transition: color .1s ease-in-out;
     a {
       border-bottom: 1px solid #ddd;
-    line-height: 1.9em;
+      line-height: 1.9em;
     }
   }
   h3 {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;
-    transition: color .1s ease-in-out;
   }
   h2 a, h3 a {
     display: block;
-    color: #222;
+    color: #999;
     opacity: 1;
+    transition: color .15s ease-in-out;
   }
   h2 a:hover,
   h3 a:hover {
+    color: #333;
     text-decoration: none;
   }
 
+  .sub-links {
+    margin-top: -10px;
+    padding-bottom: 2px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+  }
+  .sub-links a {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    font-size: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
   &.active {
-    opacity: 1;
     h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
       color: $brand-primary;
+    }
+    .sub-links {
+      opacity: 1;
     }
   }
 
@@ -242,19 +260,5 @@
     width: 140px;
     height: 140px;
     background: #4A87EE;
-  }
-}
-
-.sub-links {
-  margin-top: -10px;
-  padding-bottom: 10px;
-}
-.sub-links a {
-  display: inline-block;
-  margin: 0 18px 0 0;
-  font-size: 12px;
-
-  &:last-child {
-    margin-right: 0;
   }
 }

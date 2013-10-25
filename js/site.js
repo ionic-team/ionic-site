@@ -132,7 +132,11 @@
           // create a new example preview
           devicePreview.append( '<div id="' + exampleId + '" class="ionic-body">' + docExample.html() + '</div>' );
           setTimeout(function(){
-            $('#' + exampleId).addClass('active-preview');
+            $('#' + exampleId)
+              .addClass('active-preview')
+              .find('a').click(function(){
+                return false;
+              });
           });
         }
 

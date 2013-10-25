@@ -116,6 +116,10 @@
       color: $brand-primary;
     }
   }
+
+  td, th, pre {
+    font-size: 12px !important;
+  }
 }
 
 .doc-example {

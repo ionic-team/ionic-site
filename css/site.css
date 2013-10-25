@@ -1,4 +1,5 @@
-/*
+@charset "UTF-8";
+/*!
  * Bootstrap v3.0.0
  *
  * Copyright 2013 Twitter, Inc
@@ -7,7 +8,7 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
 details,
@@ -111,7 +112,7 @@ figure {
   margin: 0; }
 
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -177,7 +178,7 @@ table {
 @media print {
   * {
     text-shadow: none !important;
-    color: black !important;
+    color: #000 !important;
     background: transparent !important;
     box-shadow: none !important; }
 
@@ -198,7 +199,7 @@ table {
 
   pre,
   blockquote {
-    border: 1px solid #999999;
+    border: 1px solid #999;
     page-break-inside: avoid; }
 
   thead {
@@ -212,7 +213,7 @@ table {
     max-width: 100% !important; }
 
   @page {
-    margin: 2cm 0.5cm; }
+    margin: 2cm .5cm; }
 
   p,
   h2,
@@ -229,21 +230,21 @@ table {
 
   .table td,
   .table th {
-    background-color: white !important; }
+    background-color: #fff !important; }
 
   .btn > .caret,
   .dropup > .btn > .caret {
-    border-top-color: black !important; }
+    border-top-color: #000 !important; }
 
   .label {
-    border: 1px solid black; }
+    border: 1px solid #000; }
 
   .table {
     border-collapse: collapse !important; }
 
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #dddddd !important; } }
+    border: 1px solid #ddd !important; } }
 *,
 *:before,
 *:after {
@@ -1669,7 +1670,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-default {
   color: #333333;
   background-color: white;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
     color: #333333;
     background-color: #ebebeb; }
@@ -1688,7 +1689,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-primary {
   color: white;
   background-color: #4f8ef7;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
     color: white;
     background-color: #2875f5; }
@@ -1707,7 +1708,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-warning {
   color: white;
   background-color: #f0ad4e;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
     color: white;
     background-color: #ed9c28; }
@@ -1726,7 +1727,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-danger {
   color: white;
   background-color: #d9534f;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
     color: white;
     background-color: #d2322d; }
@@ -1745,7 +1746,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-success {
   color: white;
   background-color: #5cb85c;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
     color: white;
     background-color: #47a447; }
@@ -1764,7 +1765,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-info {
   color: white;
   background-color: #5bc0de;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
     color: white;
     background-color: #39b3d7; }
@@ -3430,7 +3431,7 @@ input[type="button"].btn-block {
 
 .label {
   display: inline;
-  padding: 0.2em 0.6em 0.3em;
+  padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
@@ -4955,7 +4956,7 @@ td.visible-print {
 .home .social-row-gray {
   margin-top: 90px;
   height: 100px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
   background: #fff;
   opacity: 0.93; }
 .home .social-row {
@@ -5062,7 +5063,7 @@ td.visible-print {
     .home .continue-row .col-a {
       padding-right: 40px;
       padding-bottom: 0;
-      border-right: 1px solid #dddddd; }
+      border-right: 1px solid #ddd; }
     .home .continue-row .col-b {
       padding-left: 45px; } }
 
@@ -5120,14 +5121,14 @@ td.visible-print {
     margin-bottom: 0; }
   .docs-section h2 {
     padding-bottom: 16px;
-    transition: color 0.1s ease-in-out; }
+    transition: color .1s ease-in-out; }
     .docs-section h2 a {
-      border-bottom: 1px solid #dddddd;
+      border-bottom: 1px solid #ddd;
       line-height: 1.9em; }
   .docs-section h3 {
     border-bottom: 1px solid transparent;
     line-height: 1.9em;
-    transition: color 0.1s ease-in-out; }
+    transition: color .1s ease-in-out; }
   .docs-section h2 a, .docs-section h3 a {
     display: block;
     color: #222;
@@ -5140,6 +5141,8 @@ td.visible-print {
     .docs-section.active h2 a, .docs-section.active h3 a {
       border-bottom: 1px solid #4f8ef7;
       color: #4f8ef7; }
+  .docs-section td, .docs-section th, .docs-section pre {
+    font-size: 12px !important; }
 
 .doc-example {
   display: none; }
@@ -5186,7 +5189,7 @@ td.visible-print {
     border: 4px solid #22272d;
     background-color: white;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out; }
+    transition: opacity .2s ease-in-out; }
     .device-preview-page .device-preview > div.active-preview {
       z-index: 100;
       opacity: 1; }
@@ -5543,7 +5546,7 @@ body {
 
 a {
   opacity: 0.7;
-  transition: 0.1s ease-in-out;
+  transition: .1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {
     opacity: 1; }

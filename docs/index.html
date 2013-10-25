@@ -736,8 +736,8 @@ title: "Ionic Framework - Documentation and Guide"
   <div class="sub-links">
     <a href="#item-dividers">Divider</a>
     <a href="#item-icons">Icons</a>
+    <a href="#item-avitars">Avitars</a>
     <a href="#item-thumbnails">Thumbnails</a>
-    <a href="#item-thumbnails-lrg">Large Thumbnails</a>
   </div>
 
   <p>
@@ -788,7 +788,7 @@ title: "Ionic Framework - Documentation and Guide"
       <tr>
         <td>virtual</td>
         <td><b>boolean</b></td>
-        <td>false</b>
+        <td>false</td>
         <td>Whether to virtually handle list items, offloading items that are not in the viewport. This option
           may have unintended side-effects for certain applications, so it is not enabled by default. However,
           it is recommended for large lists.
@@ -797,32 +797,32 @@ title: "Ionic Framework - Documentation and Guide"
       <tr>
         <td>is-editing</td>
         <td><b>boolean</b></td>
-        <td>false</b>
+        <td>false</td>
         <td>A boolean value indicating whether to put the list in "edit mode"</td>
       </tr>
       <tr>
         <td>on-refresh</td>
         <td><b>function</b></td>
-        <td></b>
+        <td></td>
         <td>Called when the list has been pulled to refresh and is now refreshing.</td>
       </tr>
       <tr>
         <td>on-refresh-opening</td>
         <td><b>function(ratio)</b></td>
-        <td></b>
+        <td></td>
         <td>A callback triggered as the list is being pulled to refresh. This triggers for every drag event and sends the
           ratio of how far down the list is being pulled before it refreshes (between 0 and 1).</td>
       </tr>
       <tr>
         <td>on-refresh-holding</td>
         <td><b>function</b></td>
-        <td></b>
+        <td></td>
         <td>A callback triggered when the list is being pulled down and held before refreshing.</td>
       </tr>
       <tr>
         <td>animation</td>
         <td><b>className</b></td>
-        <td></b>
+        <td></td>
         <td>An animation class to apply on the list for animating children.</td>
       </tr>
       <tr>
@@ -858,41 +858,33 @@ title: "Ionic Framework - Documentation and Guide"
           </div>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-email"></i>
-              Check mail
-              <span class="badge badge-info">5</span>
-            </div>
+            <i class="icon-email"></i>
+            Check mail
+            <span class="badge badge-info">5</span>
           </a>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-chatbubble-working"></i>
-              Call Ma
-              <span class="item-label-right">
-                Cell
-              </span>
-            </div>
+            <i class="icon-chatbubble-working"></i>
+            Call Ma
+            <span class="item-label-right">
+              Cell
+            </span>
           </a>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-mic-a"></i>
-              Record album
-              <span class="item-label-right">
-                Grammy
-              </span>
-            </div>
+            <i class="icon-mic-a"></i>
+            Record album
+            <span class="item-label-right">
+              Grammy
+            </span>
           </a>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-flask"></i>
-              Breaking Bad
-              <span class="item-label-right">
-                Blue, yellow, pink
-              </span>
-            </div>
+            <i class="icon-flask"></i>
+            Breaking Bad
+            <span class="item-label-right">
+              Blue, yellow, pink
+            </span>
           </a>
 
           <div class="item-divider">
@@ -900,42 +892,34 @@ title: "Ionic Framework - Documentation and Guide"
           </div>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-game-controller-b"></i>
-              Games
-              <span class="item-label-right">
-                Super Mario
-              </span>
-            </div>
+            <i class="icon-game-controller-b"></i>
+            Games
+            <span class="item-label-right">
+              Super Mario
+            </span>
           </a>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-music-note"></i>
-              Music
-              <span class="item-label-right">
-                JT
-              </span>
-            </div>
+            <i class="icon-music-note"></i>
+            Music
+            <span class="item-label-right">
+              JT
+            </span>
           </a>
 
           <a href="#" class="item item-icon-left">
-            <div class="item-content">
-              <i class="icon-plane"></i>
-              Travel
-              <span class="item-label-right">
-                Mile High
-              </span>
-            </div>
+            <i class="icon-plane"></i>
+            Travel
+            <span class="item-label-right">
+              Mile High
+            </span>
           </a>
 
           <a href="#" class="item item-icon-left item-icon-right">
-            <div class="item-content">
-              <i class="icon-person-stalker"></i>
-              Friends
-              <span class="badge badge-danger">0</span>
-              <i class="icon-loading"></i>
-            </div>
+            <i class="icon-person-stalker"></i>
+            Friends
+            <span class="badge badge-danger">0</span>
+            <i class="icon-loading"></i>
           </a>
 
         </div>
@@ -1031,10 +1015,8 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">List Items</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        ...
-      </div>
+    <div class="content has-header">
+      ...
     </div>
   </div>
 
@@ -1063,9 +1045,7 @@ title: "Ionic Framework - Documentation and Guide"
   </div>
 
   <a class="item" href="#">
-   <div class="item-content">
     Butterfinger
-   </div>
   </a>
 
   ...
@@ -1077,70 +1057,53 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">List Dividers</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        
-        <div class="list">
 
-          <div class="item-divider">
-            Candy Bars
-          </div>
+    <div class="content has-header">
+      
+      <div class="list">
 
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Butterfinger
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Kit Kat
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Snickers
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Twix
-           </div>
-          </a>
-          
-          <div class="item-divider">
-            Hard Candy
-          </div>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Jolly Rancher
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            LifeSavers
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Skittles
-           </div>
-          </a>
-
-          <a class="item" href="#item-dividers">
-           <div class="item-content">
-            Gobstoppers
-           </div>
-          </a>
-
+        <div class="item-divider">
+          Candy Bars
         </div>
 
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+
+        <a class="item" href="#">
+          Kit Kat
+        </a>
+
+        <a class="item" href="#">
+          Snickers
+        </a>
+
+        <a class="item" href="#">
+          Twix
+        </a>
+        
+        <div class="item-divider">
+          Hard Candy
+        </div>
+
+        <a class="item" href="#">
+          Jolly Rancher
+        </a>
+
+        <a class="item" href="#">
+          LifeSavers
+        </a>
+
+        <a class="item" href="#">
+          Skittles
+        </a>
+
+        <a class="item" href="#">
+          Gobstoppers
+        </a>
+
       </div>
+
     </div>
   </div>
 
@@ -1177,32 +1140,25 @@ title: "Ionic Framework - Documentation and Guide"
 {% highlight html %}
 <div class="list">
 
-  <a class="item item-icon-left">
-   <div class="item-content">
+  <a class="item item-icon-left" href="#">
     <i class="icon-gear-a fill-icon"></i>
     Settings
-   </div>
   </a>
 
-  <a class="item item-icon-left">
-   <div class="item-content">
+  <a class="item item-icon-left" href="#">
     <i class="icon-wifi"></i>
     Wifi
-   </div>
   </a>
 
-  <a class="item">
-   <div class="item-content">
-    Advanced
-    <i class="icon-arrow-right-c"></i>
-   </div>
-  </a>
-
-  <a class="item item-icon-right">
-   <div class="icon-document-text">
+  <a class="item item-icon-left item-icon-right" href="#">
+    <i class="icon-clipboard"></i>
     More Info
-    <i class="icon-arrow-right-c"></i>
-   </div>
+    <i class="icon-ios7-information-outline"></i>
+  </a>
+
+  <a class="item item-icon-right" href="#">
+    Advanced
+    <i class="icon-chevron-right"></i>
   </a>
 
 </div>
@@ -1212,47 +1168,119 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">List Icons</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        
-        <div class="list">
+    <div class="content has-header">
+      
+      <div class="list">
 
-          <div class="item-divider">
-            Control Panel
-          </div>
-
-          <a class="item item-icon-left">
-           <div class="item-content">
-            <i class="icon-gear-a fill-icon"></i>
-            Settings
-           </div>
-          </a>
-
-          <a class="item item-icon-left">
-           <div class="item-content">
-            <i class="icon-wifi"></i>
-            Wifi
-           </div>
-          </a>
-
-          <a class="item item-icon-left item-icon-right">
-           <div class="item-content">
-            <i class="icon-help"></i>
-            More Info
-            <i class="icon-arrow-right-c"></i>
-           </div>
-          </a>
-
-          <a class="item item-icon-right">
-           <div class="item-content">
-            Advanced
-            <i class="icon-chevron-right"></i>
-           </div>
-          </a>
-
+        <div class="item-divider">
+          Control Panel
         </div>
 
+        <a class="item item-icon-left" href="#">
+          <i class="icon-gear-a fill-icon"></i>
+          Settings
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon-wifi"></i>
+          Wifi
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon-clipboard"></i>
+          More Info
+          <i class="icon-ios7-information-outline"></i>
+        </a>
+
+        <a class="item item-icon-right" href="#">
+          Advanced
+          <i class="icon-chevron-right"></i>
+        </a>
+
       </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Item Avitars
+  ================================================== -->
+<div class="docs-section" id="item-avitars">
+
+  <h3><a href="#item-avitars">List Avitars</a></h3>
+
+  <p>
+    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail</code> classname. In this example, we are using images of album covers.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+    <a class="item item-avitar" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+
+    ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">List Avitars</div>
+    </div>
+
+    <div class="content has-header">
+
+      <div class="list">
+
+        <div class="item-divider">
+          Albums
+        </div>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
+          <h2>Nine Inch Nailes</h2>
+          <p>Pretty Hate Machine</p>
+        </a>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
+          <h2>Smashing Pumpkins</h2>
+          <p>Siamese Dream</p>
+        </a>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
+          <h2>Nirvana</h2>
+          <p>Nevermind</p>
+        </a>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
+          <h2>Beastie Boys</h2>
+          <p>License To Ill</p>
+        </a>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
+          <h2>Green Day</h2>
+          <p>Dookie</p>
+        </a>
+
+        <a class="item item-avitar" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
+          <h2>Stone Temple Pilots</h2>
+          <p>Core</p>
+        </a>
+
+      </div>
+
     </div>
   </div>
 
@@ -1267,18 +1295,16 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#item-thumbnails">List Thumbnails</a></h3>
 
   <p>
-    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail</code> classname. In this example, we are using images of album covers.
+    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail-left</code> to have it align on the left, and <code>list-thumbnail-right</code> for the right side.
   </p>
 
 {% highlight html %}
 <div class="list">
 
-    <a class="item item-thumbnail" href="#">
-      <div class="item-content">
-        <img src="cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </div>
+    <a class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
     </a>
 
     ...
@@ -1290,163 +1316,53 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">List Thumbnails</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
 
-        <div class="list">
+    <div class="content has-header">
 
-          <div class="item-divider">
-            Albums
-          </div>
+      <div class="list">
 
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
-              <h2>Nine Inch Nailes</h2>
-              <p>Pretty Hate Machine</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
-              <h2>Smashing Pumpkins</h2>
-              <p>Siamese Dream</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
-              <h2>Nirvana</h2>
-              <p>Nevermind</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
-              <h2>Beastie Boys</h2>
-              <p>License To Ill</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
-              <h2>Green Day</h2>
-              <p>Dookie</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
-              <h2>Stone Temple Pilots</h2>
-              <p>Core</p>
-            </div>
-          </a>
-
+        <div class="item-divider">
+          Albums
         </div>
 
-      </div>
-    </div>
-  </div>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
+          <h2>Nine Inch Nailes</h2>
+          <p>Pretty Hate Machine</p>
+        </a>
 
-</div>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
+          <h2>Smashing Pumpkins</h2>
+          <p>Siamese Dream</p>
+        </a>
 
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
+          <h2>Nirvana</h2>
+          <p>Nevermind</p>
+        </a>
 
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
+          <h2>Beastie Boys</h2>
+          <p>License To Ill</p>
+        </a>
 
-<!-- List Large Thumbnails
-  ================================================== -->
-<div class="docs-section" id="item-thumbnails-lrg">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
+          <h2>Green Day</h2>
+          <p>Dookie</p>
+        </a>
 
-  <h3><a href="#item-thumbnails-lrg">List Large Thumbnails</a></h3>
-
-  <p>
-    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail-lrg</code> classname. In this example, we are using images of album covers.
-  </p>
-
-{% highlight html %}
-<div class="list">
-
-    <a class="item item-thumbnail-lrg" href="#">
-      <div class="item-content">
-        <img src="cover.jpg">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
-      </div>
-    </a>
-
-    ...
-
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">List Large Thumbnails</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-
-        <div class="list">
-
-          <div class="item-divider">
-            Albums
-          </div>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
-              <h2>Nine Inch Nailes</h2>
-              <p>Pretty Hate Machine</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41H62046AHL.jpg">
-              <h2>Smashing Pumpkins</h2>
-              <p>Siamese Dream</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/51tr3o4kd9L.jpg">
-              <h2>Nirvana</h2>
-              <p>Nevermind</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/51j-SggaWSL.jpg">
-              <h2>Beastie Boys</h2>
-              <p>License To Ill</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/61e6mUocZNL.jpg">
-              <h2>Green Day</h2>
-              <p>Dookie</p>
-            </div>
-          </a>
-
-          <a href="#list-thumbnails" class="item item-thumbnail-lrg">
-            <div class="item-content">
-              <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
-              <h2>Stone Temple Pilots</h2>
-              <p>Core</p>
-            </div>
-          </a>
-
-        </div>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="//ecx.images-amazon.com/images/I/41-iL07GstL.jpg">
+          <h2>Stone Temple Pilots</h2>
+          <p>Core</p>
+        </a>
 
       </div>
+
     </div>
   </div>
 
@@ -1484,7 +1400,7 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="content has-header">
     
       <div class="card">
-        <div class="item item-content item-text-wrap">
+        <div class="item item-text-wrap">
           This is a basic Card with some text.
         </div>
       </div>
@@ -1522,7 +1438,7 @@ title: "Ionic Framework - Documentation and Guide"
         <div class="item item-divider">
           I'm a Header in a Card!
         </div>
-        <div class="item item-content item-text-wrap">
+        <div class="item item-text-wrap">
           This is a basic Card with some text.
         </div>
         <div class="item item-divider">
@@ -1562,31 +1478,23 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="list card">
 
         <a href="#" class="item item-icon-left">
-          <div class="item-content">
-            <i class="icon-home"></i>
-            Enter home address
-          </div>
+          <i class="icon-home"></i>
+          Enter home address
         </a>
 
         <a href="#" class="item item-icon-left">
-          <div class="item-content">
-            <i class="icon-ios7-telephone"></i>
-            Enter phone number
-          </div>
+          <i class="icon-ios7-telephone"></i>
+          Enter phone number
         </a>
 
         <a href="#" class="item item-icon-left">
-          <div class="item-content">
-            <i class="icon-wifi"></i>
-            Enter wireless password
-          </div>
+          <i class="icon-wifi"></i>
+          Enter wireless password
         </a>
 
         <a href="#" class="item item-icon-left">
-          <div class="item-content">
-            <i class="icon-card"></i>
-            Enter card information
-          </div>
+          <i class="icon-card"></i>
+          Enter card information
         </a>
 
       </div>
@@ -1609,8 +1517,23 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 {% highlight html %}
-<div class="">
-  ...
+<div class="list card">
+
+  <div class="item item-avitar">
+    <img src="avitar.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </div>
+
+  <div class="item item-image">
+    <img src="cover.jpg">
+  </div>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon-music-note"></i>
+    Start listening
+  </a>
+
 </div>
 {% endhighlight %}
 
@@ -1622,25 +1545,19 @@ title: "Ionic Framework - Documentation and Guide"
     
       <div class="list card">
 
-        <div class="item item-thumbnail">
-          <div class="item-content">
-            <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
-            <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-          </div>
+        <div class="item item-avitar">
+          <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
+          <h2>Pretty Hate Machine</h2>
+          <p>Nine Inch Nails</p>
         </div>
 
         <div class="item item-image">
-          <div class="item-content">
-            <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
-          </div>
+          <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
         </div>
 
-        <a href="#" class="item item-icon-left">
-          <div class="item-content">
-            <i class="icon-music-note"></i>
-            Start listening
-          </div>
+        <a class="item item-icon-left" href="#">
+          <i class="icon-music-note"></i>
+          Start listening
         </a>
 
       </div>
@@ -1677,26 +1594,22 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="list card">
 
         <div class="item item-thumbnail">
-          <div class="item-content">
-            <img src="http://mimg.ugo.com/201001/34590/cuts/marty-mcfly_288x288.jpg">
-            <h2>Marty McFly</h2>
-            <p>November 05, 1955</p>
-          </div>
+          <img src="http://mimg.ugo.com/201001/34590/cuts/marty-mcfly_288x288.jpg">
+          <h2>Marty McFly</h2>
+          <p>November 05, 1955</p>
         </div>
 
         <div class="item item-body">
-          <div class="item-content">
-            <img class="full-image" src="http://paulaubin.com/wp/wp-content/uploads/2012/05/back-to-the-future-delorean.jpg">
-            <p>
-              This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-              the content is from a card-body consisting of an image and paragraph text. The footer
-              consists of a Tab Bar, icons aligned left, within the card-footer.
-            </p>
-            <p>
-              <a href="#" class="subdued‎">1 Like</a>
-              <a href="#" class="subdued‎">5 Comments</a>
-            </p>
-          </div>
+          <img class="full-image" src="http://paulaubin.com/wp/wp-content/uploads/2012/05/back-to-the-future-delorean.jpg">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a Tab Bar, icons aligned left, within the card-footer.
+          </p>
+          <p>
+            <a href="#" class="subdued‎">1 Like</a>
+            <a href="#" class="subdued‎">5 Comments</a>
+          </p>
         </div>
 
         <div class="item item-divider">

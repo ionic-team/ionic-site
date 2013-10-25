@@ -1710,203 +1710,6 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Tab Bar
-  ================================================== -->
-<div class="docs-section" id="tabbar">
-
-  <h3><a href="#tabbar">Tab Bar</a></h3>
-
-  <div class="sub-links">
-    <a href="#text-only-tabbar">Text-only</a>
-    <a href="#icon-only-tabbar">Icon-only</a>
-    <a href="#icon-text-tabbar">Icon and Text</a>
-  </div>
-
-  <p>
-    The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
-  </p>
-
-{% highlight html %}
-<div class="tabs">
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 1
-  </a>
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 2
-  </a>
-  <a class="tab-item">
-    <i class="icon-home"></i>
-    Item 3
-  </a>
-</div>
-{% endhighlight %}
-
-  <p>
-    The Tab Bar can be styled to match the standard colors. Use these classes to change the
-    color of the tab bar:
-    <code>tabs-default</code>
-    <code>tabs-secondary</code>
-    <code>tabs-primary</code>
-    <code>tabs-info</code>
-    <code>tabs-success</code>
-    <code>tabs-warning</code>
-    <code>tabs-danger</code>
-    <code>tabs-dark</code>
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="tabs">
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 1
-      </a>
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 2
-      </a>
-      <a class="tab-item">
-        <i class="icon-home"></i>
-        Item 3
-      </a>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Text Only Tabbar
-  ================================================== -->
-<div class="docs-section" id="text-only-tabbar">
-
-  <h3><a href="#text-only-tabbar">Text-only Tab Bar</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Text-only Tab Bar</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Icon Only Tabbar
-  ================================================== -->
-<div class="docs-section" id="icon-only-tabbar">
-
-  <h3><a href="#icon-only-tabbar">Icon-only Tab Bar</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Icon-only Tab Bar</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Icon and Text Tabbar
-  ================================================== -->
-<div class="docs-section" id="icon-text-tabbar">
-
-  <h3><a href="#icon-text-tabbar">Text and Icon Tab Bar</a></h3>
-
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-<div class="">
-  ...
-</div>
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Text and Icon Tab Bar</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- Side Menu
-  ================================================== -->
-<div class="docs-section" id="sidemenu">
-
-  <h3><a href="#sidemenu">Side Menus</a></h3>
-
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.sideMenu</code></td>
-    </tr>
-    <tr>
-      <td>Directive</td><td><code>side-menu-ctrl (attribute or class)</code></td>
-    </tr>
-  </table>
-  <p>
-    Side Menus are exposable side menus seen at various tiems in popular
-    apps like Path and Facebook.
-    Each menu can be exposed through dragging the content area left and/or right, or through a Javascript API.
-  </p>
-
-{% highlight html %}
-<div side-menu-ctrl>
-  <div class="full-section" side-menu-content>
-    <h1>Content area</h1>
-  </div>
-  <menu side="left">
-    <h2>Left Menu</h2>
-  </menu>
-  <menu side="right">
-    <h2>Right Menu</h2>
-  </menu>
-</div>
-{% endhighlight %}
-
-</div>
-
-
-
 <!-- Forms
   ================================================== -->
 <div class="docs-section" id="forms">
@@ -2449,6 +2252,205 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
+
+<!-- Tab Bar
+  ================================================== -->
+<div class="docs-section" id="tab-bar">
+
+  <h3><a href="#tab-bar">Tab Bar</a></h3>
+
+  <div class="sub-links">
+    <a href="#text-only-tab-bar">Text-only</a>
+    <a href="#icon-only-tab-bar">Icon-only</a>
+    <a href="#icon-text-tab-bar">Icon and Text</a>
+  </div>
+
+  <p>
+    The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
+  </p>
+
+{% highlight html %}
+<div class="tabs">
+  <a class="tab-item">
+    <i class="icon-home"></i>
+    Item 1
+  </a>
+  <a class="tab-item">
+    <i class="icon-home"></i>
+    Item 2
+  </a>
+  <a class="tab-item">
+    <i class="icon-home"></i>
+    Item 3
+  </a>
+</div>
+{% endhighlight %}
+
+  <p>
+    The Tab Bar can be styled to match the standard colors. Use these classes to change the
+    color of the tab bar:
+    <code>tabs-default</code>
+    <code>tabs-secondary</code>
+    <code>tabs-primary</code>
+    <code>tabs-info</code>
+    <code>tabs-success</code>
+    <code>tabs-warning</code>
+    <code>tabs-danger</code>
+    <code>tabs-dark</code>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="tabs">
+      <a class="tab-item">
+        <i class="icon-home"></i>
+        Item 1
+      </a>
+      <a class="tab-item">
+        <i class="icon-home"></i>
+        Item 2
+      </a>
+      <a class="tab-item">
+        <i class="icon-home"></i>
+        Item 3
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Text Only Tabbar
+  ================================================== -->
+<div class="docs-section" id="text-only-tab-bar">
+
+  <h3><a href="#text-only-tab-bar">Text-only Tab Bar</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Text-only Tab Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icon Only Tabbar
+  ================================================== -->
+<div class="docs-section" id="icon-only-tab-bar">
+
+  <h3><a href="#icon-only-tab-bar">Icon-only Tab Bar</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Icon-only Tab Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icon and Text Tabbar
+  ================================================== -->
+<div class="docs-section" id="icon-text-tab-bar">
+
+  <h3><a href="#icon-text-tab-bar">Text and Icon Tab Bar</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<div class="">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Text and Icon Tab Bar</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Side Menu
+  ================================================== -->
+<div class="docs-section" id="sidemenu">
+
+  <h3><a href="#sidemenu">Side Menus</a></h3>
+
+  <table class="table table-condensed table-bordered module-info">
+    <tr>
+      <td>Module</td><td><code>ionic.ui.sideMenu</code></td>
+    </tr>
+    <tr>
+      <td>Directive</td><td><code>side-menu-ctrl (attribute or class)</code></td>
+    </tr>
+  </table>
+  <p>
+    Side Menus are exposable side menus seen at various tiems in popular
+    apps like Path and Facebook.
+    Each menu can be exposed through dragging the content area left and/or right, or through a Javascript API.
+  </p>
+
+{% highlight html %}
+<div side-menu-ctrl>
+  <div class="full-section" side-menu-content>
+    <h1>Content area</h1>
+  </div>
+  <menu side="left">
+    <h2>Left Menu</h2>
+  </menu>
+  <menu side="right">
+    <h2>Right Menu</h2>
+  </menu>
+</div>
+{% endhighlight %}
+
+</div>
+
+
+
 <!-- View Controllers
   ================================================== -->
 <div class="docs-section" id="view-controllers">
@@ -2460,6 +2462,7 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 </div>
+
 
 
 <!-- Navigation Stack

@@ -1722,36 +1722,34 @@ title: "Ionic Framework - Documentation and Guide"
     <a href="#forms-placeholder-labels">Placeholder Labels</a>
     <a href="#forms-inline-labels">Inline Labels</a>
     <a href="#forms-stacked-labels">Stacked Labels</a>
+    <a href="#inset-forms">Inset Forms</a>
   </div>
 
   <p>
-    An <code>input-group</code> is used to group related input elements. An <code>input-row</code>
-    is used to designate each individual input field and it's associated label. By default each 
-    input row will fill 100% of the width of its parent element. However, you can use the <a href="#utility">utility</a>
-    classnames of <code>inset</code> and <code>padding</code> to change their placement.
+    A <code>list</code> is also used to group related input elements. Both <code>item-input</code>
+    and <code>item</code> is then used to designate each individual input field and it's 
+    associated label.
   </p>
   <p>
-    Ionic prefers to create an <code>input-row</code> out of the <code>&lt;label&gt;</code> element 
-    so that when any part of the row is tapped then the input receives focus.
+    Ionic prefers to create the <code>item-input</code> out of the <code>&lt;label&gt;</code> element 
+    so that when any part of the row is tapped then the underlying input receives focus.
   </p>
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
       <div class="h1 title">Forms</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding-top">
-        <div class="input-group">
-          <label class="input-row">
-            <input type="text" placeholder="First Name">
-          </label>
-          <label class="input-row">
-            <input type="text" placeholder="Last Name">
-          </label>
-        </div>
-        <div class="padding">
-          <button class="button block button-primary">Submit</button>
-        </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
       </div>
     </div>
   </div>
@@ -1773,11 +1771,11 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 {% highlight html %}
-<div class="input-group">
-  <label class="input-row">
+<div class="list">
+  <label class="item item-input">
     <input type="text" placeholder="First Name">
   </label>
-  <label class="input-row">
+  <label class="item item-input">
     <input type="text" placeholder="Last Name">
   </label>
 </div>
@@ -1787,19 +1785,17 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Placeholder Labels</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding-top">
-        <div class="input-group">
-          <label class="input-row">
-            <input type="text" placeholder="First Name">
-          </label>
-          <label class="input-row">
-            <input type="text" placeholder="Last Name">
-          </label>
-        </div>
-        <div class="padding">
-          <button class="button block button-primary">Submit</button>
-        </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
       </div>
     </div>
   </div>
@@ -1821,12 +1817,12 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
   
 {% highlight html %}
-<div class="input-group">
-  <label class="input-row">
+<div class="list">
+  <label class="item item-input">
     <span class="input-label">Username</span>
     <input type="text">
   </label>
-  <label class="input-row">
+  <label class="item item-input">
     <span class="input-label">Password</span>
     <input type="password">
   </label>
@@ -1837,21 +1833,19 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Inline Labels</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header padding-top">
-        <div class="input-group">
-          <label class="input-row">
-            <span class="input-label">Username</span>
-            <input type="text">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Password</span>
-            <input type="password">
-          </label>
-        </div>
-        <div class="padding">
-          <button class="button block button-primary">Sign In</button>
-        </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Sign In</button>
       </div>
     </div>
   </div>
@@ -1873,16 +1867,16 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
 {% highlight html %}
-<div class="input-group stacked-label">
-  <label class="input-row">
+<div class="list stacked-label">
+  <label class="item item-input">
     <span class="input-label">First Name</span>
     <input type="text" placeholder="John">
   </label>
-  <label class="input-row">
+  <label class="item item-input">
     <span class="input-label">Last Name</span>
     <input type="text" placeholder="Suhr">
   </label>
-  <label class="input-row">
+  <label class="item item-input">
     <span class="input-label">Email</span>
     <input type="text" placeholder="john@suhr.com">
   </label>
@@ -1893,25 +1887,71 @@ title: "Ionic Framework - Documentation and Guide"
     <div class="bar bar-header bar-default">
       <div class="h1 title">Stacked Labels</div>
     </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <div class="input-group stacked-label">
-          <label class="input-row">
-            <span class="input-label">First Name</span>
-            <input type="text" placeholder="John">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Last Name</span>
-            <input type="text" placeholder="Suhr">
-          </label>
-          <label class="input-row">
-            <span class="input-label">Email</span>
-            <input type="text" placeholder="john@suhr.com">
-          </label>
-        </div>
-        <div class="padding">
-          <button class="button block button-primary">Create Account</button>
-        </div>
+    <div class="content has-header">
+      <div class="list stacked-label">
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="John">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Suhr">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="john@suhr.com">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Inset Forms
+  ================================================== -->
+<div class="docs-section" id="inset-forms">
+
+  <h3><a href="#inset-forms">Inset Forms</a></h3>
+
+  <p>
+    By default each input item will fill 100% of the width of its parent element (the list).
+    However, you can inset the list using either the <code>list-inset</code> or <code>card</code> classnames.
+    The <code>card</code> classname applies a lower box shadow while <code>list-inset</code> does not.
+    Additionally, if the list's parent element has <code>padding</code> assigned then this will also
+    give the form an inset appearance.
+  </p>
+
+{% highlight html %}
+<div class="list list-inset">
+  <label class="item item-input">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Last Name">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Inset Forms</div>
+    </div>
+    <div class="content has-header">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
       </div>
     </div>
   </div>

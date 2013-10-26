@@ -1849,7 +1849,8 @@
       text-decoration: none; }
   .ionic .item-slider {
     padding: 0; }
-  .ionic .item-slider .item-content {
+  .ionic .item-slider .item-content,
+  .ionic .item-radio .item-content {
     /**
      * The content area of a complex list item. This area can
      * Slide left and right and be dragged to support different
@@ -2107,6 +2108,7 @@
     margin-bottom: -1px; }
   .ionic .card .item,
   .ionic .card .item-divider,
+  .ionic .list-inset .item,
   .ionic .list-inset .item-divider,
   .ionic .padding > .list .item,
   .ionic .padding-horizontal > .list .item,
@@ -2193,6 +2195,8 @@
       -moz-flex: 0 0 24px;
       -ms-flex: 0 0 24px;
       flex: 0 0 24px;
+      position: static;
+      height: auto;
       display: inline-block;
       text-align: center;
       font-size: 16px; }
@@ -2211,6 +2215,7 @@
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
+    display: block !important;
     overflow: hidden;
     padding: 4px 8px 3px;
     border: none;
@@ -2413,6 +2418,10 @@
     top: 7.5px;
     right: 15px;
     z-index: 3; }
+  .ionic .item-radio {
+    padding: 0; }
+    .ionic .item-radio:hover {
+      cursor: pointer; }
   .ionic .item-radio .item-content {
     /* give some room to the right for the checkmark icon */
     padding-right: 60px; }

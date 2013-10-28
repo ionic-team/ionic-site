@@ -40,7 +40,7 @@ published: true
 <h3>Conclusion</h3>
 <p>Ionic is that missing piece when creating native apps with web standards. Just drop in some CSS and JavaScript, and you’ll quickly get up to speed developing native applications with HTML5. <em>(And don't forget it includes our open-source font pack, <a href="http://ionicons.com/">Ionicons</a>.)</em></p>
 
-<p>Use our default look and feel or customize it for your brand. And when you are ready to push the the app stores, compile your app with <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://cordova.apache.org/">Cordova</a> (or <a href="https://trigger.io/">Trigger.io</a>), and you have a native-feeling app that will run on the most popular of platforms.</p>
+<p>Use our default look and feel or customize it for your brand. And when you are ready to push to the app stores, compile your app with <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://cordova.apache.org/">Cordova</a> (or <a href="https://trigger.io/">Trigger.io</a>), and you have a native-feeling app that will run on the most popular of platforms.</p>
 
 <p>Go forth and build something awesome!</p>
 

@@ -1838,7 +1838,21 @@
           background-color: #444444;
           color: white; }
   .ionic .item,
-  .ionic .item-content {
+  .ionic .item h1,
+  .ionic .item h2,
+  .ionic .item h3,
+  .ionic .item h4,
+  .ionic .item h5,
+  .ionic .item h6,
+  .ionic .item p,
+  .ionic .item-content,
+  .ionic .item-content h1,
+  .ionic .item-content h2,
+  .ionic .item-content h3,
+  .ionic .item-content h4,
+  .ionic .item-content h5,
+  .ionic .item-content h6,
+  .ionic .item-content p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
@@ -1863,15 +1877,34 @@
     background-color: white;
     box-shadow: inset 0 0 1px #666666;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
-  .ionic .item-text-wrap {
+  .ionic .item-text-wrap,
+  .ionic .item-text-wrap h1,
+  .ionic .item-text-wrap h2,
+  .ionic .item-text-wrap h3,
+  .ionic .item-text-wrap h4,
+  .ionic .item-text-wrap h5,
+  .ionic .item-text-wrap h6,
+  .ionic .item-text-wrap p,
+  .ionic .item-slider.item-text-wrap .item-content,
+  .ionic .item-body h1,
+  .ionic .item-body h2,
+  .ionic .item-body h3,
+  .ionic .item-body h4,
+  .ionic .item-body h5,
+  .ionic .item-body h6,
+  .ionic .item-body p {
     overflow: auto;
     white-space: normal; }
-  .ionic .item-slider.item-text-wrap {
+  .ionic .item-slider.item-text-wrap,
+  .ionic .item-slider.item-text-wrap h1,
+  .ionic .item-slider.item-text-wrap h2,
+  .ionic .item-slider.item-text-wrap h3,
+  .ionic .item-slider.item-text-wrap h4,
+  .ionic .item-slider.item-text-wrap h5,
+  .ionic .item-slider.item-text-wrap h6,
+  .ionic .item-slider.item-text-wrap p {
     overflow: hidden;
     white-space: nowrap; }
-    .ionic .item-slider.item-text-wrap .item-content {
-      overflow: auto;
-      white-space: normal; }
   .ionic .item i {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2729,8 +2762,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 15px; }
+    .ionic .button-bar > .button:first-child {
+      border-radius: 2px 0px 0px 2px; }
     .ionic .button-bar > .button:last-child {
-      border-right-width: 1px; }
+      border-right-width: 1px;
+      border-radius: 0px 2px 2px 0px; }
   .ionic .buttons {
     box-flex: 1;
     -webkit-box-flex: 1;

@@ -15,8 +15,30 @@ layout: blog
 
 {{ content }}
 
-<div class="disqus">
-      <div id="disqus_thread"></div>
+  <hr>
+
+  <p>
+    <strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong>
+  </p>
+
+  <p>
+    <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
+  </p>
+
+  <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+    <div class="form-inline">
+      <label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />
+      <div class="row">
+        <div class="col-sm-5">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Your email" style="box-shadow: none; border: 2px solid #e1e1e1; border-radius: 4px; width: 240px;" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
@@ -30,6 +52,5 @@ layout: blog
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-</div>
+  </div>
 </div>

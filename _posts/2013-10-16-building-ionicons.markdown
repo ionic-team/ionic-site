@@ -64,27 +64,3 @@ published: true
 <p>We intend for this icon pack to be used with <a href="http://ionicframework.com" target="_blank">Ionic</a>, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store. Now go <strong><a href="http://ionicons.com" target="_blank">check out the Ionicons</a></strong>!</p>
 
 <p><a href="http://twitter.com/helloimben">Ben</a></p>
-
-<p><strong>For updates and news about when we will release Ionic to the world, <a href="http://twitter.com/ionicframework">follow us on Twitter</a> and signup for the <a href="http://ionicframework.com/">announcement email list</a>!</strong></p>
-
-<p></p>
-
-<a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ionicframework</a>
-
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-</script>
-
-<form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
-        <div class="form-inline">
-          <label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />
-          <div class="row">
-            <div class="col-sm-5">
-              <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Your email" style="box-shadow: none; border: 2px solid #e1e1e1; border-radius: 4px; width: 240px;" required />
-            </div>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </div>
-        </div>
-      </div>
-    </div>
-</form>

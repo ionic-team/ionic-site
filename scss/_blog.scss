@@ -37,7 +37,7 @@
   color: #444;
 }
 .post {
-  line-height: 26px;
+  line-height: 28px;
 
   img {
     max-width: 100%;
@@ -61,12 +61,13 @@
   margin: 10px 0px;
   }
   .post-title {
-    font-size: 25px;
+    font-size: 26px;
   }
   .post-time {
     font-style: italic;
     font-size: 13px;
-    margin: 10px 0px 10px;
+    color: #999999;
+    margin: 20px 0px 20px;
     display: block;
   }
   .post-social {

@@ -3,7 +3,7 @@ layout: post
 title:  "Where does the Ionic Framework fit in?"
 date:   "2013-10-28 11:00:00"
 categories: ionic
-author: '<img src="https://secure.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a>'
+author: '<img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a>'
 published: true
 ---
 

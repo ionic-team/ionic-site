@@ -3,7 +3,7 @@ layout: post
 title:  "Building Ionicons, Our Open Source Icon Font"
 date:   "2013-10-16 11:00:24"
 categories: ionic
-author: '<a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>'
+author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>'
 published: true
 ---
 

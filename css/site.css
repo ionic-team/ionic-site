@@ -5249,8 +5249,10 @@ td.visible-print {
     -webkit-transform: rotate(359deg); } }
 
 #blog-wrapper {
-  max-width: 600px;
-  margin: auto; }
+  max-width: 630px;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
 
 #blog-top {
   text-align: center;

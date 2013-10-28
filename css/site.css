@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5269,7 +5268,7 @@ td.visible-print {
   color: #444; }
 
 .post {
-  line-height: 26px; }
+  line-height: 32px; }
   .post img {
     max-width: 100%; }
   .post a {
@@ -5279,17 +5278,18 @@ td.visible-print {
     color: #437FE6;
     opacity: 1; }
   .post p {
-    margin-bottom: 15px; }
+    margin-bottom: 32px; }
   .post .showcase-image {
     margin: 10px 0px; }
   .post .body-image {
     margin: 10px 0px; }
   .post .post-title {
-    font-size: 25px; }
+    font-size: 26px; }
   .post .post-time {
     font-style: italic;
     font-size: 13px;
-    margin: 10px 0px 10px;
+    color: #999999;
+    margin: 20px 0px 20px;
     display: block; }
   .post .post-social {
     margin-bottom: 10px; }

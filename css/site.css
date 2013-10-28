@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -4931,7 +4932,7 @@ td.visible-print {
   padding: 0 10px;
   text-align: center; }
   .home .primary-row h1 {
-    margin-top: 40px; }
+    margin-top: 70px; }
   .home .primary-row h2 {
     margin-top: 55px;
     font-size: 20px; }
@@ -4962,16 +4963,16 @@ td.visible-print {
   position: relative;
   margin-top: -100px;
   margin-bottom: 0;
-  padding: 45px 10px;
+  padding: 45px 5px;
   height: 100px;
   text-align: center; }
   .home .social-row li {
     height: 25px;
     display: inline-block;
-    margin: 0 1em;
     vertical-align: top; }
   .home .social-row .twitter-share {
-    width: 110px; }
+    width: 90px;
+    margin-right: 10px; }
   .home .social-row .twitter-follow {
     width: 110px; }
   .home .social-row .github-watch {
@@ -5587,6 +5588,20 @@ h1 + h2 + p {
   .heading-tile {
     background-image: url("/img/heading-tile@2x.png");
     background-size: 391px 324px; } }
+.headline {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #4F8EF7;
+  color: white; }
+  .headline a {
+    color: inherit;
+    opacity: 1;
+    text-decoration: underline; }
+    .headline a:hover {
+      text-decoration: none; }
+
 .header {
   margin: 0 auto 40px;
   padding: 50px 0 0 0;

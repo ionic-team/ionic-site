@@ -59,6 +59,23 @@ h1 + h2 + p {
   }  
 }
 
+.headline {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #4F8EF7;
+  color: white;
+  a {
+    color: inherit;
+    opacity: 1;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .header {
   margin: 0 auto 40px;
   padding: 50px 0 0 0;

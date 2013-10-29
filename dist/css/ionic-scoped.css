@@ -92,6 +92,7 @@
    * 2. Correct font size not being inherited in all browsers.
    * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
    * 4. Remove any default :focus styles
+   * 5. Make sure webkit font smoothing is being inherited
    */
   /**
    * Address Firefox 4+ setting `line-height` on `input` using `!important` in
@@ -1048,7 +1049,9 @@
     outline-style: none;
     /* 4 */
     outline-width: 0;
-    /* 4 */ }
+    /* 4 */
+    -webkit-font-smoothing: inherit;
+    /* 5 */ }
   .ionic button,
   .ionic input {
     line-height: normal; }
@@ -1317,17 +1320,17 @@
     height: 44px;
     border-width: 0;
     border-style: solid;
-    background-color: white;
     border-top: 1px solid transparent;
-    border-bottom: 1px solid #dddddd; }
+    border-bottom: 1px solid #dddddd;
+    background-color: white; }
     @media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
       .ionic .bar {
         border-top: none;
         border-bottom: none;
         background-image: linear-gradient(0deg, #dddddd, #dddddd, 50%, transparent 50%);
+        background-position: bottom;
         background-size: 100% 1px;
-        background-repeat: no-repeat;
-        background-position: bottom; } }
+        background-repeat: no-repeat; } }
     .ionic .bar.bar-clear {
       border: none;
       background: none;
@@ -1471,19 +1474,20 @@
       line-height: 44px; }
     .ionic .bar .title a {
       color: inherit; }
-    .ionic .bar .button {
+    .ionic .bar > .button {
       box-flex: 1;
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
       z-index: 1;
       margin: 0;
-      padding: 4px 12px;
+      padding: 2px 8px 0 8px;
+      min-height: 34px;
       background-color: transparent;
       font-size: 12px;
-      line-height: 23px; }
-      .ionic .bar .button.button-clear {
-        padding: 0 5px;
-        line-height: 34px; }
+      line-height: 28px; }
+      .ionic .bar > .button [class^="icon-"],
+      .ionic .bar > .button [class*=" icon-"] {
+        margin-top: 1px; }
     .ionic .bar .button-bar {
       line-height: 18px; }
     .ionic .bar .button-bar + .button, .ionic .bar .button + .button-bar {
@@ -1624,12 +1628,6 @@
       background: none;
       box-shadow: none;
       font-size: 17px; }
-  .ionic .bar [class^="icon-"],
-  .ionic .bar [class*=" icon-"] {
-    font-size: 24px; }
-  .ionic .bar .button-icon {
-    border: 1px solid transparent;
-    background-color: transparent; }
   .ionic .bar-header {
     top: 0; }
   .ionic .bar-footer {
@@ -2011,6 +2009,10 @@
     right: auto; }
   .ionic .item-icon-left.item-icon-right i:last-child {
     left: auto; }
+  .ionic a.item:active,
+  .ionic button.item:active,
+  .ionic .item.active {
+    background-color: #F7F7F7; }
   .ionic a.item:after,
   .ionic button.item:after {
     /* By default, both <a> and <button> have right side arrow icons */
@@ -2583,21 +2585,31 @@
     position: relative;
     display: inline-block;
     margin: 0;
-    padding: 8px 12px;
+    padding: 9px 12px 7px 12px;
+    min-height: 44px;
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
     color: #222222;
-    vertical-align: middle;
+    vertical-align: top;
     text-align: center;
-    font-size: 16px;
-    line-height: 20px;
     text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 24px;
     cursor: pointer; }
+    .ionic .button [class^="icon-"],
+    .ionic .button [class*=" icon-"] {
+      display: inline-block;
+      padding: 0;
+      vertical-align: sub;
+      font-size: 24px;
+      line-height: 24px; }
     .ionic .button.button-icon {
       padding: 4px 5px;
-      border: none;
       background: none; }
+      .ionic .button.button-icon [class^="icon-"],
+      .ionic .button.button-icon [class*=" icon-"] {
+        font-size: 32px; }
     .ionic .button.button-clear {
       -webkit-transition: opacity 0.1s;
       transition: opacity 0.1s;
@@ -2798,6 +2810,20 @@
     .ionic .button.block, .ionic .button.button-full {
       margin-top: 10px;
       margin-bottom: 10px; }
+  .ionic .button-small {
+    font-size: 12px;
+    min-height: 32px;
+    padding: 1px 8px 1px 8px; }
+    .ionic .button-small [class^="icon-"],
+    .ionic .button-small [class*=" icon-"] {
+      font-size: 20px; }
+  .ionic .button-large {
+    font-size: 24px;
+    min-height: 52px;
+    padding: 12px 18px 12px 18px; }
+    .ionic .button-large [class^="icon-"],
+    .ionic .button-large [class*=" icon-"] {
+      font-size: 32px; }
   .ionic .padding > .button.block:first-child {
     margin-top: 0; }
   .ionic .button-full,

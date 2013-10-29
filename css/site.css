@@ -5118,7 +5118,8 @@ td.visible-print {
   .docs-section .highlight {
     margin: 10px 0 20px 0; }
   .docs-section pre {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 12px !important; }
   .docs-section h2 {
     padding-bottom: 16px; }
     .docs-section h2 a {
@@ -5152,8 +5153,8 @@ td.visible-print {
     color: #4f8ef7; }
   .docs-section.active .sub-links {
     opacity: 1; }
-  .docs-section td, .docs-section th, .docs-section pre {
-    font-size: 12px !important; }
+  .docs-section td, .docs-section th {
+    font-size: 14px !important; }
 
 .doc-example {
   display: none; }

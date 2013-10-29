@@ -5234,6 +5234,9 @@ td.visible-print {
     height: 140px;
     background: #4A87EE; }
 
+.ionic .tabs {
+  position: absolute !important; }
+
 .author-icon {
   float: left;
   margin-right: 8px;

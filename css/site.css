@@ -5240,11 +5240,11 @@ td.visible-print {
 .advanced-panel {
   padding: 10px;
   border: 1px solid #A7C6FC;
+  border-radius: 2px;
   background: #F6F9FE;
   color: #777; }
   .advanced-panel em {
     padding-right: 4px;
-    border-radius: 2px;
     color: #528FF7;
     vertical-align: middle;
     font-weight: bold;

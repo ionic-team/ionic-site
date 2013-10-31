@@ -268,6 +268,29 @@
   position: absolute !important;
 }
 
+.advanced-panel {
+  padding: 10px;
+  border: 1px solid #A7C6FC;
+  background: #F6F9FE;
+  color: #777;
+
+  em {
+    padding-right: 4px;
+    border-radius: 2px;
+    color: #528FF7;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .cards-bg {
   background: #f9f9f9;
 }

@@ -1,0 +1,221 @@
+---
+layout: docs-list
+title: "List: Advanced Documentation and Guide - Ionic Framework"
+---
+
+<div class="device-preview ionic">
+  <div class="screen-bg"></div>
+  <div class="default-screen ionic-body active-preview">
+    <div class="content-wrapper">
+      <div class="content padding has-header">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- List
+  ================================================== -->
+<div class="docs-section" id="overview">
+
+  <h1><a href="#overview">Advance List Documentation</a></h1>
+
+  <div class="sub-links">
+    <a href="#item-dividers">Divider</a>
+    <a href="#item-icons">Icons</a>
+    <a href="#item-avatars">Avatars</a>
+    <a href="#item-thumbnails">Thumbnails</a>
+  </div>
+
+  <p>
+    The List is a common and simple way of displaying... that's right, a list. This is a widely 
+    used interface across in most current mobile OS's, and can include content ranging from basic 
+    text all the way to buttons, toggles, icons, and thumbnails.
+  </p>
+  <p>
+    The list view is a very versitile and powerful component used to display lists of 
+    data. List views support various interaction modes such as editing, swipe to edit,
+    drag to reorder, and pull to refresh. List views can be used in virtual mode to efficiently handle
+    large lists of data by only rendering the items the user can see.
+  </p>
+  <p>
+    Both the list, which contains the list items, and the list items themselves
+    can be any HTML element. The containing element requires the <code>list</code> 
+    class and each list item requires the <code>item</code> class.
+  </p>
+
+{% highlight html %}
+<list
+  is-editing=".."
+  on-refresh-holding=".."
+  on-refresh-opening=".."
+  on-refresh=".."
+  animation=".."
+  delete-icon=".."
+  reorder-icon="..">
+    <!-- items here -->
+    <item ng-repeat="item in items">
+    </item>
+</list>
+{% endhighlight %}
+
+  <p>
+    Lists have many options that can be configured and events that can be handled:
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>virtual</td>
+        <td><b>boolean</b></td>
+        <td>false</td>
+        <td>Whether to virtually handle list items, offloading items that are not in the viewport. This option
+          may have unintended side-effects for certain applications, so it is not enabled by default. However,
+          it is recommended for large lists.
+        </td>
+      </tr>
+      <tr>
+        <td>is-editing</td>
+        <td><b>boolean</b></td>
+        <td>false</td>
+        <td>A boolean value indicating whether to put the list in "edit mode"</td>
+      </tr>
+      <tr>
+        <td>on-refresh</td>
+        <td><b>function</b></td>
+        <td></td>
+        <td>Called when the list has been pulled to refresh and is now refreshing.</td>
+      </tr>
+      <tr>
+        <td>on-refresh-opening</td>
+        <td><b>function(ratio)</b></td>
+        <td></td>
+        <td>A callback triggered as the list is being pulled to refresh. This triggers for every drag event and sends the
+          ratio of how far down the list is being pulled before it refreshes (between 0 and 1).</td>
+      </tr>
+      <tr>
+        <td>on-refresh-holding</td>
+        <td><b>function</b></td>
+        <td></td>
+        <td>A callback triggered when the list is being pulled down and held before refreshing.</td>
+      </tr>
+      <tr>
+        <td>animation</td>
+        <td><b>className</b></td>
+        <td></td>
+        <td>An animation class to apply on the list for animating children.</td>
+      </tr>
+      <tr>
+        <td>delete-icon</td>
+        <td><b>icon className</b></td>
+        <td>icon-minus-circled</b>
+        <td>The class name of the icon to show for all deletion items. We recommend the default
+          <a href="http://ionicons.com/">ionicon</a> <b>icon-minus-circled</b>
+        </td>
+      </tr>
+      <tr>
+        <td>reorder-icon</td>
+        <td><b>icon className</b></td>
+        <td>icon-navicon</td>
+        <td>The class name of the icon to show for reordering. The recommended default is
+          <b>icon-navicon</b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<!-- List Items
+  ================================================== -->
+<div class="docs-section" id="items">
+
+  <h3>List Items</h3>
+  
+  <p>
+    List items make up the bulk of lists. List items can be swiped,
+    reordered, deleted, and selected. They support hidden button bars
+    that are exposed after swiping, and trigger events on deletion and
+    selection.
+  </p>
+  <p>
+    List items also support embedded form elements and right-hand icons.
+  </p>
+
+{% highlight html %}
+<item 
+  buttons="item.buttons"
+  can-delete="true"
+  can-reorder="true"
+  can-swipe="true"
+  on-delete="deleteProject(project)"
+  on-select="selectProject(project)">
+  <!-- item content -->
+</item>
+{% endhighlight %}
+  <p>
+    The content specified in the item content area will be the main content of the displayed item.
+    Make sure to add an icon at the end if you want a right-handed icon.
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>buttons</td>
+        <td><b>Array</b></td>
+        <td>Buttons is an array of objects specifying the hidden buttons show underneath an item when swiped. The format of each
+          button object is:
+<code>
+<pre>
+{
+  text: 'Delete',
+  type: 'button-danger',
+  buttonClicked: function(item) {},
+}
+</pre>
+</code></td>
+      </tr>
+      <tr>
+        <td>can-delete</td>
+        <td><b>boolean</b></td>
+        <td>Whether this item can be deleted by the user.</td>
+      </tr>
+      <tr>
+        <td>can-reorder</td>
+        <td><b>boolean</b></td>
+        <td>Whether this item can be reordered.</td>
+      </tr>
+      <tr>
+        <td>can-swipe</td>
+        <td><b>boolean</b></td>
+        <td>Wheter this item can be swiped to expose the hidden buttons.</td>
+      </tr>
+      <tr>
+        <td>on-delete</td>
+        <td><b>function</b></td>
+        <td>Called when an item is deleted by the user.</td>
+      </tr>
+      <tr>
+        <td>on-select</td>
+        <td><b>function</b></td>
+        <td>Called when an item is selected or "tapped" by the user.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

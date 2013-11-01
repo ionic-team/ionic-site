@@ -976,38 +976,42 @@ title: "Ionic Framework - Documentation and Guide"
     will need to be applied.
   </p>
   <p>
-    In the example, the first list item only has a left aligned icon. The second item has both 
-    left and right side icons, and the third only has a right side icon. Additionally, the first
-    icon has <code>fill-icon</code> applied so it inverts the background and foreground.
+    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire 
+    list item to be tappable. If the item is an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>
+    element, and no icon has been added to the right, then a small right arrow will automatically be added.
   </p>
   <p>
-    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire 
-    list item to be tappable. Note that both a list and its list items can be any element, meaning
-    they're not restricted to just <code>&lt;ul&gt;</code> with <code>&lt;li&gt;</code> elements.
+    In the example, the first item only has a left aligned icon. The second item has both 
+    left and right side icons. The third item has <code>fill-icon</code> applied to the left icon, and no a right side icon assigned (whichs defaults to the right arrow). Additionally, the thrid item also adds an <code>item-note</code>. The fourth
+    icon has added a <code>badge</code> element.
   </p>
 
 {% highlight html %}
 <div class="list">
 
   <a class="item item-icon-left" href="#">
-    <i class="icon-gear-a fill-icon"></i>
-    Settings
-  </a>
-
-  <a class="item item-icon-left" href="#">
-    <i class="icon-wifi"></i>
-    Wifi
+    <i class="icon-email icon-primary"></i>
+    Check mail
   </a>
 
   <a class="item item-icon-left item-icon-right" href="#">
-    <i class="icon-clipboard"></i>
-    More Info
-    <i class="icon-ios7-information-outline"></i>
+    <i class="icon-chatbubble-working icon-primary"></i>
+    Call Ma
+    <i class="icon-ios7-telephone-outline"></i>
   </a>
 
-  <a class="item item-icon-right" href="#">
-    Advanced
-    <i class="icon-chevron-right"></i>
+  <a class="item item-icon-left" href="#">
+    <i class="icon-mic-a icon-primary fill-icon"></i>
+    Record album
+    <span class="item-note">
+      Grammy
+    </span>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon-person-stalker icon-primary"></i>
+    Friends
+    <span class="badge badge-danger">0</span>
   </a>
 
 </div>
@@ -1021,29 +1025,61 @@ title: "Ionic Framework - Documentation and Guide"
       
       <div class="list">
 
-        <div class="item-divider">
-          Control Panel
-        </div>
-
         <a class="item item-icon-left" href="#">
-          <i class="icon-gear-a fill-icon"></i>
-          Settings
-        </a>
-
-        <a class="item item-icon-left" href="#">
-          <i class="icon-wifi"></i>
-          Wifi
+          <i class="icon-email icon-primary"></i>
+          Check mail
         </a>
 
         <a class="item item-icon-left item-icon-right" href="#">
-          <i class="icon-clipboard"></i>
-          More Info
-          <i class="icon-ios7-information-outline"></i>
+          <i class="icon-chatbubble-working icon-primary"></i>
+          Call Ma
+          <i class="icon-ios7-telephone-outline"></i>
         </a>
 
-        <a class="item item-icon-right" href="#">
-          Advanced
-          <i class="icon-chevron-right"></i>
+        <a class="item item-icon-left" href="#">
+          <i class="icon-mic-a icon-primary fill-icon"></i>
+          Record album
+          <span class="item-note">
+            Grammy
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon-person-stalker icon-primary"></i>
+          Friends
+          <span class="badge badge-danger">0</span>
+        </a>
+
+        <div class="item-divider"></div>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon-flask icon-primary"></i>
+          Breaking Bad
+          <span class="item-note">
+            Blue, yellow, pink
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon-music-note icon-primary"></i>
+          Music
+          <span class="item-note">
+            JT
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon-game-controller-b icon-primary"></i>
+          Games
+          <span class="item-note">
+            Super Mario
+          </span>
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon-bag icon-primary"></i>
+          Shopping
+          <i class="icon-arrow-right-c"></i>
         </a>
 
       </div>
@@ -1320,22 +1356,22 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="list card">
 
   <a href="#" class="item item-icon-left">
-    <i class="icon-home"></i>
+    <i class="icon-home icon-primary"></i>
     Enter home address
   </a>
 
   <a href="#" class="item item-icon-left">
-    <i class="icon-ios7-telephone"></i>
+    <i class="icon-ios7-telephone icon-primary"></i>
     Enter phone number
   </a>
 
   <a href="#" class="item item-icon-left">
-    <i class="icon-wifi"></i>
+    <i class="icon-wifi icon-primary"></i>
     Enter wireless password
   </a>
 
   <a href="#" class="item item-icon-left">
-    <i class="icon-card"></i>
+    <i class="icon-card icon-primary"></i>
     Enter card information
   </a>
 
@@ -1351,22 +1387,22 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="list card">
 
         <a href="#" class="item item-icon-left">
-          <i class="icon-home"></i>
+          <i class="icon-home icon-primary"></i>
           Enter home address
         </a>
 
         <a href="#" class="item item-icon-left">
-          <i class="icon-ios7-telephone"></i>
+          <i class="icon-ios7-telephone icon-primary"></i>
           Enter phone number
         </a>
 
         <a href="#" class="item item-icon-left">
-          <i class="icon-wifi"></i>
+          <i class="icon-wifi icon-primary"></i>
           Enter wireless password
         </a>
 
         <a href="#" class="item item-icon-left">
-          <i class="icon-card"></i>
+          <i class="icon-card icon-primary"></i>
           Enter card information
         </a>
 
@@ -1444,7 +1480,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 <!-- Card Showcase
   ================================================== -->
-<div class="docs-section" id="card-showcase">
+<div class="docs-section" id="li">
 
   <h3><a href="#card-showcase">Card Showcase</a></h3>
 
@@ -1966,6 +2002,14 @@ title: "Ionic Framework - Documentation and Guide"
         </li>
         <li class="item item-checkbox">
            <div class="item-content">
+            Delorean
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
             88 MPH
            </div>
            <label class="checkbox">
@@ -2039,7 +2083,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             Go
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
         <label class="item item-radio">
@@ -2047,7 +2091,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             Python
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
         <label class="item item-radio">
@@ -2055,7 +2099,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             Ruby
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
         <label class="item item-radio">
@@ -2063,7 +2107,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             .Net
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
         <label class="item item-radio">
@@ -2071,7 +2115,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             Java
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
         <label class="item item-radio">
@@ -2079,7 +2123,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="item-content">
             PHP
           </div>
-          <i class="radio-icon icon-checkmark"></i>
+          <i class="radio-icon icon-checkmark icon-primary"></i>
         </label>
 
       </div>

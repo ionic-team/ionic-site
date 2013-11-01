@@ -2101,7 +2101,9 @@
     height: 100%;
     font-size: 32px; }
   .ionic .item .fill-icon {
-    font-size: 28px; }
+    font-size: 28px;
+    min-width: 30px;
+    min-height: 30px; }
   .ionic .item-icon-left {
     padding-left: 45px; }
     .ionic .item-icon-left i, .ionic .item-icon-left .icon {

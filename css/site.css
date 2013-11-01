@@ -5111,6 +5111,7 @@ td.visible-print {
 
 .docs-section {
   padding-bottom: 10px;
+  color: #888;
   font-size: 16px;
   line-height: 28px; }
   .docs-section .panel-heading {
@@ -5148,11 +5149,13 @@ td.visible-print {
     font-size: 12px; }
     .docs-section .sub-links a:last-child {
       margin-right: 0; }
-  .docs-section.active h2 a, .docs-section.active h3 a {
-    border-bottom: 1px solid #4f8ef7;
-    color: #4f8ef7; }
-  .docs-section.active .sub-links {
-    opacity: 1; }
+  .docs-section.active {
+    color: #444; }
+    .docs-section.active h2 a, .docs-section.active h3 a {
+      border-bottom: 1px solid #4f8ef7;
+      color: #4f8ef7; }
+    .docs-section.active .sub-links {
+      opacity: 1; }
   .docs-section td, .docs-section th {
     font-size: 14px !important; }
 

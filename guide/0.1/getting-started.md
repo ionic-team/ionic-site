@@ -47,14 +47,6 @@ $ cp IONIC_PATH/dist/js/* www/js/
 $ cp -R IONIC_PATH/dist/css/* www/css/
 ```
 
-You should then have this project structure:
-
-* `hello`
- * `merges`
- * `platforms`
- * `plugins`
- * `www`
-
 Now, we need to tell Cordova that we want to enable the iOS and Android platforms:
 
 ```bash

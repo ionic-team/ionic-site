@@ -17,9 +17,14 @@ But they also have drawbacks. On older devices, Hybrid apps run slower than nati
 
 We built Ionic because we strongly believed that HTML5 would rule on mobile over time, exactly as it has on the desktop. Once desktop computers became powerful enough and browser technology had advanced enough, almost everyone was spending most of their computing time in the browser. Luckily, with mobile devices building on much of the technology advanced in the desktop era, we now have smartphones and tablets capable of running powerful apps and rich 3D games.
 
-We also get a lot of questions about where Ionic fits into the mobile development stack. Think of Ionic as the front-end UI framework that handles all of the look and feel and UI interactions your app needs in order to be compelling. Since Ionic is an HTML5 framework, it needs a native wrapper like Cordova or PhoneGap in order to run as a native app. Ionic does not come with any backend services, though we have a few favorites that we are happy to recommend (more on that later). 
+We get a lot of questions asking where Ionic fits into the mobile development stack. Think of Ionic as the front-end UI framework that handles all of the look and feel and UI interactions your app needs in order to be compelling. Kind of like "Bootstrap for Native" but much more. Since Ionic is an HTML5 framework, it needs a native wrapper like Cordova or PhoneGap in order to run as a native app. Ionic does not come with any backend services, though we have a few favorites that we are happy to recommend (more on that later). 
 
-With Ionic, we wanted to build an HTML5 mobile development framework that was focused on *native* or hybrid apps instead of mobile websites, since we felt there were [great tools](http://jquerymobile.com/) already for mobile website development.
+With Ionic, we wanted to build an HTML5 mobile development framework that was focused on *native* or hybrid apps instead of mobile websites, since we felt there were [great tools](http://jquerymobile.com/) already for mobile website development. So Ionic apps aren't meant to be run in a mobile browser app like Chrome or Safari, but rather the low-level browser shell like iOS's UIWebView or Android's WebView.
 
-Beyond the framework itself, [Drifty](http://drifty.com/), the company behind the open source Ionic framework, provides additional services and tools to make your Ionic development experience better.
+We also wanted to make sure Ionic was as open source as possible, both by having a permissive open source license that could be used in both commercial and open source apps, but by cultivating a strong community around the project. 
 
+## Who makes Ionic?
+
+Ionic is a project of [Drifty](http://drifty.com/), a Madison-based developer tools company. Drifty makes money by building simple developer tools and services that can enhance your Ionic developer experience, but they are not necessary in order to use the framework. Rest assured knowing Ionic is supported by a profitable, growing, and independent software company.
+
+The first version of Ionic was built by [Max Lynch](http://twitter.com/maxlynch), [Ben Sperry](http://twitter.com/helloimben), and [Adam Bradley](http://twitter.com/adamdbradley). But Ionic has an ever growing list of [community contributors](https://github.com/driftyco/ionic/graphs/contributors) and would not exist without them.

@@ -4927,6 +4927,15 @@ td.visible-print {
   src: url("/fonts/28882F_1_0.eot");
   src: url("/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/28882F_1_0.woff") format("woff"), url("/fonts/28882F_1_0.ttf") format("truetype"); }
 
+.guide-content {
+  color: #333;
+  font-size: 16px; }
+  .guide-content h1, .guide-content h2 {
+    margin-bottom: 40px; }
+  .guide-content p {
+    line-height: 30px;
+    margin: 25px 0px; }
+
 .home .primary-row {
   padding: 0 10px;
   text-align: center; }

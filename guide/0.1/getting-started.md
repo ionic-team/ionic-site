@@ -7,6 +7,8 @@ title: "Getting Started with Ionic Framework"
 
 In this first chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.
 
+## Platform notes
+
 First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. For the first releases, Ionic only works on recent iPhone and Android devices. We support iOS 6+, and Android 4.2+. However, since there are a lot of different Android devices, it's possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our [GitHub](https://github.com/driftyco/ionic) project.
 
 You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you'll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.
@@ -18,6 +20,10 @@ First, we will go and install the most recent version of [Apache Cordova](http:/
 To install Cordova, make sure you have [Node.js](http://nodejs.org/) installed, then run
 
     $ sudo npm install -g cordova
+
+Depending on the platforms you wish to develop for, you'll need to install platform-specific tools. Follow the Cordova platform guides for [Android](http://cordova.apache.org/docs/en/3.1.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide) and [iOS](http://cordova.apache.org/docs/en/3.1.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide) to make sure you have everything needed for development on those platforms. Luckily, you'll only need to do this once.
+
+## Install Ionic
 
 Then, we can go download the [most recent release](https://github.com/driftyco/ionic/releases) of Ionic. It is not recommended to clone the repo for production apps
 unless you want to live on the bleeding edge.
@@ -36,5 +42,29 @@ If you are planning on using any version control system, you can go ahead and se
 
 Go ahead and copy the `dist/` files from the Ionic code (in `IONIC_PATH` below) we extracted above into the various `www/*` folders inside of the hello folder:
 
-    max@ionic:~/hello$ cp IONIC_PATH/dist/js/* www/js/
-    max@ionic:~/hello$ cp -R IONIC_PATH/dist/css/* www/css/
+```bash
+$ cp IONIC_PATH/dist/js/* www/js/
+$ cp -R IONIC_PATH/dist/css/* www/css/
+```
+
+You should then have this project structure:
+
+* `hello`
+ * `merges`
+ * `platforms`
+ * `plugins`
+ * `www`
+
+Now, we need to tell Cordova that we want to enable the iOS and Android platforms:
+
+```bash
+$ cordova platform add ios
+$ cordova platform add android
+```
+
+Just to make sure the default Cordova project worked, try building and running the project:
+
+```bash
+$ cordova build
+$ cordova emulate android
+```

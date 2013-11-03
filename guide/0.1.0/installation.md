@@ -23,6 +23,15 @@ To install Cordova, make sure you have [Node.js](http://nodejs.org/) installed, 
 
 Drop `sudo` from the above command if running on Windows. Depending on the platforms you wish to develop for, you'll need to install platform-specific tools. Follow the Cordova platform guides for [Android](http://cordova.apache.org/docs/en/3.1.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide) and [iOS](http://cordova.apache.org/docs/en/3.1.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide) to make sure you have everything needed for development on those platforms. Luckily, you'll only need to do this once.
 
+<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#java-note">
+  Windows note on Java and Ant
+</button>
+
+<div id="demo" class="collapse in">
+  Windows users: You'll want to make sure you have the Java JDK or JRE installed and that you have installed ant. To install ant, download a zip from [here](http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip), extract it, move the first folder in the zip to a safe place, and update your PATH to the `bin/` folder in that folder. For example, if you moved the ant folder to c:, you'd want to add this to your PATH: `C:\apache-ant-1.9.2\bin`. Whenever you make changes to the PATH, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
+
+</div>
+
 ## Install Ionic
 
 Then, we can go download the [most recent release](https://github.com/driftyco/ionic/releases) of Ionic. It is not recommended to clone the repo for production apps

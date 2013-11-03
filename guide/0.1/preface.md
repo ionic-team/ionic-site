@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: "Getting Started with Ionic Framework"
+title: "Why we built Ionic"
 ---
 
 # Chapter 0: Preface to the Ionic Guide
@@ -27,7 +27,7 @@ With Ionic, we wanted to build an HTML5 mobile development framework that was fo
 
 In fact, we felt that the history of web technologies living in the browser application was holding back its potential in the native environment. So with Ionic, we have liberated the developer from fitting their app into neat sections that can be linked through URLs, and we are focused on application layouts not content layouts. We've taken a native design to everything, and it might be a bit of a change for web developers. Trust us, it's worth it.
 
-And above all, we wanted to make sure Ionic was as open source as possible, both by having a permissive open source license that could be used in both commercial and open source apps, but by cultivating a strong community around the project. We felt there were too many frameworks that were *technically* open source, but were not open source in spirit or were not possible to use in an app store without purchasing a commercial license.
+And above all, we wanted to make sure Ionic was as open source as possible, both by having a permissive open source license that could be used in both commercial and open source apps, but by cultivating a strong community around the project. We felt there were too many frameworks that were *technically* open source, but were not open source in spirit or were not possible to use 
 
 ## Who makes Ionic?
 

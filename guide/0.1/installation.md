@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: "Getting Started with Ionic Framework"
+title: "Installing Ionic"
 ---
 
 # Chapter 1: Getting Everything Installed
@@ -64,3 +64,9 @@ $ cordova emulate android
 ```
 
 Be patient, this takes serveral minutes as the Android emulator is booted up.
+
+## AngularJS and other dependencies
+
+The first versions of Ionic utilize AngularJS heavily. We think it's the best way to build applications in the browser today, and we've built a lot of great mobile functionality around it. In the future, we hope the community will create extensions for other frameworks like [EmberJS](http://emberjs.com/) and [Knockout](http://knockoutjs.com/), to name a few.
+
+For our example apps, we will be using the 1.2.0rc3 version of Angular, and older versions are _not_ supported. We will link to the CDN versions of those files explicitly, but talk about moving to local versions in production.

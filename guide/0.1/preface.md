@@ -33,4 +33,4 @@ The first version of Ionic was built by [Max Lynch](http://twitter.com/maxlynch)
 
 Now that you have and understanding of what Ionic is and why it exists, you are ready to start building your first app with it. Continue on to the next chapter to get building!
 
-[Chapter 1: Getting started with Ionic](getting-started.html)
+[Chapter 1: Installation](installation.html)

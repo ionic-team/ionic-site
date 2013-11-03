@@ -3,9 +3,9 @@ layout: guide
 title: "Getting Started with Ionic Framework"
 ---
 
-# Chapter 1: Getting Started with Ionic
+# Chapter 1: Getting Everything Installed
 
-In this first chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.
+In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.
 
 ## Platform notes
 
@@ -53,6 +53,8 @@ Now, we need to tell Cordova that we want to enable the iOS and Android platform
 $ cordova platform add ios
 $ cordova platform add android
 ```
+
+If you see errors here, make sure to follow the platform guides above to install necessary platform tools.
 
 Just to make sure the default Cordova project worked, try building and running the project:
 

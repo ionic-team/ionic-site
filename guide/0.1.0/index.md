@@ -4,7 +4,7 @@ title: "Table of Contents"
 version: 0.1.0
 ---
 
-# The Ionic Guide (Ionic v{{version}})
+# The Ionic Guide (Ionic v{{page.version}})
 
 Welcome to the official Ionic Guide, where we will walk through the process of getting Ionic and all its dependencies installed, creating a new project, designing and building the UI, adding logic, testing, deploying on the device, and publishing to the various app stores.
 

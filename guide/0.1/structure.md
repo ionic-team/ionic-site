@@ -14,7 +14,7 @@ To start, our app needs to use the HTML5 doctype, include the required Ionic dep
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <title>Toderp</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="/css/ionic.css">

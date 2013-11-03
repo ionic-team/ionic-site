@@ -4,7 +4,7 @@ title:  "URLs are for Web Apps, not Hybrid Apps"
 date:   "2013-11-01 13:00:00"
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
-published: true
+published: false
 ---
 
 When we started planning to build what soon became [Ionic](http://ionicframework.com/), we knew that we needed to take a native-focused approach to building the next great HTML5 development framework.

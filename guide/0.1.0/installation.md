@@ -27,9 +27,13 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
   Windows note on Java and Ant
 </button>
 
-<div id="demo" class="collapse in">
-  Windows users: You'll want to make sure you have the Java JDK or JRE installed and that you have installed ant. To install ant, download a zip from [here](http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip), extract it, move the first folder in the zip to a safe place, and update your PATH to the `bin/` folder in that folder. For example, if you moved the ant folder to c:, you'd want to add this to your PATH: `C:\apache-ant-1.9.2\bin`. Whenever you make changes to the PATH, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
-
+<div id="java-note" class="collapse well">
+<p>
+  Windows users developing for Android: You'll want to make sure you have the Java JDK or JRE installed and that you have installed ant. To install ant, download a zip from <a href="http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to the <code>bin/</code> folder in that folder. For example, if you moved the ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+</p>
+<p>
+Whenever you make changes to the PATH, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
+</p>
 </div>
 
 ## Install Ionic

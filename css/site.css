@@ -4935,6 +4935,8 @@ td.visible-print {
   .guide-content p {
     line-height: 30px;
     margin: 25px 0px; }
+  .guide-content .well p {
+    margin: 0px 0px 10px 0px; }
 
 .home .primary-row {
   padding: 0 10px;

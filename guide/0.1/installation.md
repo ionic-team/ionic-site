@@ -62,3 +62,5 @@ Just to make sure the default Cordova project worked, try building and running t
 $ cordova build
 $ cordova emulate android
 ```
+
+Be patient, this takes serveral minutes as the Android emulator is booted up.

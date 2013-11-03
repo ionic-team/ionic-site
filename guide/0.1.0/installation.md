@@ -63,7 +63,22 @@ $ cordova build
 $ cordova emulate android
 ```
 
-Be patient, this takes serveral minutes as the Android emulator is booted up.
+Be patient, this takes serveral minutes as the Android emulator is booted up. If you don't see anything happen for a few minutes, make sure you've created an Android Virtual Device (AVD), and that it is using the Android SDK version 17 or above. The platform guide above has more information. You may also want to double check that you have the sdk and platform tools in your PATH as noted in the platform guide.
+
+The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
+
+<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+
+## Clearing the defaults
+
+Before we start building our app, we should remove all the Cordova default code. Go ahead and run the following commands:
+
+```bash
+$ rm www/index.html
+$ rm www/js/index.js
+$ rm www/css/index.css
+$ rm www/img/logo.png
+```
 
 ## AngularJS and other dependencies
 

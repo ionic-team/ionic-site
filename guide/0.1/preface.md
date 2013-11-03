@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: "Why we built Ionic"
+title: "Welcome to Ionic"
 ---
 
 # Chapter 0: Preface to the Ionic Guide

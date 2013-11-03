@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: "Installing Ionic"
+title: "Installing Ionic and its Dependencies"
 ---
 
 # Chapter 1: Getting Everything Installed

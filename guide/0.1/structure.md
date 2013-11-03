@@ -42,7 +42,7 @@ But in native app development, we work at lower level. Instead of using URLs, we
 
 We use View Controllers to take individual views and control them as a group to great effect. A perfect example is a Tab Bar. We might have a Tab Bar View with three Buttons views in it. But we also have three different pages that we need to page through.
 
-Instead of treating each page as a separate URL, we treat them as their own groups of views, using a Tab Controller to manage the Tab Bar Button taps to switch the different "pages," each of which is their own View Controller containing sets of child Views and View Controllers. It might seem complicated, but think of it just like the DOM: a tree of tangible UI elements inside of functional containers.
+Instead of treating each page as a separate URL, we treat them as their own groups of views, using a Tab Controller to manage the Tab Bar Button taps to switch the different "pages," each of which is their own View Controller containing sets of child Views and View Controllers. It might seem complicated, but think of it just like the DOM: a tree of tangible UI elements inside of containers that manage them.
 
 Perhaps we load certain assets (like images, cached templates, or web content) from a URL, but since we need local content to load incredibly quickly, we only use URLs as a convenience in their function as unique resource identifiers.
 

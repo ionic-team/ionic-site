@@ -72,6 +72,18 @@ $ cordova platform add android
 
 If you see errors here, make sure to follow the platform guides above to install necessary platform tools.
 
+We need to install at least one required plugin, the Device API, which lets us query device information:
+
+```bash
+$ cordova plugin add org.apache.cordova.device
+```
+
+To make our lives easier, let's also install the console plugin so we can see our `console.log` calls in XCode and the Android IDE:
+
+```bash
+$ cordova plugin add org.apache.cordova.console
+```
+
 Just to make sure the default Cordova project worked, try building and running the project:
 
 ```bash

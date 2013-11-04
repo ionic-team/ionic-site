@@ -29,7 +29,10 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
 
 <div id="java-note" class="collapse well">
 <p>
-  Windows users developing for Android: You'll want to make sure you have the Java JDK or JRE installed and that you have installed ant. To install ant, download a zip from <a href="http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to the <code>bin/</code> folder in that folder. For example, if you moved the ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+  Windows users developing for Android: You'll want to make sure you have the most recent [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) (NOT just the JRE) installed and that you have installed ant. To install ant, download a zip from <a href="http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to the <code>bin/</code> folder in that folder. For example, if you moved the ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+</p>
+<p>
+  Next, set a path entry for JAVA_HOME pointing to the root of the JDK folder that was created when you installed the Java JDK above. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set JAVA_HOME to be this path.
 </p>
 <p>
 Whenever you make changes to the PATH, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.

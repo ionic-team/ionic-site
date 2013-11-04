@@ -124,6 +124,8 @@ This will start a tiny web server hosting all of the files in the `www` folder. 
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
+Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!
+
 You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, `cd` into the root of the project (one level up from the `www` folder), and run:
 
 ```bash

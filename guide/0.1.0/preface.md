@@ -3,7 +3,7 @@ layout: guide
 title: "Welcome to Ionic"
 ---
 
-# Chapter 0: Preface to the Ionic Guide
+# Chapter 1: All About Ionic
 
 This is the official guide to building HTML5 apps with the Ionic framework, written by the [creators](http://drifty.com/) of Ionic. It contains all you need to know to get started building apps with Ionic, and lays a foundation for more advanced development.
 
@@ -35,8 +35,34 @@ Ionic is a project of [Drifty](http://drifty.com/), a Madison-based developer to
 
 The first version of Ionic was built by [Max Lynch](http://twitter.com/maxlynch), [Ben Sperry](http://twitter.com/helloimben), and [Adam Bradley](http://twitter.com/adamdbradley). But Ionic has an ever growing list of [community contributors](https://github.com/driftyco/ionic/graphs/contributors) and would not exist without them.
 
+## Building Hybrid Apps With Ionic
+
+Those familiar with web development will find the structure of an Ionic app straightforward. At its core, it's just a web page running in an native app shell! That means we can use any kind of HTML, CSS, and Javascript we want. The only difference is, instead of creating a website that others will link to, we are building a self-contained application experience.
+
+The bulk of an Ionic app will be written in HTML, Javascript, and CSS. Eager developers might also dig down into the native layer with custom Cordova plugins or native code, but it's not necessary to get a great app.
+
+Ionic uses AngularJS by default. And although it isn't absolutely required, the low-level Ionic APIs are more advanced and not part of this tutorial. We think Ionic is best served through your framework of choice, and we are recommending Angular for all apps built with Ionic.
+
+## Ionic Apps vs. Web Apps
+
+Just like any native app, Ionic apps utilize common core layout features. These include but aren't limited to: header and footer bars, scrollable content areas, tabs, navigation stacks, and side menus.
+
+Unlike web apps or mobile web apps, we need to think of the structure of our app less as a collection of resources linked through URLs, and more of a collection of dynamic, potentially non-linear experiences.
+
+To help you get there, Ionic does not impose any page or routing restrictions. For developers new to mobile development, this might seem strange. It's natural to have a URL bar and to link between different views of the application through the built in routing mechanisms found in the browser application, letting the user travel backwards and forwards in time using the buttons in the browser.
+
+But in native app development, we work at lower level. Instead of using URLs, we need to think in terms of collections of *views*, or rectangles of UI content. Everything you see on the screen is a view. A Button is a view, a Tab Bar is a view, a Header is a view, and an Image is a view.
+
+We use View Controllers to take individual views and control them as a group to create amazing experiences. A perfect example is a Tab Bar. We might have a Tab Bar View with three Buttons views in it. But we also have three corresponding content pages that we need to control through Tab Bar taps.
+
+Instead of treating each page as a separate URL, we treat them as their own groups of views, using a Tab Controller to manage the Tab Bar Button taps to switch the different "pages," each of which is their own View Controller containing sets of child Views and View Controllers. It might seem complicated, but think of it just like the DOM: a tree of tangible UI elements inside of containers that manage them.
+
+Perhaps we load certain assets (like images, cached templates, or web content) from a URL, but since we need local content to load incredibly quickly, we only use URLs as a convenience in their function as unique resource identifiers.
+
+Hopefully, as we start to build out the UI, the View Controller concept will become a lot more clear.
+
 ## Get building!
 
-Now that you have and understanding of what Ionic is and why it exists, you are ready to start building your first app with it. Continue on to the next chapter to get building!
+Now that you have and understanding of what Ionic is and why it exists, you are ready to start building your first app with it. Continue on to get everything installed and start building with Ionic!
 
-[Chapter 1: Installation](installation.html)
+[Chapter 2: Installation](installation.html)

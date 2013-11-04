@@ -112,7 +112,9 @@ Update the body content to be:
 
 ## Testing your work
 
-Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are three ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, or in a mobile browser on your phone.
+Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are four ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, in a mobile browser on your phone, or as a native app on the phone.
+
+### Desktop browser testing 
 
 Unless you are using custom Cordova plugins, or a lot of Cordova specific code, it's very easy to test in the desktop browser. The easiest thing is to `cd` into the `www` folder, and run
 
@@ -125,6 +127,8 @@ This will start a tiny web server hosting all of the files in the `www` folder. 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
 Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!
+
+### Simulator testing 
 
 You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, `cd` into the root of the project (one level up from the `www` folder), and run:
 
@@ -141,6 +145,14 @@ $ cordova prepare ios
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
 
-Lastly, you can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to [enable the remote web inspector](http://moduscreate.com/enable-remote-web-inspector-in-ios-6/) on both the device and Safari on desktop. To debug iOS 7 apps, you'll need to upgrade to Safari 6.1 which was released on October 22nd, 2013. Android apps supporting Android 4.4 or above can also use Chrome for remote debugging. Check out the Android docs for [more info](http://developer.android.com/guide/webapps/debugging.html).
+### Mobile browser testing 
+
+You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to [enable the remote web inspector](http://moduscreate.com/enable-remote-web-inspector-in-ios-6/) on both the device and Safari on desktop. To debug iOS 7 apps, you'll need to upgrade to Safari 6.1 which was released on October 22nd, 2013. Android apps supporting Android 4.4 or above can also use Chrome for remote debugging. Check out the Android docs for [more info](http://developer.android.com/guide/webapps/debugging.html).
+
+If you are using the local server method from the Desktop testing section and you are on the same network as the desktop computer, you can connect to the ip address of the desktop computer to test. So, if our desktop is running a test server at `192.168.1.123:8000`, we can just load that address into our mobile Chrome or Safari to test it.
 
 One problem with testing in a mobile browser is that it's probably the furthest of the three options from the actual app experience. This is largely because the browser app is meant for browsing websites, so it often adds functionality that conflicts with your app. For example, Chrome and Safari both listen for drag events on the sides of the app which let you switch between open tabs. They also have issues with the URL bars getting in the way, and some scrolling behavior is not the same as it is in the web view running in Cordova. It is fine for small tests, but not recommended for more complex apps.
+
+### Testing as a native app
+
+Since we are building a native (or "hybrid") app, we can (and should!) test it as one. 

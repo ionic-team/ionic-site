@@ -3,6 +3,8 @@ layout: guide
 title: "Installing Ionic and its Dependencies"
 ---
 
+Previous: <a href="preface.html">What is Ionic?</a>
+
 # Chapter 1: Getting Everything Installed
 
 In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.

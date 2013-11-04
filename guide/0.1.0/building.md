@@ -42,10 +42,37 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
   <div class="content has-header">
     <!-- our list and list items -->
     <list>
-      <list-item ng-repeat="todo in todos">
+      <list-item ng-repeat="task in tasks">
+        {{task.title}}
       </list-item>
     </list>
   </div>
 </pane>
 
 ```
+
+But this doesn't do anything yet, because we don't have any todos or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
+
+```html
+<body ng-app="todo" ng-controller="TodoCtrl">
+</body>
+```
+
+Then, we need to define this controller in our `app.js` file, and we can add some testing tasks in:
+
+```javascript
+angular.module('todo', ['ionic'])
+
+.controller('TodoCtrl', function($scope) {
+  $scope.tasks = [
+    { title: 'Collect coins' },
+    { title: 'Eat mushrooms' },
+    { title: 'Get high enough to grab the flag' },
+    { title: 'Find the Princess' },
+  ]
+});
+```
+
+Run the example again, and we should see our list of very important tasks!
+
+<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/4-list.png" alt="List" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">

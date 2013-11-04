@@ -138,3 +138,7 @@ $ cordova prepare ios
 ```
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
+
+Lastly, you can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to [enable the remote web inspector](http://moduscreate.com/enable-remote-web-inspector-in-ios-6/) on both the device and Safari on desktop. To debug iOS 7 apps, you'll need to upgrade to Safari 6.1 which was released on October 22nd, 2013. Android apps supporting Android 4.4 or above can also use Chrome for remote debugging. Check out the Android docs for [more info](http://developer.android.com/guide/webapps/debugging.html).
+
+One problem with testing in a mobile browser is that it's probably the furthest of the three options from the actual app experience. This is largely because the browser app is meant for browsing websites, so it often adds functionality that conflicts with your app. For example, Chrome and Safari both listen for drag events on the sides of the app which let you switch between open tabs. They also have issues with the URL bars getting in the way, and some scrolling behavior is not the same as it is in the web view running in Cordova. It is fine for small tests, but not recommended for more complex apps.

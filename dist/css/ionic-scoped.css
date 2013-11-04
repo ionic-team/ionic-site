@@ -168,9 +168,6 @@
   /* the handle when the toggle is "on" */
   /* make sure list item content have enough padding on right to fit the toggle */
   /* position the toggle to the right within a list item */
-  /**
-   * An animation that fades out one content area and fades in another
-   */
   @-webkit-keyframes fadeOut {
     from {
       opacity: 1; }
@@ -2125,6 +2122,54 @@
   .ionic button.item:active,
   .ionic .item.active {
     background-color: #F7F7F7; }
+  .ionic .item-button-left {
+    padding-left: 75px; }
+  .ionic .item-button-left > .button,
+  .ionic .item-button-left .item-content > .button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 7.5px;
+    left: 7.5px;
+    font-size: 32px;
+    min-height: 32px; }
+    .ionic .item-button-left > .button i,
+    .ionic .item-button-left .item-content > .button i {
+      position: relative;
+      line-height: 31px;
+      left: auto; }
+  .ionic .item-button-right {
+    padding-right: 75px; }
+  .ionic .item-button-right > .button,
+  .ionic .item-button-right .item-content > .button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 7.5px;
+    right: 15px;
+    font-size: 32px;
+    min-height: 32px; }
+    .ionic .item-button-right > .button i,
+    .ionic .item-button-right .item-content > .button i {
+      position: relative;
+      line-height: 31px;
+      left: auto; }
   .ionic a.item:after,
   .ionic button.item:after {
     /* By default, both <a> and <button> have right side arrow icons */
@@ -2154,7 +2199,9 @@
     speak: none;
     -webkit-font-smoothing: antialiased; }
   .ionic a.item-icon-right:after,
-  .ionic button.item-icon-right:after {
+  .ionic button.item-icon-right:after,
+  .ionic a.item-button-right:after,
+  .ionic button.item-button-right:after {
     display: none; }
   .ionic .item-avatar {
     padding-left: 70px;
@@ -3092,54 +3139,6 @@
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
-  .ionic .slide-in-slide-out.ng-enter, .ionic .slide-in-slide-out > .ng-enter {
-    -webkit-transition: 0.5s ease-in-out all;
-    -webkit-transform: translate3d(100%, 0, 0);
-    box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.6); }
-  .ionic .slide-in-slide-out.ng-enter-active, .ionic .slide-in-slide-out > .ng-enter-active {
-    -webkit-transform: translate3d(0, 0, 0); }
-  .ionic .slide-in-slide-out.ng-leave, .ionic .slide-in-slide-out > .ng-leave {
-    -webkit-transition: 0.5s ease-in-out all;
-    -webkit-transform: translate3d(0%, 0, 0); }
-  .ionic .slide-in-slide-out.ng-leave-active, .ionic .slide-in-slide-out > .ng-leave-active {
-    -webkit-transform: translate3d(-10%, 0, 0);
-    opacity: 0.8; }
-  .ionic .slide-in-slide-out-reverse.ng-enter, .ionic .slide-in-slide-out-reverse > .ng-enter {
-    z-index: 1;
-    -webkit-transition: 0.5s ease-in-out all;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.6); }
-  .ionic .slide-in-slide-out-reverse.ng-enter-active, .ionic .slide-in-slide-out-reverse > .ng-enter-active {
-    -webkit-transform: translate3d(0, 0, 0); }
-  .ionic .slide-in-slide-out-reverse.ng-leave, .ionic .slide-in-slide-out-reverse > .ng-leave {
-    z-index: 0;
-    -webkit-transition: 0.5s ease-in-out all;
-    -webkit-transform: translate3d(0%, 0, 0); }
-  .ionic .slide-in-slide-out-reverse.ng-leave-active, .ionic .slide-in-slide-out-reverse > .ng-leave-active {
-    -webkit-transform: translate3d(10%, 0, 0);
-    opacity: 0.8; }
-  .ionic .fade-in-out.ng-enter, .ionic .fade-in-out > .ng-enter {
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out; }
-  .ionic .fade-in-out.ng-enter-active, .ionic .fade-in-out > .ng-enter-active {
-    opacity: 1; }
-  .ionic .fade-in-out.ng-leave, .ionic .fade-in-out > .ng-leave {
-    opacity: 1;
-    -webkit-transition: opacity 0.3s ease-in-out; }
-  .ionic .fade-in-out.ng-leave-active, .ionic .fade-in-out > .ng-leave-active {
-    opacity: 0; }
-  .ionic .slide-left-fade-add {
-    -webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out; }
-  .ionic .slide-left-fade-add-active {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    opacity: 0; }
-  .ionic .slide-in-left-fade-add {
-    -webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    -webkit-transform: translate3d(100%, 0, 0);
-    opacity: 0; }
-  .ionic .slide-in-left-fade-add-active {
-    -webkit-transform: translate3d(0px, 0, 0);
-    opacity: 1; }
   .ionic .fade-in {
     -webkit-animation: fadeOut 0.3s;
     animation: fadeOut 0.3s; }

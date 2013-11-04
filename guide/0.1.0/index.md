@@ -10,8 +10,8 @@ Welcome to the official Ionic Guide, where we will walk through the process of g
 
 ## [Chapter 1: What is Ionic?](preface.html)
 ## [Chapter 2: Installation](installation.html)
-## [Chapter 3: UI](ui.html)
-## [Chapter 4: Logic](logic.html)
+## [Chapter 3: Starting our App](starting.html)
+## [Chapter 4: Building it out](building.html)
 ## [Chapter 5: Backend](backend.html)
 ## [Chapter 6: Testing](testing.html)
 ## [Chapter 7: Publishing](publishing.html)

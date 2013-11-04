@@ -5,7 +5,7 @@ title: "Building the UI for Toderp"
 
 Previous: <a href="installation.html">Installing Ionic</a>
 
-# Chapter 3: Building our UI
+# Chapter 3: Starting our App
 
 Now that we've got everything installed and a new Cordova project created, let's jump in and start building a real app!
 

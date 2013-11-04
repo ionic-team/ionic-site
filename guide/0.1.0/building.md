@@ -34,6 +34,7 @@ Since we are using AngularJS, we are going to use the <a href="http://docs.angul
 With the list code and the Angular `ng-repeat`, the center content becomes:
 
 ```html
+{% raw %}
 <!-- Center content -->
 <pane side-menu-content>
   <header class="bar bar-header bar-dark">
@@ -48,6 +49,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
     </list>
   </div>
 </pane>
+{% endraw %}
 
 ```
 

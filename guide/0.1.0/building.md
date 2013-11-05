@@ -13,7 +13,7 @@ So, let's take another look at our mockup:
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup">
 
-We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native app development. Luckily, adding them is really simple. 
+We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native apps. Luckily, adding them is really simple. 
 
 Since we are using AngularJS, we are going to use the <a href="http://docs.angularjs.org/api/ng.directive:ngRepeat">`ng-repeat`</a> directive to create a new list item for every single task we have in a given project:
 
@@ -70,7 +70,7 @@ angular.module('todo', ['ionic'])
     { title: 'Collect coins' },
     { title: 'Eat mushrooms' },
     { title: 'Get high enough to grab the flag' },
-    { title: 'Find the Princess' },
+    { title: 'Find the Princess' }
   ]
 });
 ```
@@ -78,3 +78,43 @@ angular.module('todo', ['ionic'])
 Run the example again, and we should see our list of very important tasks!
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/4-list.png" alt="List" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
+
+Okay, so we have some testing data for tasks, but what about creating and deleting or finishing them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task:
+
+First, we define the template we want to use for the Modal:
+
+```html
+<script id="new-task.html" type="text/ng-template">
+
+  <div class="modal slide-in-up">
+
+    <header class="bar bar-header bar-secondary">
+      <h1 class="title">New Task</h1>
+      <button class="button button-clear button-primary" ng-click="closeNewTask()">Done</button>
+    </header>
+
+    <content has-header="true">
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="What do you need to do?" ng-model="task.title">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-full button-primary">Create Task</button>
+        </div>
+      </form>
+
+    </content>
+
+  </div>
+
+</script>
+```
+
+There is a good amount of stuff in this Modal popup. First of all, we are defining this template as an Angular template using `<script type="text/ng-template">`. The cool thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.
+
+We then define the markup for the modal itself. Check out our docs for more examples of modals and different modal animations. This one will slide up from the bottom when shown.
+
+We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling `createTask(task)` when the form is submitted. The `task` that is passed to `createTask` is the object corresponding to the entered form data. Since our text input has `ng-model="task.title"`, that text input will set the `title` property of the `task` object.

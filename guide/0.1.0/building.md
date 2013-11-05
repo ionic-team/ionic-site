@@ -168,7 +168,7 @@ Now run the example and try adding a task. It should slide up the modal and then
 
 ## Editing tasks
 
-
+Enabling item editing is easy. We just need to update the `<list>` directive and add a few more attributes to the tag, both to enable edit mode, and to process events when items are deleted.
 
 ## Adding projects
 

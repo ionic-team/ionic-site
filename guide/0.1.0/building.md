@@ -79,7 +79,9 @@ Run the example again, and we should see our list of very important tasks!
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/4-list.png" alt="List" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
-Okay, so we have some testing data for tasks, but what about creating and deleting or finishing them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task:
+## Creating tasks
+
+Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task:
 
 ```html
 <script id="new-task.html" type="text/ng-template">
@@ -88,7 +90,7 @@ Okay, so we have some testing data for tasks, but what about creating and deleti
 
     <header class="bar bar-header bar-secondary">
       <h1 class="title">New Task</h1>
-      <button class="button button-clear button-primary" ng-click="closeNewTask()">Done</button>
+      <button class="button button-clear button-primary" ng-click="closeNewTask()">Cancel</button>
     </header>
 
     <content has-header="true">
@@ -136,12 +138,8 @@ And in our controller code:
 angular.module('todo', ['ionic'])
 
 .controller('TodoCtrl', function($scope, Modal) {
-  $scope.tasks = [
-    { title: 'Collect coins' },
-    { title: 'Eat mushrooms' },
-    { title: 'Get high enough to grab the flag' },
-    { title: 'Find the Princess' }
-  ]
+  // No need for testing data anymore
+  $scope.tasks = [];
 
   // Create and load the Modal
   Modal.fromTemplateUrl('new-task.html', function(modal) {
@@ -165,3 +163,14 @@ angular.module('todo', ['ionic'])
   }
 });
 ```
+
+Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it!
+
+## Editing tasks
+
+
+
+## Adding projects
+
+Now we can add support for adding and selecting projects
+

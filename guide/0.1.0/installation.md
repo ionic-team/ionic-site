@@ -48,6 +48,8 @@ unless you want to live on the bleeding edge.
 
 Once you have the most recent release of Ionic, extract it anywhere you like on your computer. We are only going to be needing some of the files for our app, specifically the ones in the `dist/` folder, and possibly the ones in the `scss/` folder for more advanced usage (more on that later). For the sake of getting started, we will start with the most basic usage of Ionic.
 
+## Create the project
+
 Now, we need to create a new Cordova project somewhere on the computer for the code for our app:
 
     $ cordova create hello com.ionic.toderp Toderp 
@@ -58,12 +60,15 @@ That will createa folder called `hello` in the directory the command was run. Ne
 
 If you are planning on using any version control system, you can go ahead and set it up using this new folder. For new apps, follow this folder structure to get up and running quickly:
 
+
 Go ahead and copy the `dist/` files from the Ionic code (in `IONIC_PATH` below) we extracted above into the various `www/*` folders inside of the hello folder:
 
 ```bash
 $ cp IONIC_PATH/dist/js/* www/js/
 $ cp -R IONIC_PATH/dist/css/* www/css/
 ```
+
+## Configure Cordova
 
 Now, we need to tell Cordova that we want to enable the iOS and Android platforms:
 

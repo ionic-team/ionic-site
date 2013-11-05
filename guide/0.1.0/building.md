@@ -81,8 +81,6 @@ Run the example again, and we should see our list of very important tasks!
 
 Okay, so we have some testing data for tasks, but what about creating and deleting or finishing them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task:
 
-First, we define the template we want to use for the Modal:
-
 ```html
 <script id="new-task.html" type="text/ng-template">
 
@@ -118,3 +116,52 @@ There is a good amount of stuff in this Modal popup. First of all, we are defini
 We then define the markup for the modal itself. Check out our docs for more examples of modals and different modal animations. This one will slide up from the bottom when shown.
 
 We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling `createTask(task)` when the form is submitted. The `task` that is passed to `createTask` is the object corresponding to the entered form data. Since our text input has `ng-model="task.title"`, that text input will set the `title` property of the `task` object.
+
+In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
+
+```html
+  <!-- Center content -->
+  <pane side-menu-content>
+    <header class="bar bar-header bar-dark">
+      <h1 class="title">ToDo</h1>
+      <!-- New Task button-->
+      <button class="button button-clear" ng-click="newTask()">New</button>
+    </header>
+    <!-- ... -->
+```
+
+And in our controller code:
+
+```javascript
+angular.module('todo', ['ionic'])
+
+.controller('TodoCtrl', function($scope, Modal) {
+  $scope.tasks = [
+    { title: 'Collect coins' },
+    { title: 'Eat mushrooms' },
+    { title: 'Get high enough to grab the flag' },
+    { title: 'Find the Princess' }
+  ]
+
+  // Create and load the Modal
+  Modal.fromTemplateUrl('new-task.html', function(modal) {
+    $scope.taskModal = modal;
+  }, $scope);
+
+  // Called when the form is submitted
+  $scope.createTask = function(task) {
+    $scope.tasks.push(task);
+    $scope.taskModal.hide();
+  };
+
+  // Open our new task modal
+  $scope.newTask = function() {
+    $scope.taskModal.show();
+  };
+
+  // Close the new task modal
+  $scope.closeNewTask = function() {
+    $scope.taskModal.hide();
+  }
+});
+```

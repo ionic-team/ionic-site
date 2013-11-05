@@ -9,7 +9,7 @@ published: true
 
 When we started planning to build what soon became [Ionic](http://ionicframework.com/), we knew that we needed to take a native-focused approach to building the next great HTML5 development framework.
 
-We felt that there were plenty web-focused HTML5 frameworks, but few that treated HTML5 as a first-class citizen in the app store. We couldn't ignore that people increasingly look to the app store to find apps, rather than browse the web for them.
+We felt that there were plenty of web-focused HTML5 frameworks, but few that treated HTML5 as a first-class citizen in the app store. We couldn't ignore that people increasingly look to the app store to find apps, rather than browse the web for them.
 
 One big difference that kept coming up between web apps and native apps is how they handle URLs. Web apps utilize URLs both for the developer's convenience but also for the user's, allowing people all over the world to link directly to content. Native apps, in comparison, don't use URLs at all, or use them only for the developer's convenience.
 

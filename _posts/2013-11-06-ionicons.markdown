@@ -51,9 +51,17 @@ Also, right when the post hit the front page, we had many issues filed and pull 
 
 ## Open Source Fucking Rocks
 
-Ionicons is probably the most successful open source project any of us has ever had. We hope it's the second most successful one after we launch the upcoming [Ionic Framework](/), which will make it easy for more developers to build amazing native-feeling mobile apps with web technologies.
+Ionicons is probably the most successful open source project any of us has ever had. We hope it's the second most successful one after we launch our [Ionic Framework](/) in a few weeks, which will make it easy for more developers to build amazing native-feeling mobile apps with web technologies.
 
-But for a company that has traditionally not done much open source (we make [Codiqa](http://codiqa.com/) and [Jetstrap](http://jetstrap.com/) as well, both closed source), moving to open source has made us realize that we enjoy it a hell of a lot more than building closed source software.
+For a company that has traditionally not done much open source (we make [Codiqa](http://codiqa.com/) and [Jetstrap](http://jetstrap.com/) as well, both closed source), moving to open source has made us realize that we enjoy it a hell of a lot more than building closed source software.
 
-There is something incredibly valuable about *quality* open source software. And by going open source, great products have a huge potential to compete against closed source alternatives. Since we are a small team bootstrapping a software startup, we've decided that open source is a competetive advantage, and will help us compete with against the big VC-backed companies in our space.
+There is something incredibly powerful about *quality* open source software. It's as if everyone in the world who could conceivably benefit from your work, can. And by going open source, great products have the increased potential to compete against closed source alternatives.
+
+Since we are a small team bootstrapping a [software startup](http://drifty.com/), we've decided that open source is a competitive advantage, and will help us compete against the big VC-backed companies in our space. Closed source just isn't that cool in comparison.
+
+So if you were one of the people who shared Ionicons or upvoted us, we owe you a ton of thanks for making the project successful. Stay tuned and we promise lots more stuff to help you be more awesome, and we hope to see a pull request from you in the future!
+
+Sincerely,
+The Ionic Crew
+[Max](http://twitter.com/maxlynch), [Ben](http://twitter.com/helloimben), [Adam](http://twitter.com/adamdbradley), [Brody](https://twitter.com/xtheglobe), [Tim](https://twitter.com/dopernicus), [Peter](SomethingNew2_0).
 

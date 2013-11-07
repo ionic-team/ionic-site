@@ -7,5 +7,19 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: false
 ---
 
-Last week we officially launched [Ionicons](http://ionicons.com/), our open source Icon font, to the world.
+Last week we officially launched [Ionicons](http://ionicons.com/), our open source Icon font, and were on the front page of Hacker News for two days ([link](https://news.ycombinator.com/item?id=6637369)).
+
+Over the next few days, we had an outpouring of support as people all over the world tried out the icon font and put it to good use. Now that things are slowing down, we wanted to share some of the numbers and show what being on the front page of Hacker News can do for a project.
+
+## The Submission
+
+I submitted Ionicons to Hacker News at around 3 PM central time on a Tuesday afternoon. I'm not sure that is generally considered a good time to post, but it felt right and I wasn't expecting much, so I submitted it.
+
+The post got a few upvotes pretty quickly, probably because the headline suggested free icons and HN users love free design assets. It wasn't long before it was on the front page.
+
+But we immediately noticed a HUGE issue: the font didn't work in any browser except for Chrome, and the font files were actually corrupted! We were using [Icomoon](http://icomoon.io/) to generate the fonts, and one of our glyphs had a bad path that messed up the entire font. We were able to fix the issue after 20 minutes or so, but that mishap cost us some early momentum.
+
+Over the next few days, the post received over 375 points, drawing lots of 
+
+
 

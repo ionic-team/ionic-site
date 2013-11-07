@@ -15,7 +15,7 @@ One big difference that kept coming up between web apps and native apps is how t
 
 In a native app, a user will never see any URLs even if the app is using URL based routing underneath. Obviously there are no URL bars or browser chrome in a native app so having URLs doesn't make sense. When used, it's merely a convenient way to manage UI state for the developer.
 
-Yet most current HTML5 development frameworks have kept URLs as a core concept, limiting a lot of UI interaction to those that can be expressed as resource paths. Things like switching to a new page, popping up a dialog box, or linking tabs. It's probably out of developer comfort, but also because the history of HTML5 and web technology is rooted in the browser app. But even then, URLs were meant to link to specific resources on the web, not to control user interface interactions.
+Yet most current HTML5 development frameworks have kept URLs as a core concept, limiting a lot of UI interaction to those that can triggered through a URL link. Things like switching to a new page, popping up a dialog box, or linking tabs. It's probably out of developer comfort, but also because the history of HTML5 and web technology is rooted in the browser app. But even then, URLs were meant to link to specific resources on the web, not to control user interface interactions.
 
 
 If you are familiar with native app development, you'll know that native apps tend to utilize a lower level design pattern called the [View Controller](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html) pattern (ignore the Model portion for now). The idea is pretty simple: you have a set of views (think of them as boxes or rectangles where UI elements are drawn), and then controllers that manage multiple views in tandem.
@@ -29,29 +29,30 @@ The [UITabBarController](https://developer.apple.com/library/ios/documentation/u
 
 In the screenshot of the iOS Alarm app above, you'll notice four tab buttons with four possible pages of the tab you can select. We are currently on the "Alarm" tab. The UITabBarController holds a reference to the [UITabBar](https://developer.apple.com/library/ios/documentation/uikit/reference/UITabBar_Class/Reference/Reference.html) view at the bottom (it even creates it for you), and then when a tab is selected, the controller makes sure to switch the pages for you.
 
-In a WebApp, you might have a distinct URL for each page in the tab. That wouldn't be the worst thing in the world for a hybrid/native app, but it soon breaks down when we look at more complicated native apps. For example, the great [Yahoo! Weather](https://itunes.apple.com/us/app/yahoo-weather/id628677149?mt=8) app:
+In a Web App, you might have a distinct URL for each page in the tab. That wouldn't be the worst thing in the world for a hybrid/native app, but it soon breaks down when we look at more complicated native apps. For example, the great [Yahoo! Weather](https://itunes.apple.com/us/app/yahoo-weather/id628677149?mt=8) app:
 
 <div class="phone">
   <img src="http://ionicframework.com.s3.amazonaws.com/blog/madison_weather.jpg" alt="Yahoo! Weather">
 </div>
 
-If you haven't used the Yahoo Weather app before (highly recommended), it features one single pane that scrolls up displaying a variety of weather information. In an app like this, it becomes clear that URLs are not useful for any users of the app. But for the developer, it's even worse: URL-based routing becomes an artistic restriction.
-
-When we think about apps as a complex, delightful dance of view elements on the screen, it seems really limiting to pigeonhole each view of the app to a URL. Another good example is the Gmail app sidebar:
+If you haven't used the Yahoo Weather app before (highly recommended), it features one single pane that scrolls up displaying a variety of weather information. The user can also swipe in between each city they've added, showing weather for that city:
 
 <div class="phone">
-  <img src="http://ionicframework.com.s3.amazonaws.com/blog/gmail_app.jpg" alt="Gmail app">
+  <img src="https://s3.amazonaws.com/ionicframework.com/blog/weather3.jpg" alt="Yahoo! Weather Cities">
 </div>
 
-Since the user can drag over the content and expose the sidebar, the bar is often in various states of being uncovered. While we could trigger the sidebar to open with a URL, how do we handle intermediate states? How do you trigger the URL change if the user drags instead of clicking the open button? It's a mess when we start to restrict complicated UI to the URL.
+Imagine trying to model this drag animation using a URL-to-City approach in a back or frontend framework that uses route based navigation. Let's say the first page is `/cities/current` and the second page is `/cities/Madison-WI`. When the user starts dragging to the next page, what happens? Do we navigate to `/cities/Madison-WI`, or do we wait until they complete the drag? If the routing system uses the URL state to know when to render each page, then we are stuck trying to hack around the router.
 
-In the Gmail case, it makes a lot more sense to apply the View Controller pattern, and think of every visible View on the screen as being controlled by a set of View Controllers. We start one with "root" controller that handles the left menu, center content, and right menu. The controller then handles dragging on the center content to expose the menus if necessary. Each child is its own View Controller containing more views and possible child view controllers.
+Instead of being a convenience, URL-based routing becomes an artistic restriction.
 
 Ionic: Native Applied to Web, And Back Again
 --------
+
+To native developers, this all might seem like a pedantic exercise, but for web developers moving to native development, it is often quite a change to not use URLs for common UI interactions. We don't just link to different pages using `<a href="page2.html">`, we use more subtle tools often powered by touch, letting the user treat our app as an open canvas.
 
 With Ionic, we wanted to apply these native design patterns to web development. And in doing so, we realized something really exciting: _HTML5 was just as powerful and flexible as native development_. But better still, it had some major benefits over native: it was faster to build in, easier to port across platforms, and known by a lot more developers.
 
 We realized that if we could build an HTML5 framework that loved native design concepts instead of avoiding them, we could enable developers to build any kind of app they dreamed up, not just ones that worked with the URL pattern.
 
 So we decided to apply the View Controller pattern to a lot of the ways developers build UI interactions in Ionic. If you are a web developer that hasn't had much experience with native development, it will probably feel a bit strange at first. We are confident that once you see what is possible when you free yourself from the URL, you'll feel quite empowered to build great apps in HTML5.
+

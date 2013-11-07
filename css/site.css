@@ -7873,16 +7873,18 @@ h1 + h2 + p {
   .ionic .bar > .button {
     z-index: 1;
     padding: 0 8px;
-    min-width: 43px;
+    height: 32px;
+    min-width: 44px;
     min-height: 31px;
     font-size: 12px;
-    line-height: 30px; }
+    line-height: 29px; }
   .ionic .bar > .button .icon {
     font-size: 24px;
     line-height: 29px; }
   .ionic .bar .button-bar > .button {
+    height: 32px;
     min-height: 31px;
-    line-height: 31px; }
+    line-height: 30px; }
   .ionic .bar .button-bar + .button, .ionic .bar .button + .button-bar {
     margin-left: 5px; }
   .ionic .bar .title + .button:last-child,
@@ -8190,6 +8192,8 @@ h1 + h2 + p {
     width: 270px;
     background-color: #fff;
     -webkit-overflow-scrolling: touch; }
+  .ionic .menu-content {
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
   .ionic .menu-left {
     left: 0; }
   .ionic .menu-right {

@@ -29,6 +29,8 @@ Over the next two days, Ionicons saw a lot of traffic. About 23,000 visits each 
 
 The nice thing is the baseline traffic has gone from almost nothing to several thousand visits per day. The initial blast has created some stickiness!
 
+It's interesting how both days saw essentially equal visits, and dramatically decreased in traffic once they left the front page.
+
 ## The Stars
 
 Since last Tuesday, the [Ionicons GitHub repo](https://github.com/driftyco/ionicons) grew from 60 stars to over 2400 stars! It was the trending repo on GitHub for almost a week, and is the #1 weekly trending repo right now. It also grew to be the 11th most popular repo for the entire month. The GitHub love is almost my favorite part of the whole experience.
@@ -39,6 +41,8 @@ It did help that we had [@mdo's](http://twitter.com/mdo) great [GitHub Buttons](
 
 The [IonicFramework](http://twitter.com/ionicframework) twitter account grew from about 600 follows to 1400 which was really nice, and spawned a lot of discussion on Twitter.
 
+Having follow and tweet buttons right front and center really helped leverage the network effect of people loving the icons. 
+
 ## The Community
 
 Over the last week hackers in the community built an [iOS plugin](https://github.com/TapTemplate/ionicons-iOS) for using Ionicons right in your iOS apps, and a great [search tool](http://glyphsearch.com/) for searching FontAwesome, Glyphicons, and Ionicons easily, using a variety of search terms to normalize all the strange names we all give icons.
@@ -47,5 +51,9 @@ Also, right when the post hit the front page, we had many issues filed and pull 
 
 ## Open Source Fucking Rocks
 
-Ionicons is probably the most successful open source project any of us has ever had.
+Ionicons is probably the most successful open source project any of us has ever had. We hope it's the second most successful one after we launch the upcoming [Ionic Framework](/), which will make it easy for more developers to build amazing native-feeling mobile apps with web technologies.
+
+But for a company that has traditionally not done much open source (we make [Codiqa](http://codiqa.com/) and [Jetstrap](http://jetstrap.com/) as well, both closed source), moving to open source has made us realize that we enjoy it a hell of a lot more than building closed source software.
+
+There is something incredibly valuable about *quality* open source software. And by going open source, great products have a huge potential to compete against closed source alternatives. Since we are a small team bootstrapping a software startup, we've decided that open source is a competetive advantage, and will help us compete with against the big VC-backed companies in our space.
 

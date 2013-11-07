@@ -153,3 +153,7 @@ h1 + h2 + p {
     100% {
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg); } }
+
+.ionic {
+  @import "ionic/ionic";
+}

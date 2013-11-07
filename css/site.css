@@ -9143,7 +9143,7 @@ h1 + h2 + p {
   .ionic .button-clear {
     -webkit-transition: opacity 0.1s;
     transition: opacity 0.1s;
-    padding: 6px;
+    padding: 0 6px;
     max-height: 42px;
     border: none;
     background: none;

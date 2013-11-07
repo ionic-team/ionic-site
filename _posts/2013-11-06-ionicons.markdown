@@ -7,3 +7,5 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: false
 ---
 
+Last week we officially launched [Ionicons](http://ionicons.com/), our open source Icon font, to the world.
+

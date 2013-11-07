@@ -19,7 +19,23 @@ The post got a few upvotes pretty quickly, probably because the headline suggest
 
 But we immediately noticed a HUGE issue: the font didn't work in any browser except for Chrome, and the font files were actually corrupted! We were using [Icomoon](http://icomoon.io/) to generate the fonts, and one of our glyphs had a bad path that messed up the entire font. We were able to fix the issue after 20 minutes or so, but that mishap cost us some early momentum.
 
-Over the next few days, the post received over 375 points, drawing lots of 
+Over the next few days, the post received over 375 points, drawing lots of comments and a lot of love on Twitter and beyond.
+
+## The Traffic
+
+Over the next two days, Ionicons saw a lot of traffic. About 23,000 visits each day:
+
+![Stats](https://s3.amazonaws.com/ionicframework.com/blog/ioniconsvisits.PNG)
+
+The nice thing is the baseline traffic has gone from almost nothing to several thousand visits per day. The initial blast has created some stickiness!
+
+## The Stars
+
+Since last Tuesday, the [Ionicons GitHub repo](https://github.com/driftyco/ionicons) grew from 60 stars to over 2400 stars! It was the trending repo on GitHub for almost a week, and is the #1 weekly trending repo right now. It also grew to be the 11th most popular repo for the entire month. The GitHub love is almost my favorite part of the whole experience.
+
+It did help that we had [@mdo's](http://twitter.com/mdo) great [GitHub Buttons](http://ghbtns.com/) on the front page of Ionicons to easily star the repo.
+
+## The Follows
 
 
 

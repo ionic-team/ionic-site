@@ -17,7 +17,7 @@ I submitted Ionicons to Hacker News at around 3 PM central time on a Tuesday aft
 
 The post got a few upvotes pretty quickly, probably because the headline suggested free icons and HN users love free design assets. It wasn't long before it was on the front page.
 
-But we immediately noticed a HUGE issue: the font didn't work in any browser except for Chrome, and the font files were actually corrupted! We were using [Icomoon](http://icomoon.io/) to generate the fonts, and one of our glyphs had a bad path that messed up the entire font. We were able to fix the issue after 20 minutes or so, but that mishap cost us some early momentum.
+But we immediately noticed a HUGE issue: the font didn't work in any browser except for Chrome, and the font files were actually corrupted! We were using [Icomoon](http://icomoon.io/) to generate the fonts, and one of our glyphs had a bad path that messed up the entire font. We were able to fix the issue after 20 minutes or so, but that mishap cost us some early momentum and left us laughing at the epic shitty timing of it all.
 
 Over the next few days, the post received over 375 points, drawing lots of comments and a lot of love on Twitter and beyond.
 
@@ -37,5 +37,15 @@ It did help that we had [@mdo's](http://twitter.com/mdo) great [GitHub Buttons](
 
 ## The Follows
 
+The [IonicFramework](http://twitter.com/ionicframework) twitter account grew from about 600 follows to 1400 which was really nice, and spawned a lot of discussion on Twitter.
 
+## The Community
+
+Over the last week hackers in the community built an [iOS plugin](https://github.com/TapTemplate/ionicons-iOS) for using Ionicons right in your iOS apps, and a great [search tool](http://glyphsearch.com/) for searching FontAwesome, Glyphicons, and Ionicons easily, using a variety of search terms to normalize all the strange names we all give icons.
+
+Also, right when the post hit the front page, we had many issues filed and pull requests opened on the project, which was awesome and helped us fix a lot of random issues. 
+
+## Open Source Fucking Rocks
+
+Ionicons is probably the most successful open source project any of us has ever had.
 

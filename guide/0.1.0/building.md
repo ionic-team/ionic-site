@@ -172,5 +172,6 @@ Enabling item editing is easy. We just need to update the `<list>` directive and
 
 ## Adding projects
 
-Now we can add support for adding and selecting projects
+Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. First, update the HTML for the side menu to add a list:
+
 

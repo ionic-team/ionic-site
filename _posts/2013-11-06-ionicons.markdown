@@ -62,6 +62,6 @@ Since we are a small team bootstrapping a [software startup](http://drifty.com/)
 So if you were one of the people who shared Ionicons or upvoted us, we owe you a ton of thanks for making the project successful. Stay tuned and we promise lots more stuff to help you be more awesome, and we hope to see a pull request from you in the future!
 
 Sincerely,
-The Ionic Crew
+The Ionic Crew<br>
 [Max](http://twitter.com/maxlynch), [Ben](http://twitter.com/helloimben), [Adam](http://twitter.com/adamdbradley), [Brody](https://twitter.com/xtheglobe), [Tim](https://twitter.com/dopernicus), [Peter](SomethingNew2_0).
 

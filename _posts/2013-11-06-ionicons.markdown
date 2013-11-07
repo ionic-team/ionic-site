@@ -47,7 +47,7 @@ Having follow and tweet buttons right front and center really helped leverage th
 
 Over the last week hackers in the community built an [iOS plugin](https://github.com/TapTemplate/ionicons-iOS) for using Ionicons right in your iOS apps, and a great [search tool](http://glyphsearch.com/) for searching FontAwesome, Glyphicons, and Ionicons easily, using a variety of search terms to normalize all the strange names we all give icons.
 
-Also, right when the post hit the front page, we had many issues filed and pull requests opened on the project, which was awesome and helped us fix a lot of random issues. 
+Also, right when the post hit the front page, we had many issues filed and pull requests opened on the project, which was awesome and helped us fix a lot of random issues. One big improvement is we've since moved to our own build system and made it easier for people to customize the build pack and use it as they wish.
 
 ## Open Source Fucking Rocks
 

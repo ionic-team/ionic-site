@@ -208,7 +208,9 @@ Our edit button from the header bar will now be wired up to call $scope.editTask
 
 ## Adding projects
 
-Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project:
+Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project. We are also going to take the chance to abstract away the `Project` model into an angular service that will also handle saving and loading our projects and tasks from localStorage.
+
+We are also going to slip in a few more little things to make the app feel right. Specifically, we've added support for selecting a project (and showing that it's selected), and automatically closing the side menu when creating a new project or selecting an existing one.
 
 ```html
 {% raw %}
@@ -216,14 +218,14 @@ Now we can add support for adding and selecting projects. To do this, we are goi
   <menu side="left">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
-      <button ng-click="newProject()" class="button button-icon"><i class="icon ion-new"></i></button>
+      <button class="button button-icon" ng-click="newProject()">
+        <i class="ion ion-plus"></i>
+      </button>
     </header>
-
-    <!-- Add the new content area with list-->
-    <content scroll="false" has-header="true">
+    <content has-header="true" scroll="false">
       <list>
-        <list-item ng-repeat="project in projects" ng-click="selectProject(project)">
-          {{ project.title }}
+        <list-item ng-repeat="project in projects" ng-click="selectProject(project)" ng-class="{active: activeProject == project}">
+          {{project.title}}
         </list-item>
       </list>
     </content>
@@ -231,37 +233,116 @@ Now we can add support for adding and selecting projects. To do this, we are goi
 {% endraw %}
 ```
 
-And in our controller:
+This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The `ng-class` directive in the `<list-item>` makes sure to add the `active` class to the currently active project.
+
+To enable adding, saving, and loading projects, we've had to add a bit of code to the controller. Here is the new version of the `app.js` file:
 
 ```javascript
-$scope.newProject = function() {
-  var projectTitle = prompt('Project name');
-  // Add a new project
-  $scope.projects.push({
-    title: projectName,
-    tasks: []
-  })
-};
+{% raw %}
+angular.module('todo', ['ionic'])
 
-$scope.selectProject = function(project) {
-  $scope.activeProject = project;
-};
-```
+.factory('Projects', function() {
+  return {
+    all: function() {
+      var projectString = window.localStorage['projects'];
+      if(projectString) {
+        return angular.fromJson(projectString);
+      }
+      return [];
+    },
+    save: function(projects) {
+      window.localStorage['projects'] = angular.toJson(projects);
+    },
+    newProject: function(projectTitle) {
+      // Add a new project
+      return {
+        title: projectTitle,
+        tasks: []
+      };
+    },
+    getLastActiveIndex: function() {
+      return parseInt(window.localStorage['lastActiveProject']) || 0;
+    },
+    setLastActiveIndex: function(index) {
+      window.localStorage['lastActiveProject'] = index;
+    }
+  }
+})
 
-Now that we have the concept of a project with tasks, and an active project, we need to update the original controller code to account for this, specifically by removing `$scope.tasks` and changing the `createTask` function to put the task into the active project instead of the `tasks` array:
+.controller('TodoCtrl', function($scope, Modal, Projects) {
+  var createProject = function(projectTitle) {
+    var newProject = Projects.newProject(projectTitle);
+    $scope.projects.push(newProject);
+    Projects.save($scope.projects);
+    $scope.selectProject(newProject);
+  }
 
-```javascript
-.controller('TodoCtrl', function($scope, Modal) {
-  $scope.activeProject = null;
+
+  // Load or initialize projects
+  $scope.projects = Projects.all();
+
+  // Grab the last active, or the first project
+  $scope.activeProject = $scope.projects[Projects.getLastActiveIndex()];
+
+  $scope.isEditing = false;
+  $scope.editTasks = function() {
+    // Toggle edit mode
+    $scope.isEditing = !$scope.isEditing;
+  };
+
+
+  $scope.newProject = function() {
+    var projectTitle = prompt('Project name');
+    if(projectTitle) {
+      createProject(projectTitle);
+    }
+  };
+
+  $scope.selectProject = function(project) {
+    $scope.activeProject = project;
+    $scope.sideMenuCtrl.close();
+  };
+
+
+  // Create our modal
+  Modal.fromTemplateUrl('new-task.html', function(modal) {
+    $scope.taskModal = modal;
+  }, {
+    scope: $scope
+  });
 
   $scope.createTask = function(task) {
     if(!$scope.activeProject) {
       return;
     }
     $scope.activeProject.tasks.push(task);
+    $scope.taskModal.hide();
+    task.title = "";
   };
 
-  // No changes below here
-```
+  $scope.newTask = function() {
+    $scope.taskModal.show();
+  };
 
-And then we can update the original task list display to only show tasks from the active project:
+  $scope.closeNewTask = function() {
+    $scope.taskModal.hide();
+  }
+
+  $scope.toggleProjects = function() {
+    $scope.sideMenuCtrl.toggleLeft();
+  };
+
+
+  if($scope.projects.length == 0) {
+    while(true) {
+      var projectTitle = prompt('Your first project title:');
+      if(projectTitle) {
+        createProject(projectTitle);
+        break;
+      }
+    }
+  }
+
+});
+{% endraw %}
+```

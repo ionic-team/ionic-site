@@ -43,6 +43,8 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
 </html>
 ```
 
+In the shell above, we are including the Ionic CSS and both the core Ionic JS and the Ionic AngularJS extensions. We are also including three AngularJS scripts: the core of AngularJS, the ngTouch extensions that touch enable any click directives (like `ng-click`), and angular animation extensions which are used in the Ionic AngularJS extensions. It might seem like a lot to include, but Angular is not a huge framework, and our extension code is minimal. Since we won't be loading the content across the network when we publish the app, code size is much less of a concern.
+
 Now that we have our starting place, we need to figure out what the interface layout of our application is going to be. We have a ton of choices when it comes to UI design on mobile. There are a few standard layouts, like tabs and side menus, but there are practically infinite custom layouts that we could implement if we really wanted to (which Ionic encourages!). For the sake of this example, we are going to pick a simple Side Menu layout which lets us drag and expose a side menu with center content.
 
 In the center content area, we will list the various tasks that we have to get completed for the current project. We can add new tasks, or edit existing ones. If we drag the center content over to the right, we expose the left side menu which lets us choose the current project we want to edit, or create new projects.  Take a look at the mockup below for an example of what we are trying to build:

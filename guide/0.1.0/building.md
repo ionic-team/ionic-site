@@ -215,15 +215,49 @@ Now we can add support for adding and selecting projects. To do this, we are goi
   <menu side="left">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
-      <button class="button button-icon"><i class="icon ion-new"></i></button>
+      <button ng-click="newProject()" class="button button-icon"><i class="icon ion-new"></i></button>
     </header>
 
     <!-- Add the new content area with list-->
     <content scroll="false" has-header="true">
       <list>
-        <list-item ng-repeat="project in projects">
+        <list-item ng-repeat="project in projects" ng-click="selectProject(project)">
+          {{ project.title }}
         </list-item>
       </list>
     </content>
   </menu>
+```
+
+And in our controller:
+
+```javascript
+$scope.newProject = function() {
+  var projectTitle = prompt('Project name');
+  // Add a new project
+  $scope.projects.push({
+    title: projectName,
+    tasks: []
+  })
+};
+
+$scope.selectProject = function(project) {
+  $scope.activeProject = project;
+};
+```
+
+Now that we have the concept of a project with tasks, and an active project, we need to update the original controller code to account for this, specifically by removing `$scope.tasks` and changing the `createTask` function to put the task into the active project instead of the `tasks` array:
+
+```javascript
+.controller('TodoCtrl', function($scope, Modal) {
+  $scope.activeProject = null;
+
+  $scope.createTask = function(task) {
+    if(!$scope.activeProject) {
+      return;
+    }
+    $scope.activeProject.tasks.push(task);
+  };
+
+  // No changes below here
 ```

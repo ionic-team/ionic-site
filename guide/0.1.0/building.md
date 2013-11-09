@@ -182,35 +182,41 @@ angular.module('todo', ['ionic'])
 Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it:
 
 
-
-## Editing tasks
-
-Enabling item editing is easy. We just need to update the `<list>` directive and add a few more attributes to the tag, both to enable edit mode, and to process events when items are deleted.
-
-To do this, let's change the list from above from just `<list>` to:
-
-```html
-<list is-editing="isEditing">
-```
-
-This will make the list react to changes in the `isEditing` scope variable, which will control whether we are in edit mode or not.
-So we can add that scope variable and a function to toggle it right into the TodoCtrl function:
-
-```javascript
-$scope.isEditing = false;
-$scope.editTasks = function() {
-  // Toggle edit mode
-  $scope.isEditing = !$scope.isEditing;
-};
-```
-
-Our edit button from the header bar will now be wired up to call $scope.editTasks() when clicked, which will toggle edit mode for our list items.
-
 ## Adding projects
 
 Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project. We are also going to take the chance to abstract away the `Project` model into an angular service that will also handle saving and loading our projects and tasks from localStorage.
 
 We are also going to slip in a few more little things to make the app feel right. Specifically, we've added support for selecting a project (and showing that it's selected), and automatically closing the side menu when creating a new project or selecting an existing one.
+
+Here is the new content area markup:
+
+```html
+{% raw %}
+<!-- Center content -->
+<pane side-menu-content>
+  <header class="bar bar-header bar-dark">
+    <button class="button button-icon" ng-click="toggleProjects()">
+      <i class="icon ion-navicon"></i>
+    </button>
+    <h1 class="title">{{activeProject.title}}</h1>
+    <!-- New Task button-->
+    <button class="button button-clear" ng-click="newTask()">
+      New
+    </button>
+  </header>
+  <content has-header="true" scroll="false">
+    <list>
+      <list-item ng-repeat="task in activeProject.tasks">
+        {{task.title}}
+      </list-item>
+    </list>
+  </content>
+</pane>
+{% endraw %}
+```
+
+And the new side menu markup:
+
 
 ```html
 {% raw %}
@@ -233,6 +239,7 @@ We are also going to slip in a few more little things to make the app feel right
 {% endraw %}
 ```
 
+
 This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The `ng-class` directive in the `<list-item>` makes sure to add the `active` class to the currently active project.
 
 To enable adding, saving, and loading projects, we've had to add a bit of code to the controller. Here is the new version of the `app.js` file:
@@ -240,7 +247,11 @@ To enable adding, saving, and loading projects, we've had to add a bit of code t
 ```javascript
 {% raw %}
 angular.module('todo', ['ionic'])
-
+/**
+ * The Projects factory handles saving and loading projects
+ * from local storage, and also lets us save and load the
+ * last active project index.
+ */
 .factory('Projects', function() {
   return {
     all: function() {
@@ -269,12 +280,15 @@ angular.module('todo', ['ionic'])
   }
 })
 
-.controller('TodoCtrl', function($scope, Modal, Projects) {
+.controller('TodoCtrl', function($scope, $timeout, Modal, Projects) {
+
+  // A utility function for creating a new project
+  // with the given projectTitle
   var createProject = function(projectTitle) {
     var newProject = Projects.newProject(projectTitle);
     $scope.projects.push(newProject);
     Projects.save($scope.projects);
-    $scope.selectProject(newProject);
+    $scope.selectProject(newProject, $scope.projects.length-1);
   }
 
 
@@ -284,13 +298,7 @@ angular.module('todo', ['ionic'])
   // Grab the last active, or the first project
   $scope.activeProject = $scope.projects[Projects.getLastActiveIndex()];
 
-  $scope.isEditing = false;
-  $scope.editTasks = function() {
-    // Toggle edit mode
-    $scope.isEditing = !$scope.isEditing;
-  };
-
-
+  // Called to create a new project
   $scope.newProject = function() {
     var projectTitle = prompt('Project name');
     if(projectTitle) {
@@ -298,11 +306,12 @@ angular.module('todo', ['ionic'])
     }
   };
 
-  $scope.selectProject = function(project) {
+  // Called to select the given project
+  $scope.selectProject = function(project, index) {
     $scope.activeProject = project;
+    Projects.setLastActiveIndex(index);
     $scope.sideMenuCtrl.close();
   };
-
 
   // Create our modal
   Modal.fromTemplateUrl('new-task.html', function(modal) {
@@ -315,8 +324,14 @@ angular.module('todo', ['ionic'])
     if(!$scope.activeProject) {
       return;
     }
-    $scope.activeProject.tasks.push(task);
+    $scope.activeProject.tasks.push({
+      title: task.title
+    });
     $scope.taskModal.hide();
+
+    // Inefficient, but save all the projects
+    Projects.save($scope.projects);
+
     task.title = "";
   };
 
@@ -333,16 +348,25 @@ angular.module('todo', ['ionic'])
   };
 
 
-  if($scope.projects.length == 0) {
-    while(true) {
-      var projectTitle = prompt('Your first project title:');
-      if(projectTitle) {
-        createProject(projectTitle);
-        break;
+  // Try to create the first project, make sure to defer
+  // this by using $timeout so everything is initialized
+  // properly
+  $timeout(function() {
+    if($scope.projects.length == 0) {
+      while(true) {
+        var projectTitle = prompt('Your first project title:');
+        if(projectTitle) {
+          createProject(projectTitle);
+          break;
+        }
       }
     }
-  }
+  });
 
 });
 {% endraw %}
 ```
+
+I know, that was a lot of code to jump right to, but it's largely the same concepts from before, just with more details. If you run this version of the app, you should now have a pretty polished and usable multi-project Todo app!
+
+

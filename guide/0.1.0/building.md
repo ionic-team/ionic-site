@@ -86,7 +86,7 @@ Okay, so we have some testing data for tasks, but what about creating them? We n
 ```html
 <script id="new-task.html" type="text/ng-template">
 
-  <div class="modal slide-in-up">
+  <div class="modal">
 
     <header class="bar bar-header bar-secondary">
       <h1 class="title">New Task</h1>
@@ -127,7 +127,12 @@ In order to trigger the Modal to open, we need a button in the main header bar a
     <header class="bar bar-header bar-dark">
       <h1 class="title">ToDo</h1>
       <!-- New Task button-->
-      <button class="button button-clear" ng-click="newTask()">New</button>
+      <button class="button button-icon" ng-click="editTasks()">
+        <i class="icon ion-edit"></i>
+      </button>
+      <button class="button button-icon" ng-click="newTask()">
+        <i class="icon ion-compose"></i>
+      </button>
     </header>
     <!-- ... -->
 ```
@@ -144,7 +149,10 @@ angular.module('todo', ['ionic'])
   // Create and load the Modal
   Modal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
-  }, $scope);
+  }, {
+    scope: $scope,
+    animation: 'slide-in-up'
+  );
 
   // Called when the form is submitted
   $scope.createTask = function(task) {
@@ -169,6 +177,24 @@ Now run the example and try adding a task. It should slide up the modal and then
 ## Editing tasks
 
 Enabling item editing is easy. We just need to update the `<list>` directive and add a few more attributes to the tag, both to enable edit mode, and to process events when items are deleted.
+
+To do this, let's change the list from above from just `<list>` to:
+
+```html
+<list is-editing="isEditing">
+```
+
+Then, we add a scope variable which will control whether or not we are in edit mode for the list. We can put some new code into the TodoCtrl function:
+
+```javascript
+$scope.isEditing = false;
+$scope.editTasks = function() {
+  // Toggle edit mode
+  $scope.isEditing = !$scope.isEditing;
+};
+```
+
+Our edit button from the header bar will now be wired up to call $scope.editTasks() when clicked, which will toggle edit mode for our list items.
 
 ## Adding projects
 

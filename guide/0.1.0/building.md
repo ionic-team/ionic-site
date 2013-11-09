@@ -88,11 +88,13 @@ Okay, so we have some testing data for tasks, but what about creating them? We n
 
   <div class="modal">
 
+    <!-- Modal header bar -->
     <header class="bar bar-header bar-secondary">
       <h1 class="title">New Task</h1>
       <button class="button button-clear button-primary" ng-click="closeNewTask()">Cancel</button>
     </header>
 
+    <!-- Modal content area -->
     <content has-header="true">
 
       <form ng-submit="createTask(task)">
@@ -184,7 +186,8 @@ To do this, let's change the list from above from just `<list>` to:
 <list is-editing="isEditing">
 ```
 
-Then, we add a scope variable which will control whether or not we are in edit mode for the list. We can put some new code into the TodoCtrl function:
+This will make the list react to changes in the `isEditing` scope variable, which will control whether we are in edit mode or not.
+So we can add that scope variable and a function to toggle it right into the TodoCtrl function:
 
 ```javascript
 $scope.isEditing = false;

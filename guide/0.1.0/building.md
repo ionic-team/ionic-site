@@ -28,6 +28,11 @@ Since we are using AngularJS, we are going to use the <a href="http://docs.angul
 <p>
   One of the toughest parts about learning Angular is not knowing "the way" to do certain things. We hope that by providing a great selection of examples and guides for Ionic, you'll pick up on how to write Angular in practice. There is no better way to learn Angular than by building something real!
 </p>
+<p>
+  Keep in mind, when you see tags that look new, like <code>&lt;content&gt;</code>, those are custom AngularJS <a href="http://docs.angularjs.org/guide/directive">directives</a> that we have added to Ionic to make it
+much easier to use Ionic components. They will get expanded by Angular into more lower-level markup, and also controlled by our lower level
+Javscript controllers that give them increased functionality.
+</p>
 </div>
 
 
@@ -40,7 +45,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
   <header class="bar bar-header bar-dark">
     <h1 class="title">ToDo</h1>
   </header>
-  <div class="content has-header">
+  <content scroll="false" has-header="true">
     <!-- our list and list items -->
     <list>
       <list-item ng-repeat="task in tasks">
@@ -52,6 +57,8 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 {% endraw %}
 
 ```
+
+Note we have added `scroll="false"` to the `<content>` directive because both the content directive and `<list>` directive support scrolling by default, and we want the list to handle scrolling.
 
 But this doesn't do anything yet, because we don't have any todos or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
 
@@ -201,6 +208,21 @@ Our edit button from the header bar will now be wired up to call $scope.editTask
 
 ## Adding projects
 
-Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. First, update the HTML for the side menu to add a list:
+Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the 
 
+```html
+  <!-- Left menu -->
+  <menu side="left">
+    <header class="bar bar-header bar-dark">
+      <h1 class="title">Projects</h1>
+    </header>
 
+    <!-- Add the new content area with list-->
+    <content scroll="false" has-header="true">
+      <list>
+        <list-item ng-repeat="project in projects">
+        </list-item>
+      </list>
+    </content>
+  </menu>
+```

@@ -95,8 +95,8 @@ Update the body content to be:
       <header class="bar bar-header bar-dark">
         <h1 class="title">ToDo</h1>
       </header>
-      <div class="content has-header">
-      </div>
+      <content has-header="true">
+      </content>
     </pane>
 
     <!-- Left menu -->

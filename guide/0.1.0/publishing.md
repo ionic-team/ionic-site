@@ -11,9 +11,9 @@ So first, we need to generate a release build of our app, targeted at each platf
 $ cordova plugin rm org.apache.cordova.console 
 ```
 
-## Android Release Build
+# Android Publishing
 
-To generate a release build for Android, we simply run
+To generate a release build for Android, we first run
 
 ```bash
 $ cordova build --release android
@@ -21,22 +21,35 @@ $ cordova build --release android
 
 Then, we can find our *unsigned* APK file in `platforms/android/bin`. In our example, the file was `platforms/android/bin/HelloWorld-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
 
-Let's generate our private key using the `keytool` command that comes with the Java JDK. If this tool isn't found, refer to the [installation guide](installation.html):
+Let's generate our private key using the `keytool` command that comes with the JDK. If this tool isn't found, refer to the [installation guide](installation.html):
 
 ```bash
-keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 ```
 
 You'll first be promoted to create a password for the keystore. Then, answer the rest of the nice tools's questions and when it's all done, you should have a file called `my-release-key.keystore` created in the current directory.
 
-When in doubt, refer to the official [Android App Signing](http://developer.android.com/tools/publishing/app-signing.html) documentation which has a lot of information on various signing strategies.
+To sign the unsigned APK, run the `jarsigner` tool which is also included in the JDK:
 
+```bash
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+```
 
-First, we will start with the Google Play Store for Android, since it's easier to deploy apps there and there is little to no app review process (unlike Apple).
+This signs the apk in place. Finally, we need to run the zip align tool to optimize the APK:
+
+```bash
+$ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+```
+
+Now we have our final release binary called `HelloWorld.apk` and we can release this on the Google Play Store for all the world to enjoy!
+
+<small><i>(There are a few other ways to sign APKs. Refer to the official [Android App Signing](http://developer.android.com/tools/publishing/app-signing.html) documentation for more information.)</i></small>
+
+## Google Play Store
+
+Now that we have our release APK ready for the Google Play Store, we can create a Play Store listing and upload our APK.
 
 To start, you'll need to visit the [Google Play Store Developer Console](https://play.google.com/apps/publish/) and create a new developer account. Unfortunately, this is not free. However, the cost is only $25 compared to Apple's $99.
-
-Now that 
 
 Once you have a developer account, you can go ahead and click "Publish an Android App on Google Play" as in the screenshot below:
 

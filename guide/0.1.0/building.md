@@ -60,7 +60,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 
 Note we have added `scroll="false"` to the `<content>` directive because both the content directive and `<list>` directive support scrolling by default, and we want the list to handle scrolling.
 
-But this doesn't do anything yet, because we don't have any todos or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
+But this doesn't do anything yet, because we don't have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
 
 ```html
 <body ng-app="todo" ng-controller="TodoCtrl">
@@ -124,8 +124,6 @@ Okay, so we have some testing data for tasks, but what about creating them? We n
 
 There is a good amount of stuff in this Modal popup. First of all, we are defining this template as an Angular template using `<script type="text/ng-template">`. The cool thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.
 
-We then define the markup for the modal itself. Check out our docs for more examples of modals and different modal animations. This one will slide up from the bottom when shown.
-
 We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling `createTask(task)` when the form is submitted. The `task` that is passed to `createTask` is the object corresponding to the entered form data. Since our text input has `ng-model="task.title"`, that text input will set the `title` property of the `task` object.
 
 In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
@@ -181,7 +179,9 @@ angular.module('todo', ['ionic'])
 });
 ```
 
-Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it!
+Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it:
+
+
 
 ## Editing tasks
 
@@ -208,13 +208,14 @@ Our edit button from the header bar will now be wired up to call $scope.editTask
 
 ## Adding projects
 
-Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the 
+Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project:
 
 ```html
   <!-- Left menu -->
   <menu side="left">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
+      <button class="button button-icon"><i class="icon ion-new"></i></button>
     </header>
 
     <!-- Add the new content area with list-->

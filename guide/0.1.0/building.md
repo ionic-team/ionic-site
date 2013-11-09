@@ -211,6 +211,7 @@ Our edit button from the header bar will now be wired up to call $scope.editTask
 Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project:
 
 ```html
+{% raw %}
   <!-- Left menu -->
   <menu side="left">
     <header class="bar bar-header bar-dark">
@@ -227,6 +228,7 @@ Now we can add support for adding and selecting projects. To do this, we are goi
       </list>
     </content>
   </menu>
+{% endraw %}
 ```
 
 And in our controller:

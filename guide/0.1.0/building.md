@@ -263,3 +263,5 @@ Now that we have the concept of a project with tasks, and an active project, we 
 
   // No changes below here
 ```
+
+And then we can update the original task list display to only show tasks from the active project:

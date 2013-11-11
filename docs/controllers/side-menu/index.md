@@ -53,3 +53,56 @@ $scope.toggleMenu = function() {
   $scope.sideMenuCtrl.toggleLeft();
 };
 ```
+
+## Low-level API
+
+To use the Side Menu Controller low-level API, follow the markup and Javascript below:
+
+```html
+
+<!-- Center content -->
+<div id="content" class="pane">
+  <header class="bar bar-header bar-dark">
+    <h1 class="title">Center</h1>
+  </header>
+</div>
+
+<!-- Left menu -->
+<div id="menu-left" class="menu menu-left">
+  <header class="bar bar-header bar-dark">
+    <h1 class="title">Left</h1>
+  </header>
+</div>
+
+<!-- Right menu -->
+<div id="menu-right" class="menu menu-right">
+  <header class="bar bar-header bar-dark">
+    <h1 class="title">Right</h1>
+  </header>
+</div>
+```
+
+```javascript
+var contentEl = document.getElementById('content');
+var content = new ionic.views.SideMenuContent({
+  el: contentEl
+});
+
+var leftMenuEl = document.getElementById('menu-left');
+var leftMenu = new ionic.views.SideMenu({
+  el: leftMenuEl,
+  width: 270
+});
+
+var rightMenuEl = document.getElementById('menu-right');
+var rightMenu = new ionic.views.SideMenu({
+  el: rightMenuEl,
+  width: 270
+});
+
+var sm = new ionic.controllers.SideMenuController({
+  content: content,
+  left: leftMenu,
+  right: rightMenu
+});
+```

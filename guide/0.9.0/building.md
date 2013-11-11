@@ -48,9 +48,9 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
   <content scroll="false" has-header="true">
     <!-- our list and list items -->
     <list>
-      <list-item ng-repeat="task in tasks">
+      <item ng-repeat="task in tasks">
         {{task.title}}
-      </list-item>
+      </item>
     </list>
   </div>
 </pane>
@@ -207,9 +207,9 @@ Here is the new content area markup:
   </header>
   <content has-header="true" scroll="false">
     <list>
-      <list-item ng-repeat="task in activeProject.tasks">
+      <item ng-repeat="task in activeProject.tasks">
         {{task.title}}
-      </list-item>
+      </item>
     </list>
   </content>
 </pane>
@@ -231,9 +231,9 @@ And the new side menu markup:
     </header>
     <content has-header="true" scroll="false">
       <list>
-        <list-item ng-repeat="project in projects" ng-click="selectProject(project)" ng-class="{active: activeProject == project}">
+        <item ng-repeat="project in projects" ng-click="selectProject(project)" ng-class="{active: activeProject == project}">
           {{project.title}}
-        </list-item>
+        </item>
       </list>
     </content>
   </menu>
@@ -241,7 +241,7 @@ And the new side menu markup:
 ```
 
 
-This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The `ng-class` directive in the `<list-item>` makes sure to add the `active` class to the currently active project.
+This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The `ng-class` directive in the `<item>` makes sure to add the `active` class to the currently active project.
 
 To enable adding, saving, and loading projects, we've had to add a bit of code to the controller. Here is the new version of the `app.js` file:
 

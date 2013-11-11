@@ -171,6 +171,13 @@ title: "Ionic Framework - Documentation and Guide"
 
   <h3><a href="#grid">Grid</a></h3>
 
+  <div class="sub-links">
+    <a href="#grid-even">Even Columns</a>
+    <a href="#grid-explicit">Explicit Sized</a>
+    <a href="#grid-offset">Offset Columns</a>
+    <a href="#grid-vertically-align">Vertically Align</a>
+  </div>
+
   <p>
     Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard. 
     The advantage here is that the devices Ionic which supports, all support <a href="http://caniuse.com/flexbox">flexbox</a>.
@@ -185,7 +192,7 @@ title: "Ionic Framework - Documentation and Guide"
   </p>
 
   <p>
-     <em>Note: The borders and gray background in the demo were manually added so it's easier to see the structure.</em>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
   </p>
 
   <div class="doc-example ionic">
@@ -297,12 +304,12 @@ title: "Ionic Framework - Documentation and Guide"
 {% endhighlight %}
 
   <p>
-     <em>Note: The borders and gray background in the demo were manually added so it's easier to see the structure.</em>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
   </p>
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Evenly Spaced Grid</div>
+      <div class="h1 title">Evenly Spaced Columns</div>
     </div>
     <div class="content has-header">
       
@@ -367,6 +374,10 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 {% endhighlight %}
 
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
   <table class="table">
     <thead>
       <tr>
@@ -412,6 +423,7 @@ title: "Ionic Framework - Documentation and Guide"
         <th>.col-90</th>
         <td>90%</td>
       </tr>
+    </tbody>
   </table>
 
   <div class="doc-example ionic">
@@ -492,6 +504,10 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 {% endhighlight %}
 
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
   <table class="table">
     <thead>
       <tr>
@@ -537,11 +553,12 @@ title: "Ionic Framework - Documentation and Guide"
         <th>.col-offset-90</th>
         <td>90%</td>
       </tr>
+    </tbody>
   </table>
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
-      <div class="h1 title">Explicit Column Sizes</div>
+      <div class="h1 title">Offset Columns</div>
     </div>
     <div class="content has-header">
       
@@ -566,6 +583,149 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="row">
         <div class="col col-33 col-offset-67">
           <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Vertically Aligned Columns
+  ================================================== -->
+<div class="docs-section" id="grid-vertically-align">
+
+  <h3><a href="#grid-vertically-align">Grid: Vertically Align Columns</a></h3>
+  <p>
+    Another trick up flexbox's sleeve is the ability to easily vertically
+    align columns. Vertical alignment includes top, center and bottom, and can be applied to every column in a row, or to specific columns.
+  </p>
+  <p>
+    In the demo, we've made the last column in each row to have the tallest content in order to demonstrate
+    how the content of the others vertically align. The first row shows the default which is to take the same height as the tallest column in the same row.
+  </p>
+
+{% highlight html %}
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row">
+  <div class="col col-top">.col</div>
+  <div class="col col-center">.col</div>
+  <div class="col col-bottom">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-top">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-center">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-bottom">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Vertically Aligned Columns</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-top">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-center">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-bottom">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-top">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-center">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-bottom">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
         </div>
       </div>
 

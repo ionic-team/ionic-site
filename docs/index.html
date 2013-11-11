@@ -172,16 +172,292 @@ title: "Ionic Framework - Documentation and Guide"
   <h3><a href="#grid">Grid</a></h3>
 
   <p>
-    ...
+    Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard. 
+    The advantage here is that the devices Ionic which supports, all support <a href="http://caniuse.com/flexbox">flexbox</a>.
+  </p>
+
+  <p>
+    Simply add columns you want in a row, and they'll evenly take up the available space. If you want three columns, add three columns, if you want five columns, add five columns. There's no restriction to a 12 column grid, or having to explicitly state how large each column should be. And to add to the crazy, you can vertically align content within each column.
+  </p>
+
+  <p>
+    Use the <code>row</code> classname is used to designate, surprise, a row, and <code>col</code> is used for a column. In the demo to the right we chose to have four, then two, columns, but we could have just as easily used 3, 6, 7, 23, etc., it doesn't matter. Point is, add the number of columns your layout requires and don't worry about figuring out the percentages because it figures it out automagically.
+  </p>
+
+  <p>
+     <em>Note: The borders and gray background in the demo were manually added so it's easier to see the structure.</em>
   </p>
 
   <div class="doc-example ionic">
     <div class="bar bar-header bar-default">
       <div class="h1 title">Grid</div>
     </div>
-    <div class="content has-header padding">
+    <div class="content has-header">
       
-      ...
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-50">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-25 col-offset-25">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-top">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-center">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-bottom">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Even Spaced Grid
+  ================================================== -->
+<div class="docs-section" id="grid-even">
+
+  <h3><a href="#grid-even">Grid: Evenly Spaced Columns</a></h3>
+
+  <p>
+    By default every <code>col</code> added inside a <code>row</code> will automatically receiving and equal amount of the available area. Notice in the code below that no sizes are specified anywhere in the classnames, yet each of the five columns in this example will each evenly take up 20% of the available width (thank you flexbox).
+  </p>
+
+{% highlight html %}
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were manually added so it's easier to see the structure.</em>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Evenly Spaced Grid</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Explicit Grid
+  ================================================== -->
+<div class="docs-section" id="grid-explicit">
+
+  <h3><a href="#grid-explicit">Grid: Explicit Column Sizes</a></h3>
+  <p>
+    You <em>can</em> explicitly state the size of a column if for example you'd want one column to be larger than the others. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid). 
+  </p>
+  <p>
+    An advantage with this grid system is that you only have to state the percentage for the column that needs it, and the others will still evenly divide up the available areas.
+  </p>
+
+
+{% highlight html %}
+<div class="row">
+  <div class="col col-50">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-75">.col</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col col-75">.col</div>
+</div>
+
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+{% endhighlight %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          Explicit Column Percentage Classnames
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>.col-10</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-20</th>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <th>.col-25</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-33</th>
+        <td>33.3333%</td>
+      </tr>
+      <tr>
+        <th>.col-50</th>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <th>.col-67</th>
+        <td>66.6666%</td>
+      </tr>
+      <tr>
+        <th>.col-75</th>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <th>.col-80</th>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <th>.col-90</th>
+        <td>90%</td>
+      </tr>
+  </table>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Explicit Column Sizes</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col col-50">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-75">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-75">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
 
     </div>
   </div>

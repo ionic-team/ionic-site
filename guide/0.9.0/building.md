@@ -88,7 +88,8 @@ Run the example again, and we should see our list of very important tasks!
 
 ## Creating tasks
 
-Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task:
+Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task. Place
+the following script tag after the closing `</side-menu>` tag in the `<body>` of the HTML file:
 
 ```html
 <script id="new-task.html" type="text/ng-template">
@@ -159,7 +160,7 @@ angular.module('todo', ['ionic'])
   }, {
     scope: $scope,
     animation: 'slide-in-up'
-  );
+  });
 
   // Called when the form is submitted
   $scope.createTask = function(task) {

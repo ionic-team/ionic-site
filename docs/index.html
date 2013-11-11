@@ -3199,34 +3199,32 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="sidemenu">
 
   <h3><a href="#sidemenu">Side Menus</a></h3>
-
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.sideMenu</code></td>
-    </tr>
-    <tr>
-      <td>Directive</td><td><code>side-menu-ctrl (attribute or class)</code></td>
-    </tr>
-  </table>
   <p>
-    Side Menus are exposable side menus seen at various tiems in popular
+    Side Menus are exposable side menus seen at various times in popular
     apps like Path and Facebook.
-    Each menu can be exposed through dragging the content area left and/or right, or through a Javascript API.
+    Each menu can be exposed by dragging the content area left and/or right, or through a Javascript API.
   </p>
 
 {% highlight html %}
-<div side-menu-ctrl>
-  <div class="full-section" side-menu-content>
-    <h1>Content area</h1>
-  </div>
+<side-menu>
+  <!-- Center content -->
+  <pane side-menu-content>
+  </pane>
+
+  <!-- Left menu -->
   <menu side="left">
-    <h2>Left Menu</h2>
   </menu>
+
+  <!-- Right menu -->
   <menu side="right">
-    <h2>Right Menu</h2>
   </menu>
-</div>
+</side-menu>
 {% endhighlight %}
+
+  <p class="advanced-panel">
+    <em>*</em> For a more extensive overview on Side Menu Controllers, read the
+    <a href="/docs/controllers/side-menu/">Side Menu Controller Docs</a>
+  </p>
 
 </div>
 

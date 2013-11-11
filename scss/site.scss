@@ -20,6 +20,12 @@ a {
   }
 }
 
+h1 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin: 60px 0px 40px 0px;
+}
+
 h1, h2, h3, h4 {
   font-weight: normal;
   font-family: $font-family-medium;

@@ -1,6 +1,5 @@
 ---
-layout: docs
-hideHeaderLinks: true
+layout: api
 title: "Side Menu Controller"
 ---
 

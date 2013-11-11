@@ -21,14 +21,14 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
     <title>Toderp</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="/css/ionic.css">
+    <link rel="stylesheet" href="css/ionic.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-touch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.js"></script>
 
-    <script src="/js/ionic.js"></script>
-    <script src="/js/ionic-angular.js"></script>
+    <script src="js/ionic.js"></script>
+    <script src="js/ionic-angular.js"></script>
 
     <!-- Needed for Cordova/PhoneGap -->
     <script type="text/javascript" src="cordova.js"></script>

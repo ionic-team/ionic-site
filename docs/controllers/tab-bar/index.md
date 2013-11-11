@@ -3,14 +3,19 @@ layout: api
 title: "Tab Bar Controller"
 ---
 
-Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
-<div class="label label-primary">Ionic 0.9.0</div>
-
 Tab Bar Controller
 ===
 
-The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
+<!--
+Available in:
+<div class="label label-danger">AngularIonic 0.9.0</div>
+<div class="label label-primary">Ionic 0.9.0</div>
+-->
+
+
+The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through:
+
+![Tab Bar Controller](http://ionicframework.com.s3.amazonaws.com/docs/controllers/tabs2.png)
 
 
 ```html

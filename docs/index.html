@@ -276,7 +276,7 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Even Spaced Grid
+<!-- Grid: Evenly Spaced Columns
   ================================================== -->
 <div class="docs-section" id="grid-even">
 
@@ -331,13 +331,13 @@ title: "Ionic Framework - Documentation and Guide"
 
 
 
-<!-- Explicit Grid
+<!-- Grid: Explicit Column Sizes
   ================================================== -->
 <div class="docs-section" id="grid-explicit">
 
   <h3><a href="#grid-explicit">Grid: Explicit Column Sizes</a></h3>
   <p>
-    You <em>can</em> explicitly state the size of a column if for example you'd want one column to be larger than the others. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid). 
+    You <em>can</em> explicitly state the size of a column if for example you'd want specific columns to be larger than the others in the same row. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid). 
   </p>
   <p>
     An advantage with this grid system is that you only have to state the percentage for the column that needs it, and the others will still evenly divide up the available areas.
@@ -346,19 +346,19 @@ title: "Ionic Framework - Documentation and Guide"
 
 {% highlight html %}
 <div class="row">
-  <div class="col col-50">.col</div>
+  <div class="col col-50">.col.col-50</div>
   <div class="col">.col</div>
   <div class="col">.col</div>
 </div>
 
 <div class="row">
-  <div class="col col-75">.col</div>
+  <div class="col col-75">.col.col-75</div>
   <div class="col">.col</div>
 </div>
 
 <div class="row">
   <div class="col">.col</div>
-  <div class="col col-75">.col</div>
+  <div class="col col-75">.col.col-75</div>
 </div>
 
 <div class="row">
@@ -422,7 +422,7 @@ title: "Ionic Framework - Documentation and Guide"
       
       <div class="row">
         <div class="col col-50">
-          <div class="col-demo">.col</div>
+          <div class="col-demo">.col.col-50</div>
         </div>
         <div class="col">
           <div class="col-demo">.col</div>
@@ -434,7 +434,7 @@ title: "Ionic Framework - Documentation and Guide"
       
       <div class="row">
         <div class="col col-75">
-          <div class="col-demo">.col</div>
+          <div class="col-demo">.col.col-75</div>
         </div>
         <div class="col">
           <div class="col-demo">.col</div>
@@ -446,7 +446,7 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="col-demo">.col</div>
         </div>
         <div class="col col-75">
-          <div class="col-demo">.col</div>
+          <div class="col-demo">.col.col-75</div>
         </div>
       </div>
       
@@ -455,6 +455,116 @@ title: "Ionic Framework - Documentation and Guide"
           <div class="col-demo">.col</div>
         </div>
         <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Offset Columns
+  ================================================== -->
+<div class="docs-section" id="grid-offset">
+
+  <h3><a href="#grid-offset">Grid: Offset Columns</a></h3>
+  <p>
+    Columns can also be offset from the left. We'll let the code and demo speak for itself. 
+  </p>
+
+
+{% highlight html %}
+<div class="row">
+  <div class="col col-33 col-offset-33">.col</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-33">.col</div>
+  <div class="col col-33 col-offset-33">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-33 col-offset-67">.col</div>
+</div>
+{% endhighlight %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          Offset Column Percentage Classnames
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>.col-offset-10</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-20</th>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-25</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-33</th>
+        <td>33.3333%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-50</th>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-67</th>
+        <td>66.6666%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-75</th>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-80</th>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-90</th>
+        <td>90%</td>
+      </tr>
+  </table>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Explicit Column Sizes</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col col-33 col-offset-33">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-33">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-33 col-offset-33">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-33 col-offset-67">
           <div class="col-demo">.col</div>
         </div>
       </div>

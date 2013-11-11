@@ -38,14 +38,166 @@ title: "Ionic Framework - Documentation and Guide"
 </div>
 
 
-<!-- Layout
+
+<!-- Utility
   ================================================== -->
-<div class="docs-section" id="layout">
-  <h2><a href="#layout">Layout &amp; Structure</a></h2>
+<div class="docs-section" id="utility">
+
+  <h2><a href="#utility">Utility</a></h2>
+
   <p>
-    Ionic's layout is based off common native app layouts. In order to make your app feel native, you'll need to make sure you follow
-    certain HTML markup guidelines. Check out the <a href="/getting-started/#basic-template">Basic Template</a> in the 
-    <a href="/getting-started/">Getting started</a> page.
+    ...
+  </p>
+
+</div>
+
+
+
+<!-- Colors
+  ================================================== -->
+<div class="docs-section" id="colors">
+
+  <h3><a href="#colors">Colors</a></h3>
+
+  <p>
+    ...
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Colors</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icons
+  ================================================== -->
+<div class="docs-section" id="icons">
+
+  <h3><a href="#icons">Icons</a></h3>
+
+  <p>
+    ...
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Icons</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Padding
+  ================================================== -->
+<div class="docs-section" id="padding">
+
+  <h3><a href="#padding">Padding</a></h3>
+
+  <p>
+    Many components in Ionic purposely have both padding and margin reset set to zero.
+    In many instances apps will have components bleed to the edge of the screen, 
+    and by starting each component at zero developers can easily control padding and margins throughout the app. 
+  </p>
+  <p>
+    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
+    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
+    The following classes are not required for any element, but may be helpful with your layout. 
+  </p>
+  <ul>
+    <li>
+      <code>padding</code> Adds padding around every side.
+    </li>
+    <li>
+      <code>padding-vertical</code> Adds padding to the top and bottom.
+    </li>
+    <li>
+      <code>padding-horizontal</code> Adds padding to the left and right.
+    </li>
+    <li>
+      <code>padding-top</code> Adds padding to the top.
+    </li>
+    <li>
+      <code>padding-right</code> Adds padding to the right.
+    </li>
+    <li>
+      <code>padding-bottom</code> Adds padding to the bottom.
+    </li>
+    <li>
+      <code>padding-left</code> Adds padding to the left.
+    </li>
+  </ul>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Padding</div>
+    </div>
+    <div class="content has-header padding">
+      
+      <div class="padding-example">
+        <div></div>
+      </div>
+
+      <p style="margin:0 24px">
+        The gray square represents an element, and the blue square represents
+        the element's content when <code>padding</code> has been applied.
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid
+  ================================================== -->
+<div class="docs-section" id="grid">
+
+  <h3><a href="#grid">Grid</a></h3>
+
+  <p>
+    ...
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header bar-default">
+      <div class="h1 title">Grid</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Components
+  ================================================== -->
+<div class="docs-section" id="components">
+
+  <h2><a href="#components">Components</a></h2>
+
+  <p>
+    Ionic comes with tons of CSS and Javascript components found in most modern mobile devices. We've made sure to include some of the most popular mobile paradigms and interactions such as, <a href="#buttons">Buttons</a>, <a href="#navbar">Nav Bars</a>, <a href="#cards">Cards</a>, <a href="#forms">Forms</a>, and <a href="#action-sheets">Action Sheets</a>. Pick and choose what you need, customize to your heart's desire.
   </p>
 
 </div>
@@ -57,6 +209,13 @@ title: "Ionic Framework - Documentation and Guide"
 <div class="docs-section" id="header">
 
   <h3><a href="#header">Header</a></h3>
+
+  <p>
+    Ionic's layout is based off common native app layouts. In order to make your app feel native, 
+    you'll need to make sure you follow certain HTML markup guidelines. Check out the 
+    <a href="/getting-started/#basic-template">Basic Template</a> in the 
+    <a href="/getting-started/">Getting started</a> page.
+  </p>
 
   <p>
     Headers are fixed regions at the top of a screen that can contain
@@ -258,82 +417,6 @@ title: "Ionic Framework - Documentation and Guide"
       <div class="title">Footer</div>
     </div>
   </div>
-
-</div>
-
-
-
-<!-- Utility Classes
-  ================================================== -->
-<div class="docs-section" id="utility">
-
-  <h3><a href="#utility">Utility Classes</a></h3>
-
-  <p>
-    Many components in Ionic purposely have both padding and margin reset set to zero.
-    In many instances apps will have components bleed to the edge of the screen, 
-    and by starting each component at zero, developers can easily control padding throughout the app. 
-  </p>
-  <p>
-    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
-    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
-    The following classes are not required for any element, but may be helpful with your designs. 
-  </p>
-  <ul>
-    <li>
-      <code>padding</code> Adds padding around every side.
-    </li>
-    <li>
-      <code>padding-vertical</code> Adds padding to the top and bottom.
-    </li>
-    <li>
-      <code>padding-horizontal</code> Adds padding to the left and right.
-    </li>
-    <li>
-      <code>padding-top</code> Adds padding to the top.
-    </li>
-    <li>
-      <code>padding-right</code> Adds padding to the right.
-    </li>
-    <li>
-      <code>padding-bottom</code> Adds padding to the bottom.
-    </li>
-    <li>
-      <code>padding-left</code> Adds padding to the left.
-    </li>
-  </ul>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Utility Classes: Padding</div>
-    </div>
-    <div class="content has-header padding">
-      
-      <div class="padding-example">
-        <div></div>
-      </div>
-
-      <p style="margin:0 24px">
-        The gray square represents an element, and the blue square represents
-        the element's content when <code>padding</code> has been applied.
-      </p>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Components
-  ================================================== -->
-<div class="docs-section" id="components">
-
-  <h2><a href="#components">Components</a></h2>
-
-  <p>
-    Ionic comes with tons of CSS and Javascript components found in most modern mobile devices. We've made sure to include some of the most popular mobile paradigms and interactions such as, <a href="#buttons">Buttons</a>, <a href="#navbar">Nav Bars</a>, <a href="#cards">Cards</a>, <a href="#forms">Forms</a>, and <a href="#action-sheets">Action Sheets</a>. Pick and choose what you need, customize to your heart's desire.
-  </p>
 
 </div>
 

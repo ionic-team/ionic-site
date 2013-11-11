@@ -5277,7 +5277,8 @@ td.visible-print {
 .ionic .col-demo {
   padding: 5px;
   width: 100%;
-  border: 1px solid #cccccc;
+  border: 1px solid #dddddd;
+  border-radius: 2px;
   background: #f7f7f7;
   text-align: center; }
 

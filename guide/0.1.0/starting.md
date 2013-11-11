@@ -34,11 +34,6 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
     <script type="text/javascript" src="cordova.js"></script>
   </head>
   <body>
-    <script>
-      document.addEventListener('deviceready', function() {
-        ionic.Platform.detect();
-      });
-    </script>
   </body>
 </html>
 ```

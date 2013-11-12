@@ -240,7 +240,7 @@ $grid-float-breakpoint:     $screen-tablet !default;
 
 // Basics of a navbar
 $navbar-height:                    73px !default;
-$navbar-margin-bottom:             $line-height-computed !default;
+$navbar-margin-bottom:             0;
 $navbar-default-color:             #777 !default;
 $navbar-default-bg:                #f8f8f8 !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;

@@ -84,9 +84,12 @@ h1 + h2 + p {
 }
 
 .header {
-  margin: 0 auto 40px;
+  .container {
+    margin: 0 auto;
+  }
+  margin-bottom: 40px;
   padding: 50px 0 0 0;
-  height: 227px;
+  height: 244px;
   h3 {
     color: white;
     font-size: 28px;

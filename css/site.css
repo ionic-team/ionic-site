@@ -2958,7 +2958,7 @@ input[type="button"].btn-block {
   position: relative;
   z-index: 1000;
   min-height: 73px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   border: 0; }
   .navbar:before, .navbar:after {
     content: " ";
@@ -5693,9 +5693,11 @@ h1 + h2 + p {
       text-decoration: none; }
 
 .header {
-  margin: 0 auto 40px;
+  margin-bottom: 40px;
   padding: 50px 0 0 0;
-  height: 227px; }
+  height: 244px; }
+  .header .container {
+    margin: 0 auto; }
   .header h3 {
     color: white;
     font-size: 28px; }

@@ -77,7 +77,10 @@ Go ahead and copy the `dist/` files from the Ionic code (in `IONIC_PATH` below) 
 ```bash
 $ cp IONIC_PATH/dist/js/* www/js/
 $ cp -R IONIC_PATH/dist/css/* www/css/
+$ cp -R IONIC_PATH/dist/fonts/* www/
 ```
+
+The `fonts/` folder is optional, but contains our free [Ionicons](http://ionicons.com/) icon pack, which has over 400 free, MIT licensed icons. You can always use a different icon pack.
 
 ## Configure Cordova
 

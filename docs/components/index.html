@@ -1,0 +1,3620 @@
+---
+layout: docs
+title: "Ionic Framework - Documentation and Guide"
+---
+
+<div class="device-preview ionic">
+  <div class="screen-bg"></div>
+  <div class="default-screen ionic-body active-preview">
+    <div class="content-wrapper">
+      <div class="content padding has-header">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Header
+  ================================================== -->
+<div class="docs-section" id="header">
+
+  <h3><a href="#header">Header</a></h3>
+
+  <p>
+    Ionic's layout is based off common native app layouts. In order to make your app feel native, 
+    you'll need to make sure you follow certain HTML markup guidelines. Check out the 
+    <a href="/getting-started/#basic-template">Basic Template</a> in the 
+    <a href="/getting-started/">Getting started</a> page.
+  </p>
+
+  <p>
+    Headers are fixed regions at the top of a screen that can contain
+    a title label, and <a href="#buttons-headers-footers">left/right buttons</a> for navigation or to carry out varoius actions.
+  </p>
+
+  <p>Headers come in a variety of fun flavors:</p>
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header"><div class="h1 title">Default</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header">
+  <h1 class="title">Default</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-positive"><div class="h1 title">bar-positive</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-positive">
+  <h1 class="title">bar-positive</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-calm"><div class="h1 title">bar-calm</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-calm">
+  <h1 class="title">bar-calm</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-assertive"><div class="h1 title">bar-assertive</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-assertive">
+  <h1 class="title">bar-assertive</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-balanced"><div class="h1 title">bar-balanced</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-balanced">
+  <h1 class="title">bar-balanced</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-energized"><div class="h1 title">bar-energized</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-energized">
+  <h1 class="title">bar-energized</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-royal"><div class="h1 title">bar-royal</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-royal">
+  <h1 class="title">bar-royal</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-stable"><div class="h1 title">bar-stable</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-stable">
+  <h1 class="title">bar-stable</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-dark"><div class="h1 title">bar-dark</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-dark">
+  <h1 class="title">bar-dark</h1>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Header</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Sub Header
+  ================================================== -->
+<div class="docs-section" id="subheader">
+
+  <h3><a href="#subheader">Sub Header</a></h3>
+  <p>
+    A secondary header bar can be placed below the original header bar. There are quite a few more ways to customize Headers. Have a look at 
+    <a href="#button-bar">Button Bars</a> to get other ideas on how it could be used.
+  </p>
+{% highlight html %}
+<div class="bar bar-header">
+  <h1 class="title">Header</h1>
+</div>
+<div class="bar bar-subheader">
+  <h2 class="title">Sub Header</h2>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Header</div>
+    </div>
+    <div class="bar bar-subheader bar-secondary">
+      <div class="h2 title">Sub Header</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Content
+  ================================================== -->
+<div class="docs-section" id="content">
+
+  <h3><a href="#content">Content</a></h3>
+
+  <p>
+    The content area in Ionic is the scrollable viewport of your app.
+    While your headers and footers will be fixed to the top and 
+    bottom, respectively, the content area will fill the remaining available space.
+  </p>
+  <p>
+    The content element should have the <code>content</code> class applied.
+    No thrills here other than default appearances for the various type element.
+  </p>
+  <p>
+    <strong>Note:</strong> The containing <code>content</code> element also has the
+    <code>padding</code> class applied (more about <a href="#padding">padding here</a>).
+  </p>
+
+{% highlight html %}
+<div class="content padding">
+  ...
+</div>
+{% endhighlight %}
+
+  <div class="doc-example">
+    <div class="bar bar-header">
+      <div class="h1 title">Content</div>
+    </div>
+    <div class="content has-header padding">
+      <h1>I'm an H1!</h1>
+      <h2>I'm an H2!</h2>
+      <h3>I'm an H3!</h3>
+      <h4>I'm an H4!</h4>
+      <h5>I'm an H5!</h5>
+      <h6>I'm an H6!</h6>
+      <p>I'm a paragraph with a <a href="#">link</a>!</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Footer
+  ================================================== -->
+<div class="docs-section" id="footer">
+
+  <h3><a href="#footer">Footer</a></h3>
+
+  <p>
+    Footers are regions at the bottom of a screen that can contain varoius types of content.
+  </p>
+
+{% highlight html %}
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Footer</div>
+</div>
+{% endhighlight %}
+
+  <p>
+    Footers have the same color options as the headers, just use <code>bar-footer</code> instead of <code>bar-header</code>.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Header</div>
+    </div>
+    <div class="bar bar-footer bar-balanced">
+      <div class="title">Footer</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Buttons
+  ================================================== -->
+<div class="docs-section" id="buttons">
+
+  <h3><a href="#buttons">Buttons</a></h3>
+
+  <div class="sub-links">
+    <a href="#block-buttons">Block</a>
+    <a href="#full-buttons">Full Width</a>
+    <a href="#outlined-buttons">Outline</a>
+    <a href="#clear-buttons">Clear</a>
+    <a href="#icon-buttons">Icons</a>
+    <a href="#buttons-headers-footers">Headers</a>
+    <a href="#clear-buttons-headers">Clear Headers</a>
+    <a href="#button-bar">Button Bars</a>
+  </div>
+
+  <p>
+    Ah, the Button, an essential part of any mobile experience. Buttons are commonly used to send/retrieve data and form navigation between screens. Like the <a href="#header">Header</a>, they come in the full spectrum of Ionic's default color options.
+  </P>
+  <p>
+    Buttons can be displayed inline, block, outlined, icon-only, or clear (text only), and come in 
+    many different styles. By default a button has <code>display: inline-block</code>  
+    applied. Other options include <code>block</code> buttons for a full width.
+  </p>
+
+{% highlight html %}
+<button class="button">
+  Default
+</button>
+
+<button class="button button-primary">
+  button-primary
+</button>
+
+<button class="button button-secondary">
+  button-secondary
+</button>
+
+<button class="button button-tertiary">
+  button-tertiary
+</button>
+
+<button class="button button-positive">
+  button-positive
+</button>
+
+<button class="button button-calm">
+  button-calm
+</button>
+
+<button class="button button-assertive">
+  button-assertive
+</button>
+
+<button class="button button-balanced">
+  button-balanced
+</button>
+
+<button class="button button-energized">
+  button-energized
+</button>
+
+<button class="button button-royal">
+  button-royal
+</button>
+
+<button class="button button-light">
+  button-light
+</button>
+
+<button class="button button-stable">
+  button-stable
+</button>
+
+<button class="button button-dark">
+  button-dark
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Buttons</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <button class="button">Default</button>
+        </div>
+        <div class="col">
+          <button class="button button-primary">primary</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-positive">positive</button>
+        </div>
+        <div class="col">
+          <button class="button button-secondary">secondary</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-calm">calm</button>
+        </div>
+        <div class="col">
+          <button class="button button-tertiary">tertiary</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-assertive">assertive</button>
+        </div>
+        <div class="col">
+          <button class="button button-light">light</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-balanced">balanced</button>
+        </div>
+        <div class="col">
+          <button class="button button-stable">stable</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-energized">energized</button>
+        </div>
+        <div class="col">
+          <button class="button button-dark">dark</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <button class="button button-royal">royal</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Block Buttons
+  ================================================== -->
+<div class="docs-section" id="block-buttons">
+
+  <h3><a href="#block-buttons">Block Buttons</a></h3>
+  <p>
+    Adding <code>block</code> to a button applies <code>display: block</code> display. 
+    A block button will however go 100% of its parent's width.
+    In the example, the button's containing content element also has <code>padding</code> applied,
+    so there is some breathing room between the edge of the device and the buttons.
+  </p>
+
+{% highlight html %}
+<button class="button block button-primary">
+  Block Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Block Buttons</div>
+    </div>
+    <div class="content padding has-header">
+      <button class="button block button-positive">button-positive</button>
+      <button class="button block button-calm">button-calm</button>
+      <button class="button block button-assertive">button-assertive</button>
+      <button class="button block button-balanced">button-balanced</button>
+      <button class="button block button-energized">button-energized</button>
+      <button class="button block button-royal">button-royal</button>
+      <button class="button block button-light">button-light</button>
+      <button class="button block button-stable">button-stable</button>
+      <button class="button block button-dark">button-dark</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Full Width Block Buttons
+  ================================================== -->
+<div class="docs-section" id="full-buttons">
+
+  <h3><a href="#full-buttons">Full Width Block Buttons</a></h3>
+  <p>
+    Adding <code>button-full</code> to a button not only applies <code>display: block</code>,
+    but also removes borders on the left and right, and any border-radius which may be applied. 
+    This style is useful when the button should stretch across the entire width of the display.
+    Additionally, the button's parent element <em>does not</em> have <code>padding</code> applied.
+  </p>
+
+{% highlight html %}
+<button class="button button-full button-primary">
+  Full Width Block Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Full Width Block Buttons</div>
+    </div>
+    <div class="content has-header">
+      <button class="button button-full button-positive">button-positive</button>
+      <button class="button button-full button-calm">button-calm</button>
+      <button class="button button-full button-assertive">button-assertive</button>
+      <button class="button button-full button-balanced">button-balanced</button>
+      <button class="button button-full button-energized">button-energized</button>
+      <button class="button button-full button-royal">button-royal</button>
+      <button class="button button-full button-light">button-light</button>
+      <button class="button button-full button-stable">button-stable</button>
+      <button class="button button-full button-dark">button-dark</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Outlined Buttons
+  ================================================== -->
+<div class="docs-section" id="outlined-buttons">
+
+  <h3><a href="#outlined-buttons">Outlined Buttons</a></h3>
+
+  <p>
+    Use <code>button-outline</code> to apply an outline button style, which also
+    has a transparent background. 
+  </p>
+  <p>
+    <strong>Note:</strong> The text and border will take the color of the applied button style, meaning 
+    <code>button-primary</code> will result in blue text and border, with a transparent background.
+  </p>
+
+{% highlight html %}
+<button class="button button-outline button-primary">
+  Outlined Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Outlined Buttons</div>
+    </div>
+    <div class="content padding has-header">
+      <p>
+        <button class="button button-outline button-positive">button-positive</button>
+      </p>
+      <p>
+        <button class="button button-outline button-calmn">button-calmn</button>
+      </p>
+      <p>
+        <button class="button button-outline button-assertive">button-assertive</button>
+      </p>
+      <p>
+        <button class="button button-outline button-balanced">button-balanced</button>
+      </p>
+      <p>
+        <button class="button button-outline button-energized">button-energized</button>
+      </p>
+      <p>
+        <button class="button button-outline button-royal">button-royal</button>
+      </p>
+      <p>
+        <button class="button button-outline button-light">button-light</button>
+      </p>
+      <p>
+        <button class="button button-outline button-stable">button-stable</button>
+      </p>
+      <p>
+        <button class="button button-outline button-dark">button-dark</button>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Clear Buttons
+  ================================================== -->
+<div class="docs-section" id="clear-buttons">
+
+  <h3><a href="#clear-buttons">Clear Buttons</a></h3>
+
+  <p>
+    Add <code>button-clear</code> to remove the border and make the text stand out.
+  </p>
+  <p>
+    <strong>Note:</strong> The text will take the color of the applied button style, meaning 
+    <code>button-primary</code> will result in blue text and no border instead of a blue background.
+  </p>
+
+{% highlight html %}
+<button class="button button-clear button-primary">
+  Clear Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Clear Buttons</div>
+    </div>
+    <div class="content padding has-header">
+      <p>
+        <button class="button button-clear button-positive">button-positive</button>
+      </p>
+      <p>
+        <button class="button button-clear button-calm">button-calm</button>
+      </p>
+      <p>
+        <button class="button button-clear button-assertive">button-assertive</button>
+      </p>
+      <p>
+        <button class="button button-clear button-info">button-info</button>
+      </p>
+      <p>
+        <button class="button button-clear button-success">button-success</button>
+      </p>
+      <p>
+        <button class="button button-clear button-warning">button-warning</button>
+      </p>
+      <p>
+        <button class="button button-clear button-danger">button-danger</button>
+      </p>
+      <p>
+        <button class="button button-clear button-dark">button-dark</button>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icon Buttons
+  ================================================== -->
+<div class="docs-section" id="icon-buttons">
+
+  <h3><a href="#icon-buttons">Icon Buttons</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+<button class="button button-default">
+  <i class="icon ion-home"></i> Home
+</button>
+
+<button class="button button-secondary">
+  <i class="icon ion-star"></i> Favorites
+</button>
+
+<a class="button button-primary">
+  Learn More <i class="icon ion-chevron-right"></i>
+</a>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Icon Buttons</div>
+    </div>
+    <div class="content padding has-header">
+      <p>
+        <button class="button button-default">
+          <i class="icon ion-home"></i> Home
+        </button>
+      </p>
+      <p>
+        <button class="button button-secondary">
+          <i class="icon ion-star"></i> Favorites
+        </button>
+      </p>
+      <p>
+        <a class="button button-primary">
+          Learn More <i class="icon ion-chevron-right"></i>
+        </a>
+      </p>
+      <p>
+        <a class="button button-clear button-info">
+          <i class="icon ion-chevron-left"></i> Back
+        </a>
+      </p>
+      <p>
+        <a class="button button-info">
+          <i class="icon ion-gear-a"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Buttons in Headers/Footers
+  ================================================== -->
+<div class="docs-section" id="buttons-headers-footers">
+
+  <h3><a href="#buttons-headers-footers">Buttons in Headers</a></h3>
+
+  <p>
+    When buttons are placed in headers or footers, they take the style of the 
+    bar by default, so you don't have to use the extra style classes. 
+    To change this, add the desired style class.
+  </p>
+
+{% highlight html %}
+<div class="bar bar-header">
+  <button class="button">
+    <i class="icon ion-navicon"></i>
+  </button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button">
+    Edit
+  </button>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="padding">
+      <div class="bar bar-header">
+        <button class="button">
+          <i class="icon ion-navicon"></i>
+        </button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button pull-right">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Clear Buttons in Headers
+  ================================================== -->
+<div class="docs-section" id="clear-buttons-headers">
+
+  <h3><a href="#clear-buttons-headers">Clear Buttons in Headers</a></h3>
+
+  <p>
+    For a more minimal approach to header buttons, simply add the <code>button-clear</code> classname to remove the background button color and border.
+  </p>
+
+{% highlight html %}
+<button class="button button-icon">
+  <div class="bar bar-header">
+    <button class="button button-icon">
+      <i class="icon ion-navicon"></i>
+    </button>
+    <h1 class="title">Header Buttons</div>
+    <button class="button button-clear button-primary">
+      Edit
+    </button>
+  </div>
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="padding">
+      <div class="bar bar-header">
+        <button class="button button-icon">
+          <i class="icon ion-navicon"></i>
+        </button>
+        <div class="h1 title">Header Buttons</div>
+        <button class="button button-clear button-primary">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Button Bar
+  ================================================== -->
+<div class="docs-section" id="button-bar">
+
+  <h3><a href="#button-bar">Button Bar</a></h3>
+  <p>
+    Buttons can also be easily grouped together using the <code>button-bar</code> classname. 
+    In this example, a button bar was added to the default header bar, as well as in the main content area of the screen.
+  </p>
+
+{% highlight html %}
+<div class="button-bar">
+  <a class="button">Success</a>
+  <a class="button">Warning</a>
+  <a class="button">Danger</a>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="bar bar-header">
+        <div class="button-bar">
+          <a class="button">Success</a>
+          <a class="button">Warning</a>
+          <a class="button">Danger</a>
+        </div>
+      </div>
+    </div>
+    <div class="content has-header">
+      <div class="bar">
+        <div class="button-bar">
+          <a class="button">Success</a>
+          <a class="button">Warning</a>
+          <a class="button">Danger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- List
+  ================================================== -->
+<div class="docs-section" id="list">
+
+  <h3><a href="#list">List</a></h3>
+
+  <div class="sub-links">
+    <a href="#item-dividers">Dividers</a>
+    <a href="#item-icons">Icons</a>
+    <a href="#item-buttons">Buttons</a>
+    <a href="#item-avatars">Avatars</a>
+    <a href="#item-thumbnails">Thumbnails</a>
+    <a href="/docs/list/">Advanced</a>
+  </div>
+
+  <p>
+    The List is a common and simple way of displaying... that's right, a list. This is a widely 
+    used interface across in most current mobile OS's, and can include content ranging from basic 
+    text all the way to buttons, toggles, icons, and thumbnails. <a href="/docs/list/">Learn more</a>.
+  </p>
+  <p>
+    The list view is a very versitile and powerful component used to display lists of 
+    data. List views support various interaction modes such as editing, swipe to edit,
+    drag to reorder, and pull to refresh. List views can be used in virtual mode to efficiently handle
+    large lists of data by only rendering the items the user can see. Check out the 
+    <a href="/docs/views/list/">advanced list docs</a> to get more detailed information.
+  </p>
+
+
+{% highlight html %}
+<list>
+    <item ng-repeat="item in items"></item>
+</list>
+{% endhighlight %}
+
+  <p class="advanced-panel">
+    <em>*</em> For a more extensive overview on Lists, read
+    <a href="/docs/list/">Advanced List Docs</a>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Items</div>
+    </div>
+    <div class="content has-header">
+
+      <ul class="list">
+
+        <li class="item">
+          Battletoads
+        </li>
+        <li class="item">
+          Contra
+        </li>
+        <li class="item">
+          Duck Tales
+        </li>
+        <li class="item">
+          Mega Man
+        </li>
+        <li class="item">
+          Metroid
+        </li>
+        <li class="item">
+          Mike Tyson's Punch-Out
+        </li>
+        <li class="item">
+          R.C. Pro-Am
+        </li>
+        <li class="item">
+          Spy Hunter
+        </li>
+        <li class="item">
+          Super Mario Bros.
+        </li>
+        <li class="item">
+          The Legend of Zelda
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- List Dividers
+  ================================================== -->
+<div class="docs-section" id="item-dividers">
+
+  <h3><a href="#item-dividers">List Dividers</a></h3>
+
+  <p>
+    List items can also be dividers to organize and group the list items. Use the <code>item-divider</code>
+    class to create a divider for any child element of the list. 
+    By default list item dividers will have a different background color and font-weight,
+    but this is highly customizable. 
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <div class="item-divider">
+    Candy Bars
+  </div>
+
+  <a class="item" href="#">
+    Butterfinger
+  </a>
+
+  ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Dividers</div>
+    </div>
+
+    <div class="content has-header">
+      
+      <div class="list">
+
+        <div class="item-divider">
+          Candy Bars
+        </div>
+
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+
+        <a class="item" href="#">
+          Kit Kat
+        </a>
+
+        <a class="item" href="#">
+          Snickers
+        </a>
+
+        <a class="item" href="#">
+          Twix
+        </a>
+        
+        <div class="item-divider">
+          Hard Candy
+        </div>
+
+        <a class="item" href="#">
+          Jolly Rancher
+        </a>
+
+        <a class="item" href="#">
+          LifeSavers
+        </a>
+
+        <a class="item" href="#">
+          Skittles
+        </a>
+
+        <a class="item" href="#">
+          Gobstoppers
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- List Icons
+  ================================================== -->
+<div class="docs-section" id="item-icons">
+
+  <h3><a href="#item-icons">List Icons</a></h3>
+
+  <p>
+    Lists can have icons assigned either to the left and/or right side of each list item,
+    and the alignment classes should be assigned to each <code>item</code> element.
+  </p>
+  <p>
+    Use <code>item-icon-left</code> to line up the icon to the left, and <code>item-icon-right</code>
+    to set the icon to the right. When a list item has an icon on both sides then both classes
+    will need to be applied.
+  </p>
+  <p>
+    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire 
+    list item to be tappable. If the item is an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>
+    element, and no icon has been added to the right, then a small right arrow will automatically be added.
+  </p>
+  <p>
+    In the example, the first item only has a left aligned icon. The second item has both 
+    left and right side icons. The third item has <code>fill-icon</code> applied to the left icon, and no a right side icon assigned (whichs defaults to the right arrow). Additionally, the thrid item also adds an <code>item-note</code>. The fourth
+    icon has added a <code>badge</code> element.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-email ion-primary"></i>
+    Check mail
+  </a>
+
+  <a class="item item-icon-left item-icon-right" href="#">
+    <i class="icon ion-chatbubble-working ion-primary"></i>
+    Call Ma
+    <i class="icon ion-ios7-telephone-outline"></i>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a ion-primary fill-icon"></i>
+    Record album
+    <span class="item-note">
+      Grammy
+    </span>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-person-stalker ion-primary"></i>
+    Friends
+    <span class="badge badge-danger">0</span>
+  </a>
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Icons</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="list">
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-email ion-primary"></i>
+          Check mail
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-chatbubble-working ion-primary"></i>
+          Call Ma
+          <i class="icon ion-ios7-telephone-outline"></i>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-mic-a ion-primary fill-icon"></i>
+          Record album
+          <span class="item-note">
+            Grammy
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-person-stalker ion-primary"></i>
+          Friends
+          <span class="badge badge-danger">0</span>
+        </a>
+
+        <div class="item-divider">
+          Activities
+        </div>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-flask ion-primary"></i>
+          Breaking Bad
+          <span class="item-note">
+            Blue, yellow, pink
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-music-note ion-primary"></i>
+          Music
+          <span class="item-note">
+            JT
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-game-controller-b ion-primary"></i>
+          Games
+          <span class="item-note">
+            Super Mario
+          </span>
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-bag ion-primary"></i>
+          Shopping
+          <i class="icon ion-arrow-right-c"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Item Buttons
+  ================================================== -->
+<div class="docs-section" id="item-buttons">
+
+  <h3><a href="#item-buttons">List Buttons</a></h3>
+
+  <p>
+    Use <code>item-button-right</code> or <code>item-button-left</code> to place a
+    button within an item.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <div class="item item-button-right">
+    Call Ma
+    <button class="button button-primary">
+      <i class="icon ion-ios7-telephone"></i>
+  </div>
+
+  ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Buttons</div>
+    </div>
+
+    <div class="content has-header">
+
+      <div class="list">
+
+        <div class="item item-button-right">
+          Call Ma
+          <button class="button button-primary">
+            <i class="icon ion-ios7-telephone"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Item avatars
+  ================================================== -->
+<div class="docs-section" id="item-avatars">
+
+  <h3><a href="#item-avatars">List Avatars</a></h3>
+
+  <p>
+    List avatars are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>list-thumbnail</code> classname. In this example, we are using images of album covers.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+    <a class="item item-avatar" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+
+    ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Avatars</div>
+    </div>
+
+    <div class="content has-header">
+
+      <div class="list">
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/venkman.jpg">
+          <h2>Venkman</h2>
+          <p>Back off, man. I'm a scientist.</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/spengler.jpg">
+          <h2>Egon</h2>
+          <p>We're gonna go full stream.</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/stantz.jpg">
+          <h2>Ray</h2>
+          <p>Ugly little spud, isn't he?</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/winston.jpg">
+          <h2>Winston</h2>
+          <p>That's a big Twinkie.</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/tully.jpg">
+          <h2>Tully</h2>
+          <p>Okay, who brought the dog?</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/barrett.jpg">
+          <h2>Dana</h2>
+          <p>I am The Gatekeeper!</p>
+        </a>
+
+        <a class="item item-avatar" href="#">
+          <img src="/img/docs/slimer.jpg">
+          <h2>Slimer</h2>
+          <p>Boo!</p>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- List Thumbnails
+  ================================================== -->
+<div class="docs-section" id="item-thumbnails">
+
+  <h3><a href="#item-thumbnails">List Thumbnails</a></h3>
+
+  <p>
+    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>item-thumbnail-left</code> to have it align on the left, and <code>item-thumbnail-right</code> for the right side.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+
+    ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">List Thumbnails</div>
+    </div>
+
+    <div class="content has-header">
+
+      <div class="list">
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="/img/docs/blue-album.jpg">
+          <h2>Weezer</h2>
+          <p>Blue Album</p>
+        </a>
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="/img/docs/siamese-dream.jpg">
+          <h2>Smashing Pumpkins</h2>
+          <p>Siamese Dream</p>
+        </a>
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="/img/docs/nevermind.jpg">
+          <h2>Nirvana</h2>
+          <p>Nevermind</p>
+        </a>
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="/img/docs/license-to-ill.jpg">
+          <h2>Beastie Boys</h2>
+          <p>License To Ill</p>
+        </a>
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="/img/docs/dookie.jpg">
+          <h2>Green Day</h2>
+          <p>Dookie</p>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Cards
+  ================================================== -->
+<div class="docs-section" id="cards">
+
+  <h3><a href="#cards">Cards</a></h3>
+
+  <div class="sub-links">
+    <a href="#card-headers-footers">Headers and Footers</a>
+    <a href="#card-lists">Lists</a>
+    <a href="#card-images">Images</a>
+    <a href="#card-showcase">Showcase</a>
+  </div>
+
+  <p>
+    Cards are a relatively new visual design paradigm on mobile, though they've become widely used in recent years. And for good reason- cards are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>..
+  </p>
+  <p>
+    For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right. Dive in and make some cool cards!
+
+{% highlight html %}
+<div class="card">
+  <div class="item item-text-wrap">
+    This is a basic Card with some text.
+  </div>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header cards-bg">
+    
+      <div class="card">
+        <div class="item item-text-wrap">
+          This is a basic Card with some text.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Cards Headers/Footers
+  ================================================== -->
+<div class="docs-section" id="card-headers-footers">
+
+  <h3><a href="#card-headers-footers">Card Headers and Footers</a></h3>
+
+  <p>
+    Cards can be customized similarly to how you would fill a normal screen. For example, a card can easily have Headers and Footers placed inside of them. Simply add the <code>item-divider</code> classname above or below the content within the <code>card</code> element.
+  </p>
+
+{% highlight html %}
+<div class="card">
+  <div class="item item-divider">
+    I'm a Header in a Card!
+  </div>
+  <div class="item item-text-wrap">
+    This is a basic Card with some text.
+  </div>
+  <div class="item item-divider">
+    I'm a Footer in a Card!
+  </div>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header cards-bg">
+
+      <div class="card">
+        <div class="item item-divider">
+          I'm a Header in a Card!
+        </div>
+        <div class="item item-text-wrap">
+          This is a basic Card with some text.
+        </div>
+        <div class="item item-divider">
+          I'm a Footer in a Card!
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Lists
+  ================================================== -->
+<div class="docs-section" id="card-lists">
+
+  <h3><a href="#card-lists">Card Lists</a></h3>
+
+  <p>
+    Use the <code>list card</code> classname to create a card with lists. Add in as many different list items as you like, and they will all display within the card.
+  </p>
+
+{% highlight html %}
+<div class="list card">
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-home ion-primary"></i>
+    Enter home address
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-ios7-telephone ion-primary"></i>
+    Enter phone number
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-wifi ion-primary"></i>
+    Enter wireless password
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-card ion-primary"></i>
+    Enter card information
+  </a>
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Card Lists</div>
+    </div>
+    <div class="content has-header cards-bg">
+    
+      <div class="list card">
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-home ion-primary"></i>
+          Enter home address
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-ios7-telephone ion-primary"></i>
+          Enter phone number
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-wifi ion-primary"></i>
+          Enter wireless password
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-card ion-primary"></i>
+          Enter card information
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Images
+  ================================================== -->
+<div class="docs-section" id="card-images">
+
+  <h3><a href="#card-images">Card Images</a></h3>
+
+  <p>
+    Images look great in cards, and can be combined with lists and other elements. This style of card design is seen in many music and photo sharing apps.
+  </p>
+
+{% highlight html %}
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="avatar.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </div>
+
+  <div class="item item-image">
+    <img src="cover.jpg">
+  </div>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-music-note"></i>
+    Start listening
+  </a>
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header cards-bg">
+    
+      <div class="list card">
+
+        <div class="item item-avatar">
+          <img src="http://tutupash.com/site/assets/nin_logo.jpeg">
+          <h2>Pretty Hate Machine</h2>
+          <p>Nine Inch Nails</p>
+        </div>
+
+        <div class="item item-image">
+          <img src="http://ecx.images-amazon.com/images/I/41D5vU4I1NL.jpg">
+        </div>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-music-note"></i>
+          Start listening
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Card Showcase
+  ================================================== -->
+<div class="docs-section" id="card-showcase">
+
+  <h3><a href="#card-showcase">Card Showcase</a></h3>
+
+  <p>
+    Here is a showcase of a card using several different items. It begins with the <code>list card</code> element, utilizing the <code>item-avatar</code> list item, an <code>item-body</code> element for images and text, and a footer with the <code>item-divider</code> classname. 
+  </p>
+
+{% highlight html %}
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="mcfly.jpg">
+    <h2>Marty McFly</h2>
+    <p>November 05, 1955</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of a Tab Bar, icons aligned left, within the card-footer.
+    </p>
+    <p>
+      <a href="#" class="subdued‎">1 Like</a>
+      <a href="#" class="subdued‎">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Cards</div>
+    </div>
+    <div class="content has-header cards-bg">
+    
+      <div class="list card">
+
+        <div class="item item-avatar">
+          <img src="/img/docs/mcfly.jpg">
+          <h2>Marty McFly</h2>
+          <p>November 05, 1955</p>
+        </div>
+
+        <div class="item item-body">
+          <img class="full-image" src="/img/docs/delorean.jpg">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a Tab Bar, icons aligned left, within the card-footer.
+          </p>
+          <p>
+            <a href="#" class="subdued‎">1 Like</a>
+            <a href="#" class="subdued‎">5 Comments</a>
+          </p>
+        </div>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i>
+            Like
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            Comment
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms
+  ================================================== -->
+<div class="docs-section" id="forms">
+
+  <h3><a href="#forms">Forms &amp; Inputs</a></h3>
+
+  <div class="sub-links">
+    <a href="#forms-placeholder-labels">Placeholder Labels</a>
+    <a href="#forms-inline-labels">Inline Labels</a>
+    <a href="#forms-stacked-labels">Stacked Labels</a>
+    <a href="#inset-forms">Inset Forms</a>
+  </div>
+
+  <p>
+    A <code>list</code> is also used to group related input elements. Both <code>item-input</code>
+    and <code>item</code> is then used to designate each individual input field and it's 
+    associated label.
+  </p>
+  <p>
+    Ionic prefers to create the <code>item-input</code> out of the <code>&lt;label&gt;</code> element 
+    so that when any part of the row is tapped then the underlying input receives focus.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Forms</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Placeholder Labels
+  ================================================== -->
+<div class="docs-section" id="forms-placeholder-labels">
+
+  <h3><a href="#forms-placeholder-labels">Text Input: Placeholder Labels</a></h3>
+
+  <p>
+    In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
+    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
+    text into the input the placeholder label will be hidden.
+  </p>
+
+{% highlight html %}
+<div class="list">
+  <label class="item item-input">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Last Name">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Placeholder Labels</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Inline Labels
+  ================================================== -->
+<div class="docs-section" id="forms-inline-labels">
+
+  <h3><a href="#forms-inline-labels">Text Input: Inline Labels</a></h3>
+
+  <p>
+    Use <code>input-label</code> to place a label to the left of the input element. When the user 
+    enters text the label does not hide. Note that there's nothing stopping you from also
+    using a <code>placeholder</code> label too.
+  </p>
+  
+{% highlight html %}
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label">Username</span>
+    <input type="text">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Inline Labels</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Sign In</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Forms: Stacked Labels
+  ================================================== -->
+<div class="docs-section" id="forms-stacked-labels">
+
+  <h3><a href="#forms-stacked-labels">Text Input: Stacked Labels</a></h3>
+
+  <p>
+    Stacked labels always places the label on top of the input. Each item should
+    have <code>item-stacked-label</code> assigned, and the input's label
+    should have <code>input-label</code> assigned.
+    This example also uses the <code>placeholder</code> attribute so 
+    user's have a hint of what type of text the input is looking for.
+  </p>
+
+{% highlight html %}
+<div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="John">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Suhr">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@suhr.com">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Stacked Labels</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="John">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Suhr">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="john@suhr.com">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Inset Forms
+  ================================================== -->
+<div class="docs-section" id="inset-forms">
+
+  <h3><a href="#inset-forms">Inset Forms</a></h3>
+
+  <p>
+    By default each input item will fill 100% of the width of its parent element (the list).
+    However, you can inset the list using either the <code>list-inset</code> or <code>card</code> classnames.
+    The <code>card</code> classname applies a lower box shadow while <code>list-inset</code> does not.
+    Additionally, if the list's parent element has <code>padding</code> assigned then this will also
+    give the form an inset appearance.
+  </p>
+
+{% highlight html %}
+<div class="list list-inset">
+  <label class="item item-input">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Last Name">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Inset Forms</div>
+    </div>
+    <div class="content has-header">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button block button-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Toggle
+  ================================================== -->
+<div class="docs-section" id="toggle">
+
+  <h3><a href="#toggle">Toggle</a></h3>
+
+  <p>
+    A toggle technically is the same thing as an HTML checkbox input, 
+    except it looks prettier and easier to use on a touch device. Ionic prefers
+    to wrap the checkbox input with the <code>&lt;label&gt;</code> in order
+    to make the entire toggle easy to tap or drag.
+  </p>
+
+{% highlight html %}
+<label class="toggle">
+   <input type="checkbox">
+   <div class="track">
+     <div class="handle"></div>
+   </div>
+</label>
+{% endhighlight %}
+
+  <p>
+    Below is an example of multiple toggles within a list. Note the <code>item-toggle</code>
+    class was added along side <code>item</code> for each item.
+  </p>
+
+{% highlight html %}
+<ul class="list">
+
+  <li class="item item-toggle">
+     <div class="item-content">
+      HTML5
+     </div>
+     <label class="toggle">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+  ...
+
+</ul>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Toggle</div>
+    </div>
+    <div class="content has-header">
+        
+      <ul class="list">
+        <li class="item item-toggle">
+           <div class="item-content">
+            HTML5
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            CSS3
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Flashplayer
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Java Applets
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            JavaScript
+           </div>
+           <label class="toggle">
+             <input type="checkbox" checked>
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           <div class="item-content">
+            Silverlight
+           </div>
+           <label class="toggle">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Checkbox
+  ================================================== -->
+<div class="docs-section" id="checkbox">
+
+  <h3><a href="#checkbox">Checkbox</a></h3>
+
+  <p>
+    A checkbox is no different than the HTML checkbox input, except it's
+    styled all nice like. Below is an example of multiple checkboxes within a list. 
+    Note the <code>item-checkbox</code> class was added along side 
+    <code>item</code> for each item.
+  </p>
+  <p>
+    Ionic prefers to use the <code>&lt;label&gt;</code> element for a checkbox 
+    item in order to make the entire checkbox tappable.
+  </p>
+
+{% highlight html %}
+<ul class="list">
+
+  <li class="item item-checkbox">
+     <div class="item-content">
+      Flux Capacitor
+     </div>
+     <label class="checkbox">
+       <input type="checkbox">
+     </label>
+  </li>
+
+  ...
+
+</ul>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Checkbox</div>
+    </div>
+
+    <div class="content has-header">
+        
+      <ul class="list">
+        <li class="item item-checkbox">
+           <div class="item-content">
+            Flux Capacitor
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            1.21 Gigawatts
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            Delorean
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            88 MPH
+           </div>
+           <label class="checkbox">
+             <input type="checkbox" checked>
+           </label>
+        </li>
+        <li class="item item-checkbox">
+           <div class="item-content">
+            Plutonium Resupply
+           </div>
+           <label class="checkbox">
+             <input type="checkbox">
+           </label>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Radio Buttons
+  ================================================== -->
+<div class="docs-section" id="radio-buttons">
+
+  <h3><a href="#radio-buttons">Radio Button List</a></h3>
+
+  <p>
+    Radio buttons act no differently as standard radio input elements. Following this 
+    convention will display a list of radio buttons similarly seen in modern app.
+  </p>
+  <p>
+    Each <code>item-radio</code> must have a radio input with the same input <code>name</code> attribute.
+    The <code>radio-icon</code> class is used to designate when to show and hide the icon element.
+  </p>
+  <p>
+    Ionic prefers to use the <code>&lt;label&gt;</code> element for a radio item in order to make the
+    entire area tappable.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <label class="item item-radio">
+    <input type="radio" name="group">
+    <div class="item-content">
+      Go
+    </div>
+    <i class="radio-icon ion ion-checkmark ion-success"></i>
+  </label>
+
+  ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Radio Button List</div>
+    </div>
+
+    <div class="content has-header">
+
+      <div class="list">
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value="go" checked="checked">
+          <div class="item-content">
+            Go
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value="python">
+          <div class="item-content">
+            Python
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value="ruby">
+          <div class="item-content">
+            Ruby
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value=".net">
+          <div class="item-content">
+            .Net
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value="java">
+          <div class="item-content">
+            Java
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+        <label class="item item-radio">
+          <input type="radio" name="group" value="php">
+          <div class="item-content">
+            PHP
+          </div>
+          <i class="radio-icon ion ion-checkmark ion-primary"></i>
+        </label>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Range
+  ================================================== -->
+<div class="docs-section" id="range">
+
+  <h3><a href="#range">Range</a></h3>
+
+  <p>
+    Nothing special here except some good clean HTML5, CSS3, and elbow greese. Ranges can be themed to any default Ionic color, and used in various other elements such as a list item or card.
+  </p>
+
+{% highlight html %}
+<input type="range" name="awesomeness" min="0" max="10">
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Range</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding">
+
+        <p>
+          Level of Awesomeness:
+        </p>
+        <p>
+          <input type="range" name="awesomeness" min="0" max="10" value="10">
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Tab Bar
+  ================================================== -->
+<div class="docs-section" id="tab-bar">
+
+  <h3><a href="#tab-bar">Tab Bar</a></h3>
+
+  <div class="sub-links">
+    <a href="#icon-only-tab-bar">Icon-only</a>
+    <a href="#icon-top-tab-bar">Top Icon</a>
+    <a href="#icon-left-tab-bar">Left Icon</a>
+  </div>
+
+  <p>
+    The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
+  </p>
+  <p>
+    The containing tab bar should have the <code>tabs</code> classname, and each tab should have the <code>tab-item</code> classname. By default, tabs will be without an icon and text-only.
+  </p>
+
+{% highlight html %}
+<div class="tabs">
+  <a class="tab-item">
+    Home
+  </a>
+  <a class="tab-item">
+    Favorites
+  </a>
+  <a class="tab-item">
+    Settings
+  </a>
+</div>
+{% endhighlight %}
+
+  <p>
+    The Tab Bar can be styled to match the standard Ionic colors (the example is using the <code>default</code> color. Use these classes to change the
+    color of the tab bar:
+    <code>tabs-default</code>
+    <code>tabs-secondary</code>
+    <code>tabs-primary</code>
+    <code>tabs-info</code>
+    <code>tabs-success</code>
+    <code>tabs-warning</code>
+    <code>tabs-danger</code>
+    <code>tabs-dark</code>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Tab Bar</div>
+    </div>
+    <div class="tabs">
+      <a class="tab-item">
+        Home
+      </a>
+      <a class="tab-item">
+        Favorites
+      </a>
+      <a class="tab-item">
+        Settings
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icon Only Tabbar
+  ================================================== -->
+<div class="docs-section" id="icon-only-tab-bar">
+
+  <h3><a href="#icon-only-tab-bar">Icon-only Tab Bar</a></h3>
+
+  <p>
+    Add <code>tabs-icon-only</code> along with the <code>tabs</code> classname.
+  </p>
+
+{% highlight html %}
+<div class="tabs tabs-icon-only">
+  <a class="tab-item">
+    <i class="icon ion-home"></i>
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-star"></i>
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+  </a>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Icon-only Tab Bar</div>
+    </div>
+    <div class="tabs tabs-icon-only">
+      <a class="tab-item">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-star"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Top Icon Tab Bar
+  ================================================== -->
+<div class="docs-section" id="icon-top-tab-bar">
+
+  <h3><a href="#icon-top-tab-bar">Top Icon Tab Bar</a></h3>
+
+  <p>
+    The classic tab bar. Add <code>tabs-icon-top</code> along with the <code>tabs</code> classname.
+  </p>
+
+{% highlight html %}
+<div class="tabs tabs-icon-top">
+  <a class="tab-item">
+    <i class="icon ion-home"></i>
+    Home
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-star"></i>
+    Favorites
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+    Settings
+  </a>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Top Icon Tab Bar</div>
+    </div>
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item">
+        <i class="icon ion-home"></i>
+        Home
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Left Icon Tab Bar
+  ================================================== -->
+<div class="docs-section" id="icon-left-tab-bar">
+
+  <h3><a href="#icon-left-tab-bar">Left Icon Tab Bar</a></h3>
+
+  <p>
+    Add <code>tabs-icon-left</code> along with the <code>tabs</code> classname.
+  </p>
+
+{% highlight html %}
+<div class="tabs tabs-icon-left">
+  <a class="tab-item">
+    <i class="icon ion-home"></i>
+    Home
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-star"></i>
+    Favorites
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+    Settings
+  </a>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Left Icon Tab Bar</div>
+    </div>
+    <div class="tabs tabs-icon-left">
+      <a class="tab-item">
+        <i class="icon ion-home"></i>
+        Home
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Side Menu
+  ================================================== -->
+<div class="docs-section" id="sidemenu">
+
+  <h3><a href="#sidemenu">Side Menus</a></h3>
+  <p>
+    Side Menus are exposable side menus seen at various times in popular
+    apps like Path and Facebook.
+    Each menu can be exposed by dragging the content area left and/or right, or through a Javascript API.
+  </p>
+
+{% highlight html %}
+<side-menu>
+  <!-- Center content -->
+  <pane side-menu-content>
+  </pane>
+
+  <!-- Left menu -->
+  <menu side="left">
+  </menu>
+
+  <!-- Right menu -->
+  <menu side="right">
+  </menu>
+</side-menu>
+{% endhighlight %}
+
+  <p class="advanced-panel">
+    <em>*</em> For a more extensive overview on Side Menu Controllers, read the
+    <a href="/docs/controllers/side-menu/">Side Menu Controller Docs</a>
+  </p>
+
+</div>
+
+
+
+<!-- Utility
+  ================================================== -->
+<div class="docs-section" id="utility">
+
+  <h2><a href="#utility">Utility</a></h2>
+
+  <p>
+    ...
+  </p>
+
+</div>
+
+
+
+<!-- Colors
+  ================================================== -->
+<div class="docs-section" id="colors">
+
+  <h3><a href="#colors">Colors</a></h3>
+
+  <div class="sub-links">
+    <a href="#brand-colors">Brand</a>
+    <a href="#utility-colors">Utility</a>
+  </div>
+
+  <p>
+    Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc. 
+  </p>
+  <p>
+    Let's be realistic, assigning colors is one of the easier tasks in CSS, and each app will have different requirements for colors. Ionic's goal is to provide a clean system to build on top of and maintain, and stays away from dictating how each app chooses to color its custom design.
+  </p>
+  <p>
+    To customize the colors you can simply override those coming from the <code>ionic.css</code> CSS file. Additionally, since Ionic is built using <a href="http://sass-lang.com/">SASS</a>, for more power and flexibility you could also modify and extend the color variables within the <code>_variables.scss</code> file.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Colors</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Colors: Brand Colors
+  ================================================== -->
+<div class="docs-section" id="brand-colors">
+
+  <h3><a href="#brand-colors">Brand Colors</a></h3>
+
+  <p>
+    Brand colors are <strong>your brand's colors</strong>...override the defaults to your app's theme! Throughout Ionic's CSS we use <code>brand-primary</code>, <code>brand-secondary</code> and <code>brand-tertiary</code> (ter·tia·ry: of third rank, importance, or value). 
+  </p>
+
+  <p>
+    A good use of brand colors would be for your headers and buttons. For example, if the great <a href="http://www.packers.com/">Green Bay Packers</a> were to choose their brand colors, they'd probably make their green the primary color, yellow secondary, and either a white or gray for the tertiary color. If the Packer's app wanted their green in the header, they'd simply use the brand's primary color.
+  </p>
+  
+  <p>
+    Apps can use these brand color naming conventions through your design as you choose (or don't use them at all, its all up to you).
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Brand Colors</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Colors: Utility Colors
+  ================================================== -->
+<div class="docs-section" id="utility-colors">
+
+  <h3><a href="#utility-colors">Utility Colors</a></h3>
+
+  <p>
+    Utility colors are added to help set a naming convention. You'll notice Ionic purposely does not use words like "red" or "blue", but instead have colors which represent an emotion or generic theme.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Utility Colors</div>
+    </div>
+    <div class="content has-header">
+      
+      <ul class="list color-list-demo">
+        <li class="item positive">
+          positive
+          <span class="color-demo positive-bg positive-border"></span>
+        </li>
+        <li class="item calm">
+          calm
+          <span class="color-demo calm-bg calm-border"></span>
+        </li>
+        <li class="item assertive">
+          assertive
+          <span class="color-demo assertive-bg assertive-border"></span>
+        </li>
+        <li class="item balanced">
+          balanced
+          <span class="color-demo balanced-bg balanced-border"></span>
+        </li>
+        <li class="item energized">
+          energized
+          <span class="color-demo energized-bg energized-border"></span>
+        </li>
+        <li class="item royal">
+          royal
+          <span class="color-demo royal-bg royal-border"></span>
+        </li>
+        <li class="item dark">
+          light
+          <span class="color-demo light-bg light-border"></span>
+        </li>
+        <li class="item stable-dark">
+          stable
+          <span class="color-demo stable-bg stable-border"></span>
+        </li>
+        <li class="item dark">
+          dark
+          <span class="color-demo dark-bg dark-border"></span>
+        </li>
+      </ul>
+ 
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icons
+  ================================================== -->
+<div class="docs-section" id="icons">
+
+  <h3><a href="#icons">Icons</a></h3>
+
+  <p>
+    ...
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Icons</div>
+    </div>
+    <div class="content has-header padding">
+      
+      ...
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Padding
+  ================================================== -->
+<div class="docs-section" id="padding">
+
+  <h3><a href="#padding">Padding</a></h3>
+
+  <p>
+    Many components in Ionic purposely have both padding and margin reset set to zero.
+    In many instances apps will have components bleed to the edge of the screen, 
+    and by starting each component at zero developers can easily control padding and margins throughout the app. 
+  </p>
+  <p>
+    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
+    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
+    The following classes are not required for any element, but may be helpful with your layout. 
+  </p>
+  <ul>
+    <li>
+      <code>padding</code> Adds padding around every side.
+    </li>
+    <li>
+      <code>padding-vertical</code> Adds padding to the top and bottom.
+    </li>
+    <li>
+      <code>padding-horizontal</code> Adds padding to the left and right.
+    </li>
+    <li>
+      <code>padding-top</code> Adds padding to the top.
+    </li>
+    <li>
+      <code>padding-right</code> Adds padding to the right.
+    </li>
+    <li>
+      <code>padding-bottom</code> Adds padding to the bottom.
+    </li>
+    <li>
+      <code>padding-left</code> Adds padding to the left.
+    </li>
+  </ul>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Padding</div>
+    </div>
+    <div class="content has-header padding">
+      
+      <div class="padding-example">
+        <div></div>
+      </div>
+
+      <p style="margin:0 24px">
+        The gray square represents an element, and the blue square represents
+        the element's content when <code>padding</code> has been applied.
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid
+  ================================================== -->
+<div class="docs-section" id="grid">
+
+  <h3><a href="#grid">Grid</a></h3>
+
+  <div class="sub-links">
+    <a href="#grid-even">Even Columns</a>
+    <a href="#grid-explicit">Explicit Sized</a>
+    <a href="#grid-offset">Offset Columns</a>
+    <a href="#grid-vertically-align">Vertically Align</a>
+  </div>
+
+  <p>
+    Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard. 
+    The advantage here is that the devices Ionic which supports, all support <a href="http://caniuse.com/flexbox">flexbox</a>.
+  </p>
+
+  <p>
+    Simply add columns you want in a row, and they'll evenly take up the available space. If you want three columns, add three columns, if you want five columns, add five columns. There's no restriction to a 12 column grid, or having to explicitly state how large each column should be. And to add to the crazy, you can vertically align content within each column.
+  </p>
+
+  <p>
+    Use the <code>row</code> classname is used to designate, surprise, a row, and <code>col</code> is used for a column. In the demo to the right we chose to have four, then two, columns, but we could have just as easily used 3, 6, 7, 23, etc., it doesn't matter. Point is, add the number of columns your layout requires and don't worry about figuring out the percentages because it figures it out automagically.
+  </p>
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Grid</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-50">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-25 col-offset-25">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-top">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-center">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-bottom">
+          <div class="col-demo">Line 1</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Evenly Spaced Columns
+  ================================================== -->
+<div class="docs-section" id="grid-even">
+
+  <h3><a href="#grid-even">Grid: Evenly Spaced Columns</a></h3>
+
+  <p>
+    By default every <code>col</code> added inside a <code>row</code> will automatically receiving and equal amount of the available area. Notice in the code below that no sizes are specified anywhere in the classnames, yet each of the five columns in this example will each evenly take up 20% of the available width (thank you flexbox).
+  </p>
+
+{% highlight html %}
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Evenly Spaced Columns</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Explicit Column Sizes
+  ================================================== -->
+<div class="docs-section" id="grid-explicit">
+
+  <h3><a href="#grid-explicit">Grid: Explicit Column Sizes</a></h3>
+  <p>
+    You <em>can</em> explicitly state the size of a column if for example you'd want specific columns to be larger than the others in the same row. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid). 
+  </p>
+  <p>
+    An advantage with this grid system is that you only have to state the percentage for the column that needs it, and the others will still evenly divide up the available areas.
+  </p>
+
+
+{% highlight html %}
+<div class="row">
+  <div class="col col-50">.col.col-50</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-75">.col.col-75</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col col-75">.col.col-75</div>
+</div>
+
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          Explicit Column Percentage Classnames
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>.col-10</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-20</th>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <th>.col-25</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-33</th>
+        <td>33.3333%</td>
+      </tr>
+      <tr>
+        <th>.col-50</th>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <th>.col-67</th>
+        <td>66.6666%</td>
+      </tr>
+      <tr>
+        <th>.col-75</th>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <th>.col-80</th>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <th>.col-90</th>
+        <td>90%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Explicit Column Sizes</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col col-50">
+          <div class="col-demo">.col.col-50</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-75">
+          <div class="col-demo">.col.col-75</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-75">
+          <div class="col-demo">.col.col-75</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Offset Columns
+  ================================================== -->
+<div class="docs-section" id="grid-offset">
+
+  <h3><a href="#grid-offset">Grid: Offset Columns</a></h3>
+  <p>
+    Columns can also be offset from the left. We'll let the code and demo speak for itself. 
+  </p>
+
+
+{% highlight html %}
+<div class="row">
+  <div class="col col-33 col-offset-33">.col</div>
+  <div class="col">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-33">.col</div>
+  <div class="col col-33 col-offset-33">.col</div>
+</div>
+
+<div class="row">
+  <div class="col col-33 col-offset-67">.col</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          Offset Column Percentage Classnames
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>.col-offset-10</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-20</th>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-25</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-33</th>
+        <td>33.3333%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-50</th>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-67</th>
+        <td>66.6666%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-75</th>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-80</th>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <th>.col-offset-90</th>
+        <td>90%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Offset Columns</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col col-33 col-offset-33">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-33">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-33 col-offset-33">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-33 col-offset-67">
+          <div class="col-demo">.col</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Grid: Vertically Aligned Columns
+  ================================================== -->
+<div class="docs-section" id="grid-vertically-align">
+
+  <h3><a href="#grid-vertically-align">Grid: Vertically Align Columns</a></h3>
+  <p>
+    Another trick up flexbox's sleeve is the ability to easily vertically
+    align columns. Vertical alignment includes top, center and bottom, and can be applied to every column in a row, or to specific columns.
+  </p>
+  <p>
+    In the demo, we've made the last column in each row to have the tallest content in order to demonstrate
+    how the content of the others vertically align. The first row shows the default which is to take the same height as the tallest column in the same row.
+  </p>
+
+{% highlight html %}
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row">
+  <div class="col col-top">.col</div>
+  <div class="col col-center">.col</div>
+  <div class="col col-bottom">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-top">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-center">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+
+<div class="row row-bottom">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">1<br>2<br>3<br>4</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Vertically Aligned Columns</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col col-top">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-center">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col col-bottom">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-top">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-center">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+      
+      <div class="row row-bottom">
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col">
+          <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- View Controllers
+  ================================================== -->
+<div class="docs-section" id="view-controllers">
+
+  <h2><a href="#view-controllers">View Controllers</a></h2>
+
+  <p>
+    ...
+  </p>
+
+</div>
+
+
+
+<!-- Navigation Stack
+  ================================================== -->
+<div class="docs-section" id="navigation-stack">
+
+  <h3><a href="#navigation-stack">Navigation Stack</a></h3>
+  <table class="table table-condensed table-bordered module-info">
+    <tr>
+      <td>Module</td><td><code>ionic.ui.nav</code></td>
+    </tr>
+    <tr>
+      <td>Directive</td><td><code>navs (element)</code></td>
+    </tr>
+  </table>
+  <p>
+    The Navigation Stack is a stack of screens the user has navigated
+    to, and can travel back in history to. This API is modeled from
+    the UINavigationController in iOS.
+  </p>
+  <p>
+    The Navigation Stack powers a Header Bar, including changing the
+    active title of the bar, to hiding and showing a back button
+    if available.
+  </p>
+
+{% highlight html %}
+<navs>
+  <nav-bar></nav-bar>
+
+  <content has-header="true">
+  </content>
+</navs>
+{% endhighlight %}
+  <p>
+    To interact with the Nav Controller from your own controllers or
+    directives, access the <code>$scope.navController</code> object
+    on prototypically-inherited child scopes.
+  </p>
+  <p>
+    To add new screens to the navigation controller,
+    call <code>$scope.navController.pushFromTemplate(templateUrl)</code> to navigate to a new content area.
+  </p>
+  <p>
+    
+  </p>
+
+</div>
+
+
+<!-- Tabs
+  ================================================== -->
+<div class="docs-section" id="tabs">
+
+  <h3><a href="#tabs">Tabs</a></h3>
+
+  <p>
+    Tabs are multi-paned interfaces that are powered
+    through a Tab Bar.
+  </p>
+
+{% highlight html %}
+<tabs>
+  <tab title="Home" icon-on="icon-ios7-filing" icon-off="icon-ios7-filing-outline">
+    <!-- Content of tab 1 -->
+  </tab>
+  <tab title="About" icon-on="icon-ios7-clock" icon-off="icon-ios7-clock-outline">
+    <!-- Content of tab 2 -->
+  </tab>
+  
+  <tab title="Settings" icon-on="icon-ios7-gear" icon-off="icon-ios7-gear-outline">
+    <!-- Content of tab 3 -->
+  </tab>
+  
+</tabs>
+{% endhighlight %}
+  
+  <p>
+    In the example above, a Tab Bar will be added to the layout and each <code>&lt;tab&gt;</code> will be cycled through based on user input.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Tabs</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Modals
+  ================================================== -->
+<div class="docs-section" id="modals">
+
+  <h3><a href="#modals">Modals</a></h3>
+  <table class="table table-condensed table-bordered module-info">
+    <tr>
+      <td>Module</td><td><code>ionic.service.modal</code></td>
+    </tr>
+    <tr>
+      <td>Service</td><td><code>Modal</code></td>
+    </tr>
+  </table>
+
+  <p>
+  Modals are independent "screens" that can be slid into view.
+  </p>
+
+{% highlight html %}
+<div class="modal slide-in-up">
+  <header class="bar bar-header">
+    <h1 class="title">Modal</h1>
+    <button class="button button-clear button-primary">Done</button>
+  </header>
+  <main class="content padding has-header">
+    <h1>Modal Content</h1>
+  </main>
+</div>
+{% endhighlight %}
+<p>
+To show the modal, import the <code>ionic.ui.modal</code> package and use the <code>Modal</code> service in your controllers:
+</p>
+{% highlight javascript %}
+app.controller('MyCtrl', function($scope, Modal) {
+  // Initialize modal from template
+  var modal = Modal.fromTemplateUrl('myModal.html', function(modal) {
+    $scope.modal = modal;
+  });
+  
+  $scope.showModal = function() {
+    $scope.modal.show();
+  };
+
+  $scope.hideModal = function() {
+    $scope.modal.hide();
+  };
+});
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Modals</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        ...
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Action Sheets
+  ================================================== -->
+<div class="docs-section" id="action-sheets">
+
+  <h3><a href="#action-sheets">Action Sheets</a></h3>
+  <table class="table table-condensed table-bordered module-info">
+    <tr>
+      <td>Module</td><td><code>ionic.ui.actionSheet</code></td>
+    </tr>
+    <tr>
+      <td>Service</td><td><code>ActionSheet</code></td>
+    </tr>
+  </table>
+  <p>
+    Action Sheets are slide-up buttons shown in response to a user action, often asking the user to confirm the decision. Action Sheets are modeled off of the iOS UIActionSheet.
+  </p>
+  <p>
+    
+  </p>
+
+{% highlight javascript %}
+ActionSheet.show({
+  buttons: [],
+  destructiveText: 'Delete Thing',
+  cancelText: 'Cancel',
+  cancel: function() {
+    // Return true to close the Action Sheet
+    return true;
+  },
+  destructiveButtonClicked: function() {
+    // Do the dangerous thing here
+    // ...
+
+    // Return true to close the Action Sheet
+    return true;
+  }
+});
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Action Sheets</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <button class="button-primary">Show Actions</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Popups
+  ================================================== -->
+<div class="docs-section" id="popups">
+
+  <h3><a href="#popups">Popups</a></h3>
+  <table class="table table-condensed table-bordered module-info">
+    <tr>
+      <td>Module</td><td><code>ionic.service.popup</code></td>
+    </tr>
+    <tr>
+      <td>Service</td><td><code>Popup</code></td>
+    </tr>
+  </table>
+  <p>
+    Popups are "modal" popup windows like alert, confirm, and prompt popups used in many Javascript-powered websites. In a web-powered web or native app, alert(), confirm(), and prompt() can still be used, but 
+    to get more control over the experience, use the Popup service. Note,
+    these popups are asynchronous unlike the core native versions, and will not suspend running application.
+  </p>
+  <p>
+  </p>
+{% highlight javascript %}
+// Show an alert popup
+Popup.alert('Bad user!');
+
+// Show a prompt popup
+Popup.prompt('I never asked, do you like Guacamole?', function(response) {
+});
+
+// Show a confirm popup
+Popup.confirm('Are you sure you want to throw it all away?', function(response) {
+});
+
+// Show a custom popup with two custom buttons
+Popup.show({
+  title: 'Custom popup',
+  buttons: [
+    { 'title': 'Button 1', onClick: function() {} },
+    { 'title': 'Button 2', onClick: function() {} },
+  ]
+});
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Action Sheets</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+        <button class="button-primary">Show Actions</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  //$('.nav-tabs').tab();
+</script>
+
+
+<!-- Alerts
+  ================================================== -->
+<div class="docs-section" id="alerts">
+
+  <h3><a href="#alerts">Alerts</a></h3>
+
+  <p>
+    ...
+  </p>
+
+{% highlight html %}
+  <p class="alert">
+    <strong>Warning!</strong> Best check yourself.
+  </p>
+
+  <p class="alert alert-error">
+    <strong>Error!</strong> It hit the fan.
+  </p>
+
+  <p class="alert alert-success">
+    <strong>w00t!</strong> You win.
+  </p>
+
+  <p class="alert alert-info">
+    <strong>Info yo!</strong> This is what you need to know.
+  </p>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Alerts</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header">
+
+        <p class="alert">
+          <strong>Warning!</strong> Counsel to desist from a specified undesirable course of action.
+        </p>
+
+        <p class="alert alert-error">
+          <strong>Error!</strong> An act, assertion, or belief that unintentionally deviates from what is correct, right, or true.
+        </p>
+
+        <p class="alert alert-success">
+          <strong>Success!</strong> The favourable outcome of something attempted.
+        </p>
+
+        <p class="alert alert-info">
+          <strong>Info</strong> The act of informing or the condition of being informed.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -5990,6 +5990,30 @@ h1 + h2 + p {
    * --------------------------------------------------
    */
   /**
+   * Complex Items
+   * --------------------------------------------------
+   * Adding .item-complex allows the .item to be slidable and
+   * have options underneath the button, but also requires an
+   * additional .item-content element inside .item.
+   * Basically .item-complex removes any default settings which
+   * .item added, so that .item-content looks them as just .item.
+   */
+  /**
+   * Item Icons
+   * --------------------------------------------------
+   */
+  /**
+   * Item Button
+   * --------------------------------------------------
+   * An item button is a child button inside an .item (not the entire .item)
+   */
+  /**
+   * Auto Right Arrow Icon
+   * --------------------------------------------------
+   * By default, if an .item is created out of an <a> or <button>
+   * then a arrow will be added to the right side of the item.
+   */
+  /**
    * The left-side edit area of a complex list item. This area shows
    * whe the list item is in edit mode.
    */
@@ -6005,9 +6029,15 @@ h1 + h2 + p {
    * List editing styles. These trigger when the entire list goes into
    * "edit mode"
    */
-  /*
-    A card and list-inset are close to the same thing, except a card as a box shadow.
-  */
+  /**
+   * List Header
+   * --------------------------------------------------
+   */
+  /**
+   * Cards and Inset Lists
+   * --------------------------------------------------
+   * A card and list-inset are close to the same thing, except a card as a box shadow.
+   */
   /**
    * Nav
    * --------------------------------------------------
@@ -7954,7 +7984,7 @@ h1 + h2 + p {
     line-height: 1.42857; }
   .ionic a.subdued‎ {
     padding-right: 10px;
-    color: #cccccc;
+    color: #f8f8f8;
     text-decoration: none; }
   .ionic a.subdued‎:hover {
     text-decoration: none; }
@@ -8081,41 +8111,27 @@ h1 + h2 + p {
     color: white; }
   .ionic .bar.bar-energized .title {
     color: white; }
-  .ionic .bar.bar-royle {
+  .ionic .bar.bar-royal {
     background-color: #8a6de9;
     border-color: #552bdf;
     background-image: linear-gradient(0deg, #552bdf, #552bdf 50%, transparent 50%);
     color: white; }
-  .ionic .bar.bar-royle .title {
+  .ionic .bar.bar-royal .title {
     color: white; }
-  .ionic .bar.bar-pure {
+  .ionic .bar.bar-light {
     background-color: white;
-    border-color: #dddddd;
-    background-image: linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
+    border-color: #b2b2b2;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
     color: #444444; }
-  .ionic .bar.bar-pure .title {
+  .ionic .bar.bar-light .title {
     color: #444444; }
-  .ionic .bar.bar-subdued-light {
-    background-color: #eeeeee;
-    border-color: #dddddd;
-    background-image: linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
-    color: #444444; }
-  .ionic .bar.bar-subdued-light .title {
-    color: #444444; }
-  .ionic .bar.bar-subdued {
-    background-color: #cccccc;
+  .ionic .bar.bar-stable {
+    background-color: #f8f8f8;
     border-color: #bbbbbb;
     background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
     color: #444444; }
-  .ionic .bar.bar-subdued .title {
+  .ionic .bar.bar-stable .title {
     color: #444444; }
-  .ionic .bar.bar-subdued-dark {
-    background-color: #888888;
-    border-color: #6f6f6f;
-    background-image: linear-gradient(0deg, #6f6f6f, #6f6f6f 50%, transparent 50%);
-    color: white; }
-  .ionic .bar.bar-subdued-dark .title {
-    color: white; }
   .ionic .bar.bar-dark {
     background-color: #444444;
     border-color: #444444;
@@ -8191,7 +8207,7 @@ h1 + h2 + p {
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
     border-color: #cccccc; }
   .ionic .bar-secondary .button.button-clear {
-    color: #888888;
+    color: #444444;
     background: none;
     box-shadow: none;
     font-size: 18px; }
@@ -8291,82 +8307,50 @@ h1 + h2 + p {
     background: none;
     box-shadow: none;
     font-size: 18px; }
-  .ionic .bar-royle .button {
+  .ionic .bar-royal .button {
     color: white;
     background-color: #8a6de9;
     border-color: #552bdf; }
-  .ionic .bar-royle .button:hover {
+  .ionic .bar-royal .button:hover {
     color: white;
     text-decoration: none; }
-  .ionic .bar-royle .button.active, .ionic .bar-royle .button:active {
+  .ionic .bar-royal .button.active, .ionic .bar-royal .button:active {
     background-color: #552bdf;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
     border-color: #552bdf; }
-  .ionic .bar-royle .button.button-clear {
+  .ionic .bar-royal .button.button-clear {
     color: white;
     background: none;
     box-shadow: none;
     font-size: 18px; }
-  .ionic .bar-pure .button {
+  .ionic .bar-light .button {
     color: #444444;
     background-color: white;
-    border-color: #dddddd; }
-  .ionic .bar-pure .button:hover {
+    border-color: #b2b2b2; }
+  .ionic .bar-light .button:hover {
     color: #444444;
     text-decoration: none; }
-  .ionic .bar-pure .button.active, .ionic .bar-pure .button:active {
+  .ionic .bar-light .button.active, .ionic .bar-light .button:active {
     background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
     border-color: black; }
-  .ionic .bar-pure .button.button-clear {
+  .ionic .bar-light .button.button-clear {
     color: white;
     background: none;
     box-shadow: none;
     font-size: 18px; }
-  .ionic .bar-subdued-light .button {
+  .ionic .bar-stable .button {
     color: #444444;
-    background-color: #eeeeee;
-    border-color: #dddddd; }
-  .ionic .bar-subdued-light .button:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .bar-subdued-light .button.active, .ionic .bar-subdued-light .button:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .bar-subdued-light .button.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none;
-    font-size: 18px; }
-  .ionic .bar-subdued .button {
-    color: #444444;
-    background-color: #cccccc;
+    background-color: #f8f8f8;
     border-color: #bbbbbb; }
-  .ionic .bar-subdued .button:hover {
+  .ionic .bar-stable .button:hover {
     color: #444444;
     text-decoration: none; }
-  .ionic .bar-subdued .button.active, .ionic .bar-subdued .button:active {
+  .ionic .bar-stable .button.active, .ionic .bar-stable .button:active {
     background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
     border-color: black; }
-  .ionic .bar-subdued .button.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none;
-    font-size: 18px; }
-  .ionic .bar-subdued-dark .button {
-    color: white;
-    background-color: #888888;
-    border-color: #6f6f6f; }
-  .ionic .bar-subdued-dark .button:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .bar-subdued-dark .button.active, .ionic .bar-subdued-dark .button:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .bar-subdued-dark .button.button-clear {
+  .ionic .bar-stable .button.button-clear {
     color: white;
     background: none;
     box-shadow: none;
@@ -8416,9 +8400,9 @@ h1 + h2 + p {
     -moz-flex-direction: horizontal;
     -ms-flex-direction: horizontal;
     flex-direction: horizontal;
-    background-color: #eeeeee;
-    background-image: linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
-    border-color: #dddddd;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
+    border-color: #bbbbbb;
     color: #444444;
     position: absolute;
     bottom: 0;
@@ -8469,31 +8453,21 @@ h1 + h2 + p {
     background-image: linear-gradient(0deg, #d39511, #d39511 50%, transparent 50%);
     border-color: #d39511;
     color: white; }
-  .ionic .tabs.tabs-royle {
+  .ionic .tabs.tabs-royal {
     background-color: #8a6de9;
     background-image: linear-gradient(0deg, #552bdf, #552bdf 50%, transparent 50%);
     border-color: #552bdf;
     color: white; }
-  .ionic .tabs.tabs-pure {
+  .ionic .tabs.tabs-light {
     background-color: white;
-    background-image: linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
-    border-color: #dddddd;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    border-color: #b2b2b2;
     color: #444444; }
-  .ionic .tabs.tabs-subdued-light {
-    background-color: #eeeeee;
-    background-image: linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
-    border-color: #dddddd;
-    color: #444444; }
-  .ionic .tabs.tabs-subdued {
-    background-color: #cccccc;
+  .ionic .tabs.tabs-stable {
+    background-color: #f8f8f8;
     background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
     border-color: #bbbbbb;
     color: #444444; }
-  .ionic .tabs.tabs-subdued-dark {
-    background-color: #888888;
-    background-image: linear-gradient(0deg, #6f6f6f, #6f6f6f 50%, transparent 50%);
-    border-color: #6f6f6f;
-    color: white; }
   .ionic .tabs.tabs-dark {
     background-color: #444444;
     background-image: linear-gradient(0deg, #444444, #444444 50%, transparent 50%);
@@ -8568,16 +8542,12 @@ h1 + h2 + p {
     color: #66cc33; }
   .ionic .tab-item.active.tab-item-energized, .ionic .tab-item:active.tab-item-energized {
     color: #f0b840; }
-  .ionic .tab-item.active.tab-item-royle, .ionic .tab-item:active.tab-item-royle {
+  .ionic .tab-item.active.tab-item-royal, .ionic .tab-item:active.tab-item-royal {
     color: #8a6de9; }
-  .ionic .tab-item.active.tab-item-pure, .ionic .tab-item:active.tab-item-pure {
+  .ionic .tab-item.active.tab-item-light, .ionic .tab-item:active.tab-item-light {
     color: white; }
-  .ionic .tab-item.active.tab-item-subdued-light, .ionic .tab-item:active.tab-item-subdued-light {
-    color: #eeeeee; }
-  .ionic .tab-item.active.tab-item-subdued, .ionic .tab-item:active.tab-item-subdued {
-    color: #cccccc; }
-  .ionic .tab-item.active.tab-item-subdued-dark, .ionic .tab-item:active.tab-item-subdued-dark {
-    color: #888888; }
+  .ionic .tab-item.active.tab-item-stable, .ionic .tab-item:active.tab-item-stable {
+    color: #f8f8f8; }
   .ionic .tab-item.active.tab-item-dark, .ionic .tab-item:active.tab-item-dark {
     color: #444444; }
   .ionic .item.tabs {
@@ -8659,11 +8629,19 @@ h1 + h2 + p {
     display: block;
     margin: -1px;
     padding: 15px;
-    border: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
     background-color: white;
-    box-shadow: inset 0 0 1px #666666;
     font-size: 16px;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
+  .ionic .item.active {
+    color: #444444;
+    background-color: white;
+    border-color: #444444; }
+  .ionic .item.active .item-content {
+    background-color: white;
+    color: #444444; }
   .ionic .item h2 {
     margin: 0 0 4px 0;
     font-size: 16px; }
@@ -8695,101 +8673,80 @@ h1 + h2 + p {
     z-index: 2; }
   .ionic .item.active .item-heading, .ionic .item.active:hover .item-heading, .ionic .item.active:focus .item-heading {
     color: inherit; }
-  .ionic .item.active {
-    color: #888888;
-    background-color: white;
-    border-color: #888888; }
-  .ionic .item.active .item-content {
-    background-color: white;
-    color: #888888; }
   .ionic .item-primary.active {
     color: white;
     background-color: #4a87ee;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-primary.active .item-content {
     background-color: #4a87ee;
     color: white; }
   .ionic .item-secondary.active {
-    color: #888888;
+    color: #444444;
     background-color: white;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-secondary.active .item-content {
     background-color: white;
-    color: #888888; }
+    color: #444444; }
   .ionic .item-tertiary.active {
-    color: #888888;
+    color: #444444;
     background-color: whitesmoke;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-tertiary.active .item-content {
     background-color: whitesmoke;
-    color: #888888; }
+    color: #444444; }
   .ionic .item-positive.active {
     color: white;
     background-color: #4a87ee;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-positive.active .item-content {
     background-color: #4a87ee;
     color: white; }
   .ionic .item-calm.active {
     color: white;
     background-color: #43cee6;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-calm.active .item-content {
     background-color: #43cee6;
     color: white; }
   .ionic .item-balanced.active {
     color: white;
     background-color: #66cc33;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-balanced.active .item-content {
     background-color: #66cc33;
     color: white; }
   .ionic .item-energized.active {
     color: white;
     background-color: #f0b840;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-energized.active .item-content {
     background-color: #f0b840;
     color: white; }
-  .ionic .item-royle.active {
+  .ionic .item-royal.active {
     color: white;
     background-color: #8a6de9;
-    border-color: #888888; }
-  .ionic .item-royle.active .item-content {
+    border-color: #444444; }
+  .ionic .item-royal.active .item-content {
     background-color: #8a6de9;
     color: white; }
-  .ionic .item-pure.active {
+  .ionic .item-light.active {
     color: white;
     background-color: white;
-    border-color: #888888; }
-  .ionic .item-pure.active .item-content {
+    border-color: #444444; }
+  .ionic .item-light.active .item-content {
     background-color: white;
     color: white; }
-  .ionic .item-subdued-light.active {
+  .ionic .item-stable.active {
     color: white;
-    background-color: #eeeeee;
-    border-color: #888888; }
-  .ionic .item-subdued-light.active .item-content {
-    background-color: #eeeeee;
-    color: white; }
-  .ionic .item-subdued.active {
-    color: white;
-    background-color: #cccccc;
-    border-color: #888888; }
-  .ionic .item-subdued.active .item-content {
-    background-color: #cccccc;
-    color: white; }
-  .ionic .item-subdued-dark.active {
-    color: white;
-    background-color: #888888;
-    border-color: #888888; }
-  .ionic .item-subdued-dark.active .item-content {
-    background-color: #888888;
+    background-color: #f8f8f8;
+    border-color: #444444; }
+  .ionic .item-stable.active .item-content {
+    background-color: #f8f8f8;
     color: white; }
   .ionic .item-dark.active {
     color: white;
     background-color: #444444;
-    border-color: #888888; }
+    border-color: #444444; }
   .ionic .item-dark.active .item-content {
     background-color: #444444;
     color: white; }
@@ -8817,9 +8774,11 @@ h1 + h2 + p {
     text-decoration: none; }
   .ionic a.item:hover, .ionic a.item:focus {
     text-decoration: none; }
-  .ionic .item-slider {
+  .ionic .item-complex,
+  .ionic a.item.item-complex,
+  .ionic button.item.item-complex {
     padding: 0; }
-  .ionic .item-slider .item-content,
+  .ionic .item-complex .item-content,
   .ionic .item-radio .item-content {
     /**
      * The content area of a complex list item. This area can
@@ -8831,7 +8790,6 @@ h1 + h2 + p {
     padding: 15px 40px 15px 15px;
     border: none;
     background-color: white;
-    box-shadow: inset 0 0 1px #666666;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
   .ionic .item-text-wrap,
   .ionic .item-text-wrap h1,
@@ -8841,7 +8799,7 @@ h1 + h2 + p {
   .ionic .item-text-wrap h5,
   .ionic .item-text-wrap h6,
   .ionic .item-text-wrap p,
-  .ionic .item-slider.item-text-wrap .item-content,
+  .ionic .item-complex.item-text-wrap .item-content,
   .ionic .item-body h1,
   .ionic .item-body h2,
   .ionic .item-body h3,
@@ -8851,17 +8809,18 @@ h1 + h2 + p {
   .ionic .item-body p {
     overflow: auto;
     white-space: normal; }
-  .ionic .item-slider.item-text-wrap,
-  .ionic .item-slider.item-text-wrap h1,
-  .ionic .item-slider.item-text-wrap h2,
-  .ionic .item-slider.item-text-wrap h3,
-  .ionic .item-slider.item-text-wrap h4,
-  .ionic .item-slider.item-text-wrap h5,
-  .ionic .item-slider.item-text-wrap h6,
-  .ionic .item-slider.item-text-wrap p {
+  .ionic .item-complex.item-text-wrap,
+  .ionic .item-complex.item-text-wrap h1,
+  .ionic .item-complex.item-text-wrap h2,
+  .ionic .item-complex.item-text-wrap h3,
+  .ionic .item-complex.item-text-wrap h4,
+  .ionic .item-complex.item-text-wrap h5,
+  .ionic .item-complex.item-text-wrap h6,
+  .ionic .item-complex.item-text-wrap p {
     overflow: hidden;
     white-space: nowrap; }
-  .ionic .item .icon {
+  .ionic .item-icon-left .icon,
+  .ionic .item-icon-right .icon {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
@@ -8884,9 +8843,9 @@ h1 + h2 + p {
     padding-left: 45px; }
   .ionic .item-icon-left .icon {
     left: 7.5px; }
-  .ionic .item-slider.item-icon-left {
+  .ionic .item-complex.item-icon-left {
     padding-left: 0; }
-  .ionic .item-slider.item-icon-left .item-content {
+  .ionic .item-complex.item-icon-left .item-content {
     padding-left: 45px; }
   .ionic .item-icon-right .icon {
     right: 7.5px; }
@@ -8918,7 +8877,9 @@ h1 + h2 + p {
     position: relative;
     left: auto;
     line-height: 31px; }
-  .ionic .item-button-right {
+  .ionic .item-button-right,
+  .ionic a.item.item-button-right,
+  .ionic button.item.item-button-right {
     padding-right: 75px; }
   .ionic .item-button-right > .button,
   .ionic .item-button-right .item-content > .button {
@@ -9024,12 +8985,10 @@ h1 + h2 + p {
     margin-top: 15px;
     margin-bottom: 15px; }
   .ionic .item-divider {
-    margin: -1px;
-    padding: 5px 15px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
     min-height: 30px;
-    border: none;
     background-color: whitesmoke;
-    box-shadow: inset 0 0 1px #666666;
     color: #222222;
     font-weight: bold; }
   .ionic .item-note {
@@ -9055,7 +9014,6 @@ h1 + h2 + p {
   .ionic .item-edit .button {
     height: 100%; }
   .ionic .item-edit .button .icon, .ionic .item-edit .button i {
-    color: #ef4e3a;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
@@ -9066,10 +9024,11 @@ h1 + h2 + p {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
-    font-size: 24px;
     position: absolute;
     top: 0;
-    height: 100%; }
+    height: 100%;
+    color: #ef4e3a;
+    font-size: 24px; }
   .ionic .item-edit.ng-enter {
     left: -48px;
     opacity: 0;
@@ -9105,10 +9064,10 @@ h1 + h2 + p {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
-    font-size: 24px;
     position: absolute;
     top: 0;
-    height: 100%; }
+    height: 100%;
+    font-size: 24px; }
   .ionic .item-options {
     position: absolute;
     top: 0;
@@ -9141,8 +9100,8 @@ h1 + h2 + p {
   .ionic .list-inset {
     overflow: hidden;
     margin: 20px 10px;
-    background-color: white;
-    border-radius: 2px; }
+    border-radius: 2px;
+    background-color: white; }
   .ionic .card {
     padding-top: 1px;
     padding-bottom: 1px;
@@ -9160,31 +9119,25 @@ h1 + h2 + p {
   .ionic .card .item:last-child,
   .ionic .list-inset .item:last-child,
   .ionic .padding > .list .item:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px; }
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px; }
   .ionic .card .item:last-child .item-content,
   .ionic .list-inset .item:last-child .item-content,
   .ionic .padding > .list .item:last-child .item-content {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px; }
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px; }
   .ionic .card .item:last-child,
   .ionic .list-inset .item:last-child {
     margin-bottom: -1px; }
   .ionic .card .item,
-  .ionic .card .item-divider,
   .ionic .list-inset .item,
-  .ionic .list-inset .item-divider,
   .ionic .padding > .list .item,
-  .ionic .padding-horizontal > .list .item,
-  .ionic .padding > .list .item-divider,
-  .ionic .padding-horizontal > .list .item-divider {
-    margin-left: 0;
-    margin-right: 0; }
-  .ionic .padding-left > .list .item,
-  .ionic .padding-left > .list .item-divider {
+  .ionic .padding-horizontal > .list .item {
+    margin-right: 0;
     margin-left: 0; }
-  .ionic .padding-right > .list .item,
-  .ionic .padding-right > .list .item-divider {
+  .ionic .padding-left > .list .item {
+    margin-left: 0; }
+  .ionic .padding-right > .list .item {
     margin-right: 0; }
   .ionic .nav-content {
     position: absolute;
@@ -9202,7 +9155,7 @@ h1 + h2 + p {
     vertical-align: baseline;
     white-space: nowrap;
     text-align: center;
-    background-color: #cccccc;
+    background-color: #f8f8f8;
     border-radius: 10px; }
   .ionic .badge:empty {
     display: none; }
@@ -9225,16 +9178,12 @@ h1 + h2 + p {
     background-color: #66cc33; }
   .ionic .badge-energized {
     background-color: #f0b840; }
-  .ionic .badge-royle {
+  .ionic .badge-royal {
     background-color: #8a6de9; }
-  .ionic .badge-pure {
+  .ionic .badge-light {
     background-color: white; }
-  .ionic .badge-subdued-light {
-    background-color: #eeeeee; }
-  .ionic .badge-subdued {
-    background-color: #cccccc; }
-  .ionic .badge-subdued-dark {
-    background-color: #888888; }
+  .ionic .badge-stable {
+    background-color: #f8f8f8; }
   .ionic .badge-dark {
     background-color: #444444; }
   .ionic .slide-box {
@@ -9312,11 +9261,11 @@ h1 + h2 + p {
     width: 100%;
     border: 0;
     border-bottom: 1px solid #e5e5e5;
-    color: #888888;
+    color: #444444;
     font-size: 21px;
     line-height: 2.85714; }
   .ionic legend small {
-    color: #eeeeee;
+    color: #f8f8f8;
     font-size: 1.07143; }
   .ionic label,
   .ionic input,
@@ -9401,7 +9350,7 @@ h1 + h2 + p {
     padding: 4px 8px 3px;
     border: none;
     background-color: white;
-    box-shadow: inset 0 0 1px #666666; }
+    box-shadow: inset 0 0 1px #dddddd; }
   .ionic .item-stacked-label input {
     height: 46px; }
   .ionic select,
@@ -9422,7 +9371,7 @@ h1 + h2 + p {
   .ionic input[type="color"] {
     display: inline-block;
     height: 34px;
-    color: #cccccc;
+    color: #f8f8f8;
     vertical-align: middle;
     font-size: 14px;
     line-height: 20px; }
@@ -9470,20 +9419,20 @@ h1 + h2 + p {
     height: auto; }
   .ionic input:-moz-placeholder,
   .ionic textarea:-moz-placeholder {
-    color: #cccccc; }
+    color: #f8f8f8; }
   .ionic input:-ms-input-placeholder,
   .ionic textarea:-ms-input-placeholder {
-    color: #cccccc; }
+    color: #f8f8f8; }
   .ionic input::-webkit-input-placeholder,
   .ionic textarea::-webkit-input-placeholder {
-    color: #cccccc; }
+    color: #f8f8f8; }
   .ionic input[disabled],
   .ionic select[disabled],
   .ionic textarea[disabled],
   .ionic input[readonly],
   .ionic select[readonly],
   .ionic textarea[readonly] {
-    background-color: #eeeeee;
+    background-color: #f8f8f8;
     cursor: not-allowed; }
   .ionic input[type="radio"][disabled],
   .ionic input[type="checkbox"][disabled],
@@ -9657,8 +9606,8 @@ h1 + h2 + p {
     border-style: solid;
     border-radius: 2px;
     color: #444444;
-    background-color: #eeeeee;
-    border-color: #c8c8c8;
+    background-color: #f8f8f8;
+    border-color: #d2d2d2;
     vertical-align: top;
     text-align: center;
     text-overflow: ellipsis;
@@ -9669,9 +9618,9 @@ h1 + h2 + p {
     color: #444444;
     text-decoration: none; }
   .ionic .button.active, .ionic .button:active {
-    background-color: #fbfbfb;
+    background-color: white;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #aeaeae; }
+    border-color: #b8b8b8; }
   .ionic .button .icon {
     display: inline-block;
     padding: 0 0 1px 0;
@@ -9681,6 +9630,282 @@ h1 + h2 + p {
   .ionic .button.block, .ionic .button.button-full {
     margin-top: 10px;
     margin-bottom: 10px; }
+  .ionic .button.button-primary {
+    color: white;
+    background-color: #4a87ee;
+    border-color: #1b68ea; }
+  .ionic .button.button-primary:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-primary.active, .ionic .button.button-primary:active {
+    background-color: #3378ec;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #1b68ea; }
+  .ionic .button.button-primary.button-clear {
+    color: #4a87ee;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-primary.button-outline {
+    background: transparent;
+    border-color: #4a87ee;
+    color: #4a87ee; }
+  .ionic .button.button-primary.button-outline.active, .ionic .button.button-primary.button-outline:active {
+    background-color: #4a87ee;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-secondary {
+    color: #444444;
+    background-color: white;
+    border-color: #d9d9d9; }
+  .ionic .button.button-secondary:hover {
+    color: #444444;
+    text-decoration: none; }
+  .ionic .button.button-secondary.active, .ionic .button.button-secondary:active {
+    background-color: white;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #cccccc; }
+  .ionic .button.button-secondary.button-clear {
+    color: #d9d9d9;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-secondary.button-outline {
+    background: transparent;
+    border-color: #d9d9d9;
+    color: #444444; }
+  .ionic .button.button-secondary.button-outline.active, .ionic .button.button-secondary.button-outline:active {
+    background-color: #d9d9d9;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-tertiary {
+    color: #444444;
+    background-color: whitesmoke;
+    border-color: #b5b5b5; }
+  .ionic .button.button-tertiary:hover {
+    color: #444444;
+    text-decoration: none; }
+  .ionic .button.button-tertiary.active, .ionic .button.button-tertiary:active {
+    background-color: white;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #cfcfcf; }
+  .ionic .button.button-tertiary.button-clear {
+    color: whitesmoke;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-tertiary.button-outline {
+    background: transparent;
+    border-color: whitesmoke;
+    color: whitesmoke; }
+  .ionic .button.button-tertiary.button-outline.active, .ionic .button.button-tertiary.button-outline:active {
+    background-color: whitesmoke;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-positive {
+    color: white;
+    background-color: #4a87ee;
+    border-color: #145dd7; }
+  .ionic .button.button-positive:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-positive.active, .ionic .button.button-positive:active {
+    background-color: #145dd7;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #145dd7; }
+  .ionic .button.button-positive.button-clear {
+    color: #4a87ee;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-positive.button-outline {
+    background: transparent;
+    border-color: #4a87ee;
+    color: #4a87ee; }
+  .ionic .button.button-positive.button-outline.active, .ionic .button.button-positive.button-outline:active {
+    background-color: #4a87ee;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-calm {
+    color: white;
+    background-color: #43cee6;
+    border-color: #1aaac3; }
+  .ionic .button.button-calm:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-calm.active, .ionic .button.button-calm:active {
+    background-color: #1aaac3;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #1aaac3; }
+  .ionic .button.button-calm.button-clear {
+    color: #43cee6;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-calm.button-outline {
+    background: transparent;
+    border-color: #43cee6;
+    color: #43cee6; }
+  .ionic .button.button-calm.button-outline.active, .ionic .button.button-calm.button-outline:active {
+    background-color: #43cee6;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-assertive {
+    color: white;
+    background-color: #ef4e3a;
+    border-color: #cc2511; }
+  .ionic .button.button-assertive:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-assertive.active, .ionic .button.button-assertive:active {
+    background-color: #cc2511;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #cc2511; }
+  .ionic .button.button-assertive.button-clear {
+    color: #ef4e3a;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-assertive.button-outline {
+    background: transparent;
+    border-color: #ef4e3a;
+    color: #ef4e3a; }
+  .ionic .button.button-assertive.button-outline.active, .ionic .button.button-assertive.button-outline:active {
+    background-color: #ef4e3a;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-balanced {
+    color: white;
+    background-color: #66cc33;
+    border-color: #478f24; }
+  .ionic .button.button-balanced:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-balanced.active, .ionic .button.button-balanced:active {
+    background-color: #478f24;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #478f24; }
+  .ionic .button.button-balanced.button-clear {
+    color: #66cc33;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-balanced.button-outline {
+    background: transparent;
+    border-color: #66cc33;
+    color: #66cc33; }
+  .ionic .button.button-balanced.button-outline.active, .ionic .button.button-balanced.button-outline:active {
+    background-color: #66cc33;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-energized {
+    color: white;
+    background-color: #f0b840;
+    border-color: #d39511; }
+  .ionic .button.button-energized:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-energized.active, .ionic .button.button-energized:active {
+    background-color: #d39511;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #d39511; }
+  .ionic .button.button-energized.button-clear {
+    color: #f0b840;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-energized.button-outline {
+    background: transparent;
+    border-color: #f0b840;
+    color: #f0b840; }
+  .ionic .button.button-energized.button-outline.active, .ionic .button.button-energized.button-outline:active {
+    background-color: #f0b840;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-royal {
+    color: white;
+    background-color: #8a6de9;
+    border-color: #552bdf; }
+  .ionic .button.button-royal:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-royal.active, .ionic .button.button-royal:active {
+    background-color: #552bdf;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: #552bdf; }
+  .ionic .button.button-royal.button-clear {
+    color: #8a6de9;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-royal.button-outline {
+    background: transparent;
+    border-color: #8a6de9;
+    color: #8a6de9; }
+  .ionic .button.button-royal.button-outline.active, .ionic .button.button-royal.button-outline:active {
+    background-color: #8a6de9;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-light {
+    color: #444444;
+    background-color: white;
+    border-color: #b2b2b2; }
+  .ionic .button.button-light:hover {
+    color: #444444;
+    text-decoration: none; }
+  .ionic .button.button-light.active, .ionic .button.button-light:active {
+    background-color: #222222;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: black; }
+  .ionic .button.button-light.button-clear {
+    color: white;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-light.button-outline {
+    background: transparent;
+    border-color: white;
+    color: white; }
+  .ionic .button.button-light.button-outline.active, .ionic .button.button-light.button-outline:active {
+    background-color: white;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-stable {
+    color: #444444;
+    background-color: #f8f8f8;
+    border-color: #bbbbbb; }
+  .ionic .button.button-stable:hover {
+    color: #444444;
+    text-decoration: none; }
+  .ionic .button.button-stable.active, .ionic .button.button-stable:active {
+    background-color: #222222;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: black; }
+  .ionic .button.button-stable.button-clear {
+    color: #f8f8f8;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-stable.button-outline {
+    background: transparent;
+    border-color: #f8f8f8;
+    color: #f8f8f8; }
+  .ionic .button.button-stable.button-outline.active, .ionic .button.button-stable.button-outline:active {
+    background-color: #f8f8f8;
+    color: #fff;
+    box-shadow: none; }
+  .ionic .button.button-dark {
+    color: white;
+    background-color: #444444;
+    border-color: #444444; }
+  .ionic .button.button-dark:hover {
+    color: white;
+    text-decoration: none; }
+  .ionic .button.button-dark.active, .ionic .button.button-dark:active {
+    background-color: #222222;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-color: black; }
+  .ionic .button.button-dark.button-clear {
+    color: #444444;
+    background: none;
+    box-shadow: none; }
+  .ionic .button.button-dark.button-outline {
+    background: transparent;
+    border-color: #444444;
+    color: #444444; }
+  .ionic .button.button-dark.button-outline.active, .ionic .button.button-dark.button-outline:active {
+    background-color: #444444;
+    color: #fff;
+    box-shadow: none; }
   .ionic .button-small {
     padding: 0 4px;
     min-width: 28px;
@@ -9714,7 +9939,7 @@ h1 + h2 + p {
     background: none;
     box-shadow: none; }
   .ionic .button-clear.button-clear {
-    color: #eeeeee;
+    color: #f8f8f8;
     background: none;
     box-shadow: none; }
   .ionic .button-clear:active, .ionic .button-clear.active {
@@ -9726,10 +9951,10 @@ h1 + h2 + p {
     box-shadow: none; }
   .ionic .button-outline.button-outline {
     background: transparent;
-    border-color: #eeeeee;
-    color: #eeeeee; }
+    border-color: #f8f8f8;
+    color: #f8f8f8; }
   .ionic .button-outline.button-outline.active, .ionic .button-outline.button-outline:active {
-    background-color: #eeeeee;
+    background-color: #f8f8f8;
     color: #fff;
     box-shadow: none; }
   .ionic .button-icon {
@@ -9739,328 +9964,6 @@ h1 + h2 + p {
     background: none;
     box-shadow: none;
     text-shadow: 0px 0px 10px #fff; }
-  .ionic .button-primary {
-    color: white;
-    background-color: #4a87ee;
-    border-color: #1b68ea; }
-  .ionic .button-primary:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-primary.active, .ionic .button-primary:active {
-    background-color: #3378ec;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #1b68ea; }
-  .ionic .button-primary.button-clear {
-    color: #4a87ee;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-primary.button-outline {
-    background: transparent;
-    border-color: #4a87ee;
-    color: #4a87ee; }
-  .ionic .button-primary.button-outline.active, .ionic .button-primary.button-outline:active {
-    background-color: #4a87ee;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-secondary {
-    color: #444444;
-    background-color: white;
-    border-color: #d9d9d9; }
-  .ionic .button-secondary:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button-secondary.active, .ionic .button-secondary:active {
-    background-color: white;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cccccc; }
-  .ionic .button-secondary.button-clear {
-    color: #d9d9d9;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-secondary.button-outline {
-    background: transparent;
-    border-color: #d9d9d9;
-    color: #888888; }
-  .ionic .button-secondary.button-outline.active, .ionic .button-secondary.button-outline:active {
-    background-color: #d9d9d9;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-tertiary {
-    color: #444444;
-    background-color: whitesmoke;
-    border-color: #b5b5b5; }
-  .ionic .button-tertiary:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button-tertiary.active, .ionic .button-tertiary:active {
-    background-color: white;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cfcfcf; }
-  .ionic .button-tertiary.button-clear {
-    color: whitesmoke;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-tertiary.button-outline {
-    background: transparent;
-    border-color: whitesmoke;
-    color: whitesmoke; }
-  .ionic .button-tertiary.button-outline.active, .ionic .button-tertiary.button-outline:active {
-    background-color: whitesmoke;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-positive {
-    color: white;
-    background-color: #4a87ee;
-    border-color: #145dd7; }
-  .ionic .button-positive:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-positive.active, .ionic .button-positive:active {
-    background-color: #145dd7;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #145dd7; }
-  .ionic .button-positive.button-clear {
-    color: #4a87ee;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-positive.button-outline {
-    background: transparent;
-    border-color: #4a87ee;
-    color: #4a87ee; }
-  .ionic .button-positive.button-outline.active, .ionic .button-positive.button-outline:active {
-    background-color: #4a87ee;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-calm {
-    color: white;
-    background-color: #43cee6;
-    border-color: #1aaac3; }
-  .ionic .button-calm:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-calm.active, .ionic .button-calm:active {
-    background-color: #1aaac3;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #1aaac3; }
-  .ionic .button-calm.button-clear {
-    color: #43cee6;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-calm.button-outline {
-    background: transparent;
-    border-color: #43cee6;
-    color: #43cee6; }
-  .ionic .button-calm.button-outline.active, .ionic .button-calm.button-outline:active {
-    background-color: #43cee6;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-assertive {
-    color: white;
-    background-color: #ef4e3a;
-    border-color: #cc2511; }
-  .ionic .button-assertive:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-assertive.active, .ionic .button-assertive:active {
-    background-color: #cc2511;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cc2511; }
-  .ionic .button-assertive.button-clear {
-    color: #ef4e3a;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-assertive.button-outline {
-    background: transparent;
-    border-color: #ef4e3a;
-    color: #ef4e3a; }
-  .ionic .button-assertive.button-outline.active, .ionic .button-assertive.button-outline:active {
-    background-color: #ef4e3a;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-balanced {
-    color: white;
-    background-color: #66cc33;
-    border-color: #478f24; }
-  .ionic .button-balanced:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-balanced.active, .ionic .button-balanced:active {
-    background-color: #478f24;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #478f24; }
-  .ionic .button-balanced.button-clear {
-    color: #66cc33;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-balanced.button-outline {
-    background: transparent;
-    border-color: #66cc33;
-    color: #66cc33; }
-  .ionic .button-balanced.button-outline.active, .ionic .button-balanced.button-outline:active {
-    background-color: #66cc33;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-energized {
-    color: white;
-    background-color: #f0b840;
-    border-color: #d39511; }
-  .ionic .button-energized:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-energized.active, .ionic .button-energized:active {
-    background-color: #d39511;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #d39511; }
-  .ionic .button-energized.button-clear {
-    color: #f0b840;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-energized.button-outline {
-    background: transparent;
-    border-color: #f0b840;
-    color: #f0b840; }
-  .ionic .button-energized.button-outline.active, .ionic .button-energized.button-outline:active {
-    background-color: #f0b840;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-royle {
-    color: white;
-    background-color: #8a6de9;
-    border-color: #552bdf; }
-  .ionic .button-royle:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-royle.active, .ionic .button-royle:active {
-    background-color: #552bdf;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #552bdf; }
-  .ionic .button-royle.button-clear {
-    color: #8a6de9;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-royle.button-outline {
-    background: transparent;
-    border-color: #8a6de9;
-    color: #8a6de9; }
-  .ionic .button-royle.button-outline.active, .ionic .button-royle.button-outline:active {
-    background-color: #8a6de9;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-pure {
-    color: #444444;
-    background-color: white;
-    border-color: #dddddd; }
-  .ionic .button-pure:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button-pure.active, .ionic .button-pure:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button-pure.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-pure.button-outline {
-    background: transparent;
-    border-color: white;
-    color: white; }
-  .ionic .button-pure.button-outline.active, .ionic .button-pure.button-outline:active {
-    background-color: white;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-subdued-light {
-    color: #444444;
-    background-color: #eeeeee;
-    border-color: #dddddd; }
-  .ionic .button-subdued-light:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button-subdued-light.active, .ionic .button-subdued-light:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button-subdued-light.button-clear {
-    color: #eeeeee;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-subdued-light.button-outline {
-    background: transparent;
-    border-color: #eeeeee;
-    color: #eeeeee; }
-  .ionic .button-subdued-light.button-outline.active, .ionic .button-subdued-light.button-outline:active {
-    background-color: #eeeeee;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-subdued {
-    color: #444444;
-    background-color: #cccccc;
-    border-color: #bbbbbb; }
-  .ionic .button-subdued:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button-subdued.active, .ionic .button-subdued:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button-subdued.button-clear {
-    color: #cccccc;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-subdued.button-outline {
-    background: transparent;
-    border-color: #cccccc;
-    color: #cccccc; }
-  .ionic .button-subdued.button-outline.active, .ionic .button-subdued.button-outline:active {
-    background-color: #cccccc;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-subdued-dark {
-    color: white;
-    background-color: #888888;
-    border-color: #6f6f6f; }
-  .ionic .button-subdued-dark:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-subdued-dark.active, .ionic .button-subdued-dark:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button-subdued-dark.button-clear {
-    color: #888888;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-subdued-dark.button-outline {
-    background: transparent;
-    border-color: #888888;
-    color: #888888; }
-  .ionic .button-subdued-dark.button-outline.active, .ionic .button-subdued-dark.button-outline:active {
-    background-color: #888888;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button-dark {
-    color: white;
-    background-color: #444444;
-    border-color: #444444; }
-  .ionic .button-dark:hover {
-    color: white;
-    text-decoration: none; }
-  .ionic .button-dark.active, .ionic .button-dark:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button-dark.button-clear {
-    color: #444444;
-    background: none;
-    box-shadow: none; }
-  .ionic .button-dark.button-outline {
-    background: transparent;
-    border-color: #444444;
-    color: #444444; }
-  .ionic .button-dark.button-outline.active, .ionic .button-dark.button-outline:active {
-    background-color: #444444;
-    color: #fff;
-    box-shadow: none; }
   .ionic .padding > .button.block:first-child {
     margin-top: 0; }
   .ionic .button-full,
@@ -10407,36 +10310,24 @@ h1 + h2 + p {
     background-color: #f0b840; }
   .ionic .energized-border {
     border-color: #d39511; }
-  .ionic .royle {
+  .ionic .royal {
     color: #8a6de9; }
-  .ionic .royle-bg {
+  .ionic .royal-bg {
     background-color: #8a6de9; }
-  .ionic .royle-border {
+  .ionic .royal-border {
     border-color: #552bdf; }
-  .ionic .pure {
+  .ionic .light {
     color: white; }
-  .ionic .pure-bg {
+  .ionic .light-bg {
     background-color: white; }
-  .ionic .pure-border {
-    border-color: #dddddd; }
-  .ionic .subdued-light {
-    color: #eeeeee; }
-  .ionic .subdued-light-bg {
-    background-color: #eeeeee; }
-  .ionic .subdued-light-border {
-    border-color: #dddddd; }
-  .ionic .subdued {
-    color: #cccccc; }
-  .ionic .subdued-bg {
-    background-color: #cccccc; }
-  .ionic .subdued-border {
+  .ionic .light-border {
+    border-color: #b2b2b2; }
+  .ionic .stable {
+    color: #f8f8f8; }
+  .ionic .stable-bg {
+    background-color: #f8f8f8; }
+  .ionic .stable-border {
     border-color: #bbbbbb; }
-  .ionic .subdued-dark {
-    color: #888888; }
-  .ionic .subdued-dark-bg {
-    background-color: #888888; }
-  .ionic .subdued-dark-border {
-    border-color: #6f6f6f; }
   .ionic .dark {
     color: #444444; }
   .ionic .dark-bg {

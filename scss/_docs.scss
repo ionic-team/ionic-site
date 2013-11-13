@@ -107,31 +107,12 @@
     text-decoration: none;
   }
 
-  .sub-links {
-    margin-top: -10px;
-    padding-bottom: 2px;
-    opacity: 0;
-    transition: opacity .15s ease-in-out;
-  }
-  .sub-links a {
-    display: inline-block;
-    margin: 0 18px 0 0;
-    font-size: 12px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
   &.active {
     color: #444;
     
     h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
       color: $brand-primary;
-    }
-    .sub-links {
-      opacity: 1;
     }
   }
 

@@ -5149,24 +5149,11 @@ td.visible-print {
   .docs-section h3 a:hover {
     color: #333;
     text-decoration: none; }
-  .docs-section .sub-links {
-    margin-top: -10px;
-    padding-bottom: 2px;
-    opacity: 0;
-    transition: opacity .15s ease-in-out; }
-  .docs-section .sub-links a {
-    display: inline-block;
-    margin: 0 18px 0 0;
-    font-size: 12px; }
-    .docs-section .sub-links a:last-child {
-      margin-right: 0; }
   .docs-section.active {
     color: #444; }
     .docs-section.active h2 a, .docs-section.active h3 a {
       border-bottom: 1px solid #4f8ef7;
       color: #4f8ef7; }
-    .docs-section.active .sub-links {
-      opacity: 1; }
   .docs-section td, .docs-section th {
     font-size: 14px !important; }
 
@@ -5962,6 +5949,52 @@ h1 + h2 + p {
    * Action Sheets
    * --------------------------------------------------
    */
+  @-webkit-keyframes fadeInHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.5); } }
+
+  @keyframes fadeInHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.5); } }
+
+  @-webkit-keyframes fadeOutHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0); } }
+
+  @keyframes fadeOutHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0); } }
+
+  @-webkit-keyframes actionSheetUp {
+    0% {
+      -webkit-transform: translate3d(0, 100%, 0);
+      opacity: 0; }
+
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+      opacity: 1; } }
+
+  @-webkit-keyframes actionSheetOut {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      opacity: 1; }
+
+    100% {
+      -webkit-transform: translate3d(0, 100%, 0);
+      opacity: 0; } }
+
   /**
    * Bar (Headers and Footers)
    * --------------------------------------------------
@@ -6231,13 +6264,6 @@ h1 + h2 + p {
    * Utility colors are added to help set a naming convention. You'll 
    * notice we purposely do not use words like "red" or "blue", but 
    * instead have colors which represent an emotion or generic theme.
-   */
-  /**
-   * Brand Colors
-   * --------------------------------------------------
-   * Brand colors are your brand's colors...override the defaults to 
-   * your app's theme! Throughout Ionic's CSS we use brand-primary, 
-   * brand-secondary and brand-tertiary (ter·tia·ry: of third rank, importance, or value).
    */
   /**
    * Platform
@@ -7992,9 +8018,39 @@ h1 + h2 + p {
     text-decoration: none; }
   .ionic a.subdued‎:last-child {
     padding-right: 0; }
-  .ionic .action-sheet {
+  .ionic .action-sheet-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); }
+  .ionic .action-sheet-backdrop.active {
+    -webkit-animation: fadeInHalf 0.3s;
+    animation: fadeInHalf 0.3s;
+    -webkit-animation-fill-mode: forwards; }
+  .ionic .action-sheet-backdrop.active-remove {
+    -webkit-animation: fadeOutHalf 0.3s;
+    animation: fadeOutHalf 0.3s;
+    -webkit-animation-fill-mode: forwards; }
+  .ionic .action-sheet-up {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0%, 0); }
+  .ionic .action-sheet-up.ng-enter, .ionic .action-sheet-up .ng-enter {
+    opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+  .ionic .action-sheet-up.ng-enter-active, .ionic .action-sheet-up .ng-enter-active {
+    -webkit-animation-name: actionSheetUp; }
+  .ionic .action-sheet-up.ng-leave, .ionic .action-sheet-up .ng-leave {
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+  .ionic .action-sheet-up.ng-leave-active, .ionic .action-sheet-up .ng-leave {
+    -webkit-animation-name: actionSheetOut; }
+  .ionic .action-sheet {
     position: fixed;
     bottom: 0;
     left: 15px;
@@ -8003,9 +8059,9 @@ h1 + h2 + p {
     width: calc(100% - 30px); }
   .ionic .action-sheet .button {
     display: block;
-    padding: 10px;
+    padding: 1px;
     width: 100%;
-    border-radius: none;
+    border-radius: 0;
     background-color: transparent;
     color: #4a87ee;
     font-size: 18px; }
@@ -8014,11 +8070,20 @@ h1 + h2 + p {
   .ionic .action-sheet-title {
     padding: 10px;
     text-align: center;
-    font-size: 12px; }
+    font-size: 12px;
+    color: #666666; }
   .ionic .action-sheet-group {
-    margin-bottom: 10px;
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.95); }
+    background-color: #fff;
+    margin-bottom: 5px;
+    border-radius: 3px 3px 3px 3px; }
+  .ionic .action-sheet-group .button {
+    border-radius: 0;
+    border-width: 1px 0px 0px 0px; }
+  .ionic .action-sheet-group .button.active, .ionic .action-sheet-group .button:active {
+    background-color: transparent;
+    color: inherit; }
+  .ionic .action-sheet-group .button:first-child:last-child {
+    border-width: 0; }
   .ionic .bar {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -8057,26 +8122,19 @@ h1 + h2 + p {
     color: #fff; }
   .ionic .bar.bar-clear .title {
     color: #fff; }
-  .ionic .bar.bar-primary {
-    background-color: #4a87ee;
-    border-color: #1b68ea;
-    background-image: linear-gradient(0deg, #1b68ea, #1b68ea 50%, transparent 50%);
-    color: white; }
-  .ionic .bar.bar-primary .title {
-    color: white; }
-  .ionic .bar.bar-secondary {
+  .ionic .bar.bar-light {
     background-color: white;
-    border-color: #d9d9d9;
-    background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
+    border-color: #b2b2b2;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
     color: #444444; }
-  .ionic .bar.bar-secondary .title {
+  .ionic .bar.bar-light .title {
     color: #444444; }
-  .ionic .bar.bar-tertiary {
-    background-color: whitesmoke;
-    border-color: #b5b5b5;
-    background-image: linear-gradient(0deg, #b5b5b5, #b5b5b5 50%, transparent 50%);
+  .ionic .bar.bar-stable {
+    background-color: #f8f8f8;
+    border-color: #bbbbbb;
+    background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
     color: #444444; }
-  .ionic .bar.bar-tertiary .title {
+  .ionic .bar.bar-stable .title {
     color: #444444; }
   .ionic .bar.bar-positive {
     background-color: #4a87ee;
@@ -8120,20 +8178,6 @@ h1 + h2 + p {
     color: white; }
   .ionic .bar.bar-royal .title {
     color: white; }
-  .ionic .bar.bar-light {
-    background-color: white;
-    border-color: #b2b2b2;
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    color: #444444; }
-  .ionic .bar.bar-light .title {
-    color: #444444; }
-  .ionic .bar.bar-stable {
-    background-color: #f8f8f8;
-    border-color: #bbbbbb;
-    background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
-    color: #444444; }
-  .ionic .bar.bar-stable .title {
-    color: #444444; }
   .ionic .bar.bar-dark {
     background-color: #444444;
     border-color: #444444;
@@ -8152,8 +8196,11 @@ h1 + h2 + p {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
     font-size: 18px;
     line-height: 44px; }
+  .ionic .bar .title.title-left {
+    text-align: left; }
   .ionic .bar .title a {
     color: inherit; }
   .ionic .bar .button {
@@ -8181,50 +8228,34 @@ h1 + h2 + p {
     top: 5px;
     right: 5px;
     bottom: 5px; }
-  .ionic .bar-primary .button {
-    color: white;
-    background-color: #4a87ee;
-    border-color: #1b68ea; }
-  .ionic .bar-primary .button:hover {
-    color: white;
+  .ionic .bar-light .button {
+    color: #444444;
+    background-color: white;
+    border-color: #b2b2b2; }
+  .ionic .bar-light .button:hover {
+    color: #444444;
     text-decoration: none; }
-  .ionic .bar-primary .button.active, .ionic .bar-primary .button:active {
-    background-color: #3378ec;
+  .ionic .bar-light .button.active, .ionic .bar-light .button:active {
+    background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #1b68ea; }
-  .ionic .bar-primary .button.button-clear {
+    border-color: black; }
+  .ionic .bar-light .button.button-clear {
     color: white;
     background: none;
     box-shadow: none;
     font-size: 18px; }
-  .ionic .bar-secondary .button {
+  .ionic .bar-stable .button {
     color: #444444;
-    background-color: white;
-    border-color: #d9d9d9; }
-  .ionic .bar-secondary .button:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .bar-secondary .button.active, .ionic .bar-secondary .button:active {
-    background-color: white;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cccccc; }
-  .ionic .bar-secondary .button.button-clear {
-    color: #444444;
-    background: none;
-    box-shadow: none;
-    font-size: 18px; }
-  .ionic .bar-tertiary .button {
-    color: #444444;
-    background-color: whitesmoke;
-    border-color: #b5b5b5; }
-  .ionic .bar-tertiary .button:hover {
+    background-color: #f8f8f8;
+    border-color: #bbbbbb; }
+  .ionic .bar-stable .button:hover {
     color: #444444;
     text-decoration: none; }
-  .ionic .bar-tertiary .button.active, .ionic .bar-tertiary .button:active {
-    background-color: white;
+  .ionic .bar-stable .button.active, .ionic .bar-stable .button:active {
+    background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cfcfcf; }
-  .ionic .bar-tertiary .button.button-clear {
+    border-color: black; }
+  .ionic .bar-stable .button.button-clear {
     color: white;
     background: none;
     box-shadow: none;
@@ -8325,38 +8356,6 @@ h1 + h2 + p {
     background: none;
     box-shadow: none;
     font-size: 18px; }
-  .ionic .bar-light .button {
-    color: #444444;
-    background-color: white;
-    border-color: #b2b2b2; }
-  .ionic .bar-light .button:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .bar-light .button.active, .ionic .bar-light .button:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .bar-light .button.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none;
-    font-size: 18px; }
-  .ionic .bar-stable .button {
-    color: #444444;
-    background-color: #f8f8f8;
-    border-color: #bbbbbb; }
-  .ionic .bar-stable .button:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .bar-stable .button.active, .ionic .bar-stable .button:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .bar-stable .button.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none;
-    font-size: 18px; }
   .ionic .bar-dark .button {
     color: white;
     background-color: #444444;
@@ -8415,20 +8414,15 @@ h1 + h2 + p {
     border-top-width: 1px;
     background-size: 0;
     line-height: 49px; }
-  .ionic .tabs.tabs-primary {
-    background-color: #4a87ee;
-    background-image: linear-gradient(0deg, #1b68ea, #1b68ea 50%, transparent 50%);
-    border-color: #1b68ea;
-    color: white; }
-  .ionic .tabs.tabs-secondary {
+  .ionic .tabs.tabs-light {
     background-color: white;
-    background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
-    border-color: #d9d9d9;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    border-color: #b2b2b2;
     color: #444444; }
-  .ionic .tabs.tabs-tertiary {
-    background-color: whitesmoke;
-    background-image: linear-gradient(0deg, #b5b5b5, #b5b5b5 50%, transparent 50%);
-    border-color: #b5b5b5;
+  .ionic .tabs.tabs-stable {
+    background-color: #f8f8f8;
+    background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
+    border-color: #bbbbbb;
     color: #444444; }
   .ionic .tabs.tabs-positive {
     background-color: #4a87ee;
@@ -8460,16 +8454,6 @@ h1 + h2 + p {
     background-image: linear-gradient(0deg, #552bdf, #552bdf 50%, transparent 50%);
     border-color: #552bdf;
     color: white; }
-  .ionic .tabs.tabs-light {
-    background-color: white;
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    border-color: #b2b2b2;
-    color: #444444; }
-  .ionic .tabs.tabs-stable {
-    background-color: #f8f8f8;
-    background-image: linear-gradient(0deg, #bbbbbb, #bbbbbb 50%, transparent 50%);
-    border-color: #bbbbbb;
-    color: #444444; }
   .ionic .tabs.tabs-dark {
     background-color: #444444;
     background-image: linear-gradient(0deg, #444444, #444444 50%, transparent 50%);
@@ -8528,12 +8512,10 @@ h1 + h2 + p {
     line-height: inherit; }
   .ionic .tab-item.active, .ionic .tab-item:active {
     opacity: 1; }
-  .ionic .tab-item.active.tab-item-primary, .ionic .tab-item:active.tab-item-primary {
-    color: #4a87ee; }
-  .ionic .tab-item.active.tab-item-secondary, .ionic .tab-item:active.tab-item-secondary {
+  .ionic .tab-item.active.tab-item-light, .ionic .tab-item:active.tab-item-light {
     color: white; }
-  .ionic .tab-item.active.tab-item-tertiary, .ionic .tab-item:active.tab-item-tertiary {
-    color: whitesmoke; }
+  .ionic .tab-item.active.tab-item-stable, .ionic .tab-item:active.tab-item-stable {
+    color: #f8f8f8; }
   .ionic .tab-item.active.tab-item-positive, .ionic .tab-item:active.tab-item-positive {
     color: #4a87ee; }
   .ionic .tab-item.active.tab-item-calm, .ionic .tab-item:active.tab-item-calm {
@@ -8546,10 +8528,6 @@ h1 + h2 + p {
     color: #f0b840; }
   .ionic .tab-item.active.tab-item-royal, .ionic .tab-item:active.tab-item-royal {
     color: #8a6de9; }
-  .ionic .tab-item.active.tab-item-light, .ionic .tab-item:active.tab-item-light {
-    color: white; }
-  .ionic .tab-item.active.tab-item-stable, .ionic .tab-item:active.tab-item-stable {
-    color: #f8f8f8; }
   .ionic .tab-item.active.tab-item-dark, .ionic .tab-item:active.tab-item-dark {
     color: #444444; }
   .ionic .item.tabs {
@@ -8675,27 +8653,20 @@ h1 + h2 + p {
     z-index: 2; }
   .ionic .item.active .item-heading, .ionic .item.active:hover .item-heading, .ionic .item.active:focus .item-heading {
     color: inherit; }
-  .ionic .item-primary.active {
+  .ionic .item-light.active {
     color: white;
-    background-color: #4a87ee;
+    background-color: white;
     border-color: #444444; }
-  .ionic .item-primary.active .item-content {
-    background-color: #4a87ee;
+  .ionic .item-light.active .item-content {
+    background-color: white;
     color: white; }
-  .ionic .item-secondary.active {
-    color: #444444;
-    background-color: white;
+  .ionic .item-stable.active {
+    color: white;
+    background-color: #f8f8f8;
     border-color: #444444; }
-  .ionic .item-secondary.active .item-content {
-    background-color: white;
-    color: #444444; }
-  .ionic .item-tertiary.active {
-    color: #444444;
-    background-color: whitesmoke;
-    border-color: #444444; }
-  .ionic .item-tertiary.active .item-content {
-    background-color: whitesmoke;
-    color: #444444; }
+  .ionic .item-stable.active .item-content {
+    background-color: #f8f8f8;
+    color: white; }
   .ionic .item-positive.active {
     color: white;
     background-color: #4a87ee;
@@ -8730,20 +8701,6 @@ h1 + h2 + p {
     border-color: #444444; }
   .ionic .item-royal.active .item-content {
     background-color: #8a6de9;
-    color: white; }
-  .ionic .item-light.active {
-    color: white;
-    background-color: white;
-    border-color: #444444; }
-  .ionic .item-light.active .item-content {
-    background-color: white;
-    color: white; }
-  .ionic .item-stable.active {
-    color: white;
-    background-color: #f8f8f8;
-    border-color: #444444; }
-  .ionic .item-stable.active .item-content {
-    background-color: #f8f8f8;
     color: white; }
   .ionic .item-dark.active {
     color: white;
@@ -9164,12 +9121,10 @@ h1 + h2 + p {
   .ionic .button .badge {
     position: relative;
     top: -1px; }
-  .ionic .badge-primary {
-    background-color: #4a87ee; }
-  .ionic .badge-secondary {
+  .ionic .badge-light {
     background-color: white; }
-  .ionic .badge-tertiary {
-    background-color: whitesmoke; }
+  .ionic .badge-stable {
+    background-color: #f8f8f8; }
   .ionic .badge-positive {
     background-color: #4a87ee; }
   .ionic .badge-calm {
@@ -9182,10 +9137,6 @@ h1 + h2 + p {
     background-color: #f0b840; }
   .ionic .badge-royal {
     background-color: #8a6de9; }
-  .ionic .badge-light {
-    background-color: white; }
-  .ionic .badge-stable {
-    background-color: #f8f8f8; }
   .ionic .badge-dark {
     background-color: #444444; }
   .ionic .slide-box {
@@ -9373,7 +9324,7 @@ h1 + h2 + p {
   .ionic input[type="color"] {
     display: inline-block;
     height: 34px;
-    color: #f8f8f8;
+    color: #dfdfdf;
     vertical-align: middle;
     font-size: 14px;
     line-height: 20px; }
@@ -9421,13 +9372,13 @@ h1 + h2 + p {
     height: auto; }
   .ionic input:-moz-placeholder,
   .ionic textarea:-moz-placeholder {
-    color: #f8f8f8; }
+    color: #dfdfdf; }
   .ionic input:-ms-input-placeholder,
   .ionic textarea:-ms-input-placeholder {
-    color: #f8f8f8; }
+    color: #dfdfdf; }
   .ionic input::-webkit-input-placeholder,
   .ionic textarea::-webkit-input-placeholder {
-    color: #f8f8f8; }
+    color: #dfdfdf; }
   .ionic input[disabled],
   .ionic select[disabled],
   .ionic textarea[disabled],
@@ -9632,73 +9583,50 @@ h1 + h2 + p {
   .ionic .button.block, .ionic .button.button-full {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .ionic .button.button-primary {
-    color: white;
-    background-color: #4a87ee;
-    border-color: #1b68ea; }
-  .ionic .button.button-primary:hover {
-    color: white;
+  .ionic .button.button-light {
+    color: #444444;
+    background-color: white;
+    border-color: #b2b2b2; }
+  .ionic .button.button-light:hover {
+    color: #444444;
     text-decoration: none; }
-  .ionic .button.button-primary.active, .ionic .button.button-primary:active {
-    background-color: #3378ec;
+  .ionic .button.button-light.active, .ionic .button.button-light:active {
+    background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #1b68ea; }
-  .ionic .button.button-primary.button-clear {
-    color: #4a87ee;
+    border-color: black; }
+  .ionic .button.button-light.button-clear {
+    color: white;
     background: none;
     box-shadow: none; }
-  .ionic .button.button-primary.button-outline {
+  .ionic .button.button-light.button-outline {
     background: transparent;
-    border-color: #4a87ee;
-    color: #4a87ee; }
-  .ionic .button.button-primary.button-outline.active, .ionic .button.button-primary.button-outline:active {
-    background-color: #4a87ee;
+    border-color: white;
+    color: white; }
+  .ionic .button.button-light.button-outline.active, .ionic .button.button-light.button-outline:active {
+    background-color: white;
     color: #fff;
     box-shadow: none; }
-  .ionic .button.button-secondary {
+  .ionic .button.button-stable {
     color: #444444;
-    background-color: white;
-    border-color: #d9d9d9; }
-  .ionic .button.button-secondary:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button.button-secondary.active, .ionic .button.button-secondary:active {
-    background-color: white;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cccccc; }
-  .ionic .button.button-secondary.button-clear {
-    color: #d9d9d9;
-    background: none;
-    box-shadow: none; }
-  .ionic .button.button-secondary.button-outline {
-    background: transparent;
-    border-color: #d9d9d9;
-    color: #444444; }
-  .ionic .button.button-secondary.button-outline.active, .ionic .button.button-secondary.button-outline:active {
-    background-color: #d9d9d9;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button.button-tertiary {
-    color: #444444;
-    background-color: whitesmoke;
-    border-color: #b5b5b5; }
-  .ionic .button.button-tertiary:hover {
+    background-color: #f8f8f8;
+    border-color: #bbbbbb; }
+  .ionic .button.button-stable:hover {
     color: #444444;
     text-decoration: none; }
-  .ionic .button.button-tertiary.active, .ionic .button.button-tertiary:active {
-    background-color: white;
+  .ionic .button.button-stable.active, .ionic .button.button-stable:active {
+    background-color: #222222;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: #cfcfcf; }
-  .ionic .button.button-tertiary.button-clear {
-    color: whitesmoke;
+    border-color: black; }
+  .ionic .button.button-stable.button-clear {
+    color: #f8f8f8;
     background: none;
     box-shadow: none; }
-  .ionic .button.button-tertiary.button-outline {
+  .ionic .button.button-stable.button-outline {
     background: transparent;
-    border-color: whitesmoke;
-    color: whitesmoke; }
-  .ionic .button.button-tertiary.button-outline.active, .ionic .button.button-tertiary.button-outline:active {
-    background-color: whitesmoke;
+    border-color: #f8f8f8;
+    color: #f8f8f8; }
+  .ionic .button.button-stable.button-outline.active, .ionic .button.button-stable.button-outline:active {
+    background-color: #f8f8f8;
     color: #fff;
     box-shadow: none; }
   .ionic .button.button-positive {
@@ -9837,52 +9765,6 @@ h1 + h2 + p {
     color: #8a6de9; }
   .ionic .button.button-royal.button-outline.active, .ionic .button.button-royal.button-outline:active {
     background-color: #8a6de9;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button.button-light {
-    color: #444444;
-    background-color: white;
-    border-color: #b2b2b2; }
-  .ionic .button.button-light:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button.button-light.active, .ionic .button.button-light:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button.button-light.button-clear {
-    color: white;
-    background: none;
-    box-shadow: none; }
-  .ionic .button.button-light.button-outline {
-    background: transparent;
-    border-color: white;
-    color: white; }
-  .ionic .button.button-light.button-outline.active, .ionic .button.button-light.button-outline:active {
-    background-color: white;
-    color: #fff;
-    box-shadow: none; }
-  .ionic .button.button-stable {
-    color: #444444;
-    background-color: #f8f8f8;
-    border-color: #bbbbbb; }
-  .ionic .button.button-stable:hover {
-    color: #444444;
-    text-decoration: none; }
-  .ionic .button.button-stable.active, .ionic .button.button-stable:active {
-    background-color: #222222;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
-    border-color: black; }
-  .ionic .button.button-stable.button-clear {
-    color: #f8f8f8;
-    background: none;
-    box-shadow: none; }
-  .ionic .button.button-stable.button-outline {
-    background: transparent;
-    border-color: #f8f8f8;
-    color: #f8f8f8; }
-  .ionic .button.button-stable.button-outline.active, .ionic .button.button-stable.button-outline:active {
-    background-color: #f8f8f8;
     color: #fff;
     box-shadow: none; }
   .ionic .button.button-dark {
@@ -10282,6 +10164,18 @@ h1 + h2 + p {
     padding-left: 10px; }
   .ionic .rounded {
     border-radius: 4px; }
+  .ionic .light {
+    color: white; }
+  .ionic .light-bg {
+    background-color: white; }
+  .ionic .light-border {
+    border-color: #b2b2b2; }
+  .ionic .stable {
+    color: #f8f8f8; }
+  .ionic .stable-bg {
+    background-color: #f8f8f8; }
+  .ionic .stable-border {
+    border-color: #bbbbbb; }
   .ionic .positive {
     color: #4a87ee; }
   .ionic .positive-bg {
@@ -10318,42 +10212,12 @@ h1 + h2 + p {
     background-color: #8a6de9; }
   .ionic .royal-border {
     border-color: #552bdf; }
-  .ionic .light {
-    color: white; }
-  .ionic .light-bg {
-    background-color: white; }
-  .ionic .light-border {
-    border-color: #b2b2b2; }
-  .ionic .stable {
-    color: #f8f8f8; }
-  .ionic .stable-bg {
-    background-color: #f8f8f8; }
-  .ionic .stable-border {
-    border-color: #bbbbbb; }
   .ionic .dark {
     color: #444444; }
   .ionic .dark-bg {
     background-color: #444444; }
   .ionic .dark-border {
     border-color: #444444; }
-  .ionic .primary {
-    color: #4a87ee; }
-  .ionic .primary-bg {
-    background-color: #4a87ee; }
-  .ionic .primary-border {
-    border-color: #1b68ea; }
-  .ionic .secondary {
-    color: white; }
-  .ionic .secondary-bg {
-    background-color: white; }
-  .ionic .secondary-border {
-    border-color: #d9d9d9; }
-  .ionic .tertiary {
-    color: whitesmoke; }
-  .ionic .tertiary-bg {
-    background-color: whitesmoke; }
-  .ionic .tertiary-border {
-    border-color: #b5b5b5; }
   .ionic .platform-ios7 .bar-header {
     height: 64px; }
   .ionic .platform-ios7 .bar-header > * {

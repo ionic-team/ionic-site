@@ -47,6 +47,24 @@ header_sub_title: "View Ionic's Components"
 {% endhighlight %}
 
   <div class="ionic ionic-example">
+    <div class="bar bar-header bar-light"><div class="h1 title">bar-light</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-light">
+  <h1 class="title">bar-light</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
+    <div class="bar bar-header bar-stable"><div class="h1 title">bar-stable</div></div>
+  </div>
+{% highlight html %}
+<div class="bar bar-header bar-stable">
+  <h1 class="title">bar-stable</h1>
+</div>
+{% endhighlight %}
+
+  <div class="ionic ionic-example">
     <div class="bar bar-header bar-positive"><div class="h1 title">bar-positive</div></div>
   </div>
 {% highlight html %}
@@ -97,15 +115,6 @@ header_sub_title: "View Ionic's Components"
 {% highlight html %}
 <div class="bar bar-header bar-royal">
   <h1 class="title">bar-royal</h1>
-</div>
-{% endhighlight %}
-
-  <div class="ionic ionic-example">
-    <div class="bar bar-header bar-stable"><div class="h1 title">bar-stable</div></div>
-  </div>
-{% highlight html %}
-<div class="bar bar-header bar-stable">
-  <h1 class="title">bar-stable</h1>
 </div>
 {% endhighlight %}
 
@@ -243,17 +252,6 @@ header_sub_title: "View Ionic's Components"
 
   <h3><a href="#buttons">Buttons</a></h3>
 
-  <div class="sub-links">
-    <a href="#block-buttons">Block</a>
-    <a href="#full-buttons">Full Width</a>
-    <a href="#outlined-buttons">Outline</a>
-    <a href="#clear-buttons">Clear</a>
-    <a href="#icon-buttons">Icons</a>
-    <a href="#buttons-headers-footers">Headers</a>
-    <a href="#clear-buttons-headers">Clear Headers</a>
-    <a href="#button-bar">Button Bars</a>
-  </div>
-
   <p>
     Ah, the Button, an essential part of any mobile experience. Buttons are commonly used to send/retrieve data and form navigation between screens. Like the <a href="#header">Header</a>, they come in the full spectrum of Ionic's default color options.
   </P>
@@ -268,16 +266,12 @@ header_sub_title: "View Ionic's Components"
   Default
 </button>
 
-<button class="button button-primary">
-  button-primary
+<button class="button button-light">
+  button-light
 </button>
 
-<button class="button button-secondary">
-  button-secondary
-</button>
-
-<button class="button button-tertiary">
-  button-tertiary
+<button class="button button-stable">
+  button-stable
 </button>
 
 <button class="button button-positive">
@@ -304,14 +298,6 @@ header_sub_title: "View Ionic's Components"
   button-royal
 </button>
 
-<button class="button button-light">
-  button-light
-</button>
-
-<button class="button button-stable">
-  button-stable
-</button>
-
 <button class="button button-dark">
   button-dark
 </button>
@@ -323,65 +309,15 @@ header_sub_title: "View Ionic's Components"
     </div>
     <div class="content has-header">
       
-      <div class="row">
-        <div class="col">
-          <button class="button">Default</button>
-        </div>
-        <div class="col">
-          <button class="button button-primary">primary</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-positive">positive</button>
-        </div>
-        <div class="col">
-          <button class="button button-secondary">secondary</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-calm">calm</button>
-        </div>
-        <div class="col">
-          <button class="button button-tertiary">tertiary</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-assertive">assertive</button>
-        </div>
-        <div class="col">
-          <button class="button button-light">light</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-balanced">balanced</button>
-        </div>
-        <div class="col">
-          <button class="button button-stable">stable</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-energized">energized</button>
-        </div>
-        <div class="col">
-          <button class="button button-dark">dark</button>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button class="button button-royal">royal</button>
-        </div>
-      </div>
+      <p><button class="button button-light">button-light</button>
+      <p><button class="button button-stable">button-stable</button>
+      <p><button class="button button-positive">button-positive</button>
+      <p><button class="button button-calm">button-calm</button>
+      <p><button class="button button-assertive">button-assertive</button>
+      <p><button class="button button-balanced">button-balanced</button>
+      <p><button class="button button-energized">button-energized</button>
+      <p><button class="button button-royal">button-royal</button>
+      <p><button class="button button-dark">button-dark</button>
 
     </div>
   </div>
@@ -413,14 +349,14 @@ header_sub_title: "View Ionic's Components"
       <div class="h1 title">Block Buttons</div>
     </div>
     <div class="content padding has-header">
+      <button class="button block button-light">button-light</button>
+      <button class="button block button-stable">button-stable</button>
       <button class="button block button-positive">button-positive</button>
       <button class="button block button-calm">button-calm</button>
       <button class="button block button-assertive">button-assertive</button>
       <button class="button block button-balanced">button-balanced</button>
       <button class="button block button-energized">button-energized</button>
       <button class="button block button-royal">button-royal</button>
-      <button class="button block button-light">button-light</button>
-      <button class="button block button-stable">button-stable</button>
       <button class="button block button-dark">button-dark</button>
     </div>
   </div>
@@ -452,14 +388,14 @@ header_sub_title: "View Ionic's Components"
       <div class="h1 title">Full Width Block Buttons</div>
     </div>
     <div class="content has-header">
+      <button class="button button-full button-light">button-light</button>
+      <button class="button button-full button-stable">button-stable</button>
       <button class="button button-full button-positive">button-positive</button>
       <button class="button button-full button-calm">button-calm</button>
       <button class="button button-full button-assertive">button-assertive</button>
       <button class="button button-full button-balanced">button-balanced</button>
       <button class="button button-full button-energized">button-energized</button>
       <button class="button button-full button-royal">button-royal</button>
-      <button class="button button-full button-light">button-light</button>
-      <button class="button button-full button-stable">button-stable</button>
       <button class="button button-full button-dark">button-dark</button>
     </div>
   </div>
@@ -495,6 +431,12 @@ header_sub_title: "View Ionic's Components"
     </div>
     <div class="content padding has-header">
       <p>
+        <button class="button button-outline button-light">button-light</button>
+      </p>
+      <p>
+        <button class="button button-outline button-stable">button-stable</button>
+      </p>
+      <p>
         <button class="button button-outline button-positive">button-positive</button>
       </p>
       <p>
@@ -511,12 +453,6 @@ header_sub_title: "View Ionic's Components"
       </p>
       <p>
         <button class="button button-outline button-royal">button-royal</button>
-      </p>
-      <p>
-        <button class="button button-outline button-light">button-light</button>
-      </p>
-      <p>
-        <button class="button button-outline button-stable">button-stable</button>
       </p>
       <p>
         <button class="button button-outline button-dark">button-dark</button>
@@ -554,25 +490,28 @@ header_sub_title: "View Ionic's Components"
     </div>
     <div class="content padding has-header">
       <p>
+        <button class="button button-clear button-light">button-light</button>
+      </p>
+      <p>
+        <button class="button button-clear button-stable">button-stable</button>
+      </p>
+      <p>
         <button class="button button-clear button-positive">button-positive</button>
       </p>
       <p>
-        <button class="button button-clear button-calm">button-calm</button>
+        <button class="button button-clear button-calmn">button-calmn</button>
       </p>
       <p>
         <button class="button button-clear button-assertive">button-assertive</button>
       </p>
       <p>
-        <button class="button button-clear button-info">button-info</button>
+        <button class="button button-clear button-balanced">button-balanced</button>
       </p>
       <p>
-        <button class="button button-clear button-success">button-success</button>
+        <button class="button button-clear button-energized">button-energized</button>
       </p>
       <p>
-        <button class="button button-clear button-warning">button-warning</button>
-      </p>
-      <p>
-        <button class="button button-clear button-danger">button-danger</button>
+        <button class="button button-clear button-royal">button-royal</button>
       </p>
       <p>
         <button class="button button-clear button-dark">button-dark</button>
@@ -591,20 +530,25 @@ header_sub_title: "View Ionic's Components"
   <h3><a href="#icon-buttons">Icon Buttons</a></h3>
 
   <p>
-    ...
+    Icons can easily be added to any button by using either the built in Ionicons, or
+    any custom font-pack you choose. <a href="#icons">Learn more about icons</a>.
   </p>
 
 {% highlight html %}
-<button class="button button-default">
+<button class="button">
   <i class="icon ion-home"></i> Home
 </button>
 
-<button class="button button-secondary">
+<button class="button button-positive">
   <i class="icon ion-star"></i> Favorites
 </button>
 
-<a class="button button-primary">
+<a class="button button-calm">
   Learn More <i class="icon ion-chevron-right"></i>
+</a>
+
+<a class="button button-clear button-dark">
+  <i class="icon ion-chevron-left"></i> Back
 </a>
 {% endhighlight %}
 
@@ -614,23 +558,25 @@ header_sub_title: "View Ionic's Components"
     </div>
     <div class="content padding has-header">
       <p>
-        <button class="button button-default">
+        <button class="button">
           <i class="icon ion-home"></i> Home
         </button>
       </p>
       <p>
-        <button class="button button-secondary">
+        <button class="button button-positive">
           <i class="icon ion-star"></i> Favorites
         </button>
       </p>
       <p>
-        <a class="button button-primary">
-          Learn More <i class="icon ion-chevron-right"></i>
+        <a class="button button-calm">
+          Learn More 
+          <i class="icon ion-chevron-right"></i>
         </a>
       </p>
       <p>
-        <a class="button button-clear button-info">
-          <i class="icon ion-chevron-left"></i> Back
+        <a class="button button-clear button-dark">
+          <i class="icon ion-chevron-left"></i> 
+          Back
         </a>
       </p>
       <p>
@@ -777,15 +723,6 @@ header_sub_title: "View Ionic's Components"
 <div class="docs-section" id="list">
 
   <h3><a href="#list">List</a></h3>
-
-  <div class="sub-links">
-    <a href="#item-dividers">Dividers</a>
-    <a href="#item-icons">Icons</a>
-    <a href="#item-buttons">Buttons</a>
-    <a href="#item-avatars">Avatars</a>
-    <a href="#item-thumbnails">Thumbnails</a>
-    <a href="/docs/list/">Advanced</a>
-  </div>
 
   <p>
     The List is a common and simple way of displaying... that's right, a list. This is a widely 
@@ -1293,13 +1230,6 @@ header_sub_title: "View Ionic's Components"
 
   <h3><a href="#cards">Cards</a></h3>
 
-  <div class="sub-links">
-    <a href="#card-headers-footers">Headers and Footers</a>
-    <a href="#card-lists">Lists</a>
-    <a href="#card-images">Images</a>
-    <a href="#card-showcase">Showcase</a>
-  </div>
-
   <p>
     Cards are a relatively new visual design paradigm on mobile, though they've become widely used in recent years. And for good reason- cards are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>..
   </p>
@@ -1624,13 +1554,6 @@ header_sub_title: "View Ionic's Components"
 <div class="docs-section" id="forms">
 
   <h3><a href="#forms">Forms &amp; Inputs</a></h3>
-
-  <div class="sub-links">
-    <a href="#forms-placeholder-labels">Placeholder Labels</a>
-    <a href="#forms-inline-labels">Inline Labels</a>
-    <a href="#forms-stacked-labels">Stacked Labels</a>
-    <a href="#inset-forms">Inset Forms</a>
-  </div>
 
   <p>
     A <code>list</code> is also used to group related input elements. Both <code>item-input</code>
@@ -2234,12 +2157,6 @@ header_sub_title: "View Ionic's Components"
 
   <h3><a href="#tab-bar">Tab Bar</a></h3>
 
-  <div class="sub-links">
-    <a href="#icon-only-tab-bar">Icon-only</a>
-    <a href="#icon-top-tab-bar">Top Icon</a>
-    <a href="#icon-left-tab-bar">Left Icon</a>
-  </div>
-
   <p>
     The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
   </p>
@@ -2498,77 +2415,20 @@ header_sub_title: "View Ionic's Components"
 
   <h3><a href="#colors">Colors</a></h3>
 
-  <div class="sub-links">
-    <a href="#brand-colors">Brand</a>
-    <a href="#utility-colors">Utility</a>
-  </div>
-
   <p>
     Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc. 
   </p>
-  <p>
-    Let's be realistic, assigning colors is one of the easier tasks in CSS, and each app will have different requirements for colors. Ionic's goal is to provide a clean system to build on top of and maintain, and stays away from dictating how each app chooses to color its custom design.
-  </p>
-  <p>
-    To customize the colors you can simply override those coming from the <code>ionic.css</code> CSS file. Additionally, since Ionic is built using <a href="http://sass-lang.com/">SASS</a>, for more power and flexibility you could also modify and extend the color variables within the <code>_variables.scss</code> file.
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Colors</div>
-    </div>
-    <div class="content has-header padding">
-      
-      ...
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Colors: Brand Colors
-  ================================================== -->
-<div class="docs-section" id="brand-colors">
-
-  <h3><a href="#brand-colors">Brand Colors</a></h3>
-
-  <p>
-    Brand colors are <strong>your brand's colors</strong>...override the defaults to your app's theme! Throughout Ionic's CSS we use <code>brand-primary</code>, <code>brand-secondary</code> and <code>brand-tertiary</code> (ter·tia·ry: of third rank, importance, or value). 
-  </p>
-
-  <p>
-    A good use of brand colors would be for your headers and buttons. For example, if the great <a href="http://www.packers.com/">Green Bay Packers</a> were to choose their brand colors, they'd probably make their green the primary color, yellow secondary, and either a white or gray for the tertiary color. If the Packer's app wanted their green in the header, they'd simply use the brand's primary color.
-  </p>
-  
-  <p>
-    Apps can use these brand color naming conventions through your design as you choose (or don't use them at all, its all up to you).
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Brand Colors</div>
-    </div>
-    <div class="content has-header padding">
-      
-      ...
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Colors: Utility Colors
-  ================================================== -->
-<div class="docs-section" id="utility-colors">
-
-  <h3><a href="#utility-colors">Utility Colors</a></h3>
 
   <p>
     Utility colors are added to help set a naming convention. You'll notice Ionic purposely does not use words like "red" or "blue", but instead have colors which represent an emotion or generic theme.
+  </p>
+
+  <p>
+    Let's be realistic, assigning colors is one of the easier tasks in CSS, and each app will have different requirements for colors. Ionic's goal is to provide a clean system to build on top of and maintain, and stays away from dictating how each app chooses to color its custom design.
+  </p>
+
+  <p>
+    To customize the colors you can simply override those coming from the <code>ionic.css</code> CSS file. Additionally, since Ionic is built using <a href="http://sass-lang.com/">SASS</a>, for more power and flexibility you could also modify and extend the color variables within the <code>_variables.scss</code> file.
   </p>
 
   <div class="doc-example ionic">
@@ -2715,13 +2575,6 @@ header_sub_title: "View Ionic's Components"
 <div class="docs-section" id="grid">
 
   <h3><a href="#grid">Grid</a></h3>
-
-  <div class="sub-links">
-    <a href="#grid-even">Even Columns</a>
-    <a href="#grid-explicit">Explicit Sized</a>
-    <a href="#grid-offset">Offset Columns</a>
-    <a href="#grid-vertically-align">Vertically Align</a>
-  </div>
 
   <p>
     Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard. 

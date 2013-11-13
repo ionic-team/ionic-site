@@ -2627,7 +2627,7 @@ a.subdued‎ {
     .bar {
       border-top: none !important;
       border-bottom: none !important;
-      background-image: linear-gradient(0deg, #444444, #444444, 50%, transparent 50%);
+      background-image: linear-gradient(0deg, #444444, #444444 50%, transparent 50%);
       background-position: bottom;
       background-size: 100% 1px;
       background-repeat: no-repeat; } }
@@ -2708,12 +2708,12 @@ a.subdued‎ {
     right: 0;
     left: 0;
     z-index: 0;
+    overflow: hidden;
     margin: 0;
     min-width: 30px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
     font-size: 18px;
     line-height: 44px; }
     .bar .title.title-left {
@@ -2723,17 +2723,17 @@ a.subdued‎ {
   .bar .button {
     z-index: 1;
     padding: 0 8px;
-    height: 32px;
     min-width: 44px;
     min-height: 31px;
+    height: 32px;
     font-size: 12px;
-    line-height: 29px; }
+    line-height: 30px; }
     .bar .button .icon {
       font-size: 24px;
       line-height: 29px; }
   .bar .button-bar > .button, .bar .buttons > .button {
-    height: 32px;
     min-height: 31px;
+    height: 32px;
     line-height: 30px; }
   .bar .button-bar + .button, .bar .button + .button-bar {
     margin-left: 5px; }

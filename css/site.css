@@ -5150,7 +5150,7 @@ td.visible-print {
     color: #333;
     text-decoration: none; }
   .docs-section.active {
-    color: #444; }
+    color: #333; }
     .docs-section.active h2 a, .docs-section.active h3 a {
       border-bottom: 1px solid #4f8ef7;
       color: #4f8ef7; }

@@ -1,7 +1,7 @@
 ---
-layout: api
+layout: "api_0.9.0"
 title: "Action Sheet"
-api_version: 0.9.0
+header_sub_title: "Slide in prompts for actions"
 ---
 
 Available in:

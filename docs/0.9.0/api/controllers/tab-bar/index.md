@@ -1,6 +1,7 @@
 ---
-layout: api
+layout: "api_0.9.0"
 title: "Tab Bar Controller"
+header_sub_title: "Multi-page tab interfaces"
 ---
 
 Tab Bar Controller

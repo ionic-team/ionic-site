@@ -1,7 +1,7 @@
 ---
-layout: api
+layout: "api_0.9.0"
 title: "Gestures"
-api_version: 0.9.0
+header_sub_title: "Touch interaction for your apps"
 ---
 
 Available in:

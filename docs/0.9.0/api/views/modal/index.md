@@ -1,7 +1,7 @@
 ---
-layout: api
+layout: "api_0.9.0"
 title: "Modal"
-api_version: 0.9.0
+header_sub_title: "Slide in content panes"
 ---
 
 Available in:

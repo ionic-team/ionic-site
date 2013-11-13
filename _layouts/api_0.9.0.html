@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ionic: The Most Advanced HTML5 Mobile App Framework">
+    <meta name="author" content="Drifty">
+    <title>{{page.title}}</title>
+    {% include head_includes.html %}
+  </head>
+
+  <body class="docs-page docs device-preview-page heading-tile">
+
+    {% include nav_links.html %}
+
+    {% include header.html %}
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+          <div class="docked-menu">
+
+            <h3>API Docs</h3>
+
+            <ul class="nav left-menu">
+              <li><a href="/docs/0.9.0/api/views/list/">List</a></li>
+              <li><a href="/docs/0.9.0/api/controllers/tab-bar/">Tab Bar</a></li>
+              <li><a href="/docs/0.9.0/api/controllers/side-menu/">Side Menu</a></li>
+              <li><a href="/docs/0.9.0/api/views/modal/">Modal</a></li>
+              <li><a href="/docs/0.9.0/api/views/action-sheet/">Action Sheet</a></li>
+              <li><a href="/docs/0.9.0/api/utils/gestures/">Gestures</a></li>
+            </ul>
+
+          </div>
+          
+        </div>
+
+        <div class="col-md-10 main-content">
+          {{ content }}
+        </div>
+
+      </div>
+      
+    </div>
+	
+    {% include footer.html %}
+
+    {% include base_scripts.html %}
+
+  </body>
+</html>

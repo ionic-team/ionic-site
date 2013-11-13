@@ -1,6 +1,7 @@
 ---
-layout: api
+layout: "api_0.9.0"
 title: "Side Menu Controller"
+header_sub_title: "Draggable side menus"
 ---
 
 Available in:

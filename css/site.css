@@ -5746,9 +5746,24 @@ h1 + h2 + p {
 
 .ionic {
   /**
-   * Mixins
+   * Button Mixins
    * --------------------------------------------------
-   * Useful utilities and mixins for SCSS files.
+   */
+  /**
+   * Bar Mixins
+   * --------------------------------------------------
+   */
+  /**
+   * Tab Mixins
+   * --------------------------------------------------
+   */
+  /**
+   * Item Mixins
+   * --------------------------------------------------
+   */
+  /**
+   * Utility Mixins
+   * --------------------------------------------------
    */
   /*!
     Ionicons, v1.3.3
@@ -8604,6 +8619,9 @@ h1 + h2 + p {
   .ionic .loading h1, .ionic .loading h2, .ionic .loading h3, .ionic .loading h4, .ionic .loading h5 {
     color: #fff; }
   .ionic .item {
+    color: #444444;
+    background-color: white;
+    border-color: #dddddd;
     position: relative;
     z-index: 2;
     display: block;
@@ -8611,17 +8629,15 @@ h1 + h2 + p {
     padding: 15px;
     border-width: 1px;
     border-style: solid;
-    border-color: #dddddd;
-    background-color: white;
     font-size: 16px;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
-  .ionic .item.active {
-    color: #444444;
-    background-color: white;
-    border-color: #444444; }
-  .ionic .item.active .item-content {
-    background-color: white;
-    color: #444444; }
+  .ionic .item.active, .ionic .item:active {
+    background-color: activeBgColor;
+    border-color: #cccccc; }
+  .ionic .item.active .item-content, .ionic .item:active .item-content {
+    background-color: #fafafa;
+    border-color: #cccccc;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
   .ionic .item h2 {
     margin: 0 0 4px 0;
     font-size: 16px; }
@@ -8649,66 +8665,107 @@ h1 + h2 + p {
     float: right; }
   .ionic .item .badge + .badge {
     margin-right: 5px; }
-  .ionic .item.active, .ionic .item.active:hover, .ionic .item.active:focus {
-    z-index: 2; }
-  .ionic .item.active .item-heading, .ionic .item.active:hover .item-heading, .ionic .item.active:focus .item-heading {
-    color: inherit; }
-  .ionic .item-light.active {
-    color: white;
+  .ionic .item.active, .ionic .item:active {
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-light {
+    color: #444444;
     background-color: white;
-    border-color: #444444; }
-  .ionic .item-light.active .item-content {
-    background-color: white;
-    color: white; }
-  .ionic .item-stable.active {
-    color: white;
+    border-color: #dddddd; }
+  .ionic .item.item-light.active, .ionic .item.item-light:active {
+    background-color: activeBgColor;
+    border-color: #cccccc; }
+  .ionic .item.item-light.active .item-content, .ionic .item.item-light:active .item-content {
+    background-color: #fafafa;
+    border-color: #cccccc;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-stable {
+    color: #444444;
     background-color: #f8f8f8;
-    border-color: #444444; }
-  .ionic .item-stable.active .item-content {
-    background-color: #f8f8f8;
-    color: white; }
-  .ionic .item-positive.active {
+    border-color: #b2b2b2; }
+  .ionic .item.item-stable.active, .ionic .item.item-stable:active {
+    background-color: activeBgColor;
+    border-color: #a2a2a2; }
+  .ionic .item.item-stable.active .item-content, .ionic .item.item-stable:active .item-content {
+    background-color: #e5e5e5;
+    border-color: #a2a2a2;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-positive {
     color: white;
     background-color: #4a87ee;
-    border-color: #444444; }
-  .ionic .item-positive.active .item-content {
-    background-color: #4a87ee;
-    color: white; }
-  .ionic .item-calm.active {
+    border-color: #145dd7; }
+  .ionic .item.item-positive.active, .ionic .item.item-positive:active {
+    background-color: activeBgColor;
+    border-color: #145dd7; }
+  .ionic .item.item-positive.active .item-content, .ionic .item.item-positive:active .item-content {
+    background-color: #145dd7;
+    border-color: #145dd7;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-calm {
     color: white;
     background-color: #43cee6;
-    border-color: #444444; }
-  .ionic .item-calm.active .item-content {
-    background-color: #43cee6;
-    color: white; }
-  .ionic .item-balanced.active {
+    border-color: #1aaac3; }
+  .ionic .item.item-calm.active, .ionic .item.item-calm:active {
+    background-color: activeBgColor;
+    border-color: #1aaac3; }
+  .ionic .item.item-calm.active .item-content, .ionic .item.item-calm:active .item-content {
+    background-color: #1aaac3;
+    border-color: #1aaac3;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-assertive {
+    color: white;
+    background-color: #ef4e3a;
+    border-color: #cc2511; }
+  .ionic .item.item-assertive.active, .ionic .item.item-assertive:active {
+    background-color: activeBgColor;
+    border-color: #cc2511; }
+  .ionic .item.item-assertive.active .item-content, .ionic .item.item-assertive:active .item-content {
+    background-color: #cc2511;
+    border-color: #cc2511;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-balanced {
     color: white;
     background-color: #66cc33;
-    border-color: #444444; }
-  .ionic .item-balanced.active .item-content {
-    background-color: #66cc33;
-    color: white; }
-  .ionic .item-energized.active {
+    border-color: #478f24; }
+  .ionic .item.item-balanced.active, .ionic .item.item-balanced:active {
+    background-color: activeBgColor;
+    border-color: #478f24; }
+  .ionic .item.item-balanced.active .item-content, .ionic .item.item-balanced:active .item-content {
+    background-color: #478f24;
+    border-color: #478f24;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-energized {
     color: white;
     background-color: #f0b840;
-    border-color: #444444; }
-  .ionic .item-energized.active .item-content {
-    background-color: #f0b840;
-    color: white; }
-  .ionic .item-royal.active {
+    border-color: #d39511; }
+  .ionic .item.item-energized.active, .ionic .item.item-energized:active {
+    background-color: activeBgColor;
+    border-color: #d39511; }
+  .ionic .item.item-energized.active .item-content, .ionic .item.item-energized:active .item-content {
+    background-color: #d39511;
+    border-color: #d39511;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-royal {
     color: white;
     background-color: #8a6de9;
-    border-color: #444444; }
-  .ionic .item-royal.active .item-content {
-    background-color: #8a6de9;
-    color: white; }
-  .ionic .item-dark.active {
+    border-color: #552bdf; }
+  .ionic .item.item-royal.active, .ionic .item.item-royal:active {
+    background-color: activeBgColor;
+    border-color: #552bdf; }
+  .ionic .item.item-royal.active .item-content, .ionic .item.item-royal:active .item-content {
+    background-color: #552bdf;
+    border-color: #552bdf;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
+  .ionic .item.item-dark {
     color: white;
     background-color: #444444;
-    border-color: #444444; }
-  .ionic .item-dark.active .item-content {
-    background-color: #444444;
-    color: white; }
+    border-color: #111111; }
+  .ionic .item.item-dark.active, .ionic .item.item-dark:active {
+    background-color: activeBgColor;
+    border-color: black; }
+  .ionic .item.item-dark.active .item-content, .ionic .item.item-dark:active .item-content {
+    background-color: #262626;
+    border-color: black;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.12); }
   .ionic .item,
   .ionic .item h1,
   .ionic .item h2,
@@ -8729,6 +8786,7 @@ h1 + h2 + p {
     text-overflow: ellipsis;
     white-space: nowrap; }
   .ionic a.item {
+    color: inherit;
     text-decoration: none; }
   .ionic a.item:hover, .ionic a.item:focus {
     text-decoration: none; }
@@ -8747,7 +8805,6 @@ h1 + h2 + p {
     z-index: 2;
     padding: 15px 40px 15px 15px;
     border: none;
-    background-color: white;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
   .ionic .item-text-wrap,
   .ionic .item-text-wrap h1,
@@ -10163,55 +10220,55 @@ h1 + h2 + p {
     padding-left: 10px; }
   .ionic .rounded {
     border-radius: 4px; }
-  .ionic .light {
+  .ionic .light, .ionic a.light {
     color: white; }
   .ionic .light-bg {
     background-color: white; }
   .ionic .light-border {
     border-color: #dddddd; }
-  .ionic .stable {
+  .ionic .stable, .ionic a.stable {
     color: #f8f8f8; }
   .ionic .stable-bg {
     background-color: #f8f8f8; }
   .ionic .stable-border {
     border-color: #b2b2b2; }
-  .ionic .positive {
+  .ionic .positive, .ionic a.positive {
     color: #4a87ee; }
   .ionic .positive-bg {
     background-color: #4a87ee; }
   .ionic .positive-border {
     border-color: #145dd7; }
-  .ionic .calm {
+  .ionic .calm, .ionic a.calm {
     color: #43cee6; }
   .ionic .calm-bg {
     background-color: #43cee6; }
   .ionic .calm-border {
     border-color: #1aaac3; }
-  .ionic .assertive {
+  .ionic .assertive, .ionic a.assertive {
     color: #ef4e3a; }
   .ionic .assertive-bg {
     background-color: #ef4e3a; }
   .ionic .assertive-border {
     border-color: #cc2511; }
-  .ionic .balanced {
+  .ionic .balanced, .ionic a.balanced {
     color: #66cc33; }
   .ionic .balanced-bg {
     background-color: #66cc33; }
   .ionic .balanced-border {
     border-color: #478f24; }
-  .ionic .energized {
+  .ionic .energized, .ionic a.energized {
     color: #f0b840; }
   .ionic .energized-bg {
     background-color: #f0b840; }
   .ionic .energized-border {
     border-color: #d39511; }
-  .ionic .royal {
+  .ionic .royal, .ionic a.royal {
     color: #8a6de9; }
   .ionic .royal-bg {
     background-color: #8a6de9; }
   .ionic .royal-border {
     border-color: #552bdf; }
-  .ionic .dark {
+  .ionic .dark, .ionic a.dark {
     color: #444444; }
   .ionic .dark-bg {
     background-color: #444444; }

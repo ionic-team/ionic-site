@@ -13,8 +13,7 @@ Side Menu Controller
 
 The Side Menu Controller enables a left and/or right side menu that can be toggled or exposed by dragging the center content area side to side. One or both of the menus can be enabled: 
 
-![Side menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sideMenu4.png)
-![Side menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sideMenu2.png)
+<img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif" style="border: 1px solid #eee">
 
 ## Usage
 

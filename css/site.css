@@ -8729,7 +8729,6 @@ h1 + h2 + p {
     text-overflow: ellipsis;
     white-space: nowrap; }
   .ionic a.item {
-    color: inherit;
     text-decoration: none; }
   .ionic a.item:hover, .ionic a.item:focus {
     text-decoration: none; }

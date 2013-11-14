@@ -75,10 +75,12 @@
 }
 
 .docs-section {
-  padding-bottom: 10px;
+  padding-bottom: 60px;
   color: #333;
   font-size: 16px;
   line-height: 28px;
+  opacity: .5;
+  transition: opacity .15s ease-in-out;
 
   .panel-heading {
     font-family: $font-family-monospace; 
@@ -117,7 +119,7 @@
   }
 
   &.active {
-    color: #333;
+    opacity: 1;
     
     h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
@@ -135,7 +137,7 @@
 }
 
 .docs-section + .docs-section {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .device-preview-page {

@@ -5127,10 +5127,12 @@ td.visible-print {
     display: none !important; }
 
 .docs-section {
-  padding-bottom: 10px;
+  padding-bottom: 60px;
   color: #333;
   font-size: 16px;
-  line-height: 28px; }
+  line-height: 28px;
+  opacity: .5;
+  transition: opacity .15s ease-in-out; }
   .docs-section .panel-heading {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
   .docs-section .highlight {
@@ -5156,7 +5158,7 @@ td.visible-print {
     color: #333;
     text-decoration: none; }
   .docs-section.active {
-    color: #333; }
+    opacity: 1; }
     .docs-section.active h2 a, .docs-section.active h3 a {
       border-bottom: 1px solid #4f8ef7;
       color: #4f8ef7; }
@@ -5167,7 +5169,7 @@ td.visible-print {
   display: none; }
 
 .docs-section + .docs-section {
-  padding-top: 40px; }
+  padding-top: 20px; }
 
 .device-preview-page {
   position: relative; }

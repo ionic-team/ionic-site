@@ -20,8 +20,9 @@
 
   /* Fixed left menu */
   var fixedMenu = $('.docked-menu');
+  var activeId;
   if(fixedMenu.length) {
-    $(document.body).scrollspy({ target: '.docked-menu' });
+    $(document.body).scrollspy({ target: '.docked-menu', offset: 180 });
 
     var fixedMenuTop = fixedMenu.offset().top;
     var menuTopPadding = 20;
@@ -65,7 +66,7 @@
     var orgDeviceTop = devicePreview.offset().top;
     var $defaultScreen = devicePreview.find('.default-screen');
 
-    function previewReset() {
+    function onScroll() {
       if(window.scrollY > orgDeviceTop) {
         if( !devicePreview.hasClass('fixed-preview') ) {
           devicePreview
@@ -83,6 +84,7 @@
             });
         }
       }
+
     }
     $(window).resize(function(){
       devicePreview
@@ -90,10 +92,10 @@
           .css({
             left: 'auto'
           });
-      previewReset();
+      onScroll();
     });
-    $(window).scroll(previewReset);
-    previewReset();
+    $(window).scroll(onScroll);
+    onScroll();
 
 
     function scrollSpyChange(e) {
@@ -111,19 +113,21 @@
       }
 
       if(id) {
-        var activeSection = $(id);
-        if(activeSection.length) {
-          previewSection(activeSection);
-        }
+        setTimeout(function(){
+          previewSection(id);
+        });
       }
     }
     fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
 
     var defaultScreen = devicePreview.find('.default-screen');
-    function previewSection(activeSection) {
-      var activeId = activeSection.attr('id');
+    function previewSection(id) {
+      var activeSection = $(id);
+      if(!activeSection.length) return;
+
       var title = activeSection.find('h1,h2,h3').first();
       var newTitle = "Ionic Components";
+      activeId = activeSection.attr('id');
       if(title.length) {
         newTitle = title.text() + " - " + newTitle;
       }

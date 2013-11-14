@@ -4943,7 +4943,8 @@ td.visible-print {
   padding: 0 10px;
   text-align: center; }
   .home .primary-row h1 {
-    margin-top: 70px; }
+    margin-top: 70px;
+    border-bottom: none; }
   .home .primary-row h2 {
     margin-top: 55px;
     font-size: 20px; }

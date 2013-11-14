@@ -5770,27 +5770,7 @@ h1 + h2 + p {
     transform: rotate(360deg); } }
 
 .ionic {
-  /**
-   * Button Mixins
-   * --------------------------------------------------
-   */
-  /**
-   * Bar Mixins
-   * --------------------------------------------------
-   */
-  /**
-   * Tab Mixins
-   * --------------------------------------------------
-   */
-  /**
-   * Item Mixins
-   * --------------------------------------------------
-   */
-  /**
-   * Utility Mixins
-   * --------------------------------------------------
-   */
-  /*
+  /*!
     Ionicons, v1.3.3
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/helloimben  https://twitter.com/ionicframework
@@ -7764,7 +7744,7 @@ h1 + h2 + p {
   .ionic fieldset {
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
-    border: 1px solid silver; }
+    border: 1px solid #c0c0c0; }
   .ionic legend {
     padding: 0;
     /* 2 */
@@ -9404,7 +9384,7 @@ h1 + h2 + p {
   .ionic input[type="color"] {
     display: inline-block;
     height: 34px;
-    color: #444444;
+    color: #111111;
     vertical-align: middle;
     font-size: 14px;
     line-height: 20px; }
@@ -9494,7 +9474,7 @@ h1 + h2 + p {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color 0.1s ease-in-out; }
+    transition: background-color .1s ease-in-out; }
   .ionic .checkbox input:after {
     position: absolute;
     top: 34%;
@@ -9507,7 +9487,7 @@ h1 + h2 + p {
     border-right: 0;
     content: ' ';
     opacity: 0;
-    transition: opacity 0.05s ease-in-out;
+    transition: opacity .05s ease-in-out;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg); }
   .ionic .checkbox input:checked:before {
@@ -9568,8 +9548,10 @@ h1 + h2 + p {
     -webkit-transform: translate3d(22px, 0, 0);
     transform: translate3d(22px, 0, 0);
     background-color: white; }
-  .ionic .item-toggle .item-content {
+  .ionic .item-toggle {
     padding-right: 99px; }
+  .ionic .item-toggle.active, .ionic .item-toggle:active {
+    box-shadow: none; }
   .ionic .item-toggle .toggle {
     position: absolute;
     top: 7.5px;
@@ -9927,7 +9909,7 @@ h1 + h2 + p {
   .ionic .button-icon:active, .ionic .button-icon.active {
     background: none;
     box-shadow: none;
-    text-shadow: 0px 0px 10px white; }
+    text-shadow: 0px 0px 10px #fff; }
   .ionic .padding > .button.block:first-child {
     margin-top: 0; }
   .ionic .button-full,

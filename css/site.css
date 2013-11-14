@@ -5146,11 +5146,11 @@ td.visible-print {
       border-bottom: 1px solid #ddd;
       line-height: 1.9em; }
   .docs-section h3 {
-    border-bottom: 1px solid transparent;
     line-height: 1.9em; }
   .docs-section h2 a, .docs-section h3 a {
     display: block;
     color: #999;
+    border-bottom: 1px solid transparent;
     opacity: 1;
     transition: color .15s ease-in-out; }
   .docs-section h2 a:hover,

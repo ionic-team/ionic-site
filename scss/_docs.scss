@@ -103,12 +103,12 @@
     }
   }
   h3 {
-    border-bottom: 1px solid transparent;
     line-height: 1.9em;
   }
   h2 a, h3 a {
     display: block;
     color: #999;
+    border-bottom: 1px solid transparent;
     opacity: 1;
     transition: color .15s ease-in-out;
   }

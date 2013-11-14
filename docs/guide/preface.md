@@ -1,5 +1,5 @@
 ---
-layout: guide
+layout: guide_0.9.0
 title: "Welcome to Ionic"
 ---
 

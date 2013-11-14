@@ -5741,6 +5741,7 @@ h1 + h2 + p {
 
 .getting-started-page .getting-started-nav,
 .docs-page .docs-nav,
+.api-page .api-nav,
 .examples-page .examples-nav,
 .blog-page .blog-nav,
 .nav-link:hover,

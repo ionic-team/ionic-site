@@ -1,10 +1,10 @@
 ---
-layout: guide
-title: "Table of Contents"
+layout: guide_0.9.0
+title: "Guide: Table of Contents"
 version: 0.9.0
 ---
 
-# The Ionic Guide (Ionic v{{page.version}})
+# The Ionic Guide (v{{page.version}})
 
 Welcome to the official Ionic Guide, where we will walk through the process of getting Ionic and all its dependencies installed, creating a new project, designing and building the UI, adding logic, testing, deploying on the device, and publishing to the various app stores.
 

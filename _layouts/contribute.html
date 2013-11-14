@@ -1,49 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ionic: The Most Advanced HTML5 Mobile App Framework">
-    <meta name="author" content="Drifty">
-    <title>{{page.title}}</title>
-    {% include head_includes.html %}
-  </head>
+---
+layout: default
+body_class: contribute-page docs
+---
 
-  <body class="contribute-page docs">
+<div class="row">
 
-    {% include nav_links.html %}
+  <div class="col-md-2">
 
-    {% include header.html %}
+    <div class="docked-menu">
 
-    <div class="container content-container">
+      <ul class="nav left-menu">
+        <li class="active"><a href="#overview">Overview</a></li>
+        <li><a href="#issues">Submit an issue</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+      </ul>
 
-      <div class="row">
-
-        <div class="col-md-2">
-
-          <div class="docked-menu">
-
-            <ul class="nav left-menu">
-              <li class="active"><a href="#overview">Overview</a></li>
-              <li><a href="#issues">Submit an issue</a></li>
-              <li><a href="#conventions">Conventions</a></li>
-            </ul>
-
-          </div>
-          
-        </div>
-
-        <div class="col-md-10 main-content">
-          {{ content }}
-        </div>
-
-      </div>
-      
     </div>
-	
-    {% include footer.html %}
+    
+  </div>
 
-    {% include base_scripts.html %}
+  <div class="col-md-10 main-content">
+    {{ content }}
+  </div>
 
-  </body>
-</html>
+</div>

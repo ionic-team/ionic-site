@@ -179,14 +179,11 @@
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           smoothScrollingTo = '#' + target.attr('id');
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 
-          500, 'swing',
-          function() {
-            previewSection(smoothScrollingTo);
-            smoothScrollingTo = undefined;
-          });
+          $('html,body').animate({ scrollTop: target.offset().top }, 150, 'swing',
+            function() {
+              previewSection(smoothScrollingTo);
+              smoothScrollingTo = undefined;
+            });
           return false;
         }
       }

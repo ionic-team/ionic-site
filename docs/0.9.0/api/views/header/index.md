@@ -5,7 +5,7 @@ header_sub_title: "Headers"
 ---
 
 Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.0</div>
 <div class="label label-primary">Ionic 0.9.0</div>
 
 
@@ -18,9 +18,9 @@ As of Ionic 0.9.0, the only available header bar feature provide is auto title c
 
 Using two-way data binding, the header bar will automatically readjust the heading title alignment when the title or buttons change.
 
-## AngularIonic Usage
+## Ionic-Angular Usage
 
-To use the dynamic header bar behavior in AngularIonic, use the `<header-bar>` directive:
+To use the dynamic header bar behavior in Ionic-Angular, use the `<header-bar>` directive:
 
 ```html
 <header-bar

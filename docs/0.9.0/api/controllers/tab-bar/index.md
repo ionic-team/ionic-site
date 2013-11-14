@@ -9,7 +9,7 @@ Tab Bar Controller
 
 <!--
 Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.0</div>
 <div class="label label-primary">Ionic 0.9.0</div>
 -->
 

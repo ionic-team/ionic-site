@@ -5,7 +5,7 @@ header_sub_title: "Slide in prompts for actions"
 ---
 
 Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.0</div>
 <div class="label label-primary">Ionic 0.9.0</div>
 
 
@@ -17,7 +17,7 @@ The Action Sheet is a slide-up pane that lets the user choose from a set of opti
 
 <img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif" alt="Action Sheet" style="border: 1px solid #eee">
 
-## AngularIonic Usage
+## Ionic-Angular Usage
 
 To trigger an Action Sheet in your code, use the `ActionSheet` service in your angular controllers:
 

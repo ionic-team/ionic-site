@@ -5,7 +5,7 @@ header_sub_title: "Touch interaction for your apps"
 ---
 
 Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.0</div>
 <div class="label label-primary">Ionic 0.9.0</div>
 
 Gestures
@@ -15,7 +15,7 @@ Ionic supports a wide range of gestures that can be listened for and acted upon 
 
 We have ported over the wonderful [Hammer.js](http://eightmedia.github.io/hammer.js/) library and tweaked it to fit in nicely with Ionic.
 
-## AngularIonic Support
+## Ionic-Angular Support
 
 To use the Gesture service in your Angular directives, just inject `Gesture`:
 

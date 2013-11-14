@@ -9,7 +9,7 @@
     {% include head_includes.html %}
   </head>
 
-  <body class="getting-started-page">
+  <body class="{% if page.body_class %}{{ page.body_class}}{% else %}getting-started-page{% endif %}">
 
     {% include nav_links.html %}
 
@@ -24,18 +24,22 @@
           <div class="docked-menu">
 
             <ul class="nav left-menu">
-              <li class="active"><a href="#overview">Getting Started</a></li>
-              <li><a href="#download">Download</a></li>
-              <li><a href="#whats-included">What's included</a></li>
-              <li><a href="#basic-template">Basic Template</a></li>
-              <li><a href="#sass">SASS</a></li>
-              <li><a href="#angularjs">AngularJS</a></li>
-              <li><a href="#phonegap">Phonegap</a></li>
-              <li><a href="#browser-support">Browser Support</a></li>
-              <li><a href="#examples">Examples</a></li>
-              <li><a href="#license">Licensing</a></li>
-              <li><a href="#contribute">Contribute</a></li>
-              <li><a href="#about">About Ionic</a></li>
+              {% if page.left_menu %}
+                {{page.left_menu}}
+              {% else %}
+                <li class="active"><a href="#overview">Getting Started</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#whats-included">What's included</a></li>
+                <li><a href="#basic-template">Basic Template</a></li>
+                <li><a href="#sass">SASS</a></li>
+                <li><a href="#angularjs">AngularJS</a></li>
+                <li><a href="#phonegap">Phonegap</a></li>
+                <li><a href="#browser-support">Browser Support</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#license">Licensing</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#about">About Ionic</a></li>
+              {% endif %}
             </ul>
             
           </div>

@@ -5,3 +5,4 @@ markdown: redcarpet
 pygments: true
 permalink: /blog/:title
 paginate: 5
+latest_api_version: "0.9.0"

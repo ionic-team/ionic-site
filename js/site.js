@@ -54,10 +54,11 @@
   var devicePreview = $('.device-preview');
   if(devicePreview.length) {
     var docContent = $('.main-content');
+    var orgDeviceTop = devicePreview.offset().top;
     var $defaultScreen = devicePreview.find('.default-screen');
 
     function previewReset() {
-      if(window.scrollY > docContent.offset().top) {
+      if(window.scrollY > orgDeviceTop) {
         if( !devicePreview.hasClass('fixed-preview') ) {
           devicePreview
             .css({
@@ -112,18 +113,21 @@
 
     var defaultScreen = devicePreview.find('.default-screen');
     function previewSection(activeSection) {
+      var activeId = activeSection.attr('id');
       var title = activeSection.find('h1,h2,h3').first();
-      if(title.length) {
-        document.title = title.text() + " - Ionic Docs";
-      }
+
       docContent.find('.active').removeClass('active');
       activeSection.addClass("active");
+
+      if(window.history.replaceState) {
+        window.history.replaceState({}, title + " - Ionic Docs", "#" + activeId);
+      }
 
       devicePreview.find('.active-preview').removeClass('active-preview');
       var docExample = activeSection.find('.doc-example');
       if( docExample.length ) {
         // this 
-        var exampleId = 'example-' + activeSection.attr('id');
+        var exampleId = 'example-' + activeId;
         var examplePreview = $('#' + exampleId);
         if(examplePreview.length) {
           // preview has already been added

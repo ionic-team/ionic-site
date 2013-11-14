@@ -9,6 +9,15 @@
   position: fixed;
 }
 
+.device-preview-page .col-md-2 {
+  display: none;
+}
+@media (min-width: 992px) {
+  .device-preview-page .col-md-2 {
+    display: block;
+  }
+}
+
 .ionic-example {
   // Make sure all bars stay relative in examples
   .bar {
@@ -42,7 +51,7 @@
 
     ul {
       display: none;
-      padding-left: 18px;
+      padding-left: 12px;
     }
   }
 
@@ -57,7 +66,7 @@
   }
 
   &.nav > li > a {
-    padding: 1px 6px;
+    padding: 1px 0;
   }
 
   > li > ul > li > ul {
@@ -143,7 +152,7 @@
   .device-preview {
     position: absolute;
     right: 0;
-    width: 400px;
+    width: 380px;
     height: 810px;
     background: url("/img/phone-case.png") no-repeat right top;
 
@@ -169,7 +178,7 @@
   }
 
   .docs-section {
-    padding-right: 400px;
+    padding-right: 380px;
   }
 
   @media (max-width: 767px) {
@@ -184,7 +193,7 @@
   .device-preview > div {
     position: absolute;
     top: 104px;
-    left: 53px;
+    left: 33px;
     z-index: 0;
     width: 328px;
     height: 576px;

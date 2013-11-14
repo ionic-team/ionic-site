@@ -25,7 +25,7 @@ Also, we are working on virtual list rendering which will only work when using I
 The `<content>` directive can be used whenever a scrollable content area is desired. Here it is with all its available options, though none of these are required:
 
 ```html
-<body>
+<body ng-controller="ContentCtrl">
   <header-bar title="'Header'">
   </header-bar>
 
@@ -36,6 +36,7 @@ The `<content>` directive can be used whenever a scrollable content area is desi
     scroll="true"
     on-refresh="onRefresh()"
     on-refresh-opening="onRefreshOpening(amount)"
+    refresh-complete="refreshComplete"
     >
 
     <!-- for pull to refresh -->
@@ -48,6 +49,24 @@ The `<content>` directive can be used whenever a scrollable content area is desi
     <h1 class="title">Footer</h1>
   </footer-bar>
 </body>
+```
+
+And example controller:
+
+```javascript
+angular.module('myModule', [])
+.controller('ContentCtrl', function($scope, Users) {
+  $scope.onRefresh = function() {
+    // Load content
+    Users.load().then(function(users) {
+      $scope.users = users;
+
+      // Trigger refresh complete on the pull to refresh action
+      $scope.refreshComplete();
+    });
+  };
+});
+
 ```
 
 <table class="table">
@@ -92,5 +111,15 @@ The `<content>` directive can be used whenever a scrollable content area is desi
       <td>A function to call as the pull to refresh opens. amount is a value in the range 0 <= amount <= 1. This function is
           throttled to improve performance.</td>
     </tr>
+    <tr>
+      <td>padded</td>
+      <td>true/false</td>
+      <td>false</td>
+      <td>Whether to add standard padding to the content area</td>
+    </tr>
   </tbody>
 </table>
+
+### Pull to Refresh
+
+Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. Ionic supports it

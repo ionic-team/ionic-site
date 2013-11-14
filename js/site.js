@@ -182,7 +182,7 @@
           $('html,body').animate({
             scrollTop: target.offset().top
           }, 
-          1000, 'swing',
+          500, 'swing',
           function() {
             previewSection(smoothScrollingTo);
             smoothScrollingTo = undefined;

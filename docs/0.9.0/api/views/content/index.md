@@ -92,11 +92,17 @@ angular.module('myModule', [])
       <td>Whether to push the content area up by the height of the footer</td>
     </tr>
     <tr>
+      <td>overflowScroll</td>
+      <td>true/false</td>
+      <td>false</td>
+      <td>Whether to use Ionic's custom scroll view (false), or the browser's overflow touch (true). Note: pull to refresh
+          and other scroll features require this value to be false</td>
+    </tr>
+    <tr>
       <td>scroll</td>
       <td>true/false</td>
       <td>true</td>
-      <td>Whether to use Ionic's custom scroll view (true), or the browser's overflow touch (false). Note: pull to refresh
-          and other scroll features require this value to be true</td>
+      <td>Whether to scroll at all. Set this to "false" if a list child is going to handle scrolling instead</td>
     </tr>
     <tr>
       <td>on-refresh</td>
@@ -112,6 +118,12 @@ angular.module('myModule', [])
           throttled to improve performance.</td>
     </tr>
     <tr>
+      <td>refresh-complete</td>
+      <td>function</td>
+      <td></td>
+      <td>A function on the current scope called by the *user code* when refreshing is completed on the pull to refresh operation.</td>
+    </tr>
+    <tr>
       <td>padded</td>
       <td>true/false</td>
       <td>false</td>
@@ -122,4 +134,4 @@ angular.module('myModule', [])
 
 ### Pull to Refresh
 
-Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. Ionic supports it
+Pull to refresh is an incredibly common UI paradigm found in mobile apps these days.

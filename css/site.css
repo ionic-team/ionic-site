@@ -9125,41 +9125,50 @@ h1 + h2 + p {
     height: 100%;
     background-color: white; }
   .ionic .badge {
+    background-color: transparent;
+    color: #aaaaaa;
     display: inline-block;
-    min-width: 10px;
     padding: 3px 8px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    line-height: 16px;
+    min-width: 10px;
+    border-radius: 10px;
     vertical-align: baseline;
-    white-space: nowrap;
     text-align: center;
-    background-color: #f8f8f8;
-    border-radius: 10px; }
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px; }
   .ionic .badge:empty {
     display: none; }
+  .ionic .badge.badge-light {
+    background-color: white;
+    color: #444444; }
+  .ionic .badge.badge-stable {
+    background-color: #f8f8f8;
+    color: #444444; }
+  .ionic .badge.badge-positive {
+    background-color: #4a87ee;
+    color: white; }
+  .ionic .badge.badge-calm {
+    background-color: #43cee6;
+    color: white; }
+  .ionic .badge.badge-assertive {
+    background-color: #ef4e3a;
+    color: white; }
+  .ionic .badge.badge-balanced {
+    background-color: #66cc33;
+    color: white; }
+  .ionic .badge.badge-energized {
+    background-color: #f0b840;
+    color: white; }
+  .ionic .badge.badge-royal {
+    background-color: #8a6de9;
+    color: white; }
+  .ionic .badge.badge-dark {
+    background-color: #444444;
+    color: white; }
   .ionic .button .badge {
     position: relative;
     top: -1px; }
-  .ionic .badge-light {
-    background-color: white; }
-  .ionic .badge-stable {
-    background-color: #f8f8f8; }
-  .ionic .badge-positive {
-    background-color: #4a87ee; }
-  .ionic .badge-calm {
-    background-color: #43cee6; }
-  .ionic .badge-assertive {
-    background-color: #ef4e3a; }
-  .ionic .badge-balanced {
-    background-color: #66cc33; }
-  .ionic .badge-energized {
-    background-color: #f0b840; }
-  .ionic .badge-royal {
-    background-color: #8a6de9; }
-  .ionic .badge-dark {
-    background-color: #444444; }
   .ionic .slide-box {
     background-color: #000;
     position: relative;

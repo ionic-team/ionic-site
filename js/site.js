@@ -29,7 +29,7 @@
       top: menuTopPadding + 'px'
     });
 
-    function docScroll(e) {
+    function docScroll() {
       if(window.scrollY + menuTopPadding > fixedMenuTop) {
         fixedMenu
           .css({
@@ -47,6 +47,14 @@
         }
       }
     }
+    $(window).resize(function(){
+      fixedMenu
+          .removeClass("fixed-menu")
+          .css({
+            width: 'auto'
+          });
+      docScroll();
+    });
     $(window).scroll(docScroll);
   }
 

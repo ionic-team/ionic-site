@@ -3194,12 +3194,12 @@ callout: "<a href='../api'>API</a> - <a href='../guide'>Guide</a>"
     on prototypically-inherited child scopes.
   </p>
   <p>
-    To add new screens to the navigation controller,
-    call <code>$scope.navController.pushFromTemplate(templateUrl)</code> to navigate to a new content area.
+    To add new screens to the navigation controller, and navigate to a new content area:
   </p>
-  <p>
-    
-  </p>
+
+{% highlight html %}
+$scope.navController.pushFromTemplate(templateUrl)
+{% endhighlight %}
 
 </div>
 

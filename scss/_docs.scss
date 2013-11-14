@@ -79,8 +79,6 @@
   color: #333;
   font-size: 16px;
   line-height: 28px;
-  opacity: .5;
-  transition: opacity .15s ease-in-out;
 
   .panel-heading {
     font-family: $font-family-monospace; 
@@ -130,6 +128,15 @@
   td, th {
     font-size: 14px !important;
   }
+}
+
+.device-preview-page .docs-section {
+  opacity: .5;
+  transition: opacity .15s ease-in-out;
+}
+
+.device-preview-page .docs-section.active {
+  opacity: 1;
 }
 
 .doc-example {

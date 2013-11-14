@@ -17,10 +17,10 @@ header_sub_title: "An overvew of Ionic, why we built it, how to use it, and what
   Ionic is focused mainly on the look and feel, and UI interaction of your app. That means we aren't a replacement for <a href="http://phonegap.com/">PhoneGap</a> or your favorite Javascript framework. Instead, Ionic tries to fit in well with these projects in order to simplify one big part of your app: the front end. We recommend reading <a href="/blog/where-does-the-ionic-framework-fit-in/">Where does the Ionic Framework fit in?</a> to get a good understand of the framework's goals.
   </p>
   <p>
-  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy.
+  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy. As of Ionic 0.9.0, Angular is the only supported way to build Ionic apps (we are working to change this though).
   </p>
   <p>
-  We are fans of PhoneGap/Cordova so we will be releasing plugins in the future to expand the capabilities of your apps.
+    We will also be releasing Cordova/PhoneGap plugins in the future to expand the capabilities of your apps.
   </p>
 </div>
 
@@ -87,21 +87,16 @@ header_sub_title: "An overvew of Ionic, why we built it, how to use it, and what
   <meta charset="utf-8">
   <title>My App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  ...
+  <link rel="stylesheet" href="css/ionic.css">
+  <script src="js/ionic.js"></script>
+  <script src="js/ionic-angular.js"></script>
 </head>
 <body>
-  <div class="header">
-    ...
-  </div>
-  <div class="content-wrapper">
-    <div class="content has-header has-footer">
-      ...
-    </div>
-  </div>
-  <div class="footer">
-    ...
-  </div>
+  <header-bar title="'Hello'"></header-bar>
+  <content has-header="true">
+  </content>
 </body>
+</html>
 {% endhighlight %}
 
 </div>

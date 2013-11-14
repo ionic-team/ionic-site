@@ -259,7 +259,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 15px;
   line-height: 1.42857;
-  color: #555555;
+  color: #333333;
   background-color: white; }
 
 input,
@@ -1585,7 +1585,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #959595; }
+  color: #737373; }
 
 @media (min-width: 768px) {
   .form-inline .form-group, .navbar-form .form-group {
@@ -3551,7 +3551,7 @@ a.thumbnail:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #555555; }
+  color: #333333; }
 
 .alert {
   padding: 15px;
@@ -5121,7 +5121,7 @@ td.visible-print {
 
 .docs-section {
   padding-bottom: 10px;
-  color: #888;
+  color: #333;
   font-size: 16px;
   line-height: 28px; }
   .docs-section .panel-heading {

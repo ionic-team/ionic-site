@@ -115,12 +115,17 @@
     function previewSection(activeSection) {
       var activeId = activeSection.attr('id');
       var title = activeSection.find('h1,h2,h3').first();
+      var newTitle = "Ionic Components";
+      if(title.length) {
+        newTitle = title.text() + " - " + newTitle;
+      }
+      document.title = newTitle;
 
       docContent.find('.active').removeClass('active');
       activeSection.addClass("active");
 
       if(window.history.replaceState) {
-        window.history.replaceState({}, title + " - Ionic Docs", "#" + activeId);
+        window.history.replaceState({}, newTitle, "#" + activeId);
       }
 
       devicePreview.find('.active-preview').removeClass('active-preview');

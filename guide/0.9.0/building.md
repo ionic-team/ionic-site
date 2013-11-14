@@ -311,7 +311,7 @@ angular.module('todo', ['ionic'])
   $scope.selectProject = function(project, index) {
     $scope.activeProject = project;
     Projects.setLastActiveIndex(index);
-    $scope.sideMenuCtrl.close();
+    $scope.sideMenuController.close();
   };
 
   // Create our modal
@@ -345,7 +345,7 @@ angular.module('todo', ['ionic'])
   }
 
   $scope.toggleProjects = function() {
-    $scope.sideMenuCtrl.toggleLeft();
+    $scope.sideMenuController.toggleLeft();
   };
 
 

@@ -99,6 +99,8 @@
 
 
     function scrollSpyChange(e) {
+      if(smoothScrollingTo) return false;
+
       var id;
       if(e.target.children.length > 1) {
         // this is a top level nav link
@@ -167,5 +169,28 @@
     }
 
   }
+
+  // Smooth Scrolling
+  var smoothScrollingTo;
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          smoothScrollingTo = '#' + target.attr('id');
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 
+          1000, 'swing',
+          function() {
+            previewSection(smoothScrollingTo);
+            smoothScrollingTo = undefined;
+          });
+          return false;
+        }
+      }
+    });
+  });
 
 })();

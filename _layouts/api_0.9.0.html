@@ -23,9 +23,11 @@
 
           <div class="docked-menu">
 
-            <h3>API Docs</h3>
+            <h3>Javascript Components</h3>
 
             <ul class="nav left-menu">
+              <li><a href="/docs/0.9.0/api/views/content/">Content</a></li>
+              <li><a href="/docs/0.9.0/api/views/header/">Header</a></li>
               <li><a href="/docs/0.9.0/api/views/list/">List</a></li>
               <li><a href="/docs/0.9.0/api/controllers/tab-bar/">Tab Bar</a></li>
               <li><a href="/docs/0.9.0/api/controllers/side-menu/">Side Menu</a></li>
@@ -39,6 +41,11 @@
         </div>
 
         <div class="col-md-10 main-content">
+          <ol class="breadcrumb">
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/0.9.0/api/">API</a></li>
+            <li class="active">{{page.title}}</li>
+          </ol>
           {{ content }}
         </div>
 

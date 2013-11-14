@@ -28,7 +28,7 @@ $brand-info:            #5bc0de !default;
 // -------------------------
 
 $body-bg:               #fff !default;
-$text-color:            #777 !default;
+$text-color:            #555 !default;
 
 // Links
 // -------------------------
@@ -39,14 +39,14 @@ $link-hover-color:      darken($link-color, 15%) !default;
 // Typography
 // -------------------------
 
-$font-family-sans-serif:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 $font-family-medium:      "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-regular:     "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$font-size-base:          14px !default;
+$font-size-base:          15px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 

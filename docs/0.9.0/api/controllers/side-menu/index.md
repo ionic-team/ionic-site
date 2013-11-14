@@ -39,7 +39,7 @@ The center content tag can be any element, but it must have the `side-menu-conte
 
 Like all Ionic controllers, the Side Menu exposes one object for all child scopes that use prototypal inheritance (i.e. all besides isolated scopes).
 
-To access the parent Side Menu Controller on a child scope, access the `$scope.sideMenuCtrl` object. For example, the following code enables toggling the left side menu from a button in the header bar:
+To access the parent Side Menu Controller on a child scope, access the `$scope.sideMenuController` object. For example, the following code enables toggling the left side menu from a button in the header bar:
 
 ```html
 <header>
@@ -49,7 +49,7 @@ To access the parent Side Menu Controller on a child scope, access the `$scope.s
 
 ```javascript
 $scope.toggleMenu = function() {
-  $scope.sideMenuCtrl.toggleLeft();
+  $scope.sideMenuController.toggleLeft();
 };
 ```
 

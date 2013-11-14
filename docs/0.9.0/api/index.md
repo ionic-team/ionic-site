@@ -1,5 +1,5 @@
 ---
-layout: api
+layout: api_0.9.0
 title: "Ionic API"
 api_version: "0.9.0"
 ---

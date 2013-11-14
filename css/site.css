@@ -5785,7 +5785,7 @@ h1 + h2 + p {
    * Utility Mixins
    * --------------------------------------------------
    */
-  /*!
+  /*
     Ionicons, v1.3.3
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/helloimben  https://twitter.com/ionicframework
@@ -7759,7 +7759,7 @@ h1 + h2 + p {
   .ionic fieldset {
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
-    border: 1px solid #c0c0c0; }
+    border: 1px solid silver; }
   .ionic legend {
     padding: 0;
     /* 2 */
@@ -9288,8 +9288,7 @@ h1 + h2 + p {
     margin-bottom: 1.42857;
     padding: 0;
     width: 100%;
-    border: 0;
-    border-bottom: 1px solid #e5e5e5;
+    border: 1px solid #dddddd;
     color: #444444;
     font-size: 21px;
     line-height: 2.85714; }
@@ -9400,7 +9399,7 @@ h1 + h2 + p {
   .ionic input[type="color"] {
     display: inline-block;
     height: 34px;
-    color: #dfdfdf;
+    color: #444444;
     vertical-align: middle;
     font-size: 14px;
     line-height: 20px; }
@@ -9441,20 +9440,20 @@ h1 + h2 + p {
   .ionic input[type="file"] {
     line-height: 34px; }
   .ionic select {
-    border: 1px solid #ccc;
+    border: 1px solid #dddddd;
     background-color: white; }
   .ionic select[multiple],
   .ionic select[size] {
     height: auto; }
   .ionic input:-moz-placeholder,
   .ionic textarea:-moz-placeholder {
-    color: #dfdfdf; }
+    color: #aaaaaa; }
   .ionic input:-ms-input-placeholder,
   .ionic textarea:-ms-input-placeholder {
-    color: #dfdfdf; }
+    color: #aaaaaa; }
   .ionic input::-webkit-input-placeholder,
   .ionic textarea::-webkit-input-placeholder {
-    color: #dfdfdf; }
+    color: #aaaaaa; }
   .ionic input[disabled],
   .ionic select[disabled],
   .ionic textarea[disabled],
@@ -9490,7 +9489,7 @@ h1 + h2 + p {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color .1s ease-in-out; }
+    transition: background-color 0.1s ease-in-out; }
   .ionic .checkbox input:after {
     position: absolute;
     top: 34%;
@@ -9503,7 +9502,7 @@ h1 + h2 + p {
     border-right: 0;
     content: ' ';
     opacity: 0;
-    transition: opacity .05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg); }
   .ionic .checkbox input:checked:before {
@@ -9923,7 +9922,7 @@ h1 + h2 + p {
   .ionic .button-icon:active, .ionic .button-icon.active {
     background: none;
     box-shadow: none;
-    text-shadow: 0px 0px 10px #fff; }
+    text-shadow: 0px 0px 10px white; }
   .ionic .padding > .button.block:first-child {
     margin-top: 0; }
   .ionic .button-full,

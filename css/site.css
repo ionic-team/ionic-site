@@ -5680,11 +5680,9 @@ h1 + h2 + p {
       text-decoration: none; }
 
 .header {
-  margin-bottom: 40px;
+  height: 200px;
   padding: 50px 0 0 0;
-  height: 244px; }
-  .header .container {
-    margin: 0 auto; }
+  background-position: 0 -76px; }
   .header h3 {
     color: white;
     font-size: 28px; }
@@ -5709,6 +5707,16 @@ h1 + h2 + p {
     padding: 10px 20px;
     display: inline-block;
     font-weight: bold; }
+  .header .heading-tile {
+    background-position: 0 -80px; }
+
+.header-callout {
+  background: #DFEBFD; }
+  .header-callout .container {
+    padding: 15px; }
+
+.content-container {
+  margin-top: 40px; }
 
 .nav-link {
   border-bottom: 3px solid transparent; }

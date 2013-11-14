@@ -84,12 +84,9 @@ h1 + h2 + p {
 }
 
 .header {
-  .container {
-    margin: 0 auto;
-  }
-  margin-bottom: 40px;
+  height: 200px;
   padding: 50px 0 0 0;
-  height: 244px;
+
   h3 {
     color: white;
     font-size: 28px;
@@ -122,6 +119,23 @@ h1 + h2 + p {
     display: inline-block;
     font-weight: bold;
   }
+
+  background-position: 0 -76px;
+
+  .heading-tile {
+    background-position: 0 -80px;
+  }
+}
+.header-callout {
+  background: #DFEBFD;
+
+  .container {
+    padding: 15px;
+  }
+}
+
+.content-container {
+  margin-top: 40px;
 }
 
 .nav-link {

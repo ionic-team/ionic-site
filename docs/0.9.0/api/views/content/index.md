@@ -22,7 +22,7 @@ Also, we are working on virtual list rendering which will only work when using I
 
 ## Ionic-Angular Usage
 
-The `<content>` directive can be used whenever a scrollable content area is desired.
+The `<content>` directive can be used whenever a scrollable content area is desired. Here it is with all its available options, though none of these are required:
 
 ```html
 <body>
@@ -33,6 +33,7 @@ The `<content>` directive can be used whenever a scrollable content area is desi
   <content
     has-header="true"
     has-footer="true"
+    scroll="true"
     on-refresh="onRefresh()"
     on-refresh-opening="onRefreshOpening(amount)"
     >
@@ -48,3 +49,48 @@ The `<content>` directive can be used whenever a scrollable content area is desi
   </footer-bar>
 </body>
 ```
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Values</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>has-header</td>
+      <td>true/false</td>
+      <td>false</td>
+      <td>Whether to push the content area down by the height of the header</td>
+    </tr>
+    <tr>
+      <td>has-footer</td>
+      <td>true/false</td>
+      <td>false</td>
+      <td>Whether to push the content area up by the height of the footer</td>
+    </tr>
+    <tr>
+      <td>scroll</td>
+      <td>true/false</td>
+      <td>true</td>
+      <td>Whether to use Ionic's custom scroll view (true), or the browser's overflow touch (false). Note: pull to refresh
+          and other scroll features require this value to be true</td>
+    </tr>
+    <tr>
+      <td>on-refresh</td>
+      <td>function</td>
+      <td></td>
+      <td>A function to call when pull-to-refresh is triggered on this content area</td>
+    </tr>
+    <tr>
+      <td>on-refresh-opening</td>
+      <td>function(amount)</td>
+      <td></td>
+      <td>A function to call as the pull to refresh opens. amount is a value in the range 0 <= amount <= 1. This function is
+          throttled to improve performance.</td>
+    </tr>
+  </tbody>
+</table>

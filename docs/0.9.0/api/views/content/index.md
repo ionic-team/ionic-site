@@ -26,10 +26,25 @@ The `<content>` directive can be used whenever a scrollable content area is desi
 
 ```html
 <body>
-  <header-bar>
+  <header-bar title="'Header'">
   </header-bar>
 
   <!-- content area -->
-  <content>
+  <content
+    has-header="true"
+    has-footer="true"
+    on-refresh="onRefresh()"
+    on-refresh-opening="onRefreshOpening(amount)"
+    >
+
+    <!-- for pull to refresh -->
+    <refresher></refresher>
+    
+    <!-- content -->
   </content>
+
+  <footer-bar>
+    <h1 class="title">Footer</h1>
+  </footer-bar>
 </body>
+```

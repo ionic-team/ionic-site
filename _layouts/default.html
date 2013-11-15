@@ -3,37 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ionic is the most advanced HTML5 mobile app development framework. Ionic makes it incredibly easy to build performant, beautiful hybrid native apps using web technologies like HTML5, Javascript, CSS, and AngularJS.">
+    <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}Ionic: The Most Advanced HTML5 Mobile App Framework{% endif %}">
     <meta name="author" content="Drifty">
-
-    <title>{{page.title}}</title>
-
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
-
-    <link href="/css/style.css" rel="stylesheet">
+    <title>{{page.title}}{% if page.title_sufix %}{{ page.title_sufix }}{% else %} - Ionic Framework{% endif %}</title>
+    {% include head_includes.html %}
   </head>
 
-  <body>
-    {{ content }}
+  <body class="{{ page.body_class }}">
 
-    <div class="container">
+    {% include nav_links.html %}
+
+    {% include header.html %}
+
+    <div class="container content-container">
+
+      {{ content }}
+      
     </div>
-    <footer>
-      <div class="container">
-        Copyright &copy; <a href="http://drifty.com/">Drifty</a> 2013
-        <div class="pull-right credits">
-          Built by <a href="http://twitter.com/helloimben">@helloimben</a> <a href="http://twitter.com/maxlynch">@maxlynch</a> and <a href="http://twitter.com/adamdbradley">@adamdbradley</a>
-        </div>
-      </div>
-    </footer>
+  
+    {% include footer.html %}
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    {% include base_scripts.html %}
 
   </body>
-
 </html>

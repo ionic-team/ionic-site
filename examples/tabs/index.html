@@ -69,10 +69,9 @@
             </refresher>
             <item ng-repeat="item in items" 
             item="item"
-            buttons="item.buttons"
-            can-delete="true"
-            can-reorder="true"
-            can-swipe="true"
+            can-delete="false"
+            can-reorder="false"
+            can-swipe="false"
             on-delete="deleteItem(item)"
             ng-class="{completed: item.isCompleted}"
             >

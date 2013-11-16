@@ -7962,14 +7962,40 @@ h1 + h2 + p {
   .ionic .h1 small, .ionic .h2 small, .ionic .h3 small, .ionic .h4 small, .ionic .h5 small, .ionic .h6 small {
     font-weight: normal;
     line-height: 1; }
-  .ionic h1,
-  .ionic h2,
-  .ionic h3 {
+  .ionic h1, .ionic .h1,
+  .ionic h2, .ionic .h2,
+  .ionic h3, .ionic .h3 {
     margin-top: 20px;
     margin-bottom: 10px; }
-  .ionic h4,
-  .ionic h5,
-  .ionic h6 {
+  .ionic h1:first-child, .ionic .h1:first-child,
+  .ionic h2:first-child, .ionic .h2:first-child,
+  .ionic h3:first-child, .ionic .h3:first-child {
+    margin-top: 0; }
+  .ionic h1 + h1, .ionic h1 + .h1,
+  .ionic h1 + h2, .ionic h1 + .h2,
+  .ionic h1 + h3, .ionic h1 + .h3, .ionic .h1 + h1, .ionic .h1 + .h1,
+  .ionic .h1 + h2, .ionic .h1 + .h2,
+  .ionic .h1 + h3, .ionic .h1 + .h3,
+  .ionic h2 + h1,
+  .ionic h2 + .h1,
+  .ionic h2 + h2,
+  .ionic h2 + .h2,
+  .ionic h2 + h3,
+  .ionic h2 + .h3, .ionic .h2 + h1, .ionic .h2 + .h1,
+  .ionic .h2 + h2, .ionic .h2 + .h2,
+  .ionic .h2 + h3, .ionic .h2 + .h3,
+  .ionic h3 + h1,
+  .ionic h3 + .h1,
+  .ionic h3 + h2,
+  .ionic h3 + .h2,
+  .ionic h3 + h3,
+  .ionic h3 + .h3, .ionic .h3 + h1, .ionic .h3 + .h1,
+  .ionic .h3 + h2, .ionic .h3 + .h2,
+  .ionic .h3 + h3, .ionic .h3 + .h3 {
+    margin-top: 10px; }
+  .ionic h4, .ionic .h4,
+  .ionic h5, .ionic .h5,
+  .ionic h6, .ionic .h6 {
     margin-top: 10px;
     margin-bottom: 10px; }
   .ionic h1, .ionic .h1 {

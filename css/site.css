@@ -4939,6 +4939,8 @@ td.visible-print {
   .guide-content .well p {
     margin: 0px 0px 10px 0px; }
 
+.home .heading-tile {
+  background: none; }
 .home .primary-row {
   padding: 0 10px;
   text-align: center; }

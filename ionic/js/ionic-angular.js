@@ -23627,6 +23627,9 @@ angular.module('ionic.ui.content', [])
         if(attr.hasHeader) {
           c.addClass('has-header');
         }
+        if(attr.hasSubheader) {
+          c.addClass('has-subheader');
+        }
         if(attr.hasFooter) {
           c.addClass('has-footer');
         }
@@ -24355,23 +24358,22 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture'])
       return function($scope, $element, $attr, sideMenuCtrl) {
         $scope.side = $attr.side;
 
-        sideMenuCtrl.left.pushDown = function() {
-          $element[0].style.zIndex = -1;
-        };
-        sideMenuCtrl.left.bringUp = function() {
-          $element[0].style.zIndex = 0;
-        };
-        sideMenuCtrl.right.pushDown = function() {
-          $element[0].style.zIndex = -1;
-        };
-        sideMenuCtrl.right.bringUp = function() {
-          $element[0].style.zIndex = 0;
-        };
-
         if($scope.side == 'left') {
           sideMenuCtrl.left.isEnabled = true;
+          sideMenuCtrl.left.pushDown = function() {
+            $element[0].style.zIndex = -1;
+          };
+          sideMenuCtrl.left.bringUp = function() {
+            $element[0].style.zIndex = 0;
+          };
         } else if($scope.side == 'right') {
           sideMenuCtrl.right.isEnabled = true;
+          sideMenuCtrl.right.pushDown = function() {
+            $element[0].style.zIndex = -1;
+          };
+          sideMenuCtrl.right.bringUp = function() {
+            $element[0].style.zIndex = 0;
+          };
         }
 
         $element.append(transclude($scope));

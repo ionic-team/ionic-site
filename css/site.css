@@ -5167,7 +5167,8 @@ td.visible-print {
     font-size: 14px !important; }
 
 .device-preview-page .docs-section {
-  opacity: .7;
+  min-height: 320px;
+  opacity: .75;
   transition: opacity 0.15s ease-in-out; }
 
 .device-preview-page .docs-section.active {
@@ -5296,6 +5297,15 @@ td.visible-print {
   border-radius: 2px;
   background: #f7f7f7;
   text-align: center; }
+
+.ionic .ionicons-demo li {
+  display: inline-block;
+  font-size: 32px;
+  padding: 2px; }
+  .ionic .ionicons-demo li:before {
+    display: block;
+    width: 42px;
+    text-align: center; }
 
 .author-icon {
   float: left;

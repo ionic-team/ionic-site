@@ -131,7 +131,8 @@
 }
 
 .device-preview-page .docs-section {
-  opacity: .7;
+  min-height: 320px;
+  opacity: .75;
   transition: opacity .15s ease-in-out;
 }
 
@@ -317,4 +318,16 @@
   border-radius: 2px;
   background: #f7f7f7;
   text-align: center;
+}
+
+.ionic .ionicons-demo li {
+  display: inline-block;
+  font-size: 32px;
+  padding: 2px;
+
+  &:before {
+    display: block;
+    width: 42px;
+    text-align: center;
+  }
 }

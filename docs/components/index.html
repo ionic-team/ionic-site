@@ -2498,16 +2498,109 @@ callout: "<a href='../api'>API</a> - <a href='../guide'>Guide</a>"
   <h3><a href="#icons">Icons</a></h3>
 
   <p>
-    ...
+    Ionic also comes with its own free and open-sourced icon font, <a href="http://ionicons.com/">Ionicons</a>, with over 440 icons to choose from. Note: Ionic is certainly not restricted to using only the Ionicons icon pack, please feel free to use any icons you wish.
   </p>
+
+  <p>
+    Simply add <code>icon</code> and the Ionicon classname for the icon to show, which can be easily looked up on the <a href="http://ionicons.com/">Ionicons</a> homepage.
+  </p>
+
+{% highlight html %}
+<i class="icon ion-star"></i>
+{% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
-      <div class="h1 title">Icons</div>
+      <div class="h1 title">Ionicons</div>
     </div>
     <div class="content has-header padding">
       
-      ...
+      <ul class="ionicons-demo">
+        <li class="ion-ionic" data-pack="default" data-tags="badass, framework, sexy, hawt"></li>
+        <li class="ion-arrow-up-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-up-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-up-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-return-right" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-return-left" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-swap" data-pack="default" data-tags="switch, flip"></li>
+        <li class="ion-arrow-shrink" data-pack="default" data-tags="pinch"></li>
+        <li class="ion-arrow-expand" data-pack="default" data-tags="fullscreen"></li>
+        <li class="ion-arrow-move" data-pack="default" data-tags="drag"></li>
+        <li class="ion-arrow-resize" data-pack="default" data-tags="drag"></li>
+        <li class="ion-chevron-up" data-pack="default" data-tags="arrow, up"></li>
+        <li class="ion-chevron-right" data-pack="default" data-tags="arrow, right"></li>
+        <li class="ion-chevron-down" data-pack="default" data-tags="arrow, down"></li>
+        <li class="ion-chevron-left" data-pack="default" data-tags="arrow, left"></li>
+        <li class="ion-log-in" data-pack="default" data-tags="sign in, "></li>
+        <li class="ion-log-out" data-pack="default" data-tags="sign out"></li>
+        <li class="ion-checkmark-round" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-checkmark" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-checkmark-circled" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-close-round" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-close" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-close-circled" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-plus-round" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-plus" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-plus-circled" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-minus-round" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-minus" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-minus-circled" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-information" data-pack="default" data-tags="help, more, tooltip"></li>
+        <li class="ion-information-circled" data-pack="default" data-tags="help, more, tooltip"></li>
+        <li class="ion-help" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-help-circled" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-help-buoy" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-alert" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
+        <li class="ion-alert-circled" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
+        <li class="ion-refresh" data-pack="default" data-tags="reload, renew"></li>
+        <li class="ion-loop" data-pack="default" data-tags="refresh"></li>
+        <li class="ion-shuffle" data-pack="default" data-tags="random"></li>
+        <li class="ion-home" data-pack="default" data-tags="house"></li>
+        <li class="ion-search" data-pack="default" data-tags="magnifying glass"></li>
+        <li class="ion-flag" data-pack="default" data-tags="favorite, mark, star"></li>
+        <li class="ion-star" data-pack="default" data-tags="favorite"></li>
+        <li class="ion-heart" data-pack="default" data-tags="love"></li>
+        <li class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></li>
+        <li class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></li>
+        <li class="ion-settings" data-pack="default" data-tags="options, tools"></li>
+        <li class="ion-wrench" data-pack="default" data-tags="settings, options, tools"></li>
+        <li class="ion-hammer" data-pack="default" data-tags="settings, options, tools"></li>
+        <li class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></li>
+        <li class="ion-trash-b" data-pack="default" data-tags="delete, remove, dump"></li>
+        <li class="ion-navicon-round" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
+        <li class="ion-navicon" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
+        <li class="ion-drag" data-pack="default" data-tags="reorder, move, drag"></li>
+        <li class="ion-document" data-pack="default" data-tags="paper, file"></li>
+        <li class="ion-document-text" data-pack="default" data-tags="paper, file"></li>
+        <li class="ion-clipboard" data-pack="default" data-tags="write"></li>
+        <li class="ion-bookmark" data-pack="default" data-tags="favorite, tag, save"></li>
+        <li class="ion-email" data-pack="default" data-tags="snail, mail"></li>
+        <li class="ion-folder" data-pack="default" data-tags="snail, mail"></li>
+        <li class="ion-filing" data-pack="default" data-tags="mail"></li>
+        <li class="ion-archive" data-pack="default" data-tags="mail"></li>
+        <li class="ion-reply" data-pack="default" data-tags="mail, undo"></li>
+        <li class="ion-reply-all" data-pack="default" data-tags="mail"></li>
+        <li class="ion-forward" data-pack="default" data-tags="mail, redo"></li>
+        <li class="ion-share" data-pack="default" data-tags="outbound"></li>
+        <li class="ion-link" data-pack="default" data-tags="chain, anchor, href, attach"></li>
+        <li class="ion-paperclip" data-pack="default" data-tags="attach"></li>
+        <li class="ion-compose" data-pack="default" data-tags="write, compose, type"></li>
+        <li class="ion-briefcase" data-pack="default" data-tags="store, organize"></li>
+        <li class="ion-medkit" data-pack="default" data-tags="health"></li>
+        <li class="ion-at" data-pack="default" data-tags="@"></li>
+        <li class="ion-pound" data-pack="default" data-tags="hashtag, #"></li>
+        <li class="ion-cloud" data-pack="default" data-tags="storage"></li>
+        <li class="ion-upload" data-pack="default" data-tags="storage, cloud"></li>
+      </ul>
 
     </div>
   </div>

@@ -29,6 +29,9 @@
   .fixed-menu {
     display: none;
   }
+  .device-preview-page .docs-section {
+    opacity: 1 !important;
+  }
 }
 
 .left-menu {
@@ -107,7 +110,6 @@
     display: block;
     color: #999;
     border-bottom: 1px solid transparent;
-    opacity: 1;
     transition: color .15s ease-in-out;
   }
   h2 a:hover,
@@ -117,8 +119,6 @@
   }
 
   &.active {
-    opacity: 1;
-    
     h2 a, h3 a {
       border-bottom: 1px solid $brand-primary;
       color: $brand-primary;

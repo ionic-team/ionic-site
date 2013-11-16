@@ -5102,7 +5102,10 @@ td.visible-print {
 
 @media (max-width: 991px) {
   .fixed-menu {
-    display: none; } }
+    display: none; }
+
+  .device-preview-page .docs-section {
+    opacity: 1 !important; } }
 .left-menu {
   padding-left: 0;
   list-style: none; }
@@ -5152,17 +5155,14 @@ td.visible-print {
     display: block;
     color: #999;
     border-bottom: 1px solid transparent;
-    opacity: 1;
     transition: color 0.15s ease-in-out; }
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
     color: #333;
     text-decoration: none; }
-  .docs-section.active {
-    opacity: 1; }
-    .docs-section.active h2 a, .docs-section.active h3 a {
-      border-bottom: 1px solid #4f8ef7;
-      color: #4f8ef7; }
+  .docs-section.active h2 a, .docs-section.active h3 a {
+    border-bottom: 1px solid #4f8ef7;
+    color: #4f8ef7; }
   .docs-section td, .docs-section th {
     font-size: 14px !important; }
 

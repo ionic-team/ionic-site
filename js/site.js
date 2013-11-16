@@ -22,7 +22,7 @@
   var fixedMenu = $('.docked-menu');
   var activeId;
   if(fixedMenu.length) {
-    $(document.body).scrollspy({ target: '.docked-menu', offset: 180 });
+    $(document.body).scrollspy({ target: '.docked-menu', offset: 280 });
 
     var fixedMenuTop = fixedMenu.offset().top;
     var menuTopPadding = 20;
@@ -179,7 +179,7 @@
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           smoothScrollingTo = '#' + target.attr('id');
-          $('html,body').animate({ scrollTop: target.offset().top }, 150, 'swing',
+          $('html,body').animate({ scrollTop: target.offset().top }, 100, 'swing',
             function() {
               previewSection(smoothScrollingTo);
               smoothScrollingTo = undefined;

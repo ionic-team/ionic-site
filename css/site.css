@@ -8428,6 +8428,8 @@ h1 + h2 + p {
     -moz-flex-direction: horizontal;
     -ms-flex-direction: horizontal;
     flex-direction: horizontal;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center;
@@ -8820,8 +8822,14 @@ h1 + h2 + p {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
     position: absolute;
     top: 0;
+    width: 32px;
     height: 100%;
     font-size: 32px; }
   .ionic .item .fill-icon {
@@ -8843,7 +8851,7 @@ h1 + h2 + p {
   .ionic .item-icon-left.item-icon-right .icon:last-child {
     left: auto; }
   .ionic .item-button-left {
-    padding-left: 75px; }
+    padding-left: 67.5px; }
   .ionic .item-button-left > .button,
   .ionic .item-button-left .item-content > .button {
     display: -webkit-box;
@@ -8859,12 +8867,14 @@ h1 + h2 + p {
     position: absolute;
     top: 7.5px;
     left: 7.5px;
+    min-width: initial;
     min-height: 32px;
     font-size: 32px; }
   .ionic .item-button-left > .button .icon,
   .ionic .item-button-left .item-content > .button .icon {
     position: relative;
     left: auto;
+    width: auto;
     line-height: 31px; }
   .ionic .item-button-right,
   .ionic a.item.item-button-right,
@@ -8885,12 +8895,14 @@ h1 + h2 + p {
     position: absolute;
     top: 7.5px;
     right: 15px;
+    min-width: initial;
     min-height: 32px;
     font-size: 32px; }
   .ionic .item-button-right > .button .icon,
   .ionic .item-button-right .item-content > .button .icon {
     position: relative;
     left: auto;
+    width: auto;
     line-height: 31px; }
   .ionic a.item,
   .ionic button.item {

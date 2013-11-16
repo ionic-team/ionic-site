@@ -1,5 +1,5 @@
-@charset "IBM437";
-/*!
+@charset "UTF-8";
+/*
  * Bootstrap v3.0.0
  *
  * Copyright 2013 Twitter, Inc
@@ -8,7 +8,7 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
-/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
 details,
@@ -112,7 +112,7 @@ figure {
   margin: 0; }
 
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -178,7 +178,7 @@ table {
 @media print {
   * {
     text-shadow: none !important;
-    color: #000 !important;
+    color: black !important;
     background: transparent !important;
     box-shadow: none !important; }
 
@@ -199,7 +199,7 @@ table {
 
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     page-break-inside: avoid; }
 
   thead {
@@ -213,7 +213,7 @@ table {
     max-width: 100% !important; }
 
   @page {
-    margin: 2cm .5cm; }
+    margin: 2cm 0.5cm; }
 
   p,
   h2,
@@ -230,21 +230,21 @@ table {
 
   .table td,
   .table th {
-    background-color: #fff !important; }
+    background-color: white !important; }
 
   .btn > .caret,
   .dropup > .btn > .caret {
-    border-top-color: #000 !important; }
+    border-top-color: black !important; }
 
   .label {
-    border: 1px solid #000; }
+    border: 1px solid black; }
 
   .table {
     border-collapse: collapse !important; }
 
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important; } }
+    border: 1px solid #dddddd !important; } }
 *,
 *:before,
 *:after {
@@ -1670,7 +1670,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-default {
   color: #333333;
   background-color: white;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
     color: #333333;
     background-color: #ebebeb; }
@@ -1689,7 +1689,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-primary {
   color: white;
   background-color: #4f8ef7;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
     color: white;
     background-color: #2875f5; }
@@ -1708,7 +1708,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-warning {
   color: white;
   background-color: #f0ad4e;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
     color: white;
     background-color: #ed9c28; }
@@ -1727,7 +1727,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-danger {
   color: white;
   background-color: #d9534f;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
     color: white;
     background-color: #d2322d; }
@@ -1746,7 +1746,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-success {
   color: white;
   background-color: #5cb85c;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
     color: white;
     background-color: #47a447; }
@@ -1765,7 +1765,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-info {
   color: white;
   background-color: #5bc0de;
-  transition: background-color .1s ease-in-out; }
+  transition: background-color 0.1s ease-in-out; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
     color: white;
     background-color: #39b3d7; }
@@ -3431,7 +3431,7 @@ input[type="button"].btn-block {
 
 .label {
   display: inline;
-  padding: .2em .6em .3em;
+  padding: 0.2em 0.6em 0.3em;
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
@@ -4968,7 +4968,7 @@ td.visible-print {
 .home .social-row-gray {
   margin-top: 90px;
   height: 100px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
   background: #fff;
   opacity: 0.93; }
 .home .social-row {
@@ -5075,7 +5075,7 @@ td.visible-print {
     .home .continue-row .col-a {
       padding-right: 40px;
       padding-bottom: 0;
-      border-right: 1px solid #ddd; }
+      border-right: 1px solid #dddddd; }
     .home .continue-row .col-b {
       padding-left: 45px; } }
 
@@ -5142,7 +5142,7 @@ td.visible-print {
   .docs-section h2 {
     padding-bottom: 16px; }
     .docs-section h2 a {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #dddddd;
       line-height: 1.9em; }
   .docs-section h3 {
     line-height: 1.9em; }
@@ -5151,7 +5151,7 @@ td.visible-print {
     color: #999;
     border-bottom: 1px solid transparent;
     opacity: 1;
-    transition: color .15s ease-in-out; }
+    transition: color 0.15s ease-in-out; }
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
     color: #333;
@@ -5166,7 +5166,7 @@ td.visible-print {
 
 .device-preview-page .docs-section {
   opacity: .5;
-  transition: opacity .15s ease-in-out; }
+  transition: opacity 0.15s ease-in-out; }
 
 .device-preview-page .docs-section.active {
   opacity: 1; }
@@ -5216,7 +5216,7 @@ td.visible-print {
     border: 4px solid #22272d;
     background-color: white;
     opacity: 0;
-    transition: opacity .2s ease-in-out; }
+    transition: opacity 0.2s ease-in-out; }
     .device-preview-page .device-preview > div.active-preview {
       z-index: 100;
       opacity: 1; }
@@ -5257,7 +5257,7 @@ td.visible-print {
 
 .advanced-panel {
   padding: 10px;
-  border: 1px solid #A7C6FC;
+  border: 1px solid #a7c6fc;
   border-radius: 2px;
   background: #F6F9FE;
   color: #777; }
@@ -5290,7 +5290,7 @@ td.visible-print {
 .ionic .col-demo {
   padding: 5px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 2px;
   background: #f7f7f7;
   text-align: center; }
@@ -5641,13 +5641,13 @@ body {
 
 a {
   opacity: 0.7;
-  transition: .1s ease-in-out;
+  transition: 0.1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {
     opacity: 1; }
 
 h1 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
   padding-bottom: 10px;
   margin: 40px 0px 20px 0px; }
 
@@ -5772,16 +5772,16 @@ h1 + h2 + p {
     transform: rotate(360deg); } }
 
 .ionic {
-  /*!
-    Ionicons, v1.3.4
+  /*
+    Ionicons, v1.3.5
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/helloimben  https://twitter.com/ionicframework
     MIT License: https://github.com/driftyco/ionicons
   */
   @font-face {
     font-family: "Ionicons";
-    src: url("../fonts/ionicons.eot?v=1.3.4");
-    src: url("../fonts/ionicons.eot?v=1.3.4#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.4") format("truetype"), url("../fonts/ionicons.woff?v=1.3.4") format("woff"), url("../fonts/ionicons.svg?v=1.3.4#Ionicons") format("svg");
+    src: url("../fonts/ionicons.eot?v=1.3.5");
+    src: url("../fonts/ionicons.eot?v=1.3.5#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.5") format("truetype"), url("../fonts/ionicons.woff?v=1.3.5") format("woff"), url("../fonts/ionicons.svg?v=1.3.5#Ionicons") format("svg");
     font-weight: normal;
     font-style: normal; }
 
@@ -7749,7 +7749,7 @@ h1 + h2 + p {
   .ionic fieldset {
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
-    border: 1px solid #c0c0c0; }
+    border: 1px solid silver; }
   .ionic legend {
     padding: 0;
     /* 2 */
@@ -8035,13 +8035,13 @@ h1 + h2 + p {
     margin-bottom: 20px;
     font-style: normal;
     line-height: 1.42857; }
-  .ionic a.subduedΓÇÄ {
+  .ionic a.subdued‎ {
     padding-right: 10px;
     color: #f8f8f8;
     text-decoration: none; }
-  .ionic a.subduedΓÇÄ:hover {
+  .ionic a.subdued‎:hover {
     text-decoration: none; }
-  .ionic a.subduedΓÇÄ:last-child {
+  .ionic a.subdued‎:last-child {
     padding-right: 0; }
   .ionic .action-sheet-backdrop {
     position: fixed;
@@ -9452,7 +9452,7 @@ h1 + h2 + p {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color .1s ease-in-out; }
+    transition: background-color 0.1s ease-in-out; }
   .ionic .checkbox input:after {
     position: absolute;
     top: 34%;
@@ -9465,7 +9465,7 @@ h1 + h2 + p {
     border-right: 0;
     content: ' ';
     opacity: 0;
-    transition: opacity .05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg); }
   .ionic .checkbox input:checked:before {
@@ -9860,8 +9860,15 @@ h1 + h2 + p {
     line-height: 51px;
     padding-bottom: 2px; }
   .ionic .button-icon {
-    padding: 2px 4px;
+    padding: 0 6px;
+    min-width: initial;
+    background: none;
+    border: none;
     background: none; }
+  .ionic .button-icon:active, .ionic .button-icon.active {
+    background: none;
+    box-shadow: none;
+    text-shadow: 0px 0px 10px white; }
   .ionic .button-icon .icon {
     font-size: 32px; }
   .ionic .button-clear {
@@ -9891,13 +9898,6 @@ h1 + h2 + p {
     background-color: #f8f8f8;
     color: #fff;
     box-shadow: none; }
-  .ionic .button-icon {
-    border: none;
-    background: none; }
-  .ionic .button-icon:active, .ionic .button-icon.active {
-    background: none;
-    box-shadow: none;
-    text-shadow: 0px 0px 10px #fff; }
   .ionic .padding > .button.button-block:first-child {
     margin-top: 0; }
   .ionic .button-block {

@@ -22,7 +22,7 @@
   var fixedMenu = $('.docked-menu');
   var activeId;
   if(fixedMenu.length) {
-    $(document.body).scrollspy({ target: '.docked-menu', offset: 280 });
+    $(document.body).scrollspy({ target: '.docked-menu', offset: 300 });
 
     var fixedMenuTop = fixedMenu.offset().top;
     var menuTopPadding = 20;
@@ -123,7 +123,7 @@
     fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
 
     var defaultScreen = devicePreview.find('.default-screen');
-    function previewSection(id) {
+    function previewSection(id, doNotSetHistory) {
       var activeSection = $(id);
       if(!activeSection.length) return;
 
@@ -138,7 +138,7 @@
       docContent.find('.active').removeClass('active');
       activeSection.addClass("active");
 
-      if(window.history.replaceState) {
+      if(!doNotSetHistory && window.history.replaceState) {
         window.history.replaceState({}, newTitle, "#" + activeId);
       }
 
@@ -166,6 +166,11 @@
       } else {
         defaultScreen.addClass('active-preview');
       }
+    }
+
+    var firstSection = docContent.find('.docs-section').first();
+    if(firstSection.length) {
+      previewSection( '#' + firstSection[0].id, true );
     }
 
   }

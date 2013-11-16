@@ -31,7 +31,8 @@
     });
 
     function docScroll() {
-      if(window.scrollY + menuTopPadding > fixedMenuTop) {
+      var scrollTop = $(window).scrollTop();
+      if(scrollTop + menuTopPadding > fixedMenuTop) {
         fixedMenu
           .css({
             width: fixedMenu.width() + 'px'
@@ -43,7 +44,7 @@
           .css({
             width: 'auto'
           });
-        if(window.scrollY < 200) {
+        if(scrollTop < 200) {
           $('.active').removeClass(".active");
         }
       }
@@ -67,7 +68,7 @@
     var $defaultScreen = devicePreview.find('.default-screen');
 
     function onScroll() {
-      if(window.scrollY > orgDeviceTop) {
+      if($(window).scrollTop() > orgDeviceTop) {
         if( !devicePreview.hasClass('fixed-preview') ) {
           devicePreview
             .css({

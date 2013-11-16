@@ -99,7 +99,7 @@
 
 
     function scrollSpyChange(e) {
-      if(smoothScrollingTo) return false;
+      if(smoothScrollingTo || !docContent) return;
 
       var id;
       if(e.target.children.length > 1) {
@@ -186,7 +186,9 @@
           smoothScrollingTo = '#' + target.attr('id');
           $('html,body').animate({ scrollTop: target.offset().top }, 100, 'swing',
             function() {
-              previewSection(smoothScrollingTo);
+              if(docContent) {
+                previewSection(smoothScrollingTo);
+              }
               smoothScrollingTo = undefined;
             });
           return false;

@@ -37,6 +37,7 @@
 .left-menu {
   padding-left: 0;
   list-style: none;
+  font-size: 12px;
 
   a { 
     display: block;
@@ -56,6 +57,13 @@
       display: none;
       padding-left: 12px;
     }
+  }
+
+  .menu-title {
+    color: #aaaaaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 28px;
   }
 
   &.nav li.active {

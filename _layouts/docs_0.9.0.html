@@ -24,6 +24,7 @@
           <div class="docked-menu">
 
             <ul class="nav left-menu">
+              <li class="menu-title">Components</li>
               <li class="active">
                 <a href="#header">Header</a>
                 <ul>
@@ -110,15 +111,39 @@
         </div>
 
         <div class="col-md-10 main-content">
-          <ol class="breadcrumb">
-            <li><a href="/docs/">Documentation</a></li>
-            <li class="active">{{page.header_title}}</li>
-          </ol>
           {{ content }}
         </div>
 
       </div>
       
+    </div>
+
+    <div class="continue-row">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
     </div>
 	
     {% include footer.html %}

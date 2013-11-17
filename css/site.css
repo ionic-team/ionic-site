@@ -5059,27 +5059,6 @@ td.visible-print {
     background-image: url("/img/nerds@2x.png"); } }
 .home .examples-row h3 {
   padding-top: 10px; }
-.home .continue-row {
-  padding: 40px;
-  background: #F7F7F7; }
-  .home .continue-row .row {
-    margin: 0 auto;
-    max-width: 900px; }
-  .home .continue-row p {
-    line-height: 28px; }
-  .home .continue-row a:hover {
-    text-decoration: none; }
-  .home .continue-row span {
-    padding-left: 5px; }
-  .home .continue-row .col-a {
-    padding-bottom: 15px; }
-  @media (min-width: 768px) {
-    .home .continue-row .col-a {
-      padding-right: 40px;
-      padding-bottom: 0;
-      border-right: 1px solid #dddddd; }
-    .home .continue-row .col-b {
-      padding-left: 45px; } }
 
 @font-face {
   font-weight: normal;
@@ -5108,7 +5087,8 @@ td.visible-print {
     opacity: 1 !important; } }
 .left-menu {
   padding-left: 0;
-  list-style: none; }
+  list-style: none;
+  font-size: 12px; }
   .left-menu a {
     display: block;
     color: #444;
@@ -5122,6 +5102,11 @@ td.visible-print {
     .left-menu li ul {
       display: none;
       padding-left: 12px; }
+  .left-menu .menu-title {
+    color: #aaaaaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 28px; }
   .left-menu.nav li.active > a {
     border-right: 2px solid #4f8ef7;
     color: #4f8ef7; }
@@ -10345,3 +10330,25 @@ h1 + h2 + p {
     margin-top: 20px; }
   .ionic .platform-ios7 .has-header {
     margin-top: 64px; }
+
+.continue-row {
+  padding: 40px;
+  background: #F7F7F7; }
+  .continue-row .row {
+    margin: 0 auto;
+    max-width: 900px; }
+  .continue-row p {
+    line-height: 28px; }
+  .continue-row a:hover {
+    text-decoration: none; }
+  .continue-row span {
+    padding-left: 5px; }
+  .continue-row .col-a {
+    padding-bottom: 15px; }
+  @media (min-width: 768px) {
+    .continue-row .col-a {
+      padding-right: 40px;
+      padding-bottom: 0;
+      border-right: 1px solid #dddddd; }
+    .continue-row .col-b {
+      padding-left: 45px; } }

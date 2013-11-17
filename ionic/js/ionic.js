@@ -291,8 +291,8 @@ window.ionic = {
   ionic.on = function() { ionic.EventController.on.apply(ionic.EventController, arguments); };
   ionic.off = function() { ionic.EventController.off.apply(ionic.EventController, arguments); };
   ionic.trigger = function() { ionic.EventController.trigger.apply(ionic.EventController.trigger, arguments); };
-  ionic.onGesture = function() { ionic.EventController.onGesture.apply(ionic.EventController.onGesture, arguments); };
-  ionic.offGesture = function() { ionic.EventController.offGesture.apply(ionic.EventController.offGesture, arguments); };
+  ionic.onGesture = function() { return ionic.EventController.onGesture.apply(ionic.EventController.onGesture, arguments); };
+  ionic.offGesture = function() { return ionic.EventController.offGesture.apply(ionic.EventController.offGesture, arguments); };
 
   // DISABLING FOR NOW. THE TAP CODE AT THE EXT LEVEL SHOULD BE DOING THIS
   // Set up various listeners
@@ -3679,6 +3679,7 @@ window.ionic = {
     initialize: function(opts) {
       var _this = this;
 
+      this.slideChanged = opts.slideChanged || function() {};
       this.el = opts.el;
       this.pager = this.el.querySelector('.slide-box-pager');
 
@@ -3787,8 +3788,14 @@ window.ionic = {
       content.classList.add('slide-box-animating');
       content.style.webkitTransform = 'translate3d(' + -offsetX + 'px, 0, 0)';
 
+      var lastSlide = this.slideIndex;
+
       // Update the slide index
       this.slideIndex = Math.ceil(offsetX / slideWidth);
+
+      if(lastSlide !== this.slideIndex) {
+        this.slideChanged && this.slideChanged(this.slideIndex);
+      }
 
       this._updatePager();
     },

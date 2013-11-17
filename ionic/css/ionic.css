@@ -1,14 +1,14 @@
 @charset "UTF-8";
-/*!
-  Ionicons, v1.3.4
+/*
+  Ionicons, v1.3.5
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
   https://twitter.com/helloimben  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
 */
 @font-face {
   font-family: "Ionicons";
-  src: url("../fonts/ionicons.eot?v=1.3.4");
-  src: url("../fonts/ionicons.eot?v=1.3.4#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.4") format("truetype"), url("../fonts/ionicons.woff?v=1.3.4") format("woff"), url("../fonts/ionicons.svg?v=1.3.4#Ionicons") format("svg");
+  src: url("../fonts/ionicons.eot?v=1.3.5");
+  src: url("../fonts/ionicons.eot?v=1.3.5#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.5") format("truetype"), url("../fonts/ionicons.woff?v=1.3.5") format("woff"), url("../fonts/ionicons.svg?v=1.3.5#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2045,7 +2045,7 @@ sub {
 fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
-  border: 1px solid #c0c0c0; }
+  border: 1px solid silver; }
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9.
@@ -2373,15 +2373,41 @@ h1, h2, h3, h4, h5, h6,
     font-weight: normal;
     line-height: 1; }
 
-h1,
-h2,
-h3 {
+h1, .h1,
+h2, .h2,
+h3, .h3 {
   margin-top: 20px;
   margin-bottom: 10px; }
+  h1:first-child, .h1:first-child,
+  h2:first-child, .h2:first-child,
+  h3:first-child, .h3:first-child {
+    margin-top: 0; }
+  h1 + h1, h1 + .h1,
+  h1 + h2, h1 + .h2,
+  h1 + h3, h1 + .h3, .h1 + h1, .h1 + .h1,
+  .h1 + h2, .h1 + .h2,
+  .h1 + h3, .h1 + .h3,
+  h2 + h1,
+  h2 + .h1,
+  h2 + h2,
+  h2 + .h2,
+  h2 + h3,
+  h2 + .h3, .h2 + h1, .h2 + .h1,
+  .h2 + h2, .h2 + .h2,
+  .h2 + h3, .h2 + .h3,
+  h3 + h1,
+  h3 + .h1,
+  h3 + h2,
+  h3 + .h2,
+  h3 + h3,
+  h3 + .h3, .h3 + h1, .h3 + .h1,
+  .h3 + h2, .h3 + .h2,
+  .h3 + h3, .h3 + .h3 {
+    margin-top: 10px; }
 
-h4,
-h5,
-h6 {
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   margin-top: 10px;
   margin-bottom: 10px; }
 
@@ -2466,13 +2492,13 @@ address {
   font-style: normal;
   line-height: 1.42857; }
 
-a.subduedΓÇÄ {
+a.subdued‎ {
   padding-right: 10px;
   color: #f8f8f8;
   text-decoration: none; }
-  a.subduedΓÇÄ:hover {
+  a.subdued‎:hover {
     text-decoration: none; }
-  a.subduedΓÇÄ:last-child {
+  a.subdued‎:last-child {
     padding-right: 0; }
 
 /**
@@ -2937,6 +2963,8 @@ a.subduedΓÇÄ {
   -moz-flex-direction: horizontal;
   -ms-flex-direction: horizontal;
   flex-direction: horizontal;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
@@ -3392,6 +3420,11 @@ button.item.item-complex {
   top: 0;
   height: 100%;
   font-size: 32px; }
+  .item-icon-left .icon:before,
+  .item-icon-right .icon:before {
+    display: block;
+    width: 28px;
+    text-align: center; }
 
 .item .fill-icon {
   min-width: 30px;
@@ -3423,7 +3456,7 @@ button.item.item-complex {
  * An item button is a child button inside an .item (not the entire .item)
  */
 .item-button-left {
-  padding-left: 75px; }
+  padding-left: 67.5px; }
 
 .item-button-left > .button,
 .item-button-left .item-content > .button {
@@ -3440,12 +3473,14 @@ button.item.item-complex {
   position: absolute;
   top: 7.5px;
   left: 7.5px;
+  min-width: initial;
   min-height: 32px;
   font-size: 32px; }
   .item-button-left > .button .icon,
   .item-button-left .item-content > .button .icon {
     position: relative;
     left: auto;
+    width: auto;
     line-height: 31px; }
 
 .item-button-right,
@@ -3468,12 +3503,14 @@ button.item.item-button-right {
   position: absolute;
   top: 7.5px;
   right: 15px;
+  min-width: initial;
   min-height: 32px;
   font-size: 32px; }
   .item-button-right > .button .icon,
   .item-button-right .item-content > .button .icon {
     position: relative;
     left: auto;
+    width: auto;
     line-height: 31px; }
 
 /**
@@ -3774,7 +3811,7 @@ button.item-button-right:after {
  * Nav
  * --------------------------------------------------
  */
-.nav-content {
+.nav-page {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -4154,7 +4191,7 @@ input[type="checkbox"][readonly] {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color .1s ease-in-out; }
+    transition: background-color 0.1s ease-in-out; }
 
 /* the checkmark within the box */
 .checkbox input:after {
@@ -4169,7 +4206,7 @@ input[type="checkbox"][readonly] {
   border-right: 0;
   content: ' ';
   opacity: 0;
-  transition: opacity .05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg); }
 
@@ -4396,15 +4433,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #cccccc; }
     .button.button-light.button-clear {
-      color: white;
+      color: #dddddd;
       background: none;
       box-shadow: none; }
     .button.button-light.button-outline {
       background: transparent;
-      border-color: white;
-      color: white; }
+      border-color: #dddddd;
+      color: #dddddd; }
       .button.button-light.button-outline.active, .button.button-light.button-outline:active {
-        background-color: white;
+        background-color: #dddddd;
         color: #fff;
         box-shadow: none; }
   .button.button-stable {
@@ -4419,15 +4456,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #a2a2a2; }
     .button.button-stable.button-clear {
-      color: #f8f8f8;
+      color: #b2b2b2;
       background: none;
       box-shadow: none; }
     .button.button-stable.button-outline {
       background: transparent;
-      border-color: #f8f8f8;
-      color: #f8f8f8; }
+      border-color: #b2b2b2;
+      color: #b2b2b2; }
       .button.button-stable.button-outline.active, .button.button-stable.button-outline:active {
-        background-color: #f8f8f8;
+        background-color: #b2b2b2;
         color: #fff;
         box-shadow: none; }
   .button.button-positive {
@@ -4442,15 +4479,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #145dd7; }
     .button.button-positive.button-clear {
-      color: #4a87ee;
+      color: #145dd7;
       background: none;
       box-shadow: none; }
     .button.button-positive.button-outline {
       background: transparent;
-      border-color: #4a87ee;
-      color: #4a87ee; }
+      border-color: #145dd7;
+      color: #145dd7; }
       .button.button-positive.button-outline.active, .button.button-positive.button-outline:active {
-        background-color: #4a87ee;
+        background-color: #145dd7;
         color: #fff;
         box-shadow: none; }
   .button.button-calm {
@@ -4465,15 +4502,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #1aaac3; }
     .button.button-calm.button-clear {
-      color: #43cee6;
+      color: #1aaac3;
       background: none;
       box-shadow: none; }
     .button.button-calm.button-outline {
       background: transparent;
-      border-color: #43cee6;
-      color: #43cee6; }
+      border-color: #1aaac3;
+      color: #1aaac3; }
       .button.button-calm.button-outline.active, .button.button-calm.button-outline:active {
-        background-color: #43cee6;
+        background-color: #1aaac3;
         color: #fff;
         box-shadow: none; }
   .button.button-assertive {
@@ -4488,15 +4525,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #cc2511; }
     .button.button-assertive.button-clear {
-      color: #ef4e3a;
+      color: #cc2511;
       background: none;
       box-shadow: none; }
     .button.button-assertive.button-outline {
       background: transparent;
-      border-color: #ef4e3a;
-      color: #ef4e3a; }
+      border-color: #cc2511;
+      color: #cc2511; }
       .button.button-assertive.button-outline.active, .button.button-assertive.button-outline:active {
-        background-color: #ef4e3a;
+        background-color: #cc2511;
         color: #fff;
         box-shadow: none; }
   .button.button-balanced {
@@ -4511,15 +4548,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #478f24; }
     .button.button-balanced.button-clear {
-      color: #66cc33;
+      color: #478f24;
       background: none;
       box-shadow: none; }
     .button.button-balanced.button-outline {
       background: transparent;
-      border-color: #66cc33;
-      color: #66cc33; }
+      border-color: #478f24;
+      color: #478f24; }
       .button.button-balanced.button-outline.active, .button.button-balanced.button-outline:active {
-        background-color: #66cc33;
+        background-color: #478f24;
         color: #fff;
         box-shadow: none; }
   .button.button-energized {
@@ -4534,15 +4571,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #d39511; }
     .button.button-energized.button-clear {
-      color: #f0b840;
+      color: #d39511;
       background: none;
       box-shadow: none; }
     .button.button-energized.button-outline {
       background: transparent;
-      border-color: #f0b840;
-      color: #f0b840; }
+      border-color: #d39511;
+      color: #d39511; }
       .button.button-energized.button-outline.active, .button.button-energized.button-outline:active {
-        background-color: #f0b840;
+        background-color: #d39511;
         color: #fff;
         box-shadow: none; }
   .button.button-royal {
@@ -4557,15 +4594,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: #552bdf; }
     .button.button-royal.button-clear {
-      color: #8a6de9;
+      color: #552bdf;
       background: none;
       box-shadow: none; }
     .button.button-royal.button-outline {
       background: transparent;
-      border-color: #8a6de9;
-      color: #8a6de9; }
+      border-color: #552bdf;
+      color: #552bdf; }
       .button.button-royal.button-outline.active, .button.button-royal.button-outline:active {
-        background-color: #8a6de9;
+        background-color: #552bdf;
         color: #fff;
         box-shadow: none; }
   .button.button-dark {
@@ -4580,15 +4617,15 @@ input[type="range"] {
       box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
       border-color: black; }
     .button.button-dark.button-clear {
-      color: #444444;
+      color: #111111;
       background: none;
       box-shadow: none; }
     .button.button-dark.button-outline {
       background: transparent;
-      border-color: #444444;
-      color: #444444; }
+      border-color: #111111;
+      color: #111111; }
       .button.button-dark.button-outline.active, .button.button-dark.button-outline:active {
-        background-color: #444444;
+        background-color: #111111;
         color: #fff;
         box-shadow: none; }
 
@@ -4614,8 +4651,15 @@ input[type="range"] {
     padding-bottom: 2px; }
 
 .button-icon {
-  padding: 2px 4px;
+  padding: 0 6px;
+  min-width: initial;
+  background: none;
+  border: none;
   background: none; }
+  .button-icon:active, .button-icon.active {
+    background: none;
+    box-shadow: none;
+    text-shadow: 0px 0px 10px white; }
   .button-icon .icon {
     font-size: 32px; }
 
@@ -4628,7 +4672,7 @@ input[type="range"] {
   background: none;
   box-shadow: none; }
   .button-clear.button-clear {
-    color: #f8f8f8;
+    color: #b2b2b2;
     background: none;
     box-shadow: none; }
   .button-clear:active, .button-clear.active {
@@ -4641,20 +4685,12 @@ input[type="range"] {
   box-shadow: none; }
   .button-outline.button-outline {
     background: transparent;
-    border-color: #f8f8f8;
-    color: #f8f8f8; }
+    border-color: #b2b2b2;
+    color: #b2b2b2; }
     .button-outline.button-outline.active, .button-outline.button-outline:active {
-      background-color: #f8f8f8;
+      background-color: #b2b2b2;
       color: #fff;
       box-shadow: none; }
-
-.button-icon {
-  border: none;
-  background: none; }
-  .button-icon:active, .button-icon.active {
-    background: none;
-    box-shadow: none;
-    text-shadow: 0px 0px 10px #fff; }
 
 .padding > .button.button-block:first-child {
   margin-top: 0; }
@@ -4765,49 +4801,93 @@ a.button {
   100% {
     -webkit-transform: translate3d(100%, 0, 0); } }
 
-.slide-in-left.ng-enter, .slide-in-left > .ng-enter {
+.slide-in-left {
+  -webkit-transform: translate3d(0%, 0, 0); }
+  .slide-in-left.ng-enter, .slide-in-left > .ng-enter {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideInLeft; }
+  .slide-in-left.ng-leave, .slide-in-left > .ng-leave {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideOutLeft; }
+
+.slide-in-left-add {
+  -webkit-transform: translate3d(100%, 0, 0);
   -webkit-animation-duration: 250ms;
   -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out; }
+
+.slide-in-left-add-active {
   -webkit-animation-name: slideInLeft; }
-.slide-in-left.ng-leave, .slide-in-left > .ng-leave {
+
+.slide-out-left {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+  .slide-out-left.ng-enter, .slide-out-left > .ng-enter {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideOutLeft; }
+  .slide-out-left.ng-leave, .slide-out-left > .ng-leave {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideOutLeft; }
+
+.slide-out-left-add {
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-animation-duration: 250ms;
   -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out; }
+
+.slide-out-left-add-active {
   -webkit-animation-name: slideOutLeft; }
 
-.slide-out-left.ng-enter, .slide-out-left > .ng-enter {
-  -webkit-animation-duration: 250ms;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-name: slideOutLeft; }
-.slide-out-left.ng-leave, .slide-out-left > .ng-leave {
-  -webkit-animation-duration: 250ms;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-name: slideInLeft; }
+.slide-in-right {
+  -webkit-transform: translate3d(0%, 0, 0); }
+  .slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideInRight; }
+  .slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideInRight; }
 
-.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+.slide-in-right-add {
+  -webkit-transform: translate3d(-100%, 0, 0);
   -webkit-animation-duration: 250ms;
   -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-name: slideInRight; }
-.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
-  -webkit-animation-duration: 250ms;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-name: slideOutRight; }
+  -webkit-animation-timing-function: ease-in-out; }
 
-.slide-out-right.ng-enter, .slide-out-right > .ng-enter {
-  -webkit-animation-duration: 250ms;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-name: slideOutRight; }
-.slide-out-right.ng-leave, .slide-out-right > .ng-leave {
-  -webkit-animation-duration: 250ms;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-in-out;
+.slide-in-right-add-active {
   -webkit-animation-name: slideInRight; }
+
+.slide-out-right {
+  -webkit-transform: translate3d(100%, 0, 0); }
+  .slide-out-right.ng-enter, .slide-out-right > .ng-enter {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideOutRight; }
+  .slide-out-right.ng-leave, .slide-out-right > .ng-leave {
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: slideOutRight; }
+
+.slide-out-right-add {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out; }
+
+.slide-out-right-add-active {
+  -webkit-animation-name: slideOutRight; }
 
 @-webkit-keyframes slideInUp {
   0% {

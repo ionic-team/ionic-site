@@ -64,6 +64,11 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 28px;
+    margin-top: 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &.nav li.active {

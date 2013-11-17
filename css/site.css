@@ -3087,7 +3087,7 @@ input[type="button"].btn-block {
 
 .navbar-nav {
   margin: 13px -15px;
-  font-size: 14px; }
+  font-size: 13px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -5741,9 +5741,16 @@ h1 + h2 + p {
     background-position: 0 -80px; }
 
 .header-callout {
-  background: #DFEBFD; }
+  color: #fff;
+  background: #8DB6F8; }
   .header-callout .container {
     padding: 15px; }
+  .header-callout a {
+    color: #fff;
+    opacity: 1;
+    text-decoration: underline; }
+    .header-callout a:hover {
+      text-decoration: none; }
 
 .content-container {
   margin-top: 40px; }

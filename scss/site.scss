@@ -132,10 +132,20 @@ h1 + h2 + p {
   }
 }
 .header-callout {
-  background: #DFEBFD;
+  color: #fff;
+  background: #8DB6F8;
 
   .container {
     padding: 15px;
+  }
+  a {
+    color: #fff;
+    opacity: 1;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

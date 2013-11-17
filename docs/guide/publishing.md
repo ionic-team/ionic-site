@@ -13,7 +13,19 @@ $ cordova plugin rm org.apache.cordova.console
 
 # Android Publishing
 
-To generate a release build for Android, we first run
+To generate a release build for Android, we first need to make a small change to the `AndroidManifest.xml` file found in `platforms/android`. Edit the file and change the line:
+
+```xml
+<application android:debuggable="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
+```
+
+and change `android:debuggable` to `"false"`:
+
+```xml
+<application android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
+```
+
+Now we can tell cordova to generate our release build:
 
 ```bash
 $ cordova build --release android

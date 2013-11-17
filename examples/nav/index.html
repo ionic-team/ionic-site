@@ -1,0 +1,47 @@
+<html ng-app="navTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Nav Test</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/ionic/css/ionic.css">
+    <script src="/ionic/js/ionic.js"></script>
+    <script src="/ionic/js/ionic-angular.js"></script>
+  </head>
+  <body>
+    <navigation first="page.html">
+      <nav-bar type="bar-assertive" back-button-type="button-icon" back-button-icon="ion-arrow-left-c">
+      </nav-bar>
+    </navigation>
+
+    <script id="page.html" type="text/ng-template">
+      <div title="title" class="nav-page">
+        <div ng-controller="CatsCtrl">
+          <content has-header="true">
+            <list><item ng-repeat="item in items" nav-push="page.html">{{item.t}}</item></list>
+          </content>
+        </div>
+      </div>
+    </script>
+
+    <script>
+      angular.module('navTest', ['ionic', 'ngAnimate'])
+
+      .controller('CatsCtrl', function($scope, $compile, $element) {
+        var items = [
+          {t: 'This one'},
+          {t: 'Hmm, maybe this one'},
+          {t: 'Not that one, this one'},
+          {t: 'Um, this one?'},
+          {t: 'No, this one'}
+        ];
+        items = items.sort(function() {
+          return .5 - Math.random();
+        });
+        $scope.items = items;
+      });
+    </script>
+  </body>
+</html>
+

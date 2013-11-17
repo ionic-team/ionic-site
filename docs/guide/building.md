@@ -222,7 +222,7 @@ And the new side menu markup:
 ```html
 {% raw %}
   <!-- Left menu -->
-  <menu side="left">
+  <side side="left">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
       <button class="button button-icon" ng-click="newProject()">
@@ -236,7 +236,7 @@ And the new side menu markup:
         </item>
       </list>
     </content>
-  </menu>
+  </side>
 {% endraw %}
 ```
 

@@ -49,13 +49,13 @@ To create side menus in Ionic, we can use the [Side Menu Controller](http://ioni
   <side-menu>
     <pane side-menu-content>
     </pane>
-    <menu side="left">
-    </menu>
+    <side side="left">
+    </side>
   </side-menu>
 </body>
 ```
 
-In the code above, we've added our `<side-menu>` controller which will handle the draggng and exposing of the side menu. Inside of the controller we have a `<pane side-menu-content>` which is the center content area of the app, and a `<menu side="left">` which is a left, initially hidden, side menu.
+In the code above, we've added our `<side-menu>` controller which will handle the draggng and exposing of the side menu. Inside of the controller we have a `<pane side-menu-content>` which is the center content area of the app, and a `<side side="left">` which is a left, initially hidden, side menu.
 
 Now, if you ran this code (more on testing in a bit), you wouldn't see anything! There are two reasons for that: The first is we haven't created an AngularJS app to turn the custom tags (like `<side-menu>`) into anything functional. And, because we don't have any content yet.
 
@@ -93,11 +93,11 @@ Update the body content to be:
     </pane>
 
     <!-- Left menu -->
-    <menu side="left">
+    <side side="left">
       <header class="bar bar-header bar-dark">
         <h1 class="title">Projects</h1>
       </header>
-    </menu>
+    </side>
 
   </side-menu>
 </body>

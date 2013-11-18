@@ -5736,9 +5736,7 @@ h1 + h2 + p {
   padding-top: 14px;
   background: rgba(255, 255, 255, 0.25);
   width: 100%;
-  color: #fff; }
-  .news .container {
-    opacity: .7; }
+  color: #DAE7FD; }
   .news a {
     color: #fff;
     opacity: 1;

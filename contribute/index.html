@@ -1,96 +1,114 @@
 ---
-layout: contribute
+layout: default
 title: "Ionic Framework - Contribute"
 header_title: "Contribute to an Open Source Project"
 header_sub_title: "Play nice with others!"
 ---
 
-<div class="preview"></div>
+<div class="row">
+
+  <div class="col-md-2">
+
+    <div class="docked-menu">
+
+      <ul class="nav left-menu active-menu">
+        <li class="active"><a href="#overview">Overview</a></li>
+        <li><a href="#issues">Submit an issue</a></li>
+        <li><a href="#conventions">Conventions</a></li>
+      </ul>
+
+    </div>
+    
+  </div>
+
+  <div class="col-md-10 main-content">
+
+    <!-- Ionic Contribute
+      ================================================== -->
+
+    <div class="docs-section" id="overview">
+
+      <h1>Contribute To Ionic</h1>
+
+      <p>Help build awesomeness! If you see an area for improvement, or have an idea for a new feature then we'd love to have your help! Additionally, please feel free to take part in any discussions which may be happening at our <a href="https://github.com/driftyco/ionic/issues">issues</a> page.</p>
+
+      <ol>
+        <li><a href="https://github.com/driftyco/ionic/issues">Browse existing issues</a> for ideas and take part in any discussions to help define what you want to do.</li>
+        <li>Fork the <a href="https://github.com/driftyco/ionic">Github repo</a>.</li>
+        <li>Create a new branch from master: <code>git checkout -b issuenumber-new-awesomeness</code></li>
+        <li>Develop your feature.</li>
+        <li>Follow our <a href="#conventions">coding conventions</a>.</li>
+        <li>Did you remember to write a passing test?</li>
+        <li>Submit a pull request!</li>
+      </ol>
+      
+      <p>
+        For issues relating to the Ionic documentation or this site, use the <a href="https://github.com/driftyco/ionic-sites">ionic-site</a> repo instead.
+      </p>
+    </div>
 
 
-<!-- Ionic Contribute
-  ================================================== -->
 
-<div class="docs-section" id="overview">
+    <!-- Submit An Issue On Github 
+      ================================================== -->
+    <div class="docs-section" id="issues">
+      <h2>Submit An Issue On Github</h2>
+      <p>
+        If you catch a typo, or see a way to improve any piece of code please let us know. 
+        There's no such thing as too small of an improvement.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues">Browse Issues</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues/new">Create an Issue</a>
+      </p>
 
-  <h1>Contribute To Ionic</h1>
+    </div>
 
-  <p>Help build awesomeness! If you see an area for improvement, or have an idea for a new feature then we'd love to have your help! Additionally, please feel free to take part in any discussions which may be happening at our <a href="https://github.com/driftyco/ionic/issues">issues</a> page.</p>
 
-  <ol>
-    <li><a href="https://github.com/driftyco/ionic/issues">Browse existing issues</a> for ideas and take part in any discussions to help define what you want to do.</li>
-    <li>Fork the <a href="https://github.com/driftyco/ionic">Github repo</a>.</li>
-    <li>Create a new branch from master: <code>git checkout -b issuenumber-new-awesomeness</code></li>
-    <li>Develop your feature.</li>
-    <li>Follow our <a href="#conventions">coding conventions</a>.</li>
-    <li>Did you remember to write a passing test?</li>
-    <li>Submit a pull request!</li>
-  </ol>
-  
-  <p>
-    For issues relating to the Ionic documentation or this site, use the <a href="https://github.com/driftyco/ionic-sites">ionic-site</a> repo instead.
-  </p>
+    <!-- Conventions
+      ================================================== -->
+    <div class="docs-section" id="conventions">
+      <h2>Conventions</h2>
+      <p>
+        We try to follow best practices as much as possible. 
+      </p>
+      <p>
+        For any SCSS changes, try to keep CSS properties sorted in a reasonable order, with layout and sizing properties first, then cosmetic properties below that. See our code for examples.
+        Feel free to run your code through
+        <a href="http://csscomb.com/">CSS Comb</a>, which will sort your CSS properties in a good order.
+      </p>
+      <p>
+        All JavaScript must pass <a href="http://www.jshint.com/">JSHint</a>, which is helps detect errors and potential problems in your code.
+      </p>
+      <p>
+      Additionally, almost all Javascript code <strong>must have an accompanying test case</strong>. To run our test suite, install and run <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> as follows:
+      </p>
+      <p>
+    <pre>
+    $ sudo npm install -g karma
+    $ karma start ionic.conf.js
+    </pre>
+      </p>
+      <p>
+      Any tests you write should go in the <code>test/js</code> folder for core JS code, or in the <code>js/ext/FRAMEWORK/test</code> folder for framework-specific code. Copy the format from other tests to write your own.
+      </p>
+      <h5>Indentation</h5>
+      <p>
+        Always use 2 spaces with no tabs.
+      </p>
+    </div>
+
+    <!--
+    <div class="docs-section" id="angularjs">
+      <h2>AngularJS</h2>
+      <p>
+        Contributor guide coming soon.
+      </p>
+
+    </div>
+    -->
+
+  </div>
+
 </div>
-
-
-
-<!-- Submit An Issue On Github 
-  ================================================== -->
-<div class="docs-section" id="issues">
-  <h2>Submit An Issue On Github</h2>
-  <p>
-    If you catch a typo, or see a way to improve any piece of code please let us know. 
-    There's no such thing as too small of an improvement.
-  </p>
-  <p>
-    <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues">Browse Issues</a>
-    <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues/new">Create an Issue</a>
-  </p>
-
-</div>
-
-
-<!-- Conventions
-  ================================================== -->
-<div class="docs-section" id="conventions">
-  <h2>Conventions</h2>
-  <p>
-    We try to follow best practices as much as possible. 
-  </p>
-  <p>
-    For any SCSS changes, try to keep CSS properties sorted in a reasonable order, with layout and sizing properties first, then cosmetic properties below that. See our code for examples.
-    Feel free to run your code through
-    <a href="http://csscomb.com/">CSS Comb</a>, which will sort your CSS properties in a good order.
-  </p>
-  <p>
-    All JavaScript must pass <a href="http://www.jshint.com/">JSHint</a>, which is helps detect errors and potential problems in your code.
-  </p>
-  <p>
-  Additionally, almost all Javascript code <strong>must have an accompanying test case</strong>. To run our test suite, install and run <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> as follows:
-  </p>
-  <p>
-<pre>
-$ sudo npm install -g karma
-$ karma start ionic.conf.js
-</pre>
-  </p>
-  <p>
-  Any tests you write should go in the <code>test/js</code> folder for core JS code, or in the <code>js/ext/FRAMEWORK/test</code> folder for framework-specific code. Copy the format from other tests to write your own.
-  </p>
-  <h5>Indentation</h5>
-  <p>
-    Always use 2 spaces with no tabs.
-  </p>
-</div>
-
-
-<!--
-<div class="docs-section" id="angularjs">
-  <h2>AngularJS</h2>
-  <p>
-    Contributor guide coming soon.
-  </p>
-
-</div>
--->
 

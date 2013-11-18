@@ -1,6 +1,7 @@
 ---
 layout: guide_0.9.0
 title: "Building the UI for Toderp"
+chapter: starting
 ---
 
 Previous: <a href="installation.html">Installing Ionic</a>

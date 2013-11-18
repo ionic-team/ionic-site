@@ -2,6 +2,7 @@
 layout: guide_0.9.0
 title: "Guide: Table of Contents"
 version: 0.9.0
+chapter: index
 ---
 
 # The Ionic Guide (v{{page.version}})

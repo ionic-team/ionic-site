@@ -1,6 +1,7 @@
 ---
 layout: guide_0.9.0
 title: "Building out the ToDo App"
+chapter: building
 ---
 
 Previous: <a href="starting.html">Starting our App</a>

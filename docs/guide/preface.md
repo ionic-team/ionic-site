@@ -1,6 +1,7 @@
 ---
 layout: guide_0.9.0
 title: "Welcome to Ionic"
+chapter: preface
 ---
 
 # Chapter 1: All About Ionic

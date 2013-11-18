@@ -1,6 +1,7 @@
 ---
 layout: guide_0.9.0
 title: "Installing Ionic and its Dependencies"
+chapter: installation
 ---
 
 Previous: <a href="preface.html">What is Ionic?</a>

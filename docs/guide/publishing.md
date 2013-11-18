@@ -1,6 +1,7 @@
 ---
 layout: guide_0.9.0
 title: "Publishing the Todo App"
+chapter: publishing
 ---
 
 Now that we have a working app, we are ready to push it live to the world! Since [Drifty](http://drifty.com/), the creators of Ionic, already submitted the Todo app from this guide to the app store, chances are you'll want to follow this chapter with a new app that you make on your own.

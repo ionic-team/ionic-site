@@ -47,6 +47,12 @@ var ionicSite = (function(){
     return false;
   });
 
+  // left menu link highlight
+  $('.left-menu')
+    .find('a[href="' + window.location.pathname + '"]')
+    .closest('li')
+    .addClass("active");
+
   return {
 
     fixedMenu: null,

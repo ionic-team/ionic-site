@@ -1,5 +1,6 @@
 ---
-layout: "api_0.9.0"
+layout: docs_0.9.0
+active: angularjs
 title: "Headers"
 header_sub_title: "Headers"
 ---

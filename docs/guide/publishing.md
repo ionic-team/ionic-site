@@ -1,6 +1,7 @@
 ---
-layout: guide_0.9.0
+layout: docs_0.9.0
 title: "Publishing the Todo App"
+active: guide
 chapter: publishing
 ---
 

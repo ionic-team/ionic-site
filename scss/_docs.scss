@@ -38,6 +38,11 @@
   padding-left: 0;
   list-style: none;
   font-size: 12px;
+  margin-top: 8px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   a { 
     display: block;
@@ -49,27 +54,28 @@
   }
 
   li {
-    display: block;
+    display: none;
     margin: 8px 0;
     list-style: none;
+
+    &.menu-title {
+      display: block;
+      margin-top: 0;
+    }
 
     ul {
       display: none;
       padding-left: 12px;
     }
+
   }
 
-  .menu-title {
+  .menu-title a {
     color: #aaaaaa;
     letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 20px;
-    margin-top: 30px;
     font-size: 11px;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 
   &.nav li.active {
@@ -89,6 +95,19 @@
   > li > ul > li > ul {
     display: none !important;
   }
+}
+
+.left-menu.active-menu {
+  .menu-title a {
+    color: $brand-primary;
+  }
+   li {
+    display: block;
+  }
+}
+
+.docs .col-md-2 {
+  margin-bottom: 150px;
 }
 
 .docs-section {

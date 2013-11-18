@@ -5,3 +5,5 @@ markdown: redcarpet
 pygments: true
 permalink: /blog/:title
 paginate: 5
+
+docs_0_9_0: /docs

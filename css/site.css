@@ -5088,7 +5088,10 @@ td.visible-print {
 .left-menu {
   padding-left: 0;
   list-style: none;
-  font-size: 12px; }
+  font-size: 12px;
+  margin-top: 8px; }
+  .left-menu:first-child {
+    margin-top: 0; }
   .left-menu a {
     display: block;
     color: #444;
@@ -5096,21 +5099,21 @@ td.visible-print {
     .left-menu a:hover {
       background: transparent !important; }
   .left-menu li {
-    display: block;
+    display: none;
     margin: 8px 0;
     list-style: none; }
+    .left-menu li.menu-title {
+      display: block;
+      margin-top: 0; }
     .left-menu li ul {
       display: none;
       padding-left: 12px; }
-  .left-menu .menu-title {
+  .left-menu .menu-title a {
     color: #aaaaaa;
     letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 20px;
-    margin-top: 30px;
     font-size: 11px; }
-    .left-menu .menu-title:first-child {
-      margin-top: 0; }
   .left-menu.nav li.active > a {
     border-right: 2px solid #4f8ef7;
     color: #4f8ef7; }
@@ -5120,6 +5123,14 @@ td.visible-print {
     padding: 1px 0; }
   .left-menu > li > ul > li > ul {
     display: none !important; }
+
+.left-menu.active-menu .menu-title a {
+  color: #4f8ef7; }
+.left-menu.active-menu li {
+  display: block; }
+
+.docs .col-md-2 {
+  margin-bottom: 150px; }
 
 .docs-section {
   padding-bottom: 60px;
@@ -5759,11 +5770,8 @@ h1 + h2 + p {
 .nav-link {
   border-bottom: 3px solid transparent; }
 
-.getting-started-page .getting-started-nav,
 .docs-page .docs-nav,
-.api-page .api-nav,
 .examples-page .examples-nav,
-.blog-page .blog-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid #4f8ef7;

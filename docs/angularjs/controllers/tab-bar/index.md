@@ -1,5 +1,6 @@
 ---
-layout: "api_0.9.0"
+layout: docs_0.9.0
+active: angularjs
 title: "Tab Bar Controller"
 header_sub_title: "Multi-page tab interfaces"
 ---

@@ -1,6 +1,7 @@
 ---
-layout: guide_0.9.0
+layout: docs_0.9.0
 title: "Installing Ionic and its Dependencies"
+active: guide
 chapter: installation
 ---
 

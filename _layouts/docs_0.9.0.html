@@ -9,7 +9,7 @@
     {% include head_includes.html %}
   </head>
 
-  <body class="docs-page docs device-preview-page">
+  <body class="docs-page docs {{ page.body_css }}">
 
     {% include nav_links.html %}
 
@@ -21,97 +21,162 @@
 
         <div class="col-md-2">
 
-          <div class="docked-menu">
+          <div class="{% if page.active == "components" %}docked-menu{% endif %}">
 
-            <ul class="nav left-menu">
-              <li class="menu-title">Components</li>
-              <li class="active">
-                <a href="#header">Header</a>
-                <ul>
-                  <li><a href="#subheader">Sub Header</a></li>
-                </ul>
+
+            <!-- Getting Started -->
+            <ul class="nav left-menu{% if page.active == "getting-started" %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="{{ site.docs_0_9_0 }}/">Getting Started</a>
               </li>
-              <li><a href="#content">Content</a></li>
-              <li><a href="#footer">Footer</a></li>
-              <li>
-                <a href="#buttons">Buttons</a>
-                <ul>
-                  <li><a href="#block-buttons">Block</a></li>
-                  <li><a href="#full-buttons">Full Width</a></li>
-                  <li><a href="#outlined-buttons">Outlined</a></li>
-                  <li><a href="#clear-buttons">Clear</a></li>
-                  <li><a href="#icon-buttons">Icons</a></li>
-                  <li><a href="#buttons-headers-footers">Headers/Footers</a></li>
-                  <li><a href="#clear-buttons-headers">Clear Buttons in Headers</a></li>
-                  <li><a href="#button-bar">Button Bar</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#list">List</a>
-                <ul>
-                  <li><a href="#item-dividers">Divider</a></li>
-                  <li><a href="#item-icons">Icons</a></li>
-                  <li><a href="#item-buttons">Buttons</a></li>
-                  <li><a href="#item-avatars">Avatars</a></li>
-                  <li><a href="#item-thumbnails">Thumbnails</a></li>
-                </ul>
+              <li><a href="{{ site.docs_0_9_0 }}/">Getting Started</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#download">Download</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#whats-included">What's included</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#basic-template">Basic Template</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#sass">SASS</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#angularjs">AngularJS</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#phonegap">Phonegap</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#browser-support">Browser Support</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#examples">Examples</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#license">Licensing</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#contribute">Contribute</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/#about">About Ionic</a></li>
+            </ul>
+
+
+            <!-- Components -->
+            <ul class="nav left-menu{% if page.active == "components" %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="{{ site.docs_0_9_0 }}/components/">Components</a>
               </li>
               <li>
-                <a href="#cards">Cards</a>
+                <a href="{{ site.docs_0_9_0 }}/components/#header">Header</a>
+                <ul style="display: none;">
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#subheader">Sub Header</a></li>
+                </ul>
+              </li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#content">Content</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#footer">Footer</a></li>
+              <li>
+                <a href="{{ site.docs_0_9_0 }}/components/#buttons">Buttons</a>
                 <ul>
-                  <li><a href="#card-headers-footers">Headers and Footers</a></li>
-                  <li><a href="#card-lists">Lists</a></li>
-                  <li><a href="#card-images">Images</a></li>
-                  <li><a href="#card-showcase">Showcase</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#block-buttons">Block</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#full-buttons">Full Width</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#outlined-buttons">Outlined</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#clear-buttons">Clear</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#icon-buttons">Icons</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#buttons-headers-footers">Headers/Footers</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#clear-buttons-headers">Clear Buttons in Headers</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#button-bar">Button Bar</a></li>
                 </ul>
               </li>
               <li>
-                <a href="#forms">Forms</a>
+                <a href="{{ site.docs_0_9_0 }}/components/#list">List</a>
                 <ul>
-                  <li><a href="#forms-placeholder-labels">Placeholder Labels</a></li>
-                  <li><a href="#forms-inline-labels">Inline Labels</a></li>
-                  <li><a href="#forms-stacked-labels">Stacked Labels</a></li>
-                  <li><a href="#inset-forms">Inset</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#item-dividers">Divider</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#item-icons">Icons</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#item-buttons">Buttons</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#item-avatars">Avatars</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#item-thumbnails">Thumbnails</a></li>
                 </ul>
               </li>
-              <li><a href="#toggle">Toggle</a></li>
-              <li><a href="#checkbox">Checkbox</a></li>
-              <li><a href="#radio-buttons">Radio Buttons</a></li>
-              <li><a href="#range">Range</a></li>
               <li>
-                <a href="#utility">Utility</a>
+                <a href="{{ site.docs_0_9_0 }}/components/#cards">Cards</a>
                 <ul>
-                  <li><a href="#colors">Colors</a></li>
-                  <li><a href="#icons">Icons</a></li>
-                  <li><a href="#padding">Padding</a></li>
-                  <li>
-                    <a href="#grid">Grid</a>
-                    <ul>
-                      <li><a href="#grid-even">Even Columns</a></li>
-                      <li><a href="#grid-explicit">Explicit Column Sized</a></li>
-                      <li><a href="#grid-offset">Offset Columns</a></li>
-                      <li><a href="#grid-vertically-align">Vertically Align Columns</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#card-headers-footers">Headers and Footers</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#card-lists">Lists</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#card-images">Images</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#card-showcase">Showcase</a></li>
                 </ul>
               </li>
-              <li class="menu-title">API</li>
-              <li><a href="#content-api">Content</a></li>
-              <li><a href="#header-api">Header</a></li>
-              <li><a href="#navigation-api">Navigation</a></li>
-              <li><a href="#list-api">List</a></li>
               <li>
-                <a href="#tab-bar-api">Tab Bar</a>
+                <a href="{{ site.docs_0_9_0 }}/components/#forms">Forms</a>
+                <ul>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#forms-placeholder-labels">Placeholder Labels</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#forms-inline-labels">Inline Labels</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#forms-stacked-labels">Stacked Labels</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#inset-forms">Inset</a></li>
+                </ul>
+              </li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#toggle">Toggle</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#checkbox">Checkbox</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#radio-buttons">Radio Buttons</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/components/#range">Range</a></li>
+              <li>
+                <a href="#tab-bar">Tab Bar</a>
                 <ul>
                   <li><a href="#icon-only-tab-bar">Icon-only</a></li>
                   <li><a href="#icon-top-tab-bar">Top Icon</a></li>
                   <li><a href="#icon-left-tab-bar">Left Icon</a></li>
                 </ul>
               </li>
-              <li><a href="#side-menu-api">Side Menu</a></li>
-              <li><a href="#modal-api">Modal</a></li>
-              <li><a href="#action-sheet-api">Action Sheet</a></li>
-              <li><a href="#gestures-api">Gestures</a></li>
+              <li>
+                <a href="{{ site.docs_0_9_0 }}/components/#utility">Utility</a>
+                <ul>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#colors">Colors</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#icons">Icons</a></li>
+                  <li><a href="{{ site.docs_0_9_0 }}/components/#padding">Padding</a></li>
+                  <li>
+                    <a href="{{ site.docs_0_9_0 }}/components/#grid">Grid</a>
+                    <ul>
+                      <li><a href="{{ site.docs_0_9_0 }}/components/#grid-even">Even Columns</a></li>
+                      <li><a href="{{ site.docs_0_9_0 }}/components/#grid-explicit">Explicit Column Sized</a></li>
+                      <li><a href="{{ site.docs_0_9_0 }}/components/#grid-offset">Offset Columns</a></li>
+                      <li><a href="{{ site.docs_0_9_0 }}/components/#grid-vertically-align">Vertically Align Columns</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+
+            <!-- AngularJS -->
+            <ul class="nav left-menu{% if page.active == "angularjs" %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="{{ site.docs_0_9_0 }}/angularjs/">AngularJS Ext</a>
+              </li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/">Overview</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/views/content/">Content</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/views/header/">Header</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/controllers/nav/">Navigation</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/views/list/">List</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/controllers/tab-bar/">Tab Bar</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/controllers/side-menu/">Side Menu</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/views/modal/">Modal</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/views/action-sheet/">Action Sheet</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/angularjs/utils/gestures/">Gestures</a></li>
+            </ul>
+
+            <!-- Tutorials -->
+            <ul class="nav left-menu{% if page.active == "tutorials" %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/tutorials/">Tutorials</a>
+              </li>
+            </ul>
+
+            <!-- Guide -->
+            <ul class="nav left-menu{% if page.active == "guide" %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="{{ site.docs_0_9_0 }}/guide/">Guide</a>
+              </li>
+              <li{% if page.chapter == "preface"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/preface.html">1. What is Ionic?</a>
+              </li>
+              <li{% if page.chapter == "installation"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/installation.html">2. Installation</a>
+              </li>
+              <li{% if page.chapter == "starting"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/starting.html">3. Starting our app</a>
+              </li>
+              <li{% if page.chapter == "building"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/building.html">4. Building it out</a>
+              </li>
+              <li{% if page.chapter == "publishing"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/publishing.html">5. Publishing</a>
+              </li>
+              <li{% if page.chapter == "closing"%} class="active"{%endif%}>
+                <a href="{{ site.docs_0_9_0 }}/guide/closing.html">6. Closing Thoughts</a>
+              </li>
             </ul>
 
           </div>
@@ -132,7 +197,7 @@
 
         <div class="col-sm-6 col-a">
           <h4>
-            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+            <a href="/">Getting started <span class="icon ion-arrow-right-c"></span></a>
           </h4>
           <p>
             Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
@@ -157,6 +222,13 @@
     {% include footer.html %}
 
     {% include base_scripts.html %}
+
+    {% if active_page == components %}
+    <script>
+      ionicSite.initDockedMenu();
+      ionicSite.initDevicePreview();
+    </script>
+    {% endif %}
 
   </body>
 </html>

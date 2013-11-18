@@ -1,5 +1,7 @@
 ---
 layout: docs_0.9.0
+active: components
+body_css: device-preview-page
 title: "Components Documentation"
 header_title: "Components"
 header_sub_title: "View Ionic's Components"
@@ -10,8 +12,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <div class="screen-bg"></div>
   <div class="default-screen ionic-body active-preview">
     <div class="content-wrapper">
-      <div class="content padding has-header">
-      </div>
+      <div class="content padding has-header"></div>
     </div>
   </div>
 </div>
@@ -3136,9 +3137,9 @@ $scope.navController.pushFromTemplate(templateUrl)
 
 <!-- Tab Bar
   ================================================== -->
-<div class="docs-section" id="tab-bar-api">
+<div class="docs-section" id="tab-bar">
 
-  <h3><a href="#tab-bar-api">Tab Bar</a></h3>
+  <h3><a href="#tab-bar">Tab Bar</a></h3>
 
   <p>
     The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
@@ -3195,7 +3196,7 @@ $scope.navController.pushFromTemplate(templateUrl)
 
 
 
-<!-- Icon Only Tabbar
+<!-- Icon Only Tab Bar
   ================================================== -->
 <div class="docs-section" id="icon-only-tab-bar">
 
@@ -3335,187 +3336,6 @@ $scope.navController.pushFromTemplate(templateUrl)
         <i class="icon ion-gear-a"></i>
         Settings
       </a>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Side Menu
-  ================================================== -->
-<div class="docs-section" id="side-menu-api">
-
-  <h3><a href="#side-menu-api">Side Menus</a></h3>
-  <p>
-    Side Menus are exposable side menus seen at various times in popular
-    apps like Path and Facebook.
-    Each menu can be exposed by dragging the content area left and/or right, or through a Javascript API.
-  </p>
-
-{% highlight html %}
-<side-menus>
-  <!-- Center content -->
-  <pane side-menu-content>
-  </pane>
-
-  <!-- Left menu -->
-  <side-menu side="left">
-  </side-menu>
-
-  <!-- Right menu -->
-  <side-menu side="right">
-  </side-menu>
-</side-menu>
-{% endhighlight %}
-
-  <p class="advanced-panel">
-    <em>*</em> For a more extensive overview on Side Menu Controllers, read the
-    <a href="/docs/api/controllers/side-menu/">Side Menu Controller Docs</a>
-  </p>
-
-</div>
-
-
-
-<!-- Modal
-  ================================================== -->
-<div class="docs-section" id="modal-api">
-
-  <h3><a href="#modal-api">Modal</a></h3>
-
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.service.modal</code></td>
-    </tr>
-    <tr>
-      <td>Service</td><td><code>Modal</code></td>
-    </tr>
-  </table>
-
-  <p>
-  Modals are independent "screens" that can be slid into view.
-  </p>
-
-{% highlight html %}
-<div class="modal slide-in-up">
-  <header class="bar bar-header">
-    <h1 class="title">Modal</h1>
-    <button class="button button-clear button-primary">Done</button>
-  </header>
-  <main class="content padding has-header">
-    <h1>Modal Content</h1>
-  </main>
-</div>
-{% endhighlight %}
-<p>
-To show the modal, import the <code>ionic.ui.modal</code> package and use the <code>Modal</code> service in your controllers:
-</p>
-{% highlight javascript %}
-app.controller('MyCtrl', function($scope, Modal) {
-  // Initialize modal from template
-  var modal = Modal.fromTemplateUrl('myModal.html', function(modal) {
-    $scope.modal = modal;
-  });
-  
-  $scope.showModal = function() {
-    $scope.modal.show();
-  };
-
-  $scope.hideModal = function() {
-    $scope.modal.hide();
-  };
-});
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Modals</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        ...
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Action Sheet
-  ================================================== -->
-<div class="docs-section" id="action-sheet-api">
-
-  <h3><a href="#action-sheet-api">Action Sheet</a></h3>
-
-  <table class="table table-condensed table-bordered module-info">
-    <tr>
-      <td>Module</td><td><code>ionic.ui.actionSheet</code></td>
-    </tr>
-    <tr>
-      <td>Service</td><td><code>ActionSheet</code></td>
-    </tr>
-  </table>
-  <p>
-    Action Sheets are slide-up buttons shown in response to a user action, often asking the user to confirm the decision. Action Sheets are modeled off of the iOS UIActionSheet.
-  </p>
-  <p>
-    
-  </p>
-
-{% highlight javascript %}
-ActionSheet.show({
-  buttons: [],
-  destructiveText: 'Delete Thing',
-  cancelText: 'Cancel',
-  cancel: function() {
-    // Return true to close the Action Sheet
-    return true;
-  },
-  destructiveButtonClicked: function() {
-    // Do the dangerous thing here
-    // ...
-
-    // Return true to close the Action Sheet
-    return true;
-  }
-});
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header bar-default">
-      <div class="h1 title">Action Sheets</div>
-    </div>
-    <div class="content-wrapper">
-      <div class="content has-header">
-        <button class="button-primary">Show Actions</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Gestures
-  ================================================== -->
-<div class="docs-section" id="gestures-api">
-
-  <h3><a href="#gestures-api">Gestures</a></h3>
-  <p>
-    ...
-  </p>
-
-{% highlight html %}
-...
-{% endhighlight %}
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Gestures</div>
-    </div>
-    <div class="content has-header">
-      ...
     </div>
   </div>
 

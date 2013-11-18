@@ -1,8 +1,11 @@
 ---
-layout: api_0.9.0
+layout: docs_0.9.0
+active: angularjs
 title: "Ionic API"
 api_version: "0.9.0"
 ---
+
+# AngularJS Extensions
 
 Ionic is both a CSS framework and a Javascript UI library. Many components need Javascript in order to produce magic, though often components
 can easily be used without coding through framework extensions such as our AngularIonic extensions.

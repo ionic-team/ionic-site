@@ -1,5 +1,6 @@
 ---
-layout: "api_0.9.0"
+layout: docs_0.9.0
+active: angularjs
 title: "Gestures"
 header_sub_title: "Touch interaction for your apps"
 ---

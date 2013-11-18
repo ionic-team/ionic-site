@@ -22,8 +22,7 @@ The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set 
 ```html
 {% raw %}
 <tabs tabs-type="tabs-icon-only"
-      tabs-style="tabs-primary"
-      controller-changed="onControllerChanged(oldController, oldIndex, newController, newIndex)">
+      tabs-style="tabs-primary">
 
   <tab title="Home" icon-on="icon ion-ios7-filing" icon-off="icon ion-ios7-filing-outline">
     <!-- Tab 1 content -->
@@ -40,3 +39,43 @@ The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set 
 </tabs>
 ```
 {% endraw %}
+
+To use the tabs, put the content of each tab right into the `<tab>` tag, like this:
+
+```html
+<tabs tabs-type="tabs-icon-only">
+  <tab title="Home" icon-on="icon ion-ios7-filing" icon-off="icon ion-ios7-filing-outline">
+    <header-bar type="bar-positive" title="'Home'"></header-bar>
+    <content has-header="true">
+      <h2>Home Content</h2>
+    </content>
+  </tab>
+</tabs>
+```
+
+Notice we set the title of the `<header-bar>` using single quotes (`title="'Home'"`) since the title is an angular expression and can be bound to a scope value for dynamic titles.
+
+The Tab Bar also emits events when tabs change. To know when a tab is shown, listen for the `tab.shown` event, and the `tab.hidden` event for when it is hidden:
+
+```html
+<tabs tabs-type="tabs-icon-only">
+  <tab title="Home" icon-on="icon ion-ios7-filing" icon-off="icon ion-ios7-filing-outline" ng-controller="HomeCtrl">
+    <header-bar type="bar-positive" title="'Home'"></header-bar>
+    <content has-header="true">
+      <h2>Home Content</h2>
+    </content>
+  </tab>
+</tabs>
+```
+
+```javascript
+angular.module('test', ['ionic'])
+.controller('HomeCtrl', function($scope) {
+  $scope.$on('tab.shown', function() {
+    // Maybe load some content here
+  });
+  $scope.$on('tab.hidden', function() {
+    // Perhaps cycle out some data in memory here
+  });
+});
+```

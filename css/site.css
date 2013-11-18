@@ -5176,6 +5176,7 @@ td.visible-print {
     overflow: hidden !important; }
   .device-preview-page .device-preview {
     position: absolute;
+    z-index: 1;
     right: 0;
     width: 380px;
     height: 810px;
@@ -5768,6 +5769,7 @@ h1 + h2 + p {
 
 .footer {
   position: relative;
+  z-index: 100;
   padding: 60px 10px;
   background: #fff;
   text-align: center; }
@@ -10384,6 +10386,7 @@ h1 + h2 + p {
 
 .pre-footer {
   position: relative;
+  z-index: 100;
   padding: 40px;
   background: #F7F7F7; }
   .pre-footer .row {

@@ -140,7 +140,13 @@ h1 + h2 + p {
   padding-top: 14px;
   background: rgba(255, 255, 255, 0.25);
   width: 100%;
-  color: #DAE7FD;
+
+  .container {
+    color: #DAE7FD;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   a {
     color: #fff;
@@ -203,7 +209,8 @@ h1 + h2 + p {
   @import "ionic/ionic";
 }
 
-.continue-row {
+.pre-footer {
+  position: relative;
   padding: 40px;
   background: #F7F7F7;
 

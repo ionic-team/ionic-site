@@ -5735,8 +5735,12 @@ h1 + h2 + p {
   height: 50px;
   padding-top: 14px;
   background: rgba(255, 255, 255, 0.25);
-  width: 100%;
-  color: #DAE7FD; }
+  width: 100%; }
+  .news .container {
+    color: #DAE7FD;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .news a {
     color: #fff;
     opacity: 1;
@@ -10376,24 +10380,25 @@ h1 + h2 + p {
   .ionic .platform-ios7 .has-header {
     margin-top: 64px; }
 
-.continue-row {
+.pre-footer {
+  position: relative;
   padding: 40px;
   background: #F7F7F7; }
-  .continue-row .row {
+  .pre-footer .row {
     margin: 0 auto;
     max-width: 900px; }
-  .continue-row p {
+  .pre-footer p {
     line-height: 28px; }
-  .continue-row a:hover {
+  .pre-footer a:hover {
     text-decoration: none; }
-  .continue-row span {
+  .pre-footer span {
     padding-left: 5px; }
-  .continue-row .col-a {
+  .pre-footer .col-a {
     padding-bottom: 15px; }
   @media (min-width: 768px) {
-    .continue-row .col-a {
+    .pre-footer .col-a {
       padding-right: 40px;
       padding-bottom: 0;
       border-right: 1px solid #dddddd; }
-    .continue-row .col-b {
+    .pre-footer .col-b {
       padding-left: 45px; } }

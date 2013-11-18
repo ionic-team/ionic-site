@@ -5136,7 +5136,7 @@ td.visible-print {
   margin-bottom: 100px; }
 
 .docs-section {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   color: #444;
   font-size: 14px;
   line-height: 1.9em; }
@@ -5148,10 +5148,7 @@ td.visible-print {
     margin-bottom: 0;
     font-size: 12px !important; }
   .docs-section h2 {
-    padding-bottom: 16px; }
-    .docs-section h2 a {
-      border-bottom: 1px solid #ddd;
-      line-height: 1.9em; }
+    padding-bottom: 0; }
   .docs-section h3 {
     line-height: 1.9em; }
   .docs-section h2 a, .docs-section h3 a {
@@ -5170,9 +5167,12 @@ td.visible-print {
     font-size: 14px !important; }
 
 .device-preview-page .docs-section {
+  padding-bottom: 60px;
   min-height: 320px;
   opacity: .75;
   transition: opacity .15s ease-in-out; }
+  .device-preview-page .docs-section h2 {
+    padding-bottom: 16px; }
 
 .device-preview-page .docs-section.active {
   opacity: 1; }

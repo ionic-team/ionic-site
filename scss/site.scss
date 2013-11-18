@@ -89,7 +89,8 @@ h1 + h2 + p {
 }
 
 .header {
-  height: 200px;
+  position: relative;
+  height: 248px;
   padding: 50px 0 0 0;
 
   h3 {
@@ -131,17 +132,26 @@ h1 + h2 + p {
     background-position: 0 -80px;
   }
 }
-.header-callout {
+
+.news {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  padding-top: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  width: 100%;
   color: #fff;
-  background: #8DB6F8;
 
   .container {
-    padding: 15px;
+    opacity: .7;
   }
+
   a {
     color: #fff;
     opacity: 1;
     text-decoration: underline;
+    padding: 0;
+    font-weight: normal;
 
     &:hover {
       text-decoration: none;

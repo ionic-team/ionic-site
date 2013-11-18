@@ -5698,7 +5698,8 @@ h1 + h2 + p {
       text-decoration: none; }
 
 .header {
-  height: 200px;
+  position: relative;
+  height: 248px;
   padding: 50px 0 0 0;
   background-position: 0 -76px; }
   .header h3 {
@@ -5728,16 +5729,23 @@ h1 + h2 + p {
   .header .heading-tile {
     background-position: 0 -80px; }
 
-.header-callout {
-  color: #fff;
-  background: #8DB6F8; }
-  .header-callout .container {
-    padding: 15px; }
-  .header-callout a {
+.news {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  padding-top: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  width: 100%;
+  color: #fff; }
+  .news .container {
+    opacity: .7; }
+  .news a {
     color: #fff;
     opacity: 1;
-    text-decoration: underline; }
-    .header-callout a:hover {
+    text-decoration: underline;
+    padding: 0;
+    font-weight: normal; }
+    .news a:hover {
       text-decoration: none; }
 
 .content-container {

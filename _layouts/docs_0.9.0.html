@@ -21,7 +21,7 @@
 
         <div class="col-md-2">
 
-          <div class="{% if page.active == "components" %}docked-menu{% endif %}">
+          <div class="docked-menu">
 
 
             <!-- Getting Started -->
@@ -29,7 +29,7 @@
               <li class="menu-title">
                 <a href="{{ site.docs_0_9_0 }}/">Getting Started</a>
               </li>
-              <li><a href="{{ site.docs_0_9_0 }}/">Getting Started</a></li>
+              <li><a href="{{ site.docs_0_9_0 }}/">Overview</a></li>
               <li><a href="{{ site.docs_0_9_0 }}/#download">Download</a></li>
               <li><a href="{{ site.docs_0_9_0 }}/#whats-included">What's included</a></li>
               <li><a href="{{ site.docs_0_9_0 }}/#basic-template">Basic Template</a></li>
@@ -223,12 +223,10 @@
 
     {% include base_scripts.html %}
 
-    {% if active_page == components %}
     <script>
       ionicSite.initDockedMenu();
       ionicSite.initDevicePreview();
     </script>
-    {% endif %}
 
   </body>
 </html>

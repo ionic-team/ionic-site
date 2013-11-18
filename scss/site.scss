@@ -181,7 +181,9 @@ h1 + h2 + p {
 }
 
 .footer {
-  margin: 60px 10px;
+  position: relative;
+  padding: 60px 10px;
+  background: #fff;
   text-align: center;
   p {
     line-height: 28px;

@@ -92,9 +92,9 @@
 
 .docs-section {
   padding-bottom: 60px;
-  color: #333;
-  font-size: 16px;
-  line-height: 28px;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.9em;
 
   .panel-heading {
     font-family: $font-family-monospace; 
@@ -127,7 +127,7 @@
   }
   h2 a:hover,
   h3 a:hover {
-    color: #333;
+    color: #111;
     text-decoration: none;
   }
 

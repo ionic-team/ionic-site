@@ -1642,7 +1642,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <p>
     In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
     <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
-    text into the input the placeholder label will be hidden.
+    text into the input the placeholder label will be hidden. Notice how <code>&lt;textarea&gt;</code> can also be used as a multi-line text input.
   </p>
 
 {% highlight html %}
@@ -1652,6 +1652,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   </label>
   <label class="item item-input">
     <input type="text" placeholder="Last Name">
+  </label>
+  <label class="item item-input">
+    <textarea placeholder="Comments"></textarea>
   </label>
 </div>
 {% endhighlight %}
@@ -1667,6 +1670,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
         </label>
         <label class="item item-input">
           <input type="text" placeholder="Last Name">
+        </label>
+        <label class="item item-input">
+          <textarea placeholder="Comments"></textarea>
         </label>
       </div>
       <div class="padding">

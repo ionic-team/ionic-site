@@ -248,7 +248,7 @@ var ionicSite = (function(){
           examplePreview.addClass('active-preview');
         } else if(ionicSite.devicePreview) {
           // create a new example preview
-          ionicSite.devicePreview.append( '<div id="' + exampleId + '" class="ionic-body  ionic-pseudo">' + docExample.html() + '</div>' );
+          ionicSite.devicePreview.append( '<div id="' + exampleId + '" class="ionic-body">' + docExample.html() + '</div>' );
           setTimeout(function(){
             $('#' + exampleId)
               .addClass('active-preview')

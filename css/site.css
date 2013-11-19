@@ -5155,6 +5155,7 @@ td.visible-print {
     color: #999;
     border-bottom: 1px solid transparent;
     transition: color 0.15s ease-in-out; }
+  .docs-section h1 a:hover,
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
     color: #111;

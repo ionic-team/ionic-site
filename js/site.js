@@ -73,7 +73,7 @@ var ionicSite = (function(){
           }
         });
 
-        var scrollSpyOffset = 30;
+        var scrollSpyOffset = 40;
         if( $(document.body).hasClass("device-preview-page") ) {
           scrollSpyOffset = 300;
         }
@@ -89,17 +89,21 @@ var ionicSite = (function(){
         function docScroll() {
           var scrollTop = $(window).scrollTop();
           if(scrollTop + menuTopPadding > fixedMenuTop) {
-            ionicSite.fixedMenu
-              .css({
-                width: ionicSite.fixedMenu.width() + 'px'
-              })
-              .addClass("fixed-menu");
+            if(!ionicSite.fixedMenu.hasClass("fixed-menu")) {
+              ionicSite.fixedMenu
+                .css({
+                  width: ionicSite.fixedMenu.width() + 'px'
+                })
+                .addClass("fixed-menu");
+              }
           } else {
-            ionicSite.fixedMenu
-              .removeClass("fixed-menu")
-              .css({
-                width: 'auto'
-              });
+            if(ionicSite.fixedMenu.hasClass("fixed-menu")) {
+              ionicSite.fixedMenu
+                .removeClass("fixed-menu")
+                .css({
+                  width: 'auto'
+                });
+            }
             if(scrollTop < 200) {
               $('.active').removeClass(".active");
             }

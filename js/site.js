@@ -81,8 +81,10 @@ var ionicSite = (function(){
         });
 
         function docScroll() {
-          var scrollTop = $(window).scrollTop();
-          if(scrollTop + menuTopPadding > fixedMenuTop) {
+          var win = $(window);
+          var scrollTop = win.scrollTop();
+          var winWidth = win.width();
+          if(scrollTop + menuTopPadding > fixedMenuTop && winWidth >= 768) {
             var bottomView = scrollTop + ionicSite.winHeight;
             if(bottomView > ionicSite.preFooterTop && false) {
               // bottom of the page

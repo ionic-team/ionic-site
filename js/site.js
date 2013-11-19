@@ -73,7 +73,12 @@ var ionicSite = (function(){
           }
         });
 
-        $(document.body).scrollspy({ target: '.docked-menu', offset: 300 });
+        var scrollSpyOffset = 30;
+        if( $(document.body).hasClass("device-preview-page") ) {
+          scrollSpyOffset = 300;
+        }
+
+        $(document.body).scrollspy({ target: '.docked-menu', offset: scrollSpyOffset });
 
         var fixedMenuTop = ionicSite.fixedMenu.offset().top;
         var menuTopPadding = 20;
@@ -109,17 +114,48 @@ var ionicSite = (function(){
           docScroll();
         });
         $(window).scroll(docScroll);
+
+        function scrollSpyChange(e) {
+          if(smoothScrollingTo || !ionicSite.docContent) return;
+
+          var id;
+          if(e.target.children.length > 1) {
+            // this is a top level nav link
+            var activeSublinks = $(e.target).find('.active');
+            if(!activeSublinks.length) {
+              // no children are active for this top level link
+              id = e.target.children[0].hash;
+            }
+          } else if(e.target.children.length === 1) {
+            // this is a sub nav link
+            id = e.target.children[0].hash;
+          }
+
+          if(id) {
+            if(ionicSite.devicePreview) {
+              setTimeout(function(){
+                ionicSite.previewSection(id);
+              });
+            } else {
+              var activeSection = $(id);
+              if(activeSection.length) {
+                ionicSite.docContent.find('.active').removeClass('active');
+                activeSection.addClass("active");
+              }
+            }
+          }
+        }
+        ionicSite.fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
       }
     },
 
-    docContent: null,
+    docContent: $('.main-content'),
     devicePreview: null,
 
     initDevicePreview: function() {
       /* Fixed device preview on the docs page */
       ionicSite.devicePreview = $('.device-preview');
       if(ionicSite.devicePreview.length) {
-        ionicSite.docContent = $('.main-content');
         var orgDeviceTop = ionicSite.devicePreview.offset().top;
 
         function onScroll() {
@@ -152,31 +188,6 @@ var ionicSite = (function(){
         });
         $(window).scroll(onScroll);
         onScroll();
-
-
-        function scrollSpyChange(e) {
-          if(smoothScrollingTo || !ionicSite.docContent) return;
-
-          var id;
-          if(e.target.children.length > 1) {
-            // this is a top level nav link
-            var activeSublinks = $(e.target).find('.active');
-            if(!activeSublinks.length) {
-              // no children are active for this top level link
-              id = e.target.children[0].hash;
-            }
-          } else if(e.target.children.length === 1) {
-            // this is a sub nav link
-            id = e.target.children[0].hash;
-          }
-
-          if(id) {
-            setTimeout(function(){
-              ionicSite.previewSection(id);
-            });
-          }
-        }
-        ionicSite.fixedMenu.on('activate.bs.scrollspy', scrollSpyChange);
 
         var firstSection = ionicSite.docContent.find('.docs-section').first();
         if(firstSection.length) {

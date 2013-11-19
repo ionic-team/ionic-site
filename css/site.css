@@ -5133,7 +5133,7 @@ td.visible-print {
   margin-bottom: 20px; }
 
 .docs .main-content {
-  margin-bottom: 100px; }
+  margin-bottom: 150px; }
 
 .docs-section {
   padding-bottom: 20px;
@@ -5147,11 +5147,10 @@ td.visible-print {
   .docs-section pre {
     margin-bottom: 0;
     font-size: 12px !important; }
-  .docs-section h2 {
+  .docs-section h2, .docs-section h3 {
     padding-bottom: 0; }
-  .docs-section h3 {
-    line-height: 1.9em; }
   .docs-section h2 a, .docs-section h3 a {
+    padding-bottom: 8px;
     display: block;
     color: #999;
     border-bottom: 1px solid transparent;

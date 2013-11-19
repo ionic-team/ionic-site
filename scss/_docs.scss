@@ -110,7 +110,7 @@
   margin-bottom: 20px;
 }
 .docs .main-content {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .docs-section {
@@ -132,13 +132,11 @@
     font-size: 12px !important;
   }
 
-  h2 {
+  h2, h3 {
     padding-bottom: 0;
   }
-  h3 {
-    line-height: 1.9em;
-  }
   h2 a, h3 a {
+    padding-bottom: 8px;
     display: block;
     color: #999;
     border-bottom: 1px solid transparent;

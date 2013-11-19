@@ -39,14 +39,6 @@ var ionicSite = (function(){
     });
   });
 
-  // left menu toggles
-  var menuTitleLinks = $('.menu-title').find('a');
-  menuTitleLinks.click(function() {
-    $('.left-menu').removeClass("active-menu")
-    $(this).closest("ul").addClass("active-menu");
-    return false;
-  });
-
   // left menu link highlight
   $('.left-menu')
     .find('a[href="' + window.location.pathname + '"]')

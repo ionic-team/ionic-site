@@ -56,6 +56,8 @@ var ionicSite = (function(){
   return {
 
     fixedMenu: null,
+    preFooterTop: $('.pre-footer').offset().top,
+    winHeight:  $(window).height(),
 
     initDockedMenu: function() {
       /* Fixed left menu */
@@ -89,19 +91,40 @@ var ionicSite = (function(){
         function docScroll() {
           var scrollTop = $(window).scrollTop();
           if(scrollTop + menuTopPadding > fixedMenuTop) {
-            if(!ionicSite.fixedMenu.hasClass("fixed-menu")) {
-              ionicSite.fixedMenu
-                .css({
-                  width: ionicSite.fixedMenu.width() + 'px'
-                })
-                .addClass("fixed-menu");
+            var bottomView = scrollTop + ionicSite.winHeight;
+            if(bottomView > ionicSite.preFooterTop && false) {
+              // bottom of the page
+              if(!ionicSite.fixedMenu.hasClass("relative-menu")) {
+                var menuTop = ionicSite.fixedMenu.offset().top;
+                ionicSite.fixedMenu
+                  .css({
+                    width: ionicSite.fixedMenu.width() + 'px',
+                    top: menuTop + 'px'
+                  })
+                  .removeClass("fixed-menu")
+                  .addClass("relative-menu");
               }
+            } else {
+              // middle of the page
+              if(!ionicSite.fixedMenu.hasClass("fixed-menu")) {
+                ionicSite.fixedMenu
+                  .css({
+                    width: ionicSite.fixedMenu.width() + 'px',
+                    top: '20px'
+                  })
+                  .removeClass("relative-menu")
+                  .addClass("fixed-menu");
+              } 
+            }
           } else {
-            if(ionicSite.fixedMenu.hasClass("fixed-menu")) {
+            // top of page
+            if(ionicSite.fixedMenu.hasClass("fixed-menu") || ionicSite.fixedMenu.hasClass("relative-menu")) {
               ionicSite.fixedMenu
+                .removeClass("relative-menu")
                 .removeClass("fixed-menu")
                 .css({
-                  width: 'auto'
+                  width: 'auto',
+                  top: '20px'
                 });
             }
             if(scrollTop < 200) {
@@ -109,7 +132,9 @@ var ionicSite = (function(){
             }
           }
         }
-        $(window).resize(function(){
+        $(window).resize(function() {
+          ionicSite.preFooterTop = $('.pre-footer').offset().top;
+          ionicSite.winHeight = $(window).height();
           ionicSite.fixedMenu
               .removeClass("fixed-menu")
               .css({

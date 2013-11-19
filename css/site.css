@@ -5070,6 +5070,9 @@ td.visible-print {
 .fixed-menu {
   position: fixed; }
 
+.relative-menu {
+  position: relative; }
+
 .device-preview-page .col-md-2 {
   display: none; }
 

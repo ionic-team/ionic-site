@@ -168,7 +168,6 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   </p>
   <p>
     The content element should have the <code>content</code> class applied.
-    No thrills here other than default appearances for the various type element.
   </p>
   <p>
     <strong>Note:</strong> The containing <code>content</code> element also has the
@@ -240,12 +239,10 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#buttons">Buttons</a></h3>
 
   <p>
-    Ah, the Button, an essential part of any mobile experience. Buttons are commonly used to send/retrieve data and form navigation between screens. Like the <a href="#header">Header</a>, they come in the full spectrum of Ionic's default color options.
+    Ah, the Button, an essential part of any mobile experience. Like the <a href="#header">Header</a>, they come in the full spectrum of Ionic's <a href="#colors">default colors</a>.
   </P>
   <p>
-    Buttons can be displayed inline, block, outlined, icon-only, or clear (text only), and come in 
-    many different styles. By default a button has <code>display: inline-block</code>  
-    applied. Other options include <code>block</code> buttons for a full width.
+    By default a button has <code>display: inline-block</code> applied. Other options include <code>block</code> buttons for a full width.
   </p>
 
 {% highlight html %}
@@ -773,11 +770,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     text all the way to buttons, toggles, icons, and thumbnails. 
   </p>
   <p>
-    The list view is a very versitile and powerful component used to display lists of 
-    data. List views support various interaction modes such as editing, swipe to edit,
-    drag to reorder, and pull to refresh. List views can be used in virtual mode to efficiently handle
-    large lists of data by only rendering the items the user can see. Check out the 
-    <a href="/docs/api/views/list/">advanced list docs</a> to get more detailed information.
+    The list view is a very versitile and powerful component. List views support various interaction modes such as editing, swipe to edit, drag to reorder, and pull to refresh. List views can be used in virtual mode to efficiently handle large lists of data by only rendering the items the user can see. Check out the <a href="/docs/api/views/list/">advanced list docs</a> to get more detailed information.
   </p>
 
 
@@ -851,7 +844,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     List items can also be dividers to organize and group the list items. Use the <code>item-divider</code>
     class to create a divider for any child element of the list. 
     By default list item dividers will have a different background color and font-weight,
-    but this is highly customizable. 
+    but this is easily customizable. 
   </p>
 
 {% highlight html %}
@@ -1276,10 +1269,10 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#cards">Cards</a></h3>
 
   <p>
-    Cards are a relatively new visual design paradigm on mobile, though they've become widely used in recent years. And for good reason- cards are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>..
+    Cards have become widely used in recent years. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>..
   </p>
   <p>
-    For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right. Dive in and make some cool cards!
+    For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right.
 
 {% highlight html %}
 <div class="card">
@@ -1315,7 +1308,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#card-headers-footers">Card Headers and Footers</a></h3>
 
   <p>
-    Cards can be customized similarly to how you would fill a normal screen. For example, a card can easily have Headers and Footers placed inside of them. Simply add the <code>item-divider</code> classname above or below the content within the <code>card</code> element.
+    Cards can be customized similarly to how you would fill a normal screen. For example, a card can easily have Headers and Footers placed inside of them. Add the <code>item-divider</code> classname above or below the content within the <code>card</code> element.
   </p>
 
 {% highlight html %}
@@ -1364,7 +1357,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#card-lists">Card Lists</a></h3>
 
   <p>
-    Use the <code>list card</code> classname to create a card with lists. Add in as many different list items as you like, and they will all display within the card.
+    Use the <code>list card</code> classname to create a card with lists.
   </p>
 
 {% highlight html %}
@@ -1437,7 +1430,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#card-images">Card Images</a></h3>
 
   <p>
-    Images look great in cards, and can be combined with lists and other elements. This style of card design is seen in many music and photo sharing apps.
+    Images look great in cards, and can be combined with lists and other elements.
   </p>
 
 {% highlight html %}
@@ -1640,7 +1633,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#forms-placeholder-labels">Text Input: Placeholder Labels</a></h3>
 
   <p>
-    In the example below, it'll default to 100% width (no borders on the left and right), and uses the 
+    In the example, it'll default to 100% width (no borders on the left and right), and uses the 
     <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
     text into the input the placeholder label will be hidden. Notice how <code>&lt;textarea&gt;</code> can also be used as a multi-line text input.
   </p>
@@ -1851,7 +1844,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     A toggle technically is the same thing as an HTML checkbox input, 
-    except it looks prettier and easier to use on a touch device. Ionic prefers
+    except it looks different and is easier to use on a touch device. Ionic prefers
     to wrap the checkbox input with the <code>&lt;label&gt;</code> in order
     to make the entire toggle easy to tap or drag.
   </p>
@@ -1866,7 +1859,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 {% endhighlight %}
 
   <p>
-    Below is an example of multiple toggles within a list. Note the <code>item-toggle</code>
+    This is an example of multiple toggles within a list. Note the <code>item-toggle</code>
     class was added along side <code>item</code> for each item.
   </p>
 
@@ -1966,7 +1959,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     A checkbox is no different than the HTML checkbox input, except it's
-    styled all nice like. Below is an example of multiple checkboxes within a list. 
+    styled differently. This is an example of multiple checkboxes within a list. 
     Note the <code>item-checkbox</code> class was added along side 
     <code>item</code> for each item.
   </p>
@@ -2147,7 +2140,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#range">Range</a></h3>
 
   <p>
-    Nothing special here except some good clean HTML5, CSS3, and elbow greese. Ranges can be themed to any default Ionic color, and used in various other elements such as a list item or card.
+    This is a Range. Ranges can be themed to any default Ionic color, and used in various other elements such as a list item or card.
   </p>
 
 {% highlight html %}

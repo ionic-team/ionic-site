@@ -2144,7 +2144,27 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   </p>
 
 {% highlight html %}
-<input type="range" name="awesomeness" min="0" max="10">
+<div class="range">
+  <i class="icon ion-volume-low"></i>
+  <input type="range" name="volume">
+  <i class="icon ion-volume-high"></i>
+</div>
+
+<div class="list" style="margin-top: 30px">
+  <div class="item item-divider">
+    Ranges In A List
+  </div>
+  <div class="item range">
+    <i class="icon ion-ios7-sunny-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="33">
+    <i class="icon ion-ios7-sunny"></i>
+  </div>
+  <div class="item range">
+    <i class="icon ion-ios7-lightbulb-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="75">
+    <i class="icon ion-ios7-lightbulb"></i>
+  </div>
+</div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -2152,14 +2172,29 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Range</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header padding">
+      <div class="content has-header padding-top">
 
-        <p>
-          Level of Awesomeness:
-        </p>
-        <p>
-          <input type="range" name="awesomeness" min="0" max="10" value="10">
-        </p>
+        <div class="range">
+          <i class="icon ion-volume-low"></i>
+          <input type="range" name="volume">
+          <i class="icon ion-volume-high"></i>
+        </div>
+
+        <div class="list" style="margin-top: 30px">
+          <div class="item item-divider">
+            Ranges In A List
+          </div>
+          <div class="item range">
+            <i class="icon ion-ios7-sunny-outline"></i>
+            <input type="range" name="volume" min="0" max="100" value="33">
+            <i class="icon ion-ios7-sunny"></i>
+          </div>
+          <div class="item range">
+            <i class="icon ion-ios7-lightbulb-outline"></i>
+            <input type="range" name="volume" min="0" max="100" value="75">
+            <i class="icon ion-ios7-lightbulb"></i>
+          </div>
+        </div>
 
       </div>
     </div>

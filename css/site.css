@@ -8018,6 +8018,9 @@ h1 + h2 + p {
     display: inline-block;
     text-align: center;
     font-size: 16px; }
+  .ionic .item-input.item.active, .ionic .ionic-pseudo .item-input.item:active {
+    background-color: transparent;
+    border-color: #dddddd; }
   .ionic .input-label {
     -webkit-box-flex: 1;
     -webkit-flex: 1 0 100px;

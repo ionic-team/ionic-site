@@ -1,5 +1,18 @@
 
 /**
+ * Copyright 2013 Drifty Co.
+ * http://drifty.com/
+
+ * Ionic - a powerful HTML5 mobile app framework.
+ * http://ionicframework.com/
+ *
+ *
+ * By @maxlynch, @helloimben, @adamdbradley <3
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ * 
+ */
+/**
  * Resets
  * --------------------------------------------------
  * Adapted from normalize.css and some reset.css. We don't care even one
@@ -465,7 +478,7 @@ body, .ionic-body {
   bottom: 44px; }
 
 .has-tabs {
-  bottom: 84px; }
+  bottom: 44px; }
 
 .pane {
   position: fixed;
@@ -1185,9 +1198,8 @@ a.subdued‎ {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: inline-block;
+  display: block;
   overflow: hidden;
-  box-sizing: border-box;
   max-width: 150px;
   height: 100%;
   color: inherit;
@@ -2495,6 +2507,7 @@ input[type="checkbox"][readonly] {
  * --------------------------------------------------
  */
 input[type="range"] {
+  background-color: #cccccc;
   display: inline-block;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -2502,9 +2515,7 @@ input[type="range"] {
   height: 4px;
   outline: none;
   border-radius: 4px;
-  background-color: #cccccc;
-  -webkit-appearance: none !important;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, blue), color-stop(0, #cccccc)); }
+  -webkit-appearance: none !important; }
   input[type="range"]::-webkit-slider-thumb {
     position: relative;
     width: 20px;
@@ -2534,6 +2545,24 @@ input[type="range"] {
   -moz-align-items: center;
   align-items: center;
   padding: 2px 4px; }
+  .range.range-light input {
+    background-color: #dddddd; }
+  .range.range-stable input {
+    background-color: #b2b2b2; }
+  .range.range-positive input {
+    background-color: #4a87ee; }
+  .range.range-calm input {
+    background-color: #43cee6; }
+  .range.range-balanced input {
+    background-color: #66cc33; }
+  .range.range-assertive input {
+    background-color: #ef4e3a; }
+  .range.range-energized input {
+    background-color: #f0b840; }
+  .range.range-royal input {
+    background-color: #8a6de9; }
+  .range.range-dark input {
+    background-color: #444444; }
 
 .range .icon {
   -webkit-box-flex: 0;
@@ -2949,6 +2978,79 @@ a.button {
  * and pretty easy on performance. They can be overidden
  * and enhanced easily.
  */
+.noop-animation > .ng-enter, .noop-animation.ng-enter, .noop-animation > .ng-leave, .noop-animation.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter, .slide-left-right > .ng-leave, .slide-left-right.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right > .ng-enter.ng-enter-active, .slide-left-right.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right > .ng-leave.ng-leave-active, .slide-left-right.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter, .slide-left-right.reverse > .ng-leave, .slide-left-right.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter.ng-enter-active, .slide-left-right.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right.reverse > .ng-leave.ng-leave-active, .slide-left-right.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter, .slide-left-right-ios7 > .ng-leave, .slide-left-right-ios7.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right-ios7 > .ng-enter.ng-enter-active, .slide-left-right-ios7.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7 > .ng-leave.ng-leave-active, .slide-left-right-ios7.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter, .slide-left-right-ios7.reverse > .ng-leave, .slide-left-right-ios7.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter.ng-enter-active, .slide-left-right-ios7.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-leave.ng-leave-active, .slide-left-right-ios7.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
 @-webkit-keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(100%, 0, 0); }
@@ -3173,6 +3275,41 @@ a.button {
     transform: rotate(360deg); } }
 
 /**
+ * Some component specific animations
+ */
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter, .nav-title-slide-ios7 > .ng-leave, .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
+.nav-title-slide-ios7 > .ng-enter.ng-enter-active, .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.nav-title-slide-ios7 > .ng-leave.ng-leave-active, .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter, .reverse .nav-title-slide-ios7 > .ng-leave, .reverse .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
+
+/**
  * Grid
  * --------------------------------------------------
  * Using flexbox for the grid, inspired by Philip Walton:
@@ -3200,12 +3337,9 @@ a.button {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 5px; }
+  display: block;
+  padding: 5px;
+  width: 100%; }
 
 /* Vertically Align Columns */
 /* .row-* vertically aligns every .col in the .row */
@@ -3528,7 +3662,7 @@ a.button {
   .platform-ios7 .bar-header > * {
     margin-top: 20px; }
 .platform-ios7 .has-header {
-  margin-top: 64px; }
+  top: 64px; }
 
 /*
   Ionicons, v1.3.5

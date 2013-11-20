@@ -5807,6 +5807,19 @@ h1 + h2 + p {
 
 .ionic {
   /**
+   * Copyright 2013 Drifty Co.
+   * http://drifty.com/
+  
+   * Ionic - a powerful HTML5 mobile app framework.
+   * http://ionicframework.com/
+   *
+   *
+   * By @maxlynch, @helloimben, @adamdbradley <3
+   *
+   * Licensed under the MIT license. Please see LICENSE for more information.
+   * 
+   */
+  /**
    * Resets
    * --------------------------------------------------
    * Adapted from normalize.css and some reset.css. We don't care even one
@@ -6234,6 +6247,9 @@ h1 + h2 + p {
       transform: rotate(360deg); } }
 
   /**
+   * Some component specific animations
+   */
+  /**
    * Grid
    * --------------------------------------------------
    * Using flexbox for the grid, inspired by Philip Walton:
@@ -6595,7 +6611,7 @@ h1 + h2 + p {
   .ionic .has-footer {
     bottom: 44px; }
   .ionic .has-tabs {
-    bottom: 84px; }
+    bottom: 44px; }
   .ionic .pane {
     position: fixed;
     top: 0;
@@ -7202,9 +7218,8 @@ h1 + h2 + p {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: inline-block;
+    display: block;
     overflow: hidden;
-    box-sizing: border-box;
     max-width: 150px;
     height: 100%;
     color: inherit;
@@ -8279,6 +8294,7 @@ h1 + h2 + p {
     /* show the checkmark icon when its checked */
     visibility: visible; }
   .ionic input[type="range"] {
+    background-color: #cccccc;
     display: inline-block;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -8286,9 +8302,7 @@ h1 + h2 + p {
     height: 4px;
     outline: none;
     border-radius: 4px;
-    background-color: #cccccc;
-    -webkit-appearance: none !important;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, blue), color-stop(0, #cccccc)); }
+    -webkit-appearance: none !important; }
   .ionic input[type="range"]::-webkit-slider-thumb {
     position: relative;
     width: 20px;
@@ -8317,6 +8331,24 @@ h1 + h2 + p {
     -moz-align-items: center;
     align-items: center;
     padding: 2px 4px; }
+  .ionic .range.range-light input {
+    background-color: #dddddd; }
+  .ionic .range.range-stable input {
+    background-color: #b2b2b2; }
+  .ionic .range.range-positive input {
+    background-color: #4a87ee; }
+  .ionic .range.range-calm input {
+    background-color: #43cee6; }
+  .ionic .range.range-balanced input {
+    background-color: #66cc33; }
+  .ionic .range.range-assertive input {
+    background-color: #ef4e3a; }
+  .ionic .range.range-energized input {
+    background-color: #f0b840; }
+  .ionic .range.range-royal input {
+    background-color: #8a6de9; }
+  .ionic .range.range-dark input {
+    background-color: #444444; }
   .ionic .range .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 24px;
@@ -8701,6 +8733,76 @@ h1 + h2 + p {
   .ionic .button-bar > .button:last-child {
     border-right-width: 1px;
     border-radius: 0px 2px 2px 0px; }
+  .ionic .noop-animation > .ng-enter, .ionic .noop-animation.ng-enter, .ionic .noop-animation > .ng-leave, .ionic .noop-animation.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right > .ng-enter, .ionic .slide-left-right.ng-enter, .ionic .slide-left-right > .ng-leave, .ionic .slide-left-right.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right > .ng-enter, .ionic .slide-left-right.ng-enter {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right > .ng-enter.ng-enter-active, .ionic .slide-left-right.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right > .ng-leave.ng-leave-active, .ionic .slide-left-right.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(-100%, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-enter, .ionic .slide-left-right.reverse.ng-enter, .ionic .slide-left-right.reverse > .ng-leave, .ionic .slide-left-right.reverse.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right.reverse > .ng-enter, .ionic .slide-left-right.reverse.ng-enter {
+    -webkit-transform: translate3d(-100%, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-enter.ng-enter-active, .ionic .slide-left-right.reverse.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-leave.ng-leave-active, .ionic .slide-left-right.reverse.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-enter, .ionic .slide-left-right-ios7.ng-enter, .ionic .slide-left-right-ios7 > .ng-leave, .ionic .slide-left-right-ios7.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 250ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all 250ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
+  .ionic .slide-left-right-ios7 > .ng-enter, .ionic .slide-left-right-ios7.ng-enter {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-enter.ng-enter-active, .ionic .slide-left-right-ios7.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-leave.ng-leave-active, .ionic .slide-left-right-ios7.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(-20%, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter, .ionic .slide-left-right-ios7.reverse.ng-enter, .ionic .slide-left-right-ios7.reverse > .ng-leave, .ionic .slide-left-right-ios7.reverse.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 250ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter, .ionic .slide-left-right-ios7.reverse.ng-enter {
+    -webkit-transform: translate3d(-20%, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter.ng-enter-active, .ionic .slide-left-right-ios7.reverse.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-leave.ng-leave-active, .ionic .slide-left-right-ios7.reverse.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(100%, 0, 0); }
   .ionic .slide-in-left {
     -webkit-transform: translate3d(0%, 0, 0); }
   .ionic .slide-in-left.ng-enter, .ionic .slide-in-left > .ng-enter {
@@ -8818,6 +8920,36 @@ h1 + h2 + p {
     animation: fadeIn 0.3s; }
   .ionic .fade-in-not-out.ng-leave, .ionic .fade-in-not-out .ng-leave {
     display: none; }
+  .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter, .ionic .nav-title-slide-ios7 > .ng-leave, .ionic .nav-title-slide-ios7.ng-leave {
+    -webkit-transition: all 350ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all 350ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    opacity: 1; }
+  .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0); }
+  .ionic .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .ionic .nav-title-slide-ios7.ng-enter.ng-enter-active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .ionic .nav-title-slide-ios7.ng-leave.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter, .ionic .reverse .nav-title-slide-ios7 > .ng-leave, .ionic .reverse .nav-title-slide-ios7.ng-leave {
+    -webkit-transition: all 350ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all 350ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    opacity: 1; }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .ionic .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .ionic .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0); }
   .ionic .row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8835,12 +8967,9 @@ h1 + h2 + p {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 5px; }
+    display: block;
+    padding: 5px;
+    width: 100%; }
   .ionic .row-top {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -9064,7 +9193,7 @@ h1 + h2 + p {
   .ionic .platform-ios7 .bar-header > * {
     margin-top: 20px; }
   .ionic .platform-ios7 .has-header {
-    margin-top: 64px; }
+    top: 64px; }
   .ionic .ion, .ionic .ion-loading-a,
   .ionic .ion-loading-b,
   .ionic .ion-loading-c,

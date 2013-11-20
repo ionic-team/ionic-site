@@ -13,11 +13,11 @@
   position: relative;
 }
 
-.device-preview-page .col-md-2 {
+.device-preview-page .aside-menu {
   display: none;
 }
 @media (min-width: 992px) {
-  .device-preview-page .col-md-2 {
+  .device-preview-page .aside-menu {
     display: block;
   }
 }
@@ -30,11 +30,11 @@
 }
 
 @media (max-width: 991px) {
-  .fixed-menu {
-    //display: none;
-  }
   .device-preview-page .docs-section {
     opacity: 1 !important;
+  }
+  .device-preview-page .main-content {
+    width: 100%;
   }
 }
 

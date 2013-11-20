@@ -5073,18 +5073,21 @@ td.visible-print {
 .relative-menu {
   position: relative; }
 
-.device-preview-page .col-md-2 {
+.device-preview-page .aside-menu {
   display: none; }
 
 @media (min-width: 992px) {
-  .device-preview-page .col-md-2 {
+  .device-preview-page .aside-menu {
     display: block; } }
 .ionic-example .bar {
   position: relative !important; }
 
 @media (max-width: 991px) {
   .device-preview-page .docs-section {
-    opacity: 1 !important; } }
+    opacity: 1 !important; }
+
+  .device-preview-page .main-content {
+    width: 100%; } }
 .left-menu {
   padding-left: 0;
   list-style: none;

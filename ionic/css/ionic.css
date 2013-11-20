@@ -1,5 +1,18 @@
 @charset "UTF-8";
 /**
+ * Copyright 2013 Drifty Co.
+ * http://drifty.com/
+
+ * Ionic - a powerful HTML5 mobile app framework.
+ * http://ionicframework.com/
+ *
+ *
+ * By @maxlynch, @helloimben, @adamdbradley <3
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ * 
+ */
+/**
  * Resets
  * --------------------------------------------------
  * Adapted from normalize.css and some reset.css. We don't care even one
@@ -183,7 +196,7 @@ sub {
 fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
-  border: 1px solid #c0c0c0; }
+  border: 1px solid silver; }
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9.
@@ -1524,7 +1537,7 @@ button.item.item-complex {
 .item-body h5,
 .item-body h6,
 .item-body p {
-  overflow: auto;
+  overflow: hidden;
   white-space: normal; }
 
 .item-complex.item-text-wrap,
@@ -2164,6 +2177,9 @@ textarea {
     display: inline-block;
     text-align: center;
     font-size: 16px; }
+  .item-input.item.active, .ionic-pseudo .item-input.item:active {
+    background-color: transparent;
+    border-color: #dddddd; }
 
 .input-label {
   -webkit-box-flex: 1;
@@ -2198,8 +2214,7 @@ textarea {
   overflow: hidden;
   padding: 4px 8px 3px;
   border: none;
-  background-color: white;
-  box-shadow: inset 0 0 1px #dddddd; }
+  background-color: white; }
 
 .item-stacked-label input {
   height: 46px; }
@@ -2329,7 +2344,7 @@ input[type="checkbox"][readonly] {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color .1s ease-in-out; }
+    transition: background-color 0.1s ease-in-out; }
 
 /* the checkmark within the box */
 .checkbox input:after {
@@ -2344,7 +2359,7 @@ input[type="checkbox"][readonly] {
   border-right: 0;
   content: ' ';
   opacity: 0;
-  transition: opacity .05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg); }
 
@@ -2501,7 +2516,8 @@ input[type="range"] {
   outline: none;
   border-radius: 4px;
   background-color: #cccccc;
-  -webkit-appearance: none !important; }
+  -webkit-appearance: none !important;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, blue), color-stop(0, #cccccc)); }
   input[type="range"]::-webkit-slider-thumb {
     position: relative;
     width: 20px;
@@ -2514,11 +2530,46 @@ input[type="range"] {
   input[type="range"]::-webkit-slider-thumb:after {
     /* create a larger (but hidden) hit area */
     position: absolute;
-    top: -10px;
-    left: -10px;
-    display: table;
-    padding: 20px;
+    top: -15px;
+    left: -15px;
+    padding: 25px;
     content: ' '; }
+
+.range {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  padding: 2px 4px; }
+
+.range .icon {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 24px;
+  -moz-box-flex: 0;
+  -moz-flex: 0 1 24px;
+  -ms-flex: 0 1 24px;
+  flex: 0 1 24px;
+  font-size: 24px;
+  min-width: 24px;
+  text-align: center; }
+
+.range input {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 272px;
+  -moz-box-flex: 0;
+  -moz-flex: 0 1 272px;
+  -ms-flex: 0 1 272px;
+  flex: 0 1 272px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  max-width: 320px; }
 
 /**
  * Buttons
@@ -2794,10 +2845,10 @@ input[type="range"] {
   background: none;
   border: none;
   background: none; }
-  .button-icon:active, .button-icon.active {
+  .button-icon.button:active, .button-icon.button.active {
     background: none;
     box-shadow: none;
-    text-shadow: 0px 0px 10px #fff; }
+    text-shadow: 0px 0px 10px white; }
   .button-icon .icon {
     font-size: 32px; }
 
@@ -2911,6 +2962,79 @@ a.button {
  * and pretty easy on performance. They can be overidden
  * and enhanced easily.
  */
+.noop-animation > .ng-enter, .noop-animation.ng-enter, .noop-animation > .ng-leave, .noop-animation.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter, .slide-left-right > .ng-leave, .slide-left-right.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right > .ng-enter.ng-enter-active, .slide-left-right.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right > .ng-leave.ng-leave-active, .slide-left-right.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter, .slide-left-right.reverse > .ng-leave, .slide-left-right.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter.ng-enter-active, .slide-left-right.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right.reverse > .ng-leave.ng-leave-active, .slide-left-right.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter, .slide-left-right-ios7 > .ng-leave, .slide-left-right-ios7.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right-ios7 > .ng-enter.ng-enter-active, .slide-left-right-ios7.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7 > .ng-leave.ng-leave-active, .slide-left-right-ios7.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter, .slide-left-right-ios7.reverse > .ng-leave, .slide-left-right-ios7.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter.ng-enter-active, .slide-left-right-ios7.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-leave.ng-leave-active, .slide-left-right-ios7.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
 @-webkit-keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(100%, 0, 0); }
@@ -3133,6 +3257,41 @@ a.button {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
+/**
+ * Some component specific animations
+ */
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter, .nav-title-slide-ios7 > .ng-leave, .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
+.nav-title-slide-ios7 > .ng-enter.ng-enter-active, .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.nav-title-slide-ios7 > .ng-leave.ng-leave-active, .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter, .reverse .nav-title-slide-ios7 > .ng-leave, .reverse .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
 
 /**
  * Grid
@@ -3490,9 +3649,9 @@ a.button {
   .platform-ios7 .bar-header > * {
     margin-top: 20px; }
 .platform-ios7 .has-header {
-  margin-top: 64px; }
+  top: 64px; }
 
-/*!
+/*
   Ionicons, v1.3.5
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
   https://twitter.com/helloimben  https://twitter.com/ionicframework

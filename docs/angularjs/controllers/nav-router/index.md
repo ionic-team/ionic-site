@@ -63,3 +63,40 @@ angular.module('starter', ['ionic', 'ngRoute'])
 
 });
 ```
+
+Then, in each page of our app, we should wrap it in the `<nav-page>` directive. Here is an example
+of a tab bar being used inside of a nav page, inside of the `templates/app.html` file:
+
+```javascript
+{% raw %}
+<nav-page id="app-page" ng-controller="AppCtrl">
+  <tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive" animate-nav="false">
+
+    <!-- Pets tab -->
+    <tab title="Pets" icon="icon ion-home" ng-controller="PetsTabCtrl">
+      <content has-header="true" has-tabs="true">
+        <list>
+          <link-item ng-repeat="pet in pets" type="item-text-wrap" href="#/pet/{{pet.id}}">
+              <h3>{{pet.title}}</h3>
+              <p>{{pet.description}}</p>
+            </item>
+          </link-item>
+        </list>
+      </content>
+    </tab>
+
+    <!-- Adoption tab -->
+    <tab title="Adopt" icon="icon ion-heart">
+      <content has-header="true" has-tabs="true">
+      </content>
+    </tab>
+
+    <!-- Home tab -->
+    <tab title="About" icon="icon ion-search">
+      <content has-header="true" has-tabs="true" padding="true">
+      </content>
+    </tab>
+  </tabs>
+</nav-page>
+{% endraw %}
+```

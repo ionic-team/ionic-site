@@ -5152,22 +5152,16 @@ td.visible-print {
   .docs-section pre {
     margin-bottom: 0;
     font-size: 12px !important; }
+  .docs-section h1 a, .docs-section h2 a, .docs-section h3 a {
+    color: #111;
+    text-decoration: none; }
   .docs-section h2, .docs-section h3 {
     padding-bottom: 0; }
   .docs-section h2 a, .docs-section h3 a {
     padding-bottom: 8px;
     display: block;
-    color: #999;
     border-bottom: 1px solid transparent;
     transition: color .15s ease-in-out; }
-  .docs-section h1 a:hover,
-  .docs-section h2 a:hover,
-  .docs-section h3 a:hover {
-    color: #111;
-    text-decoration: none; }
-  .docs-section.active h2 a, .docs-section.active h3 a {
-    border-bottom: 1px solid #4f8ef7;
-    color: #4f8ef7; }
   .docs-section td, .docs-section th {
     font-size: 14px !important; }
 
@@ -5178,6 +5172,16 @@ td.visible-print {
   transition: opacity .15s ease-in-out; }
   .device-preview-page .docs-section h2 {
     padding-bottom: 16px; }
+  .device-preview-page .docs-section h1 a, .device-preview-page .docs-section h2 a, .device-preview-page .docs-section h3 a {
+    color: #999; }
+  .device-preview-page .docs-section h1 a:hover,
+  .device-preview-page .docs-section h2 a:hover,
+  .device-preview-page .docs-section h3 a:hover {
+    color: #111;
+    text-decoration: none; }
+  .device-preview-page .docs-section.active h2 a, .device-preview-page .docs-section.active h3 a {
+    border-bottom: 1px solid #4f8ef7;
+    color: #4f8ef7; }
 
 .device-preview-page .docs-section.active {
   opacity: 1; }

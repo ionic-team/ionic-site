@@ -136,28 +136,24 @@
     font-size: 12px !important;
   }
 
+  h1, h2, h3 {
+    a {
+      color: #111;
+      text-decoration: none;
+      &:hover {
+
+      }
+    }
+  }
+
   h2, h3 {
     padding-bottom: 0;
   }
   h2 a, h3 a {
     padding-bottom: 8px;
     display: block;
-    color: #999;
     border-bottom: 1px solid transparent;
     transition: color .15s ease-in-out;
-  }
-  h1 a:hover,
-  h2 a:hover,
-  h3 a:hover {
-    color: #111;
-    text-decoration: none;
-  }
-
-  &.active {
-    h2 a, h3 a {
-      border-bottom: 1px solid $brand-primary;
-      color: $brand-primary;
-    }
   }
 
   td, th {
@@ -173,6 +169,26 @@
 
   h2 {
     padding-bottom: 16px;
+  }
+
+  h1, h2, h3 {
+    a {
+      color: #999;
+    }
+  }
+
+  h1 a:hover,
+  h2 a:hover,
+  h3 a:hover {
+    color: #111;
+    text-decoration: none;
+  }
+
+  &.active {
+    h2 a, h3 a {
+      border-bottom: 1px solid $brand-primary;
+      color: $brand-primary;
+    }
   }
 }
 

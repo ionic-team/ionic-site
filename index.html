@@ -1,58 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ionic is an incredibly advanced HTML5 mobile app development framework. Ionic makes it incredibly easy to build performant, beautiful hybrid native apps using web technologies like HTML5, Javascript, CSS, and AngularJS.">
-    <meta name="author" content="Drifty">
-    <title>Ionic: The Most Advanced HTML5 Mobile App Framework</title>
-    <link href="/css/site.css" rel="stylesheet">
-    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </head>
+---
+layout: full
+title: "Ionic: The Most Advanced HTML5 Mobile App Framework"
+body_css: "home"
+---
 
-  <body class="home" style="background-position: center -76px;">
-
-    <div class="headline">
-      From our blog: <a href="/blog/ionicons/">Ionicons: Hacker News Front Page Recap</a> 
-    </div>
-
-    <div class="container content-container">
-      <div class="primary-row">
+<div class="primary-row">
 
   <h1>
     <img src="/img/ionic_logo.svg" width="144" height="160" alt="Ionic: The Most Advanced HTML5 Mobile App Framework">
   </h1>
   <h2>
-    Coming Fall 2013, the bond between HTML5 and Native.
+    The bond between HTML5 and Native has arrived.
   </h2>
   <h3>
-    Ionic is a 100% free and open source beautiful front-end framework for developing native mobile apps in HTML5.
+    Ionic is a beautiful front-end framework for developing native mobile apps in HTML5.
   </h3>
-  
-  <p style="margin-top: 50px">
-    <!--We are putting the finishing touches on Ionic, and shooting to release sometime in mid to late October 2013. --><strong>Sign up below to be among the first to know when it's released!</strong>
+  <p class="download-link">
+    <a class="btn btn-primary" href="https://github.com/driftyco/ionic/archive/v0.9.05-alpha.zip">Download ionic</a>
   </p>
-  <div style="max-width: 410px; margin: 10px auto 0;">
-    <form class="form-inline" action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
-      <div class="form-group" style="max-width: 280px; width: 100%; display: inline-block;">
-        <input name="cm-jytylh-jytylh" type="email" class="form-control" id="emailInput" placeholder="Email" style="box-shadow: none; border: 2px solid #e1e1e1; border-radius: 4px;">
-      </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: -2px;">Go!</button>
-    </form>
-  </div>
-
+  <p class="version-text">
+    Version 0.9.05 Alpha - November 19th, 2013
+  </p>
 </div>
 
 <div class="social-row-gray">&nbsp;</div>
 
 <ul class="social-row">
   <li class="twitter-share">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ionicframework" data-hashtags="webdev,mobile,angularjs" data-related="maxlynch,adamdbradley,helloimben,drifty">Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ionicframework" data-hashtags="html5,mobile,angularjs,webdev" data-related="maxlynch,adamdbradley,helloimben,drifty">Tweet</a>
   </li>
   <li class="twitter-follow">
     <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="true">Follow @ionicframework</a>
   </li>
+  <!--
+  <li class="github-watch">
+    <iframe src="http://ghbtns.com/github-btn.html?user=drifty&amp;repo=ionic&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="180" height="25"></iframe>
+  </li>
+  <li class="github-follow">
+    <iframe src="http://ghbtns.com/github-btn.html?user=drifty&amp;repo=ionic&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="180" height="25"></iframe>
+  </li>-->
 </ul>
 
 <div class="bg-cover">
@@ -63,9 +49,9 @@
       Create native mobile apps with the web technologies you love.
     </h3>
     <p>
-      Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components.
-      Built with <a href="http://sass-lang.com/">Sass</a>
-      and best friends with <a href="http://angularjs.org/">AngularJS</a>.
+      Free and open source, Ionic offers a library of HTML, CSS and JS components
+      optimized and ready for implementation. Built with <a href="http://sass-lang.com/">Sass</a>
+      and optimzed for <a href="http://angularjs.org/">AngularJS</a>.
     </p>
 
   </div>
@@ -122,7 +108,7 @@
       <p>
         Built and maintained by developers and designers passionate about web technologies. Ionic focuses
         on standards compliant code, is forward thinking, and managed through 
-        Github. We want to make
+        <a href="https://github.com/driftyco/ionic">Github</a>. We want to make
         mobile development with HTML5 awesome and simple.
       </p>
 
@@ -131,30 +117,44 @@
   <div class="desc-row examples-row">
 
     <h3>
-      Coming soon.
+      Ionic examples
     </h3>
+    <p>
+      Check out our examples, including starter templates and our Ionic-built native app, Toderp.
+    </p>
+
+    <div>
+      <img src="/img/examples.jpg" style="max-width: 100%" alt="Ionic examples">
+    </div>
 
   </div>
 
 </div>
 
+<div class="pre-footer">
+
+  <div class="row ionic">
+
+    <div class="col-sm-6 col-a">
+      <h4>
+        <a href="/docs">Getting started <span class="icon ion-arrow-right-c"></span></a>
+      </h4>
+      <p>
+        Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+        the basics and help you get started from the ground up.
+      </p>
     </div>
-  
-    <footer class="footer">
-      <p>
-        Created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
-        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
-        <a href="https://twitter.com/helloimben">@helloimben</a>. Licensed under 
-        <a href="http://opensource.org/licenses/MIT">MIT</a>.
-      </p>
-      <p>
-        <a href="/blog/">Blog</a>
-        &#183; <a href="http://ionicons.com/">Ionicons</a>
-      </p>
-    </footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <div class="col-sm-6 col-b">
+      <h4>
+        <a href="/docs/components/">Documents <span class="icon ion-arrow-right-c"></span></a>
+      </h4>
+      <p>
+        What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+        to get an app up and running in minutes.
+      </p>
+    </div>
 
-  </body>
-</html>
+  </div>
+
+</div>

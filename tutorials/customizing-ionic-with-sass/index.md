@@ -6,10 +6,6 @@ title: Customizing Ionic With Sass
 {{ page.title }}
 ====
 
-<div class="hidden-xs" style="float:right; width: 400px; height: 235px; margin: -8px 0 40px 40px;">
-  <blockquote class="twitter-tweet" lang="en"><p>Mom: What’s Sass?&#10;Me: Uhm, I guess it’s like a sewing machine if hand sewing is CSS.</p>&mdash; Chris Coyier (@chriscoyier) <a href="https://twitter.com/chriscoyier/statuses/401532508229345280">November 16, 2013</a></blockquote>
-</div>
-
 The core of Ionic's CSS is built using [Sass](http://sass-lang.com/), which essentially makes it easier to manage large scale CSS projects.
 
 Sass is a pretty powerful tool and we made sure to leverage its [variables](http://sass-lang.com/guide#variables) and [mixins](http://sass-lang.com/guide#mixins) capabilities. What this means to you is that you can easily achieve your desired theme by modifying existing Ionic Sass variables we've made readily customizable.
@@ -26,7 +22,7 @@ Out of the box Ionic already comes with a complete CSS stylesheet already built 
 
 ## Ionic Sass Files
 
-Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you haven't done so already. The following is a summary of the directory structure you'll find Ionic's download. At the root level you'll find the `dist/`, `js/`, `scss/` and `vendor/` directories.
+Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you haven't done so already. The following is a summary of the directory structure you'll find in Ionic's download. At the root level you'll find the `dist/`, `js/`, `scss/` and `vendor/` directories.
 
 - dist
  - css
@@ -75,3 +71,17 @@ Inside the `scss/` directory the Ionic Framework already comes with a `_variable
 Please feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). Once a change is made the CSS file will be rebuilt using the new values you've specificed.
 
 Colors are only one example, you'll see throughout the `_variables.scss` file you can change many different properties such as padding, font sizes, margins, border colors, etc. There's absolutely no need to change them all, but they're there to be tweaked, so go nuts if you're so inclinded.
+
+
+## Customization
+
+Changing the variables is the easiest way to start customizing you Ionic app. However, there's nothing stopping you from going into each of the Sass files and completely customizing them (and if you've got a few cool tricks up your sleeve others would find useful we'd love to have you [contribute](/contribute/) them).
+
+Now start tickering around and build some awesome apps!
+
+## Resources
+
+- [Learn Sass](http://sass-lang.com/guide)
+- [Sass Documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+- [Sass Style Guide](http://css-tricks.com/sass-style-guide/)
+

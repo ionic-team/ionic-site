@@ -57,7 +57,6 @@
         <header class="bar bar-header bar-positive">
           <button class="button button-clear button-primary" ng-click="newTask()">New</button>
           <h1 class="title">Tasks</h1>
-          <button class="button button-clear button-primary" ng-click="isEditingItems = !isEditingItems">Edit</button>
         </header>
         <content has-header="true" has-footer="true" scroll="false">
           <list on-refresh="onRefresh()" is-editing="isEditingItems" animation="fade-out" delete-icon="icon ion-minus-circled" reorder-icon="icon ion-navicon">

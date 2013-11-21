@@ -59,12 +59,12 @@
     position: relative;
     margin-top: -100px;
     margin-bottom: 0;
-    padding: 45px 5px;
+    padding: 40px 5px;
     height: 100px;
     text-align: center;
 
     li {
-      height: 25px;
+      height: 30px;
       display: inline-block;
       vertical-align: top;
     }
@@ -76,6 +76,9 @@
       width: 240px;
     }
     .github-watch {
+      width: 105px;
+    }
+    .github-fork {
       width: 105px;
     }
   }

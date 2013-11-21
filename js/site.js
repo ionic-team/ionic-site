@@ -1,5 +1,4 @@
 /*   
-!! DO NOT USE ANY OF THIS CODE, ITS ONLY FOR OUR DOCS PAGE !!
  _             _      
 (_)           (_)     
  _  ___  _ __  _  ___ 

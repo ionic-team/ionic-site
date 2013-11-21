@@ -20,7 +20,7 @@ news: First time using Ionic? We recommend reading our <a href="./guide/">Guide<
   Ionic is focused mainly on the look and feel, and UI interaction of your app. That means we aren't a replacement for <a href="http://phonegap.com/">PhoneGap</a> or your favorite Javascript framework. Instead, Ionic tries to fit in well with these projects in order to simplify one big part of your app: the front end. We recommend reading <a href="/blog/where-does-the-ionic-framework-fit-in/">Where does the Ionic Framework fit in?</a> to get a good understand of the framework's goals.
   </p>
   <p>
-  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy. As of Ionic 0.9.0, Angular is the only supported way to build Ionic apps (we are working to change this though).
+  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly easy. As of Ionic 0.9.0, Angular is the only recommended way to build Ionic apps (we are working to change this though).
   </p>
   <p>
     We will also be releasing Cordova/PhoneGap plugins in the future to expand the capabilities of your apps.
@@ -51,6 +51,27 @@ news: First time using Ionic? We recommend reading our <a href="./guide/">Guide<
   </p>
 </div>
 
+<!-- Seed
+  ================================================== -->
+<div class="docs-section" id="starter">
+
+  <h2><a href="#starter">Command Line Utility and Seed Project</a></h2>
+
+  <p>
+    We have a node.js utility that can be used to quickly start an Ionic project. We are working to build out the functionality of this tool, but right now you can
+    quickly create a project with our <a href="https://github.com/driftyco/ionic-angular-cordova-seed">seed project</a> by doing:
+  </p>
+  <p>
+{% highlight bash %}
+$ sudo npm install -g ionic
+$ ionic start myproject
+{% endhighlight %}
+  </p>
+
+  <p>
+    You can also clone the <a href="https://github.com/driftyco/ionic-angular-cordova-seed">seed project</a> itself, which gives you everything you need to build Ionic apps with Cordova and AngularJS.
+  </p>
+</div>
 
 
 <!-- What's Included
@@ -74,41 +95,6 @@ news: First time using Ionic? We recommend reading our <a href="./guide/">Guide<
   </ul>
 
 </div>
-
-
-
-<!-- Basic Template
-  ================================================== -->
-<div class="docs-section" id="basic-template">
-
-  <h2><a href="#basic-template">Basic Template</a></h2>
-
-  <p>
-    In the example below we have set the header, content and footer in logical order, but note that
-    their order within the document does not matter.
-  </p>
-
-  {% highlight html %}
-<!DOCTYPE html>
-<html ng-app="myApp">
-<head>
-  <meta charset="utf-8">
-  <title>My App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="css/ionic.css">
-  <script src="js/ionic.js"></script>
-  <script src="js/ionic-angular.js"></script>
-</head>
-<body>
-  <header-bar title="'Hello'"></header-bar>
-  <content has-header="true">
-  </content>
-</body>
-</html>
-{% endhighlight %}
-
-</div>
-
 
 
 <!-- CSS/SASS

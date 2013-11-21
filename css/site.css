@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*
+/*!
  * Bootstrap v3.0.0
  *
  * Copyright 2013 Twitter, Inc
@@ -8,7 +8,7 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
 details,
@@ -112,7 +112,7 @@ figure {
   margin: 0; }
 
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -178,7 +178,7 @@ table {
 @media print {
   * {
     text-shadow: none !important;
-    color: black !important;
+    color: #000 !important;
     background: transparent !important;
     box-shadow: none !important; }
 
@@ -199,7 +199,7 @@ table {
 
   pre,
   blockquote {
-    border: 1px solid #999999;
+    border: 1px solid #999;
     page-break-inside: avoid; }
 
   thead {
@@ -213,7 +213,7 @@ table {
     max-width: 100% !important; }
 
   @page {
-    margin: 2cm 0.5cm; }
+    margin: 2cm .5cm; }
 
   p,
   h2,
@@ -230,21 +230,21 @@ table {
 
   .table td,
   .table th {
-    background-color: white !important; }
+    background-color: #fff !important; }
 
   .btn > .caret,
   .dropup > .btn > .caret {
-    border-top-color: black !important; }
+    border-top-color: #000 !important; }
 
   .label {
-    border: 1px solid black; }
+    border: 1px solid #000; }
 
   .table {
     border-collapse: collapse !important; }
 
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #dddddd !important; } }
+    border: 1px solid #ddd !important; } }
 *,
 *:before,
 *:after {
@@ -1670,7 +1670,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-default {
   color: #333333;
   background-color: white;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
     color: #333333;
     background-color: #ebebeb; }
@@ -1689,7 +1689,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-primary {
   color: white;
   background-color: #4f8ef7;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
     color: white;
     background-color: #2875f5; }
@@ -1708,7 +1708,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-warning {
   color: white;
   background-color: #f0ad4e;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
     color: white;
     background-color: #ed9c28; }
@@ -1727,7 +1727,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-danger {
   color: white;
   background-color: #d9534f;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
     color: white;
     background-color: #d2322d; }
@@ -1746,7 +1746,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-success {
   color: white;
   background-color: #5cb85c;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
     color: white;
     background-color: #47a447; }
@@ -1765,7 +1765,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .btn-info {
   color: white;
   background-color: #5bc0de;
-  transition: background-color 0.1s ease-in-out; }
+  transition: background-color .1s ease-in-out; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
     color: white;
     background-color: #39b3d7; }
@@ -3431,7 +3431,7 @@ input[type="button"].btn-block {
 
 .label {
   display: inline;
-  padding: 0.2em 0.6em 0.3em;
+  padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
@@ -4970,18 +4970,18 @@ td.visible-print {
 .home .social-row-gray {
   margin-top: 90px;
   height: 100px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
   background: #fff;
   opacity: 0.93; }
 .home .social-row {
   position: relative;
   margin-top: -100px;
   margin-bottom: 0;
-  padding: 45px 5px;
+  padding: 40px 5px;
   height: 100px;
   text-align: center; }
   .home .social-row li {
-    height: 25px;
+    height: 30px;
     display: inline-block;
     vertical-align: top; }
   .home .social-row .twitter-share {
@@ -4990,6 +4990,8 @@ td.visible-print {
   .home .social-row .twitter-follow {
     width: 240px; }
   .home .social-row .github-watch {
+    width: 105px; }
+  .home .social-row .github-fork {
     width: 105px; }
 .home .bg-cover {
   padding: 0 10px;
@@ -5073,18 +5075,21 @@ td.visible-print {
 .relative-menu {
   position: relative; }
 
-.device-preview-page .col-md-2 {
+.device-preview-page .aside-menu {
   display: none; }
 
 @media (min-width: 992px) {
-  .device-preview-page .col-md-2 {
+  .device-preview-page .aside-menu {
     display: block; } }
 .ionic-example .bar {
   position: relative !important; }
 
 @media (max-width: 991px) {
   .device-preview-page .docs-section {
-    opacity: 1 !important; } }
+    opacity: 1 !important; }
+
+  .device-preview-page .main-content {
+    width: 100%; } }
 .left-menu {
   padding-left: 0;
   list-style: none;
@@ -5154,7 +5159,7 @@ td.visible-print {
     display: block;
     color: #999;
     border-bottom: 1px solid transparent;
-    transition: color 0.15s ease-in-out; }
+    transition: color .15s ease-in-out; }
   .docs-section h1 a:hover,
   .docs-section h2 a:hover,
   .docs-section h3 a:hover {
@@ -5170,7 +5175,7 @@ td.visible-print {
   padding-bottom: 60px;
   min-height: 320px;
   opacity: .75;
-  transition: opacity 0.15s ease-in-out; }
+  transition: opacity .15s ease-in-out; }
   .device-preview-page .docs-section h2 {
     padding-bottom: 16px; }
 
@@ -5223,7 +5228,7 @@ td.visible-print {
     border: 4px solid #22272d;
     background-color: white;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out; }
+    transition: opacity .2s ease-in-out; }
     .device-preview-page .device-preview > div.active-preview {
       z-index: 100;
       opacity: 1; }
@@ -5264,7 +5269,7 @@ td.visible-print {
 
 .advanced-panel {
   padding: 10px;
-  border: 1px solid #a7c6fc;
+  border: 1px solid #A7C6FC;
   border-radius: 2px;
   background: #F6F9FE;
   color: #777; }
@@ -5297,7 +5302,7 @@ td.visible-print {
 .ionic .col-demo {
   padding: 5px;
   width: 100%;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 2px;
   background: #f7f7f7;
   text-align: center; }
@@ -5657,13 +5662,13 @@ body {
 
 a {
   opacity: 0.7;
-  transition: 0.1s ease-in-out;
+  transition: .1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {
     opacity: 1; }
 
 h1 {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin: 40px 0px 20px 0px; }
 
@@ -5806,6 +5811,19 @@ h1 + h2 + p {
     transform: rotate(360deg); } }
 
 .ionic {
+  /**
+   * Copyright 2013 Drifty Co.
+   * http://drifty.com/
+  
+   * Ionic - a powerful HTML5 mobile app framework.
+   * http://ionicframework.com/
+   *
+   *
+   * By @maxlynch, @helloimben, @adamdbradley <3
+   *
+   * Licensed under the MIT license. Please see LICENSE for more information.
+   * 
+   */
   /**
    * Resets
    * --------------------------------------------------
@@ -6234,6 +6252,9 @@ h1 + h2 + p {
       transform: rotate(360deg); } }
 
   /**
+   * Some component specific animations
+   */
+  /**
    * Grid
    * --------------------------------------------------
    * Using flexbox for the grid, inspired by Philip Walton:
@@ -6277,7 +6298,7 @@ h1 + h2 + p {
    * Platform
    * --------------------------------------------------
    */
-  /*
+  /*!
     Ionicons, v1.3.5
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/helloimben  https://twitter.com/ionicframework
@@ -6330,7 +6351,7 @@ h1 + h2 + p {
   .ionic a, .ionic abbr, .ionic acronym, .ionic address, .ionic big, .ionic cite, .ionic code,
   .ionic del, .ionic dfn, .ionic em, .ionic img, .ionic ins, .ionic kbd, .ionic q, .ionic s, .ionic samp,
   .ionic small, .ionic strike, .ionic strong, .ionic sub, .ionic sup, .ionic tt, .ionic var,
-  .ionic b, .ionic u, .ionic center,
+  .ionic b, .ionic i, .ionic u, .ionic center,
   .ionic dl, .ionic dt, .ionic dd, .ionic ol, .ionic ul, .ionic li,
   .ionic fieldset, .ionic form, .ionic label, .ionic legend,
   .ionic table, .ionic caption, .ionic tbody, .ionic tfoot, .ionic thead, .ionic tr, .ionic th, .ionic td,
@@ -6417,7 +6438,7 @@ h1 + h2 + p {
   .ionic fieldset {
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
-    border: 1px solid silver; }
+    border: 1px solid #c0c0c0; }
   .ionic legend {
     padding: 0;
     /* 2 */
@@ -6595,7 +6616,7 @@ h1 + h2 + p {
   .ionic .has-footer {
     bottom: 44px; }
   .ionic .has-tabs {
-    bottom: 84px; }
+    bottom: 44px; }
   .ionic .pane {
     position: fixed;
     top: 0;
@@ -6690,8 +6711,6 @@ h1 + h2 + p {
     line-height: 1.42857; }
   .ionic dt {
     font-weight: bold; }
-  .ionic dd {
-    margin-left: 0; }
   .ionic blockquote {
     margin: 0 0 20px;
     padding: 10px 20px;
@@ -6729,13 +6748,13 @@ h1 + h2 + p {
     margin-bottom: 20px;
     font-style: normal;
     line-height: 1.42857; }
-  .ionic a.subdued‎ {
+  .ionic a.subdued {
     padding-right: 10px;
-    color: #f8f8f8;
+    color: #888;
     text-decoration: none; }
-  .ionic a.subdued‎:hover {
+  .ionic a.subdued:hover {
     text-decoration: none; }
-  .ionic a.subdued‎:last-child {
+  .ionic a.subdued:last-child {
     padding-right: 0; }
   .ionic .action-sheet-backdrop {
     position: fixed;
@@ -6963,8 +6982,12 @@ h1 + h2 + p {
   .ionic .bar-light .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-light .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-stable .button {
     color: #444444;
     background-color: #f8f8f8;
@@ -6979,8 +7002,12 @@ h1 + h2 + p {
   .ionic .bar-stable .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-stable .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-positive .button {
     color: white;
     background-color: #4a87ee;
@@ -6995,8 +7022,12 @@ h1 + h2 + p {
   .ionic .bar-positive .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-positive .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-calm .button {
     color: white;
     background-color: #43cee6;
@@ -7011,8 +7042,12 @@ h1 + h2 + p {
   .ionic .bar-calm .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-calm .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-assertive .button {
     color: white;
     background-color: #ef4e3a;
@@ -7027,8 +7062,12 @@ h1 + h2 + p {
   .ionic .bar-assertive .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-assertive .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-balanced .button {
     color: white;
     background-color: #66cc33;
@@ -7043,8 +7082,12 @@ h1 + h2 + p {
   .ionic .bar-balanced .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-balanced .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-energized .button {
     color: white;
     background-color: #f0b840;
@@ -7059,8 +7102,12 @@ h1 + h2 + p {
   .ionic .bar-energized .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-energized .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-royal .button {
     color: white;
     background-color: #8a6de9;
@@ -7075,8 +7122,12 @@ h1 + h2 + p {
   .ionic .bar-royal .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-royal .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-dark .button {
     color: white;
     background-color: #444444;
@@ -7091,8 +7142,12 @@ h1 + h2 + p {
   .ionic .bar-dark .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .ionic .bar-dark .button.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .bar-header {
     top: 0;
     border-top-width: 0;
@@ -7202,9 +7257,8 @@ h1 + h2 + p {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: inline-block;
+    display: block;
     overflow: hidden;
-    box-sizing: border-box;
     max-width: 150px;
     height: 100%;
     color: inherit;
@@ -7341,9 +7395,6 @@ h1 + h2 + p {
     border-style: solid;
     font-size: 16px;
     -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
-  .ionic .item.active, .ionic .ionic-pseudo .item:active {
-    background-color: #d9d9d9;
-    border-color: #cccccc; }
   .ionic .item h2 {
     margin: 0 0 4px 0;
     font-size: 16px; }
@@ -7375,63 +7426,66 @@ h1 + h2 + p {
     color: #444444;
     background-color: white;
     border-color: #dddddd; }
-  .ionic .item.item-light.active, .ionic .ionic-pseudo .item.item-light:active {
-    background-color: #fafafa;
-    border-color: #cccccc; }
   .ionic .item.item-stable {
     color: #444444;
     background-color: #f8f8f8;
     border-color: #b2b2b2; }
-  .ionic .item.item-stable.active, .ionic .ionic-pseudo .item.item-stable:active {
-    background-color: #e5e5e5;
-    border-color: #a2a2a2; }
   .ionic .item.item-positive {
     color: white;
     background-color: #4a87ee;
-    border-color: #145dd7; }
-  .ionic .item.item-positive.active, .ionic .ionic-pseudo .item.item-positive:active {
-    background-color: #145dd7;
     border-color: #145dd7; }
   .ionic .item.item-calm {
     color: white;
     background-color: #43cee6;
     border-color: #1aaac3; }
-  .ionic .item.item-calm.active, .ionic .ionic-pseudo .item.item-calm:active {
-    background-color: #1aaac3;
-    border-color: #1aaac3; }
   .ionic .item.item-assertive {
     color: white;
     background-color: #ef4e3a;
-    border-color: #cc2511; }
-  .ionic .item.item-assertive.active, .ionic .ionic-pseudo .item.item-assertive:active {
-    background-color: #cc2511;
     border-color: #cc2511; }
   .ionic .item.item-balanced {
     color: white;
     background-color: #66cc33;
     border-color: #478f24; }
-  .ionic .item.item-balanced.active, .ionic .ionic-pseudo .item.item-balanced:active {
-    background-color: #478f24;
-    border-color: #478f24; }
   .ionic .item.item-energized {
     color: white;
     background-color: #f0b840;
-    border-color: #d39511; }
-  .ionic .item.item-energized.active, .ionic .ionic-pseudo .item.item-energized:active {
-    background-color: #d39511;
     border-color: #d39511; }
   .ionic .item.item-royal {
     color: white;
     background-color: #8a6de9;
     border-color: #552bdf; }
-  .ionic .item.item-royal.active, .ionic .ionic-pseudo .item.item-royal:active {
-    background-color: #552bdf;
-    border-color: #552bdf; }
   .ionic .item.item-dark {
     color: white;
     background-color: #444444;
     border-color: #111111; }
-  .ionic .item.item-dark.active, .ionic .ionic-pseudo .item.item-dark:active {
+  .ionic a.item.active, .ionic .ionic-pseudo a.item:active, .ionic button.item.active, .ionic .ionic-pseudo button.item:active {
+    background-color: #d9d9d9;
+    border-color: #cccccc; }
+  .ionic a.item.item-light.active, .ionic .ionic-pseudo a.item.item-light:active, .ionic button.item.item-light.active, .ionic .ionic-pseudo button.item.item-light:active {
+    background-color: #fafafa;
+    border-color: #cccccc; }
+  .ionic a.item.item-stable.active, .ionic .ionic-pseudo a.item.item-stable:active, .ionic button.item.item-stable.active, .ionic .ionic-pseudo button.item.item-stable:active {
+    background-color: #e5e5e5;
+    border-color: #a2a2a2; }
+  .ionic a.item.item-positive.active, .ionic .ionic-pseudo a.item.item-positive:active, .ionic button.item.item-positive.active, .ionic .ionic-pseudo button.item.item-positive:active {
+    background-color: #145dd7;
+    border-color: #145dd7; }
+  .ionic a.item.item-calm.active, .ionic .ionic-pseudo a.item.item-calm:active, .ionic button.item.item-calm.active, .ionic .ionic-pseudo button.item.item-calm:active {
+    background-color: #1aaac3;
+    border-color: #1aaac3; }
+  .ionic a.item.item-assertive.active, .ionic .ionic-pseudo a.item.item-assertive:active, .ionic button.item.item-assertive.active, .ionic .ionic-pseudo button.item.item-assertive:active {
+    background-color: #cc2511;
+    border-color: #cc2511; }
+  .ionic a.item.item-balanced.active, .ionic .ionic-pseudo a.item.item-balanced:active, .ionic button.item.item-balanced.active, .ionic .ionic-pseudo button.item.item-balanced:active {
+    background-color: #478f24;
+    border-color: #478f24; }
+  .ionic a.item.item-energized.active, .ionic .ionic-pseudo a.item.item-energized:active, .ionic button.item.item-energized.active, .ionic .ionic-pseudo button.item.item-energized:active {
+    background-color: #d39511;
+    border-color: #d39511; }
+  .ionic a.item.item-royal.active, .ionic .ionic-pseudo a.item.item-royal:active, .ionic button.item.item-royal.active, .ionic .ionic-pseudo button.item.item-royal:active {
+    background-color: #552bdf;
+    border-color: #552bdf; }
+  .ionic a.item.item-dark.active, .ionic .ionic-pseudo a.item.item-dark:active, .ionic button.item.item-dark.active, .ionic .ionic-pseudo button.item.item-dark:active {
     background-color: #262626;
     border-color: black; }
   .ionic .item,
@@ -8159,7 +8213,7 @@ h1 + h2 + p {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color 0.1s ease-in-out; }
+    transition: background-color .1s ease-in-out; }
   .ionic .checkbox input:after {
     position: absolute;
     top: 34%;
@@ -8172,7 +8226,7 @@ h1 + h2 + p {
     border-right: 0;
     content: ' ';
     opacity: 0;
-    transition: opacity 0.05s ease-in-out;
+    transition: opacity .05s ease-in-out;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg); }
   .ionic .checkbox input:checked:before {
@@ -8280,24 +8334,38 @@ h1 + h2 + p {
     visibility: visible; }
   .ionic input[type="range"] {
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 2px;
+    padding-left: 1px;
     width: auto;
     height: 4px;
+    height: 35px;
     outline: none;
-    border-radius: 4px;
-    background-color: #cccccc;
-    -webkit-appearance: none !important;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, blue), color-stop(0, #cccccc)); }
+    background: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+    background-position: center;
+    background-size: 96% 4px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none !important; }
   .ionic input[type="range"]::-webkit-slider-thumb {
     position: relative;
     width: 20px;
     height: 20px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 5px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     -webkit-appearance: none !important; }
+  .ionic input[type="range"]::-webkit-slider-thumb:before {
+    /* what creates the colorful line on the left side of the slider */
+    position: absolute;
+    top: 8px;
+    left: -320px;
+    width: 320px;
+    height: 4px;
+    background: #444444;
+    content: ' '; }
   .ionic input[type="range"]::-webkit-slider-thumb:after {
     /* create a larger (but hidden) hit area */
     position: absolute;
@@ -8317,6 +8385,24 @@ h1 + h2 + p {
     -moz-align-items: center;
     align-items: center;
     padding: 2px 4px; }
+  .ionic .range.range-light input::-webkit-slider-thumb:before {
+    background: #dddddd; }
+  .ionic .range.range-stable input::-webkit-slider-thumb:before {
+    background: #b2b2b2; }
+  .ionic .range.range-positive input::-webkit-slider-thumb:before {
+    background: #4a87ee; }
+  .ionic .range.range-calm input::-webkit-slider-thumb:before {
+    background: #43cee6; }
+  .ionic .range.range-balanced input::-webkit-slider-thumb:before {
+    background: #66cc33; }
+  .ionic .range.range-assertive input::-webkit-slider-thumb:before {
+    background: #ef4e3a; }
+  .ionic .range.range-energized input::-webkit-slider-thumb:before {
+    background: #f0b840; }
+  .ionic .range.range-royal input::-webkit-slider-thumb:before {
+    background: #8a6de9; }
+  .ionic .range.range-dark input::-webkit-slider-thumb:before {
+    background: #444444; }
   .ionic .range .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 24px;
@@ -8324,9 +8410,10 @@ h1 + h2 + p {
     -moz-flex: 0 1 24px;
     -ms-flex: 0 1 24px;
     flex: 0 1 24px;
-    font-size: 24px;
+    display: block;
     min-width: 24px;
-    text-align: center; }
+    text-align: center;
+    font-size: 24px; }
   .ionic .range input {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 272px;
@@ -8334,10 +8421,11 @@ h1 + h2 + p {
     -moz-flex: 0 1 272px;
     -ms-flex: 0 1 272px;
     flex: 0 1 272px;
-    margin-left: 10px;
+    display: block;
     margin-right: 10px;
-    width: 100%;
-    max-width: 320px; }
+    margin-left: 10px;
+    max-width: 320px;
+    width: 100%; }
   .ionic .button {
     position: relative;
     display: inline-block;
@@ -8387,7 +8475,11 @@ h1 + h2 + p {
   .ionic .button.button-light.button-clear {
     color: #dddddd;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-light.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-light.button-outline {
     background: transparent;
     border-color: #dddddd;
@@ -8410,7 +8502,11 @@ h1 + h2 + p {
   .ionic .button.button-stable.button-clear {
     color: #b2b2b2;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-stable.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-stable.button-outline {
     background: transparent;
     border-color: #b2b2b2;
@@ -8433,7 +8529,11 @@ h1 + h2 + p {
   .ionic .button.button-positive.button-clear {
     color: #4a87ee;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-positive.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-positive.button-outline {
     background: transparent;
     border-color: #4a87ee;
@@ -8456,7 +8556,11 @@ h1 + h2 + p {
   .ionic .button.button-calm.button-clear {
     color: #43cee6;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-calm.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-calm.button-outline {
     background: transparent;
     border-color: #43cee6;
@@ -8479,7 +8583,11 @@ h1 + h2 + p {
   .ionic .button.button-assertive.button-clear {
     color: #ef4e3a;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-assertive.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-assertive.button-outline {
     background: transparent;
     border-color: #ef4e3a;
@@ -8502,7 +8610,11 @@ h1 + h2 + p {
   .ionic .button.button-balanced.button-clear {
     color: #66cc33;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-balanced.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-balanced.button-outline {
     background: transparent;
     border-color: #66cc33;
@@ -8525,7 +8637,11 @@ h1 + h2 + p {
   .ionic .button.button-energized.button-clear {
     color: #f0b840;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-energized.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-energized.button-outline {
     background: transparent;
     border-color: #f0b840;
@@ -8548,7 +8664,11 @@ h1 + h2 + p {
   .ionic .button.button-royal.button-clear {
     color: #8a6de9;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-royal.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-royal.button-outline {
     background: transparent;
     border-color: #8a6de9;
@@ -8571,7 +8691,11 @@ h1 + h2 + p {
   .ionic .button.button-dark.button-clear {
     color: #444444;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button.button-dark.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button.button-dark.button-outline {
     background: transparent;
     border-color: #444444;
@@ -8603,12 +8727,12 @@ h1 + h2 + p {
     padding: 0 6px;
     min-width: initial;
     background: none;
-    border: none;
+    border-color: transparent;
     background: none; }
   .ionic .button-icon.button:active, .ionic .button-icon.button.active {
     background: none;
     box-shadow: none;
-    text-shadow: 0px 0px 10px white; }
+    text-shadow: 0px 0px 10px #fff; }
   .ionic .button-icon .icon {
     font-size: 32px; }
   .ionic .button-clear {
@@ -8616,13 +8740,17 @@ h1 + h2 + p {
     transition: opacity 0.1s;
     padding: 0 6px;
     max-height: 42px;
-    border: none;
+    border-color: transparent;
     background: none;
     box-shadow: none; }
   .ionic .button-clear.button-clear {
     color: #b2b2b2;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .ionic .button-clear.button-icon {
+    background: none;
+    border-color: transparent; }
   .ionic .button-clear:active, .ionic .button-clear.active {
     opacity: 0.3; }
   .ionic .button-outline {
@@ -8701,6 +8829,76 @@ h1 + h2 + p {
   .ionic .button-bar > .button:last-child {
     border-right-width: 1px;
     border-radius: 0px 2px 2px 0px; }
+  .ionic .noop-animation > .ng-enter, .ionic .noop-animation.ng-enter, .ionic .noop-animation > .ng-leave, .ionic .noop-animation.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right > .ng-enter, .ionic .slide-left-right.ng-enter, .ionic .slide-left-right > .ng-leave, .ionic .slide-left-right.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right > .ng-enter, .ionic .slide-left-right.ng-enter {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right > .ng-enter.ng-enter-active, .ionic .slide-left-right.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right > .ng-leave.ng-leave-active, .ionic .slide-left-right.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(-100%, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-enter, .ionic .slide-left-right.reverse.ng-enter, .ionic .slide-left-right.reverse > .ng-leave, .ionic .slide-left-right.reverse.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+  .ionic .slide-left-right.reverse > .ng-enter, .ionic .slide-left-right.reverse.ng-enter {
+    -webkit-transform: translate3d(-100%, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-enter.ng-enter-active, .ionic .slide-left-right.reverse.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right.reverse > .ng-leave.ng-leave-active, .ionic .slide-left-right.reverse.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-enter, .ionic .slide-left-right-ios7.ng-enter, .ionic .slide-left-right-ios7 > .ng-leave, .ionic .slide-left-right-ios7.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 250ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition: all 250ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
+  .ionic .slide-left-right-ios7 > .ng-enter, .ionic .slide-left-right-ios7.ng-enter {
+    -webkit-transform: translate3d(100%, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-enter.ng-enter-active, .ionic .slide-left-right-ios7.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right-ios7 > .ng-leave.ng-leave-active, .ionic .slide-left-right-ios7.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(-20%, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter, .ionic .slide-left-right-ios7.reverse.ng-enter, .ionic .slide-left-right-ios7.reverse > .ng-leave, .ionic .slide-left-right-ios7.reverse.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 250ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter, .ionic .slide-left-right-ios7.reverse.ng-enter {
+    -webkit-transform: translate3d(-20%, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-enter.ng-enter-active, .ionic .slide-left-right-ios7.reverse.ng-enter.ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .slide-left-right-ios7.reverse > .ng-leave.ng-leave-active, .ionic .slide-left-right-ios7.reverse.ng-leave.ng-leave-active {
+    -webkit-transform: translate3d(100%, 0, 0); }
   .ionic .slide-in-left {
     -webkit-transform: translate3d(0%, 0, 0); }
   .ionic .slide-in-left.ng-enter, .ionic .slide-in-left > .ng-enter {
@@ -8818,6 +9016,36 @@ h1 + h2 + p {
     animation: fadeIn 0.3s; }
   .ionic .fade-in-not-out.ng-leave, .ionic .fade-in-not-out .ng-leave {
     display: none; }
+  .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter, .ionic .nav-title-slide-ios7 > .ng-leave, .ionic .nav-title-slide-ios7.ng-leave {
+    -webkit-transition: all 350ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all 350ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    opacity: 1; }
+  .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0); }
+  .ionic .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .ionic .nav-title-slide-ios7.ng-enter.ng-enter-active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .ionic .nav-title-slide-ios7.ng-leave.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter, .ionic .reverse .nav-title-slide-ios7 > .ng-leave, .ionic .reverse .nav-title-slide-ios7.ng-leave {
+    -webkit-transition: all 350ms;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: all 350ms;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+    opacity: 1; }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .ionic .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0); }
+  .ionic .reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .ionic .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0); }
   .ionic .row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8835,12 +9063,9 @@ h1 + h2 + p {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 5px; }
+    display: block;
+    padding: 5px;
+    width: 100%; }
   .ionic .row-top {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -9064,7 +9289,7 @@ h1 + h2 + p {
   .ionic .platform-ios7 .bar-header > * {
     margin-top: 20px; }
   .ionic .platform-ios7 .has-header {
-    margin-top: 64px; }
+    top: 64px; }
   .ionic .ion, .ionic .ion-loading-a,
   .ionic .ion-loading-b,
   .ionic .ion-loading-c,
@@ -10452,6 +10677,6 @@ h1 + h2 + p {
     .pre-footer .col-a {
       padding-right: 40px;
       padding-bottom: 0;
-      border-right: 1px solid #dddddd; }
+      border-right: 1px solid #ddd; }
     .pre-footer .col-b {
       padding-left: 45px; } }

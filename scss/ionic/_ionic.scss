@@ -1,4 +1,16 @@
+/**
+ * Copyright 2013 Drifty Co.
+ * http://drifty.com/
 
+ * Ionic - a powerful HTML5 mobile app framework.
+ * http://ionicframework.com/
+ *
+ *
+ * By @maxlynch, @helloimben, @adamdbradley <3
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ * 
+ */
 /**
  * Resets
  * --------------------------------------------------
@@ -17,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, center,
+b, i, u, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -183,7 +195,7 @@ sub {
 fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
-  border: 1px solid silver; }
+  border: 1px solid #c0c0c0; }
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9.
@@ -465,7 +477,7 @@ body, .ionic-body {
   bottom: 44px; }
 
 .has-tabs {
-  bottom: 84px; }
+  bottom: 44px; }
 
 .pane {
   position: fixed;
@@ -587,9 +599,6 @@ dd {
 dt {
   font-weight: bold; }
 
-dd {
-  margin-left: 0; }
-
 blockquote {
   margin: 0 0 20px;
   padding: 10px 20px;
@@ -630,13 +639,13 @@ address {
   font-style: normal;
   line-height: 1.42857; }
 
-a.subdued‎ {
+a.subdued {
   padding-right: 10px;
-  color: #f8f8f8;
+  color: #888;
   text-decoration: none; }
-  a.subdued‎:hover {
+  a.subdued:hover {
     text-decoration: none; }
-  a.subdued‎:last-child {
+  a.subdued:last-child {
     padding-right: 0; }
 
 /**
@@ -925,8 +934,12 @@ a.subdued‎ {
   .bar-light .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-light .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-stable .button {
   color: #444444;
@@ -942,8 +955,12 @@ a.subdued‎ {
   .bar-stable .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-stable .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-positive .button {
   color: white;
@@ -959,8 +976,12 @@ a.subdued‎ {
   .bar-positive .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-positive .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-calm .button {
   color: white;
@@ -976,8 +997,12 @@ a.subdued‎ {
   .bar-calm .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-calm .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-assertive .button {
   color: white;
@@ -993,8 +1018,12 @@ a.subdued‎ {
   .bar-assertive .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-assertive .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-balanced .button {
   color: white;
@@ -1010,8 +1039,12 @@ a.subdued‎ {
   .bar-balanced .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-balanced .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-energized .button {
   color: white;
@@ -1027,8 +1060,12 @@ a.subdued‎ {
   .bar-energized .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-energized .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-royal .button {
   color: white;
@@ -1044,8 +1081,12 @@ a.subdued‎ {
   .bar-royal .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-royal .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-dark .button {
   color: white;
@@ -1061,8 +1102,12 @@ a.subdued‎ {
   .bar-dark .button.button-clear {
     color: white;
     background: none;
+    border-color: transparent;
     box-shadow: none;
     font-size: 18px; }
+  .bar-dark .button.button-icon {
+    background: none;
+    border-color: transparent; }
 
 .bar-header {
   top: 0;
@@ -1185,9 +1230,8 @@ a.subdued‎ {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: inline-block;
+  display: block;
   overflow: hidden;
-  box-sizing: border-box;
   max-width: 150px;
   height: 100%;
   color: inherit;
@@ -1361,9 +1405,6 @@ a.subdued‎ {
   border-style: solid;
   font-size: 16px;
   -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out; }
-  .item.active, .ionic-pseudo .item:active {
-    background-color: #d9d9d9;
-    border-color: #cccccc; }
   .item h2 {
     margin: 0 0 4px 0;
     font-size: 16px; }
@@ -1395,65 +1436,69 @@ a.subdued‎ {
     color: #444444;
     background-color: white;
     border-color: #dddddd; }
-    .item.item-light.active, .ionic-pseudo .item.item-light:active {
-      background-color: #fafafa;
-      border-color: #cccccc; }
   .item.item-stable {
     color: #444444;
     background-color: #f8f8f8;
     border-color: #b2b2b2; }
-    .item.item-stable.active, .ionic-pseudo .item.item-stable:active {
-      background-color: #e5e5e5;
-      border-color: #a2a2a2; }
   .item.item-positive {
     color: white;
     background-color: #4a87ee;
     border-color: #145dd7; }
-    .item.item-positive.active, .ionic-pseudo .item.item-positive:active {
-      background-color: #145dd7;
-      border-color: #145dd7; }
   .item.item-calm {
     color: white;
     background-color: #43cee6;
     border-color: #1aaac3; }
-    .item.item-calm.active, .ionic-pseudo .item.item-calm:active {
-      background-color: #1aaac3;
-      border-color: #1aaac3; }
   .item.item-assertive {
     color: white;
     background-color: #ef4e3a;
     border-color: #cc2511; }
-    .item.item-assertive.active, .ionic-pseudo .item.item-assertive:active {
-      background-color: #cc2511;
-      border-color: #cc2511; }
   .item.item-balanced {
     color: white;
     background-color: #66cc33;
     border-color: #478f24; }
-    .item.item-balanced.active, .ionic-pseudo .item.item-balanced:active {
-      background-color: #478f24;
-      border-color: #478f24; }
   .item.item-energized {
     color: white;
     background-color: #f0b840;
     border-color: #d39511; }
-    .item.item-energized.active, .ionic-pseudo .item.item-energized:active {
-      background-color: #d39511;
-      border-color: #d39511; }
   .item.item-royal {
     color: white;
     background-color: #8a6de9;
     border-color: #552bdf; }
-    .item.item-royal.active, .ionic-pseudo .item.item-royal:active {
-      background-color: #552bdf;
-      border-color: #552bdf; }
   .item.item-dark {
     color: white;
     background-color: #444444;
     border-color: #111111; }
-    .item.item-dark.active, .ionic-pseudo .item.item-dark:active {
-      background-color: #262626;
-      border-color: black; }
+
+a.item.active, .ionic-pseudo a.item:active, button.item.active, .ionic-pseudo button.item:active {
+  background-color: #d9d9d9;
+  border-color: #cccccc; }
+a.item.item-light.active, .ionic-pseudo a.item.item-light:active, button.item.item-light.active, .ionic-pseudo button.item.item-light:active {
+  background-color: #fafafa;
+  border-color: #cccccc; }
+a.item.item-stable.active, .ionic-pseudo a.item.item-stable:active, button.item.item-stable.active, .ionic-pseudo button.item.item-stable:active {
+  background-color: #e5e5e5;
+  border-color: #a2a2a2; }
+a.item.item-positive.active, .ionic-pseudo a.item.item-positive:active, button.item.item-positive.active, .ionic-pseudo button.item.item-positive:active {
+  background-color: #145dd7;
+  border-color: #145dd7; }
+a.item.item-calm.active, .ionic-pseudo a.item.item-calm:active, button.item.item-calm.active, .ionic-pseudo button.item.item-calm:active {
+  background-color: #1aaac3;
+  border-color: #1aaac3; }
+a.item.item-assertive.active, .ionic-pseudo a.item.item-assertive:active, button.item.item-assertive.active, .ionic-pseudo button.item.item-assertive:active {
+  background-color: #cc2511;
+  border-color: #cc2511; }
+a.item.item-balanced.active, .ionic-pseudo a.item.item-balanced:active, button.item.item-balanced.active, .ionic-pseudo button.item.item-balanced:active {
+  background-color: #478f24;
+  border-color: #478f24; }
+a.item.item-energized.active, .ionic-pseudo a.item.item-energized:active, button.item.item-energized.active, .ionic-pseudo button.item.item-energized:active {
+  background-color: #d39511;
+  border-color: #d39511; }
+a.item.item-royal.active, .ionic-pseudo a.item.item-royal:active, button.item.item-royal.active, .ionic-pseudo button.item.item-royal:active {
+  background-color: #552bdf;
+  border-color: #552bdf; }
+a.item.item-dark.active, .ionic-pseudo a.item.item-dark:active, button.item.item-dark.active, .ionic-pseudo button.item.item-dark:active {
+  background-color: #262626;
+  border-color: black; }
 
 .item,
 .item h1,
@@ -2331,7 +2376,7 @@ input[type="checkbox"][readonly] {
     border-radius: 50%;
     background: white;
     content: ' ';
-    transition: background-color 0.1s ease-in-out; }
+    transition: background-color .1s ease-in-out; }
 
 /* the checkmark within the box */
 .checkbox input:after {
@@ -2346,7 +2391,7 @@ input[type="checkbox"][readonly] {
   border-right: 0;
   content: ' ';
   opacity: 0;
-  transition: opacity 0.05s ease-in-out;
+  transition: opacity .05s ease-in-out;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg); }
 
@@ -2496,24 +2541,38 @@ input[type="checkbox"][readonly] {
  */
 input[type="range"] {
   display: inline-block;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 2px;
+  padding-left: 1px;
   width: auto;
   height: 4px;
+  height: 35px;
   outline: none;
-  border-radius: 4px;
-  background-color: #cccccc;
-  -webkit-appearance: none !important;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, blue), color-stop(0, #cccccc)); }
+  background: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+  background-position: center;
+  background-size: 96% 4px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none !important; }
   input[type="range"]::-webkit-slider-thumb {
     position: relative;
     width: 20px;
     height: 20px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 5px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     -webkit-appearance: none !important; }
+  input[type="range"]::-webkit-slider-thumb:before {
+    /* what creates the colorful line on the left side of the slider */
+    position: absolute;
+    top: 8px;
+    left: -320px;
+    width: 320px;
+    height: 4px;
+    background: #444444;
+    content: ' '; }
   input[type="range"]::-webkit-slider-thumb:after {
     /* create a larger (but hidden) hit area */
     position: absolute;
@@ -2534,6 +2593,24 @@ input[type="range"] {
   -moz-align-items: center;
   align-items: center;
   padding: 2px 4px; }
+  .range.range-light input::-webkit-slider-thumb:before {
+    background: #dddddd; }
+  .range.range-stable input::-webkit-slider-thumb:before {
+    background: #b2b2b2; }
+  .range.range-positive input::-webkit-slider-thumb:before {
+    background: #4a87ee; }
+  .range.range-calm input::-webkit-slider-thumb:before {
+    background: #43cee6; }
+  .range.range-balanced input::-webkit-slider-thumb:before {
+    background: #66cc33; }
+  .range.range-assertive input::-webkit-slider-thumb:before {
+    background: #ef4e3a; }
+  .range.range-energized input::-webkit-slider-thumb:before {
+    background: #f0b840; }
+  .range.range-royal input::-webkit-slider-thumb:before {
+    background: #8a6de9; }
+  .range.range-dark input::-webkit-slider-thumb:before {
+    background: #444444; }
 
 .range .icon {
   -webkit-box-flex: 0;
@@ -2542,9 +2619,10 @@ input[type="range"] {
   -moz-flex: 0 1 24px;
   -ms-flex: 0 1 24px;
   flex: 0 1 24px;
-  font-size: 24px;
+  display: block;
   min-width: 24px;
-  text-align: center; }
+  text-align: center;
+  font-size: 24px; }
 
 .range input {
   -webkit-box-flex: 0;
@@ -2553,10 +2631,11 @@ input[type="range"] {
   -moz-flex: 0 1 272px;
   -ms-flex: 0 1 272px;
   flex: 0 1 272px;
-  margin-left: 10px;
+  display: block;
   margin-right: 10px;
-  width: 100%;
-  max-width: 320px; }
+  margin-left: 10px;
+  max-width: 320px;
+  width: 100%; }
 
 /**
  * Buttons
@@ -2611,7 +2690,11 @@ input[type="range"] {
     .button.button-light.button-clear {
       color: #dddddd;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-light.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-light.button-outline {
       background: transparent;
       border-color: #dddddd;
@@ -2634,7 +2717,11 @@ input[type="range"] {
     .button.button-stable.button-clear {
       color: #b2b2b2;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-stable.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-stable.button-outline {
       background: transparent;
       border-color: #b2b2b2;
@@ -2657,7 +2744,11 @@ input[type="range"] {
     .button.button-positive.button-clear {
       color: #4a87ee;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-positive.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-positive.button-outline {
       background: transparent;
       border-color: #4a87ee;
@@ -2680,7 +2771,11 @@ input[type="range"] {
     .button.button-calm.button-clear {
       color: #43cee6;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-calm.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-calm.button-outline {
       background: transparent;
       border-color: #43cee6;
@@ -2703,7 +2798,11 @@ input[type="range"] {
     .button.button-assertive.button-clear {
       color: #ef4e3a;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-assertive.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-assertive.button-outline {
       background: transparent;
       border-color: #ef4e3a;
@@ -2726,7 +2825,11 @@ input[type="range"] {
     .button.button-balanced.button-clear {
       color: #66cc33;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-balanced.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-balanced.button-outline {
       background: transparent;
       border-color: #66cc33;
@@ -2749,7 +2852,11 @@ input[type="range"] {
     .button.button-energized.button-clear {
       color: #f0b840;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-energized.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-energized.button-outline {
       background: transparent;
       border-color: #f0b840;
@@ -2772,7 +2879,11 @@ input[type="range"] {
     .button.button-royal.button-clear {
       color: #8a6de9;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-royal.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-royal.button-outline {
       background: transparent;
       border-color: #8a6de9;
@@ -2795,7 +2906,11 @@ input[type="range"] {
     .button.button-dark.button-clear {
       color: #444444;
       background: none;
+      border-color: transparent;
       box-shadow: none; }
+    .button.button-dark.button-icon {
+      background: none;
+      border-color: transparent; }
     .button.button-dark.button-outline {
       background: transparent;
       border-color: #444444;
@@ -2830,12 +2945,12 @@ input[type="range"] {
   padding: 0 6px;
   min-width: initial;
   background: none;
-  border: none;
+  border-color: transparent;
   background: none; }
   .button-icon.button:active, .button-icon.button.active {
     background: none;
     box-shadow: none;
-    text-shadow: 0px 0px 10px white; }
+    text-shadow: 0px 0px 10px #fff; }
   .button-icon .icon {
     font-size: 32px; }
 
@@ -2844,13 +2959,17 @@ input[type="range"] {
   transition: opacity 0.1s;
   padding: 0 6px;
   max-height: 42px;
-  border: none;
+  border-color: transparent;
   background: none;
   box-shadow: none; }
   .button-clear.button-clear {
     color: #b2b2b2;
     background: none;
+    border-color: transparent;
     box-shadow: none; }
+  .button-clear.button-icon {
+    background: none;
+    border-color: transparent; }
   .button-clear:active, .button-clear.active {
     opacity: 0.3; }
 
@@ -2949,6 +3068,79 @@ a.button {
  * and pretty easy on performance. They can be overidden
  * and enhanced easily.
  */
+.noop-animation > .ng-enter, .noop-animation.ng-enter, .noop-animation > .ng-leave, .noop-animation.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter, .slide-left-right > .ng-leave, .slide-left-right.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right > .ng-enter, .slide-left-right.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right > .ng-enter.ng-enter-active, .slide-left-right.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right > .ng-leave.ng-leave-active, .slide-left-right.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter, .slide-left-right.reverse > .ng-leave, .slide-left-right.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms; }
+.slide-left-right.reverse > .ng-enter, .slide-left-right.reverse.ng-enter {
+  -webkit-transform: translate3d(-100%, 0, 0); }
+.slide-left-right.reverse > .ng-enter.ng-enter-active, .slide-left-right.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right.reverse > .ng-leave.ng-leave-active, .slide-left-right.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter, .slide-left-right-ios7 > .ng-leave, .slide-left-right-ios7.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition: all 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.2), 1px 0px 3px rgba(0, 0, 0, 0.2); }
+.slide-left-right-ios7 > .ng-enter, .slide-left-right-ios7.ng-enter {
+  -webkit-transform: translate3d(100%, 0, 0); }
+.slide-left-right-ios7 > .ng-enter.ng-enter-active, .slide-left-right-ios7.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7 > .ng-leave.ng-leave-active, .slide-left-right-ios7.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter, .slide-left-right-ios7.reverse > .ng-leave, .slide-left-right-ios7.reverse.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1); }
+.slide-left-right-ios7.reverse > .ng-enter, .slide-left-right-ios7.reverse.ng-enter {
+  -webkit-transform: translate3d(-20%, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-enter.ng-enter-active, .slide-left-right-ios7.reverse.ng-enter.ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0); }
+.slide-left-right-ios7.reverse > .ng-leave.ng-leave-active, .slide-left-right-ios7.reverse.ng-leave.ng-leave-active {
+  -webkit-transform: translate3d(100%, 0, 0); }
+
 @-webkit-keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(100%, 0, 0); }
@@ -3173,6 +3365,41 @@ a.button {
     transform: rotate(360deg); } }
 
 /**
+ * Some component specific animations
+ */
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter, .nav-title-slide-ios7 > .ng-leave, .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
+.nav-title-slide-ios7 > .ng-enter.ng-enter-active, .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.nav-title-slide-ios7 > .ng-leave.ng-leave-active, .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter, .reverse .nav-title-slide-ios7 > .ng-leave, .reverse .nav-title-slide-ios7.ng-leave {
+  -webkit-transition: all 350ms;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: all 350ms;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  opacity: 1; }
+.reverse .nav-title-slide-ios7 > .ng-enter, .reverse .nav-title-slide-ios7.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(-30%, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0); }
+.reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(30%, 0, 0); }
+
+/**
  * Grid
  * --------------------------------------------------
  * Using flexbox for the grid, inspired by Philip Walton:
@@ -3200,12 +3427,9 @@ a.button {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 5px; }
+  display: block;
+  padding: 5px;
+  width: 100%; }
 
 /* Vertically Align Columns */
 /* .row-* vertically aligns every .col in the .row */
@@ -3528,9 +3752,9 @@ a.button {
   .platform-ios7 .bar-header > * {
     margin-top: 20px; }
 .platform-ios7 .has-header {
-  margin-top: 64px; }
+  top: 64px; }
 
-/*
+/*!
   Ionicons, v1.3.5
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
   https://twitter.com/helloimben  https://twitter.com/ionicframework

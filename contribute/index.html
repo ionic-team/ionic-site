@@ -2,19 +2,20 @@
 layout: default
 title: "Ionic Framework - Contribute"
 header_title: "Contribute to an Open Source Project"
-header_sub_title: "Play nice with others!"
+header_sub_title: Help build awesomeness!
 ---
 
 <div class="row">
 
-  <div class="col-md-2">
+  <div class="col-md-2 aside-menu">
 
     <div class="docked-menu">
 
       <ul class="nav left-menu active-menu">
         <li class="active"><a href="#overview">Overview</a></li>
         <li><a href="#issues">Submit an issue</a></li>
-        <li><a href="#conventions">Conventions</a></li>
+        <li><a href="#improve-docs">Help improve the Docs</a></li>
+        <li><a href="#conventions">Coding Conventions</a></li>
       </ul>
 
     </div>
@@ -30,10 +31,11 @@ header_sub_title: "Play nice with others!"
 
       <h1>Contribute To Ionic</h1>
 
-      <p>Help build awesomeness! If you see an area for improvement, or have an idea for a new feature then we'd love to have your help! Additionally, please feel free to take part in any discussions which may be happening at our <a href="https://github.com/driftyco/ionic/issues">issues</a> page.</p>
+      <p>If you see an area for improvement, or have an idea for a new feature then we'd love to have your help! Additionally, please feel free to take part in any discussions which may be happening on our <a href="http://forum.ionicframework.com/">forum</a> or our <a href="#issues">issues</a> page. You can also stay up-to-date with Ionic by subscribing to <a href="/subscribe/">our newsletter</a>.</p>
 
       <ol>
-        <li><a href="https://github.com/driftyco/ionic/issues">Browse existing issues</a> for ideas and take part in any discussions to help define what you want to do.</li>
+        <li>Join the discussion on <a href="http://forum.ionicframework.com/">Ionic's Forum</a>. Either start or take part in topics to help define what you're thinking.</li>
+        <li><a href="https://github.com/driftyco/ionic/issues">Browse existing issues</a> for ideas or to see if a similar issue has already been submitted.</li>
         <li>Fork the <a href="https://github.com/driftyco/ionic">Github repo</a>.</li>
         <li>Create a new branch from master: <code>git checkout -b issuenumber-new-awesomeness</code></li>
         <li>Develop your feature.</li>
@@ -43,7 +45,7 @@ header_sub_title: "Play nice with others!"
       </ol>
       
       <p>
-        For issues relating to the Ionic documentation or this site, use the <a href="https://github.com/driftyco/ionic-site">ionic-site</a> repo instead.
+        For issues relating to the Ionic documentation or this site, use the <a href="#improve-docs">ionic-site</a> repo instead.
       </p>
     </div>
 
@@ -52,16 +54,31 @@ header_sub_title: "Play nice with others!"
     <!-- Submit An Issue On Github 
       ================================================== -->
     <div class="docs-section" id="issues">
-      <h2>Submit An Issue On Github</h2>
+      <h2>Submit An Issue For The Ionic Framework</h2>
       <p>
-        If you catch a typo, or see a way to improve any piece of code please let us know. 
-        There's no such thing as too small of an improvement.
+        If you see a way to improve any piece of code please let us know. 
+        There's no such thing as too small of an improvement. (If the issue is about our documentation please see the next section.)
       </p>
       <p>
-        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues">Browse Issues</a>
-        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues/new">Create an Issue</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues">Browse Framework Issues</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues/new">Create a Framework Issue</a>
       </p>
+    </div>
 
+
+
+    <!-- Submit An Issue On Github 
+      ================================================== -->
+    <div class="docs-section" id="improve-docs">
+      <h2>Help Improve The Docs</h2>
+      <p>
+        See a typo or have a better way to describe Ionic within our documentation? Please help
+        make our docs awesome.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic-site/issues">Browse Documentation Issues</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic-site/issues/new">Create a Documentation Issue</a>
+      </p>
     </div>
 
 
@@ -85,9 +102,8 @@ header_sub_title: "Play nice with others!"
       </p>
       <p>
     <pre>
-    $ sudo npm install -g karma
-    $ karma start ionic.conf.js
-    </pre>
+$ sudo npm install -g karma
+$ karma start ionic.conf.js</pre>
       </p>
       <p>
       Any tests you write should go in the <code>test/js</code> folder for core JS code, or in the <code>js/ext/FRAMEWORK/test</code> folder for framework-specific code. Copy the format from other tests to write your own.

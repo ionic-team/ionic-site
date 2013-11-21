@@ -1,3 +1,4 @@
+# Site Configs
 name: Ionic Framework
 description: The official Ionic Framework blog
 url: http://ionicframework.com/blog
@@ -6,4 +7,13 @@ pygments: true
 permalink: /blog/:title
 paginate: 5
 
+# Default news if the page didnt enter news
+news: First time using Ionic? We recommend reading our <a href="./guide/">Guide</a>, which covers all the basics of setting up an Ionic mobile app.
+
+# Latest Version Config
+latest_download: "https://github.com/driftyco/ionic/archive/v0.9.05-alpha.zip"
+latest_version: "0.9.05 Alpha"
+latest_release_date: "November 19th, 2013"
+
+# Docs Location Config
 docs_0_9_0: /docs

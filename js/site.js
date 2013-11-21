@@ -48,7 +48,7 @@ var ionicSite = (function(){
   return {
 
     fixedMenu: null,
-    preFooterTop: $('.pre-footer').offset().top,
+    //preFooterTop: $('.pre-footer').offset().top,
     winHeight:  $(window).height(),
 
     initDockedMenu: function() {
@@ -86,7 +86,7 @@ var ionicSite = (function(){
           var winWidth = win.width();
           if(scrollTop + menuTopPadding > fixedMenuTop && winWidth >= 768) {
             var bottomView = scrollTop + ionicSite.winHeight;
-            if(bottomView > ionicSite.preFooterTop && false) {
+            if(false && bottomView > ionicSite.preFooterTop) {
               // bottom of the page
               if(!ionicSite.fixedMenu.hasClass("relative-menu")) {
                 var menuTop = ionicSite.fixedMenu.offset().top;
@@ -127,7 +127,7 @@ var ionicSite = (function(){
           }
         }
         $(window).resize(function() {
-          ionicSite.preFooterTop = $('.pre-footer').offset().top;
+          //ionicSite.preFooterTop = $('.pre-footer').offset().top;
           ionicSite.winHeight = $(window).height();
           ionicSite.fixedMenu
               .removeClass("fixed-menu")
@@ -222,7 +222,7 @@ var ionicSite = (function(){
 
     previewSection: function(id, doNotSetHistory) {
       var activeSection = $(id);
-      if(!activeSection.length) return;
+      if(!activeSection.length || !ionicSite.devicePreview) return;
 
       var title = activeSection.find('h1,h2,h3').first();
       var newTitle = "Ionic Components";

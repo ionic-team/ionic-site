@@ -8742,6 +8742,8 @@ h1 + h2 + p {
     line-height: 51px;
     padding-bottom: 2px; }
   .ionic .button-icon {
+    -webkit-transition: opacity 0.1s;
+    transition: opacity 0.1s;
     padding: 0 6px;
     min-width: initial;
     background: none;
@@ -8749,8 +8751,9 @@ h1 + h2 + p {
     background: none; }
   .ionic .button-icon.button:active, .ionic .button-icon.button.active {
     background: none;
-    box-shadow: none;
-    text-shadow: 0px 0px 10px #fff; }
+    border-color: transparent;
+    opacity: 0.3;
+    box-shadow: none; }
   .ionic .button-icon .icon {
     font-size: 32px; }
   .ionic .button-clear {
@@ -8816,6 +8819,12 @@ h1 + h2 + p {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     width: 100%; }
   .ionic .button-bar > .button {
     -webkit-box-flex: 1;
@@ -8827,6 +8836,7 @@ h1 + h2 + p {
     display: block;
     overflow: hidden;
     padding: 0 16px;
+    width: 0;
     border-width: 1px 0px 1px 1px;
     border-radius: 0;
     text-align: center;

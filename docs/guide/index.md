@@ -15,4 +15,4 @@ Welcome to the official Ionic Guide, where we will walk through the process of g
 ## [Chapter 3: Starting our App](starting.html)
 ## [Chapter 4: Building it out](building.html)
 ## [Chapter 5: Publishing](publishing.html)
-## [Chapter 5: Closing Thoughts](closing.html)
+<!--## [Chapter 5: Closing Thoughts](closing.html)-->

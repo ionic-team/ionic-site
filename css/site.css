@@ -4945,10 +4945,10 @@ td.visible-print {
   padding: 0 10px;
   text-align: center; }
   .home .primary-row h1 {
-    margin-top: 70px;
+    margin-top: 20px;
     border-bottom: none; }
   .home .primary-row h2 {
-    margin-top: 55px;
+    margin-top: 40px;
     font-size: 20px; }
   .home .primary-row h3 {
     margin-top: 10px;
@@ -4978,7 +4978,7 @@ td.visible-print {
   margin-top: -100px;
   margin-bottom: 0;
   padding: 40px 5px;
-  height: 100px;
+  height: 99px;
   text-align: center; }
   .home .social-row li {
     height: 30px;
@@ -5006,7 +5006,7 @@ td.visible-print {
     font-size: 28px; }
   .home .desc-row p {
     padding-bottom: 40px;
-    max-width: 700px;
+    max-width: 760px;
     font-size: 18px; }
 .home .feature-row {
   max-width: 900px;
@@ -5780,19 +5780,24 @@ h1 + h2 + p {
 
 .docs-page .docs-nav,
 .examples-page .examples-nav,
+.components-page .components-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid #4f8ef7;
   opacity: 1; }
 
+.docs-page.components-page .docs-nav {
+  opacity: .7;
+  border-color: transparent; }
+
 .footer {
   position: relative;
   z-index: 100;
-  padding: 60px 10px;
+  padding: 40px 10px 30px;
   background: #fff;
   text-align: center; }
   .footer p {
-    line-height: 28px; }
+    line-height: 20px; }
   .footer .base-links a {
     display: inline-block;
     padding: 3px 6px; }
@@ -10671,7 +10676,8 @@ h1 + h2 + p {
     margin: 0 auto;
     max-width: 900px; }
   .pre-footer p {
-    line-height: 28px; }
+    line-height: 28px;
+    color: #999; }
   .pre-footer a:hover {
     text-decoration: none; }
   .pre-footer span {
@@ -10680,8 +10686,8 @@ h1 + h2 + p {
     padding-bottom: 15px; }
   @media (min-width: 768px) {
     .pre-footer .col-a {
-      padding-right: 40px;
+      padding-right: 60px;
       padding-bottom: 0;
       border-right: 1px solid #ddd; }
     .pre-footer .col-b {
-      padding-left: 45px; } }
+      padding-left: 70px; } }

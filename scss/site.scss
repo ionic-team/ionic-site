@@ -171,20 +171,25 @@ h1 + h2 + p {
 
 .docs-page .docs-nav,
 .examples-page .examples-nav,
+.components-page .components-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid $brand-primary;
   opacity: 1;
 }
+.docs-page.components-page .docs-nav {
+  opacity: .7;
+  border-color: transparent;
+}
 
 .footer {
   position: relative;
   z-index: 100;
-  padding: 60px 10px;
+  padding: 40px 10px 30px;
   background: #fff;
   text-align: center;
   p {
-    line-height: 28px;
+    line-height: 20px;
   }
   .base-links a {
     display: inline-block;
@@ -221,6 +226,7 @@ h1 + h2 + p {
   }
   p {
     line-height: 28px;
+    color: #999;
   }
   a:hover {
     text-decoration: none;
@@ -233,12 +239,12 @@ h1 + h2 + p {
   }
   @media (min-width: 768px) {
     .col-a {
-      padding-right: 40px;
+      padding-right: 60px;
       padding-bottom: 0;
       border-right: 1px solid #ddd;
     }
     .col-b {
-      padding-left: 45px;
+      padding-left: 70px;
     }
   }
 }

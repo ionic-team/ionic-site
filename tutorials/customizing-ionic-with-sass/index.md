@@ -2,6 +2,7 @@
 layout: tutorial
 title: Customize Your Ionic App With Sass
 header_sub_title: Use the powerful of Sass to for more flexibility
+news: Checkout the <a href="/docs/components/">Components</a> section to see what Ionic already has
 ---
 
 Customizing Ionic With Sass
@@ -18,7 +19,7 @@ Out of the box Ionic already comes with a complete CSS stylesheet already built 
 
 - Haven't installed Sass yet? Then [Install Sass](http://Sass-lang.com/install)
 - If you already have Sass installed then make sure you have the latest version: `gem update sass`
-- In a terminal or command prompt, enter `sass -v` to verify Sass is setup correct, and to see which version you're running (should be the most recent if all goes swimmingly).
+- In a terminal or command prompt, enter `sass -v` to verify Sass has been setup correctly, and to see which version you're running (should be the most recent if all goes swimmingly).
 
 
 ## Ionic Source Files
@@ -86,7 +87,7 @@ Inside the your app's `scss/ionic/` directory, the Ionic Framework has already b
 
 Please feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). Once a change is made the CSS file will be rebuilt using the new values you've specificed.
 
-Colors are only one example, you'll see throughout the `_variables.scss` file you can change many different properties such as padding, font sizes, margins, border colors, widths, heights, etc. There's absolutely no need to change them all, but they're there to be tweaked if you choose so.
+Colors are only one example and you'll see throughout the `_variables.scss` file you can change many different properties such as padding, font sizes, margins, border colors, widths, heights, etc. There's absolutely no need to change them all, but they're there to be tweaked if you choose so.
 
 
 ## Full Customization

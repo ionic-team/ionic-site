@@ -178,33 +178,65 @@
       
     </div>
 
-    <div class="pre-footer">
+    {% if page.active == "getting-started" %}
 
-      <div class="row ionic">
+      <div class="pre-footer">
 
-        <div class="col-sm-6 col-a">
-          <h4>
-            <a href="/docs/">Getting started <span class="icon ion-arrow-right-c"></span></a>
-          </h4>
-          <p>
-            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
-            the basics and help you get started from the ground up.
-          </p>
-        </div>
+        <div class="row ionic">
 
-        <div class="col-sm-6 col-b">
-          <h4>
-            <a href="/docs/components/">Documentation <span class="icon ion-arrow-right-c"></span></a>
-          </h4>
-          <p>
-            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
-            to get an app up and running in minutes.
-          </p>
+          <div class="col-sm-6 col-a">
+            <h4>
+              <a href="/docs/components/">Components <span class="icon ion-arrow-right-c"></span></a>
+            </h4>
+            <p>
+              Take a tour of Ionic’s mobile components. You’ll find everything from Lists, to buttons, to the ubiquitous tab bar. See how it looks and get customizing!
+            </p>
+          </div>
+
+          <div class="col-sm-6 col-b">
+            <h4>
+              <a href="/examples/">Examples <span class="icon ion-arrow-right-c"></span></a>
+            </h4>
+            <p>
+              Check out some of our pre-built examples of Ionic, including starter templates and showcase demos. Everything you’d need to get off the ground.
+            </p>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+    {% else %}
+
+      <div class="pre-footer">
+
+        <div class="row ionic">
+
+          <div class="col-sm-6 col-a">
+            <h4>
+              <a href="/docs/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+            </h4>
+            <p>
+              Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+              the basics and help you get started from the ground up.
+            </p>
+          </div>
+
+          <div class="col-sm-6 col-b">
+            <h4>
+              <a href="/docs/components/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+            </h4>
+            <p>
+              What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+              to get an app up and running in minutes.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    {% endif %}
 	
     {% include footer.html %}
 

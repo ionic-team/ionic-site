@@ -185,11 +185,11 @@ h1 + h2 + p {
 .footer {
   position: relative;
   z-index: 100;
-  padding: 60px 10px;
+  padding: 40px 10px 30px;
   background: #fff;
   text-align: center;
   p {
-    line-height: 28px;
+    line-height: 20px;
   }
   .base-links a {
     display: inline-block;
@@ -226,6 +226,7 @@ h1 + h2 + p {
   }
   p {
     line-height: 28px;
+    color: #999;
   }
   a:hover {
     text-decoration: none;
@@ -238,12 +239,12 @@ h1 + h2 + p {
   }
   @media (min-width: 768px) {
     .col-a {
-      padding-right: 40px;
+      padding-right: 60px;
       padding-bottom: 0;
       border-right: 1px solid #ddd;
     }
     .col-b {
-      padding-left: 45px;
+      padding-left: 70px;
     }
   }
 }

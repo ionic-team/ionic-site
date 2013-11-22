@@ -5007,7 +5007,8 @@ td.visible-print {
   .home .desc-row p {
     padding-bottom: 40px;
     max-width: 760px;
-    font-size: 18px; }
+    font-size: 18px;
+    color: #888; }
 .home .feature-row {
   max-width: 900px;
   margin: 50px auto;
@@ -5015,7 +5016,9 @@ td.visible-print {
   background: no-repeat 0 32px;
   background-size: 130px 111px; }
   .home .feature-row p {
-    padding-left: 140px; }
+    padding-left: 140px;
+    color: #888;
+    font-size: 14px; }
 @media (min-width: 768px) {
   .home {
     background: url("/img/phone-bg.png") no-repeat center top; }

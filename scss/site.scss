@@ -171,10 +171,15 @@ h1 + h2 + p {
 
 .docs-page .docs-nav,
 .examples-page .examples-nav,
+.components-page .components-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid $brand-primary;
   opacity: 1;
+}
+.docs-page.components-page .docs-nav {
+  opacity: .7;
+  border-color: transparent;
 }
 
 .footer {

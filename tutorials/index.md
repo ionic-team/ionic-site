@@ -7,6 +7,7 @@ Tutorials
 ====
 
 - [Angular Routing](/tutorials/angular-routing/)
+- [Customizing Your Ionic App With Sass](/tutorials/customizing-ionic-with-sass/)
 
 ### Ionic, AngularJS and Cordova Seed Project
 

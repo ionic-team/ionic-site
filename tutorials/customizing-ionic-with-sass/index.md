@@ -8,11 +8,11 @@ news: Checkout the <a href="/docs/components/">Components</a> section to see wha
 Customizing Ionic With Sass
 ====
 
-The core of Ionic's CSS is built using [Sass](http://sass-lang.com/), which essentially makes it easier to manage large scale CSS projects.
+The core of Ionic's CSS is built using [Sass](http://sass-lang.com/).
 
-Sass is a pretty powerful tool and we made sure to leverage its [variables](http://sass-lang.com/guide#variables) feature. What this means to you is that you can easily achieve your desired theme by modifying existing Ionic Sass variables which we've made easily customizable.
+One thing that makes Sass such a powerful tool is its [variables](http://sass-lang.com/guide#variables) feature. By modifying existing Ionic Sass variables, you can easily achieve your desired theme.
 
-Out of the box Ionic already comes with a complete CSS stylesheet already built from our default Sass files. If you have very little to customize it might be better just stick with the default CSS file and override a few  properties. However, if you've got big plans for your theme, and/or your app will be a large project, then we highly recommend using the power of Sass to simplify development.
+Ionic already comes with a complete CSS stylesheet built from our default Sass files, so if you have little to customize, it is probably better to stick with the default CSS file and override the few properties you need. However, if you have big plans for your theme and/or your app will be a large project, then we highly recommend leveraging the power of Sass to simplify development.
 
 
 ## Install or Upgrade Sass
@@ -35,21 +35,21 @@ Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you hav
 
 ## Your App Directory Structure
 
-The Ionic download's `dist/` directory contains the files which will be used by your Ionic app. The directories inside the `dist/` should be copied into your app's root directory. You can use whatever directory structure you choose, but we recommend this setup:
+The `dist/` directory contains the files that will be used by your Ionic app. The directories inside `dist/` should be copied into your app's root directory. You can use whatever directory structure you choose, but we recommend this setup:
 
     - css
-      - app.css  (processed CSS file, which will automatically be generated)
+      - app.css  (processed CSS file that will automatically be generated)
     - fonts
     - img
     - js
     - scss
       - ionic  (entire scss directory copied from the download, then renamed to "ionic")
-      - app.scss  (you app's custom Sass file)
+      - app.scss  (your app's custom Sass file)
     - index.html
 
-All the Sass magic starts from your app's `scss/` directory. Additionally, the code which builds Ionic's default icon font, [Ionicons](http://ionicons.com/), can be found in your app's `scss/ionic/ionicons/` directory . At this point all you should be concerned about are the files in `scss/` directory, which will eventually output your custom CSS into your `css/` directory.
+All the Sass magic starts from your app's `scss/` directory. Additionally, the code that builds Ionic's default icon font, [Ionicons](http://ionicons.com/), can be found in your app's `scss/ionic/ionicons/` directory . However, at this point all you need to be concerned with are the files in the `scss/` directory, which will eventually output your custom CSS into the `css/` directory.
 
-We recommend your app should have its own Sass file within the `scss/` directory, such as `scss/app.scss`. From within your `app.scss` file you'll want to import the `scss/ionic/ionic.scss` file, using this syntax:
+We recommend that your app have its own Sass file within the `scss/` directory, such as `scss/app.scss`. From within your `app.scss` file you'll want to import the `scss/ionic/ionic.scss` file, using this syntax:
 
     @import "ionic/ionic";
 
@@ -61,19 +61,19 @@ We recommend your app should have its own Sass file within the `scss/` directory
 
 Browsers still need to reference plain old CSS files since they do not understand Sass files. Because of this, the Sass files will need to be processed into a CSS file. Sass is able to take many files and combine them into one CSS file, which is yet another reason why Sass is a powerful development tool.
 
-To automatically output a CSS file which the browser will understand you'll want to "watch" your app's Sass files for any changes. Every time changes are saved to a Sass file then the CSS file will automatically rebuild. In your terminal, enter:
+To automatically output a CSS file that the browser will understand you'll want to "watch" your app's Sass files for any changes. Every time changes are saved to a Sass file the CSS file will automatically rebuild. In your terminal, enter:
 
     sass --watch scss/app.scss:css/app.css
 
-What the above command is doing is instructing Sass to constantly watch all of the files in the `scss/` directory. Once a Sass file changes then it'll rebuild the CSS file and resave the `css/app.css` file. For more information regarding watching Sass files please see [their documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html). Once you successfully run this command then you're ready to start customizing.
+The above command instructs Sass to constantly watch all of the files in the `scss/` directory. Once a Sass file changes it will rebuild the CSS file and resave the `css/app.css` file. For more information regarding watching Sass files please see [their documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html). Once you have successfully run this command you are ready to start customizing.
 
 ## Sass Variables
 
-> Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you think you'll want to reuse.
+> Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you want to reuse.
 >
 > -- <cite>[Sass Variables Documentation](http://sass-lang.com/guide#variables)</cite>
 
-Inside the your app's `scss/ionic/` directory, the Ionic Framework has already been built with a `_variables.scss` file. The variables file is the first place to go when any default styles are looking to be customized. For example, Ionic comes with a small set of [colors](/docs/components/#colors) to start with, but as a general rule colors are meant to be overridden to fit your "brand". 
+Inside your app's `scss/ionic/` directory, the Ionic Framework has already been built with a `_variables.scss` file. The variables file is the first place to go when you want to customize any of the default styles. For example, Ionic comes with a small set of [colors](/docs/components/#colors) to start with, but as a general rule colors are meant to be overridden to fit your "brand". 
 
     $light:                 #fff !default;
     $stable:                #f8f8f8 !default;
@@ -85,14 +85,14 @@ Inside the your app's `scss/ionic/` directory, the Ionic Framework has already b
     $royal:                 #8a6de9 !default;
     $dark:                  #444 !default; 
 
-Please feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). Once a change is made the CSS file will be rebuilt using the new values you've specificed.
+Feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). Once a change is made, the CSS file will be rebuilt using the new values you've specified.
 
-Colors are only one example and you'll see throughout the `_variables.scss` file you can change many different properties such as padding, font sizes, margins, border colors, widths, heights, etc. There's absolutely no need to change them all, but they're there to be tweaked if you choose so.
+Colors are only one example, however. You'll see throughout the `_variables.scss` file that you can change many different properties, such as padding, font sizes, margins, border colors, widths, heights, etc. There's absolutely no need to change them all, but they are there to be tweaked if you choose to.
 
 
 ## Full Customization
 
-Changing the variables is the easiest way to start modifying your Ionic app. However, there's nothing stopping you from going into each of the separate Sass files and customizing them to fit your requirements. (And if you've got a few cool tricks up your sleeve, which others may find useful, we'd love to have you [contribute](/contribute/) to Ionic).
+Changing the variables is the easiest way to start modifying your Ionic app. However, there is nothing stopping you from going into each of the separate Sass files and customizing them to fit your requirements. (And if you've got a few cool tricks up your sleeve that you think others may find useful, we'd love to have you [contribute](/contribute/) to Ionic).
 
 Now start building some awesome apps and [tell us all about it](/examples/submit.html)!
 

@@ -82,36 +82,19 @@ var ionicSite = (function(){
         var scrollTop = win.scrollTop();
         var winWidth = win.width();
         if(scrollTop + menuTopPadding > fixedMenuTop && winWidth >= 768) {
-          var bottomView = scrollTop + winHeight;
-          if(false && bottomView > preFooterTop) {
-            // bottom of the page
-            if(!fixedMenu.hasClass("relative-menu")) {
-              var menuTop = fixedMenu.offset().top;
-              fixedMenu
-                .css({
-                  width: fixedMenu.width() + 'px',
-                  top: menuTop + 'px'
-                })
-                .removeClass("fixed-menu")
-                .addClass("relative-menu");
-            }
-          } else {
-            // middle of the page
-            if(!fixedMenu.hasClass("fixed-menu")) {
-              fixedMenu
-                .css({
-                  width: fixedMenu.width() + 'px',
-                  top: '20px'
-                })
-                .removeClass("relative-menu")
-                .addClass("fixed-menu");
-            } 
-          }
+          // middle of the page
+          if(!fixedMenu.hasClass("fixed-menu")) {
+            fixedMenu
+              .css({
+                width: fixedMenu.width() + 'px',
+                top: '20px'
+              })
+              .addClass("fixed-menu");
+          } 
         } else {
           // top of page
-          if(fixedMenu.hasClass("fixed-menu") || fixedMenu.hasClass("relative-menu")) {
+          if(fixedMenu.hasClass("fixed-menu")) {
             fixedMenu
-              .removeClass("relative-menu")
               .removeClass("fixed-menu")
               .css({
                 width: 'auto',

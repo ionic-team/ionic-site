@@ -5785,7 +5785,7 @@ h1 + h2 + p {
 
 .docs-page .docs-nav,
 .examples-page .examples-nav,
-.getting-started-page .components-nav,
+.getting-started-page .getting-started-nav,
 .nav-link:hover,
 .nav-link:focus {
   border-bottom: 3px solid #4f8ef7;

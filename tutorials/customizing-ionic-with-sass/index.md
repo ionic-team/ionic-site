@@ -10,7 +10,7 @@ Customizing Ionic With Sass
 
 The core of Ionic's CSS is built using [Sass](http://sass-lang.com/).
 
-One thing that makes Sass such a powerful tool is its [variables](http://sass-lang.com/guide#variables) feature. By modifying existing Ionic Sass variables, you can easily achieve your desired theme.
+One thing that makes Sass such a powerful tool is its [variables](http://sass-lang.com/guide#variables) feature. By modifying existing Ionic Sass variables, we've made it easy to achieve your desired theme.
 
 Ionic already comes with a complete CSS stylesheet built from our default Sass files, so if you have little to customize, it is probably better to stick with the default CSS file and override the few properties you need. However, if you have big plans for your theme and/or your app will be a large project, then we highly recommend leveraging the power of Sass to simplify development.
 

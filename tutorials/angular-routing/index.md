@@ -64,3 +64,5 @@ Then, just link to the new route using hash routing syntax (note: HTML5 mode fro
 ```
 
 Thats it! You now have a router based Ionic and Angular app!
+
+[Discuss this tutorial on the Ionic Forum](http://forum.ionicframework.com/t/angularjs-url-routing-in-ionic/34)

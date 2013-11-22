@@ -1,6 +1,7 @@
 ---
 layout: tutorial
 title: Ionic Tutorials
+header_sub_title: A growing list of tutorials to help you get the most out of Ionic
 ---
 
 Tutorials

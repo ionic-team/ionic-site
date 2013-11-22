@@ -1,9 +1,11 @@
 ---
 layout: docs_0.9.0
 title: "Guide: Table of Contents"
+header_sub_title: A comprehensive overview and walk-through of building with Ionic
 version: 0.9.0
 active: guide
 chapter: index
+news: Learn more from our growning list of <a href="/tutorials/">tutorials</a> 
 ---
 
 # The Ionic Guide (v{{page.version}})

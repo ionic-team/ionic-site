@@ -7,7 +7,7 @@ chapter: installation
 
 Previous: <a href="preface.html">What is Ionic?</a>
 
-# Chapter 1: Getting Everything Installed
+# Chapter 2: Getting Everything Installed
 
 In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.
 

@@ -12,7 +12,7 @@ news: First time using Ionic? We recommend reading our <a href="/docs/guide/">Gu
 
 # Latest Version Config
 latest_download: "https://github.com/driftyco/ionic/archive/v0.9.10-alpha.zip"
-latest_version: "0.9.10 Alpha"
+latest_version: '0.9.10 "Alpha Cat"'
 latest_release_date: "November 23rd, 2013"
 
 # Docs Location Config

@@ -11,8 +11,8 @@ paginate: 5
 news: First time using Ionic? We recommend reading our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up an Ionic mobile app.
 
 # Latest Version Config
-latest_download: "https://github.com/driftyco/ionic/archive/v0.9.11-alpha.zip"
-latest_version: '0.9.11 "Alpha Cat-Dog"'
+latest_download: "https://github.com/driftyco/ionic/archive/v0.9.12-alpha.zip"
+latest_version: '0.9.12 "Alpha Dog"'
 latest_release_date: "November 23rd, 2013"
 
 # Docs Location Config

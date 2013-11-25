@@ -214,9 +214,9 @@ var ionicSite = (function(){
     docContent.find('.active').removeClass('active');
     activeSection.addClass("active");
 
-    if(!doNotSetHistory && window.history.replaceState) {
-      window.history.replaceState({}, newTitle, "#" + activeId);
-    }
+    // if(!doNotSetHistory && window.history.replaceState) {
+    //   window.history.replaceState({}, newTitle, "#" + activeId);
+    // }
 
     devicePreview.find('.active-preview').removeClass('active-preview');
     var docExample = activeSection.find('.doc-example');

@@ -135,7 +135,7 @@ $ rm www/img/logo.png
 
 The first versions of Ionic utilize AngularJS heavily. We think it's the best way to build applications in the browser today, and we've built a lot of great mobile functionality around it. In the future, we hope the community will create extensions for other frameworks like [EmberJS](http://emberjs.com/) and [Knockout](http://knockoutjs.com/), to name a few.
 
-For our example apps, we will be using the 1.2.0 version of Angular, and older versions are _not_ supported. Ionic-Angular comes with Angular 1.2.0 along with ngAnimate, ngTouch, ngSanitize, and ngResource by default.
+For our example apps, we will be using the 1.2.x version of Angular, and older versions are _not_ supported. Ionic-Angular needs Angular 1.2.x along with ngAnimate, ngTouch, ngSanitize, and ngResource at least.
 
 Now we are ready to start building our app, so continue on to the next chapter:
 

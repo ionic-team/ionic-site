@@ -28,7 +28,7 @@ To use the dynamic header bar behavior in Ionic-Angular, use the `<header-bar>` 
   title="headerTitle"
   left-buttons="leftButtons"
   right-buttons="rightButtons"
-  type="bar-primary"
+  type="bar-positive"
   align-title="center">
 </header-bar>
 

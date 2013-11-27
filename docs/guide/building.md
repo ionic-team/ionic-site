@@ -101,7 +101,7 @@ the following script tag after the closing `</side-menu>` tag in the `<body>` of
     <!-- Modal header bar -->
     <header class="bar bar-header bar-secondary">
       <h1 class="title">New Task</h1>
-      <button class="button button-clear button-primary" ng-click="closeNewTask()">Cancel</button>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
     </header>
 
     <!-- Modal content area -->
@@ -114,7 +114,7 @@ the following script tag after the closing `</side-menu>` tag in the `<body>` of
           </label>
         </div>
         <div class="padding">
-          <button type="submit" class="button button-full button-primary">Create Task</button>
+          <button type="submit" class="button button-full button-positive">Create Task</button>
         </div>
       </form>
 

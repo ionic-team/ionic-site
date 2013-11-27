@@ -35,7 +35,7 @@ Here we are using the script tag method of defining an Angular template.
   <div class="modal">
     <header class="bar bar-header bar-positive">
       <h1 class="title">New Contact</h1>
-      <button class="button button-clear button-primary" ng-click="closeModal()">Cancel</button>
+      <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
     </header>
     <content has-header="true">
       <div class="padding">

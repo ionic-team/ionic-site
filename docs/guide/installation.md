@@ -39,7 +39,7 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
 </div>
 
 <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#java-note">
-  Windows note on Java and Ant
+  Windows note on Java, Ant and Android
 </button>
 
 <div id="java-note" class="collapse well">
@@ -47,10 +47,13 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
   Windows users developing for Android: You'll want to make sure you have the most recent [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) (NOT just the JRE) installed and that you have installed ant. To install ant, download a zip from <a href="http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to the <code>bin/</code> folder in that folder. For example, if you moved the ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
 </p>
 <p>
-  Next, set a path entry for JAVA_HOME pointing to the root of the JDK folder that was created when you installed the Java JDK above. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set JAVA_HOME to be this path.
+  Next, set a path entry for JAVA_HOME pointing to the root of the JDK folder that was created when you installed the Java JDK above. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set JAVA_HOME to be this path. After that add the JDK's bin directory to the PATH variable as well, following the previous assumption, this should be <code>C:\Program Files\Java\jdk7\bin</code>
 </p>
 <p>
-Whenever you make changes to the PATH, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
+  Cordova also requires the ANDROID_HOME entry to be set, this should point to the <code>[ANROID_SDK_DIR]\sdk\tools</code>
+</p>
+<p>
+Whenever you make changes to the PATH, or any other environment variable, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
 </p>
 </div>
 
@@ -79,7 +82,7 @@ Go ahead and copy the `dist/` files from the Ionic code (in `IONIC_PATH` below) 
 ```bash
 $ cp IONIC_PATH/dist/js/* www/js/
 $ cp -R IONIC_PATH/dist/css/* www/css/
-$ cp -R IONIC_PATH/dist/fonts/* www/
+$ cp -R IONIC_PATH/dist/fonts/* www/fonts/
 ```
 
 The `fonts/` folder is optional, but contains our free [Ionicons](http://ionicons.com/) icon pack, which has over 400 free, MIT licensed icons. You can always use a different icon pack.

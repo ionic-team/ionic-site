@@ -35,3 +35,18 @@ To use the dynamic header bar behavior in Ionic-Angular, use the `<header-bar>` 
 ```
 
 Where `headerTitle`, `leftButtons`, and `rightButtons` are angular expressions. Pass in `left` for the `align-title` attribute to align the title to the left for more Android-friendly layouts.
+
+For example, to specify left buttons, you can set `$scope.leftButtons` to be:
+
+```javascript
+$scope.leftButtons = [
+  { 
+    type: 'button-positive',
+    content: '<i class="icon ion-navicon"></i>',
+    click: function(e) {
+    }
+  }
+]
+```
+
+Which will create a left-side button with the `ion-navicon` icon. You can do the same for the right side.

@@ -50,7 +50,7 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
   Next, set a path entry for JAVA_HOME pointing to the root of the JDK folder that was created when you installed the Java JDK above. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set JAVA_HOME to be this path. After that add the JDK's bin directory to the PATH variable as well, following the previous assumption, this should be <code>C:\Program Files\Java\jdk7\bin</code>
 </p>
 <p>
-  Cordova also requires the ANDROID_HOME entry to be set, this should point to the <code>[ANROID_SDK_DIR]\sdk\tools</code>
+  Cordova also requires the ANDROID_HOME entry to be set, this should point to the <code>[ANROID_SDK_DIR]\sdk\tools</code> directory.
 </p>
 <p>
 Whenever you make changes to the PATH, or any other environment variable, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.

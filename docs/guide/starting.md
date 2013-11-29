@@ -26,12 +26,13 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
     <link rel="stylesheet" href="css/ionic.css">
 
     <script src="js/ionic.js"></script>
+	<script src="js/angular.js"></script>
     <script src="js/angular/angular-animate.js"></script>
     <script src="js/angular/angular-route.js"></script>
     <script src="js/angular/angular-touch.js"></script>
     <script src="js/angular/angular-sanitize.js"></script>
     <script src="js/ionic-angular.js"></script>
-
+    
     <!-- Needed for Cordova/PhoneGap -->
     <script type="text/javascript" src="cordova.js"></script>
   </head>

@@ -54,7 +54,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
         {{task.title}}
       </item>
     </list>
-  </div>
+  </content>
 </pane>
 {% endraw %}
 
@@ -80,7 +80,7 @@ angular.module('todo', ['ionic'])
     { title: 'Eat mushrooms' },
     { title: 'Get high enough to grab the flag' },
     { title: 'Find the Princess' }
-  ]
+  ];
 });
 ```
 
@@ -178,7 +178,7 @@ angular.module('todo', ['ionic'])
   // Close the new task modal
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
-  }
+  };
 });
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: docs_0.9.0
-title: "Building the UI for Toderp"
+title: "Building the UI for Todo"
 active: guide
 chapter: starting
 ---
@@ -20,7 +20,7 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Toderp</title>
+    <title>Todo</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="css/ionic.css">
@@ -93,7 +93,7 @@ Update the body content to be:
     <!-- Center content -->
     <pane side-menu-content>
       <header class="bar bar-header bar-dark">
-        <h1 class="title">ToDo</h1>
+        <h1 class="title">Todo</h1>
       </header>
       <content has-header="true">
       </content>

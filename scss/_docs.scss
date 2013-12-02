@@ -18,17 +18,7 @@
   }
 }
 
-.ionic-example {
-  // Make sure all bars stay relative in examples
-  .bar {
-    position: relative !important;
-  }
-}
-
 @media (max-width: 991px) {
-  .device-preview-page .docs-section {
-    opacity: 1 !important;
-  }
   .device-preview-page .main-content {
     width: 100%;
   }
@@ -91,10 +81,6 @@
   &.nav > li > a {
     padding: 1px 0;
   }
-
-  > li > ul > li > ul {
-    display: none !important;
-  }
 }
 
 .left-menu.active-menu {
@@ -134,11 +120,7 @@
 
   h1, h2, h3 {
     a {
-      color: #111;
       text-decoration: none;
-      &:hover {
-
-      }
     }
   }
 
@@ -160,7 +142,6 @@
 .device-preview-page .docs-section {
   padding-bottom: 60px;
   min-height: 320px;
-  opacity: .75;
   transition: opacity .15s ease-in-out;
 
   h2 {
@@ -186,10 +167,6 @@
       color: $brand-primary;
     }
   }
-}
-
-.device-preview-page .docs-section.active {
-  opacity: 1;
 }
 
 .doc-example {

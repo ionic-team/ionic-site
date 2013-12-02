@@ -8320,8 +8320,8 @@ h1 + h2 + p {
     color: #fff; }
   .ionic .bar.item-input-inset .item-input-wrapper {
     margin-top: -1px; }
-  .ionic .bar.item-input-inset input {
-    padding-left: 4px;
+  .ionic .bar.item-input-inset .item-input-wrapper input {
+    padding-left: 8px;
     height: 28px; }
   .ionic .bar.bar-light {
     background-color: white;
@@ -8422,7 +8422,9 @@ h1 + h2 + p {
   .ionic .bar .button.button-icon .icon, .ionic .bar .button.button-icon.icon:before, .ionic .bar .button.button-icon.icon-left:before, .ionic .bar .button.button-icon.icon-right:before {
     line-height: 32px; }
   .ionic .bar .button.button-clear {
-    font-size: 18px; }
+    font-size: 18px;
+    padding-right: 2px;
+    padding-left: 2px; }
   .ionic .bar .button-bar > .button, .ionic .bar .buttons > .button {
     min-height: 31px;
     height: 32px;
@@ -9597,11 +9599,11 @@ h1 + h2 + p {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 220px;
+    -webkit-flex: 1 0;
     -moz-box-flex: 1;
-    -moz-flex: 1 0 220px;
-    -ms-flex: 1 0 220px;
-    flex: 1 0 220px;
+    -moz-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0;
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;

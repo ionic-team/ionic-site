@@ -1,6 +1,6 @@
 ---
 layout: docs_0.9.0
-title: "Building out the ToDo App"
+title: "Building out the Todo App"
 active: guide
 chapter: building
 ---
@@ -45,7 +45,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 <!-- Center content -->
 <pane side-menu-content>
   <header class="bar bar-header bar-dark">
-    <h1 class="title">ToDo</h1>
+    <h1 class="title">Todo</h1>
   </header>
   <content scroll="false" has-header="true">
     <!-- our list and list items -->
@@ -135,7 +135,7 @@ In order to trigger the Modal to open, we need a button in the main header bar a
   <!-- Center content -->
   <pane side-menu-content>
     <header class="bar bar-header bar-dark">
-      <h1 class="title">ToDo</h1>
+      <h1 class="title">Todo</h1>
       <!-- New Task button-->
       <button class="button button-icon" ng-click="editTasks()">
         <i class="icon ion-edit"></i>

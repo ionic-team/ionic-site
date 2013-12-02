@@ -518,22 +518,25 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     any custom font-pack you choose. <a href="#icons">Learn more about icons</a>.
   </p>
 
+  <p>
+    Icons can also be set with a child element inside the button, however, assigning
+    the icon directly to the button reduces the number of elements in the DOM.
+  </p>
+
 {% highlight html %}
-<button class="button">
-  <i class="icon ion-home"></i> Home
-</button>
+<button class="button icon-left ion-home">Home</button>
 
-<button class="button button-positive">
-  <i class="icon ion-star"></i> Favorites
-</button>
+<button class="button icon-left ion-star button-positive">Favorites</button>
 
-<a class="button button-calm">
-  Learn More <i class="icon ion-chevron-right"></i>
-</a>
+<a class="button icon-right ion-chevron-right button-calm">Learn More</a>
 
-<a class="button button-clear button-dark">
-  <i class="icon ion-chevron-left"></i> Back
-</a>
+<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>
+
+<button class="button icon ion-gear-a"></button>
+
+<a class="button button-icon icon ion-settings"></a>
+
+<a class="button button-outline icon-right ion-navicon button-balanced">Reorder</a>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -542,31 +545,25 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     </div>
     <div class="content padding has-header">
       <p>
-        <button class="button">
-          <i class="icon ion-home"></i> Home
-        </button>
+        <button class="button icon-left ion-home">Home</button>
       </p>
       <p>
-        <button class="button button-positive">
-          <i class="icon ion-star"></i> Favorites
-        </button>
+        <button class="button icon-left ion-star button-positive">Favorites</button>
       </p>
       <p>
-        <a class="button button-calm">
-          Learn More 
-          <i class="icon ion-chevron-right"></i>
-        </a>
+        <a class="button icon-right ion-chevron-right button-calm">Learn More</a>
       </p>
       <p>
-        <a class="button button-clear button-dark">
-          <i class="icon ion-chevron-left"></i> 
-          Back
-        </a>
+        <a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>
       </p>
       <p>
-        <a class="button button-info">
-          <i class="icon ion-gear-a"></i>
-        </a>
+        <button class="button icon ion-gear-a"></button>
+      </p>
+      <p>
+        <a class="button button-icon icon ion-settings"></a>
+      </p>
+      <p>
+        <a class="button button-outline icon-right ion-navicon button-balanced">Reorder</a>
       </p>
     </div>
   </div>
@@ -589,26 +586,18 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 {% highlight html %}
 <div class="bar bar-header">
-  <button class="button">
-    <i class="icon ion-navicon"></i>
-  </button>
+  <button class="button icon ion-navicon"></button>
   <h1 class="title">Header Buttons</h1>
-  <button class="button">
-    Edit
-  </button>
+  <button class="button">Edit</button>
 </div>
 {% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="padding">
       <div class="bar bar-header">
-        <button class="button">
-          <i class="icon ion-navicon"></i>
-        </button>
+        <button class="button icon ion-navicon"></button>
         <div class="h1 title">Header Buttons</div>
-        <button class="button pull-right">
-          Edit
-        </button>
+        <button class="button">Edit</button>
       </div>
     </div>
   </div>
@@ -630,13 +619,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 {% highlight html %}
 <button class="button button-icon">
   <div class="bar bar-header">
-    <button class="button button-icon">
-      <i class="icon ion-navicon"></i>
-    </button>
-    <h1 class="title">Header Buttons</div>
-    <button class="button button-clear button-positive">
-      Edit
-    </button>
+    <button class="button button-icon icon ion-navicon"></button>
+    <div class="h1 title">Header Buttons</div>
+    <button class="button button-clear button-positive">Edit</button>
   </div>
 </button>
 {% endhighlight %}
@@ -644,13 +629,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <div class="doc-example ionic">
     <div class="padding">
       <div class="bar bar-header">
-        <button class="button button-icon">
-          <i class="icon ion-navicon"></i>
-        </button>
+        <button class="button button-icon icon ion-navicon"></button>
         <div class="h1 title">Header Buttons</div>
-        <button class="button button-clear button-positive">
-          Edit
-        </button>
+        <button class="button button-clear button-positive">Edit</button>
       </div>
     </div>
   </div>
@@ -1074,6 +1055,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     Call Ma
     <button class="button button-positive">
       <i class="icon ion-ios7-telephone"></i>
+    </button>
   </div>
 
   ...

@@ -2805,6 +2805,8 @@ a.subdued {
       line-height: 30px; }
     .bar .button.button-icon .icon, .bar .button.button-icon.icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
       line-height: 32px; }
+    .bar .button.button-clear {
+      font-size: 18px; }
   .bar .button-bar > .button, .bar .buttons > .button {
     min-height: 31px;
     height: 32px;
@@ -4190,7 +4192,8 @@ textarea {
 .item-input-inset .item-input-wrapper input {
   padding-left: 4px;
   height: 29px;
-  background: inherit; }
+  background: inherit;
+  line-height: 18px; }
 
 .item-input-wrapper ~ .button {
   margin-left: 10px; }

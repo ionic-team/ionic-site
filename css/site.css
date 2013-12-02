@@ -8421,6 +8421,8 @@ h1 + h2 + p {
     line-height: 30px; }
   .ionic .bar .button.button-icon .icon, .ionic .bar .button.button-icon.icon:before, .ionic .bar .button.button-icon.icon-left:before, .ionic .bar .button.button-icon.icon-right:before {
     line-height: 32px; }
+  .ionic .bar .button.button-clear {
+    font-size: 18px; }
   .ionic .bar .button-bar > .button, .ionic .bar .buttons > .button {
     min-height: 31px;
     height: 32px;
@@ -9614,7 +9616,8 @@ h1 + h2 + p {
   .ionic .item-input-inset .item-input-wrapper input {
     padding-left: 4px;
     height: 29px;
-    background: inherit; }
+    background: inherit;
+    line-height: 18px; }
   .ionic .item-input-wrapper ~ .button {
     margin-left: 10px; }
   .ionic .input-label {

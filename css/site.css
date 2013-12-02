@@ -8318,9 +8318,10 @@ h1 + h2 + p {
     color: #fff; }
   .ionic .bar.bar-clear .title {
     color: #fff; }
-  .ionic .bar.item-input .item-input-inset {
+  .ionic .bar.item-input-inset .item-input-wrapper {
     margin-top: -1px; }
-  .ionic .bar.item-input input {
+  .ionic .bar.item-input-inset input {
+    padding-left: 4px;
     height: 28px; }
   .ionic .bar.bar-light {
     background-color: white;
@@ -9556,7 +9557,7 @@ h1 + h2 + p {
     appearance: none;
     margin: 0;
     background-color: transparent; }
-  .ionic .item-input .icon {
+  .ionic .item-input .button .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 24px;
     -moz-box-flex: 0;
@@ -9578,6 +9579,21 @@ h1 + h2 + p {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px; }
+  .ionic .item-input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-flex: 1;
     -webkit-flex: 1 0 220px;
     -moz-box-flex: 1;
@@ -9592,8 +9608,15 @@ h1 + h2 + p {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    padding-left: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
     background: #eee; }
+  .ionic .item-input-inset .item-input-wrapper input {
+    padding-left: 4px;
+    height: 29px;
+    background: inherit; }
+  .ionic .item-input-wrapper ~ .button {
+    margin-left: 10px; }
   .ionic .input-label {
     -webkit-box-flex: 1;
     -webkit-flex: 1 0 100px;

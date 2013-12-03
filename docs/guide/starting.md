@@ -41,7 +41,7 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
 </html>
 ```
 
-In the shell above, we are including the Ionic CSS and both the core Ionic JS and the Ionic AngularJS extensions. Ionic-Angular relies on Angular v{{ site.included_angular_version }} as well as some modules, so we also include those (the modules are small in size). Also note that the cordova.js or phonegap.js file must be the last script to be loaded, and that this file will not be found in your development files, but rather automatically included by the Cordova or Phonegap build.
+In the shell above, we are including the Ionic CSS and both the core Ionic JS and the Ionic AngularJS extensions. Ionic-Angular relies on Angular v{{ site.included_angular_version }} as well as some modules, so we also include those (the modules are small in size). Also note that the cordova.js or phonegap.js file must be the last script, and that this file will not be found in your development files, but rather automatically included by the Cordova or Phonegap build.
 
 Now that we have our starting place, we need to figure out what the interface layout of our application is going to be. We have a ton of choices when it comes to UI design on mobile. There are a few standard layouts, like tabs and side menus, but there are practically infinite custom layouts that we could implement if we really wanted to (which Ionic encourages!). For the sake of this example, we are going to pick a simple Side Menu layout which lets us drag and expose a side menu with center content.
 

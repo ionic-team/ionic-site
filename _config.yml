@@ -16,7 +16,7 @@ latest_version: 0.9.13 "Alpha Elephant"
 latest_release_date: November 26th, 2013
 
 # Which version of AngularJS the latest build includes
-included_angular_version: 1.2.2
+included_angular_version: 1.2.3
 
 # Docs Location Config
 docs_0_9_0: /docs

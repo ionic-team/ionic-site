@@ -44,6 +44,11 @@
       }
     </style>
     <script src="/ionic/js/ionic.js"></script>
+    <script src="/ionic/js/angular/angular.js"></script>
+    <script src="/ionic/js/angular/angular-animate.js"></script>
+    <script src="/ionic/js/angular/angular-route.js"></script>
+    <script src="/ionic/js/angular/angular-touch.js"></script>
+    <script src="/ionic/js/angular/angular-sanitize.js"></script>
     <script src="/ionic/js/ionic-angular.js"></script>
   </head>
   <body ng-controller="RootCtrl">
@@ -58,14 +63,8 @@
           <button class="button button-clear button-positive" ng-click="newTask()">New</button>
           <h1 class="title">Tasks</h1>
         </header>
-        <content has-header="true" has-footer="true" scroll="false">
-          <list on-refresh="onRefresh()" is-editing="isEditingItems" animation="fade-out" delete-icon="icon ion-minus-circled" reorder-icon="icon ion-navicon">
-            <refresher>
-              <div id="refresh-content">
-                Refreshing
-                <i class="icon ion-ios7-reloading"></i>
-              </div>
-            </refresher>
+        <content has-header="true" has-footer="true">
+          <list>
             <item ng-repeat="item in items" 
             item="item"
             can-delete="false"

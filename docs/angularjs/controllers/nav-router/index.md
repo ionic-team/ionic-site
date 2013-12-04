@@ -103,28 +103,30 @@ of a tab bar being used inside of a nav page, inside of the `templates/app.html`
 Inside of each `<nav-page>` we can specify the title, left buttons, and right buttons that will be updated on the nav bar:
 
 ```javascript
-<nav-page id="app-page" ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons">
+<nav-page ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons">
 ```
 
 Which we can specify in our controller to be:
 
 ```javascript
-$scope.myTitle = 'Page One';
+app.controller('AppCtrl', function($scope) {
+  $scope.myTitle = 'Page One';
 
-$scope.leftButtons = [
-  { 
-    type: 'button-positive',
-    content: '<i class="icon ion-navicon"></i>',
-    click: function(e) {
+  $scope.leftButtons = [
+    { 
+      type: 'button-positive',
+      content: '<i class="icon ion-navicon"></i>',
+      click: function(e) {
+      }
     }
-  }
-];
-$scope.rightButtons = [
-  { 
-    type: 'button-clear',
-    content: 'Edit'
-    click: function(e) {
+  ];
+  $scope.rightButtons = [
+    { 
+      type: 'button-clear',
+      content: 'Edit'
+      click: function(e) {
+      }
     }
-  }
-]
+  ]
+});
 ```

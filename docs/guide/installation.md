@@ -80,12 +80,8 @@ If you are planning on using any version control system, you can go ahead and se
 Go ahead and copy the `dist/` files from the Ionic code (in `IONIC_PATH` below) we extracted above into the various `www/*` folders inside of the hello folder:
 
 ```bash
-$ cp IONIC_PATH/dist/js/* www/js/
-$ cp -R IONIC_PATH/dist/css/* www/css/
-$ cp -R IONIC_PATH/dist/fonts/* www/fonts/
+$ cp -R IONIC_PATH/dist/* www/
 ```
-
-The `fonts/` folder is optional, but contains our free [Ionicons](http://ionicons.com/) icon pack, which has over 400 free, MIT licensed icons. You can always use a different icon pack.
 
 ## Configure Cordova
 
@@ -97,6 +93,20 @@ $ cordova platform add android
 ```
 
 If you see errors here, make sure to follow the platform guides above to install necessary platform tools.
+
+<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#osx-android-note">
+  Android on OS X note
+</button>
+
+<div id="osx-android-note" class="collapse well">
+<p>
+  If you get this error: <code>[Error: ERROR : Make sure JAVA_HOME is set, as well as paths to your JDK and JRE for java.]</code> Then try running this command first before adding the android platform:
+</p>
+<p>
+  <code>$ export JAVA_HOME=$(/usr/libexec/java_home)</code>
+</p>
+</div>
+
 
 We need to install at least one required plugin, the Device API, which lets us query device information:
 
@@ -113,7 +123,7 @@ $ cordova plugin add org.apache.cordova.console
 Just to make sure the default Cordova project worked, try building and running the project:
 
 ```bash
-$ cordova build
+$ cordova build android
 $ cordova emulate android
 ```
 
@@ -132,6 +142,16 @@ $ rm www/index.html
 $ rm www/js/index.js
 $ rm www/css/index.css
 $ rm www/img/logo.png
+```
+
+## Cordova Config
+
+We need to make some quick configuration changes to Cordova defaults to make sure our app behaves normally. Specifically, we need to turn off Web View bouncing that is on by default for iOS apps. Open up `www/config.xml` and add these preferences to the bottom:
+
+```xml
+<preference name="webviewbounce" value="false" />
+<preference name="UIWebViewBounce" value="false" />
+<preference name="DisallowOverscroll" value="true" />
 ```
 
 ## AngularJS and other dependencies

@@ -44,10 +44,10 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 {% raw %}
 <!-- Center content -->
 <pane side-menu-content>
-  <header class="bar bar-header bar-dark">
+  <header class="bar bar-header bar-positive">
     <h1 class="title">Todo</h1>
   </header>
-  <content scroll="false" has-header="true">
+  <content has-header="true">
     <!-- our list and list items -->
     <list>
       <item ng-repeat="task in tasks">
@@ -59,8 +59,6 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 {% endraw %}
 
 ```
-
-Note we have added `scroll="false"` to the `<content>` directive because both the content directive and `<list>` directive support scrolling by default, and we want the list to handle scrolling.
 
 But this doesn't do anything yet, because we don't have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
 
@@ -114,7 +112,7 @@ the following script tag after the closing `</side-menu>` tag in the `<body>` of
           </label>
         </div>
         <div class="padding">
-          <button type="submit" class="button button-full button-positive">Create Task</button>
+          <button type="submit" class="button button-block button-positive">Create Task</button>
         </div>
       </form>
 

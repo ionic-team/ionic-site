@@ -33,11 +33,11 @@ angular.module('myModule', [])
         console.log('Drag: ', e.gesture.touches[0].pageX, e.gesture.touches[0].pageY, e.gesture.deltaX, e.gesture.deltaY);
       };
   
-      Gesture.on('drag', handleDrag);
+      var dragGesture = Gesture.on('drag', handleDrag, $element);
 
       $scope.$on('$destroy', function() {
         // Unbind drag gesture handler
-        Gesture.off('drag', handleDrag);
+        Gesture.off(dragGesture, 'drag', handleDrag);
       });
     }
   }

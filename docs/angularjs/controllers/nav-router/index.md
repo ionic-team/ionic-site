@@ -77,9 +77,8 @@ of a tab bar being used inside of a nav page, inside of the `templates/app.html`
       <content has-header="true" has-tabs="true">
         <list>
           <link-item ng-repeat="pet in pets" type="item-text-wrap" href="#/pet/{{pet.id}}">
-              <h3>{{pet.title}}</h3>
-              <p>{{pet.description}}</p>
-            </item>
+            <h3>{{pet.title}}</h3>
+            <p>{{pet.description}}</p>
           </link-item>
         </list>
       </content>

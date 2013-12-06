@@ -43,7 +43,7 @@ $scope.leftButtons = [
   { 
     type: 'button-positive',
     content: '<i class="icon ion-navicon"></i>',
-    click: function(e) {
+    tap: function(e) {
     }
   }
 ]

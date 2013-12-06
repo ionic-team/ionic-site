@@ -116,7 +116,7 @@ app.controller('AppCtrl', function($scope) {
     { 
       type: 'button-positive',
       content: '<i class="icon ion-navicon"></i>',
-      click: function(e) {
+      tap: function(e) {
       }
     }
   ];
@@ -124,7 +124,7 @@ app.controller('AppCtrl', function($scope) {
     { 
       type: 'button-clear',
       content: 'Edit'
-      click: function(e) {
+      tap: function(e) {
       }
     }
   ]

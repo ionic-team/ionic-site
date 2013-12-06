@@ -123,7 +123,7 @@ app.controller('AppCtrl', function($scope) {
   $scope.rightButtons = [
     { 
       type: 'button-clear',
-      content: 'Edit'
+      content: 'Edit',
       tap: function(e) {
       }
     }

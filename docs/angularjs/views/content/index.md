@@ -93,7 +93,7 @@ angular.module('myModule', [])
       <td>Whether to push the content area up by the height of the footer</td>
     </tr>
     <tr>
-      <td>overflowScroll</td>
+      <td>overflow-scroll</td>
       <td>true/false</td>
       <td>false</td>
       <td>Whether to use Ionic's custom scroll view (false), or the browser's overflow touch (true). Note: pull to refresh

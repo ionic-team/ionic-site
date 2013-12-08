@@ -1,35 +1,35 @@
 /*!
  * Copyright 2013 Drifty Co.
  * http://drifty.com/
-
- * Ionic - a powerful HTML5 mobile app framework.
+ *
+ * Ionic, v0.9.14
+ * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
  * By @maxlynch, @helloimben, @adamdbradley <3
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
- */
-;
+ */;
 
 // Create namespaces 
 window.ionic = {
   controllers: {},
-  views: {}
-};
-;
+  views: {},
+  version: '0.9.14'
+};;
 (function(ionic) {
 
   var bezierCoord = function (x,y) {
-    if(!x) var x=0;
-    if(!y) var y=0;
+    if(!x) x=0;
+    if(!y) y=0;
     return {x: x, y: y};
-  }
+  };
 
-  function B1(t) { return t*t*t }
-  function B2(t) { return 3*t*t*(1-t) }
-  function B3(t) { return 3*t*(1-t)*(1-t) }
-  function B4(t) { return (1-t)*(1-t)*(1-t) }
+  function B1(t) { return t*t*t; }
+  function B2(t) { return 3*t*t*(1-t); }
+  function B3(t) { return 3*t*(1-t)*(1-t); }
+  function B4(t) { return (1-t)*(1-t)*(1-t); }
 
   ionic.Animator = {
     // Quadratic bezier solver
@@ -84,7 +84,7 @@ window.ionic = {
           if (Math.abs(x2 - x) < epsilon) return curveY(t2);
           if (x > x2) t0 = t2;
           else t1 = t2;
-          t2 = (t1 - t0) * .5 + t0;
+          t2 = (t1 - t0) * 0.5 + t0;
         }
 
         // Failure
@@ -154,7 +154,7 @@ window.ionic = {
           };
         }
       }
-      return null
+      return null;
     },
 
     getChildIndex: function(element, type) {
@@ -1824,8 +1824,16 @@ window.ionic = {
 
   // polyfill use to simulate native "tap"
   function inputTapPolyfill(ele, e) {
-    if(ele.type === "radio" || ele.type === "checkbox") {
-      //ele.checked = !ele.checked;
+    if(ele.type === "radio") {
+      ele.checked = !ele.checked;
+      ionic.trigger('click', {
+        target: ele
+      });
+    } else if(ele.type === "checkbox") {
+      ele.checked = !ele.checked;
+      ionic.trigger('change', {
+        target: ele
+      });
     } else if(ele.type === "submit" || ele.type === "button") {
       ionic.trigger('click', {
         target: ele

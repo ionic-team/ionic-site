@@ -16,7 +16,7 @@ latest_version: 0.9.14 "Alpha Fox"
 latest_release_date: December 4th, 2013
 
 # Which version of AngularJS the latest build includes
-included_angular_version: 1.2.3
+included_angular_version: 1.2.4
 
 # Docs Location Config
 docs_0_9_0: /docs

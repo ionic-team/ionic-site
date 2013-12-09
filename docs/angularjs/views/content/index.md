@@ -36,8 +36,6 @@ The `<content>` directive can be used whenever a scrollable content area is desi
     has-footer="true"
     scroll="true"
     on-refresh="onRefresh()"
-    on-refresh-opening="onRefreshOpening(amount)"
-    refresh-complete="refreshComplete"
     >
 
     <!-- for pull to refresh -->
@@ -63,7 +61,7 @@ angular.module('myModule', [])
       $scope.users = users;
 
       // Trigger refresh complete on the pull to refresh action
-      $scope.refreshComplete();
+      $scope.$broadcast('scroll.refreshComplete');
     });
   };
 });
@@ -111,6 +109,7 @@ angular.module('myModule', [])
       <td></td>
       <td>A function to call when pull-to-refresh is triggered on this content area</td>
     </tr>
+<!--
     <tr>
       <td>on-refresh-opening</td>
       <td>function(amount)</td>
@@ -118,12 +117,7 @@ angular.module('myModule', [])
       <td>A function to call as the pull to refresh opens. amount is a value in the range 0 <= amount <= 1. This function is
           throttled to improve performance.</td>
     </tr>
-    <tr>
-      <td>refresh-complete</td>
-      <td>function</td>
-      <td></td>
-      <td>A function on the current scope called by the *user code* when refreshing is completed on the pull to refresh operation.</td>
-    </tr>
+-->
     <tr>
       <td>padded</td>
       <td>true/false</td>
@@ -135,4 +129,23 @@ angular.module('myModule', [])
 
 ### Pull to Refresh
 
-Pull to refresh is an incredibly common UI paradigm found in mobile apps these days.
+Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the `<refresher>` element to the beginning of the scroll content:
+
+```html
+  <!-- content area -->
+  <content on-refresh="onRefresh()">
+    <refresher></refresher>
+  </content>
+```
+
+This will give you a default icon and animation style. To customize the pull to refresh, use `<scroll-refresher>` instead of `<refresher>` and supply your own content:
+
+```html
+  <!-- content area -->
+  <content on-refresh="onRefresh()">
+    <scroll-refresher>
+      Pull to refresh...
+    </scroll-refresher>
+  </content>
+```
+

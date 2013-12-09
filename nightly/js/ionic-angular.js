@@ -652,6 +652,7 @@ angular.module('ionic.ui.content', [])
       onRefresh: '&',
       onRefreshOpening: '&',
       onScroll: '&',
+      onScrollComplete: '&',
       refreshComplete: '=',
       scroll: '@',
       hasScrollX: '@',
@@ -718,7 +719,13 @@ angular.module('ionic.ui.content', [])
           $timeout(function() { 
             sv = new ionic.views.Scroll({
               el: $element[0],
-              scrollEventInterval: parseInt($scope.scrollEventInterval, 10) || 40
+              scrollEventInterval: parseInt($scope.scrollEventInterval, 10) || 40,
+              scrollingComplete: function() {
+                $scope.onScrollComplete({
+                  scrollTop: this.__scrollTop,
+                  scrollLeft: this.__scrollLeft
+                });
+              }
             });
 
             // Activate pull-to-refresh
@@ -738,8 +745,8 @@ angular.module('ionic.ui.content', [])
             $element.bind('scroll', function(e) {
               $scope.onScroll({
                 event: e,
-                scrollTop: e.detail.scrollTop,
-                scrollLeft: e.detail.scrollLeft
+                scrollTop: e.detail ? e.detail.scrollTop : e.originalEvent ? e.originalEvent.detail.scrollTop : 0,
+                scrollLeft: e.detail ? e.detail.scrollLeft: e.originalEvent ? e.originalEvent.detail.scrollLeft : 0
               });
             });
 
@@ -1644,8 +1651,8 @@ angular.module('ionic.ui.scroll', [])
           $element.bind('scroll', function(e) {
             $scope.onScroll({
               event: e,
-              scrollTop: e.detail.scrollTop,
-              scrollLeft: e.detail.scrollLeft
+              scrollTop: e.detail ? e.detail.scrollTop : e.originalEvent ? e.originalEvent.detail.scrollTop : 0,
+              scrollLeft: e.detail ? e.detail.scrollLeft: e.originalEvent ? e.originalEvent.detail.scrollLeft : 0
             });
           });
 
@@ -1861,13 +1868,25 @@ angular.module('ionic.ui.slideBox', [])
     restrict: 'E',
     replace: true,
     transclude: true,
+    scope: {},
     controller: ['$scope', '$element', function($scope, $element) {
       $scope.slides = [];
       this.slideAdded = function() {
         $scope.slides.push({});
       };
+
+      angular.extend(this, ionic.views.SlideBox.prototype);
+
+      ionic.views.SlideBox.call(this, {
+        el: $element[0],
+        slideChanged: function(slideIndex) {
+          $scope.$parent.$broadcast('slideBox.slideChanged', slideIndex);
+          $scope.$apply();
+        }
+      });
+
+      $scope.$parent.slideBox = this;
     }],
-    scope: {},
     template: '<div class="slide-box">\
             <div class="slide-box-slides" ng-transclude>\
             </div>\
@@ -1879,13 +1898,6 @@ angular.module('ionic.ui.slideBox', [])
         var childScope = $scope.$new();
         var pager = $compile('<pager></pager>')(childScope);
         $element.append(pager);
-
-        $scope.slideBox = new ionic.views.SlideBox({
-          el: $element[0],
-          slideChanged: function(slideIndex) {
-            $scope.$parent.$broadcast('slideBox.slideChanged', slideIndex);
-          }
-        });
       }
     }
   };

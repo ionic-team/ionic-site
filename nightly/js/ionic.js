@@ -2413,6 +2413,10 @@ ionic.views.Scroll = ionic.views.View.inherit({
 			this.options[key] = options[key];
 		}
 
+    this.hintResize = ionic.debounce(function() {
+      self.resize();
+    }, 1000, true);
+
     this.triggerScrollEvent = ionic.throttle(function() {
       ionic.trigger('scroll', {
         scrollTop: self.__scrollTop,
@@ -2673,8 +2677,8 @@ ionic.views.Scroll = ionic.views.View.inherit({
     // Update Scroller dimensions for changed content
     // Add padding to bottom of content
     this.setDimensions(
-    	Math.min(this.__container.clientWidth, this.__container.parentElement.clientWidth), 
-    	Math.min(this.__container.clientHeight, this.__container.parentElement.clientHeight), 
+    	this.__container.clientWidth,
+    	this.__container.clientHeight,
     	this.__content.offsetWidth, 
     	this.__content.offsetHeight+20);
   },
@@ -3106,6 +3110,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
    * Touch start handler for scrolling support
    */
   doTouchStart: function(touches, timeStamp) {
+    this.hintResize();
 
     // Array-like check is enough here
     if (touches.length == null) {
@@ -5586,9 +5591,9 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
         this._leftShowing = false;
 
         // Bring the z-index of the right menu up
-        this.right && this.right.bringUp();
+        this.right && this.right.bringUp && this.right.bringUp();
         // Push the z-index of the left menu down
-        this.left && this.left.pushDown();
+        this.left && this.left.pushDown && this.left.pushDown();
       }
     },
 

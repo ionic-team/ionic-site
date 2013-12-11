@@ -68,6 +68,37 @@ angular.module('myModule', [])
 
 ```
 
+If you content of scroll area changes, we can tell the content area to resize and update itself:
+
+```javascript
+$scope.$broadcast('scroll.resize');
+```
+
+### Pull to Refresh
+
+Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the `<refresher>` element to the beginning of the scroll content:
+
+```html
+  <!-- content area -->
+  <content on-refresh="onRefresh()">
+    <refresher></refresher>
+  </content>
+```
+
+This will give you a default icon and animation style. To customize the pull to refresh, use `<scroll-refresher>` instead of `<refresher>` and supply your own content:
+
+```html
+  <!-- content area -->
+  <content on-refresh="onRefresh()">
+    <scroll-refresher>
+      Pull to refresh...
+    </scroll-refresher>
+  </content>
+```
+
+
+### Available options
+
 <table class="table">
   <thead>
     <tr>
@@ -126,26 +157,4 @@ angular.module('myModule', [])
     </tr>
   </tbody>
 </table>
-
-### Pull to Refresh
-
-Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the `<refresher>` element to the beginning of the scroll content:
-
-```html
-  <!-- content area -->
-  <content on-refresh="onRefresh()">
-    <refresher></refresher>
-  </content>
-```
-
-This will give you a default icon and animation style. To customize the pull to refresh, use `<scroll-refresher>` instead of `<refresher>` and supply your own content:
-
-```html
-  <!-- content area -->
-  <content on-refresh="onRefresh()">
-    <scroll-refresher>
-      Pull to refresh...
-    </scroll-refresher>
-  </content>
-```
 

@@ -68,7 +68,9 @@ angular.module('myModule', [])
 
 ```
 
-If you content of scroll area changes, we can tell the content area to resize and update itself:
+### Dynamic content resizing
+
+If the content of your scroll area changes, we can tell the content area to resize and update itself:
 
 ```javascript
 $scope.$broadcast('scroll.resize');

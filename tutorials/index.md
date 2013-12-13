@@ -7,9 +7,6 @@ header_sub_title: A growing list of tutorials to help you get the most out of Io
 Tutorials
 ====
 
-- [Angular Routing](/tutorials/angular-routing/)
-- [Customizing Your Ionic App With Sass](/tutorials/customizing-ionic-with-sass/)
-
 ### Ionic, AngularJS and Cordova Seed Project
 
 For most of these tutorials, we will be using the official [ionic-angular-cordova-seed](http://github.com/driftyco/ionic-angular-cordova-seed) project on GitHub. This project sets you up with a working example Ionic app that uses [Cordova](http://cordova.apache.org/) to build to a native app.

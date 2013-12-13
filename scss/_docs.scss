@@ -363,3 +363,7 @@
     text-align: center;
   }
 }
+
+.table tr td:first-child {
+  white-space: nowrap;
+}

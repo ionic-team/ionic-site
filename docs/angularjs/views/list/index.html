@@ -20,29 +20,22 @@ Available in:
 </p>
 <p>
   The list view is a very versatile and powerful component used to display lists of 
-  data. List views support various interaction modes such as editing, swipe to edit,
-  drag to reorder, and pull to refresh. 
+  data. List views support various interaction modes such as swipe to edit,
+  drag to reorder, removing items, and pull to refresh. 
 </p>
 <p>
-  Both the list, which contains the list items, and the list items themselves
+  Both the list, which contains items, and the list items themselves
   can be any HTML element. The containing element requires the <code>list</code> 
   class and each list item requires the <code>item</code> class.
+  Ionic also comes with pre-built Angular directives to make it easier to create a 
+  complex list. 
 </p>
 
 <h2>Usage</h2>
 
 {% highlight html %}
-<list
-      is-editing=".."
-      on-refresh-holding=".."
-      on-refresh-opening=".."
-      on-refresh=".."
-      animation=".."
-      delete-icon=".."
-      reorder-icon="..">
-  <!-- items here -->
-  <item ng-repeat="item in items">
-  </item>
+<list>
+  <item ng-repeat="item in items"></item>
 </list>
 {% endhighlight %}
 
@@ -71,14 +64,26 @@ Available in:
     </tr>
     -->
     <tr>
-      <td>is-editing</td>
-      <td><b>boolean</b></td>
-      <td>false</td>
-      <td>A boolean value indicating whether to put the list in "edit mode"</td>
+      <td>on-delete</td>
+      <td><b>function()</b></td>
+      <td></td>
+      <td>Called when an item is deleted.</td>
+    </tr>
+    <tr>
+      <td>on-reorder</td>
+      <td><b>function()</b></td>
+      <td></td>
+      <td>Called when an item is reordered.</td>
+    </tr>
+    <tr>
+      <td>on-select</td>
+      <td><b>function()</b></td>
+      <td></td>
+      <td>Called when an item is selected or "tapped" by the user.</td>
     </tr>
     <tr>
       <td>on-refresh</td>
-      <td><b>function</b></td>
+      <td><b>function()</b></td>
       <td></td>
       <td>Called when the list has been pulled to refresh and is now refreshing.</td>
     </tr>
@@ -91,31 +96,68 @@ Available in:
     </tr>
     <tr>
       <td>on-refresh-holding</td>
-      <td><b>function</b></td>
+      <td><b>function()</b></td>
       <td></td>
       <td>A callback triggered when the list is being pulled down and held before refreshing.</td>
+    </tr>
+    <tr>
+      <td>show-delete</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>A true/false value which toggles each item's delete button.</td>
+    </tr>
+    <tr>
+      <td>show-reorder</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>A true/false value which toggles each item's reorder button.</td>
+    </tr>
+    <tr>
+      <td>can-delete</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>A true/false indicating if an item can even be deleted or not. If <code>on-delete</code> is set then
+        this value will default to true.</td>
+    </tr>
+    <tr>
+      <td>can-reorder</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>A true/false indicating if an item can even be reordered or not.</td>
+    </tr>
+    <tr>
+      <td>can-swipe</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>A true/false indicating if an item can even be swiped to reveal option buttons.</td>
+    </tr>
+    <tr>
+      <td>delete-icon</td>
+      <td><b>className</b></td>
+      <td>ion-minus-circled</td>
+      <td>The class name of the icon to show for all deletion items. The default
+        <a href="http://ionicons.com/">ionicon</a> is <b>ion-minus-circled</b>.
+      </td>
+    </tr>
+    <tr>
+      <td>reorder-icon</td>
+      <td><b>className</b></td>
+      <td>ion-navicon</td>
+      <td>The class name of the icon to show for reordering. The default 
+        <a href="http://ionicons.com/">ionicon</a> is <b>ion-navicon</b>.
+      </td>
+    </tr>
+    <tr>
+      <td>item-type</td>
+      <td><b>className</b></td>
+      <td></td>
+      <td>The classnames which are available for item, check out the <a href="/docs/components/#list">component docs</a> for more info.</td>
     </tr>
     <tr>
       <td>animation</td>
       <td><b>className</b></td>
       <td></td>
       <td>An animation class to apply on the list for animating children.</td>
-    </tr>
-    <tr>
-      <td>delete-icon</td>
-      <td><b>icon className</b></td>
-      <td>ion-minus-circled</td>
-      <td>The class name of the icon to show for all deletion items. We recommend the default
-        <a href="http://ionicons.com/">ionicon</a> <b>ion-minus-circled</b>
-      </td>
-    </tr>
-    <tr>
-      <td>reorder-icon</td>
-      <td><b>icon className</b></td>
-      <td>ion-navicon</td>
-      <td>The class name of the icon to show for reordering. The recommended default is
-        <b>ion-navicon</b>
-      </td>
     </tr>
   </tbody>
 </table>
@@ -125,29 +167,18 @@ Available in:
 
 <p>
   List items make up the bulk of lists. List items can be swiped,
-  reordered, deleted, and selected. They support hidden button bars
+  reordered, deleted, and selected. They support hidden option buttons
   that are exposed after swiping, and trigger events on deletion and
   selection.
 </p>
 <p>
   List items also support embedded form elements and right-hand icons.
 </p>
-
-{% highlight html %}
-<item 
-buttons="item.buttons"
-can-delete="true"
-can-reorder="true"
-can-swipe="true"
-on-delete="deleteProject(project)"
-on-select="selectProject(project)">
-<!-- item content -->
-</item>
-{% endhighlight %}
 <p>
   The content specified in the item content area will be the main content of the displayed item.
   Make sure to add an icon at the end if you want a right-handed icon.
 </p>
+
 <table class="table">
   <thead>
     <tr>
@@ -158,19 +189,17 @@ on-select="selectProject(project)">
   </thead>
   <tbody>
     <tr>
-      <td>buttons</td>
-      <td><b>Array</b></td>
+      <td>option-buttons</td>
+      <td><b>array</b></td>
       <td>Buttons is an array of objects specifying the hidden buttons show underneath an item when swiped. The format of each
-        button object is:
-<code>
-<pre>
-{
-text: 'Delete',
-type: 'button-danger',
-buttonClicked: function(item) {},
+        button object is: <code><pre>{
+  text: 'Edit',
+  type: 'button',
+  onClick: function(item) {
+    ..
+  }
 }
-</pre>
-</code></td>
+</pre></code></td>
     </tr>
     <tr>
       <td>can-delete</td>
@@ -189,13 +218,18 @@ buttonClicked: function(item) {},
     </tr>
     <tr>
       <td>on-delete</td>
-      <td><b>function</b></td>
+      <td><b>function()</b></td>
       <td>Called when an item is deleted by the user.</td>
     </tr>
     <tr>
       <td>on-select</td>
-      <td><b>function</b></td>
+      <td><b>function()</b></td>
       <td>Called when an item is selected or "tapped" by the user.</td>
+    </tr>
+    <tr>
+      <td>item-type</td>
+      <td><b>className</b></td>
+      <td>The classnames which are available for item, check out the <a href="/docs/components/#list">component docs</a> for more info.</td>
     </tr>
   </tbody>
 </table>

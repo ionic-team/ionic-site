@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5310,6 +5311,9 @@ td.visible-print {
     display: block;
     width: 42px;
     text-align: center; }
+
+.table tr td:first-child {
+  white-space: nowrap; }
 
 #showcase #apps {
   margin-top: 40px; }

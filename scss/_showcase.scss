@@ -2,6 +2,9 @@
 
   #apps {
     margin-top: 40px;
+    > .row {
+      margin-top: 50px;
+    }
   }
 
   #contact {
@@ -9,6 +12,9 @@
   }
 
   .app {
+    .row {
+      margin-bottom: 15px;
+    }
     img {
       width: 100%;
     }

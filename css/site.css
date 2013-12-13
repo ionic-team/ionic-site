@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5317,8 +5316,12 @@ td.visible-print {
 
 #showcase #apps {
   margin-top: 40px; }
+  #showcase #apps > .row {
+    margin-top: 50px; }
 #showcase #contact {
   margin-top: 15px; }
+#showcase .app .row {
+  margin-bottom: 15px; }
 #showcase .app img {
   width: 100%; }
 

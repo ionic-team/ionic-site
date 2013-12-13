@@ -98,6 +98,13 @@ This will give you a default icon and animation style. To customize the pull to 
   </content>
 ```
 
+When refreshing is complete, you'll need to tell the scroll view to stop the refresh. To do this, trigger an event either up or down the scope chain to the scroll view. If your controller is "above" the scroll view in the scope chain, use broadcast:
+
+```javascript
+$scope.$broadcast('scroll.refreshComplete');
+```
+
+Use `$scope.$emit` if the scroll view is above your controller.
 
 ### Available options
 

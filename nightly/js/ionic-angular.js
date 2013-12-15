@@ -2,7 +2,7 @@
  * Copyright 2013 Drifty Co.
  * http://drifty.com/
  *
- * Ionic, v0.9.14
+ * Ionic, v0.9.17
  * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
@@ -547,7 +547,6 @@ angular.module('ionic.ui.header', ['ngAnimate'])
 
       $scope.$watch('title', function(val) {
         // Resize the title since the title has changed
-        console.log('Title changed');
         hb.align();
       });
     }
@@ -657,27 +656,20 @@ angular.module('ionic.ui.content', [])
       scroll: '@',
       hasScrollX: '@',
       hasScrollY: '@',
+      scrollbarX: '@',
+      scrollbarY: '@',
       scrollEventInterval: '@'
     },
     compile: function(element, attr, transclude) {
       return function($scope, $element, $attr) {
-        var clone, sc, sv;
+        var clone, sc, sv,
+          addedPadding = false,
+          c = $element.eq(0);
 
-        var addedPadding = false;
-        var c = $element.eq(0);
-
-        if(attr.hasHeader == "true") {
-          c.addClass('has-header');
-        }
-        if(attr.hasSubheader == "true") {
-          c.addClass('has-subheader');
-        }
-        if(attr.hasFooter == "true") {
-          c.addClass('has-footer');
-        }
-        if(attr.hasTabs == "true") {
-          c.addClass('has-tabs');
-        }
+        if(attr.hasHeader == "true") { c.addClass('has-header'); }
+        if(attr.hasSubheader == "true") { c.addClass('has-subheader'); }
+        if(attr.hasFooter == "true") { c.addClass('has-footer'); }
+        if(attr.hasTabs == "true") { c.addClass('has-tabs'); }
 
         // If they want plain overflow scrolling, add that as a class
         if($scope.scroll === "false") {
@@ -715,10 +707,13 @@ angular.module('ionic.ui.content', [])
 
 
           // Otherwise, supercharge this baby!
-          // Add timeout to let content render so Scroller.resize grabs the right content height
-          $timeout(function() { 
+          $timeout(function() {
             sv = new ionic.views.Scroll({
               el: $element[0],
+              scrollbarX: $scope.$eval($scope.scrollbarX) !== false,
+              scrollbarY: $scope.$eval($scope.scrollbarY) !== false,
+              scrollingX: $scope.$eval($scope.hasScrollX) === true,
+              scrollingY: $scope.$eval($scope.hasScrollY) !== false,
               scrollEventInterval: parseInt($scope.scrollEventInterval, 10) || 20,
               scrollingComplete: function() {
                 $scope.onScrollComplete({
@@ -730,7 +725,7 @@ angular.module('ionic.ui.content', [])
 
             // Activate pull-to-refresh
             if(refresher) {
-              sv.activatePullToRefresh(refresherHeight, function() {
+              sv.activatePullToRefresh(50, function() {
                 refresher.classList.add('active');
               }, function() {
                 refresher.classList.remove('refreshing');
@@ -750,13 +745,20 @@ angular.module('ionic.ui.content', [])
               });
             });
 
+            $scope.$parent.$on('scroll.resize', function(e) {
+              // Run the resize after this digest
+              $timeout(function() {
+                sv && sv.resize();
+              });
+            });
+
             $scope.$parent.$on('scroll.refreshComplete', function(e) {
               sv && sv.finishPullToRefresh();
             });
             
             // Let child scopes access this 
             $scope.$parent.scrollView = sv;
-          }, 500);
+          });
 
 
 
@@ -799,227 +801,148 @@ angular.module('ionic.ui.content', [])
 
 angular.module('ionic.ui.list', ['ngAnimate'])
 
-.directive('linkItem', ['$timeout', function($timeout) {
-  return {
-    restrict: 'E',
-    require: ['?^list'],
-    replace: true,
-    transclude: true,
-    scope: {
-      item: '=',
-      onSelect: '&',
-      onDelete: '&',
-      canDelete: '@',
-      canReorder: '@',
-      canSwipe: '@',
-      buttons: '=',
-      type: '@',
-      href: '@'
-    },
-    template: '<a href="{{href}}" ng-click="onSelect()" class="item">\
-            <div class="item-edit" ng-if="canDelete && isEditing">\
-              <button class="button button-icon icon" ng-class="deleteIcon" ng-click="onDelete()"></button>\
-            </div>\
-            <div class="item-content slide-left" ng-transclude>\
-            </div>\
-             <div class="item-drag" ng-if="canReorder && isEditing">\
-               <button data-ionic-action="reorder" class="button button-icon icon" ng-class="reorderIcon"></button>\
-             </div>\
-            <div class="item-options" ng-if="canSwipe && !isEditing && showOptions">\
-             <button ng-click="buttonClicked(button)" class="button" ng-class="button.type" ng-repeat="button in buttons">{{button.text}}</button>\
-           </div>\
-          </a>',
-
-    link: function($scope, $element, $attr, list) {
-      // Grab the parent list controller
-      if(list[0]) {
-        list = list[0];
-      } else if(list[1]) {
-        list = list[1];
-      }
-
-      $attr.$observe('href', function(value) {
-        $scope.href = value;
-      });
-
-      // Add the list item type class
-      $element.addClass($attr.type || 'item-complex');
-
-      if($attr.type !== 'item-complex') {
-        $scope.canSwipe = false;
-      }
-
-      $scope.isEditing = false;
-      $scope.deleteIcon = list.scope.deleteIcon;
-      $scope.reorderIcon = list.scope.reorderIcon;
-      $scope.showOptions = true;
-
-      $scope.buttonClicked = function(button) {
-        button.onButtonClicked && button.onButtonClicked($scope.item, button);
-      };
-
-      var deregisterListWatch = list.scope.$watch('isEditing', function(v) {
-        $scope.isEditing = v;
-
-        // Add a delay before we allow the options layer to show, to avoid any odd
-        // animation issues
-        if(!v) {
-          $timeout(function() {
-            $scope.showOptions = true;
-          }, 200);
-        } else {
-          $scope.showOptions = false;
-        }
-      });
-
-      $scope.$on('$destroy', function () {
-        deregisterListWatch();
-      });
-    }
-  };
-}])
-
 .directive('item', ['$timeout', function($timeout) {
   return {
     restrict: 'E',
-    require: ['?^list'],
+    require: '?^list',
     replace: true,
     transclude: true,
+
     scope: {
       item: '=',
-      onSelect: '&',
-      onDelete: '&',
+      itemType: '@',
       canDelete: '@',
       canReorder: '@',
       canSwipe: '@',
-      buttons: '=',
-      type: '@',
+      onDelete: '&',
+      optionButtons: '&',
+      deleteIcon: '@',
+      reorderIcon: '@'
     },
-    template: '<li ng-click="onSelect()" class="item">\
-            <div class="item-edit" ng-if="canDelete && isEditing">\
-              <button class="button button-icon icon" ng-class="deleteIcon" ng-click="onDelete()"></button>\
+
+    template: '<div class="item item-complex" ng-class="itemClass">\
+            <div class="item-edit" ng-if="deleteClick !== undefined">\
+              <button class="button button-icon icon" ng-class="deleteIconClass" ng-click="deleteClick()"></button>\
             </div>\
-            <div class="item-content slide-left" ng-transclude>\
+            <a class="item-content" ng-href="{{ href }}" ng-transclude></a>\
+            <div class="item-drag" ng-if="reorderIconClass !== undefined">\
+              <button data-ionic-action="reorder" class="button button-icon icon" ng-class="reorderIconClass"></button>\
             </div>\
-             <div class="item-drag" ng-if="canReorder && isEditing">\
-               <button data-ionic-action="reorder" class="button button-icon"><i ng-class="reorderIcon"></i></button>\
-             </div>\
-            <div class="item-options" ng-if="canSwipe && !isEditing && showOptions">\
-             <button ng-click="buttonClicked(button)" class="button" ng-class="button.type" ng-repeat="button in buttons">{{button.text}}</button>\
+            <div class="item-options" ng-if="itemOptionButtons">\
+             <button ng-click="b.onClick(item, b)" class="button" ng-class="b.type" ng-repeat="b in itemOptionButtons" ng-bind="b.text"></button>\
            </div>\
-          </li>',
+          </div>',
 
     link: function($scope, $element, $attr, list) {
-      // Grab the parent list controller
-      if(list[0]) {
-        list = list[0];
-      } else if(list[1]) {
-        list = list[1];
-      }
+      if(!list) return;
+      
+      var $parentScope = list.scope;
+      var $parentAttrs = list.attrs;
 
-      // Add the list item type class
-      $element.addClass($attr.type || 'item-complex');
+      $attr.$observe('href', function(value) {
+        if(value) $scope.href = value.trim();
+      });
 
-      if($attr.type !== 'item-complex') {
-        $scope.canSwipe = false;
-      }
+      // Set this item's class, first from the item directive attr, and then the list attr if item not set
+      $scope.itemClass = $scope.itemType || $parentScope.itemType;
 
-      $scope.isEditing = false;
-      $scope.deleteIcon = list.scope.deleteIcon;
-      $scope.reorderIcon = list.scope.reorderIcon;
-      $scope.showOptions = true;
+      // Decide if this item can do stuff, and follow a certain priority 
+      // depending on where the value comes from
+      if(($attr.canDelete ? $scope.canDelete : $parentScope.canDelete) !== "false") {
+        if($attr.onDelete || $parentAttrs.onDelete) {
 
-      $scope.buttonClicked = function(button) {
-        button.onButtonClicked && button.onButtonClicked($scope.item, button);
-      };
+          // only assign this method when we need to
+          // and use its existence to decide if the delete should show or not
+          $scope.deleteClick = function() {
+            if($attr.onDelete) {
+              // this item has an on-delete attribute
+              $scope.onDelete({ item: $scope.item });
+            } else if($parentAttrs.onDelete) {
+              // run the parent list's onDelete method
+              // if it doesn't exist nothing will happen
+              $parentScope.onDelete({ item: $scope.item });
+            }
+          };
 
-      var deregisterListWatch = list.scope.$watch('isEditing', function(v) {
-        $scope.isEditing = v;
-
-        // Add a delay before we allow the options layer to show, to avoid any odd
-        // animation issues
-        if(!v) {
-          $timeout(function() {
-            $scope.showOptions = true;
-          }, 200);
-        } else {
-          $scope.showOptions = false;
+          // Set which icons to use for deleting
+          $scope.deleteIconClass = $scope.deleteIcon || $parentScope.deleteIcon || 'ion-minus-circled';
         }
-      });
+      }
 
-      $scope.$on('$destroy', function () {
-        deregisterListWatch();
-      });
+      // set the reorder Icon Class only if the item or list set can-reorder="true"
+      if(($attr.canReorder ? $scope.canReorder : $parentScope.canReorder) === "true") {
+        $scope.reorderIconClass = $scope.reorderIcon || $parentScope.reorderIcon || 'ion-navicon';
+      }
+
+      // Set the option buttons which can be revealed by swiping to the left
+      // if canSwipe was set to false don't even bother
+      if(($attr.canSwipe ? $scope.canSwipe : $parentScope.canSwipe) !== "false") {
+        $scope.itemOptionButtons = $scope.optionButtons();
+        if(typeof $scope.itemOptionButtons === "undefined") {
+          $scope.itemOptionButtons = $parentScope.optionButtons();
+        }
+      }
+
     }
   };
 }])
 
-.directive('list', function() {
+.directive('list', ['$timeout', function($timeout) {
   return {
     restrict: 'E',
     replace: true,
     transclude: true,
 
     scope: {
-      isEditing: '=',
-      deleteIcon: '@',
-      reorderIcon: '@',
-      hasPullToRefresh: '@',
-      onRefresh: '&',
-      onRefreshOpening: '&',
+      itemType: '@',
+      canDelete: '@',
+      canReorder: '@',
+      canSwipe: '@',
+      showDelete: '=',
+      showReorder: '=',
+      onDelete: '&',
       onReorder: '&',
-      refreshComplete: '='
+      optionButtons: '&',
+      deleteIcon: '@',
+      reorderIcon: '@'
     },
 
-    controller: function($scope) {
-      var _this = this;
+    template: '<div class="list" ng-class="{\'list-editing\': showDelete, \'list-reordering\': showReorder}" ng-transclude></div>',
 
+    controller: function($scope, $attrs) {
       this.scope = $scope;
-
-      $scope.$watch('isEditing', function(v) {
-        _this.isEditing = true;
-      });
+      this.attrs = $attrs;
     },
-
-    template: '<ul class="list" ng-class="{\'list-editing\': isEditing}" ng-transclude>\
-              </ul>',
 
     link: function($scope, $element, $attr) {
-      var lv = new ionic.views.ListView({
+      $scope.listView = new ionic.views.ListView({
         el: $element[0],
-        listEl: $element[0].children[0],
-        hasPullToRefresh: ($scope.hasPullToRefresh !== 'false'),
-        onRefresh: function() {
-          $scope.onRefresh();
-          $scope.$parent.$broadcast('scroll.onRefresh');
-        },
-        onRefreshOpening: function(amt) {
-          $scope.onRefreshOpening({amount: amt});
-          $scope.$parent.$broadcast('scroll.onRefreshOpening', amt);
-        },
-        onReorder: function(el, oldIndex, newIndex) {
-          console.log('Moved', el,oldIndex,newIndex);
-          $scope.$apply(function() {
-            $scope.onReorder({el: el, start: oldIndex, end: newIndex});
-          });
+        listEl: $element[0].children[0]
+      });
+
+      if($attr.animation) {
+        $element[0].classList.add($attr.animation);
+      }
+
+      var destroyShowReorderWatch = $scope.$watch('showReorder', function(val) {
+        if(val) {
+          $element[0].classList.add('item-options-hide');
+        } else if(val === false) {
+          // false checking is because it could be undefined
+          // if its undefined then we don't care to do anything
+          $timeout(function(){
+            $element[0].classList.remove('item-options-hide');
+          }, 250);
         }
       });
 
-      $scope.listView = lv;
+      $scope.$on('$destroy', function () {
+        destroyShowReorderWatch();
+      });
 
-      if($attr.refreshComplete) {
-        $scope.refreshComplete = function() {
-          lv.doneRefreshing();
-          $scope.$parent.$broadcast('scroll.onRefreshComplete');
-        };
-      }
-
-      if($attr.animation) {
-        $element.addClass($attr.animation);
-      }
     }
   };
-});
+}]);
 
 })();
 ;
@@ -1567,7 +1490,11 @@ angular.module('ionic.ui.radio', [])
         }
       });
         
-      $element.bind('click', clickHandler);
+      ionic.on('tap', clickHandler, $element[0]);
+
+      $scope.$on('$destroy', function() {
+        ionic.off('tap', clickHandler);
+      });
     }
   };
 });
@@ -1591,6 +1518,8 @@ angular.module('ionic.ui.scroll', [])
       onScroll: '&',
       refreshComplete: '=',
       scroll: '@',
+      scrollbarX: '@',
+      scrollbarY: '@',
     },
 
     compile: function(element, attr, transclude) {
@@ -1622,14 +1551,14 @@ angular.module('ionic.ui.scroll', [])
         }
 
 
-        // Otherwise, supercharge this baby!
-        // Add timeout to let content render so Scroller.resize grabs the right content height
-        $timeout(function() { 
-          var hasScrollingX = $scope.direction.indexOf('x') >= 0;
-          var hasScrollingY = $scope.direction.indexOf('y') >= 0;
+        var hasScrollingX = $scope.direction.indexOf('x') >= 0;
+        var hasScrollingY = $scope.direction.indexOf('y') >= 0;
 
+        $timeout(function() {
           sv = new ionic.views.Scroll({
             el: $element[0],
+            scrollbarX: $scope.$eval($scope.scrollbarX) !== false,
+            scrollbarY: $scope.$eval($scope.scrollbarY) !== false,
             scrollingX: hasScrollingX,
             scrollingY: hasScrollingY
           });
@@ -1656,13 +1585,20 @@ angular.module('ionic.ui.scroll', [])
             });
           });
 
+          $scope.$parent.$on('scroll.resize', function(e) {
+            // Run the resize after this digest
+            $timeout(function() {
+              sv && sv.resize();
+            });
+          });
+
           $scope.$parent.$on('scroll.refreshComplete', function(e) {
             sv && sv.finishPullToRefresh();
           });
           
           // Let child scopes access this 
           $scope.$parent.scrollView = sv;
-        }, 500);
+        });
       };
     }
   };
@@ -1717,7 +1653,7 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture'])
   };
 })
 
-.directive('sideMenuContent', ['Gesture', function(Gesture) {
+.directive('sideMenuContent', ['$timeout', 'Gesture', function($timeout, Gesture) {
   return {
     restrict: 'AC',
     require: '^sideMenus',
@@ -1726,6 +1662,8 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture'])
       return function($scope, $element, $attr, sideMenuCtrl) {
 
         $element.addClass('menu-content');
+
+        $scope.dragContent = $scope.$eval($attr.dragContent) === false ? false : true;
 
         var defaultPrevented = false;
         var isDragging = false;
@@ -1743,12 +1681,14 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture'])
         */
 
         var dragFn = function(e) {
-          if(defaultPrevented) {
-            return;
+          if($scope.dragContent) {
+            if(defaultPrevented) {
+              return;
+            }
+            isDragging = true;
+            sideMenuCtrl._handleDrag(e);
+            e.gesture.srcEvent.preventDefault();
           }
-          isDragging = true;
-          sideMenuCtrl._handleDrag(e);
-          e.gesture.srcEvent.preventDefault();
         };
 
         var dragVertFn = function(e) {
@@ -1780,8 +1720,10 @@ angular.module('ionic.ui.sideMenu', ['ionic.service.gesture'])
             return $scope.sideMenuContentTranslateX || 0;
           },
           setTranslateX: function(amount) {
-            $scope.sideMenuContentTranslateX = amount;
             $element[0].style.webkitTransform = 'translate3d(' + amount + 'px, 0, 0)';
+            $timeout(function() {
+              $scope.sideMenuContentTranslateX = amount;
+            });
           },
           enableAnimation: function() {
             //this.el.classList.add(this.animateClass);

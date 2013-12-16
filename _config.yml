@@ -20,3 +20,6 @@ included_angular_version: 1.2.4
 
 # Docs Location Config
 docs_0_9_0: /docs
+
+# the primary plunkr to fork
+code_sample_base_url: http://plnkr.co/edit/vD0O9M?p=preview

@@ -47,6 +47,15 @@ angular.module('myApp', ['ionic'])
 {% endhighlight %}
     </p>
     <p>
+      Which might correspond to the following HTML:
+    </p>
+    <p>
+{% highlight html %}
+      <body ng-controller="MyCtrl">
+      </body>
+{% endhighlight %}
+    </p>
+    <p>
       That's it! You've got your fullscreen app and you are now ready for party time.
     </p>
   </div>

@@ -301,5 +301,8 @@ angular.module('myApp', ['ionic', 'ngRoute'])
     <p>
 And that's it! You now have a nice intro tutorial for your users!
     </p>
+    <p>
+      <a href="http://forum.ionicframework.com/t/new-tutorial-swipeable-user-intro-tutorial/278">Discuss this tutorial on the forum</a>
+    </p>
   </div>
 </div>

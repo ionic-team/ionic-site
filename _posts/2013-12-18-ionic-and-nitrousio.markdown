@@ -3,7 +3,7 @@ layout: post
 title: "Build a Mobile App on Nitrous.IO with Ionic Framework, Firebase, and PhoneGap"
 date:   "2013-12-18 14:00:00"
 categories: ionic
-author: 'A community post by <img src="http://www.gravatar.com/avatar/38543d631e009559d7630877856991ca?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/gmckeever" target="_blank">@gmckeever</a> of <a href="http://nitrous.io">Nitrous.IO</a>'
+author: 'A community post by <img src="http://www.gravatar.com/avatar/38543d631e009559d7630877856991ca?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/gmckeever" target="_blank">@gmckeever</a> of <a href="http://nitrous.io">Nitrous.IO</a>, provider of fast dev environments in the cloud<br>'
 published: true
 ---
 

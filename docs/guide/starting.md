@@ -11,7 +11,7 @@ Previous: <a href="installation.html">Installing Ionic</a>
 
 Now that we've got everything installed and a new Cordova project created, let's jump in and start building a real app!
 
-The Todo list app is pretty much a right of passage for frameworks, so we will walk through the process of building one with Ionic.
+The Todo list app is pretty much a rite of passage for frameworks, so we will walk through the process of building one with Ionic.
 
 Since every Ionic app is basically a web page, we need to have an `index.html` file in our app which defines the first page that loads in the app. Let's create `www/index.html` and initialize it with this:
 

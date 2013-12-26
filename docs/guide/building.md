@@ -226,7 +226,7 @@ And the new side menu markup:
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
       <button class="button button-icon" ng-click="newProject()">
-        <i class="ion ion-plus"></i>
+        <i class="icon ion-plus"></i>
       </button>
     </header>
     <content has-header="true" scroll="false">

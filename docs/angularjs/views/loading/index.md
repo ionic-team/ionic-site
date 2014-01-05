@@ -16,8 +16,6 @@ Loading
 The Loading is an overlay that can be used to indicate activity while blocking user interaction.
 
 
-<img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/loading.gif" alt="Loading" style="border: 1px solid #eee">
-
 ## Ionic-Angular Usage
 
 To trigger Loading in your code, use the `Loading` service in your angular controllers or directives:

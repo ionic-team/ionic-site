@@ -15,4 +15,8 @@ To start, download or clone the [seed project](http://github.com/driftyco/ionic-
 
 - `www/js/app.js`
 - `www/js/controllers.js`
+- `www/js/services.js`
 - `www/css/app.css`
+- `www/templates/app.html`
+- `www/templates/pet.html`
+- `www/index.html`

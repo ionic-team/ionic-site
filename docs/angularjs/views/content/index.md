@@ -98,6 +98,8 @@ This will give you a default icon and animation style. To customize the pull to 
   </content>
 ```
 
+*Hint: Ionicons comes with [animated icons](http://ionicons.com/animation.html).*
+
 When refreshing is complete, you'll need to tell the scroll view to stop the refresh. To do this, trigger an event either up or down the scope chain to the scroll view. If your controller is "above" the scroll view in the scope chain, use broadcast:
 
 ```javascript

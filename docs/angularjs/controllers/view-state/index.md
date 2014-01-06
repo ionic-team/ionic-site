@@ -27,8 +27,7 @@ The `nav-bar` uses the service to update the header with the correct title as th
 
 ## Quick Start
 
-<iframe src="http://embed.plnkr.co/yxmExJXZ2VBPPjqNwSIF/preview" width="100%" height="500px" allowfullscreen="allowfullscreen" frameborder="0" 
-        style="display: block; float: right; margin: 0 0 20px 20px; max-width: 320px; border: 1px solid #ddd; "></iframe>
+{% include code_preview.html src="http://embed.plnkr.co/yxmExJXZ2VBPPjqNwSIF/preview" %}
 
 To start, we place a `<div ui-view></div>` at the root of the app. The ui-view directive tells Ionic where to place your templates. A view can be unnamed or named, but only one unnamed view can be within any template (or root html). [Read more](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view)
 

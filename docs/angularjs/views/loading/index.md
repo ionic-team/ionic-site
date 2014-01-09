@@ -22,9 +22,9 @@ To trigger Loading in your code, use the `Loading` service in your angular contr
 
 ```javascript
 
-angular.module('test', ['ionic'])
+angular.module('LoadingApp', ['ionic'])
 
-.controller(function($scope, ['Loading', Loading) {
+.controller('LoadingCtrl', ['$scope', 'Loading', function($scope, Loading) {
 
   // Trigger the loading indicator
   $scope.show = function() {
@@ -32,30 +32,27 @@ angular.module('test', ['ionic'])
     // Show the loading overlay and text
     $scope.loading = Loading.show({
 
-      $scope.loadingIndicator = Loading.show({
+      // The text to display in the loading indicator
+      content: 'Loading',
 
-          // The text to display in the loading indicator
-          content: 'Loading',
+      // The animation to use
+      animation: 'fade-in',
 
-          // The animation to use
-          animation: 'fade-in',
+      // Will a dark overlay or backdrop cover the entire view
+      showBackdrop: true,
 
-          // Will a dark overlay or backdrop cover the entire view
-          showBackdrop: true,
+      // The maximum width of the loading indicator
+      // Text will be wrapped if longer than maxWidth
+      maxWidth: 200,
 
-          // The maximum width of the loading indicator
-          // Text will be wrapped if longer than maxWidth
-          maxWidth: 200,
-
-          // The delay in showing the indicator
-          showDelay: 500
-      });
+      // The delay in showing the indicator
+      showDelay: 500
     });
   };
 
   // Hide the loading indicator
   $scope.hide = function(){
     $scope.loading.hide();
-  }
+  };
 }]);
 ```

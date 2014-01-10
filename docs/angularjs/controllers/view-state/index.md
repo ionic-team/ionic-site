@@ -15,7 +15,7 @@ As a user navigates throughout your app, Ionic is able to keep track of their na
 
 Ionic uses the [AngularUI Router](https://github.com/angular-ui/ui-router) module so app interfaces can be organized into various "states". Like Angular's core `$route` service, URLs _can_ be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much more flexibility.
 
-With Angular's core [$route service](http://docs.angularjs.org/api/ngRoute.$route), the [`ngView` directive](http://docs.angularjs.org/api/ngRoute.directive:ngView) was used to render the template of the current route. With the AngularUI Router, Ionic instead uses the [`uiView` directive](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view) to renders templates. One of the largest advantages to `uiView` is that views can be nested, and allows multiple ui-views on one page.
+With Angular's core [$route service](http://docs.angularjs.org/api/ngRoute.$route), the `ngView` was used to render the template of the current route. With the AngularUI Router as the base, Ionic instead uses the `navView` directive to renders templates. One of the largest advantages to `navView` is that views can be nested, and allows multiple nav-views on one page.
 
 
 ## Navigation History
@@ -23,8 +23,6 @@ With Angular's core [$route service](http://docs.angularjs.org/api/ngRoute.$rout
 The View Service keeps track of the user's navigation history, such as what views are forward and backward from the current view (like a browser's back button). Using the service, the directives also know which direction an animations transition should happen, such as navigating between views (should it  slide left because you're navigating forward, or slide right because you're navigating backwards).
 
 The View Service is leveraged by the Ionic's `tabs` directive, which has child `tab` directives. Each tab requires its own history stack (forward and back buttons), and to do so each tab has its own `navView` directive. This system is similar to what you see in modern apps, such as iOS's App Store, or Android's Play Store.
-
-The `nav-bar` uses the service to update the header with the correct title as the user transitions through the app. 
 
 
 ## Quick Start
@@ -91,6 +89,11 @@ angular.module('myApp', ['ionic'])
 Please visit [AngularUI Router's docs](https://github.com/angular-ui/ui-router/wiki) for more info.
 
 
+### Nav Bar And Header Titles
+
+The `nav-bar` uses the View Service to update the header title as the user transitions through the app. For each transition, the title comes from the `title` attribute within the `view` transitioning in.
+
+
 ### Templates and Views
 
 Next, in each state's template should contain a `view` directive, which provides the view's title:
@@ -123,13 +126,11 @@ Next, in each state's template should contain a `view` directive, which provides
 {% endraw %}
 ```
 
-<!--
-### Nav Bar
 
 Inside of each `<view>` we can specify the title, left buttons, and right buttons that will be updated on the nav bar:
 
-```javascript
-<nav-page ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons">
+```html
+<view ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons">
 ```
 
 Which we can specify in our controller to be:
@@ -155,4 +156,4 @@ app.controller('AppCtrl', function($scope) {
     }
   ]
 });
-```-->
+```

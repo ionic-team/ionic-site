@@ -11,6 +11,8 @@ Available in:
 Views and Navigation
 ===
 
+{% include codepen.html id="HjnFx" %}
+
 As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic's navigation system is its ability to manage multiple histories. 
 
 Ionic uses the [AngularUI Router](https://github.com/angular-ui/ui-router) module so app interfaces can be organized into various "states". Like Angular's core `$route` service, URLs _can_ be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much more flexibility.
@@ -26,8 +28,6 @@ The View Service is leveraged by the Ionic's `tabs` directive, which has child `
 
 
 ## Quick Start
-
-{% include codepen.html id="HjnFx" %}
 
 To start, we place a `<nav-view></nav-view>` at the root of the app. The nav-view directive tells Ionic where to place your templates. A view can be unnamed or named, but only one unnamed view can be within any template (or root html). The nav-view directive is based off of the [ui-view directive within the ui-router](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view).
 

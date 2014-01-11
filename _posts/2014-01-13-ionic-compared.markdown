@@ -90,7 +90,7 @@ Sencha development is also not public and filing issues and getting support has 
 
 [Lungo](http://lungo.tapquo.com/) is a newcomer to the mobile framework scene. I don't have a lot of experience with it, but like Kendo and Sencha it is also GPLv3 split commercial-licensed, with all of the same details you'll need to be aware of if you decide to use it.
 
-I don't have much experience with Lungo, but it doesn't support Angular out of the and doesn't appear to have as much focus on gestures and native-style UI interactions as Ionic.
+I don't have much experience with Lungo, but it doesn't support Angular out of the box and doesn't appear to have as much focus on gestures and native-style UI interactions as Ionic.
 
 ### Others?
 
@@ -107,4 +107,4 @@ obsessive about having great design.
 
 Looking at where we are *today*, we are confident Ionic is the best choice for building hybrid apps when compared with the other permissive licensed frameworks on this list, and most of the commercially-licensed ones.
 
-While some frameworks like Sencha have a more complete feature set, we are catching up quickly and benefiting from a passionate and growing community that is helping make Ionic amazing. When looking back at other popular open source projects, it's the ones that built a great community, focused on high quality, and kept shipping that won.
+While some frameworks like Sencha have a more complete feature set, we are catching up quickly and benefiting from a passionate and growing community that is helping make Ionic amazing. When looking back at other popular open source projects that now dominate the market, it was the the ones that built a great community, focused on high quality, and kept shipping that beat out proprietary solutions and were ultimately worth investing in.

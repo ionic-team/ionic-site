@@ -9,12 +9,11 @@ news: Checkout the <a href="/docs/components/">Components</a> section to see wha
 
 <div>
   <div>
-    <div class="phone-case">
-      <p data-height="568" data-theme-id="0" data-slug-hash="AjgEB" data-user="ionic" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/ionic/pen/AjgEB'>Ionic Intro Tutorial</a> by Ionic (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a></p>
-      <script async src="//codepen.io/assets/embed/ei.js"></script>
-    </div>
-    <h2 class="underline">Building a User Tutorial with Ionic</h2>
+    
+    {% include codepen.html id="AjgEB" %}
 
+    <h2 class="underline">Building a User Tutorial with Ionic</h2>
+    
     <p>
       A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen
       tutorial that shows when the user first opens the app, and helps them learn how to use the app.

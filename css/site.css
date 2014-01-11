@@ -5161,6 +5161,10 @@ td.visible-print {
   .docs-section td, .docs-section th {
     font-size: 14px !important; }
 
+pre {
+  border: 0;
+  border-left: 4px solid #ddd; }
+
 .device-preview-page .docs-section {
   padding-bottom: 60px;
   min-height: 320px;

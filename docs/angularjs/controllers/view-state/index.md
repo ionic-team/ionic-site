@@ -27,7 +27,7 @@ The View Service is leveraged by the Ionic's `tabs` directive, which has child `
 
 ## Quick Start
 
-{% include code_preview.html src="http://embed.plnkr.co/yxmExJXZ2VBPPjqNwSIF/preview" %}
+{% include codepen.html id="HjnFx" %}
 
 To start, we place a `<nav-view></nav-view>` at the root of the app. The nav-view directive tells Ionic where to place your templates. A view can be unnamed or named, but only one unnamed view can be within any template (or root html). The nav-view directive is based off of the [ui-view directive within the ui-router](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view).
 

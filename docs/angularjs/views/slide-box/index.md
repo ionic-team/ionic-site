@@ -19,10 +19,10 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 ## Ionic-Angular Usage
 
-To use the slide box in your apps, use the following markup:
+To use the slide box in your apps, use the following markup.  The active-slide directive must be set to a $scope parameter in the controller. The slide box will open on the slide index designated in active-slide.
 
 ```html
-<slide-box>
+<slide-box active-slide="activeSlideValue">
   <slide>
     <div class="box blue"><h1>BLUE</h1></div>
   </slide>
@@ -33,4 +33,10 @@ To use the slide box in your apps, use the following markup:
     <div class="box pink"><h1>PINK</h1></div>
   </slide>
 </slide-box>
+```
+
+```js
+angular.module('myApp.controllers').controller('slideBoxController', [ '$scope', function($scope) {
+  $scope.activeSlideValue = 0;
+}]);
 ```

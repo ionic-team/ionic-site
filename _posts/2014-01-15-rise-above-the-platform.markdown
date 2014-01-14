@@ -19,9 +19,9 @@ published: true
 
 <h3>The Hybrid App Design Trap</h3>
 
-<p>When you’re developing cross-platform mobile apps in HTML5, you run into some interesting differences than when developing with native technologies. One difference, is that you’re not given the default native OS components to build off of. This can sometimes be a detractor for developers, but I think it’s a good thing...</p>
+<p>When you’re developing cross-platform mobile apps in HTML5, you run into some interesting differences than when developing with native technologies. One difference, is that you’re not given the default native OS components to build off of. This can sometimes be a negative for developers, but I think it’s a good thing...</p>
 
-<p>The trap I see a lot of hybrid app developers fall into is an unwarranted desire to completely clone each native OS design that their app is available in. Obviously, it’s important to create an app design that feels “at home” on each respective OS, but is it actually necessary to develop an exact clone for each? No, it’s not. In fact, in many cases some of the most popular mobile apps go out of their way to <i>not</i> look native to the OS.</p>
+<p>The trap I see a lot of hybrid app developers fall into is an unwarranted desire to completely clone each native OS design that their app runs on. Obviously, it’s important to create an app design that feels “at home” on each respective OS, but is it actually necessary to develop an exact clone for each? No, it’s not. In fact, in many cases some of the most popular mobile apps go out of their way to <i>not</i> look native to the OS.</p>
 
 <p>Let’s examine three mobile apps, Apple’s default App Store app, <a href="http://jelly.co/" target="_blank">Jelly</a> and <a href="https://vine.co/" target="_blank">Vine</a>. All three are running on iOS 7:</p>
 

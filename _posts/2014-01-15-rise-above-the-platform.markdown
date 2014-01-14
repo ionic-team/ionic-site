@@ -39,7 +39,7 @@ published: true
 
 <p>Second, it takes a lot of work, resources, and time to achieve a perfect clone. If there’s any change in the native OS’s design, and there will be, your app suddenly looks outdated and you’re left scrambling to catch up.</p>
 
-<p>A perfect example of this is when Apple updated from iOS 6 to iOS 7, a lot of apps were left looking old fashioned and had to quickly catch up to look relevant. Even this week, Apple is said to have updated several interface styles for iOS 7.1. Why bother, when you can build a uniquely designed app that stands on its own ground, regardless of the OS version?</p>
+<p>A perfect example of this is when Apple updated from iOS 6 to iOS 7, a lot of apps were left looking old fashioned and had to quickly catch up to look relevant. Even this week, Apple is said to have updated <a href="http://techcrunch.com/2014/01/07/apple-ios-7-1-beta-3-new-screens-buttons/" target="_blank">several interface styles</a> for iOS 7.1. Why bother, when you can build a uniquely designed app that stands on its own ground, regardless of the OS version?</p>
 
 <p>I encourage you to build a design around your brand that’s so unique it rises above “platform” design limits. This is really where HTML5 mobile development can shine.</p>
 

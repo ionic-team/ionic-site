@@ -11,7 +11,7 @@ published: true
 
 <p>When was the last time you saw you a unique mobile app <a href="http://www.snapchat.com/" target="_blank">rise the ranks</a> of popularity, <a href="https://vine.co/" target="_blank">hit number one</a> or two in the App/Play Store, maybe even become a <a href="https://about.twitter.com/" target="_blank">household name</a>- yet, have a visual design that completely mimics the native UI design for all the platforms?</p>
 
-<p>My guess is you haven’t, and you probably never will.</p>
+<p><strong>My guess is you haven’t, and you probably never will.</strong></p>
 
 <p>That’s because professional app developers don’t often copy the native design look-and-feel verbatim. And why would they? Cloning the native design doesn’t offer any real benefits when a user first opens and interacts with your app- if it has no recognizable visual differentiation, it’s not as easy to remember it. Your otherwise unique product becomes yet another boring “seen-it-already” app hidden out of sight, never to be opened again. Or worse yet, deleted altogether!</p>
 
@@ -23,9 +23,9 @@ published: true
 
 <p>The trap I see a lot of hybrid app developers fall into is an unwarranted desire to completely clone each native OS design that their app is available in. Obviously, it’s important to create an app design that feels “at home” on each respective OS, but is it actually necessary to develop an exact clone for each? No, it’s not. In fact, in many cases some of the most popular mobile apps go out of their way to <i>not</i> look native to the OS.</p>
 
-<p>Let’s examine three mobile apps, Apple’s default App Store app, Jelly and Vine. All three are running on iOS 7:</p>
+<p>Let’s examine three mobile apps, Apple’s default App Store app, <a href="http://jelly.co/" target="_blank">Jelly</a> and <a href="https://vine.co/" target="_blank">Vine</a>. All three are running on iOS 7:</p>
 
-<img class="body-image" src="/img/blog/phone-comparison.png" style="width:50%;">
+<img class="body-image" src="/img/blog/phone-comparison.png">
 
 <p>Each app adheres to the iOS 7 design guidelines and displays a list of options. Apple’s App Store app (left) is an example of the standard iOS 7 design. Yet, the Jelly app (middle) and Vine app (right) take a completely different visual approach to displaying content. Mind you, these are both extremely popular and successful apps that still feel completely at home in iOS 7, right alongside the App Store app.</p>
 
@@ -47,7 +47,7 @@ published: true
 
 <p>One of the main goals with Ionic is for it to offer a beautiful default design, such that with very little customization it can fit your brand’s style and look great right off the press. In a sense, it’s goal is to simply adhere to each brands individual design specifications with ease.</p>
 
-<img class="body-image" src="/img/blog/quote.png">
+<a href="https://twitter.com/GrumpyWizards/status/419428232682020864" target="_blank"><img class="body-image" src="/img/blog/quote.png"></a>
 
 <p>We achieve this by keeping our visual system simple. Ionic gets out of the way by choosing to visually do less, so it’s easier for others to add more. Does it loosely mimic iOS 7? In some ways, yes, without a doubt. However, I would argue that in many ways they inadvertently share the same basic principles: simplicity, reduction of clutter, use of white and solid colors, zero gradients, and hardly any drop-shadows or border-radii altercations. Anything more than that, we leave up to you. Oh, and did I mention it’s built on SASS?</p>
 

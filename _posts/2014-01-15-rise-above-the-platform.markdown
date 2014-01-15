@@ -33,7 +33,7 @@ published: true
 
 <h3>Don’t Clone, Take Inspiration</h3>
 
-<p>Like Jelly and Vine, it’s always important to asses what type of audience your app is servicing. But, regardless of who uses it, there is one design recommendation I always make: never attempt to completely match the native OS verbatim. It’s just bad form, and here’s some reasons why.</p>
+<p>Like Jelly and Vine, it’s always important to asess what type of audience your app is servicing. But, regardless of who uses it, there is one design recommendation I always make: never attempt to completely match the native OS verbatim. It’s just bad form, and here’s some reasons why.</p>
 
 <p>First, you probably won’t get it right. Both Apple and Android (as well as others) have worked years on perfecting every little detail of their visual experience. Everything from individual typographic kerning/letter-spacing, weights, and line-heights, to stroke lengths, list heights, animation timing, and more. In some cases, you might get very close to creating an app that looks and behaves similar to its corresponding default OS, but any “little things” your app misses are going to stand out like a sore thumb.</p>
 

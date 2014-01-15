@@ -45,6 +45,8 @@ $ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg
 
 You'll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools's questions and when it's all done, you should have a file called `my-release-key.keystore` created in the current directory.
 
+__Note__: Make sure to save this file somewhere safe, if you lose it you won't be able to submit updates to your app!
+
 To sign the unsigned APK, run the `jarsigner` tool which is also included in the JDK:
 
 ```bash
@@ -78,3 +80,9 @@ Then, you can go ahead and click the button to edit the store listing (We will u
 When you are ready, upload the APK for the release build and publish the listing. Be patient and your hard work should be live in the wild!
 
 <!--[Chapter 6: Closing Thoughts](closing.html)-->
+
+## Updating your App
+
+As you develop your app, you'll want to update it periodically. 
+
+In order for the Google Play Store to accept updated APKs, you'll need to edit the `platforms/android/AndroidManifest.xml` file to increment the `android:versionCode` value.

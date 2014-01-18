@@ -5697,7 +5697,8 @@ h2.underline {
 
 /* Literal.Number.Integer.Long */
 body {
-  border-top: 1px solid #4f8ef7; }
+  border-top: 1px solid #4f8ef7;
+  padding-bottom: 20px; }
 
 a {
   opacity: 0.7;
@@ -11143,3 +11144,24 @@ h1 + h2 + p {
       border-right: 1px solid #ddd; }
     .pre-footer .col-b {
       padding-left: 70px; } }
+
+#newsletter-bar {
+  border-top: 1px solid #999;
+  background-color: rgba(79, 142, 247, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  z-index: 150;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 13px; }
+  #newsletter-bar form {
+    display: inline-block; }
+    #newsletter-bar form input {
+      margin-left: 15px;
+      height: 30px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: none; }

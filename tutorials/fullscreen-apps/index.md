@@ -21,7 +21,7 @@ Fullscreen apps on iOS
       fullscreen in Ionic is simple!
     </p>
     <p>
-      First, we need to note this only works on Cordova or another native UIWebView wrapper. If we use Cordova,
+      First, we need to note this only works on Cordova (3.3.1) or another native UIWebView wrapper. If we use Cordova,
       we will need to install one plugin:
     </p>
     <p>

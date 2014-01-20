@@ -18,19 +18,19 @@ The Loading is an overlay that can be used to indicate activity while blocking u
 
 ## Ionic-Angular Usage
 
-To trigger Loading in your code, use the `Loading` service in your angular controllers or directives:
+To trigger Loading in your code, use the `$ionicLoading` service in your angular controllers or directives:
 
 ```javascript
 
 angular.module('LoadingApp', ['ionic'])
 
-.controller('LoadingCtrl', ['$scope', 'Loading', function($scope, Loading) {
+.controller('LoadingCtrl', ['$scope', '$ionicLoading', function($scope, $ionicLoading) {
 
   // Trigger the loading indicator
   $scope.show = function() {
 
     // Show the loading overlay and text
-    $scope.loading = Loading.show({
+    $scope.loading = $ionicLoading.show({
 
       // The text to display in the loading indicator
       content: 'Loading',

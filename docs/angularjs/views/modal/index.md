@@ -65,10 +65,10 @@ Here we are using the script tag method of defining an Angular template.
 ```javascript
 angular.module('test', ['ionic'])
 
-.controller('ModalCtrl', function($scope, Modal) {
+.controller('ModalCtrl', function($scope, $ionicModal) {
 
   // Load the modal from the given template URL
-  Modal.fromTemplateUrl('modal.html', function(modal) {
+  $ionicModal.fromTemplateUrl('modal.html', function(modal) {
     $scope.modal = modal;
   }, {
     // Use our scope for the scope of the modal to keep it simple

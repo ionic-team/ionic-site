@@ -20,19 +20,19 @@ The Action Sheet is a slide-up pane that lets the user choose from a set of opti
 
 ## Ionic-Angular Usage
 
-To trigger an Action Sheet in your code, use the `ActionSheet` service in your angular controllers:
+To trigger an Action Sheet in your code, use the `$ionicActionSheet` service in your angular controllers:
 
 ```javascript
 
 angular.module('test', ['ionic'])
 
-.controller(function($scope, ActionSheet) {
+.controller(function($scope, $ionicActionSheet) {
 
   // Triggered on a button click, or some other target
   $scope.show = function() {
 
     // Show the action sheet
-    ActionSheet.show({
+    $ionicActionSheet.show({
 
       // The various non-destructive button choices
       buttons: [

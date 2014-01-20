@@ -9,10 +9,12 @@
 }
 
 .ios7 .text-input,
-.ios7 .email-input,
 .ios7 .password-input,
 .ios7 .search-input {
-  background-image: url('/img/input-types/ios7/keyboard-text-email-pass-search.png');
+  background-image: url('/img/input-types/ios7/keyboard-text-pass-search.png');
+}
+.ios7 .email-input {
+  background-image: url('/img/input-types/ios7/keyboard-email.png');
 }
 .ios7 .tel-input {
   background-image: url('/img/input-types/ios7/keyboard-tel.png');
@@ -37,10 +39,12 @@
   }
 
   .ios7 .text-input,
-  .ios7 .email-input,
   .ios7 .password-input,
   .ios7 .search-input {
-    background-image: url('/img/input-types/ios7/keyboard-text-email-pass-search@2x.png');
+    background-image: url('/img/input-types/ios7/keyboard-text-pass-search@2x.png');
+  }
+  .ios7 .email-input {
+    background-image: url('/img/input-types/ios7/keyboard-email@2x.png');
   }
   .ios7 .tel-input {
     background-image: url('/img/input-types/ios7/keyboard-tel@2x.png');

@@ -31,6 +31,7 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
     <script src="js/angular/angular-route.js"></script>
     <script src="js/angular/angular-touch.js"></script>
     <script src="js/angular/angular-sanitize.js"></script>
+    <script src="js/angular-ui/angular-ui-router.js"></script>
     <script src="js/ionic-angular.js"></script>
     
     <!-- Needed for Cordova/PhoneGap -->

@@ -170,6 +170,7 @@ angular.module('todo', ['ionic'])
 
   // Open our new task modal
   $scope.newTask = function() {
+    $scope.task = {};
     $scope.taskModal.show();
   };
 

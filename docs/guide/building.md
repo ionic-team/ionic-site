@@ -150,12 +150,12 @@ And in our controller code:
 ```javascript
 angular.module('todo', ['ionic'])
 
-.controller('TodoCtrl', function($scope, Modal) {
+.controller('TodoCtrl', function($scope, $ionicModal) {
   // No need for testing data anymore
   $scope.tasks = [];
 
   // Create and load the Modal
-  Modal.fromTemplateUrl('new-task.html', function(modal) {
+  $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
   }, {
     scope: $scope,
@@ -281,7 +281,7 @@ angular.module('todo', ['ionic'])
   }
 })
 
-.controller('TodoCtrl', function($scope, $timeout, Modal, Projects) {
+.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects) {
 
   // A utility function for creating a new project
   // with the given projectTitle
@@ -315,7 +315,7 @@ angular.module('todo', ['ionic'])
   };
 
   // Create our modal
-  Modal.fromTemplateUrl('new-task.html', function(modal) {
+  $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
   }, {
     scope: $scope

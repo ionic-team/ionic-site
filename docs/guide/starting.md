@@ -65,7 +65,7 @@ To create side menus in Ionic, we can use the [Side Menu Controller](http://ioni
 
 In the code above, we've added our `<side-menus>` controller which will handle the draggng and exposing of the side menu. Inside of the controller we have a `<pane side-menu-content>` which is the center content area of the app, and a `<side-menu side="left">` which is a left, initially hidden, side menu.
 
-Now, if you ran this code (more on testing in a bit), you wouldn't see anything! There are two reasons for that: The first is we haven't created an AngularJS app to turn the custom tags (like `<side-menus>`) into anything functional. And, because we don't have any content yet.
+Now, if you run this code (more on testing in a bit), you wouldn't see anything! There are two reasons for that: The first is we haven't created an AngularJS app to turn the custom tags (like `<side-menus>`) into anything functional. And, because we don't have any content yet.
 
 Let's fix that. First, we need to create a new AngularJS module and tell Angular to initialize it. Let's create a new file located at `www/js/app.js`. Put this code into the file:
 
@@ -83,7 +83,13 @@ Now, go back to `index.html` and right before the ending `</head>` tag, add:
 
 This includes the script we just created.
 
-Now, we still won't see anything if we ran the code, because we need to add some content to the application. Let's go ahead and add a header for both the center content area and the left menu.
+And to make our new app run, we need to add the `ng-app` attribute to the body tag:
+
+```html
+<body ng-app="todo">
+```
+
+Now, we still won't see anything if we run the code, because we need to add some content to the application. Let's go ahead and add a header for both the center content area and the left menu.
 
 Update the body content to be:
 

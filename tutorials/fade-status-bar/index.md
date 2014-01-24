@@ -37,7 +37,7 @@ iOS 7 Fading Header Effect with Ionic and AngularJS
           <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
           <h1 class="title">Slide me</h1>
         </header>
-        <content has-header="true" padded="true">
+        <content has-header="true" padding="true">
           <!-- Center content -->
         </content>
       </pane>

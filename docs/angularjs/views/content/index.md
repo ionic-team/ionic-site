@@ -167,7 +167,7 @@ Use `$scope.$emit` if the scroll view is above your controller.
     </tr>
 -->
     <tr>
-      <td>padded</td>
+      <td>padding</td>
       <td>true/false</td>
       <td>false</td>
       <td>Whether to add standard padding to the content area</td>

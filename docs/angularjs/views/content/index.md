@@ -127,6 +127,12 @@ Use `$scope.$emit` if the scroll view is above your controller.
       <td>Whether to push the content area down by the height of the header</td>
     </tr>
     <tr>
+      <td>has-subheader</td>
+      <td>true/false</td>
+      <td>false</td>
+      <td>Whether to push the content area down by the height of the sub header</td>
+    </tr>
+    <tr>
       <td>has-footer</td>
       <td>true/false</td>
       <td>false</td>

@@ -206,6 +206,11 @@ pre {
     a {
       opacity: 1;
     }
+
+    .content {
+      position: relative;
+    }
+
   }
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
          only screen and (   min--moz-device-pixel-ratio: 1.3),

@@ -5203,6 +5203,8 @@ pre {
     background: url("/img/phone-case.png") no-repeat right top; }
     .device-preview-page .device-preview a {
       opacity: 1; }
+    .device-preview-page .device-preview .content {
+      position: relative; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
     .device-preview-page .device-preview {
       background-image: url("/img/phone-case@2x.png");
@@ -5908,12 +5910,12 @@ h1 + h2 + p {
 
 .ionic {
   /*!
-   * Copyright 2013 Drifty Co.
+   * Copyright 2014 Drifty Co.
    * http://drifty.com/
-  
-   * Ionic - a powerful HTML5 mobile app framework.
-   * http://ionicframework.com/
    *
+   * Ionic, v0.9.21
+   * A powerful HTML5 mobile app framework.
+   * http://ionicframework.com/
    *
    * By @maxlynch, @helloimben, @adamdbradley <3
    *
@@ -5921,15 +5923,15 @@ h1 + h2 + p {
    *
    */
   /*!
-    Ionicons, v1.3.6
+    Ionicons, v1.4.2
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/helloimben  https://twitter.com/ionicframework
     MIT License: https://github.com/driftyco/ionicons
   */
   @font-face {
     font-family: "Ionicons";
-    src: url("../fonts/ionicons.eot?v=1.3.6");
-    src: url("../fonts/ionicons.eot?v=1.3.6#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.6") format("truetype"), url("../fonts/ionicons.woff?v=1.3.6") format("woff"), url("../fonts/ionicons.svg?v=1.3.6#Ionicons") format("svg");
+    src: url("../fonts/ionicons.eot?v=1.4.2");
+    src: url("../fonts/ionicons.eot?v=1.4.2#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.4.2") format("truetype"), url("../fonts/ionicons.woff?v=1.4.2") format("woff"), url("../fonts/ionicons.svg?v=1.4.2#Ionicons") format("svg");
     font-weight: normal;
     font-style: normal; }
 
@@ -6096,15 +6098,19 @@ h1 + h2 + p {
    * Scroll is the scroll view component available for complex and custom
    * scroll view functionality.
    */
-  @-webkit-keyframes refresher-pulsate {
+  @keyframes refresh-spin {
     0% {
-      -webkit-transform: scale(2, 2); }
-
-    50% {
-      -webkit-transform: scale(1.5, 1.5); }
+      transform: rotate(0); }
 
     100% {
-      -webkit-transform: scale(2, 2); } }
+      transform: rotate(-180deg); } }
+
+  @-webkit-keyframes refresh-spin {
+    0% {
+      -webkit-transform: rotate(0); }
+
+    100% {
+      -webkit-transform: rotate(-180deg); } }
 
   /**
    * Typography
@@ -6235,7 +6241,7 @@ h1 + h2 + p {
    */
   /**
    * List editing styles. These trigger when the entire list goes into
-   * "edit mode"
+   * "edit mode" or reordering list items
    */
   /**
    * List Header
@@ -6245,10 +6251,6 @@ h1 + h2 + p {
    * Cards and Inset Lists
    * --------------------------------------------------
    * A card and list-inset are close to the same thing, except a card as a box shadow.
-   */
-  /**
-   * Nav
-   * --------------------------------------------------
    */
   /**
    * Badges
@@ -6305,9 +6307,42 @@ h1 + h2 + p {
    * --------------------------------------------------
    */
   /**
+   * Animations
+   * --------------------------------------------------
+   * The animations in this file are "simple" - not too complex
+   * and pretty easy on performance. They can be overidden
+   * and enhanced easily.
+   */
+  /**
    * Keyframes
    * --------------------------------------------------
    */
+  @-webkit-keyframes slideInUp {
+    0% {
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+      opacity: 0; }
+
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1; } }
+
+  @-webkit-keyframes slideOutUp {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1; }
+
+    100% {
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+      opacity: 0; } }
+
   @-webkit-keyframes slideInFromLeft {
     from {
       -webkit-transform: translate3d(-100%, 0, 0); }
@@ -6350,14 +6385,14 @@ h1 + h2 + p {
     to {
       transform: translateX(0); } }
 
-  @-webkit-keyframes slideOutToleft {
+  @-webkit-keyframes slideOutToLeft {
     from {
       -webkit-transform: translate3d(0, 0, 0); }
 
     to {
       -webkit-transform: translate3d(-100%, 0, 0); } }
 
-  @-moz-keyframes slideOutToleft {
+  @-moz-keyframes slideOutToLeft {
     from {
       -moz-transform: translateX(0); }
 
@@ -6447,13 +6482,6 @@ h1 + h2 + p {
       transform: rotate(360deg); } }
 
   /**
-   * Animations
-   * --------------------------------------------------
-   * The animations in this file are "simple" - not too complex
-   * and pretty easy on performance. They can be overidden
-   * and enhanced easily.
-   */
-  /**
    * Slide Left-Right
    * --------------------------------------------------
    * NEW content slides IN from the RIGHT, OLD slides OUT to the LEFT
@@ -6505,6 +6533,7 @@ h1 + h2 + p {
   /**
    * Platform
    * --------------------------------------------------
+   * Platform specific tweaks when in Cordova.
    */ }
   .ionic .ion, .ionic .ion-loading-a,
   .ionic .ion-loading-b,
@@ -6513,452 +6542,538 @@ h1 + h2 + p {
   .ionic .ion-looping,
   .ionic .ion-refreshing,
   .ionic .ion-ios7-reloading, .ionic .ionicons,
-  .ionic .ion-alert,
-  .ionic .ion-alert-circled,
-  .ionic .ion-archive,
-  .ionic .ion-arrow-down-a,
-  .ionic .ion-arrow-down-b,
-  .ionic .ion-arrow-down-c,
-  .ionic .ion-arrow-expand,
-  .ionic .ion-arrow-graph-down-left,
-  .ionic .ion-arrow-graph-down-right,
-  .ionic .ion-arrow-graph-up-left,
-  .ionic .ion-arrow-graph-up-right,
-  .ionic .ion-arrow-left-a,
-  .ionic .ion-arrow-left-b,
-  .ionic .ion-arrow-left-c,
-  .ionic .ion-arrow-move,
-  .ionic .ion-arrow-resize,
-  .ionic .ion-arrow-return-left,
-  .ionic .ion-arrow-return-right,
-  .ionic .ion-arrow-right-a,
-  .ionic .ion-arrow-right-b,
-  .ionic .ion-arrow-right-c,
-  .ionic .ion-arrow-shrink,
-  .ionic .ion-arrow-swap,
-  .ionic .ion-arrow-up-a,
-  .ionic .ion-arrow-up-b,
-  .ionic .ion-arrow-up-c,
-  .ionic .ion-at,
-  .ionic .ion-bag,
-  .ionic .ion-battery-charging,
-  .ionic .ion-battery-empty,
-  .ionic .ion-battery-full,
-  .ionic .ion-battery-half,
-  .ionic .ion-battery-low,
-  .ionic .ion-beaker,
-  .ionic .ion-beer,
-  .ionic .ion-bluetooth,
-  .ionic .ion-bookmark,
-  .ionic .ion-briefcase,
-  .ionic .ion-calculator,
-  .ionic .ion-calendar,
-  .ionic .ion-camera,
-  .ionic .ion-card,
-  .ionic .ion-chatbox,
-  .ionic .ion-chatbox-working,
-  .ionic .ion-chatboxes,
-  .ionic .ion-chatbubble,
-  .ionic .ion-chatbubble-working,
-  .ionic .ion-chatbubbles,
-  .ionic .ion-checkmark,
-  .ionic .ion-checkmark-circled,
-  .ionic .ion-checkmark-round,
-  .ionic .ion-chevron-down,
-  .ionic .ion-chevron-left,
-  .ionic .ion-chevron-right,
-  .ionic .ion-chevron-up,
-  .ionic .ion-clipboard,
-  .ionic .ion-clock,
-  .ionic .ion-close,
-  .ionic .ion-close-circled,
-  .ionic .ion-close-round,
-  .ionic .ion-cloud,
-  .ionic .ion-code,
-  .ionic .ion-code-download,
-  .ionic .ion-code-working,
-  .ionic .ion-coffee,
-  .ionic .ion-compass,
-  .ionic .ion-compose,
-  .ionic .ion-connection-bars,
-  .ionic .ion-contrast,
-  .ionic .ion-disc,
-  .ionic .ion-document,
-  .ionic .ion-document-text,
-  .ionic .ion-drag,
-  .ionic .ion-earth,
-  .ionic .ion-egg,
-  .ionic .ion-eject,
-  .ionic .ion-email,
-  .ionic .ion-eye,
-  .ionic .ion-female,
-  .ionic .ion-filing,
-  .ionic .ion-film-marker,
-  .ionic .ion-flag,
-  .ionic .ion-flash,
-  .ionic .ion-flash-off,
-  .ionic .ion-flask,
-  .ionic .ion-folder,
-  .ionic .ion-fork,
-  .ionic .ion-forward,
-  .ionic .ion-game-controller-a,
-  .ionic .ion-game-controller-b,
-  .ionic .ion-gear-a,
-  .ionic .ion-gear-b,
-  .ionic .ion-grid,
-  .ionic .ion-hammer,
-  .ionic .ion-headphone,
-  .ionic .ion-heart,
-  .ionic .ion-help,
-  .ionic .ion-help-buoy,
-  .ionic .ion-help-circled,
-  .ionic .ion-home,
-  .ionic .ion-icecream,
-  .ionic .ion-icon-social-google-plus,
-  .ionic .ion-icon-social-google-plus-outline,
-  .ionic .ion-image,
-  .ionic .ion-images,
-  .ionic .ion-information,
-  .ionic .ion-information-circled,
-  .ionic .ion-ionic,
-  .ionic .ion-ios7-alarm,
-  .ionic .ion-ios7-alarm-outline,
-  .ionic .ion-ios7-albums,
-  .ionic .ion-ios7-albums-outline,
-  .ionic .ion-ios7-arrow-back,
-  .ionic .ion-ios7-arrow-down,
-  .ionic .ion-ios7-arrow-forward,
-  .ionic .ion-ios7-arrow-left,
-  .ionic .ion-ios7-arrow-right,
-  .ionic .ion-ios7-arrow-thin-down,
-  .ionic .ion-ios7-arrow-thin-left,
-  .ionic .ion-ios7-arrow-thin-right,
-  .ionic .ion-ios7-arrow-thin-up,
-  .ionic .ion-ios7-arrow-up,
-  .ionic .ion-ios7-at,
-  .ionic .ion-ios7-at-outline,
-  .ionic .ion-ios7-bell,
-  .ionic .ion-ios7-bell-outline,
-  .ionic .ion-ios7-bolt,
-  .ionic .ion-ios7-bolt-outline,
-  .ionic .ion-ios7-bookmarks,
-  .ionic .ion-ios7-bookmarks-outline,
-  .ionic .ion-ios7-box,
-  .ionic .ion-ios7-box-outline,
-  .ionic .ion-ios7-briefcase,
-  .ionic .ion-ios7-briefcase-outline,
-  .ionic .ion-ios7-browsers,
-  .ionic .ion-ios7-browsers-outline,
-  .ionic .ion-ios7-calculator,
-  .ionic .ion-ios7-calculator-outline,
-  .ionic .ion-ios7-calendar,
-  .ionic .ion-ios7-calendar-outline,
-  .ionic .ion-ios7-camera,
-  .ionic .ion-ios7-camera-outline,
-  .ionic .ion-ios7-cart,
-  .ionic .ion-ios7-cart-outline,
-  .ionic .ion-ios7-chatboxes,
-  .ionic .ion-ios7-chatboxes-outline,
-  .ionic .ion-ios7-chatbubble,
-  .ionic .ion-ios7-chatbubble-outline,
-  .ionic .ion-ios7-checkmark,
-  .ionic .ion-ios7-checkmark-empty,
-  .ionic .ion-ios7-checkmark-outline,
-  .ionic .ion-ios7-circle-filled,
-  .ionic .ion-ios7-circle-outline,
-  .ionic .ion-ios7-clock,
-  .ionic .ion-ios7-clock-outline,
-  .ionic .ion-ios7-close,
-  .ionic .ion-ios7-close-empty,
-  .ionic .ion-ios7-close-outline,
-  .ionic .ion-ios7-cloud,
-  .ionic .ion-ios7-cloud-download,
-  .ionic .ion-ios7-cloud-download-outline,
-  .ionic .ion-ios7-cloud-outline,
-  .ionic .ion-ios7-cloud-upload,
-  .ionic .ion-ios7-cloud-upload-outline,
-  .ionic .ion-ios7-cloudy,
-  .ionic .ion-ios7-cloudy-outline,
-  .ionic .ion-ios7-cog,
-  .ionic .ion-ios7-cog-outline,
-  .ionic .ion-ios7-compose,
-  .ionic .ion-ios7-compose-outline,
-  .ionic .ion-ios7-contact,
-  .ionic .ion-ios7-contact-outline,
-  .ionic .ion-ios7-copy,
-  .ionic .ion-ios7-copy-outline,
-  .ionic .ion-ios7-download,
-  .ionic .ion-ios7-download-outline,
-  .ionic .ion-ios7-drag,
-  .ionic .ion-ios7-email,
-  .ionic .ion-ios7-email-outline,
-  .ionic .ion-ios7-eye,
-  .ionic .ion-ios7-eye-outline,
-  .ionic .ion-ios7-fastforward,
-  .ionic .ion-ios7-fastforward-outline,
-  .ionic .ion-ios7-filing,
-  .ionic .ion-ios7-filing-outline,
-  .ionic .ion-ios7-film,
-  .ionic .ion-ios7-film-outline,
-  .ionic .ion-ios7-flag,
-  .ionic .ion-ios7-flag-outline,
-  .ionic .ion-ios7-folder,
-  .ionic .ion-ios7-folder-outline,
-  .ionic .ion-ios7-gear,
-  .ionic .ion-ios7-gear-outline,
-  .ionic .ion-ios7-glasses,
-  .ionic .ion-ios7-glasses-outline,
-  .ionic .ion-ios7-heart,
-  .ionic .ion-ios7-heart-outline,
-  .ionic .ion-ios7-help,
-  .ionic .ion-ios7-help-empty,
-  .ionic .ion-ios7-help-outline,
-  .ionic .ion-ios7-infinite,
-  .ionic .ion-ios7-infinite-outline,
-  .ionic .ion-ios7-information,
-  .ionic .ion-ios7-information-empty,
-  .ionic .ion-ios7-information-outline,
-  .ionic .ion-ios7-ionic-outline,
-  .ionic .ion-ios7-keypad,
-  .ionic .ion-ios7-keypad-outline,
-  .ionic .ion-ios7-lightbulb,
-  .ionic .ion-ios7-lightbulb-outline,
-  .ionic .ion-ios7-location,
-  .ionic .ion-ios7-location-outline,
-  .ionic .ion-ios7-locked,
-  .ionic .ion-ios7-locked-outline,
-  .ionic .ion-ios7-medkit,
-  .ionic .ion-ios7-medkit-outline,
-  .ionic .ion-ios7-mic,
-  .ionic .ion-ios7-mic-off,
-  .ionic .ion-ios7-mic-outline,
-  .ionic .ion-ios7-minus,
-  .ionic .ion-ios7-minus-empty,
-  .ionic .ion-ios7-minus-outline,
-  .ionic .ion-ios7-monitor,
-  .ionic .ion-ios7-monitor-outline,
-  .ionic .ion-ios7-moon,
-  .ionic .ion-ios7-moon-outline,
-  .ionic .ion-ios7-more,
-  .ionic .ion-ios7-more-outline,
-  .ionic .ion-ios7-musical-note,
-  .ionic .ion-ios7-musical-notes,
-  .ionic .ion-ios7-navigate,
-  .ionic .ion-ios7-navigate-outline,
-  .ionic .ion-ios7-paperplane,
-  .ionic .ion-ios7-paperplane-outline,
-  .ionic .ion-ios7-partlysunny,
-  .ionic .ion-ios7-partlysunny-outline,
-  .ionic .ion-ios7-pause,
-  .ionic .ion-ios7-pause-outline,
-  .ionic .ion-ios7-people,
-  .ionic .ion-ios7-people-outline,
-  .ionic .ion-ios7-person,
-  .ionic .ion-ios7-person-outline,
-  .ionic .ion-ios7-personadd,
-  .ionic .ion-ios7-personadd-outline,
-  .ionic .ion-ios7-photos,
-  .ionic .ion-ios7-photos-outline,
-  .ionic .ion-ios7-pie,
-  .ionic .ion-ios7-pie-outline,
-  .ionic .ion-ios7-play,
-  .ionic .ion-ios7-play-outline,
-  .ionic .ion-ios7-plus,
-  .ionic .ion-ios7-plus-empty,
-  .ionic .ion-ios7-plus-outline,
-  .ionic .ion-ios7-pricetag,
-  .ionic .ion-ios7-pricetag-outline,
-  .ionic .ion-ios7-printer,
-  .ionic .ion-ios7-printer-outline,
-  .ionic .ion-ios7-rainy,
-  .ionic .ion-ios7-rainy-outline,
-  .ionic .ion-ios7-recording,
-  .ionic .ion-ios7-recording-outline,
-  .ionic .ion-ios7-redo,
-  .ionic .ion-ios7-redo-outline,
-  .ionic .ion-ios7-refresh,
-  .ionic .ion-ios7-refresh-empty,
-  .ionic .ion-ios7-refresh-outline,
-  .ionic .ion-ios7-reload,
-  .ionic .ion-ios7-rewind,
-  .ionic .ion-ios7-rewind-outline,
-  .ionic .ion-ios7-search,
-  .ionic .ion-ios7-search-strong,
-  .ionic .ion-ios7-skipbackward,
-  .ionic .ion-ios7-skipbackward-outline,
-  .ionic .ion-ios7-skipforward,
-  .ionic .ion-ios7-skipforward-outline,
-  .ionic .ion-ios7-speedometer,
-  .ionic .ion-ios7-speedometer-outline,
-  .ionic .ion-ios7-star,
-  .ionic .ion-ios7-star-outline,
-  .ionic .ion-ios7-stopwatch,
-  .ionic .ion-ios7-stopwatch-outline,
-  .ionic .ion-ios7-sunny,
-  .ionic .ion-ios7-sunny-outline,
-  .ionic .ion-ios7-telephone,
-  .ionic .ion-ios7-telephone-outline,
-  .ionic .ion-ios7-thunderstorm,
-  .ionic .ion-ios7-thunderstorm-outline,
-  .ionic .ion-ios7-time,
-  .ionic .ion-ios7-time-outline,
-  .ionic .ion-ios7-timer,
-  .ionic .ion-ios7-timer-outline,
-  .ionic .ion-ios7-trash,
-  .ionic .ion-ios7-trash-outline,
-  .ionic .ion-ios7-undo,
-  .ionic .ion-ios7-undo-outline,
-  .ionic .ion-ios7-unlocked,
-  .ionic .ion-ios7-unlocked-outline,
-  .ionic .ion-ios7-upload,
-  .ionic .ion-ios7-upload-outline,
-  .ionic .ion-ios7-videocam,
-  .ionic .ion-ios7-videocam-outline,
-  .ionic .ion-ios7-volume-high,
-  .ionic .ion-ios7-volume-low,
-  .ionic .ion-ios7-wineglass,
-  .ionic .ion-ios7-wineglass-outline,
-  .ionic .ion-ios7-world,
-  .ionic .ion-ios7-world-outline,
-  .ionic .ion-ipad,
-  .ionic .ion-iphone,
-  .ionic .ion-ipod,
-  .ionic .ion-jet,
-  .ionic .ion-key,
-  .ionic .ion-knife,
-  .ionic .ion-laptop,
-  .ionic .ion-leaf,
-  .ionic .ion-levels,
-  .ionic .ion-lightbulb,
-  .ionic .ion-link,
-  .ionic .ion-load-a,
-  .ionic .ion-load-b,
-  .ionic .ion-load-c,
-  .ionic .ion-load-d,
-  .ionic .ion-location,
-  .ionic .ion-locked,
-  .ionic .ion-log-in,
-  .ionic .ion-log-out,
-  .ionic .ion-loop,
-  .ionic .ion-magnet,
-  .ionic .ion-male,
-  .ionic .ion-man,
-  .ionic .ion-map,
-  .ionic .ion-medkit,
-  .ionic .ion-mic-a,
-  .ionic .ion-mic-b,
-  .ionic .ion-mic-c,
-  .ionic .ion-minus,
-  .ionic .ion-minus-circled,
-  .ionic .ion-minus-round,
-  .ionic .ion-monitor,
-  .ionic .ion-more,
-  .ionic .ion-music-note,
-  .ionic .ion-navicon,
-  .ionic .ion-navicon-round,
-  .ionic .ion-navigate,
-  .ionic .ion-nuclear,
-  .ionic .ion-paperclip,
-  .ionic .ion-pause,
-  .ionic .ion-person,
-  .ionic .ion-person-add,
-  .ionic .ion-person-stalker,
-  .ionic .ion-pie-graph,
-  .ionic .ion-pin,
-  .ionic .ion-pinpoint,
-  .ionic .ion-pizza,
-  .ionic .ion-plane,
-  .ionic .ion-play,
-  .ionic .ion-plus,
-  .ionic .ion-plus-circled,
-  .ionic .ion-plus-round,
-  .ionic .ion-pound,
-  .ionic .ion-power,
-  .ionic .ion-pricetag,
-  .ionic .ion-pricetags,
-  .ionic .ion-printer,
-  .ionic .ion-radio-waves,
-  .ionic .ion-record,
-  .ionic .ion-refresh,
-  .ionic .ion-reply,
-  .ionic .ion-reply-all,
-  .ionic .ion-search,
-  .ionic .ion-settings,
-  .ionic .ion-share,
-  .ionic .ion-shuffle,
-  .ionic .ion-skip-backward,
-  .ionic .ion-skip-forward,
-  .ionic .ion-social-android,
-  .ionic .ion-social-android-outline,
-  .ionic .ion-social-apple,
-  .ionic .ion-social-apple-outline,
-  .ionic .ion-social-bitcoin,
-  .ionic .ion-social-bitcoin-outline,
-  .ionic .ion-social-buffer,
-  .ionic .ion-social-buffer-outline,
-  .ionic .ion-social-designernews,
-  .ionic .ion-social-designernews-outline,
-  .ionic .ion-social-dribbble,
-  .ionic .ion-social-dribbble-outline,
-  .ionic .ion-social-dropbox,
-  .ionic .ion-social-dropbox-outline,
-  .ionic .ion-social-facebook,
-  .ionic .ion-social-facebook-outline,
-  .ionic .ion-social-github,
-  .ionic .ion-social-github-outline,
-  .ionic .ion-social-googleplus,
-  .ionic .ion-social-googleplus-outline,
-  .ionic .ion-social-hackernews,
-  .ionic .ion-social-hackernews-outline,
-  .ionic .ion-social-linkedin,
-  .ionic .ion-social-linkedin-outline,
-  .ionic .ion-social-pinterest,
-  .ionic .ion-social-pinterest-outline,
-  .ionic .ion-social-reddit,
-  .ionic .ion-social-reddit-outline,
-  .ionic .ion-social-rss,
-  .ionic .ion-social-rss-outline,
-  .ionic .ion-social-skype,
-  .ionic .ion-social-skype-outline,
-  .ionic .ion-social-tumblr,
-  .ionic .ion-social-tumblr-outline,
-  .ionic .ion-social-twitter,
-  .ionic .ion-social-twitter-outline,
-  .ionic .ion-social-vimeo,
-  .ionic .ion-social-vimeo-outline,
-  .ionic .ion-social-windows,
-  .ionic .ion-social-windows-outline,
-  .ionic .ion-social-wordpress,
-  .ionic .ion-social-wordpress-outline,
-  .ionic .ion-social-yahoo,
-  .ionic .ion-social-yahoo-outline,
-  .ionic .ion-social-youtube,
-  .ionic .ion-social-youtube-outline,
-  .ionic .ion-speakerphone,
-  .ionic .ion-speedometer,
-  .ionic .ion-spoon,
-  .ionic .ion-star,
-  .ionic .ion-stats-bars,
-  .ionic .ion-stop,
-  .ionic .ion-thermometer,
-  .ionic .ion-thumbsdown,
-  .ionic .ion-thumbsup,
-  .ionic .ion-trash-a,
-  .ionic .ion-trash-b,
-  .ionic .ion-umbrella,
-  .ionic .ion-unlocked,
-  .ionic .ion-upload,
-  .ionic .ion-usb,
-  .ionic .ion-videocamera,
-  .ionic .ion-volume-high,
-  .ionic .ion-volume-low,
-  .ionic .ion-volume-medium,
-  .ionic .ion-volume-mute,
-  .ionic .ion-waterdrop,
-  .ionic .ion-wifi,
-  .ionic .ion-wineglass,
-  .ionic .ion-woman,
-  .ionic .ion-wrench {
+  .ionic .ion-alert:before,
+  .ionic .ion-alert-circled:before,
+  .ionic .ion-android-add:before,
+  .ionic .ion-android-add-contact:before,
+  .ionic .ion-android-alarm:before,
+  .ionic .ion-android-archive:before,
+  .ionic .ion-android-arrow-back:before,
+  .ionic .ion-android-arrow-down-left:before,
+  .ionic .ion-android-arrow-down-right:before,
+  .ionic .ion-android-arrow-up-left:before,
+  .ionic .ion-android-arrow-up-right:before,
+  .ionic .ion-android-battery:before,
+  .ionic .ion-android-book:before,
+  .ionic .ion-android-calendar:before,
+  .ionic .ion-android-call:before,
+  .ionic .ion-android-camera:before,
+  .ionic .ion-android-chat:before,
+  .ionic .ion-android-checkmark:before,
+  .ionic .ion-android-clock:before,
+  .ionic .ion-android-close:before,
+  .ionic .ion-android-contact:before,
+  .ionic .ion-android-contacts:before,
+  .ionic .ion-android-data:before,
+  .ionic .ion-android-developer:before,
+  .ionic .ion-android-display:before,
+  .ionic .ion-android-download:before,
+  .ionic .ion-android-dropdown:before,
+  .ionic .ion-android-earth:before,
+  .ionic .ion-android-folder:before,
+  .ionic .ion-android-forums:before,
+  .ionic .ion-android-friends:before,
+  .ionic .ion-android-hand:before,
+  .ionic .ion-android-image:before,
+  .ionic .ion-android-inbox:before,
+  .ionic .ion-android-information:before,
+  .ionic .ion-android-keypad:before,
+  .ionic .ion-android-lightbulb:before,
+  .ionic .ion-android-locate:before,
+  .ionic .ion-android-location:before,
+  .ionic .ion-android-mail:before,
+  .ionic .ion-android-microphone:before,
+  .ionic .ion-android-mixer:before,
+  .ionic .ion-android-more:before,
+  .ionic .ion-android-note:before,
+  .ionic .ion-android-playstore:before,
+  .ionic .ion-android-printer:before,
+  .ionic .ion-android-promotion:before,
+  .ionic .ion-android-reminder:before,
+  .ionic .ion-android-remove:before,
+  .ionic .ion-android-search:before,
+  .ionic .ion-android-send:before,
+  .ionic .ion-android-settings:before,
+  .ionic .ion-android-share:before,
+  .ionic .ion-android-social:before,
+  .ionic .ion-android-social-user:before,
+  .ionic .ion-android-sort:before,
+  .ionic .ion-android-star:before,
+  .ionic .ion-android-stopwatch:before,
+  .ionic .ion-android-storage:before,
+  .ionic .ion-android-system-back:before,
+  .ionic .ion-android-system-home:before,
+  .ionic .ion-android-system-windows:before,
+  .ionic .ion-android-timer:before,
+  .ionic .ion-android-trash:before,
+  .ionic .ion-android-volume:before,
+  .ionic .ion-android-wifi:before,
+  .ionic .ion-archive:before,
+  .ionic .ion-arrow-down-a:before,
+  .ionic .ion-arrow-down-b:before,
+  .ionic .ion-arrow-down-c:before,
+  .ionic .ion-arrow-expand:before,
+  .ionic .ion-arrow-graph-down-left:before,
+  .ionic .ion-arrow-graph-down-right:before,
+  .ionic .ion-arrow-graph-up-left:before,
+  .ionic .ion-arrow-graph-up-right:before,
+  .ionic .ion-arrow-left-a:before,
+  .ionic .ion-arrow-left-b:before,
+  .ionic .ion-arrow-left-c:before,
+  .ionic .ion-arrow-move:before,
+  .ionic .ion-arrow-resize:before,
+  .ionic .ion-arrow-return-left:before,
+  .ionic .ion-arrow-return-right:before,
+  .ionic .ion-arrow-right-a:before,
+  .ionic .ion-arrow-right-b:before,
+  .ionic .ion-arrow-right-c:before,
+  .ionic .ion-arrow-shrink:before,
+  .ionic .ion-arrow-swap:before,
+  .ionic .ion-arrow-up-a:before,
+  .ionic .ion-arrow-up-b:before,
+  .ionic .ion-arrow-up-c:before,
+  .ionic .ion-at:before,
+  .ionic .ion-bag:before,
+  .ionic .ion-battery-charging:before,
+  .ionic .ion-battery-empty:before,
+  .ionic .ion-battery-full:before,
+  .ionic .ion-battery-half:before,
+  .ionic .ion-battery-low:before,
+  .ionic .ion-beaker:before,
+  .ionic .ion-beer:before,
+  .ionic .ion-bluetooth:before,
+  .ionic .ion-bookmark:before,
+  .ionic .ion-briefcase:before,
+  .ionic .ion-bug:before,
+  .ionic .ion-calculator:before,
+  .ionic .ion-calendar:before,
+  .ionic .ion-camera:before,
+  .ionic .ion-card:before,
+  .ionic .ion-chatbox:before,
+  .ionic .ion-chatbox-working:before,
+  .ionic .ion-chatboxes:before,
+  .ionic .ion-chatbubble:before,
+  .ionic .ion-chatbubble-working:before,
+  .ionic .ion-chatbubbles:before,
+  .ionic .ion-checkmark:before,
+  .ionic .ion-checkmark-circled:before,
+  .ionic .ion-checkmark-round:before,
+  .ionic .ion-chevron-down:before,
+  .ionic .ion-chevron-left:before,
+  .ionic .ion-chevron-right:before,
+  .ionic .ion-chevron-up:before,
+  .ionic .ion-clipboard:before,
+  .ionic .ion-clock:before,
+  .ionic .ion-close:before,
+  .ionic .ion-close-circled:before,
+  .ionic .ion-close-round:before,
+  .ionic .ion-cloud:before,
+  .ionic .ion-code:before,
+  .ionic .ion-code-download:before,
+  .ionic .ion-code-working:before,
+  .ionic .ion-coffee:before,
+  .ionic .ion-compass:before,
+  .ionic .ion-compose:before,
+  .ionic .ion-connection-bars:before,
+  .ionic .ion-contrast:before,
+  .ionic .ion-disc:before,
+  .ionic .ion-document:before,
+  .ionic .ion-document-text:before,
+  .ionic .ion-drag:before,
+  .ionic .ion-earth:before,
+  .ionic .ion-edit:before,
+  .ionic .ion-egg:before,
+  .ionic .ion-eject:before,
+  .ionic .ion-email:before,
+  .ionic .ion-eye:before,
+  .ionic .ion-eye-disabled:before,
+  .ionic .ion-female:before,
+  .ionic .ion-filing:before,
+  .ionic .ion-film-marker:before,
+  .ionic .ion-flag:before,
+  .ionic .ion-flash:before,
+  .ionic .ion-flash-off:before,
+  .ionic .ion-flask:before,
+  .ionic .ion-folder:before,
+  .ionic .ion-fork:before,
+  .ionic .ion-fork-repo:before,
+  .ionic .ion-forward:before,
+  .ionic .ion-game-controller-a:before,
+  .ionic .ion-game-controller-b:before,
+  .ionic .ion-gear-a:before,
+  .ionic .ion-gear-b:before,
+  .ionic .ion-grid:before,
+  .ionic .ion-hammer:before,
+  .ionic .ion-headphone:before,
+  .ionic .ion-heart:before,
+  .ionic .ion-help:before,
+  .ionic .ion-help-buoy:before,
+  .ionic .ion-help-circled:before,
+  .ionic .ion-home:before,
+  .ionic .ion-icecream:before,
+  .ionic .ion-icon-social-google-plus:before,
+  .ionic .ion-icon-social-google-plus-outline:before,
+  .ionic .ion-image:before,
+  .ionic .ion-images:before,
+  .ionic .ion-information:before,
+  .ionic .ion-information-circled:before,
+  .ionic .ion-ionic:before,
+  .ionic .ion-ios7-alarm:before,
+  .ionic .ion-ios7-alarm-outline:before,
+  .ionic .ion-ios7-albums:before,
+  .ionic .ion-ios7-albums-outline:before,
+  .ionic .ion-ios7-arrow-back:before,
+  .ionic .ion-ios7-arrow-down:before,
+  .ionic .ion-ios7-arrow-forward:before,
+  .ionic .ion-ios7-arrow-left:before,
+  .ionic .ion-ios7-arrow-right:before,
+  .ionic .ion-ios7-arrow-thin-down:before,
+  .ionic .ion-ios7-arrow-thin-left:before,
+  .ionic .ion-ios7-arrow-thin-right:before,
+  .ionic .ion-ios7-arrow-thin-up:before,
+  .ionic .ion-ios7-arrow-up:before,
+  .ionic .ion-ios7-at:before,
+  .ionic .ion-ios7-at-outline:before,
+  .ionic .ion-ios7-bell:before,
+  .ionic .ion-ios7-bell-outline:before,
+  .ionic .ion-ios7-bolt:before,
+  .ionic .ion-ios7-bolt-outline:before,
+  .ionic .ion-ios7-bookmarks:before,
+  .ionic .ion-ios7-bookmarks-outline:before,
+  .ionic .ion-ios7-box:before,
+  .ionic .ion-ios7-box-outline:before,
+  .ionic .ion-ios7-briefcase:before,
+  .ionic .ion-ios7-briefcase-outline:before,
+  .ionic .ion-ios7-browsers:before,
+  .ionic .ion-ios7-browsers-outline:before,
+  .ionic .ion-ios7-calculator:before,
+  .ionic .ion-ios7-calculator-outline:before,
+  .ionic .ion-ios7-calendar:before,
+  .ionic .ion-ios7-calendar-outline:before,
+  .ionic .ion-ios7-camera:before,
+  .ionic .ion-ios7-camera-outline:before,
+  .ionic .ion-ios7-cart:before,
+  .ionic .ion-ios7-cart-outline:before,
+  .ionic .ion-ios7-chatboxes:before,
+  .ionic .ion-ios7-chatboxes-outline:before,
+  .ionic .ion-ios7-chatbubble:before,
+  .ionic .ion-ios7-chatbubble-outline:before,
+  .ionic .ion-ios7-checkmark:before,
+  .ionic .ion-ios7-checkmark-empty:before,
+  .ionic .ion-ios7-checkmark-outline:before,
+  .ionic .ion-ios7-circle-filled:before,
+  .ionic .ion-ios7-circle-outline:before,
+  .ionic .ion-ios7-clock:before,
+  .ionic .ion-ios7-clock-outline:before,
+  .ionic .ion-ios7-close:before,
+  .ionic .ion-ios7-close-empty:before,
+  .ionic .ion-ios7-close-outline:before,
+  .ionic .ion-ios7-cloud:before,
+  .ionic .ion-ios7-cloud-download:before,
+  .ionic .ion-ios7-cloud-download-outline:before,
+  .ionic .ion-ios7-cloud-outline:before,
+  .ionic .ion-ios7-cloud-upload:before,
+  .ionic .ion-ios7-cloud-upload-outline:before,
+  .ionic .ion-ios7-cloudy:before,
+  .ionic .ion-ios7-cloudy-night:before,
+  .ionic .ion-ios7-cloudy-night-outline:before,
+  .ionic .ion-ios7-cloudy-outline:before,
+  .ionic .ion-ios7-cog:before,
+  .ionic .ion-ios7-cog-outline:before,
+  .ionic .ion-ios7-compose:before,
+  .ionic .ion-ios7-compose-outline:before,
+  .ionic .ion-ios7-contact:before,
+  .ionic .ion-ios7-contact-outline:before,
+  .ionic .ion-ios7-copy:before,
+  .ionic .ion-ios7-copy-outline:before,
+  .ionic .ion-ios7-download:before,
+  .ionic .ion-ios7-download-outline:before,
+  .ionic .ion-ios7-drag:before,
+  .ionic .ion-ios7-email:before,
+  .ionic .ion-ios7-email-outline:before,
+  .ionic .ion-ios7-eye:before,
+  .ionic .ion-ios7-eye-outline:before,
+  .ionic .ion-ios7-fastforward:before,
+  .ionic .ion-ios7-fastforward-outline:before,
+  .ionic .ion-ios7-filing:before,
+  .ionic .ion-ios7-filing-outline:before,
+  .ionic .ion-ios7-film:before,
+  .ionic .ion-ios7-film-outline:before,
+  .ionic .ion-ios7-flag:before,
+  .ionic .ion-ios7-flag-outline:before,
+  .ionic .ion-ios7-folder:before,
+  .ionic .ion-ios7-folder-outline:before,
+  .ionic .ion-ios7-gear:before,
+  .ionic .ion-ios7-gear-outline:before,
+  .ionic .ion-ios7-glasses:before,
+  .ionic .ion-ios7-glasses-outline:before,
+  .ionic .ion-ios7-heart:before,
+  .ionic .ion-ios7-heart-outline:before,
+  .ionic .ion-ios7-help:before,
+  .ionic .ion-ios7-help-empty:before,
+  .ionic .ion-ios7-help-outline:before,
+  .ionic .ion-ios7-infinite:before,
+  .ionic .ion-ios7-infinite-outline:before,
+  .ionic .ion-ios7-information:before,
+  .ionic .ion-ios7-information-empty:before,
+  .ionic .ion-ios7-information-outline:before,
+  .ionic .ion-ios7-ionic-outline:before,
+  .ionic .ion-ios7-keypad:before,
+  .ionic .ion-ios7-keypad-outline:before,
+  .ionic .ion-ios7-lightbulb:before,
+  .ionic .ion-ios7-lightbulb-outline:before,
+  .ionic .ion-ios7-location:before,
+  .ionic .ion-ios7-location-outline:before,
+  .ionic .ion-ios7-locked:before,
+  .ionic .ion-ios7-locked-outline:before,
+  .ionic .ion-ios7-medkit:before,
+  .ionic .ion-ios7-medkit-outline:before,
+  .ionic .ion-ios7-mic:before,
+  .ionic .ion-ios7-mic-off:before,
+  .ionic .ion-ios7-mic-outline:before,
+  .ionic .ion-ios7-minus:before,
+  .ionic .ion-ios7-minus-empty:before,
+  .ionic .ion-ios7-minus-outline:before,
+  .ionic .ion-ios7-monitor:before,
+  .ionic .ion-ios7-monitor-outline:before,
+  .ionic .ion-ios7-moon:before,
+  .ionic .ion-ios7-moon-outline:before,
+  .ionic .ion-ios7-more:before,
+  .ionic .ion-ios7-more-outline:before,
+  .ionic .ion-ios7-musical-note:before,
+  .ionic .ion-ios7-musical-notes:before,
+  .ionic .ion-ios7-navigate:before,
+  .ionic .ion-ios7-navigate-outline:before,
+  .ionic .ion-ios7-paperplane:before,
+  .ionic .ion-ios7-paperplane-outline:before,
+  .ionic .ion-ios7-partlysunny:before,
+  .ionic .ion-ios7-partlysunny-outline:before,
+  .ionic .ion-ios7-pause:before,
+  .ionic .ion-ios7-pause-outline:before,
+  .ionic .ion-ios7-people:before,
+  .ionic .ion-ios7-people-outline:before,
+  .ionic .ion-ios7-person:before,
+  .ionic .ion-ios7-person-outline:before,
+  .ionic .ion-ios7-personadd:before,
+  .ionic .ion-ios7-personadd-outline:before,
+  .ionic .ion-ios7-photos:before,
+  .ionic .ion-ios7-photos-outline:before,
+  .ionic .ion-ios7-pie:before,
+  .ionic .ion-ios7-pie-outline:before,
+  .ionic .ion-ios7-play:before,
+  .ionic .ion-ios7-play-outline:before,
+  .ionic .ion-ios7-plus:before,
+  .ionic .ion-ios7-plus-empty:before,
+  .ionic .ion-ios7-plus-outline:before,
+  .ionic .ion-ios7-pricetag:before,
+  .ionic .ion-ios7-pricetag-outline:before,
+  .ionic .ion-ios7-printer:before,
+  .ionic .ion-ios7-printer-outline:before,
+  .ionic .ion-ios7-rainy:before,
+  .ionic .ion-ios7-rainy-outline:before,
+  .ionic .ion-ios7-recording:before,
+  .ionic .ion-ios7-recording-outline:before,
+  .ionic .ion-ios7-redo:before,
+  .ionic .ion-ios7-redo-outline:before,
+  .ionic .ion-ios7-refresh:before,
+  .ionic .ion-ios7-refresh-empty:before,
+  .ionic .ion-ios7-refresh-outline:before,
+  .ionic .ion-ios7-reload:before,
+  .ionic .ion-ios7-reloading:before,
+  .ionic .ion-ios7-rewind:before,
+  .ionic .ion-ios7-rewind-outline:before,
+  .ionic .ion-ios7-search:before,
+  .ionic .ion-ios7-search-strong:before,
+  .ionic .ion-ios7-skipbackward:before,
+  .ionic .ion-ios7-skipbackward-outline:before,
+  .ionic .ion-ios7-skipforward:before,
+  .ionic .ion-ios7-skipforward-outline:before,
+  .ionic .ion-ios7-snowy:before,
+  .ionic .ion-ios7-speedometer:before,
+  .ionic .ion-ios7-speedometer-outline:before,
+  .ionic .ion-ios7-star:before,
+  .ionic .ion-ios7-star-outline:before,
+  .ionic .ion-ios7-stopwatch:before,
+  .ionic .ion-ios7-stopwatch-outline:before,
+  .ionic .ion-ios7-sunny:before,
+  .ionic .ion-ios7-sunny-outline:before,
+  .ionic .ion-ios7-telephone:before,
+  .ionic .ion-ios7-telephone-outline:before,
+  .ionic .ion-ios7-thunderstorm:before,
+  .ionic .ion-ios7-thunderstorm-outline:before,
+  .ionic .ion-ios7-time:before,
+  .ionic .ion-ios7-time-outline:before,
+  .ionic .ion-ios7-timer:before,
+  .ionic .ion-ios7-timer-outline:before,
+  .ionic .ion-ios7-trash:before,
+  .ionic .ion-ios7-trash-outline:before,
+  .ionic .ion-ios7-undo:before,
+  .ionic .ion-ios7-undo-outline:before,
+  .ionic .ion-ios7-unlocked:before,
+  .ionic .ion-ios7-unlocked-outline:before,
+  .ionic .ion-ios7-upload:before,
+  .ionic .ion-ios7-upload-outline:before,
+  .ionic .ion-ios7-videocam:before,
+  .ionic .ion-ios7-videocam-outline:before,
+  .ionic .ion-ios7-volume-high:before,
+  .ionic .ion-ios7-volume-low:before,
+  .ionic .ion-ios7-wineglass:before,
+  .ionic .ion-ios7-wineglass-outline:before,
+  .ionic .ion-ios7-world:before,
+  .ionic .ion-ios7-world-outline:before,
+  .ionic .ion-ipad:before,
+  .ionic .ion-iphone:before,
+  .ionic .ion-ipod:before,
+  .ionic .ion-jet:before,
+  .ionic .ion-key:before,
+  .ionic .ion-knife:before,
+  .ionic .ion-laptop:before,
+  .ionic .ion-leaf:before,
+  .ionic .ion-levels:before,
+  .ionic .ion-lightbulb:before,
+  .ionic .ion-link:before,
+  .ionic .ion-load-a:before,
+  .ionic .ion-loading-a:before,
+  .ionic .ion-load-b:before,
+  .ionic .ion-loading-b:before,
+  .ionic .ion-load-c:before,
+  .ionic .ion-loading-c:before,
+  .ionic .ion-load-d:before,
+  .ionic .ion-loading-d:before,
+  .ionic .ion-location:before,
+  .ionic .ion-locked:before,
+  .ionic .ion-log-in:before,
+  .ionic .ion-log-out:before,
+  .ionic .ion-loop:before,
+  .ionic .ion-looping:before,
+  .ionic .ion-magnet:before,
+  .ionic .ion-male:before,
+  .ionic .ion-man:before,
+  .ionic .ion-map:before,
+  .ionic .ion-medkit:before,
+  .ionic .ion-mic-a:before,
+  .ionic .ion-mic-b:before,
+  .ionic .ion-mic-c:before,
+  .ionic .ion-minus:before,
+  .ionic .ion-minus-circled:before,
+  .ionic .ion-minus-round:before,
+  .ionic .ion-model-s:before,
+  .ionic .ion-monitor:before,
+  .ionic .ion-more:before,
+  .ionic .ion-music-note:before,
+  .ionic .ion-navicon:before,
+  .ionic .ion-navicon-round:before,
+  .ionic .ion-navigate:before,
+  .ionic .ion-no-smoking:before,
+  .ionic .ion-nuclear:before,
+  .ionic .ion-paper-airplane:before,
+  .ionic .ion-paperclip:before,
+  .ionic .ion-pause:before,
+  .ionic .ion-person:before,
+  .ionic .ion-person-add:before,
+  .ionic .ion-person-stalker:before,
+  .ionic .ion-pie-graph:before,
+  .ionic .ion-pin:before,
+  .ionic .ion-pinpoint:before,
+  .ionic .ion-pizza:before,
+  .ionic .ion-plane:before,
+  .ionic .ion-play:before,
+  .ionic .ion-playstation:before,
+  .ionic .ion-plus:before,
+  .ionic .ion-plus-circled:before,
+  .ionic .ion-plus-round:before,
+  .ionic .ion-pound:before,
+  .ionic .ion-power:before,
+  .ionic .ion-pricetag:before,
+  .ionic .ion-pricetags:before,
+  .ionic .ion-printer:before,
+  .ionic .ion-radio-waves:before,
+  .ionic .ion-record:before,
+  .ionic .ion-refresh:before,
+  .ionic .ion-refreshing:before,
+  .ionic .ion-reply:before,
+  .ionic .ion-reply-all:before,
+  .ionic .ion-search:before,
+  .ionic .ion-settings:before,
+  .ionic .ion-share:before,
+  .ionic .ion-shuffle:before,
+  .ionic .ion-skip-backward:before,
+  .ionic .ion-skip-forward:before,
+  .ionic .ion-social-android:before,
+  .ionic .ion-social-android-outline:before,
+  .ionic .ion-social-apple:before,
+  .ionic .ion-social-apple-outline:before,
+  .ionic .ion-social-bitcoin:before,
+  .ionic .ion-social-bitcoin-outline:before,
+  .ionic .ion-social-buffer:before,
+  .ionic .ion-social-buffer-outline:before,
+  .ionic .ion-social-designernews:before,
+  .ionic .ion-social-designernews-outline:before,
+  .ionic .ion-social-dribbble:before,
+  .ionic .ion-social-dribbble-outline:before,
+  .ionic .ion-social-dropbox:before,
+  .ionic .ion-social-dropbox-outline:before,
+  .ionic .ion-social-facebook:before,
+  .ionic .ion-social-facebook-outline:before,
+  .ionic .ion-social-freebsd-devil:before,
+  .ionic .ion-social-github:before,
+  .ionic .ion-social-github-outline:before,
+  .ionic .ion-social-googleplus:before,
+  .ionic .ion-social-googleplus-outline:before,
+  .ionic .ion-social-hackernews:before,
+  .ionic .ion-social-hackernews-outline:before,
+  .ionic .ion-social-linkedin:before,
+  .ionic .ion-social-linkedin-outline:before,
+  .ionic .ion-social-pinterest:before,
+  .ionic .ion-social-pinterest-outline:before,
+  .ionic .ion-social-reddit:before,
+  .ionic .ion-social-reddit-outline:before,
+  .ionic .ion-social-rss:before,
+  .ionic .ion-social-rss-outline:before,
+  .ionic .ion-social-skype:before,
+  .ionic .ion-social-skype-outline:before,
+  .ionic .ion-social-tumblr:before,
+  .ionic .ion-social-tumblr-outline:before,
+  .ionic .ion-social-tux:before,
+  .ionic .ion-social-twitter:before,
+  .ionic .ion-social-twitter-outline:before,
+  .ionic .ion-social-vimeo:before,
+  .ionic .ion-social-vimeo-outline:before,
+  .ionic .ion-social-windows:before,
+  .ionic .ion-social-windows-outline:before,
+  .ionic .ion-social-wordpress:before,
+  .ionic .ion-social-wordpress-outline:before,
+  .ionic .ion-social-yahoo:before,
+  .ionic .ion-social-yahoo-outline:before,
+  .ionic .ion-social-youtube:before,
+  .ionic .ion-social-youtube-outline:before,
+  .ionic .ion-speakerphone:before,
+  .ionic .ion-speedometer:before,
+  .ionic .ion-spoon:before,
+  .ionic .ion-star:before,
+  .ionic .ion-stats-bars:before,
+  .ionic .ion-steam:before,
+  .ionic .ion-stop:before,
+  .ionic .ion-thermometer:before,
+  .ionic .ion-thumbsdown:before,
+  .ionic .ion-thumbsup:before,
+  .ionic .ion-trash-a:before,
+  .ionic .ion-trash-b:before,
+  .ionic .ion-umbrella:before,
+  .ionic .ion-unlocked:before,
+  .ionic .ion-upload:before,
+  .ionic .ion-usb:before,
+  .ionic .ion-videocamera:before,
+  .ionic .ion-volume-high:before,
+  .ionic .ion-volume-low:before,
+  .ionic .ion-volume-medium:before,
+  .ionic .ion-volume-mute:before,
+  .ionic .ion-waterdrop:before,
+  .ionic .ion-wifi:before,
+  .ionic .ion-wineglass:before,
+  .ionic .ion-woman:before,
+  .ionic .ion-wrench:before,
+  .ionic .ion-xbox:before {
     display: inline-block;
     font-family: "Ionicons";
     speak: none;
@@ -6989,6 +7104,134 @@ h1 + h2 + p {
     content: "\f101"; }
   .ionic .ion-alert-circled:before {
     content: "\f100"; }
+  .ionic .ion-android-add:before {
+    content: "\f2c7"; }
+  .ionic .ion-android-add-contact:before {
+    content: "\f2c6"; }
+  .ionic .ion-android-alarm:before {
+    content: "\f2c8"; }
+  .ionic .ion-android-archive:before {
+    content: "\f2c9"; }
+  .ionic .ion-android-arrow-back:before {
+    content: "\f2ca"; }
+  .ionic .ion-android-arrow-down-left:before {
+    content: "\f2cb"; }
+  .ionic .ion-android-arrow-down-right:before {
+    content: "\f2cc"; }
+  .ionic .ion-android-arrow-up-left:before {
+    content: "\f2cd"; }
+  .ionic .ion-android-arrow-up-right:before {
+    content: "\f2ce"; }
+  .ionic .ion-android-battery:before {
+    content: "\f2cf"; }
+  .ionic .ion-android-book:before {
+    content: "\f2d0"; }
+  .ionic .ion-android-calendar:before {
+    content: "\f2d1"; }
+  .ionic .ion-android-call:before {
+    content: "\f2d2"; }
+  .ionic .ion-android-camera:before {
+    content: "\f2d3"; }
+  .ionic .ion-android-chat:before {
+    content: "\f2d4"; }
+  .ionic .ion-android-checkmark:before {
+    content: "\f2d5"; }
+  .ionic .ion-android-clock:before {
+    content: "\f2d6"; }
+  .ionic .ion-android-close:before {
+    content: "\f2d7"; }
+  .ionic .ion-android-contact:before {
+    content: "\f2d8"; }
+  .ionic .ion-android-contacts:before {
+    content: "\f2d9"; }
+  .ionic .ion-android-data:before {
+    content: "\f2da"; }
+  .ionic .ion-android-developer:before {
+    content: "\f2db"; }
+  .ionic .ion-android-display:before {
+    content: "\f2dc"; }
+  .ionic .ion-android-download:before {
+    content: "\f2dd"; }
+  .ionic .ion-android-dropdown:before {
+    content: "\f2de"; }
+  .ionic .ion-android-earth:before {
+    content: "\f2df"; }
+  .ionic .ion-android-folder:before {
+    content: "\f2e0"; }
+  .ionic .ion-android-forums:before {
+    content: "\f2e1"; }
+  .ionic .ion-android-friends:before {
+    content: "\f2e2"; }
+  .ionic .ion-android-hand:before {
+    content: "\f2e3"; }
+  .ionic .ion-android-image:before {
+    content: "\f2e4"; }
+  .ionic .ion-android-inbox:before {
+    content: "\f2e5"; }
+  .ionic .ion-android-information:before {
+    content: "\f2e6"; }
+  .ionic .ion-android-keypad:before {
+    content: "\f2e7"; }
+  .ionic .ion-android-lightbulb:before {
+    content: "\f2e8"; }
+  .ionic .ion-android-locate:before {
+    content: "\f2e9"; }
+  .ionic .ion-android-location:before {
+    content: "\f2ea"; }
+  .ionic .ion-android-mail:before {
+    content: "\f2eb"; }
+  .ionic .ion-android-microphone:before {
+    content: "\f2ec"; }
+  .ionic .ion-android-mixer:before {
+    content: "\f2ed"; }
+  .ionic .ion-android-more:before {
+    content: "\f2ee"; }
+  .ionic .ion-android-note:before {
+    content: "\f2ef"; }
+  .ionic .ion-android-playstore:before {
+    content: "\f2f0"; }
+  .ionic .ion-android-printer:before {
+    content: "\f2f1"; }
+  .ionic .ion-android-promotion:before {
+    content: "\f2f2"; }
+  .ionic .ion-android-reminder:before {
+    content: "\f2f3"; }
+  .ionic .ion-android-remove:before {
+    content: "\f2f4"; }
+  .ionic .ion-android-search:before {
+    content: "\f2f5"; }
+  .ionic .ion-android-send:before {
+    content: "\f2f6"; }
+  .ionic .ion-android-settings:before {
+    content: "\f2f7"; }
+  .ionic .ion-android-share:before {
+    content: "\f2f8"; }
+  .ionic .ion-android-social:before {
+    content: "\f2fa"; }
+  .ionic .ion-android-social-user:before {
+    content: "\f2f9"; }
+  .ionic .ion-android-sort:before {
+    content: "\f2fb"; }
+  .ionic .ion-android-star:before {
+    content: "\f2fc"; }
+  .ionic .ion-android-stopwatch:before {
+    content: "\f2fd"; }
+  .ionic .ion-android-storage:before {
+    content: "\f2fe"; }
+  .ionic .ion-android-system-back:before {
+    content: "\f2ff"; }
+  .ionic .ion-android-system-home:before {
+    content: "\f300"; }
+  .ionic .ion-android-system-windows:before {
+    content: "\f301"; }
+  .ionic .ion-android-timer:before {
+    content: "\f302"; }
+  .ionic .ion-android-trash:before {
+    content: "\f303"; }
+  .ionic .ion-android-volume:before {
+    content: "\f304"; }
+  .ionic .ion-android-wifi:before {
+    content: "\f305"; }
   .ionic .ion-archive:before {
     content: "\f102"; }
   .ionic .ion-arrow-down-a:before {
@@ -7061,6 +7304,8 @@ h1 + h2 + p {
     content: "\f26b"; }
   .ionic .ion-briefcase:before {
     content: "\f26c"; }
+  .ionic .ion-bug:before {
+    content: "\f2be"; }
   .ionic .ion-calculator:before {
     content: "\f26d"; }
   .ionic .ion-calendar:before {
@@ -7133,6 +7378,8 @@ h1 + h2 + p {
     content: "\f130"; }
   .ionic .ion-earth:before {
     content: "\f276"; }
+  .ionic .ion-edit:before {
+    content: "\f2bf"; }
   .ionic .ion-egg:before {
     content: "\f277"; }
   .ionic .ion-eject:before {
@@ -7141,6 +7388,8 @@ h1 + h2 + p {
     content: "\f132"; }
   .ionic .ion-eye:before {
     content: "\f133"; }
+  .ionic .ion-eye-disabled:before {
+    content: "\f306"; }
   .ionic .ion-female:before {
     content: "\f278"; }
   .ionic .ion-filing:before {
@@ -7159,6 +7408,8 @@ h1 + h2 + p {
     content: "\f139"; }
   .ionic .ion-fork:before {
     content: "\f27a"; }
+  .ionic .ion-fork-repo:before {
+    content: "\f2c0"; }
   .ionic .ion-forward:before {
     content: "\f13a"; }
   .ionic .ion-game-controller-a:before {
@@ -7315,6 +7566,10 @@ h1 + h2 + p {
     content: "\f176"; }
   .ionic .ion-ios7-cloudy:before {
     content: "\f17a"; }
+  .ionic .ion-ios7-cloudy-night:before {
+    content: "\f308"; }
+  .ionic .ion-ios7-cloudy-night-outline:before {
+    content: "\f307"; }
   .ionic .ion-ios7-cloudy-outline:before {
     content: "\f179"; }
   .ionic .ion-ios7-cog:before {
@@ -7535,6 +7790,8 @@ h1 + h2 + p {
     content: "\f1de"; }
   .ionic .ion-ios7-skipforward-outline:before {
     content: "\f1dd"; }
+  .ionic .ion-ios7-snowy:before {
+    content: "\f309"; }
   .ionic .ion-ios7-speedometer:before {
     content: "\f290"; }
   .ionic .ion-ios7-speedometer-outline:before {
@@ -7661,6 +7918,8 @@ h1 + h2 + p {
     content: "\f207"; }
   .ionic .ion-minus-round:before {
     content: "\f208"; }
+  .ionic .ion-model-s:before {
+    content: "\f2c1"; }
   .ionic .ion-monitor:before {
     content: "\f20a"; }
   .ionic .ion-more:before {
@@ -7673,8 +7932,12 @@ h1 + h2 + p {
     content: "\f20d"; }
   .ionic .ion-navigate:before {
     content: "\f2a3"; }
+  .ionic .ion-no-smoking:before {
+    content: "\f2c2"; }
   .ionic .ion-nuclear:before {
     content: "\f2a4"; }
+  .ionic .ion-paper-airplane:before {
+    content: "\f2c3"; }
   .ionic .ion-paperclip:before {
     content: "\f20f"; }
   .ionic .ion-pause:before {
@@ -7697,6 +7960,8 @@ h1 + h2 + p {
     content: "\f214"; }
   .ionic .ion-play:before {
     content: "\f215"; }
+  .ionic .ion-playstation:before {
+    content: "\f30a"; }
   .ionic .ion-plus:before {
     content: "\f218"; }
   .ionic .ion-plus-circled:before {
@@ -7767,6 +8032,8 @@ h1 + h2 + p {
     content: "\f231"; }
   .ionic .ion-social-facebook-outline:before {
     content: "\f230"; }
+  .ionic .ion-social-freebsd-devil:before {
+    content: "\f2c4"; }
   .ionic .ion-social-github:before {
     content: "\f233"; }
   .ionic .ion-social-github-outline:before {
@@ -7803,6 +8070,8 @@ h1 + h2 + p {
     content: "\f241"; }
   .ionic .ion-social-tumblr-outline:before {
     content: "\f240"; }
+  .ionic .ion-social-tux:before {
+    content: "\f2c5"; }
   .ionic .ion-social-twitter:before {
     content: "\f243"; }
   .ionic .ion-social-twitter-outline:before {
@@ -7837,6 +8106,8 @@ h1 + h2 + p {
     content: "\f24e"; }
   .ionic .ion-stats-bars:before {
     content: "\f2b5"; }
+  .ionic .ion-steam:before {
+    content: "\f30b"; }
   .ionic .ion-stop:before {
     content: "\f24f"; }
   .ionic .ion-thermometer:before {
@@ -7877,6 +8148,8 @@ h1 + h2 + p {
     content: "\f25d"; }
   .ionic .ion-wrench:before {
     content: "\f2ba"; }
+  .ionic .ion-xbox:before {
+    content: "\f30c"; }
   .ionic html, .ionic body, .ionic div, .ionic span, .ionic applet, .ionic object, .ionic iframe,
   .ionic h1, .ionic h2, .ionic h3, .ionic h4, .ionic h5, .ionic h6, .ionic p, .ionic blockquote, .ionic pre,
   .ionic a, .ionic abbr, .ionic acronym, .ionic address, .ionic big, .ionic cite, .ionic code,
@@ -8044,11 +8317,13 @@ h1 + h2 + p {
   .ionic img {
     -webkit-user-drag: none; }
   .ionic body, .ionic .ionic-body {
+    -webkit-touch-callout: none;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    -webkit-perspective: 1000;
     -webkit-backface-visibility: hidden;
-    @incude text-size-adjust(none);
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
@@ -8066,29 +8341,26 @@ h1 + h2 + p {
     color: black;
     word-wrap: break-word;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     line-height: 20px;
     text-rendering: optimizeLegibility;
     -webkit-user-drag: none; }
-  .ionic .content:before,
-  .ionic .content:after {
-    display: block;
-    overflow: hidden;
-    height: 0;
-    content: "\00a0"; }
-  .ionic .content {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
   .ionic .scroll-content {
-    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    position: absolute;
     overflow: hidden;
-    -webkit-perspective: 1000;
-    -webkit-backface-visibility: hidden; }
+    -webkit-backface-visibility: hidden;
+    margin-top: -1px;
+    width: auto;
+    height: auto; }
+  .ionic .scroll-view {
+    overflow: hidden;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    margin-top: -1px; }
   .ionic .scroll {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -8098,45 +8370,112 @@ h1 + h2 + p {
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     text-size-adjust: none;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    -webkit-perspective: 1000;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    transform-origin: left top;
     -webkit-backface-visibility: hidden; }
-  .ionic .scroll-refresher {
-    display: none;
-    overflow: hidden;
-    margin-top: -100px;
-    height: 100px; }
-  .ionic .scroll-refresher-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center; }
-  .ionic .ionic-refresher-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center; }
-  .ionic .ionic-refresher {
+  .ionic .scroll-bar {
     position: absolute;
-    bottom: 25px;
-    left: 50%;
-    margin-left: -5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #4a87ee; }
-  .ionic .scroll-refreshing {
-    -webkit-transition: height 0.1s ease-in-out;
-    -moz-transition: height 0.1s ease-in-out;
-    transition: height 0.1s ease-in-out; }
-  .ionic .scroll-refreshing .ionic-refresher {
-    -webkit-animation: refresher-pulsate 1.5s linear;
-    -moz-animation: refresher-pulsate 1.5s linear;
-    animation: refresher-pulsate 1.5s linear;
-    -webkit-animation-iteration-count: infinite; }
+    z-index: 9999; }
+  .ionic .ng-animate .scroll-bar {
+    visibility: hidden; }
+  .ionic .scroll-bar-h {
+    height: 3px;
+    left: 2px;
+    right: 2px;
+    bottom: 3px; }
+  .ionic .scroll-bar-h .scroll-bar-indicator {
+    height: 100%; }
+  .ionic .scroll-bar-v {
+    width: 3px;
+    bottom: 2px;
+    top: 2px;
+    right: 3px; }
+  .ionic .scroll-bar-v .scroll-bar-indicator {
+    width: 100%; }
+  .ionic .scroll-bar-indicator {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    opacity: 1; }
+  .ionic .scroll-bar-indicator.scroll-bar-fade-out {
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+    opacity: 0; }
+  .ionic .scroll-refresher {
+    overflow: hidden;
+    margin-top: -60px;
+    height: 60px;
+    position: relative; }
+  .ionic .scroll-refresher .icon-refreshing {
+    display: none;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    animation-duration: 1.5s; }
+  .ionic .scroll-refresher-content {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: #666666; }
+  .ionic .ionic-refresher-content {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: #666666; }
+  .ionic .ionic-refresher-content .icon-pulling {
+    -webkit-animation-duration: 200ms;
+    -moz-animation-duration: 200ms;
+    animation-duration: 200ms;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    animation-fill-mode: both; }
+  .ionic .scroll-refresher.active .icon-pulling {
+    display: block; }
+  .ionic .scroll-refresher.active .icon-refreshing {
+    display: none; }
+  .ionic .scroll-refresher.active.refreshing .icon-pulling {
+    display: none; }
+  .ionic .scroll-refresher.active.refreshing .icon-refreshing {
+    display: block; }
+  .ionic .scroll-refresher.active .ionic-refresher-content .icon-pulling {
+    -webkit-animation-name: refresh-spin;
+    -moz-animation-name: refresh-spin;
+    animation-name: refresh-spin; }
+  .ionic infinite-scroll .scroll-infinite {
+    overflow: hidden;
+    margin-top: -70px;
+    height: 60px;
+    position: relative; }
+  .ionic .scroll-infinite-content {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: #666666; }
+  .ionic infinite-scroll.active .scroll-infinite {
+    margin-top: -30px; }
+  .ionic .overflow-scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
+  .ionic .overflow-scroll .scroll {
+    position: static;
+    height: 100%; }
   .ionic .overflow-scroll {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -8151,14 +8490,18 @@ h1 + h2 + p {
   .ionic .has-footer {
     bottom: 44px; }
   .ionic .has-tabs {
-    bottom: 44px; }
+    bottom: 49px; }
   .ionic .pane {
-    position: fixed;
+    position: absolute;
+    z-index: 1; }
+  .ionic .view {
+    position: absolute;
+    z-index: 1; }
+  .ionic .pane, .ionic .view {
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1;
     width: 100%;
     height: 100%;
     background-color: #fff; }
@@ -8178,7 +8521,7 @@ h1 + h2 + p {
   .ionic .h1, .ionic .h2, .ionic .h3, .ionic .h4, .ionic .h5, .ionic .h6 {
     color: black;
     font-weight: 500;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     line-height: 1.1; }
   .ionic h1 small, .ionic h2 small, .ionic h3 small, .ionic h4 small, .ionic h5 small, .ionic h6 small,
   .ionic .h1 small, .ionic .h2 small, .ionic .h3 small, .ionic .h4 small, .ionic .h5 small, .ionic .h6 small {
@@ -8283,6 +8626,7 @@ h1 + h2 + p {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0); }
@@ -8339,12 +8683,11 @@ h1 + h2 + p {
     -moz-animation-name: actionSheetOut;
     animation-name: actionSheetOut; }
   .ionic .action-sheet {
-    position: fixed;
-    bottom: 0;
-    left: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: auto;
     z-index: 10;
-    overflow: hidden;
-    width: calc(100% - 30px); }
+    overflow: hidden; }
   .ionic .action-sheet .button {
     display: block;
     padding: 1px;
@@ -8355,6 +8698,10 @@ h1 + h2 + p {
     font-size: 18px; }
   .ionic .action-sheet .button.destructive {
     color: #ef4e3a; }
+  .ionic .action-sheet-wrapper {
+    width: 100%;
+    position: fixed;
+    bottom: 0; }
   .ionic .action-sheet-title {
     padding: 10px;
     color: #666666;
@@ -8494,8 +8841,8 @@ h1 + h2 + p {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 18px;
-    line-height: 42px; }
+    font-size: 17px;
+    line-height: 44px; }
   .ionic .bar .title.title-left {
     text-align: left; }
   .ionic .bar .title.title-right {
@@ -8507,32 +8854,38 @@ h1 + h2 + p {
     padding: 0 8px;
     min-width: initial;
     min-height: 31px;
-    height: 32px;
-    font-size: 12px;
-    line-height: 30px; }
-  .ionic .bar .button .icon, .ionic .bar .button.icon:before, .ionic .bar .button.icon-left:before, .ionic .bar .button.icon-right:before {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 32px; }
+  .ionic .bar .button .icon:before, .ionic .bar .button.icon:before, .ionic .bar .button.icon-left:before, .ionic .bar .button.icon-right:before {
     padding-right: 2px;
     padding-left: 2px;
-    font-size: 24px;
-    line-height: 30px; }
-  .ionic .bar .button.button-icon .icon, .ionic .bar .button.button-icon.icon:before, .ionic .bar .button.button-icon.icon-left:before, .ionic .bar .button.button-icon.icon-right:before {
+    font-size: 20px;
+    line-height: 32px; }
+  .ionic .bar .button.button-icon .icon:before, .ionic .bar .button.button-icon.icon:before, .ionic .bar .button.button-icon.icon-left:before, .ionic .bar .button.button-icon.icon-right:before {
+    font-size: 32px;
     line-height: 32px; }
   .ionic .bar .button.button-clear {
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 300;
     padding-right: 2px;
     padding-left: 2px; }
-  .ionic .bar .button-bar > .button, .ionic .bar .buttons > .button {
+  .ionic .bar .button.button-clear .icon:before, .ionic .bar .button.button-clear.icon:before, .ionic .bar .button.button-clear.icon-left:before, .ionic .bar .button.button-clear.icon-right:before {
+    font-size: 32px;
+    line-height: 32px; }
+  .ionic .bar .button-bar > .button,
+  .ionic .bar .buttons > .button {
     min-height: 31px;
-    height: 32px;
-    line-height: 30px; }
-  .ionic .bar .button-bar + .button, .ionic .bar .button + .button-bar {
+    line-height: 32px; }
+  .ionic .bar .button-bar + .button,
+  .ionic .bar .button + .button-bar {
     margin-left: 5px; }
   .ionic .bar .title + .button:last-child,
   .ionic .bar > .button + .button:last-child,
   .ionic .bar > .button.pull-right,
   .ionic .bar .title + .buttons {
     position: absolute;
-    top: 5px;
+    top: 6px;
     right: 5px;
     bottom: 5px; }
   .ionic .bar-light .button {
@@ -8551,7 +8904,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-light .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8571,7 +8924,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-stable .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8591,7 +8944,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-positive .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8611,7 +8964,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-calm .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8631,7 +8984,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-assertive .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8651,7 +9004,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-balanced .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8671,7 +9024,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-energized .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8691,7 +9044,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-royal .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8711,7 +9064,7 @@ h1 + h2 + p {
     background: none;
     border-color: transparent;
     box-shadow: none;
-    font-size: 18px; }
+    font-size: 17px; }
   .ionic .bar-dark .button.button-icon {
     background: none;
     border-color: transparent; }
@@ -8836,13 +9189,13 @@ h1 + h2 + p {
     white-space: nowrap;
     font-weight: 400;
     font-size: 14px;
-    font-family: "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     opacity: 0.7; }
   .ionic .tabs-icon-top .tab-item,
   .ionic .tabs-icon-bottom .tab-item {
     font-size: 12px;
     line-height: 14px; }
-  .ionic .tab-item .icon {
+  .ionic .tab-item .icon:before {
     display: block;
     margin: 0 auto;
     height: 32px;
@@ -8850,33 +9203,47 @@ h1 + h2 + p {
   .ionic .tabs-icon-left .tab-item,
   .ionic .tabs-icon-right .tab-item {
     font-size: 12px; }
-  .ionic .tabs-icon-left .tab-item .icon,
-  .ionic .tabs-icon-right .tab-item .icon {
+  .ionic .tabs-icon-left .tab-item .icon:before,
+  .ionic .tabs-icon-right .tab-item .icon:before {
     display: inline-block;
     vertical-align: top;
     font-size: 24px;
     line-height: 49px; }
-  .ionic .tabs-icon-only .icon {
+  .ionic .tabs-icon-left .tab-item .icon:before {
+    padding-right: 3px; }
+  .ionic .tabs-icon-right .tab-item .icon:before {
+    padding-left: 3px; }
+  .ionic .tabs-icon-only .icon:before {
     line-height: inherit; }
-  .ionic .tab-item.active, .ionic .tab-item:active {
+  .ionic .tab-item.active,
+  .ionic .tab-item:active {
     opacity: 1; }
-  .ionic .tab-item.active.tab-item-light, .ionic .tab-item:active.tab-item-light {
+  .ionic .tab-item.active.tab-item-light,
+  .ionic .tab-item:active.tab-item-light {
     color: white; }
-  .ionic .tab-item.active.tab-item-stable, .ionic .tab-item:active.tab-item-stable {
+  .ionic .tab-item.active.tab-item-stable,
+  .ionic .tab-item:active.tab-item-stable {
     color: #f8f8f8; }
-  .ionic .tab-item.active.tab-item-positive, .ionic .tab-item:active.tab-item-positive {
+  .ionic .tab-item.active.tab-item-positive,
+  .ionic .tab-item:active.tab-item-positive {
     color: #4a87ee; }
-  .ionic .tab-item.active.tab-item-calm, .ionic .tab-item:active.tab-item-calm {
+  .ionic .tab-item.active.tab-item-calm,
+  .ionic .tab-item:active.tab-item-calm {
     color: #43cee6; }
-  .ionic .tab-item.active.tab-item-assertive, .ionic .tab-item:active.tab-item-assertive {
+  .ionic .tab-item.active.tab-item-assertive,
+  .ionic .tab-item:active.tab-item-assertive {
     color: #ef4e3a; }
-  .ionic .tab-item.active.tab-item-balanced, .ionic .tab-item:active.tab-item-balanced {
+  .ionic .tab-item.active.tab-item-balanced,
+  .ionic .tab-item:active.tab-item-balanced {
     color: #66cc33; }
-  .ionic .tab-item.active.tab-item-energized, .ionic .tab-item:active.tab-item-energized {
+  .ionic .tab-item.active.tab-item-energized,
+  .ionic .tab-item:active.tab-item-energized {
     color: #f0b840; }
-  .ionic .tab-item.active.tab-item-royal, .ionic .tab-item:active.tab-item-royal {
+  .ionic .tab-item.active.tab-item-royal,
+  .ionic .tab-item:active.tab-item-royal {
     color: #8a6de9; }
-  .ionic .tab-item.active.tab-item-dark, .ionic .tab-item:active.tab-item-dark {
+  .ionic .tab-item.active.tab-item-dark,
+  .ionic .tab-item:active.tab-item-dark {
     color: #444444; }
   .ionic .item.tabs {
     display: -webkit-box;
@@ -8886,7 +9253,7 @@ h1 + h2 + p {
     display: -ms-flexbox;
     display: flex;
     padding: 0; }
-  .ionic .item.tabs .icon {
+  .ionic .item.tabs .icon:before {
     position: relative; }
   .ionic .menu {
     position: absolute;
@@ -8896,7 +9263,7 @@ h1 + h2 + p {
     overflow: hidden;
     min-height: 100%;
     max-height: 100%;
-    width: 270px;
+    width: 275px;
     background-color: #fff; }
   .ionic .menu-content {
     box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2); }
@@ -8933,6 +9300,7 @@ h1 + h2 + p {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     visibility: hidden;
     width: 100%;
     height: 100%; }
@@ -9094,19 +9462,23 @@ h1 + h2 + p {
     padding: 0; }
   .ionic .item-complex .item-content,
   .ionic .item-radio .item-content {
-    -webkit-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out;
-    -moz-transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out;
-    transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out, left 0.2s ease-in-out;
     /**
      * The content area of a complex list item. This area can
      * Slide left and right and be dragged to support different
      * UI interactions.
      */
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     position: relative;
     z-index: 2;
     padding: 15px 40px 15px 15px;
     border: none;
     background-color: white; }
+  .ionic a.item-content {
+    display: block;
+    color: inherit;
+    text-decoration: none; }
   .ionic .item-text-wrap,
   .ionic .item-text-wrap h1,
   .ionic .item-text-wrap h2,
@@ -9169,8 +9541,14 @@ h1 + h2 + p {
     padding-left: 0; }
   .ionic .item-complex.item-icon-left .item-content {
     padding-left: 45px; }
+  .ionic .item-icon-right {
+    padding-right: 45px; }
   .ionic .item-icon-right .icon {
     right: 7.5px; }
+  .ionic .item-complex.item-icon-right {
+    padding-right: 0; }
+  .ionic .item-complex.item-icon-right .item-content {
+    padding-right: 45px; }
   .ionic .item-icon-left.item-icon-right .icon:first-child {
     right: auto; }
   .ionic .item-icon-left.item-icon-right .icon:last-child {
@@ -9196,8 +9574,8 @@ h1 + h2 + p {
     min-width: initial;
     min-height: 32px;
     font-size: 32px; }
-  .ionic .item-button-left > .button .icon,
-  .ionic .item-button-left .item-content > .button .icon {
+  .ionic .item-button-left > .button .icon:before,
+  .ionic .item-button-left .item-content > .button .icon:before {
     position: relative;
     left: auto;
     width: auto;
@@ -9207,7 +9585,9 @@ h1 + h2 + p {
   .ionic button.item.item-button-right {
     padding-right: 75px; }
   .ionic .item-button-right > .button,
-  .ionic .item-button-right .item-content > .button {
+  .ionic .item-button-right .item-content > .button,
+  .ionic .item-button-right > .buttons,
+  .ionic .item-button-right .item-content > .buttons {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -9225,12 +9605,21 @@ h1 + h2 + p {
     min-width: initial;
     min-height: 32px;
     font-size: 32px; }
-  .ionic .item-button-right > .button .icon,
-  .ionic .item-button-right .item-content > .button .icon {
+  .ionic .item-button-right > .button .icon:before,
+  .ionic .item-button-right .item-content > .button .icon:before,
+  .ionic .item-button-right > .buttons .icon:before,
+  .ionic .item-button-right .item-content > .buttons .icon:before {
     position: relative;
     left: auto;
     width: auto;
     line-height: 31px; }
+  .ionic .item-button-right > .button > .button,
+  .ionic .item-button-right .item-content > .button > .button,
+  .ionic .item-button-right > .buttons > .button,
+  .ionic .item-button-right .item-content > .buttons > .button {
+    margin: 0px 2px;
+    min-height: 32px;
+    font-size: 32px; }
   .ionic a.item,
   .ionic button.item {
     padding-right: 40px; }
@@ -9325,12 +9714,9 @@ h1 + h2 + p {
     float: right;
     color: #aaa;
     font-size: 14px; }
-  .ionic .item-sliding {
-    -webkit-transition: transform 0.1s ease-in-out;
-    -moz-transition: transform 0.1s ease-in-out;
-    transition: transform 0.1s ease-in-out; }
   .ionic .item-reordering {
     position: absolute;
+    z-index: 20;
     width: 100%; }
   .ionic .item-placeholder {
     opacity: 0.7; }
@@ -9347,7 +9733,7 @@ h1 + h2 + p {
     line-height: 100%; }
   .ionic .item-edit .button {
     height: 100%; }
-  .ionic .item-edit .button .icon, .ionic .item-edit .button i {
+  .ionic .item-edit .button.icon {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -9361,6 +9747,7 @@ h1 + h2 + p {
     align-items: center;
     position: absolute;
     top: 0;
+    left: 0;
     height: 100%;
     color: #ef4e3a;
     font-size: 24px; }
@@ -9387,12 +9774,13 @@ h1 + h2 + p {
     top: 0;
     right: 0;
     z-index: 0;
-    height: 100%; }
-  .ionic .item-drag .button {
+    width: 50px;
     height: 100%;
-    border: none;
-    border-radius: 0; }
-  .ionic .item-drag .button .icon, .ionic .item-drag .button i {
+    background: inherit; }
+  .ionic .item-drag .button {
+    min-width: 42px;
+    height: 100%; }
+  .ionic .item-drag .button.icon:before {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -9407,7 +9795,7 @@ h1 + h2 + p {
     position: absolute;
     top: 0;
     height: 100%;
-    font-size: 24px; }
+    font-size: 32px; }
   .ionic .item-options {
     position: absolute;
     top: 0;
@@ -9418,6 +9806,8 @@ h1 + h2 + p {
     height: 100%;
     border: none;
     border-radius: 0; }
+  .ionic .item-options-hide .item-options {
+    display: none; }
   .ionic .list {
     position: relative;
     margin-bottom: 20px;
@@ -9425,8 +9815,13 @@ h1 + h2 + p {
     padding-bottom: 1px;
     padding-left: 0; }
   .ionic .list-editing .item-content {
-    margin-right: 50px;
-    margin-left: 50px; }
+    -webkit-transform: translate3d(50px, 0, 0);
+    -moz-transform: translate3d(50px, 0, 0);
+    transform: translate3d(50px, 0, 0); }
+  .ionic .list-reordering .item-content {
+    margin-right: 50px; }
+  .ionic .list-reordering .item-drag {
+    z-index: 1; }
   .ionic .list-header {
     margin-top: 20px;
     padding: 5px 15px;
@@ -9479,11 +9874,6 @@ h1 + h2 + p {
     margin-left: 0; }
   .ionic .padding-right > .list .item {
     margin-right: 0; }
-  .ionic .nav-page {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: white; }
   .ionic .badge {
     background-color: transparent;
     color: #aaaaaa;
@@ -9529,38 +9919,36 @@ h1 + h2 + p {
   .ionic .button .badge {
     position: relative;
     top: -1px; }
-  .ionic .slide-box {
+  .ionic .slider {
     position: relative;
     overflow: hidden;
-    background-color: #000; }
-  .ionic .slide-box-slides {
+    visibility: hidden; }
+  .ionic .slider-slides {
     position: relative;
-    white-space: nowrap;
-    font-size: 0;
-    -webkit-transition: -webkit-transform 0 ease-in-out; }
-  .ionic .slide-box-animating {
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    transition-duration: 0.2s; }
-  .ionic .slide-box-slide {
-    display: inline-block;
+    height: 100%; }
+  .ionic .slider-slide {
+    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
+    float: left;
     vertical-align: top; }
-  .ionic .slide-box-slide img {
+  .ionic .slider-slide-image > img {
     width: 100%; }
-  .ionic .slide-box-pager {
+  .ionic .slider-pager {
     position: absolute;
     bottom: 20px;
     width: 100%;
-    text-align: center; }
-  .ionic .slide-box-pager > * {
+    text-align: center;
+    z-index: 1; }
+  .ionic .slider-pager .slider-pager-page {
     display: inline-block;
-    margin: 0px 5px;
-    color: #fff;
+    margin: 0px 3px;
+    width: 15px;
+    color: #000;
     text-decoration: none;
     opacity: 0.3; }
-  .ionic .slide-box-pager > *.active {
+  .ionic .slider-pager .slider-pager-page.active {
     opacity: 1;
     -webkit-transition: opacity 0.4s ease-in;
     -moz-transition: opacity 0.4s ease-in;
@@ -9626,7 +10014,7 @@ h1 + h2 + p {
   .ionic button,
   .ionic select,
   .ionic textarea {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
   .ionic .item-input {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9672,6 +10060,19 @@ h1 + h2 + p {
   .ionic .item-input.item.active, .ionic .ionic-pseudo .item-input.item:active {
     border-color: #dddddd;
     background-color: transparent; }
+  .ionic .item-input .button-bar {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 220px;
+    -moz-box-flex: 1;
+    -moz-flex: 1 0 220px;
+    -ms-flex: 1 0 220px;
+    flex: 1 0 220px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
   .ionic .item-input-inset {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9867,7 +10268,7 @@ h1 + h2 + p {
     -moz-transform: rotate(-45deg);
     transform: rotate(-45deg);
     position: absolute;
-    top: 34%;
+    top: 30%;
     left: 26%;
     display: table;
     width: 14px;
@@ -9997,12 +10398,11 @@ h1 + h2 + p {
     padding-right: 2px;
     padding-left: 1px;
     width: auto;
-    height: 4px;
     height: 35px;
     outline: none;
     background: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
     background-position: center;
-    background-size: 96% 4px;
+    background-size: 99% 4px;
     background-repeat: no-repeat;
     -webkit-appearance: none; }
   .ionic input[type="range"]::-webkit-slider-thumb {
@@ -10018,17 +10418,17 @@ h1 + h2 + p {
     /* what creates the colorful line on the left side of the slider */
     position: absolute;
     top: 8px;
-    left: -320px;
-    width: 320px;
+    left: -2001px;
+    width: 2000px;
     height: 4px;
     background: #444444;
     content: ' '; }
   .ionic input[type="range"]::-webkit-slider-thumb:after {
     /* create a larger (but hidden) hit area */
     position: absolute;
-    top: -15px;
-    left: -15px;
-    padding: 25px;
+    top: -20px;
+    left: -20px;
+    padding: 30px;
     content: ' '; }
   .ionic .range {
     display: -webkit-box;
@@ -10063,27 +10463,40 @@ h1 + h2 + p {
     background: #444444; }
   .ionic .range .icon {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 1 24px;
+    -webkit-flex: 0;
     -moz-box-flex: 0;
-    -moz-flex: 0 1 24px;
-    -ms-flex: 0 1 24px;
-    flex: 0 1 24px;
+    -moz-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
     display: block;
     min-width: 24px;
     text-align: center;
     font-size: 24px; }
   .ionic .range input {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 272px;
-    -moz-box-flex: 0;
-    -moz-flex: 0 1 272px;
-    -ms-flex: 0 1 272px;
-    flex: 0 1 272px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     display: block;
     margin-right: 10px;
     margin-left: 10px;
-    max-width: 320px;
     width: 100%; }
+  .ionic .range-label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: block;
+    white-space: nowrap; }
+  .ionic .range-label:first-child {
+    padding-left: 5px; }
+  .ionic .range input + .range-label {
+    padding-right: 5px;
+    padding-left: 0; }
   .ionic .button {
     color: #444444;
     background-color: #f8f8f8;
@@ -10093,7 +10506,7 @@ h1 + h2 + p {
     margin: 0;
     padding: 1px 12px 0 12px;
     min-width: 52px;
-    min-height: 42px;
+    min-height: 52px;
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
@@ -10101,7 +10514,7 @@ h1 + h2 + p {
     text-align: center;
     text-overflow: ellipsis;
     font-size: 16px;
-    line-height: 41px;
+    line-height: 46px;
     cursor: pointer; }
   .ionic .button:hover {
     color: #444444;
@@ -10110,12 +10523,12 @@ h1 + h2 + p {
     background-color: #e5e5e5;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
     border-color: #a2a2a2; }
-  .ionic .button .icon, .ionic .button.icon:before, .ionic .button.icon-left:before, .ionic .button.icon-right:before {
+  .ionic .button .icon:before, .ionic .button.icon:before, .ionic .button.icon-left:before, .ionic .button.icon-right:before {
     display: inline-block;
     padding: 0 0 1px 0;
     vertical-align: inherit;
     font-size: 24px;
-    line-height: 40px; }
+    line-height: 46px; }
   .ionic .button.icon-left:before {
     padding-right: .2em;
     padding-left: 0; }
@@ -10372,19 +10785,19 @@ h1 + h2 + p {
   .ionic .button-small {
     padding: 0 4px;
     min-width: 28px;
-    min-height: 28px;
+    min-height: 31px;
     font-size: 12px;
-    line-height: 27px; }
-  .ionic .button-small .icon, .ionic .button-small.icon:before, .ionic .button-small.icon-left:before, .ionic .button-small.icon-right:before {
+    line-height: 28px; }
+  .ionic .button-small .icon:before, .ionic .button-small.icon:before, .ionic .button-small.icon-left:before, .ionic .button-small.icon-right:before {
     font-size: 16px;
     line-height: 26px; }
   .ionic .button-large {
     padding: 0 16px;
-    min-width: 66px;
-    min-height: 54px;
-    font-size: 18px;
+    min-width: 68px;
+    min-height: 59px;
+    font-size: 20px;
     line-height: 53px; }
-  .ionic .button-large .icon, .ionic .button-large.icon:before, .ionic .button-large.icon-left:before, .ionic .button-large.icon-right:before {
+  .ionic .button-large .icon:before, .ionic .button-large.icon:before, .ionic .button-large.icon-left:before, .ionic .button-large.icon-right:before {
     padding-bottom: 2px;
     font-size: 32px;
     line-height: 51px; }
@@ -10395,21 +10808,20 @@ h1 + h2 + p {
     padding: 0 6px;
     min-width: initial;
     border-color: transparent;
-    background: none;
     background: none; }
   .ionic .button-icon.button:active, .ionic .button-icon.button.active {
     border-color: transparent;
     background: none;
     box-shadow: none;
     opacity: 0.3; }
-  .ionic .button-icon .icon, .ionic .button-icon.icon:before {
+  .ionic .button-icon .icon:before, .ionic .button-icon.icon:before {
     font-size: 32px; }
   .ionic .button-clear {
     -webkit-transition: opacity 0.1s;
     -moz-transition: opacity 0.1s;
     transition: opacity 0.1s;
     padding: 0 6px;
-    max-height: 42px;
+    max-height: 47px;
     border-color: transparent;
     background: none;
     box-shadow: none; }
@@ -10458,10 +10870,16 @@ h1 + h2 + p {
     border-radius: 0; }
   .ionic button.button-block,
   .ionic button.button-full,
-  .ionic .button-full > button.button {
+  .ionic .button-full > button.button,
+  .ionic input.button.button-block {
     width: 100%; }
   .ionic a.button {
     text-decoration: none; }
+  .ionic .button.disabled,
+  .ionic .button[disabled] {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none; }
   .ionic .button-bar {
     display: -webkit-box;
     display: -webkit-flex;
@@ -10476,6 +10894,20 @@ h1 + h2 + p {
     -ms-flex: 1;
     flex: 1;
     width: 100%; }
+  .ionic .button-bar.button-bar-inline {
+    display: block;
+    width: auto;
+    *zoom: 1; }
+  .ionic .button-bar.button-bar-inline:before, .ionic .button-bar.button-bar-inline:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  .ionic .button-bar.button-bar-inline:after {
+    clear: both; }
+  .ionic .button-bar.button-bar-inline > .button {
+    width: auto;
+    display: inline-block;
+    float: left; }
   .ionic .button-bar > .button {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -10497,6 +10929,10 @@ h1 + h2 + p {
   .ionic .button-bar > .button:last-child {
     border-right-width: 1px;
     border-radius: 0px 2px 2px 0px; }
+  .ionic .no-animation > .ng-enter, .ionic .no-animation.ng-enter, .ionic .no-animation > .ng-leave, .ionic .no-animation.ng-leave {
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none; }
   .ionic .noop-animation > .ng-enter, .ionic .noop-animation.ng-enter, .ionic .noop-animation > .ng-leave, .ionic .noop-animation.ng-leave {
     -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
     -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms;
@@ -10567,8 +11003,9 @@ h1 + h2 + p {
     right: -1px;
     bottom: 0;
     left: -1px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd; }
+    width: auto;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd; }
   .ionic .slide-left-right-ios7 > .ng-enter, .ionic .slide-left-right-ios7.ng-enter {
     /* NEW content placed far RIGHT BEFORE it slides IN from the RIGHT */
     -webkit-transform: translate3d(100%, 0, 0);
@@ -10593,8 +11030,9 @@ h1 + h2 + p {
     right: -1px;
     bottom: 0;
     left: -1px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd; }
+    width: auto;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd; }
   .ionic .slide-left-right-ios7.reverse > .ng-enter, .ionic .slide-left-right-ios7.reverse.ng-enter {
     /* NEW content placed far LEFT BEFORE it slides IN from the LEFT */
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -10799,9 +11237,9 @@ h1 + h2 + p {
     -moz-animation-name: slideOutToRight;
     animation-name: slideOutToRight; }
   .ionic .slide-in-up {
-    -webkit-transform: translate3d(0, 0%, 0);
-    -moz-transform: translate3d(0, 0%, 0);
-    transform: translate3d(0, 0%, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     opacity: 1; }
   .ionic .slide-in-up.ng-enter, .ionic .slide-in-up .ng-enter {
     -webkit-transform: translate3d(0, 100%, 0);
@@ -10842,9 +11280,9 @@ h1 + h2 + p {
     -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
     -moz-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
     animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both; }
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
   .ionic .slide-in-up-add-active {
     -webkit-animation-name: slideInUp;
     -moz-animation-name: slideInUp;
@@ -10880,9 +11318,9 @@ h1 + h2 + p {
     display: none; }
   .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter,
   .ionic .nav-title-slide-ios7 > .ng-leave, .ionic .nav-title-slide-ios7.ng-leave {
-    -webkit-transition: all 350ms;
-    -moz-transition: all 350ms;
-    transition: all 350ms;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    transition: all 250ms;
     -webkit-transition-timing-function: ease-in-out;
     -moz-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
@@ -10902,26 +11340,23 @@ h1 + h2 + p {
     -moz-transform: translate3d(-30%, 0, 0);
     transform: translate3d(-30%, 0, 0);
     opacity: 0; }
-  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter,
-  .ionic .reverse .nav-title-slide-ios7 > .ng-leave, .ionic .reverse .nav-title-slide-ios7.ng-leave {
-    -webkit-transition: all 350ms;
-    -moz-transition: all 350ms;
-    transition: all 350ms;
-    -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+  .ionic .nav-title-slide-ios7.reverse > .ng-enter, .ionic .nav-title-slide-ios7.reverse.ng-enter,
+  .ionic .nav-title-slide-ios7.reverse > .ng-leave, .ionic .nav-title-slide-ios7.reverse.ng-leave {
+    -webkit-transition: all ease-in-out 250ms;
+    -moz-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms;
     opacity: 1; }
-  .ionic .reverse .nav-title-slide-ios7 > .ng-enter, .ionic .reverse .nav-title-slide-ios7.ng-enter {
+  .ionic .nav-title-slide-ios7.reverse > .ng-enter, .ionic .nav-title-slide-ios7.reverse.ng-enter {
     -webkit-transform: translate3d(-30%, 0, 0);
     -moz-transform: translate3d(-30%, 0, 0);
     transform: translate3d(-30%, 0, 0);
     opacity: 0; }
-  .ionic .reverse .nav-title-slide-ios7 > .ng-enter.ng-enter-active, .ionic .reverse .nav-title-slide-ios7.ng-enter.ng-enter-active {
+  .ionic .nav-title-slide-ios7.reverse > .ng-enter.ng-enter-active, .ionic .nav-title-slide-ios7.reverse.ng-enter.ng-enter-active {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1; }
-  .ionic .reverse .nav-title-slide-ios7 > .ng-leave.ng-leave-active, .ionic .reverse .nav-title-slide-ios7.ng-leave.ng-leave-active {
+  .ionic .nav-title-slide-ios7.reverse > .ng-leave.ng-leave-active, .ionic .nav-title-slide-ios7.reverse.ng-leave.ng-leave-active {
     -webkit-transform: translate3d(30%, 0, 0);
     -moz-transform: translate3d(30%, 0, 0);
     transform: translate3d(30%, 0, 0);
@@ -11080,6 +11515,8 @@ h1 + h2 + p {
     visibility: hidden; }
   .ionic .inline {
     display: inline-block; }
+  .ionic .disable-pointer-events {
+    pointer-events: none; }
   .ionic .block {
     display: block;
     clear: both; }
@@ -11091,6 +11528,14 @@ h1 + h2 + p {
     content: "."; }
   .ionic .full-image {
     width: 100%; }
+  .ionic .clearfix {
+    *zoom: 1; }
+  .ionic .clearfix:before, .ionic .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  .ionic .clearfix:after {
+    clear: both; }
   .ionic .padding {
     padding: 10px; }
   .ionic .padding-top,
@@ -11161,16 +11606,28 @@ h1 + h2 + p {
     background-color: #444444; }
   .ionic .dark-border {
     border-color: #111111; }
-  .ionic .platform-ios7 .bar-header {
+  .ionic .platform-ios7:not(.fullscreen) .bar-header {
     height: 64px; }
-  .ionic .platform-ios7 .bar-header > * {
+  .ionic .platform-ios7:not(.fullscreen) .bar-header.item-input-inset .item-input-wrapper {
+    margin-top: 19px !important; }
+  .ionic .platform-ios7:not(.fullscreen) .bar-header > * {
     margin-top: 20px; }
-  .ionic .platform-ios7 .has-header {
+  .ionic .platform-ios7:not(.fullscreen) .has-header,
+  .ionic .platform-ios7:not(.fullscreen) .bar-subheader {
     top: 64px; }
-  .ionic .platform-ios7 .bar-subheader {
-    top: 64px; }
-  .ionic .platform-ios7 .has-subheader {
+  .ionic .platform-ios7:not(.fullscreen) .has-subheader {
     top: 108px; }
+  .ionic .platform-ios7.status-bar-hide {
+    margin-bottom: 20px; }
+  .ionic .platform-android .bar-header {
+    height: 48px; }
+  .ionic .platform-android .has-header,
+  .ionic .platform-android .bar-subheader {
+    top: 48px; }
+  .ionic .platform-android .has-subheader {
+    top: 96px; }
+  .ionic .platform-android .title {
+    line-height: 48px; }
 
 .pre-footer {
   position: relative;

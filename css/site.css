@@ -4939,9 +4939,9 @@ td.visible-print {
   .guide-content .well p {
     margin: 0px 0px 10px 0px; }
 
-#demo #demo-header h1, #demo #demo-header h4 {
+#demo #demo-top h1, #demo #demo-top h4 {
   text-align: center; }
-#demo #demo-header h4 {
+#demo #demo-top h4 {
   color: #555;
   font-weight: normal; }
 #demo pre {

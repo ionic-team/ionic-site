@@ -4939,6 +4939,10 @@ td.visible-print {
   .guide-content .well p {
     margin: 0px 0px 10px 0px; }
 
+#demo .phone-case {
+  margin: 30px auto;
+  float: none; }
+
 .home .heading-tile {
   background: none; }
 .home .primary-row {

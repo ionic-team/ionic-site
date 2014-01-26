@@ -285,5 +285,9 @@ h1 + h2 + p {
 .newsletter-box {
   background-color: #4c8cfa;
   color: #fff;
-  padding: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  h4 {
+    color: #fff;
+  }
 }

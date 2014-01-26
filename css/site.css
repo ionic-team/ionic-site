@@ -11702,3 +11702,6 @@ h1 + h2 + p {
   border-radius: 5px; }
   .newsletter-box h4 {
     color: #fff; }
+
+.social-box {
+  margin: 15px 0px; }

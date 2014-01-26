@@ -11687,3 +11687,8 @@ h1 + h2 + p {
       border: none;
       border-radius: 3px;
       box-shadow: none; }
+
+.newsletter-box {
+  background-color: #4c8cfa;
+  color: #fff;
+  padding: 5px; }

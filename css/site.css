@@ -4941,15 +4941,15 @@ td.visible-print {
 
 #demo #demo-top h1, #demo #demo-top h4 {
   text-align: center; }
+#demo #demo-top h1 {
+  border: none;
+  margin: 50px 0px 5px 0px; }
 #demo #demo-top h4 {
-  color: #555;
-  font-weight: normal; }
+  color: #777;
+  font-weight: normal;
+  margin-bottom: 20px; }
 #demo pre {
   border: none; }
-#demo h1 {
-  text-align: center;
-  border: none;
-  margin: 50px 0px 30px 0px; }
 #demo .phone-case {
   margin: 0px auto 30px auto;
   float: none;

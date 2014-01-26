@@ -7,8 +7,11 @@
   }
 
   .phone-case {
-    margin: 30px auto;
+    margin: 0px auto 30px auto;
     float: none;
     cursor: pointer;
+    iframe {
+      cursor: pointer;
+    }
   }
 }

@@ -1,4 +1,15 @@
 #demo {
+
+  #demo-header {
+    h1, h4 {
+      text-align: center;
+    }
+    h4 {
+      color: #555;
+      font-weight: normal;
+    }
+  }
+
   pre {
     border: none;
   }

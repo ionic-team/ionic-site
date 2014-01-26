@@ -8,16 +8,20 @@
   <body>
   	<div id="demo">
       <h1>{{page.demo_title}}</h1>
-      
- <div class="phone-case">
-  <p data-height="{% if include.height %}{{ include.height }}{% else %}568{% endif %}" data-theme-id="0" data-slug-hash="{{ page.codepen_id }}" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/{{ page.codepen_id }}'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div>
-
-      <h4>Get more great demos, tutorials, and Ionic news:</h4>
-      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
-      <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
-      <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="phone-case">
+            <p data-height="{% if include.height %}{{ include.height }}{% else %}568{% endif %}" data-theme-id="0" data-slug-hash="{{ page.codepen_id }}" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/{{ page.codepen_id }}'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+            <script async src="//codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>Get more great demos, tutorials, and Ionic news:</h4>
+          <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </div>
+      </div>
     </form>
   </body>
 </html>

@@ -4939,9 +4939,14 @@ td.visible-print {
   .guide-content .well p {
     margin: 0px 0px 10px 0px; }
 
+#demo h1 {
+  text-align: center;
+  border: none;
+  margin: 50px 0px 30px 0px; }
 #demo .phone-case {
   margin: 30px auto;
-  float: none; }
+  float: none;
+  cursor: pointer; }
 
 .home .heading-tile {
   background: none; }

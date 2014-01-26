@@ -1,8 +1,14 @@
 #demo {
 
+  h1 {
+    text-align: center;
+    border: none;
+    margin: 50px 0px 30px 0px;
+  }
+
   .phone-case {
     margin: 30px auto;
     float: none;
-
+    cursor: pointer;
   }
 }

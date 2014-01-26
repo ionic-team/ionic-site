@@ -7,8 +7,9 @@
   </head>
   <body>
   	<div id="demo">
-      <h1>{{demo_title}}</h1>
-        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+      <h1>{{page.demo_title}}</h1>
+      {% include codepen.html id="page.codepen_id" %}
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
       <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
       <button type="submit" class="btn btn-default btn-sm">Sign up</button>
     </form>

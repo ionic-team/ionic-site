@@ -1,4 +1,3 @@
-@charset "IBM437";
 /*!
  * Bootstrap v3.0.0
  *
@@ -11704,6 +11703,10 @@ h1 + h2 + p {
     color: #fff; }
   .newsletter-box .input-group {
     margin-bottom: 15px; }
+  .newsletter-box .btn {
+    opacity: 0.9; }
+  .newsletter-box input.form-control {
+    border: none; }
 
 .social-box {
   margin: 35px 0px 15px 0px; }

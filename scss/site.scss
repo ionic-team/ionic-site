@@ -293,6 +293,12 @@ h1 + h2 + p {
   .input-group {
     margin-bottom: 15px;
   }
+  .btn {
+    opacity: 0.8;
+  }
+  input.form-control {
+    border: none;
+  }
 }
 
 .social-box {

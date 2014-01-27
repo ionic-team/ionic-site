@@ -15,3 +15,5 @@ check out the [Ionic Swipe Cards](https://github.com/driftyco/ionic-contrib-swip
 and follow the guide.
 
 Or, download the starter Cordova project below:
+
+<a href="https://github.com/driftyco/ionic-contrib-swipe-cards/archive/master.zip" class="btn btn-large btn-primary">Download Project</a>

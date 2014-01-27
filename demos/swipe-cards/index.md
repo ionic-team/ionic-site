@@ -16,4 +16,4 @@ and follow the guide.
 
 Or, download the starter Cordova project below:
 
-<a href="https://github.com/driftyco/ionic-contrib-swipe-cards/archive/master.zip" class="btn btn-large btn-primary">Download Project</a>
+<a href="https://github.com/driftyco/ionic-contrib-swipe-cards/archive/master.zip" class="btn btn-large btn-primary"><i class="icon ion-social-github"></i> Download Project</a>

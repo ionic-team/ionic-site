@@ -294,7 +294,8 @@ h1 + h2 + p {
     margin-bottom: 15px;
   }
   .btn {
-    opacity: 0.8;
+    border-left: 1px solid rgba(79, 142, 247, 0.95);
+    color: rgba(79, 142, 247, 0.95);
   }
   input.form-control {
     border: none;

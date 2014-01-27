@@ -11704,11 +11704,11 @@ h1 + h2 + p {
   .newsletter-box .input-group {
     margin-bottom: 15px; }
   .newsletter-box .btn {
-    opacity: 0.9; }
+    opacity: 0.8; }
   .newsletter-box input.form-control {
     border: none; }
 
 .social-box {
-  margin: 35px 0px 15px 0px; }
+  margin: 55px 0px 15px 0px; }
   .social-box iframe {
     margin-right: 10px; }

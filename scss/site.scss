@@ -269,6 +269,11 @@ h1 + h2 + p {
 
   font-size: 13px;
 
+  &.top {
+    position: static;
+    background-color: #4c8cfa;
+  }
+
   form {
     display: inline-block;
     input {

@@ -11700,6 +11700,9 @@ h1 + h2 + p {
   left: 0;
   width: 100%;
   font-size: 13px; }
+  #newsletter-bar.top {
+    position: static;
+    background-color: #4c8cfa; }
   #newsletter-bar form {
     display: inline-block; }
     #newsletter-bar form input {

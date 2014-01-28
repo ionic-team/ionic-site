@@ -4936,16 +4936,12 @@ h1 {
 h2 {
   margin: 35px 0px 10px 0px; }
 
-h1, h2, h3, h4 {
-  font-weight: normal;
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-h5, h6, .btn {
+h1, h2, h3, h4, h5, h6, .btn {
   font-weight: normal;
   font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444; }
+  color: #333333; }
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0; }
 
@@ -5059,7 +5055,9 @@ h1 + h2 + p {
     padding-bottom: 40px;
     max-width: 760px;
     font-size: 18px;
-    color: #888; }
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300; }
 .home .feature-row {
   max-width: 900px;
   margin: 70px auto;
@@ -5068,8 +5066,10 @@ h1 + h2 + p {
   background-size: 130px 111px; }
   .home .feature-row p {
     padding-left: 140px;
-    color: #888;
-    font-size: 14px; }
+    color: #999;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300; }
 @media (min-width: 768px) {
   .home {
     background: url("/img/phone-bg.png") no-repeat center top; }

@@ -4927,6 +4927,31 @@ td.visible-print {
   src: url("../fonts/28882F_1_0.eot");
   src: url("../fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/28882F_1_0.woff") format("woff"), url("../fonts/28882F_1_0.ttf") format("truetype"); }
 
+h1 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin: 40px 0px 20px 0px; }
+
+h2 {
+  margin: 35px 0px 10px 0px; }
+
+h1, h2, h3, h4, h5, h6, .btn {
+  font-weight: normal;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333333; }
+  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0; }
+
+h1 + h2 {
+  margin-top: 0;
+  color: #666;
+  font-size: 18px; }
+
+h1 + h2 + p {
+  margin-top: 20px; }
+
 .guide-content {
   color: #333;
   font-size: 16px; }
@@ -5029,7 +5054,9 @@ td.visible-print {
     padding-bottom: 40px;
     max-width: 760px;
     font-size: 18px;
-    color: #888; }
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300; }
 .home .feature-row {
   max-width: 900px;
   margin: 70px auto;
@@ -5038,8 +5065,10 @@ td.visible-print {
   background-size: 130px 111px; }
   .home .feature-row p {
     padding-left: 140px;
-    color: #888;
-    font-size: 14px; }
+    color: #999;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300; }
 @media (min-width: 768px) {
   .home {
     background: url("/img/phone-bg.png") no-repeat center top; }
@@ -5785,8 +5814,7 @@ h2.underline {
   .ios7 .month-input {
     background-image: url("/img/input-types/ios7/keyboard-month@2x.png"); } }
 body {
-  border-top: 1px solid #4f8ef7;
-  padding-bottom: 20px; }
+  border-top: 1px solid #4f8ef7; }
 
 a {
   opacity: 0.7;
@@ -5795,34 +5823,23 @@ a {
   a:hover, a:focus {
     opacity: 1; }
 
-h1 {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin: 40px 0px 20px 0px; }
+.content-container {
+  margin-top: 40px; }
 
-h2 {
-  margin: 35px 0px 10px 0px; }
+.nav-link {
+  border-bottom: 3px solid transparent; }
 
-h1, h2, h3, h4 {
-  font-weight: normal;
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.docs-page .docs-nav,
+.examples-page .examples-nav,
+.getting-started-page .getting-started-nav,
+.nav-link:hover,
+.nav-link:focus {
+  border-bottom: 3px solid #4f8ef7;
+  opacity: 1; }
 
-h5, h6, .btn {
-  font-weight: normal;
-  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-h1, h2, h3, h4, h5, h6 {
-  color: #444444; }
-  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-    margin-top: 0; }
-
-h1 + h2 {
-  margin-top: 0;
-  color: #666;
-  font-size: 18px; }
-
-h1 + h2 + p {
-  margin-top: 20px; }
+.docs-page.getting-started-page .docs-nav {
+  opacity: .7;
+  border-color: transparent; }
 
 .heading-tile {
   background: url("/img/heading-tile.png") repeat-x; }
@@ -5898,36 +5915,6 @@ h1 + h2 + p {
     font-weight: normal; }
     .news a:hover {
       text-decoration: none; }
-
-.content-container {
-  margin-top: 40px; }
-
-.nav-link {
-  border-bottom: 3px solid transparent; }
-
-.docs-page .docs-nav,
-.examples-page .examples-nav,
-.getting-started-page .getting-started-nav,
-.nav-link:hover,
-.nav-link:focus {
-  border-bottom: 3px solid #4f8ef7;
-  opacity: 1; }
-
-.docs-page.getting-started-page .docs-nav {
-  opacity: .7;
-  border-color: transparent; }
-
-.footer {
-  position: relative;
-  z-index: 100;
-  padding: 40px 10px 30px;
-  background: #fff;
-  text-align: center; }
-  .footer p {
-    line-height: 20px; }
-  .footer .base-links a {
-    display: inline-block;
-    padding: 3px 6px; }
 
 @-moz-keyframes spin {
   100% {
@@ -11731,3 +11718,83 @@ h1 + h2 + p {
   margin: 55px 0px 15px 0px; }
   .social-box iframe {
     margin-right: 10px; }
+
+.footer {
+  position: relative;
+  z-index: 100;
+  padding: 40px 10px 60px;
+  background: #2b3442;
+  color: #a4b3cd;
+  text-align: center;
+  font-size: 14px;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .footer a {
+    color: #e2eeff;
+    opacity: 1;
+    transition-property: color; }
+    .footer a:hover {
+      color: white; }
+  .footer .authors {
+    clear: both;
+    margin: 0 auto;
+    padding: 30px 10px 10px 10px;
+    max-width: 900px;
+    border-top: 1px solid #414955;
+    line-height: 20px; }
+  .footer .base-links a {
+    display: inline-block;
+    padding: 3px 9px; }
+  .footer .newsletter {
+    margin: 0 auto 30px;
+    max-width: 900px;
+    text-align: left; }
+    .footer .newsletter .newsletter-text {
+      color: #e2eeff; }
+    .footer .newsletter .sign-up {
+      font-size: 13px; }
+    .footer .newsletter .col-sm-7 {
+      padding-left: 0; }
+    .footer .newsletter .col-sm-5 {
+      padding-right: 0; }
+    .footer .newsletter button {
+      padding-right: 15px;
+      padding-left: 15px;
+      border: 1px solid #4e8ef7;
+      background: #4e8ef7;
+      color: white; }
+    .footer .newsletter input {
+      border: none;
+      background: #566171;
+      color: white; }
+      .footer .newsletter input:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none; }
+      .footer .newsletter input::-webkit-input-placeholder {
+        color: #8e9fb8; }
+      .footer .newsletter input::-moz-placeholder {
+        color: #8e9fb8; }
+
+.pre-footer {
+  position: relative;
+  z-index: 100;
+  padding: 40px;
+  background: #F7F7F7; }
+  .pre-footer .row {
+    margin: 0 auto;
+    max-width: 900px; }
+  .pre-footer p {
+    color: #999;
+    line-height: 28px; }
+  .pre-footer a:hover {
+    text-decoration: none; }
+  .pre-footer span {
+    padding-left: 5px; }
+  .pre-footer .col-a {
+    padding-bottom: 15px; }
+  @media (min-width: 768px) {
+    .pre-footer .col-a {
+      padding-right: 60px;
+      padding-bottom: 0;
+      border-right: 1px solid #ddd; }
+    .pre-footer .col-b {
+      padding-left: 70px; } }

@@ -11786,14 +11786,16 @@ a {
       padding-left: 15px;
       border: 1px solid #4e8ef7;
       background: #4e8ef7;
-      color: white; }
+      color: white;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3); }
       .footer .newsletter button:hover {
         background: #5998FF;
         color: white; }
       .footer .newsletter button:active {
         border: 1px solid #3E75CE;
         background: #4683E7;
-        color: #B1C4E4; }
+        color: #B1C4E4;
+        box-shadow: none; }
     .footer .newsletter input {
       border: none;
       background: #45546D;

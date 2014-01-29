@@ -61,6 +61,7 @@
       border: 1px solid #4e8ef7;
       background: #4e8ef7;
       color: white;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
 
       &:hover {
         background: #5998FF;
@@ -71,6 +72,7 @@
         border: 1px solid #3E75CE;
         background: #4683E7;
         color: #B1C4E4;
+        box-shadow: none;
       }
     }
     input {

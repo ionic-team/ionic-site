@@ -11789,11 +11789,13 @@ a {
       color: white; }
     .footer .newsletter input {
       border: none;
-      background: #566171;
+      background: #45546D;
       color: white; }
       .footer .newsletter input:focus {
         -webkit-box-shadow: none;
-        box-shadow: none; }
+        box-shadow: none;
+        background: #51627E;
+        box-shadow: inset 0px 0px 0px 1px #4E8EF7; }
       .footer .newsletter input::-webkit-input-placeholder {
         color: #8e9fb8; }
       .footer .newsletter input::-moz-placeholder {

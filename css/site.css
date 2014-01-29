@@ -5119,14 +5119,14 @@ h1 + h2 + p {
 .pre-footer.footer-social {
   padding: 40px 40px 25px; }
   .pre-footer.footer-social p {
-    color: #333;
+    color: #E2EEFF;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 20px;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .pre-footer.footer-social .spread-word {
-    color: #4e8ef7;
+    color: #fff;
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .pre-footer.footer-social .share-row {
     margin: 30px auto 0 auto;
@@ -11680,7 +11680,7 @@ a {
   position: relative;
   z-index: 100;
   padding: 40px;
-  background: #F7F7F7; }
+  background: #5B6E8C; }
   .pre-footer .row {
     margin: 0 auto;
     max-width: 900px; }

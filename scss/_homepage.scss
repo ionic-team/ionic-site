@@ -68,13 +68,13 @@
     text-align: center;
 
     li {
-      height: 30px;
       display: inline-block;
+      height: 30px;
       vertical-align: top;
     }
     .twitter-share {
-      width: 90px;
       margin-right: 10px;
+      width: 90px;
     }
     .twitter-follow {
       width: 240px;
@@ -108,26 +108,26 @@
     p {
       padding-bottom: 40px;
       max-width: 760px;
-      font-size: 18px;
-      color: #444;
-      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+      color: #444; 
       font-weight: 300;
+      font-size: 18px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     }
   }
 
   .feature-row {
-    max-width: 900px;
     margin: 70px auto;
     min-height: 150px;
+    max-width: 900px;
     background: no-repeat 0 32px;
     background-size: 130px 111px; 
 
     p {
       padding-left: 140px;
-      color: #999;
-      font-size: 14px;
-      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+      color: #999; 
       font-weight: 300;
+      font-size: 14px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     }
   }
 
@@ -149,8 +149,8 @@
       background-size: 247px 210px; 
 
       h4, p {
-        padding-left: 55%;
         padding-right: 35px;
+        padding-left: 55%;
         line-height: 26px;
       }
       h4 {
@@ -161,8 +161,8 @@
       background-position: 77% 5px;
 
       h4, p {
-        padding-left: 30px;
         padding-right: 56%;
+        padding-left: 30px;
       }
     }
   }
@@ -226,3 +226,40 @@
   }
 
 }
+
+.pre-footer.footer-social {
+  padding: 40px 40px 25px;
+
+  p {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: $font-family-regular;
+  }
+
+  ul {
+    margin: 20px 0 0 0;
+  }
+
+  .spread-word {
+    color: #4e8ef7;
+    font-family: $font-family-medium;
+  }
+
+  .share-row li {
+    display: inline-block;
+    margin: 0 5px;
+    width: 145px;
+    height: 40px;
+    list-style: none;
+    vertical-align: top;
+
+    a { 
+      opacity: 1;
+    }
+  }
+
+}
+

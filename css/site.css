@@ -5027,12 +5027,12 @@ h1 + h2 + p {
   height: 99px;
   text-align: center; }
   .home .social-row li {
-    height: 30px;
     display: inline-block;
+    height: 30px;
     vertical-align: top; }
   .home .social-row .twitter-share {
-    width: 90px;
-    margin-right: 10px; }
+    margin-right: 10px;
+    width: 90px; }
   .home .social-row .twitter-follow {
     width: 240px; }
   .home .social-row .github-watch {
@@ -5053,22 +5053,22 @@ h1 + h2 + p {
   .home .desc-row p {
     padding-bottom: 40px;
     max-width: 760px;
-    font-size: 18px;
     color: #444;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300; }
+    font-weight: 300;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 .home .feature-row {
-  max-width: 900px;
   margin: 70px auto;
   min-height: 150px;
+  max-width: 900px;
   background: no-repeat 0 32px;
   background-size: 130px 111px; }
   .home .feature-row p {
     padding-left: 140px;
     color: #999;
+    font-weight: 300;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300; }
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 @media (min-width: 768px) {
   .home {
     background: url("/img/phone-bg.png") no-repeat center top; }
@@ -5077,16 +5077,16 @@ h1 + h2 + p {
       background: no-repeat 18% 5px;
       background-size: 247px 210px; }
       .home .feature-row h4, .home .feature-row p {
-        padding-left: 55%;
         padding-right: 35px;
+        padding-left: 55%;
         line-height: 26px; }
       .home .feature-row h4 {
         line-height: 34px; }
     .home .feature-row.img-right {
       background-position: 77% 5px; }
       .home .feature-row.img-right h4, .home .feature-row.img-right p {
-        padding-left: 30px;
-        padding-right: 56%; } }
+        padding-right: 56%;
+        padding-left: 30px; } }
   @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min-width: 768px) and (min--moz-device-pixel-ratio: 1.3), only screen and (min-width: 768px) and (min-device-pixel-ratio: 1.3), only screen and (min-width: 768px) and (min-resolution: 124dpi) {
     .home {
       background-image: url("/img/phone-bg@2x.png");
@@ -5114,6 +5114,30 @@ h1 + h2 + p {
     background-image: url("/img/nerds@2x.png"); } }
 .home .examples-row h3 {
   padding-top: 10px; }
+
+.pre-footer.footer-social {
+  padding: 40px 40px 25px; }
+  .pre-footer.footer-social p {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .pre-footer.footer-social ul {
+    margin: 20px 0 0 0; }
+  .pre-footer.footer-social .spread-word {
+    color: #4e8ef7;
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .pre-footer.footer-social .share-row li {
+    display: inline-block;
+    margin: 0 5px;
+    width: 145px;
+    height: 40px;
+    list-style: none;
+    vertical-align: top; }
+    .pre-footer.footer-social .share-row li a {
+      opacity: 1; }
 
 @font-face {
   font-weight: normal;

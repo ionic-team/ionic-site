@@ -61,6 +61,10 @@
       border: 1px solid #4e8ef7;
       background: #4e8ef7;
       color: white;
+
+      &:hover {
+        background: #5998FF;
+      }
     }
     input {
       border: none;

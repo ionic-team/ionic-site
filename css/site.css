@@ -11787,6 +11787,8 @@ a {
       border: 1px solid #4e8ef7;
       background: #4e8ef7;
       color: white; }
+      .footer .newsletter button:hover {
+        background: #5998FF; }
     .footer .newsletter input {
       border: none;
       background: #45546D;

@@ -64,6 +64,13 @@
 
       &:hover {
         background: #5998FF;
+        color: white;
+      }
+
+      &:active {
+        border: 1px solid #3E75CE;
+        background: #4683E7;
+        color: #B1C4E4;
       }
     }
     input {

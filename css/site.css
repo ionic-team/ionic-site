@@ -11788,7 +11788,12 @@ a {
       background: #4e8ef7;
       color: white; }
       .footer .newsletter button:hover {
-        background: #5998FF; }
+        background: #5998FF;
+        color: white; }
+      .footer .newsletter button:active {
+        border: 1px solid #3E75CE;
+        background: #4683E7;
+        color: #B1C4E4; }
     .footer .newsletter input {
       border: none;
       background: #45546D;

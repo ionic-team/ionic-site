@@ -84,7 +84,7 @@ published: false
 
 <p>When it comes to creating hybrid apps, one of the biggest wins to making it feel more “app-like” is eliminating that 300ms delay. The great news is that this all comes for free in Ionic without any extra work on the developers part. Ionic is still pretty new, and we're quickly improving and enhancing it, but we'd love to have your help testing it out to make it better.</p>
 
-<p>If you have any questions we encourage you to check out the community <a href="http://forum.ionicframework.com/" target="_blank">Forum</a>, or if you find any issues please [let us know](https://github.com/driftyco/ionic/issues?state=open). Give it a shot a let us know how it goes!</p>
+<p>If you have any questions we encourage you to check out the community <a href="http://forum.ionicframework.com/" target="_blank">Forum</a>, or if you find any issues please <a href="https://github.com/driftyco/ionic/issues?state=open">let us know</a>. Give it a shot a let us know how it goes!</p>
 
 
 

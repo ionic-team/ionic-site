@@ -5499,6 +5499,11 @@ h2.underline {
     opacity: 1; }
   .post p {
     margin-bottom: 32px; }
+  .post hr {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    border: 0;
+    border-top: 2px solid #eee; }
   .post .showcase-image {
     margin: 10px 0px; }
   .post .body-image {

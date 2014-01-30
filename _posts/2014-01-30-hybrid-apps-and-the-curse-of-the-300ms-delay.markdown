@@ -42,11 +42,11 @@ published: false
 
 <br>
 
-- The ngTouch directive has all the necessary code to detect a tap. It adds global event listeners for touchstart and click, and for every element with ng-click it adds touchstart, touchmove, touchcancel, touchend, mousedown, mousemove, and mouseup event listeners. This is an area where we felt there is a duplication of efforts.<br>
-
-- Ionic already comes with an event system, which was forked from <a href="http://eightmedia.github.io/hammer.js/" target="_blank">hammer.js</a> to detect virtual events and gestures like tap, swipe, swiperight, swipeleft, drag, hold, and release. Ionic's event system can easily be reused by the framework itself and by developers, compared to only tying this logic to elements with the ng-click attribute.<br>
-
-- To be clear, ngTouch is a great extra for Angular, and without Ionic I recommend it. But with Ionic we've gone beyond just detecting taps for single elements manually assigned ng-click, and do it for all elements automatically (without creating event handlers for each element).</p>
+<ul>
+<li>The ngTouch directive has all the necessary code to detect a tap. It adds global event listeners for touchstart and click, and for every element with ng-click it adds touchstart, touchmove, touchcancel, touchend, mousedown, mousemove, and mouseup event listeners. This is an area where we felt there is a duplication of efforts.</li>
+<li>Ionic already comes with an event system, which was forked from <a href="http://eightmedia.github.io/hammer.js/" target="_blank">hammer.js</a> to detect virtual events and gestures like tap, swipe, swiperight, swipeleft, drag, hold, and release. Ionic's event system can easily be reused by the framework itself and by developers, compared to only tying this logic to elements with the ng-click attribute.</li>
+<li>To be clear, ngTouch is a great extra for Angular, and without Ionic I recommend it. But with Ionic we've gone beyond just detecting taps for single elements manually assigned ng-click, and do it for all elements automatically (without creating event handlers for each element).</li>
+</ul>
 
 <h3>What about Fastclick.js?</h3>
 

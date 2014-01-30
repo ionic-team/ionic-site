@@ -5267,7 +5267,8 @@ pre {
   .device-preview-page .docs-section:last-child {
     padding-bottom: 600px; }
   .device-preview-page .ionic .content-wrapper {
-    overflow: hidden !important; }
+    overflow: hidden !important;
+    height: 100%; }
   .device-preview-page .device-preview {
     position: absolute;
     z-index: 1;

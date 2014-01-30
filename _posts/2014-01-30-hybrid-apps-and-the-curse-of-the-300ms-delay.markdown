@@ -54,7 +54,7 @@ published: false
 
 <h3>Why do you wrap inputs in label elements?</h3>
 
-<p>A lesser known feature of HTML is wrapping an input element with a label element. It’s the same as if you associated the two by setting the input's `id` and label's `for` attribute to be the same. It’s a quick and easy trick to immediately make a large hit area for your inputs, which is vital for touch device usability. This is great for text inputs because the surrounding area, and even its actual label, can be tapped and the input immediately receives the focus (without a 300ms delay).</p>
+<p>A lesser known feature of HTML is <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#the-label-element" target="_blank">wrapping an input element with a label element</a>. It’s the same as if you associated the two by setting the input's `id` and label's `for` attribute to be the same. It’s a quick and easy trick to immediately make a large hit area for your inputs, which is vital for touch device usability. This is great for text inputs because the surrounding area, and even its actual label, can be tapped and the input immediately receives the focus (without a 300ms delay).</p>
 
 <p>Additionally, for radio buttons, checkboxes and toggles, wrapping their inputs with a label makes it easy to style the tap area using the input's `:checked` CSS pseudo-class. It’s a nifty trick that allows us to eliminate the need to have JavaScript style the elements. For example, if you tap a radio button in a list, all the style changes are done by CSS, there are no event handlers adding and remove classnames (therefore no DOM manipulation).</p>
 

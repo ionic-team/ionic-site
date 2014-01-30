@@ -68,7 +68,7 @@ published: true
 
 <p>To prevent ghostclicks we track all of the x and y coordinates of touchends and clicks. If the subsequent tap and click coordinates happen within the same region, and within a short period of time, then we assume it's the same click and to ignore all followup ghostclicks.</p>
 
-<p><strong>So to sum up, Ionic prevents ghostclicks by:</strong></p>
+<p><i>So to sum up, Ionic prevents ghostclicks by:</i></p>
 
 <ul>
 <li>Remembering x, y coordinates for each touch/click and preventing duplicate clicks that happened in the same region within a short period of time.</li>

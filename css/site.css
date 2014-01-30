@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5959,7 +5960,7 @@ a {
    * Copyright 2014 Drifty Co.
    * http://drifty.com/
    *
-   * Ionic, v0.9.21
+   * Ionic, v0.9.22-alpha
    * A powerful HTML5 mobile app framework.
    * http://ionicframework.com/
    *
@@ -6340,6 +6341,13 @@ a {
    * Radio Button Inputs
    * --------------------------------------------------
    */
+  @-webkit-keyframes androidCheckedbugfix {
+    from {
+      padding: 0; }
+
+    to {
+      padding: 0; } }
+
   /**
    * Range
    * --------------------------------------------------
@@ -9216,7 +9224,10 @@ a {
       background-size: 100% 1px;
       background-repeat: no-repeat; } }
   .ionic .tabs-top {
-    top: 44px; }
+    top: 44px;
+    padding-top: 0;
+    padding-bottom: 2px;
+    background-position: bottom; }
   .ionic .tab-item {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -10429,13 +10440,16 @@ a {
     font-size: 24px; }
   .ionic .item-radio input {
     /* hide any radio button inputs elements (the ugly circles) */
-    display: none; }
+    position: absolute;
+    left: -9999px; }
   .ionic .item-radio input:checked ~ .item-content {
     /* style the item content when its checked */
     background: #f7f7f7; }
   .ionic .item-radio input:checked ~ .radio-icon {
     /* show the checkmark icon when its checked */
     visibility: visible; }
+  .ionic .item-radio {
+    -webkit-animation: androidCheckedbugfix infinite 1s; }
   .ionic input[type="range"] {
     display: inline-block;
     overflow: hidden;
@@ -10552,7 +10566,7 @@ a {
     margin: 0;
     padding: 1px 12px 0 12px;
     min-width: 52px;
-    min-height: 52px;
+    min-height: 47px;
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
@@ -10560,7 +10574,7 @@ a {
     text-align: center;
     text-overflow: ellipsis;
     font-size: 16px;
-    line-height: 46px;
+    line-height: 42px;
     cursor: pointer; }
   .ionic .button:hover {
     color: #444444;
@@ -10574,7 +10588,7 @@ a {
     padding: 0 0 1px 0;
     vertical-align: inherit;
     font-size: 24px;
-    line-height: 46px; }
+    line-height: 41px; }
   .ionic .button.icon-left:before {
     padding-right: .2em;
     padding-left: 0; }
@@ -10867,7 +10881,7 @@ a {
     -moz-transition: opacity 0.1s;
     transition: opacity 0.1s;
     padding: 0 6px;
-    max-height: 47px;
+    max-height: 42px;
     border-color: transparent;
     background: none;
     box-shadow: none; }

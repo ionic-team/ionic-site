@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5118,6 +5119,7 @@ h1 + h2 + p {
   padding-top: 10px; }
 
 .pre-footer.footer-social {
+  background: #5B6E8C;
   padding: 40px 40px 25px; }
   .pre-footer.footer-social p {
     color: #e2eeff;
@@ -11843,7 +11845,7 @@ a {
   position: relative;
   z-index: 100;
   padding: 40px;
-  background: #5B6E8C; }
+  background: #F7F7F7; }
   .pre-footer .row {
     margin: 0 auto;
     max-width: 900px; }

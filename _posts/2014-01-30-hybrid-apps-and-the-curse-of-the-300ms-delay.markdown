@@ -17,10 +17,12 @@ published: false
 
 <p>Here's the general idea of how the delay plays out:</p>
 
-<p>1) User touches the display, the browser fires off `touchstart`<br>
-2) User stops touching the display, the browser fires off `touchend`<br>
-3) The browser waits 300ms to see if the user taps again<br>
-4) If the user didn't tap again, the browser fires off `click`</p>
+<ol>
+<li>1) User touches the display, the browser fires off `touchstart`</li>
+<li>2) User stops touching the display, the browser fires off `touchend`</li>
+<li>3) The browser waits 300ms to see if the user taps again</li>
+<li>If the user didn't tap again, the browser fires off `click`</li>
+</ol>
 
 <h3>Hybrid Apps Don't Feel "App-Like!”</h3>
 

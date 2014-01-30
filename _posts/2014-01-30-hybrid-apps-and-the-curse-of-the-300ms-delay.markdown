@@ -4,7 +4,7 @@ title:  "Hybrid Apps and the Curse of the 300ms Delay"
 date:   "2014-01-30 13:00:00"
 categories: ionic, angularjs
 author: '<img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a>'
-published: true
+published: false
 ---
 
 <img class="showcase-image" src="/img/blog/delay-header.png">

@@ -18,10 +18,10 @@ published: true
 <p>Here's the general idea of how the delay plays out:</p>
 
 <ol>
-<li>User touches the display, the browser fires off `touchstart`</li>
-<li>User stops touching the display, the browser fires off `touchend`</li>
+<li>User touches the display, the browser fires off <code>touchstart</code></li>
+<li>User stops touching the display, the browser fires off <code>touchend</code></li>
 <li>The browser waits 300ms to see if the user taps again</li>
-<li>If the user didn't tap again, the browser fires off `click`</li>
+<li>If the user didn't tap again, the browser fires off <code>click</code></li>
 </ol>
 
 <h3>Hybrid Apps Don't Feel "App-Like!”</h3>
@@ -38,11 +38,8 @@ published: true
 
 <p>Immediately Angular developers will ask, "What about ngTouch, doesn't that remove the delay?". When it comes to building a simple Angular app that should be touch enabled, <a href="http://docs.angularjs.org/api/ngTouch" target="_blank">ngTouch</a> is a great option. However, it's missing a few things, and when combined with Ionic there's a large duplication of code that actually causes more issues. And because it's not a part of Angular's core, and is an additional dependency that doesn't have to be included, we decided to take the route of not using it at all, and here's why:</p>
 
-<p>- ngTouch overrides ngClick and does its job to remove the delay for that element. But it doesn't remove the delay on all the other elements on the page without an ng-click attribute. Textareas, inputs, links, buttons, labels, etc., can all exist on your page without an ng-click attribute, so when tapping those you still get the delay.
-
-<br>
-
 <ul>
+<li>ngTouch overrides ngClick and does its job to remove the delay for that element. But it doesn't remove the delay on all the other elements on the page without an ng-click attribute. Textareas, inputs, links, buttons, labels, etc., can all exist on your page without an ng-click attribute, so when tapping those you still get the delay.</li>
 <li>The ngTouch directive has all the necessary code to detect a tap. It adds global event listeners for touchstart and click, and for every element with ng-click it adds touchstart, touchmove, touchcancel, touchend, mousedown, mousemove, and mouseup event listeners. This is an area where we felt there is a duplication of efforts.</li>
 <li>Ionic already comes with an event system, which was forked from <a href="http://eightmedia.github.io/hammer.js/" target="_blank">hammer.js</a> to detect virtual events and gestures like tap, swipe, swiperight, swipeleft, drag, hold, and release. Ionic's event system can easily be reused by the framework itself and by developers, compared to only tying this logic to elements with the ng-click attribute.</li>
 <li>To be clear, ngTouch is a great extra for Angular, and without Ionic I recommend it. But with Ionic we've gone beyond just detecting taps for single elements manually assigned ng-click, and do it for all elements automatically (without creating event handlers for each element).</li>
@@ -54,13 +51,13 @@ published: true
 
 <h3>Why do you wrap inputs in label elements?</h3>
 
-<p>A lesser known feature of HTML is <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#the-label-element" target="_blank">wrapping an input element with a label element</a>. It’s the same as if you associated the two by setting the input's `id` and label's `for` attribute to be the same. It’s a quick and easy trick to immediately make a large hit area for your inputs, which is vital for touch device usability. This is great for text inputs because the surrounding area, and even its actual label, can be tapped and the input immediately receives the focus (without a 300ms delay).</p>
+<p>A lesser known feature of HTML is <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#the-label-element" target="_blank">wrapping an input element with a label element</a>. It’s the same as if you associated the two by setting the input's <code>id</code> and label's <code>for</code> attribute to be the same. It’s a quick and easy trick to immediately make a large hit area for your inputs, which is vital for touch device usability. This is great for text inputs because the surrounding area, and even its actual label, can be tapped and the input immediately receives the focus (without a 300ms delay).</p>
 
-<p>Additionally, for radio buttons, checkboxes and toggles, wrapping their inputs with a label makes it easy to style the tap area using the input's `:checked` CSS pseudo-class. It’s a nifty trick that allows us to eliminate the need to have JavaScript style the elements. For example, if you tap a radio button in a list, all the style changes are done by CSS, there are no event handlers adding and remove classnames (therefore no DOM manipulation).</p>
+<p>Additionally, for radio buttons, checkboxes and toggles, wrapping their inputs with a label makes it easy to style the tap area using the input's <code>:checked</code> CSS pseudo-class. It’s a nifty trick that allows us to eliminate the need to have JavaScript style the elements. For example, if you tap a radio button in a list, all the style changes are done by CSS, there are no event handlers adding and remove classnames (therefore no DOM manipulation).</p>
 
 <h3>So how does Ionic remove the delay?</h3>
 
-<p>There are a handful of easy tricks we've put in place to remove the delay, but a formidable‎ foe is the evil "ghostclick". A ghostclick can happen in many different scenarios, but the most common is when Ionic executes a click on `touchend`, but the browser still sends the another `click` 300ms later. Click click. Bad bad!</p>
+<p>There are a handful of easy tricks we've put in place to remove the delay, but a formidable‎ foe is the evil "ghostclick". A ghostclick can happen in many different scenarios, but the most common is when Ionic executes a click on <code>touchend</code>, but the browser still sends the another <code>click</code> 300ms later. Click click. Bad bad!</p>
 
 <p>Additionally, there are many cases where a user taps an element, and the usual events fire off from the target element, but the browser assumes you meant to click the element "near" where the user tapped. The browser thinks, "Hey, I know you clicked that div and all, but you were really close to clicking that button, so I'm going to assume you meant to click the button too." In those cases, the click fires for both the div and the button, which is a huge source of troubles.</p>
 
@@ -80,7 +77,7 @@ published: true
 
 <p>Some great news is that browsers are realizing the double-tap to zoom feature isn't always necessary, and newer methods to remove the delay are taking form. Chrome 32 has <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away" target="_blank">recently removed the delay</a> when the zoom is disabled, and actually Chrome and Firefox for Android have had methods to remove the display for a while now. You can read more about what browsers are up to <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away" target="_blank">here</a>.</p>
 
-<p>But this feature causes yet another issue which can arise with simple tap detection solutions. When browsers fire off the `click` event without the 300ms delay, this means the `click` can happen before the `touchend`, which throws another wrench into the problem. Luckily Ionic is checking for those scenarios too.</p>
+<p>But this feature causes yet another issue which can arise with simple tap detection solutions. When browsers fire off the <code>click</code> event without the 300ms delay, this means the <code>click</code> can happen before the <code>touchend</code>, which throws another wrench into the problem. Luckily Ionic is checking for those scenarios too.</p>
 
 <h3>Conclusion</h3>
 
@@ -88,12 +85,5 @@ published: true
 
 <p>If you have any questions we encourage you to check out the <a href="http://forum.ionicframework.com/" target="_blank">Community Forum</a>, or if you find any issues please <a href="https://github.com/driftyco/ionic/issues?state=open">let us know</a>. Give it a shot a let us know how it goes!</p>
 
-
-
-
-
-
-
-
-
+<p><a href="http://twitter.com/adamdbradley" target="_blank">Adam</a></p>
 

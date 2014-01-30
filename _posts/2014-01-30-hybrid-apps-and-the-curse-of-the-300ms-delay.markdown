@@ -40,12 +40,14 @@ published: true
 
 <p>Immediately Angular developers will ask, "What about ngTouch, doesn't that remove the delay?". When it comes to building a simple Angular app that should be touch enabled, <a href="http://docs.angularjs.org/api/ngTouch">ngTouch</a> is a great option. However, it's missing a few things, and when combined with Ionic there's a large duplication of code that actually causes more issues. And because it's not a part of Angular's core, and is an additional dependency that doesn't have to be included, we decided to take the route of not using it at all, and here's why:</p>
 
+<p>
 <ul>
 <li>ngTouch overrides ngClick and does its job to remove the delay for that element. But it doesn't remove the delay on all the other elements on the page without an ng-click attribute. Textareas, inputs, links, buttons, labels, etc., can all exist on your page without an ng-click attribute, so when tapping those you still get the delay.</li>
 <li>The ngTouch directive has all the necessary code to detect a tap. It adds global event listeners for touchstart and click, and for every element with ng-click it adds touchstart, touchmove, touchcancel, touchend, mousedown, mousemove, and mouseup event listeners. This is an area where we felt there is a duplication of efforts.</li>
 <li>Ionic already comes with an event system, which was forked from <a href="http://eightmedia.github.io/hammer.js/">hammer.js</a> to detect virtual events and gestures like tap, swipe, swiperight, swipeleft, drag, hold, and release. Ionic's event system can easily be reused by the framework itself and by developers, compared to only tying this logic to elements with the ng-click attribute.</li>
 <li>To be clear, ngTouch is a great extra for Angular, and without Ionic I recommend it. But with Ionic we've gone beyond just detecting taps for single elements manually assigned ng-click, and do it for all elements automatically (without creating event handlers for each element).</li>
 </ul>
+</p>
 
 <h3>What about Fastclick.js?</h3>
 
@@ -69,11 +71,13 @@ published: true
 
 <p><i>So to sum up, Ionic prevents ghostclicks by:</i></p>
 
+<p>
 <ul>
 <li>Remembering x, y coordinates for each touch/click and preventing duplicate clicks that happened in the same region within a short period of time.</li>
 <li>Setting the last time an element was clicked, and ignoring any follow up clicks that quickly happened again</li>
 <li>Not letting labels propagate their clicks up the DOM, but still allowing the label's default to happen, which is to have its input fire off the click.</li>
 </ul>
+</p>
 
 <h3>Removing the delay at the browser level</h3>
 

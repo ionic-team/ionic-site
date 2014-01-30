@@ -18,9 +18,9 @@ published: true
 <p>Here's the general idea of how the delay plays out:</p>
 
 <ol>
-<li>1) User touches the display, the browser fires off `touchstart`</li>
-<li>2) User stops touching the display, the browser fires off `touchend`</li>
-<li>3) The browser waits 300ms to see if the user taps again</li>
+<li>User touches the display, the browser fires off `touchstart`</li>
+<li>User stops touching the display, the browser fires off `touchend`</li>
+<li>The browser waits 300ms to see if the user taps again</li>
 <li>If the user didn't tap again, the browser fires off `click`</li>
 </ol>
 
@@ -70,11 +70,11 @@ published: true
 
 <p><strong>So to sum up, Ionic prevents ghostclicks by:</strong></p>
 
-<p>- Remembering x, y coordinates for each touch/click and preventing duplicate clicks that happened in the same region within a short period of time.<br>
-
-- Setting the last time an element was clicked, and ignoring any follow up clicks that quickly happened again<br>
-
-- Not letting labels propagate their clicks up the DOM, but still allowing the label's default to happen, which is to have its input fire off the click.</p>
+<ul>
+<li>Remembering x, y coordinates for each touch/click and preventing duplicate clicks that happened in the same region within a short period of time.</li>
+<li>Setting the last time an element was clicked, and ignoring any follow up clicks that quickly happened again</li>
+<li>Not letting labels propagate their clicks up the DOM, but still allowing the label's default to happen, which is to have its input fire off the click.</li>
+</ul>
 
 <h3>Removing the delay at the browser level</h3>
 
@@ -86,7 +86,7 @@ published: true
 
 <p>When it comes to creating hybrid apps, one of the biggest wins to making it feel more “app-like” is eliminating that 300ms delay. The great news is that this all comes for free in Ionic without any extra work on the developers part. Ionic is still pretty new, and we're quickly improving and enhancing it, but we'd love to have your help testing it out to make it better.</p>
 
-<p>If you have any questions we encourage you to check out the community <a href="http://forum.ionicframework.com/" target="_blank">Forum</a>, or if you find any issues please <a href="https://github.com/driftyco/ionic/issues?state=open">let us know</a>. Give it a shot a let us know how it goes!</p>
+<p>If you have any questions we encourage you to check out the <a href="http://forum.ionicframework.com/" target="_blank">Community Forum</a>, or if you find any issues please <a href="https://github.com/driftyco/ionic/issues?state=open">let us know</a>. Give it a shot a let us know how it goes!</p>
 
 
 

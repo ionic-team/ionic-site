@@ -11749,7 +11749,9 @@ a {
       opacity: .8; }
       #newsletter-bar form input:focus {
         -webkit-box-shadow: none;
-        box-shadow: none; }
+        box-shadow: none;
+        outline: none;
+        opacity: .9; }
 
 .newsletter-box {
   background-color: #4c8cfa;

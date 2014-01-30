@@ -11723,7 +11723,7 @@ a {
       padding-left: 70px; } }
 
 #newsletter-bar {
-  border-top: 1px solid #999;
+  border-top: none;
   background-color: rgba(79, 142, 247, 0.95);
   color: #fff;
   text-align: center;
@@ -11736,15 +11736,20 @@ a {
   font-size: 13px; }
   #newsletter-bar.top {
     position: static;
-    background-color: #4c8cfa; }
+    background-color: #4e8ef7; }
   #newsletter-bar form {
     display: inline-block; }
     #newsletter-bar form input {
       margin-left: 15px;
       height: 30px;
+      padding-left: 10px;
       border: none;
       border-radius: 3px;
-      box-shadow: none; }
+      box-shadow: none;
+      opacity: .8; }
+      #newsletter-bar form input:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none; }
 
 .newsletter-box {
   background-color: #4c8cfa;

@@ -86,7 +86,7 @@ a {
 
 #newsletter-bar {
   //box-shadow: 0px -1px 2px rgba(0,0,0,0.7);
-  border-top: 1px solid #999;
+  border-top: none;
   background-color: rgba(79, 142, 247, 0.95);
   color: #fff;
   text-align: center;
@@ -96,12 +96,11 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-
   font-size: 13px;
 
   &.top {
     position: static;
-    background-color: #4c8cfa;
+    background-color: #4e8ef7;
   }
 
   form {
@@ -109,9 +108,16 @@ a {
     input {
       margin-left: 15px;
       height: 30px;
+      padding-left: 10px;
       border: none;
       border-radius: 3px;
       box-shadow: none;
+      opacity: .8;
+
+      &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
     }
   }
 }

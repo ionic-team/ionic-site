@@ -4964,25 +4964,27 @@ h1 + h2 + p {
   .guide-content .well p {
     margin: 0px 0px 10px 0px; }
 
-#demo #demo-top {
-  margin-bottom: 60px; }
-  #demo #demo-top h1, #demo #demo-top h4 {
-    text-align: center; }
-  #demo #demo-top h1 {
-    border: none;
-    margin: 50px 0px 5px 0px; }
-  #demo #demo-top h4 {
-    color: #777;
-    font-weight: normal;
-    margin-bottom: 20px; }
-#demo pre {
-  border: none; }
-#demo .phone-case {
-  margin: 0px auto 30px auto;
-  float: none;
-  cursor: pointer; }
-  #demo .phone-case iframe {
+#demo {
+  padding-bottom: 80px; }
+  #demo #demo-top {
+    margin-bottom: 60px; }
+    #demo #demo-top h1, #demo #demo-top h4 {
+      text-align: center; }
+    #demo #demo-top h1 {
+      border: none;
+      margin: 50px 0px 5px 0px; }
+    #demo #demo-top h4 {
+      color: #777;
+      font-weight: normal;
+      margin-bottom: 20px; }
+  #demo pre {
+    border: none; }
+  #demo .phone-case {
+    margin: 0px auto 30px auto;
+    float: none;
     cursor: pointer; }
+    #demo .phone-case iframe {
+      cursor: pointer; }
 
 .home .heading-tile {
   background: none; }

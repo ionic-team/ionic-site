@@ -86,16 +86,21 @@
     text-align: center;
     margin-top: 10px;
 
-    .demo-link a {
-      color: white;
-      text-decoration: underline;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-      font-weight: 300;
-      font-size: 11px;
-      position: absolute;
-      bottom: 60px;
-      right: 80px;
-    }
+    .demo-link {
+
+      a {
+        color: white;
+        text-decoration: underline;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+        font-weight: 300;
+        font-size: 11px;
+        position: absolute;
+        bottom: 60px;
+        right: 80px;
+      }
+
+    } 
+
   }
 
   .utility-bar {

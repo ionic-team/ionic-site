@@ -24,4 +24,7 @@ Achieving the frosted glass effect in your Ionic apps is easy! All you need to d
 ```
 
 See the full instructions on the [Ionic Frosted Glass](http://github.com/driftyco/ionic-contrib-frosted-glass)
-repository.
+repository.  Or, download the starter Cordova project below which contains everything you need
+to build and run your own frosted glass Ionic app!
+
+<a href="https://github.com/driftyco/ionic-contrib-frosted-glass/archive/master.zip" class="btn btn-large btn-primary"><i class="icon ion-social-github"></i> Download Project</a>

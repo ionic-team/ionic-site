@@ -5050,8 +5050,9 @@ h1 + h2 + p {
     font-weight: 300;
     font-size: 11px;
     position: absolute;
-    bottom: 60px;
-    right: 80px; }
+    bottom: 90px;
+    right: 100px;
+    opacity: .3; }
 .home .utility-bar {
   position: relative;
   bottom: 0;

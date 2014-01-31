@@ -5020,13 +5020,16 @@ h1 + h2 + p {
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); }
     .home .btn-row .btn-download:active {
       opacity: .7;
-      box-shadow: inset 0px 0px 4px rgba(33, 85, 170, 0.2); }
+      box-shadow: inset 0px 0px 5px rgba(33, 85, 170, 0.4); }
   .home .btn-row .btn-get-started {
     margin-left: 20px;
     color: #A8C7FF;
     background: transparent;
     box-shadow: inset 0px 0px 0px 2px #A8C7FF;
     border: none; }
+    .home .btn-row .btn-get-started:hover {
+      color: #fff;
+      box-shadow: inset 0px 0px 0px 2px #fff; }
 .home .version-text {
   color: #98b0e8;
   font-size: 11px;

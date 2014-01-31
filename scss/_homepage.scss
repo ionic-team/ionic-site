@@ -53,7 +53,7 @@
 
       &:active {
         opacity: .7;
-        box-shadow: inset 0px 0px 4px rgba(33, 85, 170, 0.2);
+        box-shadow: inset 0px 0px 5px rgba(33, 85, 170, 0.4);
       }
     }
     .btn-get-started {
@@ -62,6 +62,11 @@
       background: transparent;
       box-shadow: inset 0px 0px 0px 2px #A8C7FF;
       border: none;
+
+      &:hover {
+        color: #fff;
+        box-shadow: inset 0px 0px 0px 2px #fff;
+      }
     }
   }
 

@@ -5047,11 +5047,11 @@ h1 + h2 + p {
     color: white;
     text-decoration: underline; }
 .home .utility-bar {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  height: 50px;
-  padding-top: 14px;
-  background: rgba(255, 255, 255, 0.25);
+  height: 70px;
+  padding-top: 24px;
+  background: rgba(0, 0, 0, 0.2);
   width: 100%; }
   .home .utility-bar .container {
     color: #DAE7FD;

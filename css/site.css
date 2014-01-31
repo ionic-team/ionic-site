@@ -5004,7 +5004,7 @@ h1 + h2 + p {
   margin-top: 50px;
   padding: 0; }
   .home .btn-row .btn {
-    padding: 15px 30px;
+    padding: 15px 32px;
     border: 0;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
@@ -5012,13 +5012,14 @@ h1 + h2 + p {
   .home .btn-row .btn-download {
     color: #4f8ef7;
     background: #fff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-    border: 2px solid white; }
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    border: none; }
   .home .btn-row .btn-get-started {
     margin-left: 20px;
     color: #c2d8ff;
     background: transparent;
-    border: 2px solid #c2d8ff; }
+    box-shadow: inset 0px 0px 0px 2px #C2D8FF;
+    border: none; }
 .home .version-text {
   color: #98b0e8;
   font-size: 11px;

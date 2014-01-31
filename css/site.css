@@ -5045,7 +5045,10 @@ h1 + h2 + p {
   margin-top: 10px; }
   .home .feature-img .demo-link a {
     color: white;
-    text-decoration: underline; }
+    text-decoration: underline;
+    position: absolute;
+    bottom: 60px;
+    right: 80px; }
 .home .utility-bar {
   position: relative;
   bottom: 0;

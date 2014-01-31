@@ -5041,7 +5041,8 @@ h1 + h2 + p {
   font-size: 11px;
   font-weight: 300; }
 .home .feature-img {
-  text-align: center; }
+  text-align: center;
+  margin-top: 10px; }
   .home .feature-img .demo-link a {
     color: white;
     text-decoration: underline; }

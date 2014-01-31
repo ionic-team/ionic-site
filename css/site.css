@@ -5053,8 +5053,8 @@ h1 + h2 + p {
     bottom: 90px;
     right: 100px;
     opacity: .3; }
-  .home .feature-img .demo-link:hover {
-    opacity: 1 !important; }
+    .home .feature-img .demo-link a:hover {
+      opacity: 1 !important; }
 .home .utility-bar {
   position: relative;
   bottom: 0;

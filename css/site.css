@@ -5046,6 +5046,26 @@ h1 + h2 + p {
   .home .feature-img .demo-link a {
     color: white;
     text-decoration: underline; }
+.home .utility-bar {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  padding-top: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  width: 100%; }
+  .home .utility-bar .container {
+    color: #DAE7FD;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .home .utility-bar a {
+    color: #fff;
+    opacity: 1;
+    text-decoration: underline;
+    padding: 0;
+    font-weight: normal; }
+    .home .utility-bar a:hover {
+      text-decoration: none; }
 .home .content-container {
   padding: 0;
   max-width: 100% !important; }

@@ -5054,7 +5054,7 @@ h1 + h2 + p {
     right: 100px;
     opacity: .3; }
   .home .feature-img .demo-link:hover {
-    opacity: 1; }
+    opacity: 1 !important; }
 .home .utility-bar {
   position: relative;
   bottom: 0;

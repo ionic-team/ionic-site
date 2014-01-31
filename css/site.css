@@ -4987,24 +4987,48 @@ h1 + h2 + p {
       cursor: pointer; }
 
 .home .primary-row {
-  padding: 0 10px;
-  text-align: center; }
+  padding: 0 10px; }
   .home .primary-row h1, .home .primary-row h2 {
-    color: white;
     border: none;
-    text-align: left; }
-.home .download-link {
-  margin-top: 60px; }
-  .home .download-link .btn {
+    font-weight: normal;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .home .primary-row h1 {
+    margin: 70px 0 0 0;
+    color: #ebf3ff;
+    font-size: 46px; }
+  .home .primary-row h2 {
+    margin: 12px 0 0 0;
+    color: #c2d8ff;
+    font-size: 20px;
+    line-height: 28px; }
+.home .btn-row {
+  margin-top: 50px;
+  padding: 0; }
+  .home .btn-row .btn {
     padding: 15px 30px;
     border: 0;
-    font-size: 18px;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
     opacity: 1; }
-.home .learn-more {
-  margin-top: 20px; }
+  .home .btn-row .btn-download {
+    color: #4f8ef7;
+    background: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    border: 2px solid white; }
+  .home .btn-row .btn-get-started {
+    margin-left: 20px;
+    color: #c2d8ff;
+    background: transparent;
+    border: 2px solid #c2d8ff; }
 .home .version-text {
-  color: #ccc;
-  font-size: 12px; }
+  color: #98b0e8;
+  font-size: 11px;
+  font-weight: 300; }
+.home .feature-img {
+  text-align: center; }
+  .home .feature-img .demo-link a {
+    color: white;
+    text-decoration: underline; }
 .home .content-container {
   padding: 0;
   max-width: 100% !important; }
@@ -5105,8 +5129,8 @@ h1 + h2 + p {
   padding-top: 10px; }
 
 .pre-footer.footer-social {
-  background: #5B6E8C;
-  padding: 40px 40px 25px; }
+  padding: 40px 40px 25px;
+  background: #5B6E8C; }
   .pre-footer.footer-social p {
     color: #e2eeff;
     text-align: center;
@@ -5874,7 +5898,7 @@ a {
   width: 100%;
   text-align: center;
   padding: 10px;
-  background-color: #4F8EF7;
+  background-color: #4f8ef7;
   color: white; }
   .headline a {
     color: inherit;

@@ -3,37 +3,69 @@
 
   .primary-row {
     padding: 0 10px;
-    text-align: center;
 
     h1, h2 {
-      color: white;
       border: none;
-      text-align: left;
+      font-weight: normal;
+      font-family: $font-family-regular;
+    }
+
+    h1 {
+      margin: 70px 0 0 0;
+      color: #ebf3ff;
+      font-size: 46px;
     }
 
     h2 {
-      
+      margin: 12px 0 0 0;
+      color: #c2d8ff;
+      font-size: 20px;
+      line-height: 28px;
     }
   }
 
-  .download-link {
-    margin-top:60px;
+  .btn-row {
+    margin-top: 50px;
+    padding: 0;
 
     .btn {
       padding: 15px 30px;
       border: 0;
-      font-size: 18px;
+      font-family: $font-family-regular;
+      font-size: 22px;
       opacity: 1;
+
+      &:hover {
+
+      }
+    }
+    .btn-download {
+      color: $brand-primary;
+      background: #fff;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+      border: 2px solid white;
+    }
+    .btn-get-started {
+      margin-left: 20px;
+      color: #c2d8ff;
+      background: transparent;
+      border: 2px solid #c2d8ff;
     }
   }
 
-  .learn-more {
-    margin-top: 20px;
+  .version-text {
+    color: #98b0e8;
+    font-size: 11px;
+    font-weight: 300;
   }
 
-  .version-text {
-    color: #ccc;
-    font-size: 12px;
+  .feature-img {
+    text-align: center;
+
+    .demo-link a {
+      color: white;
+      text-decoration: underline;
+    }
   }
 
   .content-container {
@@ -208,8 +240,8 @@
 }
 
 .pre-footer.footer-social {
-  background: #5B6E8C;
   padding: 40px 40px 25px;
+  background: #5B6E8C;
 
   p {
     color: #e2eeff;

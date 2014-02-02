@@ -11,7 +11,7 @@
     }
 
     h1 {
-      margin: 90px 0 0 0;
+      margin: 10px 0 0 0;
       color: #ebf3ff;
       font-size: 46px;
     }
@@ -83,8 +83,9 @@
   }
 
   .feature-img {
+    display: none;
     height: 500px;
-    background: url(/img/homepage/phones-weather-demo.png) no-repeat;
+    background: url(/img/homepage/phones-weather-demo.png) no-repeat center center;
 
     .demo-link {
       position: absolute;
@@ -100,6 +101,16 @@
       &:hover {
         opacity: 1 !important;
       }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .primary-row h1 {
+      margin: 90px 0 0 0;
+    }
+    .feature-img {
+      display: block;
+      background-size: 520px 486px;
     }
   }
 

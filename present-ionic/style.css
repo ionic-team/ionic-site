@@ -104,6 +104,14 @@ footer {
     margin: auto;
 }
 
+#twitter-share {
+    animation-duration: 2s;
+    animation-delay: 2s;
+    -webkitt-animation-duration: 2s;
+    -webkit-animation-delay: 2s;
+    -moz-animation-duration: 2s;
+    -moz-animation-delay: 2s;
+}
 
 
 

@@ -21,9 +21,6 @@
   <script>
     $('#repo-download').click(function() {
       var href = $(this).attr('href');
-      setTimeout(function() {
-        window.location = href;
-      }, 5000);
       ga('send', 'event', 'Download', 'Repo Download', {
       'nonInteraction': 1,
       'hitCallback': function() {

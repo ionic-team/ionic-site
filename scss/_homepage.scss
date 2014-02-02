@@ -31,8 +31,8 @@
     .btn {
       padding: 15px 32px;
       border: 0;
-      font-family: $font-family-regular;
       font-size: 22px;
+      font-family: $font-family-regular;
       opacity: 1;
 
       &:hover {
@@ -40,123 +40,145 @@
       }
     }
     .btn-download {
-      color: $brand-primary;
+      border: none;
       background: #fff;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-      border: none;
+      color: $brand-primary;
       opacity: 0.95;
-      transition: 0.1s linear;
-      -moz-transition: 0.1s linear;
       -webkit-transition: 0.1s linear;
+      -moz-transition: 0.1s linear;
+      transition: 0.1s linear;
 
       &:hover {
-        opacity: 1;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+        opacity: 1;
       }
 
       &:active {
-        opacity: .7;
         box-shadow: inset 0px 0px 5px rgba(33, 85, 170, 0.4);
+        opacity: .7;
       }
     }
     .btn-get-started {
       margin-left: 20px;
-      color: #A8C7FF;
+      border: none;
       background: transparent;
       box-shadow: inset 0px 0px 0px 2px #A8C7FF;
-      border: none;
-      transition: 0.1s linear;
-      -moz-transition: 0.1s linear;
+      color: #A8C7FF;
       -webkit-transition: 0.1s linear;
+      -moz-transition: 0.1s linear;
+      transition: 0.1s linear;
 
       &:hover {
-        color: #fff;
         box-shadow: inset 0px 0px 0px 2px #fff;
+        color: #fff;
       }
     }
   }
 
   .version-text {
     color: #98b0e8;
-    font-size: 11px;
     font-weight: 300;
+    font-size: 11px;
   }
 
   .feature-img {
-    text-align: center;
-    margin-top: 10px;
+    height: 500px;
+    background: url(/img/homepage/phones-weather-demo.png) no-repeat;
 
     .demo-link {
-
-      a {
-        color: white;
-        text-decoration: underline;
-        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-        font-weight: 300;
-        font-size: 11px;
-        position: absolute;
-        bottom: 90px;
-        right: 100px;
-        opacity: .3;
+      position: absolute;
+      right: 50px;
+      bottom: 50px;
+      color: white;
+      text-decoration: underline; 
+      font-weight: 300;
+      font-size: 11px;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      opacity: .3;
 
       &:hover {
         opacity: 1 !important;
-        }
-
-     }
-
-    } 
-
+      }
+    }
   }
 
   .utility-bar {
-  position: relative;
-  bottom: 0;
-  height: 70px;
-  padding-top: 24px;
-  background: rgba(0, 0, 0, 0.2);
-  width: 100%;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: #2F64B8;
 
-  .container {
-    color: #DAE7FD;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .container {
+      overflow: hidden;
+      color: #DAE7FD;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
-  a {
-    color: #fff;
-    opacity: 1;
-    text-decoration: underline;
-    padding: 0;
-    font-weight: normal;
+    a {
+      padding: 0;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: normal;
+      opacity: 1;
 
-    &:hover {
-      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .input-group {
+      margin-top: 16px;
+    }
+
+    input {
+      border: 1px solid #7597d4;
+      background: #7597d4;
+      color: white;
+
+      &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+
+      &::-webkit-input-placeholder {
+        color: #dae3f2;
+      }
+      &::-moz-placeholder { 
+        color: #dae3f2;  
+      }
+    }
+    button {
+      padding-right: 15px;
+      padding-left: 15px;
+      border: 1px solid #4e8ef7;
+      background: #4e8ef7;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
+      color: white;
+
+      &:hover {
+        background: #5998FF;
+        color: white;
+      }
+
+      &:active {
+        border: 1px solid #3E75CE;
+        background: #4683E7;
+        box-shadow: none;
+        color: #B1C4E4;
+      }
     }
   }
-}
 
   .content-container {
     padding: 0;
     max-width: 100% !important;
   }
 
-  .social-row-gray {
-    margin-top: 90px;
-    height: 100px;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-    opacity: 0.93;
-  }
-
   .social-row {
-    position: relative;
-    margin-top: -100px;
-    margin-bottom: 0;
-    padding: 40px 5px;
-    height: 99px;
-    text-align: center;
+    margin-top: 25px;
 
     li {
       display: inline-block;
@@ -165,16 +187,13 @@
     }
     .twitter-share {
       margin-right: 10px;
-      width: 90px;
+      width: 100px;
     }
     .twitter-follow {
       width: 240px;
     }
     .github-watch {
-      width: 105px;
-    }
-    .github-fork {
-      width: 105px;
+      width: 130px;
     }
   }
 

@@ -55,6 +55,25 @@
       padding-right: 0;
     }
 
+    input {
+      border: none;
+      background: #45546D;
+      color: white;
+
+      &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: #51627E;
+        box-shadow: inset 0px 0px 0px 1px #4E8EF7;
+      }
+
+      &::-webkit-input-placeholder {
+        color: #8e9fb8;
+      }
+      &::-moz-placeholder { 
+        color: #8e9fb8;  
+      }
+    }
     button {
       padding-right: 15px;
       padding-left: 15px;
@@ -73,25 +92,6 @@
         background: #4683E7;
         color: #B1C4E4;
         box-shadow: none;
-      }
-    }
-    input {
-      border: none;
-      background: #45546D;
-      color: white;
-
-      &:focus {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        background: #51627E;
-        box-shadow: inset 0px 0px 0px 1px #4E8EF7;
-      }
-
-      &::-webkit-input-placeholder {
-        color: #8e9fb8;
-      }
-      &::-moz-placeholder { 
-        color: #8e9fb8;  
       }
     }
 

@@ -1,5 +1,4 @@
 
-
 .horizontal-gradient {
   background: #296ad4;
   background: -moz-linear-gradient(left,  #296ad4 0%, #4e8ef7 100%);
@@ -10,8 +9,9 @@
   background: linear-gradient(to right,  #296ad4 0%,#4e8ef7 100%);
 }
 
-.nav-link {
-  border-bottom: 3px solid transparent;
+.navbar-default .navbar-nav > li > a {
+  color: #abc0f5;
+  border-top: 3px solid transparent;
 }
 
 .docs-page .docs-nav,
@@ -19,11 +19,11 @@
 .getting-started-page .getting-started-nav,
 .nav-link:hover,
 .nav-link:focus {
-  border-bottom: 3px solid $brand-primary;
+  border-top: 3px solid #abc0f5;
   opacity: 1;
 }
 .docs-page.getting-started-page .docs-nav {
-  opacity: .7;
+  
   border-color: transparent;
 }
 

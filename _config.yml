@@ -11,12 +11,12 @@ paginate: 5
 news: First time using Ionic? We recommend reading our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up an Ionic mobile app.
 
 # Latest Version Config
-latest_download: https://github.com/driftyco/ionic/archive/v0.9.21-alpha.zip
-latest_version: 0.9.21 "Alpha Maine Coon"
-latest_release_date: January 24th, 2014
+latest_download: https://github.com/driftyco/ionic/archive/v0.9.22-alpha.zip
+latest_version: 0.9.22 "Alpha Narwhal"
+latest_release_date: 2014-01-30
 
 # Which version of AngularJS the latest build includes
-included_angular_version: 1.2.8
+included_angular_version: 1.2.10
 
 # Which active Cordova version we recommend
 recommended_cordova_version: 3.3.1

@@ -13,15 +13,17 @@
   border-top: 3px solid transparent;
   color: #abc0f5;
   opacity: 1;
+  padding-left: 26px !important;
+  padding-right: 26px !important;
+  margin: 0;
 
   &:hover {
-    border-top: 3px solid #a2c2f7;
     color: white;
   }
 }
 
 .navbar-default .navbar-collapse .navbar-nav > li > a:hover {
-  border-top: 3px solid transparent;
+  border-top: 3px solid #a2c2f7;
 }
 
 .navbar-default .navbar-toggle {
@@ -38,35 +40,37 @@
   }
 }
 
-.navbar-default .navbar-collapse {
-  margin-bottom: 20px;
-  border: none;
-  background: #2155aa;
-  background: -moz-linear-gradient(left,  #2155aa 0%, #3e72c6 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2155aa), color-stop(100%,#3e72c6));
-  background: -webkit-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-  background: -o-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-  background: -ms-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-  background: linear-gradient(to right,  #2155aa 0%,#3e72c6 100%);
-}
-
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .navbar-default .navbar-collapse {
-    background: transparent;
+    margin-bottom: 20px;
+    border: none;
+    background: #2155aa;
+    background: -moz-linear-gradient(left,  #2155aa 0%, #3e72c6 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2155aa), color-stop(100%,#3e72c6));
+    background: -webkit-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: -o-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: -ms-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: linear-gradient(to right,  #2155aa 0%,#3e72c6 100%);
+  }
+  .navbar-default .navbar-collapse .navbar-nav > li > a:hover {
+    border-color: transparent !important;
   }
 }
 
-.docs-page .docs-nav,
-.examples-page .examples-nav,
-.getting-started-page .getting-started-nav,
-.nav-link:hover,
-.nav-link:focus {
-  border-top: 3px solid #abc0f5;
-  opacity: 1;
-}
-.docs-page.getting-started-page .docs-nav {
-  
-  border-color: transparent;
+@media (min-width: 768px) {
+  .docs-page .docs-nav,
+  .examples-page .examples-nav,
+  .getting-started-page .getting-started-nav,
+  .nav-link:hover,
+  .nav-link:focus {
+    border-top: 3px solid #abc0f5 !important;
+    opacity: 1 !important;
+    color: white !important;
+  }
+  .docs-page.getting-started-page .docs-nav {
+    border-color: transparent !important;
+    color: #abc0f5 !important;
+  }
 }
 
 .headline {

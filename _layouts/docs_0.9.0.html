@@ -7,9 +7,9 @@
   </head>
 
   {% if page.full %}
-  <body class="body-full docs-page docs {{ page.body_css }}">
+  <body class="body-full {% if page.body_css %}{{ page.body_css }}{% else %}docs-page{% endif %}">
   {% else %}
-  <body class="docs-page docs {{ page.body_css }}">
+  <body class="docs {% if page.body_css %}{{ page.body_css }}{% else %}docs-page{% endif %}">
   {% endif %}
 
     {% include nav_links.html %}

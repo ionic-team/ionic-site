@@ -379,9 +379,12 @@ pre {
   white-space: nowrap;
 }
 
-.docs-page .col-sm-4 {
+.docs-home-row {
   text-align: center;
-  
+
+  > div {
+    margin-top: 50px;
+  }
 
   h3 {
     font-family: $font-family-medium;
@@ -392,6 +395,14 @@ pre {
     font-family: $font-family-regular;
     font-size: 14px;
     color: #888;
+  }
+
+  a {
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 }
 

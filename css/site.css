@@ -5524,15 +5524,21 @@ pre {
 .table tr td:first-child {
   white-space: nowrap; }
 
-.docs-page .col-sm-4 {
+.docs-home-row {
   text-align: center; }
-  .docs-page .col-sm-4 h3 {
+  .docs-home-row > div {
+    margin-top: 50px; }
+  .docs-home-row h3 {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333; }
-  .docs-page .col-sm-4 p {
+  .docs-home-row p {
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #888; }
+  .docs-home-row a {
+    color: black; }
+  .docs-home-row a:hover {
+    text-decoration: none; }
 
 #showcase #apps {
   margin-top: 40px; }

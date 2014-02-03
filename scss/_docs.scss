@@ -379,3 +379,19 @@ pre {
   white-space: nowrap;
 }
 
+.docs-page .col-sm-4 {
+  text-align: center;
+  
+
+  h3 {
+    font-family: $font-family-medium;
+    color: #333;
+  }
+
+  p {
+    font-family: $font-family-regular;
+    font-size: 14px;
+    color: #888;
+  }
+}
+

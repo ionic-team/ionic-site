@@ -5524,6 +5524,16 @@ pre {
 .table tr td:first-child {
   white-space: nowrap; }
 
+.docs-page .col-sm-4 {
+  text-align: center; }
+  .docs-page .col-sm-4 h3 {
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333; }
+  .docs-page .col-sm-4 p {
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #888; }
+
 #showcase #apps {
   margin-top: 40px; }
   #showcase #apps > .row {

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "IBM437";
 /*!
  * Bootstrap v3.0.0
  *
@@ -11774,6 +11774,27 @@ a {
   margin: 55px 0px 15px 0px; }
   .social-box iframe {
     margin-right: 10px; }
+
+#newsletter-bar {
+  border-top: 1px solid #999;
+  background-color: rgba(79, 142, 247, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  z-index: 150;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 13px; }
+  #newsletter-bar form {
+    display: inline-block; }
+    #newsletter-bar form input {
+      margin-left: 15px;
+      height: 30px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: none; }
 
 .footer {
   position: relative;

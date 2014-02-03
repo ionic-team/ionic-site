@@ -5988,13 +5988,41 @@ a {
   background: linear-gradient(to right, #296ad4 0%, #4e8ef7 100%); }
 
 .navbar-default .navbar-nav > li > a {
-  color: #abc0f5;
   border-top: 3px solid transparent;
+  color: #abc0f5;
   opacity: 1; }
   .navbar-default .navbar-nav > li > a:hover {
-    color: white;
-    border-top: 3px solid #a2c2f7; }
+    border-top: 3px solid #a2c2f7;
+    color: white; }
 
+.navbar-default .navbar-collapse .navbar-nav > li > a:hover {
+  border-top: 3px solid transparent; }
+
+.navbar-default .navbar-toggle {
+  margin-top: 17px;
+  padding: 0;
+  border: none;
+  color: white;
+  font-size: 32px;
+  opacity: .7; }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: none;
+    opacity: 1; }
+
+.navbar-default .navbar-collapse {
+  margin-bottom: 20px;
+  border: none;
+  background: #2155aa;
+  background: -moz-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2155aa), color-stop(100%, #3e72c6));
+  background: -webkit-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -o-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -ms-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: linear-gradient(to right, #2155aa 0%, #3e72c6 100%); }
+
+@media (min-width: 768px) {
+  .navbar-default .navbar-collapse {
+    background: transparent; } }
 .docs-page .docs-nav,
 .examples-page .examples-nav,
 .getting-started-page .getting-started-nav,
@@ -6008,28 +6036,29 @@ a {
 
 .headline {
   position: absolute;
-  width: 100%;
-  text-align: center;
   padding: 10px;
+  width: 100%;
   background-color: #4f8ef7;
-  color: white; }
+  color: white;
+  text-align: center; }
   .headline a {
     color: inherit;
-    opacity: 1;
-    text-decoration: underline; }
+    text-decoration: underline;
+    opacity: 1; }
     .headline a:hover {
       text-decoration: none; }
 
 .header {
   position: relative;
-  height: 248px;
-  padding: 70px 0 0 0;
+  padding: 20px 0 0 0;
+  height: 210px;
   background-position: 0 -76px; }
   .header h3 {
-    color: white;
-    font-size: 28px; }
+    color: #ebf3ff;
+    font-size: 28px;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .header h4 {
-    color: white;
+    color: #c2d8ff;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     opacity: .8; }
   .header ul {
@@ -6041,14 +6070,14 @@ a {
     float: left;
     margin: 0 5px;
     list-style: none;
-    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px; }
+    font-size: 14px;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .header li:first-child a {
       padding-left: 0; }
   .header a {
-    color: #fff;
-    padding: 10px 20px;
     display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
     font-weight: bold; }
   .header .heading-tile {
     background-position: 0 -80px; }

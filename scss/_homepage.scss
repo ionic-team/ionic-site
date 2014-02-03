@@ -86,6 +86,15 @@
     display: none;
     height: 500px;
     background: url(/img/homepage/phones-weather-demo.png) no-repeat center center;
+    background-size: 520px 486px;
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+         only screen and (   min--moz-device-pixel-ratio: 1.3),
+         only screen and (        min-device-pixel-ratio: 1.3),
+         only screen and (             min-resolution: 124dpi)
+    { 
+      background: url(/img/homepage/phones-weather-demo@2x.png) no-repeat center center;      
+    }
 
     .demo-link {
       position: absolute;
@@ -110,7 +119,6 @@
     }
     .feature-img {
       display: block;
-      background-size: 520px 486px;
     }
   }
 

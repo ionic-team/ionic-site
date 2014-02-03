@@ -12,6 +12,12 @@
 .navbar-default .navbar-nav > li > a {
   color: #abc0f5;
   border-top: 3px solid transparent;
+  opacity: 1;
+
+  &:hover {
+    color: white;
+    border-top: 3px solid #a2c2f7;
+  }
 }
 
 .docs-page .docs-nav,

@@ -5044,7 +5044,11 @@ h1 + h2 + p {
 .home .feature-img {
   display: none;
   height: 500px;
-  background: url(/img/homepage/phones-weather-demo.png) no-repeat center center; }
+  background: url(/img/homepage/phones-weather-demo.png) no-repeat center center;
+  background-size: 520px 486px; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+    .home .feature-img {
+      background: url(/img/homepage/phones-weather-demo@2x.png) no-repeat center center; } }
   .home .feature-img .demo-link {
     position: absolute;
     right: 50px;
@@ -5061,8 +5065,7 @@ h1 + h2 + p {
   .home .primary-row h1 {
     margin: 90px 0 0 0; }
   .home .feature-img {
-    display: block;
-    background-size: 520px 486px; } }
+    display: block; } }
 .home .utility-bar {
   position: relative;
   bottom: 0;
@@ -5948,7 +5951,11 @@ a {
 
 .navbar-default .navbar-nav > li > a {
   color: #abc0f5;
-  border-top: 3px solid transparent; }
+  border-top: 3px solid transparent;
+  opacity: 1; }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: white;
+    border-top: 3px solid #a2c2f7; }
 
 .docs-page .docs-nav,
 .examples-page .examples-nav,

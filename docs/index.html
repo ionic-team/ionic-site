@@ -1,221 +1,30 @@
 ---
 layout: docs_0.9.0
-body_css: getting-started-page
 title: Ionic Documentation
-header_title: Getting Started with Ionic Framework
+header_title: Ionic Documentation
 header_sub_title: An overview of Ionic, why we built it, how to use it, and what you should know along the way
 active: getting-started
 news: First time using Ionic? We recommend reading our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up an Ionic mobile app.
 ---
 
-<!-- Getting Started 
-  ================================================== -->
+<h1>Start Building with Ionic!</h1>
 
-<div class="docs-section active" id="overview">
+<p class="subheading">Jump into our docs where you'll find resources that teach you how to use Ionic, and reference documentation for all the moving parts.</p>
 
-  <h1><a href="#overview">Getting Started</a></h1>
+<div class="row">
 
-  <p>Welcome! Ionic is a powerful HTML5 native app development framework that helps you build native-feeling mobile apps all with web technologies like HTML, CSS, and Javascript.</p>
-  <p>
-  Ionic is focused mainly on the look and feel, and UI interaction of your app. That means we aren't a replacement for <a href="http://phonegap.com/">PhoneGap</a> or your favorite Javascript framework. Instead, Ionic simply fits in well with these projects in order to simplify one big part of your app: the front end. We recommend reading <a href="/blog/where-does-the-ionic-framework-fit-in/">Where does the Ionic Framework fit in?</a> to get a good understand of the framework's goals.
-  </p>
-  <p>
-    <b>Ionic currently requires AngularJS</b> in order to work at its full potential. While you can still use the CSS portion of the framework, you'll miss out on powerful UI interactions, gestures, animations, and other things. In the future we'd like to
-  expand beyond Angular to support other frameworks.
-  </p>
-  <!--
-  <p>
-  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly simple. As of Ionic 0.9.0, Angular is the only recommended way to build Ionic apps (we are working to change this though).
-  </p>
-  -->
-  <p>
-    We will be releasing Cordova/PhoneGap plugins in the future to expand the capabilities of your apps.
-  </p>
-</div>
+  <div class="col-sm-4">
+    <img src="/img/docs/symbols/docs-overview-symbol@2x.png" width="170" height="140">
+    <h3>Overview</h3>
+    <p>Learn everything you need to know to get up and running with the framework.</p>
+  </div>
 
+  <div class="col-sm-4">
+    2
+  </div>
 
+  <div class="col-sm-4">
+    3
+  </div>
 
-<!-- Download
-  ================================================== -->
-<div class="docs-section" id="download">
-
-  <h2><a href="#download">Download</a></h2>
-
-  <p>
-    Download the latest official release of Ionic and get started!
-  </p>
-  <ul>
-    <li>Version {{ site.latest_version }}</li>
-    <li>Released {{ site.latest_release_date }}</li>
-  </ul>
-  <p>
-    <a class="btn btn-primary" href="{{ site.latest_download }}">Download v{{ site.latest_version }}</a>
-  </p>
-  <p>
-    You can also <a href="https://github.com/driftyco/ionic">clone it on GitHub</a> to get the bleeding edge release.
-    Additionally, all of our <a href="https://github.com/driftyco/ionic/releases">previous releases</a> can also be found on Github.
-  </p>
-</div>
-
-
-<!-- Seed
-  ================================================== -->
-<div class="docs-section" id="starter">
-
-  <h2><a href="#starter">Command Line Utility and Seed Project</a></h2>
-
-  <p>
-    We have a node.js utility that can be used to quickly start an Ionic project. We are working to build out the functionality of this tool, but right now you can
-    quickly create a project with our <a href="https://github.com/driftyco/ionic-angular-cordova-seed">seed project</a> by doing:
-  </p>
-  <p>
-{% highlight bash %}
-$ sudo npm install -g ionic
-$ ionic start myproject
-{% endhighlight %}
-  </p>
-
-  <p>
-    You can also clone the <a href="https://github.com/driftyco/ionic-angular-cordova-seed">seed project</a> itself, which gives you everything you need to build Ionic apps with Cordova and AngularJS.
-  </p>
-</div>
-
-
-<!-- What's Included
-  ================================================== -->
-<div class="docs-section" id="whats-included">
-
-  <h2><a href="#whats-included">What's Included</a></h2>
-  <p>
-    Ionic comes with compiled Javascript and CSS for your app, optional SASS files and JS Framework extensions, along with a great <a href="http://ionicons.com/">icon pack</a>.
-  </p>
-  <p>
-    The project structure is organized as follows:
-  </p>
-  <ul>
-    <li><code>dist/</code> - compiled versions of Ionic JS and CSS, along with the required font files for the Ionicons icon pack.</li>
-    <li><code>example/</code> - examples of full-featured Ionic projects. Feel free to copy these and base your next project on them.</li>
-    <li><code>js/</code> - the Javascript code for the project and any framework extensions (like AngularJS) that we have provided.</li>
-    <li><code>scss/</code> - the raw SCSS files that can be used to integrate the Ionic SCSS into your own project. Or you can use the compiled CSS in the dist folder above.</li>
-    <li><code>test/</code> - Unit tests for the Javascript files, along with visual tests of components.</li>
-    <li><code>tools/</code> - Tools for creating and administering Ionic projects.</li>
-  </ul>
-
-</div>
-
-
-<!-- CSS/SASS
-  ================================================== -->
-<div class="docs-section" id="css-sass">
-
-  <h2><a href="#css-sass">CSS/SASS</a></h2>
-
-  <p>
-    The CSS can stand on its own, but it is also built to be enhanced by the developer. For simplicity you can always just add in your own CSS and override default properties. And for even more power and flexibility, the core is written with <a href="http://sass-lang.com/">SASS</a> and includes easily customized variables and mixins. While the default design is similar to iOS, we feel we’ve left the CSS in a state which can be easily extended to get your own look and feel.
-  </p>
-
-  <p>
-    <a class="btn btn-primary" href="/tutorials/customizing-ionic-with-sass/">How To Customize Ionic With Sass</a>
-  </p>
-
-</div>
-
-
-
-<!-- AngularJS
-  ================================================== -->
-<div class="docs-section" id="angularjs">
-
-  <h2><a href="#angularjs">AngularJS</a></h2>
-
-  <p>
-    Ionic ships with some great <a href="http://angularjs.org/">AngularJS</a> extensions by default. This makes it easy to use Angular directives instead of the raw HTML/CSS markup, and also makes it easy to use common Ionic services in your controllers and directives.
-  </p>
-  <p>
-    To use the AngularJS extensions, copy <code>dist/js/ionic-angular.js</code> and include it after <code>dist/js/ionic.js</code> in your app. See the Angular doc section for more details on using the extensions.
-  </p>
-  <p>
-    Ionic-Angular relies on Angular {{ site.included_angular_version }}, and includes ngAnimate, ngTouch, ngSanitize, ngRoute, and ngResource by default.
-  </p>
-
-  <p>
-    <a class="btn btn-primary" href="/docs/controllers/">Ionic Controllers</a>
-  </p>
-</div>
-
-
-
-<!-- Phonegap
-  ================================================== -->
-<div class="docs-section" id="phonegap">
-
-  <h2><a href="#phonegap">PhoneGap/Cordova/Trigger.io</a></h2>
-
-  <p>
-    Our examples were tested on Cordova 3.1.0, but should work for any version since we aren't shipping plugins (yet). To add Ionic to your <a href="http://phonegap.com/">PhoneGap</a>, <a href="http://cordova.apache.org/">Cordova</a>, or <a href="https://trigger.io/">Trigger.io</a> project, just reference the Ionic CSS and JS files from the web root of your app.
-  </p>
-
-</div>
-
-
-
-<!-- Browser Support
-  ================================================== -->
-<div class="docs-section" id="browser-support">
-
-  <h2><a href="#browser-support">Browser Support</a></h2>
-
-  <p>
-    Ionic is focused on building <strong>native/hybrid</strong> mobile apps rather than mobile websites.
-  </p>
-  <p>
-    As such, our browser support tends to be whatever Web View API is available to native apps on a given platform. For Ionic v0.9.14 "Alpha Fox", that means UIWebView for iOS 6 and 7, and Android 4.1+.
-  </p>
-</div>
-
-
-
-<!-- Examples
-  ================================================== -->
-<div class="docs-section" id="examples">
-  <h2><a href="#examples">Examples</a></h2>
-  <p>
-    We have plenty of starter templates, live apps, and other examples to get you started.
-    To view our Ionic examples, take a look at the <a href="/examples/">Examples</a> page. 
-  </p>
-</div>
-
-
-
-<!-- License
-  ================================================== -->
-<div class="docs-section" id="license">
-  <h2><a href="#license">License</a></h2>
-  <p>Ionic is an open source framework released under a permisive <a href="http://opensource.org/licenses/MIT">MIT</a> license. This means you can use Ionic in your own personal or commercial projects for free. MIT is the same license used by such popular projects as jQuery and Ruby on Rails.
-  </p>
-</div>
-
-
-
-<!-- Contribute
-  ================================================== -->
-<div class="docs-section" id="contribute">
-  <h2><a href="#contribute">Contribute to Ionic Development</a></h2>
-  <p>
-    We'd love to have you help improve Ionic, whether it's improving the framework's code, or touching up the documentation. For more information on Contributing, check out our <a href="/contribute/">Contributor Guide</a>.
-  </p>
-</div>
-
-
-
-<!-- About Ionic
-  ================================================== -->
-<div class="docs-section" id="about">
-  <h2><a href="#about">About Ionic</a></h2>
-  <p>
-    Ionic was built by <a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>, <a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a>, and <a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> at <a href="http://drifty.com/" target="_blank">Drifty</a>, an independent bootstrapped software company and makers of such fine products as <a href="http://codiqa.com/" target="_blank">Codiqa</a> and <a href="http://jetstrap.com/" target="_blank">Jetstrap</a>.
-  </p>
-  <p>
-    Ionic was built to take HTML5 on mobile into the future. We wanted a mobile framework that not only looked and worked great, but was also powerful enough to build the amazing apps the best developers were creating. HTML5's time has arrived. Ionic is the framework that proves it.
-  </p>
 </div>

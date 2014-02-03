@@ -1,4 +1,4 @@
-@charset "IBM437";
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -4929,12 +4929,14 @@ td.visible-print {
   src: url("../fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/28882F_1_0.woff") format("woff"), url("../fonts/28882F_1_0.ttf") format("truetype"); }
 
 h1 {
-  border-bottom: 1px solid #eee;
   padding-bottom: 10px;
-  margin: 40px 0px 20px 0px; }
+  margin: 40px 0px 15px 0px; }
 
 h2 {
   margin: 35px 0px 10px 0px; }
+
+h3 {
+  margin-top: 15px; }
 
 h1, h2, h3, h4, h5, h6, .btn {
   font-weight: normal;
@@ -4952,6 +4954,10 @@ h1 + h2 {
 
 h1 + h2 + p {
   margin-top: 20px; }
+
+.subheading {
+  color: #888;
+  font-size: 15px; }
 
 .guide-content {
   color: #333;

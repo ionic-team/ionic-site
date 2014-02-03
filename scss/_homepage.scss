@@ -3,6 +3,7 @@
 
   .primary-row {
     padding: 0 10px;
+    text-align: center;
 
     h1, h2 {
       border: none;
@@ -13,31 +14,32 @@
     h1 {
       margin: 10px 0 0 0;
       color: #ebf3ff;
-      font-size: 46px;
+      font-size: 26px;
     }
 
     h2 {
       margin: 10px 0 0 0;
       color: #A8C7FF;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 28px;
+    }
+
+    .desktop-btn {
+      display: none;
     }
   }
 
   .btn-row {
-    margin-top: 50px;
     padding: 0;
 
     .btn {
+      margin-top: 20px;
       padding: 15px 32px;
+      width: 280px;
       border: 0;
       font-size: 22px;
       font-family: $font-family-regular;
       opacity: 1;
-
-      &:hover {
-
-      }
     }
     .btn-download {
       border: none;
@@ -60,7 +62,7 @@
       }
     }
     .btn-get-started {
-      margin-left: 20px;
+      margin: 20px 0 0 0;
       border: none;
       background: transparent;
       box-shadow: inset 0px 0px 0px 2px #A8C7FF;
@@ -83,23 +85,26 @@
   }
 
   .feature-img {
-    display: none;
-    height: 500px;
-    background: url(/img/homepage/phones-weather-demo.png) no-repeat center center;
-    background-size: 520px 486px;
+    height: 175px;
+    background-image: url(/img/homepage/phones-weather-demo.png);
+    background-position: center 15px;
+    background-size: 320px 299px;
+    background-repeat: no-repeat;
 
       @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
          only screen and (   min--moz-device-pixel-ratio: 1.3),
          only screen and (        min-device-pixel-ratio: 1.3),
          only screen and (             min-resolution: 124dpi)
     { 
-      background: url(/img/homepage/phones-weather-demo@2x.png) no-repeat center center;      
+      background-image:  url(/img/homepage/phones-weather-demo@2x.png);
+      background-size: 320px 299px;
     }
 
     .demo-link {
       position: absolute;
       right: 50px;
       bottom: 50px;
+      display: none;
       color: white;
       text-decoration: underline; 
       font-weight: 300;
@@ -113,21 +118,69 @@
     }
   }
 
-  @media (min-width: 992px) {
-    .primary-row h1 {
-      margin: 90px 0 0 0;
+  @media (min-width: 768px) {
+    /* TABLET/Phone */
+    .primary-row {
+      text-align: left;
+
+      h1 {
+        font-size: 34px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+
+      .desktop-btn {
+        display: inline-block;
+      }
+      .mobile-btn {
+        display: none;
+      }
+      .demo-link {
+        display: block;
+      }
     }
     .feature-img {
-      display: block;
+      background-size: 420px 393px;
+      min-height: 405px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    /* Desktop */
+    .primary-row {
+      h1 {
+        margin: 90px 0 0 0;
+        font-size: 46px;
+      }
+      .btn-row {
+        margin-top: 50px;
+      }
+      .btn {
+        width: auto;
+      }
+      .btn-get-started {
+        margin-left: 20px;
+      }
+    }
+    .feature-img {
+      height: 500px;
+      background-size: 520px 486px;
     }
   }
 
   .utility-bar {
+    margin-top: -1px;
     position: relative;
-    bottom: 0;
+    padding: 17px;
     width: 100%;
-    height: 70px;
-    background: #2F64B8;
+    background: #2155aa;
+    background: -moz-linear-gradient(left,  #2155aa 0%, #3e72c6 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2155aa), color-stop(100%,#3e72c6));
+    background: -webkit-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: -o-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: -ms-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
+    background: linear-gradient(to right,  #2155aa 0%,#3e72c6 100%);
 
     .container {
       overflow: hidden;
@@ -146,10 +199,6 @@
       &:hover {
         text-decoration: none;
       }
-    }
-
-    .input-group {
-      margin-top: 16px;
     }
 
     input {
@@ -197,11 +246,11 @@
   }
 
   .social-row {
-    margin-top: 25px;
+    margin: 8px 0 0 0;
 
     li {
       display: inline-block;
-      height: 30px;
+      height: 27px;
       vertical-align: top;
     }
     .twitter-share {
@@ -216,12 +265,8 @@
     }
   }
 
-  .bg-cover {
-    padding: 0 10px;
-    background: white;
-  }
-
   .desc-row {
+    padding: 0 10px;
     text-align: center;
 
     > * {
@@ -245,7 +290,7 @@
   }
 
   .feature-row {
-    margin: 70px auto;
+    margin: auto 10px;
     min-height: 150px;
     max-width: 900px;
     background: no-repeat 0 32px;
@@ -265,7 +310,8 @@
     .feature-row {
       min-height: 210px;
       background: no-repeat 18% 5px;
-      background-size: 247px 210px; 
+      background-size: 247px 210px;
+      margin: 70px auto;
 
       h4, p {
         padding-right: 35px;

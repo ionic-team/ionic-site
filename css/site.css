@@ -4987,7 +4987,8 @@ h1 + h2 + p {
       cursor: pointer; }
 
 .home .primary-row {
-  padding: 0 10px; }
+  padding: 0 10px;
+  text-align: center; }
   .home .primary-row h1, .home .primary-row h2 {
     border: none;
     font-weight: normal;
@@ -4995,17 +4996,20 @@ h1 + h2 + p {
   .home .primary-row h1 {
     margin: 10px 0 0 0;
     color: #ebf3ff;
-    font-size: 46px; }
+    font-size: 26px; }
   .home .primary-row h2 {
     margin: 10px 0 0 0;
     color: #A8C7FF;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 28px; }
+  .home .primary-row .desktop-btn {
+    display: none; }
 .home .btn-row {
-  margin-top: 50px;
   padding: 0; }
   .home .btn-row .btn {
+    margin-top: 20px;
     padding: 15px 32px;
+    width: 280px;
     border: 0;
     font-size: 22px;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -5026,7 +5030,7 @@ h1 + h2 + p {
       box-shadow: inset 0px 0px 5px rgba(33, 85, 170, 0.4);
       opacity: .7; }
   .home .btn-row .btn-get-started {
-    margin-left: 20px;
+    margin: 20px 0 0 0;
     border: none;
     background: transparent;
     box-shadow: inset 0px 0px 0px 2px #A8C7FF;
@@ -5042,17 +5046,20 @@ h1 + h2 + p {
   font-weight: 300;
   font-size: 11px; }
 .home .feature-img {
-  display: none;
-  height: 500px;
-  background: url(/img/homepage/phones-weather-demo.png) no-repeat center center;
-  background-size: 520px 486px; }
+  height: 175px;
+  background-image: url(/img/homepage/phones-weather-demo.png);
+  background-position: center 15px;
+  background-size: 320px 299px;
+  background-repeat: no-repeat; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
     .home .feature-img {
-      background: url(/img/homepage/phones-weather-demo@2x.png) no-repeat center center; } }
+      background-image: url(/img/homepage/phones-weather-demo@2x.png);
+      background-size: 320px 299px; } }
   .home .feature-img .demo-link {
     position: absolute;
     right: 50px;
     bottom: 50px;
+    display: none;
     color: white;
     text-decoration: underline;
     font-weight: 300;
@@ -5061,17 +5068,51 @@ h1 + h2 + p {
     opacity: .3; }
     .home .feature-img .demo-link:hover {
       opacity: 1 !important; }
+@media (min-width: 768px) {
+  .home {
+    /* TABLET/Phone */ }
+    .home .primary-row {
+      text-align: left; }
+      .home .primary-row h1 {
+        font-size: 34px; }
+      .home .primary-row h2 {
+        font-size: 20px; }
+      .home .primary-row .desktop-btn {
+        display: inline-block; }
+      .home .primary-row .mobile-btn {
+        display: none; }
+      .home .primary-row .demo-link {
+        display: block; }
+    .home .feature-img {
+      background-size: 420px 393px;
+      min-height: 405px; } }
 @media (min-width: 992px) {
-  .home .primary-row h1 {
-    margin: 90px 0 0 0; }
-  .home .feature-img {
-    display: block; } }
+  .home {
+    /* Desktop */ }
+    .home .primary-row h1 {
+      margin: 90px 0 0 0;
+      font-size: 46px; }
+    .home .primary-row .btn-row {
+      margin-top: 50px; }
+    .home .primary-row .btn {
+      width: auto; }
+    .home .primary-row .btn-get-started {
+      margin-left: 20px; }
+    .home .feature-img {
+      height: 500px;
+      background-size: 520px 486px; } }
 .home .utility-bar {
+  margin-top: -1px;
   position: relative;
-  bottom: 0;
+  padding: 17px;
   width: 100%;
-  height: 70px;
-  background: #2F64B8; }
+  background: #2155aa;
+  background: -moz-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2155aa), color-stop(100%, #3e72c6));
+  background: -webkit-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -o-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: -ms-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
+  background: linear-gradient(to right, #2155aa 0%, #3e72c6 100%); }
   .home .utility-bar .container {
     overflow: hidden;
     color: #DAE7FD;
@@ -5085,8 +5126,6 @@ h1 + h2 + p {
     opacity: 1; }
     .home .utility-bar a:hover {
       text-decoration: none; }
-  .home .utility-bar .input-group {
-    margin-top: 16px; }
   .home .utility-bar input {
     border: 1px solid #7597d4;
     background: #7597d4;
@@ -5117,10 +5156,10 @@ h1 + h2 + p {
   padding: 0;
   max-width: 100% !important; }
 .home .social-row {
-  margin-top: 25px; }
+  margin: 8px 0 0 0; }
   .home .social-row li {
     display: inline-block;
-    height: 30px;
+    height: 27px;
     vertical-align: top; }
   .home .social-row .twitter-share {
     margin-right: 10px;
@@ -5129,10 +5168,8 @@ h1 + h2 + p {
     width: 240px; }
   .home .social-row .github-watch {
     width: 130px; }
-.home .bg-cover {
-  padding: 0 10px;
-  background: white; }
 .home .desc-row {
+  padding: 0 10px;
   text-align: center; }
   .home .desc-row > * {
     margin: 0 auto; }
@@ -5148,7 +5185,7 @@ h1 + h2 + p {
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 .home .feature-row {
-  margin: 70px auto;
+  margin: auto 10px;
   min-height: 150px;
   max-width: 900px;
   background: no-repeat 0 32px;
@@ -5163,7 +5200,8 @@ h1 + h2 + p {
   .home .feature-row {
     min-height: 210px;
     background: no-repeat 18% 5px;
-    background-size: 247px 210px; }
+    background-size: 247px 210px;
+    margin: 70px auto; }
     .home .feature-row h4, .home .feature-row p {
       padding-right: 35px;
       padding-left: 55%;

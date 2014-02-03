@@ -1,24 +1,74 @@
 ---
 layout: default
 title: Getting Started with Ionic
+body_css: getting-started-page
 header_title: Ionic Documentation
 header_sub_title: Build native mobile apps in minutes with the web tech you know and love. Save time. Build more.
 active: getting-stared
-news: Questions? Head over to our <a href="http://forum.ionicframework.com/">Community Forum</a> to chat with other using the framework
+news: Questions? Head over to our <a href="http://forum.ionicframework.com/">Community Forum</a> to chat with others using the framework.
 ---
 
-<div class="getting-start">
+<div class="getting-started-row">
 
   <div class="num">
-    <img src="">
+    <img src="/img/docs/symbols/step-1@2x.png" width="52" height="52">
   </div>
-  <div class="">
+  <div class="desc">
     <h3>Install Ionic</h3>
     <p>
-      Download the latest official release of Ionic. You can also 
+      Install the latest Ionic <a href="https://npmjs.org/package/ionic">command-line tool</a>. You can also 
       <a href="https://github.com/driftyco/ionic">clone it</a> on
       GitHub to get the bleeding edge release.
     </p>
+{% highlight bash %}
+
+$ npm install -g ionic
+
+{% endhighlight %}
   </div>
 
 </div>
+
+<div class="getting-started-row">
+
+  <div class="num">
+    <img src="/img/docs/symbols/step-2@2x.png" width="52" height="52">
+  </div>
+  <div class="desc">
+    <h3>Start a project</h3>
+    <p>
+      Create a project with our pre-built <a href="https://github.com/driftyco/ionic-site">seed project</a>. 
+      You can also clone the seed project itself, which gives you everything you need to build
+      Ionic apps with Cordova and AngularJS.
+    </p>
+{% highlight bash %}
+
+$ ionic start myApp
+
+{% endhighlight %}
+  </div>
+
+</div>
+
+<div class="getting-started-row">
+
+  <div class="num">
+    <img src="/img/docs/symbols/step-3@2x.png" width="52" height="52">
+  </div>
+  <div class="desc">
+    <h3>Run it</h3>
+    <p>
+      Ionic comes with compiled JavaScript and CSS for your app, optional
+      SASS files and JS Framework extensions.
+    </p>
+{% highlight bash %}
+
+$ cd myApp
+$ cordova platform add ios
+$ cordova emulate ios
+
+{% endhighlight %}
+  </div>
+
+</div>
+

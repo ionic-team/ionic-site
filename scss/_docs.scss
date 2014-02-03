@@ -27,10 +27,10 @@
 }
 
 .left-menu {
+  margin-top: 8px;
   padding-left: 0;
   list-style: none;
   font-size: 12px;
-  margin-top: 8px;
 
   &:first-child {
     margin-top: 0;
@@ -64,10 +64,10 @@
 
   .menu-title a {
     color: #aaaaaa;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    line-height: 20px;
+    letter-spacing: 2px;
     font-size: 11px;
+    line-height: 20px;
   }
 
   &.nav li.active {
@@ -130,8 +130,8 @@
     padding-bottom: 0;
   }
   h2 a, h3 a {
-    padding-bottom: 8px;
     display: block;
+    padding-bottom: 8px;
     border-bottom: 1px solid transparent;
     transition: color .15s ease-in-out;
   }
@@ -198,8 +198,8 @@ pre {
 
   .device-preview {
     position: absolute;
-    z-index: 1;
     right: 0;
+    z-index: 1;
     width: 380px;
     height: 810px;
     background: url("/img/phone-case.png") no-repeat right top;
@@ -365,8 +365,8 @@ pre {
 
 .ionic .ionicons-demo li {
   display: inline-block;
-  font-size: 32px;
   padding: 2px;
+  font-size: 32px;
 
   &:before {
     display: block;
@@ -387,14 +387,14 @@ pre {
   }
 
   h3 {
-    font-family: $font-family-medium;
     color: #333;
+    font-family: $font-family-medium;
   }
 
   p {
-    font-family: $font-family-regular;
-    font-size: 14px;
     color: #888;
+    font-size: 14px;
+    font-family: $font-family-regular;
   }
 
   a {
@@ -403,6 +403,23 @@ pre {
 
   a:hover {
     text-decoration: none;
+  }
+}
+
+.getting-started-row {
+  clear: both;
+  margin: 10px auto 100px auto;
+  max-width: 600px;
+
+  .num {
+    float: left;
+    width: 80px;
+  }
+  .desc {
+    margin-left: 80px;
+  }
+  .highlight {
+    background: #eee;
   }
 }
 

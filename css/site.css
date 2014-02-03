@@ -5292,10 +5292,10 @@ h1 + h2 + p {
   .device-preview-page .main-content {
     width: 100%; } }
 .left-menu {
+  margin-top: 8px;
   padding-left: 0;
   list-style: none;
-  font-size: 12px;
-  margin-top: 8px; }
+  font-size: 12px; }
   .left-menu:first-child {
     margin-top: 0; }
   .left-menu a {
@@ -5316,10 +5316,10 @@ h1 + h2 + p {
       padding-left: 12px; }
   .left-menu .menu-title a {
     color: #aaaaaa;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    line-height: 20px;
-    font-size: 11px; }
+    letter-spacing: 2px;
+    font-size: 11px;
+    line-height: 20px; }
   .left-menu.nav li.active > a {
     border-right: 2px solid #4f8ef7;
     color: #4f8ef7; }
@@ -5356,8 +5356,8 @@ h1 + h2 + p {
   .docs-section h2, .docs-section h3 {
     padding-bottom: 0; }
   .docs-section h2 a, .docs-section h3 a {
-    padding-bottom: 8px;
     display: block;
+    padding-bottom: 8px;
     border-bottom: 1px solid transparent;
     transition: color .15s ease-in-out; }
   .docs-section td, .docs-section th {
@@ -5399,8 +5399,8 @@ pre {
     height: 100%; }
   .device-preview-page .device-preview {
     position: absolute;
-    z-index: 1;
     right: 0;
+    z-index: 1;
     width: 380px;
     height: 810px;
     background: url("/img/phone-case.png") no-repeat right top; }
@@ -5514,8 +5514,8 @@ pre {
 
 .ionic .ionicons-demo li {
   display: inline-block;
-  font-size: 32px;
-  padding: 2px; }
+  padding: 2px;
+  font-size: 32px; }
   .ionic .ionicons-demo li:before {
     display: block;
     width: 42px;
@@ -5529,16 +5529,28 @@ pre {
   .docs-home-row > div {
     margin-top: 50px; }
   .docs-home-row h3 {
-    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333; }
+    color: #333;
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .docs-home-row p {
-    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #888;
     font-size: 14px;
-    color: #888; }
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .docs-home-row a {
     color: black; }
   .docs-home-row a:hover {
     text-decoration: none; }
+
+.getting-started-row {
+  clear: both;
+  margin: 10px auto 100px auto;
+  max-width: 600px; }
+  .getting-started-row .num {
+    float: left;
+    width: 80px; }
+  .getting-started-row .desc {
+    margin-left: 80px; }
+  .getting-started-row .highlight {
+    background: #eee; }
 
 #showcase #apps {
   margin-top: 40px; }

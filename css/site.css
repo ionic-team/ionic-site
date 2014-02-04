@@ -6003,7 +6003,7 @@ h2.underline {
   .ios7 .month-input {
     background-image: url("/img/input-types/ios7/keyboard-month@2x.png"); } }
 a {
-  opacity: 0.7;
+  opacity: 0.8;
   transition: .1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {

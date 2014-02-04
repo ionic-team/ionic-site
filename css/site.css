@@ -5055,9 +5055,9 @@ h1 + h2 + p {
       box-shadow: inset 0px 0px 0px 2px #fff;
       color: #fff; }
 .home .version-text {
-  color: #98b0e8;
+  color: #2256AB;
   font-weight: 300;
-  font-size: 11px; }
+  font-size: 10px; }
 .home .feature-img {
   height: 175px;
   background-image: url(/img/homepage/phones-weather-demo.png);

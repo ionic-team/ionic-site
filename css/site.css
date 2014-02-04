@@ -6136,12 +6136,13 @@ a {
     text-overflow: ellipsis; }
   .news a {
     color: #fff;
-    opacity: 1;
+    opacity: .8;
     text-decoration: none;
     padding: 0;
     font-weight: normal; }
     .news a:hover {
-      text-decoration: underline; }
+      text-decoration: underline;
+      opacity: 1; }
 
 @-moz-keyframes spin {
   100% {

@@ -18,13 +18,14 @@
 
   a {
     color: #fff;
-    opacity: 1;
+    opacity: .8;
     text-decoration: none;
     padding: 0;
     font-weight: normal;
 
     &:hover {
       text-decoration: underline;
+      opacity: 1;
     }
   }
 }

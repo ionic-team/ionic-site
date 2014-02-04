@@ -78,6 +78,11 @@
         box-shadow: inset 0px 0px 0px 2px #fff;
         color: #fff;
       }
+
+      &:active {
+        box-shadow: inset 0px 0px 0px 2px #A8C7FF;
+        color: #A8C7FF;
+      }
     }
   }
 

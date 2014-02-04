@@ -5136,14 +5136,6 @@ h1 + h2 + p {
     color: #DAE7FD;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .home .utility-bar a {
-    padding: 0;
-    color: #fff;
-    text-decoration: underline;
-    font-weight: normal;
-    opacity: 1; }
-    .home .utility-bar a:hover {
-      text-decoration: none; }
   .home .utility-bar input {
     border: 1px solid #7597d4;
     background: #7597d4;
@@ -5177,19 +5169,28 @@ h1 + h2 + p {
 .home .content-container {
   padding: 0;
   max-width: 100% !important; }
-.home .social-row {
-  margin: 8px 0 0 0; }
-  .home .social-row li {
-    display: inline-block;
-    height: 27px;
-    vertical-align: top; }
-  .home .social-row .twitter-share {
-    margin-right: 10px;
-    width: 100px; }
-  .home .social-row .twitter-follow {
-    width: 240px; }
-  .home .social-row .github-watch {
-    width: 130px; }
+@media (min-width: 992px) {
+  .home .social-row {
+    margin: 7px 0 0 0; } }
+.home .social-row li {
+  display: inline-block;
+  height: 27px;
+  margin-right: 22px;
+  font-size: 12px; }
+  .home .social-row li i {
+    padding-right: 2px; }
+  @media (min-width: 568px) {
+    .home .social-row li {
+      font-size: 15px;
+      margin-right: 34px; }
+      .home .social-row li i {
+        padding-right: 4px; } }
+.home .social-row a {
+  text-decoration: none;
+  opacity: .6;
+  color: white; }
+  .home .social-row a:hover {
+    opacity: 1; }
 .home .desc-row {
   padding: 0 10px;
   text-align: center; }

@@ -196,18 +196,6 @@
       white-space: nowrap;
     }
 
-    a {
-      padding: 0;
-      color: #fff;
-      text-decoration: underline;
-      font-weight: normal;
-      opacity: 1;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-
     input {
       border: 1px solid #7597d4;
       background: #7597d4;
@@ -258,22 +246,36 @@
   }
 
   .social-row {
-    margin: 8px 0 0 0;
+    @media (min-width: 992px) {
+      margin: 7px 0 0 0;
+    }
 
     li {
       display: inline-block;
       height: 27px;
-      vertical-align: top;
+      margin-right: 22px;
+      font-size: 12px;
+
+      i {
+        padding-right: 2px;
+      }
+
+      @media (min-width: 568px) {
+        font-size: 15px;
+        margin-right: 34px;  
+        i {
+          padding-right: 4px;
+        }
+      }
     }
-    .twitter-share {
-      margin-right: 10px;
-      width: 100px;
-    }
-    .twitter-follow {
-      width: 240px;
-    }
-    .github-watch {
-      width: 130px;
+    a {
+      text-decoration: none;
+      opacity: .6;
+      color: white;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 

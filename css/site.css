@@ -5008,10 +5008,13 @@ h1 + h2 + p {
     color: #ebf3ff;
     font-size: 26px; }
   .home .primary-row h2 {
-    margin: 10px 0 0 0;
+    margin: 5px 0 0 0;
     color: #A8C7FF;
     font-size: 16px;
-    line-height: 28px; }
+    line-height: 28px;
+    font-weight: bold;
+    font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -1px; }
   .home .primary-row .desktop-btn {
     display: none; }
 .home .btn-row {
@@ -5142,15 +5145,18 @@ h1 + h2 + p {
   .home .utility-bar input {
     border: 1px solid #7597d4;
     background: #7597d4;
+    font-size: 13px;
     color: white;
-    box-shadow: none; }
+    box-shadow: none;
+    font-weight: normal;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .home .utility-bar input:focus {
       -webkit-box-shadow: none;
       box-shadow: none; }
     .home .utility-bar input::-webkit-input-placeholder {
-      color: #dae3f2; }
+      color: #bbceef; }
     .home .utility-bar input::-moz-placeholder {
-      color: #dae3f2; }
+      color: #bbceef; }
   .home .utility-bar button {
     padding-right: 15px;
     padding-left: 15px;

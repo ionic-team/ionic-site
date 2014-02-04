@@ -1,5 +1,7 @@
 
 .news {
+  font-family: "AvenirNext-Regular" Helvetica Neue, Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
   position: absolute;
   bottom: 0;
   height: 50px;
@@ -8,7 +10,7 @@
   width: 100%;
 
   .container {
-    color: #DAE7FD;
+    color: #B6D1FF;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -17,12 +19,12 @@
   a {
     color: #fff;
     opacity: 1;
-    text-decoration: underline;
+    text-decoration: none;
     padding: 0;
     font-weight: normal;
 
     &:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }

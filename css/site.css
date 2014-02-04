@@ -6121,6 +6121,8 @@ a {
     background-position: 0 -80px; }
 
 .news {
+  font-family: "AvenirNext-Regular" Helvetica Neue, Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
   position: absolute;
   bottom: 0;
   height: 50px;
@@ -6128,18 +6130,18 @@ a {
   background: rgba(255, 255, 255, 0.25);
   width: 100%; }
   .news .container {
-    color: #DAE7FD;
+    color: #B6D1FF;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
   .news a {
     color: #fff;
     opacity: 1;
-    text-decoration: underline;
+    text-decoration: none;
     padding: 0;
     font-weight: normal; }
     .news a:hover {
-      text-decoration: none; }
+      text-decoration: underline; }
 
 @-moz-keyframes spin {
   100% {

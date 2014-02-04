@@ -36,7 +36,7 @@ body_css: "home"
       <ul class="social-row ionic col-md-7">
         <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-social-github"></i> <span id="gh-stargazers"></span> Stars</a></li>
         <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-fork-repo"></i> <span id="gh-forks"></span> Forks</a></li>
-        <li><a href="https://twitter.com/IonicFramework" target="_blank"><i class="ion-social-twitter"></i> <span id="tw-followers">2,834</span> Followers</a></li>
+        <li><a href="https://twitter.com/IonicFramework" target="_blank"><i class="ion-social-twitter"></i> <span id="tw-followers"></span> Followers</a></li>
       </ul>
       <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-md-5">
         <input name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Enter your email for the latest ionic news" required />
@@ -54,9 +54,8 @@ body_css: "home"
   }
   $.ajax({
     dataType: "jsonp",
-    url: "https://api.github.com/repos/driftyco/ionic?callback=updGithub",
+    url: "https://api.github.com/repos/driftyco/ionic",
     success: function(data){
-      // update Github counts
       if(data) {
         if(data.data.watchers){
           $("#gh-stargazers").html(digits(data.data.watchers));
@@ -64,6 +63,15 @@ body_css: "home"
         if(data.data.forks){
           $("#gh-forks").html(digits(data.data.forks));
         }
+      }
+    }
+  });
+  $.ajax({
+    dataType: "jsonp",
+    url: "https://cdn.api.twitter.com/1/users/show.json?screen_name=ionicframework",
+    success: function(data){
+      if(data && data.followers_count){
+        $("#tw-followers").html(digits(data.followers_count));
       }
     }
   });

@@ -208,6 +208,8 @@
       &:focus {
         -webkit-box-shadow: none;
         box-shadow: none;
+        border: 1px solid #84A6E2;
+        background: #84A6E2;
       }
 
       &::-webkit-input-placeholder {

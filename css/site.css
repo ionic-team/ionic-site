@@ -6032,7 +6032,7 @@ a {
     color: white; }
 
 .navbar-default .navbar-collapse .navbar-nav > li > a:hover {
-  border-top: 4px solid #B5CAFF; }
+  border-top: 3px solid #B5CAFF; }
 
 .navbar-default .navbar-toggle {
   margin-top: 17px;
@@ -6065,7 +6065,7 @@ a {
   .getting-started-page .getting-started-nav,
   .nav-link:hover,
   .nav-link:focus {
-    border-top: 3px solid #abc0f5 !important;
+    border-top: 3px solid #B5CAFF !important;
     opacity: 1 !important;
     color: white !important; }
 

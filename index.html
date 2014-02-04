@@ -34,8 +34,8 @@ body_css: "home"
   <div class="container">
     <div class="row">
       <ul class="social-row ionic col-md-7">
-        <li><a href="#"><i class="ion-social-github"></i> <span id="gh-star">2,906</span> Stars</a></li>
-        <li><a href="#"><i class="ion-fork-repo"></i> <span id="gh-forks">279</span> Forks</a></li>
+        <li><a href="#"><i class="ion-social-github"></i> <span id="gh-stargazers"></span> Stars</a></li>
+        <li><a href="#"><i class="ion-fork-repo"></i> <span id="gh-forks"></span> Forks</a></li>
         <li><a href="#"><i class="ion-social-twitter"></i> <span id="tw-followers">2,834</span> Followers</a></li>
       </ul>
       <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-md-5">
@@ -47,6 +47,27 @@ body_css: "home"
     </div>
   </div>
 </div>
+
+<script>
+  function digits(n){
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  $.ajax({
+    dataType: "jsonp",
+    url: "https://api.github.com/repos/driftyco/ionic?callback=updGithub",
+    success: function(data){
+      // update Github counts
+      if(data) {
+        if(data.data.watchers){
+          $("#gh-stargazers").html(digits(data.data.watchers));
+        }
+        if(data.data.forks){
+          $("#gh-forks").html(digits(data.data.forks));
+        }
+      }
+    }
+  });
+</script>
 
 <div id="learn-more">
 

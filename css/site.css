@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5055,10 +5056,10 @@ h1 + h2 + p {
       box-shadow: inset 0px 0px 0px 2px #fff;
       color: #fff; }
 .home .version-text {
-  color: #000;
+  color: #fff;
   font-weight: 300;
   font-size: 10px;
-  opacity: 0.2; }
+  opacity: 0.3; }
 .home .feature-img {
   height: 175px;
   background-image: url(/img/homepage/phones-weather-demo.png);
@@ -5105,7 +5106,7 @@ h1 + h2 + p {
     /* Desktop */ }
     .home .primary-row h1 {
       margin: 90px 0 0 0;
-      font-size: 50px;
+      font-size: 48px;
       font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: -1px; }

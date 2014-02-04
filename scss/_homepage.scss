@@ -248,6 +248,9 @@
   .social-row {
     @media (min-width: 992px) {
       margin: 7px 0 0 0;
+      font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: -1px;
     }
 
     li {
@@ -261,7 +264,7 @@
       }
 
       @media (min-width: 568px) {
-        font-size: 15px;
+        font-size: 14px;
         margin-right: 34px;  
         i {
           padding-right: 4px;

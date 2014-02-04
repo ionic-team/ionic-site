@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5171,7 +5170,10 @@ h1 + h2 + p {
   max-width: 100% !important; }
 @media (min-width: 992px) {
   .home .social-row {
-    margin: 7px 0 0 0; } }
+    margin: 7px 0 0 0;
+    font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px; } }
 .home .social-row li {
   display: inline-block;
   height: 27px;
@@ -5181,7 +5183,7 @@ h1 + h2 + p {
     padding-right: 2px; }
   @media (min-width: 568px) {
     .home .social-row li {
-      font-size: 15px;
+      font-size: 14px;
       margin-right: 34px; }
       .home .social-row li i {
         padding-right: 4px; } }

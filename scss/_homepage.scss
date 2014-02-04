@@ -78,6 +78,11 @@
         box-shadow: inset 0px 0px 0px 2px #fff;
         color: #fff;
       }
+
+      &:active {
+        box-shadow: inset 0px 0px 0px 2px #A8C7FF;
+        color: #A8C7FF;
+      }
     }
   }
 
@@ -208,6 +213,8 @@
       &:focus {
         -webkit-box-shadow: none;
         box-shadow: none;
+        border: 1px solid #84A6E2;
+        background: #84A6E2;
       }
 
       &::-webkit-input-placeholder {
@@ -248,6 +255,9 @@
   .social-row {
     @media (min-width: 992px) {
       margin: 7px 0 0 0;
+      font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: -1px;
     }
 
     li {
@@ -261,7 +271,7 @@
       }
 
       @media (min-width: 568px) {
-        font-size: 15px;
+        font-size: 14px;
         margin-right: 34px;  
         i {
           padding-right: 4px;

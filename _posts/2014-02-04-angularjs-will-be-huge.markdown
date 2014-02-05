@@ -9,7 +9,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/angularjs.jpg">
 
-Earlier this summer, I realized AngularJS was going to be f***ing huge.
+Earlier this summer, I realized AngularJS was going to be f'ing huge.
 
 I don't just mean it was going to be the next hot thing that would be here for a few months only to be replaced a few months later.
 By huge, I mean it was going to change the entire frontend development industry forever, with ripples felt across all aspects of the tech industry.
@@ -22,13 +22,15 @@ No, in order for a technology to be truly, incredibly successful, it needs to be
 
 Historically, massive platforms are rare in the world of developer tools, especially relative to how many frameworks, libraries, and languages pop up each day. Technology can be stubborn about evolving from a tool in a toolbox into an entire sub industry on its own.
 
-But it happens. Some recent success stories are Java, .NET, and jQuery. Each one of these technologies created entire sub-industries, providing opportunities for entrepreneurs to build interesting and valuable companies for those in the community, developers the chance to find high paying jobs with new required skillsets, and educators with passionate students ready to learn the next big thing.
+But it happens. Some recent success stories are Java, .NET, and jQuery. Each one of these technologies created entire sub-industries, providing opportunities for entrepreneurs to build interesting and valuable companies for those in the community, developers the chance to find high paying jobs with new required skill sets, and educators with passionate students ready to learn the next big thing.
 
 It was a few weeks ago at the first ever AngularJS conference, [ng-conf](http://ng-conf.org/), that all of my assumptions about Angular were proved correct.
 
 The day before the conference officially began, I spoke to an overflow room of passionate devs, project managers, and even execs about our [mobile framework](/) built to harness the power of Angular and make it easy to build great native-feeling apps with web technologies they already knew and loved.
 
 After the talk, I wound up chatting to developers from companies as big as Bank of America and TSYS, to 10k employee financial firms. They all told the same story: their bosses were directing entire dev teams to switch to Angular. They were even paying for AngularJS training and tools!
+
+Over the next few days of the conference, the crowd of over 700 AngularJS fans reiterated the impact AngularJS has had on their job and place of work. Angular had changed everything about how they build frontend apps and how they stack their development teams.
 
 The reality is that AngularJS is winning the frontend framework war. It's not to say there aren't great, high quality alternatives out there, but few have gained so much developer mindshare that slow and conservative companies see it as a wonderful investment. And it's all the better that normal developers actually love developing with it!
 

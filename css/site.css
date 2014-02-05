@@ -5662,11 +5662,11 @@ h2.underline {
   padding-left: 15px;
   padding-right: 15px; }
 
-h3 {
+h2, h3 {
   font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222 !important;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: -0.02rem; }
 
 h4 {

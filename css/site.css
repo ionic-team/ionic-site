@@ -5667,7 +5667,7 @@ h3 {
   color: #222 !important;
   font-weight: bold;
   font-size: 24px;
-  letter-spacing: .01rem; }
+  letter-spacing: -0.02rem; }
 
 #blog-top {
   text-align: center;

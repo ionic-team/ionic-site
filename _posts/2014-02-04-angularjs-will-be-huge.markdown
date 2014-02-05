@@ -34,7 +34,7 @@ Over the next few days of the conference, the crowd of over 700 AngularJS fans r
 
 The reality is that AngularJS is winning the frontend framework war. It's not to say there aren't great, high quality alternatives out there, but few have gained so much developer mindshare that slow and conservative companies see it as a wonderful investment. And it's all the better that normal developers actually love developing with it!
 
-For individual developers this means an investment in Angular is a safe bet that will pay off handsomely over the coming decade. For entrepreneurs, it means building companies that help AngularJS developers and teams can generate some pretty great returns. For managers, it means it's time to rethink which technologies your team should invest in, and what skillsets you'll need to hire to build the increasingly complicated and powerful frontend apps users expect.
+For individual developers this means an investment in Angular is a safe bet that will pay off handsomely over the coming decade. For entrepreneurs, it means building companies that help AngularJS developers and teams can generate some pretty great returns. For managers, it means it's time to rethink which technologies your team should invest in, and what skillsets you'll need to hire for in order to build the increasingly complicated and powerful frontend apps users expect.
 
 And if you need convincing that AngularJS is the future, this graph of Google Search Trends should help:
 

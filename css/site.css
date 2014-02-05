@@ -5669,6 +5669,10 @@ h3 {
   font-size: 24px;
   letter-spacing: -0.02rem; }
 
+h4 {
+  color: #333;
+  font-size: 22px; }
+
 #blog-top {
   text-align: center;
   margin: 50px 0px 100px; }

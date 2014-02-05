@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Why AngularJS Changes Everything"
+title:  "Why AngularJS Will Be Huge"
 date:   "2014-02-04 13:00:00"
 categories: ionic, angularjs
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'

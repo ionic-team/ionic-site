@@ -15,7 +15,7 @@ title: "Ionic Blog"
       </script>
 
       <!-- Place this tag where you want the +1 button to render. -->
-      <div class="g-plusone" data-size="medium"></div>
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com{{post.url}}"></div>
 
       <!-- Place this tag after the last +1 button tag. -->
       <script type="text/javascript">
@@ -26,6 +26,7 @@ title: "Ionic Blog"
         })();
       </script>
 
+      <div class="fb-share-button" data-href="http://ionicframework.com{{post.url}}" data-type="button_count"></div>
     </div>
   </div>
   {{post.content}}

@@ -30,7 +30,7 @@ As one of the first sessions at the conference, I spoke to an overflow room of p
 
 After the talk, I wound up chatting to developers from companies as big as Bank of America and TSYS, to 10k employee financial firms. They all told the same story: their bosses were directing entire dev teams to switch to Angular. They were even paying for AngularJS training and tools!
 
-Over the next few days of the conference, the crowd of over 700 AngularJS fans reiterated the impact AngularJS has had on their job and place of work. Angular had changed everything about how they build frontend apps and how they stack their development teams.
+Over the next few days of the conference, the crowd of over 700 AngularJS fans reiterated the impact AngularJS had on their job. It wasn't just a fun framework that a few rogue developers slipped into a project. It was actually being mandated from the *top down*, changing job requirements almost overnight.
 
 The reality is that AngularJS is winning the frontend framework war. It's not to say there aren't great, high quality alternatives out there, but few have gained so much developer mindshare that slow and conservative companies see it as a wonderful investment. And it's all the better that normal developers actually love developing with it!
 

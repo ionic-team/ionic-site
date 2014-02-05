@@ -5666,7 +5666,7 @@ h3 {
   font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222 !important;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
   letter-spacing: .01rem; }
 
 #blog-top {
@@ -5710,8 +5710,8 @@ h3 {
   .post .body-image {
     margin: 10px 0px; }
   .post .post-title {
-    font-size: 28px;
-    letter-spacing: -0.02rem; }
+    font-size: 30px;
+    letter-spacing: -0.03rem; }
   .post .post-time {
     font-style: italic;
     font-size: 13px;

@@ -4917,6 +4917,7 @@ td.visible-print {
 */
 /* @import must be at top of file, otherwise CSS will not work 
 @import url("//hello.myfonts.net/count/28882f");*/
+/* Avenir Next Pro */
 @font-face {
   font-family: 'AvenirNextLTPro-Regular';
   src: url("../fonts/28882F_0_0.eot");
@@ -4930,7 +4931,18 @@ td.visible-print {
 @font-face {
   font-family: 'AvenirNextLTPro-UltLt';
   src: url("../fonts/29CC36_0_0.eot");
-  src: url("webfonts/29CC36_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/29CC36_0_0.woff") format("woff"), url("../fonts/29CC36_0_0.ttf") format("truetype"); }
+  src: url("../fonts/29CC36_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/29CC36_0_0.woff") format("woff"), url("../fonts/29CC36_0_0.ttf") format("truetype"); }
+
+/* Frieght Text Pro */
+@font-face {
+  font-family: 'FreightTextProBook-Regular';
+  src: url("webfonts/29D26A_0_0.eot");
+  src: url("../fonts/29D26A_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/29D26A_0_0.woff") format("woff"), url("../fonts/29D26A_0_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'FreightTextProMedium-Regular';
+  src: url("webfonts/29D26A_1_0.eot");
+  src: url("../fonts/29D26A_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/29D26A_1_0.woff") format("woff"), url("../fonts/29D26A_1_0.ttf") format("truetype"); }
 
 h1 {
   padding-bottom: 10px;

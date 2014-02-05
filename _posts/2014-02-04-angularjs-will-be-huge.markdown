@@ -24,9 +24,9 @@ Historically, massive platforms are rare in the world of developer tools, especi
 
 But it happens. Some recent success stories are Java, .NET, and jQuery. Each one of these technologies created entire sub-industries, providing opportunities for entrepreneurs to build interesting and valuable companies for those in the community, developers the chance to find high paying jobs with new required skill sets, and educators with passionate students ready to learn the next big thing.
 
-It was a few weeks ago at the first ever AngularJS conference, [ng-conf](http://ng-conf.org/), that all of my assumptions about Angular were proved correct.
+It was a few weeks ago at the first ever AngularJS conference, [ng-conf](http://ng-conf.org/), that all of my assumptions about Angular were proved true.
 
-The day before the conference officially began, I spoke to an overflow room of passionate devs, project managers, and even execs about our [mobile framework](/) built to harness the power of Angular and make it easy to build great native-feeling apps with web technologies they already knew and loved.
+As one of the first sessions at the conference, I spoke to an overflow room of passionate devs, project managers, and even execs about our [mobile framework](/) built to harness the power of Angular and make it easy to build great native-feeling apps with web technologies they already knew and loved.
 
 After the talk, I wound up chatting to developers from companies as big as Bank of America and TSYS, to 10k employee financial firms. They all told the same story: their bosses were directing entire dev teams to switch to Angular. They were even paying for AngularJS training and tools!
 

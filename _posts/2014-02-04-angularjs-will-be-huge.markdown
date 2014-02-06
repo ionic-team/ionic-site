@@ -18,7 +18,7 @@ Like most people, when I first started learning Angular I found it to be a very 
 
 But we all know it's hard to get by on just merit alone, and the verdict is always going to be out on whether Angular is really technically *better* than the alternatives (developers are notoriously unwavering when it comes to tech wars).
 
-No, in order for a technology to be truly, incredibly successful, it needs to become more than just a quality framework. It has to become a **platform**.
+No, in order for a technology to be truly, incredibly successful, it needs to become more than just a quality framework. It has to become a *platform*.
 
 <!-- more -->
 

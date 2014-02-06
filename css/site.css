@@ -5668,15 +5668,6 @@ h2.underline {
   #blog-wrapper .pagination {
     display: block;
     width: 100%; }
-  #blog-wrapper h2, #blog-wrapper h3 {
-    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #222;
-    font-weight: bold;
-    font-size: 26px;
-    letter-spacing: -0.02rem; }
-  #blog-wrapper h4 {
-    color: #333;
-    font-size: 22px; }
 
 #blog-top {
   text-align: center;
@@ -5709,6 +5700,13 @@ h2.underline {
     opacity: 1; }
   .post p {
     margin-bottom: 32px; }
+  .post h3 {
+    font-family: "FreightTextProMedium-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
+    color: #222;
+    font-weight: normal;
+    font-size: 26px;
+    letter-spacing: -0.02rem;
+    margin: 42px 0px 12px 0px; }
   .post hr {
     margin-top: 30px;
     margin-bottom: 70px;
@@ -5719,6 +5717,9 @@ h2.underline {
   .post .body-image {
     margin: 10px 0px; }
   .post .post-title {
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
     font-size: 30px;
     letter-spacing: -0.03rem; }
   .post .post-time {

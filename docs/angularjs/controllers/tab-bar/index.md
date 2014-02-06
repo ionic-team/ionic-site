@@ -22,8 +22,7 @@ The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set 
 
 ```html
 {% raw %}
-<tabs tabs-type="tabs-icon-only"
-      tabs-style="tabs-primary">
+<tabs tabs-type="tabs-icon-only">
 
   <tab title="Home" icon-on="icon ion-ios7-filing" icon-off="icon ion-ios7-filing-outline">
     <!-- Tab 1 content -->

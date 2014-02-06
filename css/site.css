@@ -5665,6 +5665,9 @@ h2.underline {
   margin: auto;
   padding-left: 15px;
   padding-right: 15px; }
+  #blog-wrapper .pagination {
+    display: block;
+    width: 100%; }
   #blog-wrapper h2, #blog-wrapper h3 {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222;

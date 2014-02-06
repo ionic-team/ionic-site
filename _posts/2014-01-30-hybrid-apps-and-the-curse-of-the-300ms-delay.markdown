@@ -26,6 +26,8 @@ published: true
 </ol>
 </p>
 
+<!-- more -->
+
 <h3>Hybrid Apps Don't Feel "App-Like!”</h3>
 
 <p>The phrase "doesn't feel app-like" seems to be loosely thrown around a lot, but it’s understandable because to the user it doesn't really doesn't matter "why" it doesn't feel app-like...it just doesn't! I believe that the 300ms delay contributes to much of this widely repeated phrase. I'll admit that historically mobile browsers had performance issues, and that topic alone can spark a thousand discussions, but one of the quickest wins to making a hybrid app feel "app-like" is eliminating that pesky delay.</p>

@@ -17,6 +17,8 @@ published: true
 
 <p>What the most successful app developers and companies understand is that for an app to be successful, it must creatively utilize the native interface style, trends, and interactions to fit their own brand personality and target market.</p>
 
+<!-- more -->
+
 <h3>The Hybrid App Design Trap</h3>
 
 <p>When you’re developing cross-platform mobile apps in HTML5, you run into some interesting differences than when developing with native technologies. One difference, is that you’re not given the default native OS components to build off of. This can sometimes be a negative for developers, but I think it’s a good thing...</p>

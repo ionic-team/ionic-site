@@ -23,6 +23,11 @@
   padding-left: 15px;
   padding-right: 15px;
 
+  .pagination {
+    display: block;
+    width: 100%;
+  }
+
   h2, h3 {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222;

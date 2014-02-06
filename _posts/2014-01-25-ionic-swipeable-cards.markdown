@@ -18,6 +18,8 @@ I was playing with the [Jelly](http://jelly.co/) app last week and fell in love 
 
 ![Cards](http://ionicframework.com.s3.amazonaws.com/blog/jelly.jpg)
 
+<!-- more -->
+
 But to build this UI, it would have to be done from scratch, seeing as it's not a built in component in UI frameworks available in any mobile SDKs. So, I spent a nice Saturday building a reusable Ionic and AngularJS based card layout ([demo and code here](http://ionicframework.com/demos/swipe-cards/)) and I want to show you how I did it and how you can build your own Ionic components, too!
 
 ## Views and View Controllers

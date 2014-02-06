@@ -20,6 +20,8 @@ But we all know it's hard to get by on just merit alone, and the verdict is alwa
 
 No, in order for a technology to be truly, incredibly successful, it needs to become more than just a quality framework. It has to become a **platform**.
 
+<!-- more -->
+
 Historically, massive platforms are rare in the world of developer tools, especially relative to how many frameworks, libraries, and languages pop up each day. Technology can be stubborn about evolving from a tool in a toolbox into an entire sub industry on its own.
 
 But it happens. Some recent success stories are Java, .NET, and jQuery. Each one of these technologies created entire sub-industries, providing opportunities for entrepreneurs to build interesting and valuable companies for those in the community, developers the chance to find high paying jobs with new required skill sets, and educators with passionate students ready to learn the next big thing.

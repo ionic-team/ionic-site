@@ -21,6 +21,8 @@ published: true
 
 <p>It took over a month from start to “finish” (we’re still adding icons) to build <a href="http://ionicons.com" target="_blank">Ionicons</a>. During that time I learned a ton about how to build an icon font, and I thought it would be interesting to detail some of that here.</p>
 
+<!-- more -->
+
 <h3>Tools</h3>
 
 <p>The tools required to build Ionicons were minimal: <a href="http://www.adobe.com/mena_en/products/illustrator.html" target="_blank">Adobe Illustrator</a> for designing the vector icons, <a href="http://icomoon.io/" target="_blank">IcoMoon</a> for converting the vector shapes into font files, and <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">a browser</a> to preview them all in. All of these were free, with the exception of Illustrator.</p>

@@ -17,6 +17,8 @@ published: true
 
 <p>Great frameworks like Twitter Bootstrap simply make it easier to develop web apps and web sites, not because developers can’t write it themselves, but because it gives them a great starting point to build high-quality projects. Immediate benefits include a slick design and built-in cross-browser testing at no cost. But in my opinion, the great achievements of Twitter Bootstrap are the knowledge sharing it has brought developers, and the excellent way to document and promote recommended design patterns it provides.</p>
 
+<!-- more -->
+
 <h3>Let’s Build Something Awesome</h3>
 <p>The Ionic Framework has similar goals in that we want to help promote recommended design patterns and document best practices. That’s why the framework is entirely open-source (<a href="http://opensource.org/licenses/MIT">MIT Licensed</a>) so that as a community we can share our knowledge to build some great apps with HTML5. And as such, we trust others will help share best practices so that we can all continually improve.</p>
 

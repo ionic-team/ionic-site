@@ -19,6 +19,8 @@ Before we get started, make sure you have the following:
 * A [Github account](http://www.github.com) which is [connected](http://help.nitrous.io/github-add-key/) to your Node.JS box
 * A [PhoneGap Account](https://build.phonegap.com/plans)
 
+<!-- more -->
+
 ### Create a Node.JS box on Nitrous.IO
 
 If you haven't already, sign up at [Nitrous.IO](http://www.nitrous.io) and create a Node.JS box.

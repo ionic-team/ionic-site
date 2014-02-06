@@ -41,27 +41,29 @@ title: "Ionic Blog"
 {% endfor %}
 
 <!-- Pagination links -->
-<div class="pagination">
-  <div class="pull-left">
-    <!--<span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>-->
-    {% if paginator.next_page %}
-      <a href="/blog/page{{ paginator.next_page }}/" class="next">Older</a>
-    {% endif %}
-  </div>
-  <div class="pull-right">
-    {% if paginator.previous_page == 1 %}
-      <a href="/blog/" class="previous">Newer</a>
-    {% else %}
-      {% if paginator.previous_page %}
-        <a href="/blog/page{{ paginator.previous_page }}/" class="previous">Newer</a>
+<div class="clearfix">
+  <div class="pagination">
+    <div class="pull-left">
+      <!--<span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>-->
+      {% if paginator.next_page %}
+        <a href="/blog/page{{ paginator.next_page }}/" class="next">Older</a>
       {% endif %}
-    {% endif %}
+    </div>
+    <div class="pull-right">
+      {% if paginator.previous_page == 1 %}
+        <a href="/blog/" class="previous">Newer</a>
+      {% else %}
+        {% if paginator.previous_page %}
+          <a href="/blog/page{{ paginator.previous_page }}/" class="previous">Newer</a>
+        {% endif %}
+      {% endif %}
+    </div>
   </div>
-</div>
 
-<p style="text-align:center; margin-bottom: 40px;" class="ionic">
-  <a href="http://ionicframework.com/blog/feed.xml">
-    <i class="ion-social-rss"></i>
-    Ionic Blog RSS Feed
-  </a>
-</p>
+  <p style="text-align:center; margin-bottom: 40px;" class="ionic">
+    <a href="http://ionicframework.com/blog/feed.xml">
+      <i class="ion-social-rss"></i>
+      Ionic Blog RSS Feed
+    </a>
+  </p>
+</div>

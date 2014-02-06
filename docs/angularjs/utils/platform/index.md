@@ -15,9 +15,9 @@ For platform information, the `org.apache.cordova.device` plugin must be install
 
 ## ionic.Platform.ready(callback)
 
-Like with `DOMContentLoaded` or `window.onload`, Cordova isn't always ready and any code interacting with Cordova needs to wait until it is. Code depending on Cordova being ready should use `ionic.Platform.ready(callback)`. Once Cordova is ready, the callbacks sent into the ready method will fire off. Additionally, if Cordova is already ready, then the callback will immediate fire off.
+Like with the DOM or `window.onload`, Cordova isn't always ready and any code interacting with Cordova needs to wait until it is. Code depending on Cordova should use `ionic.Platform.ready(callback)`. Once Cordova is ready, the callbacks sent into the method will fire off. Additionally, if Cordova is already set, then the callback will immediately fire off.
 
-You can safely run the ready method anywhere within you're ionic code and trust it'll run when Cordova is all set to go. Additionally, when the app is not wrapped with Cordova, the ready callbacks will fire off on `window.onload`.
+You can safely run the ready method anywhere within you're Ionic code and trust it'll run when Cordova is all set to go. Also, if the app is not wrapped with Cordova, the ready callbacks will fire off after `window.onload`.
 
 ```javascript
 ionic.Platform.ready(function(){
@@ -28,7 +28,7 @@ ionic.Platform.ready(function(){
 
 ## ionic.Platform.device()
 
-Returns information about the device. This information will only be available after the platform is ready. 
+Returns information about the device. This information will only be available after the platform is ready. Remember the org.apache.cordova.device plugin must be installed, and this method won't provide any information when not in Cordova and the device plugin installed.
 
 - __device.model__: Get the device's model name.
 - __device.platform__: Get the device's operating system name.
@@ -38,7 +38,7 @@ Returns information about the device. This information will only be available af
 ```javascript
 ionic.Platform.ready(function(){
   var device = ionic.Platform.device();
-  console.log('Hey, I'm an', device.platform);
+  console.log("Hey, I'm an", device.platform);
 });
 ```
 
@@ -54,4 +54,8 @@ ionic.Platform.fullScreen();
 ## ionic.Platform.exitApp()
 
 Closes the app.
+
+```javascript
+ionic.Platform.exitApp();
+```
 

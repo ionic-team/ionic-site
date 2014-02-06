@@ -28,7 +28,7 @@ ionic.Platform.ready(function(){
 
 ## ionic.Platform.device()
 
-Returns information about the device. This information will only be available after the platform is ready. Remember the `org.apache.cordova.device` plugin must be installed, and this method will not provide any information when not in Cordova, or the device plugin ins't installed.
+Returns information about the device. This information will only be available after the platform is ready. Remember the `org.apache.cordova.device` plugin must be installed, and this method will not provide any information when not in Cordova, or the device plugin isn't installed.
 
 - __device.model__: Get the device's model name.
 - __device.platform__: Get the device's operating system name.

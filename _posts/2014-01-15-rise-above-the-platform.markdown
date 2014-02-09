@@ -9,7 +9,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/rise-above.png">
 
-<p>When was the last time you saw you a unique mobile app <a href="http://www.snapchat.com/" target="_blank">rise the ranks</a> of popularity, <a href="https://vine.co/" target="_blank">hit number one</a> or two in the App/Play Store, maybe even become a <a href="https://about.twitter.com/" target="_blank">household name</a>- yet, have a visual design that completely mimics the native UI design for all the platforms?</p>
+<p>When was the last time you saw a unique mobile app <a href="http://www.snapchat.com/" target="_blank">rise the ranks</a> of popularity, <a href="https://vine.co/" target="_blank">hit number one</a> or two in the App/Play Store, maybe even become a <a href="https://about.twitter.com/" target="_blank">household name</a>- yet, have a visual design that completely mimics the native UI design for all the platforms?</p>
 
 <p><strong>My guess is you haven’t, and you probably never will.</strong></p>
 

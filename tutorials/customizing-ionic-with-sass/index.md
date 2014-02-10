@@ -24,9 +24,9 @@ Ionic already comes with a complete CSS stylesheet built from our default Sass f
 
 ## Ionic Source Files
 
-Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you haven't done so already. At the root level of Ionic's download you'll find the `dist/`, `js/` and `scss/` directories.
+Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you haven't done so already. At the root level of Ionic's download you'll find the `release/`, `js/` and `scss/` directories.
 
-    - dist
+    - release
       - css
       - fonts
       - js
@@ -35,7 +35,7 @@ Next, [download]({{ site.latest_download }}) the latest copy of Ionic if you hav
 
 ## Your App Directory Structure
 
-The `dist/` directory contains the files that will be used by your Ionic app. The directories inside `dist/` should be copied into your app's root directory. You can use whatever directory structure you choose, but we recommend this setup:
+The `release/` directory contains the files that will be used by your Ionic app. The directories inside `release/` should be copied into your app's root directory. You can use whatever directory structure you choose, but we recommend this setup:
 
     - css
       - app.css  (processed CSS file that will automatically be generated)

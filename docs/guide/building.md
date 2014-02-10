@@ -200,8 +200,8 @@ Here is the new content area markup:
     </button>
     <h1 class="title">{{activeProject.title}}</h1>
     <!-- New Task button-->
-    <button class="button button-clear" ng-click="newTask()">
-      New
+    <button class="button button-icon" ng-click="newTask()">
+      <i class="icon ion-compose"></i>
     </button>
   </header>
   <content has-header="true" scroll="false">

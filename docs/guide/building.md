@@ -64,7 +64,6 @@ But this doesn't do anything yet, because we don't have any tasks or any code to
 
 ```html
 <body ng-app="todo" ng-controller="TodoCtrl">
-</body>
 ```
 
 Then, we need to define this controller in our `app.js` file, and we can add some testing tasks in:

@@ -146,7 +146,7 @@ $ rm www/img/logo.png
 
 ## Cordova Config
 
-We need to make some quick configuration changes to Cordova defaults to make sure our app behaves normally. Specifically, we need to turn off Web View bouncing that is on by default for iOS apps. Open up `www/config.xml` and add these preferences to the bottom:
+We need to make some quick configuration changes to Cordova defaults to make sure our app behaves normally. Specifically, we need to turn off Web View bouncing that is on by default for iOS apps. Open up `config.xml` and add these preferences to the bottom:
 
 ```xml
 <preference name="webviewbounce" value="false" />

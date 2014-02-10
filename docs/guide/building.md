@@ -160,8 +160,11 @@ angular.module('todo', ['ionic'])
 
   // Called when the form is submitted
   $scope.createTask = function(task) {
-    $scope.tasks.push(task);
+    $scope.tasks.push({
+      title: task.title
+    });
     $scope.taskModal.hide();
+    task.title = "";
   };
 
   // Open our new task modal

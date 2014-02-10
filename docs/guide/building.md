@@ -134,9 +134,6 @@ In order to trigger the Modal to open, we need a button in the main header bar a
     <header class="bar bar-header bar-dark">
       <h1 class="title">Todo</h1>
       <!-- New Task button-->
-      <button class="button button-icon" ng-click="editTasks()">
-        <i class="icon ion-edit"></i>
-      </button>
       <button class="button button-icon" ng-click="newTask()">
         <i class="icon ion-compose"></i>
       </button>

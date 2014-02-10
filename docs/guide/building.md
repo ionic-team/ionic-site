@@ -44,7 +44,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 {% raw %}
 <!-- Center content -->
 <pane side-menu-content>
-  <header class="bar bar-header bar-positive">
+  <header class="bar bar-header bar-dark">
     <h1 class="title">Todo</h1>
   </header>
   <content has-header="true">

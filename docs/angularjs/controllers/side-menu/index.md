@@ -54,6 +54,12 @@ $scope.toggleMenu = function() {
 };
 ```
 
+Note: If you have horizontal-scrolling content and a draggable side-menu, both will not work.  It is advised if you have horizontal-scrolling content to disable dragging out the side-menu with the `drag-content` attribute:
+
+```js
+<pane side-menu-content drag-content="false"></pane>
+```
+
 Low-level API
 =========
 

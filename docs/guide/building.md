@@ -230,7 +230,7 @@ And the new side menu markup:
     </header>
     <content has-header="true" scroll="false">
       <list>
-        <item ng-repeat="project in projects" ng-click="selectProject(project)" ng-class="{active: activeProject == project}">
+        <item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}
         </item>
       </list>

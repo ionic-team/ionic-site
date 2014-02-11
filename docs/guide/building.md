@@ -44,7 +44,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 {% raw %}
 <!-- Center content -->
 <pane side-menu-content>
-  <header class="bar bar-header bar-positive">
+  <header class="bar bar-header bar-dark">
     <h1 class="title">Todo</h1>
   </header>
   <content has-header="true">
@@ -64,7 +64,6 @@ But this doesn't do anything yet, because we don't have any tasks or any code to
 
 ```html
 <body ng-app="todo" ng-controller="TodoCtrl">
-</body>
 ```
 
 Then, we need to define this controller in our `app.js` file, and we can add some testing tasks in:
@@ -135,9 +134,6 @@ In order to trigger the Modal to open, we need a button in the main header bar a
     <header class="bar bar-header bar-dark">
       <h1 class="title">Todo</h1>
       <!-- New Task button-->
-      <button class="button button-icon" ng-click="editTasks()">
-        <i class="icon ion-edit"></i>
-      </button>
       <button class="button button-icon" ng-click="newTask()">
         <i class="icon ion-compose"></i>
       </button>
@@ -164,8 +160,11 @@ angular.module('todo', ['ionic'])
 
   // Called when the form is submitted
   $scope.createTask = function(task) {
-    $scope.tasks.push(task);
+    $scope.tasks.push({
+      title: task.title
+    });
     $scope.taskModal.hide();
+    task.title = "";
   };
 
   // Open our new task modal
@@ -201,8 +200,8 @@ Here is the new content area markup:
     </button>
     <h1 class="title">{{activeProject.title}}</h1>
     <!-- New Task button-->
-    <button class="button button-clear" ng-click="newTask()">
-      New
+    <button class="button button-icon" ng-click="newTask()">
+      <i class="icon ion-compose"></i>
     </button>
   </header>
   <content has-header="true" scroll="false">

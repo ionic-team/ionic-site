@@ -2409,7 +2409,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 
 
-<!-- Icon Only Tabbar
+<!-- Icon Only Tabs
   ================================================== -->
 <div class="docs-section" id="icon-only-tabs">
 
@@ -2549,283 +2549,6 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
         <i class="icon ion-gear-a"></i>
         Settings
       </a>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-<!-- Utility
-  ================================================== -->
-<div class="docs-section" id="utility">
-
-  <h2><a href="#utility">Utility</a></h2>
-
-  <p>
-    Ionic comes with a handful of utility classes to help quickly style your design. Each are optional.
-  </p>
-
-</div>
-
-
-
-<!-- Colors
-  ================================================== -->
-<div class="docs-section" id="colors">
-
-  <h3><a href="#colors">Colors</a></h3>
-
-  <p>
-    Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc. 
-  </p>
-
-  <p>
-    Utility colors are added to help set a naming convention. You'll notice Ionic purposely does not use words like "red" or "blue", but instead have colors which represent an emotion or generic theme.
-  </p>
-
-  <p>
-    Let's be realistic, assigning colors is one of the easier tasks in CSS, and each app will have different requirements for colors. Ionic's goal is to provide a clean system to build on top of and maintain, and stays away from dictating how each app chooses to color its custom design.
-  </p>
-
-  <p>
-    To customize the colors you can simply override those coming from the <code>ionic.css</code> CSS file. Additionally, since Ionic is built using <a href="http://sass-lang.com/">SASS</a>, for more power and flexibility you could also <a href="/tutorials/customizing-ionic-with-sass/">modify and extend the color variables</a> within the <code>_variables.scss</code> file.
-  </p>
-
-  <p class="advanced-panel">
-    <em>*</em> For more flexibility, you can <a href="/tutorials/customizing-ionic-with-sass/">Customize Ionic With Sass</a>
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Utility Colors</div>
-    </div>
-    <div class="content has-header">
-      
-      <ul class="list color-list-demo">
-        <li class="item dark">
-          light
-          <span class="color-demo light-bg light-border"></span>
-        </li>
-        <li class="item stable-dark">
-          stable
-          <span class="color-demo stable-bg stable-border"></span>
-        </li>
-        <li class="item positive">
-          positive
-          <span class="color-demo positive-bg positive-border"></span>
-        </li>
-        <li class="item calm">
-          calm
-          <span class="color-demo calm-bg calm-border"></span>
-        </li>
-        <li class="item balanced">
-          balanced
-          <span class="color-demo balanced-bg balanced-border"></span>
-        </li>
-        <li class="item energized">
-          energized
-          <span class="color-demo energized-bg energized-border"></span>
-        </li>
-        <li class="item assertive">
-          assertive
-          <span class="color-demo assertive-bg assertive-border"></span>
-        </li>        
-        <li class="item royal">
-          royal
-          <span class="color-demo royal-bg royal-border"></span>
-        </li>
-        <li class="item dark">
-          dark
-          <span class="color-demo dark-bg dark-border"></span>
-        </li>
-      </ul>
- 
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Icons
-  ================================================== -->
-<div class="docs-section" id="icons">
-
-  <h3><a href="#icons">Icons</a></h3>
-
-  <p>
-    Ionic also comes with its own free and open-sourced icon font, <a href="http://ionicons.com/">Ionicons</a>, with over 500 icons to choose from.
-  </p>
-
-  <p>
-    Simply add <code>icon</code> and the Ionicon classname for the icon to show, which can be easily looked up on the <a href="http://ionicons.com/">Ionicons</a> homepage.
-  </p>
-
-{% highlight html %}
-<i class="icon ion-star"></i>
-{% endhighlight %}
-
-  <p>
-    Note: Ionic is certainly not restricted to using only the Ionicons icon pack, so please feel free to use any icons you wish.
-  </p>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Ionicons</div>
-    </div>
-    <div class="content has-header padding">
-      
-      <ul class="ionicons-demo">
-        <li class="ion-ionic" data-pack="default" data-tags="badass, framework, sexy, hawt"></li>
-        <li class="ion-arrow-up-a" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-right-a" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-down-a" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-left-a" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-up-b" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-right-b" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-down-b" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-left-b" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-up-c" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-right-c" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-down-c" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-left-c" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-return-right" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-return-left" data-pack="default" data-tags=""></li>
-        <li class="ion-arrow-swap" data-pack="default" data-tags="switch, flip"></li>
-        <li class="ion-arrow-shrink" data-pack="default" data-tags="pinch"></li>
-        <li class="ion-arrow-expand" data-pack="default" data-tags="fullscreen"></li>
-        <li class="ion-arrow-move" data-pack="default" data-tags="drag"></li>
-        <li class="ion-arrow-resize" data-pack="default" data-tags="drag"></li>
-        <li class="ion-chevron-up" data-pack="default" data-tags="arrow, up"></li>
-        <li class="ion-chevron-right" data-pack="default" data-tags="arrow, right"></li>
-        <li class="ion-chevron-down" data-pack="default" data-tags="arrow, down"></li>
-        <li class="ion-chevron-left" data-pack="default" data-tags="arrow, left"></li>
-        <li class="ion-log-in" data-pack="default" data-tags="sign in, "></li>
-        <li class="ion-log-out" data-pack="default" data-tags="sign out"></li>
-        <li class="ion-checkmark-round" data-pack="default" data-tags="complete, finished, success, on"></li>
-        <li class="ion-checkmark" data-pack="default" data-tags="complete, finished, success, on"></li>
-        <li class="ion-checkmark-circled" data-pack="default" data-tags="complete, finished, success, on"></li>
-        <li class="ion-close-round" data-pack="default" data-tags="delete, trash, kill, x"></li>
-        <li class="ion-close" data-pack="default" data-tags="delete, trash, kill, x"></li>
-        <li class="ion-close-circled" data-pack="default" data-tags="delete, trash, kill, x"></li>
-        <li class="ion-plus-round" data-pack="default" data-tags="add, include, new, invite, +"></li>
-        <li class="ion-plus" data-pack="default" data-tags="add, include, new, invite, +"></li>
-        <li class="ion-plus-circled" data-pack="default" data-tags="add, include, new, invite, +"></li>
-        <li class="ion-minus-round" data-pack="default" data-tags="hide, remove, minimize, -"></li>
-        <li class="ion-minus" data-pack="default" data-tags="hide, remove, minimize, -"></li>
-        <li class="ion-minus-circled" data-pack="default" data-tags="hide, remove, minimize, -"></li>
-        <li class="ion-information" data-pack="default" data-tags="help, more, tooltip"></li>
-        <li class="ion-information-circled" data-pack="default" data-tags="help, more, tooltip"></li>
-        <li class="ion-help" data-pack="default" data-tags="question, ?"></li>
-        <li class="ion-help-circled" data-pack="default" data-tags="question, ?"></li>
-        <li class="ion-help-buoy" data-pack="default" data-tags="question, ?"></li>
-        <li class="ion-alert" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
-        <li class="ion-alert-circled" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
-        <li class="ion-refresh" data-pack="default" data-tags="reload, renew"></li>
-        <li class="ion-loop" data-pack="default" data-tags="refresh"></li>
-        <li class="ion-shuffle" data-pack="default" data-tags="random"></li>
-        <li class="ion-home" data-pack="default" data-tags="house"></li>
-        <li class="ion-search" data-pack="default" data-tags="magnifying glass"></li>
-        <li class="ion-flag" data-pack="default" data-tags="favorite, mark, star"></li>
-        <li class="ion-star" data-pack="default" data-tags="favorite"></li>
-        <li class="ion-heart" data-pack="default" data-tags="love"></li>
-        <li class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></li>
-        <li class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></li>
-        <li class="ion-settings" data-pack="default" data-tags="options, tools"></li>
-        <li class="ion-wrench" data-pack="default" data-tags="settings, options, tools"></li>
-        <li class="ion-hammer" data-pack="default" data-tags="settings, options, tools"></li>
-        <li class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></li>
-        <li class="ion-trash-b" data-pack="default" data-tags="delete, remove, dump"></li>
-        <li class="ion-navicon-round" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
-        <li class="ion-navicon" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
-        <li class="ion-drag" data-pack="default" data-tags="reorder, move, drag"></li>
-        <li class="ion-document" data-pack="default" data-tags="paper, file"></li>
-        <li class="ion-document-text" data-pack="default" data-tags="paper, file"></li>
-        <li class="ion-clipboard" data-pack="default" data-tags="write"></li>
-        <li class="ion-bookmark" data-pack="default" data-tags="favorite, tag, save"></li>
-        <li class="ion-email" data-pack="default" data-tags="snail, mail"></li>
-        <li class="ion-folder" data-pack="default" data-tags="snail, mail"></li>
-        <li class="ion-filing" data-pack="default" data-tags="mail"></li>
-        <li class="ion-archive" data-pack="default" data-tags="mail"></li>
-        <li class="ion-reply" data-pack="default" data-tags="mail, undo"></li>
-        <li class="ion-reply-all" data-pack="default" data-tags="mail"></li>
-        <li class="ion-forward" data-pack="default" data-tags="mail, redo"></li>
-        <li class="ion-share" data-pack="default" data-tags="outbound"></li>
-        <li class="ion-link" data-pack="default" data-tags="chain, anchor, href, attach"></li>
-        <li class="ion-paperclip" data-pack="default" data-tags="attach"></li>
-        <li class="ion-compose" data-pack="default" data-tags="write, compose, type"></li>
-        <li class="ion-briefcase" data-pack="default" data-tags="store, organize"></li>
-        <li class="ion-medkit" data-pack="default" data-tags="health"></li>
-        <li class="ion-at" data-pack="default" data-tags="@"></li>
-        <li class="ion-pound" data-pack="default" data-tags="hashtag, #"></li>
-        <li class="ion-cloud" data-pack="default" data-tags="storage"></li>
-        <li class="ion-upload" data-pack="default" data-tags="storage, cloud"></li>
-      </ul>
-
-    </div>
-  </div>
-
-</div>
-
-
-
-<!-- Padding
-  ================================================== -->
-<div class="docs-section" id="padding">
-
-  <h3><a href="#padding">Padding</a></h3>
-
-  <p>
-    Many components in Ionic purposely have both padding and margin reset set to zero.
-    In many instances apps will have components bleed to the edge of the screen, 
-    and by starting each component at zero developers can easily control padding and margins throughout the app. 
-  </p>
-  <p>
-    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
-    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
-    The following classes are not required for any element, but may be helpful with your layout. 
-  </p>
-  <ul>
-    <li>
-      <code>padding</code> Adds padding around every side.
-    </li>
-    <li>
-      <code>padding-vertical</code> Adds padding to the top and bottom.
-    </li>
-    <li>
-      <code>padding-horizontal</code> Adds padding to the left and right.
-    </li>
-    <li>
-      <code>padding-top</code> Adds padding to the top.
-    </li>
-    <li>
-      <code>padding-right</code> Adds padding to the right.
-    </li>
-    <li>
-      <code>padding-bottom</code> Adds padding to the bottom.
-    </li>
-    <li>
-      <code>padding-left</code> Adds padding to the left.
-    </li>
-  </ul>
-
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Padding</div>
-    </div>
-    <div class="content has-header padding">
-      
-      <div class="padding-example">
-        <div></div>
-      </div>
-
-      <p style="margin:0 24px">
-        The gray square represents an element, and the blue square represents
-        the element's content when <code>padding</code> has been applied.
-      </p>
-
     </div>
   </div>
 
@@ -3479,6 +3202,283 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<!-- Utility
+  ================================================== -->
+<div class="docs-section" id="utility">
+
+  <h2><a href="#utility">Utility</a></h2>
+
+  <p>
+    Ionic comes with a handful of utility classes to help quickly style your design. Each are optional.
+  </p>
+
+</div>
+
+
+
+<!-- Colors
+  ================================================== -->
+<div class="docs-section" id="colors">
+
+  <h3><a href="#colors">Colors</a></h3>
+
+  <p>
+    Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc. 
+  </p>
+
+  <p>
+    Utility colors are added to help set a naming convention. You'll notice Ionic purposely does not use words like "red" or "blue", but instead have colors which represent an emotion or generic theme.
+  </p>
+
+  <p>
+    Let's be realistic, assigning colors is one of the easier tasks in CSS, and each app will have different requirements for colors. Ionic's goal is to provide a clean system to build on top of and maintain, and stays away from dictating how each app chooses to color its custom design.
+  </p>
+
+  <p>
+    To customize the colors you can simply override those coming from the <code>ionic.css</code> CSS file. Additionally, since Ionic is built using <a href="http://sass-lang.com/">SASS</a>, for more power and flexibility you could also <a href="/tutorials/customizing-ionic-with-sass/">modify and extend the color variables</a> within the <code>_variables.scss</code> file.
+  </p>
+
+  <p class="advanced-panel">
+    <em>*</em> For more flexibility, you can <a href="/tutorials/customizing-ionic-with-sass/">Customize Ionic With Sass</a>
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Utility Colors</div>
+    </div>
+    <div class="content has-header">
+      
+      <ul class="list color-list-demo">
+        <li class="item dark">
+          light
+          <span class="color-demo light-bg light-border"></span>
+        </li>
+        <li class="item stable-dark">
+          stable
+          <span class="color-demo stable-bg stable-border"></span>
+        </li>
+        <li class="item positive">
+          positive
+          <span class="color-demo positive-bg positive-border"></span>
+        </li>
+        <li class="item calm">
+          calm
+          <span class="color-demo calm-bg calm-border"></span>
+        </li>
+        <li class="item balanced">
+          balanced
+          <span class="color-demo balanced-bg balanced-border"></span>
+        </li>
+        <li class="item energized">
+          energized
+          <span class="color-demo energized-bg energized-border"></span>
+        </li>
+        <li class="item assertive">
+          assertive
+          <span class="color-demo assertive-bg assertive-border"></span>
+        </li>        
+        <li class="item royal">
+          royal
+          <span class="color-demo royal-bg royal-border"></span>
+        </li>
+        <li class="item dark">
+          dark
+          <span class="color-demo dark-bg dark-border"></span>
+        </li>
+      </ul>
+ 
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Icons
+  ================================================== -->
+<div class="docs-section" id="icons">
+
+  <h3><a href="#icons">Icons</a></h3>
+
+  <p>
+    Ionic also comes with its own free and open-sourced icon font, <a href="http://ionicons.com/">Ionicons</a>, with over 500 icons to choose from.
+  </p>
+
+  <p>
+    Simply add <code>icon</code> and the Ionicon classname for the icon to show, which can be easily looked up on the <a href="http://ionicons.com/">Ionicons</a> homepage.
+  </p>
+
+{% highlight html %}
+<i class="icon ion-star"></i>
+{% endhighlight %}
+
+  <p>
+    Note: Ionic is certainly not restricted to using only the Ionicons icon pack, so please feel free to use any icons you wish.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Ionicons</div>
+    </div>
+    <div class="content has-header padding">
+      
+      <ul class="ionicons-demo">
+        <li class="ion-ionic" data-pack="default" data-tags="badass, framework, sexy, hawt"></li>
+        <li class="ion-arrow-up-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-a" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-up-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-b" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-up-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-right-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-down-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-left-c" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-return-right" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-return-left" data-pack="default" data-tags=""></li>
+        <li class="ion-arrow-swap" data-pack="default" data-tags="switch, flip"></li>
+        <li class="ion-arrow-shrink" data-pack="default" data-tags="pinch"></li>
+        <li class="ion-arrow-expand" data-pack="default" data-tags="fullscreen"></li>
+        <li class="ion-arrow-move" data-pack="default" data-tags="drag"></li>
+        <li class="ion-arrow-resize" data-pack="default" data-tags="drag"></li>
+        <li class="ion-chevron-up" data-pack="default" data-tags="arrow, up"></li>
+        <li class="ion-chevron-right" data-pack="default" data-tags="arrow, right"></li>
+        <li class="ion-chevron-down" data-pack="default" data-tags="arrow, down"></li>
+        <li class="ion-chevron-left" data-pack="default" data-tags="arrow, left"></li>
+        <li class="ion-log-in" data-pack="default" data-tags="sign in, "></li>
+        <li class="ion-log-out" data-pack="default" data-tags="sign out"></li>
+        <li class="ion-checkmark-round" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-checkmark" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-checkmark-circled" data-pack="default" data-tags="complete, finished, success, on"></li>
+        <li class="ion-close-round" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-close" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-close-circled" data-pack="default" data-tags="delete, trash, kill, x"></li>
+        <li class="ion-plus-round" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-plus" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-plus-circled" data-pack="default" data-tags="add, include, new, invite, +"></li>
+        <li class="ion-minus-round" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-minus" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-minus-circled" data-pack="default" data-tags="hide, remove, minimize, -"></li>
+        <li class="ion-information" data-pack="default" data-tags="help, more, tooltip"></li>
+        <li class="ion-information-circled" data-pack="default" data-tags="help, more, tooltip"></li>
+        <li class="ion-help" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-help-circled" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-help-buoy" data-pack="default" data-tags="question, ?"></li>
+        <li class="ion-alert" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
+        <li class="ion-alert-circled" data-pack="default" data-tags="attention, warning, notice, !, exclamation"></li>
+        <li class="ion-refresh" data-pack="default" data-tags="reload, renew"></li>
+        <li class="ion-loop" data-pack="default" data-tags="refresh"></li>
+        <li class="ion-shuffle" data-pack="default" data-tags="random"></li>
+        <li class="ion-home" data-pack="default" data-tags="house"></li>
+        <li class="ion-search" data-pack="default" data-tags="magnifying glass"></li>
+        <li class="ion-flag" data-pack="default" data-tags="favorite, mark, star"></li>
+        <li class="ion-star" data-pack="default" data-tags="favorite"></li>
+        <li class="ion-heart" data-pack="default" data-tags="love"></li>
+        <li class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></li>
+        <li class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></li>
+        <li class="ion-settings" data-pack="default" data-tags="options, tools"></li>
+        <li class="ion-wrench" data-pack="default" data-tags="settings, options, tools"></li>
+        <li class="ion-hammer" data-pack="default" data-tags="settings, options, tools"></li>
+        <li class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></li>
+        <li class="ion-trash-b" data-pack="default" data-tags="delete, remove, dump"></li>
+        <li class="ion-navicon-round" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
+        <li class="ion-navicon" data-pack="default" data-tags="menu, hamburger, slide menu"></li>
+        <li class="ion-drag" data-pack="default" data-tags="reorder, move, drag"></li>
+        <li class="ion-document" data-pack="default" data-tags="paper, file"></li>
+        <li class="ion-document-text" data-pack="default" data-tags="paper, file"></li>
+        <li class="ion-clipboard" data-pack="default" data-tags="write"></li>
+        <li class="ion-bookmark" data-pack="default" data-tags="favorite, tag, save"></li>
+        <li class="ion-email" data-pack="default" data-tags="snail, mail"></li>
+        <li class="ion-folder" data-pack="default" data-tags="snail, mail"></li>
+        <li class="ion-filing" data-pack="default" data-tags="mail"></li>
+        <li class="ion-archive" data-pack="default" data-tags="mail"></li>
+        <li class="ion-reply" data-pack="default" data-tags="mail, undo"></li>
+        <li class="ion-reply-all" data-pack="default" data-tags="mail"></li>
+        <li class="ion-forward" data-pack="default" data-tags="mail, redo"></li>
+        <li class="ion-share" data-pack="default" data-tags="outbound"></li>
+        <li class="ion-link" data-pack="default" data-tags="chain, anchor, href, attach"></li>
+        <li class="ion-paperclip" data-pack="default" data-tags="attach"></li>
+        <li class="ion-compose" data-pack="default" data-tags="write, compose, type"></li>
+        <li class="ion-briefcase" data-pack="default" data-tags="store, organize"></li>
+        <li class="ion-medkit" data-pack="default" data-tags="health"></li>
+        <li class="ion-at" data-pack="default" data-tags="@"></li>
+        <li class="ion-pound" data-pack="default" data-tags="hashtag, #"></li>
+        <li class="ion-cloud" data-pack="default" data-tags="storage"></li>
+        <li class="ion-upload" data-pack="default" data-tags="storage, cloud"></li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Padding
+  ================================================== -->
+<div class="docs-section" id="padding">
+
+  <h3><a href="#padding">Padding</a></h3>
+
+  <p>
+    Many components in Ionic purposely have both padding and margin reset set to zero.
+    In many instances apps will have components bleed to the edge of the screen, 
+    and by starting each component at zero developers can easily control padding and margins throughout the app. 
+  </p>
+  <p>
+    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
+    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
+    The following classes are not required for any element, but may be helpful with your layout. 
+  </p>
+  <ul>
+    <li>
+      <code>padding</code> Adds padding around every side.
+    </li>
+    <li>
+      <code>padding-vertical</code> Adds padding to the top and bottom.
+    </li>
+    <li>
+      <code>padding-horizontal</code> Adds padding to the left and right.
+    </li>
+    <li>
+      <code>padding-top</code> Adds padding to the top.
+    </li>
+    <li>
+      <code>padding-right</code> Adds padding to the right.
+    </li>
+    <li>
+      <code>padding-bottom</code> Adds padding to the bottom.
+    </li>
+    <li>
+      <code>padding-left</code> Adds padding to the left.
+    </li>
+  </ul>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Padding</div>
+    </div>
+    <div class="content has-header padding">
+      
+      <div class="padding-example">
+        <div></div>
+      </div>
+
+      <p style="margin:0 24px">
+        The gray square represents an element, and the blue square represents
+        the element's content when <code>padding</code> has been applied.
+      </p>
 
     </div>
   </div>

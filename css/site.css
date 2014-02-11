@@ -5551,6 +5551,18 @@ pre {
   background: #f7f7f7;
   text-align: center; }
 
+.ionic .responsive-break {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .ionic .responsive-break .col {
+    width: 100%;
+    margin-bottom: 15px; }
+
 .ionic .ionicons-demo li {
   display: inline-block;
   padding: 2px;

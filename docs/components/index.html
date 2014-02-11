@@ -1499,7 +1499,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     <p>
       This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
       the content is from a card-body consisting of an image and paragraph text. The footer
-      consists of a Tab Bar, icons aligned left, within the card-footer.
+      consists of tabs, icons aligned left, within the card-footer.
     </p>
     <p>
       <a href="#" class="subdued">1 Like</a>
@@ -1544,7 +1544,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <p>
             This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
             the content is from a card-body consisting of an image and paragraph text. The footer
-            consists of a Tab Bar, icons aligned left, within the card-footer.
+            consists of a tabs, icons aligned left, within the card-footer.
           </p>
           <p>
             <a href="#" class="subdued">1 Like</a>
@@ -2344,21 +2344,21 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 
 
-<!-- Tab Bar
+<!-- Tabs
   ================================================== -->
-<div class="docs-section" id="tab-bar">
+<div class="docs-section" id="tabs">
 
-  <h3><a href="#tab-bar-api">Tab Bar</a></h3>
+  <h3><a href="#tabs">Tabs</a></h3>
 
   <p>
-    The Tab Bar is a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
+    Tabs are a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
   </p>
   <p class="advanced-panel">
     <em>*</em> For building tabbed interfaces, see the
-    <a href="/docs/angularjs/controllers/tab-bar/">Tab Bar Controller</a> docs.
+    <a href="/docs/angularjs/controllers/tab-bar/">Tabs Controller</a> docs.
   </p>
   <p>
-    The containing tab bar should have the <code>tabs</code> classname, and each tab should have the <code>tab-item</code> classname. By default, tabs will be without an icon and text-only.
+    The containing element should have the <code>tabs</code> classname, and each tab should have the <code>tab-item</code> classname. By default, tabs will be without an icon and text-only.
   </p>
 
 {% highlight html %}
@@ -2376,7 +2376,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 {% endhighlight %}
 
   <p>
-    The Tab Bar can be styled to match the standard Ionic colors (the example is using the <code>default</code> color. Use these classes to change the
+    Tabs can be styled to match the standard Ionic colors (the example is using the <code>default</code> color. Use these classes to change the
     color of the tab bar:
     <code>tabs-default</code>
     <code>tabs-secondary</code>
@@ -2390,7 +2390,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
-      <div class="h1 title">Tab Bar</div>
+      <div class="h1 title">Tabs</div>
     </div>
     <div class="tabs">
       <a class="tab-item" href="#">
@@ -2411,9 +2411,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 <!-- Icon Only Tabbar
   ================================================== -->
-<div class="docs-section" id="icon-only-tab-bar">
+<div class="docs-section" id="icon-only-tabs">
 
-  <h3><a href="#icon-only-tab-bar">Icon-only Tab Bar</a></h3>
+  <h3><a href="#icon-only-tabs">Icon-only Tabs</a></h3>
 
   <p>
     Add <code>tabs-icon-only</code> along with the <code>tabs</code> classname.
@@ -2435,7 +2435,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
-      <div class="h1 title">Icon-only Tab Bar</div>
+      <div class="h1 title">Icon-only Tabs</div>
     </div>
     <div class="tabs tabs-icon-only">
       <a class="tab-item" href="#">
@@ -2454,14 +2454,14 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 
 
-<!-- Top Icon Tab Bar
+<!-- Top Icon Tabs
   ================================================== -->
-<div class="docs-section" id="icon-top-tab-bar">
+<div class="docs-section" id="icon-top-tabs">
 
-  <h3><a href="#icon-top-tab-bar">Top Icon Tab Bar</a></h3>
+  <h3><a href="#icon-top-tabs">Top Icon Tabs</a></h3>
 
   <p>
-    The classic tab bar. Add <code>tabs-icon-top</code> along with the <code>tabs</code> classname.
+    Classic tabs. Add <code>tabs-icon-top</code> along with the <code>tabs</code> classname.
   </p>
 
 {% highlight html %}
@@ -2483,7 +2483,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
-      <div class="h1 title">Top Icon Tab Bar</div>
+      <div class="h1 title">Top Icon Tabs</div>
     </div>
     <div class="tabs tabs-icon-top">
       <a class="tab-item" href="#">
@@ -2505,11 +2505,11 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 
 
-<!-- Left Icon Tab Bar
+<!-- Left Icon Tabs
   ================================================== -->
-<div class="docs-section" id="icon-left-tab-bar">
+<div class="docs-section" id="icon-left-tabs">
 
-  <h3><a href="#icon-left-tab-bar">Left Icon Tab Bar</a></h3>
+  <h3><a href="#icon-left-tabs">Left Icon Tabs</a></h3>
 
   <p>
     Add <code>tabs-icon-left</code> along with the <code>tabs</code> classname.
@@ -2534,7 +2534,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
-      <div class="h1 title">Left Icon Tab Bar</div>
+      <div class="h1 title">Left Icon Tabs</div>
     </div>
     <div class="tabs tabs-icon-left">
       <a class="tab-item" href="#">
@@ -3387,6 +3387,96 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
         </div>
         <div class="col">
           <div class="col-demo">1<br>2<br>3<br>4</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Responsive Grid
+  ================================================== -->
+<div class="docs-section" id="grid-responsive">
+
+  <h3><a href="#grid-responsive">Responsive Grid</a></h3>
+  <p>
+    There may be cases where a row of columns will not fit nicely in the available area.
+    The responsive classes can be used to turn each column in a row into its own row at
+    certain breakpoints.
+  </p>
+  <p>
+    For example, if you want a row of columns to turn in to stacked rows when the 
+    viewport is pretty small, you would use the <code>.responsive-sm</code> class. The
+    example to the right is a simulation of what it'd look like.
+  </p>
+
+{% highlight html %}
+<div class="row responsive-sm">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+{% endhighlight %}
+
+  <p>
+     <em>Note: The borders and gray background in the demo were added so it's easier to see the structure.</em>
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Responsive Class
+        </th>
+        <th>
+          Break when roughly
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>.responsive-sm</th>
+        <td>Smaller than landscape phone</td>
+      </tr>
+      <tr>
+        <th>.responsive-md</th>
+        <td>Smaller than portrait tablet</td>
+      </tr>
+      <tr>
+        <th>.responsive-lg</th>
+        <td>Smaller than landscape tablet</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    For further configuration, each class uses a <a href="/tutorials/customizing-ionic-with-sass/">Sass</a> 
+    variable that can be changed to your liking. There's also a <code>responsive-grid-break</code> 
+    mixin you can use to create your own classes.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Responsive Grid</div>
+    </div>
+    <div class="content has-header">
+      
+      <div class="row responsive-break">
+        <div class="col" style="width: 100%">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col" style="width: 100%">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col" style="width: 100%">
+          <div class="col-demo">.col</div>
+        </div>
+        <div class="col" style="width: 100%">
+          <div class="col-demo">.col</div>
         </div>
       </div>
 

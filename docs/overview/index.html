@@ -93,11 +93,9 @@ $ ionic start myproject
   </p>
   <ul>
     <li><code>release/</code> - compiled versions of Ionic JS and CSS, along with the required font files for the Ionicons icon pack.</li>
-    <li><code>example/</code> - examples of full-featured Ionic projects. Feel free to copy these and base your next project on them.</li>
-    <li><code>js/</code> - the Javascript code for the project and any framework extensions (like AngularJS) that we have provided.</li>
+    <li><code>js/</code> - the source Javascript code for the project and any framework extensions (like AngularJS) that we have provided.</li>
     <li><code>scss/</code> - the raw SCSS files that can be used to integrate the Ionic SCSS into your own project. Or you can use the compiled CSS in the release folder above.</li>
     <li><code>test/</code> - Unit tests for the Javascript files, along with visual tests of components.</li>
-    <li><code>tools/</code> - Tools for creating and administering Ionic projects.</li>
   </ul>
 
 </div>
@@ -134,7 +132,7 @@ $ ionic start myproject
     To use the AngularJS extensions, copy <code>release/js/ionic-angular.js</code> and include it after <code>release/js/ionic.js</code> in your app. See the Angular doc section for more details on using the extensions.
   </p>
   <p>
-    Ionic-Angular relies on Angular {{ site.included_angular_version }}, and includes ngAnimate, ngTouch, ngSanitize, ngRoute, and ngResource by default.
+    Ionic-Angular relies on Angular {{ site.included_angular_version }}, and includes ngAnimate, ngSanitize, and ngResource.
   </p>
 
   <p>
@@ -168,19 +166,9 @@ $ ionic start myproject
     Ionic is focused on building <strong>native/hybrid</strong> mobile apps rather than mobile websites.
   </p>
   <p>
-    As such, our browser support tends to be whatever Web View API is available to native apps on a given platform. For Ionic v0.9.14 "Alpha Fox", that means UIWebView for iOS 6 and 7, and Android 4.1+.
-  </p>
-</div>
-
-
-
-<!-- Examples
-  ================================================== -->
-<div class="docs-section" id="examples">
-  <h2><a href="#examples">Examples</a></h2>
-  <p>
-    We have plenty of starter templates, live apps, and other examples to get you started.
-    To view our Ionic examples, take a look at the <a href="/examples/">Examples</a> page. 
+    As such, our browser support tends to be whatever Web View API is available to native apps on a given platform. 
+    For Ionic {{ site.latest_version }}, that means UIWebView for iOS 6+, and Android 4+. Windows Phone and 
+    FirefoxOS support is on our roadmap.
   </p>
 </div>
 

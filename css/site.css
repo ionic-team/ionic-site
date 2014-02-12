@@ -5714,6 +5714,10 @@ h2.underline {
     opacity: 1; }
   .post p {
     margin-bottom: 32px; }
+  .post b, .post strong {
+    font-family: "FreightTextProMedium-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #000; }
   .post h3 {
     font-family: "FreightTextProMedium-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
     color: #222;

@@ -321,7 +321,7 @@ angular.module('todo', ['ionic'])
   });
 
   $scope.createTask = function(task) {
-    if(!$scope.activeProject) {
+    if(!$scope.activeProject || !task) {
       return;
     }
     $scope.activeProject.tasks.push({

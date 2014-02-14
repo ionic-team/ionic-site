@@ -18,7 +18,7 @@ The Side Menu Controller enables a left and/or right side menu that can be toggl
 
 ## Usage
 
-To use the Side Menu Controller with Ionic-Angular, use the `<side-menu>` top level directive, adding a `<pane side-menu-content>` for the center content, and one or more `<side-menu>` directives:
+To use the Side Menu Controller with Ionic-Angular, use the `<side-menus>` top level directive, adding a `<pane side-menu-content>` for the center content, and one or more `<side-menu>` directives:
 
 ```html
 <side-menus>

@@ -31,7 +31,7 @@ Since we are using AngularJS, we are going to use the <a href="http://docs.angul
   One of the toughest parts about learning Angular is not knowing "the way" to do certain things. We hope that by providing a great selection of examples and guides for Ionic, you'll pick up on how to write Angular in practice. There is no better way to learn Angular than by building something real!
 </p>
 <p>
-  Keep in mind, when you see tags that look new, like <code>&lt;content&gt;</code>, those are custom AngularJS <a href="http://docs.angularjs.org/guide/directive">directives</a> that we have added to Ionic to make it
+  Keep in mind, when you see tags that look new, like <code>&lt;ion-content&gt;</code>, those are custom AngularJS <a href="http://docs.angularjs.org/guide/directive">directives</a> that we have added to Ionic to make it
 much easier to use Ionic components. They will get expanded by Angular into more lower-level markup, and also controlled by our lower level
 Javscript controllers that give them increased functionality.
 </p>
@@ -43,19 +43,19 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 ```html
 {% raw %}
 <!-- Center content -->
-<pane side-menu-content>
+<ion-pane side-menu-content>
   <header class="bar bar-header bar-dark">
     <h1 class="title">Todo</h1>
   </header>
-  <content has-header="true">
+  <ion-content has-header="true">
     <!-- our list and list items -->
-    <list>
-      <item ng-repeat="task in tasks">
+    <ion-list>
+      <ion-item ng-repeat="task in tasks">
         {{task.title}}
-      </item>
-    </list>
-  </content>
-</pane>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-pane>
 {% endraw %}
 
 ```
@@ -88,7 +88,7 @@ Run the example again, and we should see our list of very important tasks!
 ## Creating tasks
 
 Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let's add a simple Modal window that slides up, letting us put in a new task. Place
-the following script tag after the closing `</side-menu>` tag in the `<body>` of the HTML file:
+the following script tag after the closing `</ion-side-menu>` tag in the `<body>` of the HTML file:
 
 ```html
 <script id="new-task.html" type="text/ng-template">
@@ -102,7 +102,7 @@ the following script tag after the closing `</side-menu>` tag in the `<body>` of
     </header>
 
     <!-- Modal content area -->
-    <content has-header="true">
+    <ion-content has-header="true">
 
       <form ng-submit="createTask(task)">
         <div class="list">
@@ -115,7 +115,7 @@ the following script tag after the closing `</side-menu>` tag in the `<body>` of
         </div>
       </form>
 
-    </content>
+    </ion-content>
 
   </div>
 
@@ -130,7 +130,7 @@ In order to trigger the Modal to open, we need a button in the main header bar a
 
 ```html
   <!-- Center content -->
-  <pane side-menu-content>
+  <ion-pane ion-side-menu-content>
     <header class="bar bar-header bar-dark">
       <h1 class="title">Todo</h1>
       <!-- New Task button-->
@@ -193,7 +193,7 @@ Here is the new content area markup:
 ```html
 {% raw %}
 <!-- Center content -->
-<pane side-menu-content>
+<ion-pane ion-side-menu-content>
   <header class="bar bar-header bar-dark">
     <button class="button button-icon" ng-click="toggleProjects()">
       <i class="icon ion-navicon"></i>
@@ -204,14 +204,14 @@ Here is the new content area markup:
       <i class="icon ion-compose"></i>
     </button>
   </header>
-  <content has-header="true" scroll="false">
-    <list>
-      <item ng-repeat="task in activeProject.tasks">
+  <ion-content has-header="true" scroll="false">
+    <ion-list>
+      <ion-item ng-repeat="task in activeProject.tasks">
         {{task.title}}
-      </item>
-    </list>
-  </content>
-</pane>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-pane>
 {% endraw %}
 ```
 
@@ -221,21 +221,21 @@ And the new side menu markup:
 ```html
 {% raw %}
   <!-- Left menu -->
-  <side-menu side="left">
+  <ion-side-menu side="left">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Projects</h1>
       <button class="button button-icon" ng-click="newProject()">
         <i class="icon ion-plus"></i>
       </button>
     </header>
-    <content has-header="true" scroll="false">
-      <list>
-        <item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
+    <ion-content has-header="true" scroll="false">
+      <ion-list>
+        <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}
-        </item>
-      </list>
-    </content>
-  </side-menu>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
 {% endraw %}
 ```
 

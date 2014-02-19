@@ -31,24 +31,24 @@ iOS 7 Fading Header Effect with Ionic and AngularJS
 {% raw %}
 <body ng-app="starter">
   <div ng-controller="MenuCtrl">
-    <side-menus>
-      <pane side-menu-content>
+    <ion-side-menus>
+      <ion-pane ion-side-menu-content>
         <header class="bar bar-header bar-positive">
           <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
           <h1 class="title">Slide me</h1>
         </header>
-        <content has-header="true" padding="true">
+        <ion-content has-header="true" padding="true">
           <!-- Center content -->
-        </content>
-      </pane>
-      <side-menu side="left">
+        </ion-content>
+      </ion-pane>
+      <ion-side-menu side="left">
         <header class="bar bar-header bar-dark" fade-header>
           <h1 class="title">Left</h1>
         </header>
-        <content has-header="true">
-        </content>
-      </side-menu>
-    </side-menus>
+        <ion-content has-header="true">
+        </ion-content>
+      </ion-side-menu>
+    </ion-side-menus>
   </div>
 </body>
 {% endraw %}
@@ -58,15 +58,15 @@ iOS 7 Fading Header Effect with Ionic and AngularJS
     <p>
       <h3>Fade bar</h3>
       <p>
-        Now, we will need to add our status bar fading rectangle. To do this, we will create a new directive called <code>&lt;fade-bar&gt;</code> that will sit right inside the side-menus directive in order to receive scope data as the content is moved left and right.
+        Now, we will need to add our status bar fading rectangle. To do this, we will create a new directive called <code>&lt;fade-bar&gt;</code> that will sit right inside the ion-side-menus directive in order to receive scope data as the content is moved left and right.
       </p>
       <p>
-        Go ahead and add a fade-bar element right inside of the side-menus directive:
+        Go ahead and add a fade-bar element right inside of the ion-side-menus directive:
       </p>
 {% highlight html %}
 <body ng-app="starter">
   <div ng-controller="MenuCtrl">
-    <side-menus>
+    <ion-side-menus>
       <!-- Our new directive -->
       <fade-bar></fade-bar>
 {% endhighlight %}

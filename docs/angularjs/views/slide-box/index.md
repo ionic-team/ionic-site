@@ -22,15 +22,15 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 To use the slide box in your apps, use the following markup:
 
 ```html
-<slide-box>
-  <slide>
+<ion-slide-box>
+  <ion-slide>
     <div class="box blue"><h1>BLUE</h1></div>
-  </slide>
-  <slide>
+  </ion-slide>
+  <ion-slide>
     <div class="box yellow"><h1>YELLOW</h1></div>
-  </slide>
-  <slide>
+  </ion-slide>
+  <ion-slide>
     <div class="box pink"><h1>PINK</h1></div>
-  </slide>
-</slide-box>
+  </ion-slide>
+</ion-slide-box>
 ```

@@ -6,8 +6,7 @@ header_sub_title: "Slide in content panes"
 ---
 
 Available in:
-<div class="label label-danger">AngularIonic 0.9.0</div>
-<div class="label label-primary">Ionic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
 
 Modal
@@ -37,8 +36,7 @@ Here we are using the script tag method of defining an Angular template.
       <h1 class="title">New Contact</h1>
       <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
     </header>
-    <content has-header="true">
-      <div class="padding">
+    <ion-content has-header="true" padding="true">
         <div class="list">
           <label class="item item-input">
             <span class="input-label">First Name</span>
@@ -55,7 +53,7 @@ Here we are using the script tag method of defining an Angular template.
           <button class="button button-full button-positive" ng-click="closeModal()">Create</button>
         </div>
       </div>
-    </content>
+    </ion-content>
   </div>
 </script>
 ```
@@ -90,5 +88,10 @@ angular.module('test', ['ionic'])
   $scope.closeModal = function() {
     $scope.modal.hide();
   };
+
+  //Be sure to cleanup the modal
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 });
 ```

@@ -6,8 +6,7 @@ header_sub_title: "Headers"
 ---
 
 Available in:
-<div class="label label-danger">Ionic-Angular 0.9.0</div>
-<div class="label label-primary">Ionic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
 
 Headers
@@ -21,16 +20,16 @@ Using two-way data binding, the header bar will automatically readjust the headi
 
 ## Ionic-Angular Usage
 
-To use the dynamic header bar behavior in Ionic-Angular, use the `<header-bar>` directive:
+To use the dynamic header bar behavior in Ionic-Angular, use the `<ion-header-bar>` directive:
 
 ```html
-<header-bar
+<ion-header-bar
   title="headerTitle"
   left-buttons="leftButtons"
   right-buttons="rightButtons"
   type="bar-positive"
   align-title="center">
-</header-bar>
+</ion-header-bar>
 
 ```
 

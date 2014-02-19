@@ -37,8 +37,8 @@ $ cordova plugin add org.apache.cordova.statusbar
 {% raw %}
 angular.module('myApp', ['ionic'])
 
-.controller('MyCtrl', function($scope, Platform) {
-  Platform.ready(function() {
+.controller('MyCtrl', function($scope) {
+  ionic.Platform.ready(function() {
     // hide the status bar using the StatusBar plugin
     StatusBar.hide();
   });

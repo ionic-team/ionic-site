@@ -15,31 +15,31 @@
     <script src="/ionic/js/ionic-angular.js"></script>
   </head>
   <body>
-    <pane nav-router animation="slide-left-right">
-      <nav-bar animation="nav-title-slide-ios7" type="bar-positive" back-button-type="button-icon" back-button-icon="icon ion-arrow-left-c"></nav-bar>
+    <ion-pane nav-router animation="slide-left-right">
+      <ion-nav-bar animation="nav-title-slide-ios7" type="bar-positive" back-button-type="button-icon" back-button-icon="icon ion-arrow-left-c"></ion-nav-bar>
       <ng-view></ng-view>
-    </pane>
+    </ion-pane>
 
     <script id="page1.html" type="text/ng-template">
       <nav-page>
 
-        <tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive" animate-nav="false">
+        <ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive" animate-nav="false">
 
           <!-- Pets tab -->
-          <tab title="Pets" icon="icon ion-home" ng-controller="PetsCtrl">
-            <content has-header="true" has-tabs="true">
-              <list>
-                <link-item ng-repeat="pet in pets" type="item-text-wrap" href="#/pet/{{pet.id}}">
+          <ion-tab title="Pets" icon="icon ion-home" ng-controller="PetsCtrl">
+            <ion-content has-header="true" has-tabs="true">
+              <ion-list>
+                <ion-item ng-repeat="pet in pets" item-type="item-text-wrap" href="#/pet/{{pet.id}}">
                   <h3>{{pet.title}}</h3>
                   <p>{{pet.description}}</p>
-                </link-item>
-              </list>
-            </content>
-          </tab>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ion-tab>
 
           <!-- Adoption tab -->
-          <tab title="Adopt" icon="icon ion-heart" ng-controller="AdoptCtrl" right-buttons="buttons">
-            <content has-header="true" has-tabs="true">
+          <ion-tab title="Adopt" icon="icon ion-heart" ng-controller="AdoptCtrl" right-buttons="buttons">
+            <ion-content has-header="true" has-tabs="true">
               <div class="padding">
                 <h2>Adopt a pet today.</h2>
               </div>
@@ -57,20 +57,20 @@
                 </label>
                 <button class="button button-positive button-block">Adopt</button>
               </div>
-            </content>
-          </tab>
+            </ion-content>
+          </ion-tab>
 
           <!-- Home tab -->
-          <tab title="About" icon="icon ion-search">
-            <content has-header="true" has-tabs="true" padding="true">
+          <ion-tab title="About" icon="icon ion-search">
+            <ion-content has-header="true" has-tabs="true" padding="true">
               <h3>About this app</h3>
               <p>
                 This is a sample seed project for the Ionic Framework. Please change it to match your needs.
               </p>
-            </content>
-          </tab>
+            </ion-content>
+          </ion-tab>
 
-        </tabs>
+        </ion-tabs>
       </nav-page>
     </script>
     <script id="pet.html" type="text/ng-template">

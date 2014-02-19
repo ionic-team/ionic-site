@@ -6,8 +6,7 @@ header_sub_title: "Draggable side menus"
 ---
 
 Available in:
-<div class="label label-danger">Ionic-Angular 0.9.0</div>
-<div class="label label-primary">Ionic 0.9.0</div>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
 Side Menu Controller
 ===
@@ -16,24 +15,83 @@ The Side Menu Controller enables a left and/or right side menu that can be toggl
 
 <img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif" style="border: 1px solid #eee">
 
+## \<ion-side-menus\> 
+
+No options.
+
+## \<div ion-side-menu-content\>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>drag-content</td>
+      <td><b>expression</b></td>
+      <td>true</td>
+      <td>Use to dynamically disable dragging of this side-menu. For example, 'drag-content="canDrag()"'.</td>
+    </tr>
+  </tbody>
+</table>
+
+## \<ion-side-menu\>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>side</td>
+      <td><b>string</b></td>
+      <td>left</td>
+      <td>Available: 'left' or 'right'.</td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td><b>number</b></td>
+      <td>275</td>
+      <td>Width of the side menu, in pixels.</td>
+    </tr>
+    <tr>
+      <td>is-enabled</td>
+      <td><b>expression</b></td>
+      <td>true</td>
+      <td>Use to dynamically disable this side-menu. For example, 'is-enabled="myMenuIsEnabled()"'</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Usage
 
 To use the Side Menu Controller with Ionic-Angular, use the `<side-menus>` top level directive, adding a `<pane side-menu-content>` for the center content, and one or more `<side-menu>` directives:
 
 ```html
-<side-menus>
+<ion-side-menus>
   <!-- Center content -->
-  <pane side-menu-content>
-  </pane>
+  <ion-pane ion-side-menu-content>
+  </ion-pane>
 
   <!-- Left menu -->
-  <side-menu side="left">
-  </side-menu>
+  <ion-side-menu side="left">
+  </ion-side-menu>
 
   <!-- Right menu -->
-  <side-menu side="right">
-  </side-menu>
-</side-menus>
+  <ion-side-menu side="right">
+  </ion-side-menu>
+</ion-side-menus>
 ```
 
 The center content tag can be any element, but it must have the `side-menu-content` attribute or class directive.
@@ -52,12 +110,6 @@ To access the parent Side Menu Controller on a child scope, access the `$scope.s
 $scope.toggleMenu = function() {
   $scope.sideMenuController.toggleLeft();
 };
-```
-
-Note: If you have horizontal-scrolling content and a draggable side-menu, both will not work.  It is advised if you have horizontal-scrolling content to disable dragging out the side-menu with the `drag-content` attribute:
-
-```js
-<pane side-menu-content drag-content="false"></pane>
 ```
 
 Low-level API

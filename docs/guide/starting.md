@@ -54,18 +54,18 @@ To create side menus in Ionic, we can use the [Side Menu Controller](http://ioni
 
 ```html
 <body>
-  <side-menus>
-    <pane side-menu-content>
-    </pane>
-    <side-menu side="left">
-    </side-menu>
-  </side-menus>
+  <ion-side-menus>
+    <ion-pane ion-side-menu-content>
+    </ion-pane>
+    <ion-side-menu side="left">
+    </ion-side-menu>
+  </ion-side-menus>
 </body>
 ```
 
-In the code above, we've added our `<side-menus>` controller which will handle the draggng and exposing of the side menu. Inside of the controller we have a `<pane side-menu-content>` which is the center content area of the app, and a `<side-menu side="left">` which is a left, initially hidden, side menu.
+In the code above, we've added our `<ion-side-menus>` controller which will handle the draggng and exposing of the side menu. Inside of the controller we have a `<ion-pane ion-side-menu-content>` which is the center content area of the app, and a `<ion-side-menu side="left">` which is a left, initially hidden, side menu.
 
-Now, if you run this code (more on testing in a bit), you wouldn't see anything! There are two reasons for that: The first is we haven't created an AngularJS app to turn the custom tags (like `<side-menus>`) into anything functional. And, because we don't have any content yet.
+Now, if you run this code (more on testing in a bit), you wouldn't see anything! There are two reasons for that: The first is we haven't created an AngularJS app to turn the custom tags (like `<ion-side-menus>`) into anything functional. And, because we don't have any content yet.
 
 Let's fix that. First, we need to create a new AngularJS module and tell Angular to initialize it. Let's create a new file located at `www/js/app.js`. Put this code into the file:
 
@@ -95,25 +95,25 @@ Update the body content to be:
 
 ```html
 <body ng-app="todo">
-  <side-menus>
+  <ion-side-menus>
 
     <!-- Center content -->
-    <pane side-menu-content>
+    <ion-pane side-menu-content>
       <header class="bar bar-header bar-dark">
         <h1 class="title">Todo</h1>
       </header>
-      <content has-header="true">
-      </content>
-    </pane>
+      <ion-content has-header="true">
+      </ion-content>
+    </ion-pane>
 
     <!-- Left menu -->
-    <side-menu side="left">
+    <ion-side-menu side="left">
       <header class="bar bar-header bar-dark">
         <h1 class="title">Projects</h1>
       </header>
-    </side-menu>
+    </ion-side-menu>
 
-  </side-menus>
+  </ion-side-menus>
 </body>
 ```
 

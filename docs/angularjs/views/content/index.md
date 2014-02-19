@@ -21,17 +21,106 @@ When using the Ionic scroll features, you'll get pull-to-refresh, customizable s
 
 Also, we are working on virtual list rendering which will only work when using Ionic's scroll view. That is on the upcoming roadmap.
 
+## \<ion-content\>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>scroll</td>
+      <td><b>boolean</b></td>
+      <td>true</td>
+      <td>Whether to allow scrolling of content.</td>
+    </tr>
+    <tr>
+      <td>overflow-scroll</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to use default browser scrolling instead of ionic scroll . If true, then refreshers, bouncing, etc may stop working.</td>
+    </tr>
+    <tr>
+      <td>padding</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to add padding to the content.</td>
+    </tr>
+    <tr>
+      <td>has-header</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to offset the content for a header bar.</td>
+    </tr>
+    <tr>
+      <td>has-subheader</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to offset the content for a header bar and sub-header bar.</td>
+    </tr>
+    <tr>
+      <td>has-footer</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to offset the content for a footer bar.</td>
+    </tr>
+    <tr>
+      <td>has-tabs</td>
+      <td><b>boolean</b></td>
+      <td>false</td>
+      <td>Whether to offset the content for a bottom-tabs bar.</td>
+    </tr>
+    <tr>
+      <td>has-bouncing</td>
+      <td><b>boolean</b></td>
+      <td>false on Android, true otherwise.</td>
+      <td>Whether the scroll view should allow bouncing past the edges of content.</td>
+    </tr>
+    <tr>
+      <td>on-refresh</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate on refresh completion.</td>
+    </tr>
+    <tr>
+      <td>on-refresh-opening</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate when refresher is opening.</td>
+    </tr>
+    <tr>
+      <td>on-scroll</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate when the user scrolls content.</td>
+    </tr>
+    <tr>
+      <td>on-scroll-complete</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate when the user completes a scrolling action.</td>
+    </tr>
+  </tbody>
+</table>
+
+\<ion-content\> also supports options to pass to scrollView: `startX`, `startY`, `scrollbarX`, `scrollbarY`, `scrollingX`, `scrollingY`, `scrollEventInterval`.
+
 ## Ionic-Angular Usage
 
-The `<content>` directive can be used whenever a scrollable content area is desired. Here it is with all its available options, though none of these are required:
+The `<ion-content>` directive can be used anywhere to define a scrollable content area. Here is an example with many of its available options:
 
 ```html
 <body ng-controller="ContentCtrl">
-  <header-bar title="'Header'">
-  </header-bar>
+  <ion-header-bar title="'Header'">
+  </ion-header-bar>
 
   <!-- content area -->
-  <content
+  <ion-content
     has-header="true"
     has-footer="true"
     scroll="true"
@@ -39,18 +128,18 @@ The `<content>` directive can be used whenever a scrollable content area is desi
     >
 
     <!-- for pull to refresh -->
-    <refresher></refresher>
+    <ion-refresher></ion-refresher>
     
     <!-- content -->
   </content>
 
-  <footer-bar>
+  <ion-footer-bar>
     <h1 class="title">Footer</h1>
-  </footer-bar>
+  </ion-footer-bar>
 </body>
 ```
 
-And example controller:
+And an example controller:
 
 ```javascript
 angular.module('myModule', [])
@@ -78,23 +167,23 @@ $scope.$broadcast('scroll.resize');
 
 ### Pull to Refresh
 
-Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the `<refresher>` element to the beginning of the scroll content:
+Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the `<ion-refresher>` element to the beginning of the scroll content:
 
 ```html
   <!-- content area -->
-  <content on-refresh="onRefresh()">
-    <refresher></refresher>
-  </content>
+  <ion-content on-refresh="onRefresh()">
+    <ion-refresher></refresher>
+  </ion-content>
 ```
 
-This will give you a default icon and animation style. To customize the pull to refresh, use `<scroll-refresher>` instead of `<refresher>` and supply your own content:
+This will give you a default icon and animation style. To customize the pull to refresh, use `<ion-scroll-refresher>` instead of `<ion-refresher>` and supply your own content:
 
 ```html
   <!-- content area -->
   <content on-refresh="onRefresh()">
-    <scroll-refresher>
+    <ion-scroll-refresher>
       Pull to refresh...
-    </scroll-refresher>
+    </ion-scroll-refresher>
   </content>
 ```
 
@@ -107,71 +196,3 @@ $scope.$broadcast('scroll.refreshComplete');
 ```
 
 Use `$scope.$emit` if the scroll view is above your controller.
-
-### Available options
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Values</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>has-header</td>
-      <td>true/false</td>
-      <td>false</td>
-      <td>Whether to push the content area down by the height of the header</td>
-    </tr>
-    <tr>
-      <td>has-subheader</td>
-      <td>true/false</td>
-      <td>false</td>
-      <td>Whether to push the content area down by the height of the sub header. Requires "has-header" attribute.</td>
-    </tr>
-    <tr>
-      <td>has-footer</td>
-      <td>true/false</td>
-      <td>false</td>
-      <td>Whether to push the content area up by the height of the footer</td>
-    </tr>
-    <tr>
-      <td>overflow-scroll</td>
-      <td>true/false</td>
-      <td>false</td>
-      <td>Whether to use Ionic's custom scroll view (false), or the browser's overflow touch (true). Note: pull to refresh
-          and other scroll features require this value to be false</td>
-    </tr>
-    <tr>
-      <td>scroll</td>
-      <td>true/false</td>
-      <td>true</td>
-      <td>Whether to scroll at all. Set this to "false" if a list child is going to handle scrolling instead</td>
-    </tr>
-    <tr>
-      <td>on-refresh</td>
-      <td>function</td>
-      <td></td>
-      <td>A function to call when pull-to-refresh is triggered on this content area</td>
-    </tr>
-<!--
-    <tr>
-      <td>on-refresh-opening</td>
-      <td>function(amount)</td>
-      <td></td>
-      <td>A function to call as the pull to refresh opens. amount is a value in the range 0 <= amount <= 1. This function is
-          throttled to improve performance.</td>
-    </tr>
--->
-    <tr>
-      <td>padding</td>
-      <td>true/false</td>
-      <td>false</td>
-      <td>Whether to add standard padding to the content area</td>
-    </tr>
-  </tbody>
-</table>
-

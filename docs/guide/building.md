@@ -43,7 +43,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 ```html
 {% raw %}
 <!-- Center content -->
-<ion-pane side-menu-content>
+<ion-pane ion-side-menu-content>
   <header class="bar bar-header bar-dark">
     <h1 class="title">Todo</h1>
   </header>

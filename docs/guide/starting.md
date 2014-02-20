@@ -98,7 +98,7 @@ Update the body content to be:
   <ion-side-menus>
 
     <!-- Center content -->
-    <ion-pane side-menu-content>
+    <ion-pane ion-side-menu-content>
       <header class="bar bar-header bar-dark">
         <h1 class="title">Todo</h1>
       </header>

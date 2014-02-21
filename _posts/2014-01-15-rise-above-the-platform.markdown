@@ -3,7 +3,7 @@ layout: post
 title:  "Rise Above the Platform"
 date:   "2014-01-15 11:00:00"
 categories: ionic
-author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>'
+author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a>'
 published: true
 ---
 
@@ -61,4 +61,4 @@ published: true
 
 <p>Design an app that reflects <i>your brand</i>, not simply the OS that houses it.</p>
 
-<p><a href="http://twitter.com/helloimben">Ben</a></p>
+<p><a href="http://twitter.com/benjsperry">Ben</a></p>

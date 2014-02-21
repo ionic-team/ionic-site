@@ -31,12 +31,12 @@ published: false
 
 <p>With Ionic, we realized we needed to be vigilant about only supporting new devices that were powerful enough to make HTML5 feel native. So Ionic will only support new iOS and Android releases on recent generation devices, at least to start. And it will focus on native apps, not web apps.</p>
 
-<p>Ionic will come with an awesome <a href="http://ionicons.com" target="_blank">icon font</a> filled with both iOS 7 style icons and custom default icons designed by <a href="http://twitter.com/helloimben">Ben</a>. Ionic's visual style is inspired by iOS 7 but not restricted to it. See the screenshot above for a rough early preview.</p>
+<p>Ionic will come with an awesome <a href="http://ionicons.com" target="_blank">icon font</a> filled with both iOS 7 style icons and custom default icons designed by <a href="http://twitter.com/benjsperry">Ben</a>. Ionic's visual style is inspired by iOS 7 but not restricted to it. See the screenshot above for a rough early preview.</p>
 
 <p>Since Ionic is a new framework, we aren't quite ready to release it. We are shooting for late October, 2013.</p>
 
 <p>We'd love to have you <a href="http://twitter.com/ionicframework">follow us</a> on Twitter and signup for the <a href="http://ionicframework.com/">announcement mailing list</a>. Stay tuned for more updates in the coming weeks, and thanks for checking out Ionic!</p>
 
 <p>The Ionic Crew</p>
-<p><a href="http://twitter.com/helloimben">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a> and <a href="http://twitter.com/maxlynch">@maxlynch</a></p>
+<p><a href="http://twitter.com/benjsperry">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a> and <a href="http://twitter.com/maxlynch">@maxlynch</a></p>
 

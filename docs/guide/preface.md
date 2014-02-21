@@ -35,7 +35,7 @@ And above all, we wanted to make sure Ionic was as open source as possible, both
 
 Ionic is a project of [Drifty](http://drifty.com/), a Madison-based developer tools company. Drifty makes money by building simple developer tools and services that can enhance your Ionic developer experience, but they are not necessary in order to use the framework. Rest assured knowing Ionic is supported by a profitable, growing, and independent software company.
 
-The first version of Ionic was built by [Max Lynch](http://twitter.com/maxlynch), [Ben Sperry](http://twitter.com/helloimben), and [Adam Bradley](http://twitter.com/adamdbradley). But Ionic has an ever growing list of [community contributors](https://github.com/driftyco/ionic/graphs/contributors) and would not exist without them.
+The first version of Ionic was built by [Max Lynch](http://twitter.com/maxlynch), [Ben Sperry](http://twitter.com/benjsperry), and [Adam Bradley](http://twitter.com/adamdbradley). But Ionic has an ever growing list of [community contributors](https://github.com/driftyco/ionic/graphs/contributors) and would not exist without them.
 
 ## Building Hybrid Apps With Ionic
 

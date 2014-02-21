@@ -3,7 +3,7 @@ layout: post
 title:  "Building Ionicons, Our Open Source Icon Font"
 date:   "2013-10-16 11:00:24"
 categories: ionic
-author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/helloimben" target="_blank">@helloimben</a>'
+author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a>'
 published: true
 ---
 
@@ -65,4 +65,4 @@ published: true
 
 <p>We intend for this icon pack to be used with <a href="http://ionicframework.com" target="_blank">Ionic</a>, but it’s by no means limited to it. Use these icons wherever you see fit, personal or commercial. They are free to use and licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>. We can’t wait to show you the full glory of Ionic, but hopefully Ionicons will serve as a legitimate teaser for what’s in store. Now go <strong><a href="http://ionicons.com" target="_blank">check out the Ionicons</a></strong>!</p>
 
-<p><a href="http://twitter.com/helloimben">Ben</a></p>
+<p><a href="http://twitter.com/benjsperry">Ben</a></p>

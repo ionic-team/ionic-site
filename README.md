@@ -31,7 +31,7 @@ Repo for the ionicframework.com site
 
 **Ben Sperry**
 
-+ <https://twitter.com/helloimben>
++ <https://twitter.com/benjsperry>
 + <https://github.com/bensperry>
 
 **Adam Bradley**

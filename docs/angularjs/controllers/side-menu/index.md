@@ -76,7 +76,7 @@ No options.
 
 ## Usage
 
-To use the Side Menu Controller with Ionic-Angular, use the `<side-menus>` top level directive, adding a `<pane side-menu-content>` for the center content, and one or more `<side-menu>` directives:
+To use the Side Menu Controller with Ionic-Angular, use the `<ion-side-menus>` top level directive, adding a `<pane ion-side-menu-content>` for the center content, and one or more `<ion-side-menu>` directives:
 
 ```html
 <ion-side-menus>
@@ -94,7 +94,7 @@ To use the Side Menu Controller with Ionic-Angular, use the `<side-menus>` top l
 </ion-side-menus>
 ```
 
-The center content tag can be any element, but it must have the `side-menu-content` attribute or class directive.
+The center content tag can be any element, but it must have the `ion-side-menu-content` attribute or class directive.
 
 Like all Ionic controllers, the Side Menu exposes one object for all child scopes that use prototypal inheritance (i.e. all besides isolated scopes).
 

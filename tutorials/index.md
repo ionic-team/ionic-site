@@ -13,10 +13,7 @@ For most of these tutorials, we will be using the official [ionic-angular-cordov
 
 To start, download or clone the [seed project](http://github.com/driftyco/ionic-angular-cordova-seed) and open the directory it downloaded or extracted to. The seed project comes with an example app that has some functionality built in that we won't need, so you can remove these files, or use them as a starting point for your own app.
 
-- `www/js/app.js`
-- `www/js/controllers.js`
-- `www/js/services.js`
-- `www/css/app.css`
-- `www/templates/app.html`
-- `www/templates/pet.html`
-- `www/index.html`
+
+- [Fading Status Bar](/tutorials/fade-status-bar/)
+- [Fullscreen Apps](/tutorials/fullscreen-apps/)
+- [Customizing Ionic with Sass](/tutorials/customizing-ionic-with-sass/)

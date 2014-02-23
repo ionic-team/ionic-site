@@ -131,7 +131,7 @@ The `<ion-content>` directive can be used anywhere to define a scrollable conten
     <ion-refresher></ion-refresher>
     
     <!-- content -->
-  </content>
+  </ion-content>
 
   <ion-footer-bar>
     <h1 class="title">Footer</h1>
@@ -180,11 +180,11 @@ This will give you a default icon and animation style. To customize the pull to 
 
 ```html
   <!-- content area -->
-  <content on-refresh="onRefresh()">
+  <ion-content on-refresh="onRefresh()">
     <ion-scroll-refresher>
       Pull to refresh...
     </ion-scroll-refresher>
-  </content>
+  </ion-content>
 ```
 
 *Hint: Ionicons comes with [animated icons](http://ionicons.com/animation.html).*

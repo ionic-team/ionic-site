@@ -6087,6 +6087,9 @@ a {
 .content-container {
   padding-top: 40px; }
 
+.main-content {
+  min-height: 450px; }
+
 .horizontal-gradient {
   background: #296ad4;
   background: -moz-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);

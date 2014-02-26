@@ -12,8 +12,8 @@ paginate_path: "blog/page:num"
 news: First time using Ionic? We recommend reading our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up an Ionic mobile app.
 
 # Latest Version Config
-latest_download: http://code.ionicframework.com/0.10.0-alpha/ionic-v0.10.0-alpha.zip
-latest_version: 0.9.26-alpha "rabbit"
+latest_download: http://code.ionicframework.com/0.9.26/ionic-v0.9.26.zip
+latest_version: 0.9.26 "rabbit"
 latest_release_date: 2014-02-26
 
 # Which version of AngularJS the latest build includes

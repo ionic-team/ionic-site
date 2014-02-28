@@ -3,7 +3,7 @@ html {
     padding:0;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    background: url(img/bg.jpg) no-repeat center center fixed; 
+    background: url(img/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,9 +13,9 @@ html {
 body {
     margin: 0;
     padding: 0;
-    color: #fff; 
-    font-size: 12px; 
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    color: #fff;
+    font-size: 12px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     text-align:center;
 }
@@ -47,7 +47,7 @@ body {
 
 h1 {
     color: #deebff;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     font-size: 36px;
     margin-top: 50px;
@@ -62,7 +62,7 @@ span {
 
 p {
     color: #BDD1F3;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     font-size: 18px;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
@@ -73,7 +73,7 @@ p {
     display: inline-block;
     text-decoration: none;
     color: #e15e4d;
-    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 500;
     font-size: 34px;
     background-color: #fff;
@@ -115,7 +115,10 @@ footer {
     -moz-animation-delay: 2s;
 }
 
-
+.own {
+    color: white;
+    font-size: 14px;
+}
 
 
 

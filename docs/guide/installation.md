@@ -68,7 +68,7 @@ Once you have the most recent release of Ionic, extract it anywhere you like on 
 
 Now, we need to create a new Cordova project somewhere on the computer for the code for our app:
 
-    $ cordova create hello com.ionic.todo Todo
+    $ cordova create hello com.ionic.todo "Todo"
 
 That will create a folder called `hello` in the directory the command was run. Next, we will change into that directory:
 

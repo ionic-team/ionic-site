@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta_tags.html %}
+    <title>{{page.title}}{% if page.title_sufix %}{{ page.title_sufix }}{% else %} - Ionic Framework{% endif %}</title>
+    <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/job.css" rel="stylesheet">
+  </head>
+
+  <body class="{{ page.body_css }}">
+    {% include nav_links.html %}
+    <div id="job" class="container content-container">
+      <div class="row">
+        <div class="col-sm-7">
+          <h1>{{page.title}}</h1>
+
+          <p>
+            Want to change the way the world builds mobile apps? Come join the Ionic
+            team to empower developers to build high quality, interactive,
+            and beautiful mobile apps with web technologies they already know and love.
+          </p>
+          <p>
+            We are looking for some smart, driven, and independent people to join our team of nine (and counting!) 
+            in Madison, Wisconsin, or remotely (for some positions).
+          </p>
+
+          {{content}}
+
+        </div>
+        <div class="col-sm-offset-1 col-sm-4" id="office-sidebar">
+          <h3>Our Office</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11657.652488799165!2d-89.3813697!3d43.07480929999989!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806533fa2ca08ab%3A0xcbc259ad4a59e889!2s104+King+St!5e0!3m2!1sen!2sus!4v1393271873252" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+          <div id="office-shots">
+            <div class="row">
+              <div class="col-sm-6">
+                <img src="http://drifty.com/jobs/images/office1.jpg">
+              </div>
+              <div class="col-sm-6">
+                <img src="http://drifty.com/jobs/images/office2.jpg">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <img src="http://drifty.com/jobs/images/office3.jpg">
+              </div>
+              <div class="col-sm-6">
+                <img src="http://drifty.com/jobs/images/office4.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    {% include base_scripts.html %}
+  </body>
+</html>

@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-As we've built out Ionic, we've gotten a ton of questions about Cordova and PhoneGap. These range from confusion with the naming (are Cordova and PhoneGap the same thing?), to a misunderstanding of the goals and capabilities of these projects.
+As we've built out Ionic, we've gotten a ton of questions about [Cordova](http://cordova.apache.org/) and [PhoneGap](http://phonegap.com/). These range from confusion with the naming (are Cordova and PhoneGap the same thing?), to a misunderstanding of the goals and capabilities of these projects.
 
 ### A quick history lesson
 

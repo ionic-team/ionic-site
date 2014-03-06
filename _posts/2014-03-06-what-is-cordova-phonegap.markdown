@@ -40,7 +40,7 @@ So if Cordova can do anything native apps can do, why doesn't it seem like it? F
 
 Adobe has always said that the big goal of Cordova is to make itself obsolete. Basically, that Cordova's feature APIs would eventually be implemented by browser vendors, making the project less necessary.
 
-Take, for example, the Geolocation API. While GPS on mobile was made popular with the iPhone, mobile browsers didn't support it well until later. So, Cordova built a bridge for that, through a `navigator.geolocation` Javascript API that they expected to become the standard in the future. Cordova uses the native browser implementation when available, or uses the bridge when it's not.
+Take, for example, the Geolocation API. While GPS on mobile was made popular with the iPhone, mobile browsers didn't support it well until later. So, Cordova had a bridge for that, through a `navigator.geolocation` Javascript API that they expected to become the standard in the future. Cordova uses the native browser implementation when available, or uses the bridge when it's not.
 
 The same thing can be seen today with the `navigator.camera` API. This is a very simple API for getting a picture from a device's camera. You might imagine browsers offering this as a standard in the future.
 

@@ -4,7 +4,7 @@ layout: blog
 <div class="post">
   <div class="post-info">
     <h3 class="post-title"><a href="{{page.url}}">{{page.title}}</a></h3>
-    <time class="post-time">{{page.author}} on {{page.date | date: "%B %d, %Y" }}</time>
+    <time class="post-time">By {{page.author}}{% if page.hide_date %}{% else %} on {{page.date | date: "%B %d, %Y" }}{% endif %}</time>
     <div class="post-social">
       <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{page.title}}" data-url="http://ionicframework.com{{page.url}}" data-via="ionicframework" data-related="ionicframework">Tweet</a>
       <script>

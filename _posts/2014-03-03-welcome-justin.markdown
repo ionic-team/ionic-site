@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome Justin Noel as Forum Manager"
-date:   "2014-02-20 08:00:00"
+date:   "2014-03-03 08:00:00"
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
 published: true

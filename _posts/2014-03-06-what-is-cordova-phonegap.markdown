@@ -21,7 +21,7 @@ So what is the difference between Cordova and PhoneGap? One helpful analogy Adob
 
 At first, the differences between Cordova and PhoneGap were minimal. But Adobe always had plans to build out a proprietary set of services around the PhoneGap ecosystem, and has started to execute on that plan with PhoneGap Build.
 
-So, when you start a new hybrid app project, you can either decide to use Cordova proper, or enter into Adobe's ecosystem and use the PhoneGap distribution of Cordova.
+So, when you start a new hybrid app project, you can either decide to use Cordova proper, or enter into Adobe's ecosystem and use the PhoneGap distribution of Cordova 
 
 Note: Ionic uses Cordova proper at the core, we do not use PhoneGap at all (though it can be used just fine).
 
@@ -31,7 +31,7 @@ At its core, Cordova offers a simple but powerful API to call Javascript functio
 
 This is something people don't always realize. Cordova is capable of pretty much anything you need to do on mobile. It's a powerful low-level API that comes with a set of pre-made, simple plugins to do things like access the camera or compass.
 
-Also, mobile devices didn't run web content very well until the iPhone 4S generation, so PhoneGap had a reputation for being slow. That is no longer the case with today's devices.
+So when someone says that Cordova can't do the same things other native apps can do, they are wrong. The only limitation is what plugins are currently available, and your ability or interest to build custom ones for your app.
 
 ## Part technology, part dream
 
@@ -43,12 +43,14 @@ Take, for example, the Geolocation API. While GPS on mobile was made popular wit
 
 The same thing can be seen today with the `navigator.camera` API. This is a very simple API for getting a picture from a device's camera. You might imagine browsers offering this as a standard in the future.
 
-So, Cordova is part low-level bridge, and part simple browser-style API. This means the API available for doing things like interacting with the camera is overly simple, and can be limiting when trying to create really custom native apps (like Instagram, for example).
+So, the vision for the core plugins of Cordova is to offer simple functionality that would fit into the API of the browsers of the future, one day making the Cordova implementation obsolete!
 
-## Plugins!
+## Not on my watch!
 
-I personally disagree with that interpretation of Cordova's vision. I think we should be working toward a better, more standard browser, but we should also be enabling creation of really creative and unique apps through a more powerful and generic browser-to-native API.
+I personally disagree with that vision. While I think we *should* be working toward a better, more standard browser API, we should also be enabling the creation of really custom and creative hybrid apps. To do that, we need more generic native-to-browser plugins and APIs in Cordova.
 
-This is the difference between the existing `navigator.camera.getPicture()` API and a theoretical `navigator.camera.getPhotos(start, count)`. The first uses a pre-defined UI, and the latter leaves it up to you to build the experience.
+This is the difference between the existing `navigator.camera.getPicture()` API and a theoretical `navigator.camera.getPhotos(start, count, size)`. The first uses a pre-defined UI, and the latter leaves it up to you to build the experience, merely streaming the data from the native layer to your Javascript.
 
 Luckily, Cordova has a high quality plugin API, we just need more great plugins that expose *data* from the native layer, not just hard coded features or UIs.
+
+This is one of the big goals of Ionic: to provide a broader set of more generic Cordova plugins to enable the creation of more complex and custom apps.

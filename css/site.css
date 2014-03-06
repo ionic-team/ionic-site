@@ -5704,6 +5704,8 @@ h2.underline {
 
 .post {
   line-height: 34px; }
+  .post h2 {
+    margin: 40px 0px 15px 0px; }
   .post img {
     max-width: 100%; }
   .post a {

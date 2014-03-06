@@ -22,7 +22,7 @@ So what is the difference between Cordova and PhoneGap? One helpful analogy Adob
 
 At first, the differences between Cordova and PhoneGap were minimal. But Adobe always had plans to build out a proprietary set of services around the PhoneGap ecosystem, and has started to execute on that plan with PhoneGap Build.
 
-So, when you start a new hybrid app project, you can either decide to use Cordova proper, or enter into Adobe's ecosystem and use the PhoneGap distribution of Cordova 
+So, when you start a new hybrid app project, you can either decide to use Cordova proper, or enter into Adobe's ecosystem and use the PhoneGap distribution of Cordova.
 
 Note: Ionic uses Cordova proper at the core, we do not use PhoneGap at all (though it can be used just fine).
 

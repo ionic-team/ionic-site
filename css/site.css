@@ -5700,7 +5700,8 @@ h2.underline {
   font-size: 22px;
   color: #444;
   font-weight: normal;
-  letter-spacing: .01rem; }
+  letter-spacing: .01rem;
+  -webkit-font-smoothing: antialiased; }
 
 .post {
   line-height: 34px; }

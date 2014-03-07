@@ -51,10 +51,12 @@ All the Sass magic starts from your app's `scss/` directory. Additionally, the c
 
 We recommend that your app have its own Sass file within the `scss/` directory, such as `scss/app.scss`. From within your `app.scss` file you'll want to import the `scss/ionic/ionic.scss` file, using this syntax:
 
+    // your variable changes can go here
+
     @import "ionic/ionic";
 
     // your slick styles can go here...
-    // when Sass processes, both Ionic's Sass and your Sass will combine 
+    // when Sass processes, both Ionic's Sass and your Sass will combine
     // into one file and saved in your app's directory as css/app.css
 
 ## "Watch" Your Sass!
@@ -73,7 +75,7 @@ The above command instructs Sass to constantly watch all of the files in the `sc
 >
 > -- <cite>[Sass Variables Documentation](http://sass-lang.com/guide#variables)</cite>
 
-Inside your app's `scss/ionic/` directory, the Ionic Framework has already been built with a `_variables.scss` file. The variables file is the first place to go when you want to customize any of the default styles. For example, Ionic comes with a small set of [colors](/docs/components/#colors) to start with, but as a general rule colors are meant to be overridden to fit your "brand". 
+Inside your app's `scss/ionic/` directory, the Ionic Framework has already been built with a `_variables.scss` file. The variables file is the first place to go when you want to customize any of the default styles. For example, Ionic comes with a small set of [colors](/docs/components/#colors) to start with, but as a general rule colors are meant to be overridden to fit your "brand".
 
     $light:                 #fff !default;
     $stable:                #f8f8f8 !default;
@@ -83,17 +85,18 @@ Inside your app's `scss/ionic/` directory, the Ionic Framework has already been 
     $energized:             #f0b840 !default;
     $assertive:             #ef4e3a !default;
     $royal:                 #8a6de9 !default;
-    $dark:                  #444 !default; 
+    $dark:                  #444 !default;
 
-Feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). While you can change the `_variables.scss` file directly, we recommend you override these variables in your own `app.scss` file. By not changing the variables files directly, but simply overriding its values, this makes it easier to upgrade Ionic as new versions come out. Once a change is made, the CSS file will be rebuilt using the new values you've specified.
+Feel free to customize these variables as much as you'd like (after all, the world doesn't need a bunch of apps that look identical). While you can change the `_variables.scss` file directly, we recommend you override these variables in your own `app.scss` file. By not changing the variables files directly, but simply overriding its values, it makes it easier to upgrade Ionic as new versions come out. Once a change is made, the CSS file will be rebuilt using the new values you've specified.
 
 Colors are only one example, however. You'll see throughout the `_variables.scss` file that you can override many different properties, such as padding, font sizes, margins, border colors, widths, heights, etc. There's absolutely no need to change them all, but they are there to be tweaked if you choose to. Below is an example of your `app.scss` file importing `ionic.scss`, then overriding a few variables:
 
-    @import "ionic/ionic.scss"; 
-    
     $light:                 #fff;
     $stable:                #f8f8f8;
     $positive:              #4ea4be;
+
+    // Any variables you did not define will use the defaults
+    @import "ionic/ionic";
 
 
 ## Full Customization

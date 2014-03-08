@@ -13,9 +13,9 @@ Views and Navigation
 
 {% include codepen.html id="HjnFx" %}
 
-As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic's navigation system is its ability to manage multiple histories. 
+As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic's navigation system is its ability to manage multiple histories.
 
-Ionic uses the [AngularUI Router](https://github.com/angular-ui/ui-router) module so app interfaces can be organized into various "states". Like Angular's core `$route` service, URLs _can_ be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much flexibility.
+Ionic uses the [AngularUI Router](https://github.com/angular-ui/ui-router) module so app interfaces can be organized into various "states". Like Angular's core `$route` service, URLs _can_ be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much flexibility. More about the [navView directive here](/docs/angularjs/controllers/nav/).
 
 With Angular's core [$route service](http://docs.angularjs.org/api/ngRoute.$route), the `ngView` was used to render the template of the current route. With the AngularUI Router as the base, Ionic instead uses the `navView` directive to renders templates. One of the largest advantages to `navView` is that views can be nested, and allows multiple nav-views on one page.
 
@@ -108,9 +108,9 @@ If have an `<ion-nav-view>` element, we can also create an `<ion-nav-bar>` which
 <body ng-app="starter">
 
   <!-- The nav bar that will be updated as we navigate -->
-  <ion-nav-bar animation="nav-title-slide-ios7" 
-           type="bar-positive" 
-           back-button-type="button-icon" 
+  <ion-nav-bar animation="nav-title-slide-ios7"
+           type="bar-positive"
+           back-button-type="button-icon"
            back-button-icon="ion-arrow-left-c"></ion-nav-bar>
 
   <!-- where the initial view template will be rendered -->
@@ -143,7 +143,7 @@ angular.module('myApp', ['ionic'])
       url: "/contact",
       templateUrl: "contact.html"
     })
-    
+
     // if none of the above are matched, go to this one
     $urlRouterProvider.otherwise("/home");
 })
@@ -157,7 +157,9 @@ angular.module('myApp', ['ionic'])
 });
 ```
 
-Please visit [AngularUI Router's docs](https://github.com/angular-ui/ui-router/wiki) for more info.
+Please visit [AngularUI Router's docs](https://github.com/angular-ui/ui-router/wiki) for more info. Below is a great video by the AngularUI Router guys that may help to explain how it all works:
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo" frameborder="0" allowfullscreen></iframe>
 
 
 ### Nav Bar And Header Titles
@@ -211,7 +213,7 @@ app.controller('AppCtrl', function($scope) {
   $scope.myTitle = 'Page One';
 
   $scope.leftButtons = [
-    { 
+    {
       type: 'button-positive',
       content: '<i class="icon ion-navicon"></i>',
       tap: function(e) {
@@ -219,7 +221,7 @@ app.controller('AppCtrl', function($scope) {
     }
   ];
   $scope.rightButtons = [
-    { 
+    {
       type: 'button-clear',
       content: 'Edit',
       tap: function(e) {

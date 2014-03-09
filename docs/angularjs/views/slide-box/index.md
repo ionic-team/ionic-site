@@ -90,7 +90,6 @@ To use the slide box in your apps, use the following markup:
 
 <b>Go to slide</b>: 
 The slide index numbers start from 0, 1, 2 .... n.
-
 ```javascript
 var gotoSlide = function(index) {
   $scope.$broadcast('slideBox.setSlide', index);
@@ -98,7 +97,6 @@ var gotoSlide = function(index) {
 ```
 
 <b>Previous slide</b>:
-
 ```javascript
 var prevSlide = function() {
   $scope.$broadcast('slideBox.prevSlide');
@@ -106,12 +104,8 @@ var prevSlide = function() {
 ```
 
 <b>Next slide</b>:
-
 ```javascript
 var nextSlide = function() {
   $scope.$broadcast('slideBox.nextSlide');
 }
 ```
-
-
-

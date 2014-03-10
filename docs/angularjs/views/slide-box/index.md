@@ -93,19 +93,19 @@ The slide index numbers start from 0, 1, 2 .... n.
 ```javascript
 var gotoSlide = function(index) {
   $scope.$broadcast('slideBox.setSlide', index);
-}
+};
 ```
 
 <b>Previous slide</b>:
 ```javascript
 var prevSlide = function() {
   $scope.$broadcast('slideBox.prevSlide');
-}
+};
 ```
 
 <b>Next slide</b>:
 ```javascript
 var nextSlide = function() {
   $scope.$broadcast('slideBox.nextSlide');
-}
+};
 ```

@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-Today we are super excited to announce we've closed $1M in funding from [Arthur Ventures](http://arthurventures.com/), and were featured in a great [TechCrunch writeup](techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/).
+Today we are super excited to announce we've closed $1M in funding from [Arthur Ventures](http://arthurventures.com/), and were featured in a great [TechCrunch writeup](http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/).
 
 With this funding, we are going to focus on making Ionic the best mobile development framework in town, starting with dramatically improving the stability, documentation, and feature set of the framework, and improving our Android and Windows Phone support.
 

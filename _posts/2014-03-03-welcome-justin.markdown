@@ -11,6 +11,8 @@ Today we are happy to announce that [Justin Noel](http://twitter.com/calendee), 
 
 You'll be seeing a lot more of Justin on the Ionic Forums, helping out with any quesitons you might have with Ionic, and also triaging issues for the Ionic core dev team.
 
+<!-- more -->
+
 Justin is a former "enterprise" application developer in the telecommunications industry. After leaving a LAMP development role, he's going all in with JavaScript on the client and server for his new project, [Kids in Touch](http://kidsintouch.com/).
 
 With Justin the Ionic team grows to 8 great people. Join us in welcoming Justin to the Ionic team!

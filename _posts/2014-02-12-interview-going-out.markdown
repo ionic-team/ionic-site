@@ -21,6 +21,8 @@ We interviewed Greg about the GoingApp app, and how they built it:
 
 We also have another Ionic powered app in development for e-tickets, with a barcode scanner. Venues will use it to validate our tickets. The most interesting point about it though is the styling. It didn’t need to be heavily branded so you won’t find a single line of custom CSS…but it still looks smooth!
 
+<!-- more -->
+
 **Me**: How did Ionic help you build your app?
 
 **Greg**: I didn’t appreciate it fully until I had used it but Ionic enforces Rapid Application Development (RAD). This is one area where Ionic and Bootstrap differ. Bootstrap enables RAD, whereas with Ionic you’ll find it a challenge to build a production ready application slowly.

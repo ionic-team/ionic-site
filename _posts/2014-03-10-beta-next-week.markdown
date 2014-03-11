@@ -14,6 +14,8 @@ With this funding, we are going to focus on making Ionic the best mobile develop
 
 Since we launched the Ionic alpha at the end of November 2013, we've been blown away by your passion and excitement for the project. Today, over 200 new Ionic apps are started every day, and we are delighted by all of the [high quality apps](/examples/showcase/) the community is making.
 
+<!-- more -->
+
 Speaking of community, we are so thankful to have a great and growing one. The [forum](http://forum.ionicframework.com/) has seen so much activity in the last month that we had to [hire someone](/blog/welcome-justin/) just to keep up with it! We hosted our first [Meet and Drink](/blog/ionic-meet-and-drink/) a few weeks ago in San Francisco, and had over 30 passionate Ionic developers show up, even though we set it up at the last possible moment. 
 
 We've also seen a lot of people presenting Ionic [around the world](http://blog.yrezgui.com/post/75901414179/ionic-the-badass-html5-mobile-framework-i-did-a). To help with that, we recently created a reusable [Ionic slide deck](http://ionicframework.com/present-ionic/), and we hope to see lots of forks and customizations on this over time.

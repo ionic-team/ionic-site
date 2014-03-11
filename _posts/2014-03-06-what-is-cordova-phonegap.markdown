@@ -16,6 +16,8 @@ PhoneGap proper was created around 2009 by a startup called Nitobi as an open so
 
 In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and the open source core was donated to the [Apache Software Foundation](http://apache.org/) under the name Cordova.
 
+<!-- more -->
+
 ### A rose by any other name
 
 So what is the difference between Cordova and PhoneGap? One helpful analogy Adobe uses is Cordova is to WebKit as PhoneGap is to Chrome. PhoneGap is Cordova plus extra Adobe stuff.

@@ -55,7 +55,7 @@ published: true
 
 <a href="https://twitter.com/GrumpyWizards/status/419428232682020864" target="_blank"><img class="body-image" src="/img/blog/quote.png"></a>
 
-<p>We achieve this by keeping our visual system simple. Ionic gets out of the way by choosing to visually do less, so it’s easier for others to add more. Does it loosely mimic iOS 7? In some ways, yes, without a doubt. However, I would argue that in many ways they inadvertently share the same basic principles: simplicity, reduction of clutter, use of white and solid colors, zero gradients, and hardly any box-shadows or border-radii altercations. Anything more than that, we leave up to you. Oh, and did I mention it’s built on SASS?</p>
+<p>We achieve this by keeping our visual system simple. Ionic gets out of the way by choosing to visually do less, so it’s easier for others to add more. Does it loosely mimic iOS 7? In some ways, yes, without a doubt. However, I would argue that in many ways they inadvertently share the same basic principles: simplicity, reduction of clutter, use of white and solid colors, zero gradients, and hardly any box-shadows or border-radii altercations. Anything more than that, we leave up to you. Oh, and did I mention it’s built on Sass?</p>
 
 <p>With just some basic modifications, an Ionic-powered app can really feel “at home” in both Apple,  Android, and other OS’s. Take advantage of the CSS, utilize the right <a href="http://ionicons.com" target="_blank">icons</a>, and read of up on basic design guidelines for each operating system.</p>
 

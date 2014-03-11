@@ -14,6 +14,8 @@ This means instead of using `<side-menus>`, you'll need to start using `<ion-sid
 We thought long and hard about making this change, and at the end of the day we felt it was more clear which directives were powered by Ionic, and safer in the case that
 you had similiar-named directives in your own application.
 
+<!-- more -->
+
 We know this is going to be annoying and cause upgrade issues. We wanted to get this out of the way before we release the beta so that we can move forward with
 the best possible solution to Ionic namespacing in your apps.
 

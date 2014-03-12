@@ -130,7 +130,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <h3><a href="#subheader">Sub Header</a></h3>
   <p>
-    A secondary header bar can be placed below the original header bar. There are quite a few more ways to customize Headers. Have a look at 
+    A secondary header bar can be placed below the original header bar. There are quite a few more ways to customize Headers. Have a look at
     <a href="#button-bar">Button Bars</a> to get other ideas on how it could be used.
   </p>
 {% highlight html %}
@@ -163,11 +163,11 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     The content area in Ionic is the scrollable viewport of your app.
-    While your headers and footers will be fixed to the top and 
+    While your headers and footers will be fixed to the top and
     bottom, respectively, the content area will fill the remaining available space.
   </p>
   <p class="advanced-panel">
-    <em>*</em> For more content options, see the 
+    <em>*</em> For more content options, see the
     <a href="/docs/angularjs/views/content/">Content</a> docs.
   </p>
 
@@ -213,8 +213,27 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 {% endhighlight %}
 
   <p>
-    Footers have the same color options as the headers, just use <code>bar-footer</code> instead of <code>bar-header</code>.
+    Footers have the same color options as the headers, just use <code>bar-footer</code> instead of <code>bar-header</code>. If a title is present in the footer, any buttons will automatically be placed on the correct side of the title in relation to how the markup was written, such as:
   </p>
+
+{% highlight html %}
+<div class="bar bar-footer">
+  <button class="button button-clear">Left</button>
+  <div class="title">Title</div>
+  <button class="button button-clear">Right</button>
+</div>
+{% endhighlight %}
+
+  <p>
+    Additionally, if no title is present and a right side button is required, you'll need to add
+    <code>pull-right</code> to the right side button, such as:
+  </p>
+
+{% highlight html %}
+<div class="bar bar-footer">
+  <button class="button button-clear pull-right">Right</button>
+</div>
+{% endhighlight %}
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
@@ -289,7 +308,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Buttons</div>
     </div>
     <div class="content has-header padding">
-      
+
       <p><button class="button button-light">button-light</button>
       <p><button class="button button-stable">button-stable</button>
       <p><button class="button button-positive">button-positive</button>
@@ -313,7 +332,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <h3><a href="#block-buttons">Block Buttons</a></h3>
   <p>
-    Adding <code>button-block</code> to a button applies <code>display: block</code> display. 
+    Adding <code>button-block</code> to a button applies <code>display: block</code> display.
     A block button will however go 100% of its parent's width.
     In the example, the button's containing content element also has <code>padding</code> applied,
     so there is some breathing room between the edge of the device and the buttons.
@@ -353,7 +372,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#full-buttons">Full Width Block Buttons</a></h3>
   <p>
     Adding <code>button-full</code> to a button not only applies <code>display: block</code>,
-    but also removes borders on the left and right, and any border-radius which may be applied. 
+    but also removes borders on the left and right, and any border-radius which may be applied.
     This style is useful when the button should stretch across the entire width of the display.
     Additionally, the button's parent element <em>does not</em> have <code>padding</code> applied.
   </p>
@@ -393,10 +412,10 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     Use <code>button-outline</code> to apply an outline button style, which also
-    has a transparent background. 
+    has a transparent background.
   </p>
   <p>
-    <strong>Note:</strong> The text and border will take the color of the applied button style, meaning 
+    <strong>Note:</strong> The text and border will take the color of the applied button style, meaning
     <code>button-positive</code> will result in blue text and border, with a transparent background.
   </p>
 
@@ -455,7 +474,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     Add <code>button-clear</code> to remove the border and make the text stand out.
   </p>
   <p>
-    <strong>Note:</strong> The text will take the color of the applied button style, meaning 
+    <strong>Note:</strong> The text will take the color of the applied button style, meaning
     <code>button-positive</code> will result in blue text and no border instead of a blue background.
   </p>
 
@@ -576,8 +595,8 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#buttons-headers-footers">Buttons in Headers</a></h3>
 
   <p>
-    When buttons are placed in headers or footers, they take the style of the 
-    bar by default, so you don't have to use the extra style classes. 
+    When buttons are placed in headers or footers, they take the style of the
+    bar by default, so you don't have to use the extra style classes.
     To change this, add the desired style class.
   </p>
 
@@ -641,7 +660,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <h3><a href="#button-bar">Button Bar</a></h3>
   <p>
-    Buttons can also be easily grouped together using the <code>button-bar</code> classname. 
+    Buttons can also be easily grouped together using the <code>button-bar</code> classname.
     In this example, a button bar was added to the default header bar, as well as in the main content area of the screen.
   </p>
 
@@ -741,12 +760,12 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#list">List</a></h3>
 
   <p>
-    The List is a common and simple way of displaying... that's right, a list. This is a widely 
-    used interface across most current mobile OS's, and can include content ranging from basic 
-    text all the way to buttons, toggles, icons, and thumbnails. 
+    The List is a common and simple way of displaying... that's right, a list. This is a widely
+    used interface across most current mobile OS's, and can include content ranging from basic
+    text all the way to buttons, toggles, icons, and thumbnails.
   </p>
   <p>
-    The list view is a very versitile and powerful component. List views support various interaction modes such as editing, swipe to edit, drag to reorder, and pull to refresh. 
+    The list view is a very versitile and powerful component. List views support various interaction modes such as editing, swipe to edit, drag to reorder, and pull to refresh.
   </p>
   <p>
     For more power you can use Ionic's AngularJS directives. Check out the <a href="/docs/angularjs/views/list/">AngularJS list docs</a> to get more detailed information.
@@ -823,9 +842,9 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     List items can also be dividers to organize and group the list items. Use the <code>item-divider</code>
-    class to create a divider for any child element of the list. 
+    class to create a divider for any child element of the list.
     By default list item dividers will have a different background color and font-weight,
-    but this is easily customizable. 
+    but this is easily customizable.
   </p>
 
 {% highlight html %}
@@ -850,7 +869,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     </div>
 
     <div class="content has-header ionic-pseudo">
-      
+
       <div class="list">
 
         <div class="item item-divider">
@@ -872,7 +891,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
         <a class="item" href="#">
           Twix
         </a>
-        
+
         <div class="item item-divider">
           Hard Candy
         </div>
@@ -910,7 +929,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     Lists can have icons assigned either to the left and/or right side of each list item,
-    and the alignment classes should be assigned to each <code>item</code> element. Icons can easily 
+    and the alignment classes should be assigned to each <code>item</code> element. Icons can easily
     be added to any item by using either the built in Ionicons, or
     any custom font-pack you choose. <a href="#icons">Learn more about icons</a>.
   </p>
@@ -920,12 +939,12 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     will need to be applied.
   </p>
   <p>
-    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire 
+    This example uses an <code>&lt;a&gt;</code> element for each item, which allows the entire
     list item to be tappable. If the item is an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>
     element, and no icon has been added to the right, then a small right arrow will automatically be added.
   </p>
   <p>
-    In the example, the first item only has a left aligned icon. The second item has both 
+    In the example, the first item only has a left aligned icon. The second item has both
     left and right side icons. The third item has no a right side icon assigned (whichs defaults to the right arrow). Additionally, the third item also adds an <code>item-note</code>. The fourth
     icon has added a <code>badge</code> element.
   </p>
@@ -966,7 +985,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">List Icons</div>
     </div>
     <div class="content has-header ionic-pseudo">
-      
+
       <div class="list">
 
         <a class="item item-icon-left" href="#">
@@ -1095,7 +1114,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#item-avatars">List Avatars</a></h3>
 
   <p>
-    List avatars are essentially a showcase of an image larger than an icon, but smaller than a thumbnail. 
+    List avatars are essentially a showcase of an image larger than an icon, but smaller than a thumbnail.
     To create a avatar list, use the <code>list-avatar</code> classname.
   </p>
 
@@ -1180,7 +1199,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#item-thumbnails">List Thumbnails</a></h3>
 
   <p>
-    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>item-thumbnail-left</code> to have it align on the left, and <code>item-thumbnail-right</code> for the right side. 
+    List Thumbnails are essentially a showcase of an image larger than an icon, and will often span/define the entire height of the list item. To create a thumbnail style list, use the <code>item-thumbnail-left</code> to have it align on the left, and <code>item-thumbnail-right</code> for the right side.
   </p>
 
 {% highlight html %}
@@ -1196,7 +1215,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
 </div>
 {% endhighlight %}
-  
+
   <p>
     <a href="http://codepen.io/ionic/pen/isfAJ">Quick ng-repeat demo</a>
   </p>
@@ -1274,7 +1293,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Cards</div>
     </div>
     <div class="content has-header">
-    
+
       <div class="card">
         <div class="item item-text-wrap">
           This is a basic Card which contains an item that has wrapping text.
@@ -1378,7 +1397,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Card Lists</div>
     </div>
     <div class="content has-header ionic-pseudo">
-    
+
       <div class="list card">
 
         <a href="#" class="item item-icon-left">
@@ -1446,7 +1465,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Cards</div>
     </div>
     <div class="content has-header ionic-pseudo">
-    
+
       <div class="list card">
 
         <div class="item item-avatar">
@@ -1480,7 +1499,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#card-showcase">Card Showcase</a></h3>
 
   <p>
-    Here is a showcase of a card using several different items. It begins with the <code>list card</code> element, utilizing the <code>item-avatar</code> list item, an <code>item-body</code> element for images and text, and a footer with the <code>item-divider</code> classname. 
+    Here is a showcase of a card using several different items. It begins with the <code>list card</code> element, utilizing the <code>item-avatar</code> list item, an <code>item-body</code> element for images and text, and a footer with the <code>item-divider</code> classname.
   </p>
 
 {% highlight html %}
@@ -1528,7 +1547,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Cards</div>
     </div>
     <div class="content has-header">
-    
+
       <div class="list card">
 
         <div class="item item-avatar">
@@ -1582,11 +1601,11 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     A <code>list</code> is also used to group related input elements. Both <code>item-input</code>
-    and <code>item</code> is then used to designate each individual input field and it's 
+    and <code>item</code> is then used to designate each individual input field and it's
     associated label.
   </p>
   <p>
-    Ionic prefers to create the <code>item-input</code> out of the <code>&lt;label&gt;</code> element 
+    Ionic prefers to create the <code>item-input</code> out of the <code>&lt;label&gt;</code> element
     so that when any part of the row is tapped then the underlying input receives focus.
   </p>
   <p>
@@ -1624,8 +1643,8 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#forms-placeholder-labels">Text Input: Placeholder Labels</a></h3>
 
   <p>
-    In the example, it'll default to 100% width (no borders on the left and right), and uses the 
-    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter 
+    In the example, it'll default to 100% width (no borders on the left and right), and uses the
+    <code>placeholder</code> attribute to simulate the input's label. Then the user begins to enter
     text into the input the placeholder label will be hidden. Notice how <code>&lt;textarea&gt;</code> can also be used as a multi-line text input.
   </p>
 
@@ -1676,11 +1695,11 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#forms-inline-labels">Text Input: Inline Labels</a></h3>
 
   <p>
-    Use <code>input-label</code> to place a label to the left of the input element. When the user 
+    Use <code>input-label</code> to place a label to the left of the input element. When the user
     enters text the label does not hide. Note that there's nothing stopping you from also
     using a <code>placeholder</code> label too.
   </p>
-  
+
 {% highlight html %}
 <div class="list">
   <label class="item item-input">
@@ -1729,7 +1748,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     Stacked labels always places the label on top of the input. Each item should
     have <code>item-stacked-label</code> assigned, and the input's label
     should have <code>input-label</code> assigned.
-    This example also uses the <code>placeholder</code> attribute so 
+    This example also uses the <code>placeholder</code> attribute so
     user's have a hint of what type of text the input is looking for.
   </p>
 
@@ -1886,7 +1905,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#input-icons">Input Icons</a></h3>
 
   <p>
-    Icons can be easily added to the left of an <code>item-input</code> input. Simply add an 
+    Icons can be easily added to the left of an <code>item-input</code> input. Simply add an
     <a href="#icons">icon</a> before the <code>&lt;input&gt;</code>. By default the icon
     will take the color of label text. However, you can also use add <code>placeholder-icon</code>
     to give it a placeholder color.
@@ -1964,7 +1983,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#toggle">Toggle</a></h3>
 
   <p>
-    A toggle technically is the same thing as an HTML checkbox input, 
+    A toggle technically is the same thing as an HTML checkbox input,
     except it looks different and is easier to use on a touch device. Ionic prefers
     to wrap the checkbox input with the <code>&lt;label&gt;</code> in order
     to make the entire toggle easy to tap or drag.
@@ -2007,7 +2026,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Toggle</div>
     </div>
     <div class="content has-header">
-        
+
       <ul class="list">
         <li class="item item-toggle">
            HTML5
@@ -2080,12 +2099,12 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     A checkbox is no different than the HTML checkbox input, except it's
-    styled differently. This is an example of multiple checkboxes within a list. 
-    Note the <code>item-checkbox</code> class was added along side 
+    styled differently. This is an example of multiple checkboxes within a list.
+    Note the <code>item-checkbox</code> class was added along side
     <code>item</code> for each item.
   </p>
   <p>
-    Ionic prefers to use the <code>&lt;label&gt;</code> element for a checkbox 
+    Ionic prefers to use the <code>&lt;label&gt;</code> element for a checkbox
     item in order to make the entire checkbox tappable.
   </p>
 
@@ -2110,7 +2129,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     </div>
 
     <div class="content has-header">
-        
+
       <ul class="list">
         <li class="item item-checkbox">
            <label class="checkbox">
@@ -2159,7 +2178,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#radio-buttons">Radio Button List</a></h3>
 
   <p>
-    Radio buttons act no differently as standard radio input elements. Following this 
+    Radio buttons act no differently as standard radio input elements. Following this
     convention will display a list of radio buttons similarly seen in modern app.
   </p>
   <p>
@@ -2349,7 +2368,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#tabs">Tabs</a></h3>
 
   <p>
-    Tabs are a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation. 
+    Tabs are a horizontal region of buttons or links that allow for a consistent navigation experience between screens. It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
   </p>
   <p class="advanced-panel">
     <em>*</em> For building tabbed interfaces, see the
@@ -2561,7 +2580,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#grid">Grid</a></h3>
 
   <p>
-    Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard. 
+    Ionic's grid system is different than most because of its use of the <a href="http://www.w3.org/TR/css3-flexbox/">CSS Flexible Box Layout Module</a> standard.
     The advantage here is that the devices that Ionic supports, all support <a href="http://caniuse.com/flexbox">flexbox</a>.
   </p>
 
@@ -2582,7 +2601,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Grid</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -2597,7 +2616,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-50">
           <div class="col-demo">.col</div>
@@ -2609,7 +2628,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -2621,7 +2640,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">Line 1</div>
@@ -2630,7 +2649,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-top">
           <div class="col-demo">Line 1</div>
@@ -2639,7 +2658,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-center">
           <div class="col-demo">Line 1</div>
@@ -2648,7 +2667,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">Line 1<br>Line 2<br>Line 3</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-bottom">
           <div class="col-demo">Line 1</div>
@@ -2694,7 +2713,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Evenly Spaced Columns</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -2726,7 +2745,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <h3><a href="#grid-explicit">Grid: Explicit Column Sizes</a></h3>
   <p>
-    You <em>can</em> explicitly state the size of a column if for example you'd want specific columns to be larger than the others in the same row. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid). 
+    You <em>can</em> explicitly state the size of a column if for example you'd want specific columns to be larger than the others in the same row. By default each column will evenly take up the available area, but in the case where a column should be a certain size, Ionic's grid uses a percent system (in contrast to a locked in 12 column grid).
   </p>
   <p>
     An advantage with this grid system is that you only have to state the percentage for the column that needs it, and the others will still evenly divide up the available areas.
@@ -2813,7 +2832,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Explicit Column Sizes</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row">
         <div class="col col-50">
           <div class="col-demo">.col.col-50</div>
@@ -2825,7 +2844,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-75">
           <div class="col-demo">.col.col-75</div>
@@ -2834,7 +2853,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -2843,7 +2862,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col.col-75</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -2866,7 +2885,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <h3><a href="#grid-offset">Grid: Offset Columns</a></h3>
   <p>
-    Columns can also be offset from the left. We'll let the code and demo speak for itself. 
+    Columns can also be offset from the left. We'll let the code and demo speak for itself.
   </p>
 
 
@@ -2943,7 +2962,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Offset Columns</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row">
         <div class="col col-33 col-offset-33">
           <div class="col-demo">.col</div>
@@ -2952,7 +2971,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-33">
           <div class="col-demo">.col</div>
@@ -2961,7 +2980,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">.col</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-33 col-offset-67">
           <div class="col-demo">.col</div>
@@ -3035,7 +3054,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Vertically Aligned Columns</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -3050,7 +3069,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">1<br>2<br>3<br>4</div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col col-top">
           <div class="col-demo">.col</div>
@@ -3065,7 +3084,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">1<br>2<br>3<br>4</div>
         </div>
       </div>
-      
+
       <div class="row row-top">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -3080,7 +3099,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">1<br>2<br>3<br>4</div>
         </div>
       </div>
-      
+
       <div class="row row-center">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -3095,7 +3114,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <div class="col-demo">1<br>2<br>3<br>4</div>
         </div>
       </div>
-      
+
       <div class="row row-bottom">
         <div class="col">
           <div class="col-demo">.col</div>
@@ -3129,7 +3148,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
     certain breakpoints.
   </p>
   <p>
-    For example, if you want a row of columns to turn in to stacked rows when the 
+    For example, if you want a row of columns to turn in to stacked rows when the
     viewport is pretty small, you would use the <code>.responsive-sm</code> class. The
     example to the right is a simulation of what it'd look like.
   </p>
@@ -3175,8 +3194,8 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   </table>
 
   <p>
-    For further configuration, each class uses a <a href="/tutorials/customizing-ionic-with-sass/">Sass</a> 
-    variable that can be changed to your liking. There's also a <code>responsive-grid-break</code> 
+    For further configuration, each class uses a <a href="/tutorials/customizing-ionic-with-sass/">Sass</a>
+    variable that can be changed to your liking. There's also a <code>responsive-grid-break</code>
     mixin you can use to create your own classes.
   </p>
 
@@ -3185,7 +3204,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Responsive Grid</div>
     </div>
     <div class="content has-header">
-      
+
       <div class="row responsive-break">
         <div class="col" style="width: 100%">
           <div class="col-demo">.col</div>
@@ -3230,7 +3249,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
   <h3><a href="#colors">Colors</a></h3>
 
   <p>
-    Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc. 
+    Ionic comes with a set of colors to start with, but as a general rule <strong>colors are meant to be overridden</strong>. We prefer saying that Ionic provides a recommended naming convention for your colors, swatches, themes, etc.
   </p>
 
   <p>
@@ -3254,7 +3273,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Utility Colors</div>
     </div>
     <div class="content has-header">
-      
+
       <ul class="list color-list-demo">
         <li class="item dark">
           light
@@ -3283,7 +3302,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
         <li class="item assertive">
           assertive
           <span class="color-demo assertive-bg assertive-border"></span>
-        </li>        
+        </li>
         <li class="item royal">
           royal
           <span class="color-demo royal-bg royal-border"></span>
@@ -3293,7 +3312,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
           <span class="color-demo dark-bg dark-border"></span>
         </li>
       </ul>
- 
+
     </div>
   </div>
 
@@ -3328,7 +3347,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Ionicons</div>
     </div>
     <div class="content has-header padding">
-      
+
       <ul class="ionicons-demo">
         <li class="ion-ionic" data-pack="default" data-tags="badass, framework, sexy, hawt"></li>
         <li class="ion-arrow-up-a" data-pack="default" data-tags=""></li>
@@ -3431,13 +3450,13 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 
   <p>
     Many components in Ionic purposely have both padding and margin reset set to zero.
-    In many instances apps will have components bleed to the edge of the screen, 
-    and by starting each component at zero developers can easily control padding and margins throughout the app. 
+    In many instances apps will have components bleed to the edge of the screen,
+    and by starting each component at zero developers can easily control padding and margins throughout the app.
   </p>
   <p>
-    The <code>padding</code> utility classes can be reused to give any element's content some breathing room, 
-    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content. 
-    The following classes are not required for any element, but may be helpful with your layout. 
+    The <code>padding</code> utility classes can be reused to give any element's content some breathing room,
+    meaning it adds a default <code>15px</code> between the outer box of the element and its inner content.
+    The following classes are not required for any element, but may be helpful with your layout.
   </p>
   <ul>
     <li>
@@ -3468,7 +3487,7 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
       <div class="h1 title">Padding</div>
     </div>
     <div class="content has-header padding">
-      
+
       <div class="padding-example">
         <div></div>
       </div>

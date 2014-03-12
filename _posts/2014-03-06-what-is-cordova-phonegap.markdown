@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "What the Cordova?"
+title:  "The Last Word on Cordova and PhoneGap"
 date:   "2014-03-06 08:00:00"
 hide_date: true
 categories: ionic

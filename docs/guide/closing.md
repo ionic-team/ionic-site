@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Closing thoughts"
-active: guide
 chapter: closing
 ---
 

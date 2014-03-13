@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Building the UI for Todo"
-active: guide
 chapter: starting
 ---
 
@@ -26,7 +25,7 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
     <link href="css/ionic.css" rel="stylesheet">
 
     <script src="js/ionic.bundle.js"></script>
-    
+
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <script src="cordova.js"></script>
   </head>
@@ -114,7 +113,7 @@ Update the body content to be:
 
 Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are four ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, in a mobile browser on your phone, or as a native app on the phone.
 
-### Desktop browser testing 
+### Desktop browser testing
 
 Unless you are using custom Cordova plugins, or a lot of Cordova specific code, it's very easy to test in the desktop browser. The easiest thing is to `cd` into the `www` folder, and run
 
@@ -128,7 +127,7 @@ This will start a tiny web server hosting all of the files in the `www` folder. 
 
 Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!
 
-### Simulator testing 
+### Simulator testing
 
 You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, `cd` into the root of the project (one level up from the `www` folder), and run:
 
@@ -145,7 +144,7 @@ $ cordova prepare ios
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
 
-### Mobile browser testing 
+### Mobile browser testing
 
 You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to [enable the remote web inspector](http://moduscreate.com/enable-remote-web-inspector-in-ios-6/) on both the device and Safari on desktop. To debug iOS 7 apps, you'll need to upgrade to Safari 6.1 which was released on October 22nd, 2013. Android apps supporting Android 4.4 or above can also use Chrome for remote debugging. Check out the Android docs for [more info](http://developer.android.com/guide/webapps/debugging.html).
 

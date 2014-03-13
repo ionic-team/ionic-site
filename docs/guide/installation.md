@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Installing Ionic and its Dependencies"
-active: guide
 chapter: installation
 ---
 
@@ -33,7 +32,7 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
 
 <div id="android-linux-note" class="collapse well">
 <p>
-  If you are running a 64-bit version of Ubuntu, you'll need to install the 32-bit libraries since Android is only 32-bit at the moment. 
+  If you are running a 64-bit version of Ubuntu, you'll need to install the 32-bit libraries since Android is only 32-bit at the moment.
   <code>$ sudo apt-get install ia32-libs</code>
 </p>
 </div>

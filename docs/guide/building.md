@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Building out the Todo App"
-active: guide
 chapter: building
 ---
 
@@ -15,7 +14,7 @@ So, let's take another look at our mockup:
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup">
 
-We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native apps. Luckily, adding them is really simple. 
+We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native apps. Luckily, adding them is really simple.
 
 Since we are using AngularJS, we are going to use the <a href="http://docs.angularjs.org/api/ng.directive:ngRepeat">`ng-repeat`</a> directive to create a new list item for every single task we have in a given project:
 

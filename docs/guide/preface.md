@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Welcome to Ionic"
-active: guide
 chapter: preface
 ---
 
@@ -19,7 +18,7 @@ But they also have drawbacks. On older devices, Hybrid apps run slower than nati
 
 We get a lot of questions asking where Ionic fits into the mobile development stack. Think of Ionic as the front-end UI framework that handles all of the look and feel and UI interactions your app needs in order to be compelling. Kind of like "Bootstrap for Native," with support for a broad range of common native mobile components, slick animations, and beautiful design. Ionic also gives you some opinionated but powerful ways to build mobile applications that eclipse existing HTML5 development frameworks.
 
-Since Ionic is an HTML5 framework, it needs a native wrapper like Cordova or PhoneGap in order to run as a native app. Ionic does not come with any backend services, though we have a few favorites that we are happy to recommend (more on that later). 
+Since Ionic is an HTML5 framework, it needs a native wrapper like Cordova or PhoneGap in order to run as a native app. Ionic does not come with any backend services, though we have a few favorites that we are happy to recommend (more on that later).
 
 ## Why did we build Ionic?
 
@@ -29,7 +28,7 @@ With Ionic, we wanted to build an HTML5 mobile development framework that was fo
 
 In fact, we felt that the history of web technologies living in the browser application was holding back its potential in the native environment. So with Ionic, we have liberated the developer from fitting their app into neat sections that can be linked through URLs, and we are focused on application layouts not content layouts. We've taken a native design to everything, and it might be a bit of a change for web developers. Trust us, it's worth it.
 
-And above all, we wanted to make sure Ionic was as open source as possible, both by having a permissive open source license that could be used in both commercial and open source apps, but by cultivating a strong community around the project. We felt there were too many frameworks that were *technically* open source, but were not open source in spirit or were not possible to use 
+And above all, we wanted to make sure Ionic was as open source as possible, both by having a permissive open source license that could be used in both commercial and open source apps, but by cultivating a strong community around the project. We felt there were too many frameworks that were *technically* open source, but were not open source in spirit or were not possible to use
 
 ## Who makes Ionic?
 

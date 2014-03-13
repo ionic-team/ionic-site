@@ -1,7 +1,6 @@
 ---
-layout: docs_0.9.0
+layout: docs_guide
 title: "Publishing the Todo App"
-active: guide
 chapter: publishing
 ---
 
@@ -12,7 +11,7 @@ Now that we have a working app, we are ready to push it live to the world! Since
 So first, we need to generate a release build of our app, targeted at each platform we wish to deploy on. Before we deploy, we should take care to adjust plugins needed during development that should not be in production mode. For example, we probably don't want the debug console plugin enabled, so we should remove it before generating the release builds:
 
 ```bash
-$ cordova plugin rm org.apache.cordova.console 
+$ cordova plugin rm org.apache.cordova.console
 ```
 
 # Android Publishing
@@ -83,6 +82,6 @@ When you are ready, upload the APK for the release build and publish the listing
 
 ## Updating your App
 
-As you develop your app, you'll want to update it periodically. 
+As you develop your app, you'll want to update it periodically.
 
 In order for the Google Play Store to accept updated APKs, you'll need to edit the `platforms/android/AndroidManifest.xml` file to increment the `android:versionCode` value.

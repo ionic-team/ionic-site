@@ -91,18 +91,18 @@ Update the body content to be:
 
     <!-- Center content -->
     <ion-pane ion-side-menu-content>
-      <header class="bar bar-header bar-dark">
+      <ion-header-bar class="bar bar-header bar-dark">
         <h1 class="title">Todo</h1>
-      </header>
+      </ion-header-bar>
       <ion-content has-header="true">
       </ion-content>
     </ion-pane>
 
     <!-- Left menu -->
     <ion-side-menu side="left">
-      <header class="bar bar-header bar-dark">
+      <ion-header-bar class="bar bar-header bar-dark">
         <h1 class="title">Projects</h1>
-      </header>
+      </ion-header-bar>
     </ion-side-menu>
 
   </ion-side-menus>

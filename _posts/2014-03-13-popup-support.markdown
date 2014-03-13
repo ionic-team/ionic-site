@@ -28,6 +28,8 @@ We designed the popup experience off of how they function in iOS, meaning the mo
 Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously 
 return prompt data to your code. We do this through Angular promises.
 
+<!-- more -->
+
 A call to prompt a user for a password looks like this with the new popup system (make sure to inject `$ionicPopup` into your controller):
 
 ```javascript

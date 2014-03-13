@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "View State Service"
 header_sub_title: "Navigation and history stack"

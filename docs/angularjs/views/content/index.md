@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Content"
 header_sub_title: "Content and scrollable areas"
@@ -129,7 +129,7 @@ The `<ion-content>` directive can be used anywhere to define a scrollable conten
 
     <!-- for pull to refresh -->
     <ion-refresher></ion-refresher>
-    
+
     <!-- content -->
   </ion-content>
 

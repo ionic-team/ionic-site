@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Tab Bar Controller"
 header_sub_title: "Multi-page tab interfaces"
@@ -127,7 +127,7 @@ The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set 
   <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
     <!-- Tab 3 content -->
   </ion-tab>
-  
+
 </ion-tabs>
 ```
 {% endraw %}

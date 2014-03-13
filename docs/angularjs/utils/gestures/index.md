@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Gestures"
 header_sub_title: "Touch interaction for your apps"
@@ -32,7 +32,7 @@ angular.module('myModule', [])
         // Access e.gesture for gesture related information
         console.log('Drag: ', e.gesture.touches[0].pageX, e.gesture.touches[0].pageY, e.gesture.deltaX, e.gesture.deltaY);
       };
-  
+
       var dragGesture = Gesture.on('drag', handleDrag, $element);
 
       $scope.$on('$destroy', function() {

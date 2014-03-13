@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Action Sheet"
 header_sub_title: "Slide in prompts for actions"
@@ -38,7 +38,7 @@ angular.module('test', ['ionic'])
         { text: 'Share' },
         { text: 'Move' },
       ],
-  
+
       // The text of the red destructive button
       destructiveText: 'Delete',
 

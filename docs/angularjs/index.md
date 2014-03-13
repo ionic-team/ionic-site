@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: AngularJS Extensions
 header_sub_title: Extend Ionic even further with the power of AngularJS

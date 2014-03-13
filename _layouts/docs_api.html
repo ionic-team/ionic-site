@@ -6,11 +6,7 @@
     {% include head_includes.html %}
   </head>
 
-  {% if page.full %}
-  <body class="body-full {% if page.body_css %}{{ page.body_css }}{% else %}docs-page{% endif %}">
-  {% else %}
-  <body class="docs {% if page.body_css %}{{ page.body_css }}{% else %}docs-page{% endif %}">
-  {% endif %}
+  <body class="docs docs-page docs-api">
 
     {% include nav_links.html %}
 
@@ -22,7 +18,7 @@
 
         <div class="col-md-2 col-sm-3 aside-menu">
 
-          <div class="docked-menu">
+          <div>
 
             <ul class="nav left-menu">
               <li class="menu-title">

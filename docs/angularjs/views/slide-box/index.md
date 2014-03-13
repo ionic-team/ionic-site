@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Slide Box"
 header_sub_title: "A draggable paging component"

@@ -1,5 +1,5 @@
 ---
-layout: docs_0.9.0
+layout: docs_api
 active: angularjs
 title: "Headers"
 header_sub_title: "Headers"
@@ -39,7 +39,7 @@ For example, to specify left buttons, you can set `$scope.leftButtons` to be:
 
 ```javascript
 $scope.leftButtons = [
-  { 
+  {
     type: 'button-positive',
     content: '<i class="icon ion-navicon"></i>',
     tap: function(e) {

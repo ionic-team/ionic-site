@@ -97,13 +97,13 @@ The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set 
       <td>If 'badge' attribute is provided, sets the style of the badge. For example, 'badge-assertive'.</td>
     </tr>
     <tr>
-      <td>leftButtons</td>
+      <td>left-buttons</td>
       <td><b>expression</b></td>
       <td></td>
       <td>The left buttons to put on the ion-nav-bar while this tab is selected.</td>
     </tr>
     <tr>
-      <td>rightButtons</td>
+      <td>right-buttons</td>
       <td><b>expression</b></td>
       <td></td>
       <td>The right buttons to put on the ion-nav-bar while this tab is selected.</td>

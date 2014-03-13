@@ -121,7 +121,7 @@ Unless you are using custom Cordova plugins, or a lot of Cordova specific code, 
 $ python -m SimpleHTTPServer 8000
 ```
 
-This will start a tiny web server hosting all of the files in the `www` folder. All you have to do to test it is open Chrome or Safari and navigate to `http://localhost:8000`. You should see something that looks like this:
+Substitute SimpleHTTPServer with http.server if your Python version is 3.x (run `python --version` to check). This will start a tiny web server hosting all of the files in the `www` folder. All you have to do to test it is open Chrome or Safari and navigate to `http://localhost:8000`. You should see something that looks like this:
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 

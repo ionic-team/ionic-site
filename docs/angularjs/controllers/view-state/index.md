@@ -206,6 +206,8 @@ Inside of each `<ion-view>` we can specify the title, left buttons, and right bu
 </ion-view>
 ```
 
+To hide the back button for a given view, use the `hide-back-button="true"` attribute on the `<ion-view>`.
+
 Which we can specify in our controller to be:
 
 ```javascript

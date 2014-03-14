@@ -199,16 +199,16 @@ Next, in each state's template should contain a `view` directive, which provides
 {% endraw %}
 ```
 
-Inside of each `<ion-view>` we can specify the title, left buttons, and right buttons that will be updated on the nav bar:
+Inside of each `<ion-view>` we can specify the title, left buttons, and right buttons that will be updated on the nav bar.
+
+Note: To hide the back button for a given view, use the `hide-back-button="true"` attribute on the `<ion-view>`.
 
 ```html
 <ion-view ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons">
 </ion-view>
 ```
 
-To hide the back button for a given view, use the `hide-back-button="true"` attribute on the `<ion-view>`.
-
-Which we can specify in our controller to be:
+We can then specify these fields on the scope in our controller:
 
 ```javascript
 app.controller('AppCtrl', function($scope) {

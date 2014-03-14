@@ -2,16 +2,9 @@
 .docs-api .left-menu {
 
   .menu-subsection {
+    color: #666;
     font-weight: bold;
-  }
-
-  .menu-subsection.active {
-    border-color: #72a4f8;
-  }
-
-  .menu-subsection.active > a {
-    border: none;
-    color: #444;
+    text-transform: capitalize;
   }
 
   .menu-item {

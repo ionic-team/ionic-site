@@ -149,7 +149,9 @@ pre {
 .device-preview-page .docs-section {
   padding-bottom: 60px;
   min-height: 320px;
-  transition: opacity .15s ease-in-out;
+}
+
+.docs-section {
 
   h2 {
     padding-bottom: 16px;
@@ -403,6 +405,11 @@ pre {
   h3 {
     color: #333;
     font-family: $font-family-medium;
+    margin-top: 8px;
+  }
+
+  h4 {
+    margin-bottom: 8px;
   }
 
   p {

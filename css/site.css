@@ -4964,6 +4964,9 @@ h1, h2, h3, h4, h5, h6 {
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0; }
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #333333; }
+
 h1 + h2 {
   margin-top: 0;
   color: #666;
@@ -5408,19 +5411,19 @@ pre {
 
 .device-preview-page .docs-section {
   padding-bottom: 60px;
-  min-height: 320px;
-  transition: opacity .15s ease-in-out; }
-  .device-preview-page .docs-section h2 {
-    padding-bottom: 16px; }
-  .device-preview-page .docs-section h1 a, .device-preview-page .docs-section h2 a, .device-preview-page .docs-section h3 a {
-    color: #999; }
-  .device-preview-page .docs-section h1 a:hover,
-  .device-preview-page .docs-section h2 a:hover,
-  .device-preview-page .docs-section h3 a:hover {
-    color: #111;
-    text-decoration: none; }
-  .device-preview-page .docs-section.active h2 a, .device-preview-page .docs-section.active h3 a {
-    color: #222; }
+  min-height: 320px; }
+
+.docs-section h2 {
+  padding-bottom: 16px; }
+.docs-section h1 a, .docs-section h2 a, .docs-section h3 a {
+  color: #999; }
+.docs-section h1 a:hover,
+.docs-section h2 a:hover,
+.docs-section h3 a:hover {
+  color: #111;
+  text-decoration: none; }
+.docs-section.active h2 a, .docs-section.active h3 a {
+  color: #222; }
 
 .doc-example {
   display: none; }
@@ -5580,7 +5583,10 @@ pre {
     margin-top: 50px; }
   .docs-home-row h3 {
     color: #333;
-    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 8px; }
+  .docs-home-row h4 {
+    margin-bottom: 8px; }
   .docs-home-row p {
     color: #888;
     font-size: 13px;
@@ -5603,12 +5609,9 @@ pre {
     background: #eee; }
 
 .docs-api .left-menu .menu-subsection {
-  font-weight: bold; }
-.docs-api .left-menu .menu-subsection.active {
-  border-color: #72a4f8; }
-.docs-api .left-menu .menu-subsection.active > a {
-  border: none;
-  color: #444; }
+  color: #666;
+  font-weight: bold;
+  text-transform: capitalize; }
 .docs-api .left-menu .menu-item {
   padding-left: 10px; }
 

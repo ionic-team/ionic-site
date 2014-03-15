@@ -5608,12 +5608,28 @@ pre {
   .getting-started-row .highlight {
     background: #eee; }
 
-.docs-api .left-menu .menu-subsection {
+.docs-api .left-menu .menu-group {
+  text-transform: capitalize;
   color: #666;
+  padding-left: 4px; }
+  .docs-api .left-menu .menu-group.active {
+    color: #8db6fa; }
+.docs-api .left-menu .menu-section {
+  text-transform: lowercase;
+  color: #888;
   font-weight: bold;
-  text-transform: capitalize; }
+  margin: 0;
+  padding-left: 8px; }
 .docs-api .left-menu .menu-item {
-  padding-left: 10px; }
+  padding-left: 12px; }
+.docs-api .left-menu .menu-group-container .menu-section,
+.docs-api .left-menu .menu-group-container .menu-item {
+  display: none; }
+.docs-api .left-menu .menu-group-container.active .menu-group {
+  font-weight: bold; }
+.docs-api .left-menu .menu-group-container.active .menu-section,
+.docs-api .left-menu .menu-group-container.active .menu-item {
+  display: block; }
 
 .picker {
   position: absolute;
@@ -6346,7 +6362,7 @@ a {
    *
    */
   /*!
-    Ionicons, v#1.4.1
+    Ionicons, v1.4.1
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/benjsperry  https://twitter.com/ionicframework
     MIT License: https://github.com/driftyco/ionicons

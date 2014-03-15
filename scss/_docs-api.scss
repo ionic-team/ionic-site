@@ -1,14 +1,39 @@
 
 .docs-api .left-menu {
 
-  .menu-subsection {
-    color: #666;
-    font-weight: bold;
+  .menu-group {
     text-transform: capitalize;
+    color: #666;
+    padding-left: 4px;
+    &.active {
+      color: #8db6fa
+    }
+  }
+  .menu-section {
+    text-transform: lowercase;
+    color: #888;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 8px;
+  }
+  .menu-item {
+    padding-left: 12px;
   }
 
-  .menu-item {
-    padding-left: 10px;
+  .menu-group-container {
+    .menu-section,
+    .menu-item {
+      display: none;
+    }
+    &.active {
+      .menu-group {
+        font-weight: bold;
+      }
+      .menu-section,
+      .menu-item {
+        display: block;
+      }
+    }
   }
 
 }

@@ -82,18 +82,6 @@ Also, we are working on virtual list rendering which will only work when using I
       <td>Whether the scroll view should allow bouncing past the edges of content.</td>
     </tr>
     <tr>
-      <td>on-refresh</td>
-      <td><b>expression</b></td>
-      <td></td>
-      <td>Expression to evaluate on refresh completion.</td>
-    </tr>
-    <tr>
-      <td>on-refresh-opening</td>
-      <td><b>expression</b></td>
-      <td></td>
-      <td>Expression to evaluate when refresher is opening.</td>
-    </tr>
-    <tr>
       <td>on-scroll</td>
       <td><b>expression</b></td>
       <td></td>
@@ -110,6 +98,57 @@ Also, we are working on virtual list rendering which will only work when using I
 
 \<ion-content\> also supports options to pass to scrollView: `startX`, `startY`, `scrollbarX`, `scrollbarY`, `scrollingX`, `scrollingY`, `scrollEventInterval`.
 
+## \<ion-refresher\>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>on-refresh</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate on refresh completion.</td>
+    </tr>
+    <tr>
+      <td>on-pulling</td>
+      <td><b>expression</b></td>
+      <td></td>
+      <td>Expression to evaluate when refresher is opening.</td>
+    </tr>
+    <tr>
+      <td>pulling-icon</td>
+      <td><b>string</b></td>
+      <td>ion-arrow-down-c</td>
+      <td>The icon to display while the user is pulling down.</td>
+    </tr>
+    <tr>
+      <td>pulling-text</td>
+      <td><b>string</b></td>
+      <td></td>
+      <td>The text to display while the user is pulling down.</td>
+    </tr>
+    <tr>
+      <td>refreshing-icon</td>
+      <td><b>string</b></td>
+      <td>ion-loading-d</td>
+      <td>The icon to display after user lets go of the refresher.</td>
+    </tr>
+    <tr>
+      <td>refreshing-text</td>
+      <td><b>string</b></td>
+      <td></td>
+      <td>The text to display after the user lets go of the refresher.</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Ionic-Angular Usage
 
 The `<ion-content>` directive can be used anywhere to define a scrollable content area. Here is an example with many of its available options:
@@ -124,11 +163,13 @@ The `<ion-content>` directive can be used anywhere to define a scrollable conten
     has-header="true"
     has-footer="true"
     scroll="true"
-    on-refresh="onRefresh()"
     >
 
     <!-- for pull to refresh -->
-    <ion-refresher></ion-refresher>
+    <ion-refresher
+     on-refresh="onRefresh()"
+     >
+    </ion-refresher>
 
     <!-- content -->
   </ion-content>
@@ -171,19 +212,22 @@ Pull to refresh is an incredibly common UI paradigm found in mobile apps these d
 
 ```html
   <!-- content area -->
-  <ion-content on-refresh="onRefresh()">
-    <ion-refresher></ion-refresher>
+  <ion-content>
+    <ion-refresher on-refresh="onRefresh()"></ion-refresher>
   </ion-content>
 ```
 
-This will give you a default icon and animation style. To customize the pull to refresh, use `<ion-scroll-refresher>` instead of `<ion-refresher>` and supply your own content:
+This will give you a default icon and animation style. To customize the pull to refresh, supply your own content to attributes of `<ion-refresher>`:
 
 ```html
   <!-- content area -->
-  <ion-content on-refresh="onRefresh()">
-    <ion-scroll-refresher>
-      Pull to refresh...
-    </ion-scroll-refresher>
+  <ion-content>
+    <ion-refresher
+     on-refresh="onRefresh()"
+     pulling-icon="ion-loading-c"
+     pulling-text="Pull to refresh..."
+     >
+    </ion-refresher>
   </ion-content>
 ```
 

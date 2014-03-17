@@ -34,16 +34,23 @@ news: Learn more from our growing list of <a href="/tutorials/">tutorials</a>
     <a href="/docs/guide/starting.html">
       <img src="/img/docs/symbols/guide/guide-starting-symbol@2x.png" width="170" height="140">
       <h4>Chapter 3</h4>
-      <h3>Starting our app</h3>
+      <h3>Starting your app</h3>
     </a>
   </div>
 </div>
 
 <div class="row docs-home-row">
   <div class="col-sm-4">
+    <a href="/docs/guide/testing.html">
+      <img src="/img/docs/symbols/guide/guide-testing-symbol@2x.png" width="170" height="140">
+      <h4>Chapter 4</h4>
+      <h3>Testing your app</h3>
+    </a>
+  </div>
+  <div class="col-sm-4">
     <a href="/docs/guide/building.html">
       <img src="/img/docs/symbols/guide/guide-building-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 4</h4>
+      <h4>Chapter 5</h4>
       <h3>Building it out</h3>
     </a>
   </div>
@@ -51,7 +58,7 @@ news: Learn more from our growing list of <a href="/tutorials/">tutorials</a>
   <div class="col-sm-4">
     <a href="/docs/guide/publishing.html">
       <img src="/img/docs/symbols/guide/guide-publishing-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 5</h4>
+      <h4>Chapter 6</h4>
       <h3>Publishing</h3>
     </a>
   </div>

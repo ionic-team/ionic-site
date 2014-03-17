@@ -1,16 +1,16 @@
 ---
 layout: docs_guide
-title: "Guide: Table of Contents"
+title: "Ionic Book: Table of Contents"
 header_sub_title: A comprehensive overview and walk-through of building with Ionic
 version: 0.9.0
 chapter: index
 news: Learn more from our growing list of <a href="/tutorials/">tutorials</a>
 ---
 
-<h1>The Ionic Guide</h1>
+<h1>The Ionic Book</h1>
 
 <p class="subheading">
-  Welcome to the official Ionic Guide, where we will walk through the process of getting Ionic and all its dependencies installed, creating a new project, designing and building the UI, adding logic, testing, deploying on the device, and publishing to the various app stores.
+  Welcome to the official Ionic Book, where we will walk through the process of getting Ionic and all its dependencies installed, creating a new project, designing and building the UI, adding logic, testing, deploying on the device, and publishing to the various app stores.
 </p>
 
 <div class="row docs-home-row">

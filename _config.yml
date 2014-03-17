@@ -16,6 +16,9 @@ latest_download: http://code.ionicframework.com/0.9.27/ionic-v0.9.27.zip
 latest_version: 0.9.27 "salamander"
 latest_release_date: 2014-03-15
 
+# Docs link defaults to /docs/{{site.latest_version_id}}
+latest_version_id: controllers
+
 # Which version of AngularJS the latest build includes
 included_angular_version: 1.2.12
 

@@ -1,6 +1,6 @@
 The ionic website repo is licensed and managed separately from the ionic repo itself.
 
-By contributing to the ionic-site repo, you agree to have your contributions licensed under the Apache 2.0 license. See the `LICENSE` file for details on this license.
+By contributing to the driftyco/ionic-site repo, you agree to have your contributions licensed under the Apache 2.0 license. See the `LICENSE` file for details on this license.
 
 ## GUIDELINES
 

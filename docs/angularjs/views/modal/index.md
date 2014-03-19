@@ -37,21 +37,20 @@ Here we are using the script tag method of defining an Angular template.
       <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
     </header>
     <ion-content has-header="true" padding="true">
-        <div class="list">
-          <label class="item item-input">
-            <span class="input-label">First Name</span>
-            <input type="text" placeholder="">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Last Name</span>
-            <input type="text" placeholder="">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Email</span>
-            <input type="text" placeholder="">
-          </label>
-          <button class="button button-full button-positive" ng-click="closeModal()">Create</button>
-        </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="">
+        </label>
+        <button class="button button-full button-positive" ng-click="closeModal()">Create</button>
       </div>
     </ion-content>
   </div>

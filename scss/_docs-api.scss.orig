@@ -1,8 +1,12 @@
 
 .docs-api .left-menu {
 
+<<<<<<< HEAD
+  .menu-section {
+=======
   .menu-group {
     text-transform: capitalize;
+>>>>>>> FETCH_HEAD
     color: #666;
     padding-left: 4px;
     &.active {

@@ -5608,7 +5608,7 @@ pre {
   .getting-started-row .highlight {
     background: #eee; }
 
-.docs-api .left-menu .menu-subsection {
+.docs-api .left-menu .menu-section {
   color: #666;
   font-weight: bold;
   text-transform: capitalize; }
@@ -6346,7 +6346,7 @@ a {
    *
    */
   /*!
-    Ionicons, v#1.4.1
+    Ionicons, v1.4.1
     Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
     https://twitter.com/benjsperry  https://twitter.com/ionicframework
     MIT License: https://github.com/driftyco/ionicons

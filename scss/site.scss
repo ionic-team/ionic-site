@@ -6,6 +6,7 @@
 @import "homepage";
 @import "docs";
 @import "docs-api";
+@import "getting-started";
 @import "showcase";
 @import "tutorials";
 @import "blog";
@@ -21,6 +22,8 @@ a {
     opacity: 1;
   }
 }
+
+.text-center { text-align: center; }
 
 .content-container {
   padding-top: 40px;

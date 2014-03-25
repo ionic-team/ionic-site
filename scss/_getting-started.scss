@@ -1,0 +1,130 @@
+#getting-started {
+  padding: 40px 0px;
+
+  .italic {
+    margin: 20px 0px;
+  }
+  i {
+    color: #999;
+  }
+
+  .row {
+    margin-bottom: 50px;
+  }
+
+  .num {
+    float: left;
+    width: 80px;
+  }
+  .desc {
+    margin-top: 16px;
+    margin-left: 80px;
+  }
+
+  .code {
+    margin-top: 53px;
+  }
+  .highlight {
+    background: #eee;
+  }
+
+  #template-images {
+    padding-left: 95px;
+      
+    @media (max-width: 992px) {
+      padding-left: 15px;
+    }
+
+    .template {
+      text-align: center;
+      float: left;
+      width: 308px;
+      margin: 0px 68px;
+
+      &:first-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      @media (max-width: 1200px) {
+        width: 272px;
+        margin: 0px 20px;
+        .template-image {
+          width: 100%;
+          background-size: contain;
+        }
+      }
+
+      @media (max-width: 992px) {
+        width: 226px;
+        margin: 0px 20px;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        float: none;
+        margin: 20px 0px;
+        .template-image {
+          width: 308px;
+          display: block;
+          margin: auto;
+        }
+      }
+    }
+
+    code {
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .template-image {
+      display: inline-block;
+      width: 308px;
+      height: 263px;
+    }
+  }
+
+  #start-template-blank-image {
+    background: url('/img/getting-started/blank-app.png') no-repeat transparent;
+  }
+  #start-template-tabs-image {
+    background: url('/img/getting-started/tabs-app.png') no-repeat transparent;
+  }
+  #start-template-sidemenu-image {
+    background: url('/img/getting-started/menu-app.png') no-repeat transparent;
+  }
+
+  #ionitron-image {
+    background: url('/img/getting-started/ionitron-avatar.png') no-repeat transparent;
+    width: 156px;
+    height: 156px;
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+         only screen and (   min--moz-device-pixel-ratio: 1.3),
+         only screen and (        min-device-pixel-ratio: 1.3),
+         only screen and (             min-resolution: 124dpi)
+    {
+      #start-template-blank-image {
+        background: url('/img/getting-started/blank-app@2x.png') no-repeat transparent;
+        background-size: 308px 263px;
+      }
+      #start-template-tabs-image {
+        background: url('/img/getting-started/tabs-app@2x.png') no-repeat transparent;
+        background-size: 308px 263px;
+      }
+      #start-template-sidemenu-image {
+        background: url('/img/getting-started/menu-app@2x.png') no-repeat transparent;
+        background-size: 308px 263px;
+      }
+
+      #ionitron-image {
+        background: url('/img/getting-started/ionitron-avatar@2x.png') no-repeat transparent;
+        background-size: 156px 156px;
+      }
+    }
+}
+

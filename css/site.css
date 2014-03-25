@@ -5596,18 +5596,6 @@ pre {
   .docs-home-row a:hover {
     text-decoration: none; }
 
-.getting-started-row {
-  clear: both;
-  margin: 10px auto 100px auto;
-  max-width: 600px; }
-  .getting-started-row .num {
-    float: left;
-    width: 80px; }
-  .getting-started-row .desc {
-    margin-left: 80px; }
-  .getting-started-row .highlight {
-    background: #eee; }
-
 .docs-api .left-menu .menu-group {
   text-transform: capitalize;
   color: #666;
@@ -5696,6 +5684,91 @@ pre {
 @media (min-width: 992px) {
   .improve-docs {
     display: block; } }
+#getting-started {
+  padding: 40px 0px; }
+  #getting-started .italic {
+    margin: 20px 0px; }
+  #getting-started i {
+    color: #999; }
+  #getting-started .row {
+    margin-bottom: 50px; }
+  #getting-started .num {
+    float: left;
+    width: 80px; }
+  #getting-started .desc {
+    margin-top: 16px;
+    margin-left: 80px; }
+  #getting-started .code {
+    margin-top: 53px; }
+  #getting-started .highlight {
+    background: #eee; }
+  #getting-started #template-images {
+    padding-left: 95px; }
+    @media (max-width: 992px) {
+      #getting-started #template-images {
+        padding-left: 15px; } }
+    #getting-started #template-images .template {
+      text-align: center;
+      float: left;
+      width: 308px;
+      margin: 0px 68px; }
+      #getting-started #template-images .template:first-child {
+        margin-left: 0;
+        margin-right: 0; }
+      #getting-started #template-images .template:last-child {
+        margin-left: 0;
+        margin-right: 0; }
+      @media (max-width: 1200px) {
+        #getting-started #template-images .template {
+          width: 272px;
+          margin: 0px 20px; }
+          #getting-started #template-images .template .template-image {
+            width: 100%;
+            background-size: contain; } }
+      @media (max-width: 992px) {
+        #getting-started #template-images .template {
+          width: 226px;
+          margin: 0px 20px; } }
+      @media (max-width: 768px) {
+        #getting-started #template-images .template {
+          width: 100%;
+          float: none;
+          margin: 20px 0px; }
+          #getting-started #template-images .template .template-image {
+            width: 308px;
+            display: block;
+            margin: auto; } }
+    #getting-started #template-images code {
+      display: inline-block;
+      margin-top: 15px; }
+    #getting-started #template-images .template-image {
+      display: inline-block;
+      width: 308px;
+      height: 263px; }
+  #getting-started #start-template-blank-image {
+    background: url("/img/getting-started/blank-app.png") no-repeat transparent; }
+  #getting-started #start-template-tabs-image {
+    background: url("/img/getting-started/tabs-app.png") no-repeat transparent; }
+  #getting-started #start-template-sidemenu-image {
+    background: url("/img/getting-started/menu-app.png") no-repeat transparent; }
+  #getting-started #ionitron-image {
+    background: url("/img/getting-started/ionitron-avatar.png") no-repeat transparent;
+    width: 156px;
+    height: 156px; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
+    #getting-started #start-template-blank-image {
+      background: url("/img/getting-started/blank-app@2x.png") no-repeat transparent;
+      background-size: 308px 263px; }
+    #getting-started #start-template-tabs-image {
+      background: url("/img/getting-started/tabs-app@2x.png") no-repeat transparent;
+      background-size: 308px 263px; }
+    #getting-started #start-template-sidemenu-image {
+      background: url("/img/getting-started/menu-app@2x.png") no-repeat transparent;
+      background-size: 308px 263px; }
+    #getting-started #ionitron-image {
+      background: url("/img/getting-started/ionitron-avatar@2x.png") no-repeat transparent;
+      background-size: 156px 156px; } }
+
 #showcase #apps {
   margin-top: 40px; }
   #showcase #apps > .row {
@@ -6181,6 +6254,9 @@ a {
   transition-property: opacity, border-color; }
   a:hover, a:focus {
     opacity: 1; }
+
+.text-center {
+  text-align: center; }
 
 .content-container {
   padding-top: 40px; }

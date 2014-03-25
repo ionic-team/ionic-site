@@ -5615,7 +5615,7 @@ pre {
   .docs-api .left-menu .menu-group.active {
     color: #8db6fa; }
 .docs-api .left-menu .menu-section {
-  text-transform: lowercase;
+  text-transform: capitalize;
   color: #888;
   font-weight: bold;
   margin: 0;

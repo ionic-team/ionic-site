@@ -24,7 +24,13 @@
                 <option
                 value="/docs/nightly/{% if page.path %}{{page.path}}{% endif %}"
                  {% if page.version == "nightly" %}selected{% endif %}>
-                 nightly (latest)
+                 nightly 
+                </option>
+              
+                <option
+                value="/docs/{% if page.path %}{{page.path}}{% endif %}"
+                 {% if page.version == "1.0.0-beta.1" %}selected{% endif %}>
+                 1.0.0-beta.1 (latest)
                 </option>
               
             </select>
@@ -57,11 +63,11 @@
             <!-- Docs: JavaScript -->
             <ul class="nav left-menu active-menu">
               <li class="menu-title">
-                <a href="{% if page.versionHref %}{{page.versionHref}}{% else %}}/docs/nightly{% endif %}">
+                <a href="{% if page.versionHref %}{{page.versionHref}}{% else %}}/docs{% endif %}">
                   JavaScript
                 </a>
               </li>
-              {% include api_menu_nightly.html %}
+              {% include api_menu_1.0.0-beta.1.html %}
             </ul>
 
             <ul class="nav left-menu">

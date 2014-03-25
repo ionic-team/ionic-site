@@ -26,7 +26,7 @@ The beta has also removed the requirement for `has-header`, `has-footer`, and `h
 
 For more information regarding the specifics of the beta release please visit our [change log](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md), in addition to our [migration guide](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#breaking-changes--migration-guide).
 
-Ionic has come a long ways, but we’re not even close to being done. Currently our roadmap includes improving animations, adding support for huge virtual lists, Windows Phone 8 support, FirefoxOS support, awesome tooling, and so much more.
+Ionic has come a long ways, but we’re not even close to being done. Currently our roadmap includes improving animations, keyboard fixes, adding support for huge virtual lists, Windows Phone 8 support, FirefoxOS support, awesome tooling, overall performance improvements and so much more.
 
 Again we’d like to thank the community in helping us build a framework which makes building hybrid mobile apps incredibly easy and fun. You are the reason we get to do what we do every day, and we are so thankful for your passion and excitement for Ionic.
 

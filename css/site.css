@@ -5844,6 +5844,8 @@ h2.underline {
     display: block; }
   .post .post-social {
     margin-bottom: 10px; }
+  .post code {
+    font-size: 75%; }
 
 .disqus {
   margin-top: 40px; }

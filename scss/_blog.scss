@@ -28,7 +28,7 @@
     width: 100%;
   }
 
-} 
+}
 
 #blog-top {
   text-align: center;
@@ -39,7 +39,7 @@
   h3 {
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222;
-    font-weight: normal;  
+    font-weight: normal;
   }
   h5 {
     font-size: 14px;
@@ -55,7 +55,7 @@
 }
 .post {
   line-height: 34px;
-  
+
   h2 {
     margin: 40px 0px 15px 0px;
   }
@@ -117,6 +117,10 @@
   }
   .post-social {
     margin-bottom: 10px;
+  }
+
+  code {
+    font-size: 75%;
   }
 }
 

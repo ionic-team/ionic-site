@@ -5700,7 +5700,8 @@ pre {
     color: #FFF;
     background-color: #4F8EF7;
     transition: background-color .1s ease-in-out;
-    border-radius: 2px; }
+    border-radius: 2px;
+    padding: 6px 20px; }
   #getting-started #first-step {
     margin-top: 60px; }
   #getting-started #template-images {

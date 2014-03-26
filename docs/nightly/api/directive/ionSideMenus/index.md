@@ -64,7 +64,7 @@ and one or more `<ion-side-menu>` directives.
 <ion-side-menus>
   <!-- Center content -->
   <ion-side-menu-content ng-controller="ContentController">
-  </io-side-menu-content>
+  </ion-side-menu-content>
 
   <!-- Left menu -->
   <ion-side-menu side="left">

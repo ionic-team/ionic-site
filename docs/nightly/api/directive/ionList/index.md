@@ -263,7 +263,7 @@ See the <a href="/docs/nightly/api/directive/ionItem"><code>ionItem</code></a> d
   <code>string</code>
       </td>
       <td>
-        <p>An animation class to apply to the list for animating when child items enter or exit the list.</p>
+        <p>An animation class to apply to the list for animating when child items enter or exit the list. See <a href="/docs/components/#animations">the animation CSS page</a> for available animation classes.</p>
 
         
       </td>

@@ -6,7 +6,8 @@
     {% include head_includes.html %}
   </head>
 
-  <body class="full-page {{page.body_css}}">
+  <body class="full-page {{page.body_css}} no-js">
+    <script>document.body.classList.remove('no-js');</script>
 
     {% include nav_links.html %}
 

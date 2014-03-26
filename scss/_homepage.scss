@@ -95,7 +95,6 @@
 
   .feature-img {
     height: 175px;
-    background-image: url(/img/homepage/phones-weather-demo.png);
     background-position: center 15px;
     background-size: 320px 299px;
     background-repeat: no-repeat;
@@ -107,6 +106,16 @@
     { 
       background-image:  url(/img/homepage/phones-weather-demo@2x.png);
       background-size: 320px 299px;
+    }
+
+    &.img-loaded {
+      background-image: url(/img/homepage/phones-weather-demo.png);
+      -webkit-animation: fadeInDown 1s both;
+      animation: fadeInDown 1s both;
+    }
+
+    .feature-img-loading {
+      display: none;
     }
 
     .demo-link {
@@ -458,3 +467,37 @@
 
 }
 
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}

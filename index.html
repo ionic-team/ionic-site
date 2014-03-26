@@ -25,6 +25,7 @@ body_css: "home"
       </div>
       <div class="col-sm-6 feature-img">
         <a class="demo-link" href="https://github.com/driftyco/ionic-weather/" target="_blank">Ionic Weather Demo App</a>
+        <img class="feature-img-loading" src="/img/homepage/phones-weather-demo.png">
       </div>
     </div>
   </div>
@@ -49,6 +50,11 @@ body_css: "home"
 </div>
 
 <script>
+  $('.feature-img-loading').on('load', function() {
+    $('.feature-img').addClass('img-loaded');
+    $(this).remove();
+  });
+
   function digits(n){
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }

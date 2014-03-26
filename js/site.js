@@ -1,9 +1,9 @@
-/*   
- _             _      
-(_)           (_)     
- _  ___  _ __  _  ___ 
+/*
+ _             _
+(_)           (_)
+ _  ___  _ __  _  ___
 | |/ _ \| '_ \| |/ __|
-| | (_) | | | | | (__ 
+| | (_) | | | | | (__
 |_|\___/|_| |_|_|\___|
 
 */
@@ -42,10 +42,15 @@ var ionicSite = (function(){
   });
 
   // left menu link highlight
-  $('.left-menu')
-    .find('a[href="' + window.location.pathname + '"]')
-    .closest('li')
-    .addClass("active");
+  var leftMenu = $('.left-menu');
+  var activeLink = leftMenu.find('[href="' + window.location.pathname + '"]');
+  activeLink.parents('li').addClass("active");
+
+  leftMenu.find('.api-section').click(function(){
+    $(this).closest('.left-menu').find("li").removeClass('active');
+    $(this).closest('li').toggleClass('active');
+    return false;
+  });
 
 
   /* Fixed left menu */
@@ -90,7 +95,7 @@ var ionicSite = (function(){
                 top: '20px'
               })
               .addClass("fixed-menu");
-          } 
+          }
         } else {
           // top of page
           if(fixedMenu.hasClass("fixed-menu")) {
@@ -221,7 +226,7 @@ var ionicSite = (function(){
     devicePreview.find('.active-preview').removeClass('active-preview');
     var docExample = activeSection.find('.doc-example');
     if( docExample.length ) {
-      // this 
+      // this
       var exampleId = 'example-' + activeId;
       var examplePreview = $('#' + exampleId);
       if(examplePreview.length) {

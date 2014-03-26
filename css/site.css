@@ -5583,28 +5583,6 @@ pre {
   .docs-home-row a:hover {
     text-decoration: none; }
 
-.docs-api .left-menu .menu-group {
-  text-transform: capitalize;
-  color: #666;
-  padding-left: 4px; }
-  .docs-api .left-menu .menu-group.active {
-    color: #8db6fa; }
-.docs-api .left-menu .menu-section {
-  text-transform: capitalize;
-  color: #888;
-  font-weight: bold;
-  margin: 0; }
-.docs-api .left-menu .menu-item {
-  padding-left: 6px; }
-.docs-api .left-menu .menu-group-container .menu-section,
-.docs-api .left-menu .menu-group-container .menu-item {
-  display: none; }
-.docs-api .left-menu .menu-group-container.active .menu-group {
-  font-weight: bold; }
-.docs-api .left-menu .menu-group-container.active .menu-section,
-.docs-api .left-menu .menu-group-container.active .menu-item {
-  display: block; }
-
 .picker {
   position: absolute;
   max-width: 180px;

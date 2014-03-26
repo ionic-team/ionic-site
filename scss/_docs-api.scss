@@ -1,42 +1,4 @@
 
-.docs-api .left-menu {
-
-  .menu-group {
-    text-transform: capitalize;
-    color: #666;
-    padding-left: 4px;
-    &.active {
-      color: #8db6fa
-    }
-  }
-  .menu-section {
-    text-transform: capitalize;
-    color: #888;
-    font-weight: bold;
-    margin: 0;
-  }
-  .menu-item {
-    padding-left: 6px;
-  }
-
-  .menu-group-container {
-    .menu-section,
-    .menu-item {
-      display: none;
-    }
-    &.active {
-      .menu-group {
-        font-weight: bold;
-      }
-      .menu-section,
-      .menu-item {
-        display: block;
-      }
-    }
-  }
-
-}
-
 .picker {
   position: absolute;
   max-width: 180px;

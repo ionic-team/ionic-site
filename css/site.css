@@ -5696,6 +5696,11 @@ pre {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
+  #getting-started .btn-primary {
+    color: #FFF;
+    background-color: #4F8EF7;
+    transition: background-color .1s ease-in-out;
+    border-radius: 2px; }
   #getting-started #first-step {
     margin-top: 60px; }
   #getting-started #template-images {

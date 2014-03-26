@@ -52,6 +52,13 @@
     }
   }
 
+  .btn-primary {
+    color: #FFF;
+    background-color: #4F8EF7;
+    transition: background-color .1s ease-in-out;
+    border-radius: 2px;
+  }
+
   #first-step {
     margin-top: 60px;
   }

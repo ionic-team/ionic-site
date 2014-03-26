@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Ionic Beta Released!"
+title:  "Ionic Framework Beta Released!"
 date:   "2014-03-26 08:00:00"
 hide_date: true
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">@adamdbradley</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/beta-header.png">

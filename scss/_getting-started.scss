@@ -9,7 +9,7 @@
   }
 
   .row {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
 
   .num {
@@ -29,6 +29,7 @@
   }
 
   #template-images {
+    margin-top: -50px;
     padding-left: 95px;
       
     @media (max-width: 992px) {

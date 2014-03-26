@@ -58,10 +58,12 @@ Whenever you make changes to the PATH, or any other environment variable, you'll
 
 ## Install Ionic
 
-Ionic comes with a convenient command line utility to start, build, and package Ionic apps. To install it, simply run:
+Ionic comes with a convenient command line utility to start, build, and package Ionic apps.  It uses [gulp](http://gulpjs.com) to help us build.
+
+To install it, simply run:
 
 ```bash
-$ sudo npm install -g ionic
+$ sudo npm install -g gulp ionic
 ```
 
 ## Create the project

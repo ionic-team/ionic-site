@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicList.js#L141'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicList.js#L152'>
     Improve this doc
   </a>
 </div>
@@ -263,7 +263,7 @@ See the <a href="/docs/api/directive/ionItem"><code>ionItem</code></a> documenta
   <code>string</code>
       </td>
       <td>
-        <p>An animation class to apply to the list for animating when child items enter or exit the list.</p>
+        <p>An animation class to apply to the list for animating when child items enter or exit the list. See <a href="/docs/components/#animations">the animation CSS page</a> for available animation classes.</p>
 
         
       </td>

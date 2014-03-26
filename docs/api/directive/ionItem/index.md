@@ -54,7 +54,7 @@ deleted, reordered, edited, and more.
   <ion-item ng-repeat="item in items"
     item="item"
     can-swipe="true"
-    left-buttons="myItemButtons">
+    option-buttons="itemButtons">
   </ion-item>
 </ion-list>
 ```
@@ -101,11 +101,22 @@ deleted, reordered, edited, and more.
       </td>
       <td>
         <p>The option buttons to show when swiping the item to the left (if swiping is enabled).  Defaults to the ionList parent&#39;s option-buttons setting.  The format of each button object is:</p>
-<pre><code class="lang-js">  {
-    text: &#39;Edit&#39;,
-    type: &#39;Button&#39;,
-    onTap: function(item) {}
-  }</code></pre>
+<pre><code class="lang-js">  $scope.itemButtons = [
+     {
+       text: &#39;Edit&#39;,
+       type: &#39;Button&#39;,
+       onTap: function(item) {
+         alert(&#39;Edit Item: &#39; + item.id);
+       }
+     },
+     {
+       text: &#39;Share&#39;,
+       type: &#39;Button&#39;,
+       onTap: function(item) {
+         alert(&#39;Share Item: &#39; + item.id);
+       }
+     }
+  ];</code></pre>
 
         
       </td>
@@ -139,7 +150,7 @@ deleted, reordered, edited, and more.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not this item can be swiped. Defaults ot hte ionList parent&#39;s can-swipe setting.</p>
+        <p>Whether or not this item can be swiped. Defaults ot the ionList parent&#39;s can-swipe setting.</p>
 
         
       </td>

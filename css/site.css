@@ -5685,9 +5685,10 @@ pre {
   #getting-started .highlight {
     background: #eee; }
   #getting-started input {
-    border: none;
-    background: #45546D;
-    color: #FFF; }
+    border: 2px solid #DDD;
+    color: #333;
+    box-shadow: none;
+    border-radius: 2px; }
   #getting-started #first-step {
     margin-top: 60px; }
   #getting-started #template-images {

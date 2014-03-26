@@ -5754,9 +5754,18 @@ pre {
       background: url("/img/getting-started/ionitron-avatar@2x.png") no-repeat transparent;
       background-size: 156px 156px; } }
   #getting-started .get-started-input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857;
+    color: #555;
+    vertical-align: middle;
+    background-color: #FFF;
+    border: 2px solid #CCC;
     border-radius: 4px;
-    box-shadow: none !important;
-    border: 2px solid #CCC; }
+    box-shadow: none !important; }
 
 #showcase #apps {
   margin-top: 40px; }

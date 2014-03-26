@@ -5664,7 +5664,8 @@ pre {
 #getting-started {
   padding: 40px 0px; }
   #getting-started .italic {
-    margin: 20px 0px; }
+    margin: 20px 0px;
+    line-height: 26px; }
   #getting-started i {
     color: #999; }
   #getting-started .row {

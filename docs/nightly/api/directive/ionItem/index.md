@@ -139,7 +139,7 @@ deleted, reordered, edited, and more.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not this item can be swiped. Defaults ot hte ionList parent&#39;s can-swipe setting.</p>
+        <p>Whether or not this item can be swiped. Defaults ot the ionList parent&#39;s can-swipe setting.</p>
 
         
       </td>

@@ -1,0 +1,10 @@
+
+{% if page.versionHref == "/docs" %}
+
+  {% include api_menu_1.0.0-beta.1.html %}
+
+{% elsif page.versionHref == "/docs/nightly" %}
+
+  {% include api_menu_nightly.html %}
+
+{% endif %}

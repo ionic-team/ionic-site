@@ -1,0 +1,15 @@
+<select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+    <option
+    value="/docs/nightly/{% if page.path %}{{page.path}}{% endif %}api/"
+     {% if page.version == "nightly" %}selected{% endif %}>
+     nightly
+    </option>
+
+    <option
+    value="/docs/{% if page.path %}{{page.path}}{% endif %}api/"
+     {% if page.version == "1.0.0-beta.1" %}selected{% endif %}>
+     1.0.0-beta.1 (latest)
+    </option>
+
+</select>

@@ -44,7 +44,7 @@ In the center content area, we will list the various tasks that we have to get c
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup">
 
-To create side menus in Ionic, we can use the [Side Menu Controller](http://ionicframework.com/docs/angularjs/controllers/side-menu/). Feel free to read up on it, but the markup needed is simple. Edit the `index.html` file and change the `<body>` content to look like this:
+To create side menus in Ionic, we can use [ion-side-menus](http://ionicframework.com/docs/api/directive/ionSideMenus). Feel free to read up on it, but the markup needed is simple. Edit the `index.html` file and change the `<body>` content to look like this:
 
 ```html
 <body>

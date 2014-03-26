@@ -5688,7 +5688,14 @@ pre {
     border: 2px solid #DDD;
     color: #333;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
     border-radius: 2px; }
+    #getting-started input:focus {
+      border: 2px solid #4e8ef7;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none; }
   #getting-started #first-step {
     margin-top: 60px; }
   #getting-started #template-images {

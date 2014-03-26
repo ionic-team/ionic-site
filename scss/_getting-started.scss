@@ -40,7 +40,16 @@
     border: 2px solid #DDD;
     color: #333;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
     border-radius: 2px;
+
+    &:focus {
+      border: 2px solid #4e8ef7;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
   }
 
   #first-step {

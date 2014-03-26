@@ -8,7 +8,7 @@
       <meta name="robots" content="noindex">
     {% endif %}
 
-    <title>{{page.title}} - Ionic Framework</title>
+    <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
     {% include head_includes.html %}
   </head>
 

@@ -5672,9 +5672,13 @@ pre {
   #getting-started .num {
     float: left;
     width: 80px; }
+  #getting-started h3 {
+    margin-bottom: 20px; }
   #getting-started .desc {
     margin-top: 16px;
-    margin-left: 80px; }
+    margin-left: 80px;
+    margin-right: 20px;
+    line-height: 26px; }
   #getting-started .code {
     margin-top: 53px; }
   #getting-started .highlight {

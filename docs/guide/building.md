@@ -42,11 +42,11 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
 ```html
 {% raw %}
 <!-- Center content -->
-<ion-pane ion-side-menu-content>
-  <div class="bar bar-header bar-dark">
+<ion-side-menu-content>
+  <ion-header-bar class=bar-dark">
     <h1 class="title">Todo</h1>
-  </div>
-  <ion-content has-header="true">
+  </ion-header-bar>
+  <ion-content>
     <!-- our list and list items -->
     <ion-list>
       <ion-item ng-repeat="task in tasks">
@@ -54,7 +54,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
       </ion-item>
     </ion-list>
   </ion-content>
-</ion-pane>
+</ion-side-menu-content>
 {% endraw %}
 
 ```
@@ -95,13 +95,13 @@ the following script tag after the closing `</ion-side-menu>` tag in the `<body>
   <div class="modal">
 
     <!-- Modal header bar -->
-    <div class="bar bar-header bar-secondary">
+    <ion-header-bar class="bar-secondary">
       <h1 class="title">New Task</h1>
       <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
-    </div>
+    </ion-header-bar>
 
     <!-- Modal content area -->
-    <ion-content has-header="true">
+    <ion-content>
 
       <form ng-submit="createTask(task)">
         <div class="list">
@@ -121,7 +121,7 @@ the following script tag after the closing `</ion-side-menu>` tag in the `<body>
 </script>
 ```
 
-There is a good amount of stuff in this Modal popup. First of all, we are defining this template as an Angular template using `<script id="new-task.html" type="text/ng-template">`. The cool thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.
+There is a lot of information in the above code. First of all, we are defining this template as an Angular template using `<script id="new-task.html" type="text/ng-template">`. The good thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.
 
 We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling `createTask(task)` when the form is submitted. The `task` that is passed to `createTask` is the object corresponding to the entered form data. Since our text input has `ng-model="task.title"`, that text input will set the `title` property of the `task` object.
 
@@ -129,15 +129,16 @@ In order to trigger the Modal to open, we need a button in the main header bar a
 
 ```html
   <!-- Center content -->
-  <ion-pane ion-side-menu-content>
-    <div class="bar bar-header bar-dark">
+  <ion-side-menu-content>
+    <ion-header-bar class="bar-dark">
       <h1 class="title">Todo</h1>
       <!-- New Task button-->
       <button class="button button-icon" ng-click="newTask()">
         <i class="icon ion-compose"></i>
       </button>
-    </div>
-    <!-- ... -->
+    </ion-header-bar>
+  </ion-side-menu-content>
+  <!-- ... -->
 ```
 
 And in our controller code:
@@ -178,7 +179,7 @@ angular.module('todo', ['ionic'])
 });
 ```
 
-Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it:
+Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it.
 
 
 ## Adding projects
@@ -192,8 +193,8 @@ Here is the new content area markup:
 ```html
 {% raw %}
 <!-- Center content -->
-<ion-pane ion-side-menu-content>
-  <div class="bar bar-header bar-dark">
+<ion-side-menu-content>
+  <ion-header-bar class="bar-dark">
     <button class="button button-icon" ng-click="toggleProjects()">
       <i class="icon ion-navicon"></i>
     </button>
@@ -202,15 +203,15 @@ Here is the new content area markup:
     <button class="button button-icon" ng-click="newTask()">
       <i class="icon ion-compose"></i>
     </button>
-  </div>
-  <ion-content has-header="true" scroll="false">
+  </ion-header-bar>
+  <ion-content scroll="false">
     <ion-list>
       <ion-item ng-repeat="task in activeProject.tasks">
         {{task.title}}
       </ion-item>
     </ion-list>
   </ion-content>
-</ion-pane>
+</ion-side-menu-content>
 {% endraw %}
 ```
 
@@ -221,13 +222,12 @@ And the new side menu markup:
 {% raw %}
   <!-- Left menu -->
   <ion-side-menu side="left">
-    <div class="bar bar-header bar-dark">
+    <ion-header-bar class="bar-dark">
       <h1 class="title">Projects</h1>
-      <button class="button button-icon" ng-click="newProject()">
-        <i class="icon ion-plus"></i>
+      <button class="button button-icon ion-plus" ng-click="newProject()">
       </button>
-    </div>
-    <ion-content has-header="true" scroll="false">
+    </ion-header-bar>
+    <ion-content scroll="false">
       <ion-list>
         <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}

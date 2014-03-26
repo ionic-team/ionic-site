@@ -49,15 +49,15 @@ To create side menus in Ionic, we can use the [Side Menu Controller](http://ioni
 ```html
 <body>
   <ion-side-menus>
-    <ion-pane ion-side-menu-content>
-    </ion-pane>
+    <ion-side-menu-content>
+    </ion-side-menu-content>
     <ion-side-menu side="left">
     </ion-side-menu>
   </ion-side-menus>
 </body>
 ```
 
-In the code above, we've added our `<ion-side-menus>` controller which will handle the dragging and exposing of the side menu. Inside of the controller we have a `<ion-pane ion-side-menu-content>` which is the center content area of the app, and a `<ion-side-menu side="left">` which is a left, initially hidden, side menu.
+In the code above, we've added our `<ion-side-menus>` controller which will handle the dragging and exposing of the side menu. Inside of the controller we have a `<ion-side-menu-content>` which is the center content area of the app, and a `<ion-side-menu side="left">` which is a left, initially hidden, side menu.
 
 ## Initializing the app
 
@@ -94,19 +94,19 @@ Update the body content to be:
   <ion-side-menus>
 
     <!-- Center content -->
-    <ion-pane ion-side-menu-content>
-      <div class="bar bar-header bar-dark">
+    <ion-side-menu-content>
+      <ion-header-bar class="bar-dark">
         <h1 class="title">Todo</h1>
-      </div>
-      <ion-content has-header="true">
+      </ion-header-bar>
+      <ion-content>
       </ion-content>
-    </ion-pane>
+    </ion-side-menu-content>
 
     <!-- Left menu -->
     <ion-side-menu side="left">
-      <div class="bar bar-header bar-dark">
+      <ion-header-bar class="bar-dark">
         <h1 class="title">Projects</h1>
-      </div>
+      </ion-header-bar>
     </ion-side-menu>
 
   </ion-side-menus>

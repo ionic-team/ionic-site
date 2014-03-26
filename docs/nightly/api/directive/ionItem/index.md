@@ -54,7 +54,7 @@ deleted, reordered, edited, and more.
   <ion-item ng-repeat="item in items"
     item="item"
     can-swipe="true"
-    left-buttons="myItemButtons">
+    option-buttons="myItemButtons">
   </ion-item>
 </ion-list>
 ```

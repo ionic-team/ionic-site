@@ -5679,6 +5679,8 @@ pre {
     margin-top: 53px; }
   #getting-started .highlight {
     background: #eee; }
+  #getting-started #first-step {
+    margin-top: 60px; }
   #getting-started #template-images {
     margin-top: -50px;
     padding-left: 95px; }

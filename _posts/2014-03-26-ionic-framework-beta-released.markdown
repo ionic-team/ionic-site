@@ -10,9 +10,11 @@ published: true
 
 <img class="showcase-image" src="/img/blog/beta-header.png">
 
-If you have been following Ionic since we launched, or even reviewing our nightly commit log, you’ll know just how hard we’ve been working to continue to improve Ionic. In the short time since our Alpha release a few months ago, we’ve seen some great apps being built, and have been amazed by the passion and excitement of our growing community.
+If you've been following Ionic since we launched, or even reviewing our nightly commit log, you’ll know just how hard we’ve been working to continue to improve Ionic.
 
-Today, we’re thrilled to take the framework into Beta and officially announce version 1.0.0-beta.1, “Ionic Actinium”, and the release of our [new docs](/docs/api/)!
+In the short time since our Alpha release a few months ago, we’ve seen some great apps being built, and have been amazed by the passion and excitement of our growing community. By the numbers, Ionic developers are creating over **220** new apps every day, the [repo](http://github.com/driftyco/ionic) recently passed **4100** stars, and traffic is growing week over week.
+
+With this momentum, we’re so thrilled to take the framework into Beta and officially announce version 1.0.0-beta.1, “Ionic Actinium”, and the release of our [new docs](/docs/api/)!
 
 The ever growing community of Ionites have been vital to Ionic’s success, especially in helping to shape the API and battle test our nightly builds. There have been some significant changes since the Alpha version, but trust us that each breaking change has been made with the ultimate goal of making it easier to develop hybrid mobile apps.
 

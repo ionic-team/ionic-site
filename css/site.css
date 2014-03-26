@@ -5753,6 +5753,10 @@ pre {
     #getting-started #ionitron-image {
       background: url("/img/getting-started/ionitron-avatar@2x.png") no-repeat transparent;
       background-size: 156px 156px; } }
+  #getting-started #get-started-input {
+    border-radius: 4px;
+    box-shadow: none !important;
+    border: 2px solid #CCC; }
 
 #showcase #apps {
   margin-top: 40px; }

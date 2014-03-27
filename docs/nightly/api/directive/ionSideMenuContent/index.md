@@ -51,7 +51,7 @@ A container for the main visible content, sibling to one or more
   
 ```html
 <ion-side-menu-content
-  drag-content="canDrag">
+  drag-content="true">
 </ion-side-menu-content>
 ```
 For a complete side menu example, see the
@@ -81,7 +81,7 @@ For a complete side menu example, see the
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether the content can be dragged.</p>
+        <p>Whether the content can be dragged. Defaul true.</p>
 
         
       </td>

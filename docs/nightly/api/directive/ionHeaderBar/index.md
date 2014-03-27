@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionHeaderBar"
+path: "api/directive/ionHeaderBar/"
 
 title: "ion-header-bar"
 header_sub_title: "Directive in module ionic"

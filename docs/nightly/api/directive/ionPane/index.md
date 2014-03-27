@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionPane"
+path: "api/directive/ionPane/"
 
 title: "ion-pane"
 header_sub_title: "Directive in module ionic"

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/service/$ionicModal"
+path: "api/service/$ionicModal/"
 
 title: "$ionicModal"
 header_sub_title: "Service in module ionic"
@@ -130,7 +130,7 @@ content.</p>
   <code>object</code>
       </td>
       <td>
-        <p>Options to be passed <a href="/docs/nightly/api/controller/ionicModal#initialize">ionicModal#initialize</a> method.</p>
+        <p>Options to be passed <a href="/docs/nightly/api/controller/ionicModal/#initialize">ionicModal#initialize</a> method.</p>
 
         
       </td>
@@ -145,7 +145,7 @@ content.</p>
 
 
 * Returns: 
-  <code>object</code> An instance of an <a href="/docs/nightly/api/controller/ionicModal"><code>ionicModal</code></a>
+  <code>object</code> An instance of an <a href="/docs/nightly/api/controller/ionicModal/"><code>ionicModal</code></a>
 controller.
 
 
@@ -199,7 +199,7 @@ controller.
   <code>object</code>
       </td>
       <td>
-        <p>Options to be passed <a href="/docs/nightly/api/controller/ionicModal#initialize">ionicModal#initialize</a> method.
+        <p>Options to be passed <a href="/docs/nightly/api/controller/ionicModal/#initialize">ionicModal#initialize</a> method.
 options object.</p>
 
         
@@ -216,7 +216,7 @@ options object.</p>
 
 * Returns: 
   <code>promise</code> A promise that will be resolved with an instance of
-an <a href="/docs/nightly/api/controller/ionicModal"><code>ionicModal</code></a> controller.
+an <a href="/docs/nightly/api/controller/ionicModal/"><code>ionicModal</code></a> controller.
 
 
 

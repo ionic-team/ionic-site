@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/service/$ionicLoading"
+path: "api/service/$ionicLoading/"
 
 title: "$ionicLoading"
 header_sub_title: "Service in module ionic"

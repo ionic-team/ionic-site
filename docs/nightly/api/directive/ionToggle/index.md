@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionToggle"
+path: "api/directive/ionToggle/"
 
 title: "ion-toggle"
 header_sub_title: "Directive in module ionic"

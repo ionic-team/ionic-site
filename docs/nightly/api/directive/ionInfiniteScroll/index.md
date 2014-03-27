@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionInfiniteScroll"
+path: "api/directive/ionInfiniteScroll/"
 
 title: "ion-infinite-scroll"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/nightly/api/directive/ionContent"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll"><code>ionScroll</code></a>
+  Child of <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a>
 </small>
 
 

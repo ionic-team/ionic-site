@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionNavBar"
+path: "api/directive/ionNavBar/"
 
 title: "ion-nav-bar"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicNavBarDelegate"><code>$ionicNavBarDelegate</code></a>
+  Delegate: <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>
 </small>
 
 </h1>
@@ -36,13 +36,13 @@ docType: "directive"
 
 
 
-If we have an <a href="/docs/nightly/api/directive/ionNavView"><code>ionNavView</code></a> directive, we can also create an
+If we have an <a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a> directive, we can also create an
 `<ion-nav-bar>`, which will create a topbar that updates as the application state changes.
 
-We can add a back button by putting an <a href="/docs/nightly/api/directive/ionNavBackButton"><code>ionNavBackButton</code></a> inside.
+We can add a back button by putting an <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> inside.
 
 We can add buttons depending on the currently visible view using
-<a href="/docs/nightly/api/directive/ionNavButtons"><code>ionNavButtons</code></a>.
+<a href="/docs/nightly/api/directive/ionNavButtons/"><code>ionNavButtons</code></a>.
 
 Assign an [animation class](/docs/components#animations) to the element to
 enable animated changing of titles (recommended: 'slide-left-right' or 'nav-title-slide-ios7')
@@ -93,7 +93,7 @@ enable animated changing of titles (recommended: 'slide-left-right' or 'nav-titl
       </td>
       <td>
         <p>The handle used to identify this navBar
-with <a href="/docs/nightly/api/service/$ionicNavBarDelegate"><code>$ionicNavBarDelegate</code></a>.</p>
+with <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>.</p>
 
         
       </td>

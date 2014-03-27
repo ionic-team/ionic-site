@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionRadio"
+path: "api/directive/ionRadio/"
 
 title: "ion-radio"
 header_sub_title: "Directive in module ionic"

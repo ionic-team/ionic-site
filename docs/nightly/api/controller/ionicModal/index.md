@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/controller/ionicModal"
+path: "api/controller/ionicModal/"
 
 title: "ionicModal"
 header_sub_title: "Controller in module ionic"
@@ -31,7 +31,7 @@ docType: "controller"
 
 
 
-Instantiated by the <a href="/docs/nightly/api/service/$ionicModal"><code>$ionicModal</code></a> service.
+Instantiated by the <a href="/docs/nightly/api/service/$ionicModal/"><code>$ionicModal</code></a> service.
 
 Hint: Be sure to call [remove()](#remove) when you are done with each modal
 to clean it up and avoid memory leaks.

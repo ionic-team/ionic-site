@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/service/$ionicPlatform"
+path: "api/service/$ionicPlatform/"
 
 title: "$ionicPlatform"
 header_sub_title: "Service in module ionic"
@@ -31,7 +31,7 @@ docType: "service"
 
 
 
-An angular abstraction of <a href="/docs/nightly/api/utility/ionic.Platform"><code>ionic.Platform</code></a>.
+An angular abstraction of <a href="/docs/nightly/api/utility/ionic.Platform/"><code>ionic.Platform</code></a>.
 
 Used to detect the current platform, as well as do things like override the
 Android back button in PhoneGap/Cordova.

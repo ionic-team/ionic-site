@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionTab"
+path: "api/directive/ionTab/"
 
 title: "ion-tab"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/nightly/api/directive/ionTabs"><code>ionTabs</code></a>
+  Child of <a href="/docs/nightly/api/directive/ionTabs/"><code>ionTabs</code></a>
 </small>
 
 
@@ -59,7 +59,7 @@ Each ionTab has its own view history.
   on-deselect="onTabDeselected()">
 </ion-tab>
 ```
-For a complete, working tab bar example, see the <a href="/docs/nightly/api/directive/ionTabs"><code>ionTabs</code></a> documentation.
+For a complete, working tab bar example, see the <a href="/docs/nightly/api/directive/ionTabs/"><code>ionTabs</code></a> documentation.
   
   
 <h2 id="api" style="clear:both;">API</h2>
@@ -238,7 +238,7 @@ For a complete, working tab bar example, see the <a href="/docs/nightly/api/dire
   <code>expression</code>
       </td>
       <td>
-        <p>By default, the tab will be selected on click. If ngClick is set, it will not.  You can explicitly switch tabs using <a href="/docs/nightly/api/service/$ionicTabsDelegate#select">$ionicTabsDelegate.select()</a>.</p>
+        <p>By default, the tab will be selected on click. If ngClick is set, it will not.  You can explicitly switch tabs using <a href="/docs/nightly/api/service/$ionicTabsDelegate/#select">$ionicTabsDelegate.select()</a>.</p>
 
         
       </td>

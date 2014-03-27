@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/service/$ionicNavBarDelegate"
+path: "api/service/$ionicNavBarDelegate/"
 
 title: "$ionicNavBarDelegate"
 header_sub_title: "Service in module ionic"
@@ -31,7 +31,7 @@ docType: "service"
 
 
 
-Delegate for controlling the <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar</code></a> directive.
+Delegate for controlling the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive.
 
 
 
@@ -168,7 +168,7 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 
 </h2>
 
-Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton"><code>ionNavBackButton</code></a> should be shown
+Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> should be shown
 (if it exists).
 
 
@@ -217,7 +217,7 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton"><code>ion
 
 </h2>
 
-Set whether the <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar</code></a> should be shown.
+Set whether the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> should be shown.
 
 
 
@@ -265,7 +265,7 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar<
 
 </h2>
 
-Set the title for the <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar</code></a>.
+Set the title for the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>.
 
 
 

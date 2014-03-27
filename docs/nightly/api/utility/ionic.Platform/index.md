@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/utility/ionic.Platform"
+path: "api/utility/ionic.Platform/"
 
 title: "ionic.Platform"
 header_sub_title: "Utility in module ionic"

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionNavBackButton"
+path: "api/directive/ionNavBackButton/"
 
 title: "ion-nav-back-button"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar</code></a>
+  Child of <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
 </small>
 
 
@@ -36,7 +36,7 @@ docType: "directive"
 
 
 
-Creates a back button inside an <a href="/docs/nightly/api/directive/ionNavBar"><code>ionNavBar</code></a>.
+Creates a back button inside an <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>.
 
 Will show up when the user is able to go back in the current navigation stack.
 
@@ -63,7 +63,7 @@ With default click action:
 </ion-nav-bar>
 ```
 
-With custom click action, using <a href="/docs/nightly/api/service/$ionicNavBarDelegate"><code>$ionicNavBarDelegate</code></a>:
+With custom click action, using <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>:
 
 ```html
 <ion-nav-bar ng-controller="MyCtrl">
@@ -82,7 +82,7 @@ function MyCtrl($scope, $ionicNavBarDelegate) {
 ```
 
 Displaying the previous title on the back button, again using
-<a href="/docs/nightly/api/service/$ionicNavBarDelegate"><code>$ionicNavBarDelegate</code></a>.
+<a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>.
 
 ```html
 <ion-nav-bar ng-controller="MyCtrl">

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionRefresher"
+path: "api/directive/ionRefresher/"
 
 title: "ion-refresher"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/nightly/api/directive/ionContent"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll"><code>ionScroll</code></a>
+  Child of <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a>
 </small>
 
 
@@ -38,8 +38,8 @@ docType: "directive"
 
 Allows you to add pull-to-refresh to a scrollView.
 
-Place it as the first child of your <a href="/docs/nightly/api/directive/ionContent"><code>ionContent</code></a> or
-<a href="/docs/nightly/api/directive/ionScroll"><code>ionScroll</code></a> element.
+Place it as the first child of your <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or
+<a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a> element.
 
 When refreshing is complete, $broadcast the 'scroll.refreshComplete' event
 from your controller.

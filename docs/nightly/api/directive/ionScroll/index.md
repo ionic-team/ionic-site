@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionScroll"
+path: "api/directive/ionScroll/"
 
 title: "ion-scroll"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicScrollDelegate"><code>$ionicScrollDelegate</code></a>
+  Delegate: <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
 </small>
 
 </h1>
@@ -88,7 +88,7 @@ Creates a scrollable container for all content inside.
       </td>
       <td>
         <p>The handle used to identify this scrollView
-with <a href="/docs/nightly/api/service/$ionicScrollDelegate"><code>$ionicScrollDelegate</code></a>.</p>
+with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>.</p>
 
         
       </td>
@@ -139,7 +139,7 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate"><code>$ionicScroll
   <code>expression</code>
       </td>
       <td>
-        <p>Called on pull-to-refresh, triggered by an <a href="/docs/nightly/api/directive/ionRefresher"><code>ionRefresher</code></a>.</p>
+        <p>Called on pull-to-refresh, triggered by an <a href="/docs/nightly/api/directive/ionRefresher/"><code>ionRefresher</code></a>.</p>
 
         
       </td>

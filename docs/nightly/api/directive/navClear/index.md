@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/navClear"
+path: "api/directive/navClear/"
 
 title: "nav-clear"
 header_sub_title: "Directive in module ionic"

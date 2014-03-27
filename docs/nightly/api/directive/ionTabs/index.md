@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionTabs"
+path: "api/directive/ionTabs/"
 
 title: "ion-tabs"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicTabsDelegate"><code>$ionicTabsDelegate</code></a>
+  Delegate: <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDelegate</code></a>
 </small>
 
 </h1>
@@ -45,7 +45,7 @@ Assign any [tabs class](/docs/components#tabs) or
 [animation class](/docs/components#animation) to the element to define
 its look and feel.
 
-See the <a href="/docs/nightly/api/directive/ionTab"><code>ionTab</code></a> directive's documentation for more details on
+See the <a href="/docs/nightly/api/directive/ionTab/"><code>ionTab</code></a> directive's documentation for more details on
 individual tabs.
 
 
@@ -101,7 +101,7 @@ individual tabs.
       </td>
       <td>
         <p>The handle used to identify these tabs
-with <a href="/docs/nightly/api/service/$ionicTabsDelegate"><code>$ionicTabsDelegate</code></a>.</p>
+with <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDelegate</code></a>.</p>
 
         
       </td>

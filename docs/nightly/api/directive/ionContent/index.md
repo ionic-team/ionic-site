@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/ionContent"
+path: "api/directive/ionContent/"
 
 title: "ion-content"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicScrollDelegate"><code>$ionicScrollDelegate</code></a>
+  Delegate: <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
 </small>
 
 </h1>
@@ -44,8 +44,8 @@ While we recommend using the custom Scroll features in Ionic in most cases, some
 and so we've made it easy to toggle between the Ionic scroll implementation and
 overflow scrolling.
 
-You can implement pull-to-refresh with the <a href="/docs/nightly/api/directive/ionRefresher"><code>ionRefresher</code></a>
-directive, and infinite scrolling with the <a href="/docs/nightly/api/directive/ionInfiniteScroll"><code>ionInfiniteScroll</code></a>
+You can implement pull-to-refresh with the <a href="/docs/nightly/api/directive/ionRefresher/"><code>ionRefresher</code></a>
+directive, and infinite scrolling with the <a href="/docs/nightly/api/directive/ionInfiniteScroll/"><code>ionInfiniteScroll</code></a>
 directive.
 
 
@@ -98,7 +98,7 @@ directive.
       </td>
       <td>
         <p>The handle used to identify this scrollView
-with <a href="/docs/nightly/api/service/$ionicScrollDelegate"><code>$ionicScrollDelegate</code></a>.</p>
+with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>.</p>
 
         
       </td>

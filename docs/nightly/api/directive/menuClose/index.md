@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/directive/menuClose"
+path: "api/directive/menuClose/"
 
 title: "menu-close"
 header_sub_title: "Directive in module ionic"
@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicSideMenu.js#L417'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicSideMenu.js#L416'>
     Improve this doc
   </a>
 </div>

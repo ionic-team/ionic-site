@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/service/$ionicSideMenuDelegate"
+path: "api/service/$ionicSideMenuDelegate/"
 
 title: "$ionicSideMenuDelegate"
 header_sub_title: "Service in module ionic"
@@ -31,10 +31,10 @@ docType: "service"
 
 
 
-Delegate for controlling the <a href="/docs/nightly/api/directive/ionSideMenus"><code>ionSideMenus</code></a> directive.
+Delegate for controlling the <a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> directive.
 
 Methods called directly on the $ionicSideMenuDelegate service will control all side
-menus.  Use the <a href="/docs/nightly/api/service/$ionicSideMenuDelegate#$getByHandle">$getByHandle</a>
+menus.  Use the <a href="/docs/nightly/api/service/$ionicSideMenuDelegate/#$getByHandle">$getByHandle</a>
 method to control specific ionSideMenus instances.
 
 
@@ -309,7 +309,7 @@ side menus.</p>
 
 * Returns: 
    `delegateInstance` A delegate instance that controls only the
-<a href="/docs/nightly/api/directive/ionSideMenus"><code>ionSideMenus</code></a> directives with `delegate-handle` matching
+<a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> directives with `delegate-handle` matching
 the given handle.
 
 Example: `$ionicSideMenuDelegate.$getByHandle('my-handle').toggleLeft();`

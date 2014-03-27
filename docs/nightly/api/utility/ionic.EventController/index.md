@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "api/utility/ionic.EventController"
+path: "api/utility/ionic.EventController/"
 
 title: "ionic.EventController"
 header_sub_title: "Utility in module ionic"

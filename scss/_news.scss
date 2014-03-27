@@ -1,28 +1,28 @@
 
 .news {
-  font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
   position: absolute;
   bottom: 0;
-  height: 50px;
   padding-top: 14px;
-  background: rgba(255, 255, 255, 0.2);
   width: 100%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
   letter-spacing: -0.03em;
+  font-weight: bold;
+  font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   .container {
-    color: #B6D1FF;
-    white-space: nowrap;
     overflow: hidden;
+    color: #B6D1FF;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   a {
-    color: #fff;
-    opacity: .85;
-    text-decoration: none;
     padding: 0;
+    color: #fff;
+    text-decoration: none;
     font-weight: bold;
+    opacity: .85;
 
     &:hover {
       text-decoration: underline;
@@ -32,5 +32,12 @@
     a:visited {
       color:#fff;
     }
+  }
+
+  .news-col {
+    overflow: hidden;
+    height: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

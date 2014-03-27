@@ -5,6 +5,7 @@ date:   "2014-03-06 08:00:00"
 hide_date: true
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
+searchable: true
 published: true
 ---
 
@@ -30,7 +31,7 @@ Note: Ionic uses Cordova proper at the core, we do not use PhoneGap at all (thou
 
 ### You don't know what I'm capable of!
 
-At its core, Cordova offers a simple but powerful API to call Javascript functions that map to native code or plugins. This means you can transfer any kind of data from native land into web land. 
+At its core, Cordova offers a simple but powerful API to call Javascript functions that map to native code or plugins. This means you can transfer any kind of data from native land into web land.
 
 This is something people don't always realize. Cordova is capable of pretty much anything you need to do on mobile. It's a powerful low-level API that comes with a set of pre-made, simple plugins to do things like access the camera or compass.
 

@@ -23,31 +23,21 @@
       </div>
       <div class="news">
         <div class="container">
-
-          <div class="picker">
-            <!--
-            <select onchange="window.location.href=this.options[this.selectedIndex].value">
-              
-                <option
-                value="/docs/nightly/{% if page.path %}{{page.path}}{% endif %}"
-                 {% if page.version == "nightly" %}selected{% endif %}>
-                 nightly 
-                </option>
-              
-                <option
-                value="/docs/{% if page.path %}{{page.path}}{% endif %}"
-                 {% if page.version == "1.0.0-beta.1" %}selected{% endif %}>
-                 1.0.0-beta.1 (latest)
-                </option>
-              
-            </select>
-            -->
-            {% include api_version_select.html %}
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                {% include api_version_select.html %}
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              {% include search_bar.html %}
+            </div>
           </div>
-
         </div>
       </div>
     </div>
+
+    {% include search_results.html %}
 
     <div class="container content-container">
 

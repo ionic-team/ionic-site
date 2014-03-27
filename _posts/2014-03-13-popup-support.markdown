@@ -5,6 +5,7 @@ date:   "2014-03-13 08:00:00"
 hide_date: true
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
+searchable: true
 published: true
 ---
 
@@ -12,7 +13,7 @@ published: true
 {% include codepen.html id="zkmhJ" %}
 </div>
 
-One great thing about native SDKs is the control they give developers when it comes to common tasks like 
+One great thing about native SDKs is the control they give developers when it comes to common tasks like
 prompting the user for input, or showing a modal dialog.
 
 Unfortunately, the browser built-ins `alert()`, `confirm()`, and `prompt()`, while convenient, are too limiting for
@@ -25,7 +26,7 @@ So today we are releasing the first implementation of popup (or "dialog") suppor
 
 We designed the popup experience off of how they function in iOS, meaning the modals can stack and will "pop" off after the most recent one is dismissed.
 
-Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously 
+Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously
 return prompt data to your code. We do this through Angular promises.
 
 <!-- more -->

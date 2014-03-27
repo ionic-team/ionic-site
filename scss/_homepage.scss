@@ -164,14 +164,14 @@
     /* Desktop */
     .primary-row {
       h1 {
-        margin: 90px 0 0 0;
+        margin: 100px 0 0 0;
         font-size: 48px;
         font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
         font-weight: bold;
         letter-spacing: -1px;
       }
       .btn-row {
-        margin-top: 50px;
+        margin-top: 40px;
       }
       .btn {
         width: auto;
@@ -181,7 +181,8 @@
       }
     }
     .feature-img {
-      height: 500px;
+      height: 510px;
+      margin-top: 20px;
       background-size: 520px 486px;
     }
   }

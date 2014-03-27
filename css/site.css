@@ -5128,19 +5128,20 @@ h1 + h2 + p {
   .home {
     /* Desktop */ }
     .home .primary-row h1 {
-      margin: 90px 0 0 0;
+      margin: 100px 0 0 0;
       font-size: 48px;
       font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: -1px; }
     .home .primary-row .btn-row {
-      margin-top: 50px; }
+      margin-top: 40px; }
     .home .primary-row .btn {
       width: auto; }
     .home .primary-row .btn-get-started {
       margin-left: 20px; }
     .home .feature-img {
-      height: 500px;
+      height: 510px;
+      margin-top: 20px;
       background-size: 520px 486px; } }
 .home .utility-bar {
   margin-top: -1px;

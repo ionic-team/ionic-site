@@ -5697,6 +5697,8 @@ pre {
 #getting-started {
   padding: 40px 0px; }
   #getting-started .italic {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
     margin: 20px 0px;
     line-height: 26px; }
   #getting-started i {

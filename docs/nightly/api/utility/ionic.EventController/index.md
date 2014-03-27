@@ -316,6 +316,13 @@ Remove an event listener.
 
 Add an event listener for a gesture on an element.
 
+Available eventTypes (from [hammer.js](http://eightmedia.github.io/hammer.js/)):
+
+`hold`, `tap`, `doubletap`, `drag`, `dragstart`, `dragend`, `dragup`, `dragdown`, <br/>
+`dragleft`, `dragright`, `swipe`, `swipeup`, `swipedown`, `swipeleft`, `swiperight`, <br/>
+`transform`, `transformstart`, `transformend`, `rotate`, `pinch`, `pinchin`, `pinchout`, </br>
+`touch`, `release`
+
 
 
 <table class="table" style="margin:0;">

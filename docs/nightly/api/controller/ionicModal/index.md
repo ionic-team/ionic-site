@@ -11,7 +11,7 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicModal.js#L47'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicModal.js#L54'>
     Improve this doc
   </a>
 </div>
@@ -119,6 +119,9 @@ Show this modal instance.
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating in.
+
 
 
 
@@ -135,6 +138,9 @@ Hide this modal instance.
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating out.
+
 
 
 
@@ -150,6 +156,9 @@ Remove this modal instance from the DOM and clean up.
 
 
 
+
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating out.
 
 
 

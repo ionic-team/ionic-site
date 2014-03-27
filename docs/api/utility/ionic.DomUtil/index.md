@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/utility/ionic.DomUtil"
+path: "api/utility/ionic.DomUtil/"
 
 title: "ionic.DomUtil"
 header_sub_title: "Utility in module ionic"

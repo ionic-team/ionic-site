@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionNavButtons"
+path: "api/directive/ionNavButtons/"
 
 title: "ion-nav-buttons"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionNavView"><code>ionNavView</code></a>
+  Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
 </small>
 
 
@@ -36,8 +36,8 @@ docType: "directive"
 
 
 
-Use ionNavButtons to set the buttons on your <a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a>
-from within an <a href="/docs/api/directive/ionView"><code>ionView</code></a>.
+Use ionNavButtons to set the buttons on your <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>
+from within an <a href="/docs/api/directive/ionView/"><code>ionView</code></a>.
 
 Any buttons you declare will be placed onto the navbar's corresponding side,
 and then destroyed when the user leaves their parent view.
@@ -94,7 +94,7 @@ and then destroyed when the user leaves their parent view.
       </td>
       <td>
         <p>The side to place the buttons on in the parent
-<a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a>. Available: &#39;left&#39; or &#39;right&#39;.</p>
+<a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>. Available: &#39;left&#39; or &#39;right&#39;.</p>
 
         
       </td>

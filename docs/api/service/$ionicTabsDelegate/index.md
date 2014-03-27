@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/service/$ionicTabsDelegate"
+path: "api/service/$ionicTabsDelegate/"
 
 title: "$ionicTabsDelegate"
 header_sub_title: "Service in module ionic"
@@ -31,10 +31,10 @@ docType: "service"
 
 
 
-Delegate for controlling the <a href="/docs/api/directive/ionTabs"><code>ionTabs</code></a> directive.
+Delegate for controlling the <a href="/docs/api/directive/ionTabs/"><code>ionTabs</code></a> directive.
 
 Methods called directly on the $ionicTabsDelegate service will control all ionTabs
-directives. Use the <a href="/docs/api/service/$ionicTabsDelegate#$getByHandle">$getByHandle</a>
+directives. Use the <a href="/docs/api/service/$ionicTabsDelegate/#$getByHandle">$getByHandle</a>
 method to control specific ionTabs instances.
 
 
@@ -125,7 +125,7 @@ Select the tab matching the given index.
 view history (if it exists) and use it, or just load the default page.
 Default false.
 Hint: you probably want this to be true if you have an
-<a href="/docs/api/directive/ionNavView"><code>ionNavView</code></a> inside your tab.</p>
+<a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a> inside your tab.</p>
 
         
       </td>
@@ -207,7 +207,7 @@ Hint: you probably want this to be true if you have an
 
 * Returns: 
    `delegateInstance` A delegate instance that controls only the
-<a href="/docs/api/directive/ionTabs"><code>ionTabs</code></a> directives with `delegate-handle` matching
+<a href="/docs/api/directive/ionTabs/"><code>ionTabs</code></a> directives with `delegate-handle` matching
 the given handle.
 
 Example: `$ionicTabsDelegate.$getByHandle('my-handle').select(0);`

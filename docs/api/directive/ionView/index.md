@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionView"
+path: "api/directive/ionView/"
 
 title: "ion-view"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionNavView"><code>ionNavView</code></a>
+  Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
 </small>
 
 
@@ -36,7 +36,7 @@ docType: "directive"
 
 
 
-A container for content, used to tell a parent <a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a>
+A container for content, used to tell a parent <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>
 about the current view.
 
 
@@ -86,7 +86,7 @@ Below is an example where our page will load with a navbar containing "My Page" 
   <code>string</code>
       </td>
       <td>
-        <p>The title to display on the parent <a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a>.</p>
+        <p>The title to display on the parent <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>.</p>
 
         
       </td>
@@ -104,7 +104,7 @@ Below is an example where our page will load with a navbar containing "My Page" 
       </td>
       <td>
         <p>Whether to hide the back button on the parent
-<a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a> by default.</p>
+<a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> by default.</p>
 
         
       </td>
@@ -122,7 +122,7 @@ Below is an example where our page will load with a navbar containing "My Page" 
       </td>
       <td>
         <p>Whether to hide the parent
-<a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a> by default.</p>
+<a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> by default.</p>
 
         
       </td>

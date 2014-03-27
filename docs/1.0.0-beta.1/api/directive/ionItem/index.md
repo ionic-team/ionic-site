@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionItem"
+path: "api/directive/ionItem/"
 
 title: "ion-item"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionList"><code>ionList</code></a>
+  Child of <a href="/docs/api/directive/ionList/"><code>ionList</code></a>
 </small>
 
 

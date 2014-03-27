@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/controller/ionicModal"
+path: "api/controller/ionicModal/"
 
 title: "ionicModal"
 header_sub_title: "Controller in module ionic"
@@ -11,7 +11,7 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicModal.js#L47'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicModal.js#L54'>
     Improve this doc
   </a>
 </div>
@@ -31,7 +31,7 @@ docType: "controller"
 
 
 
-Instantiated by the <a href="/docs/api/service/$ionicModal"><code>$ionicModal</code></a> service.
+Instantiated by the <a href="/docs/api/service/$ionicModal/"><code>$ionicModal</code></a> service.
 
 Hint: Be sure to call [remove()](#remove) when you are done with each modal
 to clean it up and avoid memory leaks.
@@ -119,6 +119,9 @@ Show this modal instance.
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating in.
+
 
 
 
@@ -135,6 +138,9 @@ Hide this modal instance.
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating out.
+
 
 
 
@@ -150,6 +156,9 @@ Remove this modal instance from the DOM and clean up.
 
 
 
+
+* Returns: 
+  <code>promise</code> A promise which is resolved when the modal is finished animating out.
 
 
 

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/service/$ionicPopup"
+path: "api/service/$ionicPopup/"
 
 title: "$ionicPopup"
 header_sub_title: "Service in module ionic"

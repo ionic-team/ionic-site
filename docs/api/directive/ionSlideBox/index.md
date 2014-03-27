@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionSlideBox"
+path: "api/directive/ionSlideBox/"
 
 title: "ion-slide-box"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/api/service/$ionicSlideBoxDelegate"><code>$ionicSlideBoxDelegate</code></a>
+  Delegate: <a href="/docs/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>
 </small>
 
 </h1>
@@ -89,7 +89,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
       </td>
       <td>
         <p>The handle used to identify this slideBox
-with <a href="/docs/api/service/$ionicSlideBoxDelegate"><code>$ionicSlideBoxDelegate</code></a>.</p>
+with <a href="/docs/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.</p>
 
         
       </td>

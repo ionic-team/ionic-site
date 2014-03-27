@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionList"
+path: "api/directive/ionList/"
 
 title: "ion-list"
 header_sub_title: "Directive in module ionic"
@@ -42,7 +42,7 @@ any HTML element. The containing element requires the list class and each
 list item requires the item class. Ionic also comes with pre-built Angular
 directives to make it easier to create a complex list.
 
-Using the ionList and <a href="/docs/api/directive/ionItem"><code>ionItem</code></a> directives
+Using the ionList and <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a> directives
 make it easy to support various interaction modes such as swipe to edit,
 drag to reorder, and removing items.
 
@@ -50,7 +50,7 @@ However, if you need just a simple list you won't be required to use the
 directives, but rather just use the classnames.
 This demo is a simple list without using the directives.
 
-See the <a href="/docs/api/directive/ionItem"><code>ionItem</code></a> documentation for more information on list items.
+See the <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a> documentation for more information on list items.
 
 
 

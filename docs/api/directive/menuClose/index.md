@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/menuClose"
+path: "api/directive/menuClose/"
 
 title: "menu-close"
 header_sub_title: "Directive in module ionic"

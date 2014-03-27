@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/service/$ionicGesture"
+path: "api/service/$ionicGesture/"
 
 title: "$ionicGesture"
 header_sub_title: "Service in module ionic"
@@ -32,7 +32,7 @@ docType: "service"
 
 
 An angular service exposing ionic
-<a href="/docs/api/utility/ionic.EventController"><code>ionic.EventController</code></a>'s gestures.
+<a href="/docs/api/utility/ionic.EventController/"><code>ionic.EventController</code></a>'s gestures.
 
 
 
@@ -54,7 +54,7 @@ An angular service exposing ionic
 
 </h2>
 
-Add an event listener for a gesture on an element. See <a href="/docs/api/utility/ionic.EventController#onGesture"><code>ionic.EventController</code></a>.
+Add an event listener for a gesture on an element. See <a href="/docs/api/utility/ionic.EventController/#onGesture"><code>ionic.EventController</code></a>.
 
 
 
@@ -137,7 +137,7 @@ happens.</p>
 
 </h2>
 
-Remove an event listener for a gesture on an element. See <a href="/docs/api/utility/ionic.EventController#offGesture"><code>ionic.EventController</code></a>.
+Remove an event listener for a gesture on an element. See <a href="/docs/api/utility/ionic.EventController/#offGesture"><code>ionic.EventController</code></a>.
 
 
 

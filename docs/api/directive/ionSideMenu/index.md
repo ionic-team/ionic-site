@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionSideMenu"
+path: "api/directive/ionSideMenu/"
 
 title: "ion-side-menu"
 header_sub_title: "Directive in module ionic"
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionSideMenus"><code>ionSideMenus</code></a>
+  Child of <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
 </small>
 
 
@@ -36,7 +36,7 @@ docType: "directive"
 
 
 
-A container for a side menu, sibling to an <a href="/docs/api/directive/ionSideMenuContent"><code>ionSideMenuContent</code></a> directive.
+A container for a side menu, sibling to an <a href="/docs/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a> directive.
 
 
 
@@ -56,7 +56,7 @@ A container for a side menu, sibling to an <a href="/docs/api/directive/ionSideM
 </ion-side-menu>
 ```
 For a complete side menu example, see the
-<a href="/docs/api/directive/ionSideMenus"><code>ionSideMenus</code></a> documentation.
+<a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> documentation.
   
   
 <h2 id="api" style="clear:both;">API</h2>

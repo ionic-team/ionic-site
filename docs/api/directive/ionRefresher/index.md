@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionRefresher"
+path: "api/directive/ionRefresher/"
 
 title: "ion-refresher"
 header_sub_title: "Directive in module ionic"
@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicContent.js#L144'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicContent.js#L156'>
     Improve this doc
   </a>
 </div>
@@ -26,7 +26,7 @@ docType: "directive"
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionContent"><code>ionContent</code></a> or <a href="/docs/api/directive/ionScroll"><code>ionScroll</code></a>
+  Child of <a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/api/directive/ionScroll/"><code>ionScroll</code></a>
 </small>
 
 
@@ -38,8 +38,8 @@ docType: "directive"
 
 Allows you to add pull-to-refresh to a scrollView.
 
-Place it as the first child of your <a href="/docs/api/directive/ionContent"><code>ionContent</code></a> or
-<a href="/docs/api/directive/ionScroll"><code>ionScroll</code></a> element.
+Place it as the first child of your <a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> or
+<a href="/docs/api/directive/ionScroll/"><code>ionScroll</code></a> element.
 
 When refreshing is complete, $broadcast the 'scroll.refreshComplete' event
 from your controller.

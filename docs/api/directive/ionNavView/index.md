@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionNavView"
+path: "api/directive/ionNavView/"
 
 title: "ion-nav-view"
 header_sub_title: "Directive in module ionic"
@@ -65,7 +65,7 @@ and remember to replace ui-view with ion-nav-view in examples).
 In this example, we will create a navigation view that contains our different states for the app.
 
 To do this, in our markup use the ionNavView top level directive, adding an
-<a href="/docs/api/directive/ionNavBar"><code>ionNavBar</code></a> directive which will render a header bar that updates as we
+<a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive which will render a header bar that updates as we
 navigate through the navigation stack.
 
 You can any [animation class](/docs/components#animation) on the navView to have its pages slide.

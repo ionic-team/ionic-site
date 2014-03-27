@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/service/$ionicScrollDelegate"
+path: "api/service/$ionicScrollDelegate/"
 
 title: "$ionicScrollDelegate"
 header_sub_title: "Service in module ionic"
@@ -32,11 +32,11 @@ docType: "service"
 
 
 Delegate for controlling scrollViews (created by
-<a href="/docs/api/directive/ionContent"><code>ionContent</code></a> and
-<a href="/docs/api/directive/ionScroll"><code>ionScroll</code></a> directives).
+<a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> and
+<a href="/docs/api/directive/ionScroll/"><code>ionScroll</code></a> directives).
 
 Methods called directly on the $ionicScrollDelegate service will control all scroll
-views.  Use the <a href="/docs/api/service/$ionicScrollDelegate#$getByHandle">$getByHandle</a>
+views.  Use the <a href="/docs/api/service/$ionicScrollDelegate/#$getByHandle">$getByHandle</a>
 method to control specific scrollViews.
 
 

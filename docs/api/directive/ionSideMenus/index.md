@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionSideMenus"
+path: "api/directive/ionSideMenus/"
 
 title: "ion-side-menus"
 header_sub_title: "Directive in module ionic"
@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/api/service/$ionicSideMenuDelegate"><code>$ionicSideMenuDelegate</code></a>
+  Delegate: <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>
 </small>
 
 </h1>
@@ -43,8 +43,8 @@ to side.
 ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
 
 For more information on side menus, check out the documenation for
-<a href="/docs/api/directive/ionSideMenuContent"><code>ionSideMenuContent</code></a> and
-<a href="/docs/api/directive/ionSideMenu"><code>ionSideMenu</code></a>.
+<a href="/docs/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a> and
+<a href="/docs/api/directive/ionSideMenu/"><code>ionSideMenu</code></a>.
 
 
 
@@ -108,7 +108,7 @@ function ContentController($scope, $ionicSideMenuDelegate) {
       </td>
       <td>
         <p>The handle used to identify this side menu
-with <a href="/docs/api/service/$ionicSideMenuDelegate"><code>$ionicSideMenuDelegate</code></a>.</p>
+with <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>.</p>
 
         
       </td>

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/utility/ionic.EventController"
+path: "api/utility/ionic.EventController/"
 
 title: "ionic.EventController"
 header_sub_title: "Utility in module ionic"
@@ -315,6 +315,13 @@ Remove an event listener.
 </h2>
 
 Add an event listener for a gesture on an element.
+
+Available eventTypes (from [hammer.js](http://eightmedia.github.io/hammer.js/)):
+
+`hold`, `tap`, `doubletap`, `drag`, `dragstart`, `dragend`, `dragup`, `dragdown`, <br/>
+`dragleft`, `dragright`, `swipe`, `swipeup`, `swipedown`, `swipeleft`, `swiperight`, <br/>
+`transform`, `transformstart`, `transformend`, `rotate`, `pinch`, `pinchin`, `pinchout`, </br>
+`touch`, `release`
 
 
 

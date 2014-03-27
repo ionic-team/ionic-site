@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/service/$ionicSlideBoxDelegate"
+path: "api/service/$ionicSlideBoxDelegate/"
 
 title: "$ionicSlideBoxDelegate"
 header_sub_title: "Service in module ionic"
@@ -31,10 +31,10 @@ docType: "service"
 
 
 
-Delegate that controls the <a href="/docs/api/directive/ionSlideBox"><code>ionSlideBox</code></a> directive.
+Delegate that controls the <a href="/docs/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directive.
 
 Methods called directly on the $ionicSlideBoxDelegate service will control all side
-menus.  Use the <a href="/docs/api/service/$ionicSlideBoxDelegate#$getByHandle">$getByHandle</a>
+menus.  Use the <a href="/docs/api/service/$ionicSlideBoxDelegate/#$getByHandle">$getByHandle</a>
 method to control specific slide box instances.
 
 
@@ -291,7 +291,7 @@ explicitly told to do so.
 
 * Returns: 
    `delegateInstance` A delegate instance that controls only the
-<a href="/docs/api/directive/ionSlideBox"><code>ionSlideBox</code></a> directives with `delegate-handle` matching
+<a href="/docs/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directives with `delegate-handle` matching
 the given handle.
 
 Example: `$ionicSlideBoxDelegate.$getByHandle('my-handle').stop();`

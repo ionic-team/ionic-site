@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "1.0.0-beta.1"
 versionHref: "/docs"
-path: "api/directive/ionCheckbox"
+path: "api/directive/ionCheckbox/"
 
 title: "ion-checkbox"
 header_sub_title: "Directive in module ionic"

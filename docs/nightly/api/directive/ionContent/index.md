@@ -133,7 +133,7 @@ of the content.  Defaults to true on iOS, false on Android.</p>
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether to allow scrolling of content.  Defaults to true. Note: scroll=&quot;false&quot; removes the .scroll child element on element compilation, not on scope change</p>
+        <p>Whether to allow scrolling of content.  Defaults to true.</p>
 
         
       </td>

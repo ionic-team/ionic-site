@@ -46,7 +46,9 @@ temporarily.  Usually used for making a choice or editing an item.
 ```html
 <script id="my-modal.html" type="text/ng-template">
   <div class="modal">
-    <ion-header-bar title="My Modal Title"></ion-header-bar>
+    <ion-header-bar>
+      <h1 class="title">My Modal title</h1>
+    </ion-header-bar>
     <ion-content>
       Hello!
     </ion-content>

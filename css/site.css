@@ -5087,12 +5087,17 @@ h1 + h2 + p {
     .home .feature-img {
       background-image: url(/img/homepage/phones-weather-demo@2x.png);
       background-size: 320px 299px; } }
+  .home .feature-img .feature-img-loading {
+    display: none; }
+  .home .feature-img .demo-link {
+    visibility: hidden; }
   .home .feature-img.img-loaded {
+    background-image: url(/img/homepage/phones-weather-demo.png);
     background-image: url(/img/homepage/phones-weather-demo.png);
     -webkit-animation: fadeInDown 1s both;
     animation: fadeInDown 1s both; }
-  .home .feature-img .feature-img-loading {
-    display: none; }
+    .home .feature-img.img-loaded .demo-link {
+      visibility: visible; }
   .home .feature-img .demo-link {
     position: absolute;
     right: 50px;

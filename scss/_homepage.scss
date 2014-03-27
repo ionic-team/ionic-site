@@ -108,14 +108,20 @@
       background-size: 320px 299px;
     }
 
+    .feature-img-loading {
+      display: none;
+    }
+    .demo-link {
+      visibility: hidden;
+    }
     &.img-loaded {
+      .demo-link {
+        visibility: visible;
+      }
+      background-image: url(/img/homepage/phones-weather-demo.png);
       background-image: url(/img/homepage/phones-weather-demo.png);
       -webkit-animation: fadeInDown 1s both;
       animation: fadeInDown 1s both;
-    }
-
-    .feature-img-loading {
-      display: none;
     }
 
     .demo-link {

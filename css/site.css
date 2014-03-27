@@ -11996,7 +11996,8 @@ a {
     color: #999;
     line-height: 28px; }
   .pre-footer a:hover {
-    text-decoration: none; }
+    text-decoration: none;
+    color: #4E8EF7; }
   .pre-footer span {
     padding-left: 5px; }
   .pre-footer .col-a {

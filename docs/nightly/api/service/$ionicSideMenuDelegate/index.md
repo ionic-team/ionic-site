@@ -173,6 +173,27 @@ Default: Toggles the menu.</p>
 
 
 
+<div id="getOpenRatio"></div>
+<h2>
+  <code>getOpenRatio()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>float</code> The ratio of open amount over menu width. For example, a
+menu of width 100 open 50 pixels would be open 50% or a ratio of 0.5. Value is negative
+for right menu.
+
+
+
+
 <div id="isOpenLeft"></div>
 <h2>
   <code>isOpenLeft()</code>

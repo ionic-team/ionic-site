@@ -5842,6 +5842,7 @@ pre {
     margin-bottom: 20px; }
   #getting-started .sub-heading {
     padding-bottom: 40px;
+    margin: auto;
     max-width: 760px;
     color: #444;
     font-weight: 300;

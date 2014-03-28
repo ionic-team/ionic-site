@@ -286,7 +286,9 @@ $(document).ready(function () {
         searchReady(localData);
         return;
       }
-    } catch(e){ }
+    } catch(e){
+      console.log(e);
+    }
 
     $.getJSON('/data/index.json', function (requestData) {
       searchReady(requestData);

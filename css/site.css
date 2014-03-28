@@ -5840,6 +5840,13 @@ pre {
     width: 80px; }
   #getting-started h3 {
     margin-bottom: 20px; }
+  #getting-started .sub-heading {
+    padding-bottom: 40px;
+    max-width: 760px;
+    color: #444;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
   #getting-started .desc {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: #333;

@@ -68,10 +68,10 @@ layout: issue
       </div>
     </div>
 
-    <div step="3" heading="Detailed Description" is-done="issue.description.length > 140">
+    <div step="3" heading="Detailed Description" is-done="issue.description.length > 5">
       <div class="input-container">
         <div class="subtext">
-          The more detailed the description, the better! Must be at least 140 characters.
+          The more detailed the description, the better!
           <br/>If it is a bug, please create a plunker/codepen: http://codepen.io/ionic/public-list/ -- and use the nightly build: http://code.ionicframework.com/#nightly.
         </div>
         <textarea ng-model="issue.description"></textarea>
@@ -103,6 +103,7 @@ layout: issue
     </div>
 
   </form>
+
 
 </div>
 

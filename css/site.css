@@ -5006,7 +5006,7 @@ td.visible-print {
     .input-container textarea.error {
       border-color: #f95c5c; }
   .input-container textarea {
-    height: 200px;
+    height: 100px;
     padding: 10px; }
   .input-container label {
     font-size: 11px;

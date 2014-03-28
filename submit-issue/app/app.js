@@ -13,36 +13,48 @@ var ISSUE_TEMPLATE =
   '<% } %>' +
   '<span ionic-description><%= description %></span>';
 
-var app = angular.module('issueApp', ['firebase', 'ga'])
+var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
 
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function() {
+.controller('AppCtrl', function($scope) {
   $scope.issue = {
     title: '',
     type: '',
     component: '',
-    platformName: '',
-    platformVersion: '',
-    webview: '',
+    platform: '',
+    iosVersion: '7',
+    androidVersion: '4.4',
+    webview: null,
     description: ''
   };
 
-  //id: name
-  $scope.typeOptions = {
-    bug: 'bug',
-    docs: 'docs',
-    feat: 'feature',
-    perf: 'performance'
-  };
-  $scope.platformOptions = {
-    android: 'android',
-    ios: 'ios',
-    ie: 'internet explorer',
-    firefox: 'firefox',
-    chrome: 'chrome'
-  };
+  $scope.typeOptions = [
+    { id: 'bug', label: 'bug' },
+    { id: 'perf', label: 'performance' },
+    { id: 'docs', label: 'documentation' },
+    { id: 'feat', label: 'feature request' }
+  ];
+  $scope.platformOptions = [
+    { id: 'ios', label: 'ios' },
+    { id: 'android',  label: 'android' },
+    { id: 'mobile', label: 'all mobile devices' },
+    { id: 'desktop', label: 'desktop' }
+  ];
+  $scope.iosVersions = [
+    '7',
+    '6'
+  ];
+  $scope.androidVersions = [
+    '4.4', 
+    '4.3',
+    '4.2',
+    '4.0',
+    '4.1',
+    '4.x',
+    '2.x'
+  ];
   $scope.componentOptions = [
     'action sheet',
     'animations',
@@ -70,6 +82,63 @@ var app = angular.module('issueApp', ['firebase', 'ga'])
     'tap/click',
     'view'
   ];
+})
+
+.directive('stepMaster', function() {
+  return {
+    controller: function StepCtrl() {
+      this.stepsDone = 0;
+      this.numSteps = 0;
+    }
+  };
+})
+.directive('step', function() {
+  return {
+    transclude: true,
+    restrict: 'A',
+    require: '^stepMaster',
+    template: 
+      '<div ng-if="showStep()" class="fade-down">' +
+        '<h3>' +
+          '<span ng-if="!noTotal">[ {{stepText()}} ]</span> ' +
+          '{{heading}}' +
+        '</h3>' +
+        '<div ng-transclude></div>' +
+      '</div>',
+    scope: true,
+    link: function(scope, elm, attr, stepsCtrl, transclude) {
+      if (!attr.noTotal) {
+        stepsCtrl.numSteps++;
+      }
+
+      scope.noTotal = attr.noTotal;
+      scope.heading = attr.heading;
+      scope.step = +attr.step;
+
+      var doneWatch = scope.$parent.$watch(attr.isDone, function(done) {
+        if (done) {
+          stepsCtrl.stepsDone++;
+          doneWatch();
+        }
+      });
+
+      scope.stepText = function() {
+        return (1+scope.step) + ' / ' + stepsCtrl.numSteps;
+      };
+
+      scope.showStep = function() {
+        return stepsCtrl.stepsDone >= scope.step;
+      };
+    }
+  };
+})
+.directive('textarea', function() {
+  return {
+    restrict: 'E',
+    link: function(scope, elm, attr) {
+      jQuery(elm[0]).autosize();
+    }
+  };
 })
 
 ;

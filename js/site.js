@@ -272,18 +272,32 @@ var lunr=function(t){var e=new lunr.Index;return e.pipeline.add(lunr.stopWordFil
 
 $(document).ready(function () {
 
-  var idx, data;
   var searchInput = $('#search-input');
 
   if(!searchInput.length || $(window).width() < 768) return;
 
   var searchResultsDiv = $('#search-results');
 
-  $.getJSON('/data/index.json', function (d) {
-    data = d;
-    idx = lunr.Index.load(data.index);
-    searchReady();
-  });
+  setTimeout(function(){
+    // check if there if there is recent search data in local storage
+    try {
+      var localData = JSON.parse(localStorage.getItem('search-index'));
+      if(localData && (localData.ts + 86400000) > Date.now()) {
+        return searchReady(localData);;
+      }
+    } catch(e){}
+
+    $.getJSON('/data/index.json', function (requestData) {
+      searchReady(requestData);
+      setTimeout(function(){
+        try{
+          requestData.ts = Date.now();
+          localStorage.setItem('search-index', JSON.stringify(requestData))
+        }catch(e){}
+      }, 100);
+    });
+
+  }, 5);
 
   var debounce = function (fn) {
     var timeout;
@@ -298,7 +312,9 @@ $(document).ready(function () {
     }
   }
 
-  function searchReady() {
+  function searchReady(data) {
+    var idx = lunr.Index.load(data.index);
+    data.index = null;
 
     searchInput.closest('.search-bar').css({visibility: 'visible'});
 
@@ -344,9 +360,9 @@ $(document).ready(function () {
     addResults('#results-css', resultsData.css, 14);
     addResults('#results-content', resultsData.content, 14);
 
+    clearTimeout(removeOverlay);
     searchResultsDiv.show();
 
-    clearTimeout(removeOverlay);
     if( !$('#search-overlay').length ) {
       $(document.body).append('<div id="search-overlay"></div>');
     }

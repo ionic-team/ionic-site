@@ -1,6 +1,6 @@
 var ISSUE_TEMPLATE = 
   '<span issue-template></span>\n' +
-  '**Issue Type: <span ionic-type><%= type %></span>\n\n' +
+  '**Issue Type**: <span ionic-type><%= type %></span>\n\n' +
   '<% if (component) { %>' +
     '**Component**: <span ionic-component><%= component %>\n\n' +
   '<% } %>' +
@@ -18,11 +18,10 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService) {
   $scope.issue = {
     title: '',
     type: '',
-    component: '',
     platform: '',
     iosVersion: '7',
     androidVersion: '4.4',
@@ -82,6 +81,30 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     'tap/click',
     'view'
   ];
+
+  $rootScope.$on('userStateChange', function(e, user) {
+    $scope.user = user;
+  });
+  $scope.authenticated = function() {
+    return !!$scope.user;
+  };
+  $scope.signIn = function() {
+    return LoginService.login(null, function() {
+    });
+  };
+  $scope.signOut = function() {
+    return LoginService.logout();
+  };
+  $scope.submitIssue = function() {
+    $scope.issueLoading = true;
+    GitHubService.submitIssue({
+      title: $scope.issue.title,
+      body: JSON.stringify($scope.issue, null, 2)
+    }, $scope.user.accessToken, 'driftyco', 'ionic').then(function(res) {
+      alert('Issue submitted!' + res);
+    });
+  };
+
 })
 
 .directive('stepMaster', function() {
@@ -115,7 +138,9 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
       scope.heading = attr.heading;
       scope.step = +attr.step;
 
-      var doneWatch = scope.$parent.$watch(attr.isDone, function(done) {
+      var doneWatch = scope.$parent.$watch(function() {
+        return scope.$eval(attr.isDone) && scope.showStep();
+      }, function(done) {
         if (done) {
           stepsCtrl.stepsDone++;
           doneWatch();

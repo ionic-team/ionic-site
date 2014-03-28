@@ -3,6 +3,7 @@
  * Some CSS adapted from LayerVault, http://layervault.com
  */
 
+
 .fade-down.ng-enter {
   -webkit-animation: fadeInDown 0.5s both;
   animation: fadeInDown 0.5s both;
@@ -78,7 +79,7 @@ $input-height: 60px;
     }
   }
   textarea {
-    height: 100px;
+    height: 150px;
     padding: 10px;
   }
   label {

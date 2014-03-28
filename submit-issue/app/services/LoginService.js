@@ -1,3 +1,8 @@
+/* 
+ * LoginService, By Kent C Dodds
+ * https://github.com/kentcdodds/issue-template
+ * MIT License https://github.com/kentcdodds/issue-template/blob/master/LICENSE
+ */
 IssueApp.factory('LoginService', function(Firebase, $firebaseSimpleLogin, $rootScope) {
   var firebaseRef = new Firebase('https://issue-template.firebaseio.com');
   var loginObj = $firebaseSimpleLogin(firebaseRef);
@@ -27,11 +32,8 @@ IssueApp.factory('LoginService', function(Firebase, $firebaseSimpleLogin, $rootS
         scope: 'repo',
         rememberMe: true
       }).then(function(user) {
-          broadcastStateChange(user);
-        }, function(error) {
-          console.error('Login failed: ', error);
-          //TODO Handle this.
-        });
+        broadcastStateChange(user);
+      });
     },
     getUser: function() {
       return loginObj.$getCurrentUser();

@@ -286,9 +286,7 @@ $(document).ready(function () {
         searchReady(localData);
         return;
       }
-    } catch(e){
-      console.log(e);
-    }
+    } catch(e){}
 
     $.getJSON('/data/index.json', function (requestData) {
       searchReady(requestData);
@@ -317,7 +315,6 @@ $(document).ready(function () {
 
   function searchReady(data) {
     var idx = lunr.Index.load(data.index);
-    data.index = null;
 
     searchInput.closest('.search-bar').css({visibility: 'visible'});
 

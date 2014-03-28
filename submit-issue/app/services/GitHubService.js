@@ -1,6 +1,24 @@
-IssueApp.factory('GitHubService', function($q, $http, util) {
+/* 
+ * GitHubService, By Kent C Dodds
+ * https://github.com/kentcdodds/issue-template
+ * MIT License https://github.com/kentcdodds/issue-template/blob/master/LICENSE
+ */
+IssueApp.factory('GitHubService', function($q, $http) {
+  function simpleCompile(string, obj, regex, propToPull) {
+    return string.replace(regex || /{{(.*?)}}/g, function(match, propName) {
+      if (obj[propName]) {
+        if (propToPull) {
+          return obj[propName][propToPull];
+        } else {
+          return obj[propName];
+        }
+      } else {
+        return match;
+      }
+    });
+  }
   function convertUrl(url, obj) {
-    return util.simpleCompile('https://api.github.com/' + url, obj);
+    return simpleCompile('https://api.github.com/' + url, obj);
   }
 
   return {

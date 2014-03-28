@@ -5838,6 +5838,10 @@ pre {
   #getting-started .num {
     float: left;
     width: 80px; }
+  #getting-started h2 {
+    color: #333333;
+    font-size: 28px;
+    padding-bottom: 4px; }
   #getting-started h3 {
     margin-bottom: 20px; }
   #getting-started .sub-heading {

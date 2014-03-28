@@ -179,7 +179,9 @@ Default: Toggles the menu.</p>
 
 </h2>
 
-
+Gets the ratio of open amount over menu width. For example, a
+menu of width 100 that is opened by 50 pixels is 50% opened, and would return
+a ratio of 0.5.
 
 
 
@@ -187,9 +189,8 @@ Default: Toggles the menu.</p>
 
 
 * Returns: 
-  <code>float</code> The ratio of open amount over menu width. For example, a
-menu of width 100 open 50 pixels would be open 50% or a ratio of 0.5. Value is negative
-for right menu.
+  <code>float</code> 0 if nothing is open, between 0 and 1 if left menu is 
+opened/opening, and between 0 and -1 if right menu is opened/opening.
 
 
 

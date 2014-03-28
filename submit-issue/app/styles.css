@@ -1,0 +1,92 @@
+body {
+  margin: 30px 0 30px 0;
+}
+
+#main-container {
+  width: 650px;
+}
+
+#improve-me {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  max-width: 170px;
+}
+
+.login-button {
+  font-size: 20px;
+}
+
+#loading-spinner {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 60px;
+}
+
+.share-social {
+  text-align: center;
+  margin: 16px 0 16px 0;
+}
+
+.preview-title * {
+  margin: 0;
+}
+
+.preview-area {
+  background-color: #F4F4F4;
+  padding: 10px;
+  min-height: 40px;
+}
+
+.margin-top-medium {
+  margin-top: 20px;
+}
+
+.margin-top-small {
+  margin-top: 10px;
+}
+
+.margin-bottom-medium {
+  margin-bottom: 20px;
+}
+
+.margin-left-small {
+  margin-left: 10px;
+}
+
+.display-block {
+  display: block;
+}
+
+#footer {
+  width:100%;
+  text-align: center;
+  padding: 10px;
+}
+
+#footer div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#powered-by-firebase {
+  max-width: 170px;
+}
+
+.form-fields {
+  margin-left:20px;
+}
+
+.template-fields {
+  margin: 20px 0 20px 0;
+}
+
+#template-template {
+  height: 150px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

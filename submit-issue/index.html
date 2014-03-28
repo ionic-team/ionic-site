@@ -1,0 +1,108 @@
+---
+layout: issue
+---
+
+<div ng-app="issueApp" ng-controller="AppCtrl" class="ng-cloak">
+
+  <form ng-submit="submit()" step-master>
+
+    <div step="0" heading="Issue Title" is-done="issue.title.length > 5">
+      <div class="input-container">
+        <input autofocus type="text" id="title" required maxlength="50" ng-model="issue.title" placeholder="eg Tapping button crashes app">
+        <label for="title">A short synopsis of the problem.</label>
+        <label for="title" class="error">You didn't give a title!</label>
+      </div>
+    </div>
+
+    <div step="1" heading="Issue Type" is-done="issue.type">
+      <div class="input-container">
+        <div class="subtext">What type of issue? Select the one that fits best.</div>
+        <a class="btn"
+          ng-repeat="opt in typeOptions"
+          ng-class="{'active btn-primary': issue.type == opt.id}"
+          ng-click="issue.type = opt.id"
+          ng-bind="opt.label">
+        </a>
+      </div>
+    </div>
+
+    <div step="2" heading="Platform" is-done="issue.platform && (issue.platform != 'desktop' ? issue.webview !== null : true)">
+
+      <div class="input-container">
+        <div class="subtext">What device/platform is the issue about?</div>
+        <a class="btn"
+          ng-repeat="opt in platformOptions"
+          ng-class="{'active btn-primary': issue.platform == opt.id}"
+          ng-click="issue.platform = opt.id"
+          ng-bind="opt.label">
+        </a>
+
+        <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
+          <div class="subtext">What version of iOS?</div>
+          <a class="btn btn-small" 
+            ng-repeat="ver in iosVersions" 
+            ng-click="issue.iosVersion = ver"
+            ng-class="{'active btn-primary': issue.iosVersion == ver}"
+            ng-bind="ver">
+          </a>
+        </div>
+        <div ng-if="issue.platform == 'android'" class="inset-step fade-down">
+          <div class="subtext">What version of android?</div>
+          <a class="btn btn-small" 
+            ng-repeat="ver in androidVersions" 
+            ng-click="issue.androidVersion = ver"
+            ng-class="{'active btn-primary': issue.androidVersion == ver}"
+            ng-bind="ver">
+          </a>
+        </div>
+        <div ng-if="issue.platform && issue.platform != 'desktop'" class="inset-step fade-down">
+          <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
+          <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
+            In a 'native hybrid' app
+          </a>
+          <a class="btn btn-small" ng-click="issue.webview = false" ng-class="{'btn-primary active': issue.webview === false}">
+            In the phone's browser
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div step="3" heading="Detailed Description" is-done="issue.description.length > 140">
+      <div class="input-container">
+        <div class="subtext">
+          The more detailed the description, the better! Must be at least 140 characters.
+          <br/>If it is a bug, please create a plunker/codepen: http://codepen.io/ionic/public-list/ -- and use the nightly build: http://code.ionicframework.com/#nightly.
+        </div>
+        <textarea ng-model="issue.description"></textarea>
+      </div>
+    </div>
+
+    <div step="4" heading="Sign in with Github" is-done="authenticated()">
+      <a class="btn btn-primary" 
+        ng-if="!authenticated()"
+        ng-click="signIn()">
+        Sign In with Github
+      </a>
+      <a class="btn btn-default" disabled="disabled"
+        ng-if="authenticated()">
+        Signed with Github in as {{user.name}}
+      </a>
+      <a class="btn btn-link"
+        ng-if="authenticated()"
+        ng-click="signOut()">
+        Sign Out
+      </a>
+    </div>
+
+    <div ng-if="authenticated()" step="6" no-total="true">
+      <h6>You're done! Submit that</h6>
+      <div class="btn btn-primary btn-large" ng-click="submitIssue()">
+        Submit Issue to Github!
+      </div>
+    </div>
+
+  </form>
+
+</div>
+

@@ -1,3 +1,19 @@
+#ionitron-image {
+  background: url('/img/getting-started/ionitron-avatar.png') no-repeat transparent;
+  width: 156px;
+  height: 156px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+       only screen and (   min--moz-device-pixel-ratio: 1.3),
+       only screen and (        min-device-pixel-ratio: 1.3),
+       only screen and (             min-resolution: 124dpi)
+{
+  #ionitron-image {
+    background: url('/img/getting-started/ionitron-avatar@2x.png') no-repeat transparent;
+    background-size: 156px 156px;
+  }
+}
+
 #getting-started {
   padding: 40px 0px;
 
@@ -140,12 +156,6 @@
     background: url('/img/getting-started/menu-app.png') no-repeat transparent;
   }
 
-  #ionitron-image {
-    background: url('/img/getting-started/ionitron-avatar.png') no-repeat transparent;
-    width: 156px;
-    height: 156px;
-  }
-
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
          only screen and (   min--moz-device-pixel-ratio: 1.3),
          only screen and (        min-device-pixel-ratio: 1.3),
@@ -164,10 +174,6 @@
         background-size: 308px 263px;
       }
 
-      #ionitron-image {
-        background: url('/img/getting-started/ionitron-avatar@2x.png') no-repeat transparent;
-        background-size: 156px 156px;
-      }
     }
 
 }

@@ -1,0 +1,100 @@
+<div>
+  <div ng-if="user">
+    <div ng-if="mode === 'edit'">
+      <button class="btn btn-danger" ng-click="deleteTemplate()" ng-disabled="!isCollaborator">Delete Template</button>
+      <button class="btn btn-info" ng-click="copyTemplate()">Copy Template</button>
+    </div>
+    <div ng-hide="templateUrl">
+      <h2>Create Template</h2>
+      <div class="text-muted">Use the form below to create a template (*denotes required field)</div>
+      <div class="text-muted" ng-show="template.owner && template.repo && template.name">
+        When saved, your template will be available at:
+        <a class="display-block margin-left-small" href="#/{{template.owner + '/' + template.repo + '/' + template.name}}" ga>
+          http://issuetemplate.com/#/{{template.owner + '/' + template.repo + '/' + template.name}}
+        </a>
+      </div>
+
+      <form role="form" class="margin-top-medium">
+      <div class="form-group">
+          <label for="owner">*Owner</label>
+          <input type="text" class="form-control" id="owner" ng-disabled="mode === 'edit'" placeholder="ex. angular" ng-model="template.owner">
+        </div>
+        <div class="form-group">
+          <label for="name">*Repo</label>
+          <input type="text" class="form-control" id="name" ng-disabled="mode === 'edit'" placeholder="ex. angular.js" ng-model="template.repo">
+        </div>
+        <div class="form-group">
+          <label for="template-name">*Template Name</label>
+          <input type="text" class="form-control" id="template-name" ng-disabled="mode === 'edit'" placeholder="ex. documentation" ng-model="template.name">
+        </div>
+        <div class="form-group">
+          <label for="template-notes">Template Notes</label>
+          <textarea class="form-control" id="template-notes" placeholder="ex. use this for documentation requests (optional, and markdown accepted)" ng-model="template.notes"></textarea>
+        </div>
+        <div class="template-fields">
+          <div ng-repeat="field in template.fields">
+            <hr />
+            <h4>Field {{$index}} <small>use {{wrapInBraces('field' + $index)}} in template</small></h4>
+            <button class="btn btn-danger" ng-click="removeField($index)">Remove Field</button>
+            <div class="form-fields">
+              <div class="form-group">
+                <label for="field-{{$index}}-name">*Name</label>
+                <input type="text" class="form-control" id="field-{{$index}}-name" placeholder="ex. feature" ng-model="field.name">
+              </div>
+              <div class="form-group">
+                <label for="field-{{$index}}-help-text">Help Text</label>
+                <input type="text" class="form-control" id="field-{{$index}}-help-text" placeholder="ex. what kind of feature is this?" ng-model="field.helpText">
+              </div>
+              <div class="form-group">
+                <label for="field-{{$index}}-element">*Element</label>
+                <input type="text" class="form-control" id="field-{{$index}}-element" placeholder="ex. input/textarea/select/etc." ng-model="field.element">
+              </div>
+              <div class="form-group">
+                <label for="field-{{$index}}-type">Element Type</label>
+                <input type="text" class="form-control" id="field-{{$index}}-type" placeholder="ex. text/email/url/checkbox/etc." ng-model="field.type">
+              </div>
+              <div class="form-group">
+                <label for="field-{{$index}}-value">Value(s)</label>
+                <input type="text" class="form-control" id="field-{{$index}}-value" placeholder="ex. value1,value2,value3" ng-model="field.value">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success" ng-click="template.fields.push({})">Add Field</button>
+          <hr />
+        </div>
+        <div class="form-group">
+          <label for="issue-title-template">Issue Title Template</label>
+          <input type="text" class="form-control" id="issue-title-template" placeholder="ex. Feature: {{wrapInBraces('title')}}" ng-model="template.titleTemplate">
+        </div>
+        <div class="form-group">
+          <label for="template-template">*Template... er... Template</label>
+          <textarea class="form-control" id="template-template" placeholder="ex. # Feature Request: {{wrapInBraces('field0')}}" ng-model="template.template"></textarea>
+        </div>
+        <div class="pull-right">
+          <button type="submit" class="btn btn-primary" ng-disabled="!isCollaborator" ng-click="submitTemplate()" ga>{{mode === 'edit' ? 'Update' : 'Create'}}</button>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+      <div>
+        <h2>Preview</h2>
+        <hr />
+        <div>
+          <h3>Title:</h3>
+          <div class="preview-area preview-title">{{template.titleTemplate || wrapInBraces('title')}}</div>
+        </div>
+        <div>
+          <h3>Body:</h3>
+          <div class="preview-area" ng-bind-html="templatePreview"></div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="templateUrl">
+      <div class="alert alert-success margin-top-medium">Successfully {{mode === 'edit' ? 'updated' : 'created'}} the template: <a ng-href="{{templateUrl}}" ga>{{templateUrl}}</a></div>
+      <div><a ng-href="#/new-template" ng-click="templateUrl=''" class="cursor-pointer" ga>Create New Template</a></div>
+      <div><a ng-href="{{templateUrl}}/edit" ng-click="templateUrl=''" ga>Edit Template</a></div>
+    </div>
+  </div>
+  <div ng-if="!user" class="margin-top-medium">
+    Login to Make a New Template
+  </div>
+</div>

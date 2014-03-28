@@ -283,9 +283,10 @@ $(document).ready(function () {
     try {
       var localData = JSON.parse(localStorage.getItem('search-index'));
       if(localData && (localData.ts + 86400000) > Date.now()) {
-        return searchReady(localData);;
+        searchReady(localData);
+        return;
       }
-    } catch(e){}
+    } catch(e){ }
 
     $.getJSON('/data/index.json', function (requestData) {
       searchReady(requestData);

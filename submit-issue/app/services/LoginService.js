@@ -4,7 +4,7 @@
  * MIT License https://github.com/kentcdodds/issue-template/blob/master/LICENSE
  */
 IssueApp.factory('LoginService', function(Firebase, $firebaseSimpleLogin, $rootScope) {
-  var firebaseRef = new Firebase('https://issue-template.firebaseio.com');
+  var firebaseRef = new Firebase('https://ionic-issues.firebaseio.com');
   var loginObj = $firebaseSimpleLogin(firebaseRef);
   var firstWatchExecuted = false;
   var tempWatch = $rootScope.$watch(function() {

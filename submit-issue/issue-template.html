@@ -1,0 +1,11 @@
+**Type**: <span ionic-type><%= type %></span>
+
+**Platform**: <span ionic-platform><%= platform %></span> <% if (platform == 'ios') { %> <span ionic-platform-version><%= iosVersion %></span> <% } else if (platform == 'android') { %> <span ionic-platform-version><%= androidVersion %></span> <% } %>
+
+**Happens in webview?**: <span ionic-webview><%= !!webview %></span>
+
+**Description**
+
+<span ionic-description><%= description %></span>
+
+<span is-issue-template></span>

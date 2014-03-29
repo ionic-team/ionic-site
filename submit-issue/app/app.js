@@ -1,24 +1,10 @@
-var ISSUE_TEMPLATE = 
-  '<span issue-template></span>\n' +
-  '**Issue Type**: <span ionic-type><%= type %></span>\n\n' +
-  '<% if (component) { %>' +
-    '**Component**: <span ionic-component><%= component %>\n\n' +
-  '<% } %>' +
-  '<% if (platformName || platformVersion) { %>' +
-    '**Platform**: <span ionic-platform-name><%= platformName %></span> ' +
-    '<span ionic-platform-version><%= platformVersion %></span>\n\n' +
-  '<% } %>' +
-  '<% if (webview) { %>' +
-    'Webview: <span ionic-webview><%= webview %></span>\n\n' +
-  '<% } %>' +
-  '<span ionic-description><%= description %></span>';
-
 var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
 
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http) {
+
   $scope.issue = {
     title: '',
     type: '',
@@ -82,11 +68,15 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     'view'
   ];
 
-  $rootScope.$on('userStateChange', function(e, user) {
-    $scope.user = user;
+  var user;
+  $rootScope.$on('userStateChange', function(e, newUser) {
+    user = newUser;
   });
   $scope.authenticated = function() {
-    return !!$scope.user;
+    return !!user;
+  };
+  $scope.currentUser = function() {
+    return user;
   };
   $scope.signIn = function() {
     return LoginService.login(null, function() {
@@ -95,12 +85,20 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
   $scope.signOut = function() {
     return LoginService.logout();
   };
+
+  var issueTitleTemplate = '<%= type %>: <%= title %>';
+  var issueTemplatePromise = $http.get('/submit-issue/issue-template.html')
+    .then(function(response) {
+      return response.data;
+    });
   $scope.submitIssue = function() {
     $scope.issueLoading = true;
-    GitHubService.submitIssue({
-      title: $scope.issue.title,
-      body: JSON.stringify($scope.issue, null, 2)
-    }, $scope.user.accessToken, 'driftyco', 'ionic').then(function(res) {
+    return issueTemplatePromise.then(function(template) {
+      return GitHubService.submitIssue({
+        title: _.template(issueTitleTemplate, $scope.issue),
+        body: _.template(template, $scope.issue)
+      }, user.accessToken, 'driftyco', 'ionic');
+    }).then(function(res) {
       alert('Issue submitted!' + res);
     });
   };
@@ -125,6 +123,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
         '<h3>' +
           '<span ng-if="!noTotal">[ {{stepText()}} ]</span> ' +
           '{{heading}}' +
+          '&nbsp;<i ng-if="done" class="fa fa-angle-down fade-down" style="color: #4a87ee"></i>' + 
         '</h3>' +
         '<div ng-transclude></div>' +
       '</div>',
@@ -142,6 +141,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
         return scope.$eval(attr.isDone) && scope.showStep();
       }, function(done) {
         if (done) {
+          scope.done = true;
           stepsCtrl.stepsDone++;
           doneWatch();
         }

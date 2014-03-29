@@ -5824,6 +5824,28 @@ pre {
   #ionitron-image {
     background: url("/img/getting-started/ionitron-avatar@2x.png") no-repeat transparent;
     background-size: 156px 156px; } }
+#ionitron-image.header-ionitron {
+  float: left;
+  margin-right: 10px; }
+  @media screen and (max-width: 800px) {
+    #ionitron-image.header-ionitron {
+      background-size: 48px 48px;
+      width: 48px;
+      height: 48px; } }
+  @media screen and (max-width: 400px) {
+    #ionitron-image.header-ionitron {
+      background-size: 32px 32px;
+      width: 32px;
+      height: 32px; }
+      #ionitron-image.header-ionitron ~ h3 {
+        font-size: 20px;
+        line-height: 34px;
+        margin: 0 0 4px 0; }
+      #ionitron-image.header-ionitron ~ h4 {
+        font-size: 16px;
+        line-height: 18px;
+        color: #ECF3FF; } }
+
 #getting-started {
   padding: 40px 0px; }
   #getting-started .italic {

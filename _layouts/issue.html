@@ -17,38 +17,20 @@
 
     <div class="header horizontal-gradient">
       <div class="container">
+        <div id="ionitron-image" class="header-ionitron"></div>
+        <h3>Greetings, Human.</h3>
 
-        <div class="row">
-          <div class="col-md-offset-2 col-md-2">
-            <div id="ionitron-image"></div>
-          </div>
-          <div class="col-md-7">
-            <h3>Greetings, Human.</h3>
-
-            <h4>
-              Have you found an issue with Ionic?<br/><br/>
-              If you fill out the below form properly, I can categorize and fix your issue in the most efficient manner possible.
-            </h4>
-          </div>
-        </div>
+        <h4>
+          Have you found an issue with Ionic?<br/><br/>
+          If you fill out the below form properly, I can categorize and fix your issue in the most efficient manner possible.
+        </h4>
       </div>
     </div>
 
     <div class="container content-container">
-      <div class="main-content">
-        {{ content }}
-      </div>
+      {{ content }}
     </div>
-
-    <div class="pre-footer">
-          <p class="pull-right">
-            Based on the amazing work done on the
-            <a href="http://github.com/kentcdodds/issue-template">issue template</a>
-            by Kent C. Dodds (<a href="https://github.com/kentcdodds/issue-template/blob/master/LICENSE">license</a>).
-          </p>
-    </div>
-
-    {% include footer.html %}
+    <!-- {% include footer.html %} -->
 
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>

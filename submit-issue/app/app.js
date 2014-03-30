@@ -92,14 +92,18 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
       return response.data;
     });
   $scope.submitIssue = function() {
-    $scope.issueLoading = true;
+    $scope.issue.loading = true;
     return issueTemplatePromise.then(function(template) {
       return GitHubService.submitIssue({
         title: _.template(issueTitleTemplate, $scope.issue),
         body: _.template(template, $scope.issue)
       }, user.accessToken, 'driftyco', 'ionic');
-    }).then(function(res) {
-      alert('Issue submitted!' + res);
+    }).then(function(response) {
+      alert('Issue Submitted Succesfully! Going there now.');
+      window.location.href = response.data.html_url;
+    }, function(err) {
+      $scope.issue.loading = false;
+      alert('Issue Submission Error! Try again.');
     });
   };
 

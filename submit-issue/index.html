@@ -100,9 +100,13 @@ layout: issue
       </a>
     </div>
 
+    <div ng-if="issue.success" class="fade-down">
+      <h1>Issue Created!</h1>
+      <a ng-href="{{issue.link}}">{{issue.link}}</a>
+    </div>
     <div step="5" no-total="true" heading="All Finished!">
       <div class="btn btn-primary btn-lg btn-block"
-        ng-click="!issueLoading && submitIssue()">
+        ng-click="!issue.loading && submitIssue()">
         <i class="fa fa-cloud"></i> Submit Issue to Github!
       </div>
     </div>

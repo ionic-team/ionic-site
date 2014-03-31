@@ -164,16 +164,11 @@ search_sections: true
     While your headers and footers will be fixed to the top and
     bottom, respectively, the content area will fill the remaining available space.
   </p>
+
   <p class="advanced-panel">
     <em>*</em> For more content options, see the
-    <a href="/docs/angularjs/views/content/">Content</a> docs.
+    <a href="/docs/api/directive/ionContent">Content</a> docs.
   </p>
-
-{% highlight html %}
-<content padding="true">
-  ...
-</content>
-{% endhighlight %}
 
   <div class="doc-example">
     <div class="bar bar-header">
@@ -395,6 +390,64 @@ search_sections: true
       <button class="button button-full button-assertive">button-assertive</button>
       <button class="button button-full button-royal">button-royal</button>
       <button class="button button-full button-dark">button-dark</button>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- Button Sizes
+  ================================================== -->
+<section class="docs-section" id="button-sizes">
+
+  <h3 class="title"><a href="#button-sizes">Different Sizes</a></h3>
+  <p>
+    Adding <code>button-large</code> to a button makes it larger, adding <code>button-small</code>
+    makes it smaller.
+  </p>
+
+{% highlight html %}
+<button class="button button-small button-assertive">
+  Small Button
+</button>
+<button class="button button-large button-positive">
+  Large Button
+</button>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Small and Large Buttons</div>
+    </div>
+    <div class="content has-header">
+      <p>
+        <button class="button button-small button-light">button-light</button>
+      </p>
+      <p>
+        <button class="button button-small button-stable">button-stable</button>
+      </p>
+      <p>
+        <button class="button button-small button-positive">button-positive</button>
+      </p>
+      <p>
+        <button class="button button-small button-calm">button-calm</button>
+      </p>
+      <p>
+        <button class="button button-small button-balanced">button-balanced</button>
+      </p>
+      <p>
+        <button class="button button-large button-energized">button-energized</button>
+      </p>
+      <p>
+        <button class="button button-large button-assertive">button-assertive</button>
+      </p>
+      <p>
+        <button class="button button-large button-royal">button-royal</button>
+      </p>
+      <p>
+        <button class="button button-large button-dark">button-dark</button>
+      </p>
     </div>
   </div>
 

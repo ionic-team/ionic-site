@@ -49,7 +49,7 @@ be pushed to each state which allows much flexibility.
 
 The ionNavView directive is used to render templates in your application. Each template
 is part of a state. States are usually mapped to a url, and are defined programatically
-using angular-ui-router (see [their docs](https://github.com/angular-ui/ui-router/wiki)),
+using angular-ui-router (see [their docs](https://github.com/angular-ui/ui-router/wiki),
 and remember to replace ui-view with ion-nav-view in examples).
 
 

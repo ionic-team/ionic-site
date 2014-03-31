@@ -1,10 +1,8 @@
 **Type**: <span ionic-type><%= type %></span>
 
-**Platform**: <span ionic-platform><%= platform %></span> <% if (platform == 'ios') { %> <span ionic-platform-version><%= iosVersion %></span> <% } else if (platform == 'android') { %> <span ionic-platform-version><%= androidVersion %></span> <% } %>
+**Platform**: <span ionic-platform><%= platform %></span> <% if (platform == 'ios') { %> <span ionic-platform-version><%= iosVersion %></span> <% } else if (platform == 'android') { %> <span ionic-platform-version><%= androidVersion %></span> <% } %> <%= webview ? 'webview' : 'browser' %>
 
-**Happens in webview?**: <span ionic-webview><%= !!webview %></span>
-
-**Description**
+<span ionic-webview style="display:none;"><%= !!webview %></span>
 
 <span ionic-description><%= description %></span>
 

@@ -29,7 +29,7 @@ IssueApp.factory('LoginService', function(Firebase, $firebaseSimpleLogin, $rootS
     },
     login: function() {
       loginObj.$login('github', {
-        scope: 'repo',
+        scope: 'public_repo',
         rememberMe: true
       }).then(function(user) {
         broadcastStateChange(user);
@@ -38,5 +38,5 @@ IssueApp.factory('LoginService', function(Firebase, $firebaseSimpleLogin, $rootS
     getUser: function() {
       return loginObj.$getCurrentUser();
     }
-  }
+  };
 });

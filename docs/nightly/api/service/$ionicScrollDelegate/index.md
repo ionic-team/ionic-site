@@ -291,6 +291,88 @@ Tell the scrollView to recalculate the size of its container.
 
 
 
+<div id="scrollBy"></div>
+<h2>
+  <code>scrollBy(left, top, [shouldAnimate])</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        left
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The x-offset to scroll by.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        top
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The y-offset to scroll by.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        shouldAnimate
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether the scroll should animate.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
 <div id="anchorScroll"></div>
 <h2>
   <code>anchorScroll([shouldAnimate])</code>

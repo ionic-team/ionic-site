@@ -189,7 +189,7 @@ a ratio of 0.5.
 
 
 * Returns: 
-  <code>float</code> 0 if nothing is open, between 0 and 1 if left menu is 
+  <code>float</code> 0 if nothing is open, between 0 and 1 if left menu is
 opened/opening, and between 0 and -1 if right menu is opened/opening.
 
 

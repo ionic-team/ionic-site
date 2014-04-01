@@ -25,14 +25,15 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     { id: 'ios', label: 'ios' },
     { id: 'android',  label: 'android' },
     { id: 'mobile', label: 'all mobile devices' },
-    { id: 'desktop', label: 'desktop' }
+    { id: 'desktop', label: 'desktop' },
+    { id: 'all', label: 'all platforms' }
   ];
   $scope.iosVersions = [
     '7',
     '6'
   ];
   $scope.androidVersions = [
-    '4.4', 
+    '4.4',
     '4.3',
     '4.2',
     '4.0',
@@ -122,12 +123,12 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     transclude: true,
     restrict: 'A',
     require: '^stepMaster',
-    template: 
+    template:
       '<div ng-if="showStep()" class="fade-down">' +
         '<h3>' +
           '<span ng-if="!noTotal">[ {{stepText()}} ]</span> ' +
           '{{heading}}' +
-          '&nbsp;<i ng-if="done" class="fa fa-angle-down fade-down" style="color: #4a87ee"></i>' + 
+          '&nbsp;<i ng-if="done" class="fa fa-angle-down fade-down" style="color: #4a87ee"></i>' +
         '</h3>' +
         '<div ng-transclude></div>' +
       '</div>',

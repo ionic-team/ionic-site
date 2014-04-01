@@ -244,7 +244,7 @@ this backButtonAction.
 
 <div id="ready"></div>
 <h2>
-  <code>ready(callback)</code>
+  <code>ready([callback])</code>
 
 </h2>
 
@@ -267,11 +267,11 @@ or immediately if the device is already ready.
       <td>
         callback
         
-        
+        <div><em>(optional)</em></div>
       </td>
       <td>
         
-  <code>function</code>
+  <code>function=</code>
       </td>
       <td>
         <p>The function to call.</p>

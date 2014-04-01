@@ -6,8 +6,8 @@ layout: issue
 
   <div step="0" heading="Issue Title" is-done="issue.title.length > 5">
     <div class="input-container">
-      <input autofocus type="text" id="title" 
-        required maxlength="50" 
+      <input autofocus type="text" id="title"
+        required maxlength="50"
         placeholder="eg, 'My content is halfway off-screen'"
         ng-model="issue.title">
       <label for="title">Can you give me a short synopsis of the problem?</label>
@@ -31,7 +31,7 @@ layout: issue
       </div>
     </div>
 
-    <div step="2" heading="Platform" is-done="issue.platform && (issue.platform != 'desktop' ? issue.webview !== null : true)">
+    <div step="2" heading="Platform" is-done="issue.platform && (issue.platform != 'desktop' && issue.platform != 'all' ? issue.webview !== null : true)">
 
       <div class="input-container">
         <div class="subtext">What device/platform is the issue related t?</div>
@@ -60,7 +60,7 @@ layout: issue
             ng-bind="ver">
           </a>
         </div>
-        <div ng-if="issue.platform && issue.platform != 'desktop'" class="inset-step fade-down">
+        <div ng-if="issue.platform && issue.platform != 'desktop' && issue.platform != 'all'" class="inset-step fade-down">
           <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
           <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
             In a 'native hybrid' app

@@ -288,6 +288,9 @@ or immediately if the device is already ready.
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the device is ready.
+
 
 
   

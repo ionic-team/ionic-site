@@ -8,7 +8,9 @@ Repo for the ionicframework.com site
 
     jekyll serve -w
 
-    sass --watch scss/site.scss:css/site.css
+    npm install
+
+    gulp watch
 
     http://localhost:4000/
 

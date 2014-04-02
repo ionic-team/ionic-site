@@ -131,9 +131,9 @@ happens.</p>
 
 
 
-<div id="on"></div>
+<div id="off"></div>
 <h2>
-  <code>on(eventType, callback, $element)</code>
+  <code>off(eventType, callback, $element)</code>
 
 </h2>
 

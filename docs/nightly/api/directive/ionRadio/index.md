@@ -48,9 +48,9 @@ Radio behaves like any [AngularJS radio](http://docs.angularjs.org/api/ng/input/
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-radio ng-model="choice" value="A">Choose A</ion-radio>
-<ion-radio ng-model="choice" value="B">Choose B</ion-radio>
-<ion-radio ng-model="choice" value="C">Choose C</ion-radio>
+<ion-radio ng-model="choice" ng-value="A">Choose A</ion-radio>
+<ion-radio ng-model="choice" ng-value="B">Choose B</ion-radio>
+<ion-radio ng-model="choice" ng-value="C">Choose C</ion-radio>
 ```
   
   

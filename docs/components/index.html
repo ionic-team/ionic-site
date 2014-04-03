@@ -2429,6 +2429,184 @@ search_sections: true
 
 
 
+<!-- Select
+  ================================================== -->
+<section class="docs-section" id="select">
+
+  <h3 class="title"><a href="#select">Select</a></h3>
+
+  <p>
+    Ionic's select is styled so its appearance is prettied up relative to the
+    browser's default style. However, when the select element's is opened,
+    the default behavior on how select one of the options is still managed
+    by the browser.
+  </p>
+
+  <p>
+    Each platform's user-interface will be different as the user is selecting
+    an option. For example, on a desktop browser you'll see the traditional drop down
+    interface, whereas Android often has a radio button list popup, and iOS
+    has a custom scroller covering the bottom half of the window. You can expect the
+    option select interface to be different across devices.
+  </p>
+
+  <p>
+    Selects can be contained two ways, either as <code>.item-select</code> or
+    <code>.select-inline</code>. Item selects are a block element and use markup
+    similar to <a href="#forms">item-input</a>. Select inlines are inline-block
+    elements, and it is usually best to create them with spans.
+  </p>
+
+{% highlight html %}
+<div class="list">
+
+  <div class="item item-input item-select">
+    <div class="input-label">
+      Select City
+    </div>
+    <select>
+      <option selected>Madison</option>
+      <option>Milwaukee</option>
+      ...
+    </select>
+  </div>
+</div>
+
+<p>
+  <span class="select-inline">
+    <select>
+      <option>January</option>
+      <option>February</option>
+      ...
+    </select>
+  </span>
+  <span class="select-inline">
+    <select>
+      <option>1</option>
+      <option>2</option>
+      ...
+    </select>
+  </span>
+  <span class="select-inline">
+    <select>
+      <option>2015</option>
+      <option>2016</option>
+      ...
+    </select>
+  </span>
+</p>
+{% endhighlight %}
+
+  <p class="advanced-panel">
+    <em>*</em> Do not wrap <code>&lt;select&gt;</code> elements within
+    a <code>&lt;label&gt;</code>. In most cases, browsers willnot correctly
+    open up the select's options when tapped or clicked.
+  </p>
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Select</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content has-header padding-top">
+
+        <div class="list">
+
+          <div class="item item-input item-select">
+            <div class="input-label">
+              Select City
+            </div>
+            <select>
+              <option>Appleton</option>
+              <option>Eau Claire</option>
+              <option>Fond du Lac</option>
+              <option>Green Bay</option>
+              <option>Janesville</option>
+              <option>Kenosha</option>
+              <option>La Crosse</option>
+              <option selected>Madison</option>
+              <option>Milwaukee</option>
+              <option>Oshkosh</option>
+              <option>Racine</option>
+              <option>Sheboygan</option>
+              <option>Waukesha</option>
+              <option>Wauwatosa</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="padding">
+          <span class="select-inline">
+            <select>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+          </span><span class="select-inline">
+            <select>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </span><span class="select-inline">
+            <select>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+            </select>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
 <!-- Tabs
   ================================================== -->
 <section class="docs-section" id="tabs">

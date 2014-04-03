@@ -2435,26 +2435,28 @@ search_sections: true
 
   <h3 class="title"><a href="#select">Select</a></h3>
 
+  <h5><em>Currently only available in the <a href="http://code.ionicframework.com/#nightly">nightly builds</a>, scheduled for v1.0.0-beta.2</em></h5>
+
   <p>
     Ionic's select is styled so its appearance is prettied up relative to the
-    browser's default style. However, when the select element's is opened,
-    the default behavior on how select one of the options is still managed
+    browser's default style. However, when the select elements is opened,
+    the default behavior on how to select one of the options is still managed
     by the browser.
   </p>
 
   <p>
     Each platform's user-interface will be different as the user is selecting
     an option. For example, on a desktop browser you'll see the traditional drop down
-    interface, whereas Android often has a radio button list popup, and iOS
-    has a custom scroller covering the bottom half of the window. You can expect the
-    option select interface to be different across devices.
+    interface, whereas Android often has a radio-button list popup, and iOS
+    has a custom scroller covering the bottom half of the window.
   </p>
 
   <p>
-    Selects can be contained two ways, either as <code>.item-select</code> or
-    <code>.select-inline</code>. Item selects are a block element and use markup
+    Selects can be contained in two ways, either as <code>.item-select</code> or
+    <code>.select-inline</code>. Selects within an entire item use markup
     similar to <a href="#forms">item-input</a>. Select inlines are inline-block
-    elements, and it is usually best to create them with spans.
+    elements used to place them next to each other horizontally, and its usually
+    best to create select inlines with span elements.
   </p>
 
 {% highlight html %}

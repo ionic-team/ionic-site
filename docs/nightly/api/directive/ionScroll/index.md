@@ -58,7 +58,7 @@ Creates a scrollable container for all content inside.
     [on-refresh=""]
     [on-scroll=""]
     [scrollbar-x=""]
-    [scrollbar-x=""]>
+    [scrollbar-y=""]>
   ...
   </ion-scroll>
   ```
@@ -181,7 +181,7 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
     
     <tr>
       <td>
-        scrollbar-x
+        scrollbar-y
         
         <div><em>(optional)</em></div>
       </td>

@@ -1,23 +1,4 @@
-/*!
- * Copyright 2014 Drifty Co.
- * http://drifty.com/
- *
- * Ionic, v1.0.0-beta.1
- * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
- *
- * By @maxlynch, @benjsperry, @adamdbradley <3
- *
- * Licensed under the MIT license. Please see LICENSE for more information.
- *
- */
 
-/*!
-  Ionicons, v1.4.1
-  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
-  https://twitter.com/benjsperry  https://twitter.com/ionicframework
-  MIT License: https://github.com/driftyco/ionicons
-*/
 @font-face {
   font-family: "Ionicons";
   src: url("../fonts/ionicons.eot?v=1.4.1");
@@ -2073,31 +2054,31 @@ body.grade-b, body.grade-c {
 
 @keyframes refresh-spin {
   0% {
-    transform: rotate(0); }
+    transform: translate3d(0, 0, 0) rotate(0); }
 
   100% {
-    transform: rotate(-180deg); } }
+    transform: translate3d(0, 0, 0) rotate(-180deg); } }
 
 @-webkit-keyframes refresh-spin {
   0% {
-    -webkit-transform: rotate(0); }
+    -webkit-transform: translate3d(0, 0, 0) rotate(0); }
 
   100% {
-    -webkit-transform: rotate(-180deg); } }
+    -webkit-transform: translate3d(0, 0, 0) rotate(-180deg); } }
 
 @keyframes refresh-spin-back {
   0% {
-    transform: rotate(-180deg); }
+    transform: translate3d(0, 0, 0) rotate(-180deg); }
 
   100% {
-    transform: rotate(0); } }
+    transform: translate3d(0, 0, 0) rotate(0); } }
 
 @-webkit-keyframes refresh-spin-back {
   0% {
-    -webkit-transform: rotate(-180deg); }
+    -webkit-transform: translate3d(0, 0, 0) rotate(-180deg); }
 
   100% {
-    -webkit-transform: rotate(0); } }
+    -webkit-transform: translate3d(0, 0, 0) rotate(0); } }
 
 .scroll-refresher {
   position: absolute;
@@ -2118,7 +2099,15 @@ body.grade-b, body.grade-c {
     .scroll-refresher .ionic-refresher-content .text-refreshing, .scroll-refresher .ionic-refresher-content .text-pulling {
       line-height: 16px;
       font-size: 16px; }
+  .scroll-refresher .icon-refreshing, .scroll-refresher .icon-pulling {
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform-style: preserve-3d; }
   .scroll-refresher .icon-pulling {
+    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     -webkit-animation-name: refresh-spin-back;
     -moz-animation-name: refresh-spin-back;
     animation-name: refresh-spin-back;
@@ -2128,23 +2117,21 @@ body.grade-b, body.grade-c {
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both; }
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none; }
   .scroll-refresher .icon-refreshing, .scroll-refresher .text-refreshing {
     display: none; }
   .scroll-refresher .icon-refreshing {
     -webkit-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
     animation-duration: 1.5s; }
-  .scroll-refresher.active .icon-pulling, .scroll-refresher.active .text-pulling {
-    display: block; }
   .scroll-refresher.active .icon-pulling {
     -webkit-animation-name: refresh-spin;
     -moz-animation-name: refresh-spin;
-    animation-name: refresh-spin; }
-  .scroll-refresher.active .icon-refreshing, .scroll-refresher.active .text-refreshing {
-    display: none; }
+    animation-name: refresh-spin;
+    -webkit-transform: translate3d(0, 0, 0) rotate(-180deg);
+    transform: translate3d(0, 0, 0) rotate(-180deg); }
   .scroll-refresher.active.refreshing .icon-pulling, .scroll-refresher.active.refreshing .text-pulling {
     display: none; }
   .scroll-refresher.active.refreshing .icon-refreshing, .scroll-refresher.active.refreshing .text-refreshing {
@@ -2183,15 +2170,8 @@ ion-infinite-scroll.active .scroll-infinite {
   -webkit-overflow-scrolling: touch; }
   .overflow-scroll .scroll {
     position: static;
-    height: 100%; }
-
-.overflow-scroll {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
-  .overflow-scroll .scroll {
-    position: static;
-    height: 100%; }
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, 0); }
 
 /* If you change these, change platform.scss as well */
 .has-header {
@@ -4674,7 +4654,7 @@ input[type="range"] {
   margin-left: 6px; }
 
 .item-select {
-  position: static; }
+  position: relative; }
   .item-select select {
     position: absolute;
     top: 0;
@@ -5861,7 +5841,7 @@ a.button {
 /**
  * Some component specific animations
  */
-.nav-title-slide-ios7 .button.back-button {
+.nav-title-slide-ios7:not(.no-animation) .button.back-button {
   -webkit-transition: all 250ms;
   -moz-transition: all 250ms;
   transition: all 250ms;
@@ -5872,12 +5852,12 @@ a.button {
   -moz-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0);
   opacity: 1; }
-  .nav-title-slide-ios7 .button.back-button.ng-hide {
+  .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide {
     opacity: 0;
     -webkit-transform: translate3d(30%, 0, 0);
     -moz-transform: translate3d(30%, 0, 0);
     transform: translate3d(30%, 0, 0); }
-  .nav-title-slide-ios7 .button.back-button.ng-hide-add, .nav-title-slide-ios7 .button.back-button.ng-hide-remove {
+  .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-add, .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-remove {
     display: block !important; }
 .nav-title-slide-ios7 > .ng-enter, .nav-title-slide-ios7.ng-enter, .nav-title-slide-ios7 > .ng-leave, .nav-title-slide-ios7.ng-leave {
   -webkit-transition: all 250ms;

@@ -2450,7 +2450,7 @@ search_sections: true
     interface, whereas Android often has a radio-button list popup, and iOS
     has a custom scroller covering the bottom half of the window.
   </p>
-
+<!--
   <p>
     Selects can be contained in two ways, either as <code>.item-select</code> or
     <code>.select-inline</code>. Selects within an entire item use markup
@@ -2458,45 +2458,23 @@ search_sections: true
     elements used to place them next to each other horizontally, and its usually
     best to create select inlines with span elements.
   </p>
-
+-->
 {% highlight html %}
 <div class="list">
 
   <div class="item item-input item-select">
     <div class="input-label">
-      Select City
+      Lightsaber
     </div>
     <select>
-      <option selected>Madison</option>
-      <option>Milwaukee</option>
-      ...
+      <option>Blue</option>
+      <option selected>Green</option>
+      <option>Red</option>
     </select>
   </div>
+
 </div>
 
-<p>
-  <span class="select-inline">
-    <select>
-      <option>January</option>
-      <option>February</option>
-      ...
-    </select>
-  </span>
-  <span class="select-inline">
-    <select>
-      <option>1</option>
-      <option>2</option>
-      ...
-    </select>
-  </span>
-  <span class="select-inline">
-    <select>
-      <option>2015</option>
-      <option>2016</option>
-      ...
-    </select>
-  </span>
-</p>
 {% endhighlight %}
 
   <p class="advanced-panel">
@@ -2510,95 +2488,69 @@ search_sections: true
       <div class="h1 title">Select</div>
     </div>
     <div class="content-wrapper">
-      <div class="content has-header padding-top">
+      <div class="content has-header">
 
         <div class="list">
 
           <div class="item item-input item-select">
             <div class="input-label">
-              Select City
+              Lightsaber
             </div>
             <select>
-              <option>Appleton</option>
-              <option>Eau Claire</option>
-              <option>Fond du Lac</option>
-              <option>Green Bay</option>
-              <option>Janesville</option>
-              <option>Kenosha</option>
-              <option>La Crosse</option>
-              <option selected>Madison</option>
-              <option>Milwaukee</option>
-              <option>Oshkosh</option>
-              <option>Racine</option>
-              <option>Sheboygan</option>
-              <option>Waukesha</option>
-              <option>Wauwatosa</option>
+              <option>Blue</option>
+              <option selected>Green</option>
+              <option>Red</option>
             </select>
           </div>
 
-        </div>
+          <div class="item item-input item-select">
+            <div class="input-label">
+              Fighter
+            </div>
+            <select>
+              <option>ARC-170</option>
+              <option>A-wing</option>
+              <option>Delta-7</option>
+              <option>Naboo N-1</option>
+              <option>TIE</option>
+              <option selected>X-wing</option>
+              <option>Y-wing</option>
+            </select>
+          </div>
 
-        <div class="padding">
-          <span class="select-inline">
+          <div class="item item-input item-select">
+            <div class="input-label">
+              Droid
+            </div>
             <select>
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
+              <option>2-1B</option>
+              <option>B1</option>
+              <option>C-3PO</option>
+              <option>IG-88</option>
+              <option>IT-O</option>
+              <option selected>R2-D2</option>
             </select>
-          </span><span class="select-inline">
+          </div>
+
+          <div class="item item-input item-select">
+            <div class="input-label">
+              Planet
+            </div>
             <select>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
+              <option>Alderaan</option>
+              <option selected>Dagobah</option>
+              <option>Felucia</option>
+              <option>Geonosis </option>
+              <option>Hoth</option>
+              <option>Kamino</option>
+              <option>Mygeeto</option>
+              <option>Naboo</option>
+              <option>Tataouine</option>
+              <option>Utapau</option>
+              <option>Yavin</option>
             </select>
-          </span><span class="select-inline">
-            <select>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-            </select>
-          </span>
+          </div>
+
         </div>
 
       </div>

@@ -214,6 +214,7 @@ table {
 
   @page {
     margin: 2cm .5cm; }
+
   p,
   h2,
   h3 {
@@ -253,7 +254,7 @@ table {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -1853,6 +1854,7 @@ input[type="button"].btn-block {
   font-family: 'Glyphicons Halflings';
   src: url("../fonts/glyphicons-halflings-regular.eot");
   src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -3618,24 +3620,28 @@ a.thumbnail:focus {
 
   to {
     background-position: 0 0; } }
+
 @-moz-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
+
 @-o-keyframes progress-bar-stripes {
   from {
     background-position: 0 0; }
 
   to {
     background-position: 40px 0; } }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
 
   to {
     background-position: 0 0; } }
+
 .progress {
   overflow: hidden;
   height: 21px;
@@ -4450,6 +4456,7 @@ body.modal-open {
 
 @-ms-viewport {
   width: device-width; }
+
 @media screen and (max-width: 400px) {
   @-ms-viewport {
     width: 320px; } }
@@ -4916,23 +4923,28 @@ td.visible-print {
   font-family: 'AvenirNextLTPro-Regular';
   src: url("http://code.ionicframework.com/assets/fonts/28882F_0_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/28882F_0_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/28882F_0_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/28882F_0_0.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'AvenirNextLTPro-Medium';
   src: url("http://code.ionicframework.com/assets/fonts/28882F_1_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/28882F_1_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/28882F_1_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/28882F_1_0.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'AvenirNextLTPro-UltLt';
   src: url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.ttf") format("truetype"); }
+
 /* Frieght Text Pro */
 @font-face {
   font-family: 'FreightTextProBook-Regular';
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/29D26A_0_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/29D26A_0_0.ttf") format("truetype"); }
+
 @font-face {
   font-family: 'FreightTextProMedium-Regular';
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf") format("truetype"); }
+
 /*
  * Some CSS adapted from LayerVault, http://layervault.com
  */
@@ -5405,6 +5417,7 @@ h1 + h2 + p {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0); } }
+
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -5417,6 +5430,7 @@ h1 + h2 + p {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0); } }
+
 @-webkit-keyframes fadeOutUp {
   0% {
     opacity: 1;
@@ -5427,6 +5441,7 @@ h1 + h2 + p {
     opacity: 0;
     -webkit-transform: translateY(-20px);
     transform: translateY(-20px); } }
+
 @keyframes fadeOutUp {
   0% {
     opacity: 1;
@@ -5439,6 +5454,7 @@ h1 + h2 + p {
     -webkit-transform: translateY(-20px);
     -ms-transform: translateY(-20px);
     transform: translateY(-20px); } }
+
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown; }
@@ -5538,6 +5554,7 @@ h1 + h2 + p {
   font-family: "Ionicons";
   src: url("../fonts/ionicons.eot?v=1.3.0");
   src: url("../fonts/ionicons.eot?v=1.3.0#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.0") format("truetype"), url("../fonts/ionicons.woff?v=1.3.0") format("woff"), url("../fonts/ionicons.svg?v=1.3.0#Ionicons") format("svg"); }
+
 .fixed-menu {
   position: fixed; }
 
@@ -5852,8 +5869,8 @@ pre {
     width: 0;
     height: 0;
     border-top: 3px solid;
-    border-right: 3px solid transparent;
-    border-left: 3px solid transparent;
+    border-right: 3px solid rgba(0, 0, 0, 0);
+    border-left: 3px solid rgba(0, 0, 0, 0);
     color: rgba(255, 255, 255, 0.6);
     content: ""; }
 
@@ -6110,6 +6127,7 @@ h2.underline {
 
   to {
     -webkit-transform: rotate(359deg); } }
+
 #blog-wrapper {
   max-width: 730px;
   margin: auto;
@@ -6779,33 +6797,59 @@ a {
 @-moz-keyframes spin {
   100% {
     -moz-transform: rotate(360deg); } }
+
 @-webkit-keyframes spin {
   100% {
     -webkit-transform: rotate(360deg); } }
+
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
 .ionic {
-  /*!
-   * Copyright 2014 Drifty Co.
-   * http://drifty.com/
-   *
-   * Ionic, v1.0.0-beta.1
-   * A powerful HTML5 mobile app framework.
-   * http://ionicframework.com/
-   *
-   * By @maxlynch, @benjsperry, @adamdbradley <3
-   *
-   * Licensed under the MIT license. Please see LICENSE for more information.
-   *
-   */
-  /*!
-    Ionicons, v1.4.1
-    Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
-    https://twitter.com/benjsperry  https://twitter.com/ionicframework
-    MIT License: https://github.com/driftyco/ionicons
-  */
+  @font-face {
+    font-family: "Ionicons";
+    src: url("../fonts/ionicons.eot?v=1.4.1");
+    src: url("../fonts/ionicons.eot?v=1.4.1#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.4.1") format("truetype"), url("../fonts/ionicons.woff?v=1.4.1") format("woff"), url("../fonts/ionicons.svg?v=1.4.1#Ionicons") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+
+  @-moz-keyframes spin {
+    0% {
+      -moz-transform: rotate(0deg); }
+
+    100% {
+      -moz-transform: rotate(359deg); } }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg); }
+
+    100% {
+      -webkit-transform: rotate(359deg); } }
+
+  @-o-keyframes spin {
+    0% {
+      -o-transform: rotate(0deg); }
+
+    100% {
+      -o-transform: rotate(359deg); } }
+
+  @-ms-keyframes spin {
+    0% {
+      -ms-transform: rotate(0deg); }
+
+    100% {
+      -ms-transform: rotate(359deg); } }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg); }
+
+    100% {
+      transform: rotate(359deg); } }
+
   /**
    * Resets
    * --------------------------------------------------
@@ -6934,6 +6978,34 @@ a {
    * Scroll is the scroll view component available for complex and custom
    * scroll view functionality.
    */
+  @keyframes refresh-spin {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0); }
+
+    100% {
+      transform: translate3d(0, 0, 0) rotate(-180deg); } }
+
+  @-webkit-keyframes refresh-spin {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0) rotate(0); }
+
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) rotate(-180deg); } }
+
+  @keyframes refresh-spin-back {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-180deg); }
+
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0); } }
+
+  @-webkit-keyframes refresh-spin-back {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0) rotate(-180deg); }
+
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) rotate(0); } }
+
   /* If you change these, change platform.scss as well */
   /**
    * Typography
@@ -7060,6 +7132,13 @@ a {
    * Radio Button Inputs
    * --------------------------------------------------
    */
+  @-webkit-keyframes androidCheckedbugfix {
+    from {
+      padding: 0; }
+
+    to {
+      padding: 0; } }
+
   /**
    * Range
    * --------------------------------------------------
@@ -7091,6 +7170,303 @@ a {
    * Keyframes
    * --------------------------------------------------
    */
+  @-webkit-keyframes slideInUp {
+    0% {
+      -webkit-transform: translate3d(0, 100%, 0); }
+
+    100% {
+      -webkit-transform: translate3d(0, 0, 0); } }
+
+  @-moz-keyframes slideInUp {
+    0% {
+      -moz-transform: translate3d(0, 100%, 0); }
+
+    100% {
+      -moz-transform: translate3d(0, 0, 0); } }
+
+  @keyframes slideInUp {
+    0% {
+      transform: translate3d(0, 100%, 0); }
+
+    100% {
+      transform: translate3d(0, 0, 0); } }
+
+  @-webkit-keyframes slideOutUp {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0); }
+
+    100% {
+      -webkit-transform: translate3d(0, 100%, 0); } }
+
+  @-moz-keyframes slideOutUp {
+    0% {
+      -moz-transform: translate3d(0, 0, 0); }
+
+    100% {
+      -moz-transform: translate3d(0, 100%, 0); } }
+
+  @keyframes slideOutUp {
+    0% {
+      transform: translate3d(0, 0, 0); }
+
+    100% {
+      transform: translate3d(0, 100%, 0); } }
+
+  @-webkit-keyframes slideInFromLeft {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0); }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0); } }
+
+  @-moz-keyframes slideInFromLeft {
+    from {
+      -moz-transform: translateX(-100%); }
+
+    to {
+      -moz-transform: translateX(0); } }
+
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%); }
+
+    to {
+      transform: translateX(0); } }
+
+  @-webkit-keyframes slideInFromRight {
+    from {
+      -webkit-transform: translate3d(100%, 0, 0); }
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0); } }
+
+  @-moz-keyframes slideInFromRight {
+    from {
+      -moz-transform: translateX(100%); }
+
+    to {
+      -moz-transform: translateX(0); } }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%); }
+
+    to {
+      transform: translateX(0); } }
+
+  @-webkit-keyframes slideOutToLeft {
+    from {
+      -webkit-transform: translate3d(0, 0, 0); }
+
+    to {
+      -webkit-transform: translate3d(-100%, 0, 0); } }
+
+  @-moz-keyframes slideOutToLeft {
+    from {
+      -moz-transform: translateX(0); }
+
+    to {
+      -moz-transform: translateX(-100%); } }
+
+  @keyframes slideOutToLeft {
+    from {
+      transform: translateX(0); }
+
+    to {
+      transform: translateX(-100%); } }
+
+  @-webkit-keyframes slideOutToRight {
+    from {
+      -webkit-transform: translate3d(0, 0, 0); }
+
+    to {
+      -webkit-transform: translate3d(100%, 0, 0); } }
+
+  @-moz-keyframes slideOutToRight {
+    from {
+      -moz-transform: translateX(0); }
+
+    to {
+      -moz-transform: translateX(100%); } }
+
+  @keyframes slideOutToRight {
+    from {
+      transform: translateX(0); }
+
+    to {
+      transform: translateX(100%); } }
+
+  @-webkit-keyframes fadeOut {
+    from {
+      opacity: 1; }
+
+    to {
+      opacity: 0; } }
+
+  @-moz-keyframes fadeOut {
+    from {
+      opacity: 1; }
+
+    to {
+      opacity: 0; } }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1; }
+
+    to {
+      opacity: 0; } }
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0; }
+
+    to {
+      opacity: 1; } }
+
+  @-moz-keyframes fadeIn {
+    from {
+      opacity: 0; }
+
+    to {
+      opacity: 1; } }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0; }
+
+    to {
+      opacity: 1; } }
+
+  @-webkit-keyframes fadeInHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.5); } }
+
+  @-moz-keyframes fadeInHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.5); } }
+
+  @keyframes fadeInHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.5); } }
+
+  @-webkit-keyframes fadeOutHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0); } }
+
+  @-moz-keyframes fadeOutHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0); } }
+
+  @keyframes fadeOutHalf {
+    from {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+    to {
+      background-color: rgba(0, 0, 0, 0); } }
+
+  @-webkit-keyframes scaleOut {
+    from {
+      -webkit-transform: scale(1);
+      opacity: 1; }
+
+    to {
+      -webkit-transform: scale(0.8);
+      opacity: 0; } }
+
+  @-moz-keyframes scaleOut {
+    from {
+      -moz-transform: scale(1);
+      opacity: 1; }
+
+    to {
+      -moz-transform: scale(0.8);
+      opacity: 0; } }
+
+  @keyframes scaleOut {
+    from {
+      transform: scale(1);
+      opacity: 1; }
+
+    to {
+      transform: scale(0.8);
+      opacity: 0; } }
+
+  @-webkit-keyframes scaleIn {
+    from {
+      -webkit-transform: scale(0); }
+
+    to {
+      -webkit-transform: scale(1); } }
+
+  @-moz-keyframes scaleIn {
+    from {
+      -moz-transform: scale(0); }
+
+    to {
+      -moz-transform: scale(1); } }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0); }
+
+    to {
+      transform: scale(1); } }
+
+  @-webkit-keyframes superScaleIn {
+    from {
+      -webkit-transform: scale(1.2);
+      opacity: 0; }
+
+    to {
+      -webkit-transform: scale(1);
+      opacity: 1; } }
+
+  @-moz-keyframes superScaleIn {
+    from {
+      -moz-transform: scale(1.2);
+      opacity: 0; }
+
+    to {
+      -moz-transform: scale(1);
+      opacity: 1; } }
+
+  @keyframes superScaleIn {
+    from {
+      transform: scale(1.2);
+      opacity: 0; }
+
+    to {
+      transform: scale(1);
+      opacity: 1; } }
+
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg); } }
+
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg); } }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg); } }
+
   /**
    * Slide Left-Right, and Right-Left, each with the reserve
    * --------------------------------------------------
@@ -7154,13 +7530,6 @@ a {
    * --------------------------------------------------
    * Platform specific tweaks when in Cordova.
    */ }
-@font-face {
-  .ionic {
-    font-family: "Ionicons";
-    src: url("../fonts/ionicons.eot?v=1.4.1");
-    src: url("../fonts/ionicons.eot?v=1.4.1#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.4.1") format("truetype"), url("../fonts/ionicons.woff?v=1.4.1") format("woff"), url("../fonts/ionicons.svg?v=1.4.1#Ionicons") format("svg");
-    font-weight: normal;
-    font-style: normal; } }
   .ionic .ion, .ionic .ion-loading-a, .ionic .ion-loading-b, .ionic .ion-loading-c, .ionic .ion-loading-d, .ionic .ion-looping, .ionic .ion-refreshing, .ionic .ion-ios7-reloading, .ionic .ionicons, .ionic .ion-alert, .ionic .ion-alert-circled, .ionic .ion-android-add, .ionic .ion-android-add-contact, .ionic .ion-android-alarm, .ionic .ion-android-archive, .ionic .ion-android-arrow-back, .ionic .ion-android-arrow-down-left, .ionic .ion-android-arrow-down-right, .ionic .ion-android-arrow-up-left, .ionic .ion-android-arrow-up-right, .ionic .ion-android-battery, .ionic .ion-android-book, .ionic .ion-android-calendar, .ionic .ion-android-call, .ionic .ion-android-camera, .ionic .ion-android-chat, .ionic .ion-android-checkmark, .ionic .ion-android-clock, .ionic .ion-android-close, .ionic .ion-android-contact, .ionic .ion-android-contacts, .ionic .ion-android-data, .ionic .ion-android-developer, .ionic .ion-android-display, .ionic .ion-android-download, .ionic .ion-android-dropdown, .ionic .ion-android-earth, .ionic .ion-android-folder, .ionic .ion-android-forums, .ionic .ion-android-friends, .ionic .ion-android-hand, .ionic .ion-android-image, .ionic .ion-android-inbox, .ionic .ion-android-information, .ionic .ion-android-keypad, .ionic .ion-android-lightbulb, .ionic .ion-android-locate, .ionic .ion-android-location, .ionic .ion-android-mail, .ionic .ion-android-microphone, .ionic .ion-android-mixer, .ionic .ion-android-more, .ionic .ion-android-note, .ionic .ion-android-playstore, .ionic .ion-android-printer, .ionic .ion-android-promotion, .ionic .ion-android-reminder, .ionic .ion-android-remove, .ionic .ion-android-search, .ionic .ion-android-send, .ionic .ion-android-settings, .ionic .ion-android-share, .ionic .ion-android-social, .ionic .ion-android-social-user, .ionic .ion-android-sort, .ionic .ion-android-star, .ionic .ion-android-stopwatch, .ionic .ion-android-storage, .ionic .ion-android-system-back, .ionic .ion-android-system-home, .ionic .ion-android-system-windows, .ionic .ion-android-timer, .ionic .ion-android-trash, .ionic .ion-android-volume, .ionic .ion-android-wifi, .ionic .ion-archive, .ionic .ion-arrow-down-a, .ionic .ion-arrow-down-b, .ionic .ion-arrow-down-c, .ionic .ion-arrow-expand, .ionic .ion-arrow-graph-down-left, .ionic .ion-arrow-graph-down-right, .ionic .ion-arrow-graph-up-left, .ionic .ion-arrow-graph-up-right, .ionic .ion-arrow-left-a, .ionic .ion-arrow-left-b, .ionic .ion-arrow-left-c, .ionic .ion-arrow-move, .ionic .ion-arrow-resize, .ionic .ion-arrow-return-left, .ionic .ion-arrow-return-right, .ionic .ion-arrow-right-a, .ionic .ion-arrow-right-b, .ionic .ion-arrow-right-c, .ionic .ion-arrow-shrink, .ionic .ion-arrow-swap, .ionic .ion-arrow-up-a, .ionic .ion-arrow-up-b, .ionic .ion-arrow-up-c, .ionic .ion-at, .ionic .ion-bag, .ionic .ion-battery-charging, .ionic .ion-battery-empty, .ionic .ion-battery-full, .ionic .ion-battery-half, .ionic .ion-battery-low, .ionic .ion-beaker, .ionic .ion-beer, .ionic .ion-bluetooth, .ionic .ion-bookmark, .ionic .ion-briefcase, .ionic .ion-bug, .ionic .ion-calculator, .ionic .ion-calendar, .ionic .ion-camera, .ionic .ion-card, .ionic .ion-chatbox, .ionic .ion-chatbox-working, .ionic .ion-chatboxes, .ionic .ion-chatbubble, .ionic .ion-chatbubble-working, .ionic .ion-chatbubbles, .ionic .ion-checkmark, .ionic .ion-checkmark-circled, .ionic .ion-checkmark-round, .ionic .ion-chevron-down, .ionic .ion-chevron-left, .ionic .ion-chevron-right, .ionic .ion-chevron-up, .ionic .ion-clipboard, .ionic .ion-clock, .ionic .ion-close, .ionic .ion-close-circled, .ionic .ion-close-round, .ionic .ion-cloud, .ionic .ion-code, .ionic .ion-code-download, .ionic .ion-code-working, .ionic .ion-coffee, .ionic .ion-compass, .ionic .ion-compose, .ionic .ion-connection-bars, .ionic .ion-contrast, .ionic .ion-disc, .ionic .ion-document, .ionic .ion-document-text, .ionic .ion-drag, .ionic .ion-earth, .ionic .ion-edit, .ionic .ion-egg, .ionic .ion-eject, .ionic .ion-email, .ionic .ion-eye, .ionic .ion-eye-disabled, .ionic .ion-female, .ionic .ion-filing, .ionic .ion-film-marker, .ionic .ion-flag, .ionic .ion-flash, .ionic .ion-flash-off, .ionic .ion-flask, .ionic .ion-folder, .ionic .ion-fork, .ionic .ion-fork-repo, .ionic .ion-forward, .ionic .ion-game-controller-a, .ionic .ion-game-controller-b, .ionic .ion-gear-a, .ionic .ion-gear-b, .ionic .ion-grid, .ionic .ion-hammer, .ionic .ion-headphone, .ionic .ion-heart, .ionic .ion-help, .ionic .ion-help-buoy, .ionic .ion-help-circled, .ionic .ion-home, .ionic .ion-icecream, .ionic .ion-icon-social-google-plus, .ionic .ion-icon-social-google-plus-outline, .ionic .ion-image, .ionic .ion-images, .ionic .ion-information, .ionic .ion-information-circled, .ionic .ion-ionic, .ionic .ion-ios7-alarm, .ionic .ion-ios7-alarm-outline, .ionic .ion-ios7-albums, .ionic .ion-ios7-albums-outline, .ionic .ion-ios7-arrow-back, .ionic .ion-ios7-arrow-down, .ionic .ion-ios7-arrow-forward, .ionic .ion-ios7-arrow-left, .ionic .ion-ios7-arrow-right, .ionic .ion-ios7-arrow-thin-down, .ionic .ion-ios7-arrow-thin-left, .ionic .ion-ios7-arrow-thin-right, .ionic .ion-ios7-arrow-thin-up, .ionic .ion-ios7-arrow-up, .ionic .ion-ios7-at, .ionic .ion-ios7-at-outline, .ionic .ion-ios7-bell, .ionic .ion-ios7-bell-outline, .ionic .ion-ios7-bolt, .ionic .ion-ios7-bolt-outline, .ionic .ion-ios7-bookmarks, .ionic .ion-ios7-bookmarks-outline, .ionic .ion-ios7-box, .ionic .ion-ios7-box-outline, .ionic .ion-ios7-briefcase, .ionic .ion-ios7-briefcase-outline, .ionic .ion-ios7-browsers, .ionic .ion-ios7-browsers-outline, .ionic .ion-ios7-calculator, .ionic .ion-ios7-calculator-outline, .ionic .ion-ios7-calendar, .ionic .ion-ios7-calendar-outline, .ionic .ion-ios7-camera, .ionic .ion-ios7-camera-outline, .ionic .ion-ios7-cart, .ionic .ion-ios7-cart-outline, .ionic .ion-ios7-chatboxes, .ionic .ion-ios7-chatboxes-outline, .ionic .ion-ios7-chatbubble, .ionic .ion-ios7-chatbubble-outline, .ionic .ion-ios7-checkmark, .ionic .ion-ios7-checkmark-empty, .ionic .ion-ios7-checkmark-outline, .ionic .ion-ios7-circle-filled, .ionic .ion-ios7-circle-outline, .ionic .ion-ios7-clock, .ionic .ion-ios7-clock-outline, .ionic .ion-ios7-close, .ionic .ion-ios7-close-empty, .ionic .ion-ios7-close-outline, .ionic .ion-ios7-cloud, .ionic .ion-ios7-cloud-download, .ionic .ion-ios7-cloud-download-outline, .ionic .ion-ios7-cloud-outline, .ionic .ion-ios7-cloud-upload, .ionic .ion-ios7-cloud-upload-outline, .ionic .ion-ios7-cloudy, .ionic .ion-ios7-cloudy-night, .ionic .ion-ios7-cloudy-night-outline, .ionic .ion-ios7-cloudy-outline, .ionic .ion-ios7-cog, .ionic .ion-ios7-cog-outline, .ionic .ion-ios7-compose, .ionic .ion-ios7-compose-outline, .ionic .ion-ios7-contact, .ionic .ion-ios7-contact-outline, .ionic .ion-ios7-copy, .ionic .ion-ios7-copy-outline, .ionic .ion-ios7-download, .ionic .ion-ios7-download-outline, .ionic .ion-ios7-drag, .ionic .ion-ios7-email, .ionic .ion-ios7-email-outline, .ionic .ion-ios7-eye, .ionic .ion-ios7-eye-outline, .ionic .ion-ios7-fastforward, .ionic .ion-ios7-fastforward-outline, .ionic .ion-ios7-filing, .ionic .ion-ios7-filing-outline, .ionic .ion-ios7-film, .ionic .ion-ios7-film-outline, .ionic .ion-ios7-flag, .ionic .ion-ios7-flag-outline, .ionic .ion-ios7-folder, .ionic .ion-ios7-folder-outline, .ionic .ion-ios7-gear, .ionic .ion-ios7-gear-outline, .ionic .ion-ios7-glasses, .ionic .ion-ios7-glasses-outline, .ionic .ion-ios7-heart, .ionic .ion-ios7-heart-outline, .ionic .ion-ios7-help, .ionic .ion-ios7-help-empty, .ionic .ion-ios7-help-outline, .ionic .ion-ios7-infinite, .ionic .ion-ios7-infinite-outline, .ionic .ion-ios7-information, .ionic .ion-ios7-information-empty, .ionic .ion-ios7-information-outline, .ionic .ion-ios7-ionic-outline, .ionic .ion-ios7-keypad, .ionic .ion-ios7-keypad-outline, .ionic .ion-ios7-lightbulb, .ionic .ion-ios7-lightbulb-outline, .ionic .ion-ios7-location, .ionic .ion-ios7-location-outline, .ionic .ion-ios7-locked, .ionic .ion-ios7-locked-outline, .ionic .ion-ios7-medkit, .ionic .ion-ios7-medkit-outline, .ionic .ion-ios7-mic, .ionic .ion-ios7-mic-off, .ionic .ion-ios7-mic-outline, .ionic .ion-ios7-minus, .ionic .ion-ios7-minus-empty, .ionic .ion-ios7-minus-outline, .ionic .ion-ios7-monitor, .ionic .ion-ios7-monitor-outline, .ionic .ion-ios7-moon, .ionic .ion-ios7-moon-outline, .ionic .ion-ios7-more, .ionic .ion-ios7-more-outline, .ionic .ion-ios7-musical-note, .ionic .ion-ios7-musical-notes, .ionic .ion-ios7-navigate, .ionic .ion-ios7-navigate-outline, .ionic .ion-ios7-paperplane, .ionic .ion-ios7-paperplane-outline, .ionic .ion-ios7-partlysunny, .ionic .ion-ios7-partlysunny-outline, .ionic .ion-ios7-pause, .ionic .ion-ios7-pause-outline, .ionic .ion-ios7-people, .ionic .ion-ios7-people-outline, .ionic .ion-ios7-person, .ionic .ion-ios7-person-outline, .ionic .ion-ios7-personadd, .ionic .ion-ios7-personadd-outline, .ionic .ion-ios7-photos, .ionic .ion-ios7-photos-outline, .ionic .ion-ios7-pie, .ionic .ion-ios7-pie-outline, .ionic .ion-ios7-play, .ionic .ion-ios7-play-outline, .ionic .ion-ios7-plus, .ionic .ion-ios7-plus-empty, .ionic .ion-ios7-plus-outline, .ionic .ion-ios7-pricetag, .ionic .ion-ios7-pricetag-outline, .ionic .ion-ios7-printer, .ionic .ion-ios7-printer-outline, .ionic .ion-ios7-rainy, .ionic .ion-ios7-rainy-outline, .ionic .ion-ios7-recording, .ionic .ion-ios7-recording-outline, .ionic .ion-ios7-redo, .ionic .ion-ios7-redo-outline, .ionic .ion-ios7-refresh, .ionic .ion-ios7-refresh-empty, .ionic .ion-ios7-refresh-outline, .ionic .ion-ios7-reload, .ionic .ion-ios7-rewind, .ionic .ion-ios7-rewind-outline, .ionic .ion-ios7-search, .ionic .ion-ios7-search-strong, .ionic .ion-ios7-skipbackward, .ionic .ion-ios7-skipbackward-outline, .ionic .ion-ios7-skipforward, .ionic .ion-ios7-skipforward-outline, .ionic .ion-ios7-snowy, .ionic .ion-ios7-speedometer, .ionic .ion-ios7-speedometer-outline, .ionic .ion-ios7-star, .ionic .ion-ios7-star-outline, .ionic .ion-ios7-stopwatch, .ionic .ion-ios7-stopwatch-outline, .ionic .ion-ios7-sunny, .ionic .ion-ios7-sunny-outline, .ionic .ion-ios7-telephone, .ionic .ion-ios7-telephone-outline, .ionic .ion-ios7-thunderstorm, .ionic .ion-ios7-thunderstorm-outline, .ionic .ion-ios7-time, .ionic .ion-ios7-time-outline, .ionic .ion-ios7-timer, .ionic .ion-ios7-timer-outline, .ionic .ion-ios7-trash, .ionic .ion-ios7-trash-outline, .ionic .ion-ios7-undo, .ionic .ion-ios7-undo-outline, .ionic .ion-ios7-unlocked, .ionic .ion-ios7-unlocked-outline, .ionic .ion-ios7-upload, .ionic .ion-ios7-upload-outline, .ionic .ion-ios7-videocam, .ionic .ion-ios7-videocam-outline, .ionic .ion-ios7-volume-high, .ionic .ion-ios7-volume-low, .ionic .ion-ios7-wineglass, .ionic .ion-ios7-wineglass-outline, .ionic .ion-ios7-world, .ionic .ion-ios7-world-outline, .ionic .ion-ipad, .ionic .ion-iphone, .ionic .ion-ipod, .ionic .ion-jet, .ionic .ion-key, .ionic .ion-knife, .ionic .ion-laptop, .ionic .ion-leaf, .ionic .ion-levels, .ionic .ion-lightbulb, .ionic .ion-link, .ionic .ion-load-a, .ionic .ion-load-b, .ionic .ion-load-c, .ionic .ion-load-d, .ionic .ion-location, .ionic .ion-locked, .ionic .ion-log-in, .ionic .ion-log-out, .ionic .ion-loop, .ionic .ion-magnet, .ionic .ion-male, .ionic .ion-man, .ionic .ion-map, .ionic .ion-medkit, .ionic .ion-mic-a, .ionic .ion-mic-b, .ionic .ion-mic-c, .ionic .ion-minus, .ionic .ion-minus-circled, .ionic .ion-minus-round, .ionic .ion-model-s, .ionic .ion-monitor, .ionic .ion-more, .ionic .ion-music-note, .ionic .ion-navicon, .ionic .ion-navicon-round, .ionic .ion-navigate, .ionic .ion-no-smoking, .ionic .ion-nuclear, .ionic .ion-paper-airplane, .ionic .ion-paperclip, .ionic .ion-pause, .ionic .ion-person, .ionic .ion-person-add, .ionic .ion-person-stalker, .ionic .ion-pie-graph, .ionic .ion-pin, .ionic .ion-pinpoint, .ionic .ion-pizza, .ionic .ion-plane, .ionic .ion-play, .ionic .ion-playstation, .ionic .ion-plus, .ionic .ion-plus-circled, .ionic .ion-plus-round, .ionic .ion-pound, .ionic .ion-power, .ionic .ion-pricetag, .ionic .ion-pricetags, .ionic .ion-printer, .ionic .ion-radio-waves, .ionic .ion-record, .ionic .ion-refresh, .ionic .ion-reply, .ionic .ion-reply-all, .ionic .ion-search, .ionic .ion-settings, .ionic .ion-share, .ionic .ion-shuffle, .ionic .ion-skip-backward, .ionic .ion-skip-forward, .ionic .ion-social-android, .ionic .ion-social-android-outline, .ionic .ion-social-apple, .ionic .ion-social-apple-outline, .ionic .ion-social-bitcoin, .ionic .ion-social-bitcoin-outline, .ionic .ion-social-buffer, .ionic .ion-social-buffer-outline, .ionic .ion-social-designernews, .ionic .ion-social-designernews-outline, .ionic .ion-social-dribbble, .ionic .ion-social-dribbble-outline, .ionic .ion-social-dropbox, .ionic .ion-social-dropbox-outline, .ionic .ion-social-facebook, .ionic .ion-social-facebook-outline, .ionic .ion-social-freebsd-devil, .ionic .ion-social-github, .ionic .ion-social-github-outline, .ionic .ion-social-googleplus, .ionic .ion-social-googleplus-outline, .ionic .ion-social-hackernews, .ionic .ion-social-hackernews-outline, .ionic .ion-social-linkedin, .ionic .ion-social-linkedin-outline, .ionic .ion-social-pinterest, .ionic .ion-social-pinterest-outline, .ionic .ion-social-reddit, .ionic .ion-social-reddit-outline, .ionic .ion-social-rss, .ionic .ion-social-rss-outline, .ionic .ion-social-skype, .ionic .ion-social-skype-outline, .ionic .ion-social-tumblr, .ionic .ion-social-tumblr-outline, .ionic .ion-social-tux, .ionic .ion-social-twitter, .ionic .ion-social-twitter-outline, .ionic .ion-social-vimeo, .ionic .ion-social-vimeo-outline, .ionic .ion-social-windows, .ionic .ion-social-windows-outline, .ionic .ion-social-wordpress, .ionic .ion-social-wordpress-outline, .ionic .ion-social-yahoo, .ionic .ion-social-yahoo-outline, .ionic .ion-social-youtube, .ionic .ion-social-youtube-outline, .ionic .ion-speakerphone, .ionic .ion-speedometer, .ionic .ion-spoon, .ionic .ion-star, .ionic .ion-stats-bars, .ionic .ion-steam, .ionic .ion-stop, .ionic .ion-thermometer, .ionic .ion-thumbsdown, .ionic .ion-thumbsup, .ionic .ion-trash-a, .ionic .ion-trash-b, .ionic .ion-umbrella, .ionic .ion-unlocked, .ionic .ion-upload, .ionic .ion-usb, .ionic .ion-videocamera, .ionic .ion-volume-high, .ionic .ion-volume-low, .ionic .ion-volume-medium, .ionic .ion-volume-mute, .ionic .ion-waterdrop, .ionic .ion-wifi, .ionic .ion-wineglass, .ionic .ion-woman, .ionic .ion-wrench, .ionic .ion-xbox {
     display: inline-block;
     font-family: "Ionicons";
@@ -7178,31 +7547,6 @@ a {
     -moz-animation: spin 1s infinite linear;
     -o-animation: spin 1s infinite linear;
     animation: spin 1s infinite linear; }
-@-moz-keyframes spin {
-  .ionic 0%  {
-    -moz-transform: rotate(0deg); }
-  .ionic 100%  {
-    -moz-transform: rotate(359deg); } }
-@-webkit-keyframes spin {
-  .ionic 0%  {
-    -webkit-transform: rotate(0deg); }
-  .ionic 100%  {
-    -webkit-transform: rotate(359deg); } }
-@-o-keyframes spin {
-  .ionic 0%  {
-    -o-transform: rotate(0deg); }
-  .ionic 100%  {
-    -o-transform: rotate(359deg); } }
-@-ms-keyframes spin {
-  .ionic 0%  {
-    -ms-transform: rotate(0deg); }
-  .ionic 100%  {
-    -ms-transform: rotate(359deg); } }
-@keyframes spin {
-  .ionic 0%  {
-    transform: rotate(0deg); }
-  .ionic 100%  {
-    transform: rotate(359deg); } }
   .ionic .ion-loading-a {
     -webkit-animation-timing-function: steps(8, start);
     -moz-animation-timing-function: steps(8, start);
@@ -8297,7 +8641,7 @@ a {
     outline: 0; }
   .ionic a {
     -webkit-user-drag: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent; }
   .ionic a[href]:hover {
     cursor: pointer; }
@@ -8395,7 +8739,7 @@ a {
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     text-size-adjust: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -8485,26 +8829,6 @@ a {
     -webkit-transition: none;
     -moz-transition: none;
     transition: none; }
-@keyframes refresh-spin {
-  .ionic 0%  {
-    transform: rotate(0); }
-  .ionic 100%  {
-    transform: rotate(-180deg); } }
-@-webkit-keyframes refresh-spin {
-  .ionic 0%  {
-    -webkit-transform: rotate(0); }
-  .ionic 100%  {
-    -webkit-transform: rotate(-180deg); } }
-@keyframes refresh-spin-back {
-  .ionic 0%  {
-    transform: rotate(-180deg); }
-  .ionic 100%  {
-    transform: rotate(0); } }
-@-webkit-keyframes refresh-spin-back {
-  .ionic 0%  {
-    -webkit-transform: rotate(-180deg); }
-  .ionic 100%  {
-    -webkit-transform: rotate(0); } }
   .ionic .scroll-refresher {
     position: absolute;
     top: -60px;
@@ -8524,7 +8848,15 @@ a {
   .ionic .scroll-refresher .ionic-refresher-content .text-refreshing, .ionic .scroll-refresher .ionic-refresher-content .text-pulling {
     line-height: 16px;
     font-size: 16px; }
+  .ionic .scroll-refresher .icon-refreshing, .ionic .scroll-refresher .icon-pulling {
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform-style: preserve-3d; }
   .ionic .scroll-refresher .icon-pulling {
+    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     -webkit-animation-name: refresh-spin-back;
     -moz-animation-name: refresh-spin-back;
     animation-name: refresh-spin-back;
@@ -8534,23 +8866,21 @@ a {
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both; }
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none; }
   .ionic .scroll-refresher .icon-refreshing, .ionic .scroll-refresher .text-refreshing {
     display: none; }
   .ionic .scroll-refresher .icon-refreshing {
     -webkit-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
     animation-duration: 1.5s; }
-  .ionic .scroll-refresher.active .icon-pulling, .ionic .scroll-refresher.active .text-pulling {
-    display: block; }
   .ionic .scroll-refresher.active .icon-pulling {
     -webkit-animation-name: refresh-spin;
     -moz-animation-name: refresh-spin;
-    animation-name: refresh-spin; }
-  .ionic .scroll-refresher.active .icon-refreshing, .ionic .scroll-refresher.active .text-refreshing {
-    display: none; }
+    animation-name: refresh-spin;
+    -webkit-transform: translate3d(0, 0, 0) rotate(-180deg);
+    transform: translate3d(0, 0, 0) rotate(-180deg); }
   .ionic .scroll-refresher.active.refreshing .icon-pulling, .ionic .scroll-refresher.active.refreshing .text-pulling {
     display: none; }
   .ionic .scroll-refresher.active.refreshing .icon-refreshing, .ionic .scroll-refresher.active.refreshing .text-refreshing {
@@ -8584,14 +8914,8 @@ a {
     -webkit-overflow-scrolling: touch; }
   .ionic .overflow-scroll .scroll {
     position: static;
-    height: 100%; }
-  .ionic .overflow-scroll {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; }
-  .ionic .overflow-scroll .scroll {
-    position: static;
-    height: 100%; }
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, 0); }
   .ionic .has-header {
     top: 44px; }
   .ionic .no-header {
@@ -8718,7 +9042,7 @@ a {
     z-index: 11;
     width: 100%;
     height: 100%;
-    background-color: transparent; }
+    background-color: rgba(0, 0, 0, 0); }
   .ionic .action-sheet-backdrop.active {
     background-color: rgba(0, 0, 0, 0.5); }
   .ionic .action-sheet-wrapper {
@@ -9392,7 +9716,7 @@ a {
     z-index: 10;
     width: 100%;
     height: 100%;
-    background-color: transparent; }
+    background-color: rgba(0, 0, 0, 0); }
   .ionic .modal-backdrop.active {
     background-color: rgba(0, 0, 0, 0.5); }
   .ionic .modal {
@@ -10573,11 +10897,6 @@ a {
     visibility: visible; }
   .ionic .platform-android.grade-b .item-radio, .ionic .platform-android.grade-c .item-radio {
     -webkit-animation: androidCheckedbugfix infinite 1s; }
-@-webkit-keyframes androidCheckedbugfix {
-  .ionic from {
-    padding: 0; }
-  .ionic to {
-    padding: 0; } }
   .ionic input[type="range"] {
     display: inline-block;
     overflow: hidden;
@@ -10712,7 +11031,7 @@ a {
   .ionic .select-inline + .select-inline {
     margin-left: 6px; }
   .ionic .item-select {
-    position: static; }
+    position: relative; }
   .ionic .item-select select {
     position: absolute;
     top: 0;
@@ -10730,8 +11049,8 @@ a {
     width: 0;
     height: 0;
     border-top: 5px solid;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
     color: #999;
     content: "";
     pointer-events: none; }
@@ -11180,222 +11499,6 @@ a {
   .ionic .button-bar > .button:last-child {
     border-right-width: 1px;
     border-radius: 0px 2px 2px 0px; }
-@-webkit-keyframes slideInUp {
-  .ionic 0%  {
-    -webkit-transform: translate3d(0, 100%, 0); }
-  .ionic 100%  {
-    -webkit-transform: translate3d(0, 0, 0); } }
-@-moz-keyframes slideInUp {
-  .ionic 0%  {
-    -moz-transform: translate3d(0, 100%, 0); }
-  .ionic 100%  {
-    -moz-transform: translate3d(0, 0, 0); } }
-@keyframes slideInUp {
-  .ionic 0%  {
-    transform: translate3d(0, 100%, 0); }
-  .ionic 100%  {
-    transform: translate3d(0, 0, 0); } }
-@-webkit-keyframes slideOutUp {
-  .ionic 0%  {
-    -webkit-transform: translate3d(0, 0, 0); }
-  .ionic 100%  {
-    -webkit-transform: translate3d(0, 100%, 0); } }
-@-moz-keyframes slideOutUp {
-  .ionic 0%  {
-    -moz-transform: translate3d(0, 0, 0); }
-  .ionic 100%  {
-    -moz-transform: translate3d(0, 100%, 0); } }
-@keyframes slideOutUp {
-  .ionic 0%  {
-    transform: translate3d(0, 0, 0); }
-  .ionic 100%  {
-    transform: translate3d(0, 100%, 0); } }
-@-webkit-keyframes slideInFromLeft {
-  .ionic from {
-    -webkit-transform: translate3d(-100%, 0, 0); }
-  .ionic to {
-    -webkit-transform: translate3d(0, 0, 0); } }
-@-moz-keyframes slideInFromLeft {
-  .ionic from {
-    -moz-transform: translateX(-100%); }
-  .ionic to {
-    -moz-transform: translateX(0); } }
-@keyframes slideInFromLeft {
-  .ionic from {
-    transform: translateX(-100%); }
-  .ionic to {
-    transform: translateX(0); } }
-@-webkit-keyframes slideInFromRight {
-  .ionic from {
-    -webkit-transform: translate3d(100%, 0, 0); }
-  .ionic to {
-    -webkit-transform: translate3d(0, 0, 0); } }
-@-moz-keyframes slideInFromRight {
-  .ionic from {
-    -moz-transform: translateX(100%); }
-  .ionic to {
-    -moz-transform: translateX(0); } }
-@keyframes slideInFromRight {
-  .ionic from {
-    transform: translateX(100%); }
-  .ionic to {
-    transform: translateX(0); } }
-@-webkit-keyframes slideOutToLeft {
-  .ionic from {
-    -webkit-transform: translate3d(0, 0, 0); }
-  .ionic to {
-    -webkit-transform: translate3d(-100%, 0, 0); } }
-@-moz-keyframes slideOutToLeft {
-  .ionic from {
-    -moz-transform: translateX(0); }
-  .ionic to {
-    -moz-transform: translateX(-100%); } }
-@keyframes slideOutToLeft {
-  .ionic from {
-    transform: translateX(0); }
-  .ionic to {
-    transform: translateX(-100%); } }
-@-webkit-keyframes slideOutToRight {
-  .ionic from {
-    -webkit-transform: translate3d(0, 0, 0); }
-  .ionic to {
-    -webkit-transform: translate3d(100%, 0, 0); } }
-@-moz-keyframes slideOutToRight {
-  .ionic from {
-    -moz-transform: translateX(0); }
-  .ionic to {
-    -moz-transform: translateX(100%); } }
-@keyframes slideOutToRight {
-  .ionic from {
-    transform: translateX(0); }
-  .ionic to {
-    transform: translateX(100%); } }
-@-webkit-keyframes fadeOut {
-  .ionic from {
-    opacity: 1; }
-  .ionic to {
-    opacity: 0; } }
-@-moz-keyframes fadeOut {
-  .ionic from {
-    opacity: 1; }
-  .ionic to {
-    opacity: 0; } }
-@keyframes fadeOut {
-  .ionic from {
-    opacity: 1; }
-  .ionic to {
-    opacity: 0; } }
-@-webkit-keyframes fadeIn {
-  .ionic from {
-    opacity: 0; }
-  .ionic to {
-    opacity: 1; } }
-@-moz-keyframes fadeIn {
-  .ionic from {
-    opacity: 0; }
-  .ionic to {
-    opacity: 1; } }
-@keyframes fadeIn {
-  .ionic from {
-    opacity: 0; }
-  .ionic to {
-    opacity: 1; } }
-@-webkit-keyframes fadeInHalf {
-  .ionic from {
-    background-color: transparent; }
-  .ionic to {
-    background-color: rgba(0, 0, 0, 0.5); } }
-@-moz-keyframes fadeInHalf {
-  .ionic from {
-    background-color: transparent; }
-  .ionic to {
-    background-color: rgba(0, 0, 0, 0.5); } }
-@keyframes fadeInHalf {
-  .ionic from {
-    background-color: transparent; }
-  .ionic to {
-    background-color: rgba(0, 0, 0, 0.5); } }
-@-webkit-keyframes fadeOutHalf {
-  .ionic from {
-    background-color: rgba(0, 0, 0, 0.5); }
-  .ionic to {
-    background-color: transparent; } }
-@-moz-keyframes fadeOutHalf {
-  .ionic from {
-    background-color: rgba(0, 0, 0, 0.5); }
-  .ionic to {
-    background-color: transparent; } }
-@keyframes fadeOutHalf {
-  .ionic from {
-    background-color: rgba(0, 0, 0, 0.5); }
-  .ionic to {
-    background-color: transparent; } }
-@-webkit-keyframes scaleOut {
-  .ionic from {
-    -webkit-transform: scale(1);
-    opacity: 1; }
-  .ionic to {
-    -webkit-transform: scale(0.8);
-    opacity: 0; } }
-@-moz-keyframes scaleOut {
-  .ionic from {
-    -moz-transform: scale(1);
-    opacity: 1; }
-  .ionic to {
-    -moz-transform: scale(0.8);
-    opacity: 0; } }
-@keyframes scaleOut {
-  .ionic from {
-    transform: scale(1);
-    opacity: 1; }
-  .ionic to {
-    transform: scale(0.8);
-    opacity: 0; } }
-@-webkit-keyframes scaleIn {
-  .ionic from {
-    -webkit-transform: scale(0); }
-  .ionic to {
-    -webkit-transform: scale(1); } }
-@-moz-keyframes scaleIn {
-  .ionic from {
-    -moz-transform: scale(0); }
-  .ionic to {
-    -moz-transform: scale(1); } }
-@keyframes scaleIn {
-  .ionic from {
-    transform: scale(0); }
-  .ionic to {
-    transform: scale(1); } }
-@-webkit-keyframes superScaleIn {
-  .ionic from {
-    -webkit-transform: scale(1.2);
-    opacity: 0; }
-  .ionic to {
-    -webkit-transform: scale(1);
-    opacity: 1; } }
-@-moz-keyframes superScaleIn {
-  .ionic from {
-    -moz-transform: scale(1.2);
-    opacity: 0; }
-  .ionic to {
-    -moz-transform: scale(1);
-    opacity: 1; } }
-@keyframes superScaleIn {
-  .ionic from {
-    transform: scale(1.2);
-    opacity: 0; }
-  .ionic to {
-    transform: scale(1);
-    opacity: 1; } }
-@-webkit-keyframes spin {
-  .ionic 100%  {
-    -webkit-transform: rotate(360deg); } }
-@-moz-keyframes spin {
-  .ionic 100%  {
-    -moz-transform: rotate(360deg); } }
-@keyframes spin {
-  .ionic 100%  {
-    transform: rotate(360deg); } }
   .ionic .no-animation > .ng-enter, .ionic .no-animation.ng-enter, .ionic .no-animation > .ng-leave, .ionic .no-animation.ng-leave {
     -webkit-transition: none;
     -moz-transition: none;
@@ -11732,7 +11835,7 @@ a {
     position: relative; }
   .ionic .fade-in-not-out.ng-leave, .ionic .fade-in-not-out .ng-leave {
     display: none; }
-  .ionic .nav-title-slide-ios7 .button.back-button {
+  .ionic .nav-title-slide-ios7:not(.no-animation) .button.back-button {
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;
     transition: all 250ms;
@@ -11743,12 +11846,12 @@ a {
     -moz-transform: translate3d(0%, 0, 0);
     transform: translate3d(0%, 0, 0);
     opacity: 1; }
-  .ionic .nav-title-slide-ios7 .button.back-button.ng-hide {
+  .ionic .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide {
     opacity: 0;
     -webkit-transform: translate3d(30%, 0, 0);
     -moz-transform: translate3d(30%, 0, 0);
     transform: translate3d(30%, 0, 0); }
-  .ionic .nav-title-slide-ios7 .button.back-button.ng-hide-add, .ionic .nav-title-slide-ios7 .button.back-button.ng-hide-remove {
+  .ionic .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-add, .ionic .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-remove {
     display: block !important; }
   .ionic .nav-title-slide-ios7 > .ng-enter, .ionic .nav-title-slide-ios7.ng-enter, .ionic .nav-title-slide-ios7 > .ng-leave, .ionic .nav-title-slide-ios7.ng-leave {
     -webkit-transition: all 250ms;
@@ -12027,7 +12130,7 @@ a {
     -ms-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     -webkit-user-drag: none;
     -ms-touch-action: none;

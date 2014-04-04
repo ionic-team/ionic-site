@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicList.js#L152'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicList.js#L134'>
     Improve this doc
   </a>
 </div>
@@ -25,32 +25,31 @@ docType: "directive"
 
 
 
+<br/>
+<small>
+  Delegate: <a href="/docs/nightly/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>
+</small>
+
 </h1>
 
 
-{% include codepen.html id="jsHjf" %}
+{% include codepen.html id="JsHjf" %}
 
 
 
 
-The List is a widely used interface element in almost any mobile app,
-and can include content ranging from basic text all the way to buttons,
-toggles, icons, and thumbnails.
+The List is a widely used interface element in almost any mobile app, and can include
+content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
 
-Both the list, which contains items, and the list items themselves can be
-any HTML element. The containing element requires the list class and each
-list item requires the item class. Ionic also comes with pre-built Angular
-directives to make it easier to create a complex list.
+Both the list, which contains items, and the list items themselves can be any HTML
+element. The containing element requires the `list` class and each list item requires
+the `item` class.
 
-Using the ionList and <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> directives
-make it easy to support various interaction modes such as swipe to edit,
-drag to reorder, and removing items.
+However, using the ionList and ionItem directives make it easy to support various
+interaction modes such as swipe to edit, drag to reorder, and removing items.
 
-However, if you need just a simple list you won't be required to use the
-directives, but rather just use the classnames.
-This demo is a simple list without using the directives.
-
-See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> documentation for more information on list items.
+Related: <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a>, <a href="/docs/nightly/api/directive/ionOptionButton/"><code>ionOptionButton</code></a>
+<a href="/docs/nightly/api/directive/ionReorderButton/"><code>ionReorderButton</code></a>, <a href="/docs/nightly/api/directive/ionDeleteButton/"><code>ionDeleteButton</code></a>, [`list CSS documentation`](/docs/components/#list).
 
 
 
@@ -62,9 +61,44 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
   
 <h2 id="usage">Usage</h2>
   
+Basic Usage:
+
 ```html
 <ion-list>
-  <ion-item ng-repeat="item in items" item="item">
+  <ion-item ng-repeat="item in items">
+    {% raw %}Hello, {{item}}!{% endraw %}
+  </ion-item>
+</ion-list>
+```
+
+Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
+
+```html
+<ion-list ng-controller="MyCtrl"
+          show-delete="shouldShowDelete"
+          show-reorder="shouldShowReorder"
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="item in items"
+            class="item-thumbnail-left">
+
+    {% raw %}<img ng-src="{{item.img}}">
+    <h2>{{item.title}}</h2>
+    <p>{{item.description}}</p>{% endraw %}
+    <ion-option-button class="button-positive"
+                       ng-click="share(item)">
+      Share
+    </ion-option-button>
+    <ion-option-button class="button-info"
+                       ng-click="edit(item)">
+      Edit
+    </ion-option-button>
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="items.splice($index, 1)">
+    </ion-delete-button>
+    <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+    </ion-reorder-button>
+
   </ion-item>
 </ion-list>
 ```
@@ -84,7 +118,7 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
     
     <tr>
       <td>
-        item-type
+        delegate-handle
         
         <div><em>(optional)</em></div>
       </td>
@@ -93,41 +127,8 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
   <code>string</code>
       </td>
       <td>
-        <p>The type of this item.  See <a href="/docs/components/#list">the list CSS page</a> for available item types.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        on-delete
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>expression</code>
-      </td>
-      <td>
-        <p>Called when a child item is deleted.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        on-reorder
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>expression</code>
-      </td>
-      <td>
-        <p>Called when a child item is reordered.</p>
+        <p>The handle used to identify this list with
+<a href="/docs/nightly/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>.</p>
 
         
       </td>
@@ -144,7 +145,8 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether to show each item delete button.</p>
+        <p>Whether the delete buttons for the items in the list are
+currently shown or hidden.</p>
 
         
       </td>
@@ -152,7 +154,7 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
     
     <tr>
       <td>
-        show-reoder
+        show-reorder
         
         <div><em>(optional)</em></div>
       </td>
@@ -161,41 +163,8 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether to show each item&#39;s reorder button.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        can-delete
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether child items are able to be deleted or not.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        can-reorder
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether child items can be reordered or not.</p>
+        <p>Whether the reorder buttons for the items in the list are
+currently shown or hidden.</p>
 
         
       </td>
@@ -212,58 +181,8 @@ See the <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a> 
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether child items can be swiped to reveal option buttons.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        delete-icon
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The class name of the icon to show on child items while deleting.  Defaults to <code>ion-minus-circled</code>.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        reorder-icon
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The class name to show on child items while reordering. Defaults to <code>ion-navicon</code>.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        animation
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>An animation class to apply to the list for animating when child items enter or exit the list. See <a href="/docs/components/#animations">the animation CSS page</a> for available animation classes.</p>
+        <p>Whether the items in the list are allowed to be swiped to reveal
+option buttons. Default: true.</p>
 
         
       </td>

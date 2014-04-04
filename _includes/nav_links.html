@@ -5,7 +5,11 @@
         <i class="icon ion-navicon"></i>
       </button>
       <a class="navbar-brand" href="/">
-        <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        {% if page.header_logo %}
+          {{ page.header_logo }}
+        {% else %}
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        {% endif %}
       </a>
     </div>
 

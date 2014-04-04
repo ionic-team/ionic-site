@@ -5915,6 +5915,16 @@ h2.underline {
   .ios7 .month-input {
     background-image: url('/img/input-types/ios7/keyboard-month@2x.png'); } }
 
+.products .content-container {
+  background: white;
+  min-height: 800px;
+  margin-top: 80px; }
+.products h1, .products h2, .products p {
+  text-align: center; }
+.products .input-container {
+  max-width: 500px;
+  margin: 20px auto; }
+
 a {
   opacity: 0.8;
   transition: 0.1s ease-in-out;
@@ -5939,6 +5949,12 @@ a {
   background: -o-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
   background: -ms-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
   background: linear-gradient(to right, #296ad4 0%, #4e8ef7 100%); }
+
+.white-nav-bar .navbar-default {
+  background: white; }
+.white-nav-bar .navbar-default .navbar-nav > li > a:hover {
+  color: #4F8EF7 !important;
+  border-top-color: #4F8EF7 !important; }
 
 .navbar-default .navbar-nav > li > a {
   margin: 0;

@@ -9,6 +9,21 @@
   background: linear-gradient(to right,  #296ad4 0%,#4e8ef7 100%);
 }
 
+.white-nav-bar {
+
+  .navbar-default {
+    background: white;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    &:hover {
+      color: $brand-primary !important;
+      border-top-color: $brand-primary !important;
+    }
+  }
+
+}
+
 .navbar-default .navbar-nav > li > a {
   margin: 0;
   padding-right: 26px !important;

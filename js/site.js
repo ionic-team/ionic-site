@@ -135,7 +135,7 @@ var ionicSite = (function(){
         clearTimeout(docScrollGovernor);
         docScrollGovernor = setTimeout(docScroll, 15);
       }
-      $(window).scroll(docScroll);
+      $(window).scroll(governDocScroll);
 
       function scrollSpyChange(e) {
         if(smoothScrollingTo || !docContent) {

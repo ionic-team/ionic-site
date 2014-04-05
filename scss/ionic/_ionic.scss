@@ -3134,6 +3134,7 @@ a.subdued {
   z-index: 11;
   visibility: hidden;
   width: 250px;
+  max-width: 100%;
   border-radius: 0px;
   background-color: rgba(255, 255, 255, 0.9); }
   .popup.popup-hidden {
@@ -3701,8 +3702,7 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
   z-index: 0;
   width: 50px;
   height: 100%;
-  line-height: 100%;
-  opacity: 0; }
+  line-height: 100%; }
   .item-left-edit .button {
     height: 100%; }
     .item-left-edit .button.icon {
@@ -3724,8 +3724,7 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
 .list-left-editing .item-left-edit, .item-left-editing .item-left-edit {
   -webkit-transform: translate3d(8px, 0, 0);
   -moz-transform: translate3d(8px, 0, 0);
-  transform: translate3d(8px, 0, 0);
-  opacity: 1; }
+  transform: translate3d(8px, 0, 0); }
 
 .item-delete .button.icon {
   color: #ef4e3a;
@@ -3734,6 +3733,9 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
     opacity: 0.7; }
 
 .item-right-edit {
+  -webkit-transition: all ease-in-out 250ms;
+  -moz-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms;
   position: absolute;
   top: 0;
   right: 0;
@@ -3767,6 +3769,8 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
 
 .item-reordering {
   position: absolute;
+  left: 0;
+  top: 0;
   z-index: 9;
   width: 100%;
   box-shadow: 0px 0px 10px 0px #aaa; }
@@ -3775,6 +3779,13 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
 
 .item-placeholder {
   opacity: 0.7; }
+
+.item-left-edit.item-delete, .item-right-edit.item-reorder {
+  opacity: 1; }
+  .item-left-edit.item-delete.ng-hide, .item-right-edit.item-reorder.ng-hide {
+    opacity: 0; }
+  .item-left-edit.item-delete.ng-hide-add, .item-left-edit.item-delete.ng-hide-remove, .item-right-edit.item-reorder.ng-hide-add, .item-right-edit.item-reorder.ng-hide-remove {
+    display: block !important; }
 
 /**
  * The hidden right-side buttons that can be exposed under a list item
@@ -3790,9 +3801,6 @@ a.item-icon-right:after, button.item-icon-right:after, a.item-button-right:after
     height: 100%;
     border: none;
     border-radius: 0; }
-
-.item-options-hide .item-options {
-  display: none; }
 
 /**
  * Lists
@@ -4340,6 +4348,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
 .item-checkbox .checkbox {
   position: absolute;
   top: 50%;
+  right: 7.5px;
   left: 7.5px;
   z-index: 3;
   margin-top: -21px; }
@@ -5959,6 +5968,20 @@ a.button {
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center; }
+
+.row-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  align-items: stretch; }
+
+.row-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  -webkit-align-items: baseline;
+  -moz-align-items: baseline;
+  align-items: baseline; }
 
 /* .col-* vertically aligns an individual .col */
 .col-top {

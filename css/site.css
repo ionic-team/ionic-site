@@ -9149,6 +9149,7 @@ a {
     z-index: 11;
     visibility: hidden;
     width: 250px;
+    max-width: 100%;
     border-radius: 0px;
     background-color: rgba(255, 255, 255, 0.9); }
   .ionic .popup.popup-hidden {
@@ -9635,8 +9636,7 @@ a {
     z-index: 0;
     width: 50px;
     height: 100%;
-    line-height: 100%;
-    opacity: 0; }
+    line-height: 100%; }
   .ionic .item-left-edit .button {
     height: 100%; }
   .ionic .item-left-edit .button.icon {
@@ -9657,14 +9657,16 @@ a {
   .ionic .list-left-editing .item-left-edit, .ionic .item-left-editing .item-left-edit {
     -webkit-transform: translate3d(8px, 0, 0);
     -moz-transform: translate3d(8px, 0, 0);
-    transform: translate3d(8px, 0, 0);
-    opacity: 1; }
+    transform: translate3d(8px, 0, 0); }
   .ionic .item-delete .button.icon {
     color: #ef4e3a;
     font-size: 24px; }
   .ionic .item-delete .button.icon:hover {
     opacity: 0.7; }
   .ionic .item-right-edit {
+    -webkit-transition: all ease-in-out 250ms;
+    -moz-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms;
     position: absolute;
     top: 0;
     right: 0;
@@ -9696,6 +9698,8 @@ a {
     font-size: 32px; }
   .ionic .item-reordering {
     position: absolute;
+    left: 0;
+    top: 0;
     z-index: 9;
     width: 100%;
     box-shadow: 0px 0px 10px 0px #aaa; }
@@ -9703,6 +9707,12 @@ a {
     z-index: 1; }
   .ionic .item-placeholder {
     opacity: 0.7; }
+  .ionic .item-left-edit.item-delete, .ionic .item-right-edit.item-reorder {
+    opacity: 1; }
+  .ionic .item-left-edit.item-delete.ng-hide, .ionic .item-right-edit.item-reorder.ng-hide {
+    opacity: 0; }
+  .ionic .item-left-edit.item-delete.ng-hide-add, .ionic .item-left-edit.item-delete.ng-hide-remove, .ionic .item-right-edit.item-reorder.ng-hide-add, .ionic .item-right-edit.item-reorder.ng-hide-remove {
+    display: block !important; }
   .ionic .item-options {
     position: absolute;
     top: 0;
@@ -9713,8 +9723,6 @@ a {
     height: 100%;
     border: none;
     border-radius: 0; }
-  .ionic .item-options-hide .item-options {
-    display: none; }
   .ionic .list {
     position: relative;
     padding-top: 1px;
@@ -10172,6 +10180,7 @@ a {
   .ionic .item-checkbox .checkbox {
     position: absolute;
     top: 50%;
+    right: 7.5px;
     left: 7.5px;
     z-index: 3;
     margin-top: -21px; }
@@ -11336,6 +11345,18 @@ a {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center; }
+  .ionic .row-stretch {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    align-items: stretch; }
+  .ionic .row-baseline {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    align-items: baseline; }
   .ionic .col-top {
     -webkit-align-self: flex-start;
     -moz-align-self: flex-start;

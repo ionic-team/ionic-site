@@ -217,6 +217,9 @@
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
   font-size: 12px;
   transition: opacity ease-in-out 100ms;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 
   h4 {
     margin-bottom: 8px;

@@ -16,6 +16,15 @@ var ionicSite = (function(){
       devicePreview,
       defaultScreen;
 
+  window.rAF = (function(){
+    return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            function( callback ){
+              window.setTimeout(callback, 16);
+            };
+  })();
+
   /* Header menu toggle for mobile */
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
@@ -121,6 +130,11 @@ var ionicSite = (function(){
             });
         docScroll();
       });
+      var docScrollGovernor;
+      function governDocScroll(){
+        clearTimeout(docScrollGovernor);
+        docScrollGovernor = setTimeout(docScroll, 15);
+      }
       $(window).scroll(docScroll);
 
       function scrollSpyChange(e) {
@@ -144,14 +158,16 @@ var ionicSite = (function(){
 
         if(id) {
           if(devicePreview) {
-            setTimeout(function(){
+            window.rAF(function(){
               previewSection(id);
             });
           } else {
             var activeSection = $(id);
             if(activeSection.length) {
-              docContent.find('.active').removeClass('active');
-              activeSection.addClass("active");
+              window.rAF(function(){
+                docContent.find('.active').removeClass('active');
+                activeSection.addClass("active");
+              });
             }
           }
           window.history.replaceState && window.history.replaceState({}, id, id);
@@ -196,7 +212,13 @@ var ionicSite = (function(){
             });
         onScroll();
       });
-      $(window).scroll(onScroll);
+      $(window).scroll(governScroll);
+
+      var scrollGovernor;
+      function governScroll() {
+        clearTimeout(scrollGovernor);
+        scrollGovernor = setTimeout(onScroll, 15);
+      }
       onScroll();
 
       var firstSection = docContent.find('.docs-section').first();
@@ -208,7 +230,7 @@ var ionicSite = (function(){
   })();
 
 
-  function previewSection(id, doNotSetHistory) {
+  function previewSection(id) {
     var activeSection = $(id);
     if(!activeSection.length || !devicePreview) return;
 
@@ -223,10 +245,6 @@ var ionicSite = (function(){
     docContent.find('.active').removeClass('active');
     activeSection.addClass("active");
 
-    // if(!doNotSetHistory && window.history.replaceState) {
-    //   window.history.replaceState({}, newTitle, "#" + activeId);
-    // }
-
     devicePreview.find('.active-preview').removeClass('active-preview');
     var docExample = activeSection.find('.doc-example');
     if( docExample.length ) {
@@ -235,11 +253,13 @@ var ionicSite = (function(){
       var examplePreview = $('#' + exampleId);
       if(examplePreview.length) {
         // preview has already been added
-        examplePreview.addClass('active-preview');
+        window.rAF(function(){
+          examplePreview.addClass('active-preview');
+        });
       } else if(devicePreview) {
         // create a new example preview
         devicePreview.append( '<div id="' + exampleId + '" class="ionic-body">' + docExample.html() + '</div>' );
-        setTimeout(function(){
+        window.rAF(function(){
           $('#' + exampleId)
             .addClass('active-preview')
             .find('a').click(function(){
@@ -249,10 +269,12 @@ var ionicSite = (function(){
       }
 
     } else {
-      if(!defaultScreen) {
-        defaultScreen = devicePreview.find('.default-screen');
-      }
-      defaultScreen.addClass('active-preview');
+      window.rAF(function(){
+        if(!defaultScreen) {
+          defaultScreen = devicePreview.find('.default-screen');
+        }
+        defaultScreen.addClass('active-preview');
+      });
     }
   }
 

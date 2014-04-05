@@ -4643,7 +4643,8 @@ input[type="range"] {
   text-indent: 1px;
   text-overflow: '';
   white-space: nowrap;
-  font-size: 14px; }
+  font-size: 14px;
+  cursor: pointer; }
 
 .select-inline {
   position: relative;
@@ -4672,7 +4673,7 @@ input[type="range"] {
     width: 100%;
     direction: rtl; }
     .item-select select:focus {
-      min-width: 20%;
+      min-width: 30%;
       width: auto; }
 
 .select-inline:after, .item-select:after {

@@ -10423,7 +10423,8 @@ a {
     text-indent: 1px;
     text-overflow: '';
     white-space: nowrap;
-    font-size: 14px; }
+    font-size: 14px;
+    cursor: pointer; }
   .ionic .select-inline {
     position: relative;
     display: inline-block;
@@ -10449,7 +10450,7 @@ a {
     width: 100%;
     direction: rtl; }
   .ionic .item-select select:focus {
-    min-width: 20%;
+    min-width: 30%;
     width: auto; }
   .ionic .select-inline:after, .ionic .item-select:after {
     position: absolute;

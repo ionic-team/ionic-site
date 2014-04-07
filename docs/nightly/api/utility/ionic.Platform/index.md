@@ -119,9 +119,9 @@ Return the current device (given by cordova).
 
 
 
-<div id="isCordova"></div>
+<div id="isWebView"></div>
 <h2>
-  <code>isCordova()</code>
+  <code>isWebView()</code>
 
 </h2>
 
@@ -133,7 +133,7 @@ Return the current device (given by cordova).
 
 
 * Returns: 
-  <code>boolean</code> Whether we are running on Cordova.
+  <code>boolean</code> Check if we are running within a WebView (such as Cordova).
 
 
 

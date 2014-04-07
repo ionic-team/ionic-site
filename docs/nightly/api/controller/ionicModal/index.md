@@ -36,6 +36,9 @@ Instantiated by the <a href="/docs/nightly/api/service/$ionicModal/"><code>$ioni
 Hint: Be sure to call [remove()](#remove) when you are done with each modal
 to clean it up and avoid memory leaks.
 
+Note: a modal will broadcast 'modal.shown' and 'modal.hidden' events from its originating
+scope, passing in itself as an event argument.
+
 
 
 

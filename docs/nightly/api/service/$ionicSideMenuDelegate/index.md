@@ -195,6 +195,25 @@ opened/opening, and between 0 and -1 if right menu is opened/opening.
 
 
 
+<div id="isOpen"></div>
+<h2>
+  <code>isOpen()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether either the left or right menu is currently opened.
+
+
+
+
 <div id="isOpenLeft"></div>
 <h2>
   <code>isOpenLeft()</code>

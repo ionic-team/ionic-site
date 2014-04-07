@@ -148,6 +148,23 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
     
     <tr>
       <td>
+        pager-click
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Expression to call when a pager is clicked (if show-pager is true). Is passed the &#39;index&#39; variable.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         disable-scroll
         
         <div><em>(optional)</em></div>
@@ -174,7 +191,7 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   <code>expression</code>
       </td>
       <td>
-        <p>Expression called whenever the slide is changed.</p>
+        <p>Expression called whenever the slide is changed.  Is passed an &#39;index&#39; variable.</p>
 
         
       </td>

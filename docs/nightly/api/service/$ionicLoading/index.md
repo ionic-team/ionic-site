@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L3'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L14'>
     Improve this doc
   </a>
 </div>
@@ -47,12 +47,12 @@ interaction.
 angular.module('LoadingApp', ['ionic'])
 .controller('LoadingCtrl', function($scope, $ionicLoading) {
   $scope.show = function() {
-    $scope.loading = $ionicLoading.show({
-      content: 'Loading',
+    $ionicLoading.show({
+      content: 'Loading...'
     });
   };
   $scope.hide = function(){
-    $scope.loading.hide();
+    $ionicLoading.hide();
   };
 });
 ```
@@ -69,7 +69,8 @@ angular.module('LoadingApp', ['ionic'])
 
 </h2>
 
-
+Shows a loading indicator. If the indicator is already shown,
+it will set the options given and keep the indicator shown.
 
 
 
@@ -94,16 +95,13 @@ angular.module('LoadingApp', ['ionic'])
   <code>object</code>
       </td>
       <td>
-        <p>The options for the indicator. Available properties:</p>
+        <p>The options for the loading indicator. Available properties:</p>
 <ul>
-<li><code>{string=}</code> <code>content</code> The content of the indicator. Default: none.</li>
-<li><code>{string=}</code> <code>animation</code> The animation of the indicator.
-Default: &#39;fade-in&#39;.</li>
-<li><code>{boolean=}</code> <code>showBackdrop</code> Whether to show a backdrop. Default: true.</li>
-<li><code>{number=}</code> <code>maxWidth</code> The maximum width of the indicator, in pixels.
-Default: 200.</li>
-<li><code>{number=}</code> <code>showDelay</code> How many milliseconds to delay showing the
-indicator.  Default: 0.</li>
+<li><code>{string=}</code> <code>content</code> The html content of the indicator.</li>
+<li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop.</li>
+<li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator.</li>
+<li><code>{number=}</code>duration` How many milliseconds to wait until automatically
+hiding the indicator.</li>
 </ul>
 
         
@@ -118,11 +116,21 @@ indicator.  Default: 0.</li>
 
 
 
-* Returns: 
-  <code>object</code> A shown loader with the following methods:
- - `hide()` - Hides the loader.
- - `show()` - Shows the loader.
- - `setContent(string)` - Sets the html content of the loader.
+
+
+
+<div id="hide"></div>
+<h2>
+  <code>hide()</code>
+
+</h2>
+
+Hides the loading indicator, if shown.
+
+
+
+
+
 
 
 

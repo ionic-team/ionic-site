@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicPopup.js#L6'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicPopup.js#L19'>
     Improve this doc
   </a>
 </div>
@@ -33,16 +33,12 @@ docType: "service"
 
 
 
-The Ionic Popup service makes it easy to programatically create and show popup
-windows that require the user to respond in order to continue:
+The Ionic Popup service allows programmatically creating and showing popup
+windows that require the user to respond in order to continue.
 
-The popup system has support for nicer versions of the built in `alert()` `prompt()` and `confirm()` functions
-you are used to in the browser, but with more powerful support for customizing input types in the case of
-prompt, or customizing the look of the window.
-
-But the true power of the Popup is when a built-in popup just won't cut it. Luckily, the popup window
-has full support for arbitrary popup content, and a simple promise-based system for returning data
-entered by the user.
+The popup system has support for more flexible versions of the built in `alert()`, `prompt()`,
+and `confirm()` functions that users are used to, in addition to allowing popups with completely
+custom content and look.
 
 
 
@@ -53,90 +49,73 @@ entered by the user.
 
 
 ## Usage
-To trigger a Popup in your code, use the $ionicPopup service in your angular controllers:
+A few basic examples, see below for details about all of the options available.
 
 ```js
 angular.module('mySuperApp', ['ionic'])
-.controller(function($scope, $ionicPopup) {
+.controller(function($scope, $ionicPopup, $timeout) {
 
  // Triggered on a button click, or some other target
-    $scope.showPopup = function() {
-      $scope.data = {}
+ $scope.showPopup = function() {
+   $scope.data = {}
 
-      // An elaborate, custom popup
-      $ionicPopup.show({
-        templateUrl: 'popup-template.html',
-        title: 'Enter Wi-Fi Password',
-        subTitle: 'Please use normal things',
-        scope: $scope,
-        buttons: [
-          { text: 'Cancel', onTap: function(e) { return true; } },
-          {
-            text: '<b>Save</b>',
-            type: 'button-positive',
-            onTap: function(e) {
-              return $scope.data.wifi;
-            }
-          },
-        ]
-      }).then(function(res) {
-        console.log('Tapped!', res);
-      }, function(err) {
-        console.log('Err:', err);
-      }, function(popup) {
-        // If you need to access the popup directly, do it in the notify method
-        // This is also where you can programatically close the popup:
-        // popup.close();
-      });
+   // An elaborate, custom popup
+   var myPopup = $ionicPopup.show({
+     template: '<input type="password" ng-model="data.wifi">',
+     title: 'Enter Wi-Fi Password',
+     subTitle: 'Please use normal things',
+     scope: $scope,
+     buttons: [
+       { text: 'Cancel' },
+       {
+         text: '<b>Save</b>',
+         type: 'button-positive',
+         onTap: function(e) {
+           if (!$scope.data.wifi) {
+             //don't allow the user to close unless he enters wifi password
+             e.preventDefault();
+           } else {
+             return $scope.data.wifi;
+           }
+         }
+       },
+     ]
+   });
+   myPopup.then(function(res) {
+     console.log('Tapped!', res);
+   });
+   $timeout(function() {
+      myPopup.close(); //close the popup after 3 seconds for some reason
+   }, 3000);
 
-      // A confirm dialog
-      $scope.showConfirm = function() {
-        $ionicPopup.confirm({
-          title: 'Consume Ice Cream',
-          content: 'Are you sure you want to eat this ice cream?'
-        }).then(function(res) {
-          if(res) {
-            console.log('You are sure');
-          } else {
-            console.log('You are not sure');
-          }
-        });
-      };
+   // A confirm dialog
+   $scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Consume Ice Cream',
+       template: 'Are you sure you want to eat this ice cream?'
+     });
+     confirmPopup.then(function(res) {
+       if(res) {
+         console.log('You are sure');
+       } else {
+         console.log('You are not sure');
+       }
+     });
+   };
 
-      // A prompt dialog
-      $scope.showPrompt = function() {
-        $ionicPopup.prompt({
-          title: 'ID Check',
-          content: 'What is your name?'
-        }).then(function(res) {
-          console.log('Your name is', res);
-        });
-      };
-
-      // A prompt with password input dialog
-      $scope.showPasswordPrompt = function() {
-        $ionicPopup.prompt({
-          title: 'Password Check',
-          content: 'Enter your secret password',
-          inputType: 'password',
-          inputPlaceholder: 'Your password'
-        }).then(function(res) {
-          console.log('Your password is', res);
-        });
-      };
-
-      // An alert dialog
-      $scope.showAlert = function() {
-        $ionicPopup.alert({
-          title: 'Don\'t eat that!',
-          content: 'It might taste good'
-        }).then(function(res) {
-          console.log('Thank you for not eating my delicious ice cream cone');
-        });
-      };
-    };
-  });
-  ```
+   // An alert dialog
+   $scope.showAlert = function() {
+     var alertPopup = $ionicPopup.alert({
+       title: 'Don\'t eat that!',
+       template: 'It might taste good'
+     });
+     alertPopup.then(function(res) {
+       console.log('Thank you for not eating my delicious ice cream cone');
+     });
+   };
+ };
+});
+```
 
 
   
@@ -146,11 +125,18 @@ angular.module('mySuperApp', ['ionic'])
 
 <div id="show"></div>
 <h2>
-  <code>show(object)</code>
+  <code>show(options)</code>
 
 </h2>
 
-show a complex popup. This is the master show function for all popups
+Show a complex popup. This is the master show function for all popups.
+
+A complex popup has a `buttons` array, with each button having a `text` and `type`
+field, in addition to an `onTap` function.  The `onTap` function, called when
+the correspondingbutton on the popup is tapped, will by default close the popup
+and resolve the popup promise with its return value.  If you wish to prevent the
+default and keep the popup open on button tap, call `event.preventDefault()` on the
+passed in tap event.  Details below.
 
 
 
@@ -166,16 +152,38 @@ show a complex popup. This is the master show function for all popups
     
     <tr>
       <td>
-        object
+        options
         
         
       </td>
       <td>
         
-  <code>data</code>
+  <code>object</code>
       </td>
       <td>
-        <p>The options for showing a popup, of the form:</p>
+        <p>The options for the new popup, of the form:</p>
+<pre><code>{
+  title: &#39;&#39;, // String. The title of the popup.
+  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
+  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
+  scope: null, // Scope (optional). A scope to link to the popup content.
+  buttons: [{ //Array[Object] (optional). Buttons to place in the popup footer.
+    text: &#39;Cancel&#39;,
+    type: &#39;button-default&#39;,
+    onTap: function(e) {
+      // e.preventDefault() will stop the popup from closing when tapped.
+      e.preventDefault();
+    }
+  }, {
+    text: &#39;OK&#39;,
+    type: &#39;button-positive&#39;,
+    onTap: function(e) {
+      // Returning a value will cause the promise to resolve with the given value.
+      return scope.data.response;
+    }
+  }]
+}</code></pre>
 
         
       </td>
@@ -190,63 +198,20 @@ show a complex popup. This is the master show function for all popups
 
 
 * Returns: 
-  <code>Promise</code> an Angular promise which resolves when the user enters the correct data, and also
-sends the constructed popup in the notify function (for programatic closing, as shown in the example above).
-```
-{
-  content: '', // String. The content of the popup
-  title: '', // String. The title of the popup
-  subTitle: '', // String (optional). The sub-title of the popup
-  templateUrl: '', // URL String (optional). The URL of a template to load as the content (instead of the `content` field)
-  scope: null, // Scope (optional). A scope to apply to the popup content (for using ng-model in a template, for example)
-  buttons:
-    [
-      {
-        text: 'Cancel',
-        type: 'button-default',
-        onTap: function(e) {
-          // e.preventDefault() is the only way to return a false value
-          e.preventDefault();
-        }
-      },
-      {
-        text: 'OK',
-        type: 'button-positive',
-        onTap: function(e) {
-          // When the user taps one of the buttons, you need to return the
-          // Data you want back to the popup service which will then resolve
-          // the promise waiting for a response.
-          //
-          // To return "false", call e.preventDefault();
-          return scope.data.response;
-        }
-      }
-    ]
-
-}
-```
+  <code>object</code> A promise which is resolved when the popup is closed. Has an additional
+`close` function, which can be used to programmatically close the popup.
 
 
 
 
 <div id="alert"></div>
 <h2>
-  <code>alert(object)</code>
+  <code>alert(options)</code>
 
 </h2>
 
-show a simple popup with one button that the user has to tap
-
-Show a simple alert dialog
-
-```javascript
- $ionicPopup.alert({
-   title: 'Hey!',
-   content: 'Don\'t do that!'
- }).then(function(res) {
-   // Accepted
- });
-```
+Show a simple alert popup with a message and one button that the user can
+tap to close the popup.
 
 
 
@@ -262,21 +227,23 @@ Show a simple alert dialog
     
     <tr>
       <td>
-        object
+        options
         
         
       </td>
       <td>
         
-  <code>data</code>
+  <code>object</code>
       </td>
       <td>
-        <p>The options for showing an alert, of the form:</p>
+        <p>The options for showing the alert, of the form:</p>
 <pre><code>{
-  content: &#39;&#39;, // String. The content of the popup
-  title: &#39;&#39;, // String. The title of the popup
-  okText: &#39;&#39;, // String. The text of the OK button
-  okType: &#39;&#39;, // String (default: button-positive). The type of the OK button
+  title: &#39;&#39;, // String. The title of the popup.
+  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
+  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
+  okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
+  okType: &#39;&#39;, // String (default: &#39;button-positive&#39;). The type of the OK button.
 }</code></pre>
 
         
@@ -292,31 +259,23 @@ Show a simple alert dialog
 
 
 * Returns: 
-  <code>Promise</code> that resolves when the alert is accepted
+  <code>object</code> A promise which is resolved when the popup is closed. Has one additional
+function `close`, which can be called with any value to programmatically close the popup
+with the given value.
 
 
 
 
 <div id="confirm"></div>
 <h2>
-  <code>confirm(object)</code>
+  <code>confirm(options)</code>
 
 </h2>
 
-Show a simple confirm popup with a cancel and accept button:
+Show a simple confirm popup with a Cancel and OK button.
 
-```javascript
- $ionicPopup.confirm({
-   title: 'Consume Ice Cream',
-   content: 'Are you sure you want to eat this ice cream?'
- }).then(function(res) {
-   if(res) {
-     console.log('You are sure');
-   } else {
-     console.log('You are not sure');
-   }
- });
-```
+Resolves the promise with true if the user presses the OK button, and false if the
+user presses the Cancel button.
 
 
 
@@ -332,23 +291,25 @@ Show a simple confirm popup with a cancel and accept button:
     
     <tr>
       <td>
-        object
+        options
         
         
       </td>
       <td>
         
-  <code>data</code>
+  <code>object</code>
       </td>
       <td>
-        <p>The options for showing a confirm dialog, of the form:</p>
+        <p>The options for showing the confirm popup, of the form:</p>
 <pre><code>{
-  content: &#39;&#39;, // String. The content of the popup
-  title: &#39;&#39;, // String. The title of the popup
-  cancelText: &#39;&#39;, // String. The text of the Cancel button
-  cancelType: &#39;&#39;, // String (default: button-default). The type of the kCancel button
-  okText: &#39;&#39;, // String. The text of the OK button
-  okType: &#39;&#39;, // String (default: button-positive). The type of the OK button
+  title: &#39;&#39;, // String. The title of the popup.
+  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
+  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
+  cancelText: &#39;&#39;, // String (default: &#39;Cancel&#39;). The text of the Cancel button.
+  cancelType: &#39;&#39;, // String (default: &#39;button-default&#39;). The type of the Cancel button.
+  okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
+  okType: &#39;&#39;, // String (default: &#39;button-positive&#39;). The type of the OK button.
 }</code></pre>
 
         
@@ -364,23 +325,27 @@ Show a simple confirm popup with a cancel and accept button:
 
 
 * Returns: 
-  <code>Promise</code> that resolves with the chosen option
+  <code>object</code> A promise which is resolved when the popup is closed. Has one additional
+function `close`, which can be called with any value to programmatically close the popup
+with the given value.
 
 
 
 
 <div id="prompt"></div>
 <h2>
-  <code>prompt(object)</code>
+  <code>prompt(options)</code>
 
 </h2>
 
-show a simple prompt dialog.
+Show a simple prompt popup, which has an input, OK button, and Cancel button.
+Resolves the promise with the value of the input if the user presses OK, and with undefined
+if the user presses Cancel.
 
 ```javascript
  $ionicPopup.prompt({
    title: 'Password Check',
-   content: 'Enter your secret password',
+   template: 'Enter your secret password',
    inputType: 'password',
    inputPlaceholder: 'Your password'
  }).then(function(res) {
@@ -402,26 +367,27 @@ show a simple prompt dialog.
     
     <tr>
       <td>
-        object
+        options
         
         
       </td>
       <td>
         
-  <code>data</code>
+  <code>object</code>
       </td>
       <td>
-        <p>The options for showing a prompt dialog, of the form:</p>
+        <p>The options for showing the prompt popup, of the form:</p>
 <pre><code>{
-  content: // String. The content of the popup
-  title: // String. The title of the popup
-  subTitle: // String. The sub title of the popup
-  inputType: // String (default: &quot;text&quot;). The type of input to use
-  inputPlaceholder: // String (default: &quot;&quot;). A placeholder to use for the input.
-  cancelText: // String. The text of the Cancel button
-  cancelType: // String (default: button-default). The type of the kCancel button
-  okText: // String. The text of the OK button
-  okType: // String (default: button-positive). The type of the OK button
+  title: &#39;&#39;, // String. The title of the popup.
+  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
+  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
+  inputType: // String (default: &#39;text&#39;). The type of input to use
+  inputPlaceholder: // String (default: &#39;&#39;). A placeholder to use for the input.
+  cancelText: // String (default: &#39;Cancel&#39;. The text of the Cancel button.
+  cancelType: // String (default: &#39;button-default&#39;). The type of the Cancel button.
+  okText: // String (default: &#39;OK&#39;). The text of the OK button.
+  okType: // String (default: &#39;button-positive&#39;). The type of the OK button.
 }</code></pre>
 
         
@@ -437,7 +403,9 @@ show a simple prompt dialog.
 
 
 * Returns: 
-  <code>Promise</code> that resolves with the entered data
+  <code>object</code> A promise which is resolved when the popup is closed. Has one additional
+function `close`, which can be called with any value to programmatically close the popup
+with the given value.
 
 
 

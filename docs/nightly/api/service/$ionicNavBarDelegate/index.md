@@ -164,11 +164,11 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 
 <div id="showBackButton"></div>
 <h2>
-  <code>showBackButton(show)</code>
+  <code>showBackButton([show])</code>
 
 </h2>
 
-Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> should be shown
+Set/get whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> is shown
 (if it exists).
 
 
@@ -187,7 +187,7 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>io
       <td>
         show
         
-        
+        <div><em>(optional)</em></div>
       </td>
       <td>
         
@@ -208,6 +208,9 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>io
 
 
 
+* Returns: 
+  <code>boolean</code> Whether the back button is shown.
+
 
 
 
@@ -217,7 +220,7 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>io
 
 </h2>
 
-Set whether the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> should be shown.
+Set/get whether the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> is shown.
 
 
 
@@ -255,6 +258,9 @@ Set whether the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar
 
 
 
+
+* Returns: 
+  <code>boolean</code> Whether the bar is shown.
 
 
 

@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L15'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L12'>
     Improve this doc
   </a>
 </div>

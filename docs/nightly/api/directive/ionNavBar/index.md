@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicNavBar.js#L234'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicNavBar.js#L236'>
     Improve this doc
   </a>
 </div>
@@ -45,7 +45,7 @@ We can add buttons depending on the currently visible view using
 <a href="/docs/nightly/api/directive/ionNavButtons/"><code>ionNavButtons</code></a>.
 
 Assign an [animation class](/docs/components#animations) to the element to
-enable animated changing of titles (recommended: 'slide-left-right' or 'nav-title-slide-ios7')
+enable animated changing of titles (recommended: 'nav-title-slide-ios7')
 
 
 

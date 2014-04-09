@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L14'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L15'>
     Improve this doc
   </a>
 </div>
@@ -48,7 +48,7 @@ angular.module('LoadingApp', ['ionic'])
 .controller('LoadingCtrl', function($scope, $ionicLoading) {
   $scope.show = function() {
     $ionicLoading.show({
-      content: 'Loading...'
+      template: 'Loading...'
     });
   };
   $scope.hide = function(){
@@ -97,7 +97,8 @@ it will set the options given and keep the indicator shown.
       <td>
         <p>The options for the loading indicator. Available properties:</p>
 <ul>
-<li><code>{string=}</code> <code>content</code> The html content of the indicator.</li>
+<li><code>{string=}</code> <code>template</code> The html content of the indicator.</li>
+<li><code>{string=}</code> <code>templateUrl</code> The url of an html template to load as the content of the indicator.</li>
 <li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop.</li>
 <li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator.</li>
 <li><code>{number=}</code>duration` How many milliseconds to wait until automatically

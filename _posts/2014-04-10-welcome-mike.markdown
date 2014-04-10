@@ -12,10 +12,10 @@ published: true
   <img src="/img/blog/mike-lg.png" alt="Mike Hartington">
 </div>
 
-Today, we're excited to announce that Mike Hartington ([@mhartington](https://twitter.com/mhartington) on Twitter, [@mhartington](https://github.com/mhartington) on GitHub, and [mhartington](http://forum.ionicframework.com/users/mhartington/activity)  on the Forum) has joined Ionic as a Community Manager! If you haven't already interacted with him on the [forum](forum.ionicframework.com), expect to see him there more often. He'll be helping out on a daily basis fielding questions/ideas/suggestions, creating inspirational demos, and of course, sling'n code.
+Today, we're excited to announce that Mike Hartington ([@mhartington](https://twitter.com/mhartington) on Twitter, [@mhartington](https://github.com/mhartington) on GitHub, and [mhartington](http://forum.ionicframework.com/users/mhartington/activity)  on the Forum) has joined Ionic as a Community Manager! If you haven't already interacted with him on the [Forum](forum.ionicframework.com), expect to see him there more often. He'll be helping out on a daily basis fielding questions/ideas/suggestions, creating inspirational demos, and of course, sling'n code.
 
-Mike is a front end web developer, with a background in tradional design. Thus, Mike strives to create efficient and performant CSS while as the same time keeping the visual ui in mind (which is great for a design-aware framework like Ionic). He hails from the enterprise world, where he worked on internal mobile applications (built on Ionic, of course!).
+Mike is a front end web developer, with a background in tradional design. Thus, Mike strives to create efficient and performant CSS while at the same time keeping the visual UI in mind (which is perfect for a design-aware framework like Ionic). He hails from the enterprise world, where he worked on internal mobile applications (built on Ionic, of course!).
 
-Residing out of Rhode Island, USA, Mike loves playing or building guitars, doing sculpture work and wood carvings. Yep, he's a baddass.
+Residing out of Rhode Island, USA, Mike loves playing or building guitars, doing sculpture work, and making wood carvings. Yep, he's a baddass.
 
 So with that, help us welcome Mike to the team!

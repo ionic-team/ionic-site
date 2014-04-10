@@ -16,6 +16,6 @@ Today, we're excited to announce that Mike Hartington ([@mhartington](https://tw
 
 Mike is a front end web developer, with a background in tradional design. Thus, Mike strives to create efficient and performant CSS while at the same time keeping the visual UI in mind (which is perfect for a design-aware framework like Ionic). He hails from the enterprise world, where he worked on internal mobile applications (built on Ionic, of course!).
 
-Residing out of Rhode Island, USA, Mike loves playing or building guitars, doing sculpture work, and making wood carvings. Yep, he's a baddass.
+Residing out of Rhode Island, USA, Mike loves playing or building guitars, doing sculpture work, and making wood carvings. Yep, he's a badass.
 
 So with that, help us welcome Mike to the team!

@@ -373,6 +373,27 @@ Tell the scrollView to recalculate the size of its container.
 
 
 
+<div id="getScrollPosition"></div>
+<h2>
+  <code>getScrollPosition()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>object</code> The scroll position of this view, with the following properties:
+ - `{number}` `left` The distance the user has scrolled from the left (starts at 0).
+ - `{number}` `top` The distance the user has scrolled from the top (starts at 0).
+
+
+
+
 <div id="anchorScroll"></div>
 <h2>
   <code>anchorScroll([shouldAnimate])</code>

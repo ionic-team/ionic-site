@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicBar.js#L39'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicBar.js#L42'>
     Improve this doc
   </a>
 </div>
@@ -32,6 +32,9 @@ docType: "directive"
 
 
 Adds a fixed footer bar below some content.
+
+Can also be a subfooter (higher up) if the 'bar-subfooter' class is applied.
+See [the footer CSS docs](/docs/components/#footer).
 
 
 

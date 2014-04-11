@@ -33,6 +33,9 @@ docType: "directive"
 
 Adds a fixed header bar above some content.
 
+Can also be a subheader (lower down) if the 'bar-subheader' class is applied.
+See [the header CSS docs](/docs/components/#subheader).
+
 
 
 

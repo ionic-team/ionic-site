@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicBackdrop.js#L3'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/backdrop.js#L1'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ when it is done with the backdrop.
 
 For each time `retain` is called, the backdrop will be shown until `release` is called.
 
-For example, if `retain` is called three times, the backdrop will be shown until `release` 
+For example, if `retain` is called three times, the backdrop will be shown until `release`
 is called three times.
 
 

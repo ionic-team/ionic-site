@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicNavBar.js#L4'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/navBarDelegate.js#L2'>
     Improve this doc
   </a>
 </div>

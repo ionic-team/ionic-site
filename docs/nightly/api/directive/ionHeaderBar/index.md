@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicBar.js#L9'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L6'>
     Improve this doc
   </a>
 </div>

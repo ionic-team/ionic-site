@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/controller/ionicScrollController.js#L3'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/scrollDelegate.js#L2'>
     Improve this doc
   </a>
 </div>

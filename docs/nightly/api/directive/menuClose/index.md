@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/directive/ionicSideMenu.js#L436'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuClose.js#L1'>
     Improve this doc
   </a>
 </div>
@@ -47,7 +47,7 @@ Below is an example of a link within a side menu. Tapping this link would
 automatically close the currently opened menu
 
 ```html
-<a nav-clear menu-close href="#/home" class="item">Home</a>
+<a menu-close href="#/home" class="item">Home</a>
 ```
   
   

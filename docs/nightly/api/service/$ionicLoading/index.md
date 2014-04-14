@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicLoading.js#L12'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L10'>
     Improve this doc
   </a>
 </div>
@@ -101,7 +101,7 @@ it will set the options given and keep the indicator shown.
 <li><code>{string=}</code> <code>templateUrl</code> The url of an html template to load as the content of the indicator.</li>
 <li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop.</li>
 <li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator.</li>
-<li><code>{number=}</code>duration` How many milliseconds to wait until automatically
+<li><code>{number=}</code> <code>duration</code> How many milliseconds to wait until automatically
 hiding the indicator.</li>
 </ul>
 

@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/ext/angular/src/service/ionicGesture.js#L3'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/gesture.js#L1'>
     Improve this doc
   </a>
 </div>

@@ -81,7 +81,7 @@ For a complete side menu example, see the
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether the content can be dragged. Defaul true.</p>
+        <p>Whether the content can be dragged. Default true.</p>
 
         
       </td>

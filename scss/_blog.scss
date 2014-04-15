@@ -72,12 +72,6 @@
     opacity: 1;
   }
 
-  &.post-title {
-    a {
-      color: #222222;
-    }
-  }
-
   p {
     margin-bottom: 32px;
   }
@@ -107,15 +101,21 @@
   .showcase-image {
     margin: 10px 0px;
   }
+
   .body-image {
   margin: 10px 0px;
   }
+
   .post-title {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222 !important;
     font-weight: normal;
     font-size: 32px;
     letter-spacing: -0.05rem;
+
+    a {
+      color: #222222;
+    }
   }
   .post-time {
     font-style: italic;

@@ -6157,8 +6157,6 @@ h2.underline {
     -moz-transition: none;
     color: #437FE6;
     opacity: 1; }
-  .post.post-title a {
-    color: #222222; }
   .post p {
     margin-bottom: 32px; }
   .post b, .post strong {
@@ -6187,6 +6185,8 @@ h2.underline {
     font-weight: normal;
     font-size: 32px;
     letter-spacing: -0.05rem; }
+    .post .post-title a {
+      color: #222222; }
   .post .post-time {
     font-style: italic;
     font-size: 13px;

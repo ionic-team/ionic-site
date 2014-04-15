@@ -4,6 +4,7 @@ title: "Ionic Book: Table of Contents"
 header_sub_title: A comprehensive overview and walk-through of building with Ionic
 version: 0.9.0
 chapter: index
+news: " "
 ---
 
 <h1>The Ionic Book</h1>

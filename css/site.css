@@ -6183,7 +6183,7 @@ h2.underline {
     margin: 10px 0px; }
   .post .post-title {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #222;
+    color: #222 !important;
     font-weight: normal;
     font-size: 32px;
     letter-spacing: -0.05rem; }

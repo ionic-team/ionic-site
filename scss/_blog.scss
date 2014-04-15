@@ -64,6 +64,10 @@
     max-width: 100%;
   }
 
+  title {
+    color: #222222;
+  }
+
   a {
     transition: none;
     -webkit-transition: none;
@@ -71,14 +75,17 @@
     color: #437FE6;
     opacity: 1;
   }
+
   p {
     margin-bottom: 32px;
   }
+
   b, strong {
     font-family: "FreightTextProMedium-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: bold;
     color: #000;
   }
+
   h3 {
     font-family: "FreightTextProMedium-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
     color: #222;
@@ -105,8 +112,8 @@
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222;
     font-weight: normal;
-    font-size: 30px;
-    letter-spacing: -0.03rem;
+    font-size: 32px;
+    letter-spacing: -0.05rem;
   }
   .post-time {
     font-style: italic;

@@ -26,6 +26,8 @@ This is called two-way data binding and it's incredibly easy to do in Angular:
 
 This means taking input from a user, processing it, saving it on the server, and keeping the UI in sync is incredibly easy to do with Angular. Coming from a jQuery or native iOS/Android background, you'll find Angular's data binding to be a *huge* timesaver for mobile development.
 
+<!-- more -->
+
 ### Reusable logic
 
 Angular helps keep our view (UI), data model, and application logic separate.  This means Angular lets us reuse our web application logic on multiple devices on multiple platforms, while still enabling us to customize the UI for each platform.

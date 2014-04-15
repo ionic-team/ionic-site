@@ -64,16 +64,18 @@
     max-width: 100%;
   }
 
-  title {
-    color: #222222;
-  }
-
   a {
     transition: none;
     -webkit-transition: none;
     -moz-transition: none;
     color: #437FE6;
     opacity: 1;
+  }
+
+  &.post-title {
+    a {
+      color: #222222;
+    }
   }
 
   p {

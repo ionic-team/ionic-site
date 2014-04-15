@@ -6151,14 +6151,14 @@ h2.underline {
     margin: 40px 0px 15px 0px; }
   .post img {
     max-width: 100%; }
-  .post title {
-    color: #222222; }
   .post a {
     transition: none;
     -webkit-transition: none;
     -moz-transition: none;
     color: #437FE6;
     opacity: 1; }
+  .post.post-title a {
+    color: #222222; }
   .post p {
     margin-bottom: 32px; }
   .post b, .post strong {

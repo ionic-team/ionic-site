@@ -69,6 +69,10 @@ function MyController($scope, $http) {
       $scope.$broadcast('scroll.infiniteScrollComplete');
     });
   };
+
+  $scope.$on('stateChangeSuccess', function() {
+    $scope.loadMore();
+  });
 }
 ```
 

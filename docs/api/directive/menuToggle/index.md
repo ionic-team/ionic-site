@@ -44,12 +44,12 @@ Toggle a side menu on the given side
 <h2 id="usage">Usage</h2>
   
 Below is an example of a link within a nav bar. Tapping this link would
-automatically open the given side menu
+automatically open the given side menu. Note that the menu-toggle attribute is actually "'left'", with single quotes inside of double-quotes.
 
 ```html
 <ion-view>
   <ion-nav-buttons side="left">
-   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+   <button menu-toggle="'left'" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
  ...
 </ion-view>

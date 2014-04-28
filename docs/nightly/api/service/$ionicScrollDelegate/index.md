@@ -445,6 +445,25 @@ If no matching element is found, it will scroll to top.
 
 
 
+<div id="getScrollView"></div>
+<h2>
+  <code>getScrollView()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>object</code> The scrollView associated with this delegate.
+
+
+
+
 <div id="rememberScrollPosition"></div>
 <h2>
   <code>rememberScrollPosition(id)</code>

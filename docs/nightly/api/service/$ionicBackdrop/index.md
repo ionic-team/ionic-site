@@ -89,9 +89,9 @@ Retains the backdrop.
 
 
 
-<div id="retain"></div>
+<div id="release"></div>
 <h2>
-  <code>retain()</code>
+  <code>release()</code>
 
 </h2>
 

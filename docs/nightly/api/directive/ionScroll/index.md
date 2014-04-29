@@ -58,7 +58,10 @@ Creates a scrollable container for all content inside.
     [on-refresh=""]
     [on-scroll=""]
     [scrollbar-x=""]
-    [scrollbar-y=""]>
+    [scrollbar-y=""]
+    [zooming=""]
+    [min-zoom=""]
+    [max-zoom=""]>
   ...
   </ion-scroll>
   ```
@@ -191,6 +194,57 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
       </td>
       <td>
         <p>Whether to show the vertical scrollbar. Default true.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        zooming
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to support pinch-to-zoom</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        min-zoom
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>integer</code>
+      </td>
+      <td>
+        <p>The smallest zoom amount allowed (default is 0.5)</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        max-zoom
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>integer</code>
+      </td>
+      <td>
+        <p>The largest zoom amount allowed (default is 3)</p>
 
         
       </td>

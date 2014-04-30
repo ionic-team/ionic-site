@@ -158,6 +158,57 @@ resize it for the elements inside).
 
 
 
+<div id="enableSlide"></div>
+<h2>
+  <code>enableSlide([shouldEnable])</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldEnable
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to enable sliding the slidebox.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether sliding is enabled.
+
+
+
+
 <div id="previous"></div>
 <h2>
   <code>previous()</code>

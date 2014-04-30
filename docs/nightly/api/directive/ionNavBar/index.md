@@ -112,6 +112,24 @@ with <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBa
       <td>
         <p>Where to align the title of the navbar.
 Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Defaults to &#39;center&#39;.</p>
+<p></table><br/></p>
+<h3 id="alternative-usage">Alternative Usage</h3>
+<p>Alternatively, you may put ion-nav-bar inside of each individual view&#39;s ion-view element.
+This will allow you to have the whole navbar, not just its contents, transition every view change.</p>
+<p>This is similar to using a header bar inside your ion-view, except it will has all the power of a navbar.</p>
+<p>If you do this, simply put nav buttons inside the navbar itself; do not use <code>&lt;ion-nav-buttons&gt;</code>.</p>
+<pre><code class="lang-html">&lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;
+  &lt;ion-nav-back-button&gt;
+    Back
+  &lt;/ion-nav-back-button&gt;
+  &lt;div class=&quot;buttons right-buttons&quot;&gt;
+    &lt;button class=&quot;button&quot;&gt;
+      Right Button
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ion-nav-bar&gt;
+&lt;ion-view title=&quot;myTitle&quot;&gt;
+&lt;/ion-view&gt;</code></pre>
 
         
       </td>

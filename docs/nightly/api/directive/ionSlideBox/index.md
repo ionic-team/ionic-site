@@ -165,23 +165,6 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
     
     <tr>
       <td>
-        disable-scroll
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether to disallow scrolling/dragging of the slide-box content.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
         on-slide-changed
         
         <div><em>(optional)</em></div>

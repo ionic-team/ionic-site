@@ -49,14 +49,46 @@ The toggle behaves like any [AngularJS checkbox](http://docs.angularjs.org/api/n
   
 <h2 id="usage">Usage</h2>
   
-    
+Below is an example of a toggle directive which is wired up to the `airplaneMode` model
+and has the `toggle-calm` CSS class assigned to the inner element.
 
-  ```html
-  <ion-toggle>
-  ...
-  </ion-toggle>
-  ```
+```html
+<ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Airplane Mode</ion-toggle>
+```
+  
+  
+<h2 id="api" style="clear:both;">API</h2>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
     
+    <tr>
+      <td>
+        toggle-class
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Sets the CSS class on the inner <code>label.toggle</code> element created by the directive.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
   
 
   

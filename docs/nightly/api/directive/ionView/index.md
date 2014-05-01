@@ -94,7 +94,7 @@ Below is an example where our page will load with a navbar containing "My Page" 
     
     <tr>
       <td>
-        hideBackButton
+        hide-back-button
         
         <div><em>(optional)</em></div>
       </td>
@@ -112,7 +112,7 @@ Below is an example where our page will load with a navbar containing "My Page" 
     
     <tr>
       <td>
-        hideNavBar
+        hide-nav-bar
         
         <div><em>(optional)</em></div>
       </td>

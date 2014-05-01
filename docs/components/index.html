@@ -819,7 +819,7 @@ search_sections: true
     The list view is a very versitile and powerful component. List views support various interaction modes such as editing, swipe to edit, drag to reorder, and pull to refresh.
   </p>
   <p>
-    For more power you can use Ionic's AngularJS directives. Check out the <a href="/docs/angularjs/views/list/">AngularJS list docs</a> to get more detailed information.
+    For more power you can use Ionic's AngularJS directives. Check out the <a href="/docs/api/directive/ionList/">AngularJS list docs</a> to get more detailed information.
   </p>
 
 
@@ -833,7 +833,7 @@ search_sections: true
 
   <p class="advanced-panel">
     <em>*</em> For a more extensive overview on Lists, read
-    <a href="/docs/angularjs/views/list/">AngularJS List Docs</a>
+    <a href="/docs/api/directive/ionList/">AngularJS List Docs</a>
   </p>
 
   <div class="doc-example ionic">
@@ -1319,6 +1319,66 @@ search_sections: true
 
 
 
+<!-- Inset Lists
+  ================================================== -->
+<section class="docs-section" id="list-inset">
+
+  <h3 class="title"><a href="#list-inset">Inset Lists</a></h3>
+
+  <p>
+    Lists can also be inset inside their container, instead of going full width. The main difference
+    is that a <code>list list-inset</code> element has margin. An inset list is similar to a <a href="#cards">card</a>,
+    except an inset list does not have a box-shadow. Since <code>list list-inset</code> does not have a box-shadow,
+    it'll be more performant when scrolling.
+    <a href="#inset-forms">Inset forms</a> shows other examples of its usage.
+  </p>
+
+{% highlight html %}
+<div class="list list-inset">
+
+    <div class="item">
+      Raiders of the Lost Ark
+    </div>
+
+    ...
+
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Inset Lists</div>
+    </div>
+
+    <div class="content has-header ionic-pseudo">
+
+      <div class="list list-inset">
+
+        <div class="item">
+          Raiders of the Lost Ark
+        </div>
+
+        <div class="item">
+          Temple of Doom
+        </div>
+
+        <div class="item">
+          Last Crusade
+        </div>
+
+        <div class="item">
+          Kingdom of the Crystal Skull
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
 <!-- Cards
   ================================================== -->
 <section class="docs-section" id="cards">
@@ -1330,6 +1390,7 @@ search_sections: true
   </p>
   <p>
     For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right.
+  </p>
 
 {% highlight html %}
 <div class="card">
@@ -1338,6 +1399,11 @@ search_sections: true
   </div>
 </div>
 {% endhighlight %}
+
+  <p>
+    Cards add a box-shadow by default, whereas it's cousin <code>list list-inset</code> does not. For performance reasons,
+    when scrolling a large card with many items its recommended to use <a href="#list-inset">inset lists</a> instead.
+  </p>
 
   <div class="doc-example ionic">
     <div class="bar bar-header">
@@ -1857,8 +1923,8 @@ search_sections: true
 
   <p>
     By default each input item will fill 100% of the width of its parent element (the list).
-    However, you can inset the list using either the <code>list-inset</code> or <code>card</code> classnames.
-    The <code>card</code> classname applies a lower box shadow while <code>list-inset</code> does not.
+    However, you can inset the list using either the <code>list list-inset</code> or <code>card</code> classnames.
+    The <a href="#cards">card</a> classname applies a lower box shadow while <a href="#list-inset">list-inset</a> does not.
     Additionally, if the list's parent element has <code>padding</code> assigned then this will also
     give the form an inset appearance.
   </p>
@@ -2435,8 +2501,6 @@ search_sections: true
 
   <h3 class="title"><a href="#select">Select</a></h3>
 
-  <h5><em>Currently only available in the <a href="http://code.ionicframework.com/#nightly">nightly builds</a>, scheduled for v1.0.0-beta.2</em></h5>
-
   <p>
     Ionic's select is styled so its appearance is prettied up relative to the
     browser's default style. However, when the select elements is opened,
@@ -2450,19 +2514,11 @@ search_sections: true
     interface, whereas Android often has a radio-button list popup, and iOS
     has a custom scroller covering the bottom half of the window.
   </p>
-<!--
-  <p>
-    Selects can be contained in two ways, either as <code>.item-select</code> or
-    <code>.select-inline</code>. Selects within an entire item use markup
-    similar to <a href="#forms">item-input</a>. Select inlines are inline-block
-    elements used to place them next to each other horizontally, and its usually
-    best to create select inlines with span elements.
-  </p>
--->
+
 {% highlight html %}
 <div class="list">
 
-  <div class="item item-input item-select">
+  <label class="item item-input item-select">
     <div class="input-label">
       Lightsaber
     </div>
@@ -2471,17 +2527,11 @@ search_sections: true
       <option selected>Green</option>
       <option>Red</option>
     </select>
-  </div>
+  </label>
 
 </div>
 
 {% endhighlight %}
-
-  <p class="advanced-panel">
-    <em>*</em> Do not wrap <code>&lt;select&gt;</code> elements within
-    a <code>&lt;label&gt;</code>. In most cases, browsers will not correctly
-    open up the select's options when tapped or clicked.
-  </p>
 
   <div class="doc-example ionic">
     <div class="bar bar-header">

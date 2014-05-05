@@ -279,7 +279,7 @@ angular.module('todo', ['ionic'])
   }
 })
 
-.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects) {
+.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
 
   // A utility function for creating a new project
   // with the given projectTitle
@@ -309,7 +309,7 @@ angular.module('todo', ['ionic'])
   $scope.selectProject = function(project, index) {
     $scope.activeProject = project;
     Projects.setLastActiveIndex(index);
-    $scope.sideMenuController.close();
+    $ionicSideMenuDelegate.toggleLeft(false);
   };
 
   // Create our modal
@@ -343,7 +343,7 @@ angular.module('todo', ['ionic'])
   }
 
   $scope.toggleProjects = function() {
-    $scope.sideMenuController.toggleLeft();
+    $ionicSideMenuDelegate.togggleLeft();
   };
 
 

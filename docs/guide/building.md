@@ -343,7 +343,7 @@ angular.module('todo', ['ionic'])
   }
 
   $scope.toggleProjects = function() {
-    $ionicSideMenuDelegate.togggleLeft();
+    $ionicSideMenuDelegate.toggleLeft();
   };
 
 

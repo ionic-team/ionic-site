@@ -5,7 +5,7 @@ date:   "2014-05-06 08:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a>'
-published: false
+published: true
 ---
 
 <div style="height: 200px; width: 200px; border-radius: 600px; border: 6px solid #4e8ef7; overflow: hidden; margin: 15px auto"> 

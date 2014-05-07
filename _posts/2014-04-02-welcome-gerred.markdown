@@ -14,6 +14,8 @@ published: true
 
 Today, Gerred Dillon ([@justicefries](http://twitter.com/justicefries) on Twitter and [@gerred](https://github.com/gerred) on GitHub) joins the Ionic Team as Developer Evangelist! You'll see Gerred more often in our upcoming technical blog posts, documentation, demos, and at meetups and conferences.
 
+<!-- more -->
+
 Gerred is a developer, speaker, and author who has worked with AngularJS since discovering it in its 1.0 days. A big proponent of open web standards, he is passionate about expanding the web platform as far as it can go, from desktop to mobile. Most recently, he has been doing cross-platform game development with Canvas and WebGL.
 
 Gerred spends his time at home in Seattle, Washington. When not working with other developers to make Ionic the most awesome mobile platform out there, he is traveling, climbing, backpacking, or getting lost in some microbrewery.

@@ -13,8 +13,8 @@ news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basic
 exclude: [node_modules, scss]
 
 # Latest Version Config
-latest_download: http://code.ionicframework.com/1.0.0-beta.3/ionic-v1.0.0-beta.3.zip
-latest_version: 1.0.0-beta.3 "americium"
+latest_download: http://code.ionicframework.com/1.0.0-beta.4/ionic-v1.0.0-beta.4.zip
+latest_version: 1.0.0-beta.4 "antimony-antelope"
 latest_release_date: 2014-05-07
 
 # Which version of AngularJS the latest build includes

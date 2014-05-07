@@ -8,6 +8,8 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
+<img class="showcase-image" src="/img/blog/b4-header.png">
+
 We've been quiet over the last month or so, but trust me, we've been busy!
 
 Today, I am incredibly happy to announce the release of Ionic 1.0 Beta 4. What's that? You missed beta 2 and 3? Well, we had a very productive last two weeks and decided to ship three new releases in short succession :)

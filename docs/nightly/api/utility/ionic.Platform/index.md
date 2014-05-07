@@ -11,7 +11,7 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L3'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L7'>
     Improve this doc
   </a>
 </div>
@@ -191,6 +191,25 @@ Return the current device (given by cordova).
 
 * Returns: 
   <code>boolean</code> Whether we are running on Android.
+
+
+
+
+<div id="isWindowsPhone"></div>
+<h2>
+  <code>isWindowsPhone()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether we are running on Windows Phone.
 
 
 

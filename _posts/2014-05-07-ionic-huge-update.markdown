@@ -16,6 +16,8 @@ Today, I am incredibly happy to announce the release of Ionic 1.0 Beta 4. What's
 
 With Beta 4, Ionic becomes the most feature rich hybrid app framework in town, and fixes a lot of problems that have plagued mobile web developers in years past. Read the full [Release notes](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md) to see what has changed!
 
+<!-- more -->
+
 ### Huge Collection Support
 
 Lists and grids of data are pervasive in mobile. Your Twitter stream, Facebook News Feed, and Camera Roll are just a few examples of lists that often contain thousands, if not hundreds of thousands or millions of items. And, to top it all off, we expect the list to scroll just as quickly through 10 items as it does through 100,000 items.
@@ -94,6 +96,6 @@ Check out our [jobs](/jobs) and get in touch if you think you'd be a great fit!
 
 ### Thank you!
 
-Without you Ionic would be yet another framework that no one uses. Thank you so much for your support, and here's to a bright future of web tech on mobile!
+Without <strong>YOU</strong> Ionic would be yet another framework that no one uses. Thank you so much for your support, and here's to a bright future of web tech on mobile!
 
 Onward to 1.0!

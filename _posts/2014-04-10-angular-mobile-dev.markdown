@@ -16,6 +16,8 @@ One reason that Angular fits so well into the mobile developer toolbox is its fe
 
 Beyond that, AngularJS comes with some of the most modern and advanced software development practices ready-made and easy to use. You'll find that building mobile apps with Angular is highly efficient and results in solid code that will scale up as you pile on the features.
 
+<!-- more -->
+
 ### Three-way data binding
 
 Data binding is a popular concept in developer circles. The idea is when our data model updates, the UI also updates. This is great, but Angular takes it a step further: when our UI updates, we update the model to match.
@@ -25,8 +27,6 @@ This is called two-way data binding and it's incredibly easy to do in Angular:
 [Firebase](http://firebase.com/) coined the term ["Three-way Data Binding"](https://www.firebase.com/blog/2013-10-04-firebase-angular-data-binding.html) which is the idea that we can not only keep our UI and in-memory data in sync (two-way data binding), but we can also sync the data with our backend services.
 
 This means taking input from a user, processing it, saving it on the server, and keeping the UI in sync is incredibly easy to do with Angular. Coming from a jQuery or native iOS/Android background, you'll find Angular's data binding to be a *huge* timesaver for mobile development.
-
-<!-- more -->
 
 ### Reusable logic
 

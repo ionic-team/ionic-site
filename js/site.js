@@ -56,9 +56,11 @@ var ionicSite = (function(){
   activeLink.parents('li').addClass("active");
 
   leftMenu.find('.api-section').click(function(){
-    $(this).closest('.left-menu').find("li").removeClass('active');
-    $(this).closest('li').toggleClass('active');
-    return false;
+    if( $(this).attr('href') == '#' ) {
+      $(this).closest('.left-menu').find("li").removeClass('active');
+      $(this).closest('li').toggleClass('active');
+      return false;
+    }
   });
 
 

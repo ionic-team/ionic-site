@@ -15,7 +15,7 @@ exclude: [node_modules, scss]
 # Latest Version Config
 latest_download: http://code.ionicframework.com/1.0.0-beta.3/ionic-v1.0.0-beta.3.zip
 latest_version: 1.0.0-beta.3 "americium"
-latest_release_date: 2014-04-30
+latest_release_date: 2014-05-07
 
 # Which version of AngularJS the latest build includes
 included_angular_version: 1.2.12

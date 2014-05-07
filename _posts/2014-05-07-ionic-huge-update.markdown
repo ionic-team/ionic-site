@@ -70,7 +70,7 @@ If you've been following Ionic from our very first Alpha release a few months ag
 
 Today, the project has over [5100 stars](http://github.com/driftyco/ionic), 61 contributors from around the world, and over 400 new Ionic projects getting started *every single day*.
 
-(*That reminds me, make sure to star the repo on GitHub if you haven't! Thanks :)*)
+(*Which reminds me, make sure to star the repo on GitHub if you haven't! Thanks :)*)
 
 <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="152" height="30"></iframe>

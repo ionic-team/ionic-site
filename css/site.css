@@ -6572,6 +6572,24 @@ a {
 .main-content {
   min-height: 450px; }
 
+#blog-badge {
+  display: none;
+  position: absolute;
+  padding: 3px 1px;
+  border-radius: 21px;
+  border: 2px solid #FFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  width: 21px;
+  background: #EB3232;
+  color: #FFF;
+  right: 7px;
+  top: 15px;
+  text-align: center;
+  z-index: 1;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 11px; }
+
 .horizontal-gradient {
   background: #296ad4;
   background: -moz-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);

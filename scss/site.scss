@@ -36,6 +36,25 @@ a {
   min-height: 450px;
 }
 
+#blog-badge {
+  display: none;
+  position: absolute;
+  padding: 3px 1px;
+  border-radius: 21px;
+  border: 2px solid #FFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  width: 21px;
+  background: #EB3232;
+  color: #FFF;
+  right: 7px;
+  top: 15px;
+  text-align: center;
+  z-index: 1;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 11px;
+}
+
 @import "header";
 @import "news";
 
@@ -160,31 +179,31 @@ a {
 }
 
 #newsletter-bar {
-   //box-shadow: 0px -1px 2px rgba(0,0,0,0.7);
-   border-top: 1px solid #999;
-   background-color: rgba(79, 142, 247, 0.95);
-   color: #fff;
-   text-align: center;
-   padding: 5px;
-   z-index: 150;
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   width: 100%;
+ //box-shadow: 0px -1px 2px rgba(0,0,0,0.7);
+ border-top: 1px solid #999;
+ background-color: rgba(79, 142, 247, 0.95);
+ color: #fff;
+ text-align: center;
+ padding: 5px;
+ z-index: 150;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
 
-   font-size: 13px;
+ font-size: 13px;
 
-   form {
-     display: inline-block;
-     input {
-       margin-left: 15px;
-       height: 30px;
-       border: none;
-       border-radius: 3px;
-       box-shadow: none;
-     }
+ form {
+   display: inline-block;
+   input {
+     margin-left: 15px;
+     height: 30px;
+     border: none;
+     border-radius: 3px;
+     box-shadow: none;
    }
  }
+}
 
 
 @import "footer";

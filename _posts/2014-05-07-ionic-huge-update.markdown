@@ -14,7 +14,7 @@ Today, I am incredibly happy to announce the release of Ionic 1.0 Beta 4. What's
 
 With Beta 4, Ionic becomes the most feature rich hybrid app framework in town, and fixes a lot of problems that have plagued mobile web developers in years past. Read the full [Release notes](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md) to see what has changed!
 
-## Huge Collection Support
+### Huge Collection Support
 
 Lists and grids of data are pervasive in mobile. Your Twitter stream, Facebook News Feed, and Camera Roll are just a few examples of lists that often contain thousands, if not hundreds of thousands or millions of items. And, to top it all off, we expect the list to scroll just as quickly through 10 items as it does through 100,000 items.
 
@@ -24,7 +24,7 @@ And best of all, [Collection Repeat](http://ionicframework.com/docs/api/directiv
 
 [Andy](http://twitter.com/andytjoslin), a lead Ionic developer, is responsible for this huge addition to Ionic!
 
-## Keyboards Done Right
+### Keyboards Done Right
 
 A big annoyance developers have with mobile web browsers is their wonky support for form inputs and the resulting keyboard that slides up. How do you remove the accessory bar on iOS? Why is my input scrolling out of view? How do I stop the viewport from shrinking and ruining my UI? 
 
@@ -38,7 +38,7 @@ Beautiful! No accessory bar, no viewport shrinking, and it's very responsive and
 
 We thank [Tim](http://twitter.com/dopernicus), our resident Cordova plugin master, for bringing us this black magic.
 
-## Fastclick? No, Adamclick!
+### Fastclick? No, Adamclick!
 
 Mobile web developers have long lamented the problem of normalizing tap events across mobile browsers and devices. Along with this, the 300ms click delay that hobbled the perceived performance of our apps gave mobile web apps a terrible reputation for being slow and unresponsive, which they did not deserve.
 
@@ -50,7 +50,7 @@ On top of this, it correctly handles active states which have been a source of f
 
 [Adam](http://twitter.com/adamdbradley), one of our lead Ionic developers, has been agonizing over mobile tap issues so you don't have to. We call it Adamclick to honor his dedication to such an annoying problem.
 
-## Meta Viewport Success
+### Meta Viewport Success
 
 Ah, the viewport meta tag. So much unrealized potential! It was the dream of mobile developers to control a website's transformation to a touch screen through a simple meta tag, but the reality has been a lot less fun. It seems every device handles this setting differently, and there are even variations between a mobile browser and the app running in Cordova.
 
@@ -58,13 +58,13 @@ Ionic now auto adjusts the viewport meta tag based on a set of heuristics to com
 
 The end result is a more consistent viewport experience that Just Works and gives the best possible experience no matter which platform your app runs on.
 
-## Growing Showcase
+### Growing Showcase
 
 We recently released a revamped [Showcase](http://showcase.ionicframework.com/) page for user-submitted Ionic apps. With the new showcase we will be featuring some of the best Ionic apps, as well as showing the community what is truly possible with the framework.
 
 So, if you've got a great Ionic app in development or already released, make sure to [submit](http://showcase.ionicframework.com/submit) it and we will share it with the world! We will also be doing indepth features on the very best Ionic apps, so it's a chance to get your app some great publicity.
 
-## 1.0, and Beyond
+### 1.0, and Beyond
 
 If you've been following Ionic from our very first Alpha release a few months ago, you know how quickly things have changed, and how much better the framework has gotten in such a short amount of time.
 
@@ -84,13 +84,13 @@ Beyond 1.0, you might be wondering what's next for the framework. To be honest, 
 
 Give us a few months and we will have some awesome stuff to show!
 
-## Join us!
+### Join us!
 
 Our team has been growing quite a bit lately, and we'd love to have you join us on our mission to make the web the dominant technology of mobile apps.
 
 Check out our [jobs](/jobs) and get in touch if you think you'd be a great fit!
 
-## Thank you!
+### Thank you!
 
 Without you Ionic would be yet another framework that no one uses. Thank you so much for your support, and here's to a bright future of web tech on mobile!
 

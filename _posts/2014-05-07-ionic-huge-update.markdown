@@ -28,7 +28,7 @@ And best of all, [Collection Repeat](http://ionicframework.com/docs/api/directiv
 
 A big annoyance developers have with mobile web browsers is their wonky support for form inputs and the resulting keyboard that slides up. How do you remove the accessory bar on iOS? Why is my input scrolling out of view? How do I stop the viewport from shrinking and ruining my UI? 
 
-Native apps don't have these issues, and neither should web apps. So we spent a month fixing keyboard issues across Android and iOS, with plenty of head banging so you can go bruise-free. Today, we are releasing the first version of both a [Cordova plugin](https://github.com/driftyco/ionic-plugins-keyboard) (which will be added to the default plugin list for new Ionic apps) to fix the issues at a native layer, and expanded support in the Ionic Javascript to handle it at the web layer.
+Native apps don't have these issues, and neither should hybrid apps. So we spent a month fixing keyboard issues across Android and iOS, with plenty of head banging so you can go bruise-free. Today, we are releasing the first version of both a [Cordova plugin](https://github.com/driftyco/ionic-plugins-keyboard) (which will be added to the default plugin list for new Ionic apps) to fix the issues at a native layer, and expanded support in the Ionic Javascript to handle it at the web layer.
 
 This gives you clean keyboard support as shown in our upcoming Ionic View app:
 

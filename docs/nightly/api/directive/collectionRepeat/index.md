@@ -58,6 +58,7 @@ For example, if you have a gallery of images just set their width to 33%.
 6. Each collection-repeat list will take up all of its parent scrollView's space.
 If you wish to have multiple lists on one page, put each list within its own
 <a href="/docs/nightly/api/directive/ionScroll/">ionScroll</a> container.
+7. You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that have a collection-repeat inside.  ng-show and ng-hide apply the `display: none` css rule to the content's style, causing the scrollView to read the width and height of the content as 0.  Resultingly, collection-repeat will render elements that have just been un-hidden incorrectly.
 
 
 

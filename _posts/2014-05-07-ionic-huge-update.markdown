@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-<img class="showcase-image" src="/img/blog/b4-header.png">
+<img class="showcase-image" src="/img/blog/b4-header2.png">
 
 We've been quiet over the last month or so, but trust me, we've been busy!
 

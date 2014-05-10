@@ -4,11 +4,11 @@ title:  "Keyboard Adventures in Hybrid Land"
 date:   "2014-05-12 08:00:00"
 hide_date: false
 categories: ionic
-author: '<img src="https://pbs.twimg.com/profile_images/378800000290028838/ee3303b02223f25cb0f9b082b55b2eeb.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus" target="_blank">Tim</a>'
+author: '<img src="https://pbs.twimg.com/profile_images/378800000290028838/ee3303b02223f25cb0f9b082b55b2eeb.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus" target="_blank">Tim Lancina</a>'
 published: false
 ---
 
-<img class="showcase-image" src="/img/blog/b4-header.png">
+<img class="showcase-image" src="/img/blog/keyboard-land.gif">
 
 Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.  But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments. 
 

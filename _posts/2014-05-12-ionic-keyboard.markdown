@@ -10,9 +10,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/keyboard-land.gif">
 
-Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.
-
-But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments. 
+Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.  But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments. 
 
 Here at Ionic we’re mostly denizens of the web, but we journeyed to this intimidating region of hybrid land to try and mitigate one of the more nagging problems we encountered: the keyboard.  People were having issues with the keyboard covering up focusable elements and messing up the layout of their application.  It’s a difficult problem to solve however, because from the web layer you have a lot less control over what the keyboard does.  How much of its design or behavior can be changed, and how much information you have about it, is for the most part at the mercy of the underlying native browser’s implementation.  Still, we wanted Ionic to be able to adjust to the presence of the keyboard accordingly.
 
@@ -34,9 +32,7 @@ And finally, on top of everything else, we had to make sure that tap/click event
 
 Our approach to resolving all these issues was twofold: try to keep the problems with the native layer out of the way, and let Ionic do as much as possible to resolve the rest.  One of the biggest barriers to Ionic being able to accommodate the presence of the keyboard on the screen was knowing with absolute certainty when the keyboard was on the screen, and how big it was.  
 
-To do this, we developed the [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard), which on both iOS and Android fires events indicating when the keyboard will show or hide, and if it is going to appear, how big it is.  This allows Ionic to adjust the scrollable content area as quickly and as accurately as possible, which in turn allows it to scroll any obscured inputs into view.
-
-On iOS, it actively prevents the native scroll, and to give your app a more native feel, gives you the option of removing the accessory bar that appears by default on top of the keyboard in a web form.  The plugin is not Ionic specific however, and can be used in any Cordova app to expose information about the keyboard to the web layer.
+To do this, we developed the [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard), which on both iOS and Android fires events indicating when the keyboard will show or hide, and if it is going to appear, how big it is.  This allows Ionic to adjust the scrollable content area as quickly and as accurately as possible, which in turn allows it to scroll any obscured inputs into view.  On iOS, it actively prevents the native scroll, and to give your app a more native feel, gives you the option of removing the accessory bar that appears by default on top of the keyboard in a web form.  The plugin is not Ionic specific however, and can be used in any Cordova app to expose information about the keyboard to the web layer.
 
 Since most of the logic for adjusting to the presence of the keyboard is done by Ionic in the web layer, you don’t need the plugin to see improvements.  However, for keeping things like the native scrolling at bay and achieving consistent behavior for your application across all devices, using the plugin is your best bet.
 

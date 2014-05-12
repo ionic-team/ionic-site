@@ -74,7 +74,7 @@ angular.module('testApp', ['ionic'])
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
   });
-  // Execute action on hide modal 
+  // Execute action on hide modal
   $scope.$on('modal.hide', function() {
     // Execute action
   });

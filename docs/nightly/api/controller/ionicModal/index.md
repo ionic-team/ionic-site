@@ -92,6 +92,8 @@ Default: creates a child of $rootScope.</li>
 Default: &#39;slide-in-up&#39;</li>
 <li><code>{boolean=}</code> <code>focusFirstInput</code> Whether to autofocus the first input of
 the modal when shown.  Default: false.</li>
+<li><code>{boolean=}</code>backdropClickToClose` Whether to close the modal on clicking the backdrop.
+Default: true.</li>
 </ul>
 
         

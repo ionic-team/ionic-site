@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Keyboard Adventures in Hybrid Land"
+title:  "Hybrid Adventures in Keyboard Land"
 date:   "2014-05-12 08:00:00"
 hide_date: false
 categories: ionic

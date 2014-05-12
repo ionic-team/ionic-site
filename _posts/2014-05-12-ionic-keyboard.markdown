@@ -5,7 +5,7 @@ date:   "2014-05-12 08:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://pbs.twimg.com/profile_images/378800000290028838/ee3303b02223f25cb0f9b082b55b2eeb.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus" target="_blank">Tim Lancina</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/keyboard-land.gif">

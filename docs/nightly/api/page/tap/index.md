@@ -42,6 +42,15 @@ feel more "native" like. Resultingly, other solutions such as
 [fastclick](https://github.com/ftlabs/fastclick) and Angular's
 [ngTouch](https://docs.angularjs.org/api/ngTouch) should not be included, to avoid conflicts.
 
+Some browsers already remove the delay with certain settings, such as the CSS property
+`touch-events: none` or with specific meta tag viewport values. However, each of these
+browsers still handle clicks differently, such as when to fire off or cancel the event
+(like scrolling when the target is a button, or holding a button down).
+For browsers that already remove the 300ms delay, consider Ionic's tap system as a way to
+normalize how clicks are handled across the various devices so there's an expected response
+no matter what the device, platform or version. Additionally, Ionic will prevent
+ghostclicks which even browsers that remove the delay still experience.
+
 In some cases, third-party libraries may also be working with touch events which can interfere
 with the tap system. For example, mapping libraries like Google or Leaflet Maps often implement
 a touch detection system which conflicts with Ionic's tap system.

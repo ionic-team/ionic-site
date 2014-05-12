@@ -11,7 +11,7 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L29'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L38'>
     Improve this doc
   </a>
 </div>

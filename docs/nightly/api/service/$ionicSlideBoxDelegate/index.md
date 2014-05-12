@@ -33,8 +33,7 @@ docType: "service"
 
 Delegate that controls the <a href="/docs/nightly/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directive.
 
-Methods called directly on the $ionicSlideBoxDelegate service will control all side
-menus.  Use the <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/#$getByHandle">$getByHandle</a>
+Methods called directly on the $ionicSlideBoxDelegate service will control all slide boxes.  Use the <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/#$getByHandle">$getByHandle</a>
 method to control specific slide box instances.
 
 

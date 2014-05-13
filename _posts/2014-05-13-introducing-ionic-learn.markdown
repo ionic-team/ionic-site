@@ -20,7 +20,7 @@ Since becoming Ionic's developer evangelist, it's been my goal for every develop
 
 ### Focused on You
 
-The emphasis of Learn Ionic was on the developer. We rounded up our most asked questions from developers everywhere and are focused on answering those first. Turns out, there were a lot of those questions, and there are many more about using Ionic. I'm out to find the problems itching and bothering our community, and clarifying them for everybody. Put simply: the more questions you ask, the better it is for everyone!
+The emphasis of Learn Ionic was on the developer. We rounded up our most asked questions from developers everywhere and are focused on answering those first. Turns out, there were a lot of those questions, and there are many more about using Ionic. I'm out to find the problems itching and bothering our community, and clarifying them for everybody. Your suggestions are going to be what makes Learn Ionic, so for now please get in contact with us via a [Github Issue](https://github.com/driftyco/ionic-learn/issues/new). Put simply: the more questions you ask, the better it is for everyone!
 
 Learn Ionic is also a living site. It's built for developers, and the feedback you give ultimately makes it a better tool for you. Learn Ionic is open source, and the issue tracker is open to all who want to improve it to suit their needs better.
 
@@ -30,7 +30,7 @@ Over time, Learn Ionic will get filled with videos and articles that will streng
 
 ### Interactive
 
-I am a kinesthetic learner. Reading and listening to content is great, but being able to experiment and break is even better. For this, we developed Scratchpad, an interactive part of Learn Ionic that contains the relevant code for an article, and lets you preview and modify it as the developer. Want to really understand what happens when you change a directive's properties? I do too, and having a sandbox to do it in-line makes it that much easier to get the feedback you need.
+I am a kinesthetic learner. Reading and listening to content is great, but being able to experiment and break is even better. For this, we developed Scratchpad, an interactive part of Learn Ionic that contains the relevant code for an article, letting you preview and modify it as the developer. Want to really understand what happens when you change a directive's properties? I do too, and having a sandbox to do it in-line makes it that much easier to get the feedback you need. Scratchpad is perfect for quickly getting dirty with your Ionic apps, with more on that later.
 
 ### Check it out
 

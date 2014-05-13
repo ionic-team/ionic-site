@@ -139,7 +139,7 @@ Before we start building our app, we should remove all the Cordova default code.
 ```bash
 $ rm www/index.html
 $ rm www/js/*
-$ rm www/css/app.css
+$ rm www/css/style.css
 ```
 
 ## Cordova Config

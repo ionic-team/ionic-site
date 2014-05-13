@@ -123,8 +123,8 @@ action sheet and the new element will be appended into the body.
 <li><code>{string=}</code> <code>destructiveText</code> The text for a &#39;danger&#39; on the action sheet.</li>
 <li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed or the backdrop is tapped.</li>
 <li><code>{function=}</code> <code>buttonClicked</code> Called when one of the non-destructive buttons is clicked,
- with the index of the button that was clicked. Return true to close the action sheet,
- or false to keep it opened.</li>
+ with the index of the button that was clicked and the button object. Return true to close
+ the action sheet, or false to keep it opened.</li>
 <li><code>{function=}</code> <code>destructiveButtonClicked</code> Called when the destructive button is clicked.
  Return true to close the action sheet, or false to keep it opened.</li>
 </ul>

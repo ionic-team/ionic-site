@@ -5,7 +5,7 @@ date:   "2014-05-13 08:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://pbs.twimg.com/profile_images/459991947629707264/XH7WLH71_400x400.jpeg" class="author-icon"><a href="http://twitter.com/justicefries" target="_blank">Gerred Dillon</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/learn-ionic.png">

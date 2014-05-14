@@ -51,7 +51,12 @@ To hide an element when the keyboard is open, add the class `hide-on-keyboard-op
   <div id="google-map"></div>
 </div>
 ```
+----------
 
+### Plugin Usage
+Information on using the plugin can be found at [https://github.com/driftyco/ionic-plugins-keyboard](https://github.com/driftyco/ionic-plugins-keyboard).
+
+---------- 
 
 ### Android Notes
 - If your app is running in fullscreen, i.e. you have `<preference name="Fullscreen" value="true" />` in your `config.xml` file

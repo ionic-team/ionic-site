@@ -11,7 +11,7 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L63'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L64'>
     Improve this doc
   </a>
 </div>

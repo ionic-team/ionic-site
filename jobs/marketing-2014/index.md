@@ -1,6 +1,6 @@
 ---
 layout: job
-title: Ionic Framework Developer
+title: Ionic Marketing Manager
 date: May 2014
 location: Madison, WI
 apply_link: <a href="mailto:jobs@drifty.com?subject=Framework Developer">jobs@drifty.com</a>

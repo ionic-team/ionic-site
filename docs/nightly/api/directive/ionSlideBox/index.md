@@ -53,7 +53,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
   "startingLine": 2,
   "file": "js/angular/directive/slideBox.js",
   "basePath": "/home/travis/build/driftyco/ionic",
-  "content": "@ngdoc directive\n@name ionSlideBox\n@module ionic\n@delegate ionic.service:$ionicSlideBoxDelegate\n@restrict E\n@description\nThe Slide Box is a multi-page container where each page can be swiped or dragged between:\n\n![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)\n\n@usage\n```html\n<ion-slide-box>\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide on-slide-changed=\"slideHasChanged(index)\">\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```\n\n@param {string=} delegate-handle The handle used to identify this slideBox\nwith <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.\n@param {boolean=} does-continue Whether the slide box should automatically slide.\n@param {number=} slide-interval How many milliseconds to wait to change slides (if does-continue is true). Defaults to 4000.\n@param {boolean=} show-pager Whether a pager should be shown for this slide box.\n@param {expression=} pager-click Expression to call when a pager is clicked (if show-pager is true). Is passed the 'index' variable.\n@param {expression=} on-slide-changed Expression called whenever the slide is changed.  Is passed an 'index' variable.\n@param {expression=} active-slide Model to bind the current slide to.",
+  "content": "@ngdoc directive\n@name ionSlideBox\n@module ionic\n@delegate ionic.service:$ionicSlideBoxDelegate\n@restrict E\n@description\nThe Slide Box is a multi-page container where each page can be swiped or dragged between:\n\n![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)\n\n@usage\n```html\n<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```\n\n@param {string=} delegate-handle The handle used to identify this slideBox\nwith <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.\n@param {boolean=} does-continue Whether the slide box should automatically slide.\n@param {number=} slide-interval How many milliseconds to wait to change slides (if does-continue is true). Defaults to 4000.\n@param {boolean=} show-pager Whether a pager should be shown for this slide box.\n@param {expression=} pager-click Expression to call when a pager is clicked (if show-pager is true). Is passed the 'index' variable.\n@param {expression=} on-slide-changed Expression called whenever the slide is changed.  Is passed an '$index' variable.\n@param {expression=} active-slide Model to bind the current slide to.",
   "fileName": "slideBox",
   "relativePath": "js/angular/directive/slideBox.js",
   "tags": {
@@ -114,7 +114,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
           "name": "usage"
         },
         "tagName": "usage",
-        "description": "```html\n<ion-slide-box>\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide on-slide-changed=\"slideHasChanged(index)\">\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
+        "description": "```html\n<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
         "startingLine": 12
       },
       {
@@ -241,7 +241,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
           "canHaveType": true
         },
         "tagName": "param",
-        "description": "Expression called whenever the slide is changed.  Is passed an 'index' variable.",
+        "description": "Expression called whenever the slide is changed.  Is passed an '$index' variable.",
         "startingLine": 33,
         "typeExpression": "expression=",
         "type": {
@@ -349,7 +349,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
             "name": "usage"
           },
           "tagName": "usage",
-          "description": "```html\n<ion-slide-box>\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide on-slide-changed=\"slideHasChanged(index)\">\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
+          "description": "```html\n<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
           "startingLine": 12
         }
       ],
@@ -478,7 +478,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
             "canHaveType": true
           },
           "tagName": "param",
-          "description": "Expression called whenever the slide is changed.  Is passed an 'index' variable.",
+          "description": "Expression called whenever the slide is changed.  Is passed an '$index' variable.",
           "startingLine": 33,
           "typeExpression": "expression=",
           "type": {
@@ -646,7 +646,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
         "canHaveType": true
       },
       "tagName": "param",
-      "description": "Expression called whenever the slide is changed.  Is passed an 'index' variable.",
+      "description": "Expression called whenever the slide is changed.  Is passed an '$index' variable.",
       "startingLine": 33,
       "typeExpression": "expression=",
       "type": {
@@ -686,7 +686,7 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
   ],
   "module": "ionic",
   "description": "The Slide Box is a multi-page container where each page can be swiped or dragged between:\n\n![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)",
-  "usage": "```html\n<ion-slide-box>\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide on-slide-changed=\"slideHasChanged(index)\">\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
+  "usage": "```html\n<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n  <ion-slide>\n    <div class=\"box blue\"><h1>BLUE</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box yellow\"><h1>YELLOW</h1></div>\n  </ion-slide>\n  <ion-slide>\n    <div class=\"box pink\"><h1>PINK</h1></div>\n  </ion-slide>\n</ion-slide-box>\n```",
   "docType": "directive",
   "area": "api",
   "restrict": {
@@ -711,20 +711,20 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
   "path": "api/directive/ionSlideBox/",
   "searchTerms": {
     "titleWords": "ionSlideBox",
-    "keywords": "active-slide amazonaws an any api automatically be between bind blue box call called can change changed class clicked com container current defaults delegate-handle directive docs does-continue dragged each expression for gif handle how html identify index ionic ionslidebox is js many md milliseconds model module multi-page on-slide-changed or page pager pager-click passed pink s3 service should show-pager shown slide slide-interval slidebox slidehaschanged slides swiped the this to true used variable wait when whenever where whether with yellow"
+    "keywords": "$index active-slide amazonaws an any api automatically be between bind blue box call called can change changed class clicked com container current defaults delegate-handle directive docs does-continue dragged each expression for gif handle how html identify index ionic ionslidebox is js many md milliseconds model module multi-page on-slide-changed or page pager pager-click passed pink s3 service should show-pager shown slide slide-interval slidebox slidehaschanged slides swiped the this to true used variable wait when whenever where whether with yellow"
   }
 }</pre>
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-slide-box>
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
   <ion-slide>
     <div class="box blue"><h1>BLUE</h1></div>
   </ion-slide>
   <ion-slide>
     <div class="box yellow"><h1>YELLOW</h1></div>
   </ion-slide>
-  <ion-slide on-slide-changed="slideHasChanged(index)">
+  <ion-slide>
     <div class="box pink"><h1>PINK</h1></div>
   </ion-slide>
 </ion-slide-box>
@@ -840,7 +840,7 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   <code>expression</code>
       </td>
       <td>
-        <p>Expression called whenever the slide is changed.  Is passed an &#39;index&#39; variable.</p>
+        <p>Expression called whenever the slide is changed.  Is passed an &#39;$index&#39; variable.</p>
 
         
       </td>

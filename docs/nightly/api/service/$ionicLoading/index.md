@@ -99,10 +99,10 @@ it will set the options given and keep the indicator shown.
 <ul>
 <li><code>{string=}</code> <code>template</code> The html content of the indicator.</li>
 <li><code>{string=}</code> <code>templateUrl</code> The url of an html template to load as the content of the indicator.</li>
-<li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop.</li>
-<li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator.</li>
+<li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop. By default it will be shown.</li>
+<li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator. By default there is no delay.</li>
 <li><code>{number=}</code> <code>duration</code> How many milliseconds to wait until automatically
-hiding the indicator.</li>
+hiding the indicator. By default, the indicator will be shown until <code>.hide()</code> is called.</li>
 </ul>
 
         

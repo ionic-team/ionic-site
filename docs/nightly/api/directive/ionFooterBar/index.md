@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L39'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L81'>
     Improve this doc
   </a>
 </div>
@@ -35,6 +35,9 @@ Adds a fixed footer bar below some content.
 
 Can also be a subfooter (higher up) if the 'bar-subfooter' class is applied.
 See [the footer CSS docs](/docs/components/#footer).
+
+Note: If you use ionFooterBar in combination with ng-if, the surrounding content
+will not align correctly.  This will be fixed soon.
 
 
 

@@ -47,6 +47,9 @@ We can add buttons depending on the currently visible view using
 Assign an [animation class](/docs/components#animations) to the element to
 enable animated changing of titles (recommended: 'nav-title-slide-ios7')
 
+Note that the ion-nav-bar element will only work correctly if your content has an
+ionView around it.
+
 
 
 
@@ -64,7 +67,11 @@ enable animated changing of titles (recommended: 'nav-title-slide-ios7')
   </ion-nav-bar>
 
   <!-- where the initial view template will be rendered -->
-  <ion-nav-view></ion-nav-view>
+  <ion-nav-view>
+    <ion-view>
+      <ion-content>Hello!</ion-content>
+    </ion-view>
+  </ion-nav-view>
 </body>
 ```
   
@@ -118,17 +125,17 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Defaults to &#39;c
 This will allow you to have the whole navbar, not just its contents, transition every view change.</p>
 <p>This is similar to using a header bar inside your ion-view, except it will has all the power of a navbar.</p>
 <p>If you do this, simply put nav buttons inside the navbar itself; do not use <code>&lt;ion-nav-buttons&gt;</code>.</p>
-<pre><code class="lang-html">&lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;
-  &lt;ion-nav-back-button&gt;
-    Back
-  &lt;/ion-nav-back-button&gt;
-  &lt;div class=&quot;buttons right-buttons&quot;&gt;
-    &lt;button class=&quot;button&quot;&gt;
-      Right Button
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/ion-nav-bar&gt;
-&lt;ion-view title=&quot;myTitle&quot;&gt;
+<pre><code class="lang-html">&lt;ion-view title=&quot;myTitle&quot;&gt;
+  &lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;
+    &lt;ion-nav-back-button&gt;
+      Back
+    &lt;/ion-nav-back-button&gt;
+    &lt;div class=&quot;buttons right-buttons&quot;&gt;
+      &lt;button class=&quot;button&quot;&gt;
+        Right Button
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/ion-nav-bar&gt;
 &lt;/ion-view&gt;</code></pre>
 
         

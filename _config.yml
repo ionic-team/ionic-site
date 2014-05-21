@@ -13,9 +13,9 @@ news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basic
 exclude: [node_modules, scss]
 
 # Latest Version Config
-latest_download: http://code.ionicframework.com/1.0.0-beta.5b/ionic-v1.0.0-beta.5b.zip
-latest_version: 1.0.0-beta.5b "cadmium-camel"
-latest_release_date: 2014-05-14
+latest_download: http://code.ionicframework.com/1.0.0-beta.6/ionic-v1.0.0-beta.6.zip
+latest_version: 1.0.0-beta.6 "darmstadtium-dingo"
+latest_release_date: 2014-05-21
 
 # Which version of AngularJS the latest build includes
 included_angular_version: 1.2.12

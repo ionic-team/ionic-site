@@ -86,7 +86,7 @@ See [the footer CSS docs](/docs/components/#footer).
       </td>
       <td>
         <p>Where to align the title.
-Avaialble: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
+Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
 
         
       </td>

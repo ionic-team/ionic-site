@@ -32,11 +32,11 @@ docType: "directive"
 
 
 keyboard-attach is an attribute directive which will cause an element to float above
-the keyboard when the keyboard shows. Currently only supports the 
+the keyboard when the keyboard shows. Currently only supports the
 [ion-footer-bar]({{ page.versionHref }}/api/directive/ionFooterBar/) directive.
 
-### Notes 
-- This directive requires the 
+### Notes
+- This directive requires the
 [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard).
 - On Android not in fullscreen mode, i.e. you have
   `<preference name="Fullscreen" value="true" />` in your `config.xml` file,

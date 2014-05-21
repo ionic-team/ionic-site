@@ -66,9 +66,12 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
   ```html
   <ion-content
     [delegate-handle=""]
+    [direction=""]
     [padding=""]
     [scroll=""]
     [overflow-scroll=""]
+    [scrollbar-x=""]
+    [scrollbar-y=""]
     [has-bouncing=""]
     [on-scroll=""]
     [on-scroll-complete=""]>
@@ -102,6 +105,23 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
       <td>
         <p>The handle used to identify this scrollView
 with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        direction
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Which way to scroll. &#39;x&#39; or &#39;y&#39; or &#39;xy&#39;. Default &#39;y&#39;.</p>
 
         
       </td>
@@ -155,6 +175,40 @@ of the content.  Defaults to true on iOS, false on Android.</p>
       <td>
         <p>Whether to use overflow-scrolling instead of
 Ionic scroll.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        scrollbar-x
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to show the horizontal scrollbar. Default true.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        scrollbar-y
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to show the vertical scrollbar. Default true.</p>
 
         
       </td>

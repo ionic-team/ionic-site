@@ -108,7 +108,7 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
   <code>string</code>
       </td>
       <td>
-        <p>Which way to scroll. &#39;x&#39; or &#39;y&#39;. Default &#39;y&#39;.</p>
+        <p>Which way to scroll. &#39;x&#39; or &#39;y&#39; or &#39;xy&#39;. Default &#39;y&#39;.</p>
 
         
       </td>
@@ -176,7 +176,7 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether to show the horizontal scrollbar. Default false.</p>
+        <p>Whether to show the horizontal scrollbar. Default true.</p>
 
         
       </td>

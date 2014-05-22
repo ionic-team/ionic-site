@@ -24,11 +24,6 @@ docType: "directive"
   ion-nav-back-button
 
 
-<br />
-<small>
-  Child of <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
-</small>
-
 
 </h1>
 

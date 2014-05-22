@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDelegate</code></a>
+  Delegate: ionic.service:$ionicTabsDelegate
 </small>
 
 </h1>

@@ -24,11 +24,6 @@ docType: "directive"
   ion-side-menu
 
 
-<br />
-<small>
-  Child of <a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
-</small>
-
 
 </h1>
 

@@ -2,7 +2,7 @@
 layout: "docs_api"
 version: "nightly"
 versionHref: "/docs/nightly"
-path: "./undefined"
+path: ""
 
 title: Javascript
 header_sub_title: Extend Ionic even further with the power of AngularJS

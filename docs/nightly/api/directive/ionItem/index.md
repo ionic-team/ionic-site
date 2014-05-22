@@ -24,11 +24,6 @@ docType: "directive"
   ion-item
 
 
-<br />
-<small>
-  Child of <a href="/docs/nightly/api/directive/ionList/"><code>ionList</code></a>
-</small>
-
 
 </h1>
 

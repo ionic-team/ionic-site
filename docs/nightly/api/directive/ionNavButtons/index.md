@@ -24,11 +24,6 @@ docType: "directive"
   ion-nav-buttons
 
 
-<br />
-<small>
-  Child of <a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a>
-</small>
-
 
 </h1>
 

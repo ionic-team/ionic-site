@@ -24,11 +24,6 @@ docType: "directive"
   ion-tab
 
 
-<br />
-<small>
-  Child of <a href="/docs/nightly/api/directive/ionTabs/"><code>ionTabs</code></a>
-</small>
-
 
 </h1>
 

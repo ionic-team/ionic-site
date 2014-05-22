@@ -13,6 +13,8 @@ published: true
 
 I'm thrilled to introduce Perry Govier ([@perrygovier](https://twitter.com/perrygovier) on Twitter and [@perry](http://forum.ionicframework.com/users/perry/activity) on the Forum) as our newest core framework developer on Ionic! Perry has extensive experience building hybrid mobile apps professionally. He's built many Cordova apps and recently fell in love with AngularJS.
 
+<!-- more -->
+
 A well-versed nerd (like the rest of us), Perry's been fascinated with technology his whole life. In grade school, he'd circle his block with a red wagon and pick up electronics from people's curbs to take home and fix. In highschool and college, he worked as a music show technician doing sound, video, and stage work. According to him, it's "not that different than programming. Lots of components to build and connect together to create something awesome. Tinkering and geekery is in my DNA."
 
 Perry loves meeting and chatting with other developers. He's organized several meetups and attends many more. At home, he's been building a beer brewing machine with Arduinos, playing around with bluetooth in Objective C, and beginning to learn GoLang. Outside of hacking, he loves to explore- walking, hiking, traveling, and trying new food are among some of his favorite activities.

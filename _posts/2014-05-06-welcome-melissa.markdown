@@ -14,9 +14,9 @@ published: true
 
 Today, I’m thrilled to welcome Melissa Behrens ([@meltr0n](https://twitter.com/meltr0n) on Twitter) as Ionic’s Operations Manager. She’s helping our team ‘level up’ by making sure all the working parts of our business are running smoothly and efficiently. In other words, she’s enabling each person to focus on what they do best!
 
-Melissa’s previous life includes a Masters degree in counseling. She’s worked as an Addiction Therapist, and a Research Coordinator at the University of Wisconsin-Madison. However, she has since left that world to form an up-and-coming fashion incubator, the [Madison Sewing Studio](http://madisonsewingstudio.com/).
-
 <!-- more -->
+
+Melissa’s previous life includes a Masters degree in counseling. She’s worked as an Addiction Therapist, and a Research Coordinator at the University of Wisconsin-Madison. However, she has since left that world to form an up-and-coming fashion incubator, the [Madison Sewing Studio](http://madisonsewingstudio.com/).
 
 She’s also been known to organize some of Madison’s coolest [conferences](http://www.designlikemad.org/) and [fashion runway shows](http://www.madrunway.com/#&panel1-1), designs her own jewelry, and hangs out with her pup, Henry: Ionic’s Chief Canine Officer.
 

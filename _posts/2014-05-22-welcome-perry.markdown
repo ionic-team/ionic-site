@@ -17,6 +17,6 @@ A well-versed nerd (like the rest of us), Perry's been fascinated with technolog
 
 Perry loves meeting and chatting with other developers. He's organized several meetups and attends many more. At home, he's been building a beer brewing machine with Arduinos, playing around with bluetooth in Objective C, and beginning to learn GoLang. Outside of hacking, he loves to explore- walking, hiking, traveling, and trying new food are among some of his favorite activities.
 
-Expect to see more of Perry on the [Forum](http://forum.ionicframework.com) and [GitHub](http://github.com/driftyco/ionic) triaging (and closing!) issues. He’ll be working straight out of the Ionic headquarters in Madison, WI!
+Expect to see more of Perry helping out on the [Forum](http://forum.ionicframework.com) and on [GitHub](http://github.com/driftyco/ionic) triaging (and closing!) issues. He’ll be working straight out of the Ionic headquarters in Madison, WI!
 
 Welcome to the team, Perry!

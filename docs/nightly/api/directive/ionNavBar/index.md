@@ -119,6 +119,24 @@ with <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBa
       <td>
         <p>Where to align the title of the navbar.
 Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Defaults to &#39;center&#39;.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        no-tap-scroll
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>By default, the navbar will scroll the content
+to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
 <p></table><br/></p>
 <h3 id="alternative-usage">Alternative Usage</h3>
 <p>Alternatively, you may put ion-nav-bar inside of each individual view&#39;s ion-view element.

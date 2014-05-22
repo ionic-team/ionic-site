@@ -12,9 +12,9 @@ published: true
 
 Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.  But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments. 
 
-Here at Ionic we’re mostly denizens of the web, but we journeyed to this intimidating region of hybrid land to try and mitigate one of the more nagging problems we encountered: the keyboard.  People were having issues with the keyboard covering up focusable elements and messing up the layout of their application.  It’s a difficult problem to solve however, because from the web layer you have a lot less control over what the keyboard does.  How much of its design or behavior can be changed, and how much information you have about it, is for the most part at the mercy of the underlying native browser’s implementation.  Still, we wanted Ionic to be able to adjust to the presence of the keyboard accordingly.
-
 <!-- more -->
+
+Here at Ionic we’re mostly denizens of the web, but we journeyed to this intimidating region of hybrid land to try and mitigate one of the more nagging problems we encountered: the keyboard.  People were having issues with the keyboard covering up focusable elements and messing up the layout of their application.  It’s a difficult problem to solve however, because from the web layer you have a lot less control over what the keyboard does.  How much of its design or behavior can be changed, and how much information you have about it, is for the most part at the mercy of the underlying native browser’s implementation.  Still, we wanted Ionic to be able to adjust to the presence of the keyboard accordingly.
 
 ### Issues
 

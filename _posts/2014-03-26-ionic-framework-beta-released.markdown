@@ -16,6 +16,8 @@ In the short time since our Alpha release a few months ago, we’ve seen some gr
 
 With this momentum, we’re so thrilled to take the framework into Beta and officially announce version 1.0.0-beta.1, “Ionic Actinium”, and the release of our [new docs](/docs/api/)!
 
+<!-- more -->
+
 The ever growing community of Ionites have been vital to Ionic’s success, especially in helping to shape the API and battle test our nightly builds. There have been some significant changes since the Alpha version, but trust us that each breaking change has been made with the ultimate goal of making it easier to develop hybrid mobile apps.
 
 One of the largest changes is that the beta has stepped back from using multiple attributes in favor of simply adding child elements/directives. For example, headers and footers no longer use the `left-buttons` attribute to specify an array of buttons, but rather a nested element which is easier to control and integrate with Angular. This same method is being used for the back buttons within `ion-nav-bar`, and the left and right side buttons for `ion-view`.

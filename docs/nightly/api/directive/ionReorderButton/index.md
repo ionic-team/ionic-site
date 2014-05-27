@@ -24,6 +24,11 @@ docType: "directive"
   ion-reorder-button
 
 
+<br />
+<small>
+  Child of <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a>
+</small>
+
 
 </h1>
 

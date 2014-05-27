@@ -27,7 +27,7 @@ docType: "directive"
 
 <br/>
 <small>
-  Delegate: ionic.service:$ionicSideMenuDelegate
+  Delegate: <a href="/docs/nightly/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>
 </small>
 
 </h1>

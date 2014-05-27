@@ -24,6 +24,11 @@ docType: "directive"
   ion-refresher
 
 
+<br />
+<small>
+  Child of <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a>
+</small>
+
 
 </h1>
 

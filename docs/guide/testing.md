@@ -12,7 +12,7 @@ Now, since we actually have something to look at, we need to talk about the test
 
 ### Desktop browser testing
 
-Testing your app in a browser is as simple as running the serve command in your projects root folder.
+Testing your app in a browser is as simple as running the serve command in your project's root folder.
 
 ```bash
 $ ionic serve
@@ -36,7 +36,7 @@ $ ionic emulate ios
 Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in `platforms/PLATFORM` inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root `www` folder, and when you've made changes to this folder, run the command:
 
 ```bash
-$ ionic prepare ios
+$ corodva prepare ios
 ```
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
@@ -58,7 +58,7 @@ Since we are building a native (or "hybrid") app, we can (and should!) test it a
 Testing on Android is much easier and faster. To test on the device, simply plug it in, and run
 
 ```bash
-$ cordova run android
+$ ionic run android
 ```
 
 If this doesn't work, make sure you have USB debugging enabled on your device, as [described](http://developer.android.com/tools/device.html) on the Android developer site.

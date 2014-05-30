@@ -3,9 +3,9 @@
 }
 .author-icon {
   float: left;
-  margin-right: 8px;
-  width: 24px;
-  border-radius: 20px;
+  margin-right: 12px;
+  width: 32px;
+  border-radius: 32px;
 }
 
 #spinner {
@@ -118,10 +118,12 @@
     }
   }
   .post-time {
-    font-style: italic;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     font-size: 13px;
-    color: #999999;
-    margin: 20px 0px 20px;
+    color: #A7B0BE;
+    margin: 20px 0px 30px;
     display: block;
   }
   .post-social {

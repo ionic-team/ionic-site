@@ -4,6 +4,7 @@
 .author-icon {
   float: left;
   margin-right: 12px;
+  margin-top: 1px;
   width: 32px;
   border-radius: 32px;
 }
@@ -123,11 +124,13 @@
     font-style: normal;
     font-size: 13px;
     color: #A7B0BE;
-    margin: 20px 0px 30px;
+    margin: 20px 0px 60px;
     display: block;
   }
   .post-social {
-    margin-bottom: 10px;
+    display: block;
+    float: right;
+    margin-top: 12px;
   }
 
   code {

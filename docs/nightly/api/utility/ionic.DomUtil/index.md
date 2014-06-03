@@ -447,9 +447,9 @@ className, or null.
 
 
 
-<div id="getParentWithClass"></div>
+<div id="getParentOrSelfWithClass"></div>
 <h2>
-  <code>getParentWithClass(element, className)</code>
+  <code>getParentOrSelfWithClass(element, className)</code>
 
 </h2>
 

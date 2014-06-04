@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-<img class="showcase-image" src="/img/blog/ngcordova-logo.png" style="margin: auto; display: block; max-width: 300px">
+<img class="showcase-image" src="/img/blog/ngCordova-ionic-header.jpg">
 
 Today I am incredibly excited to announce the very first release of [ngCordova](http://ngcordova.com/), an open-source collection of AngularJS services and extensions that make it incredibly easy to use Cordova plugins and native features in your hybrid apps.
 
@@ -28,6 +28,8 @@ $cordovaCamera.getPicture(options)
 ```
 
 The services support promises to make it easier to deal with their asynchronous nature and ensure scope data is properly updated. And with support for **14** plugins at the time of this writing, ngCordova provides a centralized way to add lots of native functionality to your app!
+
+<!-- more -->
 
 We've got big plans for ngCordova. Soon, it will possible to mock the services for testing outside of a Cordova app in case cordova.js isn't available, and to simulate data such as geolocation, accelerometer, and network changes.
 

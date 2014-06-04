@@ -61,7 +61,8 @@ Creates a scrollable container for all content inside.
     [scrollbar-y=""]
     [zooming=""]
     [min-zoom=""]
-    [max-zoom=""]>
+    [max-zoom=""]
+    [has-bouncing=""]>
   ...
   </ion-scroll>
   ```
@@ -245,6 +246,24 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
       </td>
       <td>
         <p>The largest zoom amount allowed (default is 3)</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        has-bouncing
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to allow scrolling to bounce past the edges
+of the content.  Defaults to true on iOS, false on Android.</p>
 
         
       </td>

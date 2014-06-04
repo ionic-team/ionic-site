@@ -11,7 +11,7 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L64'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L65'>
     Improve this doc
   </a>
 </div>
@@ -94,6 +94,8 @@ Default: &#39;slide-in-up&#39;</li>
 the modal when shown.  Default: false.</li>
 <li><code>{boolean=}</code> <code>backdropClickToClose</code> Whether to close the modal on clicking the backdrop.
 Default: true.</li>
+<li><code>{boolean=}</code> <code>hardwareBackButtonClose</code> Whether the modal can be closed using the hardware
+back button on Android and similar devices.  Default: true.</li>
 </ul>
 
         

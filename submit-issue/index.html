@@ -4,13 +4,14 @@ title: Submit an Ionic Framework Issue
 ---
 
 <div ng-app="issueApp" ng-controller="AppCtrl" step-master>
-
+  <div class="col-md-6">
   <div step="0" heading="Issue Title" is-done="issue.title.length > 5">
     <div class="input-container">
       <input autofocus type="text" id="title"
         required maxlength="50"
         placeholder="eg, 'My content is halfway off-screen'"
-        ng-model="issue.title">
+        ng-model="issue.title"
+        ng-blur="getSuggestions()">
       <label for="title">Can you give me a short synopsis of the problem?</label>
       <label for="title" class="error">You didn't give a title!</label>
     </div>
@@ -114,5 +115,12 @@ title: Submit an Ionic Framework Issue
 
   </div>
 
-</div>
 
+
+<div class="col-md-5 col-md-offset-1">
+  <ul>
+    <li ng-repeat="suggestion in suggestions" ng-bind-html="trust(suggestion.title)">
+    </li>
+  </ul>
+</div>
+  </div>

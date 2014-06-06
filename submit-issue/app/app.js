@@ -3,7 +3,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http, $sce) {
 
   $scope.issue = {
     title: '',
@@ -30,7 +30,8 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
   ];
   $scope.iosVersions = [
     '7',
-    '6'
+    '6',
+    '8'
   ];
   $scope.androidVersions = [
     '4.4',
@@ -107,6 +108,17 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
       alert('Issue Submission Error! Try again.');
     });
   };
+
+  $scope.getSuggestions = function(){
+    GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
+
+      $scope.suggestions = data.data.items;
+      console.log($scope.suggestions);
+    });
+  }
+  $scope.trust = function(string){
+    return $sce.trustAsHtml(string);
+  }
 
 })
 

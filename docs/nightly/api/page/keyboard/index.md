@@ -11,6 +11,10 @@ docType: "page"
 ---
 
 <div class="improve-docs">
+  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/keyboard.js#L1'>
+    View Source
+  </a>
+  &nbsp;
   <a href='http://github.com/driftyco/ionic/edit/master/js/utils/keyboard.js#L1'>
     Improve this doc
   </a>

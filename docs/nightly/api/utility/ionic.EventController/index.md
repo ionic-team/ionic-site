@@ -11,6 +11,10 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
+  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/events.js#L44'>
+    View Source
+  </a>
+  &nbsp;
   <a href='http://github.com/driftyco/ionic/edit/master/js/utils/events.js#L44'>
     Improve this doc
   </a>

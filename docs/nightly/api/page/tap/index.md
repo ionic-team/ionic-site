@@ -11,6 +11,10 @@ docType: "page"
 ---
 
 <div class="improve-docs">
+  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/tap.js#L2'>
+    View Source
+  </a>
+  &nbsp;
   <a href='http://github.com/driftyco/ionic/edit/master/js/utils/tap.js#L2'>
     Improve this doc
   </a>

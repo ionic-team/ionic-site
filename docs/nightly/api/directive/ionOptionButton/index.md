@@ -11,6 +11,10 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/itemOptionButton.js#L4'>
+    View Source
+  </a>
+  &nbsp;
   <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/itemOptionButton.js#L4'>
     Improve this doc
   </a>

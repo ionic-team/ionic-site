@@ -56,13 +56,13 @@ To trigger an Action Sheet in your code, use the $ionicActionSheet service in yo
 
 ```js
 angular.module('mySuperApp', ['ionic'])
-.controller(function($scope, $ionicActionSheet) {
+.controller(function($scope, $ionicActionSheet, $timeout) {
 
  // Triggered on a button click, or some other target
  $scope.show = function() {
 
    // Show the action sheet
-   $ionicActionSheet.show({
+   var hideSheet = $ionicActionSheet({
      buttons: [
        { text: '<b>Share</b> This' },
        { text: 'Move' },
@@ -74,6 +74,11 @@ angular.module('mySuperApp', ['ionic'])
        return true;
      }
    });
+
+   // For example's sake, hide the sheet after two seconds
+   $timeout(function() {
+     hideSheet();
+   }, 2000);
 
  };
 });
@@ -87,7 +92,7 @@ angular.module('mySuperApp', ['ionic'])
 
 <div id="show"></div>
 <h2>
-  <code>show(opts)</code>
+  <code>show(options)</code>
 
 </h2>
 
@@ -110,7 +115,7 @@ action sheet and the new element will be appended into the body.
     
     <tr>
       <td>
-        opts
+        options
         
         
       </td>
@@ -125,7 +130,8 @@ action sheet and the new element will be appended into the body.
 <li><code>{string}</code> <code>titleText</code> The title to show on the action sheet.</li>
 <li><code>{string=}</code> <code>cancelText</code> The text for a &#39;cancel&#39; button on the action sheet.</li>
 <li><code>{string=}</code> <code>destructiveText</code> The text for a &#39;danger&#39; on the action sheet.</li>
-<li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed or the backdrop is tapped.</li>
+<li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed, the backdrop is tapped or
+ the hardware back button is pressed.</li>
 <li><code>{function=}</code> <code>buttonClicked</code> Called when one of the non-destructive buttons is clicked,
  with the index of the button that was clicked and the button object. Return true to close
  the action sheet, or false to keep it opened.</li>
@@ -144,6 +150,9 @@ action sheet and the new element will be appended into the body.
 
 
 
+
+* Returns: 
+  <code>function</code> `hideSheet` A function which, when called, hides & cancels the action sheet.
 
 
 

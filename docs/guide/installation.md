@@ -70,11 +70,11 @@ $ sudo npm install -g gulp ionic
 
 Now, we need to create a new Cordova project somewhere on the computer for the code for our app:
 
-    $ ionic start hello
+    $ ionic start todo blank
 
-That will create a folder called `hello` in the directory the command was run. Next, we will change into that directory:
+That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory:
 
-    $ cd hello
+    $ cd todo
 
 If you are planning on using any version control system, you can go ahead and set it up using this new folder. For new apps, follow this folder structure to get up and running quickly:
 
@@ -130,17 +130,6 @@ Of course, you can always test directly on the device, and that is the recommend
 substitute <code>emulate</code> with <code>run</code> and ensure you have an Android device connected to the computer.
 </p>
 </div>
-
-
-## Clearing the defaults
-
-Before we start building our app, we should remove all the Cordova default code. Go ahead and run the following commands:
-
-```bash
-$ rm www/index.html
-$ rm www/js/*
-$ rm www/css/style.css
-```
 
 ## Cordova Config
 

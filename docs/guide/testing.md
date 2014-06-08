@@ -12,13 +12,13 @@ Now, since we actually have something to look at, we need to talk about the test
 
 ### Desktop browser testing
 
-Unless you are using custom Cordova plugins, or a lot of Cordova specific code, it's very easy to test in the desktop browser. The easiest thing is to `cd` into the `www` folder, and run
+Testing your app in a browser is as simple as running the serve command in your project's root folder.
 
 ```bash
-$ python -m SimpleHTTPServer 8000
+$ ionic serve
 ```
 
-Substitute SimpleHTTPServer with http.server if your Python version is 3.x (run `python --version` to check). This will start a tiny web server hosting all of the files in the `www` folder. All you have to do to test it is open Chrome or Safari and navigate to `http://localhost:8000`. You should see something that looks like this:
+This will start a live-reload server for your project. When changes are made to any HTML, CSS, or JavaScript files, the browser will automatically reload when the files are saved.
 
 <img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
@@ -26,7 +26,7 @@ Try dragging the center content to the right (works with the mouse as well) to e
 
 ### Simulator testing
 
-You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, `cd` into the root of the project (one level up from the `www` folder), and run:
+You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, run:
 
 ```bash
 $ ionic build ios
@@ -36,7 +36,7 @@ $ ionic emulate ios
 Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in `platforms/PLATFORM` inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root `www` folder, and when you've made changes to this folder, run the command:
 
 ```bash
-$ ionic prepare ios
+$ corodva prepare ios
 ```
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
@@ -58,7 +58,7 @@ Since we are building a native (or "hybrid") app, we can (and should!) test it a
 Testing on Android is much easier and faster. To test on the device, simply plug it in, and run
 
 ```bash
-$ cordova run android
+$ ionic run android
 ```
 
 If this doesn't work, make sure you have USB debugging enabled on your device, as [described](http://developer.android.com/tools/device.html) on the Android developer site.

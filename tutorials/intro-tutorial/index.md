@@ -69,7 +69,7 @@ angular.module('myApp', ['ionic', 'ngRoute'])
   // updates a navigation bar
   $routeProvider.when('/', {
     templateUrl: 'intro.html',
-    controller: 'AppCtrl'
+    controller: 'IntroCtrl'
   });
 
   $routeProvider.when('/main', {
@@ -78,7 +78,7 @@ angular.module('myApp', ['ionic', 'ngRoute'])
   });
 
   // if none of the above routes are met, use this fallback
-  // which executes the 'AppCtrl' controller (controllers.js)
+  // which executes the 'IntroCtrl' controller (controllers.js)
   $routeProvider.otherwise({
     redirectTo: '/'
   });

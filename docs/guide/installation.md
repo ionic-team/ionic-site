@@ -131,16 +131,6 @@ substitute <code>emulate</code> with <code>run</code> and ensure you have an And
 </p>
 </div>
 
-## Cordova Config
-
-We need to make some quick configuration changes to Cordova defaults to make sure our app behaves normally. Specifically, we need to turn off Web View bouncing that is on by default for iOS apps. Open up `config.xml` and add these preferences to the bottom:
-
-```xml
-<preference name="webviewbounce" value="false" />
-<preference name="UIWebViewBounce" value="false" />
-<preference name="DisallowOverscroll" value="true" />
-```
-
 ## Let's go!
 
 Now we are ready to start building our app, so continue on to the next chapter:

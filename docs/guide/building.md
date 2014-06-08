@@ -137,8 +137,15 @@ In order to trigger the Modal to open, we need a button in the main header bar a
         <i class="icon ion-compose"></i>
       </button>
     </ion-header-bar>
+    <ion-content>
+      <!-- our list and list items -->
+      <ion-list>
+        <ion-item ng-repeat="task in tasks">
+          {{task.title}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-side-menu-content>
-  <!-- ... -->
 ```
 
 And in our controller code:

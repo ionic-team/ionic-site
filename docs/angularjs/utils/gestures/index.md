@@ -18,12 +18,12 @@ We have ported over the wonderful [Hammer.js](http://eightmedia.github.io/hammer
 
 ## Ionic-Angular Support
 
-To use the Gesture service in your Angular directives, just inject `Gesture`:
+To use the Gesture service in your Angular directives, just inject `$ionicGesture`:
 
 ```javascript
 angular.module('myModule', [])
 
-.directive('myDirective', function(Gesture) {
+.directive('myDirective', function($ionicGesture) {
   return {
     // Other directive stuff ...
 
@@ -33,11 +33,11 @@ angular.module('myModule', [])
         console.log('Drag: ', e.gesture.touches[0].pageX, e.gesture.touches[0].pageY, e.gesture.deltaX, e.gesture.deltaY);
       };
 
-      var dragGesture = Gesture.on('drag', handleDrag, $element);
+      var dragGesture = $ionicGesture.on('drag', handleDrag, $element);
 
       $scope.$on('$destroy', function() {
         // Unbind drag gesture handler
-        Gesture.off(dragGesture, 'drag', handleDrag);
+        $ionicGesture.off(dragGesture, 'drag', handleDrag);
       });
     }
   }

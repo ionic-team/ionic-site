@@ -80,7 +80,7 @@ If you are planning on using any version control system, you can go ahead and se
 
 ## Configure Platforms
 
-Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: if you are on Windows, leave out the iOS platform:
+Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:
 
 ```bash
 $ ionic platform ios

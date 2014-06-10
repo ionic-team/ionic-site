@@ -35,6 +35,8 @@ docType: "service"
 
 
 
+Related <a href="/docs/nightly/api/controller/ionicModal/">ionicModal controller</a>.
+
 The Modal is a content pane that can go over the user's main view
 temporarily.  Usually used for making a choice or editing an item.
 Note that you need to put the content of the modal inside a div with the class `modal`.

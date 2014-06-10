@@ -11,11 +11,11 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/modal.js#L65'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/modal.js#L72'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L65'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L72'>
     Improve this doc
   </a>
 </div>
@@ -40,8 +40,9 @@ Instantiated by the <a href="/docs/nightly/api/service/$ionicModal/"><code>$ioni
 Hint: Be sure to call [remove()](#remove) when you are done with each modal
 to clean it up and avoid memory leaks.
 
-Note: a modal will broadcast 'modal.shown' and 'modal.hidden' events from its originating
-scope, passing in itself as an event argument.
+Note: a modal will broadcast 'modal.shown', 'modal.hidden', and 'modal.removed' events from its originating
+scope, passing in itself as an event argument. Note: both modal.removed and modal.hidden are
+called when the modal is removed.
 
 
 

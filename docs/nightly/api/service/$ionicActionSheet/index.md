@@ -128,8 +128,8 @@ action sheet and the new element will be appended into the body.
 <ul>
 <li><code>[Object]</code> <code>buttons</code> Which buttons to show.  Each button is an object with a <code>text</code> field.</li>
 <li><code>{string}</code> <code>titleText</code> The title to show on the action sheet.</li>
-<li><code>{string=}</code> <code>cancelText</code> The text for a &#39;cancel&#39; button on the action sheet.</li>
-<li><code>{string=}</code> <code>destructiveText</code> The text for a &#39;danger&#39; on the action sheet.</li>
+<li><code>{string=}</code> <code>cancelText</code> the text for a &#39;cancel&#39; button on the action sheet.</li>
+<li><code>{string=}</code> <code>destructivetext</code> The text for a &#39;danger&#39; on the action sheet.</li>
 <li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed, the backdrop is tapped or
  the hardware back button is pressed.</li>
 <li><code>{function=}</code> <code>buttonClicked</code> Called when one of the non-destructive buttons is clicked,

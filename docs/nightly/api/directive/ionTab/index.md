@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tab.js#L1'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tab.js#L5'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tab.js#L1'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tab.js#L5'>
     Improve this doc
   </a>
 </div>

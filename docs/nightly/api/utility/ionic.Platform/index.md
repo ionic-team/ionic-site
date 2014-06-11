@@ -104,6 +104,56 @@ a web browser, it'll fire the callback after `window.load`.
 
 
 
+<div id="setGrade"></div>
+<h2>
+  <code>setGrade(grade)</code>
+
+</h2>
+
+Set the grade of the device: 'a', 'b', or 'c'. 'a' is the best
+(most css features enabled), 'c' is the worst.  By default, sets the grade
+depending on the current device.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        grade
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The new grade to set.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
 <div id="device"></div>
 <h2>
   <code>device()</code>

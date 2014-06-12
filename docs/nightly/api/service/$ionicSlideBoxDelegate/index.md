@@ -261,6 +261,22 @@ explicitly told to do so.
 
 
 
+<div id="start"></div>
+<h2>
+  <code>start()</code>
+
+</h2>
+
+Start sliding again if the slideBox was stopped.
+
+
+
+
+
+
+
+
+
 <div id="currentIndex"></div>
 <h2>
   <code>currentIndex()</code>

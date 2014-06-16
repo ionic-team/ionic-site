@@ -14,7 +14,7 @@ exclude: [node_modules, scss]
 
 # Latest Version Config
 latest_download: http://code.ionicframework.com/1.0.0-beta.8/ionic-v1.0.0-beta.8.zip
-latest_version: 1.0.0-beta.8 "einsteinium-emu"
+latest_version: 1.0.0-beta.8 "fermium-flamingo"
 latest_release_date: 2014-06-16
 
 # Which version of AngularJS the latest build includes

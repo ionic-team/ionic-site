@@ -29,9 +29,9 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     { id: 'all', label: 'all platforms' }
   ];
   $scope.iosVersions = [
+    '8',
     '7',
-    '6',
-    '8'
+    '6'
   ];
   $scope.androidVersions = [
     '4.4',

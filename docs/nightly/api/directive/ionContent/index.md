@@ -76,7 +76,8 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
     [overflow-scroll=""]
     [scrollbar-x=""]
     [scrollbar-y=""]
-    [has-bouncing=""]
+    [scrollbar-y=""]
+    [start-y=""]
     [on-scroll=""]
     [on-scroll-complete=""]>
   ...
@@ -220,7 +221,7 @@ Ionic scroll.</p>
     
     <tr>
       <td>
-        has-bouncing
+        scrollbar-y
         
         <div><em>(optional)</em></div>
       </td>
@@ -229,7 +230,24 @@ Ionic scroll.</p>
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether to allow scrolling to bounce past the edges
+        <p>Whether to show the vertical scrollbar. Default true.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        start-y
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Initial vertical scroll position. Default 0.
 of the content.  Defaults to true on iOS, false on Android.</p>
 
         

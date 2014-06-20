@@ -43,18 +43,38 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
 
 <div id="java-note" class="collapse well">
 <p>
-  Windows users developing for Android: You'll want to make sure you have the most recent [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) (NOT just the JRE) installed and that you have installed ant. To install ant, download a zip from <a href="http://www.interior-dsgn.com/apache//ant/binaries/apache-ant-1.9.2-bin.zip">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to the <code>bin/</code> folder in that folder. For example, if you moved the ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+Windows users developing for Android: You'll want to make sure you have the following installed and set up.
 </p>
 <p>
-  Next, set a path entry for JAVA_HOME pointing to the root of the JDK folder that was created when you installed the Java JDK above. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set JAVA_HOME to be this path. After that add the JDK's bin directory to the PATH variable as well, following the previous assumption, this should be <code>C:\Program Files\Java\jdk7\bin</code>
+<em>NOTE: Whenever you make changes to the PATH, or any other environment variable, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.</em>
 </p>
 <p>
-  Cordova also requires the ANDROID_HOME entry to be set, this should point to the <code>[ANROID_SDK_DIR]\sdk\tools</code> directory.
+<strong>Java JDK</strong>
 </p>
 <p>
-Whenever you make changes to the PATH, or any other environment variable, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.
+Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java JDK</a> (NOT just the JRE).
 </p>
-</div>
+<p>
+Next, create an environment variable for <code>JAVA_HOME</code> pointing to the root folder where the Java JDK was installed. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set <code>JAVA_HOME</code> to be this path. After that, add the JDK's <code>bin</code> directory to the PATH variable as well. Following the previous assumption, this should be either <code>%JAVA_HOME%\bin</code> or the full path <code>C:\Program Files\Java\jdk7\bin</code>
+</p>
+<p>
+<strong>Apache Ant</strong>
+</p>
+<p>
+To install Ant, download a zip from <a href="http://ant.apache.org/bindownload.cgi">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to include the <code>bin</code> folder in that folder. For example, if you moved the Ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+</p>
+<p>
+<strong>Android SDK</strong>
+</p>
+<p>Installing the <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is also necessary. The Android SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Android.
+</p>
+<p>
+Cordova requires the ANDROID_HOME environment variable to be set. This should point to the <code>[ANDROID_SDK_DIR]\sdk</code> directory (for example <code>c:\android\sdk</code>).
+</p>
+<p>
+Next, update your PATH to include the <code>tools/</code> and <code>platform-tools/</code> folder in that folder. So, using ANDROID_HOME, you would add both <code>%ANDROID_HOME%\tools</code> and <code>%ANDROID_HOME%\platform-tools</code>.
+</p>
+</div> 
 
 ## Install Ionic
 

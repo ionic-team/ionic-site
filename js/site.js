@@ -230,6 +230,17 @@ var ionicSite = (function(){
         previewSection( '#' + firstSection[0].id, true );
       }
 
+      // manually add the activated CSS like how ionic does it
+      devicePreview.on('mousedown', function(e){
+        if(e.target.classList && e.target.classList.contains('button')) {
+          e.target.classList.add('activated');
+        }
+      });
+
+      devicePreview.on('mouseup', function(e){
+        devicePreview.find('.activated').removeClass('activated');
+      });
+
     }
   })();
 

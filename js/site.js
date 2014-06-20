@@ -206,6 +206,13 @@ var ionicSite = (function(){
         }
 
       }
+
+      var scrollGovernor;
+      function governScroll() {
+        clearTimeout(scrollGovernor);
+        scrollGovernor = setTimeout(onScroll, 15);
+      }
+
       $(window).resize(function(){
         devicePreview
             .removeClass("fixed-preview")
@@ -216,11 +223,6 @@ var ionicSite = (function(){
       });
       $(window).scroll(governScroll);
 
-      var scrollGovernor;
-      function governScroll() {
-        clearTimeout(scrollGovernor);
-        scrollGovernor = setTimeout(onScroll, 15);
-      }
       onScroll();
 
       var firstSection = docContent.find('.docs-section').first();

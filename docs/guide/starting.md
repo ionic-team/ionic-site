@@ -66,7 +66,7 @@ Now, if you run this code (more on testing in a bit), you wouldn't see anything!
 Let's fix that. First, we need to create a new AngularJS module and tell Angular to initialize it. Let's create a new file located at `www/js/app.js`. Put this code into the file:
 
 ```javascript
-angular.module('todo', ['ionic']);
+angular.module('todo', ['ionic'])
 ```
 
 This is the Angular way of creating an application, and we are telling angular to include the `ionic` module which includes all of the Ionic code which will process the tags above and make our app come to life.

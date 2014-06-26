@@ -1919,6 +1919,67 @@ search_sections: true
 
 
 
+<!-- Forms: Floating Labels
+  ================================================== -->
+<section class="docs-section" id="forms-floating-labels">
+
+  <h3 class="title"><a href="#forms-floating-labels">Text Input: Floating Labels</a></h3>
+
+  <p>
+  Floating labels are just like <a href="#forms-stacked-labels">Stacked Labels</a>,
+    except that they animate, or 'float', in when input is entered. Each item
+    should have <code>item-floating-label</code> assigned, and the input's
+    label should have <code>input-label</code> assigned.
+    This example also uses the <code>placeholder</code> attribute so
+    user's have a hint of what type of text the input is looking for.
+  </p>
+
+{% highlight html %}
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="Luis">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Suarez">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="chomper@auf.org.uy">
+  </label>
+</div>
+{% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header">
+      <div class="h1 title">Floating Labels</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="Luis">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Suarez">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="chomper@auf.org.uy">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-positive">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
 <!-- Inset Forms
   ================================================== -->
 <section class="docs-section" id="inset-forms">

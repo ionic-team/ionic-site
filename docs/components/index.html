@@ -7,13 +7,40 @@ news: Need icons? Check out <a href="http://ionicons.com/">Ionicons</a>, our cus
 search_sections: true
 ---
 
-<div class="device-preview ionic">
+<div class="device-preview ionic" ng-app="devicePreview">
   <div class="screen-bg"></div>
   <div class="default-screen ionic-body active-preview">
     <div class="content-wrapper">
       <div class="content padding has-header"></div>
     </div>
   </div>
+
+  <!-- floating label example -->
+  <div id="example-forms-floating-labels" class="ionic-body">
+    <div class="bar bar-header">
+      <div class="h1 title">Floating Labels</div>
+    </div>
+    <div class="content has-header">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="First Name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Last Name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="Email">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-positive">Create Account</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -1926,10 +1953,13 @@ search_sections: true
   <h3 class="title"><a href="#forms-floating-labels">Text Input: Floating Labels</a></h3>
 
   <p>
-  Floating labels are just like <a href="#forms-stacked-labels">Stacked Labels</a>,
-    except that they animate, or 'float', in when input is entered. Each item
-    should have <code>item-floating-label</code> assigned, and the input's
+    Floating labels are just like <a href="#forms-stacked-labels">Stacked Labels</a>,
+    except that their labels animate, or "float" up, in when text is entered in the input.
+    Each item should have <code>item-floating-label</code> assigned, and the input's
     label should have <code>input-label</code> assigned.
+  </p>
+  <p>
+    Enter text in the example to the right to see the floating labels in action.
     This example also uses the <code>placeholder</code> attribute so
     user's have a hint of what type of text the input is looking for.
   </p>
@@ -1938,43 +1968,20 @@ search_sections: true
 <div class="list">
   <label class="item item-input item-floating-label">
     <span class="input-label">First Name</span>
-    <input type="text" placeholder="Luis">
+    <input type="text" placeholder="First Name">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Suarez">
+    <input type="text" placeholder="Last Name">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Email</span>
-    <input type="text" placeholder="chomper@auf.org.uy">
+    <input type="text" placeholder="Email">
   </label>
 </div>
 {% endhighlight %}
 
-  <div class="doc-example ionic">
-    <div class="bar bar-header">
-      <div class="h1 title">Floating Labels</div>
-    </div>
-    <div class="content has-header">
-      <div class="list">
-        <label class="item item-input item-floating-label">
-          <span class="input-label">First Name</span>
-          <input type="text" placeholder="Luis">
-        </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Last Name</span>
-          <input type="text" placeholder="Suarez">
-        </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Email</span>
-          <input type="text" placeholder="chomper@auf.org.uy">
-        </label>
-      </div>
-      <div class="padding">
-        <button class="button button-block button-positive">Create Account</button>
-      </div>
-    </div>
-  </div>
+  <div class="doc-example ionic"><!-- example already in device-preview --></div>
 
 </section>
 

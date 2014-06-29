@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-when building AngularJS apps, it can be challenging to access data and services hidden deep in our application through the Javascript console in Chrome, Firefox, and IE. Here are some simple tricks we can use to inspect and control a running Angular app through the browser Javascript console, making it easy to test, modify, and even program our Angular app in real-time:
+When building AngularJS apps, it can be challenging to access data and services hidden deep in our application through the Javascript console in Chrome, Firefox, and IE. Here are some simple tricks we can use to inspect and control a running Angular app through the browser Javascript console, making it easy to test, modify, and even program our Angular app in real-time:
 
 ###1: Access Scopes
 

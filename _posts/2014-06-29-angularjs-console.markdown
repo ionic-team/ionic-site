@@ -34,14 +34,14 @@ Sometimes we need to see what the scopes look like on the page to effectively de
 
 ###3: Grab any Services
 
-We can grab a reference to any service using the `injector` function of the `jqLite` wrapped node where `ngApp` was defined (or grab the $rootElement manually if using angular's bootstrap method):
+We can grab a reference to any service using the `injector` function of element where `ngApp` was defined (or grab the $rootElement manually if using angular's bootstrap method):
 
 ```javascript
 > angular.element('html').injector().get('MyService')
 -> Object {undo: function, redo: function, _pushAction: function, newDocument: function, init: function…}
 ```
 
-We can then cal methods on that service just like we could if we injected it.
+We can then call methods on that service just like we could if we injected it.
 
 ###4: Access controller for directive
 

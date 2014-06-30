@@ -28,9 +28,12 @@ Or for isolated scopes:
 
 Where `targetNode` is a reference to an HTML Node. You can grab one easily using `document.querySelector()`.
 
+
 ###2: Inspect the Scope Tree
 
 Sometimes we need to see what the scopes look like on the page to effectively debug our app. The [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en) is a Chrome extension that shows the live scope hierarchy and has some other really helpful features.
+
+![Batarang Scopes](http://ionicframework.com.s3.amazonaws.com/blog/angular-batarang.png)
 
 ###3: Grab any Services
 
@@ -53,6 +56,16 @@ Some directives define a controller with certain additional (often shared) funct
 ```
 
 This last one is more advanced and not used as frequently.
+
+###5: Chrome Console Features
+
+Chrome has a ton of [nice shortcuts](https://developer.chrome.com/devtools/docs/commandline-api) for debugging browser applications from the console. Here are some of the best ones for Angular development:
+
+ * `$0` - `$4`: Access the last 5 DOM elements selected in the inspector window. This is convenient for grabbing scopes for selected elements: `angular.element($0).scope()`
+
+ * `$(selector)` and `$$(selector)`: A quick replacement for `querySelector()` and `querySelectorAll`, respectively.
+
+Thanks to [@zgohr](http://twitter.com/zgohr) for this tip!
 
 ###Conclusion
 

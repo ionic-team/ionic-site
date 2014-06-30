@@ -145,7 +145,7 @@ to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
 <h3 id="alternative-usage">Alternative Usage</h3>
 <p>Alternatively, you may put ion-nav-bar inside of each individual view&#39;s ion-view element.
 This will allow you to have the whole navbar, not just its contents, transition every view change.</p>
-<p>This is similar to using a header bar inside your ion-view, except it will has all the power of a navbar.</p>
+<p>This is similar to using a header bar inside your ion-view, except it will have all the power of a navbar.</p>
 <p>If you do this, simply put nav buttons inside the navbar itself; do not use <code>&lt;ion-nav-buttons&gt;</code>.</p>
 <pre><code class="lang-html">&lt;ion-view title=&quot;myTitle&quot;&gt;
   &lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;

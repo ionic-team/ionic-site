@@ -58,4 +58,4 @@ This last one is more advanced and not used as frequently.
 
 With a few simple tricks we can access the data for any scope on the page, inspect the scope hierarchy, inject services, and control directives.
 
-So the next time you want to make small tweaks, check your work, or control an AngularJS app from the console, I hope you'll remember this commands and find them as useful as I do!
+So the next time you want to make small tweaks, check your work, or control an AngularJS app from the console, I hope you'll remember these commands and find them as useful as I do!

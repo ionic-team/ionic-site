@@ -20,6 +20,8 @@ One crucial aspect of open source software development is the Pull Request. Pull
 
 The problem with pull requests is that their creation is unmanaged. Meaning PRs often end up with code styles and implementation details that don't fit with the standards or goals of the main project. Since every open source project relies on its community to improve the project through code contributions, enabling and encouraging pull requests is crucial.
 
+<!-- more -->
+
 Here are some steps to successfully creating pull requests that get merged in your favorite open source project:
 
 ###One commit, one change

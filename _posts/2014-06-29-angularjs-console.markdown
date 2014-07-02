@@ -28,6 +28,7 @@ Or for isolated scopes:
 
 Where `targetNode` is a reference to an HTML Node. You can grab one easily using `document.querySelector()`.
 
+<!-- more -->
 
 ###2: Inspect the Scope Tree
 

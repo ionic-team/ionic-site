@@ -92,7 +92,8 @@ will not align correctly.  This will be fixed soon.
   <code>string</code>
       </td>
       <td>
-        <p>Where to align the title.</p>
+        <p>Where to align the title. 
+Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
 
         
       </td>
@@ -112,7 +113,7 @@ will not align correctly.  This will be fixed soon.
         <p>By default, the header bar will scroll the
 content to the top when tapped.  Set no-tap-scroll to true to disable this 
 behavior.
-Avaialble: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
+Available: true or false.  Defaults to false.</p>
 
         
       </td>

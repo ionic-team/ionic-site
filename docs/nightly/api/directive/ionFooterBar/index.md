@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L45'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L46'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L45'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L46'>
     Improve this doc
   </a>
 </div>
@@ -93,7 +93,7 @@ will not align correctly.  This will be fixed soon.
       </td>
       <td>
         <p>Where to align the title.
-Avaialble: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
+Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
 
         
       </td>

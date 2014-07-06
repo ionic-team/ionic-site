@@ -308,6 +308,62 @@ side menus.</p>
 
 
 
+<div id="edgeDragThreshold"></div>
+<h2>
+  <code>edgeDragThreshold(value)</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>|<code>number</code>
+      </td>
+      <td>
+        <p>Set whether the content drag can only start if it is below a certain threshold distance from the edge of the screen. Accepts three different values:</p>
+<ul>
+<li>If a non-zero number is given, that many pixels is used as the maximum allowed distance from the edge that starts dragging the side menu.</li>
+<li>If true is given, the default number of pixels (25) is used as the maximum allowed distance.</li>
+<li>If false or 0 is given, the edge drag threshold is disabled, and dragging from anywhere on the content is allowed.</li>
+</ul>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether the drag can start only from within the edge of screen threshold.
+
+
+
+
 <div id="$getByHandle"></div>
 <h2>
   <code>$getByHandle(handle)</code>

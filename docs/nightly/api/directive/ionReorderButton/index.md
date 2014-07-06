@@ -55,7 +55,7 @@ docType: "directive"
 ```html
 <ion-list ng-controller="MyCtrl">
   <ion-item ng-repeat="item in items">
-    Item {{$index}}
+    Item {{item}}
     <ion-reorder-button class="ion-navicon"
                         on-reorder="moveItem(item, $fromIndex, $toIndex)">
     </ion-reorder>

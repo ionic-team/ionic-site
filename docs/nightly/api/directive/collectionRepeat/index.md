@@ -50,19 +50,19 @@ scroll position.
 Here are a few things to keep in mind while using collection-repeat:
 
 1. The data supplied to collection-repeat must be an array.
-2. You must explicitly tell the directive what size your items will be in the DOM, using directive attributes. 
+2. You must explicitly tell the directive what size your items will be in the DOM, using directive attributes.
 Pixel amounts or percentages are allowed (see below).
 3. The elements rendered will be absolutely positioned: be sure to let your CSS work with
 this (see below).
 4. Keep the HTML of your repeated elements as simple as possible.
-The more complicated your elements, the more likely it is that the on-demand compilation will cause 
+The more complicated your elements, the more likely it is that the on-demand compilation will cause
 some jerkiness in the user's scrolling.
 6. Each collection-repeat list will take up all of its parent scrollView's space.
 If you wish to have multiple lists on one page, put each list within its own
 <a href="/docs/nightly/api/directive/ionScroll/">ionScroll</a> container.
 7. You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that
 have a collection-repeat inside.  ng-show and ng-hide apply the `display: none` css rule to the content's
-style, causing the scrollView to read the width and height of the content as 0.  Resultingly, 
+style, causing the scrollView to read the width and height of the content as 0.  Resultingly,
 collection-repeat will render elements that have just been un-hidden incorrectly.
 
 
@@ -127,7 +127,7 @@ function ContentCtrl($scope) {
   </div>
 </ion-content>
 ```
-Percentage of total visible list dimensions. This example shows a 3 by 3 matrix that fits on the screen (3 rows and 3 colums). Note that dimensions are used in the creation of the element and therefore a measurement of the item cannnot be used as an input dimension. 
+Percentage of total visible list dimensions. This example shows a 3 by 3 matrix that fits on the screen (3 rows and 3 colums). Note that dimensions are used in the creation of the element and therefore a measurement of the item cannnot be used as an input dimension.
 ```css
 .my-image-item img {
   height: 33%;

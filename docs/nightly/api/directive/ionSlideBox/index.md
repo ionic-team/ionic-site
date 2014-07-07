@@ -110,7 +110,24 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether the slide box should automatically slide.</p>
+        <p>Whether the slide box should loop.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        auto-play
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether the slide box should automatically slide. Default true if does-continue is true.</p>
 
         
       </td>

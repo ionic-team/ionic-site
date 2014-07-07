@@ -1,0 +1,41 @@
+
+#creator-bg {
+  height: 100%;
+  width: 100%;
+  background: url('/creator/bg-blurred.jpg') no-repeat transparent;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#creator-preview {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -506px;
+  width: 1011px;
+  height: 456px;
+}
+
+#creator-cta {
+  text-align: center;
+
+}
+#creator-cta h1 {
+  color: #eee;
+  font-size: 40px;
+}
+#creator-cta p {
+  color: #eee;
+  font-size: 20px;
+  font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#creator-logo {
+  background: url('/creator/ionic-creator-logo.png') no-repeat transparent;
+  width: 122px;
+  height: 122px;
+  margin: 50px auto;
+}

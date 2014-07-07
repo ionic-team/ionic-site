@@ -1,27 +1,36 @@
 ---
-layout: full
+layout: creator
 title: "Ionic Creator"
-body_css: "products-page products white-nav-bar"
+body_css: ""
 header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Ionic Framework">
 ---
 
-<h1>
-  Build amazing apps with the flick of a mouse.
-</h1>
+<div id="creator-logo"></div>
 
-<p>
- Coming July 2014: The Ionic Creator - a simple drag-and-drop tool for building Ionic apps.
-</p>
+<div id="creator-cta">
+  <h1>
+   Coming soon, an easy way to build Ionic apps
+  </h1>
 
+  <p>
+    Sign up below for early access to the <b>creator</b> beta.
+  </p>
+</div>
 
 <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
-  <div class="input-container">
-    <input autofocus type="text" id="email"
-      name="cm-jytylh-jytylh"
-      required maxlength="50"
-      placeholder="name@email.com">
-    <label for="title">Email address</label>
-    <button type="submit" class="btn btn-primary pull-right">Sign up</button>
+  <div class="row">
+    <div class="input-group col-md-6 col-md-offset-3">
+      <input autofocus type="text" id="email"
+        name="cm-jytylh-jytylh"
+        required maxlength="50"
+        placeholder="name@email.com"
+        class="form-control">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      </span>
+    </div>
+    <input type="hidden" name="cm-f-wihtt" value="creator">
   </div>
-  <input type="hidden" name="cm-f-wihtt" value="creator">
 </form>
+
+<img src="/creator/creator-preview.png" alt="Preview" id="creator-preview">

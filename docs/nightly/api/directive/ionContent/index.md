@@ -79,7 +79,8 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
     [scrollbar-y=""]
     [start-y=""]
     [on-scroll=""]
-    [on-scroll-complete=""]>
+    [on-scroll-complete=""]
+    [has-bouncing=""]>
   ...
   </ion-content>
   ```
@@ -283,6 +284,24 @@ of the content.  Defaults to true on iOS, false on Android.</p>
       </td>
       <td>
         <p>Expression to evaluate when a scroll action completes.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        has-bouncing
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to allow scrolling to bounce past the edges
+of the content.  Defaults to true on iOS, false on Android.</p>
 
         
       </td>

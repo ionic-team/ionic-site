@@ -132,12 +132,15 @@ happens.</p>
 
 
 
+* Returns: 
+  <code>ionic.Gesture</code> The gesture object (use this to remove the gesture later on).
+
 
 
 
 <div id="off"></div>
 <h2>
-  <code>off(eventType, callback, $element)</code>
+  <code>off(gesture, eventType, callback)</code>
 
 </h2>
 
@@ -154,6 +157,23 @@ Remove an event listener for a gesture on an element. See <a href="/docs/nightly
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>
+        gesture
+        
+        
+      </td>
+      <td>
+        
+  <code>ionic.Gesture</code>
+      </td>
+      <td>
+        <p>The gesture that should be removed.</p>
+
+        
+      </td>
+    </tr>
     
     <tr>
       <td>
@@ -184,23 +204,6 @@ Remove an event listener for a gesture on an element. See <a href="/docs/nightly
       </td>
       <td>
         <p>The listener to remove.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        $element
-        
-        
-      </td>
-      <td>
-        
-  <code>element</code>
-      </td>
-      <td>
-        <p>The angular element that was listening for the event.</p>
 
         
       </td>

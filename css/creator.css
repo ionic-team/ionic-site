@@ -129,7 +129,7 @@
 #creator-icon-drag {
   background: url('/creator/drag-icon.png') no-repeat transparent;
   width: 36px;
-  height: 36px;
+  height: 43px;
   background-size: 100%;
 }
 #creator-icon-templates {
@@ -147,18 +147,51 @@
 
 #creator-perks-title {
   text-align: center;
-  padding: 50px 0;
+  padding: 50px 0 70px 0;
 }
 #creator-perks-title h1 {
   text-transform: uppercase;
   color: #333947;
   font-size: 36px;
   font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 6px
+  letter-spacing: 6px;
+  margin-bottom: 0px;
+}
+
+#creator-perks-title p {
+  color: #5c6579;
+  font-size: 16px;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+.perks-strong-text {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.point-text {
+  width: 330px;
+  color: #5c6579;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 #creator-footer {
-  padding: 40px 0;
+  margin-top: 80px;
+  padding: 30px 0;
   background-color: #f0f1f5;
   text-align: center;
 }
@@ -170,9 +203,20 @@
   height: 40px;
 }
 #creator-footer-logo-link {
-  margin: 20px auto;
+  margin: 0px auto 20px;
   width: 150px;
   height: 40px;
   display: block;
   opacity: 1;
 }
+
+#creator-footer p {
+  color: #5c6579;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+
+
+

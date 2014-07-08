@@ -6,6 +6,7 @@ hide_date: false
 categories: ionic
 author: '<img src="https://avatars2.githubusercontent.com/u/398230?s=140" class="author-icon"><a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a>'
 published: true
+author_twitter: jdorfman
 ---
 
 *This is a guest post by [Justin Dorfman](http://twitter.com/jdorfman), Director of Developer Relations at [MaxCDN](http://www.maxcdn.com).*

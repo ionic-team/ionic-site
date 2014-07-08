@@ -5,6 +5,7 @@
   background: url('/creator/bg-blurred.jpg') no-repeat transparent;
   background-size: cover;
   padding-top: 50px;
+  position: relative;
 }
 
 #creator-preview {
@@ -12,6 +13,10 @@
   margin: auto;
   width: 1010px;
   height: 456px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -505px;
 }
 
 #creator-cta {
@@ -114,4 +119,24 @@
 }
 #creator-perks-title h1 {
   text-transform: uppercase;
+}
+
+#creator-footer {
+  padding: 40px 0;
+  background-color: #eee;
+  text-align: center;
+}
+
+#creator-footer-logo {
+  background: url('/creator/drifty-footer.png') no-repeat transparent;
+  background-size: 100%;
+  width: 150px;
+  height: 40px;
+}
+#creator-footer-logo-link {
+  margin: 20px auto;
+  width: 150px;
+  height: 40px;
+  display: block;
+  opacity: 1;
 }

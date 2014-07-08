@@ -24,13 +24,15 @@
 
 }
 #creator-cta h1 {
-  color: #eee;
-  font-size: 40px;
-  margin-bottom: 10px;
+  color: #F4F8FF;
+  font-size: 44px;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  font-weight: normal;
 }
 #creator-cta p {
-  color: #eee;
-  font-size: 20px;
+  color: #F4F8FF;
+  font-size: 28px;
   font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

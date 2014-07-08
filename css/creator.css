@@ -52,8 +52,9 @@
 
 #creator-form {
   margin: 40px auto;
-  max-width: 1000px;
+  max-width: 500px;
 }
+
 #creator-form input {
   /* Sets the height */
   height: 60px;
@@ -223,6 +224,9 @@ h3 {
   font-size: 12px;
 }
 
-
-
-
+#creator-success-wrapper {
+  text-align: center;
+}
+#creator-success-wrapper h3 {
+  color: #fff;
+}

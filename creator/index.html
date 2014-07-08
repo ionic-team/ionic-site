@@ -20,8 +20,24 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
   </div>
 
   <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
-    <div class="row">
-      <div class="input-group col-md-6 col-md-offset-3">
+    <div id="creator-success-wrapper" style="display: none">
+      <h3>Thanks for signing up! Help us spread the word:</h3>
+      <a href="https://twitter.com/share" data-size="large" class="twitter-share-button" data-text="Build amazing hybrid apps with a few drags of the mouse. Sign up for the Ionic Creator Beta!" data-url="http://ionicframework.com/creator" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <!-- Place this tag where you want the share button to render. -->
+<div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+
+<!-- Place this tag after the last share tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+    </div>
+    <div class="row" id="creator-signup-wrapper">
+      <div class="input-group">
+        <div id="creator-form-error" style="display: none; color: #f00"></div>
         <input autofocus type="text" id="email"
           name="cm-jytylh-jytylh"
           required maxlength="50"
@@ -81,3 +97,35 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
   </a>
   <p>Built with brains by the people at <a href="http://drifty.com/">Drifty</a>, creators of <a href="http://ionicframework.com/">Ionic</a>. &copy; 2014 Drifty Co.</p>
 </div>
+
+<script>
+  function showError(message) {
+    $('#creator-form-error').text(message);
+    $('#creator-form-error').show();
+  }
+
+  function successfulSignup(message) {
+    $('#creator-signup-wrapper').fadeOut(300, function() {
+      $('#creator-success-wrapper').fadeIn(300);
+    });
+  }
+
+  $(function () {
+    $('#creator-form').submit(function (e) {
+      $('#creator-form-error').hide();
+        e.preventDefault();
+        $.getJSON(
+        this.action + "?callback=?",
+        $(this).serialize(),
+        function (data) {
+          if (data.Status === 400) {
+            showError(data.Message);
+              //alert("Error: " + data.Message);
+          } else { // 200
+            successfulSignup(data.Message);
+            //alert("Success: " + data.Message);
+          }
+        });
+    });
+  });
+</script>

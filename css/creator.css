@@ -189,6 +189,12 @@ h3 {
   line-height: 20px;
 }
 
+.point-strong-text {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
 #creator-footer {
   margin-top: 80px;
   padding: 30px 0;

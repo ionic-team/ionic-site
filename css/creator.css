@@ -31,46 +31,56 @@
   font-weight: normal;
 }
 #creator-cta p {
-  color: #F4F8FF;
+  color: #c4daff;
   font-size: 28px;
   font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.creator-mention {
+  color: #ebf3ff;
+  font-weight: bold;
 }
 
 #creator-logo {
   background: url('/creator/ionic-creator-logo.png') no-repeat transparent;
   width: 61px;
   height: 61px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto 40px auto;
   background-size: 100%;
 }
 
 #creator-form {
-  margin: 40px 0;
+  margin: 40px auto;
+  max-width: 1000px;
 }
 #creator-form input {
   /* Sets the height */
-  height: 50px;
-
-  border: 1px solid #66afe9;
-
-  font-size: 24px;
-  padding: 10px;
-  font-weight: normal;
-  background-color: rgba(255,255,255,0.1);
+  height: 60px;
+  border: none;
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.02em;
   color: #fff;
   border-radius: 0;
+  box-shadow: none;
 }
 #creator-form .btn {
   /* Sets the height */
+  height: 60px;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f74e6e;
+  font-size: 20px;
+  text-transform: uppercase;
   line-height: 36px;
-
   border-radius: 0;
-
   background-color: white;
   background-image: none;
-  color: red;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 4px;
+  padding: 0 20px;
 }
 
 #creator-form input::placeholder {

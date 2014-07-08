@@ -1,21 +1,16 @@
 
 #creator-bg {
-  height: 100%;
   width: 100%;
+  height: 850px;
   background: url('/creator/bg-blurred.jpg') no-repeat transparent;
   background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  padding-top: 50px;
 }
 
 #creator-preview {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  margin-left: -506px;
-  width: 1011px;
+  display: block;
+  margin: auto;
+  width: 1010px;
   height: 456px;
 }
 
@@ -26,6 +21,7 @@
 #creator-cta h1 {
   color: #eee;
   font-size: 40px;
+  margin-bottom: 10px;
 }
 #creator-cta p {
   color: #eee;
@@ -35,9 +31,10 @@
 
 #creator-logo {
   background: url('/creator/ionic-creator-logo.png') no-repeat transparent;
-  width: 122px;
-  height: 122px;
-  margin: 50px auto;
+  width: 61px;
+  height: 61px;
+  margin: 0 auto 50px auto;
+  background-size: 100%;
 }
 
 #creator-form {
@@ -90,4 +87,31 @@
 #creator-form input:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+#creator-icon-drag {
+  background: url('/creator/drag-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 36px;
+  background-size: 100%;
+}
+#creator-icon-templates {
+  background: url('/creator/templates-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 43px;
+  background-size: 100%;
+}
+#creator-icon-export {
+  background: url('/creator/export-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 43px;
+  background-size: 100%;
+}
+
+#creator-perks-title {
+  text-align: center;
+  padding: 50px 0;
+}
+#creator-perks-title h1 {
+  text-transform: uppercase;
 }

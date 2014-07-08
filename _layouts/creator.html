@@ -9,14 +9,11 @@
   </head>
 
   <body class="full-page {{page.body_css}} no-js">
-    <div id="creator-bg"></div>
   <!--<img src="/creator/bg-blurred.jpg" id="creator-bg-image">-->
     <script>document.body.classList.remove('no-js');</script>
 
+    {{ content }}
 
-    <div class="container content-container">
-      {{ content }}
-    </div>
 
     {% include base_scripts.html %}
 

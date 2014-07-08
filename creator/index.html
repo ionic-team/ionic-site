@@ -6,32 +6,71 @@ body_css: ""
 header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Ionic Framework">
 ---
 
-<div id="creator-logo"></div>
+<div id="creator-bg">
+  <div id="creator-logo"></div>
 
-<div id="creator-cta">
-  <h1>
-   Coming soon, an easy way to build Ionic apps
-  </h1>
+  <div id="creator-cta">
+    <h1>
+     Coming soon, an easy way to build Ionic apps
+    </h1>
 
-  <p>
-    Sign up below for early access to the <b>creator</b> beta.
-  </p>
+    <p>
+      Sign up below for early access to the <b>creator</b> beta.
+    </p>
+  </div>
+
+  <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
+    <div class="row">
+      <div class="input-group col-md-6 col-md-offset-3">
+        <input autofocus type="text" id="email"
+          name="cm-jytylh-jytylh"
+          required maxlength="50"
+          placeholder="name@email.com"
+          class="form-control">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-primary">Join</button>
+        </span>
+      </div>
+      <input type="hidden" name="cm-f-wihtt" value="creator">
+    </div>
+  </form>
+
+  <img src="/creator/creator-preview.png" alt="Preview" id="creator-preview">
+
 </div>
 
-<form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
-  <div class="row">
-    <div class="input-group col-md-6 col-md-offset-3">
-      <input autofocus type="text" id="email"
-        name="cm-jytylh-jytylh"
-        required maxlength="50"
-        placeholder="name@email.com"
-        class="form-control">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary">Sign up</button>
-      </span>
-    </div>
-    <input type="hidden" name="cm-f-wihtt" value="creator">
+<div id="creator-perks" class="container content-container">
+  <div id="creator-perks-title">
+    <h1>Visualize your app</h1>
+    <h4><b>Ionic Creator</b>  lets you rapidly mockup and prototype a real mobile app in minutes. <b>Best of all, it's totally free.</b></h4>
   </div>
-</form>
-
-<img src="/creator/creator-preview.png" alt="Preview" id="creator-preview">
+  <div class="row">
+    <div class="col-sm-4">
+      <div id="creator-icon-drag"></div>
+      <h3>Drag &amp; Drop Simplicity</h3>
+      <p>
+      Click, move, and place components onto your screen with our easy drag &amp; drop technology.
+      Choose from a vast library of official <a href="http://ionicframework.com/docs/components/">Ionic</a>-powered components
+      to build your app with ease.
+      </p>
+    </div>
+    <div class="col-sm-4">
+      <div id="creator-icon-templates"></div>
+      <h3>Pre-made Templates</h3>
+      <p>
+        In a hurry? Start with one of <b>Creator's</b> several pre-built templates to
+        kickstart your app's design. Then customize it to your liking and get on with your
+        life.
+      </p>
+    </div>
+    <div class="col-sm-4">
+      <div id="creator-icon-export"></div>
+      <h3>Clean Code Exporting</h3>
+      <p>
+        When you're done with your design, export a ready-to-go Cordova project
+        complete with Ionic, AngularJS, and some starting code. It's the fastest
+        way to get started building your app!
+      </p>
+    </div>
+  </div>
+</div>

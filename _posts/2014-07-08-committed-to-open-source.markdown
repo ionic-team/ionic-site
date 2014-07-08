@@ -15,6 +15,8 @@ If you've ever been to [code.ionicframework.com](http://code.ionicframework.com)
 
 With that said, I strongly believe that companies that build businesses on open source software (or hardware) have a duty to give back to the community.  I have heard some say "We are a scrappy startup and we can't dedicate resources to contributing back to Open Source". I think that is bull shit.
 
+<!-- more -->
+
 Giving back to Open Source is not a full time job.  Also writing code is not the only way of giving back.  For example, lets say your company uses WordPress as their CMS/Blog.  Why not sponsor a local [WordCamp](http://central.wordcamp.org/)?  It isn't a lot of money ($100-300) and you get great benefits like having your logo and link on the website.  Most importantly you are supporting the Open Source Community.  
 
 

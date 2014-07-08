@@ -10,6 +10,8 @@ published: true
 
 When building AngularJS apps, it can be challenging to access data and services hidden deep in our application through the Javascript console in Chrome, Firefox, and IE. Here are some simple tricks we can use to inspect and control a running Angular app through the browser Javascript console, making it easy to test, modify, and even program our Angular app in real-time:
 
+<!-- more -->
+
 ###1: Access Scopes
 
 We can access any scope (even isolated ones!) on the page with a simple JS one-liner:
@@ -27,8 +29,6 @@ Or for isolated scopes:
 ```
 
 Where `targetNode` is a reference to an HTML Node. You can grab one easily using `document.querySelector()`.
-
-<!-- more -->
 
 ###2: Inspect the Scope Tree
 

@@ -45,21 +45,5 @@
       loadChartbeat : function() { oldonload(); loadChartbeat(); };
   })();
 </script>
-<script>
-jQuery.fn.resizeWidthMaintainRatio = function(newHeight){
-  var aspectRatio = $(this).data('aspectRatio');
-  if (aspectRatio == undefined) {
-      aspectRatio = $(this).width() / $(this).height();
-      $(this).data('aspectRatio', aspectRatio);
-  }
-  $(this).width(newHeight); 
-  $(this).height(parseInt(newHeight * aspectRatio));
-}
-
-var img = $('#creator-bg-image');
-$(window).resize(function() {
-  $(img).resizeHeightMaintainRatio($(window).height());
-});
-</script>
   </body>
 </html>

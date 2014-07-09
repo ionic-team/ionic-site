@@ -7,18 +7,41 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
 ---
 
 <div id="creator-bg">
-  <div id="creator-logo"></div>
-
-  <div id="creator-cta">
-    <h1>
-     Coming soon, an easy way to build Ionic apps
-    </h1>
-
-    <p>
-      Sign up below for early access to the <span class="creator-mention">Creator</span> beta.
-    </p>
+  
+  <div class="animated fadeIn">
+    <div id="creator-logo"></div>
   </div>
 
+  <div class="animated fadeInDown">
+    <div id="creator-cta">
+      <h1>
+       Coming soon, an easy way to build Ionic apps
+      </h1>
+
+      <p>
+        Sign up below for early access to the <span class="creator-mention">Creator</span> beta.
+      </p>
+    </div>
+  </div>
+
+<<<<<<< HEAD
+  <div class="animated pulse">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
+      <div id="creator-success-wrapper" style="display: none">
+        <h3>Thanks for signing up! Help us spread the word:</h3>
+        <a href="https://twitter.com/share" data-size="large" class="twitter-share-button" data-text="Build amazing hybrid apps with a few drags of the mouse. Sign up for the Ionic Creator Beta!" data-url="http://ionicframework.com/creator" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+        <!-- Place this tag where you want the share button to render. -->
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+
+  <!-- Place this tag after the last share tag. -->
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/platform.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+=======
   <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
     <div id="creator-success-wrapper">
       <h3>Thanks for signing up! Help us spread the word:</h3>
@@ -56,10 +79,24 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
         <span class="input-group-btn">
           <button type="submit" class="btn btn-primary">Join</button>
         </span>
+>>>>>>> FETCH_HEAD
       </div>
-      <input type="hidden" name="cm-f-wihtt" value="creator">
-    </div>
-  </form>
+      <div class="row" id="creator-signup-wrapper">
+        <div class="input-group">
+          <div id="creator-form-error" style="display: none; color: #f00"></div>
+          <input autofocus type="text" id="email"
+            name="cm-jytylh-jytylh"
+            required maxlength="50"
+            placeholder="name@email.com"
+            class="form-control">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Join</button>
+          </span>
+        </div>
+        <input type="hidden" name="cm-f-wihtt" value="creator">
+      </div>
+    </form>
+  </div>
 
   <img src="/creator/creator-preview.png" alt="Preview" id="creator-preview">
 

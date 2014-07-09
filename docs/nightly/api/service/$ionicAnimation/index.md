@@ -49,7 +49,7 @@ A powerful animation and transition system for Ionic apps.
 ```js
 angular.module('mySuperApp', ['ionic'])
 .controller(function($scope, $ionicAnimation) {
-   var anim = $ionicAnimate({
+   var anim = $ionicAnimation({
     // A unique, reusable name
     name: 'popIn',
 

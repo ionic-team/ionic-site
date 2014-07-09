@@ -20,20 +20,30 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
   </div>
 
   <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" id="creator-form">
-    <div id="creator-success-wrapper" style="display: none">
+    <div id="creator-success-wrapper">
       <h3>Thanks for signing up! Help us spread the word:</h3>
-      <a href="https://twitter.com/share" data-size="large" class="twitter-share-button" data-text="Build amazing hybrid apps with a few drags of the mouse. Sign up for the Ionic Creator Beta!" data-url="http://ionicframework.com/creator" data-via="ionicframework" data-related="ionicframework">Tweet</a>
-      <!-- Place this tag where you want the share button to render. -->
-<div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+      <div class="buttons">
+        <a href="https://twitter.com/share" data-size="large" data-count="none" class="twitter-share-button" data-text="Build amazing hybrid apps with a few drags of the mouse. Sign up for the Ionic Creator Beta!" data-url="http://ionicframework.com/creator" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+        <!-- Place this tag where you want the share button to render. -->
+        <div class="g-plus" data-action="share" data-annotation="none" data-height="30"></div>
+      </div>
 
-<!-- Place this tag after the last share tag. -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
+      <div class="follow-buttons">
+        <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-show-count="true" data-size="large">Follow @ionicframework</a>
+
+        <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true&size=large"
+        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+
+        <!-- Place this tag after the last share tag. -->
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+      </div>
     </div>
     <div class="row" id="creator-signup-wrapper">
       <div class="input-group">
@@ -106,7 +116,7 @@ header_logo: <img src="/img/ionic-logo-blue.svg" width="123" height="43" alt="Io
 
   function successfulSignup(message) {
     $('#creator-signup-wrapper').fadeOut(300, function() {
-      $('#creator-success-wrapper').fadeIn(300);
+      $('#creator-success-wrapper').css('visibility', 'visible').hide().fadeIn(300);
     });
   }
 

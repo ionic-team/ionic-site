@@ -52,7 +52,7 @@
 
 #creator-form {
   margin: 40px auto;
-  max-width: 500px;
+  max-width: 800px;
 }
 
 #creator-form input {
@@ -224,9 +224,37 @@ h3 {
   font-size: 12px;
 }
 
+#creator-form {
+  position: relative;
+}
 #creator-success-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+}
+#creator-success-wrapper .buttons {
+  line-height: 40px;
+}
+#creator-success-wrapper .follow-buttons {
+  margin-top: 15px;
+}
+#creator-success-wrapper #___plus_0 {
+  vertical-align: middle !important;
+  margin-bottom: -2px !important;
+  margin-left: 15px !important;
+}
+#creator-success-wrapper #___plus_0 iframe {
+  visibility: inherit;
+}
+#creator-success-wrapper iframe {
+  vertical-align: middle;
 }
 #creator-success-wrapper h3 {
   color: #fff;
+  margin-top: -20px;
 }

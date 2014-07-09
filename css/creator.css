@@ -182,7 +182,7 @@ h3 {
 }
 
 .point-text {
-  width: 330px;
+  max-width: 330px;
   color: #5c6579;
   font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -257,4 +257,41 @@ h3 {
 #creator-success-wrapper h3 {
   color: #fff;
   margin-top: -20px;
+}
+
+@media only screen and (max-width : 768px) {
+  #creator-cta h1 {
+    font-size: 25px;
+  }
+  #creator-signup-wrapper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  #creator-cta p {
+    font-size: 18px;
+  }
+  #creator-bg {
+    height: 800px;
+  }
+}
+@media only screen and (max-width : 400px) {
+  #creator-logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  #creator-form input {
+    font-size: 16px;
+  }
+  #creator-form .btn {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  #creator-preview {
+    width: 320px;
+    height: auto;
+    margin-left: -160px;
+  }
+  #creator-bg {
+    height: 515px;
+  }
 }

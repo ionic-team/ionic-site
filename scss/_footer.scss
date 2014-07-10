@@ -28,12 +28,17 @@
     font-size: 0.9em;
   }
 
+  .base-links dl:first-child {
+    padding-left: 0;
+  }
+
   .small-break {
     clear: both;
   }
 
   @media (min-width: 768px) {
     .base-links dl {
+      padding-left: 0;
       width: 20%;
       font-size: 1em;
     }
@@ -45,19 +50,22 @@
   .base-links {
     margin: 0 auto;
     padding: 0 10px;
-    max-width: 900px;
+    max-width: 915px;
   }
 
   .base-links dt,
   .newsletter-text  {
     margin: 0;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     color: #e2eeff;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 13px;
     font-family: $font-family-medium;
+  }
+  .newsletter-text {
+    padding-bottom: 4px;
   }
 
   .base-links dd {
@@ -111,7 +119,7 @@
   .newsletter {
     clear: both;
     margin: 0 auto 30px;
-    max-width: 870px;
+    max-width: 900px;
     border-top: 1px solid #555f6e;
   }
 

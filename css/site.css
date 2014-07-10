@@ -12443,10 +12443,13 @@ a {
     width: 33%;
     text-align: left;
     font-size: 0.9em; }
+  .footer .base-links dl:first-child {
+    padding-left: 0; }
   .footer .small-break {
     clear: both; }
   @media (min-width: 768px) {
     .footer .base-links dl {
+      padding-left: 0;
       width: 20%;
       font-size: 1em; }
     .footer .small-break {
@@ -12454,16 +12457,18 @@ a {
   .footer .base-links {
     margin: 0 auto;
     padding: 0 10px;
-    max-width: 900px; }
+    max-width: 915px; }
   .footer .base-links dt, .footer .newsletter-text {
     margin: 0;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     color: #e2eeff;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 13px;
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .footer .newsletter-text {
+    padding-bottom: 4px; }
   .footer .base-links dd {
     margin: 5px 0;
     font-size: 13px; }
@@ -12497,7 +12502,7 @@ a {
   .footer .newsletter {
     clear: both;
     margin: 0 auto 30px;
-    max-width: 870px;
+    max-width: 900px;
     border-top: 1px solid #555f6e; }
   .footer .newsletter-container {
     margin-top: 30px;

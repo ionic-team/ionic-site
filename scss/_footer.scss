@@ -2,7 +2,7 @@
 .footer {
   position: relative;
   z-index: 100;
-  padding: 40px 10px 40px;
+  padding: 20px 0 0 0;
   background: #2b3442;
   color: #a4b3cd;
   text-align: center;
@@ -19,40 +19,129 @@
     }
   }
 
-  .authors {
+  .base-links dl {
+    float: left;
+    margin: 0;
+    padding: 15px 5px 20px 5px;
+    width: 33%;
+    text-align: left;
+    font-size: 0.9em;
+  }
+
+  .small-break {
     clear: both;
+  }
+
+  @media (min-width: 768px) {
+    .base-links dl {
+      width: 20%;
+      font-size: 1em;
+    }
+    .small-break {
+      clear: none;
+    }
+  }
+
+  .base-links {
     margin: 0 auto;
-    padding: 30px 10px 10px 10px;
+    padding: 0 10px;
     max-width: 900px;
-    border-top: 1px solid #414955;
-    line-height: 20px;
+  }
+
+  .base-links dt,
+  .newsletter-text  {
+    margin: 0;
+    padding-bottom: 5px;
+    color: #e2eeff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: $font-family-medium;
+  }
+
+  .base-links dd {
+    margin: 5px 0;
+    font-size: 13px;
   }
 
   .base-links a {
-    display: inline-block;
-    padding: 3px 9px;
+    display: block;
+    padding: 5px 0;
+    color: #a4b3cd;
+
+    &:hover {
+      color: #dde9ff;
+      text-decoration: none;
+    }
+  }
+
+  .copy {
+    padding: 18px;
+    background: #202532;
+  }
+
+  .copy-container {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  @media (min-width: 630px) {
+    .copy-container {
+      background: url(/img/drifty-footer-logo.png) no-repeat 0 1px;
+      background-size: 128px 32px;
+    }
+  }
+
+  .authors {
+    margin: 0;
+    padding: 10px;
+    color: #858f9e;
+    text-align: right;
+    font-size: 13px;
+
+    a {
+      color: #a3aec0;
+    }
+    span {
+      padding: 0 15px;
+    }
   }
 
   .newsletter {
+    clear: both;
     margin: 0 auto 30px;
-    max-width: 900px;
-    
+    max-width: 870px;
+    border-top: 1px solid #555f6e;
+  }
+
+  .newsletter-container {
+    margin-top: 30px;
     text-align: left;
 
-    .newsletter-text {
-      color: #e2eeff;
-    }
 
     .sign-up {
+      padding-bottom: 10px;
+      color: #a4b3cd;
       font-size: 13px;
     }
 
     .col-sm-7 {
-      padding-left: 0;
+      padding-left: 15px;
     }
 
     .col-sm-5 {
-      padding-right: 0;
+      padding-right: 15px;
+    }
+
+    @media (min-width: 900px) {
+      .col-sm-7 {
+        padding-left: 0;
+      }
+
+      .col-sm-5 {
+        padding-right: 0;
+      }
     }
 
     input {
@@ -61,17 +150,17 @@
       color: white;
 
       &:focus {
+        background: #51627E;
         -webkit-box-shadow: none;
         box-shadow: none;
-        background: #51627E;
         box-shadow: inset 0px 0px 0px 1px #4E8EF7;
       }
 
       &::-webkit-input-placeholder {
         color: #8e9fb8;
       }
-      &::-moz-placeholder { 
-        color: #8e9fb8;  
+      &::-moz-placeholder {
+        color: #8e9fb8;
       }
     }
     button {
@@ -79,8 +168,8 @@
       padding-left: 15px;
       border: 1px solid #4e8ef7;
       background: #4e8ef7;
-      color: white;
       box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
+      color: white;
 
       &:hover {
         background: #5998FF;
@@ -90,8 +179,8 @@
       &:active {
         border: 1px solid #3E75CE;
         background: #4683E7;
-        color: #B1C4E4;
         box-shadow: none;
+        color: #B1C4E4;
       }
     }
 
@@ -103,7 +192,12 @@
   position: relative;
   z-index: 100;
   padding: 40px;
-  background: #F7F7F7;
+  background: #EBF0F6;
+
+  h4 {
+    color: #363b43;
+    font-family: $font-family-medium;
+  }
 
   .row {
     margin: 0 auto;
@@ -111,11 +205,14 @@
   }
   p {
     color: #999;
+    color: #737e90;
+    font-size: 14px;
+    font-family: $font-family-regular;
     line-height: 28px;
   }
   a:hover {
-    text-decoration: none;
     color: #4E8EF7;
+    text-decoration: none;
   }
   span {
     padding-left: 5px;

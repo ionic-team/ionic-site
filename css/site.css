@@ -4772,7 +4772,7 @@ h1 + h2 + p {
     color: #e2eeff;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 4px;
     font-size: 20px;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .pre-footer.footer-social .spread-word {
@@ -12457,7 +12457,7 @@ a {
   .footer .base-links {
     margin: 0 auto;
     padding: 0 10px;
-    max-width: 915px; }
+    max-width: 1170px; }
   .footer .base-links dt, .footer .newsletter-text {
     margin: 0;
     padding-bottom: 10px;
@@ -12484,7 +12484,7 @@ a {
     background: #202532; }
   .footer .copy-container {
     margin: 0 auto;
-    max-width: 900px; }
+    max-width: 1170px; }
   @media (min-width: 630px) {
     .footer .copy-container {
       background: url(/img/drifty-footer-logo.png) no-repeat 0 1px;
@@ -12502,7 +12502,7 @@ a {
   .footer .newsletter {
     clear: both;
     margin: 0 auto 30px;
-    max-width: 900px;
+    max-width: 1170px;
     border-top: 1px solid #555f6e; }
   .footer .newsletter-container {
     margin-top: 30px;
@@ -12559,7 +12559,7 @@ a {
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .pre-footer .row {
     margin: 0 auto;
-    max-width: 900px; }
+    max-width: 1170px; }
   .pre-footer p {
     color: #999;
     color: #737e90;

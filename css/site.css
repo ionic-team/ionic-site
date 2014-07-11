@@ -4704,23 +4704,29 @@ h1 + h2 + p {
   .home .desc-row h3 {
     padding: 70px 0 14px;
     max-width: 900px;
-    font-size: 28px; }
+    font-size: 28px;
+    color: #2a303a; }
   .home .desc-row p {
     padding-bottom: 40px;
     max-width: 760px;
-    color: #444;
+    color: #474f5c;
     font-weight: 300;
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+.home .feature-row-strong {
+  color: #6a7586;
+  font-weight: 400; }
 .home .feature-row {
   margin: auto 10px;
   min-height: 150px;
   max-width: 900px;
   background: no-repeat 0 32px;
   background-size: 130px 111px; }
+  .home .feature-row h4 {
+    color: #2a303a; }
   .home .feature-row p {
     padding-left: 140px;
-    color: #999;
+    color: #858f9f;
     font-weight: 300;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }

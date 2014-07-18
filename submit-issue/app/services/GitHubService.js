@@ -86,7 +86,7 @@ IssueApp.factory('GitHubService', function($q, $http) {
       return $http({
         method: 'GET',
         // this is ugly but it gets around angular escaping q
-        url: convertUrl('search/issues', {})+'?q=user:'+owner+' repo:'+repo+' '+searchPhrase+'&access_token='+accessToken,
+        url: convertUrl('search/issues', {})+'?q='+searchPhrase+'+repo:'+owner+'/'+repo+'&access_token='+accessToken,
         data:{
           results:results
         }

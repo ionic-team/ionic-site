@@ -1,4 +1,4 @@
-var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
+var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSanitize'])
 
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
@@ -117,11 +117,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
   }
 
   $scope.getSuggestions = _.debounce(function(query){
-    if(query.length < 5){
-      $scope.suggestions = [];
-      $scope.gettingSuggestion = false;
-      return;
-    }
+    if(query.length < 5)return $scope.suggestions = [];
     console.log('searching issues for: '+query);
     $scope.gettingSuggestion = true;
     GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
@@ -129,16 +125,11 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
       $scope.suggestions = data.data.items;
       $scope.gettingSuggestion = false;
       $scope.suggestionOutdated = false;
-      console.log($scope.suggestions);
-
     });
   }, 4000, {'leading': true});
 
-  $scope.trust = function(string){
-    return $sce.trustAsHtml(string);
-  }
-  $scope.trustURL = function(string){
-    return $sce.trustAsUrl(string);
+  $scope.openTab = function(url){
+    window.open(url)
   }
 
 })

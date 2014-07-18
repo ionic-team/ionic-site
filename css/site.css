@@ -11878,3 +11878,44 @@ a {
       border-right: 1px solid #ddd; }
     .pre-footer .col-b {
       padding-left: 70px; } }
+.suggestions ul {
+  padding-left:20px;}
+  .suggestions li {
+    list-style:none;
+    border-top:1px solid #dadada;}
+    .suggestions .suggest-title{
+      display:block;
+      font-size:20px;
+      font-weight:200;
+      text-align:left;
+      text-overflow: ellipsis;
+      overflow:hidden;
+      white-space:nowrap;
+      padding-left: 0;
+      padding-bottom: 0;}
+    .suggestions .suggest-user{
+      color: #bcbcbc}
+      .suggestions .suggest-user > a{
+        padding-top:0;}
+.suggestions a:active{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.suggestions li.ng-enter,
+.suggestions li.ng-move,
+.suggestions li.ng-leave {
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity:0;
+    max-height:0px;
+    overflow:hidden;
+}
+.suggestions li.ng-enter.ng-enter-active,
+.suggestions li.ng-move.ng-move-active,
+.suggestions li.ng-leave-active{
+    opacity:1;
+    max-height:200px;
+}

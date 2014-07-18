@@ -5,122 +5,131 @@ title: Submit an Ionic Framework Issue
 
 <div ng-app="issueApp" ng-controller="AppCtrl" step-master>
   <div class="col-md-6">
-  <div step="0" heading="Issue Title" is-done="issue.title.length > 5">
-    <div class="input-container">
-      <input autofocus type="text" id="title"
-        required maxlength="50"
-        placeholder="eg, 'My content is halfway off-screen'"
-        ng-model="issue.title"
-        ng-blur="getSuggestions()">
-      <label for="title">Can you give me a short synopsis of the problem?</label>
-      <label for="title" class="error">You didn't give a title!</label>
-    </div>
-  </div>
-
-  <!-- hide the other steps until they load, so only the first step shows
-  at the start -->
-  <div class="ng-cloak">
-
-    <div step="1" heading="Issue Type" is-done="issue.type">
-      <div class="input-container">
-        <div class="subtext">What type of issue? Select one.</div>
-        <a class="btn"
-          ng-repeat="opt in typeOptions"
-          ng-class="{'active btn-primary': issue.type == opt.id}"
-          ng-click="issue.type = opt.id"
-          ng-bind="opt.label">
-        </a>
-      </div>
-    </div>
-
-    <div step="2" heading="Platform" is-done="issue.platform && (issue.platform != 'desktop' && issue.platform != 'all' ? issue.webview !== null : true)">
-
-      <div class="input-container">
-        <div class="subtext">What device/platform is the issue related t?</div>
-        <a class="btn"
-          ng-repeat="opt in platformOptions"
-          ng-class="{'active btn-primary': issue.platform == opt.id}"
-          ng-click="issue.platform = opt.id"
-          ng-bind="opt.label">
-        </a>
-
-        <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
-          <div class="subtext">What version of iOS?</div>
-          <a class="btn btn-small"
-            ng-repeat="ver in iosVersions"
-            ng-click="issue.iosVersion = ver"
-            ng-class="{'active btn-primary': issue.iosVersion == ver}"
-            ng-bind="ver">
-          </a>
-        </div>
-        <div ng-if="issue.platform == 'android'" class="inset-step fade-down">
-          <div class="subtext">What version of android?</div>
-          <a class="btn btn-small"
-            ng-repeat="ver in androidVersions"
-            ng-click="issue.androidVersion = ver"
-            ng-class="{'active btn-primary': issue.androidVersion == ver}"
-            ng-bind="ver">
-          </a>
-        </div>
-        <div ng-if="issue.platform && issue.platform != 'desktop' && issue.platform != 'all'" class="inset-step fade-down">
-          <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
-          <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
-            In a 'native hybrid' app
-          </a>
-          <a class="btn btn-small" ng-click="issue.webview = false" ng-class="{'btn-primary active': issue.webview === false}">
-            In the phone's browser
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <div step="3" heading="Detailed Description" is-done="issue.description.length > 15">
-      <div class="input-container">
-        <div class="subtext">
-          Codepens are helpful: <a href="http://codepen.io/ionic/public-list/">http://codepen.io/ionic/public-list/</a>
-        </div>
-        <textarea placeholder="What is the issue about?  If it's a bug, how can we reproduce it?  What code did you use to produce the bug?"
-          ng-model="issue.description"></textarea>
-      </div>
-    </div>
-
-    <div step="4" heading="Connect to Github" is-done="authenticated()">
+    <div step="0" heading="Connect to Github" is-done="authenticated()">
       <a class="btn btn-info"
-        ng-show="!authenticated()"
-        ng-click="signIn()">
+         ng-show="!authenticated()"
+         ng-click="signIn()">
         <i class="fa fa-github"></i> Connect to Github
       </a>
       <a class="btn btn-info" disabled="disabled"
-        ng-show="authenticated()"
-        ng-bind="'Connected to Github as '+currentUser().name">
+         ng-show="authenticated()"
+         ng-bind="'Connected to Github as '+currentUser().name">
       </a>
       <a class="btn btn-link"
-        ng-if="authenticated()"
-        ng-click="signOut()">
+         ng-if="authenticated()"
+         ng-click="signOut()">
         (sign out)
       </a>
     </div>
 
-    <div ng-if="issue.success" class="fade-down">
-      <h1>Issue Created!</h1>
-      <a ng-href="{{issue.link}}">{{issue.link}}</a>
-    </div>
-    <div step="5" no-total="true" heading="All Finished!">
-      <div class="btn btn-primary btn-lg btn-block"
-        ng-click="!issue.loading && submitIssue()">
-        <i class="fa fa-cloud"></i> Submit Issue to Github!
+    <!-- hide the other steps until they load, so only the first step shows
+    at the start -->
+    <div class="ng-cloak">
+      <div step="1" heading="Issue Title" is-done="issue.title.length > 5">
+        <div class="input-container">
+          <input autofocus type="text" id="title"
+                 required maxlength="50"
+                 placeholder="eg, 'My content is halfway off-screen'"
+                 ng-model="issue.title"
+                 ng-blur="requestSuggestions()"
+                 ng-keypress="requestSuggestions()">
+          <label for="title">Can you give me a short synopsis of the problem?</label>
+          <label for="title" class="error">You didn't give a title!</label>
+        </div>
+      </div>
+
+      <div step="2" heading="Issue Type" is-done="issue.type">
+        <div class="input-container">
+          <div class="subtext">What type of issue? Select one.</div>
+          <a class="btn"
+            ng-repeat="opt in typeOptions"
+            ng-class="{'active btn-primary': issue.type == opt.id}"
+            ng-click="issue.type = opt.id"
+            ng-bind="opt.label">
+          </a>
+        </div>
+      </div>
+
+      <div step="3"
+           heading="Platform"
+           is-done="issue.platform && (issue.platform != 'desktop' && issue.platform != 'all' ? issue.webview !== null : true)">
+
+        <div class="input-container">
+          <div class="subtext">What device/platform is the issue related t?</div>
+          <a class="btn"
+            ng-repeat="opt in platformOptions"
+            ng-class="{'active btn-primary': issue.platform == opt.id}"
+            ng-click="issue.platform = opt.id"
+            ng-bind="opt.label">
+          </a>
+
+          <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
+            <div class="subtext">What version of iOS?</div>
+            <a class="btn btn-small"
+              ng-repeat="ver in iosVersions"
+              ng-click="issue.iosVersion = ver"
+              ng-class="{'active btn-primary': issue.iosVersion == ver}"
+              ng-bind="ver">
+            </a>
+          </div>
+          <div ng-if="issue.platform == 'android'" class="inset-step fade-down">
+            <div class="subtext">What version of android?</div>
+            <a class="btn btn-small"
+              ng-repeat="ver in androidVersions"
+              ng-click="issue.androidVersion = ver"
+              ng-class="{'active btn-primary': issue.androidVersion == ver}"
+              ng-bind="ver">
+            </a>
+          </div>
+          <div ng-if="issue.platform && issue.platform != 'desktop' && issue.platform != 'all'" class="inset-step fade-down">
+            <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
+            <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
+              In a 'native hybrid' app
+            </a>
+            <a class="btn btn-small" ng-click="issue.webview = false" ng-class="{'btn-primary active': issue.webview === false}">
+              In the phone's browser
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div step="4" heading="Detailed Description" is-done="issue.description.length > 15">
+        <div class="input-container">
+          <div class="subtext">
+            Codepens are helpful: <a href="http://codepen.io/ionic/public-list/">http://codepen.io/ionic/public-list/</a>
+          </div>
+          <textarea ng-model="issue.description"
+                    placeholder="What is the issue about?  If it's a bug, how can we reproduce it?  What code did you use to produce the bug?">
+          </textarea>
+        </div>
+      </div>
+
+      <div ng-if="issue.success" class="fade-down">
+        <h1>Issue Created!</h1>
+        <a ng-href="{{issue.link}}">{{issue.link}}</a>
+      </div>
+      <div step="5" no-total="true" heading="All Finished!">
+        <div class="btn btn-primary btn-lg btn-block"
+          ng-click="!issue.loading && submitIssue()">
+          <i class="fa fa-cloud"></i> Submit Issue to Github!
+        </div>
       </div>
     </div>
-
   </div>
 
 
-
-<div class="col-md-5 col-md-offset-1">
-  <ul>
-    <li ng-repeat="suggestion in suggestions" ng-bind-html="trust(suggestion.title)">
-    </li>
-  </ul>
+  <div class="col-md-5 col-md-offset-1">
+    <h2> Is your issue related to:</h2>
+    <ul>
+      <li ng-repeat="suggestion in suggestions" ng-style="{opacity: suggestionOutdated?'.5':'1'}">
+        <a href="{{trustURL(suggestion.url)}}" target="_blank">
+          <h3 ng-bind-html="trust(suggestion.title)"></h3>
+        </a>
+        <a ng-href="{{suggestion.user.url}}" target="_blank">
+          <span> by {{suggestion.user.login}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
-  </div>

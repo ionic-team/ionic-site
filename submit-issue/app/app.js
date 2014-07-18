@@ -69,6 +69,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     'tap/click',
     'view'
   ];
+  $scope.suggestions = [];
 
   var user;
   $rootScope.$on('userStateChange', function(e, newUser) {
@@ -109,15 +110,35 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     });
   };
 
-  $scope.getSuggestions = function(){
-    GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
-
-      $scope.suggestions = data.data.items;
-      console.log($scope.suggestions);
-    });
+  $scope.requestSuggestions = function(){
+    // only call the API every 3 seconds to accomidate rate limit
+    $scope.suggestionOutdated = true;
+    $scope.getSuggestions($scope.issue.title);
   }
+
+  $scope.getSuggestions = _.debounce(function(query){
+    if(query.length < 5){
+      $scope.suggestions = [];
+      $scope.gettingSuggestion = false;
+      return;
+    }
+    console.log('searching issues for: '+query);
+    $scope.gettingSuggestion = true;
+    GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
+    //$http.get('test.json').then(function(data){
+      $scope.suggestions = data.data.items;
+      $scope.gettingSuggestion = false;
+      $scope.suggestionOutdated = false;
+      console.log($scope.suggestions);
+
+    });
+  }, 4000, {'leading': true});
+
   $scope.trust = function(string){
     return $sce.trustAsHtml(string);
+  }
+  $scope.trustURL = function(string){
+    return $sce.trustAsUrl(string);
   }
 
 })
@@ -182,5 +203,4 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     }
   };
 })
-
 ;

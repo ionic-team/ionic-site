@@ -18,6 +18,7 @@ As a Support Engineer, you'll be helping us manage the intense popularity of the
  * Managing pull requests and community contributions
 
 To fulfill this role, we are looking for someone with:
+
  * Javascript development experience
  * Comfort with HTML and CSS
  * Git and GitHub experience

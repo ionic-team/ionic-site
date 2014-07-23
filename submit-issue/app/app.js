@@ -3,7 +3,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http, $sce) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http) {
 
   $scope.issue = {
     title: '',
@@ -113,25 +113,47 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
   $scope.requestSuggestions = function(){
     // only call the API every 3 seconds to accomidate rate limit
     $scope.suggestionOutdated = true;
+    $scope.hasSearched = true;
     $scope.getSuggestions($scope.issue.title);
   }
 
-  $scope.getSuggestions = _.debounce(function(query){
+  $scope.getSuggestions = function(query){
     if(query.length < 5)return $scope.suggestions = [];
     console.log('searching issues for: '+query);
     $scope.gettingSuggestion = true;
     GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
     //$http.get('test.json').then(function(data){
-      $scope.suggestions = data.data.items;
+      $scope.suggestions = data.data.items.splice(11,11);
       $scope.gettingSuggestion = false;
       $scope.suggestionOutdated = false;
+      console.log($scope.suggestions);
     });
-  }, 4000, {'leading': true});
+  };
 
   $scope.openTab = function(url){
     window.open(url)
-  }
+  };
 
+  NProgress.configure({ showSpinner: false, parent: '#progress-bar-wrapper' });
+
+  $scope.steps = [];
+  $scope.$on('stepUpdate',function(event, stepObj){
+    $scope.steps = calcSteps(stepObj.completedSteps, stepObj.totalSteps);
+    console.log($scope.steps);
+  });
+
+  function calcSteps (curStep, totSteps){
+    var s = [];
+    for(var i =0; i<totSteps; i++){
+      s.push({
+        num:i+1,
+        complete:i<curStep,
+        bounce:((i+1 === curStep) || curStep === totSteps)
+      });
+    }
+    return s;
+  }
+  $scope.steps = calcSteps(0, 5);
 })
 
 .directive('stepMaster', function() {
@@ -150,14 +172,13 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     template:
       '<div ng-if="showStep()" class="fade-down">' +
         '<h3>' +
-          '<span ng-if="!noTotal">[ {{stepText()}} ]</span> ' +
           '{{heading}}' +
-          '&nbsp;<i ng-if="done" class="fa fa-angle-down fade-down" style="color: #4a87ee"></i>' +
+          '&nbsp;<i ng-if="done" class="icon ion-ios7-checkmark-empty" style="color: #4a87ee"></i>' +
         '</h3>' +
         '<div ng-transclude></div>' +
       '</div>',
     scope: true,
-    link: function(scope, elm, attr, stepsCtrl, transclude) {
+    link: function(scope, elm, attr, stepsCtrl) {
       if (!attr.noTotal) {
         stepsCtrl.numSteps++;
       }
@@ -173,12 +194,17 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
           scope.done = true;
           stepsCtrl.stepsDone++;
           doneWatch();
+
+          // update nprogress
+          var percentDone = stepsCtrl.stepsDone * (1/(stepsCtrl.numSteps-1));
+          // don't let the bar finish and disappear
+          if(percentDone >= 1) percentDone = .99;
+          console.log(percentDone);
+          NProgress.set(percentDone);
+          // emit the update for other controllers to use
+          scope.$emit('stepUpdate', {totalSteps:stepsCtrl.numSteps,completedSteps:stepsCtrl.stepsDone});
         }
       });
-
-      scope.stepText = function() {
-        return (1+scope.step) + ' / ' + stepsCtrl.numSteps;
-      };
 
       scope.showStep = function() {
         return stepsCtrl.stepsDone >= scope.step;
@@ -193,5 +219,8 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
       jQuery(elm[0]).autosize();
     }
   };
+})
+.config(function($interpolateProvider){
+  $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 })
 ;

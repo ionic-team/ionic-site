@@ -10,16 +10,16 @@ published: false
 
 <img class="showcase-image" src="/img/blog/submit-issue-header.png">
 
-Today I'm excited to introduce a better way for all our awesome community members and contributors to submit issues with Ionic: [Submit An Issue](http://ionicframework.com/submit-issue/).
+Today, I'm excited to introduce a better way for all our awesome community members and contributors to submit Ionic issues: [Submit An Issue](http://ionicframework.com/submit-issue/).
 
-Many of the issue submissions on GitHub are closely related to existing issues, so to streamline the process and make the interface more user-friendly, we changed our issue submission form.
+Many of the issue submissions on [GitHub](https://github.com/driftyco/ionic) are closely related to existing issues, so to streamline the process and make the interface more user-friendly, we changed our issue submission form.
 
 <!-- more -->
 
-Now, Ionitron will guide you through the process of submitting your issue, problem or bug, and we'll help you find a solution or fix it for you. You'll be able to provide us with some preliminary info, and our new Auto Suggest feature lists out issues to which your problem might be related. If you see a related issue in that list, you can join that conversation and work towards a solution to your problem, instead of creating a duplicate.
+Now, [Ionitron](http://twitter.com/ionitron) will guide you through the process of submitting your issue, problem, or bug, and we'll help you find a solution, or we'll fix it for you. We'll ask you for some preliminary info, and then our new Auto Suggest feature will list out the issues to which your problem might be related. If you see a related issue in that list, you can join that conversation and immediately get help, instead of unintentionally creating a duplicate issue.
 
-We've also improved the UX in general.  The connect to github requirement is now the first step, so there's no surprises after you've taken the time to craft your issue.  Lastly, we've improved the UI with the animated step tracking bar and minor visual improvements.
+We've also improved the UX in general. The *connect to GitHub* requirement is now the first step, so there won't be any surprises after you've taken the time to craft your issue. Lastly, we've improved the UI with the animated step tracking bar and minor visual improvements.
 
-In the future, we're going to insist all new issues go through Submit Issue page, so we want to start by making sure it's as enjoyable to use as possible.
+In the future, we're going to encourage you to send all new issues through the Submit Issue page, and as such, we want to start by making sure it's as enjoyable to use as possible. If you think there's any way we can improve it, please let us know!
 
 Found an issue in Ionic? [Try it out!](http://ionicframework.com/submit-issue/)

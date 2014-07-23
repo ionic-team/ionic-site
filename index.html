@@ -220,3 +220,28 @@ body_css: "home"
   </ul>
 
 </div>
+
+<style>
+ .navbar {
+ }
+</style>
+<script>
+  $.fn.snapBar = function(options) {
+    return this.each(function() {
+      var $this = $(this);
+      var settings = $.extend({
+        delay: 2000,
+        height: 50,
+        animationDuration: 500,
+        activeClass: 'active'
+      });
+
+      setTimeout(function() {
+        $this.addClass(settings.activeClass);
+      }, settings.delay);
+    });
+  };
+
+  $('#creator-bar').snapBar();
+</script>
+

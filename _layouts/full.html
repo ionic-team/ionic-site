@@ -9,6 +9,43 @@
   <body class="full-page {{page.body_css}} no-js">
     <script>document.body.classList.remove('no-js');</script>
 
+    <style>
+      .snap-bar {
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+
+        margin-top: -50px;
+        /*
+        -webkit-transform: translate(0, -50px);
+        transform: translate(0, -50px);
+        */
+
+        background-color: #fff;
+
+        text-align: center;
+        font-size: 18px;
+        line-height: 50px;
+
+        -webkit-transition: 300ms all ease-in-out;
+        -ms-transition: 300ms all ease-in-out;
+        transition: 300ms all ease-in-out;
+      }
+
+      .snap-bar.active {
+        /*
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0x);
+        */
+        margin-top: 0;
+      }
+    </style>
+    <div id="creator-bar" class="snap-bar">
+      Hey! Check out the drag-and-drop magic coming soon with the <a href="/creator" id="creator-link">Ionic Creator</a>
+    </div>
+
     {% include nav_links.html %}
 
     <div class="container content-container">
@@ -23,6 +60,15 @@
     $('#repo-download').click(function() {
       var href = $(this).attr('href');
       ga('send', 'event', 'Download', 'Repo Download', {
+      'nonInteraction': 1,
+      'hitCallback': function() {
+        window.location = href;
+      }});
+      return false;
+    })
+    $('#creator-link').click(function() {
+      var href = $(this).attr('href');
+      ga('send', 'event', 'Click', 'Creator Bar', {
       'nonInteraction': 1,
       'hitCallback': function() {
         window.location = href;

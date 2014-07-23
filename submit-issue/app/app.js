@@ -1,9 +1,9 @@
-var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
+var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSanitize'])
 
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http, $sce) {
 
   $scope.issue = {
     title: '',
@@ -29,6 +29,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     { id: 'all', label: 'all platforms' }
   ];
   $scope.iosVersions = [
+    '8',
     '7',
     '6'
   ];
@@ -68,6 +69,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     'tap/click',
     'view'
   ];
+  $scope.suggestions = [];
 
   var user;
   $rootScope.$on('userStateChange', function(e, newUser) {
@@ -107,6 +109,28 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
       alert('Issue Submission Error! Try again.');
     });
   };
+
+  $scope.requestSuggestions = function(){
+    // only call the API every 3 seconds to accomidate rate limit
+    $scope.suggestionOutdated = true;
+    $scope.getSuggestions($scope.issue.title);
+  }
+
+  $scope.getSuggestions = _.debounce(function(query){
+    if(query.length < 5)return $scope.suggestions = [];
+    console.log('searching issues for: '+query);
+    $scope.gettingSuggestion = true;
+    GitHubService.searchIssues({},user.accessToken, 'driftyco', 'ionic', $scope.issue.title).then(function(data){
+    //$http.get('test.json').then(function(data){
+      $scope.suggestions = data.data.items;
+      $scope.gettingSuggestion = false;
+      $scope.suggestionOutdated = false;
+    });
+  }, 4000, {'leading': true});
+
+  $scope.openTab = function(url){
+    window.open(url)
+  }
 
 })
 
@@ -170,5 +194,4 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate'])
     }
   };
 })
-
 ;

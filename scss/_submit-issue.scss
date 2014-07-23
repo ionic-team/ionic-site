@@ -95,7 +95,7 @@
   /*max-width: 52px;*/
 }
 #progress li span{
-  background: transparent url('/img/getting-started/submit-numbers_2x.png') no-repeat 0 0;
+  background: transparent url('/img/submit-issue/submit-numbers_2x.png') no-repeat 0 0;
   background-size: 52px;
   height: 52px;
   width: 52px;
@@ -145,7 +145,8 @@
   top: -20px;
 }
 #ionitron-image.issue {
-  background: url('/img/getting-started/submit-ionitron.png') no-repeat transparent;
+  background: url('/img/submit-issue/submit-ionitron_2x.png') no-repeat transparent;
+  background-size:140px;
   margin-right: 20px;
 }
 @media screen and (max-width: 800px) {

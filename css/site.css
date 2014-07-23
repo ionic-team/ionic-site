@@ -12587,10 +12587,11 @@ a {
     .pre-footer .col-b {
       padding-left: 70px; } }
 .suggestions ul {
-  padding-left:20px;}
+  padding-left:0px;}
   .suggestions li {
     list-style:none;
-    border-top:1px solid #dadada;}
+    border-top:1px solid #dadada;
+    padding-left: 15px;}
     .suggestions .suggest-title{
       display:block;
       font-size:20px;
@@ -12602,9 +12603,11 @@ a {
       padding-left: 0;
       padding-bottom: 0;}
     .suggestions .suggest-user{
-      color: #bcbcbc}
+      color: #dadada;
+      font-size: 15px;
+      padding-bottom: 20px;}
       .suggestions .suggest-user > a{
-        padding-top:0;}
+        padding-top:5px;}
 .suggestions a:active{
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -12613,17 +12616,134 @@ a {
 .suggestions li.ng-enter,
 .suggestions li.ng-move,
 .suggestions li.ng-leave {
-    -webkit-transition:0.5s linear all;
-    -moz-transition:0.5s linear all;
-    -o-transition:0.5s linear all;
-    transition:0.5s linear all;
-    opacity:0;
-    max-height:0px;
-    overflow:hidden;
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity:0;
+  max-height:0px;
+  overflow:hidden;
 }
 .suggestions li.ng-enter.ng-enter-active,
 .suggestions li.ng-move.ng-move-active,
 .suggestions li.ng-leave-active{
-    opacity:1;
-    max-height:200px;
+  opacity:1;
+  max-height:200px;
+}
+#progress-bar-wrapper{
+  position: absolute;
+  left: 100px;
+  right: 100px;
+  top: 25px;
+}
+#progress-bar-wrapper .guide{
+  height:2px;
+  width:100%;
+  position: relative;
+  background:#d7dbe4;
+}
+@media (max-width: 991px) {
+  #progress-bar-wrapper{
+    left: 50px;
+    right: 50px;
+  }
+}
+#progress{
+  position:relative;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+#progress ul{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: horizontal;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: horizontal;
+  flex-direction: horizontal;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  padding:0;
+}
+  #progress li{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    box-flex: 1;
+    flex:1;
+    list-style: none;
+    height:100px;
+    /*max-width: 52px;*/
+  }
+  #progress li span{
+    background: transparent url('/img/getting-started/submit-numbers_2x.png') no-repeat 0 0;
+    background-size: 52px;
+    height: 52px;
+    width: 52px;
+    display: block;
+    margin:0 auto;
+    position:relative;
+    z-index: 9999;
+  }
+#progress .complete .step-1{background-position-y:-52px}
+#progress .incomplete .step-2{background-position-y:-104px}
+#progress .complete .step-2{background-position-y:-156px}
+#progress .incomplete .step-3{background-position-y:-208px}
+#progress .complete .step-3{background-position-y:-260px}
+#progress .incomplete .step-4{background-position-y:-312px}
+#progress .complete .step-4{background-position-y:-364px}
+#progress .incomplete .step-5{background-position-y:-416px}
+#progress .complete .step-5{background-position-y:-468px}
+#progress .done span{background-position-y:-520px !important}
+
+#progress ul li.bounce span{
+  -webkit-animation: tada .3s 1 linear;
+  animation: tada .3s 1 linear;
+}
+@-webkit-keyframes tada {
+  0%   { -webkit-transform: scale(1,1);}
+  20%  { -webkit-transform: scale(1.2,1.2);}
+  40%  { -webkit-transform: scale(1.5,1.5);}
+  60%  { -webkit-transform: scale(1.2,1.2);}
+  80%  { -webkit-transform: scale(.9,.9);}
+  100% { -webkit-transform: scale(1,1);}
+}
+@keyframes tada {
+  0%   { transform: scale(1,1);}
+  20%  { transform: scale(1.2,1.2);}
+  40%  { transform: scale(1.5,1.5);}
+  60%  { transform: scale(1.2,1.2);}
+  80%  { transform: scale(.9,.9);}
+  100% { transform: scale(1,1);}
+}
+.ion-ios7-checkmark-empty{
+  position: relative;
+}
+.ion-ios7-checkmark-empty:before {
+  font-size: 58px;
+  position: absolute;
+  left: 20px;
+  top: -20px;
+}
+#ionitron-image.issue {
+  background: url('/img/getting-started/submit-ionitron.png') no-repeat transparent;
+  margin-right: 20px;
+}
+@media screen and (max-width: 800px) {
+  #ionitron-image.header-ionitron.issue {
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    margin-right: 0px;} }
+@media screen and (max-width: 400px) {
+  #ionitron-image.header-ionitron.issue {
+    background-size: 32px 32px;
+  }
 }

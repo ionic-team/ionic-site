@@ -4,14 +4,30 @@ title: Submit an Ionic Framework Issue
 ---
 
 <div ng-app="issueApp" ng-controller="AppCtrl" step-master>
+  <div  id="progress">
+    <div id="progress-bar-wrapper">
+      <div class="guide"></div>
+    </div>
+    <ul>
+      <li ng-repeat="step in steps"
+          ng-class="{
+            complete:step.complete,
+            incomplete:!step.complete,
+            bounce:step.bounce,
+            done:steps[steps.length-1].complete
+          }">
+          <span ng-class="'step-'+step.num">{{step.num}}</span>
+      </li>
+    </ul>
+  </div>
   <div class="col-md-6">
     <div step="0" heading="Connect to Github" is-done="authenticated()">
-      <a class="btn btn-info"
+      <a class="btn btn-primary"
          ng-show="!authenticated()"
          ng-click="signIn()">
         <i class="fa fa-github"></i> Connect to Github
       </a>
-      <a class="btn btn-info" disabled="disabled"
+      <a class="btn btn-primary" disabled="disabled"
          ng-show="authenticated()"
          ng-bind="'Connected to Github as '+currentUser().name">
       </a>
@@ -31,8 +47,7 @@ title: Submit an Ionic Framework Issue
                  required maxlength="50"
                  placeholder="eg, 'My content is halfway off-screen'"
                  ng-model="issue.title"
-                 ng-blur="requestSuggestions()"
-                 ng-keypress="requestSuggestions()">
+                 ng-blur="requestSuggestions()">
           <label for="title">Can you give me a short synopsis of the problem?</label>
           <label for="title" class="error">You didn't give a title!</label>
         </div>
@@ -112,26 +127,36 @@ title: Submit an Ionic Framework Issue
       <div step="5" no-total="true" heading="All Finished!">
         <div class="btn btn-primary btn-lg btn-block"
           ng-click="!issue.loading && submitIssue()">
-          <i class="fa fa-cloud"></i> Submit Issue to Github!
+          <i class="fa fa-github"></i> Submit Issue to Github!
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="col-md-5 col-md-offset-1 suggestions" ng-show="issue.title.length > 5">
-    <h2> Is your issue related to:</h2>
-    <ul>
-      <li ng-repeat="suggestion in suggestions" ng-style="{opacity: suggestionOutdated?'.5':'1'}">
-        <a ng-click="openTab(suggestion.html_url)" target="_blank" class="suggest-title btn">
-          <span ng-bind="suggestion.title"></span>
-        </a>
-        <span class="suggest-user"> by
-          <a ng-click="openTab(suggestion.user.html_url)" target="_blank" class="btn">
-            <span ng-bind="suggestion.user.login"></span>
+  <div class="col-md-5 col-md-offset-1 suggestions">
+    <div  ng-show="issue.title.length > 5 && suggestions.length">
+      <h2> Is your issue related to:</h2>
+      <ul>
+        <li ng-repeat="suggestion in suggestions" ng-style="{opacity: suggestionOutdated?'.5':'1'}">
+          <a ng-click="openTab(suggestion.html_url)" target="_blank" class="suggest-title btn">
+            <span> {[{suggestion.title}]}</span>
           </a>
-        </span>
-      </li>
-    </ul>
+          <span class="suggest-user">
+            <span ng-style="{color:suggestion.closed_at?'#db8b8b': '#8cd0a6'}">
+              {[{suggestion.pull_request?'Pull Request':'Issue'}]}
+            </span> &nbsp; | &nbsp;
+            {[{suggestion.created_at | date:'M/d/yy'}]} &nbsp; | &nbsp;
+            by
+            <a ng-click="openTab(suggestion.user.html_url)" target="_blank" class="btn">
+              {[{suggestion.user.login}]}
+            </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div  ng-show="issue.title.length > 5 && !suggestions.length && hasSearched">
+      <h2> No Related Issues Found</h2>
+    </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ name: Ionic Framework
 description: The official Ionic Framework blog
 url: http://ionicframework.com/blog
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 permalink: /blog/:title
 paginate: 5
 paginate_path: "blog/page:num"

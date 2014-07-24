@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Indroducing a New Way to Submit Issues"
+title:  "Introducing a New Way to Submit Issues"
 date:   "2014-07-22 12:00:00"
 hide_date: true
 categories: ionic

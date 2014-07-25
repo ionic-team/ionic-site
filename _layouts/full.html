@@ -35,9 +35,9 @@
         -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0px -2px 0px #CBD4E0;
         -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4), inset 0px -2px 0px #CBD4E0;
 
-        -webkit-transition: 300ms all ease-in-out;
-        -ms-transition: 300ms all ease-in-out;
-        transition: 300ms all ease-in-out;
+        -webkit-transition: 500ms margin ease-in-out;
+        -ms-transition: 500ms margin ease-in-out;
+        transition: 500ms margin ease-in-out;
       }
 
       .snap-bar .small {
@@ -66,7 +66,14 @@
         }
       }
     </style>
-    <div id="creator-bar" class="snap-bar active">
+    <script>
+      $(function() {
+        setTimeout(function(){
+          $('.snap-bar').addClass('active');
+        },1500);
+      });
+    </script>
+    <div id="creator-bar" class="snap-bar">
       <span class="large">Hey! Check out the drag-and-drop magic coming soon with the <a href="/creator" class="creator-link">Ionic Creator</a></span>
       <span class="small">Coming soon: The <a href="/creator" class="creator-link">Ionic Creator</a></span>
     </div>

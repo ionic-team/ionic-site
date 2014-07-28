@@ -5,7 +5,7 @@ date:   "2014-07-28 1:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/fitrpg-header.png">

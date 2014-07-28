@@ -23,6 +23,6 @@ The FitRPG concept app was built as a web app using the MEAN tech stack (Mongo D
 FitRPG is available on [iTunes](https://itunes.apple.com/us/app/fitrpg-gamifying-fitbit/id887067605?ls=1&mt=8) and [Google Play](https://play.google.com/store/apps/details?id=com.fatchickenstudios.fitrpg).
 
 Developers:
-[Amira Anuar](http://amiraanuar.com/)
-[Matt Gutierrez](https://github.com/fatchicken007)
+[Amira Anuar](http://amiraanuar.com/),
+[Matt Gutierrez](https://github.com/fatchicken007),
 [Conor Fennell](https://github.com/conorfennell)

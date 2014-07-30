@@ -5,7 +5,7 @@ date:   "2014-07-29 12:00:00"
 hide_date: true
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/creator-header.png">
@@ -45,6 +45,8 @@ With just one click, you can download a ready-to-go Cordova project with your ne
 In the future, we will be adding the ability to build ready-to-go native iOS, Android, and Windows Phone binaries right from Creator.
 
 ### Test right on the phone
+
+<img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/view-app.png">
 
 With the upcoming Ionic View app, you'll be able to rapidly test your Creator apps on your device and share them with anyone around the world. Scan or enter a code, and you'll be running a real app in seconds. Best of all, your coworkers and clients can test it, too!
 

@@ -22,17 +22,17 @@ Today, I am happy to formally announce the [Ionic Creator](/creator) to our comm
 
 ### Everything you need
 
-<img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/ui-components.png">
-
 Creator comes with practically all of the Ionic UI elements we offer in the [framework](/docs/components), including support for tabs, side menus, slide boxes, modals, and forms. And adding them to your app is as simple as dragging them right where you want them in your app.
+
+<img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/ui-components.png">
 
 Pages can be easily linked to create compelling navigation, and the elements can be easily moved and deleted.
 
 ### Ready-made templates
 
-<img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/page-templates.png">
-
 We want to make it easy to build pages based on a common design, so you don't have to start from scratch each time. We have a set of quality templates for building login and signup pages, tabbed interfaces, google map pages, and more.
+
+<img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/page-templates.png">
 
 We will be adding a ton more templates in the future, with the ability to create and submit your own!
 

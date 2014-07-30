@@ -16,7 +16,7 @@ For those that have been following [our company](http://drifty.com/)'s history o
 
 We built the Ionic Framework because we weren't happy with the underlying frameworks back in 2013. We felt there was a huge opportunity to build better foundational technology for the next generation of mobile app development, and that became Ionic.
 
-Now, things have come full circle, and Ionic is mature enough and popular enough (over __80,000__ new apps created just in 2014!) that it makes sense to build tools to help make Ionic easier and faster to develop with...and maybe even a bit more fun :)
+Now, things have come full circle, and Ionic is mature enough and popular enough (over __80,000__ new apps created just in 2014!) that it makes sense to build tools to help make Ionic easier and faster to develop with...and maybe even a bit more fun. :)
 
 Today, I am happy to formally announce the [Ionic Creator](/creator) to our community. Let's take a look!
 
@@ -30,7 +30,7 @@ Pages can be linked to create compelling navigation, and the elements can be eas
 
 ### Ready-made templates
 
-We want to make it easy to build pages based on a common design, so you don't have to start from scratch each time. We have a set of quality templates for building login and signup pages, tabbed interfaces, google map pages, and more.
+We want to make it easy to build pages based on a common design, so you don't have to start from scratch each time. We have a set of quality templates for building login and signup pages; tabbed interfaces; Google Maps pages; and more.
 
 <img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/page-templates.png">
 
@@ -40,7 +40,7 @@ We will be adding a ton more templates in the future, with the ability to create
 
 <img class="body-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/options-preview.png">
 
-With just one click, you can download a ready-to-go Cordova project with your new UI. You can even start a new project from the [ionic CLI tool](https://www.npmjs.org/package/ionic), using your Creator app as a starting point!
+With just one click, you can download a ready-to-go Cordova project with your new UI. You can even start a new project from the [Ionic CLI tool](https://www.npmjs.org/package/ionic), using your Creator app as a starting point!
 
 In the future, we will be adding the ability to build ready-to-go native iOS, Android, and Windows Phone binaries right from Creator.
 
@@ -54,7 +54,7 @@ The dream of the Ionic Creator is to make it easier to build, test, and share id
 
 To make this dream a reality, we knew the Creator would have to export code that was indistinguishable from hand-written code and maybe even better. Our years of experience building drag-and-drop tools has given us a lot of experience in clean code generation, and Creator has benefited immensely from this.
 
-All Creator apps export clean Ionic and AngularJS code, complete with routing and some initial configuration and controllers set up. It's ready for you to jump right in and add your magic sauce!
+All Creator apps export clean Ionic and AngularJS code, complete with routing and some initial configuration and controllers set up. It's ready for you to jump right in and add your magic sauce.
 
 ### Totally free!
 
@@ -66,7 +66,7 @@ To achieve this dream, we have decided to make the Ionic Creator 100% free. Whil
 
 We aren't quite ready to release the Creator, but we hope to have a beta out by the end of August/early September.
 
-To be the first to try Creator, make sure to [sign up](/creator) on the Creator email list, and watch your inbox for updates!
+To be the first to try Creator, make sure to [sign up](/creator) on the Creator email list, and watch your inbox for updates.
 
 In the last two weeks, we've had __10,000__ people sign up for the beta, and it's clear people are excited for Creator. We are so excited and anxious to show you what we've been working on.
 

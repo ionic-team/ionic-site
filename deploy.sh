@@ -1,3 +1,12 @@
+// note, the first time you run this on your computer, you'll need to run this a second time
+
+// steps:
+// make a change to the site under the master branch
+// commit and push that change
+// fetch all, making sure that you're tracking gh-pages
+// run this script
+
+
 git branch -D gh-pages
 rm -rf _site
 git clone . _site

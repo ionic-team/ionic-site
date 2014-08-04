@@ -5,7 +5,7 @@ date:   "2014-08-04 4:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/craftedhere-header.png">
@@ -24,6 +24,6 @@ Crafted Here is geared towards individuals who want to explore what makes their 
 
 “The business model and application came from the National Day of Civic Hacking in 2013, when our team won Best in Show, Best Tourism App, and Crowd Favorite,” says Doelling. “Since then, we have been iterating and improving the application and algorithms to bring our users the best craft goods served up locally.”
 
-The app is available in Android's [Google Play Store](https://play.google.com/store/apps/details?id=us.craftedhere) and the [iOS App Store](https://itunes.apple.com/us/app/craftedhere/id859703795?ls=1&mt=8).
+The app is available in Android's [Google Play Store](https://play.google.com/store/apps/details?id=us.craftedhere) and the [iOS App Store](https://itunes.apple.com/us/app/craftedhere/id859703795?ls=1&mt=8). Definitely check it out!
 
 

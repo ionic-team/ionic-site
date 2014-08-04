@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Building Mobile Apps with AngularJS and Ionic</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development framework</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/angular-mobile-dev/">Building Mobile Apps with AngularJS and Ionic</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Building Mobile Apps with AngularJS and Ionic" data-url="http://ionicframework.com/blog/angular-mobile-dev" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/angular-mobile-dev"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/angular-mobile-dev" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a></time>
+  </div>
+
+<p><img class="showcase-image" src="/img/blog/angularjs-ionic-framework.jpg"></p>
+
+<p><a href="http://angularjs.org/">AngularJS</a> is turning out to be one of the best frameworks for building mobile apps across all major platforms.</p>
+
+<p>One reason that Angular fits so well into the mobile developer toolbox is its features for interacting with backend web services and external data sources. Since most apps today are data-driven, it makes sense to use a tool built from the ground up to solve this problem.</p>
+
+<p>Beyond that, AngularJS comes with some of the most modern and advanced software development practices ready-made and easy to use. You&#39;ll find that building mobile apps with Angular is highly efficient and results in solid code that will scale up as you pile on the features.</p>
+
+<!-- more -->
+
+<h3>Three-way data binding</h3>
+
+<p>Data binding is a popular concept in developer circles. The idea is when our data model updates, the UI also updates. This is great, but Angular takes it a step further: when our UI updates, we update the model to match.</p>
+
+<p>This is called two-way data binding and it&#39;s incredibly easy to do in Angular:</p>
+
+<p><a href="http://firebase.com/">Firebase</a> coined the term <a href="https://www.firebase.com/blog/2013-10-04-firebase-angular-data-binding.html">&quot;Three-way Data Binding&quot;</a> which is the idea that we can not only keep our UI and in-memory data in sync (two-way data binding), but we can also sync the data with our backend services.</p>
+
+<p>This means taking input from a user, processing it, saving it on the server, and keeping the UI in sync is incredibly easy to do with Angular. Coming from a jQuery or native iOS/Android background, you&#39;ll find Angular&#39;s data binding to be a <em>huge</em> timesaver for mobile development.</p>
+
+<h3>Reusable logic</h3>
+
+<p>Angular helps keep our view (UI), data model, and application logic separate.  This means Angular lets us reuse our web application logic on multiple devices on multiple platforms, while still enabling us to customize the UI for each platform.</p>
+
+<p>Previously, to target users across desktop, tablet, and mobile, our only option was to build a separate website for the Desktop, then build an iOS app with Objective-C, then an Android app with Java. We weren&#39;t able to share any code, making application development expensive, time consuming, and <em>risky</em>.</p>
+
+<p>With AngularJS, we can keep the funcionality for our application (in controllers) separate from the way our application looks. This works regardless of whether we take a Responsive Web Design approach, or custom UIs for desktop and mobile.</p>
+
+<h3>Testability</h3>
+
+<p>AngularJS uses the concept of <a href="http://docs.angularjs.org/guide/di">Dependency Injection</a> (DI) to make it easy to pull in pieces of your code from anywhere. One benefit of this is how easy it is to <em>mock</em> part of your code for testing, which is the process of substituting a real component for one that fakes the functionality for testing purposes.</p>
+
+<p>On mobile, this is especially important due to the slower develop-deploy-test cycle. We can&#39;t afford to waste time setting up and debugging a full physical enviornment each time we want to make a change in our app.</p>
+
+<p>Imagine building an app that interacts with a Bluetooth device. If you use Angular and provide the Bluetooth functionality in a self-contained <em>service</em>, you can quickly mock this service and add fake Bluetooth data instead of having to painstakingly connect and reconnect with a physical Bluetooth device. Your mobile app won&#39;t even know the difference!</p>
+
+<h3>Among Friends</h3>
+
+<p>AngularJS is being adopted by developers at an incredible rate (check out our <a href="http://ionicframework.com/blog/angularjs-will-be-huge/">last post</a> on that). Google Trends for the last several years clearly shows the explosive growth of AngularJS:</p>
+
+<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=angularjs,+ember.js,+knockoutjs,+backbonejs&cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=550&h=330"></script>
+
+<p>This means by picking Angular we can take advantage of a growing number of high quality libraries and addons being created by the community. Need charts and graphs, analytics, or i18n support? It&#39;s all there. See the growing <a href="http://ngmodules.org/">ngmodules.org</a> database for a good selection of these components.</p>
+
+<h3>Mobile UI with Ionic</h3>
+
+<p>One thing that is often missing when building a mobile app with web technologies is the lack of a native-style UI kit. Luckily, with <a href="/">Ionic</a>, you get that in one free and open source package, complete with amazing AngularJS features. Check out our <a href="/docs/">huge collection</a> of mobile-focused <a href="/docs/api/directive/ionSideMenus/">components</a> and <a href="/docs/api/service/$ionicPopup/">utilities</a> for building great apps with AngularJS and web technologies you already know and love.</p>
+
+<p>Ionic is focused on using Web Standards, which means an Ionic app will fit right into your frontend stack, from desktop to tablet to mobile, and will take advantage of any existing web development experience on your team.</p>
+
+<p>Ionic is part of a quickly growing community of AngularJS powered libraries that make building mobile apps with Angular incredibly fast and easy. </p>
+
+<h3>Go forth and build</h3>
+
+<p>AngularJS is a great choice not only for desktop apps, but increasingly for mobile apps as well. The combination of tight data binding across all parts of the application make developing data-driven apps with Angular fast and easy.</p>
+
+<p>Being able to share application logic across desktop, tablet, and mobile apps is a huge plus which will save an incredible amount of time and money, and make it easier to add features for all your apps.</p>
+
+<p>Angular&#39;s focus on testability makes it easy to mock physical devices and situations (bluetooth, GPS, and accelerometer, to name a few), which can dramatically speed up the development process and make your code more battle hardened and testable.</p>
+
+<p>It&#39;s also a pleasure to develop in, and developers are increasingly learning and choosing to develop with Angular. It&#39;s a safe bet for finding great developers to build your apps.</p>
+
+<p>What are your thoughts? Have you found AngularJS great for mobile app development? <strong>Share your thoughts below</strong></p>
+
+
+    <small><i>(Help us change mobile development forever. <a href="/jobs/">We are hiring!</a>)</i></small>
+  <hr>
+
+  <p>
+    <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-size="large">Follow @ionicframework</a>
+    <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true&size=large"
+      allowtransparency="true" frameborder="0" scrolling="0" width="152" height="30"></iframe>
+  </p>
+
+  <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+    <div class="form-inline">
+      <label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />
+      <div class="row">
+        <div class="col-sm-5">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Your email" style="box-shadow: none; border: 2px solid #e1e1e1; border-radius: 4px; width: 240px;" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-04 04:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

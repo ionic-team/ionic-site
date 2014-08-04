@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+
+    
+      <!-- version  should not be indexed -->
+      <meta name="robots" content="noindex">
+    
+
+    <title>View State Service - Navigation and history stack -  Ionic Framework</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-api">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="products-nav nav-link" href="/products/">Products</a></li>
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="/blog/">Blog <span id="blog-badge">1</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+      <div class="container">
+        <h3>View State Service</h3>
+        <h4>Navigation and history stack</h4>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                <select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/nightly/docs/angularjs/controllers/view-state/index.md"
+   >
+    nightly 
+  </option>
+
+  <option
+   value="/docs/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.10 (latest)
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.9/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.9 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.8/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.8 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.7/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.7 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.6/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.6 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.5/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.5 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.4/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.4 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.3/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.3 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.2/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.2 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.1/docs/angularjs/controllers/view-state/index.md"
+   >
+    1.0.0-beta.1 
+  </option>
+
+</select>
+
+
+
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <!-- Docs: JavaScript -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="}/docs/nightly/api/">
+                  JavaScript
+                </a>
+              </li>
+              
+  
+    
+
+  
+  <!-- Tabs -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Tabs
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionTabs/">
+           ion-tabs
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionTab/">
+           ion-tab
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicTabsDelegate/">
+          $ionicTabsDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Side Menus -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Side Menus
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionSideMenus/">
+           ion-side-menus
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionSideMenuContent/">
+           ion-side-menu-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionSideMenu/">
+           ion-side-menu
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/menuToggle/">
+           menu-toggle
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/menuClose/">
+           menu-close
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicSideMenuDelegate/">
+          $ionicSideMenuDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Navigation -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Navigation
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionNavView/">
+           ion-nav-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionView/">
+           ion-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionNavBar/">
+           ion-nav-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionNavButtons/">
+           ion-nav-buttons
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionNavBackButton/">
+           ion-nav-back-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/navClear/">
+           nav-clear
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicNavBarDelegate/">
+          $ionicNavBarDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Headers/Footers -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Headers/Footers
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionHeaderBar/">
+           ion-header-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionFooterBar/">
+           ion-footer-bar
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Content -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Content
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionContent/">
+           ion-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionRefresher/">
+           ion-refresher
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionPane/">
+           ion-pane
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Scroll -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Scroll
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionScroll/">
+           ion-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionInfiniteScroll/">
+           ion-infinite-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicScrollDelegate/">
+          $ionicScrollDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Lists -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Lists
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionList/">
+           ion-list
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionItem/">
+           ion-item
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionDeleteButton/">
+           ion-delete-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionReorderButton/">
+           ion-reorder-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionOptionButton/">
+           ion-option-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/collectionRepeat/">
+          collection-repeat
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicListDelegate/">
+           $ionicListDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Form Inputs -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Form Inputs
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionCheckbox/">
+           ion-checkbox
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionRadio/">
+           ion-radio
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/directive/ionToggle/">
+           ion-toggle
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+
+  <!-- Slide Box -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Slide Box
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/ionSlideBox/">
+           ion-slide-box
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/service/$ionicSlideBoxDelegate/">
+          $ionicSlideBoxDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Modal -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Modal
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicModal/">
+          $ionicModal
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/controller/ionicModal/">
+          ionicModal
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Action Sheet -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Action Sheet
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicActionSheet/">
+          $ionicActionSheet
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Popup -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+       Popup
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicPopup/">
+          $ionicPopup
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Loading -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Loading
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicLoading/">
+          $ionicLoading
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="/api/object/$ionicLoadingConfig/">
+          $ionicLoadingConfig
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Platform -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Platform
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicPlatform/">
+          $ionicPlatform
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Events -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Events
+    </a>
+    <ul>
+      <li>
+        <a href="/api/directive/onHold/">
+          on-hold
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onTap/">
+          on-tap
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onTouch/">
+          on-touch
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onRelease/">
+          on-release
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onDrag/">
+          on-drag
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onDragUp/">
+          on-drag-up
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onDragRight/">
+          on-drag-right
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onDragDown/">
+          on-drag-down
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onDragLeft/">
+          on-drag-left
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onSwipe/">
+          on-swipe
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onSwipeUp/">
+          on-swipe-up
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onSwipeRight/">
+          on-swipe-right
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onSwipeDown/">
+          on-swipe-down
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/onSwipeLeft/">
+          on-swipe-left
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Gesture -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Gesture
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicGesture/">
+          $ionicGesture
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Backdrop -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Backdrop
+    </a>
+    <ul>
+      <li>
+        <a href="/api/service/$ionicBackdrop/">
+          $ionicBackdrop
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Utility -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Utility
+    </a>
+    <ul>
+      <li>
+        <a href="/api/utility/ionic.Platform/">
+          ionic.Platform
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/utility/ionic.DomUtil/">
+          ionic.DomUtil
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/utility/ionic.EventController/">
+          ionic.EventController
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Tap -->
+  <li class="menu-section">
+    <a href="/api/page/tap/" class="api-section">
+      Tap &amp; Click
+    </a>
+  </li>
+
+    <!-- Keyboard -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Keyboard
+    </a>
+    <ul>
+      <li>
+        <a href="/api/page/keyboard/">
+          Keyboard
+        </a>
+      </li>
+      <li>
+        <a href="/api/directive/keyboardAttach/">
+          keyboard-attach
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <p>Available in:
+<div class="label label-danger">Ionic-Angular 0.9.x</div></p>
+
+<h1>Views and Navigation</h1>
+
+<p><div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="HjnFx" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/HjnFx'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+  <script async src="//codepen.io/assets/embed/ei.js"></script>
+ </div></p>
+
+<p>As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic&#39;s navigation system is its ability to manage multiple histories.</p>
+
+<p>Ionic uses the <a href="https://github.com/angular-ui/ui-router">AngularUI Router</a> module so app interfaces can be organized into various &quot;states&quot;. Like Angular&#39;s core <code>$route</code> service, URLs <em>can</em> be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much flexibility. More about the <a href="/docs/angularjs/controllers/nav/">navView directive here</a>.</p>
+
+<p>With Angular&#39;s core <a href="http://docs.angularjs.org/api/ngRoute.$route">$route service</a>, the <code>ngView</code> was used to render the template of the current route. With the AngularUI Router as the base, Ionic instead uses the <code>navView</code> directive to renders templates. One of the largest advantages to <code>navView</code> is that views can be nested, and allows multiple nav-views on one page.</p>
+
+<h2>Navigation History</h2>
+
+<p>The View Service keeps track of the user&#39;s navigation history, such as what views are forward and backward from the current view (like a browser&#39;s back button). Using the service, the directives also know which direction an animations transition should happen, such as navigating between views (should it  slide left because you&#39;re navigating forward, or slide right because you&#39;re navigating backwards).</p>
+
+<p>The View Service is leveraged by the Ionic&#39;s <code>tabs</code> directive, which has child <code>tab</code> directives. Each tab requires its own history stack (forward and back buttons), and to do so each tab has its own <code>navView</code> directive. This system is similar to what you see in modern apps, such as iOS&#39;s App Store, or Android&#39;s Play Store.</p>
+
+<h2>&lt;ion-nav-view&gt;</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>animation</td>
+      <td><b>string</b></td>
+      <td>slide-left-right</td>
+      <td>The animation used to transition between pages.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>&lt;ion-nav-bar&gt;</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>animation</td>
+      <td><b>string</b></td>
+      <td>nav-title-slide-ios7</td>
+      <td>The animation used to transition between titles.</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td><b>string</b></td>
+      <td></td>
+      <td>The class to assign to the navbar.  For example, 'bar-positive'.</td>
+    </tr>
+    <tr>
+      <td>back-button-type</td>
+      <td><b>string</b></td>
+      <td>button-icon</td>
+      <td>Set to empty string to disable back button.</td>
+    </tr>
+    <tr>
+      <td>back-button-icon</td>
+      <td><b>string</b></td>
+      <td>ion-{<span>{</span>platform}}-arrow-back</td>
+      <td>Any class name from ionicons.</td>
+    </tr>
+    <tr>
+      <td>back-button-label</td>
+      <td><b>string</b></td>
+      <td>Title of previous view</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>align-title</td>
+      <td><b>string</b></td>
+      <td>center</td>
+      <td>Where to align the title of the navbar.  Available: 'left', 'right', 'center'.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Quick Start</h2>
+
+<p>To start, we place a <code>&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;</code> at the root of the app. The ion-nav-view directive tells Ionic where to place your templates. A view can be unnamed or named, but only one unnamed view can be within any template (or root html). The ion-nav-view directive is based off of the <a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view">ui-view directive within the ui-router</a>.</p>
+
+<p>If have an <code>&lt;ion-nav-view&gt;</code> element, we can also create an <code>&lt;ion-nav-bar&gt;</code> which will create a topbar that updates as the application state changes. We can also add some styles and set up animations:</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;starter&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- The nav bar that will be updated as we navigate --&gt;</span>
+  <span class="nt">&lt;ion-nav-bar</span> <span class="na">animation=</span><span class="s">&quot;nav-title-slide-ios7&quot;</span>
+           <span class="na">type=</span><span class="s">&quot;bar-positive&quot;</span>
+           <span class="na">back-button-type=</span><span class="s">&quot;button-icon&quot;</span>
+           <span class="na">back-button-icon=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/ion-nav-bar&gt;</span>
+
+  <span class="c">&lt;!-- where the initial view template will be rendered --&gt;</span>
+  <span class="nt">&lt;ion-nav-view</span> <span class="na">animation=</span><span class="s">&quot;slide-left-right&quot;</span><span class="nt">&gt;&lt;/ion-nav-view&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+<h3>State Provider Setup</h3>
+
+<p>We can set up Angular to listen for various routes, match which state should be loaded, and render the state&#39;s template into the correct <code>&lt;ion-nav-view&gt;</code>.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+
+<span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">,</span> <span class="nx">$urlRouterProvider</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nx">$stateProvider</span>
+    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/home&quot;</span><span class="p">,</span>
+      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;home.html&quot;</span><span class="p">,</span>
+      <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;HomeCtrl&#39;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/about&quot;</span><span class="p">,</span>
+      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;about.html&quot;</span><span class="p">,</span>
+      <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;AboutCtrl&#39;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/contact&quot;</span><span class="p">,</span>
+      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;contact.html&quot;</span>
+    <span class="p">})</span>
+
+    <span class="c1">// if none of the above are matched, go to this one</span>
+    <span class="nx">$urlRouterProvider</span><span class="p">.</span><span class="nx">otherwise</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;HomeCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;HomeCtrl&#39;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AboutCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;AboutCtrl&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Please visit <a href="https://github.com/angular-ui/ui-router/wiki">AngularUI Router&#39;s docs</a> for more info. Below is a great video by the AngularUI Router guys that may help to explain how it all works:</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo" frameborder="0" allowfullscreen></iframe>
+
+<h3>Nav Bar And Header Titles</h3>
+
+<p>The <code>ion-nav-bar</code> uses the View Service to update the header title as the user transitions through the app. For each transition, the title comes from the <code>title</code> attribute within the <code>view</code> transitioning in.</p>
+
+<h3>Templates and Views</h3>
+
+<p>Next, in each state&#39;s template should contain a <code>view</code> directive, which provides the view&#39;s title:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;home.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Home&#39;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
+      <span class="p">...</span>
+    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
+  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;about.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;About&#39;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
+      <span class="p">...</span>
+    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
+  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;contact.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Contact&#39;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
+      <span class="p">...</span>
+    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
+  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<p>Inside of each <code>&lt;ion-view&gt;</code> we can specify the title, left buttons, and right buttons that will be updated on the nav bar.</p>
+
+<p>Note: To hide the back button for a given view, use the <code>hide-back-button=&quot;true&quot;</code> attribute on the <code>&lt;ion-view&gt;</code>.</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-view</span> <span class="na">ng-controller=</span><span class="s">&quot;AppCtrl&quot;</span> <span class="na">title=</span><span class="s">&quot;myTitle&quot;</span> <span class="na">left-buttons=</span><span class="s">&quot;leftButtons&quot;</span> <span class="na">right-buttons=</span><span class="s">&quot;rightButtons&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/ion-view&gt;</span>
+</code></pre></div>
+<p>We can then specify these fields on the scope in our controller:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">myTitle</span> <span class="o">=</span> <span class="s1">&#39;Page One&#39;</span><span class="p">;</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive&#39;</span><span class="p">,</span>
+      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;&lt;i class=&quot;icon ion-navicon&quot;&gt;&lt;/i&gt;&#39;</span><span class="p">,</span>
+      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">rightButtons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-clear&#39;</span><span class="p">,</span>
+      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span>
+      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://ionicframework.com/creator/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://ioniconf.com/">Ioniconf 2015</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="https://www.booster.com/ionic">Ionic Swag</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>Company</dt>
+      <dd><a href="http://ionicframework.com/blog/">Blog</a></dd>
+      <dd><a href="#">Team</a></dd>
+      <dd><a href="#">Mission</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip" >Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2014 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-04 04:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

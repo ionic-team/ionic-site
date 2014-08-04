@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Customize Your Ionic App With Sass - Ionic Framework</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="body-full docs-page docs-tutorial">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="products-nav nav-link" href="/products/">Products</a></li>
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="/blog/">Blog <span id="blog-badge">1</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Customize Your Ionic App With Sass</h3>
+    <h4>Use the powerful of Sass to for more flexibility</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Checkout the <a href="/docs/components/">Components</a> section to see what Ionic already has
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/api/">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/tutorials/">Tutorials</a>
+              </li>
+              <li><a href="/tutorials/fade-status-bar/">Fading Status Bar</a></li>
+              <li><a href="/tutorials/fullscreen-apps/">Fullscreen Apps</a></li>
+              <li><a href="/tutorials/customizing-ionic-with-sass/">Customizing Ionic with Sass</a></li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <h1>Customizing Ionic With Sass</h1>
+
+<p>The core of Ionic&#39;s CSS is built using <a href="http://sass-lang.com/">Sass</a>.</p>
+
+<p>One thing that makes Sass such a powerful tool is its <a href="http://sass-lang.com/guide#variables">variables</a> feature. By modifying existing Ionic Sass variables, we&#39;ve made it easy to achieve your desired theme.</p>
+
+<p>Ionic already comes with a complete CSS stylesheet built from our default Sass files, so if you have little to customize, it is probably better to stick with the default CSS file and override the few properties you need. However, if you have big plans for your theme and/or your app will be a large project, then we highly recommend leveraging the power of Sass to simplify development.</p>
+
+<h2>Install or Upgrade Sass</h2>
+
+<ul>
+<li>Haven&#39;t installed Sass yet? Then <a href="http://Sass-lang.com/install">Install Sass</a></li>
+<li>If you already have Sass installed then make sure you have the latest version: <code>gem update sass</code></li>
+<li>In a terminal or command prompt, enter <code>sass -v</code> to verify Sass has been setup correctly, and to see which version you&#39;re running (should be the most recent if all goes swimmingly).</li>
+</ul>
+
+<h2>Ionic Source Files</h2>
+
+<p>Next, <a href="https://github.com/driftyco/ionic/releases">download</a> the latest copy of the Ionic repo if you haven&#39;t done so already. At the root level of Ionic&#39;s repo you&#39;ll find the <code>release/</code>, <code>js/</code> and <code>scss/</code> directories.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">- release
+  - css
+  - fonts
+  - js
+- js
+- scss
+</code></pre></div>
+<h2>Your App Directory Structure</h2>
+
+<p>The <code>release/</code> directory contains the files that will be used by your Ionic app. The directories inside <code>release/</code> should be copied into your app&#39;s root directory. You can use whatever directory structure you choose, but we recommend this setup:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">- css/
+  - app.css  (processed CSS file that will automatically be generated)
+- fonts/
+- img/
+- js/
+- scss/
+  - ionic/  (entire scss directory copied from the download, then renamed to &quot;ionic&quot;)
+  - app.scss  (your app&#39;s custom Sass file)
+- index.html
+</code></pre></div>
+<p>All the Sass magic starts from your app&#39;s <code>scss/</code> directory. Additionally, the code that builds Ionic&#39;s default icon font, <a href="http://ionicons.com/">Ionicons</a>, can be found in your app&#39;s <code>scss/ionic/ionicons/</code> directory . However, at this point all you need to be concerned with are the files in the <code>scss/</code> directory, which will eventually output your custom CSS into the <code>css/</code> directory.</p>
+
+<p>We recommend that your app have its own Sass file within the <code>scss/</code> directory, such as <code>scss/app.scss</code>. From within your <code>app.scss</code> file you&#39;ll want to import the <code>scss/ionic/ionic.scss</code> file, using this syntax:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// your variable changes can go here
+
+@import &quot;ionic/ionic&quot;;
+
+// your slick styles can go here...
+// when Sass processes, both Ionic&#39;s Sass and your Sass will combine
+// into one file and saved in your app&#39;s directory as css/app.css
+</code></pre></div>
+<h2>&quot;Watch&quot; Your Sass!</h2>
+
+<p>Browsers still need to reference plain old CSS files since they do not understand Sass files. Because of this, the Sass files will need to be processed into a CSS file. Sass is able to take many files and combine them into one CSS file, which is yet another reason why Sass is a powerful development tool.</p>
+
+<p>To automatically output a CSS file that the browser will understand you&#39;ll want to &quot;watch&quot; your app&#39;s Sass files for any changes. Every time changes are saved to a Sass file the CSS file will automatically rebuild. In your terminal, enter:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sass --watch scss/app.scss:css/app.css
+</code></pre></div>
+<p>The above command instructs Sass to constantly watch all of the files in the <code>scss/</code> directory. Once a Sass file changes it will rebuild the CSS file and resave the <code>css/app.css</code> file. For more information regarding watching Sass files please see <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">their documentation</a>. Once you have successfully run this command you are ready to start customizing.</p>
+
+<h2>Sass Variables</h2>
+
+<blockquote>
+<p>Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you want to reuse.</p>
+
+<p>-- <cite><a href="http://sass-lang.com/guide#variables">Sass Variables Documentation</a></cite></p>
+</blockquote>
+
+<p>Inside your app&#39;s <code>scss/ionic/</code> directory, the Ionic Framework has already been built with a <code>_variables.scss</code> file. The variables file is the first place to go when you want to customize any of the default styles. For example, Ionic comes with a small set of <a href="/docs/components/#colors">colors</a> to start with, but as a general rule colors are meant to be overridden to fit your &quot;brand&quot;.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$light:                 #fff !default;
+$stable:                #f8f8f8 !default;
+$positive:              #4a87ee !default;
+$calm:                  #43cee6 !default;
+$balanced:              #66cc33 !default;
+$energized:             #f0b840 !default;
+$assertive:             #ef4e3a !default;
+$royal:                 #8a6de9 !default;
+$dark:                  #444 !default;
+</code></pre></div>
+<p>Feel free to customize these variables as much as you&#39;d like (after all, the world doesn&#39;t need a bunch of apps that look identical). While you can change the <code>_variables.scss</code> file directly, we recommend you override these variables in your own <code>app.scss</code> file. By not changing the variables files directly, but simply overriding its values, it makes it easier to upgrade Ionic as new versions come out. Once a change is made, the CSS file will be rebuilt using the new values you&#39;ve specified.</p>
+
+<p>Colors are only one example, however. You&#39;ll see throughout the <code>_variables.scss</code> file that you can override many different properties, such as padding, font sizes, margins, border colors, widths, heights, etc. There&#39;s absolutely no need to change them all, but they are there to be tweaked if you choose to. Below is an example of your <code>app.scss</code> file importing <code>ionic.scss</code>, then overriding a few variables:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$light:                 #fff;
+$stable:                #f8f8f8;
+$positive:              #4ea4be;
+
+// Any variables you did not define will use the defaults
+@import &quot;ionic/ionic&quot;;
+</code></pre></div>
+<h2>Full Customization</h2>
+
+<p>Changing the variables is the easiest way to start modifying your Ionic app. However, there is nothing stopping you from going into each of the separate Sass files and customizing them to fit your requirements. (And if you&#39;ve got a few cool tricks up your sleeve that you think others may find useful, we&#39;d love to have you <a href="/contribute/">contribute</a> to Ionic).</p>
+
+<p>Now start building some awesome apps and <a href="/examples/submit.html">tell us all about it</a>!</p>
+
+<h2>Resources</h2>
+
+<ul>
+<li><a href="http://sass-lang.com/guide">Learn Sass</a></li>
+<li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">Sass Documentation</a></li>
+<li><a href="http://css-tricks.com/sass-style-guide/">Sass Style Guide</a></li>
+<li><a href="http://forum.ionicframework.com/">Ionic Forum</a></li>
+</ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://ionicframework.com/creator/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://ioniconf.com/">Ioniconf 2015</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="https://www.booster.com/ionic">Ionic Swag</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>Company</dt>
+      <dd><a href="http://ionicframework.com/blog/">Blog</a></dd>
+      <dd><a href="#">Team</a></dd>
+      <dd><a href="#">Mission</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip" >Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2014 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-04 04:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

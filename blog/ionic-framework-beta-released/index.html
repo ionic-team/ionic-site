@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic Framework Beta Released!</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development framework</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-framework-beta-released/">Ionic Framework Beta Released!</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Ionic Framework Beta Released!" data-url="http://ionicframework.com/blog/ionic-framework-beta-released" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-framework-beta-released"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-framework-beta-released" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">@adamdbradley</a> on March 26, 2014</time>
+  </div>
+
+<p><img class="showcase-image" src="/img/blog/beta-header.png"></p>
+
+<p>If you&#39;ve been following Ionic since we launched, or even reviewing our nightly commit log, you’ll know just how hard we’ve been working to continue to improve Ionic.</p>
+
+<p>In the short time since our Alpha release a few months ago, we’ve seen some great apps being built, and have been amazed by the passion and excitement of our growing community. By the numbers, Ionic developers are creating over <strong>220</strong> new apps every day, the <a href="http://github.com/driftyco/ionic">repo</a> recently passed <strong>4100</strong> stars, and traffic is growing week over week.</p>
+
+<p>With this momentum, we’re so thrilled to take the framework into Beta and officially announce version 1.0.0-beta.1, “Ionic Actinium”, and the release of our <a href="/docs/api/">new docs</a>!</p>
+
+<!-- more -->
+
+<p>The ever growing community of Ionites have been vital to Ionic’s success, especially in helping to shape the API and battle test our nightly builds. There have been some significant changes since the Alpha version, but trust us that each breaking change has been made with the ultimate goal of making it easier to develop hybrid mobile apps.</p>
+
+<p>One of the largest changes is that the beta has stepped back from using multiple attributes in favor of simply adding child elements/directives. For example, headers and footers no longer use the <code>left-buttons</code> attribute to specify an array of buttons, but rather a nested element which is easier to control and integrate with Angular. This same method is being used for the back buttons within <code>ion-nav-bar</code>, and the left and right side buttons for <code>ion-view</code>.</p>
+
+<p>We’ve also simplified applying styles with the <code>class</code> attribute, rather than through custom attributes. Some of our directives used attributes like <code>tabs-type=&quot;tabs-top&quot;</code> and <code>tabs-style=&quot;tabs-positive&quot;</code>, but in the end all the attributes really did was apply a CSS class. We decided these were redundant, deviated from the CSS docs, and added unnecessary confusion. Removing them has cleaned up the code further by separating behavior from style.</p>
+
+<p>Additionally, controlling UI elements from within your app has never been easier. We&#39;ve taken the delegate pattern from the alpha and expanded it, adding a delegate for every directive that needs control. Tabs and NavBar delegates have been added, along with more methods in all the delegates, allowing developers even finer control over how their app interacts with Ionic.</p>
+
+<p>The beta has also removed the requirement for the developer to manually tell the content to reposition itself if there is a header, footer, or tabbar present. Resultantly, the  <code>has-header</code>, <code>has-footer</code>, and <code>has-tabs</code> attributes have been removed. Ionic now will automatically reposition and resize the content depending on what surrounding widgets are present. If any old alpha code references these attributes or classnames they can be safely removed since they’re no longer being used by the framework.</p>
+
+<p>For more information regarding the specifics of the beta release please visit our <a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md">change log</a>, in addition to our <a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#breaking-changes--migration-guide">migration guide</a>.</p>
+
+<p>Ionic has come a long ways, but we’re not even close to being done. Currently our roadmap includes improving animations, keyboard fixes, adding support for huge virtual lists, Windows Phone 8 support, FirefoxOS support, awesome tooling, overall performance improvements and so much more.</p>
+
+<p>Again we’d like to thank the community in helping us build a framework which makes building hybrid mobile apps incredibly easy and fun. You are the reason we get to do what we do every day, and we are so thankful for your passion and excitement for Ionic.</p>
+
+<p>Oh, and we are hiring! If you want to help shape the future of mobile development by making web technologies the best way to build mobile apps, come <a href="/jobs/">join our growing team</a>! We are looking for great frontend and backend developers to help take Ionic to the next level.</p>
+
+<p>&lt;3,</p>
+
+<p>The Ionic Team</p>
+
+
+    <small><i>(Help us change mobile development forever. <a href="/jobs/">We are hiring!</a>)</i></small>
+  <hr>
+
+  <p>
+    <a href="https://twitter.com/ionicframework" class="twitter-follow-button" data-size="large">Follow @ionicframework</a>
+    <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true&size=large"
+      allowtransparency="true" frameborder="0" scrolling="0" width="152" height="30"></iframe>
+  </p>
+
+  <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+    <div class="form-inline">
+      <label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />
+      <div class="row">
+        <div class="col-sm-5">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Your email" style="box-shadow: none; border: 2px solid #e1e1e1; border-radius: 4px; width: 240px;" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-04 04:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

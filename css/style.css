@@ -1,0 +1,83 @@
+body {
+	margin-top: 50px; /* 50px is the height of the navbar - change this if the navbarn height changes */
+  font-size: 16px;
+}
+
+a {
+  color: #4f89e8;
+  font-weight: bold;
+}
+
+.logo-wrapper {
+	display: inline-block;
+}
+
+.section {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.section-heading {
+	font-size: 2.2em;
+	margin: 30px 0 10px 0px;
+}
+.section-heading a {
+  color: #111;
+}
+
+.section-time {
+  font-size: 1.0em;
+  color: #999;
+}
+
+.section-lead {
+	margin: 30px 0;
+}
+
+.section-paragraph {
+	margin: 30px 0;
+}
+
+footer {
+	margin: 50px 0 0;
+
+  background-color: #eee;
+  padding: 30px 0px;
+}
+footer .container {
+  max-width: 600px;
+  margin: auto;
+  padding: 0;
+  font-size: 0.8em;
+}
+
+footer .credits {
+}
+
+
+#blog .header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+#blog .header h4 {
+  color: #999;
+  font-size: 1.2em;
+}
+
+#blog {
+  max-width: 600px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+
+.section-heading {
+	font-size: 2em;
+}
+
+.section {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+}

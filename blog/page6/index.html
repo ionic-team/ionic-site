@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic Blog</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development framework</h5>
+      </div>
+      <div id="posts">
+        
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/welcome-andy/">Welcome Andy Joslin to the Ionic team!</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Welcome Andy Joslin to the Ionic team!" data-url="http://ionicframework.com/blog/welcome-andy" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/welcome-andy"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/welcome-andy" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on February 03, 2014</time>
+  </div>
+  
+    <div style="height: 200px; width: 200px; border-radius: 600px; border: 6px solid #4e8ef7; overflow: hidden; margin: 15px auto"> 
+  <img src="http://ionicframework.com.s3.amazonaws.com/blog/andy-512.jpg" alt="Andy Joslin">
+</div>
+
+<p>Today we are incredibly excited to welcome <a href="http://ajoslin.com/">Andy Joslin</a> (<a href="https://github.com/ajoslin">@ajoslin</a> on github) to the Ionic Core team!</p>
+
+<p>Andy is an AngularJS veteran, having used it since the 1.0 release. He&#39;s also been a contributor to the <a href="http://angular-ui.github.io/bootstrap/">angular-ui/bootstrap</a> project and is an avid fan of open source, having created several popular mobile open source projects in the past.</p>
+
+<p>Andy works from his home office in Raleigh, North Carolina, and when not coding loves running, climbing, tough mudder, travelling, and thinking of new puns.</p>
+
+<p>Expect to see <a href="https://github.com/ajoslin">@ajoslin</a> on Ionic commits, fixing issues and working on some big important features in the framework.</p>
+
+<p>Once again, welcome Andy, and we are excited to have you help make Ionic the best mobile app framework in the world!</p>
+
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/hybrid-apps-and-the-curse-of-the-300ms-delay/">Hybrid Apps and the Curse of the 300ms Delay</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Hybrid Apps and the Curse of the 300ms Delay" data-url="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">@adamdbradley</a> on January 30, 2014</time>
+  </div>
+  
+    <p><img class="showcase-image" src="/img/blog/delay-header.png"></p>
+
+<p>Just when we thought we had this web-dev stuff figured out with HTML5 standards and modern desktop browsers, mobile devices slapped us in the face. Mobile browsers are still the wild-west of web development (which is exactly why I love it), but because they're still relatively new, we're all still fleshing out the details on how to create amazing web apps. When it comes to response time on mobile browsers, one of the biggest culprits is a 300 millisecond delay after every tap by the user.</p>
+
+<h3>Why is there a 300ms delay on mobile browsers?</h3>
+
+<p>On touch devices such as a phone or tablet, browsers implement a 300ms delay between the time the user stops touching the display and the moment the browser executes the click. It was initially introduced so the browser can tell if the user wants to double-tap to zoom in on the webpage. Basically the browser waits roughly 300ms to see if the user is double-tapping, or just tapping on the display once. While 300ms seems pretty short, it's surprising just how noticeable it is when you remove the delay.</p>
+
+<p>Here's the general idea of how the delay plays out:</p>
+
+<p>
+<ol>
+<li>User touches the display, the browser fires off <code>touchstart</code></li>
+<li>User stops touching the display, the browser fires off <code>touchend</code></li>
+<li>The browser waits 300ms to see if the user taps again</li>
+<li>If the user didn't tap again, the browser fires off <code>click</code></li>
+</ol>
+</p>
+
+
+    <a href="/blog/hybrid-apps-and-the-curse-of-the-300ms-delay">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-swipeable-cards/">Building a custom Swipeable Card UI with Ionic and AngularJS</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Building a custom Swipeable Card UI with Ionic and AngularJS" data-url="http://ionicframework.com/blog/ionic-swipeable-cards" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-swipeable-cards"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-swipeable-cards" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on January 25, 2014</time>
+  </div>
+  
+    <p>One of the original goals of the Ionic Framework was to encourage custom mobile UI development with HTML5, building UIs that were innovative, interactive,
+and fun, but weren&#39;t necessarily part of the core mobile UI framework on a given platform.</p>
+
+<p>We&#39;ve seen native developers doing this for some time. Startups and companies like Jelly, Path, Facebook, and Google have very custom mobile UIs filled
+with animations, lots of interesting gesture-based interactions, and other unique effects. This helps create a potentially more fluid experience for the user performing an app-specific task, but also serves as a way to make
+a design impact and draw more attention to the app itself.</p>
+
+<p>I was playing with the <a href="http://jelly.co/">Jelly</a> app last week and fell in love with the swipeable card UI. I felt it was fun and effective enough that tons of mobile developers would want to emulate it for their apps, much like the draggable Side Menu made popular by Path and Facebook:</p>
+
+<p><img src="http://ionicframework.com.s3.amazonaws.com/blog/jelly.jpg" alt="Cards"></p>
+
+
+    <a href="/blog/ionic-swipeable-cards">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/rise-above-the-platform/">Rise Above the Platform</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Rise Above the Platform" data-url="http://ionicframework.com/blog/rise-above-the-platform" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/rise-above-the-platform"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/rise-above-the-platform" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a> on January 15, 2014</time>
+  </div>
+  
+    <p><img class="showcase-image" src="/img/blog/rise-above.png"></p>
+
+<p>When was the last time you saw a unique mobile app <a href="http://www.snapchat.com/" target="_blank">rise the ranks</a> of popularity, <a href="https://vine.co/" target="_blank">hit number one</a> or two in the App/Play Store, maybe even become a <a href="https://about.twitter.com/" target="_blank">household name</a>- yet, have a visual design that completely mimics the native UI design for all the platforms?</p>
+
+<p><strong>My guess is you haven’t, and you probably never will.</strong></p>
+
+<p>That’s because professional app developers don’t often copy the native design look-and-feel verbatim. And why would they? Cloning the native design doesn’t offer any real benefits when a user first opens and interacts with your app- if it has no recognizable visual differentiation, it’s not as easy to remember it. Your otherwise unique product becomes yet another boring “seen-it-already” app hidden out of sight, never to be opened again. Or worse yet, deleted altogether!</p>
+
+<p>What the most successful app developers and companies understand is that for an app to be successful, it must creatively utilize the native interface style, trends, and interactions to fit their own brand personality and target market.</p>
+
+
+    <a href="/blog/rise-above-the-platform">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-and-nitrousio/">Build a Mobile App on Nitrous.IO with Ionic Framework, Firebase, and PhoneGap</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Build a Mobile App on Nitrous.IO with Ionic Framework, Firebase, and PhoneGap" data-url="http://ionicframework.com/blog/ionic-and-nitrousio" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-and-nitrousio"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-and-nitrousio" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By A community post by <img src="http://www.gravatar.com/avatar/38543d631e009559d7630877856991ca?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/gmckeever" target="_blank">@gmckeever</a> of <a href="http://nitrous.io">Nitrous.IO</a>, provider of fast dev environments in the cloud<br> on December 18, 2013</time>
+  </div>
+  
+    <p><img src="/img/blog/nitrous/todo-app-main.jpg" alt="Mobile App using Ionic, Firebase, and PhoneGap Build"></p>
+
+<p>Looking to build a mobile app with the Ionic Framework? This guide quickly covers how to build a native Android app on <a href="http://www.nitrous.io">Nitrous.IO</a> with <a href="http://build.phonegap.com/">PhoneGap Build</a>. You will also learn how to use <a href="https://www.firebase.com/index.html">Firebase</a> to connect your app to <a href="https://www.firebase.com/index.html">Firebase</a> for a backend service. All of these services provide a free tier, so you can try this out without dropping a dime.</p>
+
+<h3>Prerequisites</h3>
+
+<p>Before we get started, make sure you have the following:</p>
+
+<ul>
+<li>A Node.JS box on <a href="http://www.nitrous.io">Nitrous.IO</a></li>
+<li>A <a href="http://www.github.com">Github account</a> which is <a href="http://help.nitrous.io/github-add-key/">connected</a> to your Node.JS box</li>
+<li>A <a href="https://build.phonegap.com/plans">PhoneGap Account</a></li>
+</ul>
+
+
+    <a href="/blog/ionic-and-nitrousio">Read more...</a>
+  
+  <hr>
+</div>
+
+
+
+<!-- Pagination links -->
+<div class="clearfix">
+  <div class="pagination">
+    <div class="pull-left">
+      <!--<span class="page_number ">Page: 6 of 7</span>-->
+      
+        <a href="/blog/page7/" class="next">Older</a>
+      
+    </div>
+    <div class="pull-right">
+      
+        
+          <a href="/blog/page5/" class="previous">Newer</a>
+        
+      
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-bottom: 40px;" class="ionic">
+    <a href="http://ionicframework.com/blog/feed.xml">
+      <i class="ion-social-rss"></i>
+      Ionic Blog RSS Feed
+    </a>
+  </p>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-04 04:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

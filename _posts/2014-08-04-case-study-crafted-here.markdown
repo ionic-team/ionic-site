@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ionic Case Study: Crafted Here"
-date:   "2014-08-04 1:00:00"
+date:   "2014-08-04 4:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'

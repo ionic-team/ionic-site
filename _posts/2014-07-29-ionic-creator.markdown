@@ -16,6 +16,8 @@ For those that have been following [our company](http://drifty.com/)'s history o
 
 We built the Ionic Framework because we weren't happy with the underlying frameworks back in 2013. We felt there was a huge opportunity to build better foundational technology for the next generation of mobile app development, and that became Ionic.
 
+<!-- more -->
+
 Now, things have come full circle, and Ionic is mature enough and popular enough (over __80,000__ new apps created just in 2014!) that it makes sense to build tools to help make Ionic easier and faster to develop with...and maybe even a bit more fun. :)
 
 Today, I am happy to formally announce the [Ionic Creator](/creator) to our community. Let's take a look!

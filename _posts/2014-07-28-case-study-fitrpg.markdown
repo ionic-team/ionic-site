@@ -12,6 +12,8 @@ published: true
 
 Created by software developers Amira Anuar, Matt Gutierrez, and Conor Fennell at [Hack Reactor](http://www.hackreactor.com/), a dev bootcamp in San Francisco, [FitRPG](http://fitrpg.co/) turns [Fitbit](http://www.fitbit.com/) data into a game that friends and family members can play against each other. The app is integrated with the Fitbit API to allow users who own Fitbits to use the data to level up an in-game character, compete against other players or bosses, and go on fitness quests, turning fitness into entertainment. The company is currently running a [Kickstarter campaign](https://www.kickstarter.com/projects/fitrpg/fitrpg-gamifying-fitness-trackers-fitbit-for-ios-a) to build out their UX talent.
 
+<!-- more -->
+
 The FitRPG team heard about Ionic when founder Max Lynch gave a demo of Ionic at Hack Reactor. “Everyone was pretty impressed by how easy it is to develop a hybrid app using the framework, the clean and intuitive UI, and the many different components it supports, so we decided to use it in building our project,” says Anuar. “Ionic provided starter apps, such as the sidebar menu, which helped us focus on the the actual game rather than the UI. We used a lot of the UI elements, from CSS classes to Javascript popups, loading, and navigation controls.”
 
 <a href="http://ionicframework.com/img/blog/fitrpg-app-preview.png"><img class="body-image" src="/img/blog/fitrpg-app-preview.png"></a>

@@ -37,6 +37,8 @@ docType: "directive"
 </h1>
 
 
+{% include codepen.html id="mwFuh" %}
+
 
 
 
@@ -52,25 +54,19 @@ Creates a scrollable container for all content inside.
   
 <h2 id="usage">Usage</h2>
   
-    
+Basic usage:
 
-  ```html
-  <ion-scroll
-    [delegate-handle=""]
-    [direction=""]
-    [paging=""]
-    [on-refresh=""]
-    [on-scroll=""]
-    [scrollbar-x=""]
-    [scrollbar-y=""]
-    [zooming=""]
-    [min-zoom=""]
-    [max-zoom=""]
-    [has-bouncing=""]>
-  ...
-  </ion-scroll>
-  ```
-    
+```html
+<ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px">
+  <div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div>
+ </ion-scroll>
+```
+
+Note that it's important to set the height of the scroll box as well as the height of the inner
+content to enable scrolling. This makes it possible to have full control over scrollable areas.
+
+If you'd just like to have a center content scrolling area, use <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> instead.
+  
   
 <h2 id="api" style="clear:both;">API</h2>
 

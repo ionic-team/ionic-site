@@ -76,7 +76,6 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
     [overflow-scroll=""]
     [scrollbar-x=""]
     [scrollbar-y=""]
-    [scrollbar-y=""]
     [start-y=""]
     [on-scroll=""]
     [on-scroll-complete=""]
@@ -198,23 +197,6 @@ Ionic scroll.</p>
       </td>
       <td>
         <p>Whether to show the horizontal scrollbar. Default true.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        scrollbar-y
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether to show the vertical scrollbar. Default true.</p>
 
         
       </td>

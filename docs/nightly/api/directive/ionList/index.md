@@ -140,6 +140,23 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
     
     <tr>
       <td>
+        type
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The type of list to use (for example, list-inset for an inset list)</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         show-delete
         
         <div><em>(optional)</em></div>

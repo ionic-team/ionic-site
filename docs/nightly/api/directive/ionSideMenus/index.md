@@ -44,11 +44,18 @@ A container element for side menu(s) and the main content. Allows the left
 and/or right side menu to be toggled by dragging the main content area side
 to side.
 
+To automatically close an opened menu you can add the <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a>
+attribute directive. Including the `menu-close` attribute is usually added to
+links and buttons within `ion-side-menu` content, so that when the element is
+clicked then the opened side menu will automatically close.
+
 ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
 
-For more information on side menus, check out the documenation for
-<a href="/docs/nightly/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a> and
-<a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a>.
+For more information on side menus, check out:
+
+- <a href="/docs/nightly/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a>
+- <a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a>
+- <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a>
 
 
 

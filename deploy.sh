@@ -21,12 +21,21 @@ rm -rf *
 git add --all
 git commit -m "prep for deploy"
 git remote rm origin
-git remote add origin git@github.com:driftyco/ionic-site.git
+
+# Let CI servers with a GH_TOKEN variable do their work
+if [[ "$GH_TOKEN" != "" ]]; then
+  git remote add origin https://driftyco:$GH_TOKEN@github.com/ionic-site
+else 
+  git remote add origin git@github.com:driftyco/ionic-site.git
+fi
+
 cd $MASTER_DIR
 gulp sass
 jekyll build
 cd $PAGES_DIR
 git add --all
 git commit -m "Content creation"
-git push -f origin gh-pages
+
+# Push quietly so the token isn't seen in the CI output
+git push -fq origin gh-pages
 cd ..

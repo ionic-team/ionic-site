@@ -10,6 +10,12 @@
 
 MASTER_DIR=$PWD
 PAGES_DIR=$PWD/_site
+# Let CI servers with a GH_TOKEN variable do their work
+if [[ "$GH_TOKEN" != "" ]]; then
+  GH_ORIGIN=https://driftyco:$GH_TOKEN@github.com/driftyco/ionic-site 
+else
+  GH_ORIGIN=git@github.com:driftyco/ionic-site.git
+fi
 
 # delete gh-pages branch if it exists
 git branch | grep gh-pages && git branch -D gh-pages
@@ -21,14 +27,7 @@ rm -rf *
 git add --all
 git commit -m "prep for deploy"
 git remote rm origin
-
-# Let CI servers with a GH_TOKEN variable do their work
-if [[ "$GH_TOKEN" != "" ]]; then
-  git remote add origin https://driftyco:$GH_TOKEN@github.com/ionic-site
-else 
-  git remote add origin git@github.com:driftyco/ionic-site.git
-fi
-
+git remote add origin $GH_ORIGIN
 cd $MASTER_DIR
 gulp sass
 jekyll build

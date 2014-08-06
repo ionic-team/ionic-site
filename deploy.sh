@@ -11,7 +11,8 @@
 MASTER_DIR=$PWD
 PAGES_DIR=$PWD/_site
 
-git branch -D gh-pages
+# delete gh-pages branch if it exists
+git branch | grep gh-pages && git branch -D gh-pages
 rm -rf $PAGES_DIR
 git clone . $PAGES_DIR
 cd _site

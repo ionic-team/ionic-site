@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.0.0-beta.10"
+version: "1.0.0-beta.11"
 versionHref: "/docs"
 path: "api/directive/ionNavBackButton/"
 
@@ -72,7 +72,7 @@ With custom click action, using <a href="/docs/api/service/$ionicNavBarDelegate/
 ```html
 <ion-nav-bar ng-controller="MyCtrl">
   <ion-nav-back-button class="button-clear"
-    ng-click="doSomethingCool()">
+    ng-click="goBack()">
     <i class="ion-arrow-left-c"></i> Back
   </ion-nav-back-button>
 </ion-nav-bar>

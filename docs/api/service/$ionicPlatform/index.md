@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.0.0-beta.10"
+version: "1.0.0-beta.11"
 versionHref: "/docs"
 path: "api/service/$ionicPlatform/"
 

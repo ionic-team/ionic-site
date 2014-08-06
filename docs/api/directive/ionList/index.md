@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.0.0-beta.10"
+version: "1.0.0-beta.11"
 versionHref: "/docs"
 path: "api/directive/ionList/"
 
@@ -133,6 +133,23 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
       <td>
         <p>The handle used to identify this list with
 <a href="/docs/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        type
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The type of list to use (for example, list-inset for an inset list)</p>
 
         
       </td>

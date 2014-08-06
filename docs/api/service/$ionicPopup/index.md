@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.0.0-beta.10"
+version: "1.0.0-beta.11"
 versionHref: "/docs"
 path: "api/service/$ionicPopup/"
 
@@ -43,6 +43,11 @@ windows that require the user to respond in order to continue.
 The popup system has support for more flexible versions of the built in `alert()`, `prompt()`,
 and `confirm()` functions that users are used to, in addition to allowing popups with completely
 custom content and look.
+
+An input can be given an `autofocus` attribute so it automatically receives focus when
+the popup first shows. However, depending on certain use-cases this can cause issues with
+the tap/click system, which is why Ionic prefers using the `autofocus` attribute as
+an opt-in feature and not the default.
 
 
 

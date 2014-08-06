@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.0.0-beta.10"
+version: "1.0.0-beta.11"
 versionHref: "/docs"
 path: "api/directive/collectionRepeat/"
 
@@ -54,13 +54,10 @@ Here are a few things to keep in mind while using collection-repeat:
 Pixel amounts or percentages are allowed (see below).
 3. The elements rendered will be absolutely positioned: be sure to let your CSS work with
 this (see below).
-4. Keep the HTML of your repeated elements as simple as possible.
-The more complicated your elements, the more likely it is that the on-demand compilation will cause
-some jerkiness in the user's scrolling.
-6. Each collection-repeat list will take up all of its parent scrollView's space.
+4. Each collection-repeat list will take up all of its parent scrollView's space.
 If you wish to have multiple lists on one page, put each list within its own
 <a href="/docs/api/directive/ionScroll/">ionScroll</a> container.
-7. You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that
+5. You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that
 have a collection-repeat inside.  ng-show and ng-hide apply the `display: none` css rule to the content's
 style, causing the scrollView to read the width and height of the content as 0.  Resultingly,
 collection-repeat will render elements that have just been un-hidden incorrectly.

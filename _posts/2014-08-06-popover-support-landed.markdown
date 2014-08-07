@@ -22,7 +22,7 @@ Popovers provide an easy way to present or gather information from the user and 
 - Select a commonly used tool or configuration within a list
 - Present a list of actions to perform inside one of your views
 
-<a href="http://ionicframework.com/img/blog/craftedhere-app-preview.png"><img class="body-image" src="/img/blog/popover-preview.gif"></a>
+<a href="/img/blog/popover-preview.gif"><img class="body-image" src="/img/blog/popover-preview.gif"></a>
 
 Like with all of Ionic’s other components, its goal is to give the developer full control of creating a popover, and continue to take advantage of all the niceties of AngularJS, such as template files, controllers, scoped variables, etc.
 

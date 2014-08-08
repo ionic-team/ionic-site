@@ -38,11 +38,13 @@ Sometimes we need to see what the scopes look like on the page to effectively de
 
 ###3: Grab any Services
 
-We can grab a reference to any service using the `injector` function of element where `ngApp` was defined (or grab the $rootElement manually if using angular's bootstrap method):
+We can grab a reference to any service using the `injector` function of element where `ngApp` was defined, or indirectly though any element with the `ng-scope` class:
 
 ```javascript
-> angular.element('html').injector().get('MyService')
+> angular.element(document.querySelector('html')).injector().get('MyService')
 -> Object {undo: function, redo: function, _pushAction: function, newDocument: function, init: function…}
+// Or slightly more generic
+> angular.element(document.querySelector('.ng-scope')).injector().get('MyService')
 ```
 
 We can then call methods on that service just like we could if we injected it.

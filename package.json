@@ -1,0 +1,28 @@
+{
+  "name": "ionic-site",
+  "version": "1.0.0",
+  "description": "Ionic main site",
+  "main": "Gulpfile.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/driftyco/ionic-site"
+  },
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-site/issues"
+  },
+  "homepage": "https://github.com/driftyco/ionic-site",
+  "devDependencies": {
+    "gulp-rename": "^1.2.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp": "^3.6.0",
+    "gulp-sass": "^0.7.1",
+    "tiny-lr": "0.0.5",
+    "gulp-livereload": "^1.2.0"
+  }
+}

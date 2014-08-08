@@ -1,0 +1,53 @@
+<select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/nightly/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "nightly"%}selected{% endif %}>
+    nightly 
+  </option>
+
+  <option
+   value="/docs/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.11"%}selected{% endif %}>
+    1.0.0-beta.11 (latest)
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.10/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.10"%}selected{% endif %}>
+    1.0.0-beta.10 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.9/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.9"%}selected{% endif %}>
+    1.0.0-beta.9 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.8/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.8"%}selected{% endif %}>
+    1.0.0-beta.8 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.7/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.7"%}selected{% endif %}>
+    1.0.0-beta.7 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.6/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.6"%}selected{% endif %}>
+    1.0.0-beta.6 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.5/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.5"%}selected{% endif %}>
+    1.0.0-beta.5 
+  </option>
+
+</select>
+
+

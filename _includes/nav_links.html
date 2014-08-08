@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        {% if page.header_logo %}
+          {{ page.header_logo }}
+        {% else %}
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        {% endif %}
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="products-nav nav-link" href="/products/">Products</a></li>
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="/blog/">Blog <span id="blog-badge">1</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

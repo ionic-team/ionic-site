@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta_tags.html %}
+    <title>{{page.title}}</title>
+    {% include head_includes.html %}
+  </head>
+
+  <body class="full-page {{page.body_css}} no-js">
+    <script>document.body.classList.remove('no-js');</script>
+
+    <style>
+      .snap-bar {
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+
+        margin-top: -50px;
+       
+        -webkit-transform: translate(0, -50px);
+        transform: translate(0, -50px);
+        
+
+        background-color: #EDF0F7;
+        color: #626D7E;
+        font-weight: 300;
+
+        text-align: center;
+        font-size: 16px;
+        line-height: 50px;
+
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0px -2px 0px #CBD4E0;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0px -2px 0px #CBD4E0;
+        -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4), inset 0px -2px 0px #CBD4E0;
+
+        -webkit-transition: 500ms margin ease-in-out;
+        -ms-transition: 500ms margin ease-in-out;
+        transition: 500ms margin ease-in-out;
+      }
+
+      .snap-bar .small {
+        display: none;
+      }
+
+      .span-bar span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .snap-bar.active {
+        
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0x);
+        
+        margin-top: 0;
+      }
+
+      @media (max-width: 767px) {
+        .snap-bar .small {
+          display: inline-block;
+        }
+        .snap-bar .large {
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      $(function() {
+        setTimeout(function(){
+          $('.snap-bar').addClass('active');
+        },1500);
+      });
+    </script>
+    <div id="creator-bar" class="snap-bar">
+      <span class="large">Hey! Check out the drag-and-drop magic coming soon with the <a href="/creator" class="creator-link">Ionic Creator</a></span>
+      <span class="small">Coming soon: The <a href="/creator" class="creator-link">Ionic Creator</a></span>
+    </div>
+
+    {% include nav_links.html %}
+
+    <div class="container content-container">
+      {{ content }}
+    </div>
+
+    {% include footer.html %}
+
+    {% include base_scripts.html %}
+
+  <script>
+    $('#repo-download').click(function() {
+      var href = $(this).attr('href');
+      ga('send', 'event', 'Download', 'Repo Download', {
+      'nonInteraction': 1,
+      'hitCallback': function() {
+        window.location = href;
+      }});
+      return false;
+    })
+    $('.creator-link').click(function() {
+      var href = $(this).attr('href');
+      ga('send', 'event', 'Click', 'Creator Bar', {
+      'nonInteraction': 1,
+      'hitCallback': function() {
+        window.location = href;
+      }});
+      return false;
+    })
+  </script>
+  </body>
+</html>

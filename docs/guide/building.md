@@ -211,7 +211,7 @@ Here is the new content area markup:
       <i class="icon ion-compose"></i>
     </button>
   </ion-header-bar>
-  <ion-content scroll="false">
+  <ion-content>
     <ion-list>
       <ion-item ng-repeat="task in activeProject.tasks">
         {{task.title}}
@@ -234,7 +234,7 @@ And the new side menu markup:
       <button class="button button-icon ion-plus" ng-click="newProject()">
       </button>
     </ion-header-bar>
-    <ion-content scroll="false">
+    <ion-content>
       <ion-list>
         <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}

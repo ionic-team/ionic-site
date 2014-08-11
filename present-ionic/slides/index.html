@@ -26,6 +26,17 @@
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44023830-1', 'ionicframework.com');
+      ga('send', 'pageview');
+
+    </script>
 	</head>
 
 	<body>
@@ -260,7 +271,7 @@
               <li>Each tab has its own nav history</li>
             </ul>
             <pre><code data-trim contenteditable class="xml">
-<ion-tabs tabs-type="tabs-icon-only">
+<ion-tabs class="tabs-icon-only">
 
   <ion-tab title="Home" icon="ion-star">
     <ion-nav-view></ion-nav-view>
@@ -288,12 +299,10 @@
           <pre><code data-trim contenteditable class="xml">
 <ion-side-menus>
 
-  <ion-pane ion-side-menu-content>
-    <ion-nav-bar type="bar-positive"
-             back-button-type="button-icon"
-             back-button-icon="ion-ios7-arrow-back"></ion-nav-bar>
+  <ion-side-menu-content>
+    <ion-nav-bar></ion-nav-bar>
     <ion-nav-view></ion-nav-view>
-  </ion-pane>
+  </ion-side-menu-content>
 
   <ion-side-menu side="left">
     <header class="bar bar-header bar-positive">
@@ -319,7 +328,7 @@
           <div class="col code">
             <h2>Slide Box</h2>
           <pre><code data-trim contenteditable class="xml">
-<ion-slide-box on-slide-changed="slideChanged(index)">
+<ion-slide-box on-slide-changed="change(index)">
   <ion-slide>
     Slide 1
   </ion-slide>
@@ -365,8 +374,8 @@ $ionicActionSheet.show({
           <div class="col code">
             <h2>Pull to Refresh</h2>
           <pre><code data-trim contenteditable class="xml">
-<ion-content>
-  <ion-refresher on-refresh="refreshData()"></ion-refresher>
+<ion-content on-refresh="refreshData()">
+  <ion-refresher></ion-refresher>
   <!-- content -->
 </ion-content></code></pre>
           </div>
@@ -385,12 +394,39 @@ $ionicActionSheet.show({
               <li>Works with Android's back button</li>
             </ul>
           <pre><code data-trim contenteditable class="xml">
-<ion-nav-bar
-         back-button-icon="ion-chevron-left"
-         back-button-type="button-icon"></ion-nav-bar>
-<ion-nav-view animation="slide-left-right"></ion-nav-view>
+<ion-nav-bar>
+  <ion-nav-back-button>
+    Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-nav-view animation="slide-left-right">
+  <!-- content -->
+</ion-nav-view>
 </code></pre>
           </div>
+        </section>
+
+
+        <section>
+<pre class="ionic-blue"><code>
+                         $ npm install -g ionic
+
+                          _             _
+                         (_)           (_)
+                          _  ___  _ __  _  ___
+                         | |/ _ \| '_ \| |/ __|
+                         | | (_) | | | | | (__
+                         |_|\___/|_| |_|_|\___|  CLI
+ </code></pre>
+          <ul>
+            <li>Quickly start an project with starter templates</li>
+            <li>Boilerplate app structure ready for customization</li>
+            <li>Preconfigured tools: Gulp, Sass, Bower, etc.</li>
+            <li>Start a local dev server with LiveReload</li>
+            <li>Update Ionic Framework library files</li>
+            <li>Build and run native apps</li>
+          </ul>
         </section>
 
 
@@ -409,8 +445,11 @@ $ionicActionSheet.show({
         <section>
           <h2>Get Started with Ionic!</h2>
           <br />
+          <p><strong>Easy-to-follow videos, tutorials and formulas</strong><br />
+          <a href="http://learn.ionicframework.com/" target="_blank"><span class="light-text">learn.ionicframework.com</span></a></p>
+          <br />
           <p><strong>Visit the Community Forum</strong><br />
-          <a href="http://forum.ionicframework.com" target="_blank"><span class="light-text">forum.ionicframework.com</span></a></p>
+          <a href="http://forum.ionicframework.com/" target="_blank"><span class="light-text">forum.ionicframework.com</span></a></p>
           <br />
           <p><strong>Contribute on GitHub</strong><br />
           <a href="https://github.com/driftyco/ionic" target="_blank"><span class="light-text">github.com/driftyco/ionic</span></a></p>

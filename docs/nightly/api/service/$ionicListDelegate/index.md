@@ -128,7 +128,7 @@ function MyCtrl($scope, $ionicListDelegate) {
 
 <div id="showDelete"></div>
 <h2>
-  <code>showDelete([showReorder])</code>
+  <code>showDelete([showDelete])</code>
 
 </h2>
 
@@ -148,7 +148,7 @@ function MyCtrl($scope, $ionicListDelegate) {
     
     <tr>
       <td>
-        showReorder
+        showDelete
         
         <div><em>(optional)</em></div>
       </td>
@@ -179,7 +179,7 @@ function MyCtrl($scope, $ionicListDelegate) {
 
 <div id="canSwipeItems"></div>
 <h2>
-  <code>canSwipeItems([showReorder])</code>
+  <code>canSwipeItems([canSwipeItems])</code>
 
 </h2>
 
@@ -199,7 +199,7 @@ function MyCtrl($scope, $ionicListDelegate) {
     
     <tr>
       <td>
-        showReorder
+        canSwipeItems
         
         <div><em>(optional)</em></div>
       </td>

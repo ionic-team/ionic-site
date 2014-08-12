@@ -250,13 +250,32 @@
 <ion-list>
   <ion-item ng-repeat="item in items"
             option-buttons="buttons"
-            class="item-thumbnail-left"
-            >
+            class="item-thumbnail-left">
     <img ng-src="{{ item.pic }}">
     <h2>{{ item.name }}</h2>
     <p>{{ item.quote }}</p>
   </ion-item>
 </ion-list></code></pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="">
+            <h2>Collection Repeat</h2>
+            <ul style="margin-left: 70px">
+              <li>Similar to Angular's <code>ng-repeat</code></li>
+              <li>Scroll through thousands of items</li>
+              <li>Only renders the viewable items</li>
+              <li>Smooth jank-free scrolling</li>
+              <li>Low memory footprint</li>
+            </ul>
+            <pre><code data-trim contenteditable class="xml">
+<div class="list">
+  <div collection-repeat="c in contacts" class="item">
+    <h2>{{ c.name }}</h2>
+    <p>{{ c.email }}</p>
+  </div>
+</div></code></pre>
           </div>
         </section>
 

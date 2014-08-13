@@ -44,6 +44,10 @@ The biggest piece of the puzzle is how to performantly render new elements as th
 
 While scrolling down, elements that were just at the top of the screen are no longer visible. What should be done with these elements? Our first thought was to remove these from the DOM.
 
+<div style="float: right; margin-right: -160px">
+  {% include codepen.html id="mFygh" %}
+</div>
+
 The solution we found to be the most performant, though, is to hide these no longer visible elements and mark them as “available for rendering.” If we were to remove no-longer-visible elements, we would have to append them to the DOM again later, as the user scrolled down. And appending new elements to the DOM while the user scrolls causes noticeable jankiness.
 
 Later, the Manager asks the DataSource, “Give me an element matching data at index 16, so I can render it.” The DataSource then finds an element that’s already in the DOM and marked as available. It assigns item 16’s data to that element’s scope and gives the element to the Manager. 
@@ -57,8 +61,4 @@ What does this mean for developers? It means we are no longer limited by the wea
 Crazy, huh?
 
 Check out [Collection Repeat’s documentation](http://ionicframework.com/docs/api/directive/collectionRepeat).
-
-<div style="float: right; margin-right: -160px">
-  {% include codepen.html id="mFygh" %}
-</div>
 

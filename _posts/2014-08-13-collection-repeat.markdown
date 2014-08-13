@@ -58,6 +58,7 @@ Crazy, huh?
 
 Check out [Collection Repeat’s documentation](http://ionicframework.com/docs/api/directive/collectionRepeat).
 
-Codepen Iframe
-http://codepen.io/ionic/pen/mFygh
+<div style="float: right; margin-right: -160px">
+  {% include codepen.html id="mFygh" %}
+</div>
 

@@ -10,9 +10,9 @@ published: true
 
 <img class="showcase-image" src="/img/blog/collectionrepeat-header.png">
 
-When developing apps, it’s fair to expect that a large list of data will be needed. Until now, if you were developing a hybrid app and wanted to show the user a list of 100+ items, that was just too bad. The phone’s browser would laugh at you as you scrolled through your list at 10 frames per second. 
+When developing apps, it’s fair to expect that a large list of data will be needed. Until now, if you were developing a hybrid app and wanted to show the user a list of 100+ items, that was just too bad. The phone’s browser would laugh at you as you scrolled through your list at ten frames per second. 
 
-After trying to fix this with every trick you knew, your frustration would slowly mount until you sighed, acknowledged that the web was just too limited for realistic apps. Then you would be forced to learn Objective-C or Java, and start building a native app.
+After trying to fix this with every trick you knew, your frustration would slowly mount until you sighed and acknowledged that the web was just too limited for realistic apps. Then you would be forced to learn Objective-C or Java, and start building a native app.
 
 Fortunately, developers no longer need to face such dramatic scenarios, because Ionic has a solution.
 

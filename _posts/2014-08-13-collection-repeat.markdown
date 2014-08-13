@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Collection Repeat"
-date:   "2014-08-13 9:00:00"
+date:   "2014-08-13 10:00:00"
 categories: ionic, angularjs, html5
 author: '<img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a>'
 searchable: true
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/collectionrepeat-header.png">

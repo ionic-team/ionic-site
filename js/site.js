@@ -257,7 +257,7 @@ var ionicSite = (function(){
     }
     document.title = newTitle;
 
-    docContent.find('.active').removeClass('active');
+    docContent.find('.active:not(.tab-item)').removeClass('active');
     activeSection.addClass("active");
 
     devicePreview.find('.active-preview').removeClass('active-preview');

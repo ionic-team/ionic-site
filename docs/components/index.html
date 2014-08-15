@@ -2899,6 +2899,110 @@ search_sections: true
 
 </section>
 
+<!-- Android Style Tabs
+  ================================================== -->
+<section class="docs-section" id="striped-style-tabs">
+
+  <h3 class="title"><a href="#striped-style-tabs">Striped Style Tabs</a></h3>
+
+  <p>
+    Add <code>tabs-striped</code> to an element above the <code>tabs</code> classname for Android style tabs.
+  </p>
+  <p>
+    Optionally, also add <code>tabs-top</code> to position the tab at the top
+  </p>
+  <p>
+    Get granular color control for striped tabs with the <code>tabs-background-{color}</code> and
+    <code>tabs-color-{color}</code> classes, where <code>{color}</code> is any of the ionic color swatches:
+    <code>default</code>,
+    <code>light</code>,
+    <code>stable</code>,
+    <code>positive</code>,
+    <code>calm</code>,
+    <code>balanced</code>,
+    <code>energized</code>,
+    <code>assertive</code>,
+    <code>royal</code>, or
+    <code>dark</code>
+  </p>
+  <p>
+    Note, that to have the header blend with the top tabs, add the <code>has-tabs-top</code> class to the header.
+  </p>
+
+  {% highlight html %}
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-light">
+    <div class="tabs">
+      <a class="tab-item active" href="#">
+        <i class="icon ion-home"></i>
+        Test
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+  <div class="tabs-striped tabs-background-dark tabs-color-assertive">
+    <div class="tabs">
+      <a class="tab-item active" href="#">
+        <i class="icon ion-home"></i>
+        Test
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+  {% endhighlight %}
+
+  <div class="doc-example ionic">
+    <div class="bar bar-header has-tabs-top bar-positive">
+      <div class="h1 title">Striped Style Tabs</div>
+    </div>
+    <div class="tabs-striped tabs-top tabs-background-positive tabs-light">
+      <div class="tabs">
+        <a class="tab-item active" href="#">
+          <i class="icon ion-home"></i>
+          Test
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-star"></i>
+          Favorites
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-gear-a"></i>
+          Settings
+        </a>
+      </div>
+    </div>
+    <div class="tabs-striped tabs-background-dark tabs-color-assertive">
+      <div class="tabs">
+        <a class="tab-item active" href="#">
+          <i class="icon ion-home"></i>
+          Test
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-star"></i>
+          Favorites
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-gear-a"></i>
+          Settings
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 
 <!-- Grid

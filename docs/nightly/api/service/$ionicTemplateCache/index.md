@@ -49,7 +49,7 @@ A service that preemptively caches template files to eliminate transition flicke
 State templates are cached automatically, but you can optionally cache other templates.
 
 ```js
-$ionicTemplateCahce('myNgIncludeTemplate.html');
+$ionicTemplateCache('myNgIncludeTemplate.html');
 ```
 
 Optionally disable all preemptive caching with the `$ionicConfigProvider` or individual states by setting `prefetchTemplate`

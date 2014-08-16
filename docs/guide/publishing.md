@@ -1,10 +1,10 @@
 ---
 layout: docs_guide
-title: "Publishing the Todo App"
+title: "Publishing your app"
 chapter: publishing
 ---
 
-Previous: <a href="building.html">Building it out</a>
+Previous: <a href="building.html">Building out your app</a>
 
 # Chapter 6: Publishing your app
 

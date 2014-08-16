@@ -4,7 +4,7 @@ title: "Installing Ionic and its Dependencies"
 chapter: installation
 ---
 
-Previous: <a href="preface.html">What is Ionic?</a>
+Previous: <a href="preface.html">All About Ionic</a>
 
 # Chapter 2: Installation
 

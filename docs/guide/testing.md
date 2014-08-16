@@ -1,6 +1,6 @@
 ---
 layout: docs_guide
-title: "Testing your App"
+title: "Testing your app"
 chapter: testing
 ---
 
@@ -67,6 +67,6 @@ If this doesn't work, make sure you have USB debugging enabled on your device, a
 
 Now that we have a shell to test and we know how to test our app, let's start building out the guts of the app!
 
-[Chapter 5: Building out your App](building.html)
+[Chapter 5: Building out your app](building.html)
 
 

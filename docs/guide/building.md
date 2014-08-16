@@ -1,10 +1,10 @@
 ---
 layout: docs_guide
-title: "Building out the Todo App"
+title: "Building out your app"
 chapter: building
 ---
 
-Previous: <a href="testing.html">Starting our App</a>
+Previous: <a href="testing.html">Starting our app</a>
 
 # Chapter 5: Building out your app
 
@@ -376,5 +376,5 @@ angular.module('todo', ['ionic'])
 I know, that was a lot of code to jump right to, but it's largely the same concepts from before, just with more details. If you run this version of the app, you should now have a pretty polished and usable multi-project Todo app!
 
 
-[Chapter 5: Publishing](publishing.html)
+[Chapter 5: Publishing your app](publishing.html)
 

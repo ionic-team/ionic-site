@@ -1,10 +1,10 @@
 ---
 layout: docs_guide
-title: "Building the UI for Todo"
+title: "Starting your app"
 chapter: starting
 ---
 
-Previous: <a href="installation.html">Installing Ionic</a>
+Previous: <a href="installation.html">Installation</a>
 
 # Chapter 3: Starting your app
 

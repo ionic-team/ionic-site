@@ -21,11 +21,6 @@ search_sections: true
     <b>Ionic currently requires AngularJS</b> in order to work at its full potential. While you can still use the CSS portion of the framework, you'll miss out on powerful UI interactions, gestures, animations, and other things. In the future we'd like to
   expand beyond Angular to support other frameworks.
   </p>
-  <!--
-  <p>
-  You'll often use Ionic with your choice of Javascript framework, and your choice of native wrapper. We think <a href="http://angularjs.org/">AngularJS</a> is one of the best javascript frameworks around, so we've also built easy-to-use AngularJS extensions to make integration incredibly simple. As of Ionic 0.9.0, Angular is the only recommended way to build Ionic apps (we are working to change this though).
-  </p>
-  -->
   <p>
     We will be releasing Cordova/PhoneGap plugins in the future to expand the capabilities of your apps.
   </p>
@@ -68,7 +63,7 @@ search_sections: true
   </p>
   <p>
 {% highlight bash %}
-$ sudo npm install -g ionic
+$ npm install -g ionic
 $ ionic start myproject
 {% endhighlight %}
   </p>
@@ -87,17 +82,6 @@ $ ionic start myproject
   <p>
     Ionic comes with compiled Javascript and CSS for your app, optional Sass files and JS Framework extensions, along with a great <a href="http://ionicons.com/">icon pack</a>.
   </p>
-  <!--
-  <p>
-    The project structure is organized as follows:
-  </p>
-  <ul>
-    <li><code>release/</code> - compiled versions of Ionic JS and CSS, along with the required font files for the Ionicons icon pack.</li>
-    <li><code>js/</code> - the source Javascript code for the project and any framework extensions (like AngularJS) that we have provided.</li>
-    <li><code>scss/</code> - the raw SCSS files that can be used to integrate the Ionic SCSS into your own project. Or you can use the compiled CSS in the release folder above.</li>
-    <li><code>test/</code> - Unit tests for the Javascript files, along with visual tests of components.</li>
-  </ul>
-  -->
 </section>
 
 
@@ -119,39 +103,14 @@ $ ionic start myproject
 
 
 
-<!-- AngularJS
+<!-- Cordova
   ================================================== -->
-<!--
-<section class="docs-section" id="angularjs">
+<section class="docs-section" id="cordova">
 
-  <h2 class="title"><a href="#angularjs">AngularJS</a></h2>
-
-  <p>
-    Ionic ships with some great <a href="http://angularjs.org/">AngularJS</a> extensions by default. This makes it easy to use Angular directives instead of the raw HTML/CSS markup, and also makes it easy to use common Ionic services in your controllers and directives.
-  </p>
-  <p>
-    To use the AngularJS extensions, copy <code>release/js/ionic-angular.js</code> and include it after <code>release/js/ionic.js</code> in your app. See the Angular doc section for more details on using the extensions.
-  </p>
-  <p>
-    Ionic-Angular relies on Angular {{ site.included_angular_version }}, and includes ngAnimate, ngSanitize, and ngResource.
-  </p>
+  <h2 class="title"><a href="#cordova">Cordova/PhoneGap/Trigger.io</a></h2>
 
   <p>
-    <a class="btn btn-primary" href="/docs/api/">Ionic Controllers</a>
-  </p>
-</section>
--->
-
-
-
-<!-- Phonegap
-  ================================================== -->
-<section class="docs-section" id="phonegap">
-
-  <h2 class="title"><a href="#phonegap">PhoneGap/Cordova/Trigger.io</a></h2>
-
-  <p>
-    Our examples were tested on Cordova 3.4.0, but should work for any version since we aren't shipping plugins (yet). To add Ionic to your <a href="http://phonegap.com/">PhoneGap</a>, <a href="http://cordova.apache.org/">Cordova</a>, or <a href="https://trigger.io/">Trigger.io</a> project, just reference the Ionic CSS and JS files from the web root of your app.
+    To add Ionic to your <a href="http://cordova.apache.org/">Cordova</a>, <a href="http://phonegap.com/">PhoneGap</a>, or <a href="https://trigger.io/">Trigger.io</a> project, just reference the Ionic CSS and JS files from the web root of your app.
   </p>
 
 </section>

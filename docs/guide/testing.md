@@ -6,7 +6,7 @@ chapter: testing
 
 Previous: <a href="starting.html">Starting your app</a>
 
-# Chapter 4: Testing your App
+# Chapter 4: Testing your app
 
 Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are four ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, in a mobile browser on your phone, or as a native app on the phone.
 

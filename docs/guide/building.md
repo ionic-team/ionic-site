@@ -6,7 +6,7 @@ chapter: building
 
 Previous: <a href="testing.html">Starting our App</a>
 
-# Chapter 5: Building out our App
+# Chapter 5: Building out your app
 
 Now that we know everything there is to know about testing our Ionic apps, and we have a working app shell, let's move on to actually making some bacon!
 

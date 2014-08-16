@@ -6,7 +6,7 @@ chapter: installation
 
 Previous: <a href="preface.html">What is Ionic?</a>
 
-# Chapter 2: Getting Everything Installed
+# Chapter 2: Installation
 
 In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.
 
@@ -74,7 +74,7 @@ Cordova requires the ANDROID_HOME environment variable to be set. This should po
 <p>
 Next, update your PATH to include the <code>tools/</code> and <code>platform-tools/</code> folder in that folder. So, using ANDROID_HOME, you would add both <code>%ANDROID_HOME%\tools</code> and <code>%ANDROID_HOME%\platform-tools</code>.
 </p>
-</div> 
+</div>
 
 ## Install Ionic
 
@@ -137,7 +137,7 @@ $ ionic emulate ios
 
 <div id="android-emulator-note" class="collapse well">
 <p>
-  We don't recommend using "emulate" for Android development. Unfortunately, the default Android emulator is horribly slow and will not accurately represent 
+  We don't recommend using "emulate" for Android development. Unfortunately, the default Android emulator is horribly slow and will not accurately represent
 a real device. Using the emulator isn't even recommended for native Android development.
 </p>
 <p>

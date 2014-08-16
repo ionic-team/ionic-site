@@ -6,7 +6,7 @@ chapter: starting
 
 Previous: <a href="installation.html">Installing Ionic</a>
 
-# Chapter 3: Starting your App
+# Chapter 3: Starting your app
 
 Now that we've got everything installed and a new Cordova project created, let's jump in and start building a real app!
 
@@ -34,7 +34,7 @@ Since every Ionic app is basically a web page, we need to have an `index.html` f
 </html>
 ```
 
-In the shell above, we are including the Ionic CSS and both the core Ionic JS and the Ionic AngularJS extensions in the `ionic.bundle.js` file. Ionic comes with `ngAnimate` and `ngSanitize` bundled in, but to use other Angular modules you'll need to include them from the `lib/js/angular` directory. 
+In the shell above, we are including the Ionic CSS and both the core Ionic JS and the Ionic AngularJS extensions in the `ionic.bundle.js` file. Ionic comes with `ngAnimate` and `ngSanitize` bundled in, but to use other Angular modules you'll need to include them from the `lib/js/angular` directory.
 
 Also note that the cordova.js or phonegap.js file must be the last script, and that this file will not be found in your development files, but rather automatically included when running or emulating your app.
 

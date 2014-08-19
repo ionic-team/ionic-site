@@ -1,0 +1,68 @@
+<html ng-app="sideMenuTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Side Menus</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://code.ionicframework.com/0.9.24/css/ionic.css">
+    <script src="http://code.ionicframework.com/0.9.24/js/ionic.bundle.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="MenuCtrl">
+      <ion-side-menus>
+        <pane ion-side-menu-content>
+          <header class="bar bar-header bar-assertive">
+            <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon"></i></button>
+            <h1 class="title">Slide me</h1>
+          </header>
+          <div class="content has-header">
+            <button ng-click="openLeft()">Open Left</button>
+            <h1>Content</h1>
+          </div>
+        </pane>
+        <ion-side-menu side="left">
+          <header class="bar bar-header bar-assertive">
+            <h1 class="title">Left</h1>
+          </header>
+          <ion-content has-header="true">
+            <ul class="list">
+              <a href="#" class="item" ng-repeat="item in list">
+                {{item.text}}
+              </a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+        <ion-side-menu side="right">
+          <header class="bar bar-header bar-assertive">
+            <h1 class="title">Right</h1>
+          </header>
+          <ion-content has-header="true">
+            <ul class="list">
+              <a href="#" class="item" ng-repeat="item in list">
+                {{item.text}}
+              </a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+      </ion-side-menus>
+    </div>
+    <script>
+      angular.module('sideMenuTest', ['ionic'])
+
+      .controller('MenuCtrl', function($scope) {
+        $scope.list = [];
+        for(var i = 0; i < 20; i++) {
+          $scope.list.push({
+            text: 'Item ' + i
+          });
+        }
+        $scope.openLeft = function() {
+          $scope.sideMenuController.toggleLeft();
+        };
+      });
+    </script>
+  </body>
+</html>
+

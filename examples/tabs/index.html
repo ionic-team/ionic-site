@@ -1,0 +1,191 @@
+<html ng-app="tabsTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Tab Bars</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/ionic/css/ionic.css">
+    <style>
+      .fade-out > .ng-enter, 
+      .fade-out > .ng-leave, 
+      .fade-out > .ng-move {
+        -webkit-transition: 0.2s linear all;
+        transition: 0.4s ease-out all;
+        position:relative;
+      }
+
+      .fade-out > .ng-enter {
+        left:-10px;
+        opacity:0;
+      }
+      .fade-out > .ng-enter.ng-enter-active {
+        left:0;
+        opacity:1;
+      }
+
+      .fade-out > .ng-leave {
+        left:0;
+        opacity:1;
+      }
+      .fade-out > .ng-leave.ng-leave-active {
+        left:-10px;
+        opacity:0;
+      }
+
+      .fade-out > .ng-move {
+        opacity:0.5;
+      }
+      .fade-out > .ng-move.ng-move-active {
+        opacity:1;
+      }
+
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+    <script src="/ionic/js/ionic.js"></script>
+    <script src="/ionic/js/angular/angular.js"></script>
+    <script src="/ionic/js/angular/angular-animate.js"></script>
+    <script src="/ionic/js/angular/angular-route.js"></script>
+    <script src="/ionic/js/angular/angular-touch.js"></script>
+    <script src="/ionic/js/angular/angular-sanitize.js"></script>
+    <script src="/ionic/js/ionic-angular.js"></script>
+  </head>
+  <body ng-controller="RootCtrl">
+    <tabs
+          animation="fade-in-out" 
+          tabs-type="tabs-icon-only"
+          tabs-style="tabs-positive"
+          controller-changed="onControllerChanged(oldController, oldIndex, newController, newIndex)">
+
+      <tab title="Home" icon-on="icon ion-ios7-filing" icon-off="icon ion-ios7-filing-outline" ng-controller="HomeCtrl">
+        <header class="bar bar-header bar-positive">
+          <button class="button button-clear button-positive" ng-click="newTask()">New</button>
+          <h1 class="title">Tasks</h1>
+        </header>
+        <content has-header="true" has-footer="true">
+          <list>
+            <item ng-repeat="item in items" 
+            item="item"
+            can-delete="false"
+            can-reorder="false"
+            can-swipe="false"
+            on-delete="deleteItem(item)"
+            ng-class="{completed: item.isCompleted}"
+            >
+              {{item.title}}
+              <i class="{{item.icon}}"></i>
+            </list-item>
+          </list>
+        </content>
+      </tab>
+
+      <tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
+        <header class="bar bar-header bar-positive">
+          <h1 class="title">Deadlines</h1>
+        </header>
+        <content has-header="true" has-tabs="true" class="padded">
+          <h1>Deadlines</h1>
+        </content>
+      </tab>
+
+      <tab title="Settings" icon-on="icon ion-ios7-gear" icon-off="icon ion-ios7-gear-outline">
+        <header class="bar bar-header bar-positive">
+          <h1 class="title">Settings</h1>
+        </header>
+        <content has-header="true" has-tabs="true" class="padded">
+          <h1>Settings</h1>
+        </content>
+      </tab>
+      
+    </tabs>
+
+    <script id="newTask.html" type="text/ng-template">
+      <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
+        <header class="bar bar-header bar-positive">
+          <h1 class="title">New Task</h1>
+          <button class="button button-clear" ng-click="close()">Done</button>
+        </header>
+        <main class="content padding has-header">
+          <input type="text" placeholder="I need to do this...">
+          <button class="button button-block" ng-click="close()">Done</button>
+        </main>
+      </div>
+    </script>
+
+    <script>
+      angular.module('tabsTest', ['ionic'])
+
+      .controller('RootCtrl', function($scope) {
+        $scope.onControllerChanged = function(oldController, oldIndex, newController, newIndex) {
+          console.log('Controller changed', oldController, oldIndex, newController, newIndex);
+          console.log(arguments);
+        };
+      })
+
+
+      .controller('HomeCtrl', function($scope, $ionicModal, $ionicActionSheet) {
+        $scope.items = [];
+
+        $ionicModal.fromTemplateUrl('newTask.html', function(modal) {
+          $scope.settingsModal = modal;
+        });
+
+        var removeItem = function(item, button) {
+          $ionicActionSheet.show({
+            buttons: [],
+            destructiveText: 'Delete Task',
+            cancelText: 'Cancel',
+            cancel: function() {
+              return true;
+            },
+            destructiveButtonClicked: function() {
+              $scope.items.splice($scope.items.indexOf(item), 1);
+              return true;
+            }
+          });
+        };
+
+        var completeItem = function(item, button) {
+          item.isCompleted = true;
+        };
+
+        $scope.onRefresh = function() {
+          console.log('ON REFRESH');
+        }
+
+        $scope.removeItem = function(item) {
+          removeItem(item);
+        };
+
+        $scope.newTask = function() {
+          $scope.settingsModal.show();
+        };
+
+        // Create the items
+        for(var i = 0; i < 30; i++) {
+          $scope.items.push({
+            title: 'Task ' + (i + 1),
+            buttons: [{
+              text: 'Done',
+              type: 'button-success',
+              onButtonClicked: completeItem,
+            }, {
+              text: 'Delete',
+              type: 'button-danger',
+              onButtonClicked: removeItem,
+            }]
+          });
+        }
+
+      })
+
+      .controller('TaskCtrl', function($scope) {
+        $scope.close = function() {
+          $scope.modal.hide();
+        }
+      });
+
+    </script>
+  </body>
+</html>

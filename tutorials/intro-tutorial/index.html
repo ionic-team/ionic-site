@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Intro App Tutorial - Ionic Framework</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="body-full docs-page docs-tutorial">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="products-nav nav-link" href="/products/">Products</a></li>
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="/blog/">Blog <span id="blog-badge">1</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Intro App Tutorial</h3>
+    <h4>Teaching users to use your app</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Checkout the <a href="/docs/components/">Components</a> section to see what Ionic already has
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/api/">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/tutorials/">Tutorials</a>
+              </li>
+              <li><a href="/tutorials/fade-status-bar/">Fading Status Bar</a></li>
+              <li><a href="/tutorials/fullscreen-apps/">Fullscreen Apps</a></li>
+              <li><a href="/tutorials/customizing-ionic-with-sass/">Customizing Ionic with Sass</a></li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <!--<img src="intro.gif" alt="Fading header" style="max-width: 100%">-->
+
+<div>
+  <div>
+    
+    
+ <div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="AjgEB" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/AjgEB'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+  <script async src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
+
+
+    <h2 class="underline">Building a User Tutorial with Ionic</h2>
+    
+    <p>
+      A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen
+      tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+    </p>
+    <p>
+      The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them
+      to the app and trying to give them a running start when your main interface loads.
+    </p>
+    <p>
+      Try playing with the demo on the left. You'll notice you can drag and swipe between different pages of the tutorial (it also works with
+      the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+    </p>
+    <p>
+      To build this tutorial, we will be using the <a href="/docs/angularjs/views/slide-box">Slide Box</a> view and the <a href="/docs/angularjs/controllers/nav-router">Nav Router</a>. To start a new Ionic project, we can use the Ionic <a href="/docs/#starter">command line utility</a>, or clone the <a href="https://github.com/driftyco/ionic-angular-cordova-seed">seed project</a> or <a href="http://codepen.io/ionic/pen/AjgEB">codepen sample</a>.
+    </p>
+    <p>
+      To start, we will set our app up to use Nav Routing, so that we can navigate to the main interface of the app once the tutorial is complete. Inside of the <code>&lt;body&gt;</code> tag, add this code:
+    </p>
+    <p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;myApp&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- Our navigation router with some animations set --&gt;</span>
+  <span class="nt">&lt;pane</span> <span class="na">nav-router</span> <span class="na">animation=</span><span class="s">&quot;slide-left-right-ios7&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- The nav bar that will be updated as we navigate --&gt;</span>
+    <span class="nt">&lt;nav-bar</span> <span class="na">class=</span><span class="s">&quot;nav-title-slide-ios7&quot;</span> <span class="na">type=</span><span class="s">&quot;bar-default&quot;</span> <span class="na">back-button-type=</span><span class="s">&quot;button-icon&quot;</span> <span class="na">back-button-icon=</span><span class="s">&quot;icon ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/nav-bar&gt;</span>
+
+    <span class="c">&lt;!-- where the content of each page will be rendered --&gt;</span>
+    <span class="nt">&lt;ng-view&gt;&lt;/ng-view&gt;</span>
+  <span class="nt">&lt;/pane&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+    </p>
+    <p>
+      For the nav router, we are using the standard <a href="http://docs.angularjs.org/api/ngRoute">ngRoute</a> module from AngularJS that will insert each view of the 
+      app based on the URL triggered into the <code>&lt;ng-view&gt;</code> element.
+    </p>
+    <p>
+      Since <code>ngRoute</code> needs some URL mappings and a template to load for each one, we need to set those up in our Javascript:
+    </p>
+    <p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngRoute&#39;</span><span class="p">])</span>
+
+<span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$compileProvider</span><span class="p">){</span>
+  <span class="c1">// Set the whitelist for certain URLs just to be safe</span>
+  <span class="nx">$compileProvider</span><span class="p">.</span><span class="nx">aHrefSanitizationWhitelist</span><span class="p">(</span><span class="sr">/^\s*(https?|ftp|mailto|file|tel):/</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">,</span> <span class="nx">$locationProvider</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Set up the initial routes that our app will respond to.</span>
+  <span class="c1">// These are then tied up to our nav router which animates and</span>
+  <span class="c1">// updates a navigation bar</span>
+  <span class="nx">$routeProvider</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;intro.html&#39;</span><span class="p">,</span>
+    <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;IntroCtrl&#39;</span>
+  <span class="p">});</span>
+
+  <span class="nx">$routeProvider</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/main&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;main.html&#39;</span><span class="p">,</span>
+    <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;MainCtrl&#39;</span>
+  <span class="p">});</span>
+
+  <span class="c1">// if none of the above routes are met, use this fallback</span>
+  <span class="c1">// which executes the &#39;IntroCtrl&#39; controller (controllers.js)</span>
+  <span class="nx">$routeProvider</span><span class="p">.</span><span class="nx">otherwise</span><span class="p">({</span>
+    <span class="nx">redirectTo</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+    </p>
+    <p>
+      This tells <code>ngRoute</code> to load the <code>intro.html</code> template when the user is on the root or <code>/</code> URL, and the <code>main.html</code> template when the user
+      hits the <code>/main</code> URL.
+    </p>
+    <h2>Intro Template</h2>
+    <p>
+      For the <code>intro.html</code> template, we will use a slide box:
+    </p>
+    <p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;intro.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!--</span> <span class="nx">Create</span> <span class="nx">the</span> <span class="nx">nav</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">bind</span> <span class="nx">left</span> <span class="nx">and</span> <span class="nx">right</span> <span class="nx">buttons</span> <span class="nx">that</span> <span class="nx">will</span> <span class="nx">update</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">nav</span> <span class="nx">bar</span> <span class="nx">as</span>
+       <span class="nx">we</span> <span class="nx">progress</span> <span class="nx">through</span> <span class="nx">the</span> <span class="nx">tutorial</span>
+  <span class="o">--&gt;</span>
+  <span class="o">&lt;</span><span class="nx">nav</span><span class="o">-</span><span class="nx">page</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;intro-page&quot;</span> <span class="nx">left</span><span class="o">-</span><span class="nx">buttons</span><span class="o">=</span><span class="s2">&quot;leftButtons&quot;</span> <span class="nx">right</span><span class="o">-</span><span class="nx">buttons</span><span class="o">=</span><span class="s2">&quot;rightButtons&quot;</span><span class="o">&gt;</span>
+
+    <span class="c">&lt;!--</span> <span class="nx">create</span> <span class="nx">the</span> <span class="nx">slidebox</span><span class="p">.</span> <span class="nx">Listen</span> <span class="k">for</span> <span class="nx">on</span><span class="o">-</span><span class="nx">slide</span><span class="o">-</span><span class="nx">changed</span> <span class="nx">events</span> <span class="nx">we</span> <span class="nx">will</span> <span class="nx">wire</span> <span class="nx">up</span> <span class="nx">later</span><span class="p">.</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">slide</span><span class="o">-</span><span class="nx">box</span> <span class="nx">on</span><span class="o">-</span><span class="nx">slide</span><span class="o">-</span><span class="nx">changed</span><span class="o">=</span><span class="s2">&quot;slideChanged(index)&quot;</span><span class="o">&gt;</span>
+
+      <span class="c">&lt;!--</span> <span class="nx">first</span> <span class="nx">slide</span> <span class="o">--&gt;</span>
+      <span class="o">&lt;</span><span class="nx">slide</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Thank</span> <span class="nx">you</span> <span class="k">for</span> <span class="nx">choosing</span> <span class="nx">the</span> <span class="nx">Awesome</span> <span class="nx">App</span><span class="o">!&lt;</span><span class="err">/h3&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;logo&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;http://code.ionicframework.com/assets/img/app_icon.png&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="nx">We</span><span class="err">&#39;</span><span class="nx">ve</span> <span class="nx">worked</span> <span class="kr">super</span> <span class="nx">hard</span> <span class="nx">to</span> <span class="nx">make</span> <span class="nx">you</span> <span class="nx">happy</span><span class="p">.</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="nx">But</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">angry</span><span class="p">,</span> <span class="nx">too</span> <span class="nx">bad</span><span class="p">.</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/slide&gt;</span>
+
+      <span class="c">&lt;!--</span> <span class="nx">second</span> <span class="nx">slide</span> <span class="o">--&gt;</span>
+      <span class="o">&lt;</span><span class="nx">slide</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Using</span> <span class="nx">Awesome</span><span class="o">&lt;</span><span class="err">/h3&gt;</span>
+        
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">h5</span><span class="o">&gt;</span><span class="nx">Just</span> <span class="nx">three</span> <span class="nx">steps</span><span class="o">:&lt;</span><span class="err">/h5&gt;</span>
+          <span class="o">&lt;</span><span class="nx">ol</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Be</span> <span class="nx">awesome</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+            <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Stay</span> <span class="nx">awesome</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+            <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">There</span> <span class="nx">is</span> <span class="nx">no</span> <span class="nx">step</span> <span class="mi">3</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+          <span class="o">&lt;</span><span class="err">/ol&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+      <span class="o">&lt;</span><span class="err">/slide&gt;</span>
+
+      <span class="c">&lt;!--</span> <span class="nx">third</span> <span class="nx">slide</span> <span class="o">--&gt;</span>
+      <span class="o">&lt;</span><span class="nx">slide</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Any</span> <span class="nx">questions</span><span class="o">?&lt;</span><span class="err">/h3&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="nx">Too</span> <span class="nx">bad</span><span class="o">!</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/slide&gt;</span>
+    <span class="o">&lt;</span><span class="err">/slide-box&gt;</span>
+  <span class="o">&lt;</span><span class="err">/nav-page&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+    </p>
+    <p>
+      In this template, we've created a page that will show our multi-slide tutorial.
+    </p>
+    <p>
+      In the routes, we configured this template to use the <code>IntroCtrl</code> controller. We need this controller to update the navigation bar as the user
+      progresses through the tutorial, and to navigate to the main app interface once the tutorial is done. Let's add the logic for the controller now, right after the
+      main Javascript code above:
+    </p>
+    <p>
+
+<div class="highlight"><pre><code class="javascript"><span class="p">})</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;IntroCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Called to navigate to the main app</span>
+  <span class="kd">var</span> <span class="nx">startApp</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;/main&#39;</span><span class="p">);</span>
+
+    <span class="c1">// Set a flag that we finished the tutorial</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;didTutorial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Check if the user already did the tutorial and skip it if so</span>
+  <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;didTutorial&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">startApp</span><span class="p">();</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Move to the next slide</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;slideBox.nextSlide&#39;</span><span class="p">);</span>
+  <span class="p">};</span>
+
+
+  <span class="c1">// Our initial right buttons</span>
+  <span class="kd">var</span> <span class="nx">rightButtons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Next&#39;</span><span class="p">,</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive button-clear&#39;</span><span class="p">,</span>
+      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Go to the next slide on tap</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+  
+  <span class="c1">// Our initial left buttons</span>
+  <span class="kd">var</span> <span class="nx">leftButtons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Skip&#39;</span><span class="p">,</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive button-clear&#39;</span><span class="p">,</span>
+      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Start the app on tap</span>
+        <span class="nx">startApp</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+
+  <span class="c1">// Bind the left and right buttons to the scope</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="nx">leftButtons</span><span class="p">;</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">rightButtons</span> <span class="o">=</span> <span class="nx">rightButtons</span><span class="p">;</span>
+
+
+  <span class="c1">// Called each time the slide changes</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">slideChanged</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Check if we should update the left buttons</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// If this is not the first slide, give it a back button</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Back&#39;</span><span class="p">,</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive button-clear&#39;</span><span class="p">,</span>
+          <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Move to the previous slide</span>
+            <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;slideBox.prevSlide&#39;</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// This is the first slide, use the default left buttons</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="nx">leftButtons</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// If this is the last slide, set the right button to</span>
+    <span class="c1">// move to the app</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">rightButtons</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Start using MyApp&#39;</span><span class="p">,</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive button-clear&#39;</span><span class="p">,</span>
+          <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">startApp</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Otherwise, use the default buttons</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">rightButtons</span> <span class="o">=</span> <span class="nx">rightButtons</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">})</span>
+</code></pre></div>
+
+    </p>
+    <p>
+      It's kind of a lot of code, bu the gist is that we are setting the left and right buttons for the nav bar. When we move through the slider and 
+      <code>$scope.slideChanged</code> is called, we update the nav bar buttons depending on which slide we are on.
+    </p>
+    <p>
+      We also check to see if the user already finished the tutorial at one point, which will be indicated by a <code>"didTutorial"</code> value in local storage.
+    </p>
+    <p>
+      When we are done with the tutorial, we call <code>startApp()</code> which calls <code>$location.path('/main')</code> to navigate to the main
+      app interface. We also set the flag in local storage indicating the user finished the tutorial.
+    </p>
+    <h2 class="underline">Styling</h2>
+    <p>
+      Now that we have a working demo, we just need a little CSS to make the slides look the way we want:
+    </p>
+    <p>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.slider</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.slider-slide</span> <span class="p">{</span>
+  <span class="k">padding-top</span><span class="o">:</span> <span class="m">80px</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;HelveticaNeue-Light&quot;</span><span class="o">,</span> <span class="s2">&quot;Helvetica Neue Light&quot;</span><span class="o">,</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="s2">&quot;Lucida Grande&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span> 
+  <span class="k">font-weight</span><span class="o">:</span> <span class="m">300</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#logo</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">30px</span> <span class="m">0px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#list</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">170px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">30px</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#list</span> <span class="nt">ol</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#list</span> <span class="nt">ol</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">list-style</span><span class="o">:</span> <span class="k">decimal</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+    </p>
+    <p>
+And that's it! You now have a nice intro tutorial for your users!
+    </p>
+    <p>
+      <a href="http://forum.ionicframework.com/t/new-tutorial-swipeable-user-intro-tutorial/278">Discuss this tutorial on the forum</a>
+    </p>
+  </div>
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://ionicframework.com/creator/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://ioniconf.com/">Ioniconf 2015</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="https://www.booster.com/ionic">Ionic Swag</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>Company</dt>
+      <dd><a href="http://ionicframework.com/blog/">Blog</a></dd>
+      <dd><a href="#">Team</a></dd>
+      <dd><a href="#">Mission</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip" >Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2014 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2014-08-18 13:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

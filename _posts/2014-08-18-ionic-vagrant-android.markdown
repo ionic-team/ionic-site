@@ -20,8 +20,8 @@ To use this project, download the [most recent release](https://github.com/drift
 
 Assuming you have Vagrant and VirtualBox installed, all you need to do us run `vagrant up` and the machine will download and configure itself. It takes a bit of time at first, but it's all automated and only needs to be done once.
 
-Once the image is built and running, you can run `vagrant ssh` to connect to the image where you have a full development environment ready to go. Configure shared directories to share code from your host computer to the vagrant guest, and it'll feel just like home.
+Once the image is built and running, you can run `vagrant ssh` to connect to the image where you have a full development environment ready to go, including support for testing on a USB connected Android device! Configure shared directories to share code from your host computer to the vagrant guest, and it'll feel just like home.
 
-So give this project a try, and let us know what you think!
+So give this project a try, and let us know what you think! This is the first release and we will be evolving this over time as we learn how people use it in the wild.
 
 [Ionic Vagrant Project](https://github.com/driftyco/ionic-cordova-android-vagrant)

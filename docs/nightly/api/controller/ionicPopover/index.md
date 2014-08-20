@@ -11,11 +11,11 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L112'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L124'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L112'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L124'>
     Improve this doc
   </a>
 </div>

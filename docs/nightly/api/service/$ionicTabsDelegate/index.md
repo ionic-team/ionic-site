@@ -79,7 +79,7 @@ function MyCtrl($scope, $ionicTabsDelegate) {
 
 <div id="select"></div>
 <h2>
-  <code>select(index, [shouldChangeHistory])</code>
+  <code>select(index)</code>
 
 </h2>
 
@@ -109,27 +109,6 @@ Select the tab matching the given index.
       </td>
       <td>
         <p>Index of the tab to select.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        shouldChangeHistory
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether this selection should load this tab&#39;s
-view history (if it exists) and use it, or just load the default page.
-Default false.
-Hint: you probably want this to be true if you have an
-<a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a> inside your tab.</p>
 
         
       </td>

@@ -377,6 +377,204 @@ Tell the scrollView to recalculate the size of its container.
 
 
 
+<div id="zoomTo"></div>
+<h2>
+  <code>zoomTo(level, [animate], [originLeft], [originTop])</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        level
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Level to zoom to.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        animate
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to animate the zoom.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        originLeft
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Zoom in at given left coordinate.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        originTop
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Zoom in at given top coordinate.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="zoomBy"></div>
+<h2>
+  <code>zoomBy(factor, [animate], [originLeft], [originTop])</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        factor
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The factor to zoom by.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        animate
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to animate the zoom.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        originLeft
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Zoom in at given left coordinate.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        originTop
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Zoom in at given top coordinate.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
 <div id="getScrollPosition"></div>
 <h2>
   <code>getScrollPosition()</code>

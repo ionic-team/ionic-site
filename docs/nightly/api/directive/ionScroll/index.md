@@ -117,6 +117,23 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
     
     <tr>
       <td>
+        locking
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to lock scrolling in one direction at a time. Useful to set to false when zoomed in or scrolling in two directions. Default true.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         paging
         
         <div><em>(optional)</em></div>

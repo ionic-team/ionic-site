@@ -71,6 +71,7 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
   <ion-content
     [delegate-handle=""]
     [direction=""]
+    [locking=""]
     [padding=""]
     [scroll=""]
     [overflow-scroll=""]
@@ -127,6 +128,23 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
       </td>
       <td>
         <p>Which way to scroll. &#39;x&#39; or &#39;y&#39; or &#39;xy&#39;. Default &#39;y&#39;.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        locking
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to lock scrolling in one direction at a time. Useful to set to false when zoomed in or scrolling in two directions. Default true.</p>
 
         
       </td>

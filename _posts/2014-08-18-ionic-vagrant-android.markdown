@@ -14,6 +14,8 @@ It's especially bad for Windows users that often have very diverse installations
 
 So today we are relieved to announce we've created a solution to the nightmare that is dependency installation: the [Ionic Vagrant](http://github.com/driftyco/ionic-cordova-android-vagrant) image.
 
+<!-- more -->
+
 If you aren't familiar with [Vagrant](https://www.vagrantup.com/), it's a tool to create reusable development environments through the use of virtual machines, most commonly through [VirtualBox](https://www.virtualbox.org). That means you can configure a Virtual Machine complete with all the tools you need to start building hybrid or native-only apps with Android and Cordova.
 
 To use this project, download the [most recent release](https://github.com/driftyco/ionic-cordova-android-vagrant/releases) of the code, unzip it, and then open up your command prompt or terminal and `cd` into the extracted folder.

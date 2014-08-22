@@ -24,7 +24,7 @@ The HabitRPG team chose to build an HTML5 app for two reasons: cross-platform bu
 
 “We wrote our app once, and it’s available for iOS and Android,” says Renelle. “The small performance and native-feel penalty is worth the time and resources saved, especially as our small operation has a limited supply of both.”
 
-<a href="http://ionicframework.com/img/blog/craftedhere-app-preview.png"><img class="body-image" src="/img/blog/habitrpg-app-preview.png"></a>
+<a href="http://ionicframework.com/img/blog/habitrpg-app-preview.png"><img class="body-image" src="/img/blog/habitrpg-app-preview.png"></a>
 
 Plus, HabitRPG is a “full-stack JavaScript shop,” using AngularJS, Node.js, MongoDB, and Chrome Extension. “PhoneGap fit our stack like a glove,” says Renelle. “We have a ‘common lib’ housing all our algorithms, helper functions, services/directives, etc.--a package included on all properties and comprising the majority of each property’s codebase. Fix a web bug, and we get that fix on mobile for free. It saves us tremendous amounts of time. Furthermore, any of our developers can jump to any of the other properties with ease--they’re all JavaScript, and AngularJS to boot.”
 

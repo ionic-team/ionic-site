@@ -16,7 +16,7 @@ Created by software developers Amira Anuar, Matt Gutierrez, and Conor Fennell at
 
 The FitRPG team heard about Ionic when founder Max Lynch gave a demo of Ionic at Hack Reactor. “Everyone was pretty impressed by how easy it is to develop a hybrid app using the framework, the clean and intuitive UI, and the many different components it supports, so we decided to use it in building our project,” says Anuar. “Ionic provided starter apps, such as the sidebar menu, which helped us focus on the the actual game rather than the UI. We used a lot of the UI elements, from CSS classes to Javascript popups, loading, and navigation controls.”
 
-<a href="http://ionicframework.com/img/blog/habitrpg-app-preview.png"><img class="body-image" src="/img/blog/fitrpg-app-preview.png"></a>
+<a href="http://ionicframework.com/img/blog/fitrpg-app-preview.png"><img class="body-image" src="/img/blog/fitrpg-app-preview.png"></a>
 
 Gutierrez says Ionic reminded him of Bootstrap. “It provided simple to use CSS classes and Javascript functions, all built on top of Angular,” he says. “Because it was almost exactly like Angular, it makes it incredibly easy to create a web version of the app and then convert it to a mobile version using Ionic.”
 

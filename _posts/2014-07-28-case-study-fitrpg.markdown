@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ionic Case Study: FitRPG"
+title:  "Built with Ionic: FitRPG"
 date:   "2014-07-28 1:00:00"
 hide_date: false
 categories: ionic

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ionic Case Study: Crafted Here"
+title:  "Built with Ionic: Crafted Here"
 date:   "2014-08-04 4:00:00"
 hide_date: false
 categories: ionic

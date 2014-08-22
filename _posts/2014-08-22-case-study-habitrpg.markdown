@@ -34,4 +34,4 @@ The HabitRPG team plans to incorporate more Ionic components over time. “We ha
 
 Renelle says he believes Ionic is the second most important thing to happen to the hybrid app dev space (the first being PhoneGap). “Ionic will grow an impressive showcase, proving to companies that hybrid is a viable option,” he says.
 
-Find [HabitRPG](http://about.me/lefnire) was developed by Tyler Renelle. You can find it on the [iOS App Store](https://itunes.apple.com/us/app/habitrpg/id689569235?mt=8) or the [Android Play Store](https://play.google.com/store/apps/details?id=com.ocdevel.habitrpg).
+Find HabitRPG was developed by [Tyler Renelle](http://about.me/lefnire). You can find it on the [iOS App Store](https://itunes.apple.com/us/app/habitrpg/id689569235?mt=8) or the [Android Play Store](https://play.google.com/store/apps/details?id=com.ocdevel.habitrpg).

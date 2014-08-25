@@ -20,11 +20,13 @@ This is where Ionic and Cordova help you. Thanks to Cordova, you just code the a
 
 However, once you start coding, you'll see that there are some obstacles to overcome. If you search for *"Authentication with AngularJS/Ionic"* in Stackoverflow, you'll see that [there are more than 900 questions](http://stackoverflow.com/search?q=angularjs+authentication) about it.
 
-How do you keep users logged in forever? Should you use Cookies or Tokens? How to login users with social providers such as Facebook, Twitter, Linkedin, etc.? What if you need to authenticate users in enterprise directories such as Active Directory or LDAP? 
+How do you keep users logged in forever? Should you use Cookies or Tokens? How to login users with social providers such as Facebook, Twitter, Linkedin, etc.? What if you need to authenticate users in enterprise directories such as Active Directory or LDAP? *
 
 These are some of the challenges that we solve at [Auth0](http://auth0.com/). 
 
 In this post, you'll learn how to easily add any authentication to your Ionic app using Auth0. As an introduction to this post, you can read about why it's better to use tokens in your AngularJS SPA in [this other post](http://blog.auth0.com/2014/01/07/angularjs-authentication-with-cookies-vs-token/).
+
+<!-- more -->
 
 ## 1. Add the required dependencies
 The first thing you'll need to do is add the required dependencies. If you don't have an Ionic project yet, you can just create one using the `ionic` command:
@@ -165,7 +167,7 @@ app.controller('LoginCtrl', function($scope, auth, $state) {
   </ion-view>
 ````
 
-The `auth.signin` method is called as soon as the controller is created. This will result in the [Auth0 Lock](https://auth0.com/lock) being displayed. The `Auth0 Lock` is a UI widget that will let your users choose how they want to authenticate to your Ionic app. The `Auth0 Lock` comes pre-configured with all usual controls for various ways of authetnication: Social Connections, Enterprise connections or regular Username and passwords. It's pretty on its own, but it be fully customized to match your UX.
+The `auth.signin` method is called as soon as the controller is created. This will result in the [Auth0 Lock](https://github.com/auth0/widget) being displayed. The `Auth0 Lock` is a UI widget that will let your users choose how they want to authenticate to your Ionic app. The `Auth0 Lock` comes pre-configured with all usual controls for various ways of authetnication: Social Connections, Enterprise connections or regular Username and passwords. It's pretty on its own, but it be fully customized to match your UX.
 
 > Auth0 supports [a large number of identity providers](https://docs.auth0.com/identityproviders).
 
@@ -189,7 +191,9 @@ All that's left now is validating the sent token in your server hosting the API.
 Once the user is logged in, you can access the user information via `auth.profile`. [Auth0 ensures that common properties are all sent in the same way](https://docs.auth0.com/user-profile).
 
 ````html
+{% raw %}
 <span>Hi {{auth.profile.nickname}}</span>
+{% endraw %}
 ````
 
 ## 3. Configure Auth0

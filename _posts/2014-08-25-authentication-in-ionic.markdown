@@ -8,7 +8,7 @@ searchable: true
 published: true
 ---
 
-*This is a guest post by Martin Gontovnikas (aka [mgonto](http://twitter.com/mgonto)), the lead Developer Advocate at Auth0. Martin is passionate about tech and contributes to open source with [Restangular](https://github.com/mgonto/restangular) (the famous REST client for AngularJS), AngularWizard, Angularytics, and FactoryPal. He also blogs at [http://gon.to/blog/](http://gon.to/blog/)
+*This is a guest post by Martin Gontovnikas (aka [mgonto](http://twitter.com/mgonto)), the lead Developer Advocate at Auth0. Martin is passionate about tech and contributes to open source with [Restangular](https://github.com/mgonto/restangular) (the famous REST client for AngularJS), AngularWizard, Angularytics, and FactoryPal. He also blogs at [http://gon.to/blog/](http://gon.to/blog/)*
 
 > *TL;DR*: Get the [sample project using Ionic and Auth0 from Github](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample). 
 

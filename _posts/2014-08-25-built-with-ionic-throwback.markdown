@@ -38,4 +38,4 @@ Chen and Kim chose to build an HTML5 application because it was the easiest and 
 
 “Ionic made this tweaking incredibly easy and minor,” says Chen. “Peter and I both come from native development backgrounds, primarily Objective-C, and we were just tired of building applications twice, essentially, to support two platforms. HTML5 made it really easy to support multiple platforms at once, and Ionic made our application look and feel native.”
 
-Throwback is available in the [iOS](http://bit.ly/1pUjyQg) and [Android](http://bit.ly/1otMG3E) stores. 
+Throwback is available in the [iOS](http://bit.ly/1otMG3E) and [Android](http://bit.ly/1pUjyQg) stores. 

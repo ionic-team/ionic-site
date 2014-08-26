@@ -49,6 +49,12 @@ attribute directive. Including the `menu-close` attribute is usually added to
 links and buttons within `ion-side-menu` content, so that when the element is
 clicked then the opened side menu will automatically close.
 
+By default, side menus are hidden underneath its side menu content, and can be opened by
+either swiping the content left or right, or toggling a button to show the side menu. However,
+by adding the <a href="/docs/nightly/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a> attribute directive to an
+<a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions
+on "when" the menu should be exposed (always viewable).
+
 ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
 
 For more information on side menus, check out:
@@ -56,6 +62,7 @@ For more information on side menus, check out:
 - <a href="/docs/nightly/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a>
 - <a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a>
 - <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a>
+- <a href="/docs/nightly/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a>
 
 
 

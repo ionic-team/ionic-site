@@ -60,6 +60,11 @@ event from your controller (see below example).
   
 ```html
 <ion-content ng-controller="MyController">
+  <ion-list>
+  ....
+  ....
+  </ion-list>
+
   <ion-infinite-scroll
     on-infinite="loadMore()"
     distance="1%">

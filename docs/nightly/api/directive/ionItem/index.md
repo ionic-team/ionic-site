@@ -55,6 +55,9 @@ docType: "directive"
 ```html
 <ion-list>
   <ion-item>Hello!</ion-item>
+  <ion-item href="#/detail">
+    Link to detail page
+  <ion-item>
 </ion-list>
 ```
   

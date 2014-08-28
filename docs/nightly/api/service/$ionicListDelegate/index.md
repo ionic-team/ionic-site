@@ -54,7 +54,7 @@ method to control specific ionList instances.
 <ion-content ng-controller="MyCtrl">
   <button class="button" ng-click="showDeleteButtons()"></button>
   <ion-list>
-    <ion-item ng-repeat="i in items">>
+    <ion-item ng-repeat="i in items">
       {% raw %}Hello, {{i}}!{% endraw %}
       <ion-delete-button class="ion-minus-circled"></ion-delete-button>
     </ion-item>

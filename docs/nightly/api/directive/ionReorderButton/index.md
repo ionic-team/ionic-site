@@ -53,12 +53,12 @@ docType: "directive"
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-list ng-controller="MyCtrl">
+<ion-list ng-controller="MyCtrl" show-reorder="true">
   <ion-item ng-repeat="item in items">
     Item {{item}}
     <ion-reorder-button class="ion-navicon"
                         on-reorder="moveItem(item, $fromIndex, $toIndex)">
-    </ion-reorder>
+    </ion-reorder-button>
   </ion-item>
 </ion-list>
 ```

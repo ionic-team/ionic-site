@@ -14,6 +14,8 @@ published: true
 
 The smartphone has changed the way everyone interacts with different services and applications. Facebook reports having more usage from mobile phones compared to desktop computers. The industry calls this trend  *Mobile First*.
 
+<!-- more -->
+
 Mobile First implies that companies first develop a mobile experience of their services. Often this means implementing the application in lots of different languages and platforms: Objective C for iOS, Java for Android, C# for Windows Phone, etc.
 
 This is where Ionic and Cordova help you. Thanks to Cordova, you just code the application once in HTML and JS, and it works in all the different platforms. Thanks to Ionic, your code is easily reusable and maintainable. You're basically creating a Single Page App (SPA) that works on any device. It seems it could be the holy grail of mobile development.

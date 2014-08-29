@@ -8,6 +8,8 @@ searchable: true
 published: true
 ---
 
+<img class="showcase-image" src="/img/blog/ionicbox-header.png">
+
 We know that one of the biggest pain points in hybrid development with Ionic, Cordova, and Android is just getting everything installed and configured on your machine. It hurts us to watch new developers fumble with the dependencies required for doing mobile development.
 
 It's especially bad for Windows users that often have very diverse installations and inconsistent access to a Unix-style command line where tools like Node.js (used by Ionic and Cordova) thrive.

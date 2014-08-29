@@ -16,7 +16,7 @@ So today we are relieved to announce we've created a solution to the nightmare t
 
 <!-- more -->
 
-The first version of Ionci Box uses Vagrant to set up a virtual machine for you to develop through. If you aren't familiar with [Vagrant](https://www.vagrantup.com/), it's a tool to create reusable development environments through the use of virtual machines, most commonly through [VirtualBox](https://www.virtualbox.org). That means you can configure a Virtual Machine complete with all the tools you need to start building hybrid or native-only apps with Android and Cordova.
+The first version of Ionic Box uses Vagrant to set up a virtual machine for you to develop through. If you aren't familiar with [Vagrant](https://www.vagrantup.com/), it's a tool to create reusable development environments through the use of virtual machines, most commonly through [VirtualBox](https://www.virtualbox.org). That means you can configure a Virtual Machine complete with all the tools you need to start building hybrid or native-only apps with Android and Cordova.
 
 To use this project, download the [most recent release](https://github.com/driftyco/ionic-box) of the code, unzip it, and then open up your command prompt or terminal and `cd` into the extracted folder.
 

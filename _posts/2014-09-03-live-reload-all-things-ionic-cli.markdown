@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LiveReload All Things: Ionic CLI's Latest Features"
+title:  "Live Reload All the Things: Ionic CLI's Latest Features"
 date:   "2014-09-03 12:30:00"
 hide_date: false
 categories: ionic
@@ -14,7 +14,7 @@ We are happy to announce that the Ionic CLI has been updated with some great new
 
 <!-- more -->
 
-## LiveReload All Things
+### LiveReload All Things
 One of the best features of the CLI is the LiveReload server that gets started when you run `ionic serve`. This allows you to develop your app in the browser and have it update instantly when changes are made to any development files.
 
 With this in mind, we added the ability to have LiveReload run when you’re testing on a device! The LiveReload functionality is similar to Ionic Serve, but instead of developing and debugging an app using a standard browser, the compiled hybrid app itself is watching for any changes to its files and reloading the app when needed. This reduces the requirement to constantly rebuild the app for small changes. Do note, however, that LiveReload only works for devices that support [web sockets](http://caniuse.com/websockets).
@@ -39,7 +39,7 @@ $ ionic run android -l -c -s
 
 
 
-##Codepen Starter Templates
+### Codepen Starter Templates
 
 Ionic loves Codepen! In fact, we really love Codepen; just check out our [Codepen page](http://codepen.io/ionic/public-list/). It’s the perfect place to share code and play with ideas and concepts in a sandbox. It also provides an ideal environment in which to demonstrate issues that you may find during your development. Until now, taking Codepen demos and moving them into an Ionic project was a bit of a mess. You’d start a new project, copy all the assets from Codepen into their appropriate locations, remove the inline template, go back and make sure you caught that lone semicolon you forgot the first time…
 

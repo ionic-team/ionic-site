@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Ionic CLI v1.2.0"
+title:  "LiveReload All Things: Ionic CLI's Latest Features"
 date:   "2014-09-03 12:30:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a>'
-published: false
+published: true
 ---
 
-<img class="showcase-image" src="/img/blog/coride-header.jpg">
+<img class="showcase-image" src="/img/blog/ionic-cli-v1_2_0.png">
 
 We are happy to announce that the Ionic CLI has been updated with some great new features.
 
@@ -21,23 +21,27 @@ With this in mind, we added the ability to have LiveReload run when you’re tes
 
 Not only can you run LiveReload, you can also access console logs from the device and server logs showing which files the device is requesting. This lets you build your app quickly in the browser, then debug it on an actual device or emulator ([Genymotion](http://www.genymotion.com/) works, too). How do you start it? You can pass a few flags, in any combination, in your run/emulate commands:
 
-[--livereload|-l] .......  Live Reload app dev files from the device (beta)
-[--consolelogs|-c] ......  Print app console logs to Ionic CLI (live reload req.)
-[--serverlogs|-s] .......  Print dev server logs to Ionic CLI (live reload req.)
+```bash
+$ ionic  [run|emulate] <platform> [options]
+
+    [--livereload|-l] .... Live Reload app dev files from the device
+    [--consolelogs|-c] ... Print app console logs to Ionic CLI
+    [--serverlogs|-s] .... Print dev server logs to Ionic CLI
+```
+
+Ionic App LiveReload Command Examples:
 
 ```bash
-$ ionic  [run/emulate] <platform> [options]
+$ ionic emulate ios --livereload --consolelogs --serverlogs
 
-$ ionic  emulate ios --livereload --consolelogs --serverlogs
-
-$ ionic  run android -l -c -s
+$ ionic run android -l -c -s
 ```
 
 
 
-##Codepen
+##Codepen Starter Templates
 
-Ionic loves Codepen! In fact, we really love Codepen; just check out our [Codepen page](http://codepen.io/ionic/public-list/). It’s the perfect place to play with ideas and concepts in a sandbox. It also provides an ideal environment in which to demonstrate issues that you may find during your development. Until now, taking Codepen demos and moving them into an Ionic project was a bit of a mess. You’d start a new project, copy all the assets from Codepen into their appropriate locations, remove the inline template, go back and make sure you caught that lone semicolon you forgot the first time…
+Ionic loves Codepen! In fact, we really love Codepen; just check out our [Codepen page](http://codepen.io/ionic/public-list/). It’s the perfect place to share code and play with ideas and concepts in a sandbox. It also provides an ideal environment in which to demonstrate issues that you may find during your development. Until now, taking Codepen demos and moving them into an Ionic project was a bit of a mess. You’d start a new project, copy all the assets from Codepen into their appropriate locations, remove the inline template, go back and make sure you caught that lone semicolon you forgot the first time…
 
 Thankfully, those days are gone! Now, you have the ability to start a project based on a Codepen demo.  The new feature is dead simple; all you need is a Codepen URL, and you're good to go.
 

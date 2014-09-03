@@ -38,7 +38,6 @@ $ ionic run android -l -c -s
 ```
 
 
-
 ### Codepen Starter Templates
 
 Ionic loves Codepen! In fact, we really love Codepen; just check out our [Codepen page](http://codepen.io/ionic/public-list/). It’s the perfect place to share code and play with ideas and concepts in a sandbox. It also provides an ideal environment in which to demonstrate issues that you may find during your development. Until now, taking Codepen demos and moving them into an Ionic project was a bit of a mess. You’d start a new project, copy all the assets from Codepen into their appropriate locations, remove the inline template, go back and make sure you caught that lone semicolon you forgot the first time…
@@ -51,7 +50,8 @@ $ ionic start myapp http://codepen.io/ionic/pen/hqcju
 
 The command will run its normal process, scaffolding out the project and installing the correct plugins, but it will also include the code from the Codepen. All the JavaScript and CSS will be parsed into their own respective files, and any inline templates will be made into html template files and saved into the `templates` directory.
 
-## Update to the latest Ionic CLI
+
+### Update to the latest Ionic CLI
 
 With these new features, you can go from testing in Codepen to testing on a device! Update your CLI to get these new features: `npm update -g ionic`, and be sure to check out the [CLI’s documentation](https://github.com/driftyco/ionic-cli). In addition to the documentation, the `ionic --help` command has been improved to include even more information about each task and its available options.
 

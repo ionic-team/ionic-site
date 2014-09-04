@@ -36,9 +36,9 @@ body_css: "home"
   <div class="container">
     <div class="row">
       <ul class="social-row ionic col-md-7">
-        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-social-github"></i> <span id="gh-stargazers"></span> Stars</a></li>
-        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-fork-repo"></i> <span id="gh-forks"></span> Forks</a></li>
-        <li><a href="https://twitter.com/IonicFramework" target="_blank"><i class="ion-social-twitter"></i> <span id="tw-followers"></span> Followers</a></li>
+        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-social-github"></i> <span id="gh-stargazers"></span> stars</a></li>
+        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-fork-repo"></i> <span id="gh-forks"></span> forks</a></li>
+        <li><a href="https://twitter.com/IonicFramework" target="_blank"><i class="ion-social-twitter"></i> <span id="tw-followers">Twitter</span></a></li>
       </ul>
       <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-md-5">
         <input name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Enter your email for the latest ionic news" required />
@@ -75,10 +75,10 @@ body_css: "home"
   });
   $.ajax({
     dataType: "jsonp",
-    url: "https://cdn.api.twitter.com/1/users/show.json?screen_name=ionicframework",
+    url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=ionicframework",
     success: function(data){
-      if(data && data.followers_count){
-        $("#tw-followers").html(digits(data.followers_count));
+      if(data && data.length && data[0].formatted_followers_count){
+        $("#tw-followers").html(digits(data[0].formatted_followers_count));
       }
     }
   });

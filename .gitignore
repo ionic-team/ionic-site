@@ -1,0 +1,8 @@
+_site
+.*.sw*
+.sass-cache
+.DS_Store
+node_modules/
+
+/.idea/
+/_site/

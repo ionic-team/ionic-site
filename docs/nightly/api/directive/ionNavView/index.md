@@ -72,7 +72,7 @@ To do this, in our markup we use ionNavView top level directive. To display a he
 the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive that updates as we navigate through the
 navigation stack.
 
-You can use any [animation class](/docs/components#animation) on the navView's `animation` attribute
+You can use any [animation class](/docs/components#animations) on the navView's `animation` attribute
 to have its pages animate.
 
 Recommended for page transitions: 'slide-left-right', 'slide-left-right-ios7', 'slide-in-up'.

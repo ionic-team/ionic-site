@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Presentation created using reveal.js: https://github.com/hakimel/reveal.js -->
+    <!-- Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se -->
+
+    <title>Present Ionic Framework</title>
+
+    <meta name="description" content="Ionic Framework Presentation: The beautiful, open source framework for developing hybrid mobile apps with HTML5.">
+    <meta name="author" content="https://twitter.com/adamdbradley">
+    <meta name="author" content="https://twitter.com/benjsperry">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/ionic.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44023830-1', 'ionicframework.com');
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+
+        <section>
+          <img src="img/ionic-logo.png" class="logo" width="296" height="331">
+          <h4>The beautiful, open source framework for developing hybrid mobile apps with HTML5.</h4>
+          <h5 class="framework-url">
+            <a href="http://ionicframework.com/" target="_blank">ionicframework.com</a>
+          </h5>
+        </section>
+
+
+        <section>
+          <blockquote>
+            &ldquo;So you want to build a native app?&rdquo;
+          </blockquote>
+        </section>
+
+
+        <section>
+          <h3>More Platforms. More Problems.</h3>
+          <p style="margin-top: 60px">
+            <img src="img/apple.png" class="logo" width="210" height="210" style="margin-right: 15px">
+            <img src="img/android.png" class="logo" width="210" height="210" style="margin-left: 15px; margin-right: 15px">
+            <img src="img/windows.png" class="logo" width="210" height="210" style="margin-left: 15px; margin-right: 15px">
+            <img src="img/firefoxos.png" class="logo" width="210" height="210" style="margin-left: 15px;">
+          </p>
+          <p><span class="light-text">
+            Why are we still coding for multiple platforms?
+          </span></p>
+        </section>
+
+
+        <section>
+          <h2>The Downsides of Native</h2>
+          <ul>
+            <li>Proficiency in each platform required</li>
+            <li>Entirely separate code bases</li>
+            <li>Timely &amp; expensive development</li>
+            <li>Diminishing returns</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <blockquote>
+            &ldquo;Is there an alternative?&rdquo;
+          </blockquote>
+        </section>
+
+
+        <section>
+          <h2>Hybrid Apps!</h2>
+          <ul>
+            <li>HTML5 that acts like native</li>
+            <li>Web wrapped in native layer</li>
+            <li>Direct access to native APIs</li>
+            <li>Cordova/Phonegap</li>
+            <li>Familiar web dev environment</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>It's Not 2007 Anymore</h2>
+          <p><span class="light-text">Mobile devices have rapidly improved!</span></p>
+        </section>
+
+
+        <section>
+          <h2>So What Do We Need?</h2>
+          <ul>
+            <li>An Open Source Framework</li>
+            <li>Help bridging the gap between web and native</li>
+            <li>Rich, native-style UI components and interactions</li>
+            <li>UI APIs, not just jQuery widgets</li>
+            <li>A dedicated, community-driven spirit</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <img src="img/ionic-logo.png" class="logo" width="296" height="331">
+          <blockquote>
+            &ldquo;Hello.&rdquo;
+          </blockquote>
+        </section>
+
+
+        <section>
+          <h2>Web Technologies You Already Know and Love</h2>
+          <div style="margin-top: 70px">
+            <img src="img/html.png" class="logo" width="185" height="260">
+            <img src="img/css.png" class="logo" width="185" height="260" style="margin-left: 80px; margin-right: 80px;">
+            <img src="img/js.png" class="logo" width="185" height="260">
+          </div>
+          <p style="margin-top: 30px"><span class="light-text">
+            (You'll feel right at home)
+          </span></p>
+        </section>
+
+
+        <section>
+          <img src="img/angular-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+          <h2>Best Friends With AngularJS</h2>
+          <ul>
+            <li>UI Components are AngularJS Directives</li>
+            <li>Ready to work with your app</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <img src="img/sass-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+          <h2>CSS Generated By Sass</h2>
+          <ul>
+            <li>Quickly give your app its own look and feel</li>
+            <li>CSS designed to be easily overridden</li>
+            <li>Either override <code>ionic.css</code> or use Sass Preprocessor</li>
+            <li>Stand-alone CSS (independent of Ionic's JavaScript)
+          </ul>
+        </section>
+
+
+        <section>
+          <img src="img/performance-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+          <h2>Performance Obsessed</h2>
+            <ul>
+              <li>Hardware accelerated animations</li>
+              <li>Minimal DOM Manipulation</li>
+              <li>Zero jQuery (you could still include it if you want)</li>
+            </ul>
+        </section>
+
+
+        <section>
+          <img src="img/native-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+          <h2>Native Focused</h2>
+          <ul>
+            <li>Modeled off of native SDKs</li>
+            <li>Built to work with Cordova/Phonegap</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <img src="img/design-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+          <h2>Beautifully Designed</h2>
+          <ul>
+            <li>Cohesive visual system</li>
+            <li>Clean and simple</li>
+            <li>Easy to customize</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>Ionicons</h2>
+          <img src="img/ionicons.png" class="logo" width="655" height="436">
+          <p>Over 500 MIT licensed font-icons included</p>
+          <p><a href="http://ionicons.com/" target="_blank">ionicons.com</a></p>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/list-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Lists</h2>
+          <pre><code data-trim contenteditable class="xml">
+<div class="list">
+
+  <div class="item item-divider">
+    Candy Bars
+  </div>
+
+  <a class="item" href="#">
+    Butterfinger
+  </a>
+
+  <a class="item" href="#">
+    Kit Kat
+  </a>
+
+  ...
+
+</div></code></pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="col preview">
+            <img src="img/list-complex-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Complex Lists</h2>
+            <ul style="margin-left: 70px">
+              <li>AngularJS Directive</li>
+              <li>Buttons exposed by swiping</li>
+              <li>Reorder</li>
+              <li>Delete</li>
+            </ul>
+            <pre><code data-trim contenteditable class="xml">
+<ion-list>
+  <ion-item ng-repeat="item in items"
+            option-buttons="buttons"
+            class="item-thumbnail-left">
+    <img ng-src="{{ item.pic }}">
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.quote }}</p>
+  </ion-item>
+</ion-list></code></pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="">
+            <h2>Collection Repeat</h2>
+            <ul style="margin-left: 70px">
+              <li>Similar to Angular's <code>ng-repeat</code></li>
+              <li>Scroll through thousands of items</li>
+              <li>Only renders the viewable items</li>
+              <li>Smooth jank-free scrolling</li>
+              <li>Low memory footprint</li>
+            </ul>
+            <pre><code data-trim contenteditable class="xml">
+<div class="list">
+  <div collection-repeat="c in contacts" class="item">
+    <h2>{{ c.name }}</h2>
+    <p>{{ c.email }}</p>
+  </div>
+</div></code></pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="col preview">
+            <img src="img/tabs-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Tabs</h2>
+            <ul style="margin-left: 70px">
+              <li>Nested views</li>
+              <li>Each tab has its own nav history</li>
+            </ul>
+            <pre><code data-trim contenteditable class="xml">
+<ion-tabs class="tabs-icon-only">
+
+  <ion-tab title="Home" icon="ion-star">
+    <ion-nav-view></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Feedback" icon="ion-thumbsdown">
+    <ion-nav-view></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Messages" icon="ion-chatbubble-working">
+    <ion-nav-view></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs></code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/sidemenu-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Side Menu</h2>
+          <pre><code data-trim contenteditable class="xml">
+<ion-side-menus>
+
+  <ion-side-menu-content>
+    <ion-nav-bar></ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-positive">
+      <div class="title">Projects</div>
+    </header>
+    <ion-content has-header="true">
+      <div class="list">
+        <a href="#/work" class="item">Work</a>
+        <a href="#/home" class="item">Home</a>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus></code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/slidebox-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Slide Box</h2>
+          <pre><code data-trim contenteditable class="xml">
+<ion-slide-box on-slide-changed="change(index)">
+  <ion-slide>
+    Slide 1
+  </ion-slide>
+  <ion-slide>
+    Slide 2
+  </ion-slide>
+  <ion-slide>
+    Slide 3
+  </ion-slide>
+</ion-slide-box></code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/actionsheet-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Action Sheet</h2>
+          <pre><code data-trim contenteditable class="js">
+$ionicActionSheet.show({
+  titleText: 'Modify your album',
+  buttons: [
+    { text: 'Share' },
+    { text: 'Move' },
+  ],
+  destructiveText: 'Delete',
+  cancelText: 'Cancel',
+  buttonClicked: function(index) {
+    console.log('BUTTON CLICKED', index);
+    return true;
+  }
+});</code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/pull-refresh-animation.gif" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Pull to Refresh</h2>
+          <pre><code data-trim contenteditable class="xml">
+<ion-content on-refresh="refreshData()">
+  <ion-refresher></ion-refresher>
+  <!-- content -->
+</ion-content></code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="col preview">
+            <img src="img/navigation-example.png" class="logo" width="380" height="800">
+          </div>
+          <div class="col code">
+            <h2>Navigation</h2>
+            <ul style="margin-left: 70px">
+              <li>Shows back button when possible</li>
+              <li>Each tab has its own history stack</li>
+              <li>Works with Android's back button</li>
+            </ul>
+          <pre><code data-trim contenteditable class="xml">
+<ion-nav-bar>
+  <ion-nav-back-button>
+    Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-nav-view animation="slide-left-right">
+  <!-- content -->
+</ion-nav-view>
+</code></pre>
+          </div>
+        </section>
+
+
+        <section>
+<pre class="ionic-blue"><code>
+                         $ npm install -g ionic
+
+                          _             _
+                         (_)           (_)
+                          _  ___  _ __  _  ___
+                         | |/ _ \| '_ \| |/ __|
+                         | | (_) | | | | | (__
+                         |_|\___/|_| |_|_|\___|  CLI
+ </code></pre>
+          <ul>
+            <li>Quickly start a project with starter templates</li>
+            <li>Boilerplate app structure ready for customization</li>
+            <li>Preconfigured tools: Gulp, Sass, Bower, etc.</li>
+            <li>Start a local dev server with LiveReload</li>
+            <li>Update Ionic Framework library files</li>
+            <li>Build and run native apps</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2><strong>MIT LICENSED</strong></h2>
+          <h6 class="light-text">Free to use (even commercially)</h6>
+        </section>
+
+
+        <section>
+          <h2><strong>COMMUNITY POWERED</strong></h2>
+          <h6 class="light-text">Active developer forum and GitHub repo</h6>
+        </section>
+
+
+        <section>
+          <h2>Get Started with Ionic!</h2>
+          <br />
+          <p><strong>Easy-to-follow videos, tutorials and formulas</strong><br />
+          <a href="http://learn.ionicframework.com/" target="_blank"><span class="light-text">learn.ionicframework.com</span></a></p>
+          <br />
+          <p><strong>Visit the Community Forum</strong><br />
+          <a href="http://forum.ionicframework.com/" target="_blank"><span class="light-text">forum.ionicframework.com</span></a></p>
+          <br />
+          <p><strong>Contribute on GitHub</strong><br />
+          <a href="https://github.com/driftyco/ionic" target="_blank"><span class="light-text">github.com/driftyco/ionic</span></a></p>
+        </section>
+
+
+        <section>
+          <h2><code>&lt;/html&gt;</code></h2>
+          <h3><a href="http://ionicframework.com/" target="_blank">ionicframework.com</a></h3>
+          <h3><a href="https://twitter.com/ionicframework" target="_blank">@ionicframework</a></h3>
+        </section>
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+  </body>
+</html>

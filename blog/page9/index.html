@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic Blog</title>
+    <link href="/css/site.css?4" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development framework</h5>
+      </div>
+      <div id="posts">
+        
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/where-does-the-ionic-framework-fit-in/">Where does the Ionic Framework fit in?</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Where does the Ionic Framework fit in?" data-url="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a> on October 28, 2013</time>
+  </div>
+  
+    <p>When reviewing any new technology, library, or framework, you’ll first ask, “Where does this fit into the stack, and how would it benefit me?” TL;DR: Ionic’s ultimate goal is to make it easier to develop native mobile apps with HTML5, also known as Hybrid apps.</p>
+
+<h3>The Missing Piece</h3>
+
+<p>Every semi-colon slinging cowboy is out riding alone in the wild-west of building native apps with HTML5. Great tools like <a href="http://phonegap.com/">PhoneGap</a> and <a href="http://cordova.apache.org/">Cordova</a> that package up HTML, CSS, and JavaScript into multi-platform native apps already exist. Developers are skilled at creating web-based applications and there is a magnitude of resources to pull from. However, in today’s landscape we feel there is something missing to easily bridge the gap between HTML5 and native app development.</p>
+
+<h3>Compare it to something I know</h3>
+
+<p>While Ionic is not an exact one-for-one comparison to <a href="http://getbootstrap.com/">Twitter Bootstrap</a>, it may be helpful when explaining where Ionic fits in. Let’s jump in the wayback machine and recall a time prior to the popularity of front-end frameworks. Developers were laying down some mean code, but they had to start from scratch for each project, and individually figure out the quirks of each browser. Eventually developers were given a huge push forward by starting projects with the <em>[insert your favorite front-end framework here]</em>.</p>
+
+<p>Great frameworks like Twitter Bootstrap simply make it easier to develop web apps and web sites, not because developers can’t write it themselves, but because it gives them a great starting point to build high-quality projects. Immediate benefits include a slick design and built-in cross-browser testing at no cost. But in my opinion, the great achievements of Twitter Bootstrap are the knowledge sharing it has brought developers, and the excellent way to document and promote recommended design patterns it provides.</p>
+
+
+    <a href="/blog/where-does-the-ionic-framework-fit-in">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/building-ionicons/">Building Ionicons, Our Open Source Icon Font</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Building Ionicons, Our Open Source Icon Font" data-url="http://ionicframework.com/blog/building-ionicons" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/building-ionicons"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/building-ionicons" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a> on October 16, 2013</time>
+  </div>
+  
+    <p><img class="showcase-image" src="/img/blog/ionicons-preview.png"></p>
+
+<p>When we went to build <a href="http://ionicframework.com">Ionic</a>, we knew that great design would be crucial in an amazing HTML5 mobile app development framework. This meant we had to cover a lot of (visual) bases with the design, but few design challenges were as daunting as iconography.</p>
+
+<p>People are going to use icons in their designs. That is a given. So, what icons would we offer with Ionic? Would we just let people figure it out themselves, or bundle in an existing icon pack? How would we manage licensing of external icon packs?</p>
+
+<p>Eventually, it became clear to us that in order to create a premier framework, we would need to have complete control over what we offered in order to ensure the highest standard of quality.</p>
+
+<p>We didn’t want to force people to find their own icons (unless they wanted to), nor did we feel comfortable bundling in existing packs which we had little control and creative vision over. It seemed unavoidable that if we wanted high quality icons included with Ionic, they would need to be designed in house.</p>
+
+<p>It was an easy decision to go the route of making an icon font instead of using images. Icon fonts are better in pretty much every way imaginable, most notably the fact that they are vector based, which means they scale perfectly to any resolution. They look great on high-resolution displays such as iPhones and most Android devices. Moreover, they are all from one resource! That means fewer HTTP requests for various images, and zero sprite sheets.</p>
+
+<p>It took over a month from start to “finish” (we’re still adding icons) to build <a href="http://ionicons.com" target="_blank">Ionicons</a>. During that time I learned a ton about how to build an icon font, and I thought it would be interesting to detail some of that here.</p>
+
+
+    <a href="/blog/building-ionicons">Read more...</a>
+  
+  <hr>
+</div>
+
+
+
+<!-- Pagination links -->
+<div class="clearfix">
+  <div class="pagination">
+    <div class="pull-left">
+      <!--<span class="page_number ">Page: 9 of 9</span>-->
+      
+    </div>
+    <div class="pull-right">
+      
+        
+          <a href="/blog/page8/" class="previous">Newer</a>
+        
+      
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-bottom: 40px;" class="ionic">
+    <a href="http://ionicframework.com/blog/feed.xml">
+      <i class="ion-social-rss"></i>
+      Ionic Blog RSS Feed
+    </a>
+  </p>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('Wed Sep 03 12:30:00 -0500 2014');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

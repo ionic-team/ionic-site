@@ -90,6 +90,7 @@ Okay, so we have some testing data for tasks, but what about creating them? We n
 the following script tag after the closing `</ion-side-menu>` tag in the `<body>` of the HTML file:
 
 ```html
+{% raw %}
 <script id="new-task.html" type="text/ng-template">
 
   <div class="modal">
@@ -128,6 +129,7 @@ We then set a header with a button to close the modal, and then set up our conte
 In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
 
 ```html
+{% raw %}
   <!-- Center content -->
   <ion-side-menu-content>
     <ion-header-bar class="bar-dark">

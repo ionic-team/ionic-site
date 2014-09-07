@@ -14,7 +14,7 @@ We are happy to announce that the Ionic CLI has been updated with some great new
 
 <!-- more -->
 
-### LiveReload All Things
+### LiveReload All The Things
 One of the best features of the CLI is the LiveReload server that gets started when you run `ionic serve`. This allows you to develop your app in the browser and have it update instantly when changes are made to any development files.
 
 With this in mind, we added the ability to have LiveReload run when you’re testing on a device! The LiveReload functionality is similar to Ionic Serve, but instead of developing and debugging an app using a standard browser, the compiled hybrid app itself is watching for any changes to its files and reloading the app when needed. This reduces the requirement to constantly rebuild the app for small changes. Do note, however, that LiveReload only works for devices that support [web sockets](http://caniuse.com/websockets).

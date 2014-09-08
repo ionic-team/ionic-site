@@ -63,6 +63,8 @@ anywhere and does not need to be wrapped by any additonal methods.
 When the app is within a WebView (Cordova), it'll fire
 the callback once the device is ready. If the app is within
 a web browser, it'll fire the callback after `window.load`.
+Please remember that Cordova features (Camera, FileSystem, etc) still
+will not work in a web browser.
 
 
 

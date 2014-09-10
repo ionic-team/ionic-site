@@ -30,8 +30,8 @@ Originally developed using jQuery Mobile, Sworkit was in need of an update when 
 
 The team used Ionic’s side menus, navigation, list views, list reorder, list option buttons, popups, action sheet, modals, slide box, form inputs, gesture, loading, platform, and grids.
 
-<div style="float: left; margin-left: -160px; padding-right: 25px; width: 50%;">
-  <a href="http://ionicframework.com/img/blog/sworkit-preview-leftt.png"><img src="/img/blog/sworkit-preview-left.png"></a>
+<div style="float: left; margin-left: -120px; margin-right: 40px; width: 32%;">
+  <a href="http://ionicframework.com/img/blog/sworkit-preview-left.png"><img src="/img/blog/sworkit-preview-left.png"></a>
 </div>
 
 “The complete redesign and refactoring of the apps was completed in just ten weeks,” says Hanna. “Most importantly, the response from our users has been amazing, and they love the new design and layout and are even more engaged than before.”

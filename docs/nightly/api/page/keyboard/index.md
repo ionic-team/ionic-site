@@ -45,7 +45,7 @@ that has a Scroll View.
 It will also attempt to prevent the native overflow scrolling on focus,
 which can cause layout issues such as pushing headers up and out of view.
 
-The keyboard fixes work best in conjunction with the 
+The keyboard fixes work best in conjunction with the
 [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard),
 although it will perform reasonably well without.  However, if you are using
 Cordova there is no reason not to use the plugin.
@@ -62,17 +62,17 @@ To hide an element when the keyboard is open, add the class `hide-on-keyboard-op
 ----------
 
 ### Plugin Usage
-Information on using the plugin can be found at 
+Information on using the plugin can be found at
 [https://github.com/driftyco/ionic-plugins-keyboard](https://github.com/driftyco/ionic-plugins-keyboard).
 
----------- 
+----------
 
 ### Android Notes
-- If your app is running in fullscreen, i.e. you have 
+- If your app is running in fullscreen, i.e. you have
   `<preference name="Fullscreen" value="true" />` in your `config.xml` file
   you will need to set `ionic.Platform.isFullScreen = true` manually.
 
-- You can configure the behavior of the web view when the keyboard shows by setting 
+- You can configure the behavior of the web view when the keyboard shows by setting
   [android:windowSoftInputMode](http://developer.android.com/reference/android/R.attr.html#windowSoftInputMode)
   to either `adjustPan`, `adjustResize` or `adjustNothing` in your app's
   activity in `AndroidManifest.xml`. `adjustResize` is the recommended setting

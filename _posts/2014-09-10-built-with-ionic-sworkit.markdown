@@ -18,11 +18,11 @@ Sworkit is a fitness app that provides bodyweight workouts that can be done anyw
 
 “It can even be used to create custom workouts that aid in injury recovery or meet other specific needs,” Hanna adds. “Sworkit thrives on eliminating all excuses for not working out, requiring no gym membership, subscription plan, or equipment, and only needing a minimal amount of space.” 
 
-Users choose a strength building, cardio, stretching, or yoga workout and enter the amount of time they have available to work out. Sworkit provides interval timing and sequencing, along with rewarding users and tracking their progress.
-
-<div style="float: right; margin-right: -160px;">
+<div style="float: right; margin-right: -160px; width: 50%;">
   <a href="http://ionicframework.com/img/blog/sworkit-preview-right.png"><img src="/img/blog/sworkit-preview-right.png"></a>
 </div>
+
+Users choose a strength building, cardio, stretching, or yoga workout and enter the amount of time they have available to work out. Sworkit provides interval timing and sequencing, along with rewarding users and tracking their progress.
 
 Originally developed using jQuery Mobile, Sworkit was in need of an update when the development team learned about Ionic in blog posts by [Holly Schinsky](https://twitter.com/devgirlfl) of Adobe and [Christophe Coenraets](https://twitter.com/ccoenraets) of Salesforce.
 
@@ -30,13 +30,13 @@ Originally developed using jQuery Mobile, Sworkit was in need of an update when 
 
 The team used Ionic’s side menus, navigation, list views, list reorder, list option buttons, popups, action sheet, modals, slide box, form inputs, gesture, loading, platform, and grids.
 
+<div style="float: left; margin-left: -160px; padding-right: 25px; width: 50%;">
+  <a href="http://ionicframework.com/img/blog/sworkit-preview-leftt.png"><img src="/img/blog/sworkit-preview-left.png"></a>
+</div>
+
 “The complete redesign and refactoring of the apps was completed in just ten weeks,” says Hanna. “Most importantly, the response from our users has been amazing, and they love the new design and layout and are even more engaged than before.”
 
 <strong>Since switching to the Ionic Framework, Apple contacted Hanna and Sworkit Pro was featured in the Health and Fitness section of the App Store. The Sworkit and Sworkit Pro apps have been downloaded over two million times from the iOS App Store and Google Play.</strong>
-
-<div style="float: left; margin-left: -160px; padding-right: 25px;">
-  <a href="http://ionicframework.com/img/blog/sworkit-preview-leftt.png"><img src="/img/blog/sworkit-preview-left.png"></a>
-</div>
 
 “Hybrid development allowed a single developer to create apps for iOS and Android on the same exact schedule,” says Hanna. “If there had been a decision to only focus on one native platform and release just that one, a massive part of the market would be left out. There would be no way real way to grow that audience and for users to share the app with all of their friends and family.”
 

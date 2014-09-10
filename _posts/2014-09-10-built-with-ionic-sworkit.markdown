@@ -32,8 +32,7 @@ The team used Ionic’s side menus, navigation, list views, list reorder, list o
 
 “The complete redesign and refactoring of the apps was completed in just ten weeks,” says Hanna. “Most importantly, the response from our users has been amazing, and they love the new design and layout and are even more engaged than before.”
 
-<strong>Since switching to the Ionic Framework, Apple contacted Hanna and Sworkit Pro was featured in the Health and Fitness section of the App Store. The Sworkit and Sworkit Pro apps have been downloaded over two million times from the iOS App Store and Google Play.</strong
->
+<strong>Since switching to the Ionic Framework, Apple contacted Hanna and Sworkit Pro was featured in the Health and Fitness section of the App Store. The Sworkit and Sworkit Pro apps have been downloaded over two million times from the iOS App Store and Google Play.</strong>
 
 <div style="float: left; margin-left: -160px; padding-right: 25px;">
   <a href="http://ionicframework.com/img/blog/sworkit-preview-leftt.png"><img src="/img/blog/sworkit-preview-left.png"></a>

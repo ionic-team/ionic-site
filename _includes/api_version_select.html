@@ -8,8 +8,14 @@
 
   <option
    value="/docs/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+   {% if page.version == "1.0.0-beta.12"%}selected{% endif %}>
+    1.0.0-beta.12 (latest)
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.11/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
    {% if page.version == "1.0.0-beta.11"%}selected{% endif %}>
-    1.0.0-beta.11 (latest)
+    1.0.0-beta.11 
   </option>
 
   <option

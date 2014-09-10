@@ -2684,8 +2684,10 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .navbar-default {
   /*background-color: $navbar-default-bg;
   border-color: $navbar-default-border;*/
-  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal; }
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
   .navbar-default .navbar-brand {
     color: #4F8EF7; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {

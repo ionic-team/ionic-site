@@ -12,6 +12,8 @@ Ionicons have become incredibly popular, so much so that they actually account f
 
 With this in mind and with help from the  awesome people at [MaxCDN](http://www.maxcdn.com/), we are thrilled to announce that our CDN can now be loaded over HTTPS!
 
+<!-- more -->
+
 Having our CDN server over HTTPS is a huge benefit these days. With many sites using HTTPS over regular HTTP, Codepen being one of them, Ionic’s CSS and JS were getting blocked. You more than likely experienced this in the forums, where demos appeared to be broken. Now that is a thing of the past!
 
 With both `http` and `https` supported, we also recommend using [Protocol-relative URLs](http://www.paulirish.com/2010/the-protocol-relative-url/) to ensure `https` is only used when needed. Now that secure checkout page from earlier can be adorned with as many Ionicons as needed and will load without any issues. Oh, happy day!

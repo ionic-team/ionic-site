@@ -5,7 +5,7 @@ date:   "2014-09-11 12:30:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/splitpane-header.png">

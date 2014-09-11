@@ -8,6 +8,8 @@ author: '<img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oM
 published: false
 ---
 
+<img class="showcase-image" src="/img/blog/splitpane-header.png">
+
 Any app that wants to stand out among the billions of apps out there needs to be able to adapt to different screen sizes, a fact with which all developers have to deal. Since Cordova is a web-view, devs can rely on responsive web design (RWD) to deal with this. However, some things need a little extra attention, like side-menus, since its interaction can vary depending on the screen size.
 
 We are very happy to announce that Split View support has finally landed in Ionic! A frequently requested feature, Split View allows developers to expose a side-menu when the viewport is a certain width. To do this, all that needs to be added is the `expose-aside-when` attribute directive to the `ion-side-menu`:

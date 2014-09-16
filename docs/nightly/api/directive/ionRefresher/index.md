@@ -206,6 +206,24 @@ the refresher.</p>
       </td>
     </tr>
     
+    <tr>
+      <td>
+        disable-pulling-rotation
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Disables the rotation animation of the pulling
+icon when it reaches its activated threshold. To be used with a custom <code>pulling-icon</code>.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 

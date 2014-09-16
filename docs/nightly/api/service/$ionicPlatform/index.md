@@ -246,6 +246,76 @@ this backButtonAction.
 
 
 
+<div id="on"></div>
+<h2>
+  <code>on(type, callback)</code>
+
+</h2>
+
+Add Cordova event listeners, such as `pause`, `resume`, `volumedownbutton`, `batterylow`,
+`offline`, etc. More information about available event types can be found in
+[Cordova's event documentation](https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events).
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        type
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Cordova <a href="https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events">event type</a>.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>function</code>
+      </td>
+      <td>
+        <p>Called when the Cordova event is fired.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>function</code> Returns a deregistration function to remove the event listener.
+
+
+
+
 <div id="ready"></div>
 <h2>
   <code>ready([callback])</code>

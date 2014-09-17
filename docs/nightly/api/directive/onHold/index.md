@@ -35,7 +35,7 @@ docType: "directive"
 
 
 
-Touch stays at the same location for 500ms.
+Touch stays at the same location for 500ms. Similar to long touch events available for AngularJS and jQuery.
 
 
 

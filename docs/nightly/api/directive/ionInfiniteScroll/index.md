@@ -81,7 +81,7 @@ function MyController($scope, $http) {
     });
   };
 
-  $scope.$on('stateChangeSuccess', function() {
+  $scope.$on('$stateChangeSuccess', function() {
     $scope.loadMore();
   });
 }

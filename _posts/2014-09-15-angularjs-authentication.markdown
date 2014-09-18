@@ -15,6 +15,8 @@ Depending on where you build and release your AngularJS app, there are different
 
 CORS is an oft-misunderstood feature of new browsers that is configured by a remote server. CORS stands for Cross-Origin-Resource-Sharing, and was designed to make it possible to access services outside of the current origin (or domain) of the current page.
 
+<!-- more -->
+
 Like many browser features, CORS works because we all agree that it works. So all major browsers like Chrome, Firefox, and IE support and enforce it. By using these browsers, you benefit from the security of CORS.
 
 That means certain browsers do not enforce it, so it is not relevant there. One large example is a native Web View for things like Cordova and Phonegap (and hence, Ionic apps). However, these tools often have configuration options for whitelisting domains so you can add some security that way.

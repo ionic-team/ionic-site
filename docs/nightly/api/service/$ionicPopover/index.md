@@ -172,7 +172,7 @@ content.</p>
 
 * Returns: 
   <code>object</code> An instance of an <a href="/docs/nightly/api/controller/ionicPopover/"><code>ionicPopover</code></a>
-controller ($ionicPopover is built on top of $ionicPopover).
+controller (ionicPopover is built on top of $ionicPopover).
 
 
 
@@ -241,7 +241,7 @@ controller ($ionicPopover is built on top of $ionicPopover).
 
 * Returns: 
   <code>promise</code> A promise that will be resolved with an instance of
-an <a href="/docs/nightly/api/controller/ionicPopover/"><code>ionicPopover</code></a> controller ($ionicPopover is built on top of $ionicPopover).
+an <a href="/docs/nightly/api/controller/ionicPopover/"><code>ionicPopover</code></a> controller (ionicPopover is built on top of $ionicPopover).
 
 
 

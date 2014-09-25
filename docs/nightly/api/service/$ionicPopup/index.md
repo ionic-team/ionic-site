@@ -141,7 +141,7 @@ Show a complex popup. This is the master show function for all popups.
 
 A complex popup has a `buttons` array, with each button having a `text` and `type`
 field, in addition to an `onTap` function.  The `onTap` function, called when
-the correspondingbutton on the popup is tapped, will by default close the popup
+the corresponding button on the popup is tapped, will by default close the popup
 and resolve the popup promise with its return value.  If you wish to prevent the
 default and keep the popup open on button tap, call `event.preventDefault()` on the
 passed in tap event.  Details below.
@@ -176,7 +176,7 @@ passed in tap event.  Details below.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
   scope: null, // Scope (optional). A scope to link to the popup content.
-  buttons: [{ //Array[Object] (optional). Buttons to place in the popup footer.
+  buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
     text: &#39;Cancel&#39;,
     type: &#39;button-default&#39;,
     onTap: function(e) {

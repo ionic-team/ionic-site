@@ -87,7 +87,7 @@ $scope.showPopup = function() {
             return $scope.data.wifi;
           }
         }
-      },
+      }
     ]
   });
   myPopup.then(function(res) {

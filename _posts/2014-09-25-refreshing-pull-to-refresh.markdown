@@ -15,13 +15,13 @@ Wanting to make it fun and playful, we started by binding the rotation of the ar
 
 Most users don’t sit and play with the pull to refresh animation on their phones; they “use” their phones. They “use” pull to refresh to get the information they want, and they want it now. That means they swipe up quickly and expect the pull to refresh to trigger and update. They swipe so fast, the animation doesn’t even happen.
 
-So we went back to a regular fixed-time animation, updated the default icons to be something more visually appealing, and moved on. 
-
-The next thing we noticed was that most API calls are pretty fast, perhaps too fast. Our refresher would return to the home position as soon as it was told the information requested was received. This meant that as soon as you let go of the refresher when swiping up, it wouldn’t spin; instead, it would return immediately to the home position. We have an internal Hacker News app we were using to test this (more info on that soon). The front page of Hacker News doesn’t update every five seconds, so most of the time, a refresh does nothing. We were left unsure if an update actually fired. 
-
 <div style="float: right; margin-right: -160px">
   {% include codepen.html id="nqIrC" %}
 </div>
+
+So we went back to a regular fixed-time animation, updated the default icons to be something more visually appealing, and moved on. 
+
+The next thing we noticed was that most API calls are pretty fast, perhaps too fast. Our refresher would return to the home position as soon as it was told the information requested was received. This meant that as soon as you let go of the refresher when swiping up, it wouldn’t spin; instead, it would return immediately to the home position. We have an internal Hacker News app we were using to test this (more info on that soon). The front page of Hacker News doesn’t update every five seconds, so most of the time, a refresh does nothing. We were left unsure if an update actually fired. 
 
 Setting up console logs allows developers to make sure the refresh actually happened. Users don’t get the reassurance of a console log, though, so your UI must be reassuring enough on its own.
 
@@ -29,4 +29,6 @@ We decided to force 400ms of the refreshing spinner animation. If the data came 
 
 **Users don’t care about what’s going on under the hood.** A big part of UX is keeping a user in familiar territory and reassuring him or her that the app is working properly. The user’s confidence that the refresh happened trumps its technical representation. In our updated pull to refresh, if an update takes longer than 400ms, it will continue to spin until the data is available. 
 
-I think you’ll agree, the end result is a pull to refresh that’s enjoyable to use and communicates its function clearly. I greatly enjoyed going into this level of critical thinking on just one component. It’s a standard to which I’m proud to say we hold ourselves with every new Ionic feature. 
+I think you’ll agree, the end result is a pull to refresh that’s enjoyable to use and communicates its function clearly. I really enjoyed going into this level of critical thinking on just one component. It’s a standard to which I’m proud to say we hold ourselves with every new Ionic feature. 
+
+Check out what we did [under the hood on GitHub](https://github.com/driftyco/ionic/commit/db27fb116cd3139b271cf9d20c462fb3746f25df), or take a look at how to add it into your app from our [Docs](http://ionicframework.com/docs/api/directive/ionRefresher/)!

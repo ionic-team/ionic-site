@@ -19,6 +19,10 @@ So we went back to a regular fixed-time animation, updated the default icons to 
 
 The next thing we noticed was that most API calls are pretty fast, perhaps too fast. Our refresher would return to the home position as soon as it was told the information requested was received. This meant that as soon as you let go of the refresher when swiping up, it wouldn’t spin; instead, it would return immediately to the home position. We have an internal Hacker News app we were using to test this (more info on that soon). The front page of Hacker News doesn’t update every five seconds, so most of the time, a refresh does nothing. We were left unsure if an update actually fired. 
 
+<div style="float: right; margin-right: -160px">
+  {% include codepen.html id="nqIrC" %}
+</div>
+
 Setting up console logs allows developers to make sure the refresh actually happened. Users don’t get the reassurance of a console log, though, so your UI must be reassuring enough on its own.
 
 We decided to force 400ms of the refreshing spinner animation. If the data came back sooner, we’d still apply it immediately, but we’d show the spinner for a bit, so the user would know a refresh had happened. To a developer, this may feel misleading. The refresh is already complete, so why are we still showing the animation?

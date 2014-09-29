@@ -31,10 +31,15 @@ Once everything is installed, test out the Ionic command to see if you can start
 ```bash
 $ ionic start myApp salesforce
 $ cd myApp
-$ ionic serve
 ```
 
-You should see the salesforce demo app in your browser. Now, let's test it on the phone!
+This will create the project and download the Salesforce kit. Then, we need to add a Salesforce OAuth plugin:
+
+```bash
+$ ionic plugin add https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin
+```
+
+Now we can configure our device platform and test the app!
 
 ```bash
 $ ionic platform add ios (or android for windows developers)
@@ -42,7 +47,23 @@ $ ionic build ios
 $ ionic emulate ios
 ```
 
-This should open the simulator with the real app running right on the phone!
+This should open the simulator with the real app running right on the phone, just like this:
 
-Note: for Android developers we recommend testing directly on the device, so substitute `ionic emulate` for `ionic run`.
+<img src="/img/blog/salesforce.png" width="362px">
 
+Note: for Android developers we recommend testing directly on the device, so substitute `ionic emulate` for `ionic run`. If you need help installing all the dependencies for Android development or are using a Windows computer, we recommend our [Ionic Box](https://github.com/driftyco/ionic-box) project which helps simplify the configuration of a development environment.
+
+### Free Authentication
+
+One of the hardest and most time consuming parts of app development is adding authentication. With the Ionic Salesforce Starter app, you get force.com authentication for free.
+
+All you need to do is edit the `bootconfig.json` file and add your production force.com application information. If you don't have a force.com application created yet, just create a new Connected App in salesforce and add the Connected App ID and Callback URI to the `bootconfig.json` file.
+
+### Where to go from here
+
+If everything worked, you now have a ready-to-go template for building an Ionic app with AngularJS and the Salesforce platform. To learn more about how to use Ionic
+and all of the components available, take a look at our [docs](http://ionicframework.com/docs). For AngularJS help, take a look at the great [Thinkster.io](https://thinkster.io/angulartutorial/a-better-way-to-learn-angularjs/) tutorial on Angular, or [Fullstack](https://www.fullstackedu.com/), or [egghead.io](https://egghead.io/).
+
+For more info on extending this starter project, take a look at the [README](https://github.com/driftyco/ionic-starter-salesforce) for the project.
+
+Good luck at the Hackathon!

@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Built with Ionic: Mallzee"
-date:   "2014-09-22 12:30:00"
+date:   "2014-10-01 11:00:00"
 hide_date: false
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
-published: false
+published: true
 ---
 
-<img class="showcase-image" src="/img/blog/sworkit-header.jpg">
+<img class="showcase-image" src="/img/blog/mallzee-header.jpg">
 
 [Mallzee](http://mallzee.com/), “the personal stylist in your pocket,” pulls together over two million products from 100 big-name fashion brands to find must-have clothes suited to its users, who are primarily 16-35 year-olds who love fashion but are too busy to spend a lot of time shopping. Mallzee’s unique Style Feeds allow users to get search-specific, receive price drop alerts, and be inspired by top fashion bloggers and personal stylists. 
 
@@ -17,7 +17,7 @@ published: false
 Mallzee CTO [Jamie Sutherland](https://twitter.com/wedgybo) heard about Ionic when it was being promoted on AngularJS lists. “We were building an app with the same sort of ethos,” says Sutherland. “We wanted to create reusable components, so we could make our next apps quicker. When we heard about Ionic, we were keen to take a look, and we weren’t disappointed!” 
 
 <div style="float: right; margin-right: -160px; width: 50%;">
-  <a href="http://ionicframework.com/img/blog/sworkit-preview-right.png"><img src="/img/blog/sworkit-preview-right.png"></a>
+  <a href="http://ionicframework.com/img/blog/mallzee-preview-right.jpg"><img src="/img/blog/mallzee-preview-right.jpg"></a>
 </div>
 
 However, the company had already published the first version of the Mallzee app. In May 2014, the team decided to replace their existing UI work with Ionic, which was approaching a 1.0.0 version. 
@@ -29,7 +29,7 @@ Sutherland says Ionic helped streamline app development by reducing the amount o
 Sutherland adds, “Being invested in AngularJS, I love the simplicity of fitting together components to create great-looking apps in no time at all.”
 
 <div style="float: left; margin-left: -120px; margin-right: 40px; width: 32%;">
-  <a href="http://ionicframework.com/img/blog/sworkit-preview-left.png"><img src="/img/blog/sworkit-preview-left.png"></a>
+  <a href="http://ionicframework.com/img/blog/mallzee-preview-left.jpg"><img src="/img/blog/mallzee-preview-left.jpg"></a>
 </div>
 
 Because the Mallzee team used Ionic to create a whole interface purely from markup, the marketing group is able to edit sections of the app without help from the development team. “They control the inspiration section of the app, without having to have an in-depth knowledge of coding,” says Sutherland. “Basic HTML skills are enough for them to produce great results.”

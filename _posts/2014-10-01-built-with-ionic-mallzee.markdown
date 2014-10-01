@@ -36,4 +36,4 @@ Because the Mallzee team used Ionic to create a whole interface purely from mark
 
 Mallzee originally chose hybrid over native because they were all web developers. “We’d looked at great PhoneGap apps (Twist, Untappd) and figured we could do something like that,” says Sutherland. “We’d no idea how hard it would be, especially when you are rolling most of the components yourself, as all the frameworks at the time (jQuery Mobile, Sencha Touch) were too heavy. Although we only support iPhone at the moment, another factor in our decision was cross-platform support. We focused on the iOS platform first, to get the user experience nailed there before covering others. It should be a simple process, and now we’re ready to tackle that and roll out Android before the end of the year.”
 
-Download Mallzee from Apple's [iOS App Store](https://itunes.apple.com/gb/app/mallzee/id681106862)!
+<strong>Download Mallzee from Apple's [iOS App Store](https://itunes.apple.com/gb/app/mallzee/id681106862)!</strong>

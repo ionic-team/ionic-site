@@ -26,11 +26,11 @@ However, the company had already published the first version of the Mallzee app.
 
 Sutherland says Ionic helped streamline app development by reducing the amount of work needed to make a high-quality hybrid application. “It takes away the pain of having to create a lot of the standard components people expect and know how to use in their native counterparts,” he says. “Because we’d already created similar components, we were able to quickly switch out old for new in the space of a few weeks! In the end, we’ve used almost the entire framework. We even have a few components waiting to give back!”
 
-Sutherland adds, “Being invested in AngularJS, I love the simplicity of fitting together components to create great-looking apps in no time at all.”
-
 <div style="float: left; margin-left: -120px; margin-right: 40px; width: 32%;">
   <a href="http://ionicframework.com/img/blog/mallzee-preview-left.jpg"><img src="/img/blog/mallzee-preview-left.jpg"></a>
 </div>
+
+Sutherland adds, “Being invested in AngularJS, I love the simplicity of fitting together components to create great-looking apps in no time at all.”
 
 Because the Mallzee team used Ionic to create a whole interface purely from markup, the marketing group is able to edit sections of the app without help from the development team. “They control the inspiration section of the app, without having to have an in-depth knowledge of coding,” says Sutherland. “Basic HTML skills are enough for them to produce great results.”
 

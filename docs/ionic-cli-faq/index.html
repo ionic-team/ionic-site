@@ -17,11 +17,6 @@ search_sections: true
 <section class="docs-section active" id="android-sdk">
 
   <h3 class="title"><a href="#android-sdk">Android SDK</a></h3>
-
-  <p>
-    Setting the Android SDK is a complicated process for Windows and Linux.
-  </p>
-
   <p>Setting the Android SDK is a complicated process for Windows and Linux.</p>
   <p>Ubuntu Recently, Ubuntu has gotten an awesome tool called Ubuntu Developer Tools Center and with it you can installed the Android SDK and Android Studio. I’m not going to go over the details, but you can checkout this <a href="http://www.webupd8.org/2014/09/canonical-releases-ubuntu-developer.html">blog post</a> and
     see the steps.</p>
@@ -186,4 +181,16 @@ $ cordova update platform android
         <p>But then another error comes up. Whats going on? So something that Cordova doesn’t mention is that you need to have git setup for installing plugins from Github. Something like this can easily be overlooked, but thankfully it’s as easy to fix. Just visit <a href="http://git-scm.com/">the git website</a>, install and set up git, and you’re good to go.</p>
         <hr>
 
+</section>
+
+<!-- Missing Hooks
+  ================================================== -->
+<section class="docs-section" id="hooks">
+
+  <h3 class="title"><a href="#hool=ks">Missing Cordova Hooks</a></h3>
+  <p>If your project was created with an older version of the Ionic CLI, you may have come across this. You start to build as</p>
+        {% highlight bash %}
+          addCliHookDirectory fs.chmodSync: Error: ENOENT, no such file or directory 'hooks/after_prepare/010_add_platform_class.js'
+{% endhighlight %}
+<p> Thankfully this has been fixed in the latest version of the Ionic CLI. If the hook isn't found when you try to build either iOS or Android, the Ionic CLI will add it back.</p>
 </section>

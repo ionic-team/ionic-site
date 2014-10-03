@@ -301,6 +301,18 @@
     }
   }
 
+  code {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 2px 4px;
+    font-size: 85%;
+    color: #4D8CF4;
+    background-color: whitesmoke;
+    white-space: nowrap;
+    border-radius: 2px;
+  }
+
   .desc-row {
     padding: 0 10px;
     text-align: center;
@@ -394,6 +406,14 @@
     background-image: url("/img/design.png");
   }
 
+  .img-cli {
+    background-image: url("/img/cli.png");
+  }
+
+  .img-learn {
+    background-image: url("/img/learn.png");
+  }
+
   .img-nerds {
     background-image: url("/img/nerds.png");
   }
@@ -420,6 +440,14 @@
 
       &.img-design {
         background-image: url("/img/design@2x.png");
+      }
+
+      &.img-cli {
+        background-image: url("/img/cli@2x.png");
+      }
+
+      &.img-learn {
+        background-image: url("/img/learn@2x.png");
       }
 
       &.img-nerds {

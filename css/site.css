@@ -4721,7 +4721,7 @@ h1 + h2 + p {
     color: #2a303a; }
   .home .desc-row p {
     padding-bottom: 40px;
-    max-width: 760px;
+    max-width: 840px;
     color: #474f5c;
     font-weight: 300;
     font-size: 18px;

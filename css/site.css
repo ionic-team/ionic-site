@@ -6181,7 +6181,8 @@ a {
   transition: 0.1s ease-in-out;
   transition-property: opacity, border-color; }
   a:hover, a:focus {
-    opacity: 1; }
+    opacity: 1;
+    text-decoration: none; }
 
 .text-center {
   text-align: center; }

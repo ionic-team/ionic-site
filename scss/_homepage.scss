@@ -303,14 +303,15 @@
 
   code {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-    margin-left: 1px;
-    margin-right: 3px;
+    margin-left: 0px;
+    margin-right: 2px;
     padding: 2px 4px;
     font-size: 85%;
     color: #4D8CF4;
-    background-color: whitesmoke;
+    background-color: #F5F5F5;
     white-space: nowrap;
     border-radius: 2px;
+    letter-spacing: -0.03em;
   }
 
   .desc-row {

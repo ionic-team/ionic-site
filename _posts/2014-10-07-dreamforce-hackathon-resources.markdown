@@ -25,3 +25,7 @@ We also have a [starter app](https://github.com/driftyco/ionic-starter-salesforc
 ### Why Ionic?
  
 We think Ionic is the best bet for Dreamforce participants to build their apps faster, with fewer headaches. Instead of having to configure and build two complicated native apps, you can build one cross-platform app with web technologies you already know.
+
+By using Ionic you can get started building the parts of the app that are actually unique. That could be the difference between shipping a great app at the end of the hackathon or being stuck in the weeds!
+
+Hope to see you there, and good luck!

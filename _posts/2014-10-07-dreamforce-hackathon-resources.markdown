@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dreamforce 2014 Resources"
+title:  "Dreamforce Hackathon Powerups!"
 date:   "2014-10-07 10:00:00"
 hide_date: false
 categories: ionic

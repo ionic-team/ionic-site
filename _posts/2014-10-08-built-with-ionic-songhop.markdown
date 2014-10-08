@@ -14,13 +14,13 @@ published: true
 
 <!-- more -->
 
-<div style="float: right; margin-right: -160px; width: 50%;">
+<div style="float: right; margin-right: -160px; margin-bottom: 80px; width: 50%;">
   <a href="http://ionicframework.com/img/blog/songhop-preview-right.jpg"><img src="/img/blog/songhop-preview-right.png"></a>
 </div>
 
 In early 2013, Simons, Pai, and Green wrote what is now the de facto tutorial on AngularJS and have since taught over 500K developers AngularJS. They originally heard about Ionic from the AngularJS community and agreed that it would take significantly more time to learn native languages than to learn how Ionic was set up. They built the entire Songhop app on top of Ionic’s UI elements and plugins: modals, dialogs, navigation controllers, swipe gestures, etc. 
 
-<div style="float: left; margin-left: -120px; margin-right: 40px; width: 32%;">
+<div style="float: left; margin-left: -120px; margin-right: 40px; margin-bottom: 70px; width: 32%;">
   <a href="http://ionicframework.com/img/blog/songhop-preview-left.jpg"><img src="/img/blog/songhop-preview-left.png"></a>
 </div>
 

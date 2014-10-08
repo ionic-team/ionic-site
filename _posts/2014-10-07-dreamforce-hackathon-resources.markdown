@@ -20,10 +20,6 @@ The Heroku team put together a great [starting template](https://engineering.her
  
 This is your best bet to get a great app up and running, complete with a backend and frontend. You can even add support for [force.com](https://github.com/heroku/mobile-template1#accessing-forcecom).
  
-### Ionic Salesforce Starter
- 
-We also have a [starter app](https://github.com/driftyco/ionic-starter-salesforce) that uses Ionic and comes with Salesforce authentication out of the box. This might be a good option if you don't want to configure the backend but want Salesforce auth.
- 
 ### Why Ionic?
  
 We think Ionic is the best bet for Dreamforce participants to build their apps faster, with fewer headaches. Instead of having to configure and build two complicated native apps, you can build one cross-platform app with web technologies you already know.

@@ -7,6 +7,8 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
+<img class="showcase-image" src="/img/blog/heroku-ionic-header.png">
+
 We've noticed a lot of Ionic developers using Heroku side-by-side, either as a backend or to actually host their Ionic app as a mobile website or externally-loaded app.
 
 To help with that, we've built a ready-to-go [Ionic app](https://github.com/driftyco/ionic-heroku-button) with Node.js and Express, to either host your Ionic app as a mobile website,

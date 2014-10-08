@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slideBox.js#L2'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slideBox.js#L1'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slideBox.js#L2'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slideBox.js#L1'>
     Improve this doc
   </a>
 </div>
@@ -44,6 +44,10 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
+Note: The slideBox will always take up all of the space within its parent scroll
+container. If you wish to have a smaller slidebox, create a custom-sized parent
+<ion-scroll> element.
+
 
 
 
@@ -55,17 +59,21 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-slide-box on-slide-changed="slideHasChanged($index)">
-  <ion-slide>
-    <div class="box blue"><h1>BLUE</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box yellow"><h1>YELLOW</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box pink"><h1>PINK</h1></div>
-  </ion-slide>
-</ion-slide-box>
+<ion-content>
+  <ion-slide-box on-slide-changed="slideHasChanged($index)"
+    loop="shouldLoop"
+    auto-play="3000">
+    <ion-slide>
+      <div class="box blue"><h1>BLUE</h1></div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box yellow"><h1>YELLOW</h1></div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box pink"><h1>PINK</h1></div>
+    </ion-slide>
+  </ion-slide-box>
+</ion-content>
 ```
   
   
@@ -83,16 +91,16 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
     
     <tr>
       <td>
-        delegate-handle
+        selected
         
         <div><em>(optional)</em></div>
       </td>
       <td>
         
-  <code>string</code>
+  <code>expression</code>
       </td>
       <td>
-        <p>The handle used to identify this slideBox
+        <p>A model bound to the selected slide index.
 with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.</p>
 
         
@@ -101,7 +109,7 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
     
     <tr>
       <td>
-        does-continue
+        loop
         
         <div><em>(optional)</em></div>
       </td>
@@ -110,7 +118,7 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether the slide box should loop.</p>
+        <p>Whether the slide box should loop. Default false.</p>
 
         
       </td>
@@ -124,61 +132,10 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
       </td>
       <td>
         
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether the slide box should automatically slide. Default true if does-continue is true.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        slide-interval
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
   <code>number</code>
       </td>
       <td>
-        <p>How many milliseconds to wait to change slides (if does-continue is true). Defaults to 4000.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        show-pager
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether a pager should be shown for this slide box.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        pager-click
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>expression</code>
-      </td>
-      <td>
-        <p>Expression to call when a pager is clicked (if show-pager is true). Is passed the &#39;index&#39; variable.</p>
+        <p>If a positive number, then every time the given number of milliseconds have passed, slideBox will go to the next slide. Set to a non-positive number to disable. Default: -1.</p>
 
         
       </td>
@@ -203,16 +160,17 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
     
     <tr>
       <td>
-        active-slide
+        delegate-handle
         
         <div><em>(optional)</em></div>
       </td>
       <td>
         
-  <code>expression</code>
+  <code>string</code>
       </td>
       <td>
-        <p>Model to bind the current slide to.</p>
+        <p>The handle used to identify this slideBox with
+<a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.</p>
 
         
       </td>

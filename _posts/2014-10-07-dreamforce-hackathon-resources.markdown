@@ -13,6 +13,8 @@ published: true
 With the [Dreamforce 2014 Hackathon](https://developer.salesforce.com/million-dollar-hackathon) right around the corner, we wanted to share some great resources from Ionic, Salesforce, and Heroku, to make sure you don't waste any time getting to work building your great app and sharing in that wonderful $1M!
  
 If you're attending Dreamforce, please visit the Ionic booth in the DevZone. We'll be debuting Creator and demonstrating new ways to build hybrid apps using Ionic. We look forward to seeing you!
+
+<!-- more -->
  
 ### Heroku Mobile App Template
  

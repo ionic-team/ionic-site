@@ -44,6 +44,8 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
+Note: The slideBox will take up the whole width and height of its parent element.
+
 
 
 

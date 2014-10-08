@@ -57,9 +57,7 @@ Note: The slideBox will take up the whole width and height of its parent element
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-slide-box on-slide-changed="slideHasChanged($index)"
-  loop="shouldLoop"
-  auto-play="3000">
+<ion-slide-box on-slide-changed="slideHasChanged($index)" loop="shouldLoop" auto-play="3000">
   <ion-slide>
     <div class="box blue"><h1>BLUE</h1></div>
   </ion-slide>
@@ -96,8 +94,7 @@ Note: The slideBox will take up the whole width and height of its parent element
   <code>expression</code>
       </td>
       <td>
-        <p>A model bound to the selected slide index.
-with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.</p>
+        <p>A model bound to the selected slide index.</p>
 
         
       </td>

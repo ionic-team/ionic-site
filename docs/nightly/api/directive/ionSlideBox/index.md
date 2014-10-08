@@ -44,10 +44,6 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
-Note: The slideBox will always take up all of the space within its parent scroll
-container. If you wish to have a smaller slidebox, create a custom-sized parent
-<ion-scroll> element.
-
 
 
 
@@ -59,21 +55,19 @@ container. If you wish to have a smaller slidebox, create a custom-sized parent
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-content>
-  <ion-slide-box on-slide-changed="slideHasChanged($index)"
-    loop="shouldLoop"
-    auto-play="3000">
-    <ion-slide>
-      <div class="box blue"><h1>BLUE</h1></div>
-    </ion-slide>
-    <ion-slide>
-      <div class="box yellow"><h1>YELLOW</h1></div>
-    </ion-slide>
-    <ion-slide>
-      <div class="box pink"><h1>PINK</h1></div>
-    </ion-slide>
-  </ion-slide-box>
-</ion-content>
+<ion-slide-box on-slide-changed="slideHasChanged($index)"
+  loop="shouldLoop"
+  auto-play="3000">
+  <ion-slide>
+    <div class="box blue"><h1>BLUE</h1></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box yellow"><h1>YELLOW</h1></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box pink"><h1>PINK</h1></div>
+  </ion-slide>
+</ion-slide-box>
 ```
   
   

@@ -69,6 +69,18 @@ This will show four pager buttons, one for each slide.
   <ion-slide>4</ion-slide>
 </ion-slide-box>
 ```
+
+If you provide your own `ng-click` attribute, it overrides the default
+click behavior.
+
+```html
+<ion-slide-box>
+  <ion-slide-pager ng-click="doSomething($slideIndex)"></ion-slide-pager>
+  <ion-slide>1</ion-slide>
+  <ion-slide>2</ion-slide>
+  <ion-slide>3</ion-slide>
+</ion-slide-box>
+```
   
   
 <h2 id="api" style="clear:both;">API</h2>

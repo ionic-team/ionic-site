@@ -354,6 +354,25 @@ Set to zero or false to stop autoPlay.</p>
 
 
 
+<div id="update"></div>
+<h2>
+  <code>update()</code>
+
+</h2>
+
+Causes the slidebox to re-scan all of the child slide
+elements and reorganize itself again.
+You only need to call update if you are moving slides around in the DOM
+(for example, ng-repeat moving an element from the middle to the end).
+
+
+
+
+
+
+
+
+
 <div id="$getByHandle"></div>
 <h2>
   <code>$getByHandle(handle)</code>

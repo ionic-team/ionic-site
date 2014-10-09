@@ -57,7 +57,7 @@ Note: The slideBox will take up the whole width and height of its parent element
 <h2 id="usage">Usage</h2>
   
 ```html
-<ion-slide-box on-slide-changed="slideHasChanged($index)" loop="shouldLoop" auto-play="3000">
+<ion-slide-box on-slide-changed="slideHasChanged($slideIndex)" loop="shouldLoop" auto-play="3000">
   <ion-slide>
     <div class="box blue"><h1>BLUE</h1></div>
   </ion-slide>
@@ -145,7 +145,7 @@ Note: The slideBox will take up the whole width and height of its parent element
   <code>expression</code>
       </td>
       <td>
-        <p>Expression called whenever the slide is changed.  Is passed an &#39;$index&#39; variable.</p>
+        <p>Expression called whenever the slide is changed.  Is passed a &#39;$slideIndex&#39; variable.</p>
 
         
       </td>

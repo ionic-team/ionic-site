@@ -68,8 +68,8 @@ myApp.config(function($ionicConfigProvider) {
 </h2>
 
 Set whether Ionic should prefetch all templateUrls defined in
-$stateProvider.state. Default true. If set to false, the user will have to wait
-for a template to be fetched the first time he/she is going to a a new page.
+$stateProvider.state. If set to false, the user will have to wait
+for a template to be fetched the first time when navigating to a new page. Default `true`.
 
 
 
@@ -91,11 +91,11 @@ for a template to be fetched the first time he/she is going to a a new page.
       </td>
       <td>
         
-  
+  <code>boolean</code>
       </td>
       <td>
         <p>Whether Ionic should prefetch templateUrls defined in
-<code>$stateProvider.state()</code>. Default true.</p>
+<code>$stateProvider.state()</code>.</p>
 
         
       </td>

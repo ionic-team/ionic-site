@@ -35,7 +35,7 @@ docType: "directive"
 
 
 
-Toggle a side menu on the given side
+Toggle a side menu on the given side.
 
 
 
@@ -47,8 +47,8 @@ Toggle a side menu on the given side
   
 <h2 id="usage">Usage</h2>
   
-Below is an example of a link within a nav bar. Tapping this link would
-automatically open the given side menu
+Below is an example of a link within a nav bar. Tapping this button
+would open the given side menu, and tapping it again would close it.
 
 ```html
 <ion-view>

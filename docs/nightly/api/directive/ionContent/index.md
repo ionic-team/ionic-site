@@ -77,10 +77,12 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
     [overflow-scroll=""]
     [scrollbar-x=""]
     [scrollbar-y=""]
+    [start-x=""]
     [start-y=""]
     [on-scroll=""]
     [on-scroll-complete=""]
-    [has-bouncing=""]>
+    [has-bouncing=""]
+    [scroll-event-interval=""]>
   ...
   </ion-content>
   ```
@@ -239,6 +241,23 @@ Ionic scroll.</p>
     
     <tr>
       <td>
+        start-x
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Initial horizontal scroll position. Default 0.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         start-y
         
         <div><em>(optional)</em></div>
@@ -248,8 +267,7 @@ Ionic scroll.</p>
   <code>string</code>
       </td>
       <td>
-        <p>Initial vertical scroll position. Default 0.
-of the content.  Defaults to true on iOS, false on Android.</p>
+        <p>Initial vertical scroll position. Default 0.</p>
 
         
       </td>
@@ -302,6 +320,23 @@ of the content.  Defaults to true on iOS, false on Android.</p>
       <td>
         <p>Whether to allow scrolling to bounce past the edges
 of the content.  Defaults to true on iOS, false on Android.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        scroll-event-interval
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Number of milliseconds between each firing of the &#39;on-scroll&#39; expression. Default 10.</p>
 
         
       </td>

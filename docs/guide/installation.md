@@ -71,7 +71,7 @@ To install Ant, download a zip from <a href="http://ant.apache.org/bindownload.c
 <p>Installing the <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is also necessary. The Android SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Android.
 </p>
 <p>
-Cordova requires the ANDROID_HOME environment variable to be set. This should point to the <code>[ANDROID_SDK_DIR]\sdk</code> directory (for example <code>c:\android\sdk</code>).
+Cordova requires the ANDROID_HOME environment variable to be set. This should point to the <code>[ANDROID_SDK_DIR]\android-sdk</code> directory (for example <code>c:\android\android-sdk</code>).
 </p>
 <p>
 Next, update your PATH to include the <code>tools/</code> and <code>platform-tools/</code> folder in that folder. So, using ANDROID_HOME, you would add both <code>%ANDROID_HOME%\tools</code> and <code>%ANDROID_HOME%\platform-tools</code>.

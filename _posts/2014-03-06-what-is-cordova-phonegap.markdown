@@ -21,7 +21,7 @@ In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and
 
 ### A rose by any other name
 
-So what is the difference between Cordova and PhoneGap? One helpful analogy Adobe uses is Cordova is to WebKit as PhoneGap is to Chrome. PhoneGap is Cordova plus extra Adobe stuff.
+So what is the difference between Cordova and PhoneGap? One helpful analogy Adobe uses is Cordova is to WebKit (now blink) as PhoneGap is to Chrome. PhoneGap is Cordova plus extra Adobe stuff.
 
 At first, the differences between Cordova and PhoneGap were minimal. But Adobe always had plans to build out a proprietary set of services around the PhoneGap ecosystem, and has started to execute on that plan with PhoneGap Build.
 

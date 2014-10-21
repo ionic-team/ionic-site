@@ -34,6 +34,8 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
 <p>
   If you are running a 64-bit version of Ubuntu, you'll need to install the 32-bit libraries since Android is only 32-bit at the moment.
   <code>$ sudo apt-get install ia32-libs</code>
+  If you are on Ubuntu 13.04 or greater, `ia32-libs` has been removed. You can use the following packages instead:
+  <code>$ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code>
 </p>
 </div>
 

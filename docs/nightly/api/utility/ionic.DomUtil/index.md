@@ -648,6 +648,25 @@ className, or null.
 
 
 
+
+<div id="blurAll"></div>
+<h2>
+  <code>blurAll()</code>
+
+</h2>
+
+Blurs any currently focused input element
+
+
+
+
+
+
+* Returns: 
+  <code>DOMElement</code> The element blurred or null
+
+
+
   
   
 

@@ -21,15 +21,15 @@ title: Submit an Ionic Framework Issue
     </ul>
   </div>
   <div class="col-md-6">
-    <div step="0" heading="First, Connect to Github" is-done="authenticated()">
+    <div step="0" heading="First, Connect to GitHub" is-done="authenticated()">
       <a class="btn btn-primary"
          ng-show="!authenticated()"
          ng-click="signIn()">
-        <i class="fa fa-github"></i> Connect to Github
+        <i class="fa fa-github"></i> Connect to GitHub
       </a>
       <a class="btn btn-primary" disabled="disabled"
          ng-show="authenticated()"
-         ng-bind="'Connected to Github as '+currentUser().name">
+         ng-bind="'Connected to GitHub as '+currentUser().name">
       </a>
       <a class="btn btn-link"
          ng-if="authenticated()"
@@ -127,7 +127,7 @@ title: Submit an Ionic Framework Issue
       <div step="5" no-total="true" heading="All Finished!">
         <div class="btn btn-primary btn-lg btn-block"
           ng-click="!issue.loading && submitIssue()">
-          <i class="fa fa-github"></i> Submit Issue to Github!
+          <i class="fa fa-github"></i> Submit Issue to GitHub!
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ Plus, HabitRPG is a “full-stack JavaScript shop,” using AngularJS, Node.js, 
 
 Renelle explains that using Ionic allowed his team to replace awkward custom solutions with much cleaner code. “Our app was basically a combo of Ionic’s side menu and tabs starters--very basic,” says Renelle. “However, our previous framework didn’t support much of this by way of JS components or CSS, so we home-grew the majority of it. Ionic allowed us to gut most of our code. I went in with a sledge hammer, replacing rickety custom solutions with Ionic’s side menus, tabs, performant scrolling, navigation history, and more. Swipe-refresher was a pleasant surprise, so we put that right in.” 
 
-The HabitRPG team plans to incorporate more Ionic components over time. “We had Github tickets planning contending solutions for modals, item sorting, and infinite-scroll,” says Renelle. “These would have added more dependencies and more home-grown clunkiness. Needless to say, I’m excited to find these supported in Ionic proper. Our app has a much brighter future, thanks to Ionic.”
+The HabitRPG team plans to incorporate more Ionic components over time. “We had GitHub tickets planning contending solutions for modals, item sorting, and infinite-scroll,” says Renelle. “These would have added more dependencies and more home-grown clunkiness. Needless to say, I’m excited to find these supported in Ionic proper. Our app has a much brighter future, thanks to Ionic.”
 
 Renelle says he believes Ionic is the second most important thing to happen to the hybrid app dev space (the first being PhoneGap). “Ionic will grow an impressive showcase, proving to companies that hybrid is a viable option,” he says.
 

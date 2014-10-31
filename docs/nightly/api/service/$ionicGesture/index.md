@@ -54,7 +54,7 @@ An angular service exposing ionic
 
 <div id="on"></div>
 <h2>
-  <code>on(eventType, callback, $element)</code>
+  <code>on(eventType, callback, $element, options)</code>
 
 </h2>
 
@@ -119,6 +119,23 @@ happens.</p>
       </td>
       <td>
         <p>The angular element to listen for the event on.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        options
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>object.</p>
 
         
       </td>

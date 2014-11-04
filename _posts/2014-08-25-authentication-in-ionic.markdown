@@ -8,9 +8,9 @@ searchable: true
 published: true
 ---
 
-*This is a guest post by Martin Gontovnikas (aka [mgonto](http://twitter.com/mgonto)), the lead Developer Advocate at Auth0. Martin is passionate about tech and contributes to open source with [Restangular](https://github.com/mgonto/restangular) (the famous REST client for AngularJS), AngularWizard, Angularytics, and FactoryPal. He also blogs at [http://gon.to/blog/](http://gon.to/blog/)*
+*This is a guest post by Martin Gontovnikas (aka [mgonto](http://twitter.com/mgonto)), the lead Developer Advocate at [Auth0](https://auth0.com/). Martin is passionate about tech and contributes to open source with [Restangular](https://github.com/mgonto/restangular) (the famous REST client for AngularJS), AngularWizard, Angularytics, and FactoryPal. He also blogs at [http://gon.to/blog/](http://gon.to/blog/)*
 
-> *TL;DR*: Get the [sample project using Ionic and Auth0 from Github](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample). 
+> *TL;DR*: Get the [sample project using Ionic and Auth0 from Github](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample).
 
 The smartphone has changed the way everyone interacts with different services and applications. Facebook reports having more usage from mobile phones compared to desktop computers. The industry calls this trend  *Mobile First*.
 
@@ -24,7 +24,7 @@ However, once you start coding, you'll see that there are some obstacles to over
 
 How do you keep users logged in forever? Should you use Cookies or Tokens? How to login users with social providers such as Facebook, Twitter, Linkedin, etc.? What if you need to authenticate users in enterprise directories such as Active Directory or LDAP? *
 
-These are some of the challenges that we solve at [Auth0](http://auth0.com/). 
+These are some of the challenges that we solve at [Auth0](http://auth0.com/).
 
 In this post, you'll learn how to easily add any authentication to your Ionic app using Auth0. As an introduction to this post, you can read about why it's better to use tokens in your AngularJS SPA in [this other post](http://blog.auth0.com/2014/01/07/angularjs-authentication-with-cookies-vs-token/).
 
@@ -43,21 +43,26 @@ Add the Auth0 dependencies to your `bower.json` file. Save the file and run `bow
 
 ````json
 "dependencies" : {
-  "auth0-angular": "2.2.*"
+  "auth0-angular": "3.*",
+  "a0-angular-storage": ">= 0.0.6",
+  "angular-jwt": ">= 0.0.4"
 },
 ````
 
 Add a reference to the Auth0 JS files from your `index.html` file:
 
 ````html
-<!-- Auth0 Lock (Login Widget) -->
-<script src="lib/auth0-widget.js/build/auth0-widget.js"></script>
+<!-- Auth0 Lock -->
+<script src="lib/auth0-lock/build/auth0-lock.js"></script>
 
-<!-- ionic/angularjs js -->
-<script src="lib/ionic/js/ionic.bundle.js"></script>
-
-<!-- Auth0 Angular module -->
+<!-- auth0-angular -->
 <script src="lib/auth0-angular/build/auth0-angular.js"></script>
+
+<!-- angular storage -->
+<script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
+
+<!-- angular-jwt -->
+<script src="lib/angular-jwt/dist/angular-jwt.js"></script>
 ````
 
 ### 1.2 Add the InAppBrowser plugin
@@ -72,7 +77,7 @@ Then add this configuration to your `config.xml`:
 ````xml
 <feature name="InAppBrowser">
   <param name="ios-package" value="CDVInAppBrowser" />
-  <param name="android-package" value="org.apache.cordova.InAppBrowser" />
+  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 </feature>
 ````
 
@@ -81,13 +86,17 @@ Now the fun starts. Let's integrate Auth0 into our Ionic code.
 
 ### 2.1 Add the Auth0 module as a dependency and configure it
 
-Add the dependency for the `auth0` module and inject the `authProvider` to configure it:
+Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider
 
 ````js
 angular.module('starter', ['ionic',
   'starter.controllers',
   'starter.services',
-  'auth0']).config(function ($stateProvider, $urlRouterProvider, authProvider) {
+  'auth0',
+  'angular-storage',
+  'angular-jwt'])
+.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
+  jwtInterceptorProvider) {
 	...
 	authProvider.init({
 	  domain: '{your domain in Auth0}.auth0.com',
@@ -140,21 +149,26 @@ app.config(function($stateProvider) {
 Now, it's just time to code the Login state!
 
 ````js
-app.controller('LoginCtrl', function($scope, auth, $state) {
+app.controller('LoginCtrl', function($scope, auth, $state, store) {
   auth.signin({
-    // This is a must for mobile projects
-    popup: true,
+    authParams: {
+      // This asks for the refresh token
+      // So that the user never has to log in again
+      scope: 'openid offline_access',
+      // This is the device name
+      device: 'Mobile device'
+    },
     // Make the widget non closeable
-    standalone: true,
-    // This asks for the refresh token
-    // So that the user never has to log in again
-    offline_mode: true,
-    device: 'Phone'
-  }, function() {
-	// Login was successful
+    standalone: true
+  }, function(profile, token, accessToken, state, refreshToken) {
+          // Login was successful
+    // We need to save the information from the login
+    store.set('profile', profile);
+    store.set('token', token);
+    store.set('refreshToken', refreshToken);
     $state.go('tab.dash');
   }, function(error) {
-	// Oops something went wrong during login:
+    // Oops something went wrong during login:
     console.log("There was an error logging in", error);
   });
 })
@@ -169,25 +183,45 @@ app.controller('LoginCtrl', function($scope, auth, $state) {
   </ion-view>
 ````
 
-The `auth.signin` method is called as soon as the controller is created. This will result in the [Auth0 Lock](https://github.com/auth0/widget) being displayed. The `Auth0 Lock` is a UI widget that will let your users choose how they want to authenticate to your Ionic app. The `Auth0 Lock` comes pre-configured with all usual controls for various ways of authetnication: Social Connections, Enterprise connections or regular Username and passwords. It's pretty on its own, but it be fully customized to match your UX.
+The `auth.signin` method is called as soon as the controller is created. This will result in the [Auth0 Lock](https://auth0.com/lock) being displayed. The `Auth0 Lock` is a UI widget that will let your users choose how they want to authenticate to your Ionic app. The `Auth0 Lock` comes pre-configured with all usual controls for various ways of authetnication: Social Connections, Enterprise connections or regular Username and passwords. It's pretty on its own, but it be fully customized to match your UX.
 
 > Auth0 supports [a large number of identity providers](https://docs.auth0.com/identityproviders).
 
-Notice the various parameters in the *Auth0 Lock*. In particular, check the `offline_mode` set to true. This setting is very important for mobile apps since it'll make Auth0 return a `refresh_token` to your app. For more information about Refresh Tokens, you can [click here](http://docs.auth0.com/refresh-token).
+Notice the various parameters in the *Auth0 Lock*. In particular, check that we added the `offline_access` scope. This setting is very important for mobile apps since it'll make Auth0 return a `refresh_token` to your app. For more information about Refresh Tokens, you can [click here](http://docs.auth0.com/refresh-token).
+
+Once the login is successful, we're using `angular-storage` to store the tokens and the user profile. We'll use these in the upcoming sections.
 
 ### 2.4 Call the secured API
-With the token in the app, you can now call a secured API safely. Each call you make to an API endpoint should attach the token (JWT) to the `Authorization` header. To simplify your code, `auth0-angular` ships with an `$http` interceptor that will automatically inject the token on each call:
+With the token in the app, you can now call a secured API safely. Each call you make to an API endpoint should attach the token (JWT) to the `Authorization` header. For that, we need to do the add the `jwtInterceptor` from `angular-jwt` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
 
 ````js
 // app.js
-app.config(function ($httpProvider) {
+myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   // ...
-  $httpProvider.interceptors.push('authInterceptor');
-  // ...
-});
-````
 
-All that's left now is validating the sent token in your server hosting the API. [Tailored tutorials](https://docs.auth0.com/#!/hybrid/ionic) for all popular stacks and platforms will teach you how to do that. Auth0 OSS SDKs make it really easy.
+  jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
+    var idToken = store.get('token');
+    var refreshToken = store.get('refreshToken');
+    // If no token return null
+    if (!idToken || !refreshToken) {
+      return null;
+    }
+    // If token is expired, get a new one
+    if (jwtHelper.isTokenExpired(idToken)) {
+      return auth.refreshIdToken(refreshToken).then(function(idToken) {
+        store.set('token', idToken);
+        return idToken;
+      });
+    } else {
+      return idToken;
+    }
+  }
+
+  $httpProvider.interceptors.push('jwtInterceptor');
+  // ...
+});````
+
+All that's left now is validating the sent token in your server hosting the API. [Tailored tutorials](https://docs.auth0.com/quickstart/hybrid/ionic) for all popular stacks and platforms will teach you how to do that. Auth0 OSS SDKs make it really easy.
 
 ### 2.5 Display user information
 Once the user is logged in, you can access the user information via `auth.profile`. [Auth0 ensures that common properties are all sent in the same way](https://docs.auth0.com/user-profile).
@@ -198,8 +232,34 @@ Once the user is logged in, you can access the user information via `auth.profil
 {% endraw %}
 ````
 
+### 2.6 Keeping the user logged in after page refreshes
+We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
+
+````js
+angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
+.run(function($rootScope, auth, store, jwtHelper, $location) {
+  // This events gets triggered on refresh or URL change
+  $rootScope.$on('$locationChangeStart', function() {
+    if (!auth.isAuthenticated) {
+      var token = store.get('token');
+      if (token) {
+        if (!jwtHelper.isTokenExpired(token)) {
+          auth.authenticate(store.get('profile'), token);
+        } else {
+          auth.refreshIdToken(refreshToken).then(function(idToken) {
+            store.set('token', idToken);
+            auth.authenticate(store.get('profile'), idToken);
+            return idToken;
+          });
+        }
+      }
+    }
+  });
+});
+````
+
 ## 3. Configure Auth0
-Now it's time to configure Auth0. First, we need to register an `Application`. This represents the Ionic app and the API. Then, you can choose which Identity Providers the user will be enabled for the app. 
+Now it's time to configure Auth0. First, we need to register an `Application`. This represents the Ionic app and the API. Then, you can choose which Identity Providers the user will be enabled for the app.
 
 ### 3.1 Create the Application in Auth0
 Creating the Application is super easy. Once created, check Settings, and copy the `clientId` and `domain`. These are used in Step 2.1.

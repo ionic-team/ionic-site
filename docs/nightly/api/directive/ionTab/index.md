@@ -191,7 +191,7 @@ For a complete, working tab bar example, see the <a href="/docs/nightly/api/dire
   <code>expression</code>
       </td>
       <td>
-        <p>The style of badge to put on this tab (eg tabs-positive).</p>
+        <p>The style of badge to put on this tab (eg: badge-positive).</p>
 
         
       </td>

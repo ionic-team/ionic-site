@@ -94,11 +94,22 @@ Now, we need to create a new Cordova project somewhere on the computer for the c
 
     $ ionic start todo blank
 
-That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory:
+That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:
 
-    $ cd todo
+    $ cd todo && ls
+    
+    ├── bower.json     // bower dependencies
+    ├── config.xml     // cordova configuration
+    ├── gulpfile.js    // gulp tasks
+    ├── hooks          // custom cordova hooks to execute on specific commands
+    ├── ionic.project  // ionic configuration
+    ├── package.json   // node dependencies
+    ├── platforms      // iOS/Android specific builds will reside here
+    ├── plugins        // where your cordova/ionic plugins will be installed
+    ├── scss           // scss code, which will output to www/css/
+    └── www            // application - JS code and libs, CSS, images, etc.
 
-If you are planning on using any version control system, you can go ahead and set it up using this new folder. For new apps, follow this folder structure to get up and running quickly:
+If you are planning on using any version control system, you can go ahead and set it up in this new folder.
 
 ## Configure Platforms
 

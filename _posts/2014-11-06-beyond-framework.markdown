@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Beyond "Framework"'
+title:  "Beyond Framework"
 date:   "2014-11-06  2:00:00"
 categories: angularjs, ionic, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a>'

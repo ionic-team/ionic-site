@@ -13,6 +13,8 @@ I get a lot of inquiries regarding OAuth 2.0 with Apache Cordova and Ionic Frame
 
 I created [ngCordovaOauth](https://github.com/nraboy/ng-cordova-oauth), which can be found on GitHub. It was designed to make it as simple as possible to obtain access tokens for some of the popular web APIs, such as Google.
 
+<!-- more -->
+
 I took my ngCordovaOauth library a step further, and [included it](http://ngcordova.com/docs/#Oauth) in the official [ngCordova](http://ngcordova.com/) project. For the sake of this tutorial, I'm going to explain things around the official ngCordova library which is now the official implementation.
 
 When I was designing the OAuth functionality, my strategy was to expect a promise based on the login flow. If the flow is successful, we will receive an object containing whatever the server responds with. Otherwise, we'll get some kind of error.

@@ -35,7 +35,9 @@ docType: "directive"
 
 
 
-Closes a side menu which is currently opened.
+Closes a side menu which is currently opened. By default, navigation
+transitions will not animate between views when the menu is open and
+this directive is used to close the menu.
 
 
 

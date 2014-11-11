@@ -43,8 +43,19 @@ docType: "directive"
 Use ionNavButtons to set the buttons on your <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
 from within an <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a>.
 
-Any buttons you declare will be placed onto the navbar's corresponding side,
-and then destroyed when the user leaves their parent view.
+Any buttons you declare will be placed onto the navbar's corresponding side. Primary
+buttons generally map to the left side of the header, and secondary buttons are
+generally on the right side. However, their exact locations are platform specific.
+For example, in iOS the primary buttons are on the far left of the header, and
+secondary buttons are on the far right, with the header title centered between them.
+For Android however, both groups of buttons are on the far right of the header,
+with the header title aligned left.
+
+Recommendation is to always use `primary` and `secondary` so buttons correctly map
+to the side familiar to users of a platform. However, in cases where buttons should
+always be on an exact side, both `left` and `right` sides are still available. For
+example, a toggle button for a left side menu should be on the left side, in this case
+we'd recommend uses `side="left"` so it's always on the left, no matter what platform.
 
 
 
@@ -61,9 +72,9 @@ and then destroyed when the user leaves their parent view.
 </ion-nav-bar>
 <ion-nav-view>
   <ion-view>
-    <ion-nav-buttons side="left">
+    <ion-nav-buttons side="primary">
       <button class="button" ng-click="doSomething()">
-        I'm a button on the left of the navbar!
+        I'm a button on the primary of the navbar!
       </button>
     </ion-nav-buttons>
     <ion-content>
@@ -97,8 +108,8 @@ and then destroyed when the user leaves their parent view.
   <code>string</code>
       </td>
       <td>
-        <p>The side to place the buttons on in the parent
-<a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>. Available: &#39;left&#39; or &#39;right&#39;.</p>
+        <p>The side to place the buttons in the
+<a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>. Available sides: <code>primary</code>, <code>secondary</code>, <code>left</code>, and <code>right</code>.</p>
 
         
       </td>

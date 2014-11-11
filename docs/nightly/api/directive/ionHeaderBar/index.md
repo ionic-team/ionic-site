@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L6'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L5'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L6'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L5'>
     Improve this doc
   </a>
 </div>
@@ -39,9 +39,6 @@ Adds a fixed header bar above some content.
 
 Can also be a subheader (lower down) if the 'bar-subheader' class is applied.
 See [the header CSS docs](/docs/components/#subheader).
-
-Note: If you use ionHeaderBar in combination with ng-if, the surrounding content
-will not align correctly.  This will be fixed soon.
 
 
 
@@ -92,8 +89,10 @@ will not align correctly.  This will be fixed soon.
   <code>string</code>
       </td>
       <td>
-        <p>Where to align the title. 
-Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#39;center&#39;.</p>
+        <p>How to align the title. By default the title
+will be aligned the same as how the platform aligns its titles (iOS centers
+titles, Android aligns them left).
+Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to the same as the platform.</p>
 
         
       </td>
@@ -111,7 +110,7 @@ Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#
       </td>
       <td>
         <p>By default, the header bar will scroll the
-content to the top when tapped.  Set no-tap-scroll to true to disable this 
+content to the top when tapped.  Set no-tap-scroll to true to disable this
 behavior.
 Available: true or false.  Defaults to false.</p>
 

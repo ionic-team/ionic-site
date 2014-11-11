@@ -60,7 +60,7 @@ in the `$state` definition
   .config(function($stateProvider, $ionicConfigProvider) {
 
     // disable preemptive template caching globally
-    $ionicConfigProvider.prefetchTemplates(false);
+    $ionicConfigProvider.templates.prefetch(false);
 
     // disable individual states
     $stateProvider

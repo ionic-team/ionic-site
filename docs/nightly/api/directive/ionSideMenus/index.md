@@ -61,6 +61,7 @@ For more information on side menus, check out:
 
 - <a href="/docs/nightly/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a>
 - <a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a>
+- <a href="/docs/nightly/api/directive/menuToggle/"><code>menuToggle</code></a>
 - <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a>
 - <a href="/docs/nightly/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a>
 
@@ -113,6 +114,27 @@ function ContentController($scope, $ionicSideMenuDelegate) {
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>
+        enable-menu-with-back-views
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>bool</code>
+      </td>
+      <td>
+        <p>Determines if the side menu is enabled when the
+back button is showing. When set to <code>false</code>, any <a href="/docs/nightly/api/directive/menuToggle/"><code>menuToggle</code></a> will
+be hidden, and the user cannot swipe to open the menu. When going back to the root page of the
+side menu (the page without a back button visible), then any menuToggle buttons will show
+again, and menus are enabled again.</p>
+
+        
+      </td>
+    </tr>
     
     <tr>
       <td>

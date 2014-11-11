@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L5'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L1'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L5'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L1'>
     Improve this doc
   </a>
 </div>
@@ -39,9 +39,9 @@ docType: "directive"
 
 As a user navigates throughout your app, Ionic is able to keep track of their
 navigation history. By knowing their history, transitions between views
-correctly slide either left or right, or no transition at all. An additional
+correctly enter and exit using the platform's transition style. An additional
 benefit to Ionic's navigation system is its ability to manage multiple
-histories.
+histories. For example, each tab can have it's own navigation history stack.
 
 Ionic uses the AngularUI Router module so app interfaces can be organized
 into various "states". Like Angular's core $route service, URLs can be used
@@ -72,18 +72,6 @@ To do this, in our markup we use ionNavView top level directive. To display a he
 the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive that updates as we navigate through the
 navigation stack.
 
-You can use any [animation class](/docs/components#animations) on the navView's `animation` attribute
-to have its pages animate.
-
-Recommended for page transitions: 'slide-left-right', 'slide-left-right-ios7', 'slide-in-up'.
-
-```html
-<ion-nav-bar></ion-nav-bar>
-<ion-nav-view animation="slide-left-right">
-  <!-- Center content -->
-</ion-nav-view>
-```
-
 Next, we need to setup our states that will be rendered.
 
 ```js
@@ -110,7 +98,7 @@ So here is one way to put home.html into our app:
 ```html
 <script id="home" type="text/ng-template">
   <!-- The title of the ion-view will be shown on the navbar -->
-  <ion-view title="Home">
+  <ion-view view-title="Home">
     <ion-content ng-controller="HomeCtrl">
       <!-- The content of the page -->
       <a href="#/music">Go to music page!</a>

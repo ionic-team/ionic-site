@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L8'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L2'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L8'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L2'>
     Improve this doc
   </a>
 </div>
@@ -48,10 +48,6 @@ We can add a back button by putting an <a href="/docs/nightly/api/directive/ionN
 We can add buttons depending on the currently visible view using
 <a href="/docs/nightly/api/directive/ionNavButtons/"><code>ionNavButtons</code></a>.
 
-Add an [animation class](/docs/components#animations) to the element via the
-`animation` attribute to enable animated changing of titles 
-(recommended: 'nav-title-slide-ios7').
-
 Note that the ion-nav-bar element will only work correctly if your content has an
 ionView around it.
 
@@ -68,7 +64,7 @@ ionView around it.
 ```html
 <body ng-app="starter">
   <!-- The nav bar that will be updated as we navigate -->
-  <ion-nav-bar class="bar-positive" animation="nav-title-slide-ios7">
+  <ion-nav-bar class="bar-positive">
   </ion-nav-bar>
 
   <!-- where the initial view template will be rendered -->
@@ -148,14 +144,13 @@ to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
 This will allow you to have the whole navbar, not just its contents, transition every view change.</p>
 <p>This is similar to using a header bar inside your ion-view, except it will have all the power of a navbar.</p>
 <p>If you do this, simply put nav buttons inside the navbar itself; do not use <code>&lt;ion-nav-buttons&gt;</code>.</p>
-<pre><code class="lang-html">&lt;ion-view title=&quot;myTitle&quot;&gt;
+<pre><code class="lang-html">&lt;ion-view view-title=&quot;myTitle&quot;&gt;
   &lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;
     &lt;ion-nav-back-button&gt;
-      Back
     &lt;/ion-nav-back-button&gt;
-    &lt;div class=&quot;buttons right-buttons&quot;&gt;
+    &lt;div class=&quot;buttons primary-buttons&quot;&gt;
       &lt;button class=&quot;button&quot;&gt;
-        Right Button
+            Button
       &lt;/button&gt;
     &lt;/div&gt;
   &lt;/ion-nav-bar&gt;

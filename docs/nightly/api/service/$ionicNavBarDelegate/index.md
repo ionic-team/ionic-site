@@ -69,54 +69,6 @@ function MyCtrl($scope, $ionicNavBarDelegate) {
   
 ## Methods
 
-<div id="back"></div>
-<h2>
-  <code>back([event])</code>
-
-</h2>
-
-Goes back in the view history.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        event
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>DOMEvent</code>
-      </td>
-      <td>
-        <p>The event object (eg from a tap event)</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
 <div id="align"></div>
 <h2>
   <code>align([direction])</code>
@@ -269,9 +221,9 @@ Set/get whether the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNa
 
 
 
-<div id="setTitle"></div>
+<div id="title"></div>
 <h2>
-  <code>setTitle(title)</code>
+  <code>title(title)</code>
 
 </h2>
 
@@ -317,13 +269,14 @@ Set the title for the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ion
 
 
 
-<div id="changeTitle"></div>
+<div id="update"></div>
 <h2>
-  <code>changeTitle(title, direction)</code>
+  <code>update(viewData)</code>
 
 </h2>
 
-Change the title, transitioning the new title in and the old one out in a given direction.
+Updates the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> with a transition using the
+supplied view data.
 
 
 
@@ -339,34 +292,16 @@ Change the title, transitioning the new title in and the old one out in a given 
     
     <tr>
       <td>
-        title
+        viewData
         
         
       </td>
       <td>
         
-  <code>string</code>
+  <code>object</code>
       </td>
       <td>
-        <p>The new title to show.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        direction
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The direction to transition the new title in.
-Available: &#39;forward&#39;, &#39;back&#39;.</p>
+        <p>An object containing <code>title</code>, <code>showBar</code> properties.</p>
 
         
       </td>
@@ -379,97 +314,6 @@ Available: &#39;forward&#39;, &#39;back&#39;.</p>
 
 
 
-
-
-
-
-<div id="getTitle"></div>
-<h2>
-  <code>getTitle()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-* Returns: 
-  <code>string</code> The current title of the navbar.
-
-
-
-
-<div id="getPreviousTitle"></div>
-<h2>
-  <code>getPreviousTitle()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-* Returns: 
-  <code>string</code> The previous title of the navbar.
-
-
-
-
-<div id="$getByHandle"></div>
-<h2>
-  <code>$getByHandle(handle)</code>
-
-</h2>
-
-
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handle
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-   `delegateInstance` A delegate instance that controls only the
-navBars with delegate-handle matching the given handle.
-
-Example: `$ionicNavBarDelegate.$getByHandle('myHandle').setTitle('newTitle')`
 
 
 

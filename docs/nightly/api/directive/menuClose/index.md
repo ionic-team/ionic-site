@@ -35,9 +35,15 @@ docType: "directive"
 
 
 
-Closes a side menu which is currently opened. By default, navigation
-transitions will not animate between views when the menu is open and
-this directive is used to close the menu.
+Attribute directive which closes a currently opened side menu. By default,
+navigation transitions will not animate between views when the menu is open and
+this directive is used to close the menu. Additionally, this directive
+will reset the history and make the entering view the root of its history
+stack. Having the entering view become the root of the history stack is done
+to replicate the user experience seen on most side menu implementations, which is
+to not show the back button at the root of the stack, and only show the
+menu button. It's recommended to also use the `enable-menu-with-back-views="false"`
+<a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> attribute when using the menuClose directive.
 
 
 

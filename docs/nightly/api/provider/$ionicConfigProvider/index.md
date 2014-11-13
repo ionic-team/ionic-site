@@ -35,8 +35,35 @@ docType: "provider"
 
 
 
-$ionicConfigProvider can be used during the configuration phase of your app
-to change how Ionic works.
+Ionic automatically takes platform configurations into account to adjust things like
+what transition style to use, and if tab icons should show on the top or bottom.
+For example, iOS will move forward by transitioning the entering view from right to
+center, and the leaving view from center to left. However, Android will transition
+with the entering view going from bottom to center, covering the previous view which
+remains stationary. Platform transitions are automatically applied by default, but
+config variables. It should be noted that when a platform is not iOS or Android, then
+it'll default to iOS. So if you are developing on a desktop browser it'd going to
+take on iOS default configs.
+
+These configs can be changed using the `$ionicConfigProvider` during the
+configuration phase of your app. Additionally, `$ionicConfig` can also set and get
+config values during the run phase and within the app itself.
+
+By default, all base config variables are set to `'platform'`, which means it'll take on the
+default config of the platform it's running on. Config variables can be set
+at this level so all platforms follow the same setting, rather than its platform config.
+The following code would set the same config variable for all platforms:
+
+```js
+$ionicConfigProvider.views.maxCache(10);
+```
+
+Additionally, each platform can have it's own config within the `$ionicConfigProvider.platform`
+property. The config below would only apply to Android devices.
+
+```js
+$ionicConfigProvider.platform.android.views.maxCache(5);
+```
 
 
 
@@ -51,7 +78,10 @@ to change how Ionic works.
 var myApp = angular.module('reallyCoolApp', ['ionic']);
 
 myApp.config(function($ionicConfigProvider) {
-  $ionicConfigProvider.templates.maxPrefetch(10);
+  $ionicConfigProvider.templates.maxCache(20);
+
+  // note that you can also chain configs
+  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
 });
 ```
 
@@ -94,9 +124,9 @@ Animation style when transitioning between views. Default `platform`.
       <td>
         <p>Which style of view transitioning to use.</p>
 <ul>
-<li><code>platform</code>: Dynamically choose the correct transition style depending on<pre><code>        the platform the app is running from. If the platform is
-        not `ios` or `android` then it will default to `ios-transition`.</code></pre>
-</li>
+<li><code>platform</code>: Dynamically choose the correct transition style depending on the platform
+the app is running from. If the platform is not <code>ios</code> or <code>android</code> then it will default
+to <code>ios</code>.</li>
 <li><code>ios</code>: iOS style transition.</li>
 <li><code>android</code>: Android style transition.</li>
 <li><code>none</code>: Do not preform animated transitions.</li>
@@ -115,7 +145,7 @@ Animation style when transitioning between views. Default `platform`.
 
 
 * Returns: 
-  <code>string</code> View animation.
+  <code>string</code> value
 
 
 
@@ -213,8 +243,7 @@ forward views cached and not reset on each load.
   <code>boolean</code>
       </td>
       <td>
-        <p><code>false</code>.</p>
-
+        
         
       </td>
     </tr>
@@ -235,7 +264,7 @@ forward views cached and not reset on each load.
 
 <div id="backButton.icon"></div>
 <h2>
-  <code>backButton.icon(classname)</code>
+  <code>backButton.icon(value)</code>
 
 </h2>
 
@@ -255,7 +284,7 @@ Back button icon.
     
     <tr>
       <td>
-        classname
+        value
         
         
       </td>
@@ -285,7 +314,7 @@ Back button icon.
 
 <div id="backButton.text"></div>
 <h2>
-  <code>backButton.text(text)</code>
+  <code>backButton.text(value)</code>
 
 </h2>
 
@@ -305,7 +334,7 @@ Back button text.
     
     <tr>
       <td>
-        text
+        value
         
         
       </td>
@@ -314,7 +343,8 @@ Back button text.
   <code>string</code>
       </td>
       <td>
-        
+        <p>Defaults to <code>Back</code>.</p>
+
         
       </td>
     </tr>
@@ -335,7 +365,7 @@ Back button text.
 
 <div id="backButton.previousTitleText"></div>
 <h2>
-  <code>backButton.previousTitleText(previousTitleText)</code>
+  <code>backButton.previousTitleText(value)</code>
 
 </h2>
 
@@ -356,7 +386,7 @@ is the default for iOS.
     
     <tr>
       <td>
-        previousTitleText
+        value
         
         
       </td>
@@ -386,11 +416,11 @@ is the default for iOS.
 
 <div id="tabs.style"></div>
 <h2>
-  <code>tabs.style(style)</code>
+  <code>tabs.style(value)</code>
 
 </h2>
 
-Tab style.
+Tab style. Android defaults to `striped` and iOS defaults to `standard`.
 
 
 
@@ -406,7 +436,7 @@ Tab style.
     
     <tr>
       <td>
-        style
+        value
         
         
       </td>
@@ -415,7 +445,8 @@ Tab style.
   <code>string</code>
       </td>
       <td>
-        
+        <p>Available values include <code>striped</code> and <code>standard</code>.</p>
+
         
       </td>
     </tr>
@@ -436,11 +467,11 @@ Tab style.
 
 <div id="tabs.position"></div>
 <h2>
-  <code>tabs.position(position)</code>
+  <code>tabs.position(value)</code>
 
 </h2>
 
-Tab position.
+Tab position. Android defaults to `top` and iOS defaults to `bottom`.
 
 
 
@@ -456,7 +487,7 @@ Tab position.
     
     <tr>
       <td>
-        position
+        value
         
         
       </td>
@@ -465,7 +496,8 @@ Tab position.
   <code>string</code>
       </td>
       <td>
-        
+        <p>Available values include <code>top</code> and <code>bottom</code>.</p>
+
         
       </td>
     </tr>
@@ -484,15 +516,15 @@ Tab position.
 
 
 
-<div id="templates.prefetch"></div>
+<div id="templates.maxPrefetch"></div>
 <h2>
-  <code>templates.prefetch(shouldPrefetch)</code>
+  <code>templates.maxPrefetch(value)</code>
 
 </h2>
 
-Set whether Ionic should prefetch all templateUrls defined in
-$stateProvider.state. If set to false, the user will have to wait
-for a template to be fetched the first time when navigating to a new page. Default `true`.
+Sets the maximum number of templates to prefetch from the templateUrls defined in
+$stateProvider.state. If set to `0`, the user will have to wait
+for a template to be fetched the first time when navigating to a new page. Default `30`.
 
 
 
@@ -508,16 +540,16 @@ for a template to be fetched the first time when navigating to a new page. Defau
     
     <tr>
       <td>
-        shouldPrefetch
+        value
         
         
       </td>
       <td>
         
-  <code>boolean</code>
+  <code>integer</code>
       </td>
       <td>
-        <p>Whether Ionic should prefetch templateUrls defined in
+        <p>Max number of template to prefetch from the templateUrls defined in
 <code>$stateProvider.state()</code>.</p>
 
         
@@ -533,7 +565,7 @@ for a template to be fetched the first time when navigating to a new page. Defau
 
 
 * Returns: 
-  <code>boolean</code> Whether Ionic will prefetch templateUrls defined in $stateProvider.state.
+  <code>integer</code> 
 
 
 

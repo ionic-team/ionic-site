@@ -58,7 +58,7 @@ Delegate for controlling the <a href="/docs/nightly/api/directive/ionNavBar/"><c
 ```js
 function MyCtrl($scope, $ionicNavBarDelegate) {
   $scope.setNavTitle = function(title) {
-    $ionicNavBarDelegate.setTitle(title);
+    $ionicNavBarDelegate.title(title);
   }
 }
 ```

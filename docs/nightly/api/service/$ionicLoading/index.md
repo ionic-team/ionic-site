@@ -103,6 +103,7 @@ it will set the options given and keep the indicator shown.
 <ul>
 <li><code>{string=}</code> <code>template</code> The html content of the indicator.</li>
 <li><code>{string=}</code> <code>templateUrl</code> The url of an html template to load as the content of the indicator.</li>
+<li><code>{object=}</code> <code>scope</code> The scope to be a child of. Default: creates a child of $rootScope.</li>
 <li><code>{boolean=}</code> <code>noBackdrop</code> Whether to hide the backdrop. By default it will be shown.</li>
 <li><code>{number=}</code> <code>delay</code> How many milliseconds to delay showing the indicator. By default there is no delay.</li>
 <li><code>{number=}</code> <code>duration</code> How many milliseconds to wait until automatically

@@ -88,6 +88,39 @@ transition type and direction that will be or was used.
 * `$ionicView.beforeLeave`
 * `$ionicView.afterEnter`
 * `$ionicView.afterLeave`
+
+## Caching
+
+Caching can disabled/enabled by multiple ways. By default, Ionic will cache a maximum of 10 views. You can optionally choose to disable caching a view through the `cache-view` attribute directive.
+
+```html
+<ion-view cache-view="false" view-title="My Title"></ion-view>
+```
+
+Alternatively, you could choose to disable caching through `$stateProvider.state`.
+
+```
+$stateProvider.state('myState', {
+ cache: false,
+ url : '/myUrl',
+ views: {
+   'nav-view': {
+     templateUrl : 'my-template.html'
+   }
+ }
+})
+```
+
+If you wish to disable caching globally in an app, you can edit the `$ionicConfigProvider.views.maxCache`
+
+```
+$ionicConfigProvider.views.maxCache(0);
+```
+
+In this instance we’re setting the number of cached views to 0, essentially disabling the caching functionality.
+
+Note that because we are caching these views, we aren’t destroying scopes. Instead, scopes are being disconnected.
+Then when you travel back to that cached view, the scopes get reconnected.
   
   
 <h2 id="api" style="clear:both;">API</h2>

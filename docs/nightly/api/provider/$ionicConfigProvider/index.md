@@ -572,7 +572,7 @@ for a template to be fetched the first time when navigating to a new page. Defau
 
 <div id="navBar.alignTitle"></div>
 <h2>
-  <code>navBar.alignTitle(which)</code>
+  <code>navBar.alignTitle(value)</code>
 
 </h2>
 
@@ -592,7 +592,7 @@ Which side of the navBar to align the title. Default `center`.
     
     <tr>
       <td>
-        which
+        value
         
         
       </td>
@@ -634,7 +634,7 @@ If the platform is <code>android</code>, it will default to <code>left</code>. I
 
 <div id="navBar.positionPrimaryButtons"></div>
 <h2>
-  <code>navBar.positionPrimaryButtons(which)</code>
+  <code>navBar.positionPrimaryButtons(value)</code>
 
 </h2>
 
@@ -654,7 +654,7 @@ Which side of the navBar to align the primary navBar buttons. Default `left`.
     
     <tr>
       <td>
-        which
+        value
         
         
       </td>
@@ -695,7 +695,7 @@ If the platform is <code>android</code>, it will default to <code>right</code>. 
 
 <div id="navBar.positionSecondaryButtons"></div>
 <h2>
-  <code>navBar.positionSecondaryButtons(which)</code>
+  <code>navBar.positionSecondaryButtons(value)</code>
 
 </h2>
 
@@ -715,7 +715,7 @@ Which side of the navBar to align the secondary navBar buttons. Default `right`.
     
     <tr>
       <td>
-        which
+        value
         
         
       </td>

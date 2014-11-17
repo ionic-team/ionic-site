@@ -569,6 +569,190 @@ for a template to be fetched the first time when navigating to a new page. Defau
 
 
 
+
+<div id="navBar.alignTitle"></div>
+<h2>
+  <code>navBar.alignTitle(which)</code>
+
+</h2>
+
+Which side of the navBar to align the title. Default `center`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        which
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>side of the navBar to align the title.</p>
+<ul>
+<li><p><code>platform</code>: Dynamically choose the correct title style depending on the platform
+the app is running from. If the platform is <code>ios</code>, it will default to <code>center</code>.
+If the platform is <code>android</code>, it will default to <code>left</code>. If the platform is not
+<code>ios</code> or <code>android</code>, it will default to <code>center</code>.</p>
+</li>
+<li><p><code>left</code>: Left align the title in the navBar</p>
+</li>
+<li><code>center</code>: Center align the title in the navBar</li>
+<li><code>right</code>: Right align the title in the navBar.</li>
+</ul>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> value
+
+
+
+
+<div id="navBar.positionPrimaryButtons"></div>
+<h2>
+  <code>navBar.positionPrimaryButtons(which)</code>
+
+</h2>
+
+Which side of the navBar to align the primary navBar buttons. Default `left`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        which
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>side of the navBar to align the primary navBar buttons.</p>
+<ul>
+<li><p><code>platform</code>: Dynamically choose the correct title style depending on the platform
+the app is running from. If the platform is <code>ios</code>, it will default to <code>left</code>.
+If the platform is <code>android</code>, it will default to <code>right</code>. If the platform is not
+<code>ios</code> or <code>android</code>, it will default to <code>left</code>.</p>
+</li>
+<li><p><code>left</code>: Left align the primary navBar buttons in the navBar</p>
+</li>
+<li><code>right</code>: Right align the primary navBar buttons in the navBar.</li>
+</ul>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> value
+
+
+
+
+<div id="navBar.positionSecondaryButtons"></div>
+<h2>
+  <code>navBar.positionSecondaryButtons(which)</code>
+
+</h2>
+
+Which side of the navBar to align the secondary navBar buttons. Default `right`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        which
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>side of the navBar to align the secondary navBar buttons.</p>
+<ul>
+<li><p><code>platform</code>: Dynamically choose the correct title style depending on the platform
+the app is running from. If the platform is <code>ios</code>, it will default to <code>right</code>.
+If the platform is <code>android</code>, it will default to <code>right</code>. If the platform is not
+<code>ios</code> or <code>android</code>, it will default to <code>right</code>.</p>
+</li>
+<li><p><code>left</code>: Left align the secondary navBar buttons in the navBar</p>
+</li>
+<li><code>right</code>: Right align the secondary navBar buttons in the navBar.</li>
+</ul>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> value
+
+
+
   
   
 

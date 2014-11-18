@@ -268,55 +268,6 @@ Set the title for the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ion
 
 
 
-
-<div id="update"></div>
-<h2>
-  <code>update(viewData)</code>
-
-</h2>
-
-Updates the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> with a transition using the
-supplied view data.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        viewData
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>An object containing <code>title</code>, <code>showBar</code> properties.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
   
   
 

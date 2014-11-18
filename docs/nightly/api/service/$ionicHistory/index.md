@@ -99,6 +99,25 @@ The app's current view.
 
 
 
+<div id="currentHistoryId"></div>
+<h2>
+  <code>currentHistoryId()</code>
+
+</h2>
+
+The ID of the history stack which is the parent container of the current view.
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> Returns the current history ID.
+
+
+
+
 <div id="currentTitle"></div>
 <h2>
   <code>currentTitle([val])</code>

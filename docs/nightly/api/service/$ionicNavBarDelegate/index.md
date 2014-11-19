@@ -125,7 +125,7 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 </h2>
 
 Set/get whether the <a href="/docs/nightly/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> is shown
-(if it exists).
+(if it exists and there is a previous view that can be navigated to).
 
 
 

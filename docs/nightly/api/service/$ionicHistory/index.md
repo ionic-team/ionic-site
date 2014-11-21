@@ -282,6 +282,23 @@ Clears out the app's entire history, except for the current view.
 
 
 
+<div id="clearCache"></div>
+<h2>
+  <code>clearCache()</code>
+
+</h2>
+
+Removes all cached views within every <a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a>.
+This both removes the view element from the DOM, and destroy it's scope.
+
+
+
+
+
+
+
+
+
 <div id="nextViewOptions"></div>
 <h2>
   <code>nextViewOptions()</code>

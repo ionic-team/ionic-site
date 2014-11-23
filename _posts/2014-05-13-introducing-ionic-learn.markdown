@@ -20,7 +20,7 @@ Since becoming Ionic's developer evangelist, it's been my goal for every develop
 
 ### Focused on You
 
-The emphasis of Learn Ionic was on the developer. We rounded up our most asked questions from developers everywhere and are focused on answering those first. Turns out, there were a lot of those questions, and there are many more about using Ionic. I'm out to find the problems itching and bothering our community, and clarifying them for everybody. Your suggestions are going to be what makes Learn Ionic, so for now please get in contact with us via a [Github Issue](https://github.com/driftyco/ionic-learn/issues/new). Put simply: the more questions you ask, the better it is for everyone!
+The emphasis of Learn Ionic was on the developer. We rounded up our most asked questions from developers everywhere and are focused on answering those first. Turns out, there were a lot of those questions, and there are many more about using Ionic. I'm out to find the problems itching and bothering our community, and clarifying them for everybody. Your suggestions are going to be what makes Learn Ionic, so for now please get in contact with us via a [GitHub Issue](https://github.com/driftyco/ionic-learn/issues/new). Put simply: the more questions you ask, the better it is for everyone!
 
 Learn Ionic is also a living site. It's built for developers, and the feedback you give ultimately makes it a better tool for you. Learn Ionic is [open source](https://github.com/driftyco/ionic-learn), and the issue tracker is open to all who want to improve it to suit their needs better.
 

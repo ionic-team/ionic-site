@@ -16,7 +16,7 @@ Looking to build a mobile app with the Ionic Framework? This guide quickly cover
 Before we get started, make sure you have the following:
 
 * A Node.JS box on [Nitrous.IO](http://www.nitrous.io)
-* A [Github account](http://www.github.com) which is [connected](http://help.nitrous.io/github-add-key/) to your Node.JS box
+* A [GitHub account](http://www.github.com) which is [connected](http://help.nitrous.io/github-add-key/) to your Node.JS box
 * A [PhoneGap Account](https://build.phonegap.com/plans)
 
 <!-- more -->
@@ -27,11 +27,11 @@ If you haven't already, sign up at [Nitrous.IO](http://www.nitrous.io) and creat
 
 ![Nitrous.IO creating Node.JS box](/img/blog/nitrous/nitrous-create-node-box.png)
 
-Once your Node.JS box is created you will need to [connect](http://help.nitrous.io/github-add-key/) it to your Github account. This will add a Public SSH key so you may update repos from Nitrous.
+Once your Node.JS box is created you will need to [connect](http://help.nitrous.io/github-add-key/) it to your GitHub account. This will add a Public SSH key so you may update repos from Nitrous.
 
 ### Get Started with Ionic Framework
 
-To get started with the [Ionic Framework](http://ionicframework.com/), we will build a Todo app. Although the [Ionic guide](http://ionicframework.com/docs/guide/installation.html) goes into detail with building the initial app, this article provides you with the app ready to clone from Github.
+To get started with the [Ionic Framework](http://ionicframework.com/), we will build a Todo app. Although the [Ionic guide](http://ionicframework.com/docs/guide/installation.html) goes into detail with building the initial app, this article provides you with the app ready to clone from GitHub.
 
 Cd into `~/workspace/` and run the following command in your console to clone the starter project into `/myproject`:
 
@@ -46,13 +46,13 @@ You can view the app by navigating to **Preview > Port 4000** in the Nitrous.IO 
 
 ![Preview Port 4000](/img/blog/nitrous/preview-port-4000.png)
 
-### Create a New Repository at Github
+### Create a New Repository at GitHub
 
-[Create a new repo](https://github.com/new) at Github for this project.
+[Create a new repo](https://github.com/new) at GitHub for this project.
 
-Once the project is created on Github, you should see the following page with your repo URI as well as some instructions on the next steps.
+Once the project is created on GitHub, you should see the following page with your repo URI as well as some instructions on the next steps.
 
-![Github new project](/img/blog/nitrous/github-new-project.png)
+![GitHub new project](/img/blog/nitrous/github-new-project.png)
 
 Make note of your HTTP URI at the top of the page. You will want to push your existing project from Nitrous to this location. Navigate within the console to `~/workspace/myproject` and modify your git remote to point to the new repo:
 
@@ -62,7 +62,7 @@ Push the Ionic starter project files to the repository by running the following 
 
     git push -u origin master
 
-Your project should now be found in the Github repo.
+Your project should now be found in the GitHub repo.
 
 ### Host the App with PhoneGap Build
 
@@ -70,9 +70,9 @@ Now, let's setup PhoneGap Build. First you will need to sign up at [https://buil
 
 ![Signup with PhoneGap](/img/blog/nitrous/phonegap-signup.png)
 
-You can login with your existing Github account to make connecting to your repo easier, but if you login with your Adobe ID then then you will have to manually paste in your Github project repo URI. 
+You can login with your existing GitHub account to make connecting to your repo easier, but if you login with your Adobe ID then then you will have to manually paste in your GitHub project repo URI. 
 
-Once logged in, create a new app and select the Github repo we just created. Once this has been added, select **Build App** as seen below:
+Once logged in, create a new app and select the GitHub repo we just created. Once this has been added, select **Build App** as seen below:
 
 ![Signup with PhoneGap](/img/blog/nitrous/phonegap-build-app.png)
 
@@ -348,7 +348,7 @@ Try adding some sample data into your app. When the tasks save you should see th
 
 ### Updating the App in PhoneGap
 
-In order to update the code for your app you will need to first push the changes to Github. Run the following commands within the project folder in your console:
+In order to update the code for your app you will need to first push the changes to GitHub. Run the following commands within the project folder in your console:
 
     git add .
     git commit -m "Integrated Firebase with AngularFire"

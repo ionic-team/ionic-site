@@ -10,7 +10,7 @@ published: true
 
 *This is a guest post by Martin Gontovnikas (aka [mgonto](http://twitter.com/mgonto)), the lead Developer Advocate at Auth0. Martin is passionate about tech and contributes to open source with [Restangular](https://github.com/mgonto/restangular) (the famous REST client for AngularJS), AngularWizard, Angularytics, and FactoryPal. He also blogs at [http://gon.to/blog/](http://gon.to/blog/)*
 
-> *TL;DR*: Get the [sample project using Ionic and Auth0 from Github](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample). 
+> *TL;DR*: Get the [sample project using Ionic and Auth0 from GitHub](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample). 
 
 The smartphone has changed the way everyone interacts with different services and applications. Facebook reports having more usage from mobile phones compared to desktop computers. The industry calls this trend  *Mobile First*.
 
@@ -224,7 +224,7 @@ You've completed implementing Authentication in your app. Let's see how it runs!
 
 You've added authentication with Social Providers, Enterprise Providers and regular username & password to our Ionic app in just a few simple steps.
 
-[You can download this exact example from Github](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample).
+[You can download this exact example from GitHub](https://github.com/auth0/auth0-ionic/tree/master/examples/refresh-token-sample).
 
 If you have any questions, please contact me at [gonto@auth0.com](mailto:gonto@auth0.com) :).
 

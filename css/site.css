@@ -4624,7 +4624,7 @@ h1 + h2 + p {
 .home .creator-bar {
   background: url('/img/creator-bg.jpg') no-repeat transparent 50% 40%;
   text-align: center;
-  padding: 60px 0;
+  padding: 48px 0;
   color: #fff;
   margin-top: -1px;
   position: relative;

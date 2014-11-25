@@ -193,6 +193,47 @@
     }
   }
 
+  .creator-bar {
+    //background-color: #3BC260;
+    background: url('/img/creator-bg.jpg') no-repeat transparent 50% 40%;
+
+    text-align: center;
+    padding: 60px 0;
+
+    color: #fff;
+
+    h2 {
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 20px;
+      font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #F7FAFF;
+      font-weight: bold;
+      font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    a.btn {
+      font-size: 18px;
+      padding: 15px;
+      opacity: 1;
+    }
+
+    margin-top: -1px;
+    position: relative;
+    width: 100%;
+
+    .container {
+      overflow: hidden;
+      color: #DAE7FD;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
   .utility-bar {
     margin-top: -1px;
     position: relative;

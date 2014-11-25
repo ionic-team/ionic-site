@@ -4643,7 +4643,8 @@ h1 + h2 + p {
   .home .creator-bar a.btn {
     font-size: 18px;
     padding: 15px;
-    opacity: 1; }
+    opacity: 1;
+    background-color: #4e8ef7; }
   .home .creator-bar .container {
     overflow: hidden;
     color: #DAE7FD;

@@ -130,7 +130,9 @@ Note: The slideBox will take up the whole width and height of its parent element
   <code>number</code>
       </td>
       <td>
-        <p>If a positive number, then every time the given number of milliseconds have passed, slideBox will go to the next slide. Set to a non-positive number to disable. Default: -1.</p>
+        <p>If a positive number, then every time the given number of
+milliseconds have passed, slideBox will go to the next slide. Set to a non-positive number
+to disable. Default: -1.</p>
 
         
       </td>
@@ -147,7 +149,26 @@ Note: The slideBox will take up the whole width and height of its parent element
   <code>expression</code>
       </td>
       <td>
-        <p>Expression called whenever the slide is changed.  Is passed a &#39;$slideIndex&#39; variable.</p>
+        <p>Expression called when all currently queued slide
+animations finish.  Is passed a &#39;$slideIndex&#39; variable.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        on-slide-start
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Expression called whenever a slide animation starts.
+Is passed a &#39;$slideIndex&#39; variable.</p>
 
         
       </td>

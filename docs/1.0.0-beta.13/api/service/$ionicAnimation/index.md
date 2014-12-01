@@ -66,7 +66,7 @@ angular.module('mySuperApp', ['ionic'])
     repeat: -1,
 
     // Timing curve to use (same as CSS timing functions), or a function of time "t" to handle it yourself
-    curve: 'ease-in-out'
+    curve: 'ease-in-out',
 
     onStart: function() {
       // Callback on start

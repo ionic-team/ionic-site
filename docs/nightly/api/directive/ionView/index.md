@@ -130,7 +130,8 @@ _Caching_ section in <a href="/docs/nightly/api/directive/ionNavView/"><code>ion
   <code>string</code>
       </td>
       <td>
-        <p>The title to display on the parent <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>.</p>
+        <p>A text-only title to display on the parent <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>.
+For an HTML title, such as an image, see <a href="/docs/nightly/api/directive/ionNavTitle/"><code>ionNavTitle</code></a> instead.</p>
 
         
       </td>

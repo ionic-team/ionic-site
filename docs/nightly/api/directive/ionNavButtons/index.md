@@ -40,8 +40,10 @@ docType: "directive"
 
 
 
-Use ionNavButtons to set the buttons on your <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
-from within an <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a>.
+Use nav buttons to set the buttons on your <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
+from within an <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a>. This gives each individual
+view the ability to specify which buttons should show in the nav bar, and
+overriding any default buttons already placed in the nav bar.
 
 Any buttons you declare will be placed onto the navbar's corresponding side. Primary
 buttons generally map to the left side of the header, and secondary buttons are
@@ -57,7 +59,8 @@ always be on an exact side, both `left` and `right` sides are still available. F
 example, a toggle button for a left side menu should be on the left side, in this case
 we'd recommend uses `side="left"` so it's always on the left, no matter what platform.
 
-Note that the `ion-nav-buttons` must be an immediate descendant of the `ion-view` element.
+Note that `ion-nav-buttons` must be an immediate descendant of the `ion-view` or
+`ion-nav-bar` element (basically don't wrap it in another div).
 
 
 

@@ -18,25 +18,15 @@ $ cordova plugin rm org.apache.cordova.console
 
 # Android Publishing
 
-To generate a release build for Android, we first need to make a small change to the `AndroidManifest.xml` file found in `platforms/android`. Edit the file and change the line:
-
-```xml
-<application android:debuggable="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
-```
-
-and change `android:debuggable` to `"false"`:
-
-```xml
-<application android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
-```
-
-Now we can tell cordova to generate our release build:
+To generate a release build for Android, we can use the following cordova cli command:
 
 ```bash
 $ cordova build --release android
 ```
 
-Then, we can find our *unsigned* APK file in `platforms/android/bin`. In our example, the file was `platforms/android/bin/HelloWorld-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
+This will generate a release build based on the settings in your `config.xml`. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out [the config.xml file](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_config.md.html#Android%20Configuration) documentation for more information.
+
+Next, we can find our *unsigned* APK file in `platforms/android/bin`. In our example, the file was `platforms/android/bin/HelloWorld-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
 
 Let's generate our private key using the `keytool` command that comes with the JDK. If this tool isn't found, refer to the [installation guide](installation.html):
 

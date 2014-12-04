@@ -1,4 +1,13 @@
-# Moving Forward with ngCordova
+---
+layout: post
+title:  "Moving Forward with ngCordova"
+date:   "2014-12-04  11:08:00"
+categories: angularjs, ionic, ngCordova, framework, mobile
+author: '<img src="http://paolobernasconi.com/public/images/profile.jpg" class="author-icon"><a href="http://twitter.com/pbernasconi" target="_blank">Paolo Bernasconi</a>'
+published: true
+---
+
+*This is a guest post by [Paolo Bernasconi](http://paolobernasconi.com/), a developer who built ngCordova.*
 
 To watch [ngCordova](https://github.com/driftyco/ng-cordova) grow from a small idea to a popular open source project with over 1250 stars on GitHub has been a great pleasure for me. Since its inception in July 2014, I've had the opportunity to learn about creating and maintaining a github repository, and I've come to realize the true power of the community and contributors in open source. With the help and submissions from the community, **ngCordova is most definitely greater than the sum of its parts.**
 

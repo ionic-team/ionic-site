@@ -185,7 +185,7 @@ View B would be the current view.
 
 
 * Returns: 
-  <code>string</code> Returns the back view.
+  <code>object</code> Returns the back view.
 
 
 
@@ -226,7 +226,7 @@ A would be the current view.
 
 
 * Returns: 
-  <code>string</code> Returns the back view.
+  <code>object</code> Returns the forward view.
 
 
 

@@ -57,7 +57,7 @@ It currently supports the following plugins, with many more to come:
 
 Soon, you'll be able to configure the data yourself in an options panel built into the extension. Also, expect a Firefox (and maybe Safari) extension in the next few weeks.
 
-### Conculsion
+### Conclusion
 
 ngCordova is still growing day by day and always welcomes new ideas and plugins. If you encounter any issues or want to get official support for a specific plugin, [create a new issue](https://github.com/driftyco/ng-cordova/issues/new), and stay tuned for new features and fixes.
 

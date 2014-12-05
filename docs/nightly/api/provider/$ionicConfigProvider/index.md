@@ -78,7 +78,7 @@ $ionicConfigProvider.platform.android.views.maxCache(5);
 var myApp = angular.module('reallyCoolApp', ['ionic']);
 
 myApp.config(function($ionicConfigProvider) {
-  $ionicConfigProvider.views.maxCache(20);
+  $ionicConfigProvider.views.maxCache(5);
 
   // note that you can also chain configs
   $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');

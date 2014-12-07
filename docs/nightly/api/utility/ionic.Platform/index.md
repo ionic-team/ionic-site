@@ -303,7 +303,7 @@ Return the current device (given by cordova).
 
 
 * Returns: 
-  <code>string</code> The version of the current device platform.
+  <code>number</code> The version of the current device platform.
 
 
 

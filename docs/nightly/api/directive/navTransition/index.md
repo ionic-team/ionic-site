@@ -36,7 +36,7 @@ docType: "directive"
 
 
 The transition type which the nav view transition should use when it animates.
-Using `none` will disable an animation.
+Current, options are `ios`, `android`, and `none`. More options coming soon.
 
 
 

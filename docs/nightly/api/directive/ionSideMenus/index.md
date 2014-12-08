@@ -40,20 +40,19 @@ docType: "directive"
 
 
 
-A container element for side menu(s) and the main content. Allows the left
-and/or right side menu to be toggled by dragging the main content area side
-to side.
+A container element for side menu(s) and the main content. Allows the left and/or right side menu
+to be toggled by dragging the main content area side to side.
 
-To automatically close an opened menu you can add the <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a>
-attribute directive. Including the `menu-close` attribute is usually added to
-links and buttons within `ion-side-menu` content, so that when the element is
-clicked then the opened side menu will automatically close.
+To automatically close an opened menu, you can add the <a href="/docs/nightly/api/directive/menuClose/"><code>menuClose</code></a> attribute
+directive. The `menu-close` attribute is usually added to links and buttons within
+`ion-side-menu-content`, so that when the element is clicked, the opened side menu will
+automatically close.
 
-By default, side menus are hidden underneath its side menu content, and can be opened by
-either swiping the content left or right, or toggling a button to show the side menu. However,
-by adding the <a href="/docs/nightly/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a> attribute directive to an
-<a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions
-on "when" the menu should be exposed (always viewable).
+By default, side menus are hidden underneath their side menu content and can be opened by swiping
+the content left or right or by toggling a button to show the side menu. Additionally, by adding the
+<a href="/docs/nightly/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a> attribute directive to an
+<a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions about
+"when" the menu should be exposed (always viewable).
 
 ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
 
@@ -126,11 +125,11 @@ function ContentController($scope, $ionicSideMenuDelegate) {
   <code>bool</code>
       </td>
       <td>
-        <p>Determines if the side menu is enabled when the
-back button is showing. When set to <code>false</code>, any <a href="/docs/nightly/api/directive/menuToggle/"><code>menuToggle</code></a> will
-be hidden, and the user cannot swipe to open the menu. When going back to the root page of the
-side menu (the page without a back button visible), then any menuToggle buttons will show
-again, and menus are enabled again.</p>
+        <p>Determines whether the side menu is enabled when the
+back button is showing. When set to <code>false</code>, any <a href="/docs/nightly/api/directive/menuToggle/"><code>menuToggle</code></a> will be hidden,
+and the user cannot swipe to open the menu. When going back to the root page of the side menu (the
+page without a back button visible), then any menuToggle buttons will show again, and menus will be
+enabled again.</p>
 
         
       </td>

@@ -40,9 +40,9 @@ docType: "directive"
 
 
 
-Use the nav title directive to set custom HTML as the <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a>
-title, from within an <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a>. This gives each
-view the ability to specify its own custom title, such as an image or any HTML,
+The nav title directive replaces an <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> title text with
+custom HTML from within an <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a> template. This gives each
+view the ability to specify its own custom title element, such as an image or any HTML,
 rather than being text-only. Alternatively, text-only titles can be updated using the
 `view-title` <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a> attribute.
 

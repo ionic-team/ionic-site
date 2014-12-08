@@ -35,8 +35,8 @@ docType: "directive"
 
 
 
-The direction which the nav view transition should animate. Available:
-`forward`, `back`, `enter`, `exit`, `swap`.
+The direction which the nav view transition should animate. Available options
+are: `forward`, `back`, `enter`, `exit`, `swap`.
 
 
 

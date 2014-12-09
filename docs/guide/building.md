@@ -378,5 +378,5 @@ angular.module('todo', ['ionic'])
 I know, that was a lot of code to jump right to, but it's largely the same concepts from before, just with more details. If you run this version of the app, you should now have a pretty polished and usable multi-project Todo app!
 
 
-[Chapter 5: Publishing your app](publishing.html)
+[Chapter 6: Publishing your app](publishing.html)
 

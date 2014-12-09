@@ -277,7 +277,12 @@ var ionicSite = (function(){
         window.rAF(function(){
           $('#' + exampleId)
             .addClass('active-preview')
-            .find('a').click(function(){
+            .find('a').click(function(e){
+              // Activates tabs in tab CSS demo.
+              if ($(this).hasClass('tab-item')) {
+                $(this).siblings('.tab-item').removeClass('active');
+                $(this).addClass('active');
+              }
               return false;
             });
         });

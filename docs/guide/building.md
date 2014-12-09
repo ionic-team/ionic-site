@@ -32,7 +32,7 @@ Since we are using AngularJS, we are going to use the <a href="http://docs.angul
 <p>
   Keep in mind, when you see tags that look new, like <code>&lt;ion-content&gt;</code>, those are custom AngularJS <a href="http://docs.angularjs.org/guide/directive">directives</a> that we have added to Ionic to make it
 much easier to use Ionic components. They will get expanded by Angular into more lower-level markup, and also controlled by our lower level
-Javscript controllers that give them increased functionality.
+Javascript controllers that give them increased functionality.
 </p>
 </div>
 

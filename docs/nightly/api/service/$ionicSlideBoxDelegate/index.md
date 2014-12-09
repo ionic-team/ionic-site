@@ -68,7 +68,7 @@ method to control specific slide box instances.
 ```js
 function MyCtrl($scope, $ionicSlideBoxDelegate) {
   $scope.nextSlide = function() {
-    $ionicSlideBoxDelegate.select( $ionicSlideBoxDelegate.next() );
+    $ionicSlideBoxDelegate.next();
   }
 }
 ```
@@ -79,9 +79,26 @@ function MyCtrl($scope, $ionicSlideBoxDelegate) {
   
 ## Methods
 
-<div id="select"></div>
+<div id="update"></div>
 <h2>
-  <code>select(slideIndex)</code>
+  <code>update()</code>
+
+</h2>
+
+Update the slidebox (for example if using Angular with ng-repeat,
+resize it for the elements inside).
+
+
+
+
+
+
+
+
+
+<div id="slide"></div>
+<h2>
+  <code>slide(to, [speed])</code>
 
 </h2>
 
@@ -101,7 +118,7 @@ function MyCtrl($scope, $ionicSlideBoxDelegate) {
     
     <tr>
       <td>
-        slideIndex
+        to
         
         
       </td>
@@ -110,164 +127,24 @@ function MyCtrl($scope, $ionicSlideBoxDelegate) {
   <code>number</code>
       </td>
       <td>
-        <p>The index to select.</p>
+        <p>The index to slide to.</p>
 
         
       </td>
     </tr>
     
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-<div id="selected"></div>
-<h2>
-  <code>selected()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-* Returns: 
-   `slideIndex` The index of the currently selected slide.
-
-
-
-
-<div id="loop"></div>
-<h2>
-  <code>loop([shouldLoop])</code>
-
-</h2>
-
-Sets/gets the looping state of the slidebox (whether going next from the last slide will go back to the first slide, and vice versa).
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
     <tr>
       <td>
-        shouldLoop
+        speed
         
         <div><em>(optional)</em></div>
       </td>
       <td>
         
-  <code>boolean</code>
+  <code>number</code>
       </td>
       <td>
-        <p>Set whether the slidebox should loop.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-   `isLoop` Whether looping is currently enabled.
-
-
-
-
-<div id="previous"></div>
-<h2>
-  <code>previous()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-* Returns: 
-   `slideIndex` The index of the previous slide. Wraps around if loop is enabled.
-
-
-
-
-<div id="next"></div>
-<h2>
-  <code>next()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-* Returns: 
-   `slideIndex` The index of the next slide. Wraps around if loop is enabled.
-
-
-
-
-<div id="autoPlay"></div>
-<h2>
-  <code>autoPlay(autoPlayInterval)</code>
-
-</h2>
-
-Set whether the slidebox should automatically play, and at what rate.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        autoPlayInterval
-        
-        
-      </td>
-      <td>
-        
-  <code>*</code>
-      </td>
-      <td>
-        <p>How many milliseconds delay until changing to the next slide.
-Set to zero or false to stop autoPlay.</p>
+        <p>The number of milliseconds for the change to take.</p>
 
         
       </td>
@@ -330,14 +207,79 @@ Set to zero or false to stop autoPlay.</p>
 
 
 * Returns: 
-   `boolean` Whether sliding is enabled.
+  <code>boolean</code> Whether sliding is enabled.
 
 
 
 
-<div id="count"></div>
+<div id="previous"></div>
 <h2>
-  <code>count()</code>
+  <code>previous()</code>
+
+</h2>
+
+Go to the previous slide. Wraps around if at the beginning.
+
+
+
+
+
+
+
+
+
+<div id="next"></div>
+<h2>
+  <code>next()</code>
+
+</h2>
+
+Go to the next slide. Wraps around if at the end.
+
+
+
+
+
+
+
+
+
+<div id="stop"></div>
+<h2>
+  <code>stop()</code>
+
+</h2>
+
+Stop sliding. The slideBox will not move again until
+explicitly told to do so.
+
+
+
+
+
+
+
+
+
+<div id="start"></div>
+<h2>
+  <code>start()</code>
+
+</h2>
+
+Start sliding again if the slideBox was stopped.
+
+
+
+
+
+
+
+
+
+<div id="currentIndex"></div>
+<h2>
+  <code>currentIndex()</code>
 
 </h2>
 
@@ -349,7 +291,26 @@ Set to zero or false to stop autoPlay.</p>
 
 
 * Returns: 
-   `number` The number of slides there are currently.
+   number The index of the current slide.
+
+
+
+
+<div id="slidesCount"></div>
+<h2>
+  <code>slidesCount()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+   number The number of slides there are currently.
 
 
 
@@ -403,7 +364,7 @@ Set to zero or false to stop autoPlay.</p>
 <a href="/docs/nightly/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directives with `delegate-handle` matching
 the given handle.
 
-Example: `$ionicSlideBoxDelegate.$getByHandle('my-handle').select(0);`
+Example: `$ionicSlideBoxDelegate.$getByHandle('my-handle').stop();`
 
 
 

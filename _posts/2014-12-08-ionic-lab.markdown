@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "Introducing Ionic Lab"
+date:   "2014-12-08  8:00:00"
+categories: angularjs, ionic, cli, lab
+author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
+published: false
+---
+
+We just added a new feature to the [Ionic CLI](http://ionicframework.com/getting-started) tool we are calling __Ionic Lab__ that makes it much easier to test your apps on multiple screen sizes and platform types:
+
+![Image](/img/blog/lab.png)
+
+We want to make Ionic not only a great SDK, but a toolchain that gives hybrid developers a leg up on native, and this is one of our first big steps in that direction.
+
+To get started with Ionic Lab, make sure to update to the latest version of Ionic in NPM:
+
+```bash
+$ npm update -g ionic
+```
+
+
+We've extended the `serve` command to open the new Lab UI:
+
+```bash
+$ ionic serve --lab
+```
+
+If you've used the `serve` command before, you'll feel right at home with this one. Just like `serve`, it opens
+your app in a browser, but now shows what your app will look like on a phone, with both iOS and Android
+side-by-side. 
+
+And of course, it supports Live Reload and all the other goodies we've added over the last couple of months.
+
+We hope you enjoy this new feature and expect a *lot* more stuff coming to the Ionic Lab in the future!

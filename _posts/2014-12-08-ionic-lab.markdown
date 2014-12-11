@@ -11,7 +11,7 @@ We just added a new feature to the [Ionic CLI](http://ionicframework.com/getting
 
 ![Image](/img/blog/lab.png)
 
-We want to make Ionic not only a great SDK, but a toolchain that gives hybrid developers a leg up on native, and this is one of our first big steps in that direction.
+We want Ionic to be both a great SDK and a toolchain that gives hybrid developers a leg up on native, and this is one of our first big steps in that direction.
 
 To get started with Ionic Lab, make sure to update to the latest version of Ionic in NPM:
 
@@ -32,4 +32,4 @@ side by side.
 
 And of course, it supports Live Reload and all the other goodies we've added over the last couple of months.
 
-We hope you enjoy this new feature. Expect a *lot* more stuff coming to the Ionic Lab in the near future!
+We hope you enjoy this new feature. Expect a *lot* more from Ionic Lab in the near future!

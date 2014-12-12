@@ -3,7 +3,7 @@ layout: post
 title:  "Welcome Josh Bavari to the Ionic Team"
 date:   "2014-12-12 04:20:00"
 categories: ionic
-author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">Ben Sperry</a>'
+author: '<img src="https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">Ben Sperry</a>'
 published: true
 ---
 

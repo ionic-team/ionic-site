@@ -105,11 +105,12 @@
     .feature-img-loading {
       display: none;
     }
-    .demo-link {
+    .demo-link .app-icon {
       visibility: hidden;
     }
     &.img-loaded {
-      .demo-link {
+      .demo-link
+      .app-icon {
         visibility: visible;
       }
       background-image: url(/img/homepage/phones-frontpage@2x.png);

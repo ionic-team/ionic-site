@@ -105,11 +105,16 @@
     .feature-img-loading {
       display: none;
     }
-    .demo-link .app-icon {
+    .demo-link {
+      visibility: hidden;
+    }
+    .app-icon {
       visibility: hidden;
     }
     &.img-loaded {
-      .demo-link
+      .demo-link {
+        visibility: visible;
+      }
       .app-icon {
         visibility: visible;
       }

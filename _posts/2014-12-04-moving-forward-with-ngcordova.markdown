@@ -13,6 +13,8 @@ To watch [ngCordova](http://ngcordova.com/) grow from a small idea to a popular 
 
 When we first built ngCordova, it covered 14 basic Cordova plugins. Now it has **47** and counting, ranging from Push Notifications to Facebook support. We have since released 8 versions, received 230 pull requests from 49 contributors, and resolved over 170 issues.
 
+<!-- more -->
+
 ### So, what's next?
 
 The first new feature in ngCordova's future is an automatic `deviceready` check to determine whether a device is ready to use plugins. Currently, the only way to ensure this is to manually insert plugin calls inside the event-listener:

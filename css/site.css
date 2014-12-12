@@ -4560,13 +4560,17 @@ h1 + h2 + p {
   background-repeat: no-repeat; }
   .home .feature-img .feature-img-loading {
     display: none; }
-  .home .feature-img .demo-link .app-icon {
+  .home .feature-img .demo-link {
+    visibility: hidden; }
+  .home .feature-img .app-icon {
     visibility: hidden; }
   .home .feature-img.img-loaded {
     background-image: url(/img/homepage/phones-frontpage@2x.png);
     -webkit-animation: fadeInDown 1s both;
     animation: fadeInDown 1s both; }
-    .home .feature-img.img-loaded .demo-link .app-icon {
+    .home .feature-img.img-loaded .demo-link {
+      visibility: visible; }
+    .home .feature-img.img-loaded .app-icon {
       visibility: visible; }
   .home .feature-img .app-icon {
     background-image: url(/img/homepage/frontpage-icon@2x.png);

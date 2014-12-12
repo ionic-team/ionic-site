@@ -7,7 +7,7 @@ author: '<img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e
 published: true
 ---
 
-<div style="height: 480px; width: 480px; border-radius: 600px; border: 6px solid #4e8ef7; overflow: hidden; margin: 15px auto"> 
+<div style="height: 360px; width: 360px; border-radius: 600px; border: 6px solid #4e8ef7; overflow: hidden; margin: 5px auto 40px;"> 
   <img src="/img/blog/josh-bavari.png" alt="Josh Bavari">
 </div>
 

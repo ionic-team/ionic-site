@@ -8,7 +8,7 @@ published: true
 ---
 
 <div style="height: 480px; width: 480px; border-radius: 600px; border: 6px solid #4e8ef7; overflow: hidden; margin: 15px auto"> 
-  <img src="/img/blog/josh-bavari.jpg" alt="Josh Bavari">
+  <img src="/img/blog/josh-bavari.png" alt="Josh Bavari">
 </div>
 
 I'm really excited to introduce Josh Bavari ([@jbavari](https://twitter.com/jbavari) on Twitter, [@jbavari](http://forum.ionicframework.com/users/jbavari/activity) on the Forum, and [jbavari](https://github.com/jbavari) on GitHub) as our newest team member joining Ionic!

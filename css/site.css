@@ -2204,9 +2204,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-
-
-
 .btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
@@ -2293,8 +2290,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   .input-group .form-control {
     width: 100%;
     margin-bottom: 0; }
-
-
 
 .input-group-addon, .input-group-btn, .input-group .form-control {
   display: table-cell; }
@@ -4573,6 +4568,30 @@ h1 + h2 + p {
     animation: fadeInDown 1s both; }
     .home .feature-img.img-loaded .demo-link {
       visibility: visible; }
+  .home .feature-img .app-icon {
+    background-image: url(/img/homepage/frontpage-icon@2x.png);
+    background-size: 84px 84px;
+    background-repeat: no-repeat;
+    display: none;
+    height: 84px;
+    width: 84px;
+    position: absolute;
+    right: 44px;
+    bottom: 68px; }
+  .home .feature-img a {
+    opacity: 1; }
+    .home .feature-img a img {
+      opacity: 0.9;
+      -webkit-transition: opacity 0.1s linear;
+      -moz-transition: opacity 0.1s linear;
+      transition: opacity 0.1s linear; }
+    .home .feature-img a span {
+      opacity: 0.4;
+      -webkit-transition: opacity 0.1s linear;
+      -moz-transition: opacity 0.1s linear;
+      transition: opacity 0.1s linear; }
+    .home .feature-img a:hover img, .home .feature-img a:hover span {
+      opacity: 1; }
   .home .feature-img .demo-link {
     position: absolute;
     right: 50px;
@@ -4583,9 +4602,8 @@ h1 + h2 + p {
     font-weight: 300;
     font-size: 11px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    opacity: 0.3; }
-    .home .feature-img .demo-link:hover {
-      opacity: 1 !important; }
+    text-decoration: none;
+    text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2); }
 @media (min-width: 768px) {
   .home {
     /* TABLET/Phone */ }
@@ -4600,6 +4618,8 @@ h1 + h2 + p {
       .home .primary-row .mobile-btn {
         display: none; }
       .home .primary-row .demo-link {
+        display: block; }
+      .home .primary-row .app-icon {
         display: block; }
     .home .feature-img {
       background-size: 420px 393px;

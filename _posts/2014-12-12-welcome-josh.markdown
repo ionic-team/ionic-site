@@ -11,7 +11,7 @@ published: true
   <img src="/img/blog/josh-bavari.png" alt="Josh Bavari">
 </div>
 
-I'm really excited to introduce Josh Bavari ([@jbavari](https://twitter.com/jbavari) on Twitter, [@jbavari](http://forum.ionicframework.com/users/jbavari/activity) on the Forum, and [jbavari](https://github.com/jbavari) on GitHub) as our newest team member joining Ionic!
+I'm really excited to introduce Josh Bavari ([@jbavari](https://twitter.com/jbavari) on Twitter, [@jbavari](http://forum.ionicframework.com/users/jbavari/activity) on the Forum, and [jbavari](https://github.com/jbavari) on GitHub) as our newest Ionic team member!
 
 Josh has spent the last few years diving deep into the open source project, [Cordova](http://cordova.apache.org/). Starting with version 1.9, he's followed the project from its earlier days, and actively contributes to it as he is one of the maintainers of the [Cordova Plugin Registry](http://plugins.cordova.io/).
 

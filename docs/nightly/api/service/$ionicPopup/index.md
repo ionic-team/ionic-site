@@ -172,6 +172,7 @@ passed in tap event.  Details below.
         <p>The options for the new popup, of the form:</p>
 <pre><code>{
   title: &#39;&#39;, // String. The title of the popup.
+  cssClass: &#39;&#39;, // String, The custom CSS class name
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
@@ -247,6 +248,7 @@ tap to close the popup.
         <p>The options for showing the alert, of the form:</p>
 <pre><code>{
   title: &#39;&#39;, // String. The title of the popup.
+  cssClass: &#39;&#39;, // String, The custom CSS class name
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
@@ -311,6 +313,7 @@ user presses the Cancel button.
         <p>The options for showing the confirm popup, of the form:</p>
 <pre><code>{
   title: &#39;&#39;, // String. The title of the popup.
+  cssClass: &#39;&#39;, // String, The custom CSS class name
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
@@ -387,6 +390,7 @@ if the user presses Cancel.
         <p>The options for showing the prompt popup, of the form:</p>
 <pre><code>{
   title: &#39;&#39;, // String. The title of the popup.
+  cssClass: &#39;&#39;, // String, The custom CSS class name
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.

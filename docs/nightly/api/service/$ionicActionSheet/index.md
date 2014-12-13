@@ -142,6 +142,7 @@ action sheet and the new element will be appended into the body.
  Return true to close the action sheet, or false to keep it opened.</li>
 <li><code>{boolean=}</code> <code>cancelOnStateChange</code> Whether to cancel the actionSheet when navigating
 to a new state.  Default true.</li>
+<li><code>{string}</code> <code>cssClass</code> The custom CSS class name.</li>
 </ul>
 
         

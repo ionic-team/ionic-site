@@ -56,13 +56,13 @@ However, a typical web browser only keeps track of one history stack in a linear
 We have so many things in store for 2015 that we couldn't resist offering you a little sneak peek...
 
 Here's What's Next!
-Chromium builds for Android: We'll be integrating Chromium builds into the CLI soon, but remember that [you can do this now with Crosswalk](http://blog.nraboy.com/2014/10/use-crosswalk-ionic-framework-android-apps/). What this means for you is drastically improved performance on Android devices.
-Now that view elements are cached in the DOM, we'll be adding the "swipe to go back" feature between pages.
-Since Android provides the necessary scroll events, we'll be refactoring our scrolling, such that we can remove JS scrolling on Android devices.
-This is our _last Beta release_! Once “swipe to go back” and removal of JS scrolling on Android updates are added, we're going to call Ionic v1.0 feature complete and roll out the Release Candidate.
-Our new navigation and transition system provides a lot more power for animations. In the near future, we'll be creating an animations pack that can easily extend Ionic's animations and allow apps to do some pretty slick stuff with very minimal code.
-More Ionicons! We will be adding to and improving our [beloved font icon pack](http://ionicons.com/) to pair nicely with the next Ionic release. Spinning font icons will be removed in lieu of a special new loading spinner project we're working on…
-Oh, and let's not forget Ionic.io, which will give all Ionic developers access to powerful services like Analytics, A/B testing, and live-updating of apps without app store submission. Sign up on the alpha list for more info as we move closer to release!
+- Chromium builds for Android: We'll be integrating Chromium builds into the CLI soon, but remember that [you can do this now with Crosswalk](http://blog.nraboy.com/2014/10/use-crosswalk-ionic-framework-android-apps/). What this means for you is drastically improved performance on Android devices.
+- Now that view elements are cached in the DOM, we'll be adding the "swipe to go back" feature between pages.
+- Since Android provides the necessary scroll events, we'll be refactoring our scrolling, such that we can remove JS scrolling on Android devices.
+- This is our _last Beta release_! Once “swipe to go back” and removal of JS scrolling on Android updates are added, we're going to call Ionic v1.0 feature complete and roll out the Release Candidate.
+- Our new navigation and transition system provides a lot more power for animations. In the near future, we'll be creating an animations pack that can easily extend Ionic's animations and allow apps to do some pretty slick stuff with very minimal code.
+- More Ionicons! We will be adding to and improving our [beloved font icon pack](http://ionicons.com/) to pair nicely with the next Ionic release. Spinning font icons will be removed in lieu of a special new loading spinner project we're working on…
+- Oh, and let's not forget Ionic.io, which will give all Ionic developers access to powerful services like Analytics, A/B testing, and live-updating of apps without app store submission. Sign up on the alpha list for more info as we move closer to release!
 
 ### Setting the Bar for Maximum Awesomeness
 We encourage the Ionic community to check out the [changelog](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md) for this release, review our [docs](http://ionicframework.com/docs/), and read up on all the new APIs. Ionic has evolved into a full-fledged SDK for mobile apps, and we believe the updates we've made in this release will make app development an even more enjoyable process for all of you. Thanks to all our community members who have provided feedback and improvements to the open source project. We are very grateful to you!

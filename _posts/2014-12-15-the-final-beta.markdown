@@ -4,7 +4,7 @@ title:  "Beta 14: The Final Beta"
 date:   "2014-12-15  2:00:00"
 categories: angularjs, ionic, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/459365829348302849/lJ1X8rU9.png" class="author-icon"><a href="https://twitter.com/Ionicframework">Ionic Team</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/b14-header.jpg">

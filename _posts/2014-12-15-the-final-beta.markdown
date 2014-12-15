@@ -24,7 +24,7 @@ One of the biggest updates we've made in this release is that we've migrated Ion
 
 One huge performance boost we've added is the caching of views. It used to be that views and their scopes were destroyed as soon as the user navigated away from them. While this is the normal behavior for views in Angular, it's also a big hit for performance and perceived speed to have the same elements and data reloaded on every viewing.
 
-Now, when the user transitions away from a view, the scope is disconnected, rather than destroyed, and the view is kept in the DOM (don't worry; it's hidden and not being rendered, so it won't impact performance). This allows us to essentially cache the view and reconnect the scopes, instead of rebuilding them. This means all that data crunching to get a controller spun up only needs to happen once. The controller and its data can stay in memory and listen for events, just like native apps. By default, Ionic will cache only 10 views, but this is all [highly configurable](http://ionicframework.com/docs/nightly/api/directive/ionNavView/).
+Now, when the user transitions away from a view, the scope is disconnected, rather than destroyed, and the view is kept in the DOM (don't worry; it's hidden and not being rendered, so it won't impact performance). This allows us to essentially cache the view and reconnect the scopes, instead of rebuilding them. This means all that data crunching to get a controller spun up only needs to happen once. The controller and its data can stay in memory and listen for events, just like native apps. By default, Ionic will cache only 10 views, but this is all [highly configurable](http://ionicframework.com/docs/api/directive/ionNavView/).
 
 Being able to hold scroll position as a user navigates forward and back is great for user interaction. For example, if the user scrolls down a large list on View A, then navigates to a detail page in View B, then navigates back to View A, it'll still be at the same scroll position (without any data reloading or skippy scrolling).
 
@@ -44,23 +44,28 @@ It was clear to us that we needed to rethink our transition system and how we we
 
 ####Configure All The Things
 
-We also created the  [`$ionicConfigProvider`](http://ionicframework.com/docs/nightly/api/provider/$ionicConfigProvider/), a powerful feature that allows you to customize nearly every aspect of your app, from where the title aligns in the nav-bar to the style of animations used for transitions. Even small changes, such as the back button icon, can be configured to be one way for an iOS app and another way for an Android app.
+We also created the  [`$ionicConfigProvider`](http://ionicframework.com/docs/api/provider/$ionicConfigProvider/), a powerful feature that allows you to customize nearly every aspect of your app, from where the title aligns in the nav-bar to the style of animations used for transitions. Even small changes, such as the back button icon, can be configured to be one way for an iOS app and another way for an Android app.
 
 ### Automatic History Magic
 
-In addition to all the configuration that can be done with `$ionicConfigProvider`, we've also added [`$ionicHistory`](http://ionicframework.com/docs/nightly/api/service/$ionicHistory/), which includes functionality that was available in previous versions of Ionic, but wraps them in an Angular service and adds new features. `$ionicHistory` keeps track of an app's views and history stack as the user navigates. Similar to the way a browser behaves, an Ionic app is able to keep track of the previous view, the current view, and the forward view (if there is one).
+In addition to all the configuration that can be done with `$ionicConfigProvider`, we've also added [`$ionicHistory`](http://ionicframework.com/docs/api/service/$ionicHistory/), which includes functionality that was available in previous versions of Ionic, but wraps them in an Angular service and adds new features. `$ionicHistory` keeps track of an app's views and history stack as the user navigates. Similar to the way a browser behaves, an Ionic app is able to keep track of the previous view, the current view, and the forward view (if there is one).
 
 However, a typical web browser only keeps track of one history stack in a linear fashion. Ionic's `$ionicHistory` is able to keep track of multiple histories and follow the user as he or she navigates among different views and different histories. For example, an app with tabs has its own history stack for each tab, so a user can navigate a few views in Tab A, then navigate a few in Tab B, and return to Tab A, with the previous stack location having been maintained the whole time.
 
 ### But Wait, There's MORE!
 We have so many things in store for 2015 that we couldn't resist offering you a little sneak peek...
 
-Here's What's Next!
+####Here's What's Next!
 - Chromium builds for Android: We'll be integrating Chromium builds into the CLI soon, but remember that [you can do this now with Crosswalk](http://blog.nraboy.com/2014/10/use-crosswalk-ionic-framework-android-apps/). What this means for you is drastically improved performance on Android devices.
+
 - Now that view elements are cached in the DOM, we'll be adding the "swipe to go back" feature between pages.
+
 - Since Android provides the necessary scroll events, we'll be refactoring our scrolling, such that we can remove JS scrolling on Android devices.
+
 - This is our _last Beta release_! Once “swipe to go back” and removal of JS scrolling on Android updates are added, we're going to call Ionic v1.0 feature complete and roll out the Release Candidate.
+
 - Our new navigation and transition system provides a lot more power for animations. In the near future, we'll be creating an animations pack that can easily extend Ionic's animations and allow apps to do some pretty slick stuff with very minimal code.
+
 - More Ionicons! We will be adding to and improving our [beloved font icon pack](http://ionicons.com/) to pair nicely with the next Ionic release. Spinning font icons will be removed in lieu of a special new loading spinner project we're working on…
 - Oh, and let's not forget [Ionic.io](http://ionic.io), which will give all Ionic developers access to powerful services like Analytics, A/B testing, and live-updating of apps without app store submission. Sign up on the alpha list for more info as we move closer to release!
 
@@ -69,8 +74,8 @@ We encourage the Ionic community to check out the [changelog](https://github.com
 
 **Docs**
 
-- [View LifeCycle and Events](http://ionicframework.com/docs/nightly/api/directive/ionView/)
-- [Navigation](http://ionicframework.com/docs/nightly/api/directive/ionNavView/)
-- [Ionic Config](http://ionicframework.com/docs/nightly/api/provider/$ionicConfigProvider/)
+- [View LifeCycle and Events](http://ionicframework.com/docs/api/directive/ionView/)
+- [Navigation](http://ionicframework.com/docs/api/directive/ionNavView/)
+- [Ionic Config](http://ionicframework.com/docs/api/provider/$ionicConfigProvider/)
 - [Angular v1.2 to v1.3 Migration](https://docs.angularjs.org/guide/migration#migrating-from-1-2-to-1-3)
 - [Angular v1.3 (ngEurope 2014)](https://www.youtube.com/watch?v=ojMy6m_fcxc)

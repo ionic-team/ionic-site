@@ -9,40 +9,40 @@ published: false
 
 2014 is coming to a close, and what a year it has been!
 
-It's hard to believe, but Ionic is only one year old. When we launched at the end of 2013 we had no clue
-how voracious developers would be to build hybrid apps. We thought we'd have some early adopters trying
-out the framework, but we certainly did not expect the massive adoption Ionic has had in just one year!
+It's hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue
+how voracious developers' appetites for building hybrid apps would be. We thought we'd have some early adopters trying
+out the framework, but we certainly did not expect the massive adoption of Ionic that we've seen in just one year!
 
 ### By the numbers
 
 In 2014 alone, Ionic has become one of the __top 50__ most popular open source projects on GitHub, with over 12,000 stars. 
-There have been over __320,000__ apps created this year alone, with some [great](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones getting featured by both Apple and Google in their respective app stores.
+There have been over __320,000__ apps created this year alone, with some [excellent](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones getting featured by both Apple and Google in their respective app stores.
 
-Every month over 50,000 new apps are created, a number that has been growing pretty steadily over the last year.
+Every month, over 50,000 new apps are created, a number that has been growing pretty steadily over the past year.
 
-The forum has seen over 42,000 posts this year, and reachs over 100,000 unique developers a month. It's turning into a great place to get help and collaborate with the Ionic community.
+The forum has seen over 42,000 posts this year and reaches over 100,000 unique developers a month. It's turning into a great place to get help and collaborate with the Ionic community.
 
 ### Ionic 1.0
 
 The next big release of Ionic is slated for early 2015, and we are going for 1.0! 
 
-With beta14 this week, we've made Ionic the fastest and most feature-complete hybrid development framework around.
+With beta14 being released this week, we've made Ionic the fastest and most feature-complete hybrid development ecosystem around.
 
 ### Partnerships
 
 We are also proud that Ionic has been integrated into such great tools as [Web Storm](https://www.jetbrains.com/webstorm/whatsnew/), [JBoss](http://tools.jboss.org/documentation/whatsnew/jbosstools/4.2.0.CR1.html#ionic), and [Steroids](http://blog.appgyver.com/changelog/steroids/cli/steroids-cli-3-1-23/). There are a few bigger tools on the horizon integrating Ionic, but we can't talk about that just yet!
 
-The Heroku team has also been a big friend of Ionic, creating a [Mobile Template](http://engineering.heroku.com/blogs/2014-10-02-heroku-mobile-app-template) that can be deployed to heroku with one click, and a [full demo](http://heroku.github.io/nibs/) app using Ionic, Heroku, and the Salesforce1 platform.
+The Heroku team has also been a great friend of Ionic, creating a [Mobile Template](http://engineering.heroku.com/blogs/2014-10-02-heroku-mobile-app-template) that can be deployed to Heroku with one click and a [full demo](http://heroku.github.io/nibs/) app using Ionic, Heroku, and the Salesforce1 platform.
 
-There are several [starter templates]() from the Firebase team which is quickly becoming the preferred real-time backend for Ionic apps.
+There are several [starter templates]() from the Firebase team; Firebase is quickly becoming the preferred real-time backend solution for Ionic apps.
 
-Auth0 wrote a great post on using their auth system with Ionic.
+Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/).
 
 ### ngCordova
 
-[ngCordova](), our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs was launched mid-2014. The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We've had the incredible fortune of [Paolo Bernasconi]'s great leadership in the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heros and we are so thankful to have him.
+[ngCordova](), our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs was launched mid-2014. The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We've had the incredible fortune of [Paolo Bernasconi]'s great leadership in the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.
 
-Much to our surprise the project took off, with over 1200 stars, X contributors, and X pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forwards.
+Much to our surprise, the project took off, with over 1200 stars, X contributors, and X pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forward.
 
 ### Ionic Lab
 

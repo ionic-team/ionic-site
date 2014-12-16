@@ -7,7 +7,7 @@ author: '<img src="https://pbs.twimg.com/profile_images/459365829348302849/lJ1X8
 published: true
 ---
 
-<img class="showcase-image" src="/img/blog/b14-header.jpg">
+<img class="showcase-image" src="/img/blog/b14-header.jpg" style="margin-top:-20px;">
 
 
 Today, we're thrilled to announce Ionic 1.0 Beta 14, The Last of the Betas! Beta 14 takes Ionic beyond its birth as a [framework](http://ionicframework.com/blog/beyond-framework/) to its current state as a complete suite of solutions for hybrid mobile app development. After we released Beta 13, our team examined our tools and services and analyzed areas where we could make improvements for hybrid app development. The desire to meet the needs of our developers in the best way possible is the driving force behind every decision we make about Ionic. For this release, we focused on performance boosts, caching, view transitions, and platform-specific changes.

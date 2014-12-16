@@ -77,5 +77,6 @@ We encourage the Ionic community to check out the [changelog](https://github.com
 - [View LifeCycle and Events](http://ionicframework.com/docs/api/directive/ionView/)
 - [Navigation](http://ionicframework.com/docs/api/directive/ionNavView/)
 - [Ionic Config](http://ionicframework.com/docs/api/provider/$ionicConfigProvider/)
+- [Ionic Changelog](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md)
 - [Angular v1.2 to v1.3 Migration](https://docs.angularjs.org/guide/migration#migrating-from-1-2-to-1-3)
 - [Angular v1.3 (ngEurope 2014)](https://www.youtube.com/watch?v=ojMy6m_fcxc)

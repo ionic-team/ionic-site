@@ -131,7 +131,7 @@ We owe our biggest debt of gratitude to you, the Ionic community. Thank you for 
 
 In 2015, we will need you more than ever, as we move beyond our humble beginnings as an AngularJS framework into a full-fledged mobile development platform. We want Ionic to be *the* way mobile apps are built in the future, and we can't do that without you!
 
-So stay tuned for many more Ionic updates in 2015, as the project matures and moves up the mobile dev stack.
+So stay tuned for many more Ionic updates in 2015 as the project matures and moves up the mobile dev stack.
 
 From all of us on the Ionic Team, we wish you a very happy holidays and a wonderful new year! Go kick some apps!
 

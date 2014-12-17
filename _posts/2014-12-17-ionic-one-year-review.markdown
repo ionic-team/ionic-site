@@ -4,7 +4,7 @@ title:  "Ionic: Year One in Review"
 date:   "2014-12-15  8:00:00"
 categories: angularjs, ionic, tinder
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
-published: false
+published: true
 ---
 
 <img class="showcase-image" src="/img/blog/ionic-1year-header.jpg" style="margin-top:-20px;">
@@ -50,7 +50,11 @@ Thanks to everyone who has written about Ionic; please get in touch if you'd lik
 
 ### Taking over the world
 
-Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. We're starting to see a multi-national band of Ionic user groups forming around the world. These are official Ionic meetup groups started by Ionic community members that we've helped get up and running. If you'd like to start your own official Ionic meetup group, [let us know!](mailto:katie@drifty.com)
+![Ionic Logos](/img/blog/ionic-community-logos.jpg)
+
+Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. On top of that, we're starting to see a multi-national band of Ionic user groups forming around the world.
+
+These are official Ionic meetup groups started by Ionic community members that we help to get up and running. If you'd like to start your own official Ionic meetup group, [let us know!](mailto:katie@drifty.com)
 
 ### Startups
 
@@ -58,7 +62,7 @@ Many startups are using Ionic to build their apps and reach the growing hybrid d
 
 [Appresser](http://apppresser.com/) generates Ionic apps from WordPress sites. [Femtoduino](http://www.femtoduino.com/) is creating tiny Arduino clones with companion apps built on Ionic.
 
-Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/), and the [RethinkDB](http://rethinkdb.com/) team built [BeerThink](http://rethinkdb.com/blog/beerthink/), an infinite scrolling app, with Ionic, Node.js, and RethinkDB.
+Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/), and the [RethinkDB](http://rethinkdb.com/) team built [BeerThink](http://rethinkdb.com/blog/beerthink/), an infinite scrolling app with Ionic, Node.js, and RethinkDB.
 
 We are also happy to have many [Y Combinator](http://ycombinator.com/) and [TechStars](http://techstars.com/) startups using Ionic. Startups are clearly recognizing the major economic benefits of going hybrid, and we know this is only going to grow.
 
@@ -74,7 +78,7 @@ You can test out Ions today by using the `$ ionic add ION` command, and we will 
 
 ### Ionicons
 
-This project started in late 2013 but is worth mentioning here: Our official [icon pack](http://ionicons.com/), including over 500 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the [older docs](http://ionicons.com/1.5.2/) until we upgrade).
+This project started in late 2013 but is worth mentioning here: Our official [icon pack](http://ionicons.com/), including over 700 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the [older docs](http://ionicons.com/1.5.2/) until we upgrade).
 
 ![Ionicons](/img/blog/year-ionicons.png)
 

@@ -86,7 +86,7 @@ Much to our surprise, the project took off, with over 1,300 stars, 57 contributo
 
 ### Ionic Lab
 
-Just last week, [we released](/blog/ionic-lab/) the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally, to help you test and develop your Ionic apps.
+Just last week, [we released](/blog/ionic-lab/) the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally to help you test and develop your Ionic apps.
 
 One useful feature is built-in support for our platform-specific styles and features. Develop the iOS and Android versions of your app side-by-side, without having to fire up an emulator or test on the device:
 

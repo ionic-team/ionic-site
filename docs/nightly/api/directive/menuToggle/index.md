@@ -37,6 +37,16 @@ docType: "directive"
 
 Toggle a side menu on the given side.
 
+*Note*: By default, the menu toggle button will only appear on a root
+level side-menu page. Navigating in to child views will hide the menu-
+toggle button. They can be made visible on child pages by setting the
+enable-menu-with-back-views attribute of the <a href="/docs/nightly/ionic.directive:sideMenus">TODO:ionic.directive:sideMenus</a> 
+directive to true. 
+
+```html
+<ion-side-menus enable-menu-with-back-views="true">
+```
+
 
 
 

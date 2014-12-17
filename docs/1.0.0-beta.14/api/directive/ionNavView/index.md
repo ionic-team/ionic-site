@@ -63,9 +63,9 @@ and remember to replace ui-view with ion-nav-view in examples).
 
 
 
-
+  
 <h2 id="usage">Usage</h2>
-
+  
 In this example, we will create a navigation view that contains our different states for the app.
 
 To do this, in our markup we use ionNavView top level directive. To display a header bar we use
@@ -110,7 +110,7 @@ So here is one way to put home.html into our app:
 This is good to do because the template will be cached for very fast loading, instead of
 having to fetch them from the network.
 
-## Caching
+ ## Caching
 
 By default, views are cached to improve performance. When a view is navigated away from, its
 element is left in the DOM, and its scope is disconnected from the `$watch` cycle. When
@@ -164,8 +164,8 @@ how it all works:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
 frameborder="0" allowfullscreen></iframe>
-
-
+  
+  
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -177,15 +177,15 @@ frameborder="0" allowfullscreen></iframe>
     </tr>
   </thead>
   <tbody>
-
+    
     <tr>
       <td>
         name
-
+        
         <div><em>(optional)</em></div>
       </td>
       <td>
-
+        
   <code>string</code>
       </td>
       <td>
@@ -194,16 +194,16 @@ same state. You can have views of the same name that live in different states. F
 information, see ui-router&#39;s
 <a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.directive:ui-view">ui-view documentation</a>.</p>
 
-
+        
       </td>
     </tr>
-
+    
   </tbody>
 </table>
 
+  
 
-
-
+  
 
 
 

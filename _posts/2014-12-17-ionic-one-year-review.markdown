@@ -117,7 +117,7 @@ Finally, [Paolo](https://twitter.com/paolobernasconi) created and released the f
 
 The next big release of Ionic is slated for early 2015, and we're going for 1.0! 
 
-With [Beta 14](/blog/the-final-beta/) this week, we've made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from build native apps, we've added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.
+With [Beta 14](/blog/the-final-beta/) this week, we've made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from building native apps, we've added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.
 
 This will be our last beta release. After the holidays, we will be releasing rc0 and moving toward 1.0 in early 2015.
 

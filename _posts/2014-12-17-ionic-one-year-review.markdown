@@ -44,7 +44,7 @@ We're grateful to have had some great bloggers like [Holly Schinsky](http://devg
 
 In addition, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is [Ionic in Action](http://www.manning.com/wilken/) from Manning Publications. The book is [on sale](http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&aid=2sPCIgmMgxs) today, along with Raymond's wonderful [Cordova in Action](http://www.manning.com/camden/).
 
-Finally, [Steve Michelotti](https://twitter.com/smichelotti) created a wonderful [Pluralsight Course](http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs) on Ionic with over 3 hours of video content. It's very popular course on the site and a great resource for learning more about Ionic!
+Finally, [Steve Michelotti](https://twitter.com/smichelotti) created a wonderful [Pluralsight Course](http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs) on Ionic, with over three hours of video content. It's very popular course on the site and a great resource for learning more about Ionic!
 
 Thanks to everyone who has written about Ionic; please get in touch if you'd like to help create more content to post on the Ionic blog!
 

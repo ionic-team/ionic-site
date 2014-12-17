@@ -84,7 +84,7 @@ You can test out Ions today by using the `$ ionic add ION` command, and we will 
 
 This project started in late 2013 but is worth mentioning here: Our official [icon pack](http://ionicons.com/), including over 700 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the [older docs](http://ionicons.com/1.5.2/) until we upgrade).
 
-![Ionicons](/img/blog/year-ionicons.png)
+![Ionicons](/img/blog/year-ionicons1.png)
 
 ### ngCordova
 

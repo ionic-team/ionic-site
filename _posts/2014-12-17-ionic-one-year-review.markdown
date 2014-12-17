@@ -17,7 +17,7 @@ Our conclusion from 2014 is that hybrid is not only here to stay, but has become
 
 ### By the Numbers
 
-In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub. There have been over __320,000__ apps created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and it more countries than we can even count.
+In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub. Over __320,000__ apps have been created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.
 
 ![Ionic numbers](/img/blog/by-the-numbers-map.jpg)
 
@@ -96,9 +96,10 @@ Much to our surprise, the project took off, with over 1,300 stars, 57 contributo
 
 Just last week, [we released](/blog/ionic-lab/) the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally to help you test and develop your Ionic apps.
 
+![Ionic Lab](/img/blog/year-lab.png)
+
 One useful feature is built-in support for our platform-specific styles and features. Develop the iOS and Android versions of your app side-by-side, without having to fire up an emulator or test on the device:
 
-![Ionic Lab](/img/blog/lab.png)
 
 Ionic Lab appears to have struck a chord with the developer community, and our minds are racing about its massive potential. We can't talk about our specific plans just yet, but expect Ionic Lab to expand greatly in 2015.
 

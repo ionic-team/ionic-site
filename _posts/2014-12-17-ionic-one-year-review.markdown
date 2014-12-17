@@ -72,6 +72,8 @@ We are also happy to have many [Y Combinator](http://ycombinator.com/) and [Tech
 
 We quietly released a very early preview of what we are calling [Ionic Ions](http://ions.ionic.io/), a set of add-ons and widgets that give your Ionic apps special powers.
 
+![Ions](/img/blog/ions-logo.jpg)
+
 As we've grown Ionic, we've created add-ons like [Shrinking Headers](https://github.com/driftyco/ionic-ion-header-shrink), [Frosted Glass](https://github.com/driftyco/ionic-ion-frost), and [Tinder-Style Swipe Cards](https://github.com/driftyco/ionic-ion-tinder-cards). We realized early on that these add-ons don't make sense as part of the core Ionic project, but they're an integral part of the larger Ionic ecosystem.
 
 We want to encourage Ionic developers to create reusable widgets, and we'll make it easy to submit them to the official Ions repository soon.

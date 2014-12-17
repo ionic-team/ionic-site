@@ -58,7 +58,7 @@ Many startups are using Ionic to build their apps and reach the growing hybrid d
 
 [Appresser](http://apppresser.com/) generates Ionic apps from WordPress sites. [Femtoduino](http://www.femtoduino.com/) is creating tiny Arduino clones with companion apps built on Ionic.
 
-Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/), and the [RethinkDB](http://rethinkdb.com/) team built [BeerThink](http://rethinkdb.com/blog/beerthink/), an infinite scrolling app with Ionic, Node.js, and RethinkDB.
+Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/), and the [RethinkDB](http://rethinkdb.com/) team built [BeerThink](http://rethinkdb.com/blog/beerthink/), an infinite scrolling app, with Ionic, Node.js, and RethinkDB.
 
 We are also happy to have many [Y Combinator](http://ycombinator.com/) and [TechStars](http://techstars.com/) startups using Ionic. Startups are clearly recognizing the major economic benefits of going hybrid, and we know this is only going to grow.
 

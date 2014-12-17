@@ -40,9 +40,17 @@ Ionic wouldn't be where it is today without the amazing content written by the h
 
 We are super thankful to have had some great bloggers like [Holly Schinsky](http://devgirl.org/), [Raymond Camden](http://www.raymondcamden.com/), [Christophe Coenrates](http://coenraets.org/blog/2014/10/ionic-tutorial-and-sample-application/), [Nic Raboy](http://www.nraboy.com/) and [Andrew McGivery](http://mcgivery.com/) write incredible and educational posts on Ionic that the Ionic community loves reading.
 
-Finally, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is [Ionic in Action](http://www.manning.com/wilken/) from Manning Publications. The book is [on sale](http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&aid=2sPCIgmMgxs) today, along with Raymond's wonderful [Cordova in Action](http://www.manning.com/camden/).
+In addition, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is [Ionic in Action](http://www.manning.com/wilken/) from Manning Publications. The book is [on sale](http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&aid=2sPCIgmMgxs) today, along with Raymond's wonderful [Cordova in Action](http://www.manning.com/camden/).
+
+Finally, [Steve Michelotti](https://twitter.com/smichelotti) created a wonderful [Pluralsight Course](http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs) on Ionic with over 3 hours of video content. It's very popular course on the site and a great resource to really learn more about Ionic!
 
 Thanks to everyone that has written about Ionic, and get in touch if you'd like to help create more content to post on the Ionic blog!
+
+### Taking over the world
+
+Ionic developers have given hundreds of talks at meetups and conferences this year, along with writing even more blog posts, demos, and tutorials. But we are starting to see a multi-national band of Ionic user groups forming around the world:
+
+These are official Ionic meetup groups that started from the community and we've helped get up and running. If you'd like to start your own official Ionic meetup group, [let us know!](mailto:katie@drifty.com)
 
 ### Startups
 
@@ -96,7 +104,7 @@ build and export Ionic prototypes. The reception was incredible, with over 25,00
 
 We are proud to announce that the [Creator](https://creator.ionic.io/) is now publicly available, though this is just the beginning of the tool. We hope you give it a try and let us know what you think about it!
 
-Finally, [Paolo](https://twitter.com/paolobernasconi) created and release the first version of the [Ionic Tailor](http://ionic-theme-editor.herokuapp.com/), a simple theme generator tool for Ionic styles. It's a great way to customize the default look and feel of Ionic to fit your brand! Expect a lot more out of this tool in the future.
+Finally, [Paolo](https://twitter.com/paolobernasconi) created and released the first version of the [Ionic Tailor](http://ionic-theme-editor.herokuapp.com/), a simple theme generator tool for Ionic styles. It's a great way to customize the default look and feel of Ionic to fit your brand! Expect a lot more out of this tool in the future.
 
 ### Ionic 1.0
 
@@ -113,7 +121,7 @@ One big complaint we constantly hear from Ionic developers is about the lack of 
 
 Launching in 2015, [Ionic.io](https://ionic.io/) will offer powerful mobile services and tools focused on Ionic and hybrid apps in general. Track usage and analytics, understand the impact of UI decisions, send intelligent push notifications, and update your app without resubmitting to the App Store. Ionic.io will help you do all of this and more.
 
-Make sure to [sign up for the beta](http://ionic.io/) to get updates on the release!
+This is going to be our first commercial offering. Make sure to [sign up for the beta](http://ionic.io/) to get updates on the release!
 
 ### The road ahead
 

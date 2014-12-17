@@ -13,7 +13,7 @@ published: false
 
 It's hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue how voracious developers' appetites for building hybrid apps would be. We thought we'd have some early adopters trying out the framework, but we certainly did not expect the massive adoption of Ionic that we've seen in just one year!
 
-Our conclusion from 2014 is that hybrid is not only here to stay, but has become a *much better* solution for many app developers than native.
+Our conclusion from 2014 is that hybrid is not only here to stay, but has become a *much better* solution than native for many app developers.
 
 ### By the Numbers
 

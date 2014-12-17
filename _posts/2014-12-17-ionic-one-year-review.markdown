@@ -17,7 +17,9 @@ Our conclusion from 2014 is that hybrid is not only here to stay, but has become
 
 ### By the Numbers
 
-In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub. There have been over __320,000__ apps created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike.
+In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub. There have been over __320,000__ apps created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and it more countries than we can even count.
+
+![Ionic numbers](/img/blog/by-the-numbers-map.jpg)
 
 Every month, over 50,000 new apps are created, and over half a million unique developers visit the Ionic website for documentation and to read our blog posts about hybrid apps and the broader mobile dev ecosystem.
 
@@ -50,9 +52,9 @@ Thanks to everyone who has written about Ionic; please get in touch if you'd lik
 
 ### Taking over the world
 
-![Ionic Logos](/img/blog/ionic-community-logos.jpg)
-
 Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. On top of that, we're starting to see a multi-national band of Ionic user groups forming around the world.
+
+![Ionic Logos](/img/blog/ionic-community-logos.jpg)
 
 These are official Ionic meetup groups started by Ionic community members that we help to get up and running. If you'd like to start your own official Ionic meetup group, [let us know!](mailto:katie@drifty.com)
 

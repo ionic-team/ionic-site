@@ -88,7 +88,11 @@ This project started in late 2013 but is worth mentioning here: Our official [ic
 
 ### ngCordova
 
-[ngCordova](http://ngcordova.com/), our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs, was launched mid-2014. The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We've had the incredible fortune of [Paolo Bernasconi](https://twitter.com/paolobernasconi)'s great leadership on the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.
+[ngCordova](http://ngcordova.com/), our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs, was launched mid-2014.
+
+![ngCordova](/img/blog/year-ngcordova.png)
+ 
+The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We've had the incredible fortune of [Paolo Bernasconi](https://twitter.com/paolobernasconi)'s great leadership on the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.
 
 Much to our surprise, the project took off, with over 1,300 stars, 57 contributors, and 250 pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forward.
 

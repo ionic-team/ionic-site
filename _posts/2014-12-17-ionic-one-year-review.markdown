@@ -17,7 +17,9 @@ Our conclusion from 2014 is that hybrid is not only here to stay, but has become
 
 ### By the Numbers
 
-In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub. Over __320,000__ apps have been created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.
+In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub.
+
+Over __320,000__ apps have been created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.
 
 ![Ionic numbers](/img/blog/by-the-numbers-map.jpg)
 

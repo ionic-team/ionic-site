@@ -144,4 +144,4 @@ So stay tuned for many more Ionic updates in 2015 as the project matures and mov
 
 From all of us on the Ionic Team, we wish you a very happy holidays and a wonderful new year! Go kick some apps!
 
-*Adam, Katie, Ben, Andrew, Joel, Mike, Peter, Jamie, Perry, Melissa, Brody, Max, Drew, and Josh*
+*Adam, Tim, Katie, Ben, Andrew, Joel, Mike, Peter, Jamie, Perry, Melissa, Brody, Max, Drew, and Josh*

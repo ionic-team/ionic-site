@@ -119,7 +119,7 @@ This will be our last beta release. After the holidays, we will be releasing rc0
 
 ### Ionic.io
 
-Our Ionic developers often express a desire for more hybrid app services. Unfortunately, most mobile development services target native developers, and often *only* native iOS developers. Mobile service providers have been oblivious to hybrid development, and we want to change that.
+Our Ionic developers often lament the lack of hybrid app services available to them. Unfortunately, most mobile development services target native developers, and often *only* native iOS developers. Mobile service providers have been oblivious to hybrid development, and we want to change that.
 
 Launching in 2015, [Ionic.io](https://ionic.io/) will offer powerful mobile services and tools focused on Ionic apps and hybrid apps in general. Track usage and analytics, understand the impact of UI decisions, send intelligent push notifications, and update your app without resubmitting to the App Store. Ionic.io will help you do all of this and more.
 

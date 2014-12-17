@@ -60,7 +60,7 @@ These are official Ionic meetup groups started by Ionic community members that w
 
 ### Startups
 
-Many startups are using Ionic to build their apps and reach the growing hybrid developer community. [Keychain Logistics](https://keychainlogistics.com/) was one of our earliest fans, switching from native iOS and Android apps to a single Ionic app for both platforms. [Sworkit](http://sworkit.com/) is a top health and fitness app with millions of users that has been able to rapidly iterate with Ionic. [Mallzee](https://mallzee.com/), a top shopping app, started in the UK and recently launched in the U.S. [HabitRPG](http://habitrpg.com/) is an incredibly popular game built with Ionic that makes building healthy habits fun.
+Many startups are using Ionic to build their apps and reach the growing hybrid developer community. [Mehul](https://www.linkedin.com/in/itsmayho) and [Patrick](https://github.com/gdi2290) from [Keychain Logistics](https://keychainlogistics.com/) were our earliest fans, switching from native iOS and Android apps to a single Ionic app for both platforms. [Sworkit](http://sworkit.com/) is a top health and fitness app with millions of users that has been able to rapidly iterate with Ionic. [Mallzee](https://mallzee.com/), a top shopping app, started in the UK and recently launched in the U.S. [HabitRPG](http://habitrpg.com/) is an incredibly popular game built with Ionic that makes building healthy habits fun.
 
 [Appresser](http://apppresser.com/) generates Ionic apps from WordPress sites. [Femtoduino](http://www.femtoduino.com/) is creating tiny Arduino clones with companion apps built on Ionic.
 

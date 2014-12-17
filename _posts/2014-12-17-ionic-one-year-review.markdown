@@ -21,7 +21,7 @@ In 2014 alone, Ionic became one of the __top 50__ most popular open source proje
 
 Every month, over 50,000 new apps are created, and over half a million unique developers visit the Ionic website for documentation and to read our blog posts about hybrid apps and the broader mobile dev ecosystem.
 
-Our [forum](http://forum.ionicframework.com/) has seen over 45,000 posts this year, reaching over 100,000 unique developers a month. It's turning into a great place to get help and collaborate with the Ionic community, and even to find interesting work available from Ionic developers around the world!
+Our [forum](http://forum.ionicframework.com/) has seen over 45,000 posts this year, reaching over 100,000 unique developers a month. It's turning into a great place to get help and collaborate with the Ionic community, and even to find interesting work available to Ionic developers around the world!
 
 Last but not least, the [#ionic](http://webchat.freenode.net/?channels=ionic) IRC room on Freenode has nearly 100 active users at any given time! Having an official single-hash room on Freenode has been a personal dream of mine ever since I started using IRC 15 years ago, so I am thrilled to see our IRC room being so widely utilized.
 

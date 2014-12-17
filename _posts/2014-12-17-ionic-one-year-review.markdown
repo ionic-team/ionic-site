@@ -7,6 +7,8 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: false
 ---
 
+<img class="showcase-image" src="/img/blog/ionic-1year-header.jpg" style="margin-top:-20px;">
+
 2014 is coming to a close, and what a year it has been!
 
 It's hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue how voracious developers' appetites for building hybrid apps would be. We thought we'd have some early adopters trying out the framework, but we certainly did not expect the massive adoption of Ionic that we've seen in just one year!

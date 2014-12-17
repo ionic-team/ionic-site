@@ -58,12 +58,12 @@ would open the given side menu, and tapping it again would close it.
 </ion-nav-bar>
 ```
 
-
- **Note**: By default, the menu toggle button will only appear on a root
+### Button Hidden On Child Views
+By default, the menu toggle button will only appear on a root
 level side-menu page. Navigating in to child views will hide the menu-
 toggle button. They can be made visible on child pages by setting the
-enable-menu-with-back-views attribute of the <a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> 
-directive to true. 
+enable-menu-with-back-views attribute of the <a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
+directive to true.
 
 ```html
 <ion-side-menus enable-menu-with-back-views="true">

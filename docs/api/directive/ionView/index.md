@@ -79,7 +79,7 @@ Below is an example where our page will load with a <a href="/docs/api/directive
 
 ## View LifeCycle and Events
 
-Views can be cached, which means *controllers normally only load once*, which may
+Views can be cached, which means ***controllers normally only load once***, which may
 affect your controller logic. To know when a view has entered or left, events
 have been added that are emitted from the view's scope. These events also
 contain data about the view, such as the title and whether the back button should

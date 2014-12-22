@@ -39,11 +39,13 @@ to this approximately 10 second process:
 We are using [Supervisor](http://supervisord.org/) inside the Docker container to start the processes run by the container. Our supervisord.conf looks like the following:
 
 ```ini
+{% raw %}
 [supervisord]
 nodaemon=true
 
 [program:uwsgi]
 command = /usr/local/bin/uwsgi --touch-reload=/path/to/code/in/container/uwsgi.ini --ini /path/to/code/in/container/uwsgi.ini
+{% endraw %}
 ```
 
 We are using the uwsgi.ini file as the trigger file via the [--touch-reload](http://uwsgi-docs.readthedocs.org/en/latest/Options.html#touch-reload) flag.
@@ -52,7 +54,9 @@ We are using the uwsgi.ini file as the trigger file via the [--touch-reload](htt
 When we start our container, we add a host volume that contains the code for our app. That host volume is mapped to an app path in the container from which uWSGI will load the app.
 
 ```bash
+{% raw %}
 docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name=container_name driftyco/testapp
+{% endraw %}
 ```
 
 #### Ansible
@@ -61,6 +65,7 @@ Ansible is in charge of cloning the application code from GitHub into our host's
 For a quick code deploy, we run a playbook that contains these tasks and takes only a few seconds to run:
 
 ```yaml
+{% raw %}
 - set_fact: host_volume="/path/to/code/on/host"
 - name: Git pull the latest code
   git: repo=git@github.com:{{ org }}/{{ container }}.git
@@ -70,11 +75,13 @@ For a quick code deploy, we run a playbook that contains these tasks and takes o
 
 - name: Gracefully reload uwsgi
   file: path={{ touch_file }} state=touch
+{% endraw %}
 ```
 
 If we need to restart the entire container or update system packages, we can do a container deploy, which takes a few minutes, with these tasks:
 
 ```yaml
+{% raw %}
 - name: Add app dir if it doesn't yet exist
   file: path={{ host_volume }} owner=nobody group=docker recurse=yes state=directory
   sudo: yes
@@ -87,6 +94,7 @@ If we need to restart the entire container or update system packages, we can do 
     - docker rm {{ container }}
 - name: Run Docker image with app volumes
   command:  docker run -d -P -v {{ host_volume }}:{{ container_volume }} --name={{ container }} {{ extra_params }} {{ org }}/{{ container }}
+{% endraw %}
 ```
 
 For a full deploy, we run both playbooks together in sequence; it’s that simple. ;)

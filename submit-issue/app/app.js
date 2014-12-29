@@ -3,7 +3,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
 .constant('Firebase', Firebase)
 .constant('markdown', markdown)
 
-.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http) {
+.controller('AppCtrl', function($scope, $rootScope, LoginService, GitHubService, $http, $location) {
 
   $scope.issue = {
     title: '',
@@ -14,6 +14,17 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     webview: null,
     description: ''
   };
+
+  if (typeof $location.search().iid != 'undefined'){
+    GitHubService.getIssue({
+      owner: 'driftyco',
+      repo: 'ionic',
+      number: $location.search().iid
+    }).success(function(data){
+      $scope.issue.title = data['title'];
+      $scope.issue.description = data['body'];
+    });
+  }
 
   $scope.typeOptions = [
     { id: 'bug', label: 'bug' },

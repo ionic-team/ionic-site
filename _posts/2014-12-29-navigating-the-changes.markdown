@@ -138,22 +138,22 @@ An example of using these events would be:
 
 ```
 $scope.$on('$ionicView.afterEnter', function(){
-	// Any functionality you can think of
-	});
-	```
+  // Any functionality you can think of
+});
+```
 
 
 
-	### Parting Words
+### Parting Words
 
-	With these updates, Ionic now has a more complete structure for navigation and view management. Check out the docs for more information.
+With these updates, Ionic now has a more complete structure for navigation and view management. Check out the docs for more information.
 
-	[ionNavView](http://ionicframework.com/docs/api/directive/ionNavView/)
+[ionNavView](http://ionicframework.com/docs/api/directive/ionNavView/)
 
-	[ionNavButtons](http://ionicframework.com/docs/api/directive/ionNavButtons/)
+[ionNavButtons](http://ionicframework.com/docs/api/directive/ionNavButtons/)
 
-	[ionSideMenus](http://ionicframework.com/docs/api/directive/ionSideMenus/)
+[ionSideMenus](http://ionicframework.com/docs/api/directive/ionSideMenus/)
 
-	[ionTabs](http://ionicframework.com/docs/api/directive/ionTabs/)
+[ionTabs](http://ionicframework.com/docs/api/directive/ionTabs/)
 
 	

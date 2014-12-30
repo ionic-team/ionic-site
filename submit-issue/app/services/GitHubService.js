@@ -91,6 +91,25 @@ IssueApp.factory('GitHubService', function($q, $http) {
           results:results
         }
       });
-    }
+    },
+
+    createComment: function(message, accessToken, owner, repo, number){
+      return $http({
+        method: 'POST',
+        url: convertUrl('repos/{{owner}}/{{repo}}/issues/{{number}}/comments', {
+          owner: owner,
+          repo: repo,
+          number: number
+        }),
+        params: {
+          access_token: accessToken
+        },
+        data: {
+          body: message
+        }
+      });
+    },
+
+
   }
 });

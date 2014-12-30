@@ -112,8 +112,13 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
         return GitHubService.updateIssue({
           title: _.template(issueTitleTemplate, $scope.issue),
           body: _.template(template, $scope.issue)
-        }, user.accessToken, 'driftyco', 'ionic', $location.search().iid);
+        }, user.accessToken, 'drewrygh', 'webhook-test', $location.search().iid);
       }).then(function(response) {
+        // Updating the issue will not trigger a webhook event...
+        // Create a temporary comment to trigger an event that Ionitron can receive to
+        // remove the warning comment and label.
+        GitHubService.createComment('Updated via form.', user.accessToken, 'drewrygh',
+                                    'webhook-test', $location.search().iid.toString());
         alert('Issue Updated Succesfully! Going there now.');
         window.location.href = response.data.html_url;
       }, function(err) {

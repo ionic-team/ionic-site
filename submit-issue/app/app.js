@@ -107,18 +107,34 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     });
   $scope.submitIssue = function() {
     $scope.issue.loading = true;
-    return issueTemplatePromise.then(function(template) {
-      return GitHubService.submitIssue({
-        title: _.template(issueTitleTemplate, $scope.issue),
-        body: _.template(template, $scope.issue)
-      }, user.accessToken, 'driftyco', 'ionic');
-    }).then(function(response) {
-      alert('Issue Submitted Succesfully! Going there now.');
-      window.location.href = response.data.html_url;
-    }, function(err) {
-      $scope.issue.loading = false;
-      alert('Issue Submission Error! Try again.');
-    });
+    if (typeof $location.search().iid != 'undefined'){
+      return issueTemplatePromise.then(function(template) {
+        return GitHubService.updateIssue({
+          title: _.template(issueTitleTemplate, $scope.issue),
+          body: _.template(template, $scope.issue)
+        }, user.accessToken, 'driftyco', 'ionic', $location.search().iid);
+      }).then(function(response) {
+        alert('Issue Updated Succesfully! Going there now.');
+        window.location.href = response.data.html_url;
+      }, function(err) {
+        $scope.issue.loading = false;
+        alert('Issue Update Error! Try again.');
+      });
+
+    } else{
+      return issueTemplatePromise.then(function(template) {
+        return GitHubService.submitIssue({
+          title: _.template(issueTitleTemplate, $scope.issue),
+          body: _.template(template, $scope.issue)
+        }, user.accessToken, 'driftyco', 'ionic');
+      }).then(function(response) {
+        alert('Issue Submitted Succesfully! Going there now.');
+        window.location.href = response.data.html_url;
+      }, function(err) {
+        $scope.issue.loading = false;
+        alert('Issue Submission Error! Try again.');
+      });
+    }
   };
 
   $scope.requestSuggestions = function(){

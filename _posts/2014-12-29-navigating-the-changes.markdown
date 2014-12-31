@@ -15,39 +15,39 @@ that can be found in apps across all platforms. We feel these updates will smoot
 
 <!-- more -->
 ###Nav buttons
-In Beta 14, we introduced a new navbar inheritance structure. Any collection of elements in <ion-nav-buttons> or <ion-nav-title> will replace what’s in the header by default or from the main top-level view (likely your index.html file).
+In Beta 14, we introduced a new navbar inheritance structure. Any collection of elements in `<ion-nav-buttons>` or `<ion-nav-title>` will replace what’s in the header by default or from the main top-level view (likely your index.html file).
 
-In many cases, you’ll want your <ion-nav-bar> to be limited to adding the buttons appropriate to a given page to that page’s template.
+In many cases, you’ll want just one `<ion-nav-bar>`, and should be limited to adding the buttons appropriate to a given page to that page’s template.
 
 Your typical structure will be:
 
 ```
 <!-- index.html -->
 <ion-nav-bar>
-<ion-nav-buttons side="secondary">
-<button class="button" ng-click="doSomething()">
-I'm a button on the secondary of the navbar!
-</button>
-</ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="doSomething()">
+      Add
+    </button>
+  </ion-nav-buttons>
 </ion-nav-bar>
 <ion-nav-view>
 </ion-nav-view>
 
-<!-- some page template -->
+<!-- some view template -->
 <ion-view>
-<ion-nav-buttons side="primary">
-<button class="button" ng-click="doSomethingElse()">
-I'm a button on the primary of the navbar for just this page!
-</button>
-</ion-nav-buttons>
-<ion-content>
-Some super content here!
-</ion-content>
+  <ion-nav-buttons side="primary">
+    <button class="button" ng-click="doSomethingElse()">
+      More
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    Some super content here!
+  </ion-content>
 </ion-view>
 ```
 
 ###Navigation base
-Before we released Beta 14, we revisited the way we felt navigation UI should behave. Components like our `ion-tab` and our `ion-side-menus` now have a lot more purpose behind them. Like their native counterparts, these components have now become a base for navigation.
+Before we released Beta 14, we revisited the way we felt navigation UI should behave. Components like our `ion-tab` and our `ion-side-menus` now have a lot more purpose behind them. Like their native counterparts, these components have become a base for navigation.
 
 
 
@@ -57,24 +57,24 @@ Let’s look at our side-menus:
 <ion-side-menus enable-menu-with-back-views="false">
 
 <ion-side-menu-content>
-<ion-nav-bar class="bar-positive">
-<ion-nav-back-button>
-</ion-nav-back-button>
-<ion-nav-buttons side="left">
-<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-</button>
-</ion-nav-buttons>
-</ion-nav-bar>
-<ion-nav-view name="menuContent"></ion-nav-view>
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent"></ion-nav-view>
 </ion-side-menu-content>
 
 <ion-side-menu side="left">
-<ion-content>
-<ul class="list">
-<a href="#/event/check-in" class="item" menu-close>Check-in</a>
-<a href="#/event/attendees" class="item" menu-close>Attendees</a>
-</ul>
-</ion-content>
+  <ion-content>
+    <ul class="list">
+      <a href="#/event/check-in" class="item" menu-close>Check-in</a>
+      <a href="#/event/attendees" class="item" menu-close>Attendees</a>
+    </ul>
+  </ion-content>
 </ion-side-menu>
 
 </ion-side-menus>
@@ -89,11 +89,11 @@ As a result, you may not be able to use side-menus haphazardly in any view. The 
 
 
 ###Menu Toggle Visibility
-In our navigation research, we discovered that existing native SDKs that have a similar side-menu component and navigation stack automatically hide the menu toggle, burger, icon-button icon on child pages; it’s only visible on root level pages. We agree with this UX approach and have made it the default in Ionic. That can be overridden with setting enable-menu-with-back-views=”true” on the <ion-side-menus> element
-(http://ionicframework.com/docs/nightly/api/directive/ionSideMenus/).
+In our navigation research, we discovered that existing native SDKs that have a similar side-menu component and navigation stack automatically hide the menu toggle (hamburger) icon-button icon on child pages; it’s only visible on root level pages. We agree with this UX approach and have made it possible using `enable-menu-with-back-views="false"` on the `<ion-side-menus>` element.
+[ionSideMenus Docs](http://ionicframework.com/docs/nightly/api/directive/ionSideMenus/).
 
 ###View LifeCycle
-In order improve performance, we’re no longer destroying scopes and views. Once a controller is initialized, it may persist throughout the app’s life; it’s just hidden and removed from the watch cycle. Since we aren’t rebuilding scope, we’ve added events for which we should listen when entering the watch cycle again.
+In order improve performance, we've improved Ionic's ability to cache view element's and scope data. Once a controller is initialized, it may persist throughout the app’s life; it’s just hidden and removed from the watch cycle. Since we aren’t rebuilding scope, we’ve added events for which we should listen when entering the watch cycle again.
 
 
 <table class="table">
@@ -156,4 +156,4 @@ With these updates, Ionic now has a more complete structure for navigation and v
 
 [ionTabs](http://ionicframework.com/docs/api/directive/ionTabs/)
 
-	
+

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Navigating the Changes"
-date:   "2014-12-23  2:00:00"
+date:   "2015-01-06  2:00:00"
 categories: angularjs, ionic, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a>'
 published: false

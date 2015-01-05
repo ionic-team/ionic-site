@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-beta.13"
-versionHref: "/docs"
+versionHref: "/docs/1.0.0-beta.13"
 path: "api/service/$ionicSlideBoxDelegate/"
 
 title: "$ionicSlideBoxDelegate"

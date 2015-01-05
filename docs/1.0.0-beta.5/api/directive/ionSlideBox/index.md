@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-beta.5"
-versionHref: "/docs"
+versionHref: "/docs/1.0.0-beta.5"
 path: "api/directive/ionSlideBox/"
 
 title: "ion-slide-box"

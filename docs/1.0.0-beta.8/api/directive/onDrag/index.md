@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-beta.8"
-versionHref: "/docs"
+versionHref: "/docs/1.0.0-beta.8"
 path: "api/directive/onDrag/"
 
 title: "on-drag"

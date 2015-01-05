@@ -67,7 +67,7 @@ out the resource generator today.
 $ npm install -g ionic
 ```
 ### What's Next
-As mentioned in our Beta 14 post, we've been working on adding Crosswalk intergration into our CLI. Josh has been
+As mentioned in our Beta 14 post, we've been working on adding Crosswalk integration for Android into our CLI. Josh has been
 hard at work at this and should be landing in the CLI as a beta feature. Keep a look out for Crossswalk in the CLI soon!
 
 

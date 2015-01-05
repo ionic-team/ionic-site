@@ -58,7 +58,7 @@ generate each of the various screen sizes. The source image's minimum dimensions
 should be centered within the square, because each generated image will be center cropped into landscape and portrait
 images.
 The splash screen's artwork should roughly fit within a center square (1200x1200 px). This
-[**template**](http://code.ionicframework.com/resources/splash.psd) provides the recommended size and guidelines about
+[template](http://code.ionicframework.com/resources/splash.psd) provides the recommended size and guidelines about
 artwork's safe zone.
 
 

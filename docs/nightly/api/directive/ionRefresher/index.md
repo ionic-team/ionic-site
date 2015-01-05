@@ -137,6 +137,26 @@ on the refresher.</p>
     
     <tr>
       <td>
+        on-pull-progress
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Repeatedly called as the user is pulling down
+the refresher. The callback should have a <code>progress</code> argument which will be a number
+from <code>0</code> and <code>1</code>. For example, if the user has pulled the refresher halfway
+down, its progress would be <code>0.5</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         pulling-icon
         
         <div><em>(optional)</em></div>

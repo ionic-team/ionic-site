@@ -33,8 +33,8 @@ extra dependencies.
 $ ionic resources
 ```
 
-After the images are generated, the CLI will update the `config.xml` to [**include the icons and splash
-screens**](http://cordova.apache.org/docs/en/4.0.0/config_ref_images.md.html#Icons%20and%20Splash%20Screens), so they
+After the images are generated, the CLI will update the `config.xml` to [include the icons and splash
+screens](http://cordova.apache.org/docs/en/4.0.0/config_ref_images.md.html#Icons%20and%20Splash%20Screens), so they
 will be transferred over in Cordova's build process. NOTE: This process requires Cordova CLI version 3.6 or higher.
 
 If you only need to update one of the resources, or you only want to generate icons and not both, the `ionic resources`

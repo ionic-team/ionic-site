@@ -109,18 +109,27 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     $scope.issue.loading = true;
     if (typeof $location.search().iid != 'undefined'){
       return issueTemplatePromise.then(function(template) {
+
         return GitHubService.updateIssue({
           title: _.template(issueTitleTemplate, $scope.issue),
           body: _.template(template, $scope.issue)
         }, user.accessToken, 'driftyco', 'ionic', $location.search().iid);
       }).then(function(response) {
-        // Updating the issue will not trigger a webhook event...
-        // Create a temporary comment to trigger an event that Ionitron can receive to
-        // remove the warning comment and label.
-        GitHubService.createComment('Updated via form.', user.accessToken, 'driftyco',
-                                    'ionic', $location.search().iid.toString());
-        alert('Issue Updated Succesfully! Going there now.');
-        window.location.href = response.data.html_url;
+          // Mock an 'issue updated' github event, since github doesn't have one.
+          // This notifies Ionitron that comments/labels can be removed
+          var config = {
+           headers: {
+             'Content-Type': 'application/javascript',
+             'X-Github-Event': 'issue_updated'
+           }
+          };
+          $http.get('http://ionitron-issues.herokuapp.com/api/webhook?callback=JSON_CALLBACK&issueNum='+$location.search().iid.toString(), config)
+          .success(function(data){
+            alert('Issue Updated Succesfully! Going there now.');
+            window.location.href = response.data.html_url;
+          }).error(function(data){
+            alert('Issue Update Error! Try again.');
+          });
       }, function(err) {
         $scope.issue.loading = false;
         alert('Issue Update Error! Try again.');

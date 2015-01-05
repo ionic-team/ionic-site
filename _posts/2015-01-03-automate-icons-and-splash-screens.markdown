@@ -59,19 +59,18 @@ Android, it should follow this path: `resources/android/icon.png`, and a differe
 `resources/ios/icon.png`. This way, you could have the iOS icon get the native rounded corners and an Android icon could
 use a transparent background.
 
-### Parting words
+
 Making a developer's life easier is the driving force behind Ionic and this updates proves it. Update your CLI and try
 out the resource generator today.
 
 ```bash
 $ npm install -g ionic
 ```
+### What's Next
+As mentioned in our Beta 14 post, we've been working on adding Crosswalk intergration into our CLI. Josh has been
+hard at work at this and should be landing in the CLI as a beta feature. Keep a look out for Crossswalk in the CLI soon!
+
 
 - [Ionic-CLI Resource Generator Docs](https://github.com/driftyco/ionic-cli#icon-and-splash-screen-image-generation)
-- [Cordova Icons and Splash Screens
-  Docs](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens)
+- [Cordova Icons and Splash Screens Docs](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens)
 - [Splash screen photoshop template](http://code.ionicframework.com/resources/splash.psd)
-
-
-
-

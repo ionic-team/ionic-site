@@ -31,7 +31,7 @@ nav-bar.
 
 Your typical structure will be:
 
-```
+```html
 <!-- index.html -->
 <ion-nav-bar>
   <ion-nav-buttons side="secondary">
@@ -63,7 +63,7 @@ become a base for navigation.
 
 Let’s look at our side-menus:
 
-```
+```html
 <ion-side-menus enable-menu-with-back-views="false">
 
 <ion-side-menu-content>
@@ -155,7 +155,7 @@ removed from the DOM.</td>
 
 An example of using these events would be:
 
-```
+```javascript
 $scope.$on('$ionicView.afterEnter', function(){
   // Any thing you can think of
 });

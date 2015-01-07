@@ -157,7 +157,7 @@ An example of using these events would be:
 
 ```
 $scope.$on('$ionicView.afterEnter', function(){
-  // Any functionality you can think of
+  // Any thing you can think of
 });
 ```
 

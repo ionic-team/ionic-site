@@ -62,9 +62,9 @@ Related: <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a>, <a hre
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Basic Usage:
 
 ```html
@@ -81,7 +81,7 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
 <ion-list ng-controller="MyCtrl"
           show-delete="shouldShowDelete"
           show-reorder="shouldShowReorder"
-          can-swipe="listCanSwipe">
+          can-swipe="true">
   <ion-item ng-repeat="item in items"
             class="item-thumbnail-left">
 
@@ -106,8 +106,8 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
   </ion-item>
 </ion-list>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -119,102 +119,102 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         delegate-handle
-        
+
         <div><em>(optional)</em></div>
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>The handle used to identify this list with
 <a href="/docs/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         type
-        
+
         <div><em>(optional)</em></div>
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>The type of list to use (list-inset or card)</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         show-delete
-        
+
         <div><em>(optional)</em></div>
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>Whether the delete buttons for the items in the list are
 currently shown or hidden.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         show-reorder
-        
+
         <div><em>(optional)</em></div>
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>Whether the reorder buttons for the items in the list are
 currently shown or hidden.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         can-swipe
-        
+
         <div><em>(optional)</em></div>
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>Whether the items in the list are allowed to be swiped to reveal
 option buttons. Default: true.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

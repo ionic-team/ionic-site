@@ -25,7 +25,7 @@ Framework](http://www.ionicframework.com) projects, too.
 
 Let's start by creating a fresh Apache Cordova Android and iOS project:
 
-``` shell
+```bash
 cordova create TestProject com.nraboy.testproject TestProject
 cd TestProject
 cordova platform add android

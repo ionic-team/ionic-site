@@ -5,7 +5,7 @@ date:   "2015-01-10  2:00:00"
 categories: angularjs, ionic, ngCordova, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/2653730816/5da4d8fb72352c715bbaffe07e56270e_400x400.jpeg"
 class="author-icon"><a href="http://twitter.com/nraboy" target="_blank">Nic Raboy</a>'
-published: false
+published: true
 ---
 
 *This is a guest post by [Nic Raboy](http://blog.nraboy.com/), an application developer with a strong background in

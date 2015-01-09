@@ -52,11 +52,11 @@ This is when I decided to create my own Apache Cordova hook. If you've read my [
 post](https://blog.nraboy.com/2015/01/hooks-apache-cordova-mobile-applications/) regarding hooks, you should have a
 general idea of what we're going to do.
 
-Create **hooks/before_prepare/02_jshint.js**, and make sure to give it execute permissions if you're using Linux or Mac.
+Create `hooks/before_prepare/02_jshint.js`, and make sure to give it execute permissions if you're using Linux or Mac.
 Based on the file title, you can probably guess we're going to use [JSHint](http://jshint.com/docs/) for linting. Open
-**02_jshint.js**, and add the following code:
+`02_jshint.js`, and add the following code:
 
-``` javascript
+```javascript
 #!/usr/bin/env node
 
 var fs = require('fs');
@@ -131,17 +131,17 @@ errors[j].evidence);
 }
 ```
 
-The above script will look at only the **www/js** directory, but feel free to add further directories. All
+The above script will look at only the `www/js` directory, but feel free to add further directories. All
 files in the directory will be looped through, and if they are JavaScript, the file will be fed into JSHint. If any
 files contain errors, they will be presented to the screen, and then the script will stop all further processes. This
 means that if you execute the script with `cordova build [platform]`, the application will not continue to build if errors are found.
 
-**02_jshint.js** requires two NodeJS libraries in order to function. They can be installed like this from the root of
+`02_jshint.js` requires two NodeJS libraries in order to function. They can be installed like this from the root of
 your project:
 
-```
-npm install jshint
-npm install async
+``` bash
+$ npm install jshint
+$ npm install async
 ```
 
 ### Uglifying the code for obfuscation purposes
@@ -150,11 +150,11 @@ One of my other subscribers recommended I check out [Cordova Uglify](https://www
 the obfuscation process. Unlike Cordova Linter, this NPM package actually worked as advertised. From the root of your
 Apache Cordova project, run the following command:
 
-```
-npm install cordova-uglify
+```bash
+$ npm install cordova-uglify
 ```
 
-When the installation completes, you should find that **hooks/after_prepare/uglify.js** was created. If you're on Linux
+When the installation completes, you should find that `hooks/after_prepare/uglify.js` was created. If you're on Linux
 or Mac, you'll need to give it execute permissions; otherwise, it won't be picked up.
 
 You can test that this script worked by running `cordova prepare` or `cordova build [platform]`.
@@ -170,7 +170,7 @@ uglification before you release your application.
 
 Two videos for this article can be seen below:
 
-https://www.youtube.com/watch?v=qQiYE6x7cFk
+<iframe width="100%" height="510" src="//www.youtube.com/embed/qQiYE6x7cFk" frameborder="0" allowfullscreen></iframe>
 
-https://www.youtube.com/watch?v=hoy3MESySWQ
+<iframe width="100%" height="510" src="//www.youtube.com/embed/hoy3MESySWQ" frameborder="0" allowfullscreen></iframe>
 

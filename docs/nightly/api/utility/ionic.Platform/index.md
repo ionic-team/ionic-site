@@ -11,11 +11,11 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L14'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L15'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L14'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L15'>
     Improve this doc
   </a>
 </div>
@@ -35,7 +35,7 @@ docType: "utility"
 
 
 
-A set of utility methods that can be used to retrieve the device ready state and 
+A set of utility methods that can be used to retrieve the device ready state and
 various other information such as what kind of platform the app is currently installed on.
 
 
@@ -62,7 +62,7 @@ angular.module('PlatformApp', ['ionic'])
   var isIOS = ionic.Platform.isIOS();
   var isAndroid = ionic.Platform.isAndroid();
   var isWindowsPhone = ionic.Platform.isWindowsPhone();
- 
+
   var currentPlatform = ionic.Platform.platform();
   var currentPlatformVersion = ionic.Platform.version();
 

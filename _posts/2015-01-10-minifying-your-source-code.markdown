@@ -168,7 +168,7 @@ finding errors caused by typos or missing/extra brackets.
 Your hard work is very easy to decompile by default, so it is a good idea to obfuscate your code by means of
 uglification before you release your application.
 
-Two videos for this article can be seen below.
+Two videos for this article can be seen below:
 
 https://www.youtube.com/watch?v=qQiYE6x7cFk
 

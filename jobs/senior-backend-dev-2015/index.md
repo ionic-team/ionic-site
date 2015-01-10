@@ -2,7 +2,7 @@
 layout: job
 title: Senior Backend Engineer
 date: July 2014
-location: Madison, WI or remote
+location: Madison, WI
 apply_link: <a href="mailto:jobs@drifty.com?subject=Framework Developer">jobs@drifty.com</a>
 ---
 

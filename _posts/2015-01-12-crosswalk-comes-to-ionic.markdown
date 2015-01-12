@@ -69,7 +69,7 @@ Crosswalk to the project.
 #### New Project
 
 ```bash
-npm install ionic@1.3.0
+npm install ionic
 ionic start my_app
 cd my_app
 ionic browser add crosswalk

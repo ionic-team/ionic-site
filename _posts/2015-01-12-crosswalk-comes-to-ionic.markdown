@@ -143,5 +143,4 @@ Thanks for joining us on the journey!
 * Provide a way to release Android builds post 4.4 without Crosswalk.
 * Make using the CLI easier with tab complete.
 
-
-
+[Crosswalk Docs](https://github.com/driftyco/ionic-cli#crosswalk-for-android)

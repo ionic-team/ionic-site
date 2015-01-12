@@ -124,8 +124,7 @@ Thanks for joining us on the journey!
 
 ### 1.3.1 Milestones (1/12/2015 -1/23/2015)
 
-* Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic
-* browser add crosswalk@10.39.235.15`.  
+* Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic browser add crosswalk@10.39.235.15`.  
 * See all the browsers available to install - `ionic browser list` *NOTE: Only stable releases are allowed for now.*
 * Fixed a bug related to `ionic upload`
 * Caching the Crosswalk downloads - once you’ve installed a version in a project, running `ionic browser add crosswalk`

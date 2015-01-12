@@ -13,7 +13,7 @@ published: true
 
 ### Ionic and Crosswalk
 
-With our latest CLI update, we’re excite to introduce the ability to package modern rendering engines within your app
+With our latest CLI update, we’re excited to introduce the ability to package modern rendering engines within your app
 for Cordova, starting with [Crosswalk for Android](https://crosswalk-project.org/). Crosswalk provides Android
 developers a bundled Chrome webview for their projects, resulting in better performance and predictability!
 
@@ -31,7 +31,7 @@ more about Crosswalk.
   * Crosswalk is an open source project that allows you to specify a version of Chrome to use as your web browser in Android.
   * The compiled app will have your code hosted inside of this Chrome webview.
 2. Why should I use Crosswalk?
-  * Older versions of Android devices (4.0-4.3) use Android’s default browser, which has significantly less performance and standards compliant than modern Chrome.
+  * Older versions of Android devices (4.0-4.3) use Android’s default browser, which is significantly less performance and standards compliant than modern Chrome.
   * Using Crosswalk gives you a specific and more performant version of Chrome to use on all Android devices, in order to reduce fluctuations and fragmentation among devices.
 3. How does Crosswalk improve Cordova Android apps?
   * By designating a specific version of Chrome, you can skip the unexpected behavior from browsers that vary from device to device.
@@ -46,8 +46,8 @@ more about Crosswalk.
 7. What should I look for when testing?
   * Improved performance on older Android devices, with the ability to debug using Chrome DevTools.
   * Testing any of the core Cordova plugins, such as Camera, GPS, etc.
-  * Report weird behaviour while building or running the app
-  * Report differences between using Crosswalk and not - for example - your splash screen no longer shows.
+  * Report weird behaviour while building or running the app.
+  * Report differences between using Crosswalk and not; for example, your splash screen no longer shows.
 8. How do I debug with Crosswalk / Chrome?
   * Fire up Chrome DevTools and go to [Chrome Inspect Devices](chrome://inspect/#devices).
 9. What are the architectures for Android devices and why do they exist?
@@ -62,7 +62,7 @@ more about Crosswalk.
 
 ### Getting Started With Crosswalk
 
-First make sure you get the latest Ionic CLI, then you can easily create an app, add the Android platform, then add
+First, make sure you get the latest Ionic CLI, and then you can easily create an app, add the Android platform, and add
 Crosswalk to the project.
 
 #### New Project
@@ -86,8 +86,8 @@ ionic run android
 
 #### Specifying a version of Crosswalk
 
-`ionic browser list` # Find the version of Crosswalk you want  
-`ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15
+`ionic browser list` #Find the version of Crosswalk you want.  
+`ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15.
 
 #### Building for separate architectures
 You can either set an environment variable, or pass one in-line to build separate Android APK’s for x86, ARM, and
@@ -97,13 +97,13 @@ both combined:
 
 #### Volatility
 
-*Please note that when running these steps it will alter your Android project, so you’ll want to use version control to
+*Please note that running these steps it will alter your Android project, so you’ll want to use version control to
 handle changes from Crosswalk.*
 
 These commands should set you up with a custom Android build with Crosswalk. You can run the project as you normally
 would.
 
-To confirm it was in fact installed, open [Chrome DevTools](chrome://inspect/#devices) and confirm it says Chrome 37
+To confirm it was, in fact installed, open [Chrome DevTools](chrome://inspect/#devices) and confirm that it says "Chrome 37"
 or greater.
 
 We'd love to ask you to help out the cause to improve several awesome open source projects, simply by testing and
@@ -117,7 +117,7 @@ Thanks for joining us on the journey!
 
 #### 1.3 Milestones (1/7/2014 - 1/12/2015)
 
-* Crosswalk Browser introduction &amp; installation
+* Crosswalk Browser introduction &amp; installation.
 * Info command for environment-specific info.  
 * Error reporting from CLI - helps us respond to errors faster and be proactive about errors.
 * Individual help commands - now the CLI gives more info about the individual commands `ionic help serve`.
@@ -125,15 +125,14 @@ Thanks for joining us on the journey!
 #### 1.3.1 Milestones (1/12/2015 -1/23/2015)
 
 * Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic browser add crosswalk@10.39.235.15`.  
-* See all the browsers available to install - `ionic browser list` *NOTE: Only stable releases are allowed for now.*
-* Fixed a bug related to `ionic upload`
-* Caching the Crosswalk downloads - once you’ve installed a version in a project, running `ionic browser add crosswalk`
-* will not re-download the webviews.
+* See all the browsers available to install - `ionic browser list`. *NOTE: Only stable releases are allowed for now.*
+* Fixed a bug related to `ionic upload`.
+* Caching the Crosswalk downloads - once you’ve installed a version in a project, running `ionic browser add crosswalk` will not re-download the webviews.
 
 #### 1.3.2 Milestones (1/23/2015 - onward)
 
 * Add a release option that removes unused files and minifies/uglifies to give you smaller builds.
-* Adding the ability to specify Beta/Canary builds of Crosswalk.
+* Add the ability to specify Beta/Canary builds of Crosswalk.
 * Provide a way to release Android builds post 4.4 without Crosswalk.
 * Make using the CLI easier with tab complete.
 

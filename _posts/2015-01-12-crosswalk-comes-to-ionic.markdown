@@ -52,8 +52,7 @@ more about Crosswalk.
   * Fire up Chrome DevTools and go to [Chrome Inspect Devices](chrome://inspect/#devices).
 9. What are the architectures for Android devices and why do they exist?
   * There are two main Architectures for Android - x86 and ARM.
-  * The reason for the two are due to the device providers choosing to use a separate processor. With different
-  * processors, we’ll need to compile them separately.
+  * The reason for the two are due to the device providers choosing to use a separate processor. With different processors, we’ll need to compile them separately.
   * Using Crosswalk, you may specify that you want two separate builds for x86 / Arm to keep your build size down.
   * If you make a single build, you will have to bundle both versions of Crosswalk (x86/Arm) and have a larger build
   * size (~50-60 MB).

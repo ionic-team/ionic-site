@@ -23,6 +23,8 @@ In this guide, we're going to see how to efficiently lint and minify your Apache
 same information can be applied against [Phonegap](http://phonegap.com/) and [Ionic
 Framework](http://www.ionicframework.com) projects, too.
 
+<!-- more -->
+
 Let's start by creating a fresh Apache Cordova Android and iOS project:
 
 ```bash

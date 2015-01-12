@@ -11,7 +11,7 @@ published: true
 <img class="showcase-image" src="/img/blog/crosswalk-header.jpg" style="margin-top:-20px;">
 
 
-## Ionic and Crosswalk
+### Ionic and Crosswalk
 
 With our latest CLI update, we’re excite to introduce the ability to package modern rendering engines within your app
 for Cordova, starting with [Crosswalk for Android](https://crosswalk-project.org/). Crosswalk provides Android
@@ -61,12 +61,12 @@ more about Crosswalk.
   * The Cordova Android team has decided to move away from Ant towards more of a Gradle-based build scenario.
   * In this upgrade, you may see alternative build messages from Gradle, instead of your normal Ant messages.
 
-## Getting Started With Crosswalk
+### Getting Started With Crosswalk
 
 First make sure you get the latest Ionic CLI, then you can easily create an app, add the Android platform, then add
 Crosswalk to the project.
 
-### New Project
+#### New Project
 
 ```bash
 npm install ionic@1.3.0
@@ -76,7 +76,7 @@ ionic browser add crosswalk
 ionic run android
 ```
 
-### Previous Ionic Project
+#### Previous Ionic Project
 
 ```bash
 npm install ionic@1.3.0
@@ -85,17 +85,18 @@ ionic browser add crosswalk
 ionic run android
 ```
 
-### Specifying a version of Crosswalk
+#### Specifying a version of Crosswalk
+
 `ionic browser list` # Find the version of Crosswalk you want  
 `ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15
 
-### Building for separate architectures
+#### Building for separate architectures
 You can either set an environment variable, or pass one in-line to build separate Android APK’s for x86, ARM, and
 both combined:
 
 `BUILD_MULTIPLE_ARCHS=true ionic run android`
 
-### Volatility
+#### Volatility
 
 *Please note that when running these steps it will alter your Android project, so you’ll want to use version control to
 handle changes from Crosswalk.*
@@ -109,20 +110,20 @@ or greater.
 We'd love to ask you to help out the cause to improve several awesome open source projects, simply by testing and
 giving feedback. This is your chance to help several open source projects at once: Cordova, Crosswalk, and Ionic!
 
-## CLI Roadmap (tentative)
+### CLI Roadmap (tentative)
 
 It’s really important to us that we keep our users informed about what we're working on.
 Here’s a roadmap that covers where we’ve been and where we’re going.
 Thanks for joining us on the journey!
 
-### 1.3 Milestones (1/7/2014 - 1/12/2015)
+#### 1.3 Milestones (1/7/2014 - 1/12/2015)
 
 * Crosswalk Browser introduction &amp; installation
 * Info command for environment-specific info.  
 * Error reporting from CLI - helps us respond to errors faster and be proactive about errors.
 * Individual help commands - now the CLI gives more info about the individual commands `ionic help serve`.
 
-### 1.3.1 Milestones (1/12/2015 -1/23/2015)
+#### 1.3.1 Milestones (1/12/2015 -1/23/2015)
 
 * Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic browser add crosswalk@10.39.235.15`.  
 * See all the browsers available to install - `ionic browser list` *NOTE: Only stable releases are allowed for now.*
@@ -130,7 +131,7 @@ Thanks for joining us on the journey!
 * Caching the Crosswalk downloads - once you’ve installed a version in a project, running `ionic browser add crosswalk`
 * will not re-download the webviews.
 
-### 1.3.2 Milestones (1/23/2015 - onward)
+#### 1.3.2 Milestones (1/23/2015 - onward)
 
 * Add a release option that removes unused files and minifies/uglifies to give you smaller builds.
 * Adding the ability to specify Beta/Canary builds of Crosswalk.

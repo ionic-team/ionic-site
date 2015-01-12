@@ -28,26 +28,21 @@ Since there are a lot of moving parts, we’ve put together this FAQ to help you
 more about Crosswalk.
 
 1. What is Crosswalk?
-  * Crosswalk is an open source project that allows you to specify a version of Chrome to use as your web browser in
-  * Android. The compiled app will have your code hosted inside of this Chrome webview.
+  * Crosswalk is an open source project that allows you to specify a version of Chrome to use as your web browser in Android.
+  * The compiled app will have your code hosted inside of this Chrome webview.
 2. Why should I use Crosswalk?
-  * Older versions of Android devices (4.0-4.3) use Android’s default browser, which has significantly less performance
-  * and standards compliant than modern Chrome. 
-  * Using Crosswalk gives you a specific and more performant version of Chrome to use on all Android devices, in order
-  * to reduce fluctuations and fragmentation among devices.
+  * Older versions of Android devices (4.0-4.3) use Android’s default browser, which has significantly less performance and standards compliant than modern Chrome.
+  * Using Crosswalk gives you a specific and more performant version of Chrome to use on all Android devices, in order to reduce fluctuations and fragmentation among devices.
 3. How does Crosswalk improve Cordova Android apps?
-  * By designating a specific version of Chrome, you can skip the unexpected behavior from browsers that vary from
-  * device to device.
+  * By designating a specific version of Chrome, you can skip the unexpected behavior from browsers that vary from device to device.
   * Improved performance and ease of debugging.
 4. What can I expect, performance and size-wise?
-  * In older Android Devices (4.0-4.3), you’ll see about a 10x improvement of both HTML/CSS rendering and JavaScript
-  * performance and CSS correctness.
+  * In older Android Devices (4.0-4.3), you’ll see about a 10x improvement of both HTML/CSS rendering and JavaScript performance and CSS correctness.
   * To bundle Chrome, you will see a small (~10-15MB) size increase in your Android Apps.
 5. How do I try it out?
   * `npm install -g ionic@1.3.0`
 6. How do I report errors?
-  * If you encounter any errors, please type `ionic info` and paste that information to our [Ionic CLI issues on
-  * github](https://github.com/driftyco/ionic-cli/issues)
+  * If you encounter any errors, please type `ionic info` and paste that information to our [Ionic CLI issues on github](https://github.com/driftyco/ionic-cli/issues)
 7. What should I look for when testing?
   * Improved performance on older Android devices, with the ability to debug using Chrome DevTools.
   * Testing any of the core Cordova plugins, such as Camera, GPS, etc.
@@ -78,7 +73,7 @@ npm install ionic@1.3.0
 ionic start my_app
 cd my_app
 ionic browser add crosswalk
-ionic run android`
+ionic run android
 ```
 
 ### Previous Ionic Project
@@ -91,14 +86,14 @@ ionic run android
 ```
 
 ### Specifying a version of Crosswalk
-`ionic browser list` # Find the version of Crosswalk you want
+`ionic browser list` # Find the version of Crosswalk you want  
 `ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15
 
 ### Building for separate architectures
 You can either set an environment variable, or pass one in-line to build separate Android APK’s for x86, ARM, and
 both combined:
 
-`BUILD_MULTIPLE_ARCHS=true ionic run android` 
+`BUILD_MULTIPLE_ARCHS=true ionic run android`
 
 ### Volatility
 
@@ -116,8 +111,8 @@ giving feedback. This is your chance to help several open source projects at onc
 
 ## CLI Roadmap (tentative)
 
-It’s really important to us that we keep our users informed about what we're working on. 
-Here’s a roadmap that covers where we’ve been and where we’re going. 
+It’s really important to us that we keep our users informed about what we're working on.
+Here’s a roadmap that covers where we’ve been and where we’re going.
 Thanks for joining us on the journey!
 
 ### 1.3 Milestones (1/7/2014 - 1/12/2015)

@@ -1,7 +1,9 @@
 language: node_js
 node_js:
 - '0.10'
-before_install: 
+before_install:
+  - git config --global user.name 'Ionitron'
+  - git config --global user.email hi@ionicframework.com
   - gem install jekyll
   - npm install -g gulp
 script: "./deploy.sh"

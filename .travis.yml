@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - '0.10'
 
-before_deploy:
-  - git fetch --unshallow
+git:
+  - depth: 9999999
 
 before_install:
   - git config --global user.name 'Ionitron'

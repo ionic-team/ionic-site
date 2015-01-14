@@ -4,7 +4,7 @@ title:  "The Ionic View App is (A)Live!"
 date:   "2015-01-14 "14:00:00"
 categories: ionic
 author: '<img src="https://pbs.twimg.com/profile_images/378800000290028838/ee3303b02223f25cb0f9b082b55b2eeb.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus" target="_blank">Tim Lancina</a>'
-published: true
+published: false
 ---
 
 <img class="showcase-image" src="/img/blog/crosswalk-header.jpg" style="margin-top:-20px;">

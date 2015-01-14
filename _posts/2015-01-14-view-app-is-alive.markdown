@@ -47,7 +47,7 @@ Best of all, View is an Ionic app! We hope it sets a good example of the native-
 
 ### Looking Forward
 
-We’ll continue to add support for new plugins as we review and test them. We’ll also be fixing some known “quirks” (you mean you didn’t want your app links to expire after five minutes of having the app open?) in the next few weeks, and we’re looking forward to adding features like auto updating and the ability to sync with a livereload server in the near future as well. 
+We’ll continue to add support for new plugins as we review and test them. We’ll also be fixing some known "quirks" (you mean you didn’t want your app links to expire after five minutes of having the app open?) in the next few weeks, and we’re looking forward to adding features like auto updating and the ability to sync with a livereload server in the near future as well. 
 
 Since View is an Ionic app, you may be wondering (or yelling), "Where's the Android version?". Have no fear, the Android version is on its way! We have been using Ionic View as a test for some of [ionic.io's](https://ionic.io) services that require custom plugins, and we started with iOS first. Instead of waiting for both versions, we decided to get View out to you as quickly as possible, so you can start using and enjoying it :)
 

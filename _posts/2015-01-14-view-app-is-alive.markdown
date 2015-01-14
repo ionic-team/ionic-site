@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "The Ionic View App is (A)Live!"
-date:   "2015-01-14 "14:00:00"
+title:  "The Ionic View App is Alive!"
+date:   "2015-01-14 14:00:00"
 categories: ionic
-author: '<img src="https://pbs.twimg.com/profile_images/378800000290028838/ee3303b02223f25cb0f9b082b55b2eeb.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus" target="_blank">Tim Lancina</a>'
-published: false
+author: '<img src="https://pbs.twimg.com/profile_images/477446871636393985/jPeOlsdz_400x400.jpeg" class="author-icon"><a href="http://twitter.com/dopernicus">Tim Lancina</a>'
+published: true
 ---
 
-<img class="showcase-image" src="/img/blog/crosswalk-header.jpg" style="margin-top:-20px;">
+<img class="showcase-image" src="/img/blog/ionic-view-app-header.gif" style="margin-top:-20px;">
 
 Today, we’re excited to announce that Ionic View for iOS is now in public beta! 
 
@@ -24,13 +24,9 @@ Ionic View functions like your own mobile app portfolio. It allows you to easily
 Ionic View integrates with the [Ionic command line](https://github.com/driftyco/ionic-cli) to populate your app portfolio.  Once you’ve made sure to update your ionic-cli version to at least 1.3.2, starting and uploading an app is as easy as:
 
 ```bash 
-    ionic start myAppi
-```
-```bash
-    cd myApp
-```
-```bash 
-    ionic upload
+$ ionic start myAppi
+$ cd myApp
+$ ionic upload
 ```
 
 You’ll be prompted to login with your Ionic account, and upon doing so, your app will be visible in Ionic View.
@@ -49,7 +45,7 @@ As an Ionic app, you may be wondering (or yelling) "where's Android?".  Have no 
 
 <strong>[Click here to download Ionic View](https://itunes.apple.com/us/app/ionic-view/id849930087) from Apple's App Store!</strong>
 
-Have a plugin in your app that’s not supported yet? Having issues with the app? Feature request? Let us know on the [forum](http://forum.ionicframework.com/); hit Tim up on [Twitter](https://www.twitter.com/dopernicus); or open an issue on [Github](https://github.com/driftyco/ionic-view-issues/)!
+Have a plugin in your app that’s not supported yet? Having issues with the app? Feature request? Let us know on the [forum](http://forum.ionicframework.com/), hit Tim up on [Twitter](https://www.twitter.com/dopernicus), or open an issue on [Github](https://github.com/driftyco/ionic-view-issues/)!
 
 
 

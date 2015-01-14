@@ -164,6 +164,23 @@ reach to trigger the on-infinite expression. Default: 1%.</p>
       </td>
     </tr>
     
+    <tr>
+      <td>
+        immediate-check
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to check the infinite scroll bounds immediately on load.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 

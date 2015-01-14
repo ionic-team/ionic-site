@@ -9,7 +9,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/ionic-view-app-header.gif" style="margin-top:-20px;">
 
-Today, we’re excited to announce that [Ionic View for iOS](https://itunes.apple.com/us/app/ionic-view/id849930087) is now in public beta! 
+Today, we’re excited to announce that [Ionic View for iOS](https://itunes.apple.com/us/app/ionic-view/id849930087?mt=8) is now in public beta! 
 
 The alpha version has been live in the App Store for a while now, and after much updating and testing, we are confident it is ready to become a useful part of your Ionic development toolchain. We want to get View out to people as soon as possible, so it may feel somewhat spare at first, but there are still many exciting features in the pipeline! 
 
@@ -51,7 +51,7 @@ We’ll continue to add support for new plugins as we review and test them. We�
 
 Being that it's an Ionic app, you may be wondering (or yelling) "where's Android?". Have no fear, the Android version is on it's way! We have been using Ionic View as a test for some of [ionic.io's](https://ionic.io) services that require custom plugins and started with iOS first. So instead of waiting for both versions, we decided to get View out to you as quickly as possible so people can start using and enjoying it :)
 
-<strong>[Click here to download Ionic View](https://itunes.apple.com/us/app/ionic-view/id849930087) from Apple's App Store!</strong>
+<strong>[Click here to download Ionic View](https://itunes.apple.com/us/app/ionic-view/id849930087?mt=8) from Apple's App Store!</strong>
 
 Have a plugin in your app that’s not supported yet? Having issues with the app? Feature request? Let us know on the [forum](http://forum.ionicframework.com/), hit Tim up on [Twitter](https://www.twitter.com/dopernicus), or open an issue on [Github](https://github.com/driftyco/ionic-view-issues/)!
 

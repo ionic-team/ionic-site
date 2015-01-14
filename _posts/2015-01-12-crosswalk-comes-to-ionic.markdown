@@ -40,7 +40,7 @@ ionic run android
 #### Previous Ionic Project
 
 ```bash
-npm install ionic@1.3.0
+npm install ionic
 cd existing_app
 ionic browser add crosswalk
 ionic run android
@@ -48,14 +48,14 @@ ionic run android
 
 #### Specifying a version of Crosswalk
 
-`ionic browser list` #Find the version of Crosswalk you want.  
+`ionic browser list` #Find the version of Crosswalk you want.
 `ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15.
 
 #### Building for separate architectures
 You can either set an environment variable or pass one in-line to build separate Android APK’s for x86, ARM, and
 both combined:
 
-`BUILD_MULTIPLE_ARCHS=true ionic run android`
+`BUILD_MULTIPLE_APKS=true ionic run android`
 
 #### Volatility
 
@@ -87,7 +87,7 @@ We’ve put together this Q & A to answer questions you might have about Crosswa
   * In older Android Devices (4.0-4.3), you’ll see about a 10x improvement of both HTML/CSS rendering and JavaScript performance and CSS correctness.
   * To bundle Chrome, you will see a small (~10-15MB) size increase in your Android Apps.
 5. How do I try it out?
-  * `npm install -g ionic@1.3.0`
+  * `npm install -g ionic`
 6. How do I report errors?
   * If you encounter any errors, please type `ionic info` and paste that information to our [Ionic CLI issues on github](https://github.com/driftyco/ionic-cli/issues)
 7. What should I look for when testing?
@@ -114,18 +114,22 @@ It’s really important to us that we keep our users informed about what we're w
 #### 1.3 Milestones (1/7/2014 - 1/12/2015)
 
 * Crosswalk Browser introduction &amp; installation.
-* Info command for environment-specific info.  
+* Info command for environment-specific info.
 * Error reporting from CLI - helps us respond to errors faster and be proactive about errors.
 * Individual help commands - now the CLI gives more info about the individual commands `ionic help serve`.
 
-#### 1.3.1 Milestones (1/12/2015 -1/23/2015)
+#### 1.3.1 Milestones (1/12/2015 -1/14/2015)
 
-* Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic browser add crosswalk@10.39.235.15`.  
+* Specify a [version of Crosswalk](https://download.01.org/crosswalk/releases/crosswalk/android/stable/) to use - `ionic browser add crosswalk@10.39.235.15`.
 * See all the browsers available to install - `ionic browser list`. *NOTE: Only stable releases are allowed for now.*
 * Fixed a bug related to `ionic upload`.
 * Caching the Crosswalk downloads - once you’ve installed a version in a project, running `ionic browser add crosswalk` will not re-download the webviews.
 
-#### 1.3.2 Milestones (1/23/2015 - onward)
+#### 1.3.2 Milestones (1/14/2015 - 1/23/2015)
+
+* Quick fix for the `ionic upload` command - fixed an issue with the cookies from the request.
+
+#### 1.3.3 Milestones (1/23/2015 - onward)
 
 * Add a release option that removes unused files and minifies/uglifies to give you smaller builds.
 * Add the ability to specify Beta/Canary builds of Crosswalk.

@@ -17,8 +17,8 @@ The alpha version has been live in the App Store for a while now, and after much
 
 ### What is Ionic View? How Does it Fit into My Workflow?
 
-<div style="float: right; margin-right: -160px; margin-bottom: 80px; width: 50%;">
-  <a href="http://ionicframework.com/img/blog/songhop-preview-right.jpg"><img src="/img/blog/ionic-view-preview-right.png"></a>
+<div style="float: left; margin-left: -120px; margin-right: 40px; margin-bottom: 70px; width: 32%;">
+  <a href="http://ionicframework.com/img/blog/songhop-preview-left.jpg"><img src="/img/blog/ionic-view-preview-left.png"></a>
 </div>
 
 Ionic View functions like your own mobile app portfolio. It allows you to easily view, share, and test the Ionic apps you are developing across devices - your own, a client’s, or the person in the cubicle next to you (and by cubicle, we mean the pool chair at your beachside resort).
@@ -37,8 +37,8 @@ You’ll be prompted to login with your Ionic account, and upon doing so, your a
 
 ### How it Works
 
-<div style="float: left; margin-left: -120px; margin-right: 40px; margin-bottom: 70px; width: 32%;">
-  <a href="http://ionicframework.com/img/blog/songhop-preview-left.jpg"><img src="/img/blog/ionic-view-preview-left.png"></a>
+<div style="float: right; margin-right: -160px; margin-bottom: 80px; width: 50%;">
+  <a href="http://ionicframework.com/img/blog/songhop-preview-right.jpg"><img src="/img/blog/ionic-view-preview-right.png"></a>
 </div>
 
 View uses the Cordova [inAppBrowser plugin](https://github.com/apache/cordova-plugin-inappbrowser) to launch your apps in their own separate WebView, so you can preview and test them. Normally, inAppBrowser only displays web content, but we might have hacked it a little to give apps access to the Cordova API and plugins. Ionic apps are hybrid apps for a reason, and a preview is not the same without plugin support! At the moment, plugin access is restricted to a specific subset of plugins, including GeoLocation, Keyboard, StatusBar, and BarcodeScanner, and we will be testing and adding many more in the coming weeks and months.  

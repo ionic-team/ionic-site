@@ -9,7 +9,7 @@ published: true
 
 <img class="showcase-image" src="/img/blog/ionic-view-app-header.gif" style="margin-top:-20px;">
 
-Today, we’re excited to announce that Ionic View for iOS is now in public beta! 
+Today, we’re excited to announce that [Ionic View for iOS](https://itunes.apple.com/us/app/ionic-view/id849930087) is now in public beta! 
 
 The alpha version has been live in the App Store for a while now, and after much updating and testing, we are confident it is ready to become a useful part of your Ionic development toolchain. We want to get View out to people as soon as possible, so it may feel somewhat spare at first, but there are still many exciting features in the pipeline! 
 
@@ -28,7 +28,7 @@ Ionic View functions like your own mobile app portfolio. It allows you to easily
 Ionic View integrates with the [Ionic command line](https://github.com/driftyco/ionic-cli) to populate your app portfolio.  Once you’ve made sure to update your ionic-cli version to at least 1.3.2, starting and uploading an app is as easy as:
 
 ```bash 
-$ ionic start myAppi
+$ ionic start myApp
 $ cd myApp
 $ ionic upload
 ```

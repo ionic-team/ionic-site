@@ -167,7 +167,7 @@ down, its progress would be <code>0.5</code>.</p>
       </td>
       <td>
         <p>The icon to display while the user is pulling down.
-Default: &#39;ion-arrow-down-c&#39;.</p>
+Default: &#39;ion-android-arrow-down&#39;.</p>
 
         
       </td>

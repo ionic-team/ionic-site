@@ -181,3 +181,56 @@
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+.share-bottom {
+  border: 2px solid #ecf0f6;
+  border-width: 0px 0 2px 0;
+
+  line-height: 10px;
+
+  text-align: center;
+
+  padding: 25px 0;
+
+  iframe {
+    display: inline-block;
+  }
+
+  .fb-like {
+    margin-right: 20px;
+  }
+
+}
+
+.join-bottom {
+  background-color: #f7f8fa;
+  border-bottom: 2px solid #ecf0f6;
+  padding: 20px 35px;
+  text-align: center;
+
+  .form {
+    line-height: 34px;
+    margin-bottom: 15px;
+  }
+
+  input {
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 39px;
+    box-shadow: none;
+    border: 2px solid #E1E1E1;
+    border-radius: 4px 0 0 4px;
+    line-height: 23px;
+    font-size: 14px;
+
+    border-right: none;
+
+    @include placeholder(#4e586b);
+  }
+
+  button {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}

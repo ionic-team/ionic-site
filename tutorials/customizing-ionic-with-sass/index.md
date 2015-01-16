@@ -67,11 +67,25 @@ We recommend that your app have its own Sass file within the `scss/` directory, 
 
 Browsers still need to reference plain old CSS files, since they do not understand Sass files. Because of this, the Sass files will need to be processed into a CSS file. Sass is able to take many files and combine them into one CSS file, which is yet another reason why Sass is a powerful development tool.
 
-To automatically output a CSS file that the browser will understand, you'll want to "watch" your app's Sass files for any changes. Every time changes are saved to a Sass file, the CSS file will automatically rebuild. In your terminal, enter:
+To automatically output a CSS file that the browser will understand, you'll want to "watch" your app's Sass files for any changes. Every time changes are saved to a Sass file, the CSS file will automatically rebuild.
 
-    sass --watch scss/ionic.app.scss:www/css/app.css
+From your project root folder:
 
-The above command instructs Sass to constantly watch `ionic.app.scss` in the `scss/` directory. Once a Sass file changes, it will rebuild the CSS file and resave the `www/css/ionic.css` file. For more information regarding watching Sass files, please see [their documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html). Once you have successfully run this command, you are ready to start customizing.
+* Make sure gulp is installed, `sudo install -g gulp`
+* Make sure your version of the ionic CLI is at least 1.1.9 (if not, `sudo npm update -g ionic`
+* Configure your project to watch your sass using gulp, `ionic setup sass`. Note, if this task fails try deleting your `node_modules` folder and running, `npm install`. 
+* Start your server, `ionic serve`. Your sass will now also be watched.
+
+**Compiling sass when testing on a device:**
+
+If you make a change to your scss and `ionic serve` was not running and then you run on a device, `ionic run ios` then your CSS changes will not show up. To compile your sass do, `gulp sass` (this is a one-time command, doesn't watch continuously) or for a one-liner, `gulp sass && ionic build ios`
+
+Once a Sass file changes, it will rebuild the CSS file and resave the `www/css/ionic.app.css` file. For more information regarding watching Sass files, please see [their documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html). Once you have successfully got this set up, you are ready to start customizing.
+
+Other related docs about sass watching with Ionic:
+
+* [Watching Sass files from `ionic serve`, new in cli v1.1.9](http://forum.ionicframework.com/t/watching-sass-files-from-ionic-serve-new-in-cli-v1-1-9/8139)
+* [Sass Customization screencast](http://learn.ionicframework.com/videos/sass/)
 
 ## Sass Variables
 

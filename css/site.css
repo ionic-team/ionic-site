@@ -5340,6 +5340,10 @@ pre {
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none; }
+    .picker select option {
+      background-color:#9cbbed;
+    }
+    
   .picker:hover {
     background: rgba(255, 255, 255, 0.4); }
   .picker:after {

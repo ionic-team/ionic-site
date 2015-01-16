@@ -14,6 +14,18 @@ Use `ionic serve` to start a local development server for app dev and testing. T
 $ ionic serve [options]
 ```
 
+### Ionic Lab
+
+![Ionic Lab](http://ionicframework.com/img/blog/lab.png)
+
+Ionic Lab is a feature on top of `ionic serve` that makes it easy to test your app in a phone frame and with iOS and Android platforms side-by-side. To use it, just run
+
+```bash
+$ ionic serve --lab
+```
+
+Read the [full release announcement](http://ionicframework.com/blog/ionic-lab/) for all the details!
+
 ### Service Proxies
 
 The `serve` command can add some proxies to the http server. These proxies are useful if you are developing in the browser and you need to make calls to an external API. With this feature you can proxy request to the external api through the ionic http server preventing the `No 'Access-Control-Allow-Origin' header is present on the requested resource` error.

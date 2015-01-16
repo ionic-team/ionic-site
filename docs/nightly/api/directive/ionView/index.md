@@ -50,7 +50,7 @@ should use to animate, and which direction to animate.
 left in the DOM, and its scope is disconnected from the `$watch` cycle. When navigating to a
 view that is already cached, its scope is reconnected, and the existing element, which was
 left in the DOM, becomes active again. This can be disabled, or the maximum number of cached
-views changed in <a href="/docs/nightly/ionic.directive:ionicConfig">TODO:ionic.directive:ionicConfig</a>, in the view's `$state` configuration, or
+views changed in <a href="/docs/nightly/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>, in the view's `$state` configuration, or
 as an attribute on the view itself (see below).
 
 

@@ -128,7 +128,10 @@ recreated, controllers are not loading again on a subsequent viewing. If the app
 needs to know when a view has entered or has left, then view events emitted from the
 <a href="/docs/nightly/api/directive/ionView/"><code>ionView</code></a> scope, such as `$ionicView.enter`, may be useful.
 
-By default, when navigating back in the history, the "forward" views are removed from the cache. If you navigate forward to the same view again, it'll create a new DOM element and controller instance. Basically, any forward views are reset each time. This can be configured using the <a href="/docs/nightly/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>:
+By default, when navigating back in the history, the "forward" views are removed from the cache.
+If you navigate forward to the same view again, it'll create a new DOM element and controller
+instance. Basically, any forward views are reset each time. This can be configured using the
+<a href="/docs/nightly/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>:
 
 ```js
 $ionicConfigProvider.views.forwardCache(true);

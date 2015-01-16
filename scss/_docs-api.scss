@@ -26,6 +26,10 @@
     -moz-appearance: none;
   }
 
+  select option {
+    background-color: #9cbbed;
+  }
+
   &:hover {
     background: rgba(255, 255, 255, .4);
   }

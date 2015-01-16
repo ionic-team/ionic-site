@@ -175,7 +175,7 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
     
     <tr>
       <td>
-        pulling-text
+        loader
         
         <div><em>(optional)</em></div>
       </td>
@@ -184,7 +184,9 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
   <code>string</code>
       </td>
       <td>
-        <p>The text to display while the user is pulling down.</p>
+        <p>The <a href="/docs/nightly/api/directive/ionLoader/"><code>ionLoader</code></a> icon to display
+after user lets go of the refresher. The SVG ionLoader is now the default, replacing
+rotating font icons.</p>
 
         
       </td>
@@ -201,26 +203,8 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
   <code>string</code>
       </td>
       <td>
-        <p>The icon to display after user lets go of the
-refresher.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        refreshing-text
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The text to display after the user lets go of
-the refresher.</p>
+        <p>The font icon to display after user lets go of the
+refresher. This is depreicated in favor of the SVG <a href="/docs/nightly/api/directive/ionLoader/"><code>ionLoader</code></a>.</p>
 
         
       </td>

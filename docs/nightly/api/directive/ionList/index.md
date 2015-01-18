@@ -106,6 +106,14 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
   </ion-item>
 </ion-list>
 ```
+
+```javascript
+app.controller('MyCtrl', function($scope, $ionicLoading) {
+ $scope.shouldShowDelete = false;
+ $scope.shouldShowReorder = false;
+ $scope.listCanSwipe = true
+});
+```
   
   
 <h2 id="api" style="clear:both;">API</h2>

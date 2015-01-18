@@ -15,6 +15,10 @@ By default, starter projects are hooked up to Ionic's precompiled CSS file, whic
 $ ionic setup sass
 ```
 
+You can start to write your sass in your `./scss/ionic.app.scss` file.
+If you need any more help working with sass, we have an [article on our learn site](http://learn.ionicframework.com/formulas/working-with-sass/) that covers the basics.
+
+
 #### Setup Sass Manually
 
 1. Run `npm install` from the working directory of an Ionic project. This will install [gulp.js](http://gulpjs.com/) and a few handy tasks, such as [gulp-sass](https://www.npmjs.org/package/gulp-sass) and [gulp-minify-css](https://www.npmjs.org/package/gulp-minify-css).

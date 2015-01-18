@@ -26,6 +26,14 @@ $ ionic serve --lab
 
 Read the [full release announcement](http://ionicframework.com/blog/ionic-lab/) for all the details!
 
+### Specifying an IP Address to use
+
+Say you want to specify what address your browser will connect to, say for testing or external users. Specify the address with the `--address` argument.
+
+```bash
+$ ionic serve --address 68.54.96.105
+```
+
 ### Service Proxies
 
 The `serve` command can add some proxies to the http server. These proxies are useful if you are developing in the browser and you need to make calls to an external API. With this feature you can proxy request to the external api through the ionic http server preventing the `No 'Access-Control-Allow-Origin' header is present on the requested resource` error.

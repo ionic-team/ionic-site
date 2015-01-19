@@ -7,7 +7,7 @@ header_sub_title: Know what you're working with
 
 # Gathering information about your runtime
 
-Once in a terminal, type `ionic info`
+If you ever need to find out your system environment runtime information in a quick way, we provide the `ionic info` command. If you ever need to report an error, please specify this information.
 
 If you are on a Mac, this should provide you information like the following:
 

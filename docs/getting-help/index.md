@@ -11,7 +11,9 @@ Since everyone is running a different environment on their machines, most likely
 
 We are dedicated to making Ionic Framework the best we can. There are many places to go to get help with your errors. Listed below are some places we actively monitor, as well as where your question may be best posted.
 
-The main channels we listen into are [our twitter](http://twitter.com/ionicframework), [the ionic forums](http://forum.ionicframework.com/), and our [github repositories](http://github.com/drifty).
+The main channels we listen into are [our twitter](http://twitter.com/ionicframework), [the ionic forums](http://forum.ionicframework.com/), and our [github repositories](http://github.com/driftyco).
+
+We humbly ask that if you post to the forums or any github repository issues that you also specify [your user environment](/docs/cli/info) by running `ionic info` in your command line to provide us with your system runtime information.
 
 However, depending on your issue, it may be easier to get a few heads up on where to go when something goes wrong.
 
@@ -19,21 +21,21 @@ However, depending on your issue, it may be easier to get a few heads up on wher
 
 [The Ionic Forums](http://forum.ionicframework.com/) is where most of the Ionic community comes together to share and help one another. We are very active in monitoring our forums to help users with their issues. Generally, most users here help respond to issues other users are having as well.
 
-You can find help here with generally anything ionic related.
+You can find help here with anything ionic related.
 
 ## Repositories on Github
 
 ### Framework issues
 
-The [Ionic](http://github.com/drifty/ionic) repository pertains to everything about how Ionic works on the users phone. Anything from 'the animations didnt work', to 'Ionic startup doesnt run', or other bug relating to the framework itself.  
+The [Ionic](http://github.com/driftyco/ionic) repository pertains to everything about how Ionic works on the users phone. Anything from 'the animations didnt work', to 'Ionic startup doesnt run', or other bug relating to the framework itself.  
 
-[Report a Framework issue](http://github.com/drifty/ionic)  
+[Report a Framework issue](http://github.com/driftyco/ionic)  
   
 ### CLI issues
 
-The [Ionic CLI](http://github.com/drifty/ionic-cli) repository pertains to every about how Ionic works on the command line. Issues here are for when the CLI doesnt work right. Issues might be of the form 'ionic start didnt work right', or 'ionic serve doesnt serve addresses', and even 'the browser command is broken'.  
+The [Ionic CLI](http://github.com/driftyco/ionic-cli) repository pertains to every about how Ionic works on the command line. Issues here are for when the CLI doesnt work right. Issues might be of the form 'ionic start didnt work right', or 'ionic serve doesnt serve addresses', and even 'the browser command is broken'.  
 
-[Report a CLI issue](http://github.com/drifty/ionic-cli/issues)  
+[Report a CLI issue](http://github.com/driftyco/ionic-cli/issues)  
 
 ### ngCordova Issues
 

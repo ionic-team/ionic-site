@@ -27,22 +27,22 @@ Here’s a line-up of the current international Ionic groups (both countries and
 
 Ionic Argentina<br>
 Ionic Belgium<br>
-Ionic Brazil
-Ionic Canada
-Ionic Colombia
-Ionic Germany
-Ionic Ireland
-Ionic Italy
-Ionic Kenya
-Ionic Netherlands
-Ionic Paris
-Ionic Phillippines
-Ionic Puerto Rico
-Ionic Spain
-Ionic Switzerland
-Ionic Toronto
-Ionic Turkey
-Ionic UK
+Ionic Brazil<br>
+Ionic Canada<br>
+Ionic Colombia<br>
+Ionic Germany<br>
+Ionic Ireland<br>
+Ionic Italy<br>
+Ionic Kenya<br>
+Ionic Netherlands<br>
+Ionic Paris<br>
+Ionic Phillippines<br>
+Ionic Puerto Rico<br>
+Ionic Spain<br>
+Ionic Switzerland<br>
+Ionic Toronto<br>
+Ionic Turkey<br>
+Ionic UK<br>
 
 
 

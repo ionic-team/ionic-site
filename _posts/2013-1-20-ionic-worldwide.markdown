@@ -25,8 +25,8 @@ We're always happy to answer any questions from our Meetup groups, and we enjoy 
 
 Here’s a line-up of the current international Ionic groups (both countries and cities). [Email me](mailto:katie@drifty.com) if you’re interested in organizing a group.
 
-* Ionic Argentina
-* Ionic Belgium
+Ionic Argentina
+Ionic Belgium
 Ionic Brazil
 Ionic Canada
 Ionic Colombia

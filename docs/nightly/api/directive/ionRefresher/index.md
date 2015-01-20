@@ -175,7 +175,7 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
     
     <tr>
       <td>
-        loader
+        spinner
         
         <div><em>(optional)</em></div>
       </td>
@@ -184,9 +184,9 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
   <code>string</code>
       </td>
       <td>
-        <p>The <a href="/docs/nightly/api/directive/ionLoader/"><code>ionLoader</code></a> icon to display
-after user lets go of the refresher. The SVG ionLoader is now the default, replacing
-rotating font icons.</p>
+        <p>The <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a> icon to display
+after user lets go of the refresher. The SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>
+is now the default, replacing rotating font icons.</p>
 
         
       </td>
@@ -204,7 +204,7 @@ rotating font icons.</p>
       </td>
       <td>
         <p>The font icon to display after user lets go of the
-refresher. This is depreicated in favor of the SVG <a href="/docs/nightly/api/directive/ionLoader/"><code>ionLoader</code></a>.</p>
+refresher. This is depreicated in favor of the SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>.</p>
 
         
       </td>

@@ -41,7 +41,7 @@ Ionic Puerto Rico<br>
 [Ionic Spain](https://twitter.com/ionicspain)<br>
 [Ionic Switzerland](https://twitter.com/IonicSwiss)<br>
 [Ionic Toronto](http://www.meetup.com/Ionic-Toronto/)<br>
-[Ionic Turkey[(https://twitter.com/IonicTurkey_)<br>
+[Ionic Turkey](https://twitter.com/IonicTurkey_)<br>
 [Ionic UK](https://twitter.com/IonicUK)<br>
 
 

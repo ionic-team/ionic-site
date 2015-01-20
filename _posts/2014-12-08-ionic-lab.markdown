@@ -20,7 +20,7 @@ We want Ionic to be both a great SDK and a toolchain that gives hybrid developer
 To get started with Ionic Lab, make sure to update to the latest version of Ionic in NPM:
 
 ```bash
-$ npm update -g ionic
+$ npm install -g ionic
 ```
 
 

@@ -29,7 +29,7 @@ Here’s a line-up of the current international Ionic groups (both countries and
 [Ionic Belgium](https://twitter.com/IonicBE)<br>
 [Ionic Brazil](https://twitter.com/IonicBrazil)<br>
 [Ionic Canada](https://twitter.com/IonicCanada)<br>
-Ionic Colombia<br>
+[Ionic Colombia](https://twitter.com/IonicColombia)<br>
 [Ionic Germany](https://twitter.com/ionicgermany)<br>
 Ionic Ireland<br>
 Ionic Israel<br>

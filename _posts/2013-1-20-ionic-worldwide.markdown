@@ -17,7 +17,7 @@ We provide official support to Ionic Meetup groups, starting with cool logos and
 
 We help them gain a following by retweeting (and posting on FB and G+) event news, slides, videos, photos, and articles from the [@ionicframework](https://www.twitter.com/ionicframework) Twitter account.
 
-Prohibitive international costs and shipping time have unfortunately prevented us from providing swag, but we have encouraged groups to make their own Ionic stickers using the Logo Pack from the footer on our homepage or to order some from our [StickerMule store](http://www.stickermule.com/user/1070630560/stickers).
+Until now, prohibitive international costs and shipping time have unfortunately prevented us from providing swag, but that will be changing soon! We'll keep you updated in the coming weeks about our new store. In the meantime, we've been encouraging our international Ionic groups to make their own Ionic stickers using the Logo Pack from the footer on our homepage or to order some from our [StickerMule store](http://www.stickermule.com/user/1070630560/stickers).
 
 We’ve also created an [Ionic Presentation](http://ionicframework.com/present-ionic/) that many of our meetup organizers have found useful. Most of them tweak it slightly, and many translate it, but it provides a helpful scaffolding for an introductory presentation about Ionic.
 

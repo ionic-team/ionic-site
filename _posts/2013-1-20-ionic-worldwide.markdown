@@ -9,7 +9,7 @@ published: false
 
 ![Ionic Logos](/img/blog/ionic-community-logos.jpg)
 
-Our dedicated community helps make Ionic a great hybrid mobile app development ecosystem, for which we’re very grateful. One of the most exciting things we’ve seen happening over recent months is massive growth in our international community. Meetup groups have sprung up in cities around the world, and a few dedicated devs have committed to organizing Ionic groups for entire countries. We are humbled and delighted by their enthusiasm and by the time and energy they dedicate to spreading the word about Ionic, and we’re so thrilled to watch our international user base grow in this organic way.
+Our dedicated community helps make Ionic a great hybrid mobile app development ecosystem, for which we’re very grateful. One of the most exciting things we’ve seen happening over recent months is massive growth in our international community. Meetup groups have sprung up in cities around the world, and a few dedicated devs have committed to organizing Ionic groups for entire countries. Other users have presented Ionic in cities around the world. We are humbled and delighted by their enthusiasm and by the time and energy they dedicate to spreading the word about Ionic, and we’re so thrilled to watch our international user base grow in this organic way.
 
 <!-- more --> 
 

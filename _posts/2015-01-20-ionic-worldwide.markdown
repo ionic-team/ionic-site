@@ -26,15 +26,21 @@ We're always happy to answer any questions from our Meetup groups, and we enjoy 
 Here’s a line-up of the current international Ionic groups (both countries and cities). [Email me](mailto:katie@drifty.com) if you’re interested in organizing a group.
 
 [Ionic Argentina](https://twitter.com/IonicArgentina)<br>
+Ionic Banaluru<br>
 [Ionic Belgium](https://twitter.com/IonicBE)<br>
 [Ionic Brazil](https://twitter.com/IonicBrazil)<br>
 [Ionic Canada](https://twitter.com/IonicCanada)<br>
+[Ionic China](https://twitter.com/IonicChina)<br>
 [Ionic Colombia](https://twitter.com/IonicColombia)<br>
+Ionic Czech Republic<br>
+Ionic Delhi<br>
 [Ionic Germany](https://twitter.com/ionicgermany)<br>
-Ionic Ireland<br>
+Ionic India<br>
+[Ionic Ireland](https://twitter.com/ionic_Ireland)<br>
 Ionic Israel<br>
 [Ionic Italy](https://twitter.com/IonicItalia)<br>
 [Ionic Kenya](https://twitter.com/ionickenya)<br>
+Ionic Mumbai<br>
 [Ionic Netherlands](https://twitter.com/IonicNederland)<br>
 [Ionic Paris](https://twitter.com/IonicParis)<br>
 Ionic Pakistan<br>

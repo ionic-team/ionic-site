@@ -149,6 +149,24 @@ reach to trigger the on-infinite expression. Default: 1%.</p>
     
     <tr>
       <td>
+        spinner
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a> to show while loading. The SVG
+<a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a> is now the default, replacing rotating font icons.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         icon
         
         <div><em>(optional)</em></div>
@@ -158,7 +176,8 @@ reach to trigger the on-infinite expression. Default: 1%.</p>
   <code>string</code>
       </td>
       <td>
-        <p>The icon to show while loading. Default: &#39;ion-loading-d&#39;.</p>
+        <p>The icon to show while loading. Default: &#39;ion-load-d&#39;.  This is depreicated
+in favor of the SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>.</p>
 
         
       </td>

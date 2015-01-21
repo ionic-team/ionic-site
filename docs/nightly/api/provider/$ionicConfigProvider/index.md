@@ -412,6 +412,106 @@ is the default for iOS.
 
 
 
+<div id="form.checkbox"></div>
+<h2>
+  <code>form.checkbox(value)</code>
+
+</h2>
+
+Checkbox style. Android defaults to `square` and iOS defaults to `circle`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> 
+
+
+
+
+<div id="form.toggle"></div>
+<h2>
+  <code>form.toggle(value)</code>
+
+</h2>
+
+Toggle item style. Android defaults to `small` and iOS defaults to `large`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> 
+
+
+
+
 <div id="tabs.style"></div>
 <h2>
   <code>tabs.style(value)</code>

@@ -4,7 +4,7 @@ title:  "Looking Sharp on the iPhone 6"
 date:   "2015-01-20 14:00:00"
 categories: ionic
 author: '<img src="https://en.gravatar.com/userimage/4492737/bd46f8f2d8d12133c4df6c0441bc7ef1.jpg" class="author-icon"><a href="http://twitter.com/perrygovier" target="_blank">@perrygovier</a>'
-published: false
+published: true
 ---
 
 ![Cordova on the iPhone 6](/img/blog/iphones-header.png)
@@ -14,14 +14,16 @@ Now that Apple’s new iPhone 6 and 6 Plus are on the scene, developers must con
 <!-- more -->
 
 First, you may need to update the version of Cordova your project uses. The Ionic CLI makes this process a breeze. Simply run the following commands in a terminal window. Note that the first command may require sudo.
-```
+
+```shell
 npm update -g ionic cordova
 cd ~/Development/myProjectDirectory
 cordova platform update ios
 ```
 
 The next step is to add the appropriate splash screen. XCode will decide whether your app can take advantage of the full iPhone 6 and 6 Plus resolutions, based on whether appropriately sized splash screens have been added to your project. The Cordova update you just installed also includes the ability to specify splash screens via the confix.xml file, like this:
-```
+
+```xml
 <platform name="ios">
     <splash src="pathToImage/Default-568h@2x~iphone.png" width="640" height="1136"/>
     <splash src="pathToImage/Default-667h.png" width="750" height="1334"/>
@@ -30,7 +32,8 @@ The next step is to add the appropriate splash screen. XCode will decide whether
 ```
 
 The Ionic CLI makes that even simpler. As described in greater detail by [Mike Hartington](https://twitter.com/mhartington) in [Automating Icons and Splash Screens](http://ionicframework.com/blog/automating-icons-and-splash-screens/), the new `resources` command makes it easy to create a splash screen. Simply put an image titled “splash” in your project’s resources directory (you may need to create one), and run:
-```
+
+```shell
 ionic resources
 ```
 

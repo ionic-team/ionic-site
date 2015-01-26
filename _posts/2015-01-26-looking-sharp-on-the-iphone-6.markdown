@@ -18,7 +18,7 @@ First, you may need to update the version of Cordova your project uses. The Ioni
 ```bash
 npm update -g ionic cordova
 cd ~/Development/myProjectDirectory
-cordova platform update ios
+ionic platform update ios
 ```
 
 The next step is to add the appropriate splash screen. XCode will decide whether your app can take advantage of the full iPhone 6 and 6 Plus resolutions, based on whether appropriately sized splash screens have been added to your project. The Cordova update you just installed also includes the ability to specify splash screens via the confix.xml file, like this:

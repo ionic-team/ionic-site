@@ -4,7 +4,7 @@ title:  "Looking Sharp on the iPhone 6"
 date:   "2015-01-20 14:00:00"
 categories: ionic
 author: '<img src="https://en.gravatar.com/userimage/4492737/bd46f8f2d8d12133c4df6c0441bc7ef1.jpg" class="author-icon"><a href="http://twitter.com/perrygovier" target="_blank">@perrygovier</a>'
-published: false
+published: true
 ---
 
 ![Cordova on the iPhone 6](/img/blog/iphones-header.png)

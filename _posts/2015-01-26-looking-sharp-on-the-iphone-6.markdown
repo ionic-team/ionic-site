@@ -7,7 +7,7 @@ author: '<img src="https://en.gravatar.com/userimage/4492737/bd46f8f2d8d12133c4d
 published: false
 ---
 
-![Cordova on the iPhone 6](/img/blog/community-header.png)
+![Cordova on the iPhone 6](/img/blog/iphones-header.png)
 
 Now that Apple’s new iPhone 6 and 6 Plus are on the scene, developers must consider new screen resolutions when building iOS apps. Ionic’s styles are fully responsive out of the box, so there’s no issue there. However, when testing an app on a shiny new iPhone 6, your app will look slightly blurry by default, displaying at the resolution of the iPhone 5 series and anti-aliasing the difference. That’s wasted pixels! There are two things you must do for your app to display full resolution on the iPhone 6 family of phones.
 

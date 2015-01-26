@@ -117,13 +117,20 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
       }).then(function(response) {
           // Mock an 'issue updated' github event, since github doesn't have one.
           // This notifies Ionitron that comments/labels can be removed
-          var config = {
-           headers: {
+          $http({
+            method: 'POST',
+            url: 'http://ionitron-issues.herokuapp.com/webhook?callback=JSON_CALLBACK',
+            headers: {
              'Content-Type': 'application/javascript',
-             'X-Github-Event': 'issue_updated'
-           }
-          };
-          $http.get('http://ionitron-issues.herokuapp.com/api/webhook?callback=JSON_CALLBACK&issueNum='+$location.search().iid.toString(), config)
+             'X-Github-Event': 'issues'
+            },
+            data: {
+              action: 'updated',
+              issue: {
+                number: $location.search().iid.toString()
+              }
+            }
+          })
           .success(function(data){
             alert('Issue Updated Succesfully! Going there now.');
             window.location.href = response.data.html_url;

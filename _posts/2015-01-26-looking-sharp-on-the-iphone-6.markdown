@@ -15,7 +15,7 @@ Now that Apple’s new iPhone 6 and 6 Plus are on the scene, developers must con
 
 First, you may need to update the version of Cordova your project uses. The Ionic CLI makes this process a breeze. Simply run the following commands in a terminal window. Note that the first command may require sudo.
 
-```shell
+```bash
 npm update -g ionic cordova
 cd ~/Development/myProjectDirectory
 cordova platform update ios
@@ -33,7 +33,7 @@ The next step is to add the appropriate splash screen. XCode will decide whether
 
 The Ionic CLI makes that even simpler. As described in greater detail by [Mike Hartington](https://twitter.com/mhartington) in [Automating Icons and Splash Screens](http://ionicframework.com/blog/automating-icons-and-splash-screens/), the new `resources` command makes it easy to create a splash screen. Simply put an image titled “splash” in your project’s resources directory (you may need to create one), and run:
 
-```shell
+```bash
 ionic resources
 ```
 

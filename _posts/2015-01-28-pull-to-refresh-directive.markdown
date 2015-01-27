@@ -20,7 +20,7 @@ Ionic has an awesome directive that has undergone a redo fairly recently to acco
 ## ion-refresher (Pull to Refresh Directive)
 The Ionic directive we are going to use is the `ion-refresher` ([Official Documentation](http://ionicframework.com/docs/api/directive/ionRefresher/)). The most basic usage is as follows:
 
-```
+```html
 <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 ```
 
@@ -29,7 +29,7 @@ The Ionic directive we are going to use is the `ion-refresher` ([Official Docume
 ## View
 For our example, we'll be using the following view markup:
 
-```
+```html
 <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 <ion-list>
 	<ion-item class="item-avatar" ng-repeat="item in items">
@@ -46,7 +46,7 @@ which looks something like this, once rendered:
 
 Remember that this list iterates over the `$scope.items` array.
 
-```
+```html
 ng-repeat="item in items"
 ```
 
@@ -55,7 +55,7 @@ ng-repeat="item in items"
 ## Factory
 In our example, we're going to be making a call to the Random User API to get some data to play with. To do this, we'll create a factory that makes these API calls. This factory will have two methods: `GetFeed` and `GetNewUser`. `GetFeed` will be called when our app loads to get the initial data, and the `GetNewUser` will be called each time we do a pull to refresh.
 
-```
+```javascript
 .factory('PersonService', function($http){
 	var BASE_URL = "http://api.randomuser.me/";
 	var items = [];
@@ -90,7 +90,7 @@ Our controller needs to do 2 things:
 
 First, to fill our feed, we'll want to make a call to the PersonService and assign the result to the `$scope.items` array:
 
-```
+```javascript
 .controller('MyCtrl', function($scope, $timeout, PersonService) {
 	$scope.items = [];
 
@@ -102,7 +102,7 @@ First, to fill our feed, we'll want to make a call to the PersonService and assi
 
 Next, we need to handle the pull to refresh. Recall we configured our directive to call a `doRefresh` function. We'll need to define this function:
 
-```
+```javascript
 $scope.doRefresh = function() {
 
 }
@@ -110,7 +110,7 @@ $scope.doRefresh = function() {
 
 In this function, we should call the `GetNewUser` function and add these items to the beginning of the array.
 
-```
+```javascript
 $scope.doRefresh = function() {
 	PersonService.GetNewUser().then(function(items){
 		$scope.items = items.concat($scope.items);
@@ -122,7 +122,7 @@ You'll notice we are using the `array.concat` function to add the items in. This
 
 We still need to do one final thing. We need to let the scroller know that we're done loading in the new items, so it can hide the loading indicator. To do this, we need to broadcast the `scroll.refreshComplete` event.
 
-```
+```javascript
 $scope.doRefresh = function() {
 	PersonService.GetNewUser().then(function(items){
 		$scope.items = items.concat($scope.items);
@@ -135,7 +135,7 @@ $scope.doRefresh = function() {
 
 In its entirety, our controller looks like this:
 
-```
+```javascript
 .controller('MyCtrl', function($scope, $timeout, PersonService) {
 	$scope.items = [];
 

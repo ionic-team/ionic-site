@@ -4,10 +4,10 @@ title:  "Built with Ionic: Pacifica"
 date:   "2015-01-26 14:00:00"
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
-published: false
+published: true
 ---
 
-![Ionic Logos](/img/blog/community-header.png)
+![Ionic Logos](/img/blog/pacifica-header.jpg)
 
 [Pacifica](http://thinkpacifica.com), an app for stress, anxiety and worry, is built around quick, iterative activities that individuals can perform privately in order to cope, understand, and better control their emotions.
 
@@ -16,6 +16,11 @@ Developer [Dale Beermann](https://twitter.com/beermann) and designer [Chris Goet
 “We found that the current implementations are simple mappings from typical workbook-based pen and paper exercises to a mobile device,” says Beermann. “However, workbooks themselves don’t fit into our normal routines. We knew we could do better.” 
 
 <!-- more --> 
+<div style="float: right; margin-right: -160px; margin-bottom: 80px; width: 50%;">
+  <a href="http://ionicframework.com/img/blog/pacifica-preview-right.png"><img
+src="/img/blog/pacifica-preview-right.png"></a>
+</div>
+
 
 Beermann and Goettel devised an app that would guide users through relaxation, thinking, wellness, and behavioral exercises, based on the tools of CBT. Users can open the app and practice these techniques anytime, anywhere, as often as they like.
 
@@ -24,6 +29,11 @@ Beermann and Goettel devised an app that would guide users through relaxation, t
 Before moving to California, Beermann was an active member of the entrepreneurial community in Madison, where Drifty, Ionic’s parent company, is based. Beermann has known Drifty co-founder [Max Lynch](https://twitter.com/maxlynch) for years, so when he started his most recent company, “Ionic was a natural choice,” he says.
 
 Beermann and Goettel, who both have backgrounds in web development, chose to build an HTML5 app because they wanted to be cross-platform from day one. “Building an HTML5 app gets you 95% of the way there,” says Beermann. “Choosing Ionic meant that we were productive immediately; there was no time wasted learning a new language or UI paradigm. We had working prototypes the first week we started programming.”
+
+<div style="float: left; margin-left: -120px; margin-right: 40px; margin-bottom: 70px; width: 32%;">
+  <a href="http://ionicframework.com/img/blog/pacifica-android-left.jpg"><img
+src="/img/blog/pacifica-android-left.jpg"></a>
+</div>
 
 Beermann and Goettel used most of the basic building blocks in Ionic to build their app: lists, modals, popups, drawers, overlays, and the Ionicons library. “You can’t quite tell, as we’ve customized most of the UI around it,” says Beerman, “but that was a lot of code that we didn’t have to write.”
 

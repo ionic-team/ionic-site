@@ -35,4 +35,4 @@ Goettel chose a style that would work across platforms and wasn’t tied to the 
 
 “We don’t feel that we could ever be close to where we are today if there weren’t tools like Ionic available,” adds Beerman. “At best, we might have had a single platform ready for release if we were native, but with Ionic, we’re set to launch iOS and Android simultaneously.”
 
-Find Pacifica in the Google Play and iOS stores today!
+Find Pacifica in the [Google Play](https://play.google.com/store/apps/details?id=com.pacificalabs.pacifica) and [iOS](https://itunes.apple.com/us/app/pacifica/id922968861?mt=8)) stores today!

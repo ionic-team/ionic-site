@@ -52,10 +52,10 @@ ionic run android
 `ionic browser add crosswalk@10.39.235.15`  #Install stable version 10.39.235.15.
 
 #### Building for separate architectures
-You can either set an environment variable or pass one in-line to build separate Android APK’s for x86, ARM, and
-both combined:
 
-`BUILD_MULTIPLE_APKS=true ionic run android`
+Update: Previously you needed an environment variable to build multiple architectures. Do to some changes on the underlying Cordova Android library, you no longer need to specify the environment variable to build multiple APKs. This should happen by default by running `ionic build android`.
+
+If you have a device connected and run `ionic run android`, it will auto detect that architecture type and only build and run for that device.
 
 #### Volatility
 

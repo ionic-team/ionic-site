@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Pull to Refresh Directives"
+title:  "Understanding Pull to Refresh"
 date:   "2015-01-10  2:00:00"
 categories: angularjs, ionic, ngCordova, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/2653730816/5da4d8fb72352c715bbaffe07e56270e_400x400.jpeg"
@@ -9,7 +9,7 @@ published: false
 ---
 
 *This is a guest post by [Andrew McGivery](http://mcgivery.com/), an application developer with a strong background in
-Android, AngularJS, Ionic, Java, SQL, and Unity3D. Andrew writes often about Ionic and how to build great hybrid apps.*
+Android, AngularJS, Ionic, C#, SQL, and front end development. Andrew writes often about Ionic and how to build great hybrid apps.*
 
 With the rise of social networks, the "feed" has become a popular design pattern, especially in mobile apps. The idea is to load in new items to the top of a feed by pulling down from the top of the list until you see a loading indicator, letting go, and watching as new items magically (not really) add themselves in.
 

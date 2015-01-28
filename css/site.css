@@ -2204,6 +2204,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
+
+
+
 .btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
@@ -2290,6 +2293,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   .input-group .form-control {
     width: 100%;
     margin-bottom: 0; }
+
+
 
 .input-group-addon, .input-group-btn, .input-group .form-control {
   display: table-cell; }
@@ -4564,16 +4569,27 @@ h1 + h2 + p {
     visibility: hidden; }
   .home .feature-img .app-icon {
     visibility: hidden; }
-  .home .feature-img.img-loaded {
+  .home .feature-img.img-loaded.two {
     background-image: url(/img/homepage/phones-frontpage@2x.png);
     -webkit-animation: fadeInDown 1s both;
     animation: fadeInDown 1s both; }
-    .home .feature-img.img-loaded .demo-link {
+    .home .feature-img.img-loaded.two .demo-link {
       visibility: visible; }
-    .home .feature-img.img-loaded .app-icon {
+    .home .feature-img.img-loaded.two .app-icon {
       visibility: visible; }
+  .home .feature-img.img-loaded.one {
+    background-image: url(/img/homepage/phones-viewapp_2x.png);
+    -webkit-animation: fadeInDown 1s both;
+    animation: fadeInDown 1s both; }
+    .home .feature-img.img-loaded.one .demo-link {
+      visibility: visible; }
+    .home .feature-img.img-loaded.one .app-icon {
+      visibility: visible; }
+  .home .feature-img .app-icon.two {
+    background-image: url(/img/homepage/frontpage-icon@2x.png); }
+  .home .feature-img .app-icon.one {
+    background-image: url(/img/homepage/ionicview-icon_2x.png); }
   .home .feature-img .app-icon {
-    background-image: url(/img/homepage/frontpage-icon@2x.png);
     background-size: 84px 84px;
     background-repeat: no-repeat;
     display: none;
@@ -4598,7 +4614,7 @@ h1 + h2 + p {
       opacity: 1; }
   .home .feature-img .demo-link {
     position: absolute;
-    right: 50px;
+    right: 62px;
     bottom: 50px;
     display: none;
     color: white;

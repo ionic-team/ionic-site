@@ -111,7 +111,8 @@
     .app-icon {
       visibility: hidden;
     }
-    &.img-loaded {
+
+    &.img-loaded.two {
       .demo-link {
         visibility: visible;
       }
@@ -122,9 +123,25 @@
       -webkit-animation: fadeInDown 1s both;
       animation: fadeInDown 1s both;
     }
+    &.img-loaded.one {
+      .demo-link {
+        visibility: visible;
+      }
+      .app-icon {
+        visibility: visible;
+      }
+      background-image: url(/img/homepage/phones-viewapp_2x.png);
+      -webkit-animation: fadeInDown 1s both;
+      animation: fadeInDown 1s both;
+    }
 
-    .app-icon {
+    .app-icon.two {
       background-image: url(/img/homepage/frontpage-icon@2x.png);
+    }
+    .app-icon.one {
+      background-image: url(/img/homepage/ionicview-icon_2x.png);
+    }
+    .app-icon {
       background-size: 84px 84px;
       background-repeat: no-repeat;
       display: none;
@@ -156,7 +173,7 @@
 
     .demo-link {
       position: absolute;
-      right: 50px;
+      right: 62px;
       bottom: 50px;
       display: none;
       color: white;

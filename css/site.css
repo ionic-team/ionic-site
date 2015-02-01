@@ -4675,21 +4675,24 @@ h1 + h2 + p {
   position: relative;
   width: 100%; }
   .home .creator-bar h2 {
-    font-size: 30px;
+    font-size: 22px;
     color: #fff;
     margin-bottom: 20px;
-    font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-    font-weight: bold; }
+    margin-top: 20px;
+    font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif; }
   .home .creator-bar p {
     margin-bottom: 20px;
     color: #F7FAFF;
     font-weight: bold;
     font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .home .creator-bar a.btn {
-    font-size: 18px;
-    padding: 15px;
+    padding: 13px;
     opacity: 1;
-    background-color: #4e8ef7; }
+    background-color: #4E8EF7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    padding: 17px 30px; }
   .home .creator-bar .container {
     overflow: hidden;
     color: #DAE7FD;

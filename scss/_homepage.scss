@@ -250,7 +250,10 @@
   .creator-bar {
     //background-color: #3BC260;
     background: url('/img/creator-bg.jpg') no-repeat transparent 50% 40%;
-
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     text-align: center;
     padding: 48px 0;
 

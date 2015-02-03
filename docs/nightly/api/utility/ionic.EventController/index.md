@@ -314,7 +314,7 @@ Remove an event listener.
 
 <div id="onGesture"></div>
 <h2>
-  <code>onGesture(eventType, callback, element)</code><small>(alias: ionic.onGesture)</small>
+  <code>onGesture(eventType, callback, element, options)</code><small>(alias: ionic.onGesture)</small>
 
 </h2>
 
@@ -391,6 +391,23 @@ happens.</p>
       </td>
     </tr>
     
+    <tr>
+      <td>
+        options
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>object.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -399,16 +416,19 @@ happens.</p>
 
 
 
+* Returns: 
+  <code>ionic.Gesture</code> The gesture object (use this to remove the gesture later on).
+
 
 
 
 <div id="offGesture"></div>
 <h2>
-  <code>offGesture(eventType, callback, element)</code><small>(alias: ionic.offGesture)</small>
+  <code>offGesture(gesture, eventType, callback)</code><small>(alias: ionic.offGesture)</small>
 
 </h2>
 
-Remove an event listener for a gesture on an element.
+Remove an event listener for a gesture created on an element.
 
 
 
@@ -424,6 +444,23 @@ Remove an event listener for a gesture on an element.
     
     <tr>
       <td>
+        gesture
+        
+        
+      </td>
+      <td>
+        
+  <code>ionic.Gesture</code>
+      </td>
+      <td>
+        <p>The gesture that should be removed.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         eventType
         
         
@@ -433,7 +470,7 @@ Remove an event listener for a gesture on an element.
   <code>string</code>
       </td>
       <td>
-        <p>The gesture event.</p>
+        <p>The gesture event to remove the listener for.</p>
 
         
       </td>
@@ -450,24 +487,7 @@ Remove an event listener for a gesture on an element.
   <code>function(e)</code>
       </td>
       <td>
-        <p>The listener that was added earlier.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        element
-        
-        
-      </td>
-      <td>
-        
-  <code>DOMElement</code>
-      </td>
-      <td>
-        <p>The element the listener was added on.</p>
+        <p>The listener to remove.</p>
 
         
       </td>

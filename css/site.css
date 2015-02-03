@@ -4662,7 +4662,7 @@ h1 + h2 + p {
       margin-top: 20px;
       background-size: 520px 486px; } }
 .home .creator-bar {
-  background: url('/img/teaser-bg.jpg') no-repeat transparent 50% 40%;
+  background: url('/img/teaser-bg.jpg') no-repeat transparent 50% 55%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

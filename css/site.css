@@ -4662,7 +4662,7 @@ h1 + h2 + p {
       margin-top: 20px;
       background-size: 520px 486px; } }
 .home .creator-bar {
-  background: url('/img/creator-bg.jpg') no-repeat transparent 50% 40%;
+  background: url('/img/teaser-bg.jpg') no-repeat transparent 50% 40%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -4674,9 +4674,9 @@ h1 + h2 + p {
   position: relative;
   width: 100%; }
   .home .creator-bar h2 {
-    font-size: 22px;
+    font-size: 18px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     margin-top: 20px;
     font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif; }
   .home .creator-bar p {
@@ -4685,13 +4685,14 @@ h1 + h2 + p {
     font-weight: bold;
     font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .home .creator-bar a.btn {
-    padding: 13px;
     opacity: 1;
     background-color: #4E8EF7;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 2px;
-    padding: 17px 30px; }
+    letter-spacing: 3px;
+    border-radius: 1px;
+    padding: 14px 28px;
+    font-size: 13px;
+    font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .home .creator-bar .container {
     overflow: hidden;
     color: #DAE7FD;

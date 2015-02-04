@@ -4502,7 +4502,6 @@ h1 + h2 + p {
     line-height: 28px;
     font-weight: bold;
     font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    letter-spacing: -1px;
     cursor: default;
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
@@ -4754,8 +4753,7 @@ h1 + h2 + p {
   .home .social-row {
     margin: 7px 0 0 0;
     font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    letter-spacing: -1px; } }
+    font-weight: bold; } }
 .home .social-row li {
   display: inline-block;
   height: 27px;

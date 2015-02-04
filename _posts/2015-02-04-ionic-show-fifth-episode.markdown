@@ -9,8 +9,6 @@ published: true
 
 <iframe width="730" height="411" src="https://www.youtube.com/embed/sy9Rdt5XwdU" frameborder="0" allowfullscreen></iframe>
 
-### The fifth episode of the Ionic Show is live! 
-
 We took a small break after our last show, but we’ve all been working really hard for the last couple months and have a lot of exciting things to share. Most importantly, we want to give our community a huge shout-out for all your amazing support, hard work, and beautiful apps that have surpassed all of our expectations. 
 
 <!-- more -->

@@ -647,6 +647,25 @@ If no matching element is found, it will scroll to top.
 
 
 
+<div id="freezeScroll"></div>
+<h2>
+  <code>freezeScroll()</code>
+
+</h2>
+
+Does not allow the scrollView to scroll in either x or y.
+
+
+
+
+
+
+* Returns: 
+  <code>object</code> If the scroll view is being prevented from scrolling or not.
+
+
+
+
 <div id="getScrollView"></div>
 <h2>
   <code>getScrollView()</code>

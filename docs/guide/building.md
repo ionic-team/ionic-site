@@ -40,7 +40,6 @@ Javascript controllers that give them increased functionality.
 With the list code and the Angular `ng-repeat`, the center content becomes:
 
 ```html
-{% raw %}
 <!-- Center content -->
 <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
@@ -55,8 +54,6 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
     </ion-list>
   </ion-content>
 </ion-side-menu-content>
-{% endraw %}
-
 ```
 
 But this doesn't do anything yet, because we don't have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+<head>
+  <link href="../../ionic/css/ionic.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="../../ionic/js/ionic.bundle.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Collection Repeat: 3000 cats</h1>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div class="list">
+      <a class="item"
+        collection-repeat="item in getContacts()"
+        collection-item-height="getItemHeight(item)"
+        ng-href="https://www.google.com/#q={{item.first_name + '+' + item.last_name}}"
+        ng-style="{'line-height': getItemHeight(item) + 'px'}"
+        ng-class="{'item-divider': item.isLetter}">
+        <img ng-if="!item.isLetter" ng-src="img/{{1 + ($index % 6)}}.png">
+        {{item.letter || (item.first_name+' '+item.last_name)}}
+      </a>
+    </div>
+
+  </ion-content>
+
+</body>
+</html>

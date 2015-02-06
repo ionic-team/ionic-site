@@ -47,8 +47,19 @@ body {
 }
 
 .reveal p,
-.reveal li {
+.reveal li,
+.reveal th,
+.reveal td {
   color: white;
+}
+
+.reveal table {
+  margin: 32px auto;
+}
+
+.reveal th,
+.reveal td {
+  padding: 4px 16px;
 }
 
 .reveal li {
@@ -222,4 +233,32 @@ body {
   margin-left: 40px;
 }
 
+.reveal .stack {
+  background: #2F63B8;
+  padding: 5px;
+  margin: 10px auto;
+  width: 60%;
+  color: white;
+  opacity: .7;
+}
 
+.reveal code {
+  font-size: 18px;
+}
+
+.reveal .demo-frame {
+  background: url('../img/demo-bg.png') no-repeat;
+  background-size: 340px;
+  height: 820px;
+  margin-top: -20px;
+  margin-left: -15px;
+  min-width: 345px;
+}
+
+.reveal .demo-frame iframe {
+  position: absolute;
+  left: 13px;
+  top: 104px;
+  width: 287px;
+  height: 509px
+}

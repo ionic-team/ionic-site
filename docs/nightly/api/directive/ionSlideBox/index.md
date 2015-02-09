@@ -161,7 +161,7 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether a pager should be shown for this slide box.</p>
+        <p>Whether a pager should be shown for this slide box. Accepts expressions via <code>show-pager=&quot;{{shouldShow()}}&quot;</code>.</p>
 
         
       </td>

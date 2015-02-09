@@ -166,7 +166,8 @@ Default: &#39;ion-android-arrow-down&#39;.</p>
       <td>
         <p>The <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a> icon to display
 after user lets go of the refresher. The SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>
-is now the default, replacing rotating font icons.</p>
+is now the default, replacing rotating font icons. Set to <code>none</code> to disable both the
+spinner and the icon.</p>
 
         
       </td>

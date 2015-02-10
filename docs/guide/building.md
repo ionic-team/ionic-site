@@ -40,6 +40,7 @@ Javascript controllers that give them increased functionality.
 With the list code and the Angular `ng-repeat`, the center content becomes:
 
 ```html
+{% raw %}
 <!-- Center content -->
 <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
@@ -54,6 +55,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
     </ion-list>
   </ion-content>
 </ion-side-menu-content>
+{% endraw %}
 ```
 
 But this doesn't do anything yet, because we don't have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called `TodoCtrl`. We are going to add it directly to the body tag:
@@ -117,6 +119,7 @@ the following script tag after the closing `</ion-side-menu>` tag in the `<body>
   </div>
 
 </script>
+{% endraw %}
 ```
 
 There is a lot of information in the above code. First of all, we are defining this template as an Angular template using `<script id="new-task.html" type="text/ng-template">`. The good thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.
@@ -145,6 +148,7 @@ In order to trigger the Modal to open, we need a button in the main header bar a
       </ion-list>
     </ion-content>
   </ion-side-menu-content>
+{% endraw %}
 ```
 
 And in our controller code:

@@ -205,6 +205,41 @@ to items in conjunction with a tracking expression.</p>
       </td>
     </tr>
     
+    <tr>
+      <td>
+        collection-buffer-size
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The number of rows (or columns in a vertical scroll view) to load above and below the visible items. Default 2. This is good to set higher if you have lots of images to preload. Warning: the larger the buffer size, the worse performance will be. After ten or so you will see a difference.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        collection-refresh-images
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to force images to refresh their <code>src</code> when an item&#39;s element is recycled. If provided, this stops problems with images still showing their old src when item&#39;s elements are recycled.
+If set to true, this comes with a small performance loss. Default false.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 

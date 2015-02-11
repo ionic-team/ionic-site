@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Built with Ionic: Viceversa"
+date:   "2015-02-11 14:00:00"
+categories: ionic
+author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
+published: false
+---
+
+![Ionic Logos](/img/blog/pacifica-header.jpg)
 [Viceversa](http://app.viceversa.io/) is a social decision-making app that lets anyone in the world help you make choices. Questions as simple as, "Where should we go for dinner?" or as complex as, "What should I say to resolve this situation?" can be crowd-sourced. Close friends and family members can share their opinions privately.
 
 The ViceVersa team is comprised of CEO [Jonathan Widawski](http://fr.linkedin.com/in/viceversa), the project leader, designer, and web developer; COO [Alexis Schechter](https://www.linkedin.com/pub/alexis-schechter/48/13a/a50), an iOs developer and marketing director; and CTO [Thomas Mary](https://www.linkedin.com/pub/thomas-mary/72/918/711), a backend developer and technical director. The team chose to build their iOS app using native code and their Android app with Ionic.

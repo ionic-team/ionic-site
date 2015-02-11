@@ -8,11 +8,11 @@ class="author-icon"><a href="https://twitter.com/schlimmson" target="_blank">Sim
 published: false
 ---
 
-*This is a guest post by Simon Reimler, software developer at arvato Bertelsmann, experienced with iOS, Android, AngularJS, Ionic and Python. Simon writes often about Ionic, web and mobile development. Read more on [Simon's Blog, DevDactic](http://devdactic.com/).*
+*This is a guest post by Simon Reimler, software developer at arvato Bertelsmann, experienced with iOS, Android, AngularJS, Ionic and Python. Simon often writes about Ionic, web and mobile development. Read more on [Simon's Blog, DevDactic](http://devdactic.com/).*
 
 Getting the Twitter timeline of a user into your Ionic app can be a challenging task. Lucky for us, we can use the simple OAuth wrapper of ngCordova previously [described by Nic Raboy](http://ionicframework.com/blog/oauth-ionic-ngcordova/) to solve the basic authentication. But what happens after the token authentication?
 
-In this post, I will take things one step further and show you how to authenticate by OAuth, make signed calls to the well documented [Twitter REST API](https://dev.twitter.com/rest/public), and parse the home timeline of a user inside your Ionic app.
+In this post, I will take things one step further and show you how to authenticate with OAuth, make signed calls to the well documented [Twitter REST API](https://dev.twitter.com/rest/public), and parse the home timeline of a user inside your Ionic app.
 
 <!-- more -->
 
@@ -118,14 +118,14 @@ The heart of our app will be the `TwitterService`, which will handle our calls t
 
 2. The first two functions are just for storing and retrieving the OAuth Token once the user is successfully authorized; nothing special here.
 
-3. `createTwitterSignature` is one of the most important functions here, because this function takes care of the correct signing of our requests. When called, we give in the HTTP method like `GET` or `POST`, and the URL from which we want to get the data. The function will then read the OAuth Token from the storage and create a object with some more general stuff the Twitter REST API requires, like the Consumer Key and the OAuth Token. This object is then passed to the `$cordovaOauthUtility`of ngCordova to create a correct authorization object, which will be set as the _authorization header_ of our request. For more detailed information about OAuth 1.0a, check out [Nic Raboy's blog post](https://blog.nraboy.com/2014/11/understanding-request-signing-oauth-1-0a-providers/)!
+3. `createTwitterSignature` is one of the most important functions here, because this function takes care of the correct signing of our requests. When called, we give it the HTTP method like `GET` or `POST`, and the URL from which we want to get the data. The function will then read the OAuth Token from localStorage and create an object with some more general stuff the Twitter REST API requires, like the Consumer Key and the OAuth Token. This object is then passed to the `$cordovaOauthUtility`of ngCordova to create a correct authorization object, which will be set as the _authorization header_ of our request. For more detailed information about OAuth 1.0a, check out [Nic Raboy's blog post](https://blog.nraboy.com/2014/11/understanding-request-signing-oauth-1-0a-providers/)!
 
-4. After this function, we come to the returned object of our TwitterService. The `initialize` function will be called on our app startup. This function looks for some stored OAuth token that could be used for signing, but if this is not present, we try to authorize the user by the help of `$cordovaOauth`, where we again need the Consumer Key and Consumer Secret.
-This ngCordova wrapper will slide up a Twitter authorization form to the user, where the user must enter his/her credentials. All in all, we return a promise from this function to get informed about a correct/failed authorization in our controller.
+4. After this function, we come to the returned object of our TwitterService. The `initialize` function will be called on our app startup. This function looks for a stored OAuth token that could be used for signing, but if it is not present, will try to authorize the user with the help of `$cordovaOauth`, where we again need the Consumer Key and Consumer Secret.
+This ngCordova wrapper will slide up a Twitter authorization form to the user, where the user must enter his/her credentials. Finally, we return a promise from this function to get informed about a correct/failed authorization in our controller.
 
-5. The `isAuthenticated` function is very simplistic and only checks for a stored token. Keep in mind that users could revoke their permissions for an app, so here you might add some token verification check in a real app.
+5. The `isAuthenticated` function is very simple and only checks for a stored token. Keep in mind that users could revoke their permissions for an app, so here you might add a token verification check in a real app.
 
-6. Finally the `getHomeTimeline`function can be called to retrieve our home timeline feed. Here, we create our signature for the request for the according URL and return the request as a resource object. To learn more about this, check out my [ngResource blog post](http://devdactic.com/improving-rest-with-ngresource/).
+6. Finally the `getHomeTimeline`function can be called to retrieve our home timeline feed. Here, we create our signature for the request for the associated URL and return the request as a resource object. To learn more about this, check out my [ngResource blog post](http://devdactic.com/improving-rest-with-ngresource/).
 
 ### Accessing the data from our Controller
 After we have our service, we need to create the controller for our app, so go ahead and create a **controllers.js**. Now, open your created file, and insert this:
@@ -160,7 +160,7 @@ After we have our service, we need to create the controller for our app, so go a
 ```
 Our controller is rather simple now, as we have all our REST interaction logic inside our service. Anyway, let’s take a closer look at our functions:
 1. As our feed object from Twitter returns a quite unformatted date string, we need to convert the string to a more readable date to display.
-2. The `showHomeTimeline`function will fill our `home_timeline` array with the feed data we get from our service.
+2. The `showHomeTimeline` function will fill our `home_timeline` array with the feed data we get from our service.
 3. As we will have a pull-to-refresh inside our view, we need a function to update the feeds array.
 4. When our platform is ready, we check if the user is already authenticated and initially fill the array. If not, we call our `initialize` from the service to show the login view to the user to perform the OAuth authentication.
 
@@ -196,9 +196,9 @@ After we have a service to get the data from Twitter and a controller to hold ou
 </ion-pane>
 </body>
 ```
-Inside our view, we first have the refresher, which allows us to use pull-to-refresh. Next, if our feed's array is empty, we display just tiny dummy text.
+Inside our view, we first have the refresher, which allows us to use pull-to-refresh. Next, if our feed's array is empty, we just display a little dummy text.
 
-The main part is the `ng-repeat` to iterate over the feed objects. Here, we make use of the [Ionic cards](http://ionicframework.com/docs/components/#cards), where we have the profile image of the user as item-avatar, the username, our corrected time string in the top area, and inside the body of our card the text of the tweet. Additionally, if some media inside the feed data is set, we display the posted image below the content.
+The main part is the `ng-repeat` to iterate over the feed objects. Here, we make use of the [Ionic cards](http://ionicframework.com/docs/components/#cards), where we have the profile image of the user as an item-avatar, the username, our corrected time string in the top area, and inside the body of our card the text of the tweet. Additionally, if some media inside the feed data is set, we display the posted image below the content.
 
 ### Final words and outlook
 This tutorial shows a straightforward way to display Twitter feed data in an appropriate way inside your Ionic app. There are many more endpoints in the Twitter REST API, so make use of the newly created TwitterService and get the data you need! 

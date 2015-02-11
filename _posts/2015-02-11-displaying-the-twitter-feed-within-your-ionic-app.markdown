@@ -10,7 +10,7 @@ published: false
 
 *This is a guest post by Simon Reimler, software developer at arvato Bertelsmann, experienced with iOS, Android, AngularJS, Ionic and Python. Simon often writes about Ionic, web and mobile development. Read more on [Simon's Blog, DevDactic](http://devdactic.com/).*
 
-Getting the Twitter timeline of a user into your Ionic app can be a challenging task. Lucky for us, we can use the simple OAuth wrapper of ngCordova previously [described by Nic Raboy](http://ionicframework.com/blog/oauth-ionic-ngcordova/) to solve the basic authentication. But what happens after the token authentication?
+Getting the Twitter timeline of a user into your Ionic app can be a challenging task. Lucky for us, we can use the simple ngCordova OAuth wrapper previously [described by Nic Raboy](http://ionicframework.com/blog/oauth-ionic-ngcordova/) to solve the basic authentication. But what happens after the token authentication?
 
 In this post, I will take things one step further and show you how to authenticate with OAuth, make signed calls to the well documented [Twitter REST API](https://dev.twitter.com/rest/public), and parse the home timeline of a user inside your Ionic app.
 

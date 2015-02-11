@@ -3,12 +3,12 @@ layout: post
 title:  "Displaying the Twitter Feed within Your Ionic App"
 date:   "2015-01-28  2:00:00"
 categories: angularjs, ionic, ngCordova, framework, mobile
-author: '<img src="/img/blog/andrew-mcgivery.png"
+author: '<img src="/img/blog/saimon.png"
 class="author-icon"><a href="https://twitter.com/schlimmson" target="_blank">Simon Reimler</a>'
 published: false
 ---
 
-*This is a guest post by Simon Reimler, software developer at arvato Bertelsmann, experienced with iOS, Android, AngularJS, Ionic and Python.Simon writes often about Ionic, web and mobile development. Read more on [Simon's Blog, DevDactic](http://devdactic.com/).*
+*This is a guest post by Simon Reimler, software developer at arvato Bertelsmann, experienced with iOS, Android, AngularJS, Ionic and Python. Simon writes often about Ionic, web and mobile development. Read more on [Simon's Blog, DevDactic](http://devdactic.com/).*
 
 Getting the Twitter timeline of a user into your Ionic app can be a challenging task. Lucky for us, we can use the simple OAuth wrapper of ngCordova previously [described by Nic Raboy](http://ionicframework.com/blog/oauth-ionic-ngcordova/) to solve the basic authentication. But what happens after the token authentication?
 

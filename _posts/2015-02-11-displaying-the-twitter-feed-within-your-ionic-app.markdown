@@ -222,4 +222,4 @@ If you have any questions, issues, or ideas, please leave a comment below and/or
 
 A video version of this article can be seen below.
 
-<iframe width="100%" height="510" src="//www.youtube.com/watch?v=VE2mbQPQZwA" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="510" src="//www.youtube.com/embed/VE2mbQPQZwA" frameborder="0" allowfullscreen></iframe>

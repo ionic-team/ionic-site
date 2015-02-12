@@ -167,9 +167,13 @@ After we have our service, we need to create the controller for our app, so go a
 ```
 
 Our controller is rather simple now, as we have all our REST interaction logic inside our service. Anyway, let’s take a closer look at our functions:
+
 1. As our feed object from Twitter returns a quite unformatted date string, we need to convert the string to a more readable date to display.
+
 2. The `showHomeTimeline` function will fill our `home_timeline` array with the feed data we get from our service.
+
 3. As we will have a pull-to-refresh inside our view, we need a function to update the feeds array.
+
 4. When our platform is ready, we check if the user is already authenticated and initially fill the array. If not, we call our `initialize` from the service to show the login view to the user to perform the OAuth authentication.
 
 That's pretty much everything we need for a simple Twitter feed!

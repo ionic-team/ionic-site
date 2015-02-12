@@ -57,10 +57,13 @@ Ionic Phillippines<br>
 [Ionic Puerto Rico](https://twitter.com/ionicpuertorico)<br>
 [Ionic Russia](https://twitter.com/Ionic_ru)<br>
 [Ionic San Francisco](http://www.meetup.com/Ionic-SF/)<br>
+Ionic Singapore<br>
 [Ionic Spain](https://twitter.com/ionicspain)<br>
+Ionic South Africa<br>
 [Ionic Switzerland](https://twitter.com/IonicSwiss)<br>
 [Ionic Toronto](http://www.meetup.com/Ionic-Toronto/)<br>
 [Ionic Turkey](https://twitter.com/IonicTurkey_)<br>
+[Ionic Uganda](https://twitter.com/IonicUganda)<br>
 [Ionic UK](https://twitter.com/IonicUK)<br>
 
 

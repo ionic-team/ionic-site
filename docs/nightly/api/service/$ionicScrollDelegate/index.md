@@ -649,11 +649,43 @@ If no matching element is found, it will scroll to top.
 
 <div id="freezeScroll"></div>
 <h2>
-  <code>freezeScroll()</code>
+  <code>freezeScroll([shouldFreeze])</code>
 
 </h2>
 
-Does not allow the scrollView to scroll in either x or y.
+Does not allow this scroll view to scroll either x or y.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldFreeze
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Should this scroll view be prevented from scrolling or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -662,6 +694,54 @@ Does not allow the scrollView to scroll in either x or y.
 
 * Returns: 
   <code>object</code> If the scroll view is being prevented from scrolling or not.
+
+
+
+
+<div id="freezeAllScrolls"></div>
+<h2>
+  <code>freezeAllScrolls([shouldFreeze])</code>
+
+</h2>
+
+Does not allow any of the app's scroll views to scroll either x or y.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldFreeze
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Should all app scrolls be prevented from scrolling or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
 
 
 

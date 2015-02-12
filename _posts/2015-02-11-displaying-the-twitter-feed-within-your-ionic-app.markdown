@@ -222,4 +222,4 @@ If you have any questions, issues, or ideas, please leave a comment below and/or
 
 A video version of this article can be seen below.
 
-[![Displaying the Twitter Feed within Your Ionic App](http://img.youtube.com/vi/VE2mbQPQZwA/0.jpg)](http://www.youtube.com/watch?v=VE2mbQPQZwA)
+<iframe width="100%" height="510" src="//www.youtube.com/watch?v=VE2mbQPQZwA" frameborder="0" allowfullscreen></iframe>

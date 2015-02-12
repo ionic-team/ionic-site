@@ -248,6 +248,40 @@ For a complete, working tab bar example, see the <a href="/docs/nightly/api/dire
       </td>
     </tr>
     
+    <tr>
+      <td>
+        hidden
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Whether the tab is to be hidden or not.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        disabled
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Whether the tab is to be disabled or not.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 

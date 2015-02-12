@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Displaying the Twitter Feed within Your Ionic App"
-date:   "2015-01-28  2:00:00"
+date:   "2015-02-11  2:00:00"
 categories: angularjs, ionic, ngCordova, framework, mobile
 author: '<img src="/img/blog/saimon.png"
 class="author-icon"><a href="https://twitter.com/schlimmson" target="_blank">Simon Reimler</a>'
@@ -201,7 +201,7 @@ Inside our view, we first have the refresher, which allows us to use pull-to-ref
 The main part is the `ng-repeat` to iterate over the feed objects. Here, we make use of the [Ionic cards](http://ionicframework.com/docs/components/#cards), where we have the profile image of the user as an item-avatar, the username, our corrected time string in the top area, and inside the body of our card the text of the tweet. Additionally, if some media inside the feed data is set, we display the posted image below the content.
 
 ### Final words and outlook
-This tutorial shows a straightforward way to display Twitter feed data in an appropriate way inside your Ionic app. There are many more endpoints in the Twitter REST API, so make use of the newly created TwitterService and get the data you need! 
+This tutorial shows a straightforward way to display Twitter feed data in an appropriate way inside your Ionic app. There are many more endpoints in the Twitter REST API, so make use of the newly created TwitterService and get the data you need!
 Additionally, you could parse the feed data a bit more through a filter to make links clickable. Check out [my blog](http://devdactic.com/) for an upcoming post about this topic!
 
 If you have any questions, issues, or ideas, please leave a comment below and/or follow me [@schlimmson](https://twitter.com/schlimmson) on Twitter.

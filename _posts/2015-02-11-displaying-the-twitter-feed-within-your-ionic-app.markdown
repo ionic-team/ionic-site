@@ -17,16 +17,19 @@ In this post, I will take things one step further and show you how to authentica
 <!-- more -->
 
 ### Set Up a Simple App
-We'll start with a simple blank Ionic app, install **ngCordova** and **ngResource** (needed for the REST calls later) via the [bower package manager](http://bower.io/) and add a Cordova plugin we will need for the OAuth:
-```shell
+We'll start with a simple blank Ionic app, install `ngCordova` and `ngResource` (needed for the REST calls later) via the [bower package manager](http://bower.io/) and add a Cordova plugin we will need for the OAuth:
+
+```bash
 ionic start devdactic-twitterfeed blank --appname “My Twitter Feed”
 cd devdactic-twitterfeed
 bower install angular-resource ngCordova --save
 cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
 ```
-Additionally, we need the jsSHA Library inside our project, because Twitter requires request signing using HMAC-SHA1. Go to the [jsSHA Github project](https://github.com/Caligatio/jsSHA), download it, and copy the **sha.js** file from the archive into the **www/lib/** folder of your app.
 
-Now, we need to include all these files inside our **index.html**. Make sure to add the ngCordova file before the cordova.js script tag that is already included! We also already included our services, and later, we will create and add a controller.
+Additionally, we need the jsSHA Library inside our project, because Twitter requires request signing using HMAC-SHA1. Go to the [jsSHA Github project](https://github.com/Caligatio/jsSHA), download it, and copy the `sha.js` file from the archive into the `www/lib/` folder of your app.
+
+Now, we need to include all these files inside our `index.html`. Make sure to add the ngCordova file before the cordova.js script tag that is already included! We also already included our services, and later, we will create and add a controller.
+
 ```html
 <!-- Before cordova.js -->
 <script src="lib/sha.js"></script>
@@ -38,7 +41,8 @@ Now, we need to include all these files inside our **index.html**. Make sure to 
 <script src="js/services.js"></script>
 
 ```
-Finally, we must add the dependencies to our AngularJS module inside our **app.js** file:
+Finally, we must add the dependencies to our AngularJS module inside our `app.js` file:
+
 ```javascript
 angular.module('starter', ['ionic', 'ngResource', 'ngCordova'])
 ```
@@ -48,7 +52,8 @@ After creation, we need to change the callback URL of our Twitter app to *http:/
 Leave the created app for now; we will need to copy some keys from it in a later step.
 
 ### Writing a Twitter Service
-The heart of our app will be the `TwitterService`, which will handle our calls to the REST API and give us the data we need. Therefore, create a new file named **services.js** next to the app.js file, and insert this (I will discuss the functions in detail afterwards):
+The heart of our app will be the `TwitterService`, which will handle our calls to the REST API and give us the data we need. Therefore, create a new file named `services.js` next to the `app.js` file, and insert this (I will discuss the functions in detail afterwards):
+
 ```javascript
 .factory('TwitterService', function($cordovaOauth, $cordovaOauthUtility, $http, $resource, $q) {
     // 1
@@ -114,7 +119,8 @@ The heart of our app will be the `TwitterService`, which will handle our calls t
     };
 });
 ```
-1. Insert your personal **Consumer** and **Consumer Secret Key** from the Twitter app you created in the preparation step. The Storage key is just for your localStorage, so change it to whatever you like.
+
+1. Insert your personal `Consumer` and `Consumer Secret Key` from the Twitter app you created in the preparation step. The Storage key is just for your localStorage, so change it to whatever you like.
 
 2. The first two functions are just for storing and retrieving the OAuth Token once the user is successfully authorized; nothing special here.
 
@@ -125,10 +131,11 @@ This ngCordova wrapper will slide up a Twitter authorization form to the user, w
 
 5. The `isAuthenticated` function is very simple and only checks for a stored token. Keep in mind that users could revoke their permissions for an app, so here you might add a token verification check in a real app.
 
-6. Finally the `getHomeTimeline`function can be called to retrieve our home timeline feed. Here, we create our signature for the request for the associated URL and return the request as a resource object. To learn more about this, check out my [ngResource blog post](http://devdactic.com/improving-rest-with-ngresource/).
+6. Finally the `getHomeTimeline` function can be called to retrieve our home timeline feed. Here, we create our signature for the request for the associated URL and return the request as a resource object. To learn more about this, check out my [ngResource blog post](http://devdactic.com/improving-rest-with-ngresource/).
 
 ### Accessing the data from our Controller
-After we have our service, we need to create the controller for our app, so go ahead and create a **controllers.js**. Now, open your created file, and insert this:
+After we have our service, we need to create the controller for our app, so go ahead and create a controllers.js. Now, open your created file, and insert this:
+
 ```javascript
 .controller('AppCtrl', function($scope, $ionicPlatform, TwitterService) {
     // 1
@@ -158,6 +165,7 @@ After we have our service, we need to create the controller for our app, so go a
     });
 });
 ```
+
 Our controller is rather simple now, as we have all our REST interaction logic inside our service. Anyway, let’s take a closer look at our functions:
 1. As our feed object from Twitter returns a quite unformatted date string, we need to convert the string to a more readable date to display.
 2. The `showHomeTimeline` function will fill our `home_timeline` array with the feed data we get from our service.
@@ -167,7 +175,8 @@ Our controller is rather simple now, as we have all our REST interaction logic i
 That's pretty much everything we need for a simple Twitter feed!
 
 ## Showing Feeds Inside our View
-After we have a service to get the data from Twitter and a controller to hold our received data, we need an appropriate view to show the feeds in a Twitter-like style. For this, open the **index.html** and replace the dummy body with this:
+After we have a service to get the data from Twitter and a controller to hold our received data, we need an appropriate view to show the feeds in a Twitter-like style. For this, open the `index.html` and replace the dummy body with this:
+
 ```html
 <body ng-app="starter" ng-controller='AppCtrl'>
   <ion-pane>
@@ -196,6 +205,7 @@ After we have a service to get the data from Twitter and a controller to hold ou
 </ion-pane>
 </body>
 ```
+
 Inside our view, we first have the refresher, which allows us to use pull-to-refresh. Next, if our feed's array is empty, we just display a little dummy text.
 
 The main part is the `ng-repeat` to iterate over the feed objects. Here, we make use of the [Ionic cards](http://ionicframework.com/docs/components/#cards), where we have the profile image of the user as an item-avatar, the username, our corrected time string in the top area, and inside the body of our card the text of the tweet. Additionally, if some media inside the feed data is set, we display the posted image below the content.

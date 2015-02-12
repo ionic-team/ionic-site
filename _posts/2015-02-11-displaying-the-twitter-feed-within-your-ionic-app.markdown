@@ -178,7 +178,7 @@ Our controller is rather simple now, as we have all our REST interaction logic i
 
 That's pretty much everything we need for a simple Twitter feed!
 
-## Showing Feeds Inside our View
+### Showing Feeds Inside our View
 After we have a service to get the data from Twitter and a controller to hold our received data, we need an appropriate view to show the feeds in a Twitter-like style. For this, open the `index.html` and replace the dummy body with this:
 
 ```html

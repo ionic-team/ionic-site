@@ -32,10 +32,11 @@ Ionic Bengaluru<br>
 [Ionic Canada](https://twitter.com/IonicCanada)<br>
 [Ionic China](https://twitter.com/IonicChina)<br>
 [Ionic Colombia](https://twitter.com/IonicColombia)<br>
+[Ionic Costa Rica](https://twitter.com/ionic_costarica)<br>
 Ionic Czech Republic<br>
 Ionic Delhi<br>
 [Ionic Germany](https://twitter.com/ionicgermany)<br>
-Ionic India<br>
+[Ionic India](https://twitter.com/ionicindia)<br>
 [Ionic Ireland](https://twitter.com/ionic_Ireland)<br>
 Ionic Israel<br>
 [Ionic Italy](https://twitter.com/IonicItalia)<br>
@@ -45,9 +46,10 @@ Ionic Mumbai<br>
 [Ionic Paris](https://twitter.com/IonicParis)<br>
 Ionic Pakistan<br>
 Ionic Phillippines<br>
-Ionic Poland<br>
-Ionic Puerto Rico<br>
+[Ionic Poland](https://twitter.com/ionicpoland)<br>
+[Ionic Puerto Rico](https://twitter.com/ionicpuertorico)<br>
 [Ionic Russia](https://twitter.com/Ionic_ru)<br>
+[Ionic San Francisco](http://www.meetup.com/Ionic-SF/)<br>
 [Ionic Spain](https://twitter.com/ionicspain)<br>
 [Ionic Switzerland](https://twitter.com/IonicSwiss)<br>
 [Ionic Toronto](http://www.meetup.com/Ionic-Toronto/)<br>

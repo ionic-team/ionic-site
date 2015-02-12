@@ -178,7 +178,7 @@ Our controller is rather simple now, as we have all our REST interaction logic i
 
 That's pretty much everything we need for a simple Twitter feed!
 
-### Showing Feeds Inside our View
+### Showing Feeds Inside Our View
 After we have a service to get the data from Twitter and a controller to hold our received data, we need an appropriate view to show the feeds in a Twitter-like style. For this, open the `index.html` and replace the dummy body with this:
 
 ```html
@@ -214,7 +214,7 @@ Inside our view, we first have the refresher, which allows us to use pull-to-ref
 
 The main part is the `ng-repeat` to iterate over the feed objects. Here, we make use of the [Ionic cards](http://ionicframework.com/docs/components/#cards), where we have the profile image of the user as an item-avatar, the username, our corrected time string in the top area, and inside the body of our card the text of the tweet. Additionally, if some media inside the feed data is set, we display the posted image below the content.
 
-### Final words and outlook
+### Final Words and Outlook
 This tutorial shows a straightforward way to display Twitter feed data in an appropriate way inside your Ionic app. There are many more endpoints in the Twitter REST API, so make use of the newly created TwitterService and get the data you need!
 Additionally, you could parse the feed data a bit more through a filter to make links clickable. Check out [my blog](http://devdactic.com/) for an upcoming post about this topic!
 

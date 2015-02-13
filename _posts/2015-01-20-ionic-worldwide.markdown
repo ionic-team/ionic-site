@@ -28,11 +28,13 @@ Here’s a line-up of the current international Ionic groups (both countries and
 [Ionic Argentina](https://twitter.com/IonicArgentina)<br>
 Ionic Atlanta<br>
 Ionic Australia<br>
+Ionic Austria<br>
 Ionic Bengaluru<br>
 [Ionic Belgium](https://twitter.com/IonicBE)<br>
 Ionic Birmingham<br>
 [Ionic Brazil](https://twitter.com/IonicBrazil)<br>
 [Ionic Canada](https://twitter.com/IonicCanada)<br>
+Ionic Chile<br>
 [Ionic China](https://twitter.com/IonicChina)<br>
 [Ionic Colombia](https://twitter.com/IonicColombia)<br>
 [Ionic Costa Rica](https://twitter.com/ionic_costarica)<br>
@@ -40,18 +42,24 @@ Ionic Czech Republic<br>
 Ionic Delhi<br>
 [Ionic Germany](https://twitter.com/ionicgermany)<br>
 [Ionic India](https://twitter.com/ionicindia)<br>
+Ionic Indonesia<br>
 [Ionic Ireland](https://twitter.com/ionic_Ireland)<br>
 Ionic Israel<br>
 [Ionic Italy](https://twitter.com/IonicItalia)<br>
+Ionic Jackson, MS<br>
 Ionic Jamaica<br>
 [Ionic Kenya](https://twitter.com/ionickenya)<br>
+Ionic Lebanon<br>
 [Ionic Malaysia](https://twitter.com/IonicMalaysia)<br>
+Ionic Montreal<br>
 Ionic Mumbai<br>
 [Ionic Nepal](https://twitter.com/ionicNepal)<br>
 [Ionic Netherlands](https://twitter.com/IonicNederland)<br>
+Ionic Norway<br>
+[Ionic Orange County](http://www.meetup.com/Orange-County-Ionic-Framework-User-Group/)<br>
 [Ionic Paris](https://twitter.com/IonicParis)<br>
 Ionic Pakistan<br>
-Ionic Phillippines<br>
+[Ionic Phillippines](https://www.facebook.com/groups/432382400246979/)<br>
 [Ionic Poland](https://twitter.com/ionicpoland)<br>
 [Ionic Portugal](https://twitter.com/IonicPortugal)<br>
 [Ionic Puerto Rico](https://twitter.com/ionicpuertorico)<br>
@@ -64,6 +72,7 @@ Ionic South Africa<br>
 [Ionic Toronto](http://www.meetup.com/Ionic-Toronto/)<br>
 [Ionic Turkey](https://twitter.com/IonicTurkey_)<br>
 [Ionic Uganda](https://twitter.com/IonicUganda)<br>
+Ionic United Arab Emirates<br>
 [Ionic UK](https://twitter.com/IonicUK)<br>
 
 

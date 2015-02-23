@@ -9,7 +9,7 @@ published: false
 
 ![Ionic in Action](/img/blog/ionic-in-action-header.jpg)
 
-[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and released X. 
+[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and released late this spring. 
 
 The book is not yet in print, but you can [get the early access version today](http://ionicinaction.com) (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum about what you like, don’t like, or any questions you might have or content you’d like to see added. Jeremy will respond to your posts himself. 
 
@@ -65,4 +65,6 @@ Since the examples leverage Ionic’s components almost exclusively, there isn�
 
 That said, this is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.
 
-<b>Why do you think Ionic users will love this book?</b>
+<b>Why do will Ionic users learn from this book?</b>
+
+People already using Ionic will be able to learn more about the entire ecosystem that surrounds Ionic, such as how to leverage Cordova and plugins; some of Ionic's platform services, such as Ionic View; and how to level up Ionic development with advanced techniques and testing. I can't stress enough how important tests are, but it is probably the most overlooked skill in software development. The book provides examples and insight into how to setup and write your own tests.

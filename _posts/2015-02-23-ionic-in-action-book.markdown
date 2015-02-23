@@ -9,18 +9,18 @@ published: false
 
 ![Ionic in Action](/img/blog/ionic-in-action-header.jpg)
 
-[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and released late this spring. 
+[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and will be released late this spring. 
 
-The book is not yet in print, but you can [get the early access version today](http://ionicinaction.com) (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum about what you like, don’t like, or any questions you might have or content you’d like to see added. Jeremy will respond to your posts himself. 
+Even though the book is not yet in print, you can [get the early access version today](http://ionicinaction.com) (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum, where he will respond to your posts himself. 
 
 We talked with Jeremy about his background, his use of Ionic, and the process of writing the book. 
 
 <!-- more --> 
 <b>Can you tell us a little about yourself as a developer and writer?</b> 
 
-Like many developers, I have always had an interest in tinkering and understanding the moving parts. I’ve been building websites since I was in junior high, and gradually grew my skills to the point where I spent many years freelancing. More recently, I’ve joined larger scale projects and now work primarily as a front end engineer. I love working on usability and user experience. My journey to developer and writer wasn’t my plan during my formal education (I’ve got a degree in the arts), but that is pretty common in our field.
+Like many developers, I have always had an interest in tinkering and understanding the moving parts. I’ve been building websites since I was in junior high, and I gradually grew my skills to the point where I spent many years freelancing. More recently, I’ve joined larger scale projects and now work primarily as a front end engineer. I love working on usability and user experience. Becoming a developer and writer wasn’t my plan during my formal education (I’ve got a degree in the arts), but that is pretty common in our field.
 
-As far as being a writer, that part is somewhat new to me. Most of my writing was done in college, and while I did write quite a few papers then, the style is very different from the writing done for a technical book. I’ve worked pretty hard to improve my skills and I am fairly proud of what I have written so far.
+As far as being a writer, that part is somewhat new to me. Most of my writing was done in college, and while I did write quite a few papers then, the style is very different from the writing done for a technical book. I’ve worked pretty hard to improve my skills, and I am fairly proud of what I have written so far.
 
 <b>When did you start using Ionic, and what about it was compelling enough to you to write a book about it?</b>
 
@@ -39,16 +39,16 @@ Manning is the publisher for <i>Ionic in Action</i>, and I have to say everyone 
 <b>You built three Ionic apps during the writing process! Which UI elements did you use, and can you tell us more about the development process?</b>
 
 I used nearly every Ionic component in the three apps I built for the book, so the book provides a good reference for using the components in an integrated manner.
-The first is an app that a resort might use to provide value for their guests. It has the slide box, lists, cards, content containers, basic navigation, and other smaller elements. 
-Demo: http://ionic-in-action-chapter4.herokuapp.com/
+The first is an app that a resort might use to provide value for their guests. It has the slide box, lists, cards, content containers, basic navigation, and other smaller elements.<br> 
+Demo: http://ionic-in-action-chapter4.herokuapp.com/<br>
 Source: https://github.com/ionic-in-action/chapter4 
 
-The second is a bitcoin market app, which provides real-time currency rates for bitcoin. Some of the components it uses are pull to refresh, popovers, tabs, charts, advanced lists, and nested views. 
-Demo: http://ionic-in-action-chapter5.herokuapp.com/
+The second is a bitcoin market app, which provides real-time currency rates for bitcoin. Some of the components it uses are pull to refresh, popovers, tabs, charts, advanced lists, and nested views.<br> 
+Demo: http://ionic-in-action-chapter5.herokuapp.com/<br>
 Source: https://github.com/ionic-in-action/chapter5 
 
-The third is a weather app, with the ability to find locations and see the weather forecast. It leverages modals, custom scroll area (paginated scrolling), loading external data, side menus, a search view, and some other smaller elements. 
-Demo: http://ionic-in-action-chapter6.herokuapp.com
+The third is a weather app, with the ability to find locations and see the weather forecast. It leverages modals, custom scroll area (paginated scrolling), loading external data, side menus, a search view, and some other smaller elements.<br> 
+Demo: http://ionic-in-action-chapter6.herokuapp.com<br>
 Source: https://github.com/ionic-in-action/chapter6 
 
 The demos were developed very carefully and actually took more time than writing the text did. I almost wish I could also have written about the process of building these apps, because while they look very straightforward to develop, for the book, it was a journey of writing and refactoring. I wanted to make sure the examples were not contrived or boring, but also not too complex. They needed to illustrate the key features I wanted to teach, so I would make the first prototype and then remove half of the code to simplify. I really hope they resonate with readers, and even if you don’t buy the book, you can still tinker with the samples.
@@ -63,7 +63,7 @@ AngularJS is a primary part of Ionic apps, and I’ve gone to great strides to p
 
 Since the examples leverage Ionic’s components almost exclusively, there isn’t much that I needed to do to support each platform in the examples. The beauty of Ionic components, such as the tabs component, is that Ionic will identify the platform and adapt the style appropriately. 
 
-That said, this is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.
+That said, this topic is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.
 
 <b>Why do will Ionic users learn from this book?</b>
 

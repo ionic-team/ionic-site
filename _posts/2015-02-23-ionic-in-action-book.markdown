@@ -65,6 +65,6 @@ Since the examples leverage Ionicâ€™s components almost exclusively, there isnâ€
 
 That said, this topic is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.
 
-<b>Why do will Ionic users learn from this book?</b>
+<b>What will Ionic users learn from this book?</b>
 
 People already using Ionic will be able to learn more about the entire ecosystem that surrounds Ionic, such as how to leverage Cordova and plugins; some of Ionic's platform services, such as Ionic View; and how to level up Ionic development with advanced techniques and testing. I can't stress enough how important tests are, but it is probably the most overlooked skill in software development. The book provides examples and insight into how to setup and write your own tests.

@@ -9,7 +9,7 @@ published: true
 
 ![Ionic in Action](/img/blog/ionic-in-action-header.jpg)
 
-[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and will be released late this spring. 
+[Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i> is being published by [Manning](http://manning.com/wilken) and will be released late this spring. 
 
 Even though the book is not yet in print, you can [get the early access version today](http://ionicinaction.com) (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum, where he will respond to your posts himself. 
 

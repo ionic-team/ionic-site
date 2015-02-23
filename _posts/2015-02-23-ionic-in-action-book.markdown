@@ -7,7 +7,8 @@ author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg
 published: false
 ---
 
-![Ionic Logos](/img/blog/viceversa-header.jpg)
+![Ionic in Action](/img/blog/ionic-in-action-header.jpg)
+
 [Jeremy Wilken](https://twitter.com/gnomeontherun)’s book <i>[Ionic in Action](http://ionicinaction.com)</i>, is being published by [Manning](http://manning.com/wilken) and released X. 
 
 The book is not yet in print, but you can [get the early access version today](http://ionicinaction.com) (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum about what you like, don’t like, or any questions you might have or content you’d like to see added. Jeremy will respond to your posts himself. 

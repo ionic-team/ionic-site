@@ -68,3 +68,5 @@ That said, this topic is extremely important and is covered in the advanced topi
 <b>What will Ionic users learn from this book?</b>
 
 People already using Ionic will be able to learn more about the entire ecosystem that surrounds Ionic, such as how to leverage Cordova and plugins; some of Ionic's platform services, such as Ionic View; and how to level up Ionic development with advanced techniques and testing. I can't stress enough how important tests are, but it is probably the most overlooked skill in software development. The book provides examples and insight into how to setup and write your own tests.
+
+[Buy the early access version today](http://ionicinaction.com) (Save 42% with code ionic42)!

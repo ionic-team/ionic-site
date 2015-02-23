@@ -79,7 +79,7 @@ With custom inner markup, and automatically adds a default click action:
 </ion-nav-bar>
 ```
 
-With custom inner markup and custom click action, using <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>:
+With custom inner markup and custom click action, using <a href="/docs/nightly/api/service/$ionicHistory/"><code>$ionicHistory</code></a>:
 
 ```html
 <ion-nav-bar ng-controller="MyCtrl">
@@ -90,9 +90,9 @@ With custom inner markup and custom click action, using <a href="/docs/nightly/a
 </ion-nav-bar>
 ```
 ```js
-function MyCtrl($scope, $ionicNavBarDelegate) {
+function MyCtrl($scope, $ionicHistory) {
   $scope.myGoBack = function() {
-    $ionicNavBarDelegate.back();
+    $ionicHistory.goBack();
   };
 }
 ```

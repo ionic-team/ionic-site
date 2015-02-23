@@ -4,7 +4,7 @@ title:  "An Interview with Jeremy Wilken, Author of Ionic in Action"
 date:   "2015-02-17 14:00:00"
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
-published: false
+published: true
 ---
 
 ![Ionic in Action](/img/blog/ionic-in-action-header.jpg)

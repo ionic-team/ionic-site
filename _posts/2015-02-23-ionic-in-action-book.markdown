@@ -40,16 +40,16 @@ Manning is the publisher for <i>Ionic in Action</i>, and I have to say everyone 
 
 I used nearly every Ionic component in the three apps I built for the book, so the book provides a good reference for using the components in an integrated manner.
 The first is an app that a resort might use to provide value for their guests. It has the slide box, lists, cards, content containers, basic navigation, and other smaller elements.<br> 
-Demo: http://ionic-in-action-chapter4.herokuapp.com/<br>
-Source: https://github.com/ionic-in-action/chapter4 
+Demo: [http://ionic-in-action-chapter4.herokuapp.com/](http://ionic-in-action-chapter4.herokuapp.com/)<br>
+Source: [https://github.com/ionic-in-action/chapter4](https://github.com/ionic-in-action/chapter4) 
 
 The second is a bitcoin market app, which provides real-time currency rates for bitcoin. Some of the components it uses are pull to refresh, popovers, tabs, charts, advanced lists, and nested views.<br> 
-Demo: http://ionic-in-action-chapter5.herokuapp.com/<br>
-Source: https://github.com/ionic-in-action/chapter5 
+Demo: [http://ionic-in-action-chapter5.herokuapp.com/](http://ionic-in-action-chapter5.herokuapp.com/)<br>
+Source: [https://github.com/ionic-in-action/chapter5](https://github.com/ionic-in-action/chapter5) 
 
 The third is a weather app, with the ability to find locations and see the weather forecast. It leverages modals, custom scroll area (paginated scrolling), loading external data, side menus, a search view, and some other smaller elements.<br> 
-Demo: http://ionic-in-action-chapter6.herokuapp.com<br>
-Source: https://github.com/ionic-in-action/chapter6 
+Demo: [http://ionic-in-action-chapter6.herokuapp.com](http://ionic-in-action-chapter6.herokuapp.com)<br>
+Source: [https://github.com/ionic-in-action/chapter6](https://github.com/ionic-in-action/chapter6 ) 
 
 The demos were developed very carefully and actually took more time than writing the text did. I almost wish I could also have written about the process of building these apps, because while they look very straightforward to develop, for the book, it was a journey of writing and refactoring. I wanted to make sure the examples were not contrived or boring, but also not too complex. They needed to illustrate the key features I wanted to teach, so I would make the first prototype and then remove half of the code to simplify. I really hope they resonate with readers, and even if you don’t buy the book, you can still tinker with the samples.
 

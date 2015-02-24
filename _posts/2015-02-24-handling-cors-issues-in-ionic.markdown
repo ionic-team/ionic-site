@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Handling CORS issues in Ionic"
-date:   "2015-02-19  12:00:00"
+date:   "2015-02-24  12:00:00"
 categories: ionic, cors,
 author: '<img src="/img/blog/ionic-view-app-header.gif"
 class="author-icon"><a href="https://twitter.com/jbavari" target="_blank">Josh Bavari</a>'
@@ -20,6 +20,8 @@ Origin 'http://localhost:8100' is therefore not allowed access.
 
 So what is CORS, and why is it a problem?
 
+<!-- more -->
+
 ### What is CORS?
 
 CORS = Cross origin resource sharing.
@@ -32,6 +34,7 @@ Say we send an AJAX request to `http://cors.api.com/api`,  your host origin will
 If we get the error above, then we may not access the resource from the server.
 
 Let’s take a look what your `origin` will be when you're running your app via `ionic serve`, `ionic run`, or `ionic run -l`.
+
 
 ### Running in the browser
 

@@ -12,7 +12,7 @@ If you've used `ionic serve` or `ionic run` with live reload and accessing exter
 issues. They usually look something like this:
 
 
-```shell
+```bash
 XMLHttpRequest cannot load http://api.ionic.com/endpoint.
 No 'Access-Control-Allow-Origin' header is present on the requested resource.
 Origin 'http://localhost:8100' is therefore not allowed access.
@@ -140,7 +140,7 @@ Below, we've specified the ApiEndpoint to be our proxied URL right now.
 
 Later, we can use our production url as a constant.
 
-```js
+```javascript
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .constant('ApiEndpoint', {
   url: 'http://localhost:8100/api'
@@ -156,7 +156,7 @@ Once this is done, you can use the constant anywhere in your app, by including
 
 ### Setting up Angular Service
 
-```js
+```javascript
 angular.module('starter.services', [])
 
 //NOTE: We are including the constant `ApiEndpoint` to be used here.
@@ -183,7 +183,7 @@ For this process, we'll need to modify our `gulpfile.js` to add in two tasks to 
 
 Start by first installing the `replace` module - `npm install --save replace`.
 
-```js
+```javascript
 // `npm install --save replace`
 var replace = require('replace');
 var replaceFiles = ['./www/js/app.js'];

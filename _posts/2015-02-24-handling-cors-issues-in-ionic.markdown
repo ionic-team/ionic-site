@@ -3,8 +3,8 @@ layout: post
 title:  "Handling CORS issues in Ionic"
 date:   "2015-02-24  12:00:00"
 categories: ionic, cors,
-author: '<img src="/img/blog/ionic-view-app-header.gif"
-class="author-icon"><a href="https://twitter.com/jbavari" target="_blank">Josh Bavari</a>'
+author: '<img src="https://pbs.twimg.com/profile_images/378800000732074456/9d7a839f5c3d9e6f98b390b795909af8.jpeg" class="author-icon"><a
+href="https://twitter.com/jbavari">Josh</a>'
 published: true
 ---
 

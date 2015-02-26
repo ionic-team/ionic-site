@@ -32,7 +32,7 @@ docType: "directive"
 </h1>
 
 
-{% include codepen.html id="mFygh" %}
+{% include codepen.html id="7ec1ec58f2489ab8f359fa1a0fe89c15" %}
 
 
 
@@ -70,7 +70,7 @@ the current scroll position will be rendered.
   
 <h2 id="usage">Usage</h2>
   
-#### Basic Item List (codepen)
+#### Basic Item List ([codepen](http://codepen.io/ionic/pen/0c2c35a34a8b18ad4d793fef0b081693))
 ```html
 <ion-content>
   <ion-item collection-repeat="item in items">
@@ -79,7 +79,7 @@ the current scroll position will be rendered.
 </ion-content>
 ```
 
-#### Grid of Images (codepen)
+#### Grid of Images ([codepen])
 ```html
 <ion-content>
   <img collection-repeat="photo in photos"

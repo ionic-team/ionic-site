@@ -4,7 +4,7 @@ title:  "Collection Repeat: Estimate, Iterate, Improve"
 date: "2015-03-02 08:00"
 hide_date: false
 categories: ionic
-author: '<img src="http://www.gravatar.com/avatar/e65d670a976d22edf1327b9519556a9e?s=48" class="author-icon"><a href="http://twitter.com/andrewtjoslin" target="_blank">@andrewtjoslin</a>'
+author: '<img src="http://www.gravatar.com/avatar/e65d670a976d22edf1327b9519556a9e?s=128" class="author-icon"><a href="http://twitter.com/andrewtjoslin" target="_blank">@andrewtjoslin</a>'
 published: false
 ---
 

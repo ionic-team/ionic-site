@@ -79,7 +79,7 @@ the current scroll position will be rendered.
 </ion-content>
 ```
 
-#### Grid of Images ([codepen])
+#### Grid of Images ([codepen](http://codepen.io/ionic/pen/5515d4efd9d66f780e96787387f41664))
 ```html
 <ion-content>
   <img collection-repeat="photo in photos"
@@ -89,12 +89,16 @@ the current scroll position will be rendered.
 </ion-content>
 ```
 
-#### Horizontal Scroller, Dynamic Item Width (codepen)
+#### Horizontal Scroller, Dynamic Item Width ([codepen](http://codepen.io/ionic/pen/67cc56b349124a349acb57a0740e030e))
 ```html
-<ion-content direction="x">
-  <img collection-repeat="photo in photos"
-    item-width="getWidth(photo)"
-    item-height="100%">
+<ion-content>
+  <h2>Available Kittens:</h2>
+  <ion-scroll direction="x" class="available-scroller">
+    <div class="photo" collection-repeat="photo in main.photos"
+       item-height="250" item-width="photo.width + 30">
+       <img ng-src="{{photo.src}}">
+    </div>
+  </ion-scroll>
 </ion-content>
 ```
   

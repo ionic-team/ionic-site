@@ -29,7 +29,7 @@ In our first iteration of collection-repeat, we required developers to provide d
   <ion-item collection-repeat="item in items"
     collection-item-height="75"
     collection-item-width="'100%'">
-    {{item}}
+    {% raw %}{{item}}{% endraw %}
   </ion-item>
 </ion-list>
 ```
@@ -39,7 +39,7 @@ With the new syntax, height and width are optional:
 ```html
 <ion-list>
   <ion-item collection-repeat="item in items">
-    {{item}}
+    {% raw %}{{item}}{% endraw %}
   </ion-item>
 </ion-list>
 ```

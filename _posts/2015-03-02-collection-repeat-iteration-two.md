@@ -92,7 +92,7 @@ We tried [creating a web worker](https://github.com/driftyco/ionic/blob/e18e30fc
 
 This is still an improvement from normal src, which just doesn't cache well at all.
 
-We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) to improve iOS performance, and plan to release them as a simple-to-use solution soon. We welcome your ideas!
+We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) to improve iOS performance, and plan to release them as a simple-to-use solution soon. We welcome your ideas.
 
 ### Where We Are
 

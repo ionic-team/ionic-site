@@ -48,7 +48,7 @@ As you can see, in the common case where every item is the same size, you don't 
 
 See [the documentation](http://ionicframework.com/docs/nightly/api/directive/collectionRepeat) for more information.
 
-### The Problems With the First Iteration
+### The Problems with the First Iteration
 
 The old collection repeat assumed that, in every case, any item in the list could be uniquely sized. This assumption required us to recalculate every single item's width and height whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
 
@@ -56,7 +56,7 @@ When we took another look at UITableView, we hit upon a better solution. UITable
 
 We realized how much this could help performance and went into refactor mode.
 
-### Improvements In the New
+### Improvements in the New
 
 Instead of requiring the user to input estimatedHeight, we compute the dimensions of the first element in the list with getComputedStyle() and use that for the estimatedHeight and estimatedWidth.
 

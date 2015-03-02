@@ -147,7 +147,8 @@ the current scroll position will be rendered.
       </td>
       <td>
         <p>The width of the repeated element. The expression must return
-  a number (pixels) or a percentage. Defaults to the width of the first item in the list.</p>
+  a number (pixels) or a percentage. Defaults to the width of the first item in the list.
+  (previously named collection-item-width)</p>
 
         
       </td>
@@ -165,7 +166,8 @@ the current scroll position will be rendered.
       </td>
       <td>
         <p>The height of the repeated element. The expression must return
-  a number (pixels) or a percentage. Defaults to the height of the first item in the list.</p>
+  a number (pixels) or a percentage. Defaults to the height of the first item in the list.
+  (previously named collection-item-height)</p>
 
         
       </td>

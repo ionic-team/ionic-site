@@ -50,7 +50,7 @@ See [the documentation](http://ionicframework.com/docs/nightly/api/directive/col
 
 ### The Problems With the First Iteration
 
-The old collection repeat assumed that every item could have unique dimensions. This required us to recalculate every single item's width and height whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
+The old collection repeat assumed that, in every case, any item in the list could be uniquely sized. This assumption required us to recalculate every single item's width and height whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
 
 When we took another look at UITableView, we hit upon a better solution. UITableView accepts an 'estimatedHeight' for every element in the list and uses that to estimate the size of the scrollView. Then, while the user scrolls down, each item's dimensions are calculated on demand, and the size of the scrollView adjusts to reflect the actual dimensions.
 
@@ -62,9 +62,9 @@ Instead of requiring the user to input estimatedHeight, we compute the dimension
 
 This lets us calculate dimensions lazily. We estimate that `scrollView.height === estimatedHeight * items.length` at the start, and as the user scrolls, we calculate the actual height of every element.
 
-However, we went even further with optimization.
+We also found some optimizations available in rendering items. For example, we now batch DOM operations on items by setting cssText. We also now digest items entering items one frame after positioning them.
 
-In short, the new collection repeat has four possible 'modes' it enters, the first being the most performant, and the last being the least performant:
+But the biggest optimization is in the calculation of dimensions. The new collection repeat has four possible 'modes' it enters, the first being the most performant, and the last being the least performant:
 
 1. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731) [List](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L719-L729) Mode**: This mode is entered when the height is given as a constant or not given at all, and the width is 100%. Here, we assume the height of every element is equal to the estimatedHeight. The math for this mode is simple and easy because every item has the same dimensions.
 
@@ -78,13 +78,13 @@ Finally, each of the four modes can be entered in either [vertical](https://gith
 
 The problem with the old repeater was that it was *always* in Dynamic Grid Mode and calculated all dimensions up front. This led to worse performance while scrolling, loading, **and** resizing.
 
-And now, even in the worst case of dynamic grid mode, collection repeat is more performant than before.
+Now, even in the worst case of dynamic grid mode, collection repeat is more performant than ever.
 
 ## More Performance Opportunities
 
 The biggest remaining opportunity for more performance gain is in the iOS browser’s rendering of images.
 
-Whenever you set the `src` of an `img` on iOS to a non-cached value, there is a freeze of anywhere from 50-150ms--even on an iPhone 6. In our tests, an Android 4.1 device with images in collection repeat outperforms an iPhone 6. It's that bad.
+Whenever you set the `src` of an `img` on iOS to a non-cached value, there is a freeze of anywhere from 50-150ms--even on an iPhone 6. In our tests, an Android 4.1 device with images in collection repeat outperforms an iPhone 6.
 
 Images are very commonly used with collection repeat, and we change the `src` of those images often as the user scrolls. This is immensely smooth on Android, but less so on iOS.
 
@@ -92,7 +92,7 @@ We tried [creating a web worker](https://github.com/driftyco/ionic/blob/e18e30fc
 
 This is still an improvement from normal src, which just doesn't cache well at all.
 
-We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) to help iOS, and plan to release them as a simple-to-use solution soon. We welcome your ideas!
+We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) to improve iOS performance, and plan to release them as a simple-to-use solution soon. We welcome your ideas!
 
 ### Where We Are
 

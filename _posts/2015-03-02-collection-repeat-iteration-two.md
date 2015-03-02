@@ -56,21 +56,17 @@ When we took another look at UITableView, we hit upon a better solution. UITable
 
 We realized how much this could help performance and went into refactor mode.
 
-### Improvements
+### Improvements In the New
 
-Instead of requiring the user to input estimatedHeight, we now compute the width and height of the first element in the list and use that for the estimatedHeight and estimatedWidth.
+Instead of requiring the user to input estimatedHeight, we compute the dimensions of the first element in the list with getComputedStyle() and use that for the estimatedHeight and estimatedWidth.
 
 This lets us calculate dimensions lazily. We estimate that `scrollView.height === estimatedHeight * items.length` at the start, and as the user scrolls, we calculate the actual height of every element.
 
 However, we went even further with optimization.
 
-The most common case with collection repeat is just a list of generic ion-items. All of these items have the same height, and that height is equal to the computed height of the first item in the list.
-
-This is why we don’t require dimensions to be given anymore: we can estimate them using getComputedStyle(), and the resulting height and width will be used for every item in the list.
-
 In short, the new collection repeat has four possible 'modes' it enters, the first being the most performant, and the last being the least performant:
 
-1. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731) [List](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L719-L729) Mode**: This mode is entered when the height is given as a constant or not given at all, and the width is 100%. The math for this mode is simple and easy because every item has the same dimensions.
+1. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731) [List](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L719-L729) Mode**: This mode is entered when the height is given as a constant or not given at all, and the width is 100%. Here, we assume the height of every element is equal to the estimatedHeight. The math for this mode is simple and easy because every item has the same dimensions.
 
 2. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731-L759) [Grid](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L706-L717) Mode**: Similar to static list mode, except there are multiple items per row. This is still simple because every item has the same dimensions.
 
@@ -90,7 +86,7 @@ The biggest remaining opportunity for more performance gain is in the iOS browse
 
 Whenever you set the `src` of an `img` on iOS to a non-cached value, there is a freeze of anywhere from 50-150ms--even on an iPhone 6. In our tests, an Android 4.1 device with images in collection repeat outperforms an iPhone 6. It's that bad.
 
-Images are very commonly used with collection repeat, and we change the `src` of those images often as the user scrolls. This is fine on Android, but not on iOS.
+Images are very commonly used with collection repeat, and we change the `src` of those images often as the user scrolls. This is immensely smooth on Android, but less so on iOS.
 
 We tried [creating a web worker](https://github.com/driftyco/ionic/blob/e18e30fce379875c78e51fb6bf1445d9419153ce/js/workers/binaryToBase64.js) that fetches the image, converts it, and sends its base64 representation back to the UI thread. The image is then set to this base64 representation as a [data-uri](https://css-tricks.com/data-uris/). This fixes half of the problem. If you set an `img src` to a data-uri that has been set before, it instantly gets the rendered image from the cache and shows it without lag. However, the first time a unique data-uri is set, there is a similar delay to that of a a normal `src`.
 
@@ -100,7 +96,7 @@ We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/i
 
 ### Where We Are
 
-The new collection repeat is easier to use and more performant in every case!
+The new collection repeat is better than ever, and easier to use than ever. Give it a try.
 
 View the documentation at http://ionicframework.com/docs/nightly/api/directive/collectionRepeat.
 

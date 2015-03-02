@@ -48,7 +48,7 @@ As you can see, in the common case where every item is the same size, you don't 
 
 See [the documentation](http://ionicframework.com/docs/nightly/api/directive/collectionRepeat) for more information.
 
-### The Problems With the Old
+### The Problems With the First Iteration
 
 The old collection repeat assumed that every item could have unique dimensions. This required us to recalculate every single item's width and height whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
 

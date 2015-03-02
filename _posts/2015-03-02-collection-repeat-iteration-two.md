@@ -62,7 +62,7 @@ Instead of requiring the user to input estimatedHeight, we compute the dimension
 
 This lets us calculate dimensions lazily. We estimate that `scrollView.height === estimatedHeight * items.length` at the start, and as the user scrolls, we calculate the actual height of every element.
 
-We also found some optimizations available in rendering items. For example, we now batch DOM operations on items by setting cssText. We also now digest items entering items one frame after positioning them.
+We also made some optimizations in the rendering of items. For example, we now batch DOM operations on items by setting cssText. We also now digest items entering items one frame after positioning them.
 
 But the biggest optimization is in the calculation of dimensions. The new collection repeat has four possible 'modes' it enters, the first being the most performant, and the last being the least performant:
 

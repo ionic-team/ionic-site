@@ -183,7 +183,8 @@ the current scroll position will be rendered.
       </td>
       <td>
         <p>The number of items to load before and after the visible
-  items in the list. Default 10. This is good to set higher if you have lots of images to preload.</p>
+  items in the list. Default 3. Tip: set this higher if you have lots of images to preload, but
+  don&#39;t set it too high or you&#39;ll see performance loss.</p>
 
         
       </td>

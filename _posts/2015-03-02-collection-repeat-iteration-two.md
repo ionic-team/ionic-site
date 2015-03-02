@@ -1,7 +1,7 @@
 --- 
 layout: post
 title:  "Collection Repeat: Estimate, Iterate, Improve"
-date: "2015-03-02 08:00"
+date: "2015-03-02 12:00"
 hide_date: false
 categories: ionic
 author: '<img src="http://www.gravatar.com/avatar/e65d670a976d22edf1327b9519556a9e?s=128" class="author-icon"><a href="http://twitter.com/andrewtjoslin" target="_blank">@andrewtjoslin</a>'
@@ -20,11 +20,9 @@ Additionally, we take the Angular scope that just represented item 1, assign ite
 
 To follow the above strategy and position every element properly, we need every item's exact width and height.
 
-### Our First Iteration of Collection Repeat
+### The Old and the New
 
-In our first iteration of collection-repeat, we required developers to provide dimension stats for every item, because we assumed that every item might have a unique width and height.
-
-This is the old syntax:
+In our first iteration of collection-repeat, we required developers to provide dimension stats for every item, because we assumed that every item might have a unique width and height:
 
 ```html
 <ion-item collection-repeat="item in items"
@@ -34,13 +32,29 @@ This is the old syntax:
 </ion-item>
 ```
 
-The assumption that every item could have unique dimensions required us to recalculate every item's dimensions whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
+With the new syntax, however:
 
-When we took another look at UITableView, we hit upon a better solution. UITableView accepts an 'estimatedHeight' for every element in the list and uses that to estimate the size of the scrollView. Then, while the user scrolls down, each item's dimensions are calculated as needed, and the size of the scrollView adjusts to reflect the actual dimensions.
+```html
+<ion-list>
+  <ion-item collection-repeat="item in items">
+    {{item}}
+  </ion-item>
+</ion-list>
+```
+
+In the most common case, in which every item is the same size, you don't have to provide dimensions. Here, collection repeat shines as a drop-in replacement for ngRepeat.
+
+See [the documentation](http://ionicframework.com/docs/nightly/api/directive/collectionRepeat) for more information.
+
+### The Problems With the Old
+
+The old collection repeat assumed that every item could have unique dimensions. This required us to recalculate every single item's width and height whenever the scroll view resized. This expensive operation caused unacceptable lag when loading or rotating the phone.
+
+When we took another look at UITableView, we hit upon a better solution. UITableView accepts an 'estimatedHeight' for every element in the list and uses that to estimate the size of the scrollView. Then, while the user scrolls down, each item's dimensions are calculated on demand, and the size of the scrollView adjusts to reflect the actual dimensions.
 
 We realized how much this could help performance and went into refactor mode.
 
-### Can Collection Repeat Be More Performant?
+### Improvements
 
 Instead of requiring the user to input estimatedHeight, we now compute the width and height of the first element in the list and use that for the estimatedHeight and estimatedWidth.
 
@@ -50,11 +64,11 @@ However, we went even further with optimization.
 
 The most common case with collection repeat is just a list of generic ion-items. All of these items have the same height, and that height is equal to the computed height of the first item in the list.
 
-This means that if the user does not provide item-height and item-width attributes, we will estimate them using getComputedStyle(), and that height and width will be used for every item in the list.
+This is why we don’t require dimensions to be given anymore: we can estimate them using getComputedStyle(), and the resulting height and width will be used for every item in the list.
 
 In short, the new collection repeat has four possible 'modes' it enters, the first being the most performant, and the last being the least performant:
 
-1. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731) [List](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L719-L729) Mode**: This mode is entered when the given height is a constant, or when no height is given at all, and the width is 100%. The math for this mode is simple and easy because every item has the same dimensions.
+1. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731) [List](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L719-L729) Mode**: This mode is entered when the height is given as a constant or not given at all, and the width is 100%. The math for this mode is simple and easy because every item has the same dimensions.
 
 2. **[Static](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L731-L759) [Grid](https://github.com/driftyco/ionic/blob/864b46aa818c3a230e77225ab704c16acbc93ac5/js/angular/directive/collectionRepeat.js#L706-L717) Mode**: Similar to static list mode, except there are multiple items per row. This is still simple because every item has the same dimensions.
 
@@ -66,17 +80,7 @@ Finally, each of the four modes can be entered in either [vertical](https://gith
 
 The problem with the old repeater was that it was *always* in Dynamic Grid Mode and calculated all dimensions up front. This led to worse performance while scrolling, loading, **and** resizing.
 
-The new collection repeat has huge performance increases and is also much more usable. In the most common case, in which every item is the same size, you don't have to provide dimensions. In this case, collection repeat shines as a drop-in replacement for ngRepeat.
-
-```html
-<ion-list>
-  <ion-item collection-repeat="item in items">
-    {{item}}
-  </ion-item>
-</ion-list>
-```
-
-And even in the worst case of dynamic grid mode, collection repeat is more performant than before.
+And now, even in the worst case of dynamic grid mode, collection repeat is more performant than before.
 
 ## More Performance Opportunities
 
@@ -90,14 +94,16 @@ We tried [creating a web worker](https://github.com/driftyco/ionic/blob/e18e30fc
 
 This is still an improvement from normal src, which just doesn't cache well at all.
 
-This means that on iOS, when using collection-repeat with images, you won't have 60fps right now, unless you do some gymnastics, but we're working on it. We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) and plan to release them as a simple-to-use solution soon. We welcome your ideas!
+We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/issues/3194) to help iOS, and plan to release them as a simple-to-use solution soon. We welcome your ideas!
 
-### What's There Now
+### Where We Are
 
 The new collection repeat is easier to use and more performant in every case!
 
 View the documentation at http://ionicframework.com/docs/nightly/api/directive/collectionRepeat.
 
 Enjoy!
+
+
 
 

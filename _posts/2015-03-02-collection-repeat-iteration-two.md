@@ -12,6 +12,8 @@ Collection repeat is Ionic's buttery-smooth solution for scrolling huge lists. I
 
 Before we dive into the details, let’s talk about how collection repeat works at the most basic level.
 
+<!-- more -->
+
 ### The Essentials
 
 Say there are four items on the screen, matching items 1-4 in the user's array of data: As the user scrolls down, item 1 will move up and out of view. Once it's fully out of view, its element will move to the bottom of the screen to the space where item 5 should be, as item 5 moves up and into view.

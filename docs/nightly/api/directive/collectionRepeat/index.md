@@ -49,7 +49,7 @@ the current scroll position will be rendered.
 
 - The data given to collection-repeat must be an array.
 - If the `item-height` and `item-width` attributes are not supplied, it will be assumed that
-  every item in the list's dimensions are the same as the first item's dimensions.
+  every item in the list has the same dimensions as the first item.
 - Don't use angular one-time binding (`::`) with collection-repeat. The scope of each item is
   assigned new data and re-digested as you scroll. Bindings need to update, and one-time bindings
   won't.

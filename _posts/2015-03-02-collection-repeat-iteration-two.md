@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e65d670a976d22edf1327b9519556a
 published: false
 ---
 
-Collection repeat is Ionic's buttery-smooth solution for scrolling huge lists. Inspired by [iOS's UITableView](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html), we switch out elements as the user scrolls so that only the minimum necessary elements are rendered. We released our first version of collection repeat [last year](http://ionicframework.com/blog/collection-repeat/) have been improving it since then. Recently, we identified some huge potential performance increases and decided a complete refactor was necessary.
+Collection repeat is Ionic's buttery-smooth solution for scrolling huge lists. Inspired by [iOS's UITableView](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html), we switch out elements as the user scrolls, so that only the minimum necessary elements are rendered. We released our first version of collection repeat [last year](http://ionicframework.com/blog/collection-repeat/) and have been improving it since then. Recently, we identified some huge potential performance increases and decided a complete refactor was necessary.
 
 Before we dive into the details, let’s talk about how collection repeat works at the most basic level.
 

@@ -80,7 +80,7 @@ The problem with the old repeater was that it was *always* in Dynamic Grid Mode 
 
 Now, even in the worst case of dynamic grid mode, collection repeat is more performant than ever.
 
-## More Performance Opportunities
+### More Performance Opportunities
 
 The biggest remaining opportunity for more performance gain is in the iOS browser’s rendering of images.
 

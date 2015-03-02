@@ -98,7 +98,7 @@ We're experimenting with [a few more tricks](https://github.com/driftyco/ionic/i
 
 The new collection repeat is better than ever, and easier to use than ever. Give it a try!
 
-View the documentation at http://ionicframework.com/docs/nightly/api/directive/collectionRepeat.
+View the documentation at [http://ionicframework.com/docs/nightly/api/directive/collectionRepeat](http://ionicframework.com/docs/nightly/api/directive/collectionRepeat).
 
 Enjoy!
 

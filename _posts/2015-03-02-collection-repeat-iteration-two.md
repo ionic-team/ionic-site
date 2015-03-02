@@ -25,11 +25,13 @@ To follow the above strategy and position every element properly, we need every 
 In our first iteration of collection-repeat, we required developers to provide dimension stats for every item, because we assumed that every item might have a unique width and height:
 
 ```html
-<ion-item collection-repeat="item in items"
-  collection-item-height="item.someCondition ? 65 : getRegularHeight(item)"
-  collection-item-width="'100%''>
-  {{item}}
-</ion-item>
+<ion-list>
+  <ion-item collection-repeat="item in items"
+    collection-item-height="item.someCondition ? 65 : getRegularHeight(item)"
+    collection-item-width="'100%'">
+    {{item}}
+  </ion-item>
+</ion-list>
 ```
 
 With the new syntax, height and width are optional:

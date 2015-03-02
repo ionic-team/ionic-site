@@ -32,7 +32,7 @@ In our first iteration of collection-repeat, we required developers to provide d
 </ion-item>
 ```
 
-With the new syntax, however:
+With the new syntax, height and width are optional:
 
 ```html
 <ion-list>
@@ -42,7 +42,7 @@ With the new syntax, however:
 </ion-list>
 ```
 
-In the most common case, in which every item is the same size, you don't have to provide dimensions. Here, collection repeat shines as a drop-in replacement for ngRepeat.
+For the most common case, where every item has the same size, you don't have to provide dimensions. Here, collection repeat shines as a drop-in replacement for ngRepeat.
 
 See [the documentation](http://ionicframework.com/docs/nightly/api/directive/collectionRepeat) for more information.
 

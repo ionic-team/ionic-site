@@ -27,7 +27,7 @@ In our first iteration of collection-repeat, we required developers to provide d
 ```html
 <ion-list>
   <ion-item collection-repeat="item in items"
-    collection-item-height="item.someCondition ? 65 : getRegularHeight(item)"
+    collection-item-height="75"
     collection-item-width="'100%'">
     {{item}}
   </ion-item>

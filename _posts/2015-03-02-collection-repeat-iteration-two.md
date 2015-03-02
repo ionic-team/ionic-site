@@ -8,7 +8,7 @@ author: '<img src="http://www.gravatar.com/avatar/e65d670a976d22edf1327b9519556a
 published: false
 ---
 
-Collection repeat is Ionic's solution for scrolling huge lists. Inspired by [iOS's UITableView](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html), we switch out elements as the user scrolls so that only the minimum necessary elements are rendered. We released our first version of collection repeat [last year](http://ionicframework.com/blog/collection-repeat/) have been improving it since then. Recently, we identified some huge potential performance increases and decided a complete refactor was necessary.
+Collection repeat is Ionic's buttery-smooth solution for scrolling huge lists. Inspired by [iOS's UITableView](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html), we switch out elements as the user scrolls so that only the minimum necessary elements are rendered. We released our first version of collection repeat [last year](http://ionicframework.com/blog/collection-repeat/) have been improving it since then. Recently, we identified some huge potential performance increases and decided a complete refactor was necessary.
 
 Before we dive into the details, let’s talk about how collection repeat works at the most basic level.
 
@@ -86,7 +86,7 @@ The biggest remaining opportunity for more performance gain is in the iOS browse
 
 Whenever you set the `src` of an `img` on iOS to a non-cached value, there is a freeze of anywhere from 50-150ms--even on an iPhone 6. In our tests, an Android 4.1 device with images in collection repeat outperforms an iPhone 6.
 
-Images are very commonly used with collection repeat, and we change the `src` of those images often as the user scrolls. This is immensely smooth on Android, but less so on iOS.
+Images are very commonly used with collection repeat, and we change the `src` of those images often as the user scrolls.
 
 We tried [creating a web worker](https://github.com/driftyco/ionic/blob/e18e30fce379875c78e51fb6bf1445d9419153ce/js/workers/binaryToBase64.js) that fetches the image, converts it, and sends its base64 representation back to the UI thread. The image is then set to this base64 representation as a [data-uri](https://css-tricks.com/data-uris/). This fixes half of the problem. If you set an `img src` to a data-uri that has been set before, it instantly gets the rendered image from the cache and shows it without lag. However, the first time a unique data-uri is set, there is a similar delay to that of a a normal `src`.
 

@@ -58,7 +58,7 @@ the current scroll position will be rendered.
 
 - The iOS webview has a performance bottleneck when switching out `<img src>` attributes.
   To increase performance of images on iOS, cache your images in advance and,
-  if possible, lower the number of unique images. Check out [this codepen]().
+  if possible, lower the number of unique images. We're working on [a solution](https://github.com/driftyco/ionic/issues/3194).
 
 
 

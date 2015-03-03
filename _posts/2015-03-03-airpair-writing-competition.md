@@ -1,3 +1,6 @@
+
+![Ionic in Action](/img/blog/airpair-competition.png)
+
 We are excited to be sponsoring a $500 cash prize for the best Ionic post submitted to AirPair’s $100K developer writing competition!
 
 <!-- more -->

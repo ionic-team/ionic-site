@@ -1,5 +1,5 @@
 
-![Ionic in Action](/img/blog/airpair-competition.png)
+<img src="/img/blog/airpair-competition.png" style="text-align:center;margin:0 auto;"/>
 
 We are excited to be sponsoring a $500 cash prize for the best Ionic post submitted to AirPair’s $100K developer writing competition!
 

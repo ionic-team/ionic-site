@@ -7,7 +7,7 @@ author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg
 published: false
 ---
 
-<img src="/img/blog/airpair-competition.png" style="text-align:center;margin:0 auto;"/>
+<img src="/img/blog/airpair-competition.png" style="min-width:100%"/>
 
 We are excited to be sponsoring a $500 cash prize for the best Ionic post submitted to AirPair’s $100K developer writing competition!
 

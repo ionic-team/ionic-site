@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "We're Sponsoring AirPair's Developer Writing Competition!"
+date:   "2015-03-03 13:00:00"
+categories: ionic
+author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
+published: false
+---
 
 <img src="/img/blog/airpair-competition.png" style="text-align:center;margin:0 auto;"/>
 

@@ -127,7 +127,7 @@ the app is running from. If the platform is not <code>ios</code> or <code>androi
 to <code>ios</code>.</li>
 <li><code>ios</code>: iOS style transition.</li>
 <li><code>android</code>: Android style transition.</li>
-<li><code>none</code>: Do not preform animated transitions.</li>
+<li><code>none</code>: Do not perform animated transitions.</li>
 </ul>
 
         

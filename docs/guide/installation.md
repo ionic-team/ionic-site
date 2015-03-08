@@ -35,7 +35,7 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
   If you are running a 64-bit version of Ubuntu, you'll need to install the 32-bit libraries since Android is only 32-bit at the moment.
   <code>$ sudo apt-get install ia32-libs</code>
   If you are on Ubuntu 13.04 or greater, `ia32-libs` has been removed. You can use the following packages instead:
-  <code>$ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code>
+  <code>$ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code> . If you are running 64-bit version of Fedora you'll need to install some 32-bit packages, you can use the following command to install packages: <code>$ sudo yum install -y glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686 ncurses-devel.i686</code> and run <code>$ sudo yum install -y libX11-devel.i686 libXrender.i686 libXrandr.i686</code> . 
 </p>
 </div>
 

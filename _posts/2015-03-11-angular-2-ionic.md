@@ -8,6 +8,8 @@ published: true,
 meta_description: Ionic v2 is in the works, complete with Angular 2 support. Read about our strategy for making it awesome.
 ---
 
+<img src="/img/blog/ionic-angular-v2.jpg" style="min-width:100%"/>
+
 Hey Ions,
 
 After a hugely successful [ngConf](http://www.ng-conf.org/) last week, the Ionic office is abuzz with Angular 2, and what it means
@@ -24,6 +26,3 @@ We are going to become experts in Angular 2, and we are working in parallel with
 With Angular 2, we want to make Ionic faster, easier to use, and more powerful. The new component model makes building components and extending Ionic much easier. Angular 2 apps are easier to write and interact with your data in a more expected way. The framework naturally interacts with web standards instead of creating new ones. Learning Angular 2 will be easier, and more developers will be able to work on the code base. A win-win-win-win**N*.
 
 So, yes, Angular 2 support is a 100% for sure. We will have more info when we are ready to release it!
-
-Onward! 
-

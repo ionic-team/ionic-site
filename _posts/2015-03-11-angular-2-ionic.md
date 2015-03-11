@@ -17,7 +17,7 @@ With that in mind, I want to quickly address the questions we've gotten about An
 
 First of all, we will absolutely be supporting Angular 2, and we will release full Angular 2 support in Ionic v2. In fact, we are already working on it! I don't have a timeline for that (yet!), but chances are it will come earlier than v1 did :)
 
-Next week we are doing an "Angular/Ionic 2 Summit." The Ionic core team will be locking themselves in a room (and we are flying in some remotes!) to go through all the lessons learned over the last year and half. Everything we did right (and *wrong*!) with Ionic v1, and what we will fix in v2.
+Next week we are doing an "Angular/Ionic 2 Summit." The Ionic core team will be locking themselves in a room (and we are flying in some remotes!) to go through all the lessons learned over the last year and half. Everything we did right (and *wrong*!) with Ionic v1, and what we will fix in v2. Yes, there will be coding!
 
 We are going to become experts in Angular 2, and we are working in parallel with the Angular team to make sure Angular 2 is an incredible frontend framework on mobile, and that Ionic can build the best mobile framework on top.
 

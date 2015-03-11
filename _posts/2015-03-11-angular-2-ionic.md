@@ -17,7 +17,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 With that in mind, I want to quickly address the questions we've gotten about Angular 2, and what it means for Ionic.
 
-First of all, we will absolutely be supporting Angular 2, and we will release full Angular 2 support in Ionic v2. In fact, we are already working on it! I don't have a timeline for that (yet!), but chances are it will come earlier than v1 did :)
+First of all, we will absolutely be supporting Angular 2, and we will release full Angular 2 support in Ionic v2. In fact, we are already working on it! I don't have a timeline for that (yet!), but chances are it will come earlier than v1 did :) And, of course, we will support Ionic v1 through all of this!
 
 Next week we are doing an "Angular/Ionic 2 Summit." The Ionic core team will be locking themselves in a room (and we are flying in some remotes!) to go through all the lessons learned over the last year and half. Everything we did right (and *wrong*!) with Ionic v1, and what we will fix in v2. Yes, there will be coding!
 

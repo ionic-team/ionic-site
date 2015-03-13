@@ -5,7 +5,7 @@ date:   "2014-08-06 13:00:00"
 categories: ionic, angularjs, beta
 author: '<img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">Adam</a>'
 searchable: true
-published: false
+published: true
 ---
 
 Last week at ng-conf, we announced Ionic RC0, which includes several new features about which we’re really excited.

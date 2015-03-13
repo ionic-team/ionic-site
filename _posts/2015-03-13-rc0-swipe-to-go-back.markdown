@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ionic RC0: New Swipe to Go Back Feature"
-date:   "2014-08-06 13:00:00"
+date:   "2015-03-13 13:00:00"
 categories: ionic, angularjs, beta
 author: '<img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">Adam</a>'
 searchable: true

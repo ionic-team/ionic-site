@@ -7,17 +7,17 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-One of the biggest requests for Ionic View and ionic.io is inviting co-workers, friends, and customers to preview and test your app. This makes a great beta-testing experience that is quite a bit easier to use than TestFlight, etc.
+One of the biggest requests for Ionic View and ionic.io is to be able to invite co-workers, friends, and customers to preview and test your app. This creates a great beta-testing experience that is quite a bit easier to use than TestFlight, etc.
 
-Now you can invite anyone to your app with a new feature of the Ionic CLI. Just run:
+Now, you can invite anyone to view and test your app with a new feature of the Ionic CLI. Just run:
 
 ```bash
 $ ionic share EMAIL
 ```
 
-To share the current app with the person at that email.
+to share the current app with the person at that email address.
 
-To use this, make sure to update to the newest version of Ionic CLI and upload your app to ionic.io:
+To use this new feature, make sure to update to the newest version of Ionic CLI and upload your app to ionic.io:
 
 ```bash
 $ ionic login

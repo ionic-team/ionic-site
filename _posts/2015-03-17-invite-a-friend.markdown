@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Invite someone to your Ionic App"
-date:   "2014-12-15  8:00:00"
+title:  "Invite a friend to your Ionic App"
+date:   "2015-03-17  8:00:00"
 categories: ionic, ionicio
 author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a>'
 published: true

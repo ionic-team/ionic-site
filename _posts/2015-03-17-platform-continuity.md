@@ -8,6 +8,7 @@ published: false
 ---
 
 <img src="/img/blog/blog-image-ionic.png" style="min-width:100%"/>
+CHANGE TO PLATFORM CONTINUITY HEADER IMAGE
 
 Think about how it feels when you open up a particularly well designed iOS or Android app. The entire experience is predictable and clear; everything functions according to your expectations. 
 
@@ -21,11 +22,10 @@ Ionic helps to solve this problem out of the box. Design is a critically importa
 
 Ionic allows you to customize settings, such as headers, tabs, transitions, toggles, action sheets, back-buttons, checkboxes, nav-buttons, and fonts, for each major platform. For example, now Ionic checkboxes automatically look like iOS checkboxes on iOS and Android checkboxes on Android. Our action sheet below looks significantly different on iOS than on Android. All of this happens automatically and is customizable.
 
-[ IMAGE COMPARING IOS/ANDROID ACTION SHEET ]
+ADD IMAGE COMPARING IOS/ANDROID ACTION SHEET
 
 Going forward, our criteria for acceptance into the [Ionic Showcase](http://showcase.ionicframework.com/) will emphasize platform continuity, in addition to beautiful design and unique functionality. We look forward to seeing what you build!
 
-Hear more about platform continuity in Adam’s talk at ng-conf (link to that part of the pres.)
-
-Embed video 
+Hear more about platform continuity in [Adam’s talk at ng-conf](https://youtu.be/wvr11fvCeu4?t=4m41s):
+<iframe width="100%" height="510" src="//www.youtube.com/embed/wvr11fvCeu4?t=4m41s" frameborder="0" allowfullscreen></iframe>
 

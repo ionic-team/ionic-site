@@ -7,7 +7,7 @@ author: '<img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a5
 published: true
 ---
 
-One of the biggest requests for Ionic View and ionic.io is to be able to invite co-workers, friends, and customers to preview and test your app. This creates a great beta-testing experience that is quite a bit easier to use than TestFlight, etc.
+One of the biggest requests for Ionic View and ionic.io is to be able to invite co-workers, friends, and customers to preview and test your app. This would make the Ionic View app a great beta-testing experience that is quite a bit easier to use than TestFlight, etc.
 
 Now, you can invite anyone to view and test your app with a new feature of the Ionic CLI. Just run:
 

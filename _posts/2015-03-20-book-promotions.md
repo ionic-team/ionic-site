@@ -7,7 +7,7 @@ author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg
 published: true
 ---
 
-<img src="/img/blog/platform-continuity-ionicframework.png" style="min-width:100%"/>
+![Ionic in Action](/img/blog/ionic-in-action-header.jpg)
 
 In honor of Ionic 1.0’s release, the publishers of several Ionic and Ionic-related books are offering special, limited-time promotions. Get ‘em while they’re hot!
 

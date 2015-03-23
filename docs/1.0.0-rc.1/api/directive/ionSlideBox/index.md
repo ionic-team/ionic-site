@@ -212,7 +212,7 @@ with <a href="/docs/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDel
   <code>expression</code>
       </td>
       <td>
-        <p>Model to bind the current slide to.</p>
+        <p>Model to bind the current slide index to.</p>
 
         
       </td>

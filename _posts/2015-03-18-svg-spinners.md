@@ -10,7 +10,7 @@ published: true
 
 <iframe width="100%" height="350" src="http://s.codepen.io/ionic/debug/GgwVON?" frameborder="0"></iframe>
 
-Now that we’ve released Ionic 1.0, we want to share more about our favorite new Ionic features. Last week, [Adam](https://twitter.com/adamdbradley) wrote about his favorite new feature in Ionic 1.0, [Swipe to Go Back](http://ionicframework.com/blog/rc0-swipe-to-go-back/). Personally, I’m most excited about our new animated SVG spinners, and I thought I’d explain why we decided to changes the spinners and what the new SVG spinners can do for your app.
+Now that we’ve released Ionic 1.0, we want to share more about our favorite new Ionic features. Last week, [Adam](https://twitter.com/adamdbradley) wrote about his favorite new feature in Ionic 1.0, [Swipe to Go Back](http://ionicframework.com/blog/rc0-swipe-to-go-back/). Personally, I’m most excited about our new animated SVG spinners, and I thought I’d explain why we decided to change the spinners and what the new SVG spinners can do for your app.
 
 <!-- more -->
 

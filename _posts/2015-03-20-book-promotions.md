@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ionic RC1: Book Promotions!"
+title:  "Ionic 1.0 RC1: Book Promotions!"
 date:   "2015-03-20 5:00:00"
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ionic RC1: SVG Spinners"
+title:  "Ionic 1.0 RC1: SVG Spinners"
 date:   "2015-03-18  11:31:00"
 categories: angularjs, ionic, framework, mobile
 author: '<img src="https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png" class="author-icon"><a

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ionic 1.0: Book Promotions!"
+title:  "Ionic RC1: Book Promotions!"
 date:   "2015-03-20 5:00:00"
 categories: ionic
 author: '<img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie'
@@ -9,7 +9,7 @@ published: true
 
 ![Ionic in Action](/img/blog/book-header.png)
 
-In honor of Ionic 1.0’s release, the publishers of several Ionic and Ionic-related books are offering special, limited-time promotions. Get ‘em while they’re hot!
+In honor of Ionic RC1's release, the publishers of several Ionic and Ionic-related books are offering special, limited-time promotions. Get ‘em while they’re hot!
 
 <!-- more -->
 

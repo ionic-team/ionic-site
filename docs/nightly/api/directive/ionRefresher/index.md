@@ -137,6 +137,23 @@ on the refresher.</p>
     
     <tr>
       <td>
+        pulling-text
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The text to display while the user is pulling down.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         pulling-icon
         
         <div><em>(optional)</em></div>

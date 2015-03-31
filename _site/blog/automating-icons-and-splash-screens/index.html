@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Automating Icons and Splash Screens</title>
+    <link href="/css/site.css?12" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/automating-icons-and-splash-screens/">Automating Icons and Splash Screens</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Automating Icons and Splash Screens" data-url="http://ionicframework.com/blog/automating-icons-and-splash-screens" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/automating-icons-and-splash-screens"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/automating-icons-and-splash-screens" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a> on January 05, 2015</time>
+  </div>
+
+<p><img class="showcase-image" src="/img/blog/splash-header.jpg" style="margin-top:-20px;"></p>
+
+<p>What’s the first thing users see when they download your app? What about after they install it and start the app?</p>
+
+<p>An app icon and splash screen (launch image) are important parts of any app, yet making them used to be incredibly
+tedious. You needed numerous icons for iOS and Android, and then you had to deal with splash screens and all their
+different sizes.</p>
+
+<p>To save you the stress of dealing with all that, we’ve made it possible for you to generate app icons and splash screens
+via the Ionic CLI.</p>
+
+<!-- more -->
+
+<h3>Generate those Resources</h3>
+
+<p>With the new CLI, all you need is a resource directory and two images. These images can be  <code>.png</code> files, Photoshop
+<code>.psd</code> files, or Illustrator <code>.ai</code> files, named icon.png (for example) and splash.png. With the images in a resources
+directory, <code>./resources</code>, the <code>ionic resources</code> command will generate the icons and splash screen images for  each
+platform setup in the project, sending them to Ionic&#39;s image resizing and cropping server, so you don&#39;t have to  install
+extra dependencies.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic resources
+</code></pre></div>
+<p>After the images are generated, the CLI will update the <code>config.xml</code> to <a href="http://cordova.apache.org/docs/en/4.0.0/config_ref_images.md.html#Icons%20and%20Splash%20Screens">include the icons and splash
+screens</a>, so they
+will be transferred over in Cordova&#39;s build process. NOTE: This process requires Cordova CLI version 3.6 or higher.</p>
+
+<p>If you only need to update one of the resources, or you only want to generate icons and not both, the <code>ionic resources</code>
+command has two flags that allow you to target each asset, instead of generating both.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic resources --icon
+<span class="nv">$ </span>ionic resources --splash
+</code></pre></div>
+<h3>Image Sizes</h3>
+
+<p>In order to be able to crop and resize images to fit the various needs of each platform, icons and splash screen images
+should meet a minimum size requirement.</p>
+
+<p>The icon image&#39;s minimum dimensions should be 192x192 px and should have no rounded corners. Note that each platform
+will apply its own mask and effects to the icons. For example, iOS will automatically apply its custom rounded corners,
+so the source file should not already come with rounded corners.</p>
+
+<p>Splash screen dimensions vary for each platform, device, and orientation, so a square source image is required to
+generate each of the various screen sizes. The source image&#39;s minimum dimensions should be 2208x2208 px, and the artwork
+should be centered within the square, because each generated image will be center cropped into landscape and portrait
+images.
+The splash screen&#39;s artwork should roughly fit within a center square (1200x1200 px). This
+<a href="http://code.ionicframework.com/resources/splash.psd">template</a> provides the recommended size and guidelines about
+artwork&#39;s safe zone.</p>
+
+<h3>Platform Specifics</h3>
+
+<p>Want different icons for the iOS and Android versions of your app? No problem; we’ve got that covered, too. To use
+different source images for individual platforms, place the source image in the respective platform&#39;s directory. To use
+a different icon for Android, the image should follow this path: <code>resources/android/icon.png</code>, and the image for iOS
+should use this path: <code>resources/ios/icon.png</code>. This way, you can have an iOS icon with native rounded corners and an
+Android icon with a transparent background.</p>
+
+<p>This is just one more way Ionic aims to make developers’ lives easier, not to mention more fun. Update your CLI and try
+out the resource generator today.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic
+</code></pre></div>
+<h3>What&#39;s Next</h3>
+
+<p>As we mentioned in our Beta 14 blog post, we&#39;ve been working on adding Crosswalk integration for Android into our CLI.
+Josh has been hard at work on this, and it will be landing in the CLI as a beta feature soon. Keep an eye on the CLI!</p>
+
+<ul>
+<li><a href="https://github.com/driftyco/ionic-cli#icon-and-splash-screen-image-generation">Ionic-CLI Resource Generator Docs</a></li>
+<li><a href="http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens">Cordova Icons and Splash Screens
+Docs</a></li>
+<li><a href="http://code.ionicframework.com/resources/splash.psd">Splash screen photoshop template</a></li>
+</ul>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Automating Icons and Splash Screens" data-url="http://ionicframework.com/blog/automating-icons-and-splash-screens" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/automating-icons-and-splash-screens"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

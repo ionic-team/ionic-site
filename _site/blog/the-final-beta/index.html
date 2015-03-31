@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Beta 14: The Final Beta</title>
+    <link href="/css/site.css?12" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/the-final-beta/">Beta 14: The Final Beta</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Beta 14: The Final Beta" data-url="http://ionicframework.com/blog/the-final-beta" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/the-final-beta"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/the-final-beta" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/459365829348302849/lJ1X8rU9.png" class="author-icon"><a href="https://twitter.com/Ionicframework">Ionic Team</a> on December 15, 2014</time>
+  </div>
+
+<p><img class="showcase-image" src="/img/blog/b14-header.jpg" style="margin-top:-20px;"></p>
+
+<p>Today, we&#39;re thrilled to announce Ionic 1.0 Beta 14, The Last of the Betas! Beta 14 takes Ionic beyond its birth as a <a href="http://ionicframework.com/blog/beyond-framework/">framework</a> to its current state as a complete suite of solutions for hybrid mobile app development. After we released Beta 13, our team examined our tools and services and analyzed areas where we could make improvements for hybrid app development. The desire to meet the needs of our developers in the best way possible is the driving force behind every decision we make about Ionic. For this release, we focused on performance boosts, caching, view transitions, and platform-specific changes.</p>
+
+<!-- more -->
+
+<h3>Update to Angular 1.3</h3>
+
+<p>One of the biggest updates we&#39;ve made in this release is that we&#39;ve migrated Ionic&#39;s core to work with <a href="http://angularjs.blogspot.com/2014/10/angularjs-130-superluminal-nudge.html">Angular 1.3</a>, which offers supercharged performance and slick new features. Take a look at <a href="https://docs.angularjs.org/guide/migration#migrating-from-1-2-to-1-3">Angular&#39;s Migration Page</a> to get familiar with any changes that apply to your app!</p>
+
+<h3>Caching, Transitions, and Platform Configuration, Oh My!</h3>
+
+<h4>Caching</h4>
+
+<p>One huge performance boost we&#39;ve added is the caching of views. It used to be that views and their scopes were destroyed as soon as the user navigated away from them. While this is the normal behavior for views in Angular, it&#39;s also a big hit for performance and perceived speed to have the same elements and data reloaded on every viewing.</p>
+
+<p>Now, when the user transitions away from a view, the scope is disconnected, rather than destroyed, and the view is kept in the DOM (don&#39;t worry; it&#39;s hidden and not being rendered, so it won&#39;t impact performance). This allows us to essentially cache the view and reconnect the scopes, instead of rebuilding them. This means all that data crunching to get a controller spun up only needs to happen once. The controller and its data can stay in memory and listen for events, just like native apps. By default, Ionic will cache only 10 views, but this is all <a href="http://ionicframework.com/docs/api/directive/ionNavView/">highly configurable</a>.</p>
+
+<p>Being able to hold scroll position as a user navigates forward and back is great for user interaction. For example, if the user scrolls down a large list on View A, then navigates to a detail page in View B, then navigates back to View A, it&#39;ll still be at the same scroll position (without any data reloading or skippy scrolling).</p>
+
+<h4>Ionic&#39;s Got Some New Moves</h4>
+
+<p>If you follow any of the Ionic devs on Twitter, you&#39;ve probably seen some hints about what we&#39;ve been working on.</p>
+
+<p><img class="showcase-image" style="display: block; margin: auto;" src="https://pbs.twimg.com/media/B1DcthWCYAA45I1.jpg"></p>
+
+<p>We spent a lot of time analyzing both iOS and Android animations to figure out exactly how they work. In iOS, there are about 20 different things happening all at once. New nav-bar buttons fade in, and old buttons fade out. Old titles slide to the back button text, and new titles slide in. The old view slides away, and the new view slides in, all while an overlay fades in. And that&#39;s just for the transition to a new view! Going back is a slightly different variation of this. We also spent a lot of time looking at how views transition in Android 5.0, paying special attention to the ways in which transitions are done with tabs in Android.</p>
+
+<p>We encourage Ionic app developers to embrace platform specific changes, so users feel right at home using interactions and layouts with which they&#39;re familiar. For example, iOS apps have center-aligned titles and header buttons on the left and right, while Android apps have left-aligned titles and header buttons on the right. In Beta 14, we&#39;ve added these as defaults, so  platform-specific UI changes happen <em>automatically</em>, but they can all still be configured.</p>
+
+<p>It was clear to us that we needed to rethink our transition system and how we were handling views. Simple CSS transitions weren&#39;t cutting it, especially because we wanted a transition to also be controlled with user-interaction (think swipe-to-go-back). This realization drove us to create our new view transition and caching system and to structure the core so it is easily configurable. With this new setup, we&#39;ll begin working on a new animations pack to provide even more compelling animations. Expect even more to come!</p>
+
+<h4>Configure All The Things</h4>
+
+<p>We also created the  <a href="http://ionicframework.com/docs/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>, a powerful feature that allows you to customize nearly every aspect of your app, from where the title aligns in the nav-bar to the style of animations used for transitions. Even small changes, such as the back button icon, can be configured to be one way for an iOS app and another way for an Android app.</p>
+
+<h3>Automatic History Magic</h3>
+
+<p>In addition to all the configuration that can be done with <code>$ionicConfigProvider</code>, we&#39;ve also added <a href="http://ionicframework.com/docs/api/service/$ionicHistory/"><code>$ionicHistory</code></a>, which includes functionality that was available in previous versions of Ionic, but wraps them in an Angular service and adds new features. <code>$ionicHistory</code> keeps track of an app&#39;s views and history stack as the user navigates. Similar to the way a browser behaves, an Ionic app is able to keep track of the previous view, the current view, and the forward view (if there is one).</p>
+
+<p>However, a typical web browser only keeps track of one history stack in a linear fashion. Ionic&#39;s <code>$ionicHistory</code> is able to keep track of multiple histories and follow the user as he or she navigates among different views and different histories. For example, an app with tabs has its own history stack for each tab, so a user can navigate a few views in Tab A, then navigate a few in Tab B, and return to Tab A, with the previous stack location having been maintained the whole time.</p>
+
+<h3>But Wait, There&#39;s MORE!</h3>
+
+<p>We have so many things in store for 2015 that we couldn&#39;t resist offering you a little sneak peek...</p>
+
+<h4>Here&#39;s What&#39;s Next!</h4>
+
+<ul>
+<li><p>Chromium builds for Android: We&#39;ll be integrating Chromium builds into the CLI soon, but remember that <a href="http://blog.nraboy.com/2014/10/use-crosswalk-ionic-framework-android-apps/">you can do this now with Crosswalk</a>. What this means for you is drastically improved performance on Android devices.</p></li>
+<li><p>Now that view elements are cached in the DOM, we&#39;ll be adding the &quot;swipe to go back&quot; feature between pages.</p></li>
+<li><p>Since Android provides the necessary scroll events, we&#39;ll be refactoring our scrolling, such that we can remove JS scrolling on Android devices.</p></li>
+<li><p>This is our <em>last Beta release</em>! Once “swipe to go back” and removal of JS scrolling on Android updates are added, we&#39;re going to call Ionic v1.0 feature complete and roll out the Release Candidate.</p></li>
+<li><p>Our new navigation and transition system provides a lot more power for animations. In the near future, we&#39;ll be creating an animations pack that can easily extend Ionic&#39;s animations and allow apps to do some pretty slick stuff with very minimal code.</p></li>
+<li><p>More Ionicons! We will be adding to and improving our <a href="http://ionicons.com/">beloved font icon pack</a> to pair nicely with the next Ionic release. Spinning font icons will be removed in lieu of a special new loading spinner project we&#39;re working on…</p></li>
+<li><p>Oh, and let&#39;s not forget <a href="http://ionic.io">Ionic.io</a>, which will give all Ionic developers access to powerful services like Analytics, A/B testing, and live-updating of apps without app store submission. Sign up on the alpha list for more info as we move closer to release!</p></li>
+</ul>
+
+<h3>Setting the Bar for Maximum Awesomeness</h3>
+
+<p>We encourage the Ionic community to check out the <a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md">changelog</a> for this release, review our <a href="http://ionicframework.com/docs/">docs</a>, and read up on all the new APIs. Ionic has evolved into a full-fledged SDK for mobile apps, and we believe the updates we&#39;ve made in this release will make app development an even more enjoyable process for all of you. Thanks to all our community members who have provided feedback and improvements to the open source project. We are very grateful to you!</p>
+
+<p><strong>Docs</strong></p>
+
+<ul>
+<li><a href="http://ionicframework.com/docs/api/directive/ionView/">View LifeCycle and Events</a></li>
+<li><a href="http://ionicframework.com/docs/api/directive/ionNavView/">Navigation</a></li>
+<li><a href="http://ionicframework.com/docs/api/provider/$ionicConfigProvider/">Ionic Config</a></li>
+<li><a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md">Ionic Changelog</a></li>
+<li><a href="https://docs.angularjs.org/guide/migration#migrating-from-1-2-to-1-3">Angular v1.2 to v1.3 Migration</a></li>
+<li><a href="https://www.youtube.com/watch?v=ojMy6m_fcxc">Angular v1.3 (ngEurope 2014)</a></li>
+</ul>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Beta 14: The Final Beta" data-url="http://ionicframework.com/blog/the-final-beta" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/the-final-beta"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic Blog</title>
+    <link href="/css/site.css?12" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-swipeable-cards/">Building a custom Swipeable Card UI with Ionic and AngularJS</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Building a custom Swipeable Card UI with Ionic and AngularJS" data-url="http://ionicframework.com/blog/ionic-swipeable-cards" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-swipeable-cards"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-swipeable-cards" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on January 25, 2014</time>
+  </div>
+  
+    <p>One of the original goals of the Ionic Framework was to encourage custom mobile UI development with HTML5, building UIs that were innovative, interactive,
+and fun, but weren&#39;t necessarily part of the core mobile UI framework on a given platform.</p>
+
+<p>We&#39;ve seen native developers doing this for some time. Startups and companies like Jelly, Path, Facebook, and Google have very custom mobile UIs filled
+with animations, lots of interesting gesture-based interactions, and other unique effects. This helps create a potentially more fluid experience for the user performing an app-specific task, but also serves as a way to make
+a design impact and draw more attention to the app itself.</p>
+
+<p>I was playing with the <a href="http://jelly.co/">Jelly</a> app last week and fell in love with the swipeable card UI. I felt it was fun and effective enough that tons of mobile developers would want to emulate it for their apps, much like the draggable Side Menu made popular by Path and Facebook:</p>
+
+<p><img src="http://ionicframework.com.s3.amazonaws.com/blog/jelly.jpg" alt="Cards"></p>
+
+
+    <a href="/blog/ionic-swipeable-cards">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/rise-above-the-platform/">Rise Above the Platform</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Rise Above the Platform" data-url="http://ionicframework.com/blog/rise-above-the-platform" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/rise-above-the-platform"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/rise-above-the-platform" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/b2fb6624572ff6d6dcbe98bd787b9e9b.png?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/benjsperry" target="_blank">@benjsperry</a> on January 15, 2014</time>
+  </div>
+  
+    <p><img class="showcase-image" src="/img/blog/rise-above.png"></p>
+
+<p>When was the last time you saw a unique mobile app <a href="http://www.snapchat.com/" target="_blank">rise the ranks</a> of popularity, <a href="https://vine.co/" target="_blank">hit number one</a> or two in the App/Play Store, maybe even become a <a href="https://about.twitter.com/" target="_blank">household name</a>- yet, have a visual design that completely mimics the native UI design for all the platforms?</p>
+
+<p><strong>My guess is you haven’t, and you probably never will.</strong></p>
+
+<p>That’s because professional app developers don’t often copy the native design look-and-feel verbatim. And why would they? Cloning the native design doesn’t offer any real benefits when a user first opens and interacts with your app- if it has no recognizable visual differentiation, it’s not as easy to remember it. Your otherwise unique product becomes yet another boring “seen-it-already” app hidden out of sight, never to be opened again. Or worse yet, deleted altogether!</p>
+
+<p>What the most successful app developers and companies understand is that for an app to be successful, it must creatively utilize the native interface style, trends, and interactions to fit their own brand personality and target market.</p>
+
+
+    <a href="/blog/rise-above-the-platform">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-and-nitrousio/">Build a Mobile App on Nitrous.IO with Ionic Framework, Firebase, and PhoneGap</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Build a Mobile App on Nitrous.IO with Ionic Framework, Firebase, and PhoneGap" data-url="http://ionicframework.com/blog/ionic-and-nitrousio" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-and-nitrousio"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-and-nitrousio" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By A community post by <img src="http://www.gravatar.com/avatar/38543d631e009559d7630877856991ca?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/gmckeever" target="_blank">@gmckeever</a> of <a href="http://nitrous.io">Nitrous.IO</a>, provider of fast dev environments in the cloud<br> on December 18, 2013</time>
+  </div>
+  
+    <p><img src="/img/blog/nitrous/todo-app-main.jpg" alt="Mobile App using Ionic, Firebase, and PhoneGap Build"></p>
+
+<p>Looking to build a mobile app with the Ionic Framework? This guide quickly covers how to build a native Android app on <a href="http://www.nitrous.io">Nitrous.IO</a> with <a href="http://build.phonegap.com/">PhoneGap Build</a>. You will also learn how to use <a href="https://www.firebase.com/index.html">Firebase</a> to connect your app to <a href="https://www.firebase.com/index.html">Firebase</a> for a backend service. All of these services provide a free tier, so you can try this out without dropping a dime.</p>
+
+<h3>Prerequisites</h3>
+
+<p>Before we get started, make sure you have the following:</p>
+
+<ul>
+<li>A Node.JS box on <a href="http://www.nitrous.io">Nitrous.IO</a></li>
+<li>A <a href="http://www.github.com">Github account</a> which is <a href="http://help.nitrous.io/github-add-key/">connected</a> to your Node.JS box</li>
+<li>A <a href="https://build.phonegap.com/plans">PhoneGap Account</a></li>
+</ul>
+
+
+    <a href="/blog/ionic-and-nitrousio">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionicons/">Ionicons: Hacker News Front Page Recap</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Ionicons: Hacker News Front Page Recap" data-url="http://ionicframework.com/blog/ionicons" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionicons"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionicons" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on November 06, 2013</time>
+  </div>
+  
+    <p>Last week we officially launched <a href="http://ionicons.com/">Ionicons</a>, our open source Icon font, and were on the front page of Hacker News for two days (<a href="https://news.ycombinator.com/item?id=6637369">link</a>).</p>
+
+<p>Over the next few days, we had an outpouring of support as people all over the world tried out the icon font and put it to good use. Now that things are slowing down, we wanted to share some of the numbers and show what being on the front page of Hacker News can do for a project.</p>
+
+<h2>The Submission</h2>
+
+<p>I submitted Ionicons to Hacker News at around 3 PM central time on a Tuesday afternoon. I&#39;m not sure that is generally considered a good time to post, but it felt right and I wasn&#39;t expecting much, so I submitted it.</p>
+
+<p>The post got a few upvotes pretty quickly, probably because the headline suggested free icons and HN users love free design assets. It wasn&#39;t long before it was on the front page.</p>
+
+<p>But we immediately noticed a HUGE issue: the font didn&#39;t work in any browser except for Chrome, and the font files were actually corrupted! We were using <a href="http://icomoon.io/">Icomoon</a> to generate the fonts, and one of our glyphs had a bad path that messed up the entire font. We were able to fix the issue after 20 minutes or so, but that mishap cost us some early momentum and left us laughing at the epic shitty timing of it all.</p>
+
+<p>Over the next few days, the post received over 375 points, drawing lots of comments and a lot of love on Twitter and beyond.</p>
+
+<h2>The Traffic</h2>
+
+<p>Over the next two days, Ionicons saw a lot of traffic. About 23,000 visits each day:</p>
+
+<p><img src="https://s3.amazonaws.com/ionicframework.com/blog/ioniconsvisits.PNG" alt="Stats"></p>
+
+<p>The nice thing is the baseline traffic has gone from almost nothing to several thousand visits per day. The initial blast has created some stickiness!</p>
+
+<p>It&#39;s interesting how both days saw essentially equal visits, and dramatically decreased in traffic once they left the front page.</p>
+
+<h2>The Stars</h2>
+
+<p>Since last Tuesday, the <a href="https://github.com/driftyco/ionicons">Ionicons GitHub repo</a> grew from 60 stars to over 2400 stars! It was the trending repo on GitHub for almost a week, and is the #1 weekly trending repo right now. It also grew to be the 11th most popular repo for the entire month. The GitHub love is almost my favorite part of the whole experience.</p>
+
+<p>It did help that we had <a href="http://twitter.com/mdo">@mdo&#39;s</a> great <a href="http://ghbtns.com/">GitHub Buttons</a> on the front page of Ionicons to easily star the repo.</p>
+
+<h2>The Follows</h2>
+
+<p>The <a href="http://twitter.com/ionicframework">IonicFramework</a> twitter account grew from about 600 follows to 1400 which was really nice, and spawned a lot of discussion on Twitter.</p>
+
+<p>Having follow and tweet buttons right front and center really helped leverage the network effect of people loving the icons. </p>
+
+<h2>The Community</h2>
+
+<p>Over the last week hackers in the community built an <a href="https://github.com/TapTemplate/ionicons-iOS">iOS plugin</a> for using Ionicons right in your iOS apps, and a great <a href="http://glyphsearch.com/">search tool</a> for searching FontAwesome, Glyphicons, and Ionicons easily, using a variety of search terms to normalize all the strange names we all give icons.</p>
+
+<p>Also, right when the post hit the front page, we had many issues filed and pull requests opened on the project, which was awesome and helped us fix a lot of random issues. One big improvement is we&#39;ve since moved to our own build system and made it easier for people to customize the build pack and use it as they wish.</p>
+
+<h2>Open Source Fucking Rocks</h2>
+
+<p>Ionicons is probably the most successful open source project any of us has ever had. We hope it&#39;s the second most successful one after we launch our <a href="/">Ionic Framework</a> in a few weeks, which will make it easy for more developers to build amazing native-feeling mobile apps with web technologies.</p>
+
+<p>For a company that has traditionally not done much open source (we make <a href="http://codiqa.com/">Codiqa</a> and <a href="http://jetstrap.com/">Jetstrap</a> as well, both closed source), moving to open source has made us realize that we enjoy it a hell of a lot more than building closed source software.</p>
+
+<p>There is something incredibly powerful about <em>quality</em> open source software. It&#39;s as if everyone in the world who could conceivably benefit from your work, can. And by going open source, great products have the increased potential to compete against closed source alternatives.</p>
+
+<p>Since we are a small team bootstrapping a <a href="http://drifty.com/">software startup</a>, we&#39;ve decided that open source is a competitive advantage, and will help us compete against the big VC-backed companies in our space. Closed source just isn&#39;t that cool in comparison.</p>
+
+<p>So if you were one of the people who shared Ionicons or upvoted us, we owe you a ton of thanks for making the project successful. Stay tuned and we promise lots more stuff to help you be more awesome, and we hope to see a pull request from you in the future!</p>
+
+<p>Sincerely,
+The Ionic Crew<br>
+<a href="http://twitter.com/maxlynch">Max</a>, <a href="http://twitter.com/benjsperry">Ben</a>, <a href="http://twitter.com/adamdbradley">Adam</a>, <a href="https://twitter.com/xtheglobe">Brody</a>, <a href="https://twitter.com/dopernicus">Tim</a>, <a href="http://twitter.com/SomethingNew2_0">Peter</a>.</p>
+
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/urls-and-hybrid-apps/">URLs are for Web Apps, not Hybrid Apps</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="URLs are for Web Apps, not Hybrid Apps" data-url="http://ionicframework.com/blog/urls-and-hybrid-apps" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/urls-and-hybrid-apps"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/urls-and-hybrid-apps" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on November 01, 2013</time>
+  </div>
+  
+    <p>When we started planning to build what soon became <a href="http://ionicframework.com/">Ionic</a>, we knew that we needed to take a native-focused approach to building the next great HTML5 development framework.</p>
+
+<p>We felt that there were plenty of web-focused HTML5 frameworks, but few that treated HTML5 as a first-class citizen in the app store. We couldn&#39;t ignore that people increasingly look to the app store to find apps, rather than browse the web for them.</p>
+
+<p>One big difference that kept coming up between web apps and native apps is how they handle URLs. Web apps utilize URLs both for the developer&#39;s convenience but also for the user&#39;s, allowing people all over the world to link directly to content and using them to delineate parts of a user interface. Native apps, in comparison, don&#39;t use URLs for UI interactions, or use them only under the hood for the developer&#39;s convenience.</p>
+
+<p>In a native app, a user will never see any URLs even if the app is using URL based routing underneath. Obviously there are no URL bars or browser chrome in a native app so having URLs doesn&#39;t make sense. When used, it&#39;s merely a convenient way to manage UI state for the developer.</p>
+
+<p>Yet most current HTML5 development frameworks have kept URLs as a core concept, limiting a lot of UI interaction to those that can triggered through an anchor like <code>&lt;a href=&quot;nextPage.html&quot;&gt;</code>. Things like switching to a new page, popping up a dialog box, or linking tabs. It&#39;s probably out of developer comfort, but also because the history of HTML5 and web technology is rooted in the browser app. But even then, URLs were meant to link to specific resources on the web, not to control user interface interactions.</p>
+
+<p>If you are familiar with native app development, you&#39;ll know that native apps tend to utilize a lower level design pattern called the <a href="https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html">View Controller</a> pattern (ignore the Model portion for now). The idea is pretty simple: you have a set of views (think of them as boxes or rectangles where UI elements are drawn), and then controllers that manage multiple views in tandem.</p>
+
+<p>The <a href="https://developer.apple.com/library/ios/documentation/uikit/reference/UITabBarController_Class/Reference/Reference.html">UITabBarController</a> on iOS is a perfect example of this. It takes a set of child controllers which each have their own set of views that make up each &quot;page&quot; in the tabs, and manages tabbing between them:</p>
+
+<div class="phone">
+  <img src="http://farm6.staticflickr.com/5330/9023342228_8341c60043_b.jpg" alt="UITabController">
+</div>
+
+<div class="caption">(don't forget to drink your vitamins, all day every day)</div>
+
+<p>In the screenshot of the iOS Alarm app above, you&#39;ll notice four tab buttons with four possible pages of the tab you can select. We are currently on the &quot;Alarm&quot; tab. The UITabBarController holds a reference to the <a href="https://developer.apple.com/library/ios/documentation/uikit/reference/UITabBar_Class/Reference/Reference.html">UITabBar</a> view at the bottom (it even creates it for you), and then when a tab is selected, the controller makes sure to switch the pages for you.</p>
+
+<p>In a Web App, you might have a distinct URL for each page in the tab. That wouldn&#39;t be the worst thing in the world for a hybrid/native app, but it soon breaks down when we look at more complicated native apps. For example, the great <a href="https://itunes.apple.com/us/app/yahoo-weather/id628677149?mt=8">Yahoo! Weather</a> app:</p>
+
+<div class="phone">
+  <img src="http://ionicframework.com.s3.amazonaws.com/blog/madison_weather.jpg" alt="Yahoo! Weather">
+</div>
+
+<p>If you haven&#39;t used the Yahoo Weather app before (highly recommended), it features one single pane that scrolls up displaying a variety of weather information. The user can also swipe in between each city they&#39;ve added, showing weather for that city:</p>
+
+<div class="phone">
+  <img src="https://s3.amazonaws.com/ionicframework.com/blog/weather3.jpg" alt="Yahoo! Weather Cities">
+</div>
+
+<p>Imagine trying to model this drag animation using a URL-to-City approach in a back or frontend framework that uses route based navigation. Let&#39;s say the first page is <code>/cities/current</code> and the second page is <code>/cities/Madison-WI</code>. When the user starts dragging to the next page, what happens? Do we navigate to <code>/cities/Madison-WI</code>, or do we wait until they complete the drag? If the routing system uses the URL state to know when to render each page, then we are stuck trying to hack around the router.</p>
+
+<p>Instead of being a convenience, URL-based routing becomes an artistic restriction.</p>
+
+<h2>Ionic: Native Applied to Web, And Back Again</h2>
+
+<p>To native developers, this all might seem like a pedantic exercise, but for web developers moving to native development, it is often quite a change to not use URLs for common UI interactions. We don&#39;t just link to different pages using <code>&lt;a href=&quot;page2.html&quot;&gt;</code>, we use more subtle tools often powered by touch, letting the user treat our app as an open canvas.</p>
+
+<p>With Ionic, we wanted to apply these native design patterns to web development. And in doing so, we realized something really exciting: <em>HTML5 was just as powerful and flexible as native development</em>. But better still, it had some major benefits over native: it was faster to build in, easier to port across platforms, and known by a lot more developers.</p>
+
+<p>We realized that if we could build an HTML5 framework that loved native design concepts instead of avoiding them, we could enable developers to build any kind of app they dreamed up, not just ones that worked with the URL pattern.</p>
+
+<p>So we decided to apply the View Controller pattern to a lot of the ways developers build UI interactions in Ionic. If you are a web developer that hasn&#39;t had much experience with native development, it will probably feel a bit strange at first. We are confident that once you see what is possible when you free yourself from the URL, you&#39;ll feel quite empowered to build great apps in HTML5.</p>
+
+  
+  <hr>
+</div>
+
+
+
+<!-- Pagination links -->
+<div class="clearfix">
+  <div class="pagination">
+    <div class="pull-left">
+      <!--<span class="page_number ">Page: 16 of 17</span>-->
+      
+        <a href="/blog/page17/" class="next">Older</a>
+      
+    </div>
+    <div class="pull-right">
+      
+        
+          <a href="/blog/page15/" class="previous">Newer</a>
+        
+      
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-bottom: 40px;" class="ionic">
+    <a href="http://ionicframework.com/blog/feed.xml">
+      <i class="ion-social-rss"></i>
+      Ionic Blog RSS Feed
+    </a>
+  </p>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

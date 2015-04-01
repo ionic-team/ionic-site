@@ -6,7 +6,6 @@ process.env.PWD = process.cwd()
 
 console.log('PWD', process.env.PWD);
 
-/*
 app.use(function(req,res,next) {
   var parts = url.parse(req.url);
 
@@ -16,7 +15,6 @@ app.use(function(req,res,next) {
     next();
   }
 });
-*/
 
 app.use(express.static(process.env.PWD + '/_site'));
 

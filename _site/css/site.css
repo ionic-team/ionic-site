@@ -4867,6 +4867,35 @@ h1 + h2 + p {
     background-image: url("/img/nerds@2x.png"); } }
 .home .examples-row h3 {
   padding-top: 10px; }
+.home .features {
+  background-color: #f8f9fb;
+  padding: 60px 20px;
+  text-align: center;
+  color: #0B1523; }
+  .home .features h2, .home .features h3, .home .features h4, .home .features h5 {
+    color: #0B1523; }
+  .home .features h2 {
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 300; }
+  .home .features h4 {
+    line-height: 30px;
+    margin-bottom: 60px;
+    color: #444;
+    font-size: 16px; }
+  .home .features img {
+    width: 80px; }
+  .home .features .row {
+    text-align: left;
+    margin-top: 40px; }
+  .home .features p {
+    color: #858f9f;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    line-height: 25px; }
+    .home .features p i {
+      vertical-align: middle; }
 
 .pre-footer.footer-social {
   padding: 40px 40px 25px;
@@ -4971,8 +5000,7 @@ h1 + h2 + p {
   position: relative;
   margin: 0 auto;
   padding: 0 5px 30px 5px;
-  max-width: 1050px;
-  border-top: 1px solid #f1f1f1; }
+  max-width: 1050px; }
 
 @media (min-width: 768px) {
   .testimonials {

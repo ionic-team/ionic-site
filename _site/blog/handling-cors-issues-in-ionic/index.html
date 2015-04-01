@@ -78,7 +78,7 @@
 
 <p>If you&#39;ve used <code>ionic serve</code> or <code>ionic run</code> with live reload and accessing external API endpoints, chances are you&#39;ve run into some <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>
 issues. They usually look something like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">XMLHttpRequest cannot load http://api.ionic.com/endpoint.
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">XMLHttpRequest cannot load http://api.ionic.com/endpoint.
 No <span class="s1">&#39;Access-Control-Allow-Origin&#39;</span> header is present on the requested resource.
 Origin <span class="s1">&#39;http://localhost:8100&#39;</span> is therefore not allowed access.
 </code></pre></div>
@@ -183,7 +183,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 <p>The proxies settings contain two things: the <code>path</code> you use to access them on your local Ionic server, and the <code>proxyUrl</code> you&#39;d ultimately like to reach from the API call.</p>
 
 <p>Set up your <code>ionic.project</code> file to be something like:</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;proxy-example&quot;</span><span class="p">,</span>
   <span class="nt">&quot;app_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;proxies&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -207,7 +207,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 <p>Below, we&#39;ve specified the ApiEndpoint to be our proxied URL right now.</p>
 
 <p>Later, we can use our production url as a constant.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;starter.controllers&#39;</span><span class="p">,</span> <span class="s1">&#39;starter.services&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;starter.controllers&#39;</span><span class="p">,</span> <span class="s1">&#39;starter.services&#39;</span><span class="p">])</span>
 <span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;ApiEndpoint&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://localhost:8100/api&#39;</span>
 <span class="p">})</span>
@@ -220,7 +220,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 <code>ApiEndpoint</code> as a dependency, as shown below in the service.</p>
 
 <h3>Setting up Angular Service</h3>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter.services&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter.services&#39;</span><span class="p">,</span> <span class="p">[])</span>
 
 <span class="c1">//NOTE: We are including the constant `ApiEndpoint` to be used here.</span>
 <span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;Api&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span> <span class="nx">ApiEndpoint</span><span class="p">)</span> <span class="p">{</span>
@@ -244,7 +244,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 <p>For this process, we&#39;ll need to modify our <code>gulpfile.js</code> to add in two tasks to add our proxy url or remove our proxy url.</p>
 
 <p>Start by first installing the <code>replace</code> module - <code>npm install --save replace</code>.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// `npm install --save replace`</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">// `npm install --save replace`</span>
 <span class="kd">var</span> <span class="nx">replace</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;replace&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">replaceFiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;./www/js/app.js&#39;</span><span class="p">];</span>
 

@@ -111,7 +111,7 @@
 <h4>Supervisor / uWSGI</h4>
 
 <p>We are using <a href="http://supervisord.org/">Supervisor</a> inside the Docker container to start the processes run by the container. Our supervisord.conf looks like the following:</p>
-<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="k">[supervisord]</span>
+<div class="highlight"><pre><code class="ini language-ini" data-lang="ini"><span class="k">[supervisord]</span>
 <span class="na">nodaemon</span><span class="o">=</span><span class="s">true</span>
 
 <span class="k">[program:uwsgi]</span>
@@ -122,14 +122,14 @@
 <h4>Docker</h4>
 
 <p>When we start our container, we add a host volume that contains the code for our app. That host volume is mapped to an app path in the container from which uWSGI will load the app.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name<span class="o">=</span>container_name driftyco/testapp
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name<span class="o">=</span>container_name driftyco/testapp
 </code></pre></div>
 <h4>Ansible</h4>
 
 <p>Ansible is in charge of cloning the application code from GitHub into our host&#39;s app directory, ensuring that the Docker container is running and touching the uWSGI touch-reload trigger file. We have created playbooks to direct the deployment of each of our services, so deploying is just a matter of running the right one.</p>
 
 <p>For a quick code deploy, we run a playbook that contains these tasks and takes only a few seconds to run:</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">set_fact</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host_volume=&quot;/path/to/code/on/host&quot;</span>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">set_fact</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host_volume=&quot;/path/to/code/on/host&quot;</span>
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Git pull the latest code</span>
   <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">repo=git@github.com:{{ org }}/{{ container }}.git</span>
        <span class="l-Scalar-Plain">dest={{ host_volume }}</span>
@@ -140,7 +140,7 @@
   <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">path={{ touch_file }} state=touch</span>
 </code></pre></div>
 <p>If we need to restart the entire container or update system packages, we can do a container deploy, which takes a few minutes, with these tasks:</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Add app dir if it doesn&#39;t yet exist</span>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Add app dir if it doesn&#39;t yet exist</span>
   <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">path={{ host_volume }} owner=nobody group=docker recurse=yes state=directory</span>
   <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Pull Docker image</span>

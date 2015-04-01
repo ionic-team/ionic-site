@@ -104,7 +104,7 @@ return prompt data to your code. We do this through Angular promises.</p>
 <!-- more -->
 
 <p>A call to prompt a user for a password looks like this with the new popup system (make sure to inject <code>$ionicPopup</code> into your controller):</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">prompt</span><span class="p">({</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">prompt</span><span class="p">({</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Enter your password&#39;</span><span class="p">,</span>
   <span class="nx">inputType</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
@@ -112,7 +112,7 @@ return prompt data to your code. We do this through Angular promises.</p>
 <span class="p">});</span>
 </code></pre></div>
 <p>Or, you can get a little wild and use an arbitrary template that binds to your scope, and completely control the buttons in the popup:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">  <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
 
   <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
     <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;popup-template.html&#39;</span><span class="p">,</span>

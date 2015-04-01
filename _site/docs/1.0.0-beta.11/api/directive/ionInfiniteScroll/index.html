@@ -864,13 +864,13 @@ event from your controller (see below example).</p>
 
 <h2 id="usage">Usage</h2>
   
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyController&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyController&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-infinite-scroll</span>
     <span class="na">on-infinite=</span><span class="s">&quot;loadMore()&quot;</span>
     <span class="na">distance=</span><span class="s">&quot;1%&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-infinite-scroll&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">loadMore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/more-items&#39;</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
@@ -886,7 +886,7 @@ event from your controller (see below example).</p>
 </code></pre></div>
 <p>An easy to way to stop infinite scroll once there is no more data to load
 is to use angular&#39;s <code>ng-if</code> directive:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-infinite-scroll</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-infinite-scroll</span>
   <span class="na">ng-if=</span><span class="s">&quot;moreDataCanBeLoaded()&quot;</span>
   <span class="na">icon=</span><span class="s">&quot;ion-loading-c&quot;</span>
   <span class="na">on-infinite=</span><span class="s">&quot;loadMoreData()&quot;</span><span class="nt">&gt;</span>

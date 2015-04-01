@@ -860,7 +860,7 @@ menus.  Use the <a href="/docs/api/service/$ionicSideMenuDelegate/#$getByHandle"
 method to control specific ionSideMenus instances.</p>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-side-menus&gt;</span>
     <span class="nt">&lt;ion-side-menu-content&gt;</span>
       Content!
@@ -873,7 +873,7 @@ method to control specific ionSideMenus instances.</p>
     <span class="nt">&lt;ion-side-menu&gt;</span>
   <span class="nt">&lt;/ion-side-menus&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">toggleLeftSideMenu</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$ionicSideMenuDelegate</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
   <span class="p">};</span>

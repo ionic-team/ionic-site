@@ -87,7 +87,7 @@
 <h3>So, what&#39;s next?</h3>
 
 <p>The first new feature in ngCordova&#39;s future is an automatic <code>deviceready</code> check to determine whether a device is ready to use plugins. Currently, the only way to ensure this is to manually insert plugin calls inside the event-listener:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">document.addEventListener(&quot;deviceready&quot;, function () {
+<div class="highlight"><pre><code class="text language-text" data-lang="text">document.addEventListener(&quot;deviceready&quot;, function () {
   $cordovaPlugin.someFunction().then(success, error);
 }, false);
 

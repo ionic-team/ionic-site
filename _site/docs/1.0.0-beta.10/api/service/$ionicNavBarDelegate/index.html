@@ -815,14 +815,14 @@
 <p>Delegate for controlling the <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive.</p>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-nav-bar&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;setNavTitle(&#39;banana&#39;)&quot;</span><span class="nt">&gt;</span>
       Set title to banana!
     <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/ion-nav-bar&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">setNavTitle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$ionicNavBarDelegate</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
   <span class="p">}</span>

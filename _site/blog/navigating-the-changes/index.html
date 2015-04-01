@@ -99,7 +99,7 @@ left. When that view renders, it will contain both buttons, so the view will inh
 nav-bar.</p>
 
 <p>Your typical structure will be:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- index.html --&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!-- index.html --&gt;</span>
 <span class="nt">&lt;ion-nav-bar&gt;</span>
   <span class="nt">&lt;ion-nav-buttons</span> <span class="na">side=</span><span class="s">&quot;secondary&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;doSomething()&quot;</span><span class="nt">&gt;</span>
@@ -129,7 +129,7 @@ our <code>ion-side-menus</code> now have a lot more purpose behind them. Like th
 become a base for navigation.</p>
 
 <p>Let’s look at our side-menus:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus</span> <span class="na">enable-menu-with-back-views=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-side-menus</span> <span class="na">enable-menu-with-back-views=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
 
 <span class="nt">&lt;ion-side-menu-content&gt;</span>
   <span class="nt">&lt;ion-nav-bar</span> <span class="na">class=</span><span class="s">&quot;bar-positive&quot;</span><span class="nt">&gt;</span>
@@ -217,7 +217,7 @@ removed from the DOM.</td>
 </table>
 
 <p>An example of using these events would be:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$ionicView.afterEnter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$ionicView.afterEnter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="c1">// Any thing you can think of</span>
 <span class="p">});</span>
 </code></pre></div>

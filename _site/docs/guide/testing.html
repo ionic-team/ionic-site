@@ -183,7 +183,7 @@
 <h3>Desktop browser testing</h3>
 
 <p>Testing your app in a browser is as simple as running the serve command in your project&#39;s root folder.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
 </code></pre></div>
 <p>This will start a live-reload server for your project. When changes are made to any HTML, CSS, or JavaScript files, the browser will automatically reload when the files are saved.</p>
 
@@ -194,11 +194,11 @@
 <h3>Simulator testing</h3>
 
 <p>You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
 <span class="nv">$ </span>ionic emulate ios
 </code></pre></div>
 <p>Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in <code>platforms/PLATFORM</code> inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root <code>www</code> folder, and when you&#39;ve made changes to this folder, run the command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova prepare ios
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>cordova prepare ios
 </code></pre></div>
 <p>Which will update the ios specific project with the code from the <code>www</code> folder. Note: this will overwrite any changes you&#39;ve made to the <code>platforms/ios/www</code> and other platform-specific folders.</p>
 
@@ -217,7 +217,7 @@
 <p>Since we are building a native (or &quot;hybrid&quot;) app, we can (and should!) test it as one. There are serveral ways to do this. If you are building for iOS, you&#39;ll need to sign up for an <a href="https://developer.apple.com/">Apple Developer</a> account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don&#39;t blame us!). Once you have an account and you have set up XCode with your certificates to enable device testing, you&#39;ll want to open the XCode project from <code>platforms/ios/</code> and do your testing from XCode.</p>
 
 <p>Testing on Android is much easier and faster. To test on the device, simply plug it in, and run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
 </code></pre></div>
 <p>If this doesn&#39;t work, make sure you have USB debugging enabled on your device, as <a href="http://developer.android.com/tools/device.html">described</a> on the Android developer site.</p>
 

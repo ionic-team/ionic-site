@@ -819,7 +819,7 @@ Use the <a href="/docs/api/service/$ionicListDelegate/#$getByHandle">$getByHandl
 method to control specific ionList instances.</p>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;showDeleteButtons()&quot;</span><span class="nt">&gt;&lt;/button&gt;</span>
   <span class="nt">&lt;ion-list&gt;</span>
     <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;i in items&quot;</span><span class="nt">&gt;</span>&gt;
@@ -828,7 +828,7 @@ method to control specific ionList instances.</p>
     <span class="nt">&lt;/ion-item&gt;</span>
   <span class="nt">&lt;/ion-list&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicListDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicListDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">showDeleteButtons</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$ionicListDelegate</span><span class="p">.</span><span class="nx">showDelete</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
   <span class="p">};</span>

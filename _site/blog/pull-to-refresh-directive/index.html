@@ -89,14 +89,14 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 <h3>ionRefresher (Pull to Refresh Directive)</h3>
 
 <p>The Ionic directive we are going to use is the <code>ion-refresher</code> (<a href="http://ionicframework.com/docs/api/directive/ionRefresher/">Official Documentation</a>). The most basic usage is as follows:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-refresher</span> <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;&lt;/ion-refresher&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-refresher</span> <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;&lt;/ion-refresher&gt;</span>
 </code></pre></div>
 <p><code>on-refresh</code> should point to a <code>$scope</code> function that gets the new data, updates a list, and then lets the refresher know it is done. This refresher should be above some kind of list. </p>
 
 <h3>View</h3>
 
 <p>For our example, we&#39;ll be using the following view markup:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-refresher</span> <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;&lt;/ion-refresher&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-refresher</span> <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;&lt;/ion-refresher&gt;</span>
 <span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="na">class=</span><span class="s">&quot;item-avatar&quot;</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot; &quot;</span> <span class="nt">/&gt;</span>
@@ -110,12 +110,12 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 <p><img src="http://mcgivery.com/wp-content/uploads/2015/01/list.png" alt="rendered list" /></p>
 
 <p>Remember that this list iterates over the <code>$scope.items</code> array.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">ng-repeat=&quot;item in items&quot;
+<div class="highlight"><pre><code class="html language-html" data-lang="html">ng-repeat=&quot;item in items&quot;
 </code></pre></div>
 <h3>Factory</h3>
 
 <p>In our example, we&#39;re going to be making a call to the Random User API to get some data to play with. To do this, we&#39;ll create a factory that makes these API calls. This factory will have two methods: <code>GetFeed</code> and <code>GetNewUser</code>. <code>GetFeed</code> will be called when our app loads to get the initial data, and the <code>GetNewUser</code> will be called each time we do a pull to refresh.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;PersonService&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">){</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;PersonService&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">){</span>
   <span class="kd">var</span> <span class="nx">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;http://api.randomuser.me/&quot;</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
 
@@ -147,7 +147,7 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 </ol>
 
 <p>First, to fill our feed, we&#39;ll want to make a call to the PersonService and assign the result to the <code>$scope.items</code> array:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">PersonService</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">PersonService</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
 
   <span class="nx">PersonService</span><span class="p">.</span><span class="nx">GetFeed</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">){</span>
@@ -156,12 +156,12 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 <span class="p">});</span>
 </code></pre></div>
 <p>Next, we need to handle the pull to refresh. Recall we configured our directive to call a <code>doRefresh</code> function. We&#39;ll need to define this function:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </code></pre></div>
 <p>In this function, we should call the <code>GetNewUser</code> function and add these items to the beginning of the array.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">PersonService</span><span class="p">.</span><span class="nx">GetNewUser</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">){</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
   <span class="p">});</span>
@@ -170,7 +170,7 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 <p>You&#39;ll notice we are using the <code>array.concat</code> function to add the items in. This is because <code>items</code> is an array, so we need to add the two arrays together.</p>
 
 <p>We still need to do one final thing. We need to let the scroller know that we&#39;re done loading in the new items, so it can hide the loading indicator. To do this, we need to broadcast the <code>scroll.refreshComplete</code> event.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">PersonService</span><span class="p">.</span><span class="nx">GetNewUser</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">){</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
 
@@ -180,7 +180,7 @@ hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew&#39;s personal b
 <span class="p">};</span>
 </code></pre></div>
 <p>In its entirety, our controller looks like this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">PersonService</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">PersonService</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
 
   <span class="nx">PersonService</span><span class="p">.</span><span class="nx">GetFeed</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">){</span>

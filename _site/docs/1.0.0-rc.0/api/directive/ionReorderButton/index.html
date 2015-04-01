@@ -892,7 +892,7 @@
 
 <h2 id="usage">Usage</h2>
   
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span> <span class="na">show-reorder=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span> <span class="na">show-reorder=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
     Item 
     <span class="nt">&lt;ion-reorder-button</span> <span class="na">class=</span><span class="s">&quot;ion-navicon&quot;</span>
@@ -900,7 +900,7 @@
     <span class="nt">&lt;/ion-reorder-button&gt;</span>
   <span class="nt">&lt;/ion-item&gt;</span>
 <span class="nt">&lt;/ion-list&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">moveItem</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">fromIndex</span><span class="p">,</span> <span class="nx">toIndex</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//Move the item in the array</span>

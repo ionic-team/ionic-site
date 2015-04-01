@@ -183,7 +183,7 @@
 <p>The Todo list app is pretty much a rite of passage for frameworks, so we will walk through the process of building one with Ionic.</p>
 
 <p>Since every Ionic app is basically a web page, we need to have an <code>index.html</code> file in our app which defines the first page that loads in the app. Let&#39;s create <code>www/index.html</code> and initialize it with this:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
@@ -212,7 +212,7 @@
 <p><img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup"></p>
 
 <p>To create side menus in Ionic, we can use <a href="http://ionicframework.com/docs/api/directive/ionSideMenus">ion-side-menus</a>. Feel free to read up on it, but the markup needed is simple. Edit the <code>index.html</code> file and change the <code>&lt;body&gt;</code> content to look like this:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;ion-side-menus&gt;</span>
     <span class="nt">&lt;ion-side-menu-content&gt;</span>
     <span class="nt">&lt;/ion-side-menu-content&gt;</span>
@@ -228,22 +228,22 @@
 <p>Now, if you run this code (more on testing in a bit), you wouldn&#39;t see anything! There are two reasons for that: We haven&#39;t created an AngularJS app to turn the custom tags (like <code>&lt;ion-side-menus&gt;</code>) into anything functional, and we don&#39;t have any content yet!</p>
 
 <p>Let&#39;s fix that. First, we need to create a new AngularJS module and tell Angular to initialize it. Let&#39;s create a new file located at <code>www/js/app.js</code>. Put this code into the file:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 </code></pre></div>
 <p>This is the Angular way of creating an application, and we are telling angular to include the <code>ionic</code> module which includes all of the Ionic code which will process the tags above and make our app come to life.</p>
 
 <p>Now, go back to <code>index.html</code> and right before the <code>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</code> line, add:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/app.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/app.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <p>This includes the script we just created.</p>
 
 <p>And to make our new app run, we need to add the <code>ng-app</code> attribute to the body tag:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
 <p>Now, we still won&#39;t see anything if we run the code, because we need to add some content to the application. Let&#39;s go ahead and add a header for both the center content area and the left menu.</p>
 
 <p>Update the body content to be:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-side-menus&gt;</span>
 
     <span class="c">&lt;!-- Center content --&gt;</span>

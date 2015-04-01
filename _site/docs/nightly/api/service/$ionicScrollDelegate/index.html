@@ -904,12 +904,12 @@ views.  Use the <a href="/docs/nightly/api/service/$ionicScrollDelegate/#$getByH
 method to control specific scrollViews.</p>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-content&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;scrollTop()&quot;</span><span class="nt">&gt;</span>Scroll to Top!<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/ion-content&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicScrollDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicScrollDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">scrollTop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$ionicScrollDelegate</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">();</span>
   <span class="p">};</span>
@@ -917,7 +917,7 @@ method to control specific scrollViews.</p>
 </code></pre></div>
 <p>Example of advanced usage, with two scroll areas using <code>delegate-handle</code>
 for fine control.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-content</span> <span class="na">delegate-handle=</span><span class="s">&quot;mainScroll&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;scrollMainToTop()&quot;</span><span class="nt">&gt;</span>
       Scroll content to top!
@@ -929,7 +929,7 @@ for fine control.</p>
     <span class="nt">&lt;/ion-scroll&gt;</span>
   <span class="nt">&lt;/ion-content&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicScrollDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MainCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicScrollDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">scrollMainToTop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$ionicScrollDelegate</span><span class="p">.</span><span class="nx">$getByHandle</span><span class="p">(</span><span class="s1">&#39;mainScroll&#39;</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">();</span>
   <span class="p">};</span>

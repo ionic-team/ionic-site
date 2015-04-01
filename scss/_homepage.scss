@@ -576,20 +576,28 @@
     h2, h3, h4, h5 {
       color: #0B1523;
     }
+
     h2 {
-      margin-bottom: 30px;
-      font-size: 40px;
-      font-weight: 300;
+      margin-bottom: 20px;
+      margin-top: 40px;
+      font-size: 28px;
+      color: #2A303A;
+      letter-spacing: -0.02em;
     }
+
     h4 {
-      line-height: 30px;
-      margin-bottom: 60px;
-      color: #444;
-      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 100px;
+      color: #474F5C;
+      font-weight: 300;
+      font-size: 18px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     }
+
     img {
       width: 80px;
     }
+
     .row {
       text-align: left;
       margin-top: 40px;

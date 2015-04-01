@@ -1015,7 +1015,7 @@
 <h2>Ionic-Angular Usage</h2>
 
 <p>The <code>&lt;ion-content&gt;</code> directive can be used anywhere to define a scrollable content area. Here is an example with many of its available options:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-header-bar</span> <span class="na">title=</span><span class="s">&quot;&#39;Header&#39;&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-header-bar&gt;</span>
 
@@ -1041,7 +1041,7 @@
 <span class="nt">&lt;/body&gt;</span>
 </code></pre></div>
 <p>And an example controller:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myModule&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myModule&#39;</span><span class="p">,</span> <span class="p">[])</span>
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ContentCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">Users</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">onRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Load content</span>
@@ -1057,18 +1057,18 @@
 <h3>Dynamic content resizing</h3>
 
 <p>If the content of your scroll area changes, we can tell the content area to resize and update itself:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;scroll.resize&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;scroll.resize&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h3>Pull to Refresh</h3>
 
 <p>Pull to refresh is an incredibly common UI paradigm found in mobile apps these days. If you want to add pull to refresh to your scroll area, you can just add the <code>&lt;ion-refresher&gt;</code> element to the beginning of the scroll content:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="c">&lt;!-- content area --&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html">  <span class="c">&lt;!-- content area --&gt;</span>
   <span class="nt">&lt;ion-content&gt;</span>
     <span class="nt">&lt;ion-refresher</span> <span class="na">on-refresh=</span><span class="s">&quot;onRefresh()&quot;</span><span class="nt">&gt;&lt;/ion-refresher&gt;</span>
   <span class="nt">&lt;/ion-content&gt;</span>
 </code></pre></div>
 <p>This will give you a default icon and animation style. To customize the pull to refresh, supply your own content to attributes of <code>&lt;ion-refresher&gt;</code>:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="c">&lt;!-- content area --&gt;</span>
+<div class="highlight"><pre><code class="html language-html" data-lang="html">  <span class="c">&lt;!-- content area --&gt;</span>
   <span class="nt">&lt;ion-content&gt;</span>
     <span class="nt">&lt;ion-refresher</span>
      <span class="na">on-refresh=</span><span class="s">&quot;onRefresh()&quot;</span>
@@ -1081,7 +1081,7 @@
 <p><em>Hint: Ionicons comes with <a href="http://ionicons.com/animation.html">animated icons</a>.</em></p>
 
 <p>When refreshing is complete, you&#39;ll need to tell the scroll view to stop the refresh. To do this, trigger an event either up or down the scope chain to the scroll view. If your controller is &quot;above&quot; the scroll view in the scope chain, use broadcast:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;scroll.refreshComplete&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;scroll.refreshComplete&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Use <code>$scope.$emit</code> if the scroll view is above your controller.</p>
 

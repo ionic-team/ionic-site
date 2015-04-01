@@ -94,7 +94,7 @@ Framework</a> projects, too.</p>
 <!-- more -->
 
 <p>Let&#39;s start by creating a fresh Apache Cordova Android and iOS project:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">cordova create TestProject com.nraboy.testproject TestProject
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">cordova create TestProject com.nraboy.testproject TestProject
 <span class="nb">cd </span>TestProject
 cordova platform add android
 cordova platform add ios
@@ -123,7 +123,7 @@ general idea of what we&#39;re going to do.</p>
 <p>Create <code>hooks/before_prepare/02_jshint.js</code>, and make sure to give it execute permissions if you&#39;re using Linux or Mac.
 Based on the file title, you can probably guess we&#39;re going to use <a href="http://jshint.com/docs/">JSHint</a> for linting. Open
 <code>02_jshint.js</code>, and add the following code:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">#</span><span class="o">!</span><span class="err">/usr/bin/env node</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="err">#</span><span class="o">!</span><span class="err">/usr/bin/env node</span>
 
 <span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
@@ -203,7 +203,7 @@ means that if you execute the script with <code>cordova build [platform]</code>,
 
 <p><code>02_jshint.js</code> requires two NodeJS libraries in order to function. They can be installed like this from the root of
 your project:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install jshint
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>npm install jshint
 <span class="nv">$ </span>npm install async
 </code></pre></div>
 <h3>Uglifying the code for obfuscation purposes</h3>
@@ -211,7 +211,7 @@ your project:</p>
 <p>One of my other subscribers recommended I check out <a href="https://www.npmjs.com/package/cordova-uglify">Cordova Uglify</a> for
 the obfuscation process. Unlike Cordova Linter, this NPM package actually worked as advertised. From the root of your
 Apache Cordova project, run the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install cordova-uglify
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>npm install cordova-uglify
 </code></pre></div>
 <p>When the installation completes, you should find that <code>hooks/after_prepare/uglify.js</code> was created. If you&#39;re on Linux
 or Mac, you&#39;ll need to give it execute permissions; otherwise, it won&#39;t be picked up.</p>

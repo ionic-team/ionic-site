@@ -103,20 +103,20 @@
 <h2>1. Add the required dependencies</h2>
 
 <p>The first thing you&#39;ll need to do is add the required dependencies. If you don&#39;t have an Ionic project yet, you can just create one using the <code>ionic</code> command:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ionic start auth0-ionic-app tabs
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start auth0-ionic-app tabs
 ionic platform add ios
 </code></pre></div>
 <h3>1.1 Add Auth0 dependencies</h3>
 
 <p>Add the Auth0 dependencies to your <code>bower.json</code> file. Save the file and run <code>bower install</code>:</p>
-<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="s2">&quot;dependencies&quot;</span> <span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;dependencies&quot;</span> <span class="err">:</span> <span class="p">{</span>
   <span class="nt">&quot;auth0-angular&quot;</span><span class="p">:</span> <span class="s2">&quot;3.*&quot;</span><span class="p">,</span>
   <span class="nt">&quot;a0-angular-storage&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;= 0.0.6&quot;</span><span class="p">,</span>
   <span class="nt">&quot;angular-jwt&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;= 0.0.4&quot;</span>
 <span class="p">}</span><span class="err">,</span>
 </code></pre></div>
 <p>Add a reference to the Auth0 JS files from your <code>index.html</code> file:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!-- Auth0 Lock --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Auth0 Lock --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/auth0-lock/build/auth0-lock.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="c">&lt;!-- auth0-angular --&gt;</span>
@@ -131,10 +131,10 @@ ionic platform add ios
 <h3>1.2 Add the InAppBrowser plugin</h3>
 
 <p>Auth0 uses the <code>InAppBrowser</code> plugin from Cordova to display the Login Window from each of the different Identity Providers. To install it, run the following command:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ionic plugin add org.apache.cordova.inappbrowser
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic plugin add org.apache.cordova.inappbrowser
 </code></pre></div>
 <p>Then add this configuration to your <code>config.xml</code>:</p>
-<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;feature</span> <span class="na">name=</span><span class="s">&quot;InAppBrowser&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;feature</span> <span class="na">name=</span><span class="s">&quot;InAppBrowser&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;ios-package&quot;</span> <span class="na">value=</span><span class="s">&quot;CDVInAppBrowser&quot;</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;android-package&quot;</span> <span class="na">value=</span><span class="s">&quot;org.apache.cordova.inappbrowser.InAppBrowser&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/feature&gt;</span>
@@ -146,7 +146,7 @@ ionic platform add ios
 <h3>2.1 Add the Auth0 module as a dependency and configure it</h3>
 
 <p>Add the <code>auth0</code>, <code>angular-storage</code> and <code>angular-jwt</code> module dependencies to your angular app definition and configure <code>auth0</code> by calling the <code>init</code> method of the `authProvider</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span>
   <span class="s1">&#39;starter.controllers&#39;</span><span class="p">,</span>
   <span class="s1">&#39;starter.services&#39;</span><span class="p">,</span>
   <span class="s1">&#39;auth0&#39;</span><span class="p">,</span>
@@ -176,7 +176,7 @@ ionic platform add ios
 <h3>2.2 Configure the routes in the app</h3>
 
 <p>You will add a new state called <code>login</code> which will actually get displayed before the user can access the main pages of the application:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="nx">$stateProvider</span>
     <span class="c1">// This is the state where you&#39;ll show the login</span>
@@ -206,7 +206,7 @@ ionic platform add ios
 <h3>2.3 Add code for the Login state</h3>
 
 <p>Now, it&#39;s just time to code the Login state!</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">$state</span><span class="p">,</span> <span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">$state</span><span class="p">,</span> <span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">auth</span><span class="p">.</span><span class="nx">signin</span><span class="p">({</span>
     <span class="nx">authParams</span><span class="o">:</span> <span class="p">{</span>
       <span class="c1">// This asks for the refresh token</span>
@@ -229,7 +229,7 @@ ionic platform add ios
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;There was an error logging in&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="p">})</span>
-</code></pre></div><div class="highlight"><pre><code class="html language-html" data-lang="html"> <span class="nt">&lt;ion-view</span> <span class="na">title=</span><span class="s">&quot;&#39;Login&#39;&quot;</span><span class="nt">&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-html" data-lang="html"> <span class="nt">&lt;ion-view</span> <span class="na">title=</span><span class="s">&quot;&#39;Login&#39;&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-content&gt;</span>
       <span class="c">&lt;!-- The content of the page --&gt;</span>
       <span class="c">&lt;!-- The widget is created by Auth0. We don&#39;t have to add anything here --&gt;</span>
@@ -249,7 +249,7 @@ ionic platform add ios
 <h3>2.4 Call the secured API</h3>
 
 <p>With the token in the app, you can now call a secured API safely. Each call you make to an API endpoint should attach the token (JWT) to the <code>Authorization</code> header. For that, we need to do the add the <code>jwtInterceptor</code> from <code>angular-jwt</code> to the list of <code>$http</code> interceptors. Also, as JWTs expire, we&#39;ll use the <code>refreshToken</code> to get a new JWT if the one we have is expired:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="c1">// app.js</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 <span class="nx">myApp</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">authProvider</span><span class="p">,</span> <span class="nx">$routeProvider</span><span class="p">,</span> <span class="nx">$httpProvider</span><span class="p">,</span> <span class="nx">jwtInterceptorProvider</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// ...</span>
 
@@ -287,7 +287,7 @@ ionic platform add ios
 <h3>2.6 Keeping the user logged in after page refreshes</h3>
 
 <p>We already saved the user profile and tokens into <code>localStorage</code>. We just need to fetch them on page refresh and let <code>auth0-angular</code> know that the user is already authenticated.</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;auth0&#39;</span><span class="p">,</span> <span class="s1">&#39;angular-storage&#39;</span><span class="p">,</span> <span class="s1">&#39;angular-jwt&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;auth0&#39;</span><span class="p">,</span> <span class="s1">&#39;angular-storage&#39;</span><span class="p">,</span> <span class="s1">&#39;angular-jwt&#39;</span><span class="p">])</span>
 <span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">store</span><span class="p">,</span> <span class="nx">jwtHelper</span><span class="p">,</span> <span class="nx">$location</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// This events gets triggered on refresh or URL change</span>
   <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$locationChangeStart&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>

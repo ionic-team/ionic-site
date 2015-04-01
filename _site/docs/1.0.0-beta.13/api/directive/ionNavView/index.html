@@ -890,13 +890,13 @@ navigation stack.</p>
 to have its pages animate.</p>
 
 <p>Recommended for page transitions: &#39;slide-left-right&#39;, &#39;slide-left-right-ios7&#39;, &#39;slide-in-up&#39;.</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;</span>
 <span class="nt">&lt;ion-nav-view</span> <span class="na">animation=</span><span class="s">&quot;slide-left-right&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- Center content --&gt;</span>
 <span class="nt">&lt;/ion-nav-view&gt;</span>
 </code></pre></div>
 <p>Next, we need to setup our states that will be rendered.</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$stateProvider</span>
   <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -915,7 +915,7 @@ and then try to load home.html into the <code>&lt;ion-nav-view&gt;</code>.</p>
 <p>Pages are loaded by the URLs given. One simple way to create templates in Angular is to put
 them directly into your HTML file and use the <code>&lt;script type=&quot;text/ng-template&quot;&gt;</code> syntax.
 So here is one way to put home.html into our app:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;home&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;home&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!--</span> <span class="nx">The</span> <span class="nx">title</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">shown</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">navbar</span> <span class="o">--&gt;</span>
   <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Home&#39;&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;HomeCtrl&quot;</span><span class="o">&gt;</span>

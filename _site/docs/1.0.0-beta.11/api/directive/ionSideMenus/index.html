@@ -879,7 +879,7 @@ clicked then the opened side menu will automatically close.</p>
 <p>To use side menus, add an <code>&lt;ion-side-menus&gt;</code> parent element,
 an <code>&lt;ion-side-menu-content&gt;</code> for the center content,
 and one or more <code>&lt;ion-side-menu&gt;</code> directives.</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
   <span class="c">&lt;!-- Center content --&gt;</span>
   <span class="nt">&lt;ion-side-menu-content</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentController&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-side-menu-content&gt;</span>
@@ -892,7 +892,7 @@ and one or more <code>&lt;ion-side-menu&gt;</code> directives.</p>
   <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-side-menu&gt;</span>
 <span class="nt">&lt;/ion-side-menus&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ContentController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ContentController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">toggleLeft</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$ionicSideMenuDelegate</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
   <span class="p">};</span>

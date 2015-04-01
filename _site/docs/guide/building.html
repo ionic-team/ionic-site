@@ -207,7 +207,7 @@ Javascript controllers that give them increased functionality.
 </div>
 
 <p>With the list code and the Angular <code>ng-repeat</code>, the center content becomes:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!-- Center content --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Center content --&gt;</span>
 <span class="nt">&lt;ion-side-menu-content&gt;</span>
   <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">&quot;bar-dark&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Todo<span class="nt">&lt;/h1&gt;</span>
@@ -223,10 +223,10 @@ Javascript controllers that give them increased functionality.
 <span class="nt">&lt;/ion-side-menu-content&gt;</span>
 </code></pre></div>
 <p>But this doesn&#39;t do anything yet, because we don&#39;t have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called <code>TodoCtrl</code>. We are going to add it directly to the body tag:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span> <span class="na">ng-controller=</span><span class="s">&quot;TodoCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span> <span class="na">ng-controller=</span><span class="s">&quot;TodoCtrl&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
 <p>Then, we need to define this controller in our <code>app.js</code> file, and we can add some testing tasks in:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;TodoCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">tasks</span> <span class="o">=</span> <span class="p">[</span>
@@ -245,7 +245,7 @@ Javascript controllers that give them increased functionality.
 
 <p>Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let&#39;s add a simple Modal window that slides up, letting us put in a new task. Place
 the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> tag in the <code>&lt;body&gt;</code> of the HTML file:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;new-task.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;new-task.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
 
   <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;modal&quot;</span><span class="o">&gt;</span>
 
@@ -280,7 +280,7 @@ the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> t
 <p>We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling <code>createTask(task)</code> when the form is submitted. The <code>task</code> that is passed to <code>createTask</code> is the object corresponding to the entered form data. Since our text input has <code>ng-model=&quot;task.title&quot;</code>, that text input will set the <code>title</code> property of the <code>task</code> object.</p>
 
 <p>In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">  <span class="c">&lt;!-- Center content --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="c">&lt;!-- Center content --&gt;</span>
   <span class="nt">&lt;ion-side-menu-content&gt;</span>
     <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">&quot;bar-dark&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Todo<span class="nt">&lt;/h1&gt;</span>
@@ -300,7 +300,7 @@ the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> t
   <span class="nt">&lt;/ion-side-menu-content&gt;</span>
 </code></pre></div>
 <p>And in our controller code:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;TodoCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// No need for testing data anymore</span>
@@ -343,7 +343,7 @@ the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> t
 <p>We are also going to slip in a few more little things to make the app feel right. Specifically, we&#39;ve added support for selecting a project (and showing that it&#39;s selected), and automatically closing the side menu when creating a new project or selecting an existing one.</p>
 
 <p>Here is the new content area markup:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!-- Center content --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Center content --&gt;</span>
 <span class="nt">&lt;ion-side-menu-content&gt;</span>
   <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">&quot;bar-dark&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button button-icon&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;toggleProjects()&quot;</span><span class="nt">&gt;</span>
@@ -365,7 +365,7 @@ the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> t
 <span class="nt">&lt;/ion-side-menu-content&gt;</span>
 </code></pre></div>
 <p>And the new side menu markup:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">  <span class="c">&lt;!-- Left menu --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="c">&lt;!-- Left menu --&gt;</span>
   <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">&quot;bar-dark&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Projects<span class="nt">&lt;/h1&gt;</span>
@@ -384,7 +384,7 @@ the following script tag after the closing <code>&lt;/ion-side-menu&gt;</code> t
 <p>This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The <code>ng-class</code> directive in the <code>&lt;ion-item&gt;</code> makes sure to add the <code>active</code> class to the currently active project.</p>
 
 <p>To enable adding, saving, and loading projects, we&#39;ve had to add a bit of code to the controller. Here is the new version of the <code>app.js</code> file:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 <span class="cm">/**</span>
 <span class="cm"> * The Projects factory handles saving and loading projects</span>
 <span class="cm"> * from local storage, and also lets us save and load the</span>

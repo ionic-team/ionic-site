@@ -89,7 +89,7 @@
 <p>When I was designing the OAuth functionality, my strategy was to expect a promise based on the login flow. If the flow is successful, we will receive an object containing whatever the server responds with. Otherwise, we&#39;ll get some kind of error.</p>
 
 <p>Although I designed this with Ionic Framework in mind, it will also work for any Apache Cordova or Phonegap application that makes use of AngularJS. With this in mind, let&#39;s set up the library for use.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ionic start IonicProject blank
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start IonicProject blank
 <span class="nb">cd </span>IonicProject
 ionic platform add android
 ionic platform add ios
@@ -97,18 +97,18 @@ ionic platform add ios
 <p>Note that if you are not using a Mac, you cannot build for iOS.</p>
 
 <p>OAuth with ngCordova relies heavily on the Apache Cordova <a href="http://cordova.apache.org/docs/en/3.0.0/cordova_inappbrowser_inappbrowser.md.html">InAppBrowser</a> plugin. If you&#39;d like to know more about how this plugin works, you can view my <a href="http://blog.nraboy.com/2014/07/launch-external-urls-ionicframework/">previous post</a> on the topic, otherwise just continue by running the following:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
 </code></pre></div>
 <p>Your Ionic project is now ready for the ngCordova library.  <a href="https://github.com/driftyco/ng-cordova/archive/master.zip">Download</a> it and include <strong>ng-cordova.min.js</strong> into your <strong>www/js</strong> directory.</p>
 
 <p>Open the <strong>www/index.html</strong> file and include the following:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/ng-cordova.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/ng-cordova.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <p>One more item must be added in order to fully make use of this plugin. You must inject ngCordova into your AngularJS module found in the <strong>www/js/app.js</strong> file:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">])</span>
 </code></pre></div>
 <p>Here is an example of how you might use the OAuth with the ngCordova library:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ionicExample</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">]);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ionicExample</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">]);</span>
 
 <span class="nx">ionicExample</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">&quot;OauthExample&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$cordovaOauth</span><span class="p">)</span> <span class="p">{</span>
 
@@ -123,7 +123,7 @@ ionic platform add ios
 <span class="p">});</span>
 </code></pre></div>
 <p>As of right now, the following methods are available:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$cordovaOauth</span>.dropbox<span class="o">(</span>string appKey<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$cordovaOauth</span>.dropbox<span class="o">(</span>string appKey<span class="o">)</span><span class="p">;</span>
 <span class="nv">$cordovaOauth</span>.digitalOcean<span class="o">(</span>string clientId, string clientSecret<span class="o">)</span><span class="p">;</span>
 <span class="nv">$cordovaOauth</span>.google<span class="o">(</span>string clientId, array appScope<span class="o">)</span><span class="p">;</span>
 <span class="nv">$cordovaOauth</span>.github<span class="o">(</span>string clientId, string clientSecret, array appScope<span class="o">)</span><span class="p">;</span>
@@ -140,7 +140,7 @@ ionic platform add ios
 </ul>
 
 <p>When you have your access token, you can typically make full use of the web APIs for that service. For example, if you wanted to use one of the Digital Ocean APIs, you might do the following:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ionicExample</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">]);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ionicExample</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">]);</span>
 
 <span class="nx">ionicExample</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">&quot;DigitalOceanExample&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">$cordovaOauth</span><span class="p">)</span> <span class="p">{</span>
 

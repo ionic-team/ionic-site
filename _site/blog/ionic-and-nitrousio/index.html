@@ -105,10 +105,10 @@
 <p>To get started with the <a href="http://ionicframework.com/">Ionic Framework</a>, we will build a Todo app. Although the <a href="http://ionicframework.com/docs/guide/installation.html">Ionic guide</a> goes into detail with building the initial app, this article provides you with the app ready to clone from Github.</p>
 
 <p>Cd into <code>~/workspace/</code> and run the following command in your console to clone the starter project into <code>/myproject</code>:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone git@github.com:nitrous-examples/ionic-todo.git myproject
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clone git@github.com:nitrous-examples/ionic-todo.git myproject
 </code></pre></div>
 <p>cd into the <code>~/workspace/myproject</code> folder, and from there run the app within the Nitrous box with Python (yes, Python along with other tools and interpreters are already installed on Node.JS boxes):</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd myproject
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd myproject
 python -m SimpleHTTPServer 4000
 </code></pre></div>
 <p>You can view the app by navigating to <strong>Preview &gt; Port 4000</strong> in the Nitrous.IO web IDE menu bar:</p>
@@ -124,10 +124,10 @@ python -m SimpleHTTPServer 4000
 <p><img src="/img/blog/nitrous/github-new-project.png" alt="Github new project"></p>
 
 <p>Make note of your HTTP URI at the top of the page. You will want to push your existing project from Nitrous to this location. Navigate within the console to <code>~/workspace/myproject</code> and modify your git remote to point to the new repo:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git remote set-url origin git://YOUR-NEW.HTTP-URL.HERE
+<div class="highlight"><pre><code class="language-text" data-lang="text">git remote set-url origin git://YOUR-NEW.HTTP-URL.HERE
 </code></pre></div>
 <p>Push the Ionic starter project files to the repository by running the following command:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git push -u origin master
+<div class="highlight"><pre><code class="language-text" data-lang="text">git push -u origin master
 </code></pre></div>
 <p>Your project should now be found in the Github repo.</p>
 
@@ -178,7 +178,7 @@ python -m SimpleHTTPServer 4000
 <p><a href="http://angularfire.com/">AngularFire</a> is a AngularJS binding for <a href="http://www.firebase.com">Firebase</a>, which allows us to connect our app to a backend service. Let&#39;s get started with setting up AngularFire.</p>
 
 <p>Include Firebase and AngularFire to your project by adding the following lines within the <code>&lt;head&gt;</code> section of your <code>index.html</code> file:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;!-- Firebase and AngularFire Extensions --&gt;
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;!-- Firebase and AngularFire Extensions --&gt;
 &lt;script src=&#39;https://cdn.firebase.com/v0/firebase.js&#39;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdn.firebase.com/libs/angularfire/0.5.0-rc1/angularfire.js&quot;&gt;&lt;/script&gt;
 </code></pre></div>
@@ -190,7 +190,7 @@ python -m SimpleHTTPServer 4000
 
 <h3>app.js</h3>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span><span class="s1">&#39;firebase&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span><span class="s1">&#39;firebase&#39;</span><span class="p">])</span>
 <span class="cm">/**</span>
 <span class="cm"> * The Projects factory handles saving and loading projects</span>
 <span class="cm"> * from local storage, and also lets us save and load the</span>
@@ -296,12 +296,11 @@ python -m SimpleHTTPServer 4000
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">sideMenuController</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
   <span class="p">};</span>
 
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <h3>index.html</h3>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
@@ -396,15 +395,14 @@ python -m SimpleHTTPServer 4000
 
 <span class="nt">&lt;/side-menus&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>(note: if using the most recent version of Ionic, you&#39;ll need to also include the AngularJS dependencies seen in the <a href="https://github.com/driftyco/ionic-angular-cordova-seed/blob/master/www/index.html">seed project</a>)</p>
 
 <h3>Testing the App</h3>
 
 <p>You should now be able to run the app while utilizing Firebase for a backend service. Within the main project folder, run the python command again to start the app on your Nitrous box:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">python -m SimpleHTTPServer 4000
+<div class="highlight"><pre><code class="language-text" data-lang="text">python -m SimpleHTTPServer 4000
 </code></pre></div>
 <p>Navigate in your Nitrous.IO web IDE menu bar to <strong>Preview &gt; Port 4000</strong> to view the app again:</p>
 
@@ -417,7 +415,7 @@ python -m SimpleHTTPServer 4000
 <h3>Updating the App in PhoneGap</h3>
 
 <p>In order to update the code for your app you will need to first push the changes to Github. Run the following commands within the project folder in your console:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git add .
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add .
 git commit -m &quot;Integrated Firebase with AngularFire&quot;
 git push origin master
 </code></pre></div>

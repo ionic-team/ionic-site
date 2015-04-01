@@ -4868,12 +4868,10 @@ h1 + h2 + p {
 .home .examples-row h3 {
   padding-top: 10px; }
 .home .features {
-  background-color: #FFF;
-  padding: 60px 20px 100px 20px;
+  background-color: #f8f9fb;
+  padding: 60px 20px;
   text-align: center;
-  color: #0B1523;
-  border-bottom: 1px solid #ECEFF7;
-  border-top: 1px solid #ECEFF7; }
+  color: #0B1523; }
   .home .features h2, .home .features h3, .home .features h4, .home .features h5 {
     color: #0B1523; }
   .home .features h2 {
@@ -4894,17 +4892,12 @@ h1 + h2 + p {
   .home .features .row {
     text-align: left;
     margin-top: 40px; }
-  .home .features .row h3 {
-    color: #2a303a;
-    font-weight: normal;
-    font-size: 18px; }
   .home .features p {
-    color: #626B78;
+    color: #858f9f;
     font-weight: 300;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    line-height: 24px;
-    max-width: 286px; }
+    line-height: 25px; }
     .home .features p i {
       vertical-align: middle; }
 

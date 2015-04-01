@@ -191,7 +191,7 @@
 <p>First, we will go and install the most recent version of <a href="http://cordova.apache.org/">Apache Cordova</a>, which will take our app and bundle it into a native wrapper to turn it into a traditional native app.</p>
 
 <p>To install Cordova, make sure you have <a href="http://nodejs.org/">Node.js</a> installed, then run</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ sudo npm install -g cordova
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo npm install -g cordova
 </code></pre></div>
 <p>Drop <code>sudo</code> from the above command if running on Windows. Depending on the platforms you wish to develop for, you&#39;ll need to install platform-specific tools. Follow the Cordova platform guides for <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> to make sure you have everything needed for development on those platforms. Luckily, you&#39;ll only need to do this once.</p>
 
@@ -252,15 +252,15 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 <p>Ionic comes with a convenient command line utility to start, build, and package Ionic apps.</p>
 
 <p>To install it, simply run:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ionic
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ionic
 </code></pre></div>
 <h2>Create the project</h2>
 
 <p>Now, we need to create a new Cordova project somewhere on the computer for the code for our app:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ ionic start todo blank
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ ionic start todo blank
 </code></pre></div>
 <p>That will create a folder called <code>todo</code> in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd todo &amp;&amp; ls
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd todo &amp;&amp; ls
 
 ├── bower.json     // bower dependencies
 ├── config.xml     // cordova configuration
@@ -278,7 +278,7 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 <h2>Configure Platforms</h2>
 
 <p>Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios
 <span class="nv">$ </span>ionic platform add android
 </code></pre></div>
 <p>If you see errors here, make sure to follow the platform guides above to install necessary platform tools.</p>
@@ -299,7 +299,7 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 <h2>Test it out</h2>
 
 <p>Just to make sure the default project worked, try building and running the project (substitute ios for android to build for Android instead):</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
 <span class="nv">$ </span>ionic emulate ios
 </code></pre></div>
 <p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-emulator-note">

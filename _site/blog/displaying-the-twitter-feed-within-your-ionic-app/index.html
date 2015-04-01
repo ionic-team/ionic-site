@@ -87,7 +87,7 @@
 <h3>Set Up a Simple App</h3>
 
 <p>We&#39;ll start with a simple blank Ionic app, install <code>ngCordova</code> and <code>ngResource</code> (needed for the REST calls later) via the <a href="http://bower.io/">bower package manager</a> and add a Cordova plugin we will need for the OAuth:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ionic start devdactic-twitterfeed blank --appname “My Twitter Feed”
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start devdactic-twitterfeed blank --appname “My Twitter Feed”
 <span class="nb">cd </span>devdactic-twitterfeed
 bower install angular-resource ngCordova --save
 cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -95,7 +95,7 @@ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappb
 <p>Additionally, we need the jsSHA Library inside our project, because Twitter requires request signing using HMAC-SHA1. Go to the <a href="https://github.com/Caligatio/jsSHA">jsSHA Github project</a>, download it, and copy the <code>sha.js</code> file from the archive into the <code>www/lib/</code> folder of your app.</p>
 
 <p>Now, we need to include all these files inside our <code>index.html</code>. Make sure to add the ngCordova file before the cordova.js script tag that is already included! We also already included our services, and later, we will create and add a controller.</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!-- Before cordova.js --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Before cordova.js --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/sha.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/angular-resource/angular-resource.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/ngCordova/dist/ng-cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
@@ -105,7 +105,7 @@ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappb
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/services.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <p>Finally, we must add the dependencies to our AngularJS module inside our <code>app.js</code> file:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngResource&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span> <span class="s1">&#39;ngResource&#39;</span><span class="p">,</span> <span class="s1">&#39;ngCordova&#39;</span><span class="p">])</span>
 </code></pre></div>
 <p>Our app is now ready to connect with Twitter. The last thing we must do is to create an app on Twitter that will give us the credentials we need. Go to the <a href="https://apps.twitter.com/">Twitter Application Management</a> page and create a simple app.</p>
 
@@ -115,7 +115,7 @@ Leave the created app for now; we will need to copy some keys from it in a later
 <h3>Writing a Twitter Service</h3>
 
 <p>The heart of our app will be the <code>TwitterService</code>, which will handle our calls to the REST API and give us the data we need. Therefore, create a new file named <code>services.js</code> next to the <code>app.js</code> file, and insert this (I will discuss the functions in detail afterwards):</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;TwitterService&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$cordovaOauth</span><span class="p">,</span> <span class="nx">$cordovaOauthUtility</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">$resource</span><span class="p">,</span> <span class="nx">$q</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;TwitterService&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$cordovaOauth</span><span class="p">,</span> <span class="nx">$cordovaOauthUtility</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">$resource</span><span class="p">,</span> <span class="nx">$q</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 1</span>
     <span class="kd">var</span> <span class="nx">twitterKey</span> <span class="o">=</span> <span class="s2">&quot;STORAGE.TWITTER.KEY&quot;</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">clientId</span> <span class="o">=</span> <span class="s1">&#39;TwitterAppConsumerKey&#39;</span><span class="p">;</span>
@@ -192,7 +192,7 @@ This ngCordova wrapper will slide up a Twitter authorization form to the user, w
 <h3>Accessing the data from our Controller</h3>
 
 <p>After we have our service, we need to create the controller for our app, so go ahead and create a controllers.js. Now, open your created file, and insert this:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicPlatform</span><span class="p">,</span> <span class="nx">TwitterService</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicPlatform</span><span class="p">,</span> <span class="nx">TwitterService</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 1</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">correctTimestring</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">string</span><span class="p">));</span>
@@ -234,7 +234,7 @@ This ngCordova wrapper will slide up a Twitter authorization form to the user, w
 <h3>Showing Feeds Inside Our View</h3>
 
 <p>After we have a service to get the data from Twitter and a controller to hold our received data, we need an appropriate view to show the feeds in a Twitter-like style. For this, open the <code>index.html</code> and replace the dummy body with this:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;starter&quot;</span> <span class="na">ng-controller=</span><span class="s">&#39;AppCtrl&#39;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;starter&quot;</span> <span class="na">ng-controller=</span><span class="s">&#39;AppCtrl&#39;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-pane&gt;</span>
     <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">&quot;bar-positive&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>My Twitter Feed<span class="nt">&lt;/h1&gt;</span>

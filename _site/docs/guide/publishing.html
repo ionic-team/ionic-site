@@ -181,29 +181,29 @@
 <p>Now that we have a working app, we are ready to push it live to the world! Since <a href="http://drifty.com/">Drifty</a>, the creators of Ionic, already submitted the Todo app from this guide to the app store, chances are you&#39;ll want to follow this chapter with a new app that you make on your own.</p>
 
 <p>So first, we need to generate a release build of our app, targeted at each platform we wish to deploy on. Before we deploy, we should take care to adjust plugins needed during development that should not be in production mode. For example, we probably don&#39;t want the debug console plugin enabled, so we should remove it before generating the release builds:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>cordova plugin rm org.apache.cordova.console
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova plugin rm org.apache.cordova.console
 </code></pre></div>
 <h1>Android Publishing</h1>
 
 <p>To generate a release build for Android, we can use the following cordova cli command:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>cordova build --release android
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova build --release android
 </code></pre></div>
 <p>This will generate a release build based on the settings in your <code>config.xml</code>. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out <a href="http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_config.md.html#Android%20Configuration">the config.xml file</a> documentation for more information.</p>
 
 <p>Next, we can find our <em>unsigned</em> APK file in <code>platforms/android/bin</code>. In our example, the file was <code>platforms/android/bin/HelloWorld-release-unsigned.apk</code>. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.</p>
 
 <p>Let&#39;s generate our private key using the <code>keytool</code> command that comes with the JDK. If this tool isn&#39;t found, refer to the <a href="installation.html">installation guide</a>:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize <span class="m">2048</span> -validity 10000
 </code></pre></div>
 <p>You&#39;ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools&#39;s questions and when it&#39;s all done, you should have a file called <code>my-release-key.keystore</code> created in the current directory.</p>
 
 <p><strong>Note</strong>: Make sure to save this file somewhere safe, if you lose it you won&#39;t be able to submit updates to your app!</p>
 
 <p>To sign the unsigned APK, run the <code>jarsigner</code> tool which is also included in the JDK:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
 </code></pre></div>
 <p>This signs the apk in place. Finally, we need to run the zip align tool to optimize the APK:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>zipalign -v <span class="m">4</span> HelloWorld-release-unsigned.apk HelloWorld.apk
 </code></pre></div>
 <p>Now we have our final release binary called <code>HelloWorld.apk</code> and we can release this on the Google Play Store for all the world to enjoy!</p>
 

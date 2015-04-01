@@ -868,7 +868,7 @@ from your controller.</p>
 
 <h2 id="usage">Usage</h2>
   
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyController&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyController&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-refresher</span>
     <span class="na">pulling-text=</span><span class="s">&quot;Pull to refresh...&quot;</span>
     <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;</span>
@@ -877,7 +877,7 @@ from your controller.</p>
     <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
   <span class="nt">&lt;/ion-list&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>

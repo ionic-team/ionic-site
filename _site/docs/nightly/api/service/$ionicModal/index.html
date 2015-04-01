@@ -913,7 +913,7 @@ template file, remove the script tags and call it by file name.</li>
 </ul>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;my-modal.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;my-modal.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
   <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">modal</span><span class="o">-</span><span class="nx">view</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">-</span><span class="nx">bar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">Modal</span> <span class="nx">title</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
@@ -923,7 +923,7 @@ template file, remove the script tags and call it by file name.</li>
     <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
   <span class="o">&lt;</span><span class="err">/ion-modal-view&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$ionicModal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">&#39;my-modal.html&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>

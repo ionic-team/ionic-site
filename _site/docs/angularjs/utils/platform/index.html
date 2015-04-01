@@ -881,7 +881,7 @@
 <p>Like with the DOM or <code>window.onload</code>, Cordova isn&#39;t always ready and any code interacting with Cordova needs to wait until it is. Code depending on Cordova should use <code>ionic.Platform.ready(callback)</code>. Once Cordova is ready, the callbacks sent into the method will fire off. Additionally, if Cordova is already set, then the callback will immediately fire off.</p>
 
 <p>You can safely run the ready method anywhere within you&#39;re Ionic code and trust it&#39;ll run when Cordova is all set to go. Also, if the app is not wrapped with Cordova, the ready callbacks will fire off after <code>window.onload</code>.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Cordova is ready, let&#39;s do this!&quot;</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -895,7 +895,7 @@
 <li><strong>device.uuid</strong>: Get the device&#39;s Universally Unique Identifier (UUID).</li>
 <li><strong>device.version</strong>: Get the operating system version.</li>
 </ul>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="kd">var</span> <span class="nx">device</span> <span class="o">=</span> <span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">device</span><span class="p">();</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hey, I&#39;m an&quot;</span><span class="p">,</span> <span class="nx">device</span><span class="p">.</span><span class="nx">platform</span><span class="p">);</span>
 <span class="p">});</span>
@@ -903,12 +903,12 @@
 <h2>ionic.Platform.fullScreen([showFullScreen[, showStatusBar]])</h2>
 
 <p>You can put your app in full screen mode, which removes the status bar at the top. By default <code>showFullScreen</code> is set to true, and <code>showStatusBar</code> is false. This method does not have to be wrapped in ready().</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">fullScreen</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">fullScreen</span><span class="p">();</span>
 </code></pre></div>
 <h2>ionic.Platform.exitApp()</h2>
 
 <p>Closes the app.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">exitApp</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ionic</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">exitApp</span><span class="p">();</span>
 </code></pre></div>
         </div>
 

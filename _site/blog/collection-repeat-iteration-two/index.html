@@ -93,7 +93,7 @@
 <h3>The Old and the New</h3>
 
 <p>In our first iteration of collection-repeat, we required developers to provide dimension stats for every item, because we assumed that every item might have a unique width and height:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="na">collection-repeat=</span><span class="s">&quot;item in items&quot;</span>
     <span class="na">collection-item-height=</span><span class="s">&quot;75&quot;</span>
     <span class="na">collection-item-width=</span><span class="s">&quot;&#39;100%&#39;&quot;</span><span class="nt">&gt;</span>
@@ -102,7 +102,7 @@
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre></div>
 <p>With the new syntax, height and width are optional:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="na">collection-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
     {{item}}
   <span class="nt">&lt;/ion-item&gt;</span>

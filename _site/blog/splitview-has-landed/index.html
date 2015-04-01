@@ -85,7 +85,7 @@
 <!-- more -->
 
 <p>A frequently requested feature, Split View allows developers to expose a side-menu when the viewport is a certain width. To do this, all that needs to be added is the <code>expose-aside-when</code> attribute directive to the <code>ion-side-menu</code>:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
   <span class="c">&lt;!-- Center content --&gt;</span>
   <span class="nt">&lt;ion-side-menu-content&gt;</span>
   <span class="nt">&lt;/ion-side-menu-content&gt;</span>
@@ -100,7 +100,7 @@
 <p>The <code>expose-aside-when=&quot;large&quot;</code> attribute will keep the side menu hidden when the viewport&#39;s width is less than 768px, but when the viewport&#39;s width is 768px or greater, the menu will always be shown and can no longer be opened or closed, like it could when it was hidden for smaller viewports.</p>
 
 <p>Using “large” as the attribute&#39;s value is simply an alias to <code>(min-width:768px)</code>, since it is the most common use-case. However, for added flexibility, any valid media query could be added as the value, such as <code>(min-width:600px)</code>, or even multiple queries, such as <code>(min-width:750px) and (max-width:1200px)</code>.</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-side-menu</span> <span class="na">expose-aside-when=</span><span class="s">&quot;(min-width:750px) and (max-width:1200px)&quot;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menu</span> <span class="na">expose-aside-when=</span><span class="s">&quot;(min-width:750px) and (max-width:1200px)&quot;</span>
 </code></pre></div>
 <p>With this addition to Ionic, apps can now adapt much better when going between phones and tablets of varying sizes. Check out the <a href="http://codepen.io/ionic/pen/cDbFg">codepen demo</a> to see Splitview in action, and check out the <a href="http://ionicframework.com/docs/api/directive/exposeAsideWhen/">docs</a> for more information.</p>
 

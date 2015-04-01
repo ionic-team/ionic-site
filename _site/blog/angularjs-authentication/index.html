@@ -105,7 +105,7 @@
 <p>But for many applications, we also need to set and store cookie information for things like logins. By default this is not allowed in most browsers and you&#39;ll be smashing your head wondering why the cookie information isn&#39;t being saved!</p>
 
 <p>Enter: <code>withCredentials</code>. <code>withCredentials</code> is a flag set on a low-level <code>XMLHttpRequest</code> (AJAX) object, but in Angular we can configure our <code>$http</code> requests to set this flag for everything by doing:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
 
 <span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$httpProvider&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$httpProvider</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$httpProvider</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -116,14 +116,14 @@
 <p>Many servers use CSRF as a security feature and you can certainly keep this feature in a hybrid app if you wish. CSRF is a way to ensure the client making a request is the same one that the server expects to make the request. This keeps someone from sniffing your cookie session data and making requests pretending to be you (and changing your password, for example).</p>
 
 <p>To make for CSRF, we can tell <code>$http</code> to set the correct header for CSRF (might depend on your server framework, this one is for Django) using the specific cookie name:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngCookies&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngCookies&#39;</span><span class="p">])</span>
 
 <span class="p">.</span><span class="nx">run</span><span class="p">([</span><span class="s1">&#39;$http&#39;</span><span class="p">,</span> <span class="s1">&#39;$cookies&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span> <span class="nx">$cookies</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$http</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">post</span><span class="p">[</span><span class="s1">&#39;X-CSRFToken&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">$cookies</span><span class="p">.</span><span class="nx">csrftoken</span><span class="p">;</span>
 <span class="p">}]);</span>
 </code></pre></div>
 <p>While I&#39;ve found this to work pretty well, if the CSRF token changes mid-session (for example if a new user signs up) the token won&#39;t update. To fix this, we can use an HTTP Interceptor to always set the correct CSRF header value before each request:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
 
 <span class="p">.</span><span class="nx">provider</span><span class="p">(</span><span class="s1">&#39;myCSRF&#39;</span><span class="p">,[</span><span class="kd">function</span><span class="p">(){</span>
   <span class="kd">var</span> <span class="nx">headerName</span> <span class="o">=</span> <span class="s1">&#39;X-CSRFToken&#39;</span><span class="p">;</span>

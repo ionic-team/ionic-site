@@ -115,7 +115,7 @@ as the conductors by moving Views around, handling gestures and other events on 
 
 <p>To start, we need to look at this UI as a stack of cards that the user can swipe between. This means we need some sort of View Controller
 that manages the card stack, popping ones off the stack that are swiped, and letting the user push new ones onto the stack. Let&#39;s call this the <code>SwipeableCardController</code>:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwipeableCardController</span> <span class="o">=</span> <span class="nx">ionic</span><span class="p">.</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">ViewController</span><span class="p">.</span><span class="nx">inherit</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwipeableCardController</span> <span class="o">=</span> <span class="nx">ionic</span><span class="p">.</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">ViewController</span><span class="p">.</span><span class="nx">inherit</span><span class="p">({</span>
   <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">cards</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="c1">// Initialize from the passed in options</span>
@@ -138,7 +138,7 @@ DOM element and also attach event listeners to that element.</p>
 
 <p>In the example below I&#39;ve included a small snippet of what happens in the drag event, but
 the <a href="https://github.com/driftyco/ionic-contrib-swipe-cards/blob/master/ionic.swipecards.js">full example</a> is in the repo:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwipeableCardView</span> <span class="o">=</span> <span class="nx">ionic</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">inherit</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwipeableCardView</span> <span class="o">=</span> <span class="nx">ionic</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">inherit</span><span class="p">({</span>
   <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Store the card element</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">el</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">el</span><span class="p">;</span>
@@ -199,7 +199,7 @@ a few <code>SwipeableCardView</code>&#39;s for those nodes, put them in a new <c
 
 <p>But that&#39;s annoying to have to code that by hand, and we miss out on using AngularJS to integrate this card stack with our
 scope data. For that we need to build some custom directives. But first, let&#39;s assume we want the directive markup to look like this:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;swipe-cards&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;swipe-cards&gt;</span>
   <span class="nt">&lt;swipe-card</span> <span class="na">ng-repeat=</span><span class="s">&quot;card in cards&quot;</span> <span class="na">on-destroy=</span><span class="s">&quot;cardDestroyed($index)&quot;</span> <span class="na">on-swipe=</span><span class="s">&quot;cardSwiped($index)&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- Card content here --&gt;</span>
   <span class="nt">&lt;/swipe-card&gt;</span>
@@ -209,7 +209,7 @@ scope data. For that we need to build some custom directives. But first, let&#39
 child <code>&lt;swipe-card&gt;</code> being an instance of our <code>SwipeableCardView</code>.</p>
 
 <p>Let&#39;s start with the <code>&lt;swipe-cards&gt;</code> directive as it&#39;s simpler:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">// Our module, requiring the &#39;ionic&#39; module</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Our module, requiring the &#39;ionic&#39; module</span>
 <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;ionic.contrib.ui.cards&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 
 <span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;swipeCards&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
@@ -240,7 +240,7 @@ child <code>&lt;swipe-card&gt;</code> being an instance of our <code>SwipeableCa
 <p>This means whenever AngularJS hits the <code>&lt;swipe-cards&gt;</code> directive, it goes and instantiates our controller and
 makes it accessible to directives that inherit from it, as we see below in the 
 <code>&lt;swipe-card&gt;</code> directive:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;swipeCard&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$timeout&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;swipeCard&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$timeout&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span>
     <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div class=&quot;swipe-card&quot; ng-transclude&gt;&lt;/div&gt;&#39;</span><span class="p">,</span>

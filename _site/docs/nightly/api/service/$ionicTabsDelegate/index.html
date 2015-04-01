@@ -902,7 +902,7 @@ directives. Use the <a href="/docs/nightly/api/service/$ionicTabsDelegate/#$getB
 method to control specific ionTabs instances.</p>
 
 <h2>Usage</h2>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-tabs&gt;</span>
 
     <span class="nt">&lt;ion-tab</span> <span class="na">title=</span><span class="s">&quot;Tab 1&quot;</span><span class="nt">&gt;</span>
@@ -913,7 +913,7 @@ method to control specific ionTabs instances.</p>
 
   <span class="nt">&lt;/ion-tabs&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicTabsDelegate</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicTabsDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">selectTabWithIndex</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$ionicTabsDelegate</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
   <span class="p">}</span>

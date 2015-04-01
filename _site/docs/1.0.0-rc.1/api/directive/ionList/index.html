@@ -912,14 +912,14 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
   
 
 <p>Basic Usage:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
     Hello, {{item}}!
   <span class="nt">&lt;/ion-item&gt;</span>
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre></div>
 <p>Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span>
           <span class="na">show-delete=</span><span class="s">&quot;shouldShowDelete&quot;</span>
           <span class="na">show-reorder=</span><span class="s">&quot;shouldShowReorder&quot;</span>
           <span class="na">can-swipe=</span><span class="s">&quot;listCanSwipe&quot;</span><span class="nt">&gt;</span>
@@ -946,7 +946,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
   <span class="nt">&lt;/ion-item&gt;</span>
 <span class="nt">&lt;/ion-list&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
  <span class="nx">$scope</span><span class="p">.</span><span class="nx">shouldShowDelete</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
  <span class="nx">$scope</span><span class="p">.</span><span class="nx">shouldShowReorder</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
  <span class="nx">$scope</span><span class="p">.</span><span class="nx">listCanSwipe</span> <span class="o">=</span> <span class="kc">true</span>

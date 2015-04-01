@@ -905,7 +905,7 @@ an opt-in feature and not the default.</p>
 <h2>Usage</h2>
 
 <p>A few basic examples, see below for details about all of the options available.</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mySuperApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mySuperApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PopupCtrl&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicPopup</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
 
 <span class="c1">// Triggered on a button click, or some other target</span>
@@ -1171,7 +1171,7 @@ with the given value.</li>
 <p>Show a simple prompt popup, which has an input, OK button, and Cancel button.
 Resolves the promise with the value of the input if the user presses OK, and with undefined
 if the user presses Cancel.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">prompt</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">prompt</span><span class="p">({</span>
    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Password Check&#39;</span><span class="p">,</span>
    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Enter your secret password&#39;</span><span class="p">,</span>
    <span class="nx">inputType</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>

@@ -568,10 +568,12 @@
   }
 
   .features {
-    background-color: #f8f9fb;
-    padding: 60px 20px;
+    background-color: #FFF;
+    padding: 60px 20px 100px 20px;
     text-align: center;
     color: #0B1523;
+    border-bottom: 1px solid #ECEFF7;
+    border-top: 1px solid #ECEFF7;
 
     h2, h3, h4, h5 {
       color: #0B1523;
@@ -602,12 +604,19 @@
       text-align: left;
       margin-top: 40px;
     }
+    .row h3 {
+      color: #2a303a;
+      font-weight: normal;
+      font-size: 18px;
+    }
+
     p {
-      color: #858f9f;
+      color: #626B78;
       font-weight: 300;
       font-size: 14px;
       font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      line-height: 25px;
+      line-height: 24px;
+      max-width: 286px;
 
       i {
         vertical-align: middle;

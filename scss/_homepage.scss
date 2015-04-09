@@ -575,6 +575,12 @@
     border-bottom: 1px solid #ECEFF7;
     border-top: 1px solid #ECEFF7;
 
+    .col-md-4 {
+      @media (min-width: 992px) {
+        padding-left: 80px;
+      }
+    }
+
     h2, h3, h4, h5 {
       color: #0B1523;
     }

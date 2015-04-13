@@ -41,9 +41,9 @@ docType: "directive"
 
 
 A container for view content and any navigational and header bar information. When a view
-enters and exists its parent <a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a>, the view also emits view
-information, such as its title, whether the back button should show or not, whether the
-corresponding <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> should show or not, which transition the view
+enters and exits its parent <a href="/docs/nightly/api/directive/ionNavView/"><code>ionNavView</code></a>, the view also emits view
+information, such as its title, whether the back button should be displayed or not, whether the
+corresponding <a href="/docs/nightly/api/directive/ionNavBar/"><code>ionNavBar</code></a> should be displayed or not, which transition the view
 should use to animate, and which direction to animate.
 
 *Views are cached to improve performance.* When a view is navigated away from, its element is

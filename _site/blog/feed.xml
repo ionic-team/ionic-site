@@ -16,7 +16,7 @@
 
 &lt;p&gt;Use code if50 and get 50% off &lt;a href=&quot;http://www.manning.com/wilken/&quot;&gt;Ionic in Action&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/gnomeontherun&quot;&gt;Jeremy Wilken&lt;/a&gt;, &lt;a href=&quot;http://www.manning.com/camden/&quot;&gt;Apache Cordova in Action&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/raymondcamden&quot;&gt;Raymond Camden&lt;/a&gt;, &amp;amp; &lt;a href=&quot;http://www.manning.com/aden/&quot;&gt;AngularJS in Depth&lt;/a&gt; by David L. Aden and Jason L. Aden (all formats) through March 26.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 20 Mar 2015 05:00:00 -0500</pubDate>
+        <pubDate>Fri, 20 Mar 2015 05:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/book-promotions/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/book-promotions/</guid>
       </item>
@@ -52,7 +52,7 @@
 
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 18 Mar 2015 11:31:00 -0500</pubDate>
+        <pubDate>Wed, 18 Mar 2015 11:31:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/svg-spinners/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/svg-spinners/</guid>
       </item>
@@ -80,7 +80,7 @@
 &lt;p&gt;Hear more about platform continuity in &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=4m41s&quot;&gt;Adam’s talk at ng-conf&lt;/a&gt;:
 &lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=4m41s&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Mar 2015 13:00:00 -0500</pubDate>
+        <pubDate>Tue, 17 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/platform-continuity/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/platform-continuity/</guid>
       </item>
@@ -101,7 +101,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Also, soon you&amp;#39;ll be able to share right from Ionic View and ionic.io. Enjoy!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Mar 2015 08:00:00 -0500</pubDate>
+        <pubDate>Tue, 17 Mar 2015 08:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/invite-a-friend/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/invite-a-friend/</guid>
       </item>
@@ -121,7 +121,7 @@
 
 &lt;p&gt;For more on the Ionic community&amp;#39;s response to Swipe to Go Back and RCO, check out &lt;a href=&quot;https://medium.com/@saniyusuf/first-look-at-ionic-1-0-rc-release-candidate-40f6f18308f4&quot;&gt;Sani Yusuf&amp;#39;s post on Medium.com&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 13 Mar 2015 13:00:00 -0500</pubDate>
+        <pubDate>Fri, 13 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/rc0-swipe-to-go-back/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/rc0-swipe-to-go-back/</guid>
       </item>
@@ -151,7 +151,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Onward!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 11 Mar 2015 11:00:00 -0500</pubDate>
+        <pubDate>Wed, 11 Mar 2015 11:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/angular-2-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/angular-2-ionic/</guid>
       </item>
@@ -170,7 +170,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Submit your posts &lt;a href=&quot;https://www.airpair.com/100k-writing-competition&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 03 Mar 2015 13:00:00 -0600</pubDate>
+        <pubDate>Tue, 03 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/airpair-writing-competition/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/airpair-writing-competition/</guid>
       </item>
@@ -266,7 +266,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Enjoy!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 02 Mar 2015 01:00:00 -0600</pubDate>
+        <pubDate>Mon, 02 Mar 2015 01:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/collection-repeat-iteration-two/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/collection-repeat-iteration-two/</guid>
       </item>
@@ -481,7 +481,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 
 &lt;p&gt;If you have any questions, issues, or ideas, please leave a comment below or contact us &lt;a href=&quot;http://twitter.com/ionicframework&quot;&gt;on twitter&lt;/a&gt; or &lt;a href=&quot;http://github.com/driftyco/ionic-cli&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 24 Feb 2015 12:00:00 -0600</pubDate>
+        <pubDate>Tue, 24 Feb 2015 12:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/handling-cors-issues-in-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/handling-cors-issues-in-ionic/</guid>
       </item>
@@ -553,7 +553,7 @@ Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;ht
 
 &lt;p&gt;&lt;a href=&quot;http://ionicinaction.com&quot;&gt;Buy the early access version today&lt;/a&gt; (Save 42% with code ionic42)!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Feb 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 17 Feb 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-in-action-book/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-in-action-book/</guid>
       </item>
@@ -587,7 +587,7 @@ Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;ht
 
 &lt;p&gt;Get the &lt;a href=&quot;https://itunes.apple.com/us/app/viceversa-help-people-make/id942494968?l=en&amp;amp;ls=1&amp;amp;mt=8&quot;&gt;iOS version of Viceversa&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Feb 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 17 Feb 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/built-with-ionic-viceversa/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/built-with-ionic-viceversa/</guid>
       </item>
@@ -794,7 +794,7 @@ Additionally, you could parse the feed data a bit more through a filter to make 
 
 &lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/VE2mbQPQZwA&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Wed, 11 Feb 2015 02:00:00 -0600</pubDate>
+        <pubDate>Wed, 11 Feb 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/displaying-the-twitter-feed-within-your-ionic-app/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/displaying-the-twitter-feed-within-your-ionic-app/</guid>
       </item>
@@ -831,7 +831,7 @@ Additionally, you could parse the feed data a bit more through a filter to make 
 
 &lt;p&gt;&lt;a href=&quot;http://twitter.com/brodymkidd&quot;&gt;&lt;em&gt;-Brody&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 04 Feb 2015 03:30:00 -0600</pubDate>
+        <pubDate>Wed, 04 Feb 2015 03:30:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-show-fifth-episode/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-show-fifth-episode/</guid>
       </item>
@@ -964,7 +964,7 @@ hybrid apps. Read more on &lt;a href=&quot;http://mcgivery.com/&quot;&gt;Andrew&
 
 &lt;p&gt;Using the code above (full code on &lt;a href=&quot;http://codepen.io/andrewmcgivery/pen/ZYyVgp/&quot;&gt;CodePen&lt;/a&gt;), you can accomplish this common pull to refresh patten in your Ionic Apps. Questions? Feel free to comment below!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 28 Jan 2015 02:00:00 -0600</pubDate>
+        <pubDate>Wed, 28 Jan 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/pull-to-refresh-directive/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/pull-to-refresh-directive/</guid>
       </item>
@@ -1011,7 +1011,7 @@ src=&quot;/img/blog/pacifica-android-left.jpg&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;Find Pacifica in the &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.pacificalabs.pacifica&quot;&gt;Google Play&lt;/a&gt; and &lt;a href=&quot;https://itunes.apple.com/us/app/pacifica/id922968861?mt=8&quot;&gt;iOS&lt;/a&gt; stores today!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 26 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Mon, 26 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/built-with-ionic-pacifica/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/built-with-ionic-pacifica/</guid>
       </item>
@@ -1043,7 +1043,7 @@ ionic platform update ios
 
 &lt;p&gt;That’s it! Next time you run &lt;code&gt;ionic prepare&lt;/code&gt;, &lt;code&gt;ionic run&lt;/code&gt;, or &lt;code&gt;ionic build&lt;/code&gt;, the splash screens will be applied to your project, and your app can take full advantage of the new screen real estate offered to the new iPhone 6 series phones.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 20 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 20 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/looking-sharp-on-the-iphone-6/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/looking-sharp-on-the-iphone-6/</guid>
       </item>
@@ -1125,7 +1125,7 @@ Ionic South Africa&lt;br&gt;
 &lt;a href=&quot;https://twitter.com/IonicUruguay&quot;&gt;Ionic Uruguay&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://twitter.com/ionicvietnam&quot;&gt;Ionic Vietnam&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 20 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 20 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-worldwide/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-worldwide/</guid>
       </item>
@@ -1177,7 +1177,7 @@ Ionic South Africa&lt;br&gt;
 
 &lt;p&gt;Have a plugin in your app that’s not supported yet? Having issues with the app? Feature request? Let us know on the &lt;a href=&quot;http://forum.ionicframework.com/&quot;&gt;forum&lt;/a&gt;, hit Tim up on &lt;a href=&quot;https://www.twitter.com/dopernicus&quot;&gt;Twitter&lt;/a&gt;, or open an issue on &lt;a href=&quot;https://github.com/driftyco/ionic-view-issues/&quot;&gt;Github&lt;/a&gt;!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 14 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Wed, 14 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/view-app-is-alive/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/view-app-is-alive/</guid>
       </item>
@@ -1347,7 +1347,7 @@ or greater.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/driftyco/ionic-cli#crosswalk-for-android&quot;&gt;Crosswalk Docs&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Jan 2015 02:00:00 -0600</pubDate>
+        <pubDate>Mon, 12 Jan 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/crosswalk-comes-to-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/crosswalk-comes-to-ionic/</guid>
       </item>
@@ -1511,7 +1511,7 @@ uglification before you release your application.&lt;/p&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/hoy3MESySWQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 10 Jan 2015 02:00:00 -0600</pubDate>
+        <pubDate>Sat, 10 Jan 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/minifying-your-source-code/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/minifying-your-source-code/</guid>
       </item>

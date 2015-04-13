@@ -144,7 +144,7 @@ resize it for the elements inside).
   <code>number</code>
       </td>
       <td>
-        <p>The number of milliseconds for the change to take.</p>
+        <p>The number of milliseconds the change should take.</p>
 
         
       </td>
@@ -214,11 +214,43 @@ resize it for the elements inside).
 
 <div id="previous"></div>
 <h2>
-  <code>previous()</code>
+  <code>previous([speed])</code>
 
 </h2>
 
 Go to the previous slide. Wraps around if at the beginning.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        speed
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The number of milliseconds the change should take.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -230,11 +262,43 @@ Go to the previous slide. Wraps around if at the beginning.
 
 <div id="next"></div>
 <h2>
-  <code>next()</code>
+  <code>next([speed])</code>
 
 </h2>
 
 Go to the next slide. Wraps around if at the end.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        speed
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The number of milliseconds the change should take.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

@@ -30,9 +30,9 @@ During the development process, be sure to test on devices often. While Ionic ma
 To test on a device, first add the platform:
 
 ```bash
-ionic add ios 
+ionic platform add ios 
 # or 
-ionic add android
+ionic platform add android
 ```
 
 Then run the command `ionic run android` or `ionic run ios`. If you have the device plugged in, it will run on the device. Otherwise, it will start the respective device’s emulator. Note that the npm package `ios-sim` must be installed for the iOS simulator to be started from the command line.

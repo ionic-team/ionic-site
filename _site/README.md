@@ -21,6 +21,32 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
     http://localhost:4000/
 
+## Deploy
+
+Install [heroku-toolbelt](https://toolbelt.heroku.com/) or with homebrew
+
+```bash
+brew install heroku-toolbelt
+```
+
+Then log into  heroku
+
+```bash
+heroku login
+# enter your email and password when promted
+```
+
+Then add the heroku remote
+
+```bash
+git remote add heroku https://git.heroku.com/ionic-site.git
+```
+
+- Make your changes
+- Run `gulp`
+- Run `./deploy.sh`
+- `git push heroku master`
+
 
 ## Community
 

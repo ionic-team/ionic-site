@@ -253,11 +253,48 @@ Returns the current state name.
 
 <div id="goBack"></div>
 <h2>
-  <code>goBack()</code>
+  <code>goBack([backCount])</code>
 
 </h2>
 
 Navigates the app to the back view, if a back view exists.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        backCount
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Optional negative integer setting how many views to go
+back. By default it&#39;ll go back one view by using the value <code>-1</code>. To go back two
+views you would use <code>-2</code>. If the number goes farther back than the number of views
+in the current history&#39;s stack then it&#39;ll go to the first view in the current history&#39;s
+stack. If the number is zero or greater then it&#39;ll do nothing. It also does not
+cross history stacks, meaning it can only go as far back as the current history.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

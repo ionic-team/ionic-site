@@ -924,6 +924,9 @@ overflow scrolling.</p>
 directive, and infinite scrolling with the <a href="/docs/nightly/api/directive/ionInfiniteScroll/"><code>ionInfiniteScroll</code></a>
 directive.</p>
 
+<p>If there is any dynamic content inside the ion-content, be sure to call <code>.resize()</code> with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
+after the content as been added.</p>
+
 <p>Be aware that this directive gets its own child scope. If you do not understand why this
 is important, you can read <a href="https://docs.angularjs.org/guide/scope">https://docs.angularjs.org/guide/scope</a>.</p>
 
@@ -1352,7 +1355,7 @@ of the content.  Defaults to true on iOS, false on Android.</p>
 
 <script>
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 +0000');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

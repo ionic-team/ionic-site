@@ -52,6 +52,9 @@ You can implement pull-to-refresh with the <a href="/docs/nightly/api/directive/
 directive, and infinite scrolling with the <a href="/docs/nightly/api/directive/ionInfiniteScroll/"><code>ionInfiniteScroll</code></a>
 directive.
 
+If there is any dynamic content inside the ion-content, be sure to call `.resize()` with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
+after the content as been added.
+
 Be aware that this directive gets its own child scope. If you do not understand why this
 is important, you can read [https://docs.angularjs.org/guide/scope](https://docs.angularjs.org/guide/scope).
 

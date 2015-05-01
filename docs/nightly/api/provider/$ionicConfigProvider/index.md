@@ -260,6 +260,58 @@ forward views cached and not reset on each load.
 
 
 
+<div id="scrolling.jsScrolling"></div>
+<h2>
+  <code>scrolling.jsScrolling(value)</code>
+
+</h2>
+
+Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to
+`false` has the same effect as setting each `ion-content` to have `overflow-scroll='true'`.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Defaults to <code>true</code></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> 
+
+
+
+
 <div id="backButton.icon"></div>
 <h2>
   <code>backButton.icon(value)</code>

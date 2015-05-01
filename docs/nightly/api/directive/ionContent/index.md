@@ -202,7 +202,7 @@ of the content.  Defaults to true on iOS, false on Android.</p>
       </td>
       <td>
         <p>Whether to use overflow-scrolling instead of
-Ionic scroll.</p>
+Ionic scroll. See <a href="/docs/nightly/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a> to set this as the global default.</p>
 
         
       </td>

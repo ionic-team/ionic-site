@@ -117,15 +117,19 @@ header_sub_title: Help build awesomeness!
         All JavaScript must pass <a href="http://www.jshint.com/">JSHint</a>, which helps detect errors and potential problems in your code.
       </p>
       <p>
-      Additionally, almost all Javascript code <strong>must have an accompanying test case</strong>. To run our test suite, install and run <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> as follows:
+      Additionally, almost all Javascript code <strong>must have an accompanying test case</strong>. To run our test suite, install <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> and follow the <a href="https://github.com/driftyco/ionic#development">Development commands</a> as follows:
       </p>
       <p>
     <pre>
-$ sudo npm install -g karma
-$ karma start ionic.conf.js</pre>
+$ sudo npm install -g karma gulp
+$ gulp
+$ gulp karma</pre>
       </p>
       <p>
-      Any tests you write should go in the <code>test/js</code> folder for core JS code, or in the <code>js/ext/FRAMEWORK/test</code> folder for framework-specific code. Copy the format from other tests to write your own.
+      More information can be found in the <a href="https://github.com/driftyco/ionic#development">README</a>.
+      </p>
+      <p>
+      Any tests you write should go in the <code>test/TYPE</code> folder structure. Copy the format from other tests to write your own.
       </p>
     </div>
 

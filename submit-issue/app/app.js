@@ -45,13 +45,15 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     '6'
   ];
   $scope.androidVersions = [
+    '5.1',
+    '5.0',
+    '5.x',
     '4.4',
     '4.3',
     '4.2',
     '4.0',
     '4.1',
-    '4.x',
-    '2.x'
+    '4.x'
   ];
   $scope.componentOptions = [
     'action sheet',

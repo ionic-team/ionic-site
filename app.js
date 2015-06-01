@@ -11,9 +11,12 @@ app.use(function(req,res,next) {
 
   if(parts.path.indexOf('/blog/') == 0) {
     res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
+  } else if(parts.path.indexOf('/creator/') == 0) {
+  	res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''))
   } else {
     next();
   }
+
 });
 
 app.use(express.static(process.env.PWD + '/_site'));

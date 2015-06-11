@@ -50,12 +50,23 @@
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="products-nav nav-link" href="http://ionic.io/">Products</a></li>
         <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
         <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
-        <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
-        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
         <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic.io</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -1617,6 +1628,18 @@ scrollViews with <code>delegate-handle</code> matching the given handle.</li>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
 
 <script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
 try {
   var d = new Date('2015-04-15 00:00:00 -0500');
   var ts = d.getTime();

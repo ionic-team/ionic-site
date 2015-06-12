@@ -952,6 +952,17 @@ Cordova there is no reason not to use the plugin.</p>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;google-map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
+<p>Note: For performance reasons, elements will not be hidden for 400ms after the start of the <code>native.keyboardshow</code> event
+from the Ionic Keyboard plugin. If you would like them to disappear immediately, you could do something
+like:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;native.keyboardshow&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;keyboard-open&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div>
+<p>This adds the same <code>keyboard-open</code> class that is normally added by Ionic 400ms after the keyboard
+opens. However, bear in mind that adding this class to the body immediately may cause jank in any
+animations on Android that occur when the keyboard opens (for example, scrolling any obscured inputs into view).</p>
+
 <hr>
 
 <h3>Plugin Usage</h3>
@@ -1146,7 +1157,7 @@ result of focusing on inputs below the keyboard.</li>
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 +0000');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

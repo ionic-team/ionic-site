@@ -935,6 +935,14 @@
 
 </h1>
 
+<p>Creates an option button inside a list item, that is visible when the item is swiped
+to the left by the user.  Swiped open option buttons can be hidden with
+<a href="/docs/nightly/api/service/$ionicListDelegate/#closeOptionButtons">$ionicListDelegate#closeOptionButtons</a>.</p>
+
+<p>Can be assigned any button class.</p>
+
+<p>See <a href="/docs/nightly/api/directive/ionList/"><code>ionList</code></a> for a complete example &amp; explanation.</p>
+
 <h2 id="usage">Usage</h2>
   
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
@@ -1105,7 +1113,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 +0000');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

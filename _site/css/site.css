@@ -6381,6 +6381,39 @@ a {
   background: -ms-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
   background: linear-gradient(to right, #296ad4 0%, #4e8ef7 100%); }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+.fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 750ms;
+  -moz-animation: fadeIn ease-in 750ms;
+  animation: fadeIn ease-in 750ms;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 500ms;
+  /* Chrome, Safari, Opera */
+  animation-delay: 500ms; }
+
 .white-nav-bar .navbar-default {
   background: white; }
 .white-nav-bar.products-page .products-nav {

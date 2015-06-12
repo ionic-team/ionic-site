@@ -21,14 +21,15 @@ a {
   opacity: 0.8;
   transition: .1s ease-in-out;
   transition-property: opacity, border-color;
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     opacity: 1;
     text-decoration: none;
   }
 }
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
 .content-container {
   padding-top: 40px;
@@ -58,19 +59,24 @@ a {
 
 @import "header";
 @import "news";
-
 @-moz-keyframes spin {
   100% {
-    -moz-transform: rotate(360deg); } }
+    -moz-transform: rotate(360deg);
+  }
+}
 
 @-webkit-keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg); } }
+    -webkit-transform: rotate(360deg);
+  }
+}
 
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 .ionic {
   @import "ionic/ionic";
@@ -81,7 +87,6 @@ a {
   z-index: 100;
   padding: 40px;
   background: #F7F7F7;
-
   .row {
     margin: 0 auto;
     max-width: 900px;
@@ -124,12 +129,10 @@ a {
   left: 0;
   width: 100%;
   font-size: 13px;
-
   &.top {
     position: static;
     background-color: #4e8ef7;
   }
-
   form {
     display: inline-block;
     input {
@@ -140,7 +143,6 @@ a {
       border-radius: 3px;
       box-shadow: none;
       opacity: .8;
-
       &:focus {
         -webkit-box-shadow: none;
         box-shadow: none;
@@ -150,7 +152,6 @@ a {
     }
   }
 }
-
 
 .newsletter-box {
   background-color: #4c8cfa;
@@ -180,31 +181,28 @@ a {
 }
 
 #newsletter-bar {
- //box-shadow: 0px -1px 2px rgba(0,0,0,0.7);
- border-top: 1px solid #999;
- background-color: rgba(79, 142, 247, 0.95);
- color: #fff;
- text-align: center;
- padding: 5px;
- z-index: 150;
- position: fixed;
- bottom: 0;
- left: 0;
- width: 100%;
-
- font-size: 13px;
-
- form {
-   display: inline-block;
-   input {
-     margin-left: 15px;
-     height: 30px;
-     border: none;
-     border-radius: 3px;
-     box-shadow: none;
-   }
- }
+  //box-shadow: 0px -1px 2px rgba(0,0,0,0.7);
+  border-top: 1px solid #999;
+  background-color: rgba(79, 142, 247, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  z-index: 150;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 13px;
+  form {
+    display: inline-block;
+    input {
+      margin-left: 15px;
+      height: 30px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: none;
+    }
+  }
 }
-
 
 @import "footer";

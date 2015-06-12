@@ -6372,32 +6372,6 @@ a {
   font-weight: 700;
   line-height: 11px; }
 
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown; }
-
 .horizontal-gradient {
   background: #296ad4;
   background: -moz-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
@@ -6540,7 +6514,6 @@ a {
   position: relative;
   padding: 24px 0 0 0;
   height: 200px;
-  z-index: 1000;
   background-position: 0 -76px; }
   .header h3 {
     color: #ebf3ff;

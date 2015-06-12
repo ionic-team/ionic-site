@@ -1,7 +1,7 @@
 ionic-site
 ==========
 
-Repo for the ionicframework.com site
+Repo for the ionicframework.com site.  To preview local Ionic changes, follow the instructions at the [Ionic repo](https://github.com/driftyco/ionic#documentation).
 
 
 gulp watch uses LiveReload. You may have to up your max file limit with the following command:

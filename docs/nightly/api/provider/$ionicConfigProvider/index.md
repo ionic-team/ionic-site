@@ -564,6 +564,58 @@ Toggle item style. Android defaults to `small` and iOS defaults to `large`.
 
 
 
+<div id="spinner.icon"></div>
+<h2>
+  <code>spinner.icon(value)</code>
+
+</h2>
+
+Default spinner icon to use.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Can be: <code>android</code>, <code>ios</code>, <code>ios-small</code>, <code>bubbles</code>, <code>circles</code>, <code>crescent</code>,
+<code>dots</code>, <code>lines</code>, <code>ripple</code>, or <code>spiral</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>string</code> 
+
+
+
+
 <div id="tabs.style"></div>
 <h2>
   <code>tabs.style(value)</code>

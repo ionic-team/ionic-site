@@ -76,4 +76,4 @@ When you are ready, upload the APK for the release build and publish the listing
 
 As you develop your app, you'll want to update it periodically.
 
-In order for the Google Play Store to accept updated APKs, you'll need to edit the `platforms/android/AndroidManifest.xml` file to increment the `android:versionCode` value.
+In order for the Google Play Store to accept updated APKs, you'll need to edit the `config.xml` file to increment the `version` value, then rebuild the app for release. 

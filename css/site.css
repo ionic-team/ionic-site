@@ -5453,6 +5453,21 @@ pre {
     background: url('/img/getting-started/ionitron-avatar@2x.png') no-repeat transparent;
     background-size: 156px 156px; } }
 
+#vs-start-box {
+  margin-top: 25px;
+  border-radius: 1px;
+  border: 1px solid #B390BD;
+  border-left: 4px solid #B390BD;
+  overflow: auto; }
+  #vs-start-box b {
+    color: #46364a; }
+  #vs-start-box img {
+    margin: 15px 15px 0 15px;
+    display: block;
+    float: left; }
+  #vs-start-box .info {
+    padding: 15px; }
+
 #ionitron-image.header-ionitron {
   float: left;
   margin-right: 10px; }

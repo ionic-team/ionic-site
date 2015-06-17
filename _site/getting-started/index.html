@@ -132,7 +132,8 @@
       <div class="desc">
         <h3>Install Ionic</h3>
         <p>
-        First, install <a href="http://nodejs.org/">Node.js</a>. Then, install the latest Cordova and Ionic <a href="https://npmjs.org/package/ionic">command-line tools</a>. Follow the <a href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> platform guides to install required platform dependencies. Windows users: we strongly recommend <a href="http://visualstudio.com/">Visual Studio Community</a> for development which comes with everything you need.
+        First, install <a href="http://nodejs.org/">Node.js</a>. Then, install the latest Cordova and Ionic <a href="https://npmjs.org/package/ionic">command-line tools</a>. Follow the <a href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> platform guides to install required platform dependencies.
+        <!--Windows users: we strongly recommend <a href="http://visualstudio.com/">Visual Studio Community</a> for development which comes with everything you need.-->
         <p>
         <i>
           Note: iOS development requires Mac OS X. iOS simulator through the Ionic CLI requires the ios-sim npm package, which can be installed with the command sudo npm -g install ios-sim.
@@ -141,7 +142,13 @@
       </div>
     </div>
     <div class="col-md-6 code">
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g cordova ionic</code></pre></div>
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install -g cordova ionic</code></pre></div>
+      <div id="vs-start-box">
+        <img src="/img/vs.png" style="width: 54px">
+        <div class="info">
+          <b>Windows users:</b> We strongly recommend <a href="http://visualstudio.com/">Visual Studio Community</a> for development which comes with everything you need (including <a href="https://visualstudiogallery.msdn.microsoft.com/b26474d5-c14d-4d69-bad5-37954538c506">templates</a>!)
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -158,7 +165,7 @@
       </div>
     </div>
     <div class="col-md-6 code">
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start myApp tabs</code></pre></div>
+  <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ionic start myApp tabs</code></pre></div>
     </div>
   </div>
   <div class="row" id="template-images">
@@ -192,7 +199,7 @@
       </div>
     </div>
     <div class="col-md-6 code">
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>myApp
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>myApp
 <span class="nv">$ </span>ionic platform add ios
 <span class="nv">$ </span>ionic build ios
 <span class="nv">$ </span>ionic emulate ios</code></pre></div>
@@ -381,7 +388,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

@@ -208,7 +208,7 @@
 <p>Next, we can find our <em>unsigned</em> APK file in <code>platforms/android/bin</code>. In our example, the file was <code>platforms/android/bin/HelloWorld-release-unsigned.apk</code>. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.</p>
 
 <p>Let&#39;s generate our private key using the <code>keytool</code> command that comes with the JDK. If this tool isn&#39;t found, refer to the <a href="installation.html">installation guide</a>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize <span class="m">2048</span> -validity 10000
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 </code></pre></div>
 <p>You&#39;ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools&#39;s questions and when it&#39;s all done, you should have a file called <code>my-release-key.keystore</code> created in the current directory.</p>
 
@@ -218,7 +218,7 @@
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
 </code></pre></div>
 <p>This signs the apk in place. Finally, we need to run the zip align tool to optimize the APK:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>zipalign -v <span class="m">4</span> HelloWorld-release-unsigned.apk HelloWorld.apk
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
 </code></pre></div>
 <p>Now we have our final release binary called <code>HelloWorld.apk</code> and we can release this on the Google Play Store for all the world to enjoy!</p>
 
@@ -408,7 +408,7 @@
 
 
 try {
-  var d = new Date('2015-04-15 00:00:00 -0500');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

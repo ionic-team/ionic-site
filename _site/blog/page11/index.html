@@ -49,50 +49,6 @@
         
 <div class="post">
   <div class="post-info">
-    <h3 class="post-title"><a href="/blog/ionic-creator/">Build great hybrid apps with the Ionic Creator</a></h3>
-
-    <div class="post-social">
-      
-      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Build great hybrid apps with the Ionic Creator" data-url="http://ionicframework.com/blog/ionic-creator" data-via="ionicframework" data-related="ionicframework">Tweet</a>
-      <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      </script>
-
-      <!-- Place this tag where you want the +1 button to render. -->
-      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-creator"></div>
-
-      <!-- Place this tag after the last +1 button tag. -->
-      <script type="text/javascript">
-        (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/platform.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      </script>
-
-      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-creator" data-type="button_count"></div>-->
-    </div>
-
-    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on July 29, 2014</time>
-  </div>
-  
-    <p><img class="showcase-image" src="http://ionicframework.com.s3.amazonaws.com/blog/creator/creator-header.png"></p>
-
-<p>By now, the cat&#39;s out of the bag on <a href="/creator">Ionic Creator</a>, our upcoming drag-and-drop development tool for building beautiful hybrid apps with Ionic and AngularJS.</p>
-
-<p>For those that have been following <a href="http://drifty.com/">our company</a>&#39;s history over the last few years, you know that we have a passion for making development simpler and faster through visual dev tools. Our previous two products, Codiqa and Jetstrap, have served over 250,000 developers all around the world, and we are really proud of the impact they&#39;ve had on the development world.</p>
-
-<p>We built the Ionic Framework because we weren&#39;t happy with the underlying frameworks back in 2013. We felt there was a huge opportunity to build better foundational technology for the next generation of mobile app development, and that became Ionic.</p>
-
-
-    <a href="/blog/ionic-creator">Read more...</a>
-  
-  <hr>
-</div>
-
-
-<div class="post">
-  <div class="post-info">
     <h3 class="post-title"><a href="/blog/case-study-fitrpg/">Built with Ionic: FitRPG</a></h3>
 
     <div class="post-social">
@@ -253,6 +209,60 @@
 </div>
 
 
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ng-cordova/">Announcing ngCordova: Simple AngularJS Cordova Extensions</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Announcing ngCordova: Simple AngularJS Cordova Extensions" data-url="http://ionicframework.com/blog/ng-cordova" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ng-cordova"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ng-cordova" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on June 03, 2014</time>
+  </div>
+  
+    <p><img class="showcase-image" src="/img/blog/ngCordova-ionic-header.jpg"></p>
+
+<p>Today I am incredibly excited to announce the very first release of <a href="http://ngcordova.com/">ngCordova</a>, an open-source collection of AngularJS services and extensions that make it incredibly easy to use Cordova plugins and native features in your hybrid apps.</p>
+
+<p>With ngCordova, instead of calling Cordova plugins directly and having to figure out the proper object or plugin name, or to check if the plugin is actually installed, you can just call a simple AngularJS service like this:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$cordovaCamera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">imageData</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Process camera data</span>
+
+  <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Show an error to the user</span>
+
+  <span class="p">});</span>
+</code></pre></div>
+<p>The services support promises to make it easier to deal with their asynchronous nature and ensure scope data is properly updated. And with support for <strong>14</strong> plugins at the time of this writing, ngCordova provides a centralized way to add lots of native functionality to your app!</p>
+
+
+    <a href="/blog/ng-cordova">Read more...</a>
+  
+  <hr>
+</div>
+
+
 
 <!-- Pagination links -->
 <div class="clearfix">
@@ -318,7 +328,7 @@
 
 
 try {
-  var d = new Date('2015-04-15 00:00:00 -0500');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

@@ -26,7 +26,7 @@ $ cordova build --release android
 
 This will generate a release build based on the settings in your `config.xml`. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out [the config.xml file](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_config.md.html#Android%20Configuration) documentation for more information.
 
-Next, we can find our *unsigned* APK file in `platforms/android/bin`. In our example, the file was `platforms/android/bin/HelloWorld-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
+Next, we can find our *unsigned* APK file in `platforms/android/ant-build`. In our example, the file was `platforms/android/ant-build/MainActivity-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
 
 Let's generate our private key using the `keytool` command that comes with the JDK. If this tool isn't found, refer to the [installation guide](installation.html):
 
@@ -41,13 +41,13 @@ __Note__: Make sure to save this file somewhere safe, if you lose it you won't b
 To sign the unsigned APK, run the `jarsigner` tool which is also included in the JDK:
 
 ```bash
-$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore MainActivity-release-unsigned.apk alias_name
 ```
 
 This signs the apk in place. Finally, we need to run the zip align tool to optimize the APK:
 
 ```bash
-$ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+$ zipalign -v 4 MainActivity-release-unsigned.apk HelloWorld.apk
 ```
 
 Now we have our final release binary called `HelloWorld.apk` and we can release this on the Google Play Store for all the world to enjoy!

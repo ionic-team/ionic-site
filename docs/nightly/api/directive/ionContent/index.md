@@ -167,7 +167,7 @@ with <a href="/docs/nightly/api/service/$ionicScrollDelegate/"><code>$ionicScrol
       </td>
       <td>
         <p>Whether to add padding to the content.
-of the content.  Defaults to true on iOS, false on Android.</p>
+Defaults to true on iOS, false on Android.</p>
 
         
       </td>

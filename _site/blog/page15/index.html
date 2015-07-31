@@ -49,6 +49,49 @@
         
 <div class="post">
   <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-directive-prefixes/">Changes to Ionic Directive Naming</a></h3>
+
+    <div class="post-social">
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Changes to Ionic Directive Naming" data-url="http://ionicframework.com/blog/ionic-directive-prefixes" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-directive-prefixes"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-directive-prefixes" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on February 20, 2014</time>
+  </div>
+  
+    <p>A few days ago we released Ionic v0.9.25 &quot;Quokka&quot; (<a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#0925-quokka-2014-02-19">changelog</a>). In addition to lots of bugs getting fixed and a few new features, one big thing that changed was moving Ionic directives to use the <code>ion-</code> prefix.</p>
+
+<p>This means instead of using <code>&lt;side-menus&gt;</code>, you&#39;ll need to start using <code>&lt;ion-side-menus&gt;</code>. This applies to any and all Ionic directives, including attribute and class name directives (though we rarely use those).</p>
+
+<p>We thought long and hard about making this change, and at the end of the day we felt it was more clear which directives were powered by Ionic, and safer in the case that
+you had similiar-named directives in your own application.</p>
+
+
+    <a href="/blog/ionic-directive-prefixes">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
     <h3 class="post-title"><a href="/blog/ionic-meet-and-drink/">Ionic Meet and Drink: San Francisco</a></h3>
 
     <div class="post-social">
@@ -238,61 +281,6 @@ By huge, I mean it was going to change the entire frontend development industry 
 </div>
 
 
-<div class="post">
-  <div class="post-info">
-    <h3 class="post-title"><a href="/blog/hybrid-apps-and-the-curse-of-the-300ms-delay/">Hybrid Apps and the Curse of the 300ms Delay</a></h3>
-
-    <div class="post-social">
-      
-      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Hybrid Apps and the Curse of the 300ms Delay" data-url="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay" data-via="ionicframework" data-related="ionicframework">Tweet</a>
-      <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      </script>
-
-      <!-- Place this tag where you want the +1 button to render. -->
-      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay"></div>
-
-      <!-- Place this tag after the last +1 button tag. -->
-      <script type="text/javascript">
-        (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/platform.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      </script>
-
-      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/hybrid-apps-and-the-curse-of-the-300ms-delay" data-type="button_count"></div>-->
-    </div>
-
-    <time class="post-time">By <img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley">@adamdbradley</a> on January 30, 2014</time>
-  </div>
-  
-    <p><img class="showcase-image" src="/img/blog/delay-header.png"></p>
-
-<p>Just when we thought we had this web-dev stuff figured out with HTML5 standards and modern desktop browsers, mobile devices slapped us in the face. Mobile browsers are still the wild-west of web development (which is exactly why I love it), but because they're still relatively new, we're all still fleshing out the details on how to create amazing web apps. When it comes to response time on mobile browsers, one of the biggest culprits is a 300 millisecond delay after every tap by the user.</p>
-
-<h3>Why is there a 300ms delay on mobile browsers?</h3>
-
-<p>On touch devices such as a phone or tablet, browsers implement a 300ms delay between the time the user stops touching the display and the moment the browser executes the click. It was initially introduced so the browser can tell if the user wants to double-tap to zoom in on the webpage. Basically the browser waits roughly 300ms to see if the user is double-tapping, or just tapping on the display once. While 300ms seems pretty short, it's surprising just how noticeable it is when you remove the delay.</p>
-
-<p>Here's the general idea of how the delay plays out:</p>
-
-<p>
-<ol>
-<li>User touches the display, the browser fires off <code>touchstart</code></li>
-<li>User stops touching the display, the browser fires off <code>touchend</code></li>
-<li>The browser waits 300ms to see if the user taps again</li>
-<li>If the user didn't tap again, the browser fires off <code>click</code></li>
-</ol>
-</p>
-
-
-    <a href="/blog/hybrid-apps-and-the-curse-of-the-300ms-delay">Read more...</a>
-  
-  <hr>
-</div>
-
-
 
 <!-- Pagination links -->
 <div class="clearfix">
@@ -358,7 +346,7 @@ By huge, I mean it was going to change the entire frontend development industry 
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 +0000');
+  var d = new Date('2015-04-15 00:00:00 -0700');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

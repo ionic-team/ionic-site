@@ -60,6 +60,17 @@ automatically close the currently opened menu.
 ```html
 <a menu-close href="#/home" class="item">Home</a>
 ```
+
+Note that if your destination state uses a resolve and that resolve asyncronously
+takes longer than a standard transition (300ms), you'll need to set the
+`nextViewOptions` manually as your resolve completes.
+
+```JS
+$ionicHistory.nextViewOptions({
+ historyRoot: true,
+ disableAnimate: true,
+ expire: 300
+});
   
   
 

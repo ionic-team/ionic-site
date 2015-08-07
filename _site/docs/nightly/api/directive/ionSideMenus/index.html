@@ -985,21 +985,18 @@ the content left or right or by toggling a button to show the side menu. Additio
 side menu, and have at least 2 child elements: 1 <code>&lt;ion-side-menu-content&gt;</code> for the center content,
 and one or more <code>&lt;ion-side-menu&gt;</code> directives for each side menu(left/right) that you wish to place.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
-  <span class="c">&lt;!-- Center content --&gt;</span>
-  <span class="nt">&lt;ion-side-menu-content</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentController&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu-content&gt;</span>
-
   <span class="c">&lt;!-- Left menu --&gt;</span>
   <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu&gt;</span>
-
-  <span class="c">&lt;!-- Right menu --&gt;</span>
-  <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-side-menu&gt;</span>
 
   <span class="nt">&lt;ion-side-menu-content&gt;</span>
   <span class="c">&lt;!-- Main content, usually &lt;ion-nav-view&gt; --&gt;</span>
   <span class="nt">&lt;/ion-side-menu-content&gt;</span>
+
+  <span class="c">&lt;!-- Right menu --&gt;</span>
+  <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/ion-side-menu&gt;</span>
+
 <span class="nt">&lt;/ion-side-menus&gt;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ContentController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">toggleLeft</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -1221,7 +1218,7 @@ with <a href="/docs/nightly/api/service/$ionicSideMenuDelegate/"><code>$ionicSid
 
 
 try {
-  var d = new Date('2015-04-15 00:00:00 -0500');
+  var d = new Date('2015-03-20 05:00:00 +0000');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

@@ -7,40 +7,6 @@
     <atom:link href="http://ionicframework.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Web Developers</title>
-        <description>&lt;p&gt;On Turning Web Developers into Mobile Developers&lt;/p&gt;
-
-&lt;p&gt;As Ionic has grown in popularity and expanded beyond just being a mobile framework for AngularJS, we&amp;#39;ve started to
-really understand what kind of developer is drawn to Ionic, and how we can best cater to them.&lt;/p&gt;
-
-&lt;p&gt;At the core, Ionic makes it possible for web developers to build compelling mobile apps without having to change careers. That&amp;#39;s it. That&amp;#39;s why we exist.&lt;/p&gt;
-
-&lt;p&gt;But when we started Ionic, I wasn&amp;#39;t really sure who we were going after. Initially, I hoped we&amp;#39;d draw native developers away from Obj-c and Android to the web stack. I really wanted to shake up the industry!&lt;/p&gt;
-
-&lt;p&gt;We see that happening to an extent which is wonderful, but we&amp;#39;ve also realized that such a change is pretty threatening to native developers. What does the job market look like for native devs when more people can build apps? What happens when businesses realize they are paying too much and taking too long to get to market with apps for major platforms? What happens when the native SDKs are abstracted sufficiently away that it no longer makes sense to work so close to the metal?&lt;/p&gt;
-
-&lt;p&gt;I quickly realized that native developers are incentivized to keep the supply for their talents scarce. To make sure that hiring and finding native developers is hard. Of course, they don&amp;#39;t do this maliciously or even consciously, but that&amp;#39;s the nature of job markets. It does seem to explain the vicious backlash against mobile SDKs that are too &amp;quot;alt&amp;quot;.&lt;/p&gt;
-
-&lt;p&gt;Sometimes I feel like a traitor, like we are taking all this hard earned knowlege and experience from being a native developer and bringing it to everyone through the web stack. That we are sabotaging the desirable suppy-and-demand characteristics of the market.&lt;/p&gt;
-
-&lt;p&gt;The dirty secret in mobile development is that it&amp;#39;s nearly impossible to find good native developers to build mobile apps. This, despite the fact that many large companies have web developers on staff. We want to empower those developers to build for this exciting platform &lt;em&gt;today&lt;/em&gt; without needing much retraining.&lt;/p&gt;
-
-&lt;p&gt;To that extent, I think it&amp;#39;s a risky position to be in as a native developer. I&amp;#39;m not sure the market can sustain the cost and hiring challenges. I also don&amp;#39;t like betting against the web because the web stack is not only brilliantly abstract, but widely understood.&lt;/p&gt;
-
-&lt;p&gt;In the native development world, too much knowledge is locked up in obscure native APIs, and difficult-to-learn languages. I say that as someone that has built both iOS and Android apps and has written a good amount of C/++. These toolkits are just &lt;em&gt;hard&lt;/em&gt; for most developers to master.&lt;/p&gt;
-
-&lt;p&gt;The web platform isn&amp;#39;t immune to this. We all know how hard it was to learn Angular 1. There is some pride to having gained that hard earned knowledge. We cling to it and protect it, as if we&amp;#39;d be out of a job if we shared it with anyone else. The possibility that the time invested learning something new might be for nought is frustrating. &lt;/p&gt;
-
-&lt;p&gt;We strongly believe the web stack is going to stay the most broadly applicable technology for decades. We think Web Developers will end up being the most versitile developers in the market, and will enjoy long term job stability, growth, and diversity of work because of it.&lt;/p&gt;
-
-&lt;p&gt;That means we think one of the smartest decisions aspiring developers can make is learning HTML5, Javascript, and CSS. It runs practically anywhere, and does so in a way that is constantly improving. Ionic wants to be the best option for those web developers, but our true calling is making sure the web development stack can compete with proprietary ones.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Apr 2015 00:00:00 -0500</pubDate>
-        <link>http://ionicframework.com/blog/web-developers/</link>
-        <guid isPermaLink="true">http://ionicframework.com/blog/web-developers/</guid>
-      </item>
-    
-      <item>
         <title>Ionic 1.0 RC1: Book Promotions!</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/blog/book-header.png&quot; alt=&quot;Ionic in Action&quot;&gt;&lt;/p&gt;
 
@@ -50,7 +16,7 @@ really understand what kind of developer is drawn to Ionic, and how we can best 
 
 &lt;p&gt;Use code if50 and get 50% off &lt;a href=&quot;http://www.manning.com/wilken/&quot;&gt;Ionic in Action&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/gnomeontherun&quot;&gt;Jeremy Wilken&lt;/a&gt;, &lt;a href=&quot;http://www.manning.com/camden/&quot;&gt;Apache Cordova in Action&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/raymondcamden&quot;&gt;Raymond Camden&lt;/a&gt;, &amp;amp; &lt;a href=&quot;http://www.manning.com/aden/&quot;&gt;AngularJS in Depth&lt;/a&gt; by David L. Aden and Jason L. Aden (all formats) through March 26.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 20 Mar 2015 05:00:00 -0500</pubDate>
+        <pubDate>Fri, 20 Mar 2015 05:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/book-promotions/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/book-promotions/</guid>
       </item>
@@ -86,7 +52,7 @@ really understand what kind of developer is drawn to Ionic, and how we can best 
 
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 18 Mar 2015 11:31:00 -0500</pubDate>
+        <pubDate>Wed, 18 Mar 2015 11:31:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/svg-spinners/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/svg-spinners/</guid>
       </item>
@@ -114,7 +80,7 @@ really understand what kind of developer is drawn to Ionic, and how we can best 
 &lt;p&gt;Hear more about platform continuity in &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=4m41s&quot;&gt;Adam’s talk at ng-conf&lt;/a&gt;:
 &lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=4m41s&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Mar 2015 13:00:00 -0500</pubDate>
+        <pubDate>Tue, 17 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/platform-continuity/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/platform-continuity/</guid>
       </item>
@@ -135,7 +101,7 @@ really understand what kind of developer is drawn to Ionic, and how we can best 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Also, soon you&amp;#39;ll be able to share right from Ionic View and ionic.io. Enjoy!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Mar 2015 08:00:00 -0500</pubDate>
+        <pubDate>Tue, 17 Mar 2015 08:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/invite-a-friend/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/invite-a-friend/</guid>
       </item>
@@ -155,7 +121,7 @@ really understand what kind of developer is drawn to Ionic, and how we can best 
 
 &lt;p&gt;For more on the Ionic community&amp;#39;s response to Swipe to Go Back and RCO, check out &lt;a href=&quot;https://medium.com/@saniyusuf/first-look-at-ionic-1-0-rc-release-candidate-40f6f18308f4&quot;&gt;Sani Yusuf&amp;#39;s post on Medium.com&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 13 Mar 2015 13:00:00 -0500</pubDate>
+        <pubDate>Fri, 13 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/rc0-swipe-to-go-back/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/rc0-swipe-to-go-back/</guid>
       </item>
@@ -185,7 +151,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Onward!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 11 Mar 2015 11:00:00 -0500</pubDate>
+        <pubDate>Wed, 11 Mar 2015 11:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/angular-2-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/angular-2-ionic/</guid>
       </item>
@@ -204,7 +170,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Submit your posts &lt;a href=&quot;https://www.airpair.com/100k-writing-competition&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 03 Mar 2015 13:00:00 -0600</pubDate>
+        <pubDate>Tue, 03 Mar 2015 13:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/airpair-writing-competition/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/airpair-writing-competition/</guid>
       </item>
@@ -300,7 +266,7 @@ for Ionic. The number one response from ngConf is that Angular is here to stay, 
 
 &lt;p&gt;Enjoy!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 02 Mar 2015 01:00:00 -0600</pubDate>
+        <pubDate>Mon, 02 Mar 2015 01:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/collection-repeat-iteration-two/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/collection-repeat-iteration-two/</guid>
       </item>
@@ -515,7 +481,7 @@ will take our requests, issue a new request to the API endpoint, receive the res
 
 &lt;p&gt;If you have any questions, issues, or ideas, please leave a comment below or contact us &lt;a href=&quot;http://twitter.com/ionicframework&quot;&gt;on twitter&lt;/a&gt; or &lt;a href=&quot;http://github.com/driftyco/ionic-cli&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 24 Feb 2015 12:00:00 -0600</pubDate>
+        <pubDate>Tue, 24 Feb 2015 12:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/handling-cors-issues-in-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/handling-cors-issues-in-ionic/</guid>
       </item>
@@ -587,7 +553,7 @@ Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;ht
 
 &lt;p&gt;&lt;a href=&quot;http://ionicinaction.com&quot;&gt;Buy the early access version today&lt;/a&gt; (Save 42% with code ionic42)!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Feb 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 17 Feb 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-in-action-book/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-in-action-book/</guid>
       </item>
@@ -621,7 +587,7 @@ Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;ht
 
 &lt;p&gt;Get the &lt;a href=&quot;https://itunes.apple.com/us/app/viceversa-help-people-make/id942494968?l=en&amp;amp;ls=1&amp;amp;mt=8&quot;&gt;iOS version of Viceversa&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 17 Feb 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 17 Feb 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/built-with-ionic-viceversa/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/built-with-ionic-viceversa/</guid>
       </item>
@@ -828,7 +794,7 @@ Additionally, you could parse the feed data a bit more through a filter to make 
 
 &lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/VE2mbQPQZwA&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Wed, 11 Feb 2015 02:00:00 -0600</pubDate>
+        <pubDate>Wed, 11 Feb 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/displaying-the-twitter-feed-within-your-ionic-app/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/displaying-the-twitter-feed-within-your-ionic-app/</guid>
       </item>
@@ -865,7 +831,7 @@ Additionally, you could parse the feed data a bit more through a filter to make 
 
 &lt;p&gt;&lt;a href=&quot;http://twitter.com/brodymkidd&quot;&gt;&lt;em&gt;-Brody&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 04 Feb 2015 03:30:00 -0600</pubDate>
+        <pubDate>Wed, 04 Feb 2015 03:30:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-show-fifth-episode/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-show-fifth-episode/</guid>
       </item>
@@ -998,7 +964,7 @@ hybrid apps. Read more on &lt;a href=&quot;http://mcgivery.com/&quot;&gt;Andrew&
 
 &lt;p&gt;Using the code above (full code on &lt;a href=&quot;http://codepen.io/andrewmcgivery/pen/ZYyVgp/&quot;&gt;CodePen&lt;/a&gt;), you can accomplish this common pull to refresh patten in your Ionic Apps. Questions? Feel free to comment below!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 28 Jan 2015 02:00:00 -0600</pubDate>
+        <pubDate>Wed, 28 Jan 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/pull-to-refresh-directive/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/pull-to-refresh-directive/</guid>
       </item>
@@ -1045,7 +1011,7 @@ src=&quot;/img/blog/pacifica-android-left.jpg&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;Find Pacifica in the &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.pacificalabs.pacifica&quot;&gt;Google Play&lt;/a&gt; and &lt;a href=&quot;https://itunes.apple.com/us/app/pacifica/id922968861?mt=8&quot;&gt;iOS&lt;/a&gt; stores today!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 26 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Mon, 26 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/built-with-ionic-pacifica/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/built-with-ionic-pacifica/</guid>
       </item>
@@ -1077,7 +1043,7 @@ ionic platform update ios
 
 &lt;p&gt;That’s it! Next time you run &lt;code&gt;ionic prepare&lt;/code&gt;, &lt;code&gt;ionic run&lt;/code&gt;, or &lt;code&gt;ionic build&lt;/code&gt;, the splash screens will be applied to your project, and your app can take full advantage of the new screen real estate offered to the new iPhone 6 series phones.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 20 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 20 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/looking-sharp-on-the-iphone-6/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/looking-sharp-on-the-iphone-6/</guid>
       </item>
@@ -1159,7 +1125,7 @@ Ionic South Africa&lt;br&gt;
 &lt;a href=&quot;https://twitter.com/IonicUruguay&quot;&gt;Ionic Uruguay&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://twitter.com/ionicvietnam&quot;&gt;Ionic Vietnam&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 20 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Tue, 20 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/ionic-worldwide/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/ionic-worldwide/</guid>
       </item>
@@ -1211,7 +1177,7 @@ Ionic South Africa&lt;br&gt;
 
 &lt;p&gt;Have a plugin in your app that’s not supported yet? Having issues with the app? Feature request? Let us know on the &lt;a href=&quot;http://forum.ionicframework.com/&quot;&gt;forum&lt;/a&gt;, hit Tim up on &lt;a href=&quot;https://www.twitter.com/dopernicus&quot;&gt;Twitter&lt;/a&gt;, or open an issue on &lt;a href=&quot;https://github.com/driftyco/ionic-view-issues/&quot;&gt;Github&lt;/a&gt;!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 14 Jan 2015 14:00:00 -0600</pubDate>
+        <pubDate>Wed, 14 Jan 2015 14:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/view-app-is-alive/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/view-app-is-alive/</guid>
       </item>
@@ -1381,9 +1347,173 @@ or greater.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/driftyco/ionic-cli#crosswalk-for-android&quot;&gt;Crosswalk Docs&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Jan 2015 02:00:00 -0600</pubDate>
+        <pubDate>Mon, 12 Jan 2015 02:00:00 +0000</pubDate>
         <link>http://ionicframework.com/blog/crosswalk-comes-to-ionic/</link>
         <guid isPermaLink="true">http://ionicframework.com/blog/crosswalk-comes-to-ionic/</guid>
+      </item>
+    
+      <item>
+        <title>Minifying Your App's Source Code</title>
+        <description>&lt;p&gt;&lt;em&gt;This is a guest post by &lt;a href=&quot;http://blog.nraboy.com/&quot;&gt;Nic Raboy&lt;/a&gt;, an application developer with a strong background in
+Android, AngularJS, Ionic, Java, SQL, and Unity3D. Nic writes often about Ionic and how to build great hybrid apps.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Previously, I wrote about the importance of uglifying your Apache Cordova source code. If you read my &lt;a href=&quot;https://blog.nraboy.com/2014/11/extract-android-apk-view-source-code/&quot;&gt;previous
+post&lt;/a&gt; you&amp;#39;ll know that hybrid applications are
+incredibly easy to decompile, so uglifying your code creates additional difficulty for any malicious user.&lt;/p&gt;
+
+&lt;p&gt;I also wrote a &lt;a href=&quot;https://blog.nraboy.com/2014/12/use-grunt-lint-uglify-javascript-project/&quot;&gt;generic post&lt;/a&gt; about how to use
+the Grunt task runner to lint and uglify your code. However, using Grunt isn&amp;#39;t the most ideal solution when it comes to
+linting your Apache Cordova project for errors and uglifying your code.&lt;/p&gt;
+
+&lt;p&gt;In this guide, we&amp;#39;re going to see how to efficiently lint and minify your Apache Cordova project before building. The
+same information can be applied against &lt;a href=&quot;http://phonegap.com/&quot;&gt;Phonegap&lt;/a&gt; and &lt;a href=&quot;http://www.ionicframework.com&quot;&gt;Ionic
+Framework&lt;/a&gt; projects, too.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Let&amp;#39;s start by creating a fresh Apache Cordova Android and iOS project:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cordova create TestProject com.nraboy.testproject TestProject
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;TestProject
+cordova platform add android
+cordova platform add ios
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that if you&amp;#39;re not using a Mac, you cannot add or build for the iOS platform.&lt;/p&gt;
+
+&lt;p&gt;This tutorial is going to be broken into two parts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linting the project for JavaScript errors&lt;/li&gt;&lt;/li&gt;
+&lt;li&gt;Uglifying the code for obfuscation purposes&lt;/li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once you&amp;#39;ve run these steps, your project will be in much better shape.&lt;/p&gt;
+
+&lt;h3&gt;Linting the project for JavaScript errors&lt;/h3&gt;
+
+&lt;p&gt;One of my subscribers recommended I check out &lt;a href=&quot;https://www.npmjs.com/package/cordova-linter&quot;&gt;Cordova Linter&lt;/a&gt; for this
+task. I checked it out and couldn&amp;#39;t figure out how to get it to work. It kept saying my project had no errors, when I
+know it did. The package had no documentation to prove its process.&lt;/p&gt;
+
+&lt;p&gt;This is when I decided to create my own Apache Cordova hook. If you&amp;#39;ve read my &lt;a href=&quot;https://blog.nraboy.com/2015/01/hooks-apache-cordova-mobile-applications/&quot;&gt;previous
+post&lt;/a&gt; regarding hooks, you should have a
+general idea of what we&amp;#39;re going to do.&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;hooks/before_prepare/02_jshint.js&lt;/code&gt;, and make sure to give it execute permissions if you&amp;#39;re using Linux or Mac.
+Based on the file title, you can probably guess we&amp;#39;re going to use &lt;a href=&quot;http://jshint.com/docs/&quot;&gt;JSHint&lt;/a&gt; for linting. Open
+&lt;code&gt;02_jshint.js&lt;/code&gt;, and add the following code:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/usr/bin/env node&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jshint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;jshint&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSHINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;async&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foldersToProcess&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;js&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;foldersToProcess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;processFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;www/&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errorCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;processFiles err: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;eachSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;innercallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;nx&quot;&gt;lintFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hasError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hasError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                                &lt;span class=&quot;nx&quot;&gt;errorCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                            &lt;span class=&quot;nx&quot;&gt;innercallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+                        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+                    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;nx&quot;&gt;innercallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+                    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nx&quot;&gt;innercallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lintFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Linting &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Error: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jshint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;File &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39; has no errors.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-----------------------------------------&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Errors in file &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jshint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;:&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;character&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39; -&amp;gt; &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reason&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39; -&amp;gt; &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;evidence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-----------------------------------------&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above script will look at only the &lt;code&gt;www/js&lt;/code&gt; directory, but feel free to add further directories. All
+files in the directory will be looped through, and if they are JavaScript, the file will be fed into JSHint. If any
+files contain errors, they will be presented to the screen, and then the script will stop all further processes. This
+means that if you execute the script with &lt;code&gt;cordova build [platform]&lt;/code&gt;, the application will not continue to build if errors are found.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;02_jshint.js&lt;/code&gt; requires two NodeJS libraries in order to function. They can be installed like this from the root of
+your project:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install jshint
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install async
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Uglifying the code for obfuscation purposes&lt;/h3&gt;
+
+&lt;p&gt;One of my other subscribers recommended I check out &lt;a href=&quot;https://www.npmjs.com/package/cordova-uglify&quot;&gt;Cordova Uglify&lt;/a&gt; for
+the obfuscation process. Unlike Cordova Linter, this NPM package actually worked as advertised. From the root of your
+Apache Cordova project, run the following command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install cordova-uglify
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When the installation completes, you should find that &lt;code&gt;hooks/after_prepare/uglify.js&lt;/code&gt; was created. If you&amp;#39;re on Linux
+or Mac, you&amp;#39;ll need to give it execute permissions; otherwise, it won&amp;#39;t be picked up.&lt;/p&gt;
+
+&lt;p&gt;You can test that this script worked by running &lt;code&gt;cordova prepare&lt;/code&gt; or &lt;code&gt;cordova build [platform]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;By default, Apache Cordova does not check your code for errors when building. This means you won&amp;#39;t know if errors
+exist in your code until you run your application. Linting your code can save you a lot of stress when it comes to
+finding errors caused by typos or missing/extra brackets.&lt;/p&gt;
+
+&lt;p&gt;Your hard work is very easy to decompile by default, so it is a good idea to obfuscate your code by means of
+uglification before you release your application.&lt;/p&gt;
+
+&lt;p&gt;Two videos for this article can be seen below:&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/qQiYE6x7cFk&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/hoy3MESySWQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Sat, 10 Jan 2015 02:00:00 +0000</pubDate>
+        <link>http://ionicframework.com/blog/minifying-your-source-code/</link>
+        <guid isPermaLink="true">http://ionicframework.com/blog/minifying-your-source-code/</guid>
       </item>
     
   </channel>

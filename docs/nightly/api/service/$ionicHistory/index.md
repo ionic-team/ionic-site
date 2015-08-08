@@ -334,6 +334,9 @@ This both removes the view element from the DOM, and destroy it's scope.
 
 
 
+* Returns: 
+   promise
+
 
 
 

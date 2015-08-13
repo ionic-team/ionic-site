@@ -223,15 +223,15 @@
   <p>Install Java - This can be by going to <a href="http://support.apple.com/kb/dl1572">this page.</a>
     Install Ant - The quickest way to install Apache Ant is with Homebrew.</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew install ant</code></pre></div>
+  <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>brew install ant</code></pre></div>
 
 
 
   <p>Install the SDK - This can be done a few different ways. The one I like to use is by installing <a href="https://developer.android.com/sdk/installing/studio.html">Android Studio</a>. This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.</p>
   <p>Edit .bash_profile - So if you’ve followed the steps above, you’ll need to edit your .bash_profile to include the following. If you didn’t install Android Studio, then no problem. You’ll just need to change the path to the SDK. You want to include the SDK tools and SDK Platform-tools.</p>
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash">vim ~/.bash_profile</code></pre></div>
+  <div class="highlight"><pre><code class="bash">vim ~/.bash_profile</code></pre></div>
   <p>Add this:</p>
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:/Applications/Android<span class="se">\ </span>Studio.app/sdk/platform-tools:/Applications/Android<span class="se">\ </span>Studio.app/sdk/tools
+  <div class="highlight"><pre><code class="bash"><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:/Applications/Android<span class="se">\ </span>Studio.app/sdk/platform-tools:/Applications/Android<span class="se">\ </span>Studio.app/sdk/tools
 <span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span>
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">JAVA_HOME</span><span class="k">}</span>/bin:<span class="nv">$PATH</span>
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span></code></pre></div>
@@ -249,9 +249,9 @@
 
   <h3 class="title"><a href="#genymotion">Genymotion</a></h3>
         <p>This helpful tip cannot be stressed enough! Even when working natively, the Android emulator is a pain. It’s slow to boot, becomes unresponsive and locks up easily. Thankfully <a href="http://www.genymotion.com/">Genymotion</a> is a great replacement. It uses a virtual machine to emulate android devices and does it perfectly. One thing to remember, if you want to deploy to a genymotion device, your computer will treat it as an actual connect machine. So instead of running</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic emulate android</code></pre></div>
+        <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ionic emulate android</code></pre></div>
         <p>Use <code>run</code> instead.</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android</code></pre></div>
+        <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ionic run android</code></pre></div>
         <hr>
 </section>
 
@@ -278,9 +278,9 @@
   <h3 class="title"><a href="#ios-emulate">Starting the iOS Simulator</a></h3>
 
   <p>Starting an iOS emulator from the command line is a really powerful feature. It gets rid of the need to open up Xcode and keeps a nice terminal-only workflow. But when you try to use <code>ionic emulate ios</code> it throws an awful error.</p>
-      <div class="highlight"><pre><code class="language-bash" data-lang="bash">Error: ios-sim was not found. Please download, build and install version 1.7 or greater from https://github.com/phonegap/ios-sim into your path. Or <span class="s1">&#39;npm install -g ios-sim&#39;</span><span class="p">;</span> using node.js: http://nodejs.org/</code></pre></div>
+      <div class="highlight"><pre><code class="bash">Error: ios-sim was not found. Please download, build and install version 1.7 or greater from https://github.com/phonegap/ios-sim into your path. Or <span class="s1">&#39;npm install -g ios-sim&#39;</span><span class="p">;</span> using node.js: http://nodejs.org/</code></pre></div>
         <p>Well this is because you need to install a utility package called ios-sim. This package allows you to access the iOS simulator from the command line. This can be installed with a simple <code>npm install</code>.</p>
-      <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ios-sim</code></pre></div>
+      <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo npm install -g ios-sim</code></pre></div>
         <p>With this installed, you’ll be able to emulate to the iOS-simulator.</p>
         <hr>
 
@@ -296,7 +296,7 @@
 
   <p>When you update an iOS project to a new version of Cordova, sometimes you will get an error saying it was unable to locate a plugin. You open up Xcode, try to run and build from there and get this error in your console</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash">2014-11-12 14:36:18.284 Tell The DJ<span class="o">[</span>14955:c07<span class="o">]</span> ERROR: Plugin <span class="s1">&#39;Device&#39;</span> not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+  <div class="highlight"><pre><code class="bash">2014-11-12 14:36:18.284 Tell The DJ<span class="o">[</span>14955:c07<span class="o">]</span> ERROR: Plugin <span class="s1">&#39;Device&#39;</span> not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
 2013-08-23 14:36:18.284 Tell The DJ<span class="o">[</span>14955:c07<span class="o">]</span> -<span class="o">[</span>CDVCommandQueue executePending<span class="o">]</span> <span class="o">[</span>Line 116<span class="o">]</span> FAILED <span class="nv">pluginJSON</span> <span class="o">=</span> <span class="o">[</span>
   <span class="s2">&quot;Device1096677259&quot;</span>,
   <span class="s2">&quot;Device&quot;</span>,
@@ -320,10 +320,10 @@
 
   <h3 class="title"><a href="#cordova-directory">Cordova Directory</a></h3>
    <p>This one is pretty extreme and can cause a lot of frustration. You try to use any of the Cordova/Ionic commands and get this error.</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash">Current Working Directory is not Cordova-based project</code></pre></div>
+        <div class="highlight"><pre><code class="bash">Current Working Directory is not Cordova-based project</code></pre></div>
         <p>At this point you’re unable to do anything further with your project. So why does this happen? Various reason, but mostly something gets corrupted with your environment configuration. You can see a <a href="https://github.com/driftyco/ionic/issues/2213#issuecomment-55912785">thread</a> where this happened for one particular user.</p>
         <p>For his case, the solution was to run</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova create .</code></pre></div>
+        <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>cordova create .</code></pre></div>
         <p>Basically a hidden folder that should be there wasn’t. Running that command above fixes that issue.</p>
         <hr>
 </section>
@@ -336,9 +336,9 @@
 
   <h3 class="title"><a href="#cordova-updates">Cordova Updates</a></h3>
   <p>When Cordova pushes a new version, it’s always best to update. So you run this command to update the Cordova binaries.</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm update -g cordova</code></pre></div>
+        <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo npm update -g cordova</code></pre></div>
         <p>Great, but when you try to do anything in a project, you’ll get an error. Well this is because there are actually different versions of Cordova for each platform. So from inside your project you need to run Cordova’s update command.</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova platform update ios
+        <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>cordova platform update ios
 <span class="nv">$ </span>cordova platform update android</code></pre></div>
         <p>Now all your platform specific versions of Cordova are updated.</p>
         <hr>
@@ -353,7 +353,7 @@
 
   <h3 class="title"><a href="#windows">Windows and Git</a></h3>
   <p>So you found this awesome plugin on github that you want to use for your app. So lets try to install it.</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic plugin add http://github.com/user/awesome-plugin</code></pre></div>
+        <div class="highlight"><pre><code class="bash">ionic plugin add http://github.com/user/awesome-plugin</code></pre></div>
         <p>But then another error comes up. Whats going on? So something that Cordova doesn’t mention is that you need to have git setup for installing plugins from Github. Something like this can easily be overlooked, but thankfully it’s as easy to fix. Just visit <a href="http://git-scm.com/">the git website</a>, install and set up git, and you’re good to go.</p>
         <hr>
 
@@ -365,7 +365,7 @@
 
   <h3 class="title"><a href="#hool=ks">Missing Cordova Hooks</a></h3>
   <p>If your project was created with an older version of the Ionic CLI, you may have come across this. You start to build as</p>
-        <div class="highlight"><pre><code class="language-bash" data-lang="bash">addCliHookDirectory fs.chmodSync: Error: ENOENT, no such file or directory <span class="s1">&#39;hooks/after_prepare/010_add_platform_class.js&#39;</span></code></pre></div>
+        <div class="highlight"><pre><code class="bash">addCliHookDirectory fs.chmodSync: Error: ENOENT, no such file or directory <span class="s1">&#39;hooks/after_prepare/010_add_platform_class.js&#39;</span></code></pre></div>
 <p> Thankfully this has been fixed in the latest version of the Ionic CLI. If the hook isn't found when you try to build either iOS or Android, the Ionic CLI will add it back.</p>
 </section>
 
@@ -525,7 +525,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 +0000');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

@@ -1004,7 +1004,7 @@ if possible, lower the number of unique images. We&#39;re working on <a href="ht
   <span class="nt">&lt;ion-scroll</span> <span class="na">direction=</span><span class="s">&quot;x&quot;</span> <span class="na">class=</span><span class="s">&quot;available-scroller&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;photo&quot;</span> <span class="na">collection-repeat=</span><span class="s">&quot;photo in main.photos&quot;</span>
        <span class="na">item-height=</span><span class="s">&quot;250&quot;</span> <span class="na">item-width=</span><span class="s">&quot;photo.width + 30&quot;</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{photo.src}}&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/ion-scroll&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
@@ -1280,7 +1280,7 @@ if possible, lower the number of unique images. We&#39;re working on <a href="ht
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0500');
+  var d = new Date('2015-03-20 05:00:00 +0000');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

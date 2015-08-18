@@ -96,7 +96,7 @@ the current scroll position will be rendered.
   <ion-scroll direction="x" class="available-scroller">
     <div class="photo" collection-repeat="photo in main.photos"
        item-height="250" item-width="photo.width + 30">
-       <img ng-src="{{photo.src}}">
+       <img ng-src="{% raw %}{{photo.src}}{% endraw %}">
     </div>
   </ion-scroll>
 </ion-content>

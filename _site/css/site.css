@@ -13493,11 +13493,16 @@ a {
 }
 #slider .slide-creator .logo{
   width:234px;
-  margin: 50px 0 33px;
+  margin: 72px 0 32px;
 }
-#slider .slide-creator h2,
+#slider .slide-creator h2{
+  margin: 20px 0 20px;
+  font-weight: 500;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
 #slider .slide-lab h2 {
-    margin: 72px 0 36px;
+    margin: 20px 0 20px;
     font-weight: 500;
     font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em;
@@ -13514,7 +13519,7 @@ a {
 }
 #slider .slide-lab .logo{
   width:170px;
-  margin: 64px 0 36px;
+  margin: 72px 0 32px;
 }
 #slider .slide-market{
   color: #A1BEE4;
@@ -13613,7 +13618,7 @@ a {
   }
   #slider .slide-creator .creator-preview{
     background-size: 278px;
-    bottom: -76px
+    bottom: -28px;
   }
 }
 @media (max-width: 767px) {

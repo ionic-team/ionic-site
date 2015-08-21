@@ -1,3 +1,54 @@
+
+/* @license
+ * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Avenir Next Pro Regular by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
+ *
+ * Webfont: Avenir Next Pro Medium by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
+ *
+ * © 2013 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work
+@import url("//hello.myfonts.net/count/28882f");*/
+/* Avenir Next Pro */
+@font-face {
+  font-family: 'AvenirNextLTPro-Regular';
+  src: url('http://code.ionicframework.com/assets/fonts/28882F_0_0.eot');
+  src: url('http://code.ionicframework.com/assets/fonts/28882F_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/28882F_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/28882F_0_0.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Medium';
+  src: url('http://code.ionicframework.com/assets/fonts/28882F_1_0.eot');
+  src: url('http://code.ionicframework.com/assets/fonts/28882F_1_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/28882F_1_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/28882F_1_0.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'AvenirNextLTPro-UltLt';
+  src: url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot');
+  src: url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.ttf') format('truetype'); }
+
+/* Frieght Text Pro */
+@font-face {
+  font-family: 'FreightTextProBook-Regular';
+  src: url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot');
+  src: url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'FreightTextProMedium-Regular';
+  src: url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot');
+  src: url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf') format('truetype'); }
 /*!
  * Bootstrap v3.0.0
  *
@@ -4280,56 +4331,6 @@ th.visible-print, td.visible-print {
   th.hidden-print, td.hidden-print {
     display: none !important; } }
 
-/* @license
- * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
- * 
- * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
- * explicitly restricted from using the Licensed Webfonts(s).
- * 
- * You may obtain a valid license at the URLs below.
- * 
- * Webfont: Avenir Next Pro Regular by Linotype
- * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
- * 
- * Webfont: Avenir Next Pro Medium by Linotype
- * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
- * 
- * 
- * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
- * Licensed pageviews: 250,000
- * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
- * 
- * © 2013 MyFonts Inc
-*/
-/* @import must be at top of file, otherwise CSS will not work 
-@import url("//hello.myfonts.net/count/28882f");*/
-/* Avenir Next Pro */
-@font-face {
-  font-family: 'AvenirNextLTPro-Regular';
-  src: url('http://code.ionicframework.com/assets/fonts/28882F_0_0.eot');
-  src: url('http://code.ionicframework.com/assets/fonts/28882F_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/28882F_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/28882F_0_0.ttf') format('truetype'); }
-
-@font-face {
-  font-family: 'AvenirNextLTPro-Medium';
-  src: url('http://code.ionicframework.com/assets/fonts/28882F_1_0.eot');
-  src: url('http://code.ionicframework.com/assets/fonts/28882F_1_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/28882F_1_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/28882F_1_0.ttf') format('truetype'); }
-
-@font-face {
-  font-family: 'AvenirNextLTPro-UltLt';
-  src: url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot');
-  src: url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29CC36_0_0.ttf') format('truetype'); }
-
-/* Frieght Text Pro */
-@font-face {
-  font-family: 'FreightTextProBook-Regular';
-  src: url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot');
-  src: url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29D26A_0_0.ttf') format('truetype'); }
-
-@font-face {
-  font-family: 'FreightTextProMedium-Regular';
-  src: url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot');
-  src: url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix') format('embedded-opentype'), url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.woff') format('woff'), url('http://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf') format('truetype'); }
 
 /*
  * Some CSS adapted from LayerVault, http://layervault.com
@@ -4557,27 +4558,26 @@ h1 + h2 + p {
   background-position: center 15px;
   background-size: 320px 299px;
   background-repeat: no-repeat; }
-  .home .feature-img .feature-img-loading {
-    display: none; }
-  .home .feature-img .demo-link {
-    visibility: hidden; }
-  .home .feature-img .app-icon {
-    visibility: hidden; }
-  .home .feature-img.img-loaded.two {
+
+  .home .feature-img.two {
     background-image: url(/img/homepage/phones-frontpage@2x.png);
     -webkit-animation: fadeInDown 1s both;
-    animation: fadeInDown 1s both; }
-    .home .feature-img.img-loaded.two .demo-link {
+    animation: fadeInDown 1s both;
+    -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+    animation-delay: 1s;}
+    .home .feature-img.two .demo-link {
       visibility: visible; }
-    .home .feature-img.img-loaded.two .app-icon {
+    .home .feature-img.two .app-icon {
       visibility: visible; }
-  .home .feature-img.img-loaded.one {
+  .home .feature-img.one {
     background-image: url(/img/homepage/phones-viewapp_2x.png);
     -webkit-animation: fadeInDown 1s both;
-    animation: fadeInDown 1s both; }
-    .home .feature-img.img-loaded.one .demo-link {
+    animation: fadeInDown 1s both;
+    -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+    animation-delay: 1s;}
+    .home .feature-img.one .demo-link {
       visibility: visible; }
-    .home .feature-img.img-loaded.one .app-icon {
+    .home .feature-img.one .app-icon {
       visibility: visible; }
   .home .feature-img .app-icon.two {
     background-image: url(/img/homepage/frontpage-icon@2x.png); }
@@ -4598,12 +4598,16 @@ h1 + h2 + p {
       opacity: 0.9;
       -webkit-transition: opacity 0.1s linear;
       -moz-transition: opacity 0.1s linear;
-      transition: opacity 0.1s linear; }
+      transition: opacity 0.1s linear;
+      -webkit-animation-delay: .5s; /* Chrome, Safari, Opera */
+      animation-delay: 5.s;}
     .home .feature-img a span {
       opacity: 0.4;
       -webkit-transition: opacity 0.1s linear;
       -moz-transition: opacity 0.1s linear;
-      transition: opacity 0.1s linear; }
+      transition: opacity 0.1s linear;
+      -webkit-animation-delay: .5s; /* Chrome, Safari, Opera */
+      animation-delay: 5.s;}
     .home .feature-img a:hover img, .home .feature-img a:hover span {
       opacity: 1; }
   .home .feature-img .demo-link {
@@ -6502,8 +6506,8 @@ a {
   padding-right: 26px !important;
   padding-left: 26px !important;
   border-top: 3px solid transparent;
-  color: #abc0f5;
-  opacity: 1; }
+  color: #fff;
+  opacity: .6; }
   .navbar-default .navbar-nav > li > a:hover {
     color: white; }
 
@@ -13407,3 +13411,293 @@ a {
       border-right: 1px solid #ddd; }
     .pre-footer .col-b {
       padding-left: 70px; } }
+
+
+#slider{
+  margin:-78px auto -99px;
+  padding:0;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+#slider .slide{
+  padding:125px 0 101px;
+  width:100%;
+  outline: none;
+}
+#slider .feature-img{
+  min-height: 535px;
+
+}
+#slider .slick-dots{
+  bottom: 97px;
+}
+#slider .slick-dots li button:before{
+  color:white;
+  font-size:22px;
+  -webkit-transition: transform .2s, opacity .2s;
+  -o-transition: transform .2s, opacity .2s;
+  transition: transform .2s, opacity .2s;
+}
+#slider .slick-dots li.slick-active button:before{
+  -ms-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+#slider h1 {
+    margin: 112px 0 0 0;
+    font-size: 48px;
+    font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: default;
+}
+#slider h1 strong{
+  font-family:"AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+#slider h2{
+  font-size: 32px;
+  color:white;
+}
+#slider h3 {
+  color: #B2CEFF;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 4px 0px 32px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+#slider .btn-row{
+  margin-top:20px;
+}
+#slider .slide-creator .creator-preview{
+  background: no-repeat center bottom url(/img/homepage/creator-preview-img.png);
+  background-size: 464px;
+  min-height: 595px;
+  position: absolute;
+  bottom: -22px;
+  min-width: 464px;
+  right: 40px;
+}
+#slider .slide-creator .btn-row .btn-download {
+    color: #4DB5F2;
+    letter-spacing: -0.01em;
+}
+#slider .slide-creator h3 {
+    color: #A5DAF9;
+    max-width: 440px;
+}
+#slider .slide-creator .logo{
+  width:234px;
+  margin: 50px 0 33px;
+}
+#slider .slide-creator h2,
+#slider .slide-lab h2 {
+    margin: 72px 0 36px;
+    font-weight: 500;
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+}
+#slider .slide-lab h3 {
+    color: #C8E3FF;
+    max-width: 440px;
+}
+#slider .slide-lab .feature-img{
+  background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);
+  background-size: 100%;
+  margin-top:0;
+  padding-top:20px;
+}
+#slider .slide-lab .logo{
+  width:170px;
+  margin: 64px 0 36px;
+}
+#slider .slide-market{
+  color: #A1BEE4;
+}
+#slider .slide-market h3 {
+    max-width: 440px;
+}
+#slider .slide-market .btn-row .btn-download {
+    color: #04499e;
+}
+#slider .slide-market .feature-img{
+  background: no-repeat center top url(/img/homepage/market-bag-img.png);
+  background-size: 70%;
+}
+
+.home .navbar{
+  background:none;
+  background: #4E8EF7\0/;
+
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .home .navbar{
+    background:#4E8EF7;
+  }
+}
+.home .utility-bar{
+  background:rgba(0,0,0,.2);
+  min-height: 80px;
+}
+.home .utility-bar input {
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+.home .utility-bar input:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+}
+.home .utility-bar button {
+  padding: 7px 12px;
+  border: 1px solid #FFF;
+  background: #FFF;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  color: #3F89FF;
+  font-size: 14px;
+}
+.home .utility-bar button:hover {
+  color: #3F89FF;
+  background: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.home .utility-bar button:active {
+    border: 1px solid #E0E0E0;
+    background: #F5F5F5;
+    box-shadow: inset 0px 0px 4px #E0E0E0;
+    color: #3F89FF;
+}
+.home .utility-bar .container {
+  overflow: visible;
+  padding-top: 5px;
+}
+@media (max-width: 1199px) {
+  #slider .slide-creator .creator-preview{
+    background-position: right bottom;
+    background-size: 390px;
+  }
+  #slider .slide-lab .feature-img {
+    background-position: right center;
+  }
+  #slider .slide-market .feature-img {
+    background-position: right center;
+  }
+}
+@media (max-width: 991px) {
+  #slider {
+    margin: -135px auto -179px;
+  }
+  #slider .slide {
+    padding: 125px 0 190px;
+  }
+  #slider .slick-dots {
+    bottom: 172px;
+  }
+  #slider .feature-img {
+    min-height: 455px;
+  }
+  #slider h1{
+    font-size: 32px;
+    margin-top:30px;
+  }
+  #slider h3{
+    font-size:18px;
+  }
+  #slider .slide-creator .creator-preview{
+    background-size: 278px;
+    bottom: -76px
+  }
+}
+@media (max-width: 767px) {
+  #slider {
+    margin: -83px auto -236px;
+  }
+  #slider .slide {
+    padding: 125px 0 150px;
+  }
+  #slider .slick-dots {
+    bottom: 229px;
+  }
+  #slider .feature-img {
+    min-height: 305px;
+  }
+
+  #slider .logo,
+  #slider .slide-creator .logo{
+    margin: -15px auto 15px;
+    text-align: center;
+  }
+  #slider h1{
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #slider .slide-creator h2,
+  #slider .slide-lab h2{
+    font-size: 30px;
+    margin: 0 auto 15px;
+    text-align: center;
+  }
+  #slider h3{
+    font-size: 14px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #slider .logo {
+    margin: 0px auto 15px;
+  }
+  #slider .slide-creator .feature-img {
+    position: relative;
+  }
+  #slider .slide-creator .creator-preview {
+    position: absolute;
+    bottom:53px;
+    background-size:200px;
+  }
+  #slider .slide-lab .logo {
+    margin: 0 auto 15px;
+  }
+  #slider .slide-lab h2 {
+    margin: 15px 0 20px;
+  }
+  #slider .slide-lab .feature-img {
+    background-size: 240px;
+    background-position: center top;
+  }
+  #slider .slide-market .feature-img {
+    background-size: 240px;
+    background-position: center center;
+  }
+}
+.slide-creator {
+  background: #2090d2;
+  background: -moz-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2090d2), color-stop(100%, #4db5f2));
+  background: -webkit-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
+  background: -o-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
+  background: -ms-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
+  background: linear-gradient(to right, #2090d2 0%, #4db5f2 100%); }
+.slide-lab {
+  background: #3fbae2;
+  background: -moz-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3fbae2), color-stop(100%, #7962ff));
+  background: -webkit-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
+  background: -o-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
+  background: -ms-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
+  background: linear-gradient(to right, #3fbae2 0%, #7962ff 100%); }
+.slide-market {
+  background: #0e419b;
+  background: -moz-linear-gradient(left, #0e419b 0%, #19859c 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0e419b), color-stop(100%, #19859c));
+  background: -webkit-linear-gradient(left, #0e419b 0%, #19859c 100%);
+  background: -o-linear-gradient(left, #0e419b 0%, #19859c 100%);
+  background: -ms-linear-gradient(left, #0e419b 0%, #19859c 100%);
+  background: linear-gradient(to right, #0e419b 0%, #19859c 100%); }

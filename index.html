@@ -5,35 +5,95 @@ body_css: "home"
 ---
 
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
 
-<div class="primary-row horizontal-gradient">
+<div id="slider" class="primary-row">
+  <div class="slide horizontal-gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <h1>
+            Create incredible apps.
+          </h1>
+          <h3>
+            Ionic is the beautiful, open source front-end SDK for developing hybrid mobile apps with web technologies.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="/getting-started/">Get Started</a>
+            <a class="btn btn-primary btn-get-started desktop-btn" href="/docs/" alt="Docs for v{{ site.latest_version }}">Docs &amp; Help</a>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 fadeIn">
-        <h1>
-          Create amazing apps
-        </h1>
-        <h2>
-          The beautiful, open source front-end SDK for developing amazing mobile apps with web technologies.
-        </h2>
-        <p class="btn-row">
-          <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="/getting-started/">Get Started</a>
-          <a class="btn btn-primary btn-get-started desktop-btn" href="/docs/" alt="Docs for v{{ site.latest_version }}">Docs &amp; Help</a>
-
-          <a class="btn btn-primary btn-download mobile-btn" href="/docs/">View Docs</a>
-        </p>
-        <p class="version-text">
-          v{{ site.latest_version }} &#183; {{ site.latest_release_date }} &#183; MIT Licensed
-        </p>
+            <a class="btn btn-primary btn-download mobile-btn" href="/docs/">View Docs</a>
+          </p>
+          <p class="version-text">
+            v{{ site.latest_version }} &#183; {{ site.latest_release_date }} &#183; MIT Licensed
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img one">
+          <a href="http://view.ionic.io/" target="_blank"><img class="app-icon one" src="/img/homepage/ionicview-icon_2x.png"><span class="demo-link">Ionic View</span></a>
+        </div>
       </div>
-      <div class="col-sm-6 feature-img one">
-        <!--
-        <a href="https://github.com/driftyco/front-page/" target="_blank"><img class="app-icon" src="/img/homepage/frontpage-icon@2x.png"><span class="demo-link">Frontpage App</span></a>
-        <img class="feature-img-loading" src="/img/homepage/phones-frontpage@2x.png">
-        -->
-        <a href="http://view.ionic.io/" target="_blank"><img class="app-icon one" src="/img/homepage/ionicview-icon_2x.png"><span class="demo-link">Ionic View</span></a>
-        <img class="feature-img-loading" src="/img/homepage/phones-viewapp_2x.png">
+    </div>
+  </div>
+  <div class="slide slide-creator">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <img src="/img/homepage/creator-logo.png" class="logo" />
+          <h2>Rapidly prototype Ionic apps.</h2>
+          <h3>
+            A simple drag-&amp;-drop interface building tool for creating real
+            ionic apps with a click of the mouse.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download"
+               class="btn btn-primary btn-download desktop-btn"
+               href="https://creator.ionic.io/">Start prototyping today</a>
+            <a class="btn btn-primary btn-download mobile-btn"
+               href="https://creator.ionic.io/">Start prototyping today</a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img img-loaded">
+          <div class="creator-preview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide slide-lab">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <img src="/img/homepage/ionic-lab-logo.png" class="logo" />
+          <h2>Start, build, test, and deploy.</h2>
+          <h3>
+            Lab is a desktop app for Mac and Windows that makes it a joy to
+            create and work with Ionic apps.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://lab.ionic.io/">Learn more <i class="ion-chevron-right"></i></a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://lab.ionic.io/">Learn more <i class="ion-chevron-right"></i></a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img  img-loaded">
+          <div class="lab-preview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide slide-market">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <h1><strong>The Market</strong> is alive</h1>
+          <h3>
+            Discover and share all the best community-made starter apps, plugins, themes and more to jumpstart your Ionic app development.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://market.ionic.io/">Explore the Market</a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://market.ionic.io/">Explore the Markets</a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img img-loaded"></div>
       </div>
     </div>
   </div>
@@ -50,7 +110,7 @@ body_css: "home"
       <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-md-5">
         <input name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Enter your email for the latest ionic news" required />
         <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">Subscribe</button>
+          <button class="btn btn-default" type="submit">Email me!</button>
         </span>
       </form>
     </div>
@@ -59,17 +119,13 @@ body_css: "home"
 
 <div class="creator-bar">
   <img src="http://ionic-dash-static.s3.amazonaws.com/img/pushlogo.png" style="width: 200px;">
-  
+
   <h2>Push notifications made easy for your Ionic apps. Now in public alpha.</h2>
-  
+
   <a href="https://apps.ionic.io/landing/push" class="btn btn-success">Sign up now</a>
 </div>
 
 <script>
-  $('.feature-img-loading').on('load', function() {
-    $('.feature-img').addClass('img-loaded');
-    $(this).remove();
-  });
 
   function digits(n){
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -322,7 +378,20 @@ body_css: "home"
  .navbar {
  }
 </style>
+<script type="text/javascript" src="/js/slick.js"></script>
 <script>
+$('#slider').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: false,
+  fade: true,
+  cssEase: 'linear'
+}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  console.log(event, slick, currentSlide, nextSlide);
+});
+
 /*
   $.fn.snapBar = function(options) {
     return this.each(function() {
@@ -343,4 +412,3 @@ body_css: "home"
   $('#creator-bar').snapBar();
   */
 </script>
-

@@ -45,11 +45,11 @@
 
         /*
         margin-top: -50px;
-       
+
         -webkit-transform: translate(0, -50px);
         transform: translate(0, -50px);
         */
-        
+
 
         /*
         background-color: #EDF0F7;
@@ -82,10 +82,10 @@
       }
 
       .snap-bar.active {
-        
+
         -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
-        
+
         margin-top: 0;
       }
 
@@ -357,15 +357,15 @@ try {
       return false;
     })
     */
-    $('.creator-link').click(function() {
-      var href = $(this).attr('href');
-      ga('send', 'event', 'Click', 'Creator Bar', {
-      'nonInteraction': 1,
-      'hitCallback': function() {
-        window.location = href;
-      }});
-      return false;
-    })
+    // $('.creator-link').click(function() {
+    //   var href = $(this).attr('href');
+    //   ga('send', 'event', 'Click', 'Creator Bar', {
+    //   'nonInteraction': 1,
+    //   'hitCallback': function() {
+    //     window.location = href;
+    //   }});
+    //   return false;
+    // })
   </script>
   </body>
 </html>

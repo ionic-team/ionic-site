@@ -204,9 +204,11 @@
           <p class="btn-row">
             <a id="repo-download"
                class="btn btn-primary btn-download desktop-btn"
-               href="https://creator.ionic.io/">Start prototyping today</a>
+               href="https://creator.ionic.io/"
+               target="_blank">Start prototyping today</a>
             <a class="btn btn-primary btn-download mobile-btn"
-               href="https://creator.ionic.io/">Start prototyping today</a>
+               href="https://creator.ionic.io/"
+               target="_blank">Start prototyping today</a>
           </p>
         </div>
         <div class="col-sm-6 feature-img img-loaded">
@@ -226,8 +228,8 @@
             create and work with Ionic apps.
           </h3>
           <p class="btn-row">
-            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://lab.ionic.io/">Learn more <i class="ion-chevron-right"></i></a>
-            <a class="btn btn-primary btn-download mobile-btn" href="http://lab.ionic.io/">Learn more <i class="ion-chevron-right"></i></a>
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://lab.ionic.io/" target="_blank">Learn more <i class="ion-chevron-right"></i></a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://lab.ionic.io/" target="_blank">Learn more <i class="ion-chevron-right"></i></a>
           </p>
         </div>
         <div class="col-sm-6 feature-img  img-loaded">
@@ -245,8 +247,8 @@
             Discover and share all the best community-made starter apps, plugins, themes and more to jumpstart your Ionic app development.
           </h3>
           <p class="btn-row">
-            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://market.ionic.io/">Explore the Market</a>
-            <a class="btn btn-primary btn-download mobile-btn" href="http://market.ionic.io/">Explore the Markets</a>
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://market.ionic.io/" target="_blank">Explore the Market</a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://market.ionic.io/" target="_blank">Explore the Markets</a>
           </p>
         </div>
         <div class="col-sm-6 feature-img img-loaded"></div>
@@ -616,7 +618,10 @@ $('#slider').slick({
   slidesToShow: 1,
   adaptiveHeight: false,
   fade: true,
-  cssEase: 'linear'
+  cssEase: 'linear',
+  draggable: false,
+  autoplay: true,
+  autoplaySpeed: 5000
 }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
   console.log(event, slick, currentSlide, nextSlide);
 });

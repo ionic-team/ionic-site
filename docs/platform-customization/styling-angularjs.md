@@ -21,7 +21,7 @@ In your `AppCtrl` controller, retrieve and set the platform using `ionic.Platfor
 
 ## Using the Platform to Dynamically Style Elements
 
-You can then use this platform to change which elements display, and what classes get added to specific elements. Say you are using the tabs structure and you want to change the way the tabs look on android but keep the same look and feel for all other devices. We can use Angular's `ng-class` to dynamically add classes based on the platform. Adding the following to the `{% raw %}<ion-tabs>{% endraw %}` directive will add the `tabs-postiive` class for Android platforms and the `tabs-icon-top` class to all devices but Android:
+You can then use this platform to change which elements display, and what classes get added to specific elements. Say you are using the tabs structure and you want to change the way the tabs look on android but keep the same look and feel for all other devices. We can use Angular's `ng-class` to dynamically add classes based on the platform. Adding the following to the `{% raw %}<ion-tabs>{% endraw %}` directive will add the `tabs-positive` class for Android platforms and the `tabs-icon-top` class to all devices but Android:
 
 ```html
 {% raw %}

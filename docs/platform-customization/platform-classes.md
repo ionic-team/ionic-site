@@ -60,7 +60,7 @@ Ionic automagically adds classes to the `<body>` of your project based on the de
 
 Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor version.
 
-The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the `.` separating the major and minor version numbers with a `_`. So if you are running your project on a device running iOS 8.4 it will add the `platform-ios8` and `platform-ios8_4` classes.
+The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the `.` separating the major and minor version numbers with a `_`. So if you are running your project on a device running iOS 8.4 it will add the `platform-ios8` and `platform-ios8_4` classes. Below are some example classes but it is not limited to these.
 
 <table class="table">
   <tr>

@@ -621,7 +621,8 @@ $('#slider').slick({
   cssEase: 'linear',
   draggable: false,
   autoplay: true,
-  autoplaySpeed: 5000
+  autoplaySpeed: 10000,
+  focusOnSelect: false
 }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
   console.log(event, slick, currentSlide, nextSlide);
 });

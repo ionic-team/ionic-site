@@ -207,12 +207,12 @@
 </code></pre></div>
 <h2>Using the Platform to Dynamically Style Elements</h2>
 
-<p>You can then use this platform to change which elements display, and what classes get added to specific elements. Say you are using the tabs structure and you want to change the way the tabs look on android but keep the same look and feel for all other devices. We can use Angular&#39;s <code>ng-class</code> to dynamically add classes based on the platform. Adding the following to the <code>&lt;ion-tabs&gt;</code> directive will add the <code>tabs-positive</code> class for Android platforms and the <code>tabs-icon-top</code> class to all devices but Android:</p>
+<p>You can then use this platform to change which elements display and what classes get added to specific elements. For example, if you&#39;re using the tabs structure, and you want to change the way the tabs look on Android but keep the same look and feel for all other devices, you can use Angular&#39;s <code>ng-class</code> to dynamically add classes based on the platform. Adding the following to the <code>&lt;ion-tabs&gt;</code> directive will add the <code>tabs-positive</code> class for Android platforms and the <code>tabs-icon-top</code> class to all devices but Android:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-tabs</span> <span class="na">class=</span><span class="s">&quot;tabs-stable&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;{&#39;tabs-positive&#39;: platform == &#39;android&#39;, &#39;tabs-icon-top&#39;: platform != &#39;android&#39;}&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ion-tab directives go here --&gt;</span>
 <span class="nt">&lt;/ion-tabs&gt;</span>
 </code></pre></div>
-<p>You can also use Angular&#39;s <code>ng-attr</code> in order to dynamically define attributes based on platform. For example, you may want the icons in the tabs to show on all devices except Android. You can dynamically add the icon by using the <code>ng-attr-icon</code> property. To define an icon for all devices minus Android on the &quot;Home&quot; tab, you could use the following code:</p>
+<p>You can also use Angular&#39;s <code>ng-attr</code> to dynamically define attributes based on platform. For example, you may want the icons in the tabs to show on all devices except Android. You can dynamically add the icon by using the <code>ng-attr-icon</code> property. To define an icon for all devices minus Android on the &quot;Home&quot; tab, you could use the following code:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- if the platform is android don&#39;t add an icon, all other devices get an icon --&gt;</span>
 <span class="nt">&lt;ion-tab</span> <span class="na">title=</span><span class="s">&quot;Home&quot;</span> <span class="na">ng-attr-icon=</span><span class="s">&quot;{{ platform != &#39;android&#39; ? &#39;ion-home&#39; : undefined}}&quot;</span> <span class="na">href=</span><span class="s">&quot;#/tab/home&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
@@ -376,7 +376,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

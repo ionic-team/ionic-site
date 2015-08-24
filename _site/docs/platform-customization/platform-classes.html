@@ -196,7 +196,7 @@
         <div class="col-md-10 col-sm-9 main-content">
           <h1>Platform Classes</h1>
 
-<p>Ionic automagically adds classes to the <code>&lt;body&gt;</code> of your project based on the device you are using to view the project. This means if you are viewing your app on an iOS device, the <code>&lt;body&gt;</code> will have the <code>platform-ios</code> class applied. Some information of the different classes can be found below.</p>
+<p>Ionic automagically adds classes to the <code>&lt;body&gt;</code> of your project based on the device you are using to view the project. This means if you are viewing your app on an iOS device, the <code>&lt;body&gt;</code> will have the <code>platform-ios</code> class applied. Some information about the different classes can be found below.</p>
 
 <h2>Platform Device Classes</h2>
 
@@ -226,30 +226,30 @@
   <tr>
     <td>iOS</td>
     <td><code>platform-ios</code></td>
-    <td>The device is iOS, therefore the "look and feel" will be given the iOS treatment</td>
+    <td>The device is iOS; therefore, the "look and feel" will be given the iOS treatment</td>
   </tr>
   <tr>
     <td>iPad</td>
     <td><code>platform-ipad</code></td>
-    <td>iOS device is an iPad - this class is applied in addition to <code>platform-ios</code></td>
+    <td>iOS device is an iPad - this class is applied, in addition to <code>platform-ios</code></td>
   </tr>
   <tr>
     <td>Android</td>
     <td><code>platform-android</code></td>
-    <td>The device is Android, therefore the "look and feel" will be given the Android treatment</td>
+    <td>The device is Android; therefore, the "look and feel" will be given the Android treatment</td>
   </tr>  
   <tr>
     <td>Windows Phone</td>
     <td><code>platform-windowsphone</code></td>
-    <td>The device is Windows Phone, therefore the "look and feel" will be given the Windows Phone treatment</td>
+    <td>The device is Windows Phone; therefore, the "look and feel" will be given the Windows Phone treatment</td>
   </tr>
 </table>
 
 <h2>Platform OS Version Classes</h2>
 
-<p>Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor version.</p>
+<p>Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor versions.</p>
 
-<p>The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the <code>.</code> separating the major and minor version numbers with a <code>_</code>. So if you are running your project on a device running iOS 8.4 it will add the <code>platform-ios8</code> and <code>platform-ios8_4</code> classes. Below are some example classes but it is not limited to these.</p>
+<p>The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the <code>.</code> separating the major and minor version numbers with a <code>_</code>. So, if you are running your project on a device running iOS 8.4, it will add the <code>platform-ios8</code> and <code>platform-ios8_4</code> classes. Below are some example classes, but you are not limited to these.</p>
 
 <table class="table">
   <tr>
@@ -275,7 +275,7 @@
   <tr>
     <td>Android 4.4</td>
     <td><code>platform-android4_4</code></td>
-    <td>The OS on the device is running Android 4.4. This class is applied in addition to <code>platform-android4</code></td>
+    <td>The OS on the device is running Android 4.4. This class is applied, in addition to <code>platform-android4</code></td>
   </tr>  
 </table>
 
@@ -450,7 +450,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

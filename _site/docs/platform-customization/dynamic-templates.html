@@ -196,7 +196,7 @@
         <div class="col-md-10 col-sm-9 main-content">
           <h1>Dynamically Loading Templates</h1>
 
-<p>Sometimes showing or changing elements based on the platform isn&#39;t enough. There may be times when you need to use two different structures for your project, and placing the logic in the HTML isn&#39;t desired. In this case, you can use <code>ionic.Platform</code> to decide which template to load in a given state. For example, the following code will load the <code>templates/home-android.html</code> file if the platform is Android, and <code>templates/home.html</code> for all other platforms:</p>
+<p>Sometimes showing or changing elements based on the platform isn&#39;t enough. There may be times when you need to use two different structures for your project, and you don&#39;t want to place the logic in the HTML. In these cases, you can use <code>ionic.Platform</code> to decide which template to load in a given state. For example, the following code will load the <code>templates/home-android.html</code> file if the platform is Android, and <code>templates/home.html</code> for all other platforms:</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;tab&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/tab&quot;</span><span class="p">,</span>
   <span class="kr">abstract</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -369,7 +369,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

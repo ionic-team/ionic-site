@@ -21,7 +21,7 @@ In your `AppCtrl` controller, retrieve and set the platform using `ionic.Platfor
 
 ## Using the Platform to Dynamically Style Elements
 
-You can then use this platform to change which elements display, and what classes get added to specific elements. Say you are using the tabs structure and you want to change the way the tabs look on android but keep the same look and feel for all other devices. We can use Angular's `ng-class` to dynamically add classes based on the platform. Adding the following to the `{% raw %}<ion-tabs>{% endraw %}` directive will add the `tabs-positive` class for Android platforms and the `tabs-icon-top` class to all devices but Android:
+You can then use this platform to change which elements display and what classes get added to specific elements. For example, if you're using the tabs structure, and you want to change the way the tabs look on Android but keep the same look and feel for all other devices, you can use Angular's `ng-class` to dynamically add classes based on the platform. Adding the following to the `{% raw %}<ion-tabs>{% endraw %}` directive will add the `tabs-positive` class for Android platforms and the `tabs-icon-top` class to all devices but Android:
 
 ```html
 {% raw %}
@@ -31,7 +31,7 @@ You can then use this platform to change which elements display, and what classe
 {% endraw %}
 ```
 
-You can also use Angular's `ng-attr` in order to dynamically define attributes based on platform. For example, you may want the icons in the tabs to show on all devices except Android. You can dynamically add the icon by using the `ng-attr-icon` property. To define an icon for all devices minus Android on the "Home" tab, you could use the following code:
+You can also use Angular's `ng-attr` to dynamically define attributes based on platform. For example, you may want the icons in the tabs to show on all devices except Android. You can dynamically add the icon by using the `ng-attr-icon` property. To define an icon for all devices minus Android on the "Home" tab, you could use the following code:
 
 ```html
 {% raw %}

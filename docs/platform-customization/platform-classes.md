@@ -7,7 +7,7 @@ chapter: true
 
 # Platform Classes
 
-Ionic automagically adds classes to the `<body>` of your project based on the device you are using to view the project. This means if you are viewing your app on an iOS device, the `<body>` will have the `platform-ios` class applied. Some information of the different classes can be found below.
+Ionic automagically adds classes to the `<body>` of your project based on the device you are using to view the project. This means if you are viewing your app on an iOS device, the `<body>` will have the `platform-ios` class applied. Some information about the different classes can be found below.
 
 ## Platform Device Classes
 
@@ -37,30 +37,30 @@ Ionic automagically adds classes to the `<body>` of your project based on the de
   <tr>
     <td>iOS</td>
     <td><code>platform-ios</code></td>
-    <td>The device is iOS, therefore the "look and feel" will be given the iOS treatment</td>
+    <td>The device is iOS; therefore, the "look and feel" will be given the iOS treatment</td>
   </tr>
   <tr>
     <td>iPad</td>
     <td><code>platform-ipad</code></td>
-    <td>iOS device is an iPad - this class is applied in addition to <code>platform-ios</code></td>
+    <td>iOS device is an iPad - this class is applied, in addition to <code>platform-ios</code></td>
   </tr>
   <tr>
     <td>Android</td>
     <td><code>platform-android</code></td>
-    <td>The device is Android, therefore the "look and feel" will be given the Android treatment</td>
+    <td>The device is Android; therefore, the "look and feel" will be given the Android treatment</td>
   </tr>  
   <tr>
     <td>Windows Phone</td>
     <td><code>platform-windowsphone</code></td>
-    <td>The device is Windows Phone, therefore the "look and feel" will be given the Windows Phone treatment</td>
+    <td>The device is Windows Phone; therefore, the "look and feel" will be given the Windows Phone treatment</td>
   </tr>
 </table>
 
 ## Platform OS Version Classes
 
-Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor version.
+Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor versions.
 
-The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the `.` separating the major and minor version numbers with a `_`. So if you are running your project on a device running iOS 8.4 it will add the `platform-ios8` and `platform-ios8_4` classes. Below are some example classes but it is not limited to these.
+The class is created by looking at the User Agent of the OS version. The major + minor class is created by replacing the `.` separating the major and minor version numbers with a `_`. So, if you are running your project on a device running iOS 8.4, it will add the `platform-ios8` and `platform-ios8_4` classes. Below are some example classes, but you are not limited to these.
 
 <table class="table">
   <tr>
@@ -86,7 +86,7 @@ The class is created by looking at the User Agent of the OS version. The major +
   <tr>
     <td>Android 4.4</td>
     <td><code>platform-android4_4</code></td>
-    <td>The OS on the device is running Android 4.4. This class is applied in addition to <code>platform-android4</code></td>
+    <td>The OS on the device is running Android 4.4. This class is applied, in addition to <code>platform-android4</code></td>
   </tr>  
 </table>
 

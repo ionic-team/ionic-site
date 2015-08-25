@@ -393,7 +393,9 @@ $('#slider').slick({
   draggable: false,
   autoplay: true,
   autoplaySpeed: 10000,
-  focusOnSelect: false
+  focusOnSelect: false,
+  // https://github.com/kenwheeler/slick/issues/1537
+  accessibility: false
 })
 // .on('beforeChange', function(event, slick, currentSlide, nextSlide){
 //   console.log(event, slick, currentSlide, nextSlide);

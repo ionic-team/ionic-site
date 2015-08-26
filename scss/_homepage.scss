@@ -971,67 +971,69 @@ $ieEightAndNine: "\0/";
 @media (max-width: 767px) {
   #slider {
     margin: -83px auto -236px;
-  }
-  .slide {
-    padding: 125px 0 150px;
-  }
-  .slick-dots {
-    bottom: 229px;
-  }
-  .feature-img {
-    min-height: 305px;
+    
+    .slide {
+      padding: 125px 0 150px;
+    }
+    .slick-dots {
+      bottom: 229px;
+    }
+    .feature-img {
+      min-height: 305px;
+    }
+
+    .logo,
+    .slide-creator .logo{
+      margin: -15px auto 15px;
+      text-align: center;
+    }
+    h1{
+      font-size: 30px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .slide-creator h2,
+    .slide-lab h2{
+      font-size: 30px;
+      margin: 0 auto 15px;
+      text-align: center;
+    }
+    h3{
+      font-size: 14px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .logo {
+      margin: 0px auto 15px;
+    }
+    .slide-creator {
+      .feature-img {
+        position: relative;
+      }
+      .creator-preview {
+        position: absolute;
+        bottom:53px;
+        background-size:200px;
+      }
+    }
+    .slide-lab{
+      .logo {
+        margin: 0 auto 15px;
+      }
+      h2 {
+        margin: 15px 0 20px;
+      }
+      .feature-img {
+        background-size: 240px;
+        background-position: center top;
+      }
+    }
+    .slide-market .feature-img {
+      background-size: 240px;
+      background-position: center center;
+    }
   }
 
-  .logo,
-  .slide-creator .logo{
-    margin: -15px auto 15px;
-    text-align: center;
-  }
-  h1{
-    font-size: 30px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .slide-creator h2,
-  .slide-lab h2{
-    font-size: 30px;
-    margin: 0 auto 15px;
-    text-align: center;
-  }
-  h3{
-    font-size: 14px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .logo {
-    margin: 0px auto 15px;
-  }
-  .slide-creator {
-    .feature-img {
-      position: relative;
-    }
-    .creator-preview {
-      position: absolute;
-      bottom:53px;
-      background-size:200px;
-    }
-  }
-  .slide-lab{
-    .logo {
-      margin: 0 auto 15px;
-    }
-    h2 {
-      margin: 15px 0 20px;
-    }
-    .feature-img {
-      background-size: 240px;
-      background-position: center top;
-    }
-  }
-  .slide-market .feature-img {
-    background-size: 240px;
-    background-position: center center;
-  }
 }
 .slide-creator {
   background: #2090d2;

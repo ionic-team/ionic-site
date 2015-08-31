@@ -693,7 +693,7 @@ Does not allow this scroll view to scroll either x or y.
 
 
 * Returns: 
-  <code>object</code> If the scroll view is being prevented from scrolling or not.
+  <code>boolean</code> If the scroll view is being prevented from scrolling or not.
 
 
 

@@ -5169,9 +5169,9 @@ h1 + h2 + p {
 
 @media (max-width: 767px) {
   #slider {
-    margin: -442px auto -236px; }
+    margin: -83px auto -236px; }
     #slider .slide {
-      padding: 472px 0 150px; }
+      padding: 125px 0 150px; }
     #slider .slick-dots {
       bottom: 229px; }
     #slider .feature-img {

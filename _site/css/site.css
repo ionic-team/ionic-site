@@ -6599,6 +6599,15 @@ h2.underline {
   #ionitron-image.header-ionitron.issue {
     background-size: 32px 32px; } }
 
+#what-is h3 a {
+  font-size: 24px;
+  font-weight: normal;
+  color: #679ff8; }
+  #what-is h3 a:hover {
+    color: #3780f6; }
+#what-is p {
+  margin-bottom: 2em; }
+
 a {
   opacity: 0.8;
   transition: 0.1s ease-in-out;

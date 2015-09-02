@@ -1,0 +1,17 @@
+#what-is {
+
+  h3 a {
+    font-size: 24px;
+    font-weight: normal;
+    color: lighten(#4F8EF7, 5%);
+    &:hover {
+      color: darken(#4F8EF7, 5%);
+    }
+  }
+
+  p {
+    margin-bottom: 2.0em;
+  }
+  
+}
+

@@ -82,7 +82,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="systemjs">
     <h3><a href="#systemjs">SystemJS</a></h3>
-    <p>SystemJS is a standard format for JavaScript modules. The SystemJS module format also supports a wide range of other module formats, including <a href="#commonjs">CommonJS</a> and AMD.</p>
+    <p>SystemJS is a module loader (like RequireJS) that loads all module formats - AMD, CommonJS, and ES6, and is built on top of the <a href="https://github.com/ModuleLoader/es6-module-loader">ES6 Module Loader polyfill</a> (a polyfill implementing the way JavaScript will load modules natively in the future).</p>
   </section>
 
   <section id="transpiler">

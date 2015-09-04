@@ -8,12 +8,12 @@ Previous: <a href="building.html">Building out your app</a>
 
 # Chapter 6: Publishing your app
 
-Now that we have a working app, we are ready to push it live to the world! Since [Drifty](http://drifty.com/), the creators of Ionic, already submitted the Todo app from this guide to the app store, chances are you'll want to follow this chapter with a new app that you make on your own.
+Now that we have a working app, we are ready to push it live to the world! Since the Ionic team already submitted the Todo app from this guide to the app store, chances are you'll want to follow this chapter with a new app that you make on your own.
 
 So first, we need to generate a release build of our app, targeted at each platform we wish to deploy on. Before we deploy, we should take care to adjust plugins needed during development that should not be in production mode. For example, we probably don't want the debug console plugin enabled, so we should remove it before generating the release builds:
 
 ```bash
-$ cordova plugin rm org.apache.cordova.console
+$ cordova plugin rm cordova-plugin-console
 ```
 
 # Android Publishing

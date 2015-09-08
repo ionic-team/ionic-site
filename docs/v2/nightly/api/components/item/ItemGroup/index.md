@@ -1,5 +1,5 @@
 ---
-layout: "docs_api"
+layout: "v2/docs_api"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""

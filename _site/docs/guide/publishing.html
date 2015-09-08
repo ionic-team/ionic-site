@@ -201,10 +201,10 @@
 
 <h1>Chapter 6: Publishing your app</h1>
 
-<p>Now that we have a working app, we are ready to push it live to the world! Since <a href="http://drifty.com/">Drifty</a>, the creators of Ionic, already submitted the Todo app from this guide to the app store, chances are you&#39;ll want to follow this chapter with a new app that you make on your own.</p>
+<p>Now that we have a working app, we are ready to push it live to the world! Since the Ionic team already submitted the Todo app from this guide to the app store, chances are you&#39;ll want to follow this chapter with a new app that you make on your own.</p>
 
 <p>So first, we need to generate a release build of our app, targeted at each platform we wish to deploy on. Before we deploy, we should take care to adjust plugins needed during development that should not be in production mode. For example, we probably don&#39;t want the debug console plugin enabled, so we should remove it before generating the release builds:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova plugin rm org.apache.cordova.console
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova plugin rm cordova-plugin-console
 </code></pre></div>
 <h1>Android Publishing</h1>
 
@@ -416,7 +416,7 @@
 
 
 try {
-  var d = new Date('2015-03-20 05:00:00 -0400');
+  var d = new Date('2015-03-20 05:00:00 -0500');
   var ts = d.getTime();
 
   var cd = Cookies.get('_iondj');

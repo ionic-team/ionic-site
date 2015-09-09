@@ -1,11 +1,11 @@
 ---
 layout: v2/docs_what_is
-title: "Ionic Developer Toolchain "
-header_title: Ionic Tools
+title: "Ionic Developer Glossary"
+header_title: Ionic Developer Glossary
 header_sub_title: Learn about the Ionic community's favorite tools
 ---
 
-# Ionic Developer Toolchain
+# Ionic Developer Glossary
 
 <div id="what-is">
 

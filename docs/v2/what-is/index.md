@@ -1,5 +1,5 @@
 ---
-layout: docs_home
+layout: v2/docs_what_is
 title: "Ionic Developer Toolchain "
 header_title: Ionic Tools
 header_sub_title: Learn about the Ionic community's favorite tools
@@ -129,4 +129,3 @@ $(document).ready(function() {
   });
 });
 </script>
-

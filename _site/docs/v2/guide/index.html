@@ -127,13 +127,7 @@
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/">Intro</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/getting-started/">Getting Started</a>
+                <a href="/docs/v2/overview/">Overview</a>
               </li>
             </ul>
 
@@ -141,22 +135,10 @@
               <li class="menu-title">
                 <a href="/docs/v2/guide/">Guide</a>
                 <ul>
-                  <li><a href="/docs/v2/guide/">Welcome</a></li>
+                  <li><a href="/docs/v2/guide/">Getting Started</a></li>
                   <li><a href="/docs/v2/guide/adding-pages/">Adding Pages</a></li>
                   <li><a href="/docs/v2/guide/navigating/">Navigating</a></li>
                 </ul>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/demos/">Demos</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/theming/">Theming</a>
               </li>
             </ul>
 
@@ -168,7 +150,21 @@
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/networking/">Networking</a>
+                <a href="/docs/v2/theming/">Theming</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/api/">
+                  API
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/utilities/">Utilities</a>
               </li>
             </ul>
 
@@ -184,49 +180,36 @@
               </li>
             </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/api/">
-                  API
-                </a>
-              </li>
-            </ul>
-
         </div>
       </div>
 
         <div class="col-md-10 col-sm-9 main-content">
           <h1 class="title">Ionic 2 Guide</h1>
 
-<p>Welcome to the Ionic 2 Guide. In this guide we will walk through the process of creating
-a new app based on Ionic 2, adding several views (or &quot;pages&quot;) to the app, working with some of the most important controls,
-and thoughts on getting your app deployed into the app stores.</p>
+<p>Welcome to the Ionic 2 Guide. In this guide we will walk through the process of creating a new app based on Ionic 2, adding several views (or &quot;pages&quot;) to the app, working with some of the most important controls, and thoughts on getting your app deployed into the app stores.</p>
 
-<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and
-<code>cd</code> into it in a terminal window, along with installing any dependencies we might need. Note: don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands
-might look in your terminal:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>ionic2-starter
+<h2>Getting Started</h2>
+
+<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and <code>cd</code> into it in a terminal window, along with installing any dependencies we might need. Note: don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands might look in your terminal:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g gulp <span class="o">(</span><span class="k">if</span> you haven<span class="err">&#39;</span>t installed gulp<span class="o">)</span>
+<span class="nv">$ </span><span class="nb">cd </span>ionic2-starter
 <span class="nv">$ </span>npm install
 <span class="nv">$ </span>gulp watch
 </code></pre></div>
-<p>Navigate to <code>http://localhost:8100</code> in your browser to see the app running!</p>
+<p>Next, open up <code>http://localhost:8100/</code> in your browser to get a glimpse of your first Ionic 2 app:</p>
 
-<!--
-### Project Structure
+<p><img src="http://ionicframework.com.s3.amazonaws.com/v2/starter1.png" style="max-width: 320px"></p>
 
-Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created,
-we have a Cordova project structure where we can install native plugins and create platform-specific
-project files. The bulk of our application lives inside the `www` folder, and so
-we are going to spend most of our time there.
--->
+<h2>Project Structure</h2>
+
+<p>Let&#39;s walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a Cordova project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the <code>www</code> folder, and so we are going to spend most of our time there.</p>
 
 <h4>www/index.html</h4>
 
 <p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS
 includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
 
-<p>To bootstrap and run your app, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this
-example we have:</p>
+<p>To run your app, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this example we have:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
 </code></pre></div>
 <p>And the following scripts near the bottom:</p>
@@ -248,7 +231,7 @@ inside of <code>app/</code> is <em>transpiled</em> into the correct Javascript v
 (currently, ES5). That means we can work at a higher level using TypeScript and ES6+, but
 compile down to the older form of Javascript the browser needs.</p>
 
-<p>app.js is the entry point for our app.</p>
+<p><code>app.js</code> is the entry point for our app.</p>
 
 <p>Near the top of the file, we should see this:</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
@@ -265,7 +248,7 @@ we use the <code>@App</code> decorator.</p>
 
 <p>In this component, we set the template to be the file at <code>_app/main.html</code>, let&#39;s take a look!</p>
 
-<h3>app/app.html</h3>
+<h4>app/app.html</h4>
 
 <p>Notice that our app code referenced the template in <code>_app/app.html</code>. This is the final, compiled
 path of that template found at <code>www/_app/app.html</code>. As developers, we will only edit the version in <code>app/</code>.</p>
@@ -292,6 +275,8 @@ menu which will change what they see in the content area. The user will be able 
 inside the content menu if the section has other pages to navigate to.</p>
 
 <p>Let&#39;s go and see how to create more pages and perform basic navigation.</p>
+
+<p><a href="/docs/v2/guide/adding-pages/" button primary>Adding Pages</a></p>
 
         </div>
 

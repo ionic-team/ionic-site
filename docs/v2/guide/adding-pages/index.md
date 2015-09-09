@@ -118,3 +118,5 @@ And then let's put this in our `app/playlist/playlist.html` file:
 ```
 
 Now that we have our page constructed, let's continue to see how to navigate to it.
+
+<a href="/docs/v2/guide/navigating/" button primary>Navigating</a>

@@ -27,4 +27,4 @@ As you test and try out Ionic, we ask that you submit issues to the [Ionic 2](ht
 With that said, let's jump in!
 
 
-<a href="/getting-started.html" button primary>Get Started</a>
+<a href="getting-started/" button primary>Get Started</a>

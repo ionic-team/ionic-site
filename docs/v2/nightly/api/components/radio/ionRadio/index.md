@@ -36,13 +36,17 @@ docType: "class"
 
 
 
+A single radio component. 
 
+See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
 
 <h1 class="class export">ionRadio <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L151-L239">ionic/components/radio/radio.ts (line 151)</a>
 </p>
-<p></p>
+<p><p>A single radio component. </p>
+<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
+</p>
 ## Members
 
 <div id="onInit"></div>

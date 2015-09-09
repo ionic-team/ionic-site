@@ -36,13 +36,14 @@ docType: "class"
 
 
 
-
+The Modal is a content pane that can go over the user's main view temporarily. Usually used for making a choice or editing an item.
 
 <h1 class="class export">ionModal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L5-L60">ionic/components/modal/modal.ts (line 5)</a>
 </p>
-<p></p>
+<p><p>The Modal is a content pane that can go over the user&#39;s main view temporarily. Usually used for making a choice or editing an item.</p>
+</p>
 ## Members
 
 <div id="open"></div>

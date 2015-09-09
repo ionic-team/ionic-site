@@ -36,15 +36,13 @@ docType: "class"
 
 
 
-TODO
-
-
+The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L12-L203">ionic/components/app/app.ts (line 12)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L12-L220">ionic/components/app/app.ts (line 12)</a>
 </p>
-<p><p>TODO</p>
+<p><p>The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>
 </p>
 ## Members
 

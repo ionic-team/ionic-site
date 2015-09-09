@@ -36,13 +36,20 @@ docType: "class"
 
 
 
+Allows you to add pull-to-refresh to an ionContent component.
 
+Place it as the first child of your ionContent or ionScroll element.
+
+When refreshing is complete, call `refresher.complete()` from your controller.
 
 <h1 class="class export">ionRefresher <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L6-L436">ionic/components/scroll/pull-to-refresh.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L6-L434">ionic/components/scroll/pull-to-refresh.ts (line 6)</a>
 </p>
-<p></p>
+<p><p>Allows you to add pull-to-refresh to an ionContent component.</p>
+<p>Place it as the first child of your ionContent or ionScroll element.</p>
+<p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
+</p>
 ## Members
 
 <div id="onInit"></div>

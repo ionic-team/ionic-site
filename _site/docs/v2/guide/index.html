@@ -8,7 +8,13 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-    <title>Ionic Book: Table of Contents - Ionic Framework</title>
+
+    
+      <!-- version  should not be indexed -->
+      <meta name="robots" content="noindex">
+    
+
+    <title>Ionic 2 Guide - Ionic 2 Developer Preview -  Ionic Framework</title>
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -30,7 +36,7 @@
 
   </head>
 
-  <body class="docs docs-page docs-guide">
+  <body class="docs docs-page docs-api">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -77,29 +83,54 @@
 
 
     <div class="header horizontal-gradient">
-  <div class="container">
-    <h3>Ionic Book: Table of Contents</h3>
-    <h4>A comprehensive overview and walk-through of building with Ionic</h4>
-  </div>
-  <div class="news">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 news-col">
-           
-        </div>
-        <div class="col-sm-4 search-col">
-          <div class="search-bar">
+      <div class="container">
+        <h3>Ionic 2 Guide</h3>
+        <h4>Ionic 2 Developer Preview</h4>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                <select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/v2/nightly/docs/v2/guide/index.md"
+   >
+    nightly 
+  </option>
+
+  <option
+   value="/docs/v2/docs/v2/guide/index.md"
+   >
+    2.0.0 (latest)
+  </option>
+
+  <option
+   value="/docs/v2/2.0.0-alpha.10/docs/v2/guide/index.md"
+   >
+    2.0.0-alpha.10 
+  </option>
+
+</select>
+
+
+
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              <div class="search-bar">
   <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
   <input type="search" id="search-input" value="Search">
 </div>
 
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div id="search-results" class="search-results" style="display:none">
+    <div id="search-results" class="search-results" style="display:none">
   <div class="container">
     <div class="search-section search-api">
       <h4>JavaScript</h4>
@@ -117,145 +148,175 @@
 </div>
 
 
-
     <div class="container content-container">
 
       <div class="row">
 
         <div class="col-md-2 col-sm-3 aside-menu">
 
-          <div class="docked-menu">
+          <div>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/overview/">Overview</a>
+                <a href="/docs/v2/">Intro</a>
               </li>
             </ul>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/components/">CSS</a>
+                <a href="/docs/v2/getting-started/">Getting Started</a>
               </li>
             </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/platform-customization/">Platform Customization</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/api/">JavaScript</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/cli/">CLI</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="http://learn.ionicframework.com/">Learn Ionic</a>
-              </li>
-            </ul>
-
-            <!-- Docs: Guide -->
             <ul class="nav left-menu active-menu">
               <li class="menu-title">
-                <a href="/docs/guide/">Guide</a>
-              </li>
-              <li><a href="/docs/guide/preface.html">1. All About Ionic</a></li>
-              <li><a href="/docs/guide/installation.html">2. Installation</a></li>
-              <li><a href="/docs/guide/starting.html">3. Starting your app</a></li>
-              <li><a href="/docs/guide/testing.html">4. Testing your app</a></li>
-              <li><a href="/docs/guide/building.html">5. Building out your app</a></li>
-              <li><a href="/docs/guide/publishing.html">6. Publishing your app</a></li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/ionic-cli-faq/">FAQ</a>
+                <a href="/docs/v2/guide/">Guide</a>
+                <ul>
+                  <li><a href="/docs/v2/guide/">Welcome</a></li>
+                  <li><a href="/docs/v2/guide/adding-pages/">Adding Pages</a></li>
+                  <li><a href="/docs/v2/guide/navigating/">Navigating</a></li>
+                </ul>
               </li>
             </ul>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/getting-help/">Getting Help</a>
+                <a href="/docs/v2/demos/">Demos</a>
               </li>
             </ul>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/concepts/">Ionic Concepts</a>
+                <a href="/docs/v2/ui/">UI</a>
               </li>
             </ul>
-          </div>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/networking/">Networking</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/native/">Native</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/what-is/">What Is?</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="}/docs/nightly/api/">
+                  API
+                </a>
+              </li>
+            </ul>
 
         </div>
+      </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <h1>The Ionic Book</h1>
+          <h1 class="title">Ionic 2 Guide</h1>
 
-<p class="subheading">
-  Welcome to the official Ionic Book, where we will walk through the process of getting Ionic and all its dependencies installed, creating a new project, designing and building the UI, adding logic, testing, deploying on the device, and publishing to the various app stores.
-</p>
+<p>Welcome to the Ionic 2 Guide. In this guide we will walk through the process of creating
+a new app based on Ionic 2, adding several views (or &quot;pages&quot;) to the app, working with some of the most important controls,
+and thoughts on getting your app deployed into the app stores.</p>
 
-<div class="row docs-home-row">
-  <div class="col-sm-4">
-    <a href="/docs/guide/preface.html">
-      <img src="/img/docs/symbols/guide/guide-what-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 1</h4>
-      <h3>What is Ionic?</h3>
-    </a>
-  </div>
+<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and
+<code>cd</code> into it in a terminal window, along with installing any dependencies we might need. Note: don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands
+might look in your terminal:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>ionic2-starter
+<span class="nv">$ </span>npm install
+<span class="nv">$ </span>gulp watch
+</code></pre></div>
+<p>Navigate to <code>http://localhost:8100</code> in your browser to see the app running!</p>
 
-  <div class="col-sm-4">
-    <a href="/docs/guide/installation.html">
-      <img src="/img/docs/symbols/guide/guide-installation-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 2</h4>
-      <h3>Installation</h3>
-    </a>
-  </div>
+<!--
+### Project Structure
 
-  <div class="col-sm-4">
-    <a href="/docs/guide/starting.html">
-      <img src="/img/docs/symbols/guide/guide-starting-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 3</h4>
-      <h3>Starting your app</h3>
-    </a>
-  </div>
-</div>
+Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created,
+we have a Cordova project structure where we can install native plugins and create platform-specific
+project files. The bulk of our application lives inside the `www` folder, and so
+we are going to spend most of our time there.
+-->
 
-<div class="row docs-home-row">
-  <div class="col-sm-4">
-    <a href="/docs/guide/testing.html">
-      <img src="/img/docs/symbols/guide/guide-testing-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 4</h4>
-      <h3>Testing your app</h3>
-    </a>
-  </div>
-  <div class="col-sm-4">
-    <a href="/docs/guide/building.html">
-      <img src="/img/docs/symbols/guide/guide-building-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 5</h4>
-      <h3>Building it out</h3>
-    </a>
-  </div>
+<h4>www/index.html</h4>
 
-  <div class="col-sm-4">
-    <a href="/docs/guide/publishing.html">
-      <img src="/img/docs/symbols/guide/guide-publishing-symbol@2x.png" width="170" height="140">
-      <h4>Chapter 6</h4>
-      <h3>Publishing</h3>
-    </a>
-  </div>
+<p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS
+includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
 
-  <div class="col-sm-4">
-  </div>
-</div>
+<p>To bootstrap and run your app, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this
+example we have:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
+</code></pre></div>
+<p>And the following scripts near the bottom:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;lib/bundle.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;_app/app.bundle.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="nx">System</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="s1">&#39;app/app&#39;</span><span class="p">)</span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<p><code>lib/bundle.js</code> is the bundled Angular, Angular dependencies, and Ionic code.</p>
+
+<p><code>_app/app.bundle.js</code> is the code for your app</p>
+
+<p>Finally, <code>System.import(&#39;app/app&#39;)</code> loads your app entrypoint code and makes it available to Ionic.</p>
+
+<h4>app/app.js</h4>
+
+<p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where
+most of the work for an Ionic 2 app will take place. When we run <code>gulp watch</code>, our code
+inside of <code>app/</code> is <em>transpiled</em> into the correct Javascript version that the browser understands
+(currently, ES5). That means we can work at a higher level using TypeScript and ES6+, but
+compile down to the older form of Javascript the browser needs.</p>
+
+<p>app.js is the entry point for our app.</p>
+
+<p>Near the top of the file, we should see this:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/app.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Every app has a <em>root component</em> that essentially controls the rest of the application. This
+is very similar to <code>ng-app</code> from Ionic and Angular 1. To specify a root component with Ionic,
+we use the <code>@App</code> decorator.</p>
+
+<p>In this component, we set the template to be the file at <code>_app/main.html</code>, let&#39;s take a look!</p>
+
+<h3>app/app.html</h3>
+
+<p>Notice that our app code referenced the template in <code>_app/app.html</code>. This is the final, compiled
+path of that template found at <code>www/_app/app.html</code>. As developers, we will only edit the version in <code>app/</code>.</p>
+
+<p>Here&#39;s the main template for the app in <code>app/app.html</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-aside</span> <span class="err">#</span><span class="na">aside</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Menu<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+  <span class="nt">&lt;ion-content&gt;</span>
+    <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#c of components&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPage</span><span class="err">(</span><span class="na">aside</span><span class="err">,</span> <span class="na">c</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
+        {{c.title}}
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-aside&gt;</span>
+
+<span class="nt">&lt;ion-nav</span> <span class="err">#</span><span class="na">content</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">firstPage</span><span class="err">&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
+</code></pre></div>
+<p>In this template, we set up an Aside to function as a side menu, and then a navigation controller
+to act as the main content area. The app will let the user select sections from the side
+menu which will change what they see in the content area. The user will be able to navigate
+inside the content menu if the section has other pages to navigate to.</p>
+
+<p>Let&#39;s go and see how to create more pages and perform basic navigation.</p>
 
         </div>
 

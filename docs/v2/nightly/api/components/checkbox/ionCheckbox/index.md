@@ -36,13 +36,17 @@ docType: "class"
 
 
 
+The checkbox is no different than the HTML checkbox input, except it's styled differently
 
+See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
 
 <h1 class="class export">ionCheckbox <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L13-L138">ionic/components/checkbox/checkbox.ts (line 13)</a>
 </p>
-<p></p>
+<p><p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently</p>
+<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
+</p>
 ## Members
 
 <div id="onInit"></div>

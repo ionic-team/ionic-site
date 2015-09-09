@@ -1,0 +1,35 @@
+
+<ion-view nav-title="Radio Buttons">
+
+  <ion-content>
+
+    <form (^submit)="doSubmit($event)" [control-group]="form">
+      <div class="list-header">
+        Radio Group
+      </div>
+
+      <ion-radio-group control="preferredApple">
+
+        <ion-radio value="mac">
+          McIntosh
+        </ion-radio>
+
+        <ion-radio value="granny">
+          Granny Smith
+        </ion-radio>
+
+        <ion-radio value="gala">
+          Gala
+        </ion-radio>
+
+        <ion-radio value="fuji">
+          Fuji
+        </ion-radio>
+
+      </ion-radio-group>
+
+    </form>
+
+    Current apple: <b>{{form.controls.preferredApple.value}}</b>
+  </ion-content>
+</ion-view>

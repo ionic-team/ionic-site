@@ -127,7 +127,7 @@
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/overview/">Overview</a>
+                <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
 
@@ -204,7 +204,7 @@
 
 <p>Let&#39;s walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a Cordova project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the <code>www</code> folder, and so we are going to spend most of our time there.</p>
 
-<h4>www/index.html</h4>
+<h3>www/index.html</h3>
 
 <p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS
 includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
@@ -213,9 +213,9 @@ includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spe
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
 </code></pre></div>
 <p>And the following scripts near the bottom:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;lib/bundle.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;_app/app.bundle.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="nx">System</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="s1">&#39;app/app&#39;</span><span class="p">)</span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;_app/app.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="nx">System</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="s1">&#39;app/app&#39;</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <p><code>lib/bundle.js</code> is the bundled Angular, Angular dependencies, and Ionic code.</p>
 
@@ -223,7 +223,7 @@ includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spe
 
 <p>Finally, <code>System.import(&#39;app/app&#39;)</code> loads your app entrypoint code and makes it available to Ionic.</p>
 
-<h4>app/app.js</h4>
+<h3>app/app.js</h3>
 
 <p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where
 most of the work for an Ionic 2 app will take place. When we run <code>gulp watch</code>, our code
@@ -248,7 +248,7 @@ we use the <code>@App</code> decorator.</p>
 
 <p>In this component, we set the template to be the file at <code>_app/main.html</code>, let&#39;s take a look!</p>
 
-<h4>app/app.html</h4>
+<h3>app/app.html</h3>
 
 <p>Notice that our app code referenced the template in <code>_app/app.html</code>. This is the final, compiled
 path of that template found at <code>www/_app/app.html</code>. As developers, we will only edit the version in <code>app/</code>.</p>

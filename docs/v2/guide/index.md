@@ -32,8 +32,7 @@ Next, open up `http://localhost:8100/` in your browser to get a glimpse of your 
 
 Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a Cordova project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the `www` folder, and so we are going to spend most of our time there.
 
-
-#### www/index.html
+### www/index.html
 
 `www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS
 includes and `bootstrap`, or start running, our app. We won't spend much of our time in this file.
@@ -46,7 +45,7 @@ To run your app, Ionic looks for the `<ionic-app>` tag in your HTML. In this exa
 
 And the following scripts near the bottom:
 
-```javascript
+```html
 <script src="lib/bundle.js"></script>
 <script src="_app/app.bundle.js"></script>
 <script>System && System.import && System.import('app/app')</script>
@@ -59,7 +58,7 @@ And the following scripts near the bottom:
 Finally, `System.import('app/app')` loads your app entrypoint code and makes it available to Ionic.
 
 
-#### app/app.js
+### app/app.js
 
 Inside of the `app` directory we find our pre-compiled Javascript code. This is where
 most of the work for an Ionic 2 app will take place. When we run `gulp watch`, our code
@@ -87,7 +86,7 @@ we use the `@App` decorator.
 
 In this component, we set the template to be the file at `_app/main.html`, let's take a look!
 
-#### app/app.html
+### app/app.html
 
 Notice that our app code referenced the template in `_app/app.html`. This is the final, compiled
 path of that template found at `www/_app/app.html`. As developers, we will only edit the version in `app/`.

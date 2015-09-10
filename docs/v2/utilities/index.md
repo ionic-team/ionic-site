@@ -1,5 +1,5 @@
 ---
-layout: v2/docs_networking
+layout: v2/docs_utilities
 title: Ionic 2 | Networking
 header_title: Ionic 2 - Networking
 header_sub_title: Ionic 2 Developer Preview

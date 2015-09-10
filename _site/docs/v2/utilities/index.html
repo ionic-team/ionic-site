@@ -9,7 +9,12 @@
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
 
-    <title>Ionic 2 Developer Preview -  Ionic Framework</title>
+    
+      <!-- version  should not be indexed -->
+      <meta name="robots" content="noindex">
+    
+
+    <title>Ionic 2 | Networking - Ionic 2 Developer Preview -  Ionic Framework</title>
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -31,7 +36,7 @@
 
   </head>
 
-  <body class="docs docs-page docs-getting-started">
+  <body class="docs docs-page docs-api">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -75,30 +80,51 @@
     </div>
   </div>
 </nav>
- <div class="header horizontal-gradient">
-  <div class="container">
-    <h3>Ionic 2 Developer Preview</h3>
-    <h4>How to get the most out of Ionic.</h4>
-  </div>
-  <div class="news">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 news-col">
-          Check out <a href="/docs/v2/getting-started/">Getting Started</a>, which covers all the basics of setting up.
-        </div>
-        <div class="col-sm-4 search-col">
-          <div class="search-bar">
+
+
+    <div class="header horizontal-gradient">
+      <div class="container">
+        <h3>Ionic 2 - Networking</h3>
+        <h4>Ionic 2 Developer Preview</h4>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                <select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/v2/nightly/docs/v2/utilities/index.md"
+   >
+    nightly 
+  </option>
+
+  <option
+   value="/docs/v2/docs/v2/utilities/index.md"
+   >
+    2.0.0 (latest)
+  </option>
+
+</select>
+
+
+
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              <div class="search-bar">
   <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
   <input type="search" id="search-input" value="Search">
 </div>
 
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div id="search-results" class="search-results" style="display:none">
+    <div id="search-results" class="search-results" style="display:none">
   <div class="container">
     <div class="search-section search-api">
       <h4>JavaScript</h4>
@@ -116,7 +142,6 @@
 </div>
 
 
-
     <div class="container content-container">
 
       <div class="row">
@@ -125,75 +150,100 @@
 
           <div>
 
+          <ul class="nav left-menu active-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/">Overview</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu active-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/overview/">Overview</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/guide/">Guide</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/guide/">Guide</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/ui/">UI</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/theming/">Theming</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/theming/">Theming</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/api/">
+                API
+              </a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/api/">
-                  API
-                </a>
-              </li>
-            </ul>
+          <ul class="nav left-menu active-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/utilities/">Utilities</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/utilities/">Utilities</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/native/">Native</a>
+            </li>
+          </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/native/">Native</a>
-              </li>
-            </ul>
-
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/what-is/">Glossary</a>
-              </li>
-            </ul>
+          <ul class="nav left-menu">
+            <li class="menu-title">
+              <a href="/docs/v2/what-is/">Glossary</a>
+            </li>
+          </ul>
 
         </div>
       </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <h1 class="title">Ionic 2 Alpha Docs</h1>
+          <h1 class="title">Networking</h1>
 
-<p>Welcome to the preview version of Ionic 2, the next generation of the Ionic SDK based on Angular 2.</p>
+<p>Sending HTTP requests to a URL is easy with Ionic&#39;s <code>Http</code> service.</p>
 
-<p>Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years of building web-based mobile development technology and helping developers build over <em>800,000</em> mobile apps with the SDK. After more than three months in development, Ionic 2 is now ready to be used by an early group of testers.</p>
+<div class="note">
+  <button primary small outline>Note: what happened to $http?</button>
+  <div class="info">
+    One of the changes in Angular 2's strategy is to do <i>less</i> when it comes to
+    providing wrappers for browser utilities. Since the <code>fetch()</code> API is more mature
+    and has usable polyfills, Angular 2 no longer provides a convenient <code>$http</code>-style
+    service.
+    <p />
+    We've provided one to make the <code>fetch()</code> API easier to use, especially for the
+    use case of sending and receiving JSON data.
+  </div>
+</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Http</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<p>With Angular 2, Ionic feels much more like a native mobile app. Performance has improved (dramatically, in some cases), and certain APIs better represent the architecture and extensibility of their native counterparts.</p>
+<span class="nx">Http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://swapi.co/api/people/1&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Got Luke Skywalker</span>
+<span class="p">});</span>
 
-<p>As you test and try out Ionic, we ask that you submit issues to the <a href="https://github.com/driftyco/ionic2">Ionic 2</a> repo. If you don&#39;t have access to the repo, please <a href="mailto:max@ionic.io">let us know</a> and we&#39;ll get you in. We are keeping it invite-only for the short term so we can solidify the foundation before adding the full scrutiny of the broader Ionic dev community.</p>
+<span class="nx">Http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;tim&#39;</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Response</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Err</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>To send a <code>PUT/PATCH/DELETE</code> method, substitute <code>Http.post()</code> with the lower-cased method name.</p>
 
-<p>With that said, let&#39;s get started!</p>
-
-<p><a href="/docs/v2/guide/" button primary>Getting Started</a></p>
-
+<p>To modify the request, pass a third object to <code>post/put/patch/delete</code> or a second object to <code>get</code> which follows
+the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">Request</a> object from the fetch API:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Http</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">reason</span><span class="o">:</span> <span class="s1">&#39;Because I can&#39;</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;cors&#39;</span>
+<span class="p">})</span>
+</code></pre></div>
         </div>
 
       </div>

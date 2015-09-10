@@ -21,7 +21,7 @@ When starting Ionic apps using the standard starter templates (either manually o
 The theme is configured in the `app/scss/theme.scss` file. Let's open that up:
 
 ```scss
-$theme: (
+$colors: (
   // primary: #387ef5,
 )
 ```

@@ -9,11 +9,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 Action Menus display a modal set of options to confirm or cancel an action.
 
-<div class="demo">
-  <iframe src="/dist/examples/action-menu/basic/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-menu/test/basic">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
-
+{% include demo.html demo_url="/docs/v2/dist/demos/action-menu/" demo_name="action-menu" %}
 
 ```javascript
 ActionMenu.open({

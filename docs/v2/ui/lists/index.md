@@ -10,11 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 Lists are used to display rows of information, such as a contact list,
 playlist, or menu. Or maybe something crazy we don't even know exists yet!
 
-
-<div class="demo">
-  <iframe src="/dist/examples/list/basic/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/test/basic">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
+{% include demo.html demo_url="/docs/v2/dist/demos/list/" demo_name="list" %}
 
 
 ```html

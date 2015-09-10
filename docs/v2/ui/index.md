@@ -7,10 +7,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Navigation</h1>
 
-<div class="demo">
-  <iframe src="/dist/examples/nav/basic/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/test/basic">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
+{% include demo.html demo_url="/docs/v2/dist/demos/navigation/" demo_name="navigation" %}
 
 Navigation in Ionic 2 is much more "native like" and is heavily modeled off of the navigation
 features in iOS.

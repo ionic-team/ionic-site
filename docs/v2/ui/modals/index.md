@@ -13,7 +13,7 @@ message composition, and option selection.
 First, we need to create the class that will control our modal. Modals must extend
 from the `Modal` Ionic class:
 
-{% include demo.html demo_url="/dist/examples/modal/basic/" demo_src="modal/test/basic" %}
+{% include demo.html demo_url="/docs/v2/dist/demos/modal/" demo_name="modal" %}
 
 ```javascript
 @IonicComponent(Modal)

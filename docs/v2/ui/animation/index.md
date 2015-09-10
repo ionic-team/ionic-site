@@ -13,11 +13,7 @@ Unlike CSS animations, Ionic animations can be easily triggered based on events
 and support interactive "scrubbing": the ability to manually step through an animation
 such as during a drag gesture.
 
-<div class="demo">
-  <iframe src="/dist/examples/app/animations/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/test/animations">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
-
+{% include demo.html demo_url="/docs/v2/dist/demos/animations/" demo_name="animations" %}
 
 ```javascript
 

@@ -9,10 +9,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 Slides make it easy to create galleries, tutorials, and page-based layouts.
 
-<div class="demo">
-  <iframe src="/dist/examples/app/snapcat/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/test/snapcat">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
+{% include demo.html demo_url="/docs/v2/dist/demos/slides/" demo_name="slides" %}
 
 ```html
 <ion-slides>

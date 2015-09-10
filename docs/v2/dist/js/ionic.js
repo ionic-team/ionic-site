@@ -1223,6 +1223,117 @@ System.register('ionic/animations/scroll-to', ['../util/dom'], function (_export
         }
     };
 });
+System.register('ionic/components/ion', ['ionic/util'], function (_export) {
+    /**
+     * Base class for all Ionic components. Exposes some common functionality
+     * that all Ionic components need, such as accessing underlying native elements and
+     * sending/receiving app-level events.
+     */
+    'use strict';
+
+    var util, Ion;
+
+    var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            Ion = (function () {
+                function Ion(elementRef, config) {
+                    _classCallCheck(this, Ion);
+
+                    this.elementRef = elementRef;
+                    this.config = config;
+                }
+
+                _createClass(Ion, [{
+                    key: 'onInit',
+                    value: function onInit() {
+                        var cls = this.constructor;
+                        if (cls.defaultProperties && this.config) {
+                            for (var prop in cls.defaultProperties) {
+                                // Priority:
+                                // ---------
+                                // 1) Value set from within constructor
+                                // 2) Value set from the host element's attribute
+                                // 3) Value set by the users global config
+                                // 4) Value set by the default mode/platform config
+                                // 5) Value set from the component's default
+                                if (this[prop]) {
+                                    // this property has already been set on the instance
+                                    // could be from the user setting the element's attribute
+                                    // or from the user setting it within the constructor
+                                    continue;
+                                }
+                                // get the property values from a global user/platform config
+                                var configVal = this.config.setting(prop);
+                                if (configVal) {
+                                    this[prop] = configVal;
+                                    continue;
+                                }
+                                // wasn't set yet, so go with property's default value
+                                this[prop] = cls.defaultProperties[prop];
+                            }
+                        }
+                    }
+                }, {
+                    key: 'getDelegate',
+                    value: function getDelegate(delegateName) {
+                        var cls = this.constructor;
+                        if (cls.delegates) {
+                            var cases = cls.delegates[delegateName] || [];
+                            for (var i = 0; i < cases.length; i++) {
+                                var delegateCase = cases[i];
+                                if (util.isArray(delegateCase)) {
+                                    var _delegateCase = _slicedToArray(delegateCase, 2);
+
+                                    var check = _delegateCase[0];
+                                    var DelegateConstructor = _delegateCase[1];
+
+                                    if (check(this)) {
+                                        return new DelegateConstructor(this);
+                                    }
+                                } else {
+                                    return new delegateCase(this);
+                                }
+                            }
+                        }
+                    }
+                }, {
+                    key: 'getElementRef',
+                    value: function getElementRef() {
+                        return this.elementRef;
+                    }
+                }, {
+                    key: 'getNativeElement',
+                    value: function getNativeElement() {
+                        return this.elementRef.nativeElement;
+                    }
+                }, {
+                    key: 'width',
+                    value: function width() {
+                        return this.getNativeElement().offsetWidth;
+                    }
+                }, {
+                    key: 'height',
+                    value: function height() {
+                        return this.getNativeElement().offsetHeight;
+                    }
+                }]);
+
+                return Ion;
+            })();
+
+            _export('Ion', Ion);
+        }
+    };
+});
 System.register('ionic/config/annotations', ['angular2/angular2', 'ionic/util', '../components/app/app', '../ionic'], function (_export) {
     /**
      * The core Ionic directives.  Automatically available in every IonicView
@@ -1712,117 +1823,6 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 type: 'overlay',
                 mdRipple: true
             });
-        }
-    };
-});
-System.register('ionic/components/ion', ['ionic/util'], function (_export) {
-    /**
-     * Base class for all Ionic components. Exposes some common functionality
-     * that all Ionic components need, such as accessing underlying native elements and
-     * sending/receiving app-level events.
-     */
-    'use strict';
-
-    var util, Ion;
-
-    var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            Ion = (function () {
-                function Ion(elementRef, config) {
-                    _classCallCheck(this, Ion);
-
-                    this.elementRef = elementRef;
-                    this.config = config;
-                }
-
-                _createClass(Ion, [{
-                    key: 'onInit',
-                    value: function onInit() {
-                        var cls = this.constructor;
-                        if (cls.defaultProperties && this.config) {
-                            for (var prop in cls.defaultProperties) {
-                                // Priority:
-                                // ---------
-                                // 1) Value set from within constructor
-                                // 2) Value set from the host element's attribute
-                                // 3) Value set by the users global config
-                                // 4) Value set by the default mode/platform config
-                                // 5) Value set from the component's default
-                                if (this[prop]) {
-                                    // this property has already been set on the instance
-                                    // could be from the user setting the element's attribute
-                                    // or from the user setting it within the constructor
-                                    continue;
-                                }
-                                // get the property values from a global user/platform config
-                                var configVal = this.config.setting(prop);
-                                if (configVal) {
-                                    this[prop] = configVal;
-                                    continue;
-                                }
-                                // wasn't set yet, so go with property's default value
-                                this[prop] = cls.defaultProperties[prop];
-                            }
-                        }
-                    }
-                }, {
-                    key: 'getDelegate',
-                    value: function getDelegate(delegateName) {
-                        var cls = this.constructor;
-                        if (cls.delegates) {
-                            var cases = cls.delegates[delegateName] || [];
-                            for (var i = 0; i < cases.length; i++) {
-                                var delegateCase = cases[i];
-                                if (util.isArray(delegateCase)) {
-                                    var _delegateCase = _slicedToArray(delegateCase, 2);
-
-                                    var check = _delegateCase[0];
-                                    var DelegateConstructor = _delegateCase[1];
-
-                                    if (check(this)) {
-                                        return new DelegateConstructor(this);
-                                    }
-                                } else {
-                                    return new delegateCase(this);
-                                }
-                            }
-                        }
-                    }
-                }, {
-                    key: 'getElementRef',
-                    value: function getElementRef() {
-                        return this.elementRef;
-                    }
-                }, {
-                    key: 'getNativeElement',
-                    value: function getNativeElement() {
-                        return this.elementRef.nativeElement;
-                    }
-                }, {
-                    key: 'width',
-                    value: function width() {
-                        return this.getNativeElement().offsetWidth;
-                    }
-                }, {
-                    key: 'height',
-                    value: function height() {
-                        return this.getNativeElement().offsetHeight;
-                    }
-                }]);
-
-                return Ion;
-            })();
-
-            _export('Ion', Ion);
         }
     };
 });
@@ -4348,105 +4348,6 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
-System.register('ionic/native/plugin', [], function (_export) {
-    'use strict';
-
-    var NativePluginDecorator;
-
-    _export('NativePlugin', NativePlugin);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function NativePlugin(config) {
-        return function (cls) {
-            var annotations = Reflect.getMetadata('annotations', cls) || [];
-            annotations.push(new NativePluginDecorator(cls, config));
-            Reflect.defineMetadata('annotations', annotations, cls);
-            return cls;
-        };
-    }
-
-    return {
-        setters: [],
-        execute: function () {
-            NativePluginDecorator = function NativePluginDecorator(cls, config) {
-                var _this = this;
-
-                _classCallCheck(this, NativePluginDecorator);
-
-                this.cls = cls;
-                this.config = config;
-                cls.ifPlugin = function (check, cb) {
-                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-
-                    // Convert to boolean the plugin param
-                    var exists = !!check;
-                    if (typeof check === 'function') {
-                        exists = check();
-                    }
-                    if (exists) {
-                        return cb();
-                    }
-                    cls.pluginWarn();
-                    return typeof returnType === 'function' ? returnType() : returnType;
-                };
-                cls.pluginWarn = function () {
-                    var platformString = [];
-                    for (var k in _this.config.platforms) {
-                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
-                    }
-                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-                };
-            };
-
-            _export('NativePluginDecorator', NativePluginDecorator);
-        }
-    };
-});
-System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_plugin) {
-      for (var _key in _plugin) {
-        if (_key !== 'default') _export(_key, _plugin[_key]);
-      }
-    }, function (_batteryBattery) {
-      for (var _key2 in _batteryBattery) {
-        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
-      }
-    }, function (_cameraCamera) {
-      for (var _key3 in _cameraCamera) {
-        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
-      }
-    }, function (_contactsContacts) {
-      for (var _key4 in _contactsContacts) {
-        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
-      }
-    }, function (_deviceDevice) {
-      for (var _key5 in _deviceDevice) {
-        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
-      }
-    }, function (_deviceMotionDeviceMotion) {
-      for (var _key6 in _deviceMotionDeviceMotion) {
-        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
-      }
-    }, function (_deviceOrientationDeviceOrientation) {
-      for (var _key7 in _deviceOrientationDeviceOrientation) {
-        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
-      }
-    }, function (_geolocationGeolocation) {
-      for (var _key8 in _geolocationGeolocation) {
-        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
-      }
-    }, function (_vibrationVibration) {
-      for (var _key9 in _vibrationVibration) {
-        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
-      }
-    }],
-    execute: function () {}
-  };
-});
 System.register('ionic/net/http', ['ionic/util'], function (_export) {
     //TODO(mlynch): surely, there must be another way, sir?
     'use strict';
@@ -4693,6 +4594,105 @@ System.register('ionic/net/http', ['ionic/util'], function (_export) {
             _export('Http', Http);
         }
     };
+});
+System.register('ionic/native/plugin', [], function (_export) {
+    'use strict';
+
+    var NativePluginDecorator;
+
+    _export('NativePlugin', NativePlugin);
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function NativePlugin(config) {
+        return function (cls) {
+            var annotations = Reflect.getMetadata('annotations', cls) || [];
+            annotations.push(new NativePluginDecorator(cls, config));
+            Reflect.defineMetadata('annotations', annotations, cls);
+            return cls;
+        };
+    }
+
+    return {
+        setters: [],
+        execute: function () {
+            NativePluginDecorator = function NativePluginDecorator(cls, config) {
+                var _this = this;
+
+                _classCallCheck(this, NativePluginDecorator);
+
+                this.cls = cls;
+                this.config = config;
+                cls.ifPlugin = function (check, cb) {
+                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+                    // Convert to boolean the plugin param
+                    var exists = !!check;
+                    if (typeof check === 'function') {
+                        exists = check();
+                    }
+                    if (exists) {
+                        return cb();
+                    }
+                    cls.pluginWarn();
+                    return typeof returnType === 'function' ? returnType() : returnType;
+                };
+                cls.pluginWarn = function () {
+                    var platformString = [];
+                    for (var k in _this.config.platforms) {
+                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
+                    }
+                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
+                };
+            };
+
+            _export('NativePluginDecorator', NativePluginDecorator);
+        }
+    };
+});
+System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_plugin) {
+      for (var _key in _plugin) {
+        if (_key !== 'default') _export(_key, _plugin[_key]);
+      }
+    }, function (_batteryBattery) {
+      for (var _key2 in _batteryBattery) {
+        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
+      }
+    }, function (_cameraCamera) {
+      for (var _key3 in _cameraCamera) {
+        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
+      }
+    }, function (_contactsContacts) {
+      for (var _key4 in _contactsContacts) {
+        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
+      }
+    }, function (_deviceDevice) {
+      for (var _key5 in _deviceDevice) {
+        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
+      }
+    }, function (_deviceMotionDeviceMotion) {
+      for (var _key6 in _deviceMotionDeviceMotion) {
+        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
+      }
+    }, function (_deviceOrientationDeviceOrientation) {
+      for (var _key7 in _deviceOrientationDeviceOrientation) {
+        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
+      }
+    }, function (_geolocationGeolocation) {
+      for (var _key8 in _geolocationGeolocation) {
+        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
+      }
+    }, function (_vibrationVibration) {
+      for (var _key9 in _vibrationVibration) {
+        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
+      }
+    }],
+    execute: function () {}
+  };
 });
 System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
     /**
@@ -11679,214 +11679,6 @@ System.register("ionic/components/nav-bar/nav-bar", ["angular2/angular2", "../to
         }
     };
 });
-System.register('ionic/components/overlay/overlay', ['angular2/angular2', 'angular2/src/core/compiler/element_injector', '../../animations/animation', '../../util/click-block', 'ionic/util'], function (_export) {
-    'use strict';
-
-    var Component, DirectiveBinding, Animation, ClickBlock, util, Overlay, OverlayRef, ROOT_Z_INDEX;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-        }, function (_angular2SrcCoreCompilerElement_injector) {
-            DirectiveBinding = _angular2SrcCoreCompilerElement_injector.DirectiveBinding;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_utilClickBlock) {
-            ClickBlock = _utilClickBlock.ClickBlock;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            Overlay = (function () {
-                function Overlay(app, config) {
-                    _classCallCheck(this, Overlay);
-
-                    this.app = app;
-                    this.config = config;
-                    this.mode = config.setting('mode');
-                }
-
-                _createClass(Overlay, [{
-                    key: 'create',
-                    value: function create(overlayType, componentType) {
-                        var _this = this;
-
-                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-                        var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
-
-                        return new Promise(function (resolve, reject) {
-                            var app = _this.app;
-                            var annotation = new Component({
-                                selector: 'ion-' + overlayType,
-                                host: {
-                                    '[style.z-index]': 'zIndex',
-                                    'mode': _this.mode,
-                                    'class': overlayType
-                                }
-                            });
-                            var overlayComponentType = DirectiveBinding.createFromType(componentType, annotation);
-                            // create a unique token that works as a cache key
-                            overlayComponentType.token = overlayType + componentType.name;
-                            app.appendComponent(overlayComponentType).then(function (ref) {
-                                var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
-                                overlayRef._open(opts).then(function () {
-                                    resolve(overlayRef);
-                                });
-                            })['catch'](function (err) {
-                                console.error('Overlay appendComponent:', err);
-                                reject(err);
-                            });
-                        })['catch'](function (err) {
-                            console.error('Overlay create:', err);
-                        });
-                    }
-                }, {
-                    key: 'getByType',
-                    value: function getByType(overlayType) {
-                        if (this.app) {
-                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-                                if (overlayType === this.app.overlays[i]._type) {
-                                    return this.app.overlays[i];
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: 'getByHandle',
-                    value: function getByHandle(handle, overlayType) {
-                        if (this.app) {
-                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-                                if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
-                                    return this.app.overlays[i];
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }]);
-
-                return Overlay;
-            })();
-
-            _export('Overlay', Overlay);
-
-            OverlayRef = (function () {
-                function OverlayRef(app, overlayType, opts, ref, context) {
-                    var _this2 = this;
-
-                    _classCallCheck(this, OverlayRef);
-
-                    this.app = app;
-                    var overlayInstance = ref && ref.instance;
-                    if (!overlayInstance) return;
-                    if (context) {
-                        util.extend(ref.instance, context);
-                    }
-                    this._instance = overlayInstance;
-                    overlayInstance.viewLoaded && overlayInstance.viewLoaded();
-                    this.zIndex = ROOT_Z_INDEX;
-                    for (var i = 0; i < app.overlays.length; i++) {
-                        if (app.overlays[i].zIndex >= this.zIndex) {
-                            this.zIndex = app.overlays[i].zIndex + 1;
-                        }
-                    }
-                    overlayInstance.zIndex = this.zIndex;
-                    overlayInstance.overlayRef = this;
-                    overlayInstance.close = function (instanceOpts) {
-                        _this2.close(instanceOpts);
-                    };
-                    this._elementRef = ref.location;
-                    this._type = overlayType;
-                    this._opts = opts;
-                    this._handle = opts.handle || this.zIndex;
-                    this._dispose = function () {
-                        _this2._instance = null;
-                        ref.dispose && ref.dispose();
-                        util.array.remove(app.overlays, _this2);
-                    };
-                    app.overlays.push(this);
-                }
-
-                _createClass(OverlayRef, [{
-                    key: 'getElementRef',
-                    value: function getElementRef() {
-                        return this._elementRef;
-                    }
-                }, {
-                    key: '_open',
-                    value: function _open() {
-                        var _this3 = this;
-
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        return new Promise(function (resolve) {
-                            var instance = _this3._instance || {};
-                            instance.viewWillEnter && instance.viewWillEnter();
-                            var animationName = opts && opts.animation || _this3._opts.enterAnimation;
-                            var animation = Animation.create(_this3._elementRef.nativeElement, animationName);
-                            animation.before.addClass('show-overlay');
-                            ClickBlock(true, animation.duration() + 200);
-                            _this3.app.setTransitioning(true);
-                            _this3.app.zoneRunOutside(function () {
-                                animation.play().then(function () {
-                                    _this3.app.zoneRun(function () {
-                                        ClickBlock(false);
-                                        _this3.app.setTransitioning(false);
-                                        animation.dispose();
-                                        instance.viewDidEnter && instance.viewDidEnter();
-                                        resolve();
-                                    });
-                                });
-                            });
-                        })['catch'](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }, {
-                    key: 'close',
-                    value: function close() {
-                        var _this4 = this;
-
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        return new Promise(function (resolve) {
-                            var instance = _this4._instance || {};
-                            instance.viewWillLeave && instance.viewWillLeave();
-                            instance.viewWillUnload && instance.viewWillUnload();
-                            var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
-                            var animation = Animation.create(_this4._elementRef.nativeElement, animationName);
-                            animation.after.removeClass('show-overlay');
-                            ClickBlock(true, animation.duration() + 200);
-                            _this4.app.setTransitioning(true);
-                            animation.play().then(function () {
-                                instance.viewDidLeave && instance.viewDidLeave();
-                                instance.viewDidUnload && instance.viewDidUnload();
-                                _this4._dispose();
-                                ClickBlock(false);
-                                _this4.app.setTransitioning(false);
-                                animation.dispose();
-                                resolve();
-                            });
-                        })['catch'](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }]);
-
-                return OverlayRef;
-            })();
-
-            _export('OverlayRef', OverlayRef);
-
-            ROOT_Z_INDEX = 1000;
-        }
-    };
-});
 System.register("ionic/components/popup/popup", ["angular2/angular2", "../overlay/overlay", "../../animations/animation", "ionic/util"], function (_export) {
     /**
      * @name ionPopup
@@ -15359,6 +15151,214 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../view/vie
                     '(^click)': 'onClick($event)'
                 }
             }), __param(0, Host()), __metadata('design:paramtypes', [Tabs])], TabButton);
+        }
+    };
+});
+System.register('ionic/components/overlay/overlay', ['angular2/angular2', 'angular2/src/core/compiler/element_injector', '../../animations/animation', '../../util/click-block', 'ionic/util'], function (_export) {
+    'use strict';
+
+    var Component, DirectiveBinding, Animation, ClickBlock, util, Overlay, OverlayRef, ROOT_Z_INDEX;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+        }, function (_angular2SrcCoreCompilerElement_injector) {
+            DirectiveBinding = _angular2SrcCoreCompilerElement_injector.DirectiveBinding;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }, function (_utilClickBlock) {
+            ClickBlock = _utilClickBlock.ClickBlock;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            Overlay = (function () {
+                function Overlay(app, config) {
+                    _classCallCheck(this, Overlay);
+
+                    this.app = app;
+                    this.config = config;
+                    this.mode = config.setting('mode');
+                }
+
+                _createClass(Overlay, [{
+                    key: 'create',
+                    value: function create(overlayType, componentType) {
+                        var _this = this;
+
+                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+                        var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+
+                        return new Promise(function (resolve, reject) {
+                            var app = _this.app;
+                            var annotation = new Component({
+                                selector: 'ion-' + overlayType,
+                                host: {
+                                    '[style.z-index]': 'zIndex',
+                                    'mode': _this.mode,
+                                    'class': overlayType
+                                }
+                            });
+                            var overlayComponentType = DirectiveBinding.createFromType(componentType, annotation);
+                            // create a unique token that works as a cache key
+                            overlayComponentType.token = overlayType + componentType.name;
+                            app.appendComponent(overlayComponentType).then(function (ref) {
+                                var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
+                                overlayRef._open(opts).then(function () {
+                                    resolve(overlayRef);
+                                });
+                            })['catch'](function (err) {
+                                console.error('Overlay appendComponent:', err);
+                                reject(err);
+                            });
+                        })['catch'](function (err) {
+                            console.error('Overlay create:', err);
+                        });
+                    }
+                }, {
+                    key: 'getByType',
+                    value: function getByType(overlayType) {
+                        if (this.app) {
+                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+                                if (overlayType === this.app.overlays[i]._type) {
+                                    return this.app.overlays[i];
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: 'getByHandle',
+                    value: function getByHandle(handle, overlayType) {
+                        if (this.app) {
+                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+                                if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
+                                    return this.app.overlays[i];
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }]);
+
+                return Overlay;
+            })();
+
+            _export('Overlay', Overlay);
+
+            OverlayRef = (function () {
+                function OverlayRef(app, overlayType, opts, ref, context) {
+                    var _this2 = this;
+
+                    _classCallCheck(this, OverlayRef);
+
+                    this.app = app;
+                    var overlayInstance = ref && ref.instance;
+                    if (!overlayInstance) return;
+                    if (context) {
+                        util.extend(ref.instance, context);
+                    }
+                    this._instance = overlayInstance;
+                    overlayInstance.viewLoaded && overlayInstance.viewLoaded();
+                    this.zIndex = ROOT_Z_INDEX;
+                    for (var i = 0; i < app.overlays.length; i++) {
+                        if (app.overlays[i].zIndex >= this.zIndex) {
+                            this.zIndex = app.overlays[i].zIndex + 1;
+                        }
+                    }
+                    overlayInstance.zIndex = this.zIndex;
+                    overlayInstance.overlayRef = this;
+                    overlayInstance.close = function (instanceOpts) {
+                        _this2.close(instanceOpts);
+                    };
+                    this._elementRef = ref.location;
+                    this._type = overlayType;
+                    this._opts = opts;
+                    this._handle = opts.handle || this.zIndex;
+                    this._dispose = function () {
+                        _this2._instance = null;
+                        ref.dispose && ref.dispose();
+                        util.array.remove(app.overlays, _this2);
+                    };
+                    app.overlays.push(this);
+                }
+
+                _createClass(OverlayRef, [{
+                    key: 'getElementRef',
+                    value: function getElementRef() {
+                        return this._elementRef;
+                    }
+                }, {
+                    key: '_open',
+                    value: function _open() {
+                        var _this3 = this;
+
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        return new Promise(function (resolve) {
+                            var instance = _this3._instance || {};
+                            instance.viewWillEnter && instance.viewWillEnter();
+                            var animationName = opts && opts.animation || _this3._opts.enterAnimation;
+                            var animation = Animation.create(_this3._elementRef.nativeElement, animationName);
+                            animation.before.addClass('show-overlay');
+                            ClickBlock(true, animation.duration() + 200);
+                            _this3.app.setTransitioning(true);
+                            _this3.app.zoneRunOutside(function () {
+                                animation.play().then(function () {
+                                    _this3.app.zoneRun(function () {
+                                        ClickBlock(false);
+                                        _this3.app.setTransitioning(false);
+                                        animation.dispose();
+                                        instance.viewDidEnter && instance.viewDidEnter();
+                                        resolve();
+                                    });
+                                });
+                            });
+                        })['catch'](function (err) {
+                            console.error(err);
+                        });
+                    }
+                }, {
+                    key: 'close',
+                    value: function close() {
+                        var _this4 = this;
+
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        return new Promise(function (resolve) {
+                            var instance = _this4._instance || {};
+                            instance.viewWillLeave && instance.viewWillLeave();
+                            instance.viewWillUnload && instance.viewWillUnload();
+                            var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
+                            var animation = Animation.create(_this4._elementRef.nativeElement, animationName);
+                            animation.after.removeClass('show-overlay');
+                            ClickBlock(true, animation.duration() + 200);
+                            _this4.app.setTransitioning(true);
+                            animation.play().then(function () {
+                                instance.viewDidLeave && instance.viewDidLeave();
+                                instance.viewDidUnload && instance.viewDidUnload();
+                                _this4._dispose();
+                                ClickBlock(false);
+                                _this4.app.setTransitioning(false);
+                                animation.dispose();
+                                resolve();
+                            });
+                        })['catch'](function (err) {
+                            console.error(err);
+                        });
+                    }
+                }]);
+
+                return OverlayRef;
+            })();
+
+            _export('OverlayRef', OverlayRef);
+
+            ROOT_Z_INDEX = 1000;
         }
     };
 });

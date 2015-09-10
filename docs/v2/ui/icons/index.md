@@ -12,14 +12,16 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Icons</h1>
 
+{% include demo.html demo_url="/docs/v2/dist/demos/icons/" demo_name="icons" %}
+
 Ionic 2 comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
 
-To use an icon, just find the Icon's CSS class, and write
+To use an icon, just add the Icon's CSS class to your element:
 
 ```html
-<i class="icon ion-ios-heart"></i>
+<icon heart></icon>
 ```
 
-Explore the <a href="http://ionicons.com/">full icon set <i class="icon ion-ios-arrow-forward"></i></a>
-
-<img src="http://ionic-io-assets.s3.amazonaws.com/v2/ionicons.png">
+<a href="http://ionicons.com">
+  <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
+</a>

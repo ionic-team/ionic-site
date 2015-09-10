@@ -4348,6 +4348,105 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
+System.register('ionic/native/plugin', [], function (_export) {
+    'use strict';
+
+    var NativePluginDecorator;
+
+    _export('NativePlugin', NativePlugin);
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function NativePlugin(config) {
+        return function (cls) {
+            var annotations = Reflect.getMetadata('annotations', cls) || [];
+            annotations.push(new NativePluginDecorator(cls, config));
+            Reflect.defineMetadata('annotations', annotations, cls);
+            return cls;
+        };
+    }
+
+    return {
+        setters: [],
+        execute: function () {
+            NativePluginDecorator = function NativePluginDecorator(cls, config) {
+                var _this = this;
+
+                _classCallCheck(this, NativePluginDecorator);
+
+                this.cls = cls;
+                this.config = config;
+                cls.ifPlugin = function (check, cb) {
+                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+                    // Convert to boolean the plugin param
+                    var exists = !!check;
+                    if (typeof check === 'function') {
+                        exists = check();
+                    }
+                    if (exists) {
+                        return cb();
+                    }
+                    cls.pluginWarn();
+                    return typeof returnType === 'function' ? returnType() : returnType;
+                };
+                cls.pluginWarn = function () {
+                    var platformString = [];
+                    for (var k in _this.config.platforms) {
+                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
+                    }
+                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
+                };
+            };
+
+            _export('NativePluginDecorator', NativePluginDecorator);
+        }
+    };
+});
+System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_plugin) {
+      for (var _key in _plugin) {
+        if (_key !== 'default') _export(_key, _plugin[_key]);
+      }
+    }, function (_batteryBattery) {
+      for (var _key2 in _batteryBattery) {
+        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
+      }
+    }, function (_cameraCamera) {
+      for (var _key3 in _cameraCamera) {
+        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
+      }
+    }, function (_contactsContacts) {
+      for (var _key4 in _contactsContacts) {
+        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
+      }
+    }, function (_deviceDevice) {
+      for (var _key5 in _deviceDevice) {
+        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
+      }
+    }, function (_deviceMotionDeviceMotion) {
+      for (var _key6 in _deviceMotionDeviceMotion) {
+        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
+      }
+    }, function (_deviceOrientationDeviceOrientation) {
+      for (var _key7 in _deviceOrientationDeviceOrientation) {
+        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
+      }
+    }, function (_geolocationGeolocation) {
+      for (var _key8 in _geolocationGeolocation) {
+        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
+      }
+    }, function (_vibrationVibration) {
+      for (var _key9 in _vibrationVibration) {
+        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
+      }
+    }],
+    execute: function () {}
+  };
+});
 System.register('ionic/net/http', ['ionic/util'], function (_export) {
     //TODO(mlynch): surely, there must be another way, sir?
     'use strict';
@@ -4594,105 +4693,6 @@ System.register('ionic/net/http', ['ionic/util'], function (_export) {
             _export('Http', Http);
         }
     };
-});
-System.register('ionic/native/plugin', [], function (_export) {
-    'use strict';
-
-    var NativePluginDecorator;
-
-    _export('NativePlugin', NativePlugin);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function NativePlugin(config) {
-        return function (cls) {
-            var annotations = Reflect.getMetadata('annotations', cls) || [];
-            annotations.push(new NativePluginDecorator(cls, config));
-            Reflect.defineMetadata('annotations', annotations, cls);
-            return cls;
-        };
-    }
-
-    return {
-        setters: [],
-        execute: function () {
-            NativePluginDecorator = function NativePluginDecorator(cls, config) {
-                var _this = this;
-
-                _classCallCheck(this, NativePluginDecorator);
-
-                this.cls = cls;
-                this.config = config;
-                cls.ifPlugin = function (check, cb) {
-                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-
-                    // Convert to boolean the plugin param
-                    var exists = !!check;
-                    if (typeof check === 'function') {
-                        exists = check();
-                    }
-                    if (exists) {
-                        return cb();
-                    }
-                    cls.pluginWarn();
-                    return typeof returnType === 'function' ? returnType() : returnType;
-                };
-                cls.pluginWarn = function () {
-                    var platformString = [];
-                    for (var k in _this.config.platforms) {
-                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
-                    }
-                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-                };
-            };
-
-            _export('NativePluginDecorator', NativePluginDecorator);
-        }
-    };
-});
-System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_plugin) {
-      for (var _key in _plugin) {
-        if (_key !== 'default') _export(_key, _plugin[_key]);
-      }
-    }, function (_batteryBattery) {
-      for (var _key2 in _batteryBattery) {
-        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
-      }
-    }, function (_cameraCamera) {
-      for (var _key3 in _cameraCamera) {
-        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
-      }
-    }, function (_contactsContacts) {
-      for (var _key4 in _contactsContacts) {
-        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
-      }
-    }, function (_deviceDevice) {
-      for (var _key5 in _deviceDevice) {
-        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
-      }
-    }, function (_deviceMotionDeviceMotion) {
-      for (var _key6 in _deviceMotionDeviceMotion) {
-        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
-      }
-    }, function (_deviceOrientationDeviceOrientation) {
-      for (var _key7 in _deviceOrientationDeviceOrientation) {
-        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
-      }
-    }, function (_geolocationGeolocation) {
-      for (var _key8 in _geolocationGeolocation) {
-        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
-      }
-    }, function (_vibrationVibration) {
-      for (var _key9 in _vibrationVibration) {
-        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
-      }
-    }],
-    execute: function () {}
-  };
 });
 System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
     /**

@@ -11,7 +11,7 @@ timezone: "US/Central"
 
 # Default news if the page didnt enter news
 news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
-v2news: Check out <a href="/docs/v2/getting-started/">Getting Started</a>, which covers all the basics of setting up.
+v2news: Check out our <a href="/docs/v2/guide/">Guide</a>, which covers all the basics of setting up.
 exclude: [node_modules, scss]
 
 # Latest Version Config

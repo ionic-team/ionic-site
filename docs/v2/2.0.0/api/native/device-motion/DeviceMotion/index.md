@@ -12,11 +12,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/native/device-motion/device-motion.ts#L4'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/native/device-motion/device-motion.ts#L4'>
     Improve this doc
   </a>
 </div>
@@ -41,42 +41,8 @@ docType: "class"
 
 <h1 class="class export">DeviceMotion <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/native/device-motion/device-motion.ts#L5-L79">ionic/native/device-motion/device-motion.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/native/device-motion/device-motion.ts#L5-L92">ionic/native/device-motion/device-motion.ts (line 5)</a>
 </p>
 <p></p>
 ## Members
-
-<div id="getCurrentAcceleration"></div>
-<h2>
-  <code>getCurrentAcceleration()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="watchAcceleration"></div>
-<h2>
-  <code>watchAcceleration()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
 

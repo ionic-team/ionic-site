@@ -12,11 +12,11 @@ docType: "let"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L37'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/click-block.ts#L37'>
     Improve this doc
   </a>
 </div>

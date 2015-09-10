@@ -12,11 +12,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside.ts#L218'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/aside/aside.ts#L218'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,7 @@ TODO
 
 <h1 class="class export">AsideBackdrop <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside.ts#L213-L264">ionic/components/aside/aside.ts (line 213)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside.ts#L219-L270">ionic/components/aside/aside.ts (line 219)</a>
 </p>
 <p><p>TODO</p>
 </p>

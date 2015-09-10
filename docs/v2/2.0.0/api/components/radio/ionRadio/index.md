@@ -12,11 +12,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L149'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L149'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,7 @@ See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more 
 
 <h1 class="class export">ionRadio <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L151-L239">ionic/components/radio/radio.ts (line 151)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150-L234">ionic/components/radio/radio.ts (line 150)</a>
 </p>
 <p><p>A single radio component. </p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>

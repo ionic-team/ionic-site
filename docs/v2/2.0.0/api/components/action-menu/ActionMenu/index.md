@@ -12,11 +12,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-menu/action-menu.ts#L98'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/#L'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-menu/action-menu.ts#L98'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">ActionMenu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-menu/action-menu.ts#L100-L133">ionic/components/action-menu/action-menu.ts (line 100)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-menu/action-menu.ts#L99-L132">ionic/components/action-menu/action-menu.ts (line 99)</a>
 </p>
 <p></p>
 ## Members

@@ -193,14 +193,14 @@ of custom colors.</p>
 <p>When starting Ionic apps using the standard starter templates (either manually or using the <code>ionic start</code> command), theming is baked right in.</p>
 
 <p>The theme is configured in the <code>app/scss/theme.scss</code> file. Let&#39;s open that up:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$theme</span><span class="o">:</span> <span class="p">(</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
   <span class="c1">// primary: #387ef5,</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>The <code>$theme</code> variable is a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">Sass Map</a> which is a simple key/value association.</p>
+<p>The <code>$colors</code> variable is a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">Sass Map</a> which is a simple key/value association.</p>
 
 <p>By default, Ionic uses the <code>primary</code> theme color on all primary elements, like buttons, toggle/checkbox active states, and several other places. The quickest way to add your brand color is to override the primary color map:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$theme</span><span class="o">:</span> <span class="p">(</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
   <span class="n">primary</span><span class="o">:</span> <span class="nb">red</span>
 <span class="p">)</span>
 </code></pre></div>

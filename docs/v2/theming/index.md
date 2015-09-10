@@ -26,12 +26,12 @@ $colors: (
 )
 ```
 
-The `$theme` variable is a [Sass Map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) which is a simple key/value association.
+The `$colors` variable is a [Sass Map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) which is a simple key/value association.
 
 By default, Ionic uses the `primary` theme color on all primary elements, like buttons, toggle/checkbox active states, and several other places. The quickest way to add your brand color is to override the primary color map:
 
 ```scss
-$theme: (
+$colors: (
   primary: red
 )
 ```
@@ -43,7 +43,7 @@ It's easy to add new color names and use them immediately in your code.
 For example, let's say we want to add a `myBrand` color:
 
 ```scss
-$theme: (
+$colors: (
   myBrand: #3B5998
 )
 ```

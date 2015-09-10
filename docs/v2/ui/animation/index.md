@@ -1,7 +1,7 @@
 ---
 layout: v2/docs_ui
 title: Ionic 2 UI | Animation
-header_title: Animation - Ionic 2 UI
+header_title: Animation
 header_sub_title: Ionic 2 Developer Preview
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: v2/docs_guide
-title: Ionic 2 Guide
-header_title: Ionic 2 Guide
+title: Ionic 2 | Adding Pages
+header_title: Adding Pages - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
 ---
 

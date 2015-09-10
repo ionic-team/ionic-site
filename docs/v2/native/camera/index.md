@@ -1,7 +1,7 @@
 ---
 layout: v2/docs_native
 title: Ionic 2 | Camera
-header_title: Ionic 2 - Camera
+header_title: Camera - Ionic 2
 header_sub_title: Ionic 2 Developer Preview
 ---
 

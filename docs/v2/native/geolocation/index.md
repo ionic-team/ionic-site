@@ -1,7 +1,7 @@
 ---
 layout: v2/docs_native
 title: Ionic 2 | Geolocation
-header_title: Ionic 2 - Geolocation
+header_title: Geolocation - Ionic 2
 header_sub_title: Ionic 2 Developer Preview
 ---
 

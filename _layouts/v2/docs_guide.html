@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {% include meta_tags.html %}
 
-<head>
-  {% include meta_tags.html %}
-  <title>{{page.title}} - Ionic Framework</title>
-  {% include head_includes.html %}
-</head>
+    <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
+    {% include head_includes.html %}
+  </head>
 
-<body class="docs v2 docs-page docs-guide">
+  <body class="docs v2 docs-page docs-getting-started">
 
     {% include nav_links.html %} {% include v2_header.html %}
 

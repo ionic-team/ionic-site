@@ -3,41 +3,14 @@
   <head>
     {% include meta_tags.html %}
 
-    {% if page.versionHref != "/docs" %}
-      <!-- version {{ page.versionHref }} should not be indexed -->
-      <meta name="robots" content="noindex">
-    {% endif %}
-
     <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
     {% include head_includes.html %}
   </head>
 
-  <body class="docs v2 docs-page docs-api">
+  <body class="docs v2 docs-page docs-native">
 
-    {% include nav_links.html %}
+    {% include nav_links.html %} {% include v2_header.html %}
 
-    <div class="header horizontal-gradient">
-      <div class="container">
-        <h3>{% if page.header_title %}{{ page.header_title }}{% else %}{{ page.title }}{% endif %}</h3>
-        <h4>{% if page.header_sub_title %}{{ page.header_sub_title}}{% else %}How to get the most out of Ionic.{% endif %}</h4>
-      </div>
-      <div class="news">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 news-col">
-              <div class="picker">
-                {% include v2_api_version_select.html %}
-              </div>
-            </div>
-            <div class="col-sm-4 search-col">
-              {% include search_bar.html %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {% include search_results.html %}
 
     <div class="container content-container">
 

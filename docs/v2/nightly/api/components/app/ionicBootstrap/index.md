@@ -41,7 +41,7 @@ TODO
 
 <h1 class="class export">ionicBootstrap <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L260-L336">ionic/components/app/app.ts (line 260)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L280-L358">ionic/components/app/app.ts (line 280)</a>
 </p>
 <p><p>TODO</p>
 </p>

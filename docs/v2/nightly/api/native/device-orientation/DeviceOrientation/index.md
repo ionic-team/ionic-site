@@ -4,9 +4,9 @@ version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
-title: "DeviceMotion"
+title: "DeviceOrientation"
 header_sub_title: "Class in module "
-doc: "DeviceMotion"
+doc: "DeviceOrientation"
 docType: "class"
 ---
 
@@ -26,7 +26,7 @@ docType: "class"
 
 <h1 class="api-title">
 
-  DeviceMotion
+  DeviceOrientation
 
 
 
@@ -39,9 +39,9 @@ docType: "class"
 
 
 
-<h1 class="class export">DeviceMotion <span class="type">class</span></h1>
+<h1 class="class export">DeviceOrientation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/native/device-motion/device-motion.ts#L5-L92">ionic/native/device-motion/device-motion.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/native/device-orientation/device-orientation.ts#L5-L84">ionic/native/device-orientation/device-orientation.ts (line 5)</a>
 </p>
 <p></p>
 ## Members

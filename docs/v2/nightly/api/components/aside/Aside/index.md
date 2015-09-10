@@ -44,7 +44,7 @@ is the traditional iOS style. By default, Aside will adjust to the correct style
 
 <h1 class="class export">Aside <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside.ts#L10-L213">ionic/components/aside/aside.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside.ts#L10-L219">ionic/components/aside/aside.ts (line 10)</a>
 </p>
 <p><p>Aside is a side-menu navigation that can be dragged out or toggled to show. Aside supports two
 display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal

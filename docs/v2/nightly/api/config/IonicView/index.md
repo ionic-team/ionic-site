@@ -42,7 +42,7 @@ TODO
 
 <h1 class="class export">IonicView <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L103-L115">ionic/config/annotations.ts (line 103)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L100-L112">ionic/config/annotations.ts (line 100)</a>
 </p>
 <p><p>TODO</p>
 </p>

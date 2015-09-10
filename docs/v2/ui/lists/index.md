@@ -7,10 +7,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Lists</h1>
 
-Lists are used to display rows of information, such as a contact list,
-playlist, or menu. Or maybe something crazy we don't even know exists yet!
-
 {% include demo.html demo_url="/docs/v2/dist/demos/list/" demo_name="list" %}
+
+Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
 
 
 ```html

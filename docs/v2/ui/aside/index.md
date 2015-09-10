@@ -7,10 +7,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Aside</h1>
 
-Aside's (also known as Side Menus) control side content that slides in
-or is exposed under a sliding content area.
-
 {% include demo.html demo_url="/docs/v2/dist/demos/aside/" demo_name="aside" %}
+
+Aside's (also known as Side Menus) control side content that slides in or is exposed under a sliding content area.
 
 
 ```html

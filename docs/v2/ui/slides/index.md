@@ -7,9 +7,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Slides</h1>
 
-Slides make it easy to create galleries, tutorials, and page-based layouts.
-
 {% include demo.html demo_url="/docs/v2/dist/demos/slides/" demo_name="slides" %}
+
+Slides make it easy to create galleries, tutorials, and page-based layouts.
 
 ```html
 <ion-slides>

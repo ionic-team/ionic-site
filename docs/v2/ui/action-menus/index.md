@@ -7,9 +7,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Action Menus</h1>
 
-Action Menus display a modal set of options to confirm or cancel an action.
-
 {% include demo.html demo_url="/docs/v2/dist/demos/action-menu/" demo_name="action-menu" %}
+
+Action Menus display a modal set of options to confirm or cancel an action.
 
 ```javascript
 ActionMenu.open({

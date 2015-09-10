@@ -7,13 +7,13 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Animation</h1>
 
+{% include demo.html demo_url="/docs/v2/dist/demos/animations/" demo_name="animations" %}
+
 Ionic comes with a powerful Animation system based on the Web Animation API.
 
 Unlike CSS animations, Ionic animations can be easily triggered based on events
 and support interactive "scrubbing": the ability to manually step through an animation
 such as during a drag gesture.
-
-{% include demo.html demo_url="/docs/v2/dist/demos/animations/" demo_name="animations" %}
 
 ```javascript
 

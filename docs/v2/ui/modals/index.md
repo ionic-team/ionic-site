@@ -7,13 +7,13 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Modals</h1>
 
+{% include demo.html demo_url="/docs/v2/dist/demos/modal/" demo_name="modal" %}
+
 Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.
 
 First, we need to create the class that will control our modal. Modals must extend
 from the `Modal` Ionic class:
-
-{% include demo.html demo_url="/docs/v2/dist/demos/modal/" demo_name="modal" %}
 
 ```javascript
 @IonicComponent(Modal)

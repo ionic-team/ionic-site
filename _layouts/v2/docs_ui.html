@@ -5,6 +5,7 @@
   {% include meta_tags.html %}
   <title>{{page.title}} - Ionic Framework</title>
   {% include head_includes.html %}
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body class="docs v2 docs-page docs-ui">
@@ -75,6 +76,15 @@
 
         <div class="col-md-10 col-sm-9 main-content ui-content">
           {{ content }}
+
+          <ul class="demo-toggle">
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-apple"></i></button>
+            </li>
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-android"></i></button>
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -112,6 +122,29 @@
     {% include footer.html %}
 
     {% include base_scripts.html %}
+
+    <script>
+      function togglePlatform () {
+        var demoFrame = $('.demo > iframe')
+        var currentSrc = demoFrame.attr('src');
+        var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
+        var currentPlatform = getPlatform(currentSrc);
+        if (currentPlatform === 'ios') {
+          demoFrame.attr('src', newSrc + 'android');
+          return "android";
+        } else {
+          demoFrame.attr('src', newSrc + 'ios');
+          return "ios";
+        }
+      }
+      function getPlatform(iframeSrc) {
+        // return: 'ios' or android
+        if (iframeSrc.indexOf('android') > -1) {
+          return 'android';
+        }
+        return 'ios';
+      }
+    </script>
 
   </body>
 </html>

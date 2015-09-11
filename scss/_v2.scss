@@ -28,8 +28,30 @@
   .ui-content {
 
     .highlight, p {
-      margin-right: 335px;
-    }   
+      margin-right: 390px;
+    }
+
+    ul.demo-toggle {
+      list-style: none;
+      display: block;
+      position: absolute;
+      top: 32px;
+      right: 285px;
+
+      li {
+        margin-left: 1px;
+        display: inline;
+        float: left;
+
+        button {
+          background-color: #EFEFF4;
+          color: #000;
+          border: 1px solid #C8C7CC;
+        }
+
+      } 
+
+    }
   }
 
 

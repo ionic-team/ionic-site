@@ -29,6 +29,7 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body class="docs v2 docs-page docs-ui">
@@ -253,6 +254,15 @@
   <span class="c1">// this.actionMenu.close() to close it programatically</span>
 <span class="p">})</span>
 </code></pre></div>
+
+          <ul class="demo-toggle">
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-apple"></i></button>
+            </li>
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-android"></i></button>
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -447,6 +457,29 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    <script>
+      function togglePlatform () {
+        var demoFrame = $('.demo > iframe')
+        var currentSrc = demoFrame.attr('src');
+        var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
+        var currentPlatform = getPlatform(currentSrc);
+        if (currentPlatform === 'ios') {
+          demoFrame.attr('src', newSrc + 'android');
+          return "android";
+        } else {
+          demoFrame.attr('src', newSrc + 'ios');
+          return "ios";
+        }
+      }
+      function getPlatform(iframeSrc) {
+        // return: 'ios' or android
+        if (iframeSrc.indexOf('android') > -1) {
+          return 'android';
+        }
+        return 'ios';
+      }
+    </script>
 
   </body>
 </html>

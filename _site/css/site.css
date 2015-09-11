@@ -6625,7 +6625,21 @@ h2.underline {
   border-radius: 10px;
   border: 4px solid #555; }
 .v2 .ui-content .highlight, .v2 .ui-content p {
-  margin-right: 335px; }
+  margin-right: 390px; }
+.v2 .ui-content ul.demo-toggle {
+  list-style: none;
+  display: block;
+  position: absolute;
+  top: 32px;
+  right: 285px; }
+  .v2 .ui-content ul.demo-toggle li {
+    margin-left: 1px;
+    display: inline;
+    float: left; }
+    .v2 .ui-content ul.demo-toggle li button {
+      background-color: #EFEFF4;
+      color: #000;
+      border: 1px solid #C8C7CC; }
 
 a {
   opacity: 0.8;

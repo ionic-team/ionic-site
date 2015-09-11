@@ -42,7 +42,7 @@ TODO
 
 <h1 class="class export">AsideToggle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside-toggle.ts#L3-L38">ionic/components/aside/aside-toggle.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/aside/aside-toggle.ts#L3-L37">ionic/components/aside/aside-toggle.ts (line 3)</a>
 </p>
 <p><p>TODO</p>
 </p>

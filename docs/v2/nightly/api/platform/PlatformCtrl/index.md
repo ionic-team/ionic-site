@@ -42,7 +42,7 @@ TODO
 
 <h1 class="class export">PlatformCtrl <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L2-L404">ionic/platform/platform.ts (line 2)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L2-L435">ionic/platform/platform.ts (line 2)</a>
 </p>
 <p><p>TODO</p>
 </p>
@@ -535,6 +535,72 @@ TODO
 <div id="onResize"></div>
 <h2>
   <code>onResize()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getDimensions"></div>
+<h2>
+  <code>getDimensions(platformConfig)</code>
+
+</h2>
+
+Get the element offsetWidth and offsetHeight. Values are cached to
+reduce DOM reads, and reset on a window resize.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        platformConfig
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="flushDimensions"></div>
+<h2>
+  <code>flushDimensions()</code>
 
 </h2>
 

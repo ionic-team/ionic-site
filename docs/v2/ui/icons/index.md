@@ -4,6 +4,11 @@ title: Ionic 2 UI | Icons
 header_title: Icons - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/icons/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 <h1 class="title">Icons</h1>
 

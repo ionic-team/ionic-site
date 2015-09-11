@@ -2,6 +2,11 @@
 layout: default
 title: New Concepts
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/new-concepts.md'>
+    Improve this doc
+  </a>
+</div>
 
 Ionic 2 brings even more parity to native SDKs like iOS and Android for the web stack.
 
@@ -86,7 +91,7 @@ a good UX, but you have the freedom to navigate as you see fit.
 
 ### Routing
 
-Routing has changed significantly in Ionic 2 to make it easier to fully control the 
+Routing has changed significantly in Ionic 2 to make it easier to fully control the
 history UX for end users.
 
 In Ionic 2, routing is used more for breadcrumbs and loading state than it is for active
@@ -138,4 +143,3 @@ with this URL, the `FirstPage` would get pushed onto the stack.
 
 Whenever `FirstPage` is navigated to (more specifically, when its `viewWillEnter` lifecycle method triggers),
 the address bar is updated to be `/first-page`.
-

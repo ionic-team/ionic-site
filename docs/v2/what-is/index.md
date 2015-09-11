@@ -4,6 +4,11 @@ title: "Ionic Developer Glossary"
 header_title: Ionic Developer Glossary
 header_sub_title: Learn about the Ionic community's favorite tools
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/what-is/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 # Ionic Developer Glossary
 

@@ -4,7 +4,6 @@ title: Ionic 2 Documentation
 header_title: Ionic 2 Documentation
 header_sub_title: Ionic 2 Developer Preview
 ---
-
 <h1 class="title">Ionic 2 Alpha Docs</h1>
 
 

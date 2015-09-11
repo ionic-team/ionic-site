@@ -4,6 +4,11 @@ title: Ionic 2 UI | Animation
 header_title: Animation
 header_sub_title: Ionic 2 Developer Preview
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/animation/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 <h1 class="title">Animation</h1>
 

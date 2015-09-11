@@ -4,6 +4,11 @@ title: Ionic 2 | Geolocation
 header_title: Geolocation - Ionic 2
 header_sub_title: Ionic 2 Developer Preview
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/native/geolocation/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 <h1 class="title">Tracking GPS Location</h1>
 

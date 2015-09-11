@@ -4,6 +4,11 @@ title: Ionic 2 UI | Cards
 header_title: Cards - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/cards/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 <h1 class="title">Cards</h1>
 
@@ -17,7 +22,7 @@ Cards are primarily a CSS component. To use them, follow this structure:
   <div class="card-header">
     <!-- ... -->
   </div>
-  
+
   <div class="card-content">
 
     "A great photograph is one that fully expresses what one feels, in the deepest sense, about what is being photographed." - <i>Ansel Adams</i>

@@ -4,6 +4,11 @@ title: Ionic 2 UI | Navigation
 header_title: Navigation - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview
 ---
+<div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/index.md'>
+    Improve this doc
+  </a>
+</div>
 
 <h1 class="title">Navigation</h1>
 

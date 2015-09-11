@@ -1,5 +1,4 @@
-System.config({ "paths": { "ionic/*": "ionic/*", "rx": "rx" } });
-System.register('ionic/components', ['ionic/components/app/app', 'ionic/components/app/id', 'ionic/components/action-menu/action-menu', 'ionic/components/aside/aside', 'ionic/components/aside/aside-toggle', 'ionic/components/button/button', 'ionic/components/card/card', 'ionic/components/checkbox/checkbox', 'ionic/components/content/content', 'ionic/components/icon/icon', 'ionic/components/item/item', 'ionic/components/item/item-group', 'ionic/components/form/input', 'ionic/components/text-input/text-input', 'ionic/components/text-input/label', 'ionic/components/list/list', 'ionic/components/show-hide-when/show-hide-when', 'ionic/components/material/button', 'ionic/components/material/ripple', 'ionic/components/modal/modal', 'ionic/components/nav/nav', 'ionic/components/nav/nav-controller', 'ionic/components/nav/nav-push', 'ionic/components/nav/nav-router', 'ionic/components/nav-bar/nav-bar', 'ionic/components/popup/popup', 'ionic/components/slides/slides', 'ionic/components/radio/radio', 'ionic/components/scroll/scroll', 'ionic/components/scroll/pull-to-refresh', 'ionic/components/search-bar/search-bar', 'ionic/components/segment/segment', 'ionic/components/switch/switch', 'ionic/components/tabs/tabs', 'ionic/components/tabs/tab', 'ionic/components/toolbar/toolbar', 'ionic/components/view/view-item'], function (_export) {
+System.config({ "paths": { "ionic/*": "ionic/*", "rx": "rx" } });System.register('ionic/components', ['ionic/components/app/app', 'ionic/components/app/id', 'ionic/components/action-menu/action-menu', 'ionic/components/aside/aside', 'ionic/components/aside/extensions/types', 'ionic/components/aside/aside-toggle', 'ionic/components/button/button', 'ionic/components/card/card', 'ionic/components/checkbox/checkbox', 'ionic/components/content/content', 'ionic/components/icon/icon', 'ionic/components/item/item', 'ionic/components/item/item-group', 'ionic/components/form/input', 'ionic/components/text-input/text-input', 'ionic/components/text-input/label', 'ionic/components/list/list', 'ionic/components/show-hide-when/show-hide-when', 'ionic/components/material/button', 'ionic/components/material/ripple', 'ionic/components/modal/modal', 'ionic/components/nav/nav', 'ionic/components/nav/nav-controller', 'ionic/components/nav/nav-push', 'ionic/components/nav/nav-router', 'ionic/components/nav-bar/nav-bar', 'ionic/components/popup/popup', 'ionic/components/slides/slides', 'ionic/components/radio/radio', 'ionic/components/scroll/scroll', 'ionic/components/scroll/pull-to-refresh', 'ionic/components/search-bar/search-bar', 'ionic/components/segment/segment', 'ionic/components/switch/switch', 'ionic/components/tabs/tabs', 'ionic/components/tabs/tab', 'ionic/components/toolbar/toolbar', 'ionic/components/view/view-item'], function (_export) {
   'use strict';
 
   // Material components/effects
@@ -20,137 +19,141 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
       for (var _key4 in _ionicComponentsAsideAside) {
         if (_key4 !== 'default') _export(_key4, _ionicComponentsAsideAside[_key4]);
       }
+    }, function (_ionicComponentsAsideExtensionsTypes) {
+      for (var _key5 in _ionicComponentsAsideExtensionsTypes) {
+        if (_key5 !== 'default') _export(_key5, _ionicComponentsAsideExtensionsTypes[_key5]);
+      }
     }, function (_ionicComponentsAsideAsideToggle) {
-      for (var _key5 in _ionicComponentsAsideAsideToggle) {
-        if (_key5 !== 'default') _export(_key5, _ionicComponentsAsideAsideToggle[_key5]);
+      for (var _key6 in _ionicComponentsAsideAsideToggle) {
+        if (_key6 !== 'default') _export(_key6, _ionicComponentsAsideAsideToggle[_key6]);
       }
     }, function (_ionicComponentsButtonButton) {
-      for (var _key6 in _ionicComponentsButtonButton) {
-        if (_key6 !== 'default') _export(_key6, _ionicComponentsButtonButton[_key6]);
+      for (var _key7 in _ionicComponentsButtonButton) {
+        if (_key7 !== 'default') _export(_key7, _ionicComponentsButtonButton[_key7]);
       }
     }, function (_ionicComponentsCardCard) {
-      for (var _key7 in _ionicComponentsCardCard) {
-        if (_key7 !== 'default') _export(_key7, _ionicComponentsCardCard[_key7]);
+      for (var _key8 in _ionicComponentsCardCard) {
+        if (_key8 !== 'default') _export(_key8, _ionicComponentsCardCard[_key8]);
       }
     }, function (_ionicComponentsCheckboxCheckbox) {
-      for (var _key8 in _ionicComponentsCheckboxCheckbox) {
-        if (_key8 !== 'default') _export(_key8, _ionicComponentsCheckboxCheckbox[_key8]);
+      for (var _key9 in _ionicComponentsCheckboxCheckbox) {
+        if (_key9 !== 'default') _export(_key9, _ionicComponentsCheckboxCheckbox[_key9]);
       }
     }, function (_ionicComponentsContentContent) {
-      for (var _key9 in _ionicComponentsContentContent) {
-        if (_key9 !== 'default') _export(_key9, _ionicComponentsContentContent[_key9]);
+      for (var _key10 in _ionicComponentsContentContent) {
+        if (_key10 !== 'default') _export(_key10, _ionicComponentsContentContent[_key10]);
       }
     }, function (_ionicComponentsIconIcon) {
-      for (var _key10 in _ionicComponentsIconIcon) {
-        if (_key10 !== 'default') _export(_key10, _ionicComponentsIconIcon[_key10]);
+      for (var _key11 in _ionicComponentsIconIcon) {
+        if (_key11 !== 'default') _export(_key11, _ionicComponentsIconIcon[_key11]);
       }
     }, function (_ionicComponentsItemItem) {
-      for (var _key11 in _ionicComponentsItemItem) {
-        if (_key11 !== 'default') _export(_key11, _ionicComponentsItemItem[_key11]);
+      for (var _key12 in _ionicComponentsItemItem) {
+        if (_key12 !== 'default') _export(_key12, _ionicComponentsItemItem[_key12]);
       }
     }, function (_ionicComponentsItemItemGroup) {
-      for (var _key12 in _ionicComponentsItemItemGroup) {
-        if (_key12 !== 'default') _export(_key12, _ionicComponentsItemItemGroup[_key12]);
+      for (var _key13 in _ionicComponentsItemItemGroup) {
+        if (_key13 !== 'default') _export(_key13, _ionicComponentsItemItemGroup[_key13]);
       }
     }, function (_ionicComponentsFormInput) {
-      for (var _key13 in _ionicComponentsFormInput) {
-        if (_key13 !== 'default') _export(_key13, _ionicComponentsFormInput[_key13]);
+      for (var _key14 in _ionicComponentsFormInput) {
+        if (_key14 !== 'default') _export(_key14, _ionicComponentsFormInput[_key14]);
       }
     }, function (_ionicComponentsTextInputTextInput) {
-      for (var _key14 in _ionicComponentsTextInputTextInput) {
-        if (_key14 !== 'default') _export(_key14, _ionicComponentsTextInputTextInput[_key14]);
+      for (var _key15 in _ionicComponentsTextInputTextInput) {
+        if (_key15 !== 'default') _export(_key15, _ionicComponentsTextInputTextInput[_key15]);
       }
     }, function (_ionicComponentsTextInputLabel) {
-      for (var _key15 in _ionicComponentsTextInputLabel) {
-        if (_key15 !== 'default') _export(_key15, _ionicComponentsTextInputLabel[_key15]);
+      for (var _key16 in _ionicComponentsTextInputLabel) {
+        if (_key16 !== 'default') _export(_key16, _ionicComponentsTextInputLabel[_key16]);
       }
     }, function (_ionicComponentsListList) {
-      for (var _key16 in _ionicComponentsListList) {
-        if (_key16 !== 'default') _export(_key16, _ionicComponentsListList[_key16]);
+      for (var _key17 in _ionicComponentsListList) {
+        if (_key17 !== 'default') _export(_key17, _ionicComponentsListList[_key17]);
       }
     }, function (_ionicComponentsShowHideWhenShowHideWhen) {
-      for (var _key17 in _ionicComponentsShowHideWhenShowHideWhen) {
-        if (_key17 !== 'default') _export(_key17, _ionicComponentsShowHideWhenShowHideWhen[_key17]);
+      for (var _key18 in _ionicComponentsShowHideWhenShowHideWhen) {
+        if (_key18 !== 'default') _export(_key18, _ionicComponentsShowHideWhenShowHideWhen[_key18]);
       }
     }, function (_ionicComponentsMaterialButton) {
-      for (var _key18 in _ionicComponentsMaterialButton) {
-        if (_key18 !== 'default') _export(_key18, _ionicComponentsMaterialButton[_key18]);
+      for (var _key19 in _ionicComponentsMaterialButton) {
+        if (_key19 !== 'default') _export(_key19, _ionicComponentsMaterialButton[_key19]);
       }
     }, function (_ionicComponentsMaterialRipple) {
-      for (var _key19 in _ionicComponentsMaterialRipple) {
-        if (_key19 !== 'default') _export(_key19, _ionicComponentsMaterialRipple[_key19]);
+      for (var _key20 in _ionicComponentsMaterialRipple) {
+        if (_key20 !== 'default') _export(_key20, _ionicComponentsMaterialRipple[_key20]);
       }
     }, function (_ionicComponentsModalModal) {
-      for (var _key20 in _ionicComponentsModalModal) {
-        if (_key20 !== 'default') _export(_key20, _ionicComponentsModalModal[_key20]);
+      for (var _key21 in _ionicComponentsModalModal) {
+        if (_key21 !== 'default') _export(_key21, _ionicComponentsModalModal[_key21]);
       }
     }, function (_ionicComponentsNavNav) {
-      for (var _key21 in _ionicComponentsNavNav) {
-        if (_key21 !== 'default') _export(_key21, _ionicComponentsNavNav[_key21]);
+      for (var _key22 in _ionicComponentsNavNav) {
+        if (_key22 !== 'default') _export(_key22, _ionicComponentsNavNav[_key22]);
       }
     }, function (_ionicComponentsNavNavController) {
-      for (var _key22 in _ionicComponentsNavNavController) {
-        if (_key22 !== 'default') _export(_key22, _ionicComponentsNavNavController[_key22]);
+      for (var _key23 in _ionicComponentsNavNavController) {
+        if (_key23 !== 'default') _export(_key23, _ionicComponentsNavNavController[_key23]);
       }
     }, function (_ionicComponentsNavNavPush) {
-      for (var _key23 in _ionicComponentsNavNavPush) {
-        if (_key23 !== 'default') _export(_key23, _ionicComponentsNavNavPush[_key23]);
+      for (var _key24 in _ionicComponentsNavNavPush) {
+        if (_key24 !== 'default') _export(_key24, _ionicComponentsNavNavPush[_key24]);
       }
     }, function (_ionicComponentsNavNavRouter) {
-      for (var _key24 in _ionicComponentsNavNavRouter) {
-        if (_key24 !== 'default') _export(_key24, _ionicComponentsNavNavRouter[_key24]);
+      for (var _key25 in _ionicComponentsNavNavRouter) {
+        if (_key25 !== 'default') _export(_key25, _ionicComponentsNavNavRouter[_key25]);
       }
     }, function (_ionicComponentsNavBarNavBar) {
-      for (var _key25 in _ionicComponentsNavBarNavBar) {
-        if (_key25 !== 'default') _export(_key25, _ionicComponentsNavBarNavBar[_key25]);
+      for (var _key26 in _ionicComponentsNavBarNavBar) {
+        if (_key26 !== 'default') _export(_key26, _ionicComponentsNavBarNavBar[_key26]);
       }
     }, function (_ionicComponentsPopupPopup) {
-      for (var _key26 in _ionicComponentsPopupPopup) {
-        if (_key26 !== 'default') _export(_key26, _ionicComponentsPopupPopup[_key26]);
+      for (var _key27 in _ionicComponentsPopupPopup) {
+        if (_key27 !== 'default') _export(_key27, _ionicComponentsPopupPopup[_key27]);
       }
     }, function (_ionicComponentsSlidesSlides) {
-      for (var _key27 in _ionicComponentsSlidesSlides) {
-        if (_key27 !== 'default') _export(_key27, _ionicComponentsSlidesSlides[_key27]);
+      for (var _key28 in _ionicComponentsSlidesSlides) {
+        if (_key28 !== 'default') _export(_key28, _ionicComponentsSlidesSlides[_key28]);
       }
     }, function (_ionicComponentsRadioRadio) {
-      for (var _key28 in _ionicComponentsRadioRadio) {
-        if (_key28 !== 'default') _export(_key28, _ionicComponentsRadioRadio[_key28]);
+      for (var _key29 in _ionicComponentsRadioRadio) {
+        if (_key29 !== 'default') _export(_key29, _ionicComponentsRadioRadio[_key29]);
       }
     }, function (_ionicComponentsScrollScroll) {
-      for (var _key29 in _ionicComponentsScrollScroll) {
-        if (_key29 !== 'default') _export(_key29, _ionicComponentsScrollScroll[_key29]);
+      for (var _key30 in _ionicComponentsScrollScroll) {
+        if (_key30 !== 'default') _export(_key30, _ionicComponentsScrollScroll[_key30]);
       }
     }, function (_ionicComponentsScrollPullToRefresh) {
-      for (var _key30 in _ionicComponentsScrollPullToRefresh) {
-        if (_key30 !== 'default') _export(_key30, _ionicComponentsScrollPullToRefresh[_key30]);
+      for (var _key31 in _ionicComponentsScrollPullToRefresh) {
+        if (_key31 !== 'default') _export(_key31, _ionicComponentsScrollPullToRefresh[_key31]);
       }
     }, function (_ionicComponentsSearchBarSearchBar) {
-      for (var _key31 in _ionicComponentsSearchBarSearchBar) {
-        if (_key31 !== 'default') _export(_key31, _ionicComponentsSearchBarSearchBar[_key31]);
+      for (var _key32 in _ionicComponentsSearchBarSearchBar) {
+        if (_key32 !== 'default') _export(_key32, _ionicComponentsSearchBarSearchBar[_key32]);
       }
     }, function (_ionicComponentsSegmentSegment) {
-      for (var _key32 in _ionicComponentsSegmentSegment) {
-        if (_key32 !== 'default') _export(_key32, _ionicComponentsSegmentSegment[_key32]);
+      for (var _key33 in _ionicComponentsSegmentSegment) {
+        if (_key33 !== 'default') _export(_key33, _ionicComponentsSegmentSegment[_key33]);
       }
     }, function (_ionicComponentsSwitchSwitch) {
-      for (var _key33 in _ionicComponentsSwitchSwitch) {
-        if (_key33 !== 'default') _export(_key33, _ionicComponentsSwitchSwitch[_key33]);
+      for (var _key34 in _ionicComponentsSwitchSwitch) {
+        if (_key34 !== 'default') _export(_key34, _ionicComponentsSwitchSwitch[_key34]);
       }
     }, function (_ionicComponentsTabsTabs) {
-      for (var _key34 in _ionicComponentsTabsTabs) {
-        if (_key34 !== 'default') _export(_key34, _ionicComponentsTabsTabs[_key34]);
+      for (var _key35 in _ionicComponentsTabsTabs) {
+        if (_key35 !== 'default') _export(_key35, _ionicComponentsTabsTabs[_key35]);
       }
     }, function (_ionicComponentsTabsTab) {
-      for (var _key35 in _ionicComponentsTabsTab) {
-        if (_key35 !== 'default') _export(_key35, _ionicComponentsTabsTab[_key35]);
+      for (var _key36 in _ionicComponentsTabsTab) {
+        if (_key36 !== 'default') _export(_key36, _ionicComponentsTabsTab[_key36]);
       }
     }, function (_ionicComponentsToolbarToolbar) {
-      for (var _key36 in _ionicComponentsToolbarToolbar) {
-        if (_key36 !== 'default') _export(_key36, _ionicComponentsToolbarToolbar[_key36]);
+      for (var _key37 in _ionicComponentsToolbarToolbar) {
+        if (_key37 !== 'default') _export(_key37, _ionicComponentsToolbarToolbar[_key37]);
       }
     }, function (_ionicComponentsViewViewItem) {
-      for (var _key37 in _ionicComponentsViewViewItem) {
-        if (_key37 !== 'default') _export(_key37, _ionicComponentsViewViewItem[_key37]);
+      for (var _key38 in _ionicComponentsViewViewItem) {
+        if (_key38 !== 'default') _export(_key38, _ionicComponentsViewViewItem[_key38]);
       }
     }],
     execute: function () {}
@@ -266,10 +269,10 @@ System.register('ionic/util', ['ionic/util/dom', 'ionic/util/util'], function (_
     }
   };
 });
-System.register('ionic/animations/animation', ['../util/dom'], function (_export) {
+System.register('ionic/animations/animation', ['../util/dom', '../util/util'], function (_export) {
     'use strict';
 
-    var CSS, RENDER_DELAY, AnimationRegistry, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN;
+    var CSS, extend, RENDER_DELAY, AnimationRegistry, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -313,7 +316,7 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
         var outputEffect = {};
         for (property in inputEffect) {
             val = inputEffect[property];
-            r = val.toString().match(/(\d*\.?\d*)(.*)/);
+            r = val.toString().match(/(^-?\d*\.?\d*)(.*)/);
             num = parseFloat(r[1]);
             outputEffect[property] = {
                 value: val,
@@ -368,6 +371,8 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
     return {
         setters: [function (_utilDom) {
             CSS = _utilDom.CSS;
+        }, function (_utilUtil) {
+            extend = _utilUtil.extend;
         }],
         execute: function () {
             RENDER_DELAY = 36;
@@ -496,16 +501,17 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                             }
                             return this;
                         }
-                        return this._rate || this._parent && this._parent.playbackRate();
+                        return typeof this._rate !== 'undefined' ? this._rate : this._parent && this._parent.playbackRate();
                     }
                 }, {
-                    key: 'fill',
-                    value: function fill(value) {
-                        if (arguments.length) {
-                            this._fill = value;
-                            return this;
-                        }
-                        return this._fill || this._parent && this._parent.fill();
+                    key: 'reverse',
+                    value: function reverse() {
+                        return this.playbackRate(-1);
+                    }
+                }, {
+                    key: 'forward',
+                    value: function forward() {
+                        return this.playbackRate(1);
                     }
                 }, {
                     key: 'from',
@@ -546,22 +552,17 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                         var _this = this;
 
                         var self = this;
-                        var animations = self._ani;
-                        var children = self._chld;
-                        var promises = [];
-                        var i = undefined,
-                            l = undefined;
                         // the actual play() method which may or may not start async
                         function beginPlay() {
-                            var i = undefined,
-                                l = undefined;
                             var promises = [];
-                            for (i = 0, l = children.length; i < l; i++) {
-                                promises.push(children[i].play());
+                            for (var i = 0, l = self._chld.length; i < l; i++) {
+                                promises.push(self._chld[i].play());
                             }
-                            for (i = 0, l = animations.length; i < l; i++) {
-                                promises.push(animations[i].play());
-                            }
+                            self._ani.forEach(function (animation) {
+                                promises.push(new Promise(function (resolve) {
+                                    animation.play(resolve);
+                                }));
+                            });
                             return Promise.all(promises);
                         }
                         if (!self._parent) {
@@ -635,7 +636,7 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                             if (this._to) {
                                 // only animate the elements if there are defined "to" effects
                                 for (i = 0; i < this._el.length; i++) {
-                                    animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate(), this.fill());
+                                    animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate());
                                     if (animation.shouldAnimate) {
                                         this._ani.push(animation);
                                     }
@@ -652,6 +653,7 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                         // after the RENDER_DELAY
                         // before the animations have started
                         var i = undefined;
+                        this._isFinished = false;
                         for (i = 0; i < this._chld.length; i++) {
                             this._chld[i]._onPlay();
                         }
@@ -663,7 +665,7 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                     key: '_onFinish',
                     value: function _onFinish() {
                         // after the animations have finished
-                        if (!this._isFinished) {
+                        if (!this._isFinished && !this.isProgress) {
                             this._isFinished = true;
                             var i = undefined,
                                 j = undefined,
@@ -702,7 +704,6 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                 }, {
                     key: 'pause',
                     value: function pause() {
-                        this._hasFinished = false;
                         var i = undefined;
                         for (i = 0; i < this._chld.length; i++) {
                             this._chld[i].pause();
@@ -712,35 +713,91 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                         }
                     }
                 }, {
+                    key: 'progressStart',
+                    value: function progressStart() {
+                        this.isProgress = true;
+                        for (var i = 0; i < this._chld.length; i++) {
+                            this._chld[i].progressStart();
+                        }
+                        this.play();
+                        this.pause();
+                    }
+                }, {
                     key: 'progress',
                     value: function progress(value) {
+                        this.isProgress = true;
                         var i = undefined;
                         for (i = 0; i < this._chld.length; i++) {
                             this._chld[i].progress(value);
-                        }
-                        if (!this._initProgress) {
-                            this._initProgress = true;
-                            this.play();
-                            this.pause();
                         }
                         for (i = 0; i < this._ani.length; i++) {
                             this._ani[i].progress(value);
                         }
                     }
                 }, {
+                    key: 'progressFinish',
+                    value: function progressFinish(shouldComplete) {
+                        var rate = arguments.length <= 1 || arguments[1] === undefined ? 1 : arguments[1];
+
+                        var promises = [];
+                        this.isProgress = false;
+                        for (var i = 0; i < this._chld.length; i++) {
+                            promises.push(this._chld[i].progressFinish(shouldComplete));
+                        }
+                        this._ani.forEach(function (animation) {
+                            if (shouldComplete) {
+                                animation.playbackRate(rate);
+                            } else {
+                                animation.playbackRate(rate * -1);
+                            }
+                            promises.push(new Promise(function (resolve) {
+                                animation.play(resolve);
+                            }));
+                        });
+                        return Promise.all(promises);
+                    }
+                }, {
                     key: 'onReady',
-                    value: function onReady(fn) {
+                    value: function onReady(fn, clear) {
+                        if (clear) {
+                            this._readys = [];
+                        }
                         this._readys.push(fn);
+                        return this;
                     }
                 }, {
                     key: 'onPlay',
-                    value: function onPlay(fn) {
+                    value: function onPlay(fn, clear) {
+                        if (clear) {
+                            this._plays = [];
+                        }
                         this._plays.push(fn);
+                        return this;
                     }
                 }, {
                     key: 'onFinish',
-                    value: function onFinish(fn) {
+                    value: function onFinish(fn, clear) {
+                        if (clear) {
+                            this._finishes = [];
+                        }
                         this._finishes.push(fn);
+                        return this;
+                    }
+                }, {
+                    key: 'clone',
+                    value: function clone() {
+                        function copy(dest, src) {
+                            // undo what stage() may have already done
+                            extend(dest, src);
+                            dest._isFinished = dest._isStaged = dest.isProgress = false;
+                            dest._chld = [];
+                            dest._ani = [];
+                            for (var i = 0; i < src._chld.length; i++) {
+                                dest.add(copy(new Animation(), src._chld[i]));
+                            }
+                            return dest;
+                        }
+                        return copy(new Animation(), this);
                     }
                 }, {
                     key: 'dispose',
@@ -817,9 +874,7 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
             _export('Animation', Animation);
 
             Animate = (function () {
-                function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate, fill) {
-                    var _this4 = this;
-
+                function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate) {
                     _classCallCheck(this, Animate);
 
                     // https://w3c.github.io/web-animations/
@@ -834,20 +889,16 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
                     if (!this.shouldAnimate) {
                         return inlineStyle(ele, this.toEffect);
                     }
-                    this.fill = fill;
                     this.ele = ele;
-                    this.promise = new Promise(function (res) {
-                        _this4.resolve = res;
-                    });
                     // stage where the element will start from
-                    fromEffect = parseEffect(fromEffect);
-                    inlineStyle(ele, fromEffect);
+                    this.fromEffect = parseEffect(fromEffect);
+                    inlineStyle(ele, this.fromEffect);
                     this.duration = duration;
-                    this.rate = playbackRate;
+                    this.rate = typeof playbackRate !== 'undefined' ? playbackRate : 1;
                     this.easing = easingConfig && easingConfig.name || 'linear';
-                    this.effects = [convertProperties(fromEffect)];
+                    this.effects = [convertProperties(this.fromEffect)];
                     if (this.easing in EASING_FN) {
-                        insertEffects(this.effects, fromEffect, this.toEffect, easingConfig);
+                        insertEffects(this.effects, this.fromEffect, this.toEffect, easingConfig);
                     } else if (this.easing in CUBIC_BEZIERS) {
                         this.easing = 'cubic-bezier(' + CUBIC_BEZIERS[this.easing] + ')';
                     }
@@ -856,62 +907,65 @@ System.register('ionic/animations/animation', ['../util/dom'], function (_export
 
                 _createClass(Animate, [{
                     key: 'play',
-                    value: function play() {
+                    value: function play(callback) {
                         var self = this;
-                        if (self.player) {
-                            self.player.play();
+                        if (self.ani) {
+                            self.ani.play();
                         } else {
-                            self.player = self.ele.animate(self.effects, {
+                            // https://developers.google.com/web/updates/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36
+                            // https://w3c.github.io/web-animations/
+                            // Future versions will use "new window.Animation" rather than "element.animate()"
+                            self.ani = self.ele.animate(self.effects, {
                                 duration: self.duration || 0,
                                 easing: self.easing,
-                                playbackRate: self.rate || 1,
-                                fill: self.fill
+                                playbackRate: self.rate // old way of setting playbackRate, but still necessary
                             });
-                            self.player.onfinish = function () {
-                                // lock in where the element will stop at
-                                // if the playbackRate is negative then it needs to return
-                                // to its "from" effects
-                                inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
-                                self.player = null;
-                                self.resolve();
-                            };
+                            self.ani.playbackRate = self.rate;
                         }
-                        return self.promise;
+                        self.ani.onfinish = function () {
+                            // lock in where the element will stop at
+                            // if the playbackRate is negative then it needs to return
+                            // to its "from" effects
+                            inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
+                            self.ani = null;
+                            callback && callback();
+                        };
                     }
                 }, {
                     key: 'pause',
                     value: function pause() {
-                        this.player && this.player.pause();
+                        this.ani && this.ani.pause();
                     }
                 }, {
                     key: 'progress',
                     value: function progress(value) {
-                        var player = this.player;
-                        if (player) {
+                        var animation = this.ani;
+                        if (animation) {
                             // passed a number between 0 and 1
                             value = Math.max(0, Math.min(1, value));
-                            if (value >= 1) {
-                                player.currentTime = this.duration * 0.999;
-                                return player.play();
+                            if (animation.playState !== 'paused') {
+                                animation.pause();
                             }
-                            if (player.playState !== 'paused') {
-                                player.pause();
+                            if (value < 0.999) {
+                                animation.currentTime = this.duration * value;
+                            } else {
+                                // don't let the progress finish the animation
+                                animation.currentTime = this.duration * 0.999;
                             }
-                            player.currentTime = this.duration * value;
                         }
                     }
                 }, {
                     key: 'playbackRate',
                     value: function playbackRate(value) {
                         this.rate = value;
-                        if (this.player) {
-                            this.player.playbackRate = value;
+                        if (this.ani) {
+                            this.ani.playbackRate = value;
                         }
                     }
                 }, {
                     key: 'dispose',
                     value: function dispose() {
-                        this.ele = this.player = this.effects = this.toEffect = null;
+                        this.ele = this.ani = this.effects = this.toEffect = null;
                     }
                 }]);
 
@@ -1223,7 +1277,7 @@ System.register('ionic/animations/scroll-to', ['../util/dom'], function (_export
         }
     };
 });
-System.register('ionic/components/ion', ['ionic/util'], function (_export) {
+System.register('ionic/components/ion', ['../platform/platform', 'ionic/util'], function (_export) {
     /**
      * Base class for all Ionic components. Exposes some common functionality
      * that all Ionic components need, such as accessing underlying native elements and
@@ -1231,7 +1285,7 @@ System.register('ionic/components/ion', ['ionic/util'], function (_export) {
      */
     'use strict';
 
-    var util, Ion;
+    var Platform, util, Ion;
 
     var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
@@ -1240,7 +1294,9 @@ System.register('ionic/components/ion', ['ionic/util'], function (_export) {
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [function (_ionicUtil) {
+        setters: [function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
+        }, function (_ionicUtil) {
             util = _ionicUtil;
         }],
         execute: function () {
@@ -1318,12 +1374,12 @@ System.register('ionic/components/ion', ['ionic/util'], function (_export) {
                 }, {
                     key: 'width',
                     value: function width() {
-                        return this.getNativeElement().offsetWidth;
+                        return Platform.getDimensions(this).w;
                     }
                 }, {
                     key: 'height',
                     value: function height() {
-                        return this.getNativeElement().offsetHeight;
+                        return Platform.getDimensions(this).h;
                     }
                 }]);
 
@@ -4348,6 +4404,105 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
+System.register('ionic/native/plugin', [], function (_export) {
+    'use strict';
+
+    var NativePluginDecorator;
+
+    _export('NativePlugin', NativePlugin);
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function NativePlugin(config) {
+        return function (cls) {
+            var annotations = Reflect.getMetadata('annotations', cls) || [];
+            annotations.push(new NativePluginDecorator(cls, config));
+            Reflect.defineMetadata('annotations', annotations, cls);
+            return cls;
+        };
+    }
+
+    return {
+        setters: [],
+        execute: function () {
+            NativePluginDecorator = function NativePluginDecorator(cls, config) {
+                var _this = this;
+
+                _classCallCheck(this, NativePluginDecorator);
+
+                this.cls = cls;
+                this.config = config;
+                cls.ifPlugin = function (check, cb) {
+                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+                    // Convert to boolean the plugin param
+                    var exists = !!check;
+                    if (typeof check === 'function') {
+                        exists = check();
+                    }
+                    if (exists) {
+                        return cb();
+                    }
+                    cls.pluginWarn();
+                    return typeof returnType === 'function' ? returnType() : returnType;
+                };
+                cls.pluginWarn = function () {
+                    var platformString = [];
+                    for (var k in _this.config.platforms) {
+                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
+                    }
+                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
+                };
+            };
+
+            _export('NativePluginDecorator', NativePluginDecorator);
+        }
+    };
+});
+System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_plugin) {
+      for (var _key in _plugin) {
+        if (_key !== 'default') _export(_key, _plugin[_key]);
+      }
+    }, function (_batteryBattery) {
+      for (var _key2 in _batteryBattery) {
+        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
+      }
+    }, function (_cameraCamera) {
+      for (var _key3 in _cameraCamera) {
+        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
+      }
+    }, function (_contactsContacts) {
+      for (var _key4 in _contactsContacts) {
+        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
+      }
+    }, function (_deviceDevice) {
+      for (var _key5 in _deviceDevice) {
+        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
+      }
+    }, function (_deviceMotionDeviceMotion) {
+      for (var _key6 in _deviceMotionDeviceMotion) {
+        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
+      }
+    }, function (_deviceOrientationDeviceOrientation) {
+      for (var _key7 in _deviceOrientationDeviceOrientation) {
+        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
+      }
+    }, function (_geolocationGeolocation) {
+      for (var _key8 in _geolocationGeolocation) {
+        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
+      }
+    }, function (_vibrationVibration) {
+      for (var _key9 in _vibrationVibration) {
+        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
+      }
+    }],
+    execute: function () {}
+  };
+});
 System.register('ionic/net/http', ['ionic/util'], function (_export) {
     //TODO(mlynch): surely, there must be another way, sir?
     'use strict';
@@ -4595,105 +4750,6 @@ System.register('ionic/net/http', ['ionic/util'], function (_export) {
         }
     };
 });
-System.register('ionic/native/plugin', [], function (_export) {
-    'use strict';
-
-    var NativePluginDecorator;
-
-    _export('NativePlugin', NativePlugin);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function NativePlugin(config) {
-        return function (cls) {
-            var annotations = Reflect.getMetadata('annotations', cls) || [];
-            annotations.push(new NativePluginDecorator(cls, config));
-            Reflect.defineMetadata('annotations', annotations, cls);
-            return cls;
-        };
-    }
-
-    return {
-        setters: [],
-        execute: function () {
-            NativePluginDecorator = function NativePluginDecorator(cls, config) {
-                var _this = this;
-
-                _classCallCheck(this, NativePluginDecorator);
-
-                this.cls = cls;
-                this.config = config;
-                cls.ifPlugin = function (check, cb) {
-                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-
-                    // Convert to boolean the plugin param
-                    var exists = !!check;
-                    if (typeof check === 'function') {
-                        exists = check();
-                    }
-                    if (exists) {
-                        return cb();
-                    }
-                    cls.pluginWarn();
-                    return typeof returnType === 'function' ? returnType() : returnType;
-                };
-                cls.pluginWarn = function () {
-                    var platformString = [];
-                    for (var k in _this.config.platforms) {
-                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
-                    }
-                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-                };
-            };
-
-            _export('NativePluginDecorator', NativePluginDecorator);
-        }
-    };
-});
-System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './vibration/vibration'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_plugin) {
-      for (var _key in _plugin) {
-        if (_key !== 'default') _export(_key, _plugin[_key]);
-      }
-    }, function (_batteryBattery) {
-      for (var _key2 in _batteryBattery) {
-        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
-      }
-    }, function (_cameraCamera) {
-      for (var _key3 in _cameraCamera) {
-        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
-      }
-    }, function (_contactsContacts) {
-      for (var _key4 in _contactsContacts) {
-        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
-      }
-    }, function (_deviceDevice) {
-      for (var _key5 in _deviceDevice) {
-        if (_key5 !== 'default') _export(_key5, _deviceDevice[_key5]);
-      }
-    }, function (_deviceMotionDeviceMotion) {
-      for (var _key6 in _deviceMotionDeviceMotion) {
-        if (_key6 !== 'default') _export(_key6, _deviceMotionDeviceMotion[_key6]);
-      }
-    }, function (_deviceOrientationDeviceOrientation) {
-      for (var _key7 in _deviceOrientationDeviceOrientation) {
-        if (_key7 !== 'default') _export(_key7, _deviceOrientationDeviceOrientation[_key7]);
-      }
-    }, function (_geolocationGeolocation) {
-      for (var _key8 in _geolocationGeolocation) {
-        if (_key8 !== 'default') _export(_key8, _geolocationGeolocation[_key8]);
-      }
-    }, function (_vibrationVibration) {
-      for (var _key9 in _vibrationVibration) {
-        if (_key9 !== 'default') _export(_key9, _vibrationVibration[_key9]);
-      }
-    }],
-    execute: function () {}
-  };
-});
 System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
     /**
      * TODO
@@ -4739,6 +4795,8 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                     this._registry = {};
                     this._default = null;
                     this._onResizes = [];
+                    this._dimensions = {};
+                    this._dimIds = 0;
                     this._readyPromise = new Promise(function (res) {
                         _this._readyResolve = res;
                     });
@@ -4926,9 +4984,9 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                 }, {
                     key: 'winResize',
                     value: function winResize() {
-                        Platform._w = Platform._h = 0;
                         clearTimeout(Platform._resizeTimer);
                         Platform._resizeTimer = setTimeout(function () {
+                            Platform.flushDimensions();
                             for (var i = 0; i < Platform._onResizes.length; i++) {
                                 try {
                                     Platform._onResizes[i]();
@@ -4943,6 +5001,35 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                     value: function onResize(cb) {
                         // TODO: Make more good
                         this._onResizes.push(cb);
+                    }
+
+                    /**
+                     * Get the element offsetWidth and offsetHeight. Values are cached to
+                     * reduce DOM reads, and reset on a window resize.
+                     * @param {TODO} platformConfig  TODO
+                     */
+                }, {
+                    key: 'getDimensions',
+                    value: function getDimensions(component) {
+                        // cache
+                        if (!component._dimId) {
+                            component._dimId = ++this._dimIds;
+                        }
+                        var dimensions = this._dimensions[component._dimId];
+                        if (!dimensions) {
+                            var ele = component.getNativeElement();
+                            dimensions = this._dimensions[component._dimId] = {
+                                w: ele.offsetWidth,
+                                h: ele.offsetHeight
+                            };
+                        }
+                        return dimensions;
+                    }
+                }, {
+                    key: 'flushDimensions',
+                    value: function flushDimensions() {
+                        this._dimensions = {};
+                        this._w = this._h = 0;
                     }
 
                     // Registry
@@ -4995,8 +5082,8 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                 }, {
                     key: 'testUserAgent',
                     value: function testUserAgent(userAgentExpression) {
-                        var rx = new RegExp(userAgentExpression, 'i');
-                        return rx.test(this._ua);
+                        var rgx = new RegExp(userAgentExpression, 'i');
+                        return rgx.test(this._ua);
                     }
 
                     /**
@@ -6098,7 +6185,7 @@ System.register('ionic/util/activator', ['./dom'], function (_export) {
                     });
                     bindDom('touchcancel', function (ev) {
                         self.isTouch = true;
-                        self.touchCancel(ev);
+                        self.pointerCancel(ev);
                     });
                     bindDom('mousedown', function (ev) {
                         self.mouseDown(ev);
@@ -6983,276 +7070,6 @@ System.register('ionic/util/util', [], function (_export) {
         }
     };
 });
-System.register("ionic/components/action-menu/action-menu", ["angular2/angular2", "../icon/icon", "../overlay/overlay", "../../animations/animation", "ionic/util"], function (_export) {
-    /**
-    * @ngdoc service
-    * @name ActionMenu
-    * @module ionic
-    * @description
-    * The ActionMenu is a modal menu with options to select based on an action.
-    */
-
-    /**
-     * @name ActionMenu
-     * @description
-     * The Action Menu is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
-     *
-     * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
-     *
-     * @usage
-     * ```ts
-     * openMenu() {
-     *
-     *   this.actionMenu.open({
-     *     buttons: [
-     *       { text: 'Share This' },
-     *       { text: 'Move' }
-     *     ],
-     *     destructiveText: 'Delete',
-     *     titleText: 'Modify your album',
-     *     cancelText: 'Cancel',
-     *     cancel: function() {
-     *       console.log('Canceled');
-     *     },
-     *     destructiveButtonClicked: () => {
-     *       console.log('Destructive clicked');
-     *     },
-     *     buttonClicked: function(index) {
-     *       console.log('Button clicked', index);
-     *       if(index == 1) { return false; }
-     *       return true;
-     *     }
-     *
-     *   }).then(actionMenuRef => {
-     *     this.actionMenuRef = actionMenuRef;
-     *   });
-     *
-     * }
-     * ```
-     */
-    "use strict";
-
-    var View, Injectable, NgFor, NgIf, Icon, Overlay, Animation, util, __decorate, __metadata, ActionMenuDirective, ActionMenu, OVERLAY_TYPE, ActionMenuAnimation, ActionMenuSlideIn, ActionMenuSlideOut, ActionMenuMdSlideIn, ActionMenuMdSlideOut;
-
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            View = _angular2Angular2.View;
-            Injectable = _angular2Angular2.Injectable;
-            NgFor = _angular2Angular2.NgFor;
-            NgIf = _angular2Angular2.NgIf;
-        }, function (_iconIcon) {
-            Icon = _iconIcon.Icon;
-        }, function (_overlayOverlay) {
-            Overlay = _overlayOverlay.Overlay;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            ActionMenuDirective = (function () {
-                function ActionMenuDirective() {
-                    _classCallCheck(this, ActionMenuDirective);
-                }
-
-                _createClass(ActionMenuDirective, [{
-                    key: "_cancel",
-                    value: function _cancel() {
-                        this.cancel && this.cancel();
-                        return this.overlayRef.close();
-                    }
-                }, {
-                    key: "_destructive",
-                    value: function _destructive() {
-                        var shouldClose = this.destructiveButtonClicked();
-                        if (shouldClose === true) {
-                            return this.overlayRef.close();
-                        }
-                    }
-                }, {
-                    key: "_buttonClicked",
-                    value: function _buttonClicked(index) {
-                        var shouldClose = this.buttonClicked(index);
-                        if (shouldClose === true) {
-                            return this.overlayRef.close();
-                        }
-                    }
-                }]);
-
-                return ActionMenuDirective;
-            })();
-
-            ActionMenuDirective = __decorate([View({
-                template: '<backdrop (click)="_cancel()" tappable></backdrop>' + '<action-menu-wrapper>' + '<div class="action-menu-container">' + '<div class="action-menu-group action-menu-options">' + '<div class="action-menu-title" *ng-if="titleText">{{titleText}}</div>' + '<button (^click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-menu-option">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-menu-destructive">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-menu-group action-menu-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-menu-wrapper>',
-                directives: [NgFor, NgIf, Icon]
-            }), __metadata('design:paramtypes', [])], ActionMenuDirective);
-
-            ActionMenu = (function (_Overlay) {
-                _inherits(ActionMenu, _Overlay);
-
-                function ActionMenu() {
-                    _classCallCheck(this, ActionMenu);
-
-                    _get(Object.getPrototypeOf(ActionMenu.prototype), "constructor", this).apply(this, arguments);
-                }
-
-                _createClass(ActionMenu, [{
-                    key: "open",
-
-                    /**
-                     * Create and open a new Action Menu. This is the
-                     * public API, and most often you will only use ActionMenu.open()
-                     *
-                     * @param {Object} [opts={}]  TODO
-                     * @return {Promise} Promise that resolves when the action menu is open.
-                     */
-                    value: function open() {
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        var config = this.config;
-                        var defaults = {
-                            enterAnimation: config.setting('actionMenuEnter'),
-                            leaveAnimation: config.setting('actionMenuLeave'),
-                            cancelIcon: config.setting('actionMenuCancelIcon'),
-                            destructiveIcon: config.setting('actionMenuDestructiveIcon')
-                        };
-                        var context = util.extend(defaults, opts);
-                        return this.create(OVERLAY_TYPE, ActionMenuDirective, context, context);
-                    }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: "get",
-                    value: function get() {
-                        return this.getByType(OVERLAY_TYPE);
-                    }
-                }]);
-
-                return ActionMenu;
-            })(Overlay);
-
-            _export("ActionMenu", ActionMenu);
-
-            _export("ActionMenu", ActionMenu = __decorate([Injectable(), __metadata('design:paramtypes', [])], ActionMenu));
-            OVERLAY_TYPE = 'action-menu';
-
-            /**
-             * Animations for action sheet
-             */
-
-            ActionMenuAnimation = (function (_Animation) {
-                _inherits(ActionMenuAnimation, _Animation);
-
-                function ActionMenuAnimation(element) {
-                    _classCallCheck(this, ActionMenuAnimation);
-
-                    _get(Object.getPrototypeOf(ActionMenuAnimation.prototype), "constructor", this).call(this, element);
-                    this.easing('cubic-bezier(.36, .66, .04, 1)').duration(450);
-                    this.backdrop = new Animation(element.querySelector('backdrop'));
-                    this.wrapper = new Animation(element.querySelector('action-menu-wrapper'));
-                    this.add(this.backdrop, this.wrapper);
-                }
-
-                return ActionMenuAnimation;
-            })(Animation);
-
-            ActionMenuSlideIn = (function (_ActionMenuAnimation) {
-                _inherits(ActionMenuSlideIn, _ActionMenuAnimation);
-
-                function ActionMenuSlideIn(element) {
-                    _classCallCheck(this, ActionMenuSlideIn);
-
-                    _get(Object.getPrototypeOf(ActionMenuSlideIn.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', 0.01, 0.4);
-                    this.wrapper.fromTo('translateY', '100%', '0%');
-                }
-
-                return ActionMenuSlideIn;
-            })(ActionMenuAnimation);
-
-            Animation.register('action-menu-slide-in', ActionMenuSlideIn);
-
-            ActionMenuSlideOut = (function (_ActionMenuAnimation2) {
-                _inherits(ActionMenuSlideOut, _ActionMenuAnimation2);
-
-                function ActionMenuSlideOut(element) {
-                    _classCallCheck(this, ActionMenuSlideOut);
-
-                    _get(Object.getPrototypeOf(ActionMenuSlideOut.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', 0.4, 0.01);
-                    this.wrapper.fromTo('translateY', '0%', '100%');
-                }
-
-                return ActionMenuSlideOut;
-            })(ActionMenuAnimation);
-
-            Animation.register('action-menu-slide-out', ActionMenuSlideOut);
-
-            ActionMenuMdSlideIn = (function (_ActionMenuSlideIn) {
-                _inherits(ActionMenuMdSlideIn, _ActionMenuSlideIn);
-
-                function ActionMenuMdSlideIn(element) {
-                    _classCallCheck(this, ActionMenuMdSlideIn);
-
-                    _get(Object.getPrototypeOf(ActionMenuMdSlideIn.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', 0.01, 0.26);
-                }
-
-                return ActionMenuMdSlideIn;
-            })(ActionMenuSlideIn);
-
-            Animation.register('action-menu-md-slide-in', ActionMenuMdSlideIn);
-
-            ActionMenuMdSlideOut = (function (_ActionMenuSlideOut) {
-                _inherits(ActionMenuMdSlideOut, _ActionMenuSlideOut);
-
-                function ActionMenuMdSlideOut(element) {
-                    _classCallCheck(this, ActionMenuMdSlideOut);
-
-                    _get(Object.getPrototypeOf(ActionMenuMdSlideOut.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', 0.26, 0.01);
-                }
-
-                return ActionMenuMdSlideOut;
-            })(ActionMenuSlideOut);
-
-            Animation.register('action-menu-md-slide-out', ActionMenuMdSlideOut);
-        }
-    };
-});
 System.register("ionic/components/app/app", ["angular2/angular2", "angular2/router", "../../config/config", "../../platform/platform", "../../util/activator", "../action-menu/action-menu", "../modal/modal", "../popup/popup", "../form/focus-holder"], function (_export) {
     /**
      * @name IonicApp
@@ -7423,7 +7240,7 @@ System.register("ionic/components/app/app", ["angular2/angular2", "angular2/rout
                     _classCallCheck(this, IonicApp);
 
                     this.overlays = [];
-                    this._isTransitioning = false;
+                    this._transTime = 0;
                     // Our component registry map
                     this.components = {};
                 }
@@ -7474,7 +7291,7 @@ System.register("ionic/components/app/app", ["angular2/angular2", "angular2/rout
                 }, {
                     key: "setTransitioning",
                     value: function setTransitioning(isTransitioning) {
-                        this._isTransitioning = !!isTransitioning;
+                        this._transTime = isTransitioning ? Date.now() : 0;
                     }
 
                     /**
@@ -7484,7 +7301,7 @@ System.register("ionic/components/app/app", ["angular2/angular2", "angular2/rout
                 }, {
                     key: "isTransitioning",
                     value: function isTransitioning() {
-                        return this._isTransitioning;
+                        return this._transTime + 800 > Date.now();
                     }
 
                     /**
@@ -7784,6 +7601,276 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
         }
     };
 });
+System.register("ionic/components/action-menu/action-menu", ["angular2/angular2", "../icon/icon", "../overlay/overlay", "../../animations/animation", "ionic/util"], function (_export) {
+    /**
+    * @ngdoc service
+    * @name ActionMenu
+    * @module ionic
+    * @description
+    * The ActionMenu is a modal menu with options to select based on an action.
+    */
+
+    /**
+     * @name ActionMenu
+     * @description
+     * The Action Menu is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
+     *
+     * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
+     *
+     * @usage
+     * ```ts
+     * openMenu() {
+     *
+     *   this.actionMenu.open({
+     *     buttons: [
+     *       { text: 'Share This' },
+     *       { text: 'Move' }
+     *     ],
+     *     destructiveText: 'Delete',
+     *     titleText: 'Modify your album',
+     *     cancelText: 'Cancel',
+     *     cancel: function() {
+     *       console.log('Canceled');
+     *     },
+     *     destructiveButtonClicked: () => {
+     *       console.log('Destructive clicked');
+     *     },
+     *     buttonClicked: function(index) {
+     *       console.log('Button clicked', index);
+     *       if(index == 1) { return false; }
+     *       return true;
+     *     }
+     *
+     *   }).then(actionMenuRef => {
+     *     this.actionMenuRef = actionMenuRef;
+     *   });
+     *
+     * }
+     * ```
+     */
+    "use strict";
+
+    var View, Injectable, NgFor, NgIf, Icon, Overlay, Animation, util, __decorate, __metadata, ActionMenuDirective, ActionMenu, OVERLAY_TYPE, ActionMenuAnimation, ActionMenuSlideIn, ActionMenuSlideOut, ActionMenuMdSlideIn, ActionMenuMdSlideOut;
+
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            View = _angular2Angular2.View;
+            Injectable = _angular2Angular2.Injectable;
+            NgFor = _angular2Angular2.NgFor;
+            NgIf = _angular2Angular2.NgIf;
+        }, function (_iconIcon) {
+            Icon = _iconIcon.Icon;
+        }, function (_overlayOverlay) {
+            Overlay = _overlayOverlay.Overlay;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            ActionMenuDirective = (function () {
+                function ActionMenuDirective() {
+                    _classCallCheck(this, ActionMenuDirective);
+                }
+
+                _createClass(ActionMenuDirective, [{
+                    key: "_cancel",
+                    value: function _cancel() {
+                        this.cancel && this.cancel();
+                        return this.overlayRef.close();
+                    }
+                }, {
+                    key: "_destructive",
+                    value: function _destructive() {
+                        var shouldClose = this.destructiveButtonClicked();
+                        if (shouldClose === true) {
+                            return this.overlayRef.close();
+                        }
+                    }
+                }, {
+                    key: "_buttonClicked",
+                    value: function _buttonClicked(index) {
+                        var shouldClose = this.buttonClicked(index);
+                        if (shouldClose === true) {
+                            return this.overlayRef.close();
+                        }
+                    }
+                }]);
+
+                return ActionMenuDirective;
+            })();
+
+            ActionMenuDirective = __decorate([View({
+                template: '<backdrop (click)="_cancel()" tappable></backdrop>' + '<action-menu-wrapper>' + '<div class="action-menu-container">' + '<div class="action-menu-group action-menu-options">' + '<div class="action-menu-title" *ng-if="titleText">{{titleText}}</div>' + '<button (^click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-menu-option">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-menu-destructive">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-menu-group action-menu-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-menu-wrapper>',
+                directives: [NgFor, NgIf, Icon]
+            }), __metadata('design:paramtypes', [])], ActionMenuDirective);
+
+            ActionMenu = (function (_Overlay) {
+                _inherits(ActionMenu, _Overlay);
+
+                function ActionMenu() {
+                    _classCallCheck(this, ActionMenu);
+
+                    _get(Object.getPrototypeOf(ActionMenu.prototype), "constructor", this).apply(this, arguments);
+                }
+
+                _createClass(ActionMenu, [{
+                    key: "open",
+
+                    /**
+                     * Create and open a new Action Menu. This is the
+                     * public API, and most often you will only use ActionMenu.open()
+                     *
+                     * @param {Object} [opts={}]  TODO
+                     * @return {Promise} Promise that resolves when the action menu is open.
+                     */
+                    value: function open() {
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        var config = this.config;
+                        var defaults = {
+                            enterAnimation: config.setting('actionMenuEnter'),
+                            leaveAnimation: config.setting('actionMenuLeave'),
+                            cancelIcon: config.setting('actionMenuCancelIcon'),
+                            destructiveIcon: config.setting('actionMenuDestructiveIcon')
+                        };
+                        var context = util.extend(defaults, opts);
+                        return this.create(OVERLAY_TYPE, ActionMenuDirective, context, context);
+                    }
+
+                    /**
+                     * TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: "get",
+                    value: function get() {
+                        return this.getByType(OVERLAY_TYPE);
+                    }
+                }]);
+
+                return ActionMenu;
+            })(Overlay);
+
+            _export("ActionMenu", ActionMenu);
+
+            _export("ActionMenu", ActionMenu = __decorate([Injectable(), __metadata('design:paramtypes', [])], ActionMenu));
+            OVERLAY_TYPE = 'action-menu';
+
+            /**
+             * Animations for action sheet
+             */
+
+            ActionMenuAnimation = (function (_Animation) {
+                _inherits(ActionMenuAnimation, _Animation);
+
+                function ActionMenuAnimation(element) {
+                    _classCallCheck(this, ActionMenuAnimation);
+
+                    _get(Object.getPrototypeOf(ActionMenuAnimation.prototype), "constructor", this).call(this, element);
+                    this.easing('cubic-bezier(.36, .66, .04, 1)').duration(450);
+                    this.backdrop = new Animation(element.querySelector('backdrop'));
+                    this.wrapper = new Animation(element.querySelector('action-menu-wrapper'));
+                    this.add(this.backdrop, this.wrapper);
+                }
+
+                return ActionMenuAnimation;
+            })(Animation);
+
+            ActionMenuSlideIn = (function (_ActionMenuAnimation) {
+                _inherits(ActionMenuSlideIn, _ActionMenuAnimation);
+
+                function ActionMenuSlideIn(element) {
+                    _classCallCheck(this, ActionMenuSlideIn);
+
+                    _get(Object.getPrototypeOf(ActionMenuSlideIn.prototype), "constructor", this).call(this, element);
+                    this.backdrop.fromTo('opacity', 0.01, 0.4);
+                    this.wrapper.fromTo('translateY', '100%', '0%');
+                }
+
+                return ActionMenuSlideIn;
+            })(ActionMenuAnimation);
+
+            Animation.register('action-menu-slide-in', ActionMenuSlideIn);
+
+            ActionMenuSlideOut = (function (_ActionMenuAnimation2) {
+                _inherits(ActionMenuSlideOut, _ActionMenuAnimation2);
+
+                function ActionMenuSlideOut(element) {
+                    _classCallCheck(this, ActionMenuSlideOut);
+
+                    _get(Object.getPrototypeOf(ActionMenuSlideOut.prototype), "constructor", this).call(this, element);
+                    this.backdrop.fromTo('opacity', 0.4, 0.01);
+                    this.wrapper.fromTo('translateY', '0%', '100%');
+                }
+
+                return ActionMenuSlideOut;
+            })(ActionMenuAnimation);
+
+            Animation.register('action-menu-slide-out', ActionMenuSlideOut);
+
+            ActionMenuMdSlideIn = (function (_ActionMenuSlideIn) {
+                _inherits(ActionMenuMdSlideIn, _ActionMenuSlideIn);
+
+                function ActionMenuMdSlideIn(element) {
+                    _classCallCheck(this, ActionMenuMdSlideIn);
+
+                    _get(Object.getPrototypeOf(ActionMenuMdSlideIn.prototype), "constructor", this).call(this, element);
+                    this.backdrop.fromTo('opacity', 0.01, 0.26);
+                }
+
+                return ActionMenuMdSlideIn;
+            })(ActionMenuSlideIn);
+
+            Animation.register('action-menu-md-slide-in', ActionMenuMdSlideIn);
+
+            ActionMenuMdSlideOut = (function (_ActionMenuSlideOut) {
+                _inherits(ActionMenuMdSlideOut, _ActionMenuSlideOut);
+
+                function ActionMenuMdSlideOut(element) {
+                    _classCallCheck(this, ActionMenuMdSlideOut);
+
+                    _get(Object.getPrototypeOf(ActionMenuMdSlideOut.prototype), "constructor", this).call(this, element);
+                    this.backdrop.fromTo('opacity', 0.26, 0.01);
+                }
+
+                return ActionMenuMdSlideOut;
+            })(ActionMenuSlideOut);
+
+            Animation.register('action-menu-md-slide-out', ActionMenuMdSlideOut);
+        }
+    };
+});
 System.register("ionic/components/aside/aside-toggle", ["angular2/angular2", "../app/app"], function (_export) {
     /**
     * TODO
@@ -7853,7 +7940,6 @@ System.register("ionic/components/aside/aside-toggle", ["angular2/angular2", "..
                     key: "toggle",
                     value: function toggle(event) {
                         this.aside && this.aside.toggle();
-                        console.log('Aside toggle');
                     }
                 }]);
 
@@ -7872,7 +7958,7 @@ System.register("ionic/components/aside/aside-toggle", ["angular2/angular2", "..
         }
     };
 });
-System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/annotations", "./extensions/types", "./extensions/gestures", "ionic/util/util", "ionic/util"], function (_export) {
+System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/annotations", "./extensions/gestures"], function (_export) {
     /**
      * Aside is a side-menu navigation that can be dragged out or toggled to show. Aside supports two
      * display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal
@@ -7880,7 +7966,7 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
      */
     "use strict";
 
-    var forwardRef, Component, Host, View, EventEmitter, ElementRef, Ion, IonicApp, IonicConfig, IonicComponent, types, gestures, util, dom, __decorate, __metadata, __param, Aside, AsideBackdrop;
+    var forwardRef, Directive, Host, View, EventEmitter, ElementRef, Ion, IonicApp, IonicConfig, IonicComponent, gestures, __decorate, __metadata, __param, Aside, asideTypes, FALLBACK_ASIDE_TYPE, AsideBackdrop;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -7893,7 +7979,7 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
     return {
         setters: [function (_angular2Angular2) {
             forwardRef = _angular2Angular2.forwardRef;
-            Component = _angular2Angular2.Component;
+            Directive = _angular2Angular2.Directive;
             Host = _angular2Angular2.Host;
             View = _angular2Angular2.View;
             EventEmitter = _angular2Angular2.EventEmitter;
@@ -7906,14 +7992,8 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
             IonicConfig = _configConfig.IonicConfig;
         }, function (_configAnnotations) {
             IonicComponent = _configAnnotations.IonicComponent;
-        }, function (_extensionsTypes) {
-            types = _extensionsTypes;
         }, function (_extensionsGestures) {
             gestures = _extensionsGestures;
-        }, function (_ionicUtilUtil) {
-            util = _ionicUtilUtil;
-        }, function (_ionicUtil) {
-            dom = _ionicUtil.dom;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -7947,146 +8027,62 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
             Aside = (function (_Ion) {
                 _inherits(Aside, _Ion);
 
-                /**
-                * TODO
-                * @param {IonicApp} app  TODO
-                * @param {ElementRef} elementRef  Reference to the element.
-                */
-
                 function Aside(app, elementRef, config) {
-                    var _this = this;
-
                     _classCallCheck(this, Aside);
 
                     _get(Object.getPrototypeOf(Aside.prototype), "constructor", this).call(this, elementRef, config);
                     this.app = app;
                     this.opening = new EventEmitter('opening');
-                    //this.animation = new Animation(element.querySelector('backdrop'));
-                    this.contentClickFn = function (e) {
-                        if (!_this.isOpen || _this.isChanging) {
-                            return;
-                        }
-                        _this.close();
-                    };
-                    this.finishChanging = util.debounce(function () {
-                        _this.setChanging(false);
-                    });
-                    // TODO: Use Animation Class
-                    this.getNativeElement().addEventListener('transitionend', function (ev) {
-                        //this.setChanging(false)
-                        clearTimeout(_this.setChangeTimeout);
-                        _this.setChangeTimeout = setInterval(_this.finishChanging, 400);
-                    });
+                    this.isOpen = false;
+                    this._disableTime = 0;
                 }
 
-                /**
-                 * TODO
-                 */
-
                 _createClass(Aside, [{
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        app.unregister(this);
-                    }
-
-                    /**
-                     * TODO
-                     */
-                }, {
                     key: "onInit",
                     value: function onInit() {
-                        var _this2 = this;
-
                         _get(Object.getPrototypeOf(Aside.prototype), "onInit", this).call(this);
                         this.contentElement = this.content instanceof Node ? this.content : this.content.getNativeElement();
+                        if (!this.contentElement) {
+                            return console.error('Aside: must have a [content] element to listen for drag events on. Example:\n\n<ion-aside [content]="content"></ion-aside>\n\n<ion-content #content></ion-content>');
+                        }
                         if (!this.id) {
                             // Auto register
                             this.app.register('menu', this);
                         }
-                        if (this.contentElement) {
-                            this.contentElement.addEventListener('transitionend', function (ev) {
-                                //this.setChanging(false)
-                                clearTimeout(_this2.setChangeTimeout);
-                                _this2.setChangeTimeout = setInterval(_this2.finishChanging, 400);
-                            });
-                            this.contentElement.addEventListener('click', this.contentClickFn);
-                        } else {
-                            console.error('Aside: must have a [content] element to listen for drag events on. Supply one like this:\n\n<ion-aside [content]="content"></ion-aside>\n\n<ion-content #content>');
-                        }
-                        this.gestureDelegate = this.getDelegate('gesture');
-                        this.typeDelegate = this.getDelegate('type');
+                        this._initGesture();
+                        this._initType(this.type);
+                        this.contentElement.classList.add('aside-content');
+                        this.contentElement.classList.add('aside-content-' + this.type);
+                        var self = this;
+                        this.onContentClick = function (ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            self.close();
+                        };
                     }
                 }, {
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        this.contentElement.removeEventListener('click', this.contentClickFn);
-                    }
-
-                    /**
-                     * TODO
-                     * @return {Element} The Aside's content element.
-                     */
-                }, {
-                    key: "getContentElement",
-                    value: function getContentElement() {
-                        return this.contentElement;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} v  TODO
-                     */
-                }, {
-                    key: "setOpenAmt",
-                    value: function setOpenAmt(v) {
-                        this.opening.next(v);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {boolean} willOpen  TODO
-                     */
-                }, {
-                    key: "setDoneTransforming",
-                    value: function setDoneTransforming(willOpen) {
-                        this.typeDelegate.setDoneTransforming(willOpen);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} transform  TODO
-                     */
-                }, {
-                    key: "setTransform",
-                    value: function setTransform(transform) {
-                        this.typeDelegate.setTransform(transform);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {boolean} isSliding  TODO
-                     */
-                }, {
-                    key: "setSliding",
-                    value: function setSliding(isSliding) {
-                        if (isSliding !== this.isSliding) {
-                            this.typeDelegate.setSliding(isSliding);
+                    key: "_initGesture",
+                    value: function _initGesture() {
+                        switch (this.side) {
+                            case 'right':
+                                this._gesture = new gestures.RightAsideGesture(this);
+                                break;
+                            case 'left':
+                                this._gesture = new gestures.LeftAsideGesture(this);
+                                break;
                         }
                     }
-
-                    /**
-                     * TODO
-                     * @param {boolean} isChanging  TODO
-                     */
                 }, {
-                    key: "setChanging",
-                    value: function setChanging(isChanging) {
-                        // Stop any last changing end operations
-                        clearTimeout(this.setChangeTimeout);
-                        if (isChanging !== this.isChanging) {
-                            this.isChanging = isChanging;
-                            this.getNativeElement().classList[isChanging ? 'add' : 'remove']('changing');
+                    key: "_initType",
+                    value: function _initType(type) {
+                        type = type && type.trim().toLowerCase() || FALLBACK_ASIDE_TYPE;
+                        var asideTypeCls = asideTypes[type];
+                        if (!asideTypeCls) {
+                            type = FALLBACK_ASIDE_TYPE;
+                            asideTypeCls = asideTypes[type];
                         }
+                        this._type = new asideTypeCls(this);
+                        this.type = type;
                     }
 
                     /**
@@ -8096,18 +8092,81 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
                      */
                 }, {
                     key: "setOpen",
-                    value: function setOpen(isOpen) {
-                        var _this3 = this;
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
 
-                        if (isOpen !== this.isOpen) {
-                            this.isOpen = isOpen;
-                            this.setChanging(true);
-                            // Set full or closed amount
-                            this.setOpenAmt(isOpen ? 1 : 0);
-                            return dom.rafPromise().then(function () {
-                                _this3.typeDelegate.setOpen(isOpen);
-                            });
+                        // _isDisabled is used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the aside-toggle button
+                        if (shouldOpen === this.isOpen || this._isDisabled()) {
+                            return Promise.resolve();
                         }
+                        this._before();
+                        return this._type.setOpen(shouldOpen).then(function () {
+                            _this._after(shouldOpen);
+                        });
+                    }
+                }, {
+                    key: "setProgressStart",
+                    value: function setProgressStart() {
+                        // user started swiping the aside open/close
+                        if (this._isDisabled()) return;
+                        this._before();
+                        this._type.setProgressStart(this.isOpen);
+                    }
+                }, {
+                    key: "setProgess",
+                    value: function setProgess(value) {
+                        // user actively dragging the menu
+                        this._disable();
+                        this._type.setProgess(value);
+                    }
+                }, {
+                    key: "setProgressFinish",
+                    value: function setProgressFinish(shouldComplete) {
+                        var _this2 = this;
+
+                        // user has finished dragging the menu
+                        this._disable();
+                        this._type.setProgressFinish(shouldComplete).then(function (isOpen) {
+                            _this2._after(isOpen);
+                        });
+                    }
+                }, {
+                    key: "_before",
+                    value: function _before() {
+                        // this places the aside into the correct location before it animates in
+                        // this css class doesn't actually kick off any animations
+                        this.getNativeElement().classList.add('show-aside');
+                        this.getBackdropElement().classList.add('show-backdrop');
+                        this._disable();
+                        this.app.setTransitioning(true);
+                    }
+                }, {
+                    key: "_after",
+                    value: function _after(isOpen) {
+                        this._disable();
+                        this.isOpen = isOpen;
+                        this.contentElement.classList[isOpen ? 'add' : 'remove']('aside-content-open');
+                        this.contentElement.removeEventListener('click', this.onContentClick);
+                        if (isOpen) {
+                            this.contentElement.addEventListener('click', this.onContentClick);
+                        } else {
+                            this.getNativeElement().classList.remove('show-aside');
+                            this.getBackdropElement().classList.remove('show-backdrop');
+                        }
+                        this.app.setTransitioning(false);
+                    }
+                }, {
+                    key: "_disable",
+                    value: function _disable() {
+                        // used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the aside-toggle
+                        this._disableTime = Date.now();
+                    }
+                }, {
+                    key: "_isDisabled",
+                    value: function _isDisabled() {
+                        return this._disableTime + 300 > Date.now();
                     }
 
                     /**
@@ -8139,6 +8198,48 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
                     value: function toggle() {
                         return this.setOpen(!this.isOpen);
                     }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside element.
+                     */
+                }, {
+                    key: "getAsideElement",
+                    value: function getAsideElement() {
+                        return this.getNativeElement();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside's associated content element.
+                     */
+                }, {
+                    key: "getContentElement",
+                    value: function getContentElement() {
+                        return this.contentElement;
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside's associated content element.
+                     */
+                }, {
+                    key: "getBackdropElement",
+                    value: function getBackdropElement() {
+                        return this.backdrop.elementRef.nativeElement;
+                    }
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.app.unregister(this);
+                        this._type && this._type.onDestroy();
+                        this.contentElement = null;
+                    }
+                }], [{
+                    key: "register",
+                    value: function register(name, cls) {
+                        asideTypes[name] = cls;
+                    }
                 }]);
 
                 return Aside;
@@ -8153,91 +8254,60 @@ System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", 
                     'side': 'left',
                     'type': 'reveal'
                 },
-                delegates: {
-                    gesture: [
-                    //[instance => instance.side == 'top', gestures.TopAsideGesture],
-                    //[instance => instance.side == 'bottom', gestures.BottomAsideGesture],
-                    [function (instance) {
-                        return instance.side == 'right';
-                    }, gestures.RightAsideGesture], [function (instance) {
-                        return instance.side == 'left';
-                    }, gestures.LeftAsideGesture]],
-                    type: [[function (instance) {
-                        return instance.type == 'overlay';
-                    }, types.AsideTypeOverlay], [function (instance) {
-                        return instance.type == 'reveal';
-                    }, types.AsideTypeReveal]]
+                host: {
+                    'role': 'navigation'
                 },
                 events: ['opening']
             }), View({
-                template: '<ng-content></ng-content><ion-aside-backdrop></ion-aside-backdrop>',
+                template: '<ng-content></ng-content><backdrop tappable></backdrop>',
                 directives: [forwardRef(function () {
                     return AsideBackdrop;
                 })]
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof ElementRef !== 'undefined' && ElementRef || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object])], Aside));
+            asideTypes = {};
+            FALLBACK_ASIDE_TYPE = 'reveal';
+
             /**
              * TODO
              */
 
-            AsideBackdrop = (function (_Ion2) {
-                _inherits(AsideBackdrop, _Ion2);
-
+            AsideBackdrop = (function () {
                 /**
                  * TODO
-                 * @param {ElementReg} elementRef  TODO
-                 * @param {IonicConfig} config  TODO
                  * @param {Aside} aside  TODO
                  */
 
-                function AsideBackdrop(elementRef, config, aside) {
+                function AsideBackdrop(aside, elementRef) {
                     _classCallCheck(this, AsideBackdrop);
 
-                    _get(Object.getPrototypeOf(AsideBackdrop.prototype), "constructor", this).call(this, elementRef, config);
-                    aside.backdrop = this;
                     this.aside = aside;
-                    this.opacity = 0;
+                    this.elementRef = elementRef;
+                    aside.backdrop = this;
                 }
 
                 /**
                  * TODO
+                 * @param {TODO} event  TODO
                  */
 
                 _createClass(AsideBackdrop, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        var ww = window.innerWidth;
-                        var wh = window.innerHeight;
-                        this.width = ww + 'px';
-                        this.height = wh + 'px';
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} event  TODO
-                     */
-                }, {
                     key: "clicked",
-                    value: function clicked(event) {
+                    value: function clicked(ev) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
                         this.aside.close();
                     }
                 }]);
 
                 return AsideBackdrop;
-            })(Ion);
+            })();
 
-            _export("AsideBackdrop", AsideBackdrop);
-
-            _export("AsideBackdrop", AsideBackdrop = __decorate([Component({
-                selector: 'ion-aside-backdrop',
+            AsideBackdrop = __decorate([Directive({
+                selector: 'backdrop',
                 host: {
-                    '[style.width]': 'width',
-                    '[style.height]': 'height',
-                    '[style.opacity]': 'opacity',
                     '(click)': 'clicked($event)'
                 }
-            }), View({
-                template: ''
-            }), __param(2, Host()), __metadata('design:paramtypes', [typeof ElementRef !== 'undefined' && ElementRef || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object, Aside])], AsideBackdrop));
+            }), __param(0, Host()), __metadata('design:paramtypes', [Aside, typeof ElementRef !== 'undefined' && ElementRef || Object])], AsideBackdrop);
         }
     };
 });
@@ -11387,8 +11457,8 @@ System.register("ionic/components/nav/swipe-handle", ["angular2/angular2", "../v
                         function dragHorizontal(ev) {
                             self.onDragHorizontal(ev);
                         }
-                        gesture.on('panend', function (gestureEv) {
-                            self.onDragEnd(gestureEv.gesture);
+                        gesture.on('panend', function (gesture) {
+                            self.onDragEnd(gesture);
                         });
                         gesture.on('panleft', dragHorizontal);
                         gesture.on('panright', dragHorizontal);
@@ -11428,17 +11498,16 @@ System.register("ionic/components/nav/swipe-handle", ["angular2/angular2", "../v
                             }
                         }
                         this.zone.run(function () {
-                            _this.viewCtrl.swipeBackEnd(completeSwipeBack, progress, playbackRate);
+                            _this.viewCtrl.swipeBackFinish(completeSwipeBack, playbackRate);
                         });
                         this.startX = null;
                     }
                 }, {
                     key: "onDragHorizontal",
-                    value: function onDragHorizontal(gestureEv) {
+                    value: function onDragHorizontal(gesture) {
                         var _this2 = this;
 
                         this.zone.run(function () {
-                            var gesture = gestureEv.gesture;
                             if (_this2.startX === null) {
                                 // starting drag
                                 gesture.srcEvent.preventDefault();
@@ -11676,6 +11745,214 @@ System.register("ionic/components/nav-bar/nav-bar", ["angular2/angular2", "../to
             _export("NavbarTemplate", NavbarTemplate = __decorate([Directive({
                 selector: 'template[navbar]'
             }), __param(0, Optional()), __param(1, Optional()), __metadata('design:paramtypes', [typeof ViewItem !== 'undefined' && ViewItem || Object, typeof TemplateRef !== 'undefined' && TemplateRef || Object])], NavbarTemplate));
+        }
+    };
+});
+System.register('ionic/components/overlay/overlay', ['angular2/angular2', 'angular2/src/core/compiler/element_injector', '../../animations/animation', '../../util/click-block', 'ionic/util'], function (_export) {
+    'use strict';
+
+    var Component, DirectiveBinding, Animation, ClickBlock, util, Overlay, OverlayRef, ROOT_Z_INDEX;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+        }, function (_angular2SrcCoreCompilerElement_injector) {
+            DirectiveBinding = _angular2SrcCoreCompilerElement_injector.DirectiveBinding;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }, function (_utilClickBlock) {
+            ClickBlock = _utilClickBlock.ClickBlock;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            Overlay = (function () {
+                function Overlay(app, config) {
+                    _classCallCheck(this, Overlay);
+
+                    this.app = app;
+                    this.config = config;
+                    this.mode = config.setting('mode');
+                }
+
+                _createClass(Overlay, [{
+                    key: 'create',
+                    value: function create(overlayType, componentType) {
+                        var _this = this;
+
+                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+                        var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+
+                        return new Promise(function (resolve, reject) {
+                            var app = _this.app;
+                            var annotation = new Component({
+                                selector: 'ion-' + overlayType,
+                                host: {
+                                    '[style.z-index]': 'zIndex',
+                                    'mode': _this.mode,
+                                    'class': overlayType
+                                }
+                            });
+                            var overlayComponentType = DirectiveBinding.createFromType(componentType, annotation);
+                            // create a unique token that works as a cache key
+                            overlayComponentType.token = overlayType + componentType.name;
+                            app.appendComponent(overlayComponentType).then(function (ref) {
+                                var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
+                                overlayRef._open(opts).then(function () {
+                                    resolve(overlayRef);
+                                });
+                            })['catch'](function (err) {
+                                console.error('Overlay appendComponent:', err);
+                                reject(err);
+                            });
+                        })['catch'](function (err) {
+                            console.error('Overlay create:', err);
+                        });
+                    }
+                }, {
+                    key: 'getByType',
+                    value: function getByType(overlayType) {
+                        if (this.app) {
+                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+                                if (overlayType === this.app.overlays[i]._type) {
+                                    return this.app.overlays[i];
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: 'getByHandle',
+                    value: function getByHandle(handle, overlayType) {
+                        if (this.app) {
+                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+                                if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
+                                    return this.app.overlays[i];
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }]);
+
+                return Overlay;
+            })();
+
+            _export('Overlay', Overlay);
+
+            OverlayRef = (function () {
+                function OverlayRef(app, overlayType, opts, ref, context) {
+                    var _this2 = this;
+
+                    _classCallCheck(this, OverlayRef);
+
+                    this.app = app;
+                    var overlayInstance = ref && ref.instance;
+                    if (!overlayInstance) return;
+                    if (context) {
+                        util.extend(ref.instance, context);
+                    }
+                    this._instance = overlayInstance;
+                    overlayInstance.viewLoaded && overlayInstance.viewLoaded();
+                    this.zIndex = ROOT_Z_INDEX;
+                    for (var i = 0; i < app.overlays.length; i++) {
+                        if (app.overlays[i].zIndex >= this.zIndex) {
+                            this.zIndex = app.overlays[i].zIndex + 1;
+                        }
+                    }
+                    overlayInstance.zIndex = this.zIndex;
+                    overlayInstance.overlayRef = this;
+                    overlayInstance.close = function (instanceOpts) {
+                        _this2.close(instanceOpts);
+                    };
+                    this._elementRef = ref.location;
+                    this._type = overlayType;
+                    this._opts = opts;
+                    this._handle = opts.handle || this.zIndex;
+                    this._dispose = function () {
+                        _this2._instance = null;
+                        ref.dispose && ref.dispose();
+                        util.array.remove(app.overlays, _this2);
+                    };
+                    app.overlays.push(this);
+                }
+
+                _createClass(OverlayRef, [{
+                    key: 'getElementRef',
+                    value: function getElementRef() {
+                        return this._elementRef;
+                    }
+                }, {
+                    key: '_open',
+                    value: function _open() {
+                        var _this3 = this;
+
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        return new Promise(function (resolve) {
+                            var instance = _this3._instance || {};
+                            instance.viewWillEnter && instance.viewWillEnter();
+                            var animationName = opts && opts.animation || _this3._opts.enterAnimation;
+                            var animation = Animation.create(_this3._elementRef.nativeElement, animationName);
+                            animation.before.addClass('show-overlay');
+                            ClickBlock(true, animation.duration() + 200);
+                            _this3.app.setTransitioning(true);
+                            _this3.app.zoneRunOutside(function () {
+                                animation.play().then(function () {
+                                    _this3.app.zoneRun(function () {
+                                        ClickBlock(false);
+                                        _this3.app.setTransitioning(false);
+                                        animation.dispose();
+                                        instance.viewDidEnter && instance.viewDidEnter();
+                                        resolve();
+                                    });
+                                });
+                            });
+                        })['catch'](function (err) {
+                            console.error(err);
+                        });
+                    }
+                }, {
+                    key: 'close',
+                    value: function close() {
+                        var _this4 = this;
+
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        return new Promise(function (resolve) {
+                            var instance = _this4._instance || {};
+                            instance.viewWillLeave && instance.viewWillLeave();
+                            instance.viewWillUnload && instance.viewWillUnload();
+                            var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
+                            var animation = Animation.create(_this4._elementRef.nativeElement, animationName);
+                            animation.after.removeClass('show-overlay');
+                            ClickBlock(true, animation.duration() + 200);
+                            _this4.app.setTransitioning(true);
+                            animation.play().then(function () {
+                                instance.viewDidLeave && instance.viewDidLeave();
+                                instance.viewDidUnload && instance.viewDidUnload();
+                                _this4._dispose();
+                                ClickBlock(false);
+                                _this4.app.setTransitioning(false);
+                                animation.dispose();
+                                resolve();
+                            });
+                        })['catch'](function (err) {
+                            console.error(err);
+                        });
+                    }
+                }]);
+
+                return OverlayRef;
+            })();
+
+            _export('OverlayRef', OverlayRef);
+
+            ROOT_Z_INDEX = 1000;
         }
     };
 });
@@ -15154,214 +15431,6 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../view/vie
         }
     };
 });
-System.register('ionic/components/overlay/overlay', ['angular2/angular2', 'angular2/src/core/compiler/element_injector', '../../animations/animation', '../../util/click-block', 'ionic/util'], function (_export) {
-    'use strict';
-
-    var Component, DirectiveBinding, Animation, ClickBlock, util, Overlay, OverlayRef, ROOT_Z_INDEX;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-        }, function (_angular2SrcCoreCompilerElement_injector) {
-            DirectiveBinding = _angular2SrcCoreCompilerElement_injector.DirectiveBinding;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_utilClickBlock) {
-            ClickBlock = _utilClickBlock.ClickBlock;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            Overlay = (function () {
-                function Overlay(app, config) {
-                    _classCallCheck(this, Overlay);
-
-                    this.app = app;
-                    this.config = config;
-                    this.mode = config.setting('mode');
-                }
-
-                _createClass(Overlay, [{
-                    key: 'create',
-                    value: function create(overlayType, componentType) {
-                        var _this = this;
-
-                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-                        var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
-
-                        return new Promise(function (resolve, reject) {
-                            var app = _this.app;
-                            var annotation = new Component({
-                                selector: 'ion-' + overlayType,
-                                host: {
-                                    '[style.z-index]': 'zIndex',
-                                    'mode': _this.mode,
-                                    'class': overlayType
-                                }
-                            });
-                            var overlayComponentType = DirectiveBinding.createFromType(componentType, annotation);
-                            // create a unique token that works as a cache key
-                            overlayComponentType.token = overlayType + componentType.name;
-                            app.appendComponent(overlayComponentType).then(function (ref) {
-                                var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
-                                overlayRef._open(opts).then(function () {
-                                    resolve(overlayRef);
-                                });
-                            })['catch'](function (err) {
-                                console.error('Overlay appendComponent:', err);
-                                reject(err);
-                            });
-                        })['catch'](function (err) {
-                            console.error('Overlay create:', err);
-                        });
-                    }
-                }, {
-                    key: 'getByType',
-                    value: function getByType(overlayType) {
-                        if (this.app) {
-                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-                                if (overlayType === this.app.overlays[i]._type) {
-                                    return this.app.overlays[i];
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: 'getByHandle',
-                    value: function getByHandle(handle, overlayType) {
-                        if (this.app) {
-                            for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-                                if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
-                                    return this.app.overlays[i];
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }]);
-
-                return Overlay;
-            })();
-
-            _export('Overlay', Overlay);
-
-            OverlayRef = (function () {
-                function OverlayRef(app, overlayType, opts, ref, context) {
-                    var _this2 = this;
-
-                    _classCallCheck(this, OverlayRef);
-
-                    this.app = app;
-                    var overlayInstance = ref && ref.instance;
-                    if (!overlayInstance) return;
-                    if (context) {
-                        util.extend(ref.instance, context);
-                    }
-                    this._instance = overlayInstance;
-                    overlayInstance.viewLoaded && overlayInstance.viewLoaded();
-                    this.zIndex = ROOT_Z_INDEX;
-                    for (var i = 0; i < app.overlays.length; i++) {
-                        if (app.overlays[i].zIndex >= this.zIndex) {
-                            this.zIndex = app.overlays[i].zIndex + 1;
-                        }
-                    }
-                    overlayInstance.zIndex = this.zIndex;
-                    overlayInstance.overlayRef = this;
-                    overlayInstance.close = function (instanceOpts) {
-                        _this2.close(instanceOpts);
-                    };
-                    this._elementRef = ref.location;
-                    this._type = overlayType;
-                    this._opts = opts;
-                    this._handle = opts.handle || this.zIndex;
-                    this._dispose = function () {
-                        _this2._instance = null;
-                        ref.dispose && ref.dispose();
-                        util.array.remove(app.overlays, _this2);
-                    };
-                    app.overlays.push(this);
-                }
-
-                _createClass(OverlayRef, [{
-                    key: 'getElementRef',
-                    value: function getElementRef() {
-                        return this._elementRef;
-                    }
-                }, {
-                    key: '_open',
-                    value: function _open() {
-                        var _this3 = this;
-
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        return new Promise(function (resolve) {
-                            var instance = _this3._instance || {};
-                            instance.viewWillEnter && instance.viewWillEnter();
-                            var animationName = opts && opts.animation || _this3._opts.enterAnimation;
-                            var animation = Animation.create(_this3._elementRef.nativeElement, animationName);
-                            animation.before.addClass('show-overlay');
-                            ClickBlock(true, animation.duration() + 200);
-                            _this3.app.setTransitioning(true);
-                            _this3.app.zoneRunOutside(function () {
-                                animation.play().then(function () {
-                                    _this3.app.zoneRun(function () {
-                                        ClickBlock(false);
-                                        _this3.app.setTransitioning(false);
-                                        animation.dispose();
-                                        instance.viewDidEnter && instance.viewDidEnter();
-                                        resolve();
-                                    });
-                                });
-                            });
-                        })['catch'](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }, {
-                    key: 'close',
-                    value: function close() {
-                        var _this4 = this;
-
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        return new Promise(function (resolve) {
-                            var instance = _this4._instance || {};
-                            instance.viewWillLeave && instance.viewWillLeave();
-                            instance.viewWillUnload && instance.viewWillUnload();
-                            var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
-                            var animation = Animation.create(_this4._elementRef.nativeElement, animationName);
-                            animation.after.removeClass('show-overlay');
-                            ClickBlock(true, animation.duration() + 200);
-                            _this4.app.setTransitioning(true);
-                            animation.play().then(function () {
-                                instance.viewDidLeave && instance.viewDidLeave();
-                                instance.viewDidUnload && instance.viewDidUnload();
-                                _this4._dispose();
-                                ClickBlock(false);
-                                _this4.app.setTransitioning(false);
-                                animation.dispose();
-                                resolve();
-                            });
-                        })['catch'](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }]);
-
-                return OverlayRef;
-            })();
-
-            _export('OverlayRef', OverlayRef);
-
-            ROOT_Z_INDEX = 1000;
-        }
-    };
-});
 System.register("ionic/components/text-input/label", ["angular2/angular2", "../../config/config", "../../util/dom"], function (_export) {
     /**
      * TODO
@@ -16540,6 +16609,7 @@ System.register('ionic/components/view/view-controller', ['angular2/angular2', '
                         enteringItem.shouldDestroy = false;
                         enteringItem.shouldCache = false;
                         enteringItem.willEnter();
+                        this.app.setTransitioning(true);
                         // wait for the new item to complete setup
                         enteringItem.stage(function () {
                             // set that the new item pushed on the stack is staged to be entering/leaving
@@ -16548,8 +16618,7 @@ System.register('ionic/components/view/view-controller', ['angular2/angular2', '
                             leavingItem.state = STAGED_LEAVING_STATE;
                             // init the transition animation
                             _this2.sbTransition = Transition.create(_this2, opts);
-                            _this2.sbTransition.easing('linear');
-                            _this2.sbTransition.stage();
+                            _this2.sbTransition.easing('linear').progressStart();
                             var swipeBackPromise = new Promise(function (res) {
                                 _this2.sbResolve = res;
                             });
@@ -16601,26 +16670,18 @@ System.register('ionic/components/view/view-controller', ['angular2/angular2', '
                      * @param {TODO} playbackRate  TODO
                      */
                 }, {
-                    key: 'swipeBackEnd',
-                    value: function swipeBackEnd(completeSwipeBack, progress, playbackRate) {
+                    key: 'swipeBackFinish',
+                    value: function swipeBackFinish(completeSwipeBack, playbackRate) {
                         var _this3 = this;
 
                         // to reverse the animation use a negative playbackRate
                         if (this.sbTransition && this.sbActive) {
                             this.sbActive = false;
-                            if (progress <= 0) {
-                                this.swipeBackProgress(0.0001);
-                            } else if (progress >= 1) {
-                                this.swipeBackProgress(0.9999);
-                            }
-                            if (!completeSwipeBack) {
-                                playbackRate = playbackRate * -1;
-                            }
-                            this.sbTransition.playbackRate(playbackRate);
-                            this.sbTransition.play().then(function () {
+                            this.sbTransition.progressFinish(completeSwipeBack, playbackRate).then(function () {
                                 _this3.sbResolve && _this3.sbResolve(completeSwipeBack);
                                 _this3.sbTransition && _this3.sbTransition.dispose();
                                 _this3.sbResolve = _this3.sbTransition = null;
+                                _this3.app.setTransitioning(false);
                             });
                         }
                     }
@@ -18360,7 +18421,7 @@ System.register("ionic/native/vibration/vibration", ["../plugin"], function (_ex
 System.register('ionic/components/aside/extensions/gestures', ['ionic/gestures/slide-edge-gesture'], function (_export) {
     'use strict';
 
-    var SlideEdgeGesture, AsideTargetGesture, AsideGesture, LeftAsideGesture, RightAsideGesture;
+    var SlideEdgeGesture, AsideGenericGestureHandler, AsideContentGesture, LeftAsideGesture, RightAsideGesture;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -18375,125 +18436,38 @@ System.register('ionic/components/aside/extensions/gestures', ['ionic/gestures/s
             SlideEdgeGesture = _ionicGesturesSlideEdgeGesture.SlideEdgeGesture;
         }],
         execute: function () {
-            AsideTargetGesture = (function (_SlideEdgeGesture) {
-                _inherits(AsideTargetGesture, _SlideEdgeGesture);
+            AsideGenericGestureHandler = (function (_SlideEdgeGesture) {
+                _inherits(AsideGenericGestureHandler, _SlideEdgeGesture);
 
-                function AsideTargetGesture(aside) {
-                    _classCallCheck(this, AsideTargetGesture);
+                function AsideGenericGestureHandler(aside, targetElement, threshold) {
+                    _classCallCheck(this, AsideGenericGestureHandler);
 
-                    var asideElement = aside.getNativeElement();
-                    _get(Object.getPrototypeOf(AsideTargetGesture.prototype), 'constructor', this).call(this, asideElement, {
+                    _get(Object.getPrototypeOf(AsideGenericGestureHandler.prototype), 'constructor', this).call(this, targetElement, {
                         direction: aside.side === 'left' || aside.side === 'right' ? 'x' : 'y',
                         edge: aside.side,
-                        threshold: 0
+                        threshold: threshold
                     });
                     this.aside = aside;
-                }
-
-                _createClass(AsideTargetGesture, [{
-                    key: 'canStart',
-                    value: function canStart(ev) {
-                        return this.aside.isOpen;
-                    }
-
-                    // Set CSS, then wait one frame for it to apply before sliding starts
-                }, {
-                    key: 'onSlideBeforeStart',
-                    value: function onSlideBeforeStart(slide, ev) {
-                        this.aside.setSliding(true);
-                        this.aside.setChanging(true);
-                        return new Promise(function (resolve) {
-                            requestAnimationFrame(resolve);
-                        });
-                    }
-                }, {
-                    key: 'onSlide',
-                    value: function onSlide(slide, ev) {
-                        this.aside.setOpenAmt(slide.distance / slide.max);
-                        this.aside.setTransform(slide.distance);
-                    }
-                }, {
-                    key: 'onSlideEnd',
-                    value: function onSlideEnd(slide, ev) {
-                        this.aside.setSliding(false);
-                        if (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5) {
-                            this.aside.setOpen(!this.aside.isOpen);
-                            this.aside.setDoneTransforming(!this.aside.isOpen);
-                        } else {
-                            this.aside.setDoneTransforming(this.aside.isOpen);
-                        }
-                    }
-                }, {
-                    key: 'getElementStartPos',
-                    value: function getElementStartPos(slide, ev) {
-                        return this.aside.isOpen ? slide.max : slide.min;
-                    }
-                }, {
-                    key: 'getSlideBoundaries',
-                    value: function getSlideBoundaries() {
-                        return {
-                            min: 0,
-                            max: this.aside.width()
-                        };
-                    }
-                }]);
-
-                return AsideTargetGesture;
-            })(SlideEdgeGesture);
-
-            AsideGesture = (function (_SlideEdgeGesture2) {
-                _inherits(AsideGesture, _SlideEdgeGesture2);
-
-                function AsideGesture(aside) {
-                    _classCallCheck(this, AsideGesture);
-
-                    // TODO figure out the sliding element, dont just use the parent
-                    var contentElement = aside.getContentElement();
-                    _get(Object.getPrototypeOf(AsideGesture.prototype), 'constructor', this).call(this, contentElement, {
-                        direction: aside.side === 'left' || aside.side === 'right' ? 'x' : 'y',
-                        edge: aside.side,
-                        threshold: 75
-                    });
-                    this.aside = aside;
-                    this.slideElement = contentElement;
                     this.listen();
-                    var contentGesture = new AsideTargetGesture(aside);
-                    contentGesture.listen();
                 }
 
-                _createClass(AsideGesture, [{
-                    key: 'canStart',
-                    value: function canStart(ev) {
-                        // Only restrict edges if the aside is closed
-                        return this.aside.isOpen ? true : _get(Object.getPrototypeOf(AsideGesture.prototype), 'canStart', this).call(this, ev);
-                    }
+                // Set CSS, then wait one frame for it to apply before sliding starts
 
-                    // Set CSS, then wait one frame for it to apply before sliding starts
-                }, {
+                _createClass(AsideGenericGestureHandler, [{
                     key: 'onSlideBeforeStart',
                     value: function onSlideBeforeStart(slide, ev) {
-                        this.aside.setSliding(true);
-                        this.aside.setChanging(true);
-                        return new Promise(function (resolve) {
-                            requestAnimationFrame(resolve);
-                        });
+                        this.aside.setProgressStart();
                     }
                 }, {
                     key: 'onSlide',
                     value: function onSlide(slide, ev) {
-                        this.aside.setOpenAmt(slide.distance / slide.max);
-                        this.aside.setTransform(slide.distance);
+                        this.aside.setProgess(slide.distance / slide.max);
                     }
                 }, {
                     key: 'onSlideEnd',
                     value: function onSlideEnd(slide, ev) {
-                        this.aside.setSliding(false);
-                        if (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5) {
-                            this.aside.setOpen(!this.aside.isOpen);
-                            this.aside.setDoneTransforming(!this.aside.isOpen);
-                        } else {
-                            this.aside.setDoneTransforming(false);
-                        }
+                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
+                        this.aside.setProgressFinish(shouldComplete);
                     }
                 }, {
                     key: 'getElementStartPos',
@@ -18510,30 +18484,51 @@ System.register('ionic/components/aside/extensions/gestures', ['ionic/gestures/s
                     }
                 }]);
 
-                return AsideGesture;
+                return AsideGenericGestureHandler;
             })(SlideEdgeGesture);
 
-            LeftAsideGesture = (function (_AsideGesture) {
-                _inherits(LeftAsideGesture, _AsideGesture);
+            AsideContentGesture = (function (_AsideGenericGestureHandler) {
+                _inherits(AsideContentGesture, _AsideGenericGestureHandler);
 
-                function LeftAsideGesture() {
+                function AsideContentGesture(aside) {
+                    _classCallCheck(this, AsideContentGesture);
+
+                    _get(Object.getPrototypeOf(AsideContentGesture.prototype), 'constructor', this).call(this, aside, aside.getContentElement(), 75);
+                }
+
+                _createClass(AsideContentGesture, [{
+                    key: 'canStart',
+                    value: function canStart(ev) {
+                        return this.aside.isOpen ? true : _get(Object.getPrototypeOf(AsideContentGesture.prototype), 'canStart', this).call(this, ev);
+                    }
+                }]);
+
+                return AsideContentGesture;
+            })(AsideGenericGestureHandler);
+
+            _export('AsideContentGesture', AsideContentGesture);
+
+            LeftAsideGesture = (function (_AsideContentGesture) {
+                _inherits(LeftAsideGesture, _AsideContentGesture);
+
+                function LeftAsideGesture(aside) {
                     _classCallCheck(this, LeftAsideGesture);
 
-                    _get(Object.getPrototypeOf(LeftAsideGesture.prototype), 'constructor', this).apply(this, arguments);
+                    _get(Object.getPrototypeOf(LeftAsideGesture.prototype), 'constructor', this).call(this, aside);
                 }
 
                 return LeftAsideGesture;
-            })(AsideGesture);
+            })(AsideContentGesture);
 
             _export('LeftAsideGesture', LeftAsideGesture);
 
             RightAsideGesture = (function (_LeftAsideGesture) {
                 _inherits(RightAsideGesture, _LeftAsideGesture);
 
-                function RightAsideGesture() {
+                function RightAsideGesture(aside) {
                     _classCallCheck(this, RightAsideGesture);
 
-                    _get(Object.getPrototypeOf(RightAsideGesture.prototype), 'constructor', this).apply(this, arguments);
+                    _get(Object.getPrototypeOf(RightAsideGesture.prototype), 'constructor', this).call(this, aside);
                 }
 
                 /*
@@ -18585,205 +18580,179 @@ System.register('ionic/components/aside/extensions/gestures', ['ionic/gestures/s
         }
     };
 });
-System.register('ionic/components/aside/extensions/types', ['ionic/util/dom'], function (_export) {
-    // TODO use setters instead of direct dom manipulation
+System.register('ionic/components/aside/extensions/types', ['../aside', 'ionic/animations/animation'], function (_export) {
+    /**
+     * Aside Type
+     * Base class which is extended by the various types. Each
+     * type will provide their own animations for open and close
+     * and registers itself with Aside.
+     */
     'use strict';
 
-    var CSS, asideManipulator, contentManipulator, backdropManipulator, AsideType, AsideTypeOverlay, AsideTypePush, AsideTypeReveal;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+    var Aside, Animation, AsideType, AsideRevealType, AsideOverlayType, OPACITY, TRANSLATE_X, CENTER;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [function (_ionicUtilDom) {
-            CSS = _ionicUtilDom.CSS;
+        setters: [function (_aside) {
+            Aside = _aside.Aside;
+        }, function (_ionicAnimationsAnimation) {
+            Animation = _ionicAnimationsAnimation.Animation;
         }],
         execute: function () {
-            asideManipulator = {
-                setSliding: function setSliding(sliding) {
-                    this.aside.getNativeElement().classList[sliding ? 'add' : 'remove']('no-transition');
-                },
-                setOpen: function setOpen(open) {
-                    this.aside.getNativeElement().classList[open ? 'add' : 'remove']('open');
-                },
-                setTransform: function setTransform(t) {
-                    if (t === null) {
-                        this.aside.getNativeElement().style[CSS.transform] = '';
-                    } else {
-                        this.aside.getNativeElement().style[CSS.transform] = 'translate3d(' + t + 'px,0,0)';
-                    }
-                }
-            };
-            contentManipulator = {
-                setSliding: function setSliding(sliding) {
-                    this.aside.contentElement.classList[sliding ? 'add' : 'remove']('no-transition');
-                },
-                setOpen: function setOpen(open) {
-                    this.aside.contentElement.classList[open ? 'add' : 'remove']('aside-open-' + this.aside.side);
-                },
-                setTransform: function setTransform(t) {
-                    if (t === null) {
-                        this.aside.contentElement.style[CSS.transform] = '';
-                    } else {
-                        this.aside.contentElement.style[CSS.transform] = 'translate3d(' + t + 'px,0,0)';
-                    }
-                }
-            };
-            backdropManipulator = {
-                setSliding: function setSliding(sliding) {
-                    this.aside.backdrop.isTransitioning = sliding;
-                    //.classList[sliding ? 'add' : 'remove']('no-transition');
-                },
-                setOpen: function setOpen(open) {
-                    var amt = open ? 0.5 : 0;
-                    this.aside.backdrop.opacity = amt;
-                },
-                setTransform: function setTransform(t) {
-                    if (t === null) {
-                        t = this.aside.width();
-                    }
-                    var fade = 0.5 * t / this.aside.width();
-                    this.aside.backdrop.opacity = fade;
-                }
-            };
+            AsideType = (function () {
+                function AsideType(aside) {
+                    _classCallCheck(this, AsideType);
 
-            AsideType = function AsideType(aside) {
-                _classCallCheck(this, AsideType);
+                    this.open = new Animation();
+                    this.close = new Animation();
+                }
 
-                this.aside = aside;
-                setTimeout(function () {
-                    aside.contentElement.classList.add('aside-content');
-                });
-            };
+                /**
+                 * Aside Reveal Type
+                 * The content slides over to reveal the aside underneath.
+                 * The aside menu itself, which is under the content, does not move.
+                 */
+
+                _createClass(AsideType, [{
+                    key: 'setOpen',
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        return new Promise(function (resolve) {
+                            if (shouldOpen) {
+                                _this.open.playbackRate(1).onFinish(resolve, true).play();
+                            } else {
+                                _this.close.playbackRate(1).onFinish(resolve, true).play();
+                            }
+                        });
+                    }
+                }, {
+                    key: 'setProgressStart',
+                    value: function setProgressStart(isOpen) {
+                        this.isOpening = !isOpen;
+                        this.seek && this.seek.dispose();
+                        // clone the correct animation depending on open/close
+                        if (this.isOpening) {
+                            this.seek = this.open.clone();
+                        } else {
+                            this.seek = this.close.clone();
+                        }
+                        // the cloned animation should not use an easing curve during seek
+                        this.seek.easing('linear').progressStart();
+                    }
+                }, {
+                    key: 'setProgess',
+                    value: function setProgess(value) {
+                        // adjust progress value depending if it opening or closing
+                        if (!this.isOpening) {
+                            value = 1 - value;
+                        }
+                        this.seek.progress(value);
+                    }
+                }, {
+                    key: 'setProgressFinish',
+                    value: function setProgressFinish(shouldComplete) {
+                        var _this2 = this;
+
+                        var resolve = undefined;
+                        var promise = new Promise(function (res) {
+                            resolve = res;
+                        });
+                        var isOpen = this.isOpening && shouldComplete;
+                        if (!this.isOpening && !shouldComplete) {
+                            isOpen = true;
+                        }
+                        this.seek.progressFinish(shouldComplete).then(function () {
+                            _this2.isOpening = false;
+                            resolve(isOpen);
+                        });
+                        return promise;
+                    }
+                }, {
+                    key: 'onDestory',
+                    value: function onDestory() {
+                        this.open && this.open.dispose();
+                        this.close && this.close.dispose();
+                        this.seek && this.seek.dispose();
+                    }
+                }]);
+
+                return AsideType;
+            })();
 
             _export('AsideType', AsideType);
 
-            AsideTypeOverlay = (function (_AsideType) {
-                _inherits(AsideTypeOverlay, _AsideType);
+            AsideRevealType = (function (_AsideType) {
+                _inherits(AsideRevealType, _AsideType);
 
-                function AsideTypeOverlay() {
-                    _classCallCheck(this, AsideTypeOverlay);
+                function AsideRevealType(aside) {
+                    _classCallCheck(this, AsideRevealType);
 
-                    _get(Object.getPrototypeOf(AsideTypeOverlay.prototype), 'constructor', this).apply(this, arguments);
+                    _get(Object.getPrototypeOf(AsideRevealType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var openedX = aside.width() * (aside.side == 'right' ? -1 : 1) + 'px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var contentOpen = new Animation(aside.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, CENTER, openedX);
+                    this.open.add(contentOpen);
+                    var contentClose = new Animation(aside.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, openedX, CENTER);
+                    this.close.add(contentClose);
                 }
 
-                _createClass(AsideTypeOverlay, [{
-                    key: 'setSliding',
-                    value: function setSliding(sliding) {
-                        asideManipulator.setSliding.call(this, sliding);
-                        backdropManipulator.setSliding.call(this, sliding);
-                    }
-                }, {
-                    key: 'setOpen',
-                    value: function setOpen(open) {
-                        asideManipulator.setOpen.call(this, open);
-                        backdropManipulator.setOpen.call(this, open);
-                    }
-                }, {
-                    key: 'setTransform',
-                    value: function setTransform(t) {
-                        asideManipulator.setTransform.call(this, t);
-                        backdropManipulator.setTransform.call(this, t);
-                    }
-                }, {
-                    key: 'setDoneTransforming',
-                    value: function setDoneTransforming(willOpen) {
-                        asideManipulator.setTransform.call(this, null);
-                        backdropManipulator.setTransform.call(this, null);
-                        asideManipulator.setOpen.call(this, willOpen);
-                        backdropManipulator.setOpen.call(this, willOpen);
-                    }
-                }]);
-
-                return AsideTypeOverlay;
+                return AsideRevealType;
             })(AsideType);
 
-            _export('AsideTypeOverlay', AsideTypeOverlay);
+            Aside.register('reveal', AsideRevealType);
+            /**
+             * Aside Overlay Type
+             * The aside menu slides over the content. The content
+             * itself, which is under the aside, does not move.
+             */
 
-            AsideTypePush = (function (_AsideType2) {
-                _inherits(AsideTypePush, _AsideType2);
+            AsideOverlayType = (function (_AsideType2) {
+                _inherits(AsideOverlayType, _AsideType2);
 
-                function AsideTypePush() {
-                    _classCallCheck(this, AsideTypePush);
+                function AsideOverlayType(aside) {
+                    _classCallCheck(this, AsideOverlayType);
 
-                    _get(Object.getPrototypeOf(AsideTypePush.prototype), 'constructor', this).apply(this, arguments);
+                    _get(Object.getPrototypeOf(AsideOverlayType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var backdropOpacity = 0.5;
+                    var closedX = aside.width() * (aside.side == 'right' ? 1 : -1) + 'px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var asideOpen = new Animation(aside.getAsideElement());
+                    asideOpen.fromTo(TRANSLATE_X, closedX, CENTER);
+                    this.open.add(asideOpen);
+                    var backdropOpen = new Animation(aside.getBackdropElement());
+                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
+                    this.open.add(backdropOpen);
+                    var asideClose = new Animation(aside.getAsideElement());
+                    asideClose.fromTo(TRANSLATE_X, CENTER, closedX);
+                    this.close.add(asideClose);
+                    var backdropClose = new Animation(aside.getBackdropElement());
+                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
+                    this.close.add(backdropClose);
                 }
 
-                _createClass(AsideTypePush, [{
-                    key: 'setSliding',
-                    value: function setSliding(sliding) {
-                        asideManipulator.setSliding.call(this, sliding);
-                        contentManipulator.setSliding.call(this, sliding);
-                    }
-                }, {
-                    key: 'setOpen',
-                    value: function setOpen(open) {
-                        asideManipulator.setOpen.call(this, open);
-                        contentManipulator.setOpen.call(this, open);
-                    }
-                }, {
-                    key: 'setTransform',
-                    value: function setTransform(t) {
-                        asideManipulator.setTransform.call(this, t);
-                        contentManipulator.setTransform.call(this, t);
-                    }
-                }, {
-                    key: 'setDoneTransforming',
-                    value: function setDoneTransforming(willOpen) {
-                        asideManipulator.setOpen.call(this, willOpen);
-                        asideManipulator.setTransform.call(this, null);
-                        contentManipulator.setOpen.call(this, willOpen);
-                        contentManipulator.setTransform.call(this, null);
-                    }
-                }]);
-
-                return AsideTypePush;
+                return AsideOverlayType;
             })(AsideType);
 
-            _export('AsideTypePush', AsideTypePush);
-
-            AsideTypeReveal = (function (_AsideType3) {
-                _inherits(AsideTypeReveal, _AsideType3);
-
-                function AsideTypeReveal() {
-                    _classCallCheck(this, AsideTypeReveal);
-
-                    _get(Object.getPrototypeOf(AsideTypeReveal.prototype), 'constructor', this).apply(this, arguments);
-                }
-
-                _createClass(AsideTypeReveal, [{
-                    key: 'setSliding',
-                    value: function setSliding(sliding) {
-                        contentManipulator.setSliding.call(this, sliding);
-                    }
-                }, {
-                    key: 'setOpen',
-                    value: function setOpen(sliding) {
-                        asideManipulator.setOpen.call(this, sliding);
-                        contentManipulator.setOpen.call(this, sliding);
-                    }
-                }, {
-                    key: 'setTransform',
-                    value: function setTransform(t) {
-                        contentManipulator.setTransform.call(this, t);
-                    }
-                }, {
-                    key: 'setDoneTransforming',
-                    value: function setDoneTransforming(willOpen) {
-                        contentManipulator.setOpen.call(this, willOpen);
-                        contentManipulator.setTransform.call(this, null);
-                    }
-                }]);
-
-                return AsideTypeReveal;
-            })(AsideType);
-
-            _export('AsideTypeReveal', AsideTypeReveal);
+            Aside.register('overlay', AsideOverlayType);
+            OPACITY = 'opacity';
+            TRANSLATE_X = 'translateX';
+            CENTER = '0px';
         }
     };
 });

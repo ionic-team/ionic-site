@@ -12,43 +12,27 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Cards</h1>
 
-Cards are a great way to display important pieces of content, and are quickly emerging
-as a core design pattern for apps.
+{% include demo.html demo_url="/docs/v2/dist/demos/cards/" demo_name="cards" %}
+
+<p>
+  Cards are a great way to display important pieces of content, and are quickly emerging as a core design pattern for apps. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>.
+</p>
+<p>
+  For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right.
+</p>
 
 Cards are primarily a CSS component. To use them, follow this structure:
 
 ```html
-<div class="card">
-  <div class="card-header">
-    <!-- ... -->
-  </div>
+<ion-card>
 
-  <div class="card-content">
+  <ion-card-header>
+    Card Header
+  </ion-card-header>
 
-    "A great photograph is one that fully expresses what one feels, in the deepest sense, about what is being photographed." - <i>Ansel Adams</i>
+  <ion-card-content>
+    <!-- Add card content here! -->
+  </ion-card-content>
 
-  </div>
-
-  <!-- Images stretch the full width -->
-  <img src="http://ionic-io-assets.s3.amazonaws.com/images/p.jpg">
-
-  <div class="card-footer">
-    Posted 1 day ago
-  </div>
-</div>
+</ion-card>
 ```
-
-<div class="ionic2 platform-ios">
-<div class="card">
-  <div class="card-header">
-    Header
-  </div>
-  <div class="card-content">
-    "A great photograph is one that fully expresses what one feels, in the deepest sense, about what is being photographed." - <i>Ansel Adams</i>
-  </div>
-  <img src="http://ionic-io-assets.s3.amazonaws.com/images/p.jpg">
-  <div class="card-footer">
-    Posted 1 day ago
-  </div>
-</div>
-</div>

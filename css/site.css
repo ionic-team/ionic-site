@@ -6608,6 +6608,39 @@ h2.underline {
 #what-is p {
   margin-bottom: 2em; }
 
+.v2 .demo {
+  float: right;
+  margin-left: 15px; }
+.v2 .demo.inline {
+  float: none;
+  margin-left: 0; }
+.v2 .demo a {
+  display: block;
+  text-align: right;
+  margin-top: 15px; }
+.v2 .demo iframe {
+  width: 328px;
+  height: 568px;
+  border: none;
+  border-radius: 10px;
+  border: 4px solid #555; }
+.v2 .ui-content .highlight, .v2 .ui-content p {
+  margin-right: 390px; }
+.v2 .ui-content ul.demo-toggle {
+  list-style: none;
+  display: block;
+  position: absolute;
+  top: 32px;
+  right: 285px; }
+  .v2 .ui-content ul.demo-toggle li {
+    margin-left: 1px;
+    display: inline;
+    float: left; }
+    .v2 .ui-content ul.demo-toggle li button {
+      background-color: #EFEFF4;
+      color: #000;
+      border: 1px solid #C8C7CC; }
+
 a {
   opacity: 0.8;
   transition: 0.1s ease-in-out;

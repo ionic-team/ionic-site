@@ -34,9 +34,6 @@ System.register("index", ["ionic/ionic"], function (_export) {
 
             DemoApp = function DemoApp() {
                 _classCallCheck(this, DemoApp);
-
-                this.homeIcon = 'home';
-                this.isActive = false;
             };
 
             DemoApp = __decorate([App({

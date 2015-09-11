@@ -232,34 +232,31 @@
 <p>Unlike CSS animations, Ionic animations can be easily triggered based on events
 and support interactive &quot;scrubbing&quot;: the ability to manually step through an animation
 such as during a drag gesture.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Import it</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="c1">// Import it</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Animation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
-
-<span class="c1">//...</span>
 
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyComponent</span> <span class="p">{</span>
 
-  <span class="nx">fadeOut</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// To</span>
-    <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">myElement</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">easing</span><span class="p">(</span><span class="s1">&#39;ease-in-out&#39;</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">fromTo</span><span class="p">(</span><span class="s1">&#39;opacity&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">play</span><span class="p">()</span>
-      <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Animation done&#39;</span><span class="p">);</span>
-      <span class="p">})</span>
+  <span class="c1">// Create a new animation</span>
+  <span class="kd">var</span> <span class="nx">ionitron</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#ionitron&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">spin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">ionitron</span><span class="p">);</span>
+
+  <span class="c1">// Add a CSS transform</span>
+  <span class="nx">spin</span>
+    <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(0deg)&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(360deg)&#39;</span><span class="p">)</span>
+
+  <span class="c1">// Register the animation with your component</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">spin</span><span class="p">);</span>
+
+  <span class="c1">// Start the animation when the play button is tapped</span>
+  <span class="nx">play() {</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
   <span class="p">}</span>
 
-  <span class="nx">onDrag</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="c1">// To step through an animation, pass a value from 0 to 1</span>
-    <span class="c1">// that represents the percentage completion of the animation</span>
-    <span class="nx">myAnimation</span><span class="p">.</span><span class="nx">progress</span><span class="p">(</span><span class="nx">dx</span> <span class="o">/</span> <span class="nx">total</span><span class="p">);</span>
-  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Animations also support physics curves like <code>spring</code> to build animations
-and UIs that feel real.</p>
+<p>Animations also support physics curves like <code>spring</code> to build animations and UIs that feel real.</p>
 
 <p>See the full list of possible easing curves in <a href="https://github.com/driftyco/ionic2/blob/9b80cffedb9398376e69bdc2afc3440a4d0c39e0/ionic/animations/animation.js#L629">animation.js</a>.</p>
 

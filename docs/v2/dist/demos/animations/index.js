@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var App, Animation, __decorate, __metadata, opacity, rotateZ, translateX, scale, IonicApp;
+    var App, Animation, __decorate, __metadata, IonicApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -35,26 +35,15 @@ System.register("index", ["ionic/ionic"], function (_export) {
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            opacity = 0.2;
-            rotateZ = '180deg';
-            translateX = '100px';
-            scale = 0.6;
-
             IonicApp = (function () {
                 function IonicApp() {
                     _classCallCheck(this, IonicApp);
 
                     this.animation = new Animation();
-                    this.animation.duration(2000).easing('spring', { damping: 6, elasticity: 10 });
-                    var ball = new Animation(document.querySelector('.ball'));
-                    ball.from('translateX', '0px').to('translateX', '250px');
-                    this.animation.add(ball);
-                    var row1 = new Animation(document.querySelectorAll('.square'));
-                    row1.from('opacity', 0.8).to('opacity', 0.2);
-                    this.animation.add(row1);
-                    var row2 = new Animation(document.querySelectorAll('.square2'));
-                    row2.from('rotate', '0deg').from('scale', '1').to('rotate', '90deg').to('scale', '0.5').before.addClass('added-before-play').after.addClass('added-after-finish');
-                    this.animation.add(row1, row2);
+                    this.animation.duration(2000);
+                    var ionitronSpin = new Animation(document.querySelector('#ionitron'));
+                    ionitronSpin.from('transform', 'rotate(0deg)').to('transform', 'rotate(360deg)');
+                    this.animation.add(ionitronSpin);
                     this.animation.onReady(function (animation) {
                         console.log('onReady', animation);
                     });

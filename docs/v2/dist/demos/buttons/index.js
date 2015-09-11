@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var App, __decorate, __metadata, E2EApp;
+    var App, __decorate, __metadata, DemoApp;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -32,13 +32,13 @@ System.register("index", ["ionic/ionic"], function (_export) {
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            E2EApp = function E2EApp() {
-                _classCallCheck(this, E2EApp);
+            DemoApp = function DemoApp() {
+                _classCallCheck(this, DemoApp);
             };
 
-            E2EApp = __decorate([App({
+            DemoApp = __decorate([App({
                 templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [])], E2EApp);
+            }), __metadata('design:paramtypes', [])], DemoApp);
         }
     };
 });

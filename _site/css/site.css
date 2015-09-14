@@ -6345,6 +6345,13 @@ h2.underline {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
+code.language-ts .kr {
+  color: #000080; }
+code.language-ts .nx {
+  color: #008080; }
+code.language-ts .k {
+  color: #0086B3; }
+
 .input-type {
   position: absolute;
   bottom: 0;

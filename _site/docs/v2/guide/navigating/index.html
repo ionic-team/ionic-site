@@ -204,32 +204,20 @@
 top of the stack which takes us forwards in the app and shows a back button,
 and then we <code>pop</code> the top one off to go back to the page before it.</p>
 
-<div class="note">
-  <button primary small outline>Note: Changes from v1</button>
-  <div class="info">
-    When it comes to URLs, Ionic 2 works a bit differently from Ionic 1. Instead of using
-    URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example),
-    but pages can be navigated to from anywhere which was not possible in v1. For example, we can
-    show the same Playlist page instead of a tab, a side menu, or a modal. This means we
-    don't use `href` to navigate around.
-  </div>
-</div>
+<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example), but pages can be navigated to from anywhere which was not possible in v1. For example, we can show the same Playlist page instead of a tab, a side menu, or a modal. This means we don&#39;t use <code>href</code> to navigate around.</p>
 
-<p>So, let&#39;s take our <code>PlaylistPage</code> from the previous example and navigate to it
-when we tap on a specific play list from the <code>PlaylistsPage</code> (note the &#39;s&#39;).</p>
-
-<p>So, open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;ion-item *ng-for=&quot;#playlist of playlists&quot; (^click)=&quot;openPlaylist(playlist)&quot;&gt;&lt;/ion-item&gt;
+<p>So, let&#39;s take our <code>PlaylistPage</code> from the previous example and navigate to it when we tap on a specific play list from the <code>PlaylistsPage</code> (note the &#39;s&#39;). Open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#playlist of playlists&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPlaylist</span><span class="err">(</span><span class="na">playlist</span><span class="err">)&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
 </code></pre></div>
 <p>When the user taps this, the <code>openPlaylist()</code> function will be called with a reference to the playlist that was tapped.</p>
 
 <p>Open <code>app/playlists/playlists.js</code>, and let&#39;s add a method to <code>PlaylistsPage</code> to handle this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
   <span class="c1">// constructor and other methods above here...</span>
 
   <span class="nx">openPlaylist</span><span class="p">(</span><span class="nx">playlist</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">PlaylistPage</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">playlist</span><span class="o">:</span> <span class="nx">playlist</span>
+      <span class="nx">playlist</span>: <span class="kt">playlist</span>
     <span class="p">})</span>
   <span class="p">}</span>
 <span class="p">}</span>

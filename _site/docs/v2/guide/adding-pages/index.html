@@ -209,10 +209,10 @@ first, or &quot;root&quot; page for the <code>ion-nav</code> controller. When th
 by <code>firstPage</code> will be the root view.</p>
 
 <p>In <code>app/app.js</code>, the <code>MyApp</code> root component specifies this in its constructor:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">SongsPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./songs/songs&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">SongsPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./songs/songs&#39;</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">firstPage</span> <span class="o">=</span> <span class="nx">SongsPage</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -227,13 +227,13 @@ first view loaded in the nav controller. Let&#39;s take a look at it.</p>
 <p>You should see these most relevant parts, which create a new View in Ionic. An IonicView is
   an Angular component and an Angular view configured with all the necessary directives already that is meant
   to be loaded dynamically, so it does not use a tag selector:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
 <span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/songs/songs.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">SongsPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">app</span><span class="o">:</span> <span class="nx">IonicApp</span><span class="p">,</span> <span class="nx">nav</span><span class="o">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">app</span>: <span class="kt">IonicApp</span><span class="p">,</span> <span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">songs</span> <span class="o">=</span> <span class="p">[</span>
       <span class="c1">// Songs {title: blah}</span>
     <span class="p">];</span>
@@ -241,7 +241,12 @@ first view loaded in the nav controller. Let&#39;s take a look at it.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>And then inside the <code>app/songs/songs.html</code> file we see the template for this page:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span><span class="nt">&gt;&lt;ion-nav-items</span> <span class="na">primary</span><span class="nt">&gt;&lt;button</span> <span class="na">icon</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">toggleMenu</span><span class="err">()&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;&lt;/ion-nav-items&gt;&lt;ion-title&gt;</span>Songs<span class="nt">&lt;/ion-title&gt;&lt;/ion-navbar&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-nav-items</span> <span class="na">primary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">icon</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">toggleMenu</span><span class="err">()&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;/ion-nav-items&gt;</span>
+  <span class="nt">&lt;ion-title&gt;</span>Songs<span class="nt">&lt;/ion-title&gt;</span>
+<span class="nt">&lt;/ion-navbar&gt;</span>
 
 <span class="nt">&lt;ion-content&gt;</span>
   <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
@@ -265,13 +270,13 @@ navigation bar to display.</p>
 <p>Let&#39;s create a page to display a single playlist. Inside of the <code>app/</code> folder,
 create the <code>playlist/</code> directory and a file called <code>playlists.js</code> in it. Put this code
 into that file:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
 <span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/playlist/playlist.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">nav</span><span class="o">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>

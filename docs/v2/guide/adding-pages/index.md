@@ -28,7 +28,7 @@ by `firstPage` will be the root view.
 
 In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
-```javascript
+```ts
 import {SongsPage} from './songs/songs';
 
 export class MyApp {
@@ -49,7 +49,7 @@ You should see these most relevant parts, which create a new View in Ionic. An I
   an Angular component and an Angular view configured with all the necessary directives already that is meant
   to be loaded dynamically, so it does not use a tag selector:
 
-```javascript
+```ts
 import {IonicView} from 'ionic/ionic';
 
 @IonicView({
@@ -67,7 +67,12 @@ export class SongsPage {
 And then inside the `app/songs/songs.html` file we see the template for this page:
 
 ```html
-<ion-navbar *navbar><ion-nav-items primary><button icon (^click)="toggleMenu()"><i class="icon ion-navicon"></i></button></ion-nav-items><ion-title>Songs</ion-title></ion-navbar>
+<ion-navbar *navbar>
+  <ion-nav-items primary>
+    <button icon (^click)="toggleMenu()"><i class="icon ion-navicon"></i></button>
+  </ion-nav-items>
+  <ion-title>Songs</ion-title>
+</ion-navbar>
 
 <ion-content>
   <ion-list inset>
@@ -93,7 +98,7 @@ Let's create a page to display a single playlist. Inside of the `app/` folder,
 create the `playlist/` directory and a file called `playlists.js` in it. Put this code
 into that file:
 
-```javascript
+```ts
 {% raw %}
 import {IonicView} from 'ionic/ionic';
 

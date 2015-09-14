@@ -13,16 +13,18 @@ header_sub_title: Ionic 2 Developer Preview
 <h1 class="title">Ionic 2 Guide</h1>
 
 
-Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several views (or "pages") to the app, work with some of the most important controls, and then go over getting your app deployed into the app stores.
+Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several *views*, or *pages* to the app. Finally, we will work with some of the most important controls, and go over getting your app into the app stores.
 
 
 ## Getting Started
 
-To get started, let's go and clone the official [Ionic 2 Starter](https://github.com/driftyco/ionic2-starter), and `cd` into it in a terminal window, along with installing any dependencies we might need. Note: don't type the dollar sign (`$`), it's there to show you how the commands might look in your terminal:
+To get started, let's go and clone the official [Ionic 2 Starter](https://github.com/driftyco/ionic2-starter), and `cd` into it in a terminal window, along with installing any dependencies we might need. 
+
+**Note:** don't type the dollar sign (`$`), it's there to show you how the commands might look in your terminal:
 
 
 ```bash
-$ sudo npm install -g gulp (if you haven't installed gulp)
+$ sudo npm install -g gulp
 $ cd ionic2-starter
 $ npm install
 $ gulp watch
@@ -74,7 +76,7 @@ compile down to the older form of Javascript the browser needs.
 
 Near the top of the file, we should see this:
 
-```javascript
+```ts
 @App({
   templateUrl: '_app/app.html'
 })

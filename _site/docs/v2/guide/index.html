@@ -198,12 +198,14 @@
 
 <h1 class="title">Ionic 2 Guide</h1>
 
-<p>Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several views (or &quot;pages&quot;) to the app, work with some of the most important controls, and then go over getting your app deployed into the app stores.</p>
+<p>Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several <em>views</em>, or <em>pages</em> to the app. Finally, we will work with some of the most important controls, and go over getting your app into the app stores.</p>
 
 <h2>Getting Started</h2>
 
-<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and <code>cd</code> into it in a terminal window, along with installing any dependencies we might need. Note: don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands might look in your terminal:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g gulp <span class="o">(</span><span class="k">if</span> you haven<span class="err">&#39;</span>t installed gulp<span class="o">)</span>
+<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and <code>cd</code> into it in a terminal window, along with installing any dependencies we might need. </p>
+
+<p><strong>Note:</strong> don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands might look in your terminal:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g gulp
 <span class="nv">$ </span><span class="nb">cd </span>ionic2-starter
 <span class="nv">$ </span>npm install
 <span class="nv">$ </span>gulp watch
@@ -246,11 +248,11 @@ compile down to the older form of Javascript the browser needs.</p>
 <p><code>app.js</code> is the entry point for our app.</p>
 
 <p>Near the top of the file, we should see this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/app.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

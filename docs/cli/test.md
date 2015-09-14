@@ -112,7 +112,7 @@ For example:
 ```js
 angular.module('starter.controllers', [])
 .constant('InstagramApiUrl', '')
-// .contant('InstagramApiUrl','https://api.instagram.com')
+// .constant('InstagramApiUrl','https://api.instagram.com')
 //In production, make this the real URL
 
 .controller('FeedCtrl', function($scope, $http, InstagramApiUrl) {

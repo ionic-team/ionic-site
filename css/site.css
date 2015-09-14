@@ -6624,6 +6624,8 @@ h2.underline {
   border: none;
   border-radius: 10px;
   border: 4px solid #555; }
+.v2 .file-title {
+  margin-top: 35px; }
 .v2 .ui-content .highlight, .v2 .ui-content p {
   margin-right: 390px; }
 .v2 .ui-content ul.demo-toggle {

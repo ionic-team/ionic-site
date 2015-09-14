@@ -296,7 +296,7 @@ at <code>http://localhost:8100/v1</code> to have it proxy out requests to <code>
 <p>For example:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;starter.controllers&#39;</span><span class="p">,</span> <span class="p">[])</span>
 <span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;InstagramApiUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="c1">// .contant(&#39;InstagramApiUrl&#39;,&#39;https://api.instagram.com&#39;)</span>
+<span class="c1">// .constant(&#39;InstagramApiUrl&#39;,&#39;https://api.instagram.com&#39;)</span>
 <span class="c1">//In production, make this the real URL</span>
 
 <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;FeedCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">,</span> <span class="nx">InstagramApiUrl</span><span class="p">)</span> <span class="p">{</span>

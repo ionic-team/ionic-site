@@ -72,10 +72,11 @@
               {% if page.id == "native" %}{% include v2/native_menu.html %}{% endif %}
             </ul>
 
-            <ul class="nav left-menu{% if page.id == 'glossary' %} active-menu{% endif %}">
+            <ul class="nav left-menu{% if page.id == 'resources' %} active-menu{% endif %}">
               <li class="menu-title">
-                <a href="/docs/v2/what-is/">Glossary</a>
+                <a href="/docs/v2/resources/">Resources</a>
               </li>
+              {% if page.id == "resources" %}{% include v2/resources_menu.html %}{% endif %}
             </ul>
 
         </div>

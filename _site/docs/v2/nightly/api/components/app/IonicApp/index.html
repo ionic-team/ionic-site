@@ -80,19 +80,18 @@
     </div>
   </div>
 </nav>
-
-
-    <div class="header horizontal-gradient">
-      <div class="container">
-        <h3>IonicApp</h3>
-        <h4>Class in module </h4>
-      </div>
-      <div class="news">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 news-col">
-              <div class="picker">
-                <select onchange="window.location.href=this.options[this.selectedIndex].value">
+<div class="header horizontal-gradient">
+  <div class="container">
+    <h3>IonicApp</h3>
+    <h4>Class in module </h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          
+          <div class="picker">
+            <select onchange="window.location.href=this.options[this.selectedIndex].value">
 
   <option
    value="/docs/v2/nightly/api/"
@@ -110,21 +109,22 @@
 
 
 
-              </div>
-            </div>
-            <div class="col-sm-4 search-col">
-              <div class="search-bar">
+          </div>
+          
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
   <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
   <input type="search" id="search-input" value="Search">
 </div>
 
-            </div>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div id="search-results" class="search-results" style="display:none">
+<div id="search-results" class="search-results" style="display:none">
   <div class="container">
     <div class="search-section search-api">
       <h4>API</h4>
@@ -138,6 +138,7 @@
 </div>
 
 
+
     <div class="container content-container">
 
       <div class="row">
@@ -146,37 +147,39 @@
 
           <div>
 
-          <ul class="nav left-menu active-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/">Overview</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/">Overview</a>
+              </li>
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/guide/">Guide</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/guide/">Guide</a>
+              </li>
+              
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/ui/">UI</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/ui/">UI</a>
+              </li>
+              
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/theming/">Theming</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/theming/">Theming</a>
+              </li>
+            </ul>
 
-          <ul class="nav left-menu active-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/api/">
-                API
-              </a>
-            </li>
-            
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/api/">
+                  API
+                </a>
+              </li>
+              
   
     
 
@@ -870,29 +873,30 @@
 
 
 
-          </ul>
+            </ul>
 
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/utilities/">Utilities</a>
+              </li>
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/utilities/">Utilities</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/native/">Native</a>
+              </li>
+              
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/native/">Native</a>
-            </li>
-          </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/resources/">Resources</a>
+              </li>
+              
+            </ul>
 
-          <ul class="nav left-menu">
-            <li class="menu-title">
-              <a href="/docs/v2/what-is/">Glossary</a>
-            </li>
-          </ul>
-
-          </div>
         </div>
+      </div>
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
@@ -919,7 +923,7 @@ The base Ionic class that your app inherits from. By inheriting from this class,
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L241">ionic/components/app/app.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L197">ionic/components/app/app.ts (line 13)</a>
 </p>
 
 <p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
@@ -1243,7 +1247,7 @@ TODO</li>
 <div id="register"></div>
 
 <h2>
-  <code>register(key, component)</code>
+  <code>register(id, component)</code>
 
 </h2>
 
@@ -1261,7 +1265,7 @@ TODO</li>
     
     <tr>
       <td>
-        key
+        id
         
         
       </td>
@@ -1270,7 +1274,7 @@ TODO</li>
   <code>TODO</code>
       </td>
       <td>
-        <p>The key to use to register the component</p>
+        <p>The id to use to register the component</p>
 
         
       </td>
@@ -1299,7 +1303,7 @@ TODO</li>
 <div id="unregister"></div>
 
 <h2>
-  <code>unregister(key)</code>
+  <code>unregister(id)</code>
 
 </h2>
 
@@ -1317,7 +1321,7 @@ TODO</li>
     
     <tr>
       <td>
-        key
+        id
         
         
       </td>
@@ -1326,7 +1330,7 @@ TODO</li>
   <code>TODO</code>
       </td>
       <td>
-        <p>The key to use to unregister</p>
+        <p>The id to use to unregister</p>
 
         
       </td>
@@ -1467,79 +1471,6 @@ element of the app.</p>
 <li>Returns: 
 <code>Promise</code> Promise that resolves with the ContainerRef created</li>
 </ul>
-
-<div id="applyBodyCss"></div>
-
-<h2>
-  <code>applyBodyCss(bodyEle, platform, config)</code>
-
-</h2>
-
-<p>TODO</p>
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        bodyEle
-        
-        
-      </td>
-      <td>
-        
-  <code>Element</code>
-      </td>
-      <td>
-        <p>the body element</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        platform
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        config
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 <div id="isRTL"></div>
 

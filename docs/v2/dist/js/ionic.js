@@ -159,6 +159,17 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
     execute: function () {}
   };
 });
+System.register("ionic/index", [], function (_export) {
+  "use strict";
+
+  return {
+    setters: [],
+    execute: function () {}
+  };
+});
+/*
+ * export everything here
+ */
 System.register('ionic/ionic', ['./config/config', './config/modes', './config/annotations', './net/http', './components', './platform/platform', './platform/registry', './storage/storage', './storage/local-storage', './storage/sql', './util/click-block', './util/focus', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './plugins/plugins'], function (_export) {
   'use strict';
 
@@ -6122,6 +6133,299 @@ System.register('ionic/transitions/transition', ['../animations/animation'], fun
         }
     };
 });
+System.register('ionic/util/activator', ['./dom'], function (_export) {
+    'use strict';
+
+    var raf, pointerCoord, hasPointerMoved, Activator;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_dom) {
+            raf = _dom.raf;
+            pointerCoord = _dom.pointerCoord;
+            hasPointerMoved = _dom.hasPointerMoved;
+        }],
+        execute: function () {
+            Activator = (function () {
+                function Activator(app, config, window, document) {
+                    _classCallCheck(this, Activator);
+
+                    var self = this;
+                    self.app = app;
+                    self.config = config;
+                    self.win = window;
+                    self.doc = document;
+                    self.id = 0;
+                    self.queue = {};
+                    self.active = {};
+                    self.activatedClass = 'activated';
+                    self.deactivateTimeout = 180;
+                    this.deactivateAttempt = 0;
+                    self.pointerTolerance = 4;
+                    self.isTouch = false;
+                    self.disableClick = 0;
+                    self.disableClickLimit = 2500;
+                    self.tapPolyfill = config.setting('tapPolyfill');
+                    function bindDom(type, listener, useCapture) {
+                        document.addEventListener(type, listener, useCapture);
+                    }
+                    bindDom('click', function (ev) {
+                        self.click(ev);
+                    }, true);
+                    bindDom('touchstart', function (ev) {
+                        self.isTouch = true;
+                        self.pointerStart(ev);
+                    });
+                    bindDom('touchend', function (ev) {
+                        self.isTouch = true;
+                        self.touchEnd(ev);
+                    });
+                    bindDom('touchcancel', function (ev) {
+                        self.isTouch = true;
+                        self.pointerCancel(ev);
+                    });
+                    bindDom('mousedown', function (ev) {
+                        self.mouseDown(ev);
+                    }, true);
+                    bindDom('mouseup', function (ev) {
+                        self.mouseUp(ev);
+                    }, true);
+                    self.pointerMove = function (ev) {
+                        var moveCoord = pointerCoord(ev);
+                        console.log('pointerMove', moveCoord, self.start);
+                        if (hasPointerMoved(10, self.start, moveCoord)) {
+                            self.pointerCancel();
+                        }
+                    };
+                    self.moveListeners = function (shouldAdd) {
+                        document.removeEventListener('touchmove', self.pointerMove);
+                        document.removeEventListener('mousemove', self.pointerMove);
+                        if (shouldAdd) {
+                            bindDom('touchmove', self.pointerMove);
+                            bindDom('mousemove', self.pointerMove);
+                        }
+                    };
+                }
+
+                /**
+                 * TODO
+                 * @param {TODO} ev  TODO
+                 */
+
+                _createClass(Activator, [{
+                    key: 'touchEnd',
+                    value: function touchEnd(ev) {
+                        var self = this;
+                        if (self.tapPolyfill && self.start) {
+                            var endCoord = pointerCoord(ev);
+                            if (!hasPointerMoved(self.pointerTolerance, self.start, endCoord)) {
+                                console.debug('create click');
+                                self.disableClick = Date.now();
+                                var clickEvent = self.doc.createEvent('MouseEvents');
+                                clickEvent.initMouseEvent('click', true, true, self.win, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+                                clickEvent.isIonicTap = true;
+                                ev.target.dispatchEvent(clickEvent);
+                            }
+                        }
+                        self.pointerEnd(ev);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} ev  TODO
+                     */
+                }, {
+                    key: 'mouseDown',
+                    value: function mouseDown(ev) {
+                        if (this.isDisabledClick()) {
+                            console.debug('mouseDown prevent');
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        } else if (!self.isTouch) {
+                            this.pointerStart(ev);
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} ev  TODO
+                     */
+                }, {
+                    key: 'mouseUp',
+                    value: function mouseUp(ev) {
+                        if (this.isDisabledClick()) {
+                            console.debug('mouseUp prevent');
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }
+                        if (!self.isTouch) {
+                            this.pointerEnd(ev);
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} ev  TODO
+                     */
+                }, {
+                    key: 'pointerStart',
+                    value: function pointerStart(ev) {
+                        var targetEle = this.getActivatableTarget(ev.target);
+                        if (targetEle) {
+                            this.start = pointerCoord(ev);
+                            this.queueActivate(targetEle);
+                            this.moveListeners(true);
+                        } else {
+                            this.start = null;
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     */
+                }, {
+                    key: 'pointerEnd',
+                    value: function pointerEnd(ev) {
+                        this.queueDeactivate();
+                        this.moveListeners(false);
+                    }
+
+                    /**
+                     * TODO
+                     */
+                }, {
+                    key: 'pointerCancel',
+                    value: function pointerCancel() {
+                        console.debug('pointerCancel');
+                        this.deactivate();
+                        this.moveListeners(false);
+                        this.disableClick = Date.now();
+                    }
+                }, {
+                    key: 'isDisabledClick',
+                    value: function isDisabledClick() {
+                        return this.disableClick + this.disableClickLimit > Date.now();
+                    }
+
+                    /**
+                     * Whether the supplied click event should be allowed or not.
+                     * @param {MouseEvent} ev  The click event.
+                     * @return {boolean} True if click event should be allowed, otherwise false.
+                     */
+                }, {
+                    key: 'allowClick',
+                    value: function allowClick(ev) {
+                        if (!ev.isIonicTap) {
+                            if (this.isDisabledClick()) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {MouseEvent} ev  TODO
+                     */
+                }, {
+                    key: 'click',
+                    value: function click(ev) {
+                        if (!this.allowClick(ev)) {
+                            console.debug('click prevent');
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }
+                        this.isTouch = false;
+                    }
+                }, {
+                    key: 'getActivatableTarget',
+                    value: function getActivatableTarget(ele) {
+                        var targetEle = ele;
+                        for (var x = 0; x < 4; x++) {
+                            if (!targetEle) break;
+                            if (this.isActivatable(targetEle)) return targetEle;
+                            targetEle = targetEle.parentElement;
+                        }
+                        return null;
+                    }
+                }, {
+                    key: 'isActivatable',
+                    value: function isActivatable(ele) {
+                        if (/^(A|BUTTON)$/.test(ele.tagName)) {
+                            return true;
+                        }
+                        var attributes = ele.attributes;
+                        for (var i = 0, l = attributes.length; i < l; i++) {
+                            if (/click|tappable/.test(attributes[i].name)) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                }, {
+                    key: 'queueActivate',
+                    value: function queueActivate(ele) {
+                        var self = this;
+                        self.queue[++self.id] = ele;
+                        if (self.id > 19) self.id = 0;
+                        raf(function () {
+                            // activate all elements in the queue
+                            for (var key in self.queue) {
+                                if (self.queue[key]) {
+                                    self.queue[key].classList.add(self.activatedClass);
+                                    self.active[key] = self.queue[key];
+                                }
+                            }
+                            self.queue = {};
+                        });
+                    }
+                }, {
+                    key: 'queueDeactivate',
+                    value: function queueDeactivate() {
+                        var self = this;
+                        setTimeout(function () {
+                            self.deactivate();
+                        }, this.deactivateTimeout);
+                    }
+                }, {
+                    key: 'deactivate',
+                    value: function deactivate() {
+                        var self = this;
+                        if (this.app.isTransitioning() && this.deactivateAttempt < 10) {
+                            // the app is actively transitioning, don't bother deactivating
+                            // anything this makes it easier on the GPU so it doesn't
+                            // have to redraw any buttons during a transition
+                            // retry
+                            ++this.deactivateAttempt;
+                            this.queueDeactivate();
+                        } else {
+                            // not actively transitioning, good to deactivate any elements
+                            // clear out any elements that are queued to be set to active
+                            self.queue = {};
+                            // in the next frame, remove the active class from all active elements
+                            raf(function () {
+                                for (var key in self.active) {
+                                    if (self.active[key]) {
+                                        self.active[key].classList.remove(self.activatedClass);
+                                    }
+                                    delete self.active[key];
+                                }
+                            });
+                            this.deactivateAttempt = 0;
+                        }
+                    }
+                }]);
+
+                return Activator;
+            })();
+
+            _export('Activator', Activator);
+        }
+    };
+});
 System.register('ionic/util/click-block', [], function (_export) {
     'use strict';
 
@@ -6811,6 +7115,119 @@ System.register('ionic/util/util', [], function (_export) {
             _export('array', array);
         }
     };
+});
+System.register('ionic/native/plugin', [], function (_export) {
+    'use strict';
+
+    var NativePluginDecorator;
+
+    _export('NativePlugin', NativePlugin);
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function NativePlugin(config) {
+        return function (cls) {
+            var annotations = Reflect.getMetadata('annotations', cls) || [];
+            annotations.push(new NativePluginDecorator(cls, config));
+            Reflect.defineMetadata('annotations', annotations, cls);
+            return cls;
+        };
+    }
+
+    return {
+        setters: [],
+        execute: function () {
+            NativePluginDecorator = function NativePluginDecorator(cls, config) {
+                var _this = this;
+
+                _classCallCheck(this, NativePluginDecorator);
+
+                this.cls = cls;
+                this.config = config;
+                cls.ifPlugin = function (check, cb) {
+                    var returnType = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+                    // Convert to boolean the plugin param
+                    var exists = !!check;
+                    if (typeof check === 'function') {
+                        exists = check();
+                    }
+                    if (exists) {
+                        return cb();
+                    }
+                    cls.pluginWarn();
+                    return typeof returnType === 'function' ? returnType() : returnType;
+                };
+                cls.pluginWarn = function () {
+                    if (cls._pluginWarned) {
+                        // Only warn once
+                        return;
+                    }
+                    var platformString = [];
+                    for (var k in _this.config.platforms) {
+                        platformString.push('\t' + k + ': ' + _this.config.platforms[k]);
+                    }
+                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
+                    // Set a flag so we don't warn again
+                    cls._pluginWarned = true;
+                };
+            };
+
+            _export('NativePluginDecorator', NativePluginDecorator);
+        }
+    };
+});
+System.register('ionic/native/plugins', ['./plugin', './battery/battery', './camera/camera', './contacts/contacts', './dialogs/dialogs', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './statusbar/statusbar', './vibration/vibration'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_plugin) {
+      for (var _key in _plugin) {
+        if (_key !== 'default') _export(_key, _plugin[_key]);
+      }
+    }, function (_batteryBattery) {
+      for (var _key2 in _batteryBattery) {
+        if (_key2 !== 'default') _export(_key2, _batteryBattery[_key2]);
+      }
+    }, function (_cameraCamera) {
+      for (var _key3 in _cameraCamera) {
+        if (_key3 !== 'default') _export(_key3, _cameraCamera[_key3]);
+      }
+    }, function (_contactsContacts) {
+      for (var _key4 in _contactsContacts) {
+        if (_key4 !== 'default') _export(_key4, _contactsContacts[_key4]);
+      }
+    }, function (_dialogsDialogs) {
+      for (var _key5 in _dialogsDialogs) {
+        if (_key5 !== 'default') _export(_key5, _dialogsDialogs[_key5]);
+      }
+    }, function (_deviceDevice) {
+      for (var _key6 in _deviceDevice) {
+        if (_key6 !== 'default') _export(_key6, _deviceDevice[_key6]);
+      }
+    }, function (_deviceMotionDeviceMotion) {
+      for (var _key7 in _deviceMotionDeviceMotion) {
+        if (_key7 !== 'default') _export(_key7, _deviceMotionDeviceMotion[_key7]);
+      }
+    }, function (_deviceOrientationDeviceOrientation) {
+      for (var _key8 in _deviceOrientationDeviceOrientation) {
+        if (_key8 !== 'default') _export(_key8, _deviceOrientationDeviceOrientation[_key8]);
+      }
+    }, function (_geolocationGeolocation) {
+      for (var _key9 in _geolocationGeolocation) {
+        if (_key9 !== 'default') _export(_key9, _geolocationGeolocation[_key9]);
+      }
+    }, function (_statusbarStatusbar) {
+      for (var _key10 in _statusbarStatusbar) {
+        if (_key10 !== 'default') _export(_key10, _statusbarStatusbar[_key10]);
+      }
+    }, function (_vibrationVibration) {
+      for (var _key11 in _vibrationVibration) {
+        if (_key11 !== 'default') _export(_key11, _vibrationVibration[_key11]);
+      }
+    }],
+    execute: function () {}
+  };
 });
 System.register("ionic/components/action-menu/action-menu", ["angular2/angular2", "../icon/icon", "../overlay/overlay", "../../animations/animation", "ionic/util"], function (_export) {
     /**
@@ -7909,29 +8326,23 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
         }
     };
 });
-System.register("ionic/components/card/card", ["angular2/angular2", "../ion", "../../config/config", "../../config/annotations"], function (_export) {
+System.register("ionic/components/aside/aside-toggle", ["angular2/angular2", "../app/app"], function (_export) {
     /**
-     * TODO
-     */
+    * TODO
+    */
     "use strict";
 
-    var ElementRef, Ion, IonicConfig, IonicDirective, __decorate, __metadata, Card;
+    var Directive, IonicApp, __decorate, __metadata, AsideToggle;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
     return {
         setters: [function (_angular2Angular2) {
-            ElementRef = _angular2Angular2.ElementRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_configConfig) {
-            IonicConfig = _configConfig.IonicConfig;
-        }, function (_configAnnotations) {
-            IonicDirective = _configAnnotations.IonicDirective;
+            Directive = _angular2Angular2.Directive;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -7956,29 +8367,402 @@ System.register("ionic/components/card/card", ["angular2/angular2", "../ion", ".
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            Card = (function (_Ion) {
-                _inherits(Card, _Ion);
+            AsideToggle = (function () {
+                /**
+                * TODO
+                * @param {IonicApp} app  TODO
+                */
+
+                function AsideToggle(app) {
+                    _classCallCheck(this, AsideToggle);
+
+                    this.app = app;
+                }
+
+                _createClass(AsideToggle, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        var toggleTarget = this.asideToggle;
+                        // Get the component with this toggleTarget tag, or use "menu" if none
+                        this.aside = this.app.getComponent(toggleTarget || 'menu');
+                    }
+
+                    /**
+                    * TODO
+                    * @param {TODO} event  TODO
+                    */
+                }, {
+                    key: "toggle",
+                    value: function toggle(event) {
+                        this.aside && this.aside.toggle();
+                    }
+                }]);
+
+                return AsideToggle;
+            })();
+
+            _export("AsideToggle", AsideToggle);
+
+            _export("AsideToggle", AsideToggle = __decorate([Directive({
+                selector: '[aside-toggle]',
+                properties: ['asideToggle'],
+                host: {
+                    '(^click)': 'toggle($event)'
+                }
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], AsideToggle));
+        }
+    };
+});
+System.register("ionic/components/aside/aside", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/annotations", "./extensions/gestures"], function (_export) {
+    /**
+     * Aside is a side-menu navigation that can be dragged out or toggled to show. Aside supports two
+     * display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal
+     * is the traditional iOS style. By default, Aside will adjust to the correct style for the platform.
+     */
+    "use strict";
+
+    var forwardRef, Directive, Host, View, EventEmitter, ElementRef, Ion, IonicApp, IonicConfig, IonicComponent, gestures, __decorate, __metadata, __param, Aside, asideTypes, FALLBACK_ASIDE_TYPE, AsideBackdrop;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            forwardRef = _angular2Angular2.forwardRef;
+            Directive = _angular2Angular2.Directive;
+            Host = _angular2Angular2.Host;
+            View = _angular2Angular2.View;
+            EventEmitter = _angular2Angular2.EventEmitter;
+            ElementRef = _angular2Angular2.ElementRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            IonicConfig = _configConfig.IonicConfig;
+        }, function (_configAnnotations) {
+            IonicComponent = _configAnnotations.IonicComponent;
+        }, function (_extensionsGestures) {
+            gestures = _extensionsGestures;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Aside = (function (_Ion) {
+                _inherits(Aside, _Ion);
+
+                function Aside(app, elementRef, config) {
+                    _classCallCheck(this, Aside);
+
+                    _get(Object.getPrototypeOf(Aside.prototype), "constructor", this).call(this, elementRef, config);
+                    this.app = app;
+                    this.opening = new EventEmitter('opening');
+                    this.isOpen = false;
+                    this._disableTime = 0;
+                }
+
+                _createClass(Aside, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(Aside.prototype), "onInit", this).call(this);
+                        this.contentElement = this.content instanceof Node ? this.content : this.content.getNativeElement();
+                        if (!this.contentElement) {
+                            return console.error('Aside: must have a [content] element to listen for drag events on. Example:\n\n<ion-aside [content]="content"></ion-aside>\n\n<ion-content #content></ion-content>');
+                        }
+                        if (!this.id) {
+                            // Auto register
+                            this.app.register('menu', this);
+                        }
+                        this._initGesture();
+                        this._initType(this.type);
+                        this.contentElement.classList.add('aside-content');
+                        this.contentElement.classList.add('aside-content-' + this.type);
+                        var self = this;
+                        this.onContentClick = function (ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            self.close();
+                        };
+                    }
+                }, {
+                    key: "_initGesture",
+                    value: function _initGesture() {
+                        switch (this.side) {
+                            case 'right':
+                                this._gesture = new gestures.RightAsideGesture(this);
+                                break;
+                            case 'left':
+                                this._gesture = new gestures.LeftAsideGesture(this);
+                                break;
+                        }
+                    }
+                }, {
+                    key: "_initType",
+                    value: function _initType(type) {
+                        type = type && type.trim().toLowerCase() || FALLBACK_ASIDE_TYPE;
+                        var asideTypeCls = asideTypes[type];
+                        if (!asideTypeCls) {
+                            type = FALLBACK_ASIDE_TYPE;
+                            asideTypeCls = asideTypes[type];
+                        }
+                        this._type = new asideTypeCls(this);
+                        this.type = type;
+                    }
+
+                    /**
+                     * Sets the state of the Aside to open or not.
+                     * @param {boolean} isOpen  If the Aside is open or not.
+                     * @return {Promise} TODO
+                     */
+                }, {
+                    key: "setOpen",
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        // _isDisabled is used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the aside-toggle button
+                        if (shouldOpen === this.isOpen || this._isDisabled()) {
+                            return Promise.resolve();
+                        }
+                        this._before();
+                        return this._type.setOpen(shouldOpen).then(function () {
+                            _this._after(shouldOpen);
+                        });
+                    }
+                }, {
+                    key: "setProgressStart",
+                    value: function setProgressStart() {
+                        // user started swiping the aside open/close
+                        if (this._isDisabled()) return;
+                        this._before();
+                        this._type.setProgressStart(this.isOpen);
+                    }
+                }, {
+                    key: "setProgess",
+                    value: function setProgess(value) {
+                        // user actively dragging the menu
+                        this._disable();
+                        this._type.setProgess(value);
+                    }
+                }, {
+                    key: "setProgressFinish",
+                    value: function setProgressFinish(shouldComplete) {
+                        var _this2 = this;
+
+                        // user has finished dragging the menu
+                        this._disable();
+                        this._type.setProgressFinish(shouldComplete).then(function (isOpen) {
+                            _this2._after(isOpen);
+                        });
+                    }
+                }, {
+                    key: "_before",
+                    value: function _before() {
+                        // this places the aside into the correct location before it animates in
+                        // this css class doesn't actually kick off any animations
+                        this.getNativeElement().classList.add('show-aside');
+                        this.getBackdropElement().classList.add('show-backdrop');
+                        this._disable();
+                        this.app.setTransitioning(true);
+                    }
+                }, {
+                    key: "_after",
+                    value: function _after(isOpen) {
+                        this._disable();
+                        this.isOpen = isOpen;
+                        this.contentElement.classList[isOpen ? 'add' : 'remove']('aside-content-open');
+                        this.contentElement.removeEventListener('click', this.onContentClick);
+                        if (isOpen) {
+                            this.contentElement.addEventListener('click', this.onContentClick);
+                        } else {
+                            this.getNativeElement().classList.remove('show-aside');
+                            this.getBackdropElement().classList.remove('show-backdrop');
+                        }
+                        this.app.setTransitioning(false);
+                    }
+                }, {
+                    key: "_disable",
+                    value: function _disable() {
+                        // used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the aside-toggle
+                        this._disableTime = Date.now();
+                    }
+                }, {
+                    key: "_isDisabled",
+                    value: function _isDisabled() {
+                        return this._disableTime + 300 > Date.now();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "open",
+                    value: function open() {
+                        return this.setOpen(true);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "close",
+                    value: function close() {
+                        return this.setOpen(false);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "toggle",
+                    value: function toggle() {
+                        return this.setOpen(!this.isOpen);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside element.
+                     */
+                }, {
+                    key: "getAsideElement",
+                    value: function getAsideElement() {
+                        return this.getNativeElement();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside's associated content element.
+                     */
+                }, {
+                    key: "getContentElement",
+                    value: function getContentElement() {
+                        return this.contentElement;
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Aside's associated content element.
+                     */
+                }, {
+                    key: "getBackdropElement",
+                    value: function getBackdropElement() {
+                        return this.backdrop.elementRef.nativeElement;
+                    }
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.app.unregister(this);
+                        this._type && this._type.onDestroy();
+                        this.contentElement = null;
+                    }
+                }], [{
+                    key: "register",
+                    value: function register(name, cls) {
+                        asideTypes[name] = cls;
+                    }
+                }]);
+
+                return Aside;
+            })(Ion);
+
+            _export("Aside", Aside);
+
+            _export("Aside", Aside = __decorate([IonicComponent({
+                selector: 'ion-aside',
+                properties: ['content', 'dragThreshold', 'id'],
+                defaultProperties: {
+                    'side': 'left',
+                    'type': 'reveal'
+                },
+                host: {
+                    'role': 'navigation'
+                },
+                events: ['opening']
+            }), View({
+                template: '<ng-content></ng-content><backdrop tappable></backdrop>',
+                directives: [forwardRef(function () {
+                    return AsideBackdrop;
+                })]
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof ElementRef !== 'undefined' && ElementRef || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object])], Aside));
+            asideTypes = {};
+            FALLBACK_ASIDE_TYPE = 'reveal';
+
+            /**
+             * TODO
+             */
+
+            AsideBackdrop = (function () {
+                /**
+                 * TODO
+                 * @param {Aside} aside  TODO
+                 */
+
+                function AsideBackdrop(aside, elementRef) {
+                    _classCallCheck(this, AsideBackdrop);
+
+                    this.aside = aside;
+                    this.elementRef = elementRef;
+                    aside.backdrop = this;
+                }
 
                 /**
                  * TODO
-                 * @param {ElementeRef} elementRef  TODO
-                 * @param {IonicConfig} ionicConfig  TODO
+                 * @param {TODO} event  TODO
                  */
 
-                function Card(elementRef, ionicConfig) {
-                    _classCallCheck(this, Card);
+                _createClass(AsideBackdrop, [{
+                    key: "clicked",
+                    value: function clicked(ev) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        this.aside.close();
+                    }
+                }]);
 
-                    _get(Object.getPrototypeOf(Card.prototype), "constructor", this).call(this, elementRef, ionicConfig);
+                return AsideBackdrop;
+            })();
+
+            AsideBackdrop = __decorate([Directive({
+                selector: 'backdrop',
+                host: {
+                    '(click)': 'clicked($event)'
                 }
-
-                return Card;
-            })(Ion);
-
-            _export("Card", Card);
-
-            _export("Card", Card = __decorate([IonicDirective({
-                selector: 'ion-card'
-            }), __metadata('design:paramtypes', [typeof ElementRef !== 'undefined' && ElementRef || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object])], Card));
+            }), __param(0, Host()), __metadata('design:paramtypes', [Aside, typeof ElementRef !== 'undefined' && ElementRef || Object])], AsideBackdrop);
         }
     };
 });
@@ -8055,6 +8839,79 @@ System.register("ionic/components/button/button", ["angular2/angular2"], functio
                     '[class.icon-only]': 'iconOnly'
                 }
             }), __metadata('design:paramtypes', [])], Button));
+        }
+    };
+});
+System.register("ionic/components/card/card", ["angular2/angular2", "../ion", "../../config/config", "../../config/annotations"], function (_export) {
+    /**
+     * TODO
+     */
+    "use strict";
+
+    var ElementRef, Ion, IonicConfig, IonicDirective, __decorate, __metadata, Card;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            ElementRef = _angular2Angular2.ElementRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_configConfig) {
+            IonicConfig = _configConfig.IonicConfig;
+        }, function (_configAnnotations) {
+            IonicDirective = _configAnnotations.IonicDirective;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Card = (function (_Ion) {
+                _inherits(Card, _Ion);
+
+                /**
+                 * TODO
+                 * @param {ElementeRef} elementRef  TODO
+                 * @param {IonicConfig} ionicConfig  TODO
+                 */
+
+                function Card(elementRef, ionicConfig) {
+                    _classCallCheck(this, Card);
+
+                    _get(Object.getPrototypeOf(Card.prototype), "constructor", this).call(this, elementRef, ionicConfig);
+                }
+
+                return Card;
+            })(Ion);
+
+            _export("Card", Card);
+
+            _export("Card", Card = __decorate([IonicDirective({
+                selector: 'ion-card'
+            }), __metadata('design:paramtypes', [typeof ElementRef !== 'undefined' && ElementRef || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object])], Card));
         }
     };
 });
@@ -19251,6 +20108,141 @@ System.register("ionic/plugins/keyboard/keyboard", ["../plugin"], function (_exp
         }
     };
 });
+System.register("ionic/plugins/loading/loading", ["../plugin"], function (_export) {
+    /**
+     * Simple loading popup indicators.
+     */
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, Loading;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Loading = (function () {
+                function Loading() {
+                    _classCallCheck(this, Loading);
+                }
+
+                _createClass(Loading, null, [{
+                    key: "simple",
+                    value: function simple(dim, label, detail) {
+                        this.ifPlugin(function () {
+                            if (typeof label === 'undefined') {
+                                window.ProgressIndicator.showSimple(dim);
+                                return;
+                            }
+                            if (typeof detail === 'undefined') {
+                                window.ProgressIndicator.showSimpleWithLabel(dim, label);
+                                return;
+                            }
+                            window.ProgressIndicator.showSimpleWithLabelDetail(dim, label, detail);
+                        });
+                    }
+                }, {
+                    key: "determinate",
+                    value: function determinate(dim, timeout, label) {
+                        this.ifPlugin(function () {
+                            if (typeof label === 'undefined') {
+                                window.ProgressIndicator.showDeterminate(dim, timeout);
+                                return;
+                            }
+                            if (typeof detail === 'undefined') {
+                                window.ProgressIndicator.showSimpleWithLabel(dim, timeout, label);
+                                return;
+                            }
+                        });
+                    }
+                }, {
+                    key: "annular",
+                    value: function annular(dim, timeout, label) {
+                        this.ifPlugin(function () {
+                            if (typeof label === 'undefined') {
+                                window.ProgressIndicator.showAnnular(dim, timeout);
+                                return;
+                            }
+                            if (typeof detail === 'undefined') {
+                                window.ProgressIndicator.showAnnularWithLabel(dim, timeout, label);
+                                return;
+                            }
+                        });
+                    }
+                }, {
+                    key: "bar",
+                    value: function bar(dim, timeout, label) {
+                        this.ifPlugin(function () {
+                            if (typeof label === 'undefined') {
+                                window.ProgressIndicator.showBar(dim, timeout);
+                                return;
+                            }
+                            if (typeof detail === 'undefined') {
+                                window.ProgressIndicator.showBarWithLabel(dim, timeout, label);
+                                return;
+                            }
+                        });
+                    }
+                }, {
+                    key: "success",
+                    value: function success(dim, label) {
+                        this.ifPlugin(function () {
+                            window.ProgressIndicator.showSuccess(dim, label);
+                        });
+                    }
+                }, {
+                    key: "hide",
+                    value: function hide() {
+                        this.ifPlugin(function () {
+                            window.ProgressIndicator.hide();
+                        });
+                    }
+                }]);
+
+                return Loading;
+            })();
+
+            _export("Loading", Loading);
+
+            _export("Loading", Loading = __decorate([NativePlugin({
+                name: 'Loading',
+                platforms: ['ios', 'android', 'web'],
+                engines: {
+                    cordova: 'cordova-plugin-progressindicator'
+                },
+                pluginCheck: function pluginCheck() {
+                    return !!window.ProgressIndicator;
+                }
+            }), __metadata('design:paramtypes', [])], Loading));
+        }
+    };
+});
 System.register("ionic/plugins/statusbar/statusbar", ["../plugin"], function (_export) {
     /**
      * Manage the appearance of the native status bar.
@@ -19484,6 +20476,1622 @@ System.register("ionic/plugins/vibration/vibration", ["../plugin"], function (_e
                     cordova: 'cordova-plugin-vibration'
                 }
             }), __metadata('design:paramtypes', [])], Vibration));
+        }
+    };
+});
+System.register("ionic/native/camera/camera", ["ionic/util", "../plugin"], function (_export) {
+    "use strict";
+
+    var util, NativePlugin, __decorate, __metadata, Camera;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_ionicUtil) {
+            util = _ionicUtil;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Camera = (function () {
+                function Camera() {
+                    _classCallCheck(this, Camera);
+                }
+
+                _createClass(Camera, null, [{
+                    key: "getPicture",
+                    value: function getPicture(options) {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.camera) {
+                                _this.pluginWarn();
+                                resolve(null);
+                                return;
+                            }
+                            var options = util.defaults({
+                                quality: 80,
+                                destinationType: window.Camera.DestinationType.DATA_URL,
+                                sourceType: window.Camera.PictureSourceType.CAMERA,
+                                allowEdit: true,
+                                encodingType: window.Camera.EncodingType.JPEG,
+                                popoverOptions: window.CameraPopoverOptions,
+                                saveToPhotoAlbum: false
+                            }, options);
+                            navigator.camera.getPicture(function (imageData) {
+                                resolve(imageData);
+                            }, function (err) {
+                                reject(err);
+                            }, options);
+                        });
+                    }
+                }, {
+                    key: "cleanup",
+                    value: function cleanup() {
+                        return new Promise(function (resolve, reject) {
+                            navigator.camera.cleanup(function () {
+                                resolve();
+                            }, function (err) {
+                                reject(err);
+                            });
+                        });
+                    }
+                }]);
+
+                return Camera;
+            })();
+
+            _export("Camera", Camera);
+
+            _export("Camera", Camera = __decorate([NativePlugin({
+                name: 'Camera',
+                platforms: {
+                    cordova: 'cordova-plugin-camera'
+                }
+            }), __metadata('design:paramtypes', [])], Camera));
+        }
+    };
+});
+System.register("ionic/native/contacts/contacts", ["../plugin"], function (_export) {
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, Contacts;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Contacts = (function () {
+                function Contacts() {
+                    _classCallCheck(this, Contacts);
+                }
+
+                _createClass(Contacts, null, [{
+                    key: "save",
+                    value: function save(contact) {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.contacts) {
+                                _this.pluginWarn();
+                                reject('Contacts plugin not installed');
+                            }
+                            var deviceContact = navigator.contacts.create(contact);
+                            deviceContact.save(function (result) {
+                                resolve(result);
+                            }, function (err) {
+                                reject(err);
+                            });
+                        });
+                    }
+                }, {
+                    key: "remove",
+                    value: function remove(contact) {
+                        var _this2 = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.contacts) {
+                                _this2.pluginWarn();
+                                reject('Contacts plugin not installed');
+                            }
+                            var deviceContact = navigator.contacts.create(contact);
+                            deviceContact.remove(function (result) {
+                                resolve(result);
+                            }, function (err) {
+                                reject(err);
+                            });
+                        });
+                    }
+                }, {
+                    key: "clone",
+                    value: function clone(contact) {
+                        if (!navigator.contacts) {
+                            this.pluginWarn();
+                            return null;
+                        }
+                        var deviceContact = navigator.contacts.create(contact);
+                        return deviceContact.clone(contact);
+                    }
+                }, {
+                    key: "find",
+                    value: function find(options) {
+                        return new Promise(function (resolve, reject) {
+                            var fields = options.fields || ['id', 'displayName'];
+                            delete options.fields;
+                            if (Object.keys(options).length === 0) {
+                                navigator.contacts.find(fields, function (results) {
+                                    resolve(results);
+                                }, function (err) {
+                                    reject(err);
+                                });
+                            } else {
+                                navigator.contacts.find(fields, function (results) {
+                                    resolve(results);
+                                }, function (err) {
+                                    reject(err);
+                                }, options);
+                            }
+                        });
+                    }
+                }, {
+                    key: "pickContact",
+                    value: function pickContact() {
+                        return new Promise(function (resolve, reject) {
+                            navigator.contacts.pickContact(function (contact) {
+                                resolve(contact);
+                            }, function (err) {
+                                reject(err);
+                            });
+                        });
+                    }
+                }]);
+
+                return Contacts;
+            })();
+
+            _export("Contacts", Contacts);
+
+            _export("Contacts", Contacts = __decorate([NativePlugin({
+                name: 'Contacts',
+                platforms: {
+                    cordova: 'cordova-plugin-contacts'
+                }
+            }), __metadata('design:paramtypes', [])], Contacts));
+        }
+    };
+});
+System.register("ionic/native/device/device", ["../plugin"], function (_export) {
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, _Device;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _Device = (function () {
+                function Device() {
+                    _classCallCheck(this, Device);
+                }
+
+                _createClass(Device, null, [{
+                    key: "getDevice",
+
+                    /**
+                     * Returns the whole device object.
+                     * @see https://github.com/apache/cordova-plugin-device
+                     * @returns {Object} The device object.
+                     */
+                    value: function getDevice() {
+                        return this.ifPlugin(window.device, function () {
+                            return device;
+                        }, function () {
+                            return {
+                                name: _Device.getName(),
+                                model: _Device.getModel(),
+                                platform: _Device.getPlatform(),
+                                uuid: _Device.getUUID(),
+                                version: _Device.getVersion()
+                            };
+                        });
+                    }
+
+                    /**
+                     * Returns the Cordova version.
+                     * @see https://github.com/apache/cordova-plugin-device#devicecordova
+                     * @returns {String} The Cordova version.
+                     */
+                }, {
+                    key: "getCordova",
+                    value: function getCordova() {
+                        this.ifPlugin(window.device, function () {
+                            return device.cordova;
+                        });
+                    }
+
+                    /**
+                     * Returns the name of the device's model or product.
+                     * @see https://github.com/apache/cordova-plugin-device#devicemodel
+                     * @returns {String} The name of the device's model or product.
+                     */
+                }, {
+                    key: "getModel",
+                    value: function getModel() {
+                        this.ifPlugin(window.device, function () {
+                            return device.model;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+
+                    /**
+                     * @deprecated device.name is deprecated as of version 2.3.0. Use device.model instead.
+                     * @returns {String}
+                     */
+                }, {
+                    key: "getName",
+                    value: function getName() {
+                        this.ifPlugin(window.device, function () {
+                            return device.name;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+
+                    /**
+                     * Returns the device's operating system name.
+                     * @see https://github.com/apache/cordova-plugin-device#deviceplatform
+                     * @returns {String} The device's operating system name.
+                     */
+                }, {
+                    key: "getPlatform",
+                    value: function getPlatform() {
+                        this.ifPlugin(window.device, function () {
+                            return device.name;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+
+                    /**
+                     * Returns the device's Universally Unique Identifier.
+                     * @see https://github.com/apache/cordova-plugin-device#deviceuuid
+                     * @returns {String} The device's Universally Unique Identifier
+                     */
+                }, {
+                    key: "getUUID",
+                    value: function getUUID() {
+                        this.ifPlugin(window.device, function () {
+                            return device.uuid;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+
+                    /**
+                     * Returns the operating system version.
+                     * @see https://github.com/apache/cordova-plugin-device#deviceversion
+                     * @returns {String}
+                     */
+                }, {
+                    key: "getVersion",
+                    value: function getVersion() {
+                        this.ifPlugin(window.device, function () {
+                            return device.version;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+
+                    /**
+                     * Returns the device manufacturer.
+                     * @returns {String}
+                     */
+                }, {
+                    key: "getManufacturer",
+                    value: function getManufacturer() {
+                        this.ifPlugin(window.device, function () {
+                            return device.manufacturer;
+                        }, function () {
+                            return 'unknown';
+                        });
+                    }
+                }]);
+
+                return Device;
+            })();
+
+            _export("Device", _Device);
+
+            _Device = __decorate([NativePlugin({
+                name: 'Device',
+                platforms: {
+                    cordova: 'cordova-plugin-device'
+                }
+            }), __metadata('design:paramtypes', [])], _Device);
+        }
+    };
+});
+System.register("ionic/native/battery/battery", ["ionic/util", "../plugin"], function (_export) {
+    "use strict";
+
+    var util, NativePlugin, __decorate, __metadata, _Battery;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_ionicUtil) {
+            util = _ionicUtil;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _Battery = (function () {
+                function Battery() {
+                    _classCallCheck(this, Battery);
+                }
+
+                _createClass(Battery, null, [{
+                    key: "getStatus",
+                    value: function getStatus() {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (navigator.getBattery) {
+                                navigator.getBattery().then(function (battery) {
+                                    _this.battery = battery;
+                                    resolve(_Battery._format(battery));
+                                });
+                            } else {
+                                var fnCb = function fnCb(battery) {
+                                    resolve(battery);
+                                    window.removeEventListener('batterystatus', fnCb);
+                                };
+                                window.addEventListener('batterystatus', fnCb);
+                            }
+                        });
+                    }
+                }, {
+                    key: "_format",
+                    value: function _format(batteryObj) {
+                        if (typeof batteryObj.isPlugged !== 'undefined') {
+                            // This is the old format, map it to the new format
+                            util.extend(batteryObj, {
+                                charging: batteryObj.isPlugged,
+                                level: batteryObj.level / 100,
+                                chargingTime: 0,
+                                dischargingTime: 0 //not provided
+                            });
+                        }
+                        return batteryObj;
+                    }
+                }]);
+
+                return Battery;
+            })();
+
+            _export("Battery", _Battery);
+
+            _Battery = __decorate([NativePlugin({
+                name: 'Battery',
+                platforms: {
+                    cordova: 'cordova-plugin-battery-status'
+                }
+            }), __metadata('design:paramtypes', [])], _Battery);
+        }
+    };
+});
+System.register("ionic/native/geolocation/geolocation", ["rx", "../plugin"], function (_export) {
+    "use strict";
+
+    var Rx, NativePlugin, __decorate, __metadata, Geolocation;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_rx) {
+            Rx = _rx;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Geolocation = (function () {
+                function Geolocation() {
+                    _classCallCheck(this, Geolocation);
+                }
+
+                _createClass(Geolocation, null, [{
+                    key: "getCurrentPosition",
+                    value: function getCurrentPosition(options) {
+                        return new Promise(function (resolve, reject) {
+                            navigator.geolocation.getCurrentPosition(function (result) {
+                                resolve(result);
+                            }, function (err) {
+                                reject(err);
+                            }, options);
+                        });
+                    }
+                }, {
+                    key: "watchPosition",
+                    value: function watchPosition(options) {
+                        var watchID = undefined;
+                        var source = Rx.Observable.create(function (observer) {
+                            watchID = navigator.geolocation.watchPosition(function (result) {
+                                observer.onNext(result);
+                            }, function (err) {
+                                observer.onError(err, observer);
+                            }, options);
+                        });
+                        return {
+                            source: source,
+                            watchID: watchID,
+                            clear: function clear() {
+                                navigator.geolocation.clearWatch(watchID);
+                            }
+                        };
+                    }
+                }, {
+                    key: "clearWatch",
+                    value: function clearWatch(watchID) {
+                        return navigator.geolocation.clearWatch(watchID);
+                    }
+                }]);
+
+                return Geolocation;
+            })();
+
+            _export("Geolocation", Geolocation);
+
+            _export("Geolocation", Geolocation = __decorate([NativePlugin({
+                name: 'Geolocation',
+                platforms: {
+                    cordova: 'cordova-plugin-geolocation'
+                }
+            }), __metadata('design:paramtypes', [])], Geolocation));
+        }
+    };
+});
+System.register("ionic/native/statusbar/statusbar", ["../plugin"], function (_export) {
+    /**
+     * Manage the appearance of the native status bar.
+     */
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, _StatusBar;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _StatusBar = (function () {
+                function StatusBar() {
+                    _classCallCheck(this, StatusBar);
+                }
+
+                _createClass(StatusBar, null, [{
+                    key: "show",
+
+                    /**
+                     * Show the StatusBar
+                     */
+                    value: function show() {
+                        this.ifPlugin(window.StatusBar, function () {
+                            window.StatusBar.show();
+                        });
+                    }
+
+                    /**
+                     * Hide the StatusBar
+                     */
+                }, {
+                    key: "hide",
+                    value: function hide() {
+                        this.ifPlugin(window.StatusBar, function () {
+                            window.StatusBar.hide();
+                        });
+                    }
+
+                    /**
+                     * Hide the StatusBar
+                     *
+                     * Options:
+                     *
+                     * StatusBar.DEFAULT
+                     * StatusBar.LIGHT_CONTENT
+                     * StatusBar.BLACK_TRANSLUCENT
+                     * StatusBar.BLACK_OPAQUE
+                     *
+                     * @param style the style from above
+                     */
+                }, {
+                    key: "setStyle",
+                    value: function setStyle(style) {
+                        this.ifPlugin(window.StatusBar, function () {
+                            switch (style) {
+                                case _StatusBar.DEFAULT:
+                                    window.StatusBar.styleDefault();
+                                    break;
+                                case _StatusBar.LIGHT_CONTENT:
+                                    window.StatusBar.styleLightContent();
+                                    break;
+                                case _StatusBar.BLACK_TRANSLUCENT:
+                                    window.StatusBar.styleBlackTranslucent();
+                                    break;
+                                case _StatusBar.BLACK_OPAQUE:
+                                    window.StatusBar.styleBlackOpaque();
+                                    break;
+                            }
+                        });
+                    }
+
+                    /**
+                     * Set the status bar to a specific hex color (CSS shorthand supported!).
+                     *
+                     * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+                     *
+                     * @param hex the hex value of the color.
+                     */
+                }, {
+                    key: "setHexColor",
+                    value: function setHexColor(hex) {
+                        this.ifPlugin(window.StatusBar, function () {
+                            window.StatusBar.backgroundColorByHexName(hex);
+                        });
+                    }
+
+                    /**
+                     * Set the status bar to a specific named color. Valid options:
+                     * black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
+                     *
+                     * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+                     *
+                     * @param name the name of the color (from above)
+                     */
+                }, {
+                    key: "setNamedColor",
+                    value: function setNamedColor(name) {
+                        this.ifPlugin(window.StatusBar, function () {
+                            window.StatusBar.backgroundColorByName(name);
+                        });
+                    }
+
+                    /**
+                     * Set whether the status bar overlays the main app view. The default
+                     * is true.
+                     *
+                     * @param doesOverlay whether the status bar overlays the main app view.
+                     */
+                }, {
+                    key: "setOverlays",
+                    value: function setOverlays(doesOverlay) {
+                        this.ifPlugin(window.StatusBar, function () {
+                            window.StatusBar.overlaysWebView(doesOverlay);
+                        });
+                    }
+                }]);
+
+                return StatusBar;
+            })();
+
+            _export("StatusBar", _StatusBar);
+
+            _StatusBar.DEFAULT = 0;
+            _StatusBar.LIGHT_CONTENT = 1;
+            _StatusBar.BLACK_TRANSLUCENT = 2;
+            _StatusBar.BLACK_OPAQUE = 3;
+            _StatusBar = __decorate([NativePlugin({
+                name: 'StatusBar',
+                platforms: {
+                    cordova: 'cordova-plugin-statusbar'
+                }
+            }), __metadata('design:paramtypes', [])], _StatusBar);
+        }
+    };
+});
+System.register("ionic/native/device-orientation/device-orientation", ["rx", "ionic/util", "../plugin"], function (_export) {
+    "use strict";
+
+    var Rx, util, NativePlugin, __decorate, __metadata, _DeviceOrientation;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_rx) {
+            Rx = _rx;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _DeviceOrientation = (function () {
+                function DeviceOrientation() {
+                    _classCallCheck(this, DeviceOrientation);
+                }
+
+                _createClass(DeviceOrientation, null, [{
+                    key: "_wrap",
+                    value: function _wrap(result) {
+                        return util.extend({
+                            alpha: result.magneticHeading,
+                            magneticHeading: result.webkitCompassHeading || result.alpha
+                        }, result);
+                    }
+                }, {
+                    key: "getCurrentHeading",
+                    value: function getCurrentHeading() {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (window.DeviceOrientationEvent) {
+                                var fnCb = function fnCb(eventData) {
+                                    resolve(_DeviceOrientation._wrap(eventData));
+                                    window.removeEventListener('deviceorientation', fnCb);
+                                };
+                                window.addEventListener('deviceorientation', fnCb);
+                            } else if (navigator.compass) {
+                                navigator.compass.getCurrentHeading(function (result) {
+                                    resolve(_DeviceOrientation._wrap(result));
+                                }, function (err) {
+                                    reject(err);
+                                });
+                            } else {
+                                _this.pluginWarn();
+                                reject('The Device does not support device orientation events.');
+                                return;
+                            }
+                        });
+                    }
+                }, {
+                    key: "watchHeading",
+                    value: function watchHeading(options) {
+                        if (window.DeviceOrientationEvent) {
+                            var watchID = undefined;
+                            var source = Rx.Observable.create(function (observer) {
+                                var fnCb = function fnCb(eventData) {
+                                    observer.onNext(_DeviceOrientation._wrap(eventData));
+                                };
+                                window.addEventListener('deviceorientation', fnCb);
+                            });
+                            return {
+                                source: source,
+                                watchID: watchID,
+                                clear: function clear() {
+                                    window.removeEventListener('deviceorientation', fnCb);
+                                }
+                            };
+                        } else if (navigator.accelerometer) {
+                            var _ret = (function () {
+                                var watchID = undefined;
+                                var source = Rx.Observable.create(function (observer) {
+                                    watchID = navigator.compass.watchHeading(function (result) {
+                                        observer.onNext(_DeviceOrientation._wrap(result));
+                                    }, function (err) {
+                                        observer.onError(err, observer);
+                                    }, options);
+                                });
+                                return {
+                                    v: {
+                                        source: source,
+                                        watchID: watchID,
+                                        clear: function clear() {
+                                            navigator.compass.clearWatch(watchID);
+                                        }
+                                    }
+                                };
+                            })();
+
+                            if (typeof _ret === "object") return _ret.v;
+                        }
+                    }
+                }]);
+
+                return DeviceOrientation;
+            })();
+
+            _export("DeviceOrientation", _DeviceOrientation);
+
+            _DeviceOrientation = __decorate([NativePlugin({
+                name: 'Device Orientation',
+                platforms: {
+                    cordova: 'cordova-plugin-device-orientation'
+                }
+            }), __metadata('design:paramtypes', [])], _DeviceOrientation);
+        }
+    };
+});
+System.register("ionic/native/vibration/vibration", ["../plugin"], function (_export) {
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, Vibration;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Vibration = (function () {
+                function Vibration() {
+                    _classCallCheck(this, Vibration);
+                }
+
+                _createClass(Vibration, null, [{
+                    key: "vibrate",
+                    value: function vibrate(pattern) {
+                        if (!navigator.vibrate) {
+                            this.pluginWarn();
+                            console.log('Vibrate (dev): ', pattern);
+                        } else {
+                            navigator.vibrate(pattern);
+                        }
+                    }
+                }]);
+
+                return Vibration;
+            })();
+
+            _export("Vibration", Vibration);
+
+            _export("Vibration", Vibration = __decorate([NativePlugin({
+                name: 'Vibration',
+                platforms: {
+                    cordova: 'cordova-plugin-vibration'
+                }
+            }), __metadata('design:paramtypes', [])], Vibration));
+        }
+    };
+});
+System.register("ionic/native/dialogs/dialogs", ["../plugin"], function (_export) {
+    /**
+     * A native dialogs system. Native dialogs can give you a bit more
+     * control over the UI than the browser built-ins, though the Dialogs
+     * plugin will fall back to the built-ins when necessary.
+     */
+    "use strict";
+
+    var NativePlugin, __decorate, __metadata, Dialogs;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Dialogs = (function () {
+                function Dialogs() {
+                    _classCallCheck(this, Dialogs);
+                }
+
+                _createClass(Dialogs, null, [{
+                    key: "alert",
+
+                    /**
+                     * Trigger an alert prompt.
+                     *
+                     * @param message the message to show
+                     * @param title the title to show
+                     * @param buttonName the button label to use (not available on browser fallback)
+                     * @return Promise
+                     */
+                    value: (function (_alert) {
+                        function alert(_x, _x2, _x3) {
+                            return _alert.apply(this, arguments);
+                        }
+
+                        alert.toString = function () {
+                            return _alert.toString();
+                        };
+
+                        return alert;
+                    })(function (message, title, buttonName) {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.notification) {
+                                _this.pluginWarn();
+                                alert(message);
+                                resolve();
+                            } else {
+                                navigator.notification.alert(message, function () {
+                                    resolve();
+                                }, title, buttonName);
+                            }
+                        });
+                    })
+
+                    /**
+                     * Trigger a confirm prompt.
+                     *
+                     * @param message the message to show
+                     * @param title the title to show
+                     * @param buttonLabels the button labels to use (not available on browser fallback)
+                     * @return Promise that resolves with the index of the button selected (zero indexed). 1 is OK on browser fallback
+                     */
+                }, {
+                    key: "confirm",
+                    value: (function (_confirm) {
+                        function confirm(_x4, _x5, _x6) {
+                            return _confirm.apply(this, arguments);
+                        }
+
+                        confirm.toString = function () {
+                            return _confirm.toString();
+                        };
+
+                        return confirm;
+                    })(function (message, title, buttonLabels) {
+                        var _this2 = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.notification) {
+                                _this2.pluginWarn();
+                                var ok = confirm(message);
+                                // Use 2 as OK
+                                resolve(ok ? 2 : 0);
+                            } else {
+                                navigator.notification.confirm(message, function (buttonIndex) {
+                                    resolve(buttonIndex - 1);
+                                }, title, buttonLabels);
+                            }
+                        });
+                    })
+                }, {
+                    key: "prompt",
+                    value: (function (_prompt) {
+                        function prompt(_x7, _x8, _x9, _x10) {
+                            return _prompt.apply(this, arguments);
+                        }
+
+                        prompt.toString = function () {
+                            return _prompt.toString();
+                        };
+
+                        return prompt;
+                    })(function (message, title, buttonLabels, defaultText) {
+                        var _this3 = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (!navigator.notification) {
+                                _this3.pluginWarn();
+                                var response = prompt(message);
+                                // Use 1 as OK
+                                resolve(response);
+                            } else {
+                                navigator.notification.prompt(message, function (results) {
+                                    resolve(results.input1, buttonIndex - 1);
+                                }, title, buttonLabels, defaultText);
+                            }
+                        });
+                    })
+
+                    /**
+                     * Beep n times. Not available on browser.
+                     * @param times the number of times to beep
+                     */
+                }, {
+                    key: "beep",
+                    value: function beep(times) {
+                        navigator.notification && navigator.notification.beep(times);
+                    }
+                }]);
+
+                return Dialogs;
+            })();
+
+            _export("Dialogs", Dialogs);
+
+            _export("Dialogs", Dialogs = __decorate([NativePlugin({
+                name: 'Dialogs',
+                platforms: {
+                    cordova: 'cordova-plugin-dialogs'
+                }
+            }), __metadata('design:paramtypes', [])], Dialogs));
+        }
+    };
+});
+System.register("ionic/native/device-motion/device-motion", ["rx", "ionic/util", "../plugin"], function (_export) {
+    "use strict";
+
+    var Rx, util, NativePlugin, __decorate, __metadata, _DeviceMotion;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_rx) {
+            Rx = _rx;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _DeviceMotion = (function () {
+                function DeviceMotion() {
+                    _classCallCheck(this, DeviceMotion);
+                }
+
+                _createClass(DeviceMotion, null, [{
+                    key: "_wrap",
+                    value: function _wrap(result) {
+                        // Mimic the DeviceMotionEvent
+                        return util.extend({
+                            acceleration: result,
+                            accelerationIncludingGravity: result,
+                            rotationRate: 0,
+                            interval: 0,
+                            native: true
+                        }, result);
+                    }
+                }, {
+                    key: "getCurrentAcceleration",
+                    value: function getCurrentAcceleration() {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
+                                var fnCb = function fnCb(eventData) {
+                                    resolve(_DeviceMotion._wrap(eventData));
+                                    window.removeEventListener('devicemotion', fnCb);
+                                };
+                                window.addEventListener('devicemotion', fnCb);
+                            } else if (navigator.accelerometer) {
+                                navigator.accelerometer.getCurrentAcceleration(function (result) {
+                                    resolve(_DeviceMotion._wrap(result));
+                                }, function (err) {
+                                    reject(err);
+                                });
+                            } else {
+                                _this.pluginWarn();
+                                reject('The Device does not support device motion events.');
+                                return;
+                            }
+                        });
+                    }
+                }, {
+                    key: "watchAcceleration",
+                    value: function watchAcceleration(options) {
+                        if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
+                            var watchID = undefined;
+                            var source = Rx.Observable.create(function (observer) {
+                                var fnCb = function fnCb(eventData) {
+                                    observer.onNext(_DeviceMotion._wrap(eventData));
+                                };
+                                window.addEventListener('devicemotion', fnCb);
+                            });
+                            return {
+                                source: source,
+                                watchID: watchID,
+                                clear: function clear() {
+                                    window.removeEventListener('devicemotion', fnCb);
+                                }
+                            };
+                        } else if (navigator.accelerometer) {
+                            var _ret = (function () {
+                                var watchID = undefined;
+                                var source = Rx.Observable.create(function (observer) {
+                                    watchID = navigator.accelerometer.watchAcceleration(function (result) {
+                                        observer.onNext(_DeviceMotion._wrap(result));
+                                    }, function (err) {
+                                        observer.onError(err, observer);
+                                    }, options);
+                                });
+                                return {
+                                    v: {
+                                        source: source,
+                                        watchID: watchID,
+                                        clear: function clear() {
+                                            navigator.accelerometer.clearWatch(watchID);
+                                        }
+                                    }
+                                };
+                            })();
+
+                            if (typeof _ret === "object") return _ret.v;
+                        }
+                    }
+                }]);
+
+                return DeviceMotion;
+            })();
+
+            _export("DeviceMotion", _DeviceMotion);
+
+            _DeviceMotion = __decorate([NativePlugin({
+                name: 'Device Motion',
+                platforms: {
+                    cordova: 'cordova-plugin-device-motion'
+                }
+            }), __metadata('design:paramtypes', [])], _DeviceMotion);
+        }
+    };
+});
+System.register('ionic/components/aside/extensions/gestures', ['ionic/gestures/slide-edge-gesture'], function (_export) {
+    'use strict';
+
+    var SlideEdgeGesture, AsideGenericGestureHandler, AsideContentGesture, LeftAsideGesture, RightAsideGesture;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_ionicGesturesSlideEdgeGesture) {
+            SlideEdgeGesture = _ionicGesturesSlideEdgeGesture.SlideEdgeGesture;
+        }],
+        execute: function () {
+            AsideGenericGestureHandler = (function (_SlideEdgeGesture) {
+                _inherits(AsideGenericGestureHandler, _SlideEdgeGesture);
+
+                function AsideGenericGestureHandler(aside, targetElement, threshold) {
+                    _classCallCheck(this, AsideGenericGestureHandler);
+
+                    _get(Object.getPrototypeOf(AsideGenericGestureHandler.prototype), 'constructor', this).call(this, targetElement, {
+                        direction: aside.side === 'left' || aside.side === 'right' ? 'x' : 'y',
+                        edge: aside.side,
+                        threshold: threshold
+                    });
+                    this.aside = aside;
+                    this.listen();
+                }
+
+                // Set CSS, then wait one frame for it to apply before sliding starts
+
+                _createClass(AsideGenericGestureHandler, [{
+                    key: 'onSlideBeforeStart',
+                    value: function onSlideBeforeStart(slide, ev) {
+                        this.aside.setProgressStart();
+                    }
+                }, {
+                    key: 'onSlide',
+                    value: function onSlide(slide, ev) {
+                        this.aside.setProgess(slide.distance / slide.max);
+                    }
+                }, {
+                    key: 'onSlideEnd',
+                    value: function onSlideEnd(slide, ev) {
+                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
+                        this.aside.setProgressFinish(shouldComplete);
+                    }
+                }, {
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.aside.isOpen ? slide.max : slide.min;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: 0,
+                            max: this.aside.width()
+                        };
+                    }
+                }]);
+
+                return AsideGenericGestureHandler;
+            })(SlideEdgeGesture);
+
+            AsideContentGesture = (function (_AsideGenericGestureHandler) {
+                _inherits(AsideContentGesture, _AsideGenericGestureHandler);
+
+                function AsideContentGesture(aside) {
+                    _classCallCheck(this, AsideContentGesture);
+
+                    _get(Object.getPrototypeOf(AsideContentGesture.prototype), 'constructor', this).call(this, aside, aside.getContentElement(), 75);
+                }
+
+                _createClass(AsideContentGesture, [{
+                    key: 'canStart',
+                    value: function canStart(ev) {
+                        return this.aside.isOpen ? true : _get(Object.getPrototypeOf(AsideContentGesture.prototype), 'canStart', this).call(this, ev);
+                    }
+                }]);
+
+                return AsideContentGesture;
+            })(AsideGenericGestureHandler);
+
+            _export('AsideContentGesture', AsideContentGesture);
+
+            LeftAsideGesture = (function (_AsideContentGesture) {
+                _inherits(LeftAsideGesture, _AsideContentGesture);
+
+                function LeftAsideGesture(aside) {
+                    _classCallCheck(this, LeftAsideGesture);
+
+                    _get(Object.getPrototypeOf(LeftAsideGesture.prototype), 'constructor', this).call(this, aside);
+                }
+
+                return LeftAsideGesture;
+            })(AsideContentGesture);
+
+            _export('LeftAsideGesture', LeftAsideGesture);
+
+            RightAsideGesture = (function (_LeftAsideGesture) {
+                _inherits(RightAsideGesture, _LeftAsideGesture);
+
+                function RightAsideGesture(aside) {
+                    _classCallCheck(this, RightAsideGesture);
+
+                    _get(Object.getPrototypeOf(RightAsideGesture.prototype), 'constructor', this).call(this, aside);
+                }
+
+                /*
+                 Not supported right now
+                export class TopAsideGesture extends AsideGesture {
+                  onSlide(slide, ev) {
+                    this.aside.setTransform(slide.distance);
+                  }
+                  getSlideBoundaries() {
+                    return {
+                      min: 0,
+                      max: this.aside.height()
+                    };
+                  }
+                }
+                
+                export class BottomAsideGesture extends TopAsideGesture {
+                  getElementStartPos(slide, ev) {
+                    return this.aside.isOpen ? slide.min : slide.max;
+                  }
+                  getSlideBoundaries() {
+                    return {
+                      min: -this.aside.height(),
+                      max: 0
+                    };
+                  }
+                }
+                */
+
+                _createClass(RightAsideGesture, [{
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.aside.isOpen ? slide.min : slide.max;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: -this.aside.width(),
+                            max: 0
+                        };
+                    }
+                }]);
+
+                return RightAsideGesture;
+            })(LeftAsideGesture);
+
+            _export('RightAsideGesture', RightAsideGesture);
+        }
+    };
+});
+System.register('ionic/components/aside/extensions/types', ['../aside', 'ionic/animations/animation'], function (_export) {
+    /**
+     * Aside Type
+     * Base class which is extended by the various types. Each
+     * type will provide their own animations for open and close
+     * and registers itself with Aside.
+     */
+    'use strict';
+
+    var Aside, Animation, AsideType, AsideRevealType, AsideOverlayType, OPACITY, TRANSLATE_X, CENTER;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_aside) {
+            Aside = _aside.Aside;
+        }, function (_ionicAnimationsAnimation) {
+            Animation = _ionicAnimationsAnimation.Animation;
+        }],
+        execute: function () {
+            AsideType = (function () {
+                function AsideType(aside) {
+                    _classCallCheck(this, AsideType);
+
+                    this.open = new Animation();
+                    this.close = new Animation();
+                }
+
+                /**
+                 * Aside Reveal Type
+                 * The content slides over to reveal the aside underneath.
+                 * The aside menu itself, which is under the content, does not move.
+                 */
+
+                _createClass(AsideType, [{
+                    key: 'setOpen',
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        return new Promise(function (resolve) {
+                            if (shouldOpen) {
+                                _this.open.playbackRate(1).onFinish(resolve, true).play();
+                            } else {
+                                _this.close.playbackRate(1).onFinish(resolve, true).play();
+                            }
+                        });
+                    }
+                }, {
+                    key: 'setProgressStart',
+                    value: function setProgressStart(isOpen) {
+                        this.isOpening = !isOpen;
+                        this.seek && this.seek.dispose();
+                        // clone the correct animation depending on open/close
+                        if (this.isOpening) {
+                            this.seek = this.open.clone();
+                        } else {
+                            this.seek = this.close.clone();
+                        }
+                        // the cloned animation should not use an easing curve during seek
+                        this.seek.easing('linear').progressStart();
+                    }
+                }, {
+                    key: 'setProgess',
+                    value: function setProgess(value) {
+                        // adjust progress value depending if it opening or closing
+                        if (!this.isOpening) {
+                            value = 1 - value;
+                        }
+                        this.seek.progress(value);
+                    }
+                }, {
+                    key: 'setProgressFinish',
+                    value: function setProgressFinish(shouldComplete) {
+                        var _this2 = this;
+
+                        var resolve = undefined;
+                        var promise = new Promise(function (res) {
+                            resolve = res;
+                        });
+                        var isOpen = this.isOpening && shouldComplete;
+                        if (!this.isOpening && !shouldComplete) {
+                            isOpen = true;
+                        }
+                        this.seek.progressFinish(shouldComplete).then(function () {
+                            _this2.isOpening = false;
+                            resolve(isOpen);
+                        });
+                        return promise;
+                    }
+                }, {
+                    key: 'onDestory',
+                    value: function onDestory() {
+                        this.open && this.open.dispose();
+                        this.close && this.close.dispose();
+                        this.seek && this.seek.dispose();
+                    }
+                }]);
+
+                return AsideType;
+            })();
+
+            _export('AsideType', AsideType);
+
+            AsideRevealType = (function (_AsideType) {
+                _inherits(AsideRevealType, _AsideType);
+
+                function AsideRevealType(aside) {
+                    _classCallCheck(this, AsideRevealType);
+
+                    _get(Object.getPrototypeOf(AsideRevealType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var openedX = aside.width() * (aside.side == 'right' ? -1 : 1) + 'px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var contentOpen = new Animation(aside.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, CENTER, openedX);
+                    this.open.add(contentOpen);
+                    var contentClose = new Animation(aside.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, openedX, CENTER);
+                    this.close.add(contentClose);
+                }
+
+                return AsideRevealType;
+            })(AsideType);
+
+            Aside.register('reveal', AsideRevealType);
+            /**
+             * Aside Overlay Type
+             * The aside menu slides over the content. The content
+             * itself, which is under the aside, does not move.
+             */
+
+            AsideOverlayType = (function (_AsideType2) {
+                _inherits(AsideOverlayType, _AsideType2);
+
+                function AsideOverlayType(aside) {
+                    _classCallCheck(this, AsideOverlayType);
+
+                    _get(Object.getPrototypeOf(AsideOverlayType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var backdropOpacity = 0.5;
+                    var closedX = aside.width() * (aside.side == 'right' ? 1 : -1) + 'px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var asideOpen = new Animation(aside.getAsideElement());
+                    asideOpen.fromTo(TRANSLATE_X, closedX, CENTER);
+                    this.open.add(asideOpen);
+                    var backdropOpen = new Animation(aside.getBackdropElement());
+                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
+                    this.open.add(backdropOpen);
+                    var asideClose = new Animation(aside.getAsideElement());
+                    asideClose.fromTo(TRANSLATE_X, CENTER, closedX);
+                    this.close.add(asideClose);
+                    var backdropClose = new Animation(aside.getBackdropElement());
+                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
+                    this.close.add(backdropClose);
+                }
+
+                return AsideOverlayType;
+            })(AsideType);
+
+            Aside.register('overlay', AsideOverlayType);
+            OPACITY = 'opacity';
+            TRANSLATE_X = 'translateX';
+            CENTER = '0px';
         }
     };
 });

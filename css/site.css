@@ -5617,6 +5617,11 @@ pre {
   .docs-home-row a:hover {
     text-decoration: none; }
 
+.docs-screenshot {
+  width: 360px;
+  height: auto;
+  margin: 0 auto 2em auto; }
+
 .btn.btn-default {
   border-color: #ddd; }
 

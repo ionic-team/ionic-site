@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-  <title>Ionic 2 UI | Lists - Ionic Framework</title>
-  <link href="/css/site.css?12" rel="stylesheet">
+
+    
+
+    <title>Ionic 2 UI | Lists - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -29,10 +31,9 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-</head>
+  </head>
 
-<body class="docs v2 docs-page docs-ui">
+  <body class="docs v2 docs-page docs-ui">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -76,7 +77,7 @@
     </div>
   </div>
 </nav>
- <div class="header horizontal-gradient">
+<div class="header horizontal-gradient">
   <div class="container">
     <h3>Lists - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
@@ -85,7 +86,9 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 news-col">
+          
           Check out our <a href="/docs/v2/guide/">Guide</a>, which covers all the basics of setting up.
+          
         </div>
         <div class="col-sm-4 search-col">
           <div class="search-bar">
@@ -122,19 +125,20 @@
 
           <div>
 
-            <ul class="nav left-menu">
+            <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
 
-            <ul class="nav left-menu">
+            <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/guide/">Guide</a>
               </li>
+              
             </ul>
 
-            <ul class="nav left-menu active-menu">
+            <ul class="nav left-menu  active-menu">
               <li class="menu-title">
                 <a href="/docs/v2/ui/">UI</a>
               </li>
@@ -174,7 +178,7 @@
 </li>
             </ul>
 
-            <ul class="nav left-menu">
+            <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/theming/">Theming</a>
               </li>
@@ -186,6 +190,7 @@
                   API
                 </a>
               </li>
+              
             </ul>
 
             <ul class="nav left-menu">
@@ -198,18 +203,20 @@
               <li class="menu-title">
                 <a href="/docs/v2/native/">Native</a>
               </li>
+              
             </ul>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/what-is/">Glossary</a>
+                <a href="/docs/v2/resources/">Resources</a>
               </li>
+              
             </ul>
 
         </div>
       </div>
 
-        <div class="col-md-10 col-sm-9 main-content ui-content">
+        <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/lists/index.md'>
     Improve this doc
@@ -246,15 +253,6 @@ reference to an array of items, and the parent scroll element:</p>
 <span class="nt">&lt;/ion-content&gt;</span>
 k```
 </code></pre></div>
-
-          <ul class="demo-toggle">
-            <li>
-              <button onclick="togglePlatform()"><i class="icon ion-social-apple"></i></button>
-            </li>
-            <li>
-              <button onclick="togglePlatform()"><i class="icon ion-social-android"></i></button>
-            </li>
-          </ul>
         </div>
 
       </div>
@@ -449,29 +447,6 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-    <script>
-      function togglePlatform () {
-        var demoFrame = $('.demo > iframe')
-        var currentSrc = demoFrame.attr('src');
-        var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
-        var currentPlatform = getPlatform(currentSrc);
-        if (currentPlatform === 'ios') {
-          demoFrame.attr('src', newSrc + 'android');
-          return "android";
-        } else {
-          demoFrame.attr('src', newSrc + 'ios');
-          return "ios";
-        }
-      }
-      function getPlatform(iframeSrc) {
-        // return: 'ios' or android
-        if (iframeSrc.indexOf('android') > -1) {
-          return 'android';
-        }
-        return 'ios';
-      }
-    </script>
 
   </body>
 </html>

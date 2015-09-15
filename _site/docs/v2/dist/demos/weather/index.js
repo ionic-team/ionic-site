@@ -63,7 +63,7 @@ System.register("index", ["angular2/angular2", "angular2/forms", "ionic/ionic", 
             _export("SettingsModal", SettingsModal);
 
             _export("SettingsModal", SettingsModal = __decorate([IonicView({
-                template: "<ion-view id=\"settings-modal\">\n    <ion-toolbar><ion-title>Settings</ion-title></ion-toolbar>\n    <ion-content padding>\n      <form (^submit)=\"doSubmit($event)\" [ng-form-model]=\"settingsForm\">\n        <ion-list>\n          <ion-input ion-item>\n            <ion-label>Units</ion-label>\n            <!--\n            <ion-segment ng-control=\"units\">\n              <ion-segment-button value=\"standard\" button>\n                &deg;F\n              </ion-segment-button>\n              <ion-segment-button value=\"standard\" button>\n                &deg;C\n              </ion-segment-button>\n            </ion-segment>\n            -->\n          </ion-input>\n        </ion-list>\n      </form>\n    </ion-content>\n  </ion-view>",
+                template: "<ion-view id=\"settings-modal\">\n    <ion-toolbar><ion-title>Settings</ion-title></ion-toolbar>\n    <ion-content padding>\n      <form (submit)=\"doSubmit($event)\" [ng-form-model]=\"settingsForm\">\n        <ion-list>\n          <ion-input ion-item>\n            <ion-label>Units</ion-label>\n            <!--\n            <ion-segment ng-control=\"units\">\n              <ion-segment-button value=\"standard\" button>\n                &deg;F\n              </ion-segment-button>\n              <ion-segment-button value=\"standard\" button>\n                &deg;C\n              </ion-segment-button>\n            </ion-segment>\n            -->\n          </ion-input>\n        </ion-list>\n      </form>\n    </ion-content>\n  </ion-view>",
                 directives: [FORM_DIRECTIVES]
             }), __metadata('design:paramtypes', [typeof FormBuilder !== 'undefined' && FormBuilder || Object])], SettingsModal));
             WEATHER_ICONS = {
@@ -253,14 +253,6 @@ System.register("index", ["angular2/angular2", "angular2/forms", "ionic/ionic", 
                     this.modal = modal;
                     this.currentLocationString = 'Madison, WI';
                     this.activeBgImageIndex = 0;
-                    /*
-                    $ionicPlatform.ready(function() {
-                      // Hide the status bar
-                      if(window.StatusBar) {
-                        StatusBar.hide();
-                      }
-                    });
-                    */
                 }
 
                 _createClass(WeatherApp, [{

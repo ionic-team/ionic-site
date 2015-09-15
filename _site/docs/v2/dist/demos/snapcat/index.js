@@ -161,7 +161,7 @@ System.register("index", ["angular2/forms", "ionic/ionic"], function (_export) {
             _export("HeartModal", HeartModal);
 
             _export("HeartModal", HeartModal = __decorate([IonicView({
-                template: '<ion-view id="heart-modal"><button icon (^click)="close()"><i class="icon ion-close"></i></button><h2>20</h2><p>You\'re pretty awesome</p></ion-view>'
+                template: '<ion-view id="heart-modal"><button icon (click)="close()"><i class="icon ion-close"></i></button><h2>20</h2><p>You\'re pretty awesome</p></ion-view>'
             }), __metadata('design:paramtypes', [])], HeartModal));
 
             FadeIn = (function (_Animation) {

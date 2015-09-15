@@ -59,9 +59,9 @@ System.register("index", ["ionic/ionic"], function (_export) {
 
                 _createClass(E2EApp, [{
                     key: "openPage",
-                    value: function openPage(aside, page) {
-                        // close the menu when clicking a link from the aside
-                        aside.close();
+                    value: function openPage(menu, page) {
+                        // close the menu when clicking a link from the menu
+                        menu.close();
                         // Reset the content nav to have just this page
                         // we wouldn't want the back button to show in this scenario
                         var nav = this.app.getComponent('nav');

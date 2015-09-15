@@ -1,7 +1,7 @@
 System.register("pages/aside", ["ionic/ionic", "../sink-page"], function (_export) {
     "use strict";
 
-    var IonicApp, IonicView, SinkPage, __decorate, __metadata, AsidePage;
+    var IonicApp, IonicView, SinkPage, __decorate, __metadata, MenuPage;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -41,28 +41,28 @@ System.register("pages/aside", ["ionic/ionic", "../sink-page"], function (_expor
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            AsidePage = (function (_SinkPage) {
-                _inherits(AsidePage, _SinkPage);
+            MenuPage = (function (_SinkPage) {
+                _inherits(MenuPage, _SinkPage);
 
-                function AsidePage(app) {
-                    _classCallCheck(this, AsidePage);
+                function MenuPage(app) {
+                    _classCallCheck(this, MenuPage);
 
-                    _get(Object.getPrototypeOf(AsidePage.prototype), "constructor", this).call(this, app);
+                    _get(Object.getPrototypeOf(MenuPage.prototype), "constructor", this).call(this, app);
                 }
 
-                _createClass(AsidePage, [{
+                _createClass(MenuPage, [{
                     key: "openMenu",
                     value: function openMenu() {}
                 }]);
 
-                return AsidePage;
+                return MenuPage;
             })(SinkPage);
 
-            _export("AsidePage", AsidePage);
+            _export("MenuPage", MenuPage);
 
-            _export("AsidePage", AsidePage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (^click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Aside</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Aside</h2>\n    <p>\n      Asides, also known as side menus or \"hamburger\" menus (mmmmm), are menus that slide\n      or swipe in to show menus or information.\n    </p>\n    <p>\n      Try it! Just swipe from the left edge of the screen to the right to expose\n      the app menu, or tap the button to toggle the menu:\n    </p>\n    <p>\n      <div class=\"height: 50px; background-color: E05780; width: 5px; margin-left: -15px\"></div>\n    </p>\n    <p>\n      <button (click)=\"toggleMenu()\">Toggle</button>\n    </p>\n  </ion-content>\n  "
-            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], AsidePage));
+            _export("MenuPage", MenuPage = __decorate([IonicView({
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Menu</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Menu</h2>\n    <p>\n      Menus slide or swipe in to show more information.\n    </p>\n    <p>\n      Try it! Just swipe from the left edge of the screen to the right to expose\n      the app menu, or tap the button to toggle the menu:\n    </p>\n    <p>\n      <div class=\"height: 50px; background-color: E05780; width: 5px; margin-left: -15px\"></div>\n    </p>\n    <p>\n      <button (click)=\"toggleMenu()\">Toggle</button>\n    </p>\n  </ion-content>\n  "
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], MenuPage));
         }
     };
 });

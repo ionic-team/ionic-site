@@ -11,8 +11,6 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<div class="docs-ui">
-
 <h1 class="title">Navigation</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/navigation/" demo_name="navigation" %}
@@ -22,5 +20,3 @@ features in iOS.
 
 To move between pages, we decide which view we want to show, and then
 `push` it into our navigation stack. To go back, we `pop` the current view.
-
-</div>

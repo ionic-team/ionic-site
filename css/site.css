@@ -6638,19 +6638,19 @@ code.language-ts .k {
   border: 4px solid #555; }
 .v2 .file-title {
   margin-top: 35px; }
-.v2 .docs-ui .highlight, .v2 .docs-ui p {
+.v2.docs-ui .highlight, .v2.docs-ui p {
   margin-right: 390px; }
-.v2 .docs-ui ul.demo-toggle {
+.v2.docs-ui ul.demo-toggle {
   list-style: none;
   display: block;
   position: absolute;
   top: 32px;
   right: 285px; }
-  .v2 .docs-ui ul.demo-toggle li {
+  .v2.docs-ui ul.demo-toggle li {
     margin-left: 1px;
     display: inline;
     float: left; }
-    .v2 .docs-ui ul.demo-toggle li button {
+    .v2.docs-ui ul.demo-toggle li button {
       background-color: #EFEFF4;
       color: #000;
       border: 1px solid #C8C7CC; }

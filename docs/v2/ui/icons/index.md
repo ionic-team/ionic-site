@@ -11,8 +11,6 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<div class="docs-ui">
-
 <h1 class="title">Icons</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/icons/" demo_name="icons" %}
@@ -28,5 +26,3 @@ To use an icon, just add the Icon's CSS class to your element:
 <a href="http://ionicons.com">
   <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
 </a>
-
-</div>

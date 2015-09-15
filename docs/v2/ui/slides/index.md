@@ -11,8 +11,6 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<div class="docs-ui">
-
 <h1 class="title">Slides</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/slides/" demo_name="slides" %}
@@ -90,5 +88,3 @@ Slides take a number of configuration options on the `<ion-slides>` element:
     </tr>
   </tbody>
 </table>
-
-</div>

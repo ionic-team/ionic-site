@@ -11,8 +11,6 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<div class="docs-ui">
-
 <h1 class="title">Menu</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/menu/" demo_name="menu" %}
@@ -47,5 +45,3 @@ Menus control side content that slides in or is exposed under a sliding content 
   </ion-content>
 </ion-view>
 ```
-
-</div>

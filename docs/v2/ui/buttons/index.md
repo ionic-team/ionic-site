@@ -11,8 +11,6 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<div class="docs-ui">
-
 <h1 class="title">Buttons</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/buttons/" demo_name="buttons" %}
@@ -50,5 +48,3 @@ To add icons to a button, add the `icon` property:
 ```html
 <button icon><i class="icon ion-ios-ionic-outline"></i></button>
 ```
-
-</div>

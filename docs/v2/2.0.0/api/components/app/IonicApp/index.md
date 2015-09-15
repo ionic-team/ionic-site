@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"
@@ -36,13 +37,15 @@ docType: "class"
 
 
 
+TODO(adamdbradley): IonicApp is injected, not inherited from now
 The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L240">ionic/components/app/app.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L197">ionic/components/app/app.ts (line 13)</a>
 </p>
-<p><p>The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>
+<p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
+The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>
 </p>
 ## Members
 
@@ -433,7 +436,7 @@ TODO
 
 <div id="register"></div>
 <h2>
-  <code>register(key, component)</code>
+  <code>register(id, component)</code>
 
 </h2>
 
@@ -453,7 +456,7 @@ Register a known component with a key, for easy lookups later.
     
     <tr>
       <td>
-        key
+        id
         
         
       </td>
@@ -462,7 +465,7 @@ Register a known component with a key, for easy lookups later.
   <code>TODO</code>
       </td>
       <td>
-        <p>The key to use to register the component</p>
+        <p>The id to use to register the component</p>
 
         
       </td>
@@ -498,7 +501,7 @@ Register a known component with a key, for easy lookups later.
 
 <div id="unregister"></div>
 <h2>
-  <code>unregister(key)</code>
+  <code>unregister(id)</code>
 
 </h2>
 
@@ -518,7 +521,7 @@ Unregister a known component with a key.
     
     <tr>
       <td>
-        key
+        id
         
         
       </td>
@@ -527,7 +530,7 @@ Unregister a known component with a key.
   <code>TODO</code>
       </td>
       <td>
-        <p>The key to use to unregister</p>
+        <p>The id to use to unregister</p>
 
         
       </td>
@@ -697,89 +700,6 @@ element of the app.
 
 * Returns: 
   <code>Promise</code> Promise that resolves with the ContainerRef created
-
-
-
-
-<div id="applyBodyCss"></div>
-<h2>
-  <code>applyBodyCss(bodyEle, platform, config)</code>
-
-</h2>
-
-TODO
-
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        bodyEle
-        
-        
-      </td>
-      <td>
-        
-  <code>Element</code>
-      </td>
-      <td>
-        <p>the body element</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        platform
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        config
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
 
 
 

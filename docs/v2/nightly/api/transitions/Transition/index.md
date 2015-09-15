@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "Transition"
 header_sub_title: "Class in module "
 doc: "Transition"

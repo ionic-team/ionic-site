@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "ionRadio"
 header_sub_title: "Class in module "
 doc: "ionRadio"
@@ -36,7 +37,7 @@ docType: "class"
 
 
 
-A single radio component. 
+A single radio component.
 
 See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
 
@@ -44,7 +45,7 @@ See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more 
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150-L234">ionic/components/radio/radio.ts (line 150)</a>
 </p>
-<p><p>A single radio component. </p>
+<p><p>A single radio component.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 </p>
 ## Members

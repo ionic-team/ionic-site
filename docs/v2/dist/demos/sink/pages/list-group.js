@@ -68,7 +68,7 @@ System.register("pages/list-group", ["ionic/ionic", "../sink-page"], function (_
             _export("ListGroupPage", ListGroupPage);
 
             _export("ListGroupPage", ListGroupPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (^click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>List Groups</ion-title></ion-navbar>\n\n  <ion-content>\n    <ion-list inset>\n      <ion-item-group *ng-for=\"#group of groups\">\n        <ion-item-group-title>{{group.title}}</ion-item-group-title>\n        <ion-item *ng-for=\"#item of group.items\">\n          {{item.title}}\n        </ion-item>\n      </ion-item-group>\n\n    </ion-list>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>List Groups</ion-title></ion-navbar>\n\n  <ion-content>\n    <ion-list inset>\n      <ion-item-group *ng-for=\"#group of groups\">\n        <ion-item-group-title>{{group.title}}</ion-item-group-title>\n        <ion-item *ng-for=\"#item of group.items\">\n          {{item.title}}\n        </ion-item>\n      </ion-item-group>\n\n    </ion-list>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], ListGroupPage));
         }
     };

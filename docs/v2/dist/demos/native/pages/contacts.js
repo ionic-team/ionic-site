@@ -39,7 +39,7 @@ System.register("pages/contacts", ["ionic/ionic"], function (_export) {
             _export("ContactsPage", ContactsPage);
 
             _export("ContactsPage", ContactsPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <button aside-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Contacts</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Contacts</h2>\n    <div>\n    </div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Contacts</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Contacts</h2>\n    <div>\n    </div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], ContactsPage));
         }
     };

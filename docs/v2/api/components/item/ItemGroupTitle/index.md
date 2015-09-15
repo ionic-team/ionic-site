@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "ItemGroupTitle"
 header_sub_title: "Class in module "
 doc: "ItemGroupTitle"

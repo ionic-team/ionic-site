@@ -23,8 +23,8 @@ System.register('sink-page', [], function (_export) {
                 _createClass(SinkPage, [{
                     key: 'toggleMenu',
                     value: function toggleMenu() {
-                        var aside = this.app.getComponent('mainMenu');
-                        aside.toggle();
+                        var menu = this.app.getComponent('mainMenu');
+                        menu.toggle();
                     }
                 }]);
 

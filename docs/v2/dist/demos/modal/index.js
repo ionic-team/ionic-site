@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var App, IonicView, IonicApp, IonicConfig, Platform, Modal, ActionMenu, NavController, NavParams, Animation, __decorate, __metadata, MyAppCmp, ContactModal, ModalFirstPage, ModalSecondPage, FadeIn, FadeOut;
+    var App, IonicView, IonicApp, IonicConfig, IonicPlatform, Modal, ActionMenu, NavController, NavParams, Animation, __decorate, __metadata, MyAppCmp, ContactModal, ModalFirstPage, ModalSecondPage, FadeIn, FadeOut;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -17,7 +17,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             IonicView = _ionicIonic.IonicView;
             IonicApp = _ionicIonic.IonicApp;
             IonicConfig = _ionicIonic.IonicConfig;
-            Platform = _ionicIonic.Platform;
+            IonicPlatform = _ionicIonic.IonicPlatform;
             Modal = _ionicIonic.Modal;
             ActionMenu = _ionicIonic.ActionMenu;
             NavController = _ionicIonic.NavController;
@@ -48,25 +48,25 @@ System.register("index", ["ionic/ionic"], function (_export) {
             };
 
             MyAppCmp = (function () {
-                function MyAppCmp(modal, app, ionicConfig) {
+                function MyAppCmp(modal, app, config, platform) {
                     _classCallCheck(this, MyAppCmp);
 
                     this.modal = modal;
-                    console.log('platforms', Platform.platforms());
-                    console.log('mode', ionicConfig.setting('mode'));
-                    console.log('core', Platform.is('core'));
-                    console.log('cordova', Platform.is('cordova'));
-                    console.log('mobile', Platform.is('mobile'));
-                    console.log('ipad', Platform.is('ipad'));
-                    console.log('iphone', Platform.is('iphone'));
-                    console.log('phablet', Platform.is('phablet'));
-                    console.log('tablet', Platform.is('tablet'));
-                    console.log('ios', Platform.is('ios'));
-                    console.log('android', Platform.is('android'));
-                    console.log('windows phone', Platform.is('windowsphone'));
+                    console.log('platforms', platform.platforms());
+                    console.log('mode', config.setting('mode'));
+                    console.log('core', platform.is('core'));
+                    console.log('cordova', platform.is('cordova'));
+                    console.log('mobile', platform.is('mobile'));
+                    console.log('ipad', platform.is('ipad'));
+                    console.log('iphone', platform.is('iphone'));
+                    console.log('phablet', platform.is('phablet'));
+                    console.log('tablet', platform.is('tablet'));
+                    console.log('ios', platform.is('ios'));
+                    console.log('android', platform.is('android'));
+                    console.log('windows phone', platform.is('windowsphone'));
                     console.log('isRTL', app.isRTL());
-                    Platform.ready().then(function () {
-                        console.log('Platform.ready');
+                    platform.ready().then(function () {
+                        console.log('platform.ready');
                     });
                 }
 
@@ -86,7 +86,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
 
             MyAppCmp = __decorate([App({
                 templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [typeof Modal !== 'undefined' && Modal || Object, typeof IonicApp !== 'undefined' && IonicApp || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object])], MyAppCmp);
+            }), __metadata('design:paramtypes', [typeof Modal !== 'undefined' && Modal || Object, typeof IonicApp !== 'undefined' && IonicApp || Object, typeof IonicConfig !== 'undefined' && IonicConfig || Object, typeof IonicPlatform !== 'undefined' && IonicPlatform || Object])], MyAppCmp);
 
             ContactModal = (function () {
                 function ContactModal() {

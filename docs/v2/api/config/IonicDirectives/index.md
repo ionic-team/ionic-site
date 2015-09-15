@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "IonicDirectives"
 header_sub_title: "Var in module "
 doc: "IonicDirectives"

@@ -99,7 +99,7 @@ System.register("pages/tabs", ["ionic/ionic", "../sink-page"], function (_export
             _export("TabsPage", TabsPage);
 
             _export("TabsPage", TabsPage = __decorate([IonicView({
-                template: "\n    <ion-navbar *navbar><ion-nav-items primary><button icon (^click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Tabs</ion-title></ion-navbar>\n\n    <ion-tabs id=\"tabs\">\n      <ion-tab tab-title=\"Featured\" tab-icon=\"star\" [root]=\"featuredTab\"></ion-tab>\n      <ion-tab tab-title=\"Top Charts\" tab-icon=\"stats\" [root]=\"topTab\"></ion-tab>\n      <ion-tab tab-title=\"Search\" tab-icon=\"search\" [root]=\"searchTab\"></ion-tab>\n      <ion-tab tab-title=\"Updates\" tab-icon=\"cloud-download\" [root]=\"updatesTab\"></ion-tab>\n    </ion-tabs>\n  "
+                template: "\n    <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Tabs</ion-title></ion-navbar>\n\n    <ion-tabs id=\"tabs\">\n      <ion-tab tab-title=\"Featured\" tab-icon=\"star\" [root]=\"featuredTab\"></ion-tab>\n      <ion-tab tab-title=\"Top Charts\" tab-icon=\"stats\" [root]=\"topTab\"></ion-tab>\n      <ion-tab tab-title=\"Search\" tab-icon=\"search\" [root]=\"searchTab\"></ion-tab>\n      <ion-tab tab-title=\"Updates\" tab-icon=\"cloud-download\" [root]=\"updatesTab\"></ion-tab>\n    </ion-tabs>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], TabsPage));
         }
     };

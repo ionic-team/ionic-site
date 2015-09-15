@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "Slides"
 header_sub_title: "Class in module "
 doc: "Slides"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L15'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L14'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L15'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L14'>
     Improve this doc
   </a>
 </div>
@@ -53,7 +54,7 @@ Licensed under MIT
 
 <h1 class="class export">Slides <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L16-L446">ionic/components/slides/slides.ts (line 16)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L15-L445">ionic/components/slides/slides.ts (line 15)</a>
 </p>
 <p><p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:

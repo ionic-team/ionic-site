@@ -1,7 +1,7 @@
 System.register("pages/device", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var IonicView, __decorate, __metadata, DevicePage;
+    var IonicView, Device, __decorate, __metadata, DevicePage;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -10,6 +10,7 @@ System.register("pages/device", ["ionic/ionic"], function (_export) {
     return {
         setters: [function (_ionicIonic) {
             IonicView = _ionicIonic.IonicView;
+            Device = _ionicIonic.Device;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -42,8 +43,8 @@ System.register("pages/device", ["ionic/ionic"], function (_export) {
                 _createClass(DevicePage, [{
                     key: "doDevice",
                     value: function doDevice() {
-                        var device = Device.getDevice();
-                        console.log('Got device', device);
+                        this.device = Device.getDevice();
+                        console.log('Got device', this.device);
                     }
                 }]);
 
@@ -53,7 +54,7 @@ System.register("pages/device", ["ionic/ionic"], function (_export) {
             _export("DevicePage", DevicePage);
 
             _export("DevicePage", DevicePage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <button aside-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Vibration</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Device</h2>\n    <button primary outline (click)=\"doDevice()\">Get Device</button>\n    <div>\n    </div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Device</h2>\n    <button primary outline (click)=\"doDevice()\">Get Device</button>\n    <div *ng-if=\"device\">\n      Device name: {{device.name}}\n    </div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DevicePage));
         }
     };

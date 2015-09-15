@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "IonicConfig"
 header_sub_title: "Class in module "
 doc: "IonicConfig"
@@ -42,7 +43,7 @@ TODO
 
 <h1 class="class export">IonicConfig <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L2-L165">ionic/config/config.ts (line 2)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L2-L167">ionic/config/config.ts (line 2)</a>
 </p>
 <p><p>TODO</p>
 </p>

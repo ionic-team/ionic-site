@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_theming
+layout: v2/docs_base
+id: theming
 title: Ionic 2 Theming
 header_title: Theming Ionic Apps
 header_sub_title: Ionic 2 Developer Preview

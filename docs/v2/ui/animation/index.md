@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_ui
+layout: v2/docs_base
+id: ui
 title: Ionic 2 UI | Animation
 header_title: Animation
 header_sub_title: Ionic 2 Developer Preview
@@ -26,7 +27,7 @@ such as during a drag gesture.
 import {Animation} from 'ionic/ionic';
 
 export class MyComponent {
-  
+
   // Create a new animation
   var ionitron = document.querySelector('#ionitron');
   var spin = new Animation(ionitron);

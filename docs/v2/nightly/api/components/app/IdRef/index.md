@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "IdRef"
 header_sub_title: "Class in module "
 doc: "IdRef"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L2'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L2'>
     Improve this doc
   </a>
 </div>
@@ -44,7 +45,7 @@ a global side menu feasible from any place in the application.
 
 <h1 class="class export">IdRef <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L4-L31">ionic/components/app/id.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L28">ionic/components/app/id.ts (line 3)</a>
 </p>
 <p><p>IdRef is an easy way to identify unique components in an app and access them
 no matter where in the UI heirarchy you are. For example, this makes toggling

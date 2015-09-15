@@ -1,13 +1,14 @@
 System.register("pages/device-motion", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var IonicView, __decorate, __metadata, DeviceMotionPage;
+    var IonicView, DeviceMotion, __decorate, __metadata, DeviceMotionPage;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
     return {
         setters: [function (_ionicIonic) {
             IonicView = _ionicIonic.IonicView;
+            DeviceMotion = _ionicIonic.DeviceMotion;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -33,13 +34,19 @@ System.register("pages/device-motion", ["ionic/ionic"], function (_export) {
             };
 
             DeviceMotionPage = function DeviceMotionPage() {
+                var _this = this;
+
                 _classCallCheck(this, DeviceMotionPage);
+
+                DeviceMotion.watchAcceleration().source.subscribe(function (accel) {
+                    _this.accel = accel.acceleration;
+                });
             };
 
             _export("DeviceMotionPage", DeviceMotionPage);
 
             _export("DeviceMotionPage", DeviceMotionPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <button aside-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <div *ng-if=\"accel\">{{accel.x}} {{accel.y}} {{accel.z}}</div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DeviceMotionPage));
         }
     };

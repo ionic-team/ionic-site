@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta_tags.html %}
+
+    {% if page.id == "api" and page.versionHref != "/docs" %}
+      <!-- version {{ page.versionHref }} should not be indexed -->
+      <meta name="robots" content="noindex">
+    {% endif %}
+
+    <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
+    {% include head_includes.html %}
+  </head>
+
+  <body class="docs v2 docs-page docs-{{page.id}}">
+
+    {% include nav_links.html %}{% include v2/header.html %}
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div>
+
+            <ul class="nav left-menu {% if page.id == 'overview' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu {% if page.id == 'guide' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/guide/">Guide</a>
+              </li>
+              {% if page.id == "guide" %}{% include v2/guide_menu.html %}{% endif %}
+            </ul>
+
+            <ul class="nav left-menu {% if page.id == 'ui' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/ui/">UI</a>
+              </li>
+              {% if page.id == "ui" %}{% include v2/ui_menu.html %}{% endif %}
+            </ul>
+
+            <ul class="nav left-menu {% if page.id == 'theming' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/theming/">Theming</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu{% if page.id == 'api' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/api/">
+                  API
+                </a>
+              </li>
+              {% if page.id == "api" %}{% include v2/api_menu.html %}{% endif %}
+            </ul>
+
+            <ul class="nav left-menu{% if page.id == 'utilities' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/utilities/">Utilities</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu{% if page.id == 'native' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/native/">Native</a>
+              </li>
+              {% if page.id == "native" %}{% include v2/native_menu.html %}{% endif %}
+            </ul>
+
+            <ul class="nav left-menu{% if page.id == 'glossary' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/what-is/">Glossary</a>
+              </li>
+            </ul>
+
+        </div>
+      </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          {{ content }}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    {% include footer.html %}
+
+    {% include v2/base_scripts.html %}
+
+  </body>
+</html>

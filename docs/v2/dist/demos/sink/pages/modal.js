@@ -66,7 +66,7 @@ System.register("pages/modal", ["ionic/ionic", "../sink-page"], function (_expor
             _export("ModalPage", ModalPage);
 
             _export("ModalPage", ModalPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (^click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Modal</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Modal</h2>\n    <p>\n      Modals are entire views that slide in off screen.\n    </p>\n    <p>\n      Modals make it easy to open a new \"context\" for the user, without taking them\n      out of the current context. For example, clicking the \"compose\" button\n      on a mail app might slide up a Compose modal.\n    </p>\n    <button (click)=\"openModal()\">Open Modal</button>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Modal</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Modal</h2>\n    <p>\n      Modals are entire views that slide in off screen.\n    </p>\n    <p>\n      Modals make it easy to open a new \"context\" for the user, without taking them\n      out of the current context. For example, clicking the \"compose\" button\n      on a mail app might slide up a Compose modal.\n    </p>\n    <button (click)=\"openModal()\">Open Modal</button>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof Modal !== 'undefined' && Modal || Object])], ModalPage));
 
             MyModal = function MyModal() {

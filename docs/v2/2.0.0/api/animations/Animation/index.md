@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "Animation"
 header_sub_title: "Class in module "
 doc: "Animation"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L4'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L4'>
     Improve this doc
   </a>
 </div>
@@ -58,7 +59,7 @@ Animation Steps/Process
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L4-L443">ionic/animations/animation.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L507">ionic/animations/animation.ts (line 5)</a>
 </p>
 <p><h2 id="animation-steps-process">Animation Steps/Process</h2>
 <p>  1) Construct animation (doesn&#39;t start)
@@ -198,9 +199,26 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 
-<div id="fill"></div>
+<div id="reverse"></div>
 <h2>
-  <code>fill()</code>
+  <code>reverse()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="forward"></div>
+<h2>
+  <code>forward()</code>
 
 </h2>
 
@@ -385,9 +403,43 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 
+<div id="progressStart"></div>
+<h2>
+  <code>progressStart()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="progress"></div>
 <h2>
   <code>progress()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="progressFinish"></div>
+<h2>
+  <code>progressFinish()</code>
 
 </h2>
 
@@ -439,6 +491,23 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 <div id="onFinish"></div>
 <h2>
   <code>onFinish()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="clone"></div>
+<h2>
+  <code>clone()</code>
 
 </h2>
 

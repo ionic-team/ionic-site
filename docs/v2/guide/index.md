@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_guide
+layout: v2/docs_base
+id: guide
 title: Ionic 2 Guide
 header_title: Getting Started - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
@@ -18,7 +19,7 @@ Welcome to the Ionic 2 Guide! In this section, we will walk through the process 
 
 ## Getting Started
 
-To get started, let's go and clone the official [Ionic 2 Starter](https://github.com/driftyco/ionic2-starter), and `cd` into it in a terminal window. 
+To get started, let's go and clone the official [Ionic 2 Starter](https://github.com/driftyco/ionic2-starter), and `cd` into it in a terminal window.
 
 **Note:** don't type the dollar sign (`$`), it's there to show you how the commands might look in your terminal:
 

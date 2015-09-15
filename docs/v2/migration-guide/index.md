@@ -1,5 +1,5 @@
 ---
-layout: v2/docs_overview
+layout: v2/docs_base
 title: Ionic 2 Migration Guide
 header_title: Ionic 2 Documentation
 ---

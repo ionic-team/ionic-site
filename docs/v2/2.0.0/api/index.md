@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: Javascript
 header_sub_title: Extend Ionic even further with the power of AngularJS
 searchable: false

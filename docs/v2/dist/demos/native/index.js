@@ -1,12 +1,15 @@
-System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages/contacts", "pages/device", "pages/device-motion", "pages/geolocation", "pages/vibration"], function (_export) {
+System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages/contacts", "pages/device", "pages/device-motion", "pages/device-orientation", "pages/dialogs", "pages/geolocation", "pages/statusbar", "pages/vibration"], function (_export) {
     "use strict";
 
-    var App, CameraPage, BatteryPage, ContactsPage, DevicePage, DeviceMotionPage, GeolocationPage, VibrationPage, __decorate, __metadata, IonicApp;
+    var IonicApp, App, CameraPage, BatteryPage, ContactsPage, DevicePage, DeviceMotionPage, DeviceOrientationPage, DialogsPage, GeolocationPage, StatusBarPage, VibrationPage, __decorate, __metadata, MyApp;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
     return {
         setters: [function (_ionicIonic) {
+            IonicApp = _ionicIonic.IonicApp;
             App = _ionicIonic.App;
         }, function (_pagesCamera) {
             CameraPage = _pagesCamera.CameraPage;
@@ -18,8 +21,14 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
             DevicePage = _pagesDevice.DevicePage;
         }, function (_pagesDeviceMotion) {
             DeviceMotionPage = _pagesDeviceMotion.DeviceMotionPage;
+        }, function (_pagesDeviceOrientation) {
+            DeviceOrientationPage = _pagesDeviceOrientation.DeviceOrientationPage;
+        }, function (_pagesDialogs) {
+            DialogsPage = _pagesDialogs.DialogsPage;
         }, function (_pagesGeolocation) {
             GeolocationPage = _pagesGeolocation.GeolocationPage;
+        }, function (_pagesStatusbar) {
+            StatusBarPage = _pagesStatusbar.StatusBarPage;
         }, function (_pagesVibration) {
             VibrationPage = _pagesVibration.VibrationPage;
         }],
@@ -46,17 +55,30 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            IonicApp = function IonicApp() {
-                _classCallCheck(this, IonicApp);
+            MyApp = (function () {
+                function MyApp(app) {
+                    _classCallCheck(this, MyApp);
 
-                this.firstPage = CameraPage;
-                console.log('First page', CameraPage);
-                this.plugins = [{ title: 'Camera', page: CameraPage }, { title: 'Device', page: DevicePage }, { title: 'Device Motion', page: DeviceMotionPage }, { title: 'Geolocation', page: GeolocationPage }, { title: 'Contacts', page: ContactsPage }, { title: 'Battery', page: BatteryPage }, { title: 'Vibration', page: VibrationPage }];
-            };
+                    this.app = app;
+                    this.firstPage = CameraPage;
+                    this.plugins = [{ title: 'Camera', page: CameraPage }, { title: 'Device', page: DevicePage }, { title: 'Device Motion', page: DeviceMotionPage }, { title: 'Device Orientation', page: DeviceOrientationPage }, { title: 'Dialogs', page: DialogsPage }, { title: 'Geolocation', page: GeolocationPage }, { title: 'Contacts', page: ContactsPage }, { title: 'Battery', page: BatteryPage }, { title: 'StatusBar', page: StatusBarPage }, { title: 'Vibration', page: VibrationPage }];
+                }
 
-            IonicApp = __decorate([App({
+                _createClass(MyApp, [{
+                    key: "openPage",
+                    value: function openPage(menu, page) {
+                        menu.close();
+                        var nav = this.app.getComponent('myNav');
+                        nav.setItems([page.page]);
+                    }
+                }]);
+
+                return MyApp;
+            })();
+
+            MyApp = __decorate([App({
                 templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [])], IonicApp);
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], MyApp);
         }
     };
 });

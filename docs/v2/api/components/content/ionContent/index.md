@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "ionContent"
 header_sub_title: "Class in module "
 doc: "ionContent"
@@ -44,7 +45,7 @@ You can implement pull-to-refresh with the ionRefresher component.
 
 <h1 class="class export">ionContent <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L7-L181">ionic/components/content/content.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L7-L174">ionic/components/content/content.ts (line 7)</a>
 </p>
 <p><p>The ionContent component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
@@ -309,24 +310,6 @@ TODO: figure out how to get this to work
   <code>addKeyboardPadding()</code>
 
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-<div id="pollFocus"></div>
-<h2>
-  <code>pollFocus()</code>
-
-</h2>
-
-TODO
 
 
 

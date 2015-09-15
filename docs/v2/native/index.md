@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_native
+layout: v2/docs_base
+id: native
 title: Ionic 2 | Native
 header_title: Native - Ionic 2
 header_sub_title: Ionic 2 Developer Preview

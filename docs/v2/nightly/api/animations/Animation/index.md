@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "Animation"
 header_sub_title: "Class in module "
 doc: "Animation"
@@ -58,7 +59,7 @@ Animation Steps/Process
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L503">ionic/animations/animation.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L507">ionic/animations/animation.ts (line 5)</a>
 </p>
 <p><h2 id="animation-steps-process">Animation Steps/Process</h2>
 <p>  1) Construct animation (doesn&#39;t start)

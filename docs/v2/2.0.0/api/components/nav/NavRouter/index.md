@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 
+id: api
 title: "NavRouter"
 header_sub_title: "Class in module "
 doc: "NavRouter"
@@ -42,11 +43,76 @@ TODO
 
 <h1 class="class export">NavRouter <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-router.ts#L9-L106">ionic/components/nav/nav-router.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-router.ts#L9-L116">ionic/components/nav/nav-router.ts (line 9)</a>
 </p>
 <p><p>TODO</p>
 </p>
 ## Members
+
+<div id="activate"></div>
+<h2>
+  <code>activate(instruction)</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        instruction
+        
+        
+      </td>
+      <td>
+        
+  <code>ComponentInstruction</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="reuse"></div>
+<h2>
+  <code>reuse()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="stateChange"></div>
 <h2>

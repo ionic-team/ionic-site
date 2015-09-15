@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_ui
+layout: v2/docs_base
+id: ui
 title: Ionic 2 UI | Modals
 header_title: Modals - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview

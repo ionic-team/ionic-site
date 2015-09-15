@@ -86,7 +86,7 @@ System.register("pages/pull-to-refresh", ["ionic/ionic", "../sink-page"], functi
             _export("PullToRefreshPage", PullToRefreshPage);
 
             _export("PullToRefreshPage", PullToRefreshPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (^click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Pull to Refresh</ion-title></ion-navbar>\n\n  <ion-content>\n    <ion-refresher (starting)=\"doStarting()\" (refresh)=\"doRefresh($event, refresher)\" (pulling)=\"doPulling($event, amt)\">\n    </ion-refresher>\n    <ion-list inset>\n      <ion-item *ng-for=\"#item of items\">\n        {{item.title}}\n      </ion-item>\n    </ion-list>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Pull to Refresh</ion-title></ion-navbar>\n\n  <ion-content>\n    <ion-refresher (starting)=\"doStarting()\" (refresh)=\"doRefresh($event, refresher)\" (pulling)=\"doPulling($event, amt)\">\n    </ion-refresher>\n    <ion-list inset>\n      <ion-item *ng-for=\"#item of items\">\n        {{item.title}}\n      </ion-item>\n    </ion-list>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], PullToRefreshPage));
         }
     };

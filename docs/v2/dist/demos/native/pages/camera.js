@@ -57,7 +57,7 @@ System.register("pages/camera", ["ionic/ionic"], function (_export) {
             _export("CameraPage", CameraPage);
 
             _export("CameraPage", CameraPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <button aside-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], CameraPage));
         }
     };

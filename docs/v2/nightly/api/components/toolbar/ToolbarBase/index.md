@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_api"
+layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 
+id: api
 title: "ToolbarBase"
 header_sub_title: "Class in module "
 doc: "ToolbarBase"
@@ -201,9 +202,9 @@ TODO
 
 
 
-<div id="onAllChangesDone"></div>
+<div id="afterViewChecked"></div>
 <h2>
-  <code>onAllChangesDone()</code>
+  <code>afterViewChecked()</code>
 
 </h2>
 

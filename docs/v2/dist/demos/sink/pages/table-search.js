@@ -85,7 +85,7 @@ System.register("pages/table-search", ["angular2/angular2", "angular2/forms", "i
                 selector: 'ion-view',
                 appInjector: [FormBuilder]
             }), IonicView({
-                template: "\n  <ion-navbar *navbar><ion-title>Table Search</ion-title></ion-navbar>\n\n  <ion-content>\n    <form (^submit)=\"doSearch($event)\" [control-group]=\"form\">\n\n      <ion-search-bar control=\"searchQuery\"></ion-search-bar>\n\n      <ion-list #list>\n\n        <ion-item *ng-for=\"#item of getItems()\"><!--items | search:form.controls.searchControl.value-->\n          {{item.title}}\n        </ion-item>\n      </ion-list>\n    </form>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-title>Table Search</ion-title></ion-navbar>\n\n  <ion-content>\n    <form (submit)=\"doSearch($event)\" [control-group]=\"form\">\n\n      <ion-search-bar control=\"searchQuery\"></ion-search-bar>\n\n      <ion-list #list>\n\n        <ion-item *ng-for=\"#item of getItems()\"><!--items | search:form.controls.searchControl.value-->\n          {{item.title}}\n        </ion-item>\n      </ion-list>\n    </form>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof FormBuilder !== 'undefined' && FormBuilder || Object])], TableSearchPage));
         }
     };

@@ -64,13 +64,6 @@
               {% if page.id == "plugins" %}{% include v2/plugins_menu.html %}{% endif %}
             </ul>
 
-            <ul class="nav left-menu{% if page.id == 'resources' %} active-menu{% endif %}">
-              <li class="menu-title">
-                <a href="/docs/v2/resources/">Resources</a>
-              </li>
-              {% if page.id == "resources" %}{% include v2/resources_menu.html %}{% endif %}
-            </ul>
-
             <ul class="nav left-menu{% if page.id == 'api' %} active-menu{% endif %}">
               <li class="menu-title">
                 <a href="/docs/v2/api/">
@@ -78,6 +71,13 @@
                 </a>
               </li>
               {% if page.id == "api" %}{% include v2/api_menu.html %}{% endif %}
+            </ul>
+
+            <ul class="nav left-menu{% if page.id == 'resources' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/resources/">Resources</a>
+              </li>
+              {% if page.id == "resources" %}{% include v2/resources_menu.html %}{% endif %}
             </ul>
 
         </div>

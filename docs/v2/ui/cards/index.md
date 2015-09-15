@@ -11,6 +11,8 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
+<div class="docs-ui">
+
 <h1 class="title">Cards</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/cards/" demo_name="cards" %}
@@ -37,3 +39,5 @@ Cards are primarily a CSS component. To use them, follow this structure:
 
 </ion-card>
 ```
+
+</div>

@@ -11,6 +11,8 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
+<div class="docs-ui">
+
 <h1 class="title">Lists</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/list/" demo_name="list" %}
@@ -42,4 +44,6 @@ reference to an array of items, and the parent scroll element:
   <ion-list inset virtual [items]="items" [content]="content">
   </ion-list>
 </ion-content>
-k```
+```
+
+</div>

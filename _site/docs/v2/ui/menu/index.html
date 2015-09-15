@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 Guide - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Menu - Ionic 2 Developer Preview -  Ionic Framework</title>
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -33,7 +33,7 @@
 
   </head>
 
-  <body class="docs v2 docs-page docs-guide">
+  <body class="docs v2 docs-page docs-ui">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -79,7 +79,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 Guide</h3>
+    <h3>Menu - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -131,32 +131,52 @@
               </li>
             </ul>
 
-            <ul class="nav left-menu  active-menu">
+            <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/guide/">Guide</a>
               </li>
               
-<li class="menu-section active">
+            </ul>
+
+            <ul class="nav left-menu  active-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/ui/">UI</a>
+              </li>
+              <li class="menu-section active">
   <ul>
     <li>
-      <a href="/docs/v2/guide/getting-started/">Getting Started</a>
+      <li><a href="/docs/v2/ui/navigation/">Navigation</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/adding-pages/">Adding Pages</a></li>
+      <li><a href="/docs/v2/ui/buttons/">Buttons</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/navigating/">Navigating</a></li>
+      <li><a href="/docs/v2/ui/icons/">Icons</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/cards/">Cards</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/lists/">Lists</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/slides/">Slides</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/aside/">Aside</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/modals/">Modals</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/action-menus/">Action Menus</a></li>
+    </li>
+    <li>
+      <li><a href="/docs/v2/ui/animation/">Animation</a></li>
     </li>
   </ul>
 </li>
 
-            </ul>
-
-            <ul class="nav left-menu ">
-              <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
-              </li>
-              
             </ul>
 
             <ul class="nav left-menu ">
@@ -200,14 +220,48 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/menu/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Ionic 2 Guide</h1>
+<div class="docs-ui">
 
-<p>Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several <em>views</em>, or <em>pages</em> to the app. Finally, we will work with some of the most important controls, and go over getting your app into the app stores.</p>
+<h1 class="title">Aside</h1>
+
+<div class="demo">
+  <iframe src="/docs/v2/dist/demos/aside/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/aside/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+</div>
+
+<p>Aside&#39;s (also known as Side Menus) control side content that slides in or is exposed under a sliding content area.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view&gt;</span>
+  <span class="nt">&lt;ion-aside</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-header&quot;</span><span class="nt">&gt;</span>
+        Menu
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        About
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Specials
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Beer
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Potatoes
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-aside&gt;</span>
+
+  <span class="nt">&lt;ion-content</span> <span class="err">#</span><span class="na">content</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Main content<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-view&gt;</span>
+</code></pre></div>
+<p></div></p>
 
         </div>
 

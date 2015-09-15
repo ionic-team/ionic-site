@@ -11,6 +11,8 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
+<div class="docs-ui">
+  
 <h1 class="title">Action Menus</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/action-menu/" demo_name="action-menu" %}
@@ -44,3 +46,4 @@ ActionMenu.open({
   // this.actionMenu.close() to close it programatically
 })
 ```
+</div>

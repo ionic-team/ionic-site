@@ -11,6 +11,8 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
+<div class="docs-ui">
+
 <h1 class="title">Animation</h1>
 
 {% include demo.html demo_url="/docs/v2/dist/demos/animations/" demo_name="animations" %}
@@ -51,3 +53,5 @@ export class MyComponent {
 Animations also support physics curves like `spring` to build animations and UIs that feel real.
 
 See the full list of possible easing curves in [animation.js](https://github.com/driftyco/ionic2/blob/9b80cffedb9398376e69bdc2afc3440a4d0c39e0/ionic/animations/animation.js#L629).
+
+</div>

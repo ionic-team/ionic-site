@@ -1,12 +1,12 @@
 ---
 layout: v2/docs_base
 id: plugins
-title: Ionic 2 | Native
-header_title: Native - Ionic 2
+title: Ionic 2 Plugins
+header_title: Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/native/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/index.md'>
     Improve this doc
   </a>
 </div>

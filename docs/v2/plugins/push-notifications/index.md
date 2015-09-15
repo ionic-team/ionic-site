@@ -1,12 +1,12 @@
 ---
 layout: v2/docs_base
 id: plugins
-title: Ionic 2 | Push Notifications
-header_title: Push Notifications - Ionic 2
+title: Ionic 2 Plugins | Push Notifications
+header_title: Push Notifications - Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/native/push-notifications/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/push-notifications/index.md'>
     Improve this doc
   </a>
 </div>

@@ -14,6 +14,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
 <div id="what-is">
 
+<section id="annotations">
+    <h3><a href="#annotations">Annotations</a></h3>
+    <p>Annotations are used to add metadata to a class. <a href="#typescript">TypeScript</a> extends <a href="#es2015-es6">ES6</a> by adding annotations. While you can define your own annotations, the Ionic community often refers to two annotations provided by Angular 2: <code>@Component</code> and <code>@View</code>.
+    </p>
+  </section>
+
   <section id="autoprefixer">
     <h3><a href="#autoprefixer">Autoprefixer</a></h3>
     <dd id="autoprefixer"><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> is a tool that adds vendor-specific-prefixes to hand-written Sass/CSS code. This ensures that standardized CSS rules you write will be applied across all supporting browsers. For example, instead of having to know every flexbox syntax used by various browsers, autoprefixer allows you to just write <code>display: flex;</code> and it'll automatically plug in the correct CSS.</p>
@@ -37,6 +43,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="cordova">
     <h3><a href="#cordova">Cordova</a></h3>
     <p><a href="https://cordova.apache.org">Cordova</a> is a way to transform standard HTML/CSS/JS into a full-fledged native app. It provides a JavaScript API for accessing native device functionality, such as the camera or accelerometer. Cordova contains the necessary build tools for packaging webapps for iOS, Android, and Windows Phone.</p>
+  </section>
+  
+  <section id="decorators">
+    <h3><a href="#decorators">Decorators</a></h3>
+    <p>Decorators are expressions that return a function. They basically allow you to take an existing function, and extend its behavior. With TypeScript, you can also decorate <i>classes</i> and <i>parameters</i>. When you decorate a <strong>class</strong>, you are wrapping and extending the behavior of its constructor. In other words, the decorator will add some functionality when the constructor is called, and will then return the original constructor. When you decorate a <strong>parameter</strong>, you are wrapping the argument that gets passed in for that parameter. In other words, the decorator will add functionality when an argument is passed to the method, and then return the original argument.
+    </p>
   </section>
 
   <section id="es5">
@@ -77,6 +89,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="npm">
     <h3><a href="#npm">npm</a></h3>
     <p><a href="https://www.npmjs.com/">npm</a> is the package manager for <a href="#node">node</a>. It allows you to install, share, and package node modules. Ionic can be installed with npm, along with a number of its dependencies.
+    </p>
+  </section>
+  
+<section id="observable">
+    <h3><a href="#observable">observable</a></h3>
+    <p>An observable is an object that emits events (or notifications). An observer is an object that listens for these events, and does something when an event is received. Together, they create a pattern that can be used for programming asynchronously.
     </p>
   </section>
 

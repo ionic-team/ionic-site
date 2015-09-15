@@ -13,16 +13,16 @@ header_sub_title: Ionic 2 Developer Preview
 
 <div class="docs-ui">
 
-<h1 class="title">Aside</h1>
+<h1 class="title">Menu</h1>
 
-{% include demo.html demo_url="/docs/v2/dist/demos/aside/" demo_name="aside" %}
+{% include demo.html demo_url="/docs/v2/dist/demos/menu/" demo_name="menu" %}
 
-Aside's (also known as Side Menus) control side content that slides in or is exposed under a sliding content area.
+Menus control side content that slides in or is exposed under a sliding content area.
 
 
 ```html
 <ion-view>
-  <ion-aside [content]="content">
+  <ion-menu [content]="content" side="left">
     <ion-list inset>
       <div class="list-header">
         Menu
@@ -40,7 +40,7 @@ Aside's (also known as Side Menus) control side content that slides in or is exp
         Potatoes
       </ion-item>
     </ion-list>
-  </ion-aside>
+  </ion-menu>
 
   <ion-content #content>
     <h2>Main content</h2>

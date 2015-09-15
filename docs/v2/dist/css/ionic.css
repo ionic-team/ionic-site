@@ -5337,16 +5337,28 @@ icon,
     border-bottom-style: solid;
     min-height: 4.4rem; }
     .ios .toolbar .toolbar-title {
-      -webkit-box-ordinal-group: 41;
-      -webkit-order: 40;
-      -ms-flex-order: 40;
-      order: 40; }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0px 72px;
+      pointer-events: none; }
     .ios .toolbar .toolbar-primary-item {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
       -webkit-box-ordinal-group: 31;
       -webkit-order: 30;
       -ms-flex-order: 30;
       order: 30; }
     .ios .toolbar .toolbar-secondary-item {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      text-align: right;
       -webkit-box-ordinal-group: 51;
       -webkit-order: 50;
       -ms-flex-order: 50;
@@ -5361,7 +5373,7 @@ icon,
       font-size: 1.7rem;
       font-weight: 500;
       text-align: center;
-      margin-top: -2px; }
+      pointer-events: auto; }
     .ios .toolbar .back-button {
       margin: 0 4px;
       min-height: 3.2rem;

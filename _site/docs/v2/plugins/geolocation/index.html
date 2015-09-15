@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 | Push Notifications - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 | Geolocation - Ionic 2 Developer Preview -  Ionic Framework</title>
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -33,7 +33,7 @@
 
   </head>
 
-  <body class="docs v2 docs-page docs-native">
+  <body class="docs v2 docs-page docs-plugins">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -79,7 +79,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Push Notifications - Ionic 2</h3>
+    <h3>Geolocation - Ionic 2</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -160,19 +160,19 @@
 
             <ul class="nav left-menu active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/native/">Native</a>
+                <a href="/docs/v2/plugins/">Plugins</a>
               </li>
               
 <li class="menu-section">
   <ul>
     <li>
-      <li><a href="/docs/v2/native/">Intro</a></li>
+      <li><a href="/docs/v2/plugins/">Plugins</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/native/camera/">Camera</a></li>
+      <li><a href="/docs/v2/plugins/camera/">Camera</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/native/geolocation/">Geolocation</a></li>
+      <li><a href="/docs/v2/plugins/geolocation/">Geolocation</a></li>
     </li>
     <li>
       <li><a href="http://ngcordova.com">63+ More Plugins</a></li>
@@ -202,82 +202,49 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/native/push-notifications/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/native/geolocation/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Receiving Push Notifications</h1>
+<h1 class="title">Tracking GPS Location</h1>
 
-<p>Every app needs to receive push notifications.</p>
+<p>Tracking GPS location is easy with the <code>Geolocation</code> class. There are two modes:
+single value, and watching. Single value grabs one location position and returns it,
+while watching continuously checks for location changes and returns those.</p>
 
-<p>To make sending and receiving push notifications easier, we&#39;ve built a fully-integrated push notification
-service for Ionic apps. To try it out, create an <a href="http://ionic.io/">Ionic.io</a> account and then follow the
-<a href="http://docs.ionic.io/v1.0/docs/push-from-scratch">Push Notification docs</a>.</p>
+<p>Both operations prompt the user to accept location sharing with your app.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Geolocation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ngcordova&#39;</span>
 
-<p>If you&#39;d like to use your own push server, just integrate it with the plugin below.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Push</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ngcordova&#39;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-
+<span class="kr">class</span> <span class="nx">LocationTracker</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setupPush</span><span class="p">();</span>
+    <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">({</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">lat</span>  <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
+      <span class="kd">let</span> <span class="kr">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="c1">// error</span>
+    <span class="p">});</span>
   <span class="p">}</span>
 
-  <span class="nx">setupPush</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">iosConfig</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s2">&quot;badge&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">&quot;sound&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">&quot;alert&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">startTracking</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">watchOptions</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="nx">frequency</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+     <span class="nx">timeout</span> <span class="o">:</span> <span class="mi">3000</span><span class="p">,</span>
+     <span class="nx">enableHighAccuracy</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// may cause errors if true</span>
     <span class="p">};</span>
 
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;deviceready&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-      <span class="nx">Push</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">iosConfig</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">deviceToken</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="c1">// Success -- send deviceToken to server, and store for future use</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;deviceToken: &quot;</span> <span class="o">+</span> <span class="nx">deviceToken</span><span class="p">)</span>
-
-        <span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;http://server.co/&quot;</span><span class="p">,</span> <span class="p">{</span>
-          <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
-          <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-            <span class="nx">user</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
-            <span class="nx">tokenID</span><span class="o">:</span> <span class="nx">deviceToken</span>
-          <span class="p">})</span>
-        <span class="p">});</span>
-      <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Registration error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">)</span>
-      <span class="p">});</span>
-
-
-      <span class="nx">Push</span><span class="p">.</span><span class="nx">onNotification</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">event</span><span class="p">,</span> <span class="nx">notification</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">alert</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">navigator</span><span class="p">.</span><span class="nx">notification</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">alert</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">sound</span><span class="p">)</span> <span class="p">{</span>
-          <span class="kd">var</span> <span class="nx">snd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Media</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">sound</span><span class="p">);</span>
-          <span class="nx">snd</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">badge</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">Push</span><span class="p">.</span><span class="nx">setBadgeNumber</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">badge</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="c1">// Success!</span>
-          <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="c1">// An error occurred. Show a message to the user</span>
-          <span class="p">});</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
-
-    <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">(</span><span class="nx">watchOptions</span><span class="p">,</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Called continuously</span>
+      <span class="kd">let</span> <span class="nx">lat</span>  <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
+      <span class="kd">let</span> <span class="kr">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+    <span class="p">});</span>
   <span class="p">}</span>
 
-  <span class="nx">unregister</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// WARNING! dangerous to unregister (results in loss of tokenID)</span>
-    <span class="nx">Push</span><span class="p">.</span><span class="nx">unregister</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Success!</span>
-    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Error</span>
-    <span class="p">});</span>
+  <span class="nx">stopTracking</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">clearWatch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

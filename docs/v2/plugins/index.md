@@ -1,6 +1,6 @@
 ---
 layout: v2/docs_base
-id: native
+id: plugins
 title: Ionic 2 | Native
 header_title: Native - Ionic 2
 header_sub_title: Ionic 2 Developer Preview
@@ -11,7 +11,7 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-<h1 class="title">Using The Native Environment</h1>
+<h1 class="title">Using Ionic Plugins</h1>
 
 Great Ionic apps don't just live in a web view in an app, they embrace the entire
 native environment they run on. They take pictures, track location, integrate with

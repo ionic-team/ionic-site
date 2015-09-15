@@ -1,8 +1,8 @@
 ---
 layout: v2/docs_base
 id: resources
-title: "Ionic Developer Glossary"
-header_title: Ionic Developer Glossary
+title: Ionic 2 Resources | Developer Glossary
+header_title: Developer Glossary - Ionic 2 Resources
 header_sub_title: Learn about the Ionic community's favorite tools
 ---
 <div class="improve-docs">

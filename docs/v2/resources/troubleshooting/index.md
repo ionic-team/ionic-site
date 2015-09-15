@@ -1,8 +1,8 @@
 ---
 layout: v2/docs_base
 id: resources
-title: Ionic 2 Developer Tips
-header_title: Ionic 2 Developer Tips
+title: Ionic 2 Resources | Troubleshooting
+header_title: Troubleshooting - Ionic 2 Resources
 header_sub_title: Ionic 2 Developer Preview
 ---
 
@@ -13,4 +13,3 @@ header_sub_title: Ionic 2 Developer Preview
 </div>
 
 # Troubleshooting Your Ionic App
-

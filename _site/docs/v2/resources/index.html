@@ -11,7 +11,8 @@
 
     
 
-    <title>Ionic 2 Developer Tips - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 Resources - Ionic 2 Developer Preview -  Ionic Framework</title>
+    
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -31,6 +32,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
   </head>
 
   <body class="docs v2 docs-page docs-resources">
@@ -79,7 +82,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 Developer Tips</h3>
+    <h3>Ionic 2 Resources</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -165,15 +168,24 @@
               
             </ul>
 
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/api/">
+                  API
+                </a>
+              </li>
+              
+            </ul>
+
             <ul class="nav left-menu active-menu">
               <li class="menu-title">
                 <a href="/docs/v2/resources/">Resources</a>
               </li>
               
-<li class="menu-section">
+<li class="menu-section active">
   <ul>
     <li>
-      <li><a href="/docs/v2/resources/">Developer Tips</a></li>
+      <li><a href="/docs/v2/resources/developer-tips/">Developer Tips</a></li>
     </li>
     <li>
       <li><a href="/docs/v2/resources/what-is/">Glossary</a></li>
@@ -183,15 +195,7 @@
     </li>
   </ul>
 </li>
-            </ul>
 
-            <ul class="nav left-menu">
-              <li class="menu-title">
-                <a href="/docs/v2/api/">
-                  API
-                </a>
-              </li>
-              
             </ul>
 
         </div>
@@ -204,79 +208,12 @@
   </a>
 </div>
 
-<h1>Ionic Developer Tips</h1>
+<h1>Resources</h1>
 
-<div id="what-is">
-
-  <section id="using-debugger">
-    <h3><a href="#using-debugger">Using a Debugger</code></a></h3>
-    <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
-    <code class="language-js" data-lang="js">
-      function myBrokenFunction() {
-        debugger;
-        // do other stuff
-      }
-    </code>
-    <p>When your application runs, it will pause at this function. From there, you can use your browser's developer tools to only execute Javascript step-by-step. This allows you to see exactly which line or function call is causing your function to break.</p>
-  </section>
-
-  <section id="changing-the-platform">
-    <h3><a href="#changing-the-platform">Changing the Platform</a></h3>
-    <p>By default, when you view your app in the browser, Ionic will apply the iOS theme. However, since Ionic components adapt according to their platform, it is helpful to be able to view what your app looks like on Android. To do this, simply add <code>?ionicplatform=android</code> to the URL where your app is being served: <code>http://localhost:8100/?ionicplatform=android</code>. This will change how Ionic sees which platform you are on.</p>
-    <p>However, this will not change how the browser sees which platform you are on. To change how the browser sees which platform and device you are on, you must change the user-agent. To do this, open up Chrome DevTools, and toggle device mode on with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> (<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> on Mac).</p>
-    <img class="docs-screenshot" src="/img/docs/change-device-platform.png">
-    <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport.</p>
-  </section>
-
-  <section id="using-ios-simulator">
-    <h3><a href="#using-ios-simulator">Using the iOS Simulator</a></h3>
-    <p>TODO</p>
-  </section>
-
-  <section id="debugging-ios-safari">
-    <h3><a href="#debugging-ios-safari">Debugging iOS with Safari</a></h3>
-    <p>TODO</p>
-  </section>
-
-  <section id="using-genymotion-android">
-    <h3><a href="#using-genymotion-android">Using the Genymotion Android Emulator</a></h3>
-    <p>TODO</p>
-  </section>
-
-  <section id="debugging-ios-safari">
-    <h3><a href="#debugging-ios-safari">Debugging Android with Chrome DevTools</a></h3>
-    <p>TODO</p>
-  </section>
+<p>TODO</p>
 
 
-
-
-</div>
-
-<script>
-$(document).ready(function() {
-  $(function () {
-
-      var setHash = function(urlHash) {
-        window.location.hash = (urlHash);
-        currentHash = urlHash;
-      };
-
-      var currentHash = "#"
-      $(document).scroll(function () {
-          $('section').each(function () {
-              var top = window.pageYOffset;
-              var distance = top - $(this).offset().top;
-              var hash = '#' + $(this).attr('id');
-              if (distance < 20 && distance > -20 && currentHash != hash) {
-                setHash(hash);
-              }
-          });
-      });
-  });
-});
-</script>
-
+          
         </div>
 
       </div>
@@ -471,6 +408,8 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
 
   </body>
 </html>

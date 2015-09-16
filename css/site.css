@@ -6638,6 +6638,8 @@ code.language-ts .k {
   border: 4px solid #555; }
 .v2 .file-title {
   margin-top: 35px; }
+.v2.docs-ui h3 {
+  margin-top: 2em; }
 .v2.docs-ui .highlight, .v2.docs-ui p {
   margin-right: 390px; }
 .v2.docs-ui ul.demo-toggle {

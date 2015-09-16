@@ -13,11 +13,11 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L99'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L103'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/annotations.ts#L99'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/annotations.ts#L103'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ TODO
 
 <h1 class="class export">IonicView <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L100-L112">ionic/config/annotations.ts (line 100)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L104-L116">ionic/config/annotations.ts (line 104)</a>
 </p>
 <p><p>TODO</p>
 </p>

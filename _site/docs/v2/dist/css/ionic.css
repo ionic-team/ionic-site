@@ -423,7 +423,7 @@ ion-loading-icon {
   display: flex;
   width: 100%; }
 
-.toolbar-title {
+ion-title {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -443,12 +443,9 @@ ion-loading-icon {
   -webkit-transform: translateZ(0px);
   transform: translateZ(0px); }
 
-.toolbar-inner-title {
-  width: 100%;
-  padding: 0 1.5rem; }
-
-ion-title {
+.toolbar-title {
   display: block;
+  width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -476,21 +473,18 @@ ion-title {
   padding: 0 6px;
   font-size: 2.8rem; }
 
-.toolbar-item {
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px); }
-
 ion-nav-items {
   display: block;
-  margin: 0 0.2rem; }
-
-.toolbar-primary-item {
+  margin: 0 0.2rem;
+  -webkit-transform: translateZ(0px);
+  transform: translateZ(0px);
+  pointer-events: none;
   -webkit-box-ordinal-group: 41;
   -webkit-order: 40;
   -ms-flex-order: 40;
   order: 40; }
 
-.toolbar-secondary-item {
+ion-nav-items[secondary] {
   -webkit-box-ordinal-group: 51;
   -webkit-order: 50;
   -ms-flex-order: 50;
@@ -499,41 +493,46 @@ ion-nav-items {
 .toolbar[primary] {
   background-color: #387ef5;
   border-color: #0c60ee; }
-  .toolbar[primary] ion-title,
+  .toolbar[primary] .toolbar-title,
   .toolbar[primary] button,
-  .toolbar[primary] [button] {
+  .toolbar[primary] [button],
+  .toolbar[primary] a {
     color: #fff; }
 
 .toolbar[secondary] {
   background-color: #32db64;
   border-color: #21b94e; }
-  .toolbar[secondary] ion-title,
+  .toolbar[secondary] .toolbar-title,
   .toolbar[secondary] button,
-  .toolbar[secondary] [button] {
+  .toolbar[secondary] [button],
+  .toolbar[secondary] a {
     color: #fff; }
 
 .toolbar[danger] {
   background-color: #f53d3d;
   border-color: #f30c0c; }
-  .toolbar[danger] ion-title,
+  .toolbar[danger] .toolbar-title,
   .toolbar[danger] button,
-  .toolbar[danger] [button] {
+  .toolbar[danger] [button],
+  .toolbar[danger] a {
     color: #fff; }
 
 .toolbar[light] {
   background-color: #f4f4f4;
   border-color: #dbdbdb; }
-  .toolbar[light] ion-title,
+  .toolbar[light] .toolbar-title,
   .toolbar[light] button,
-  .toolbar[light] [button] {
+  .toolbar[light] [button],
+  .toolbar[light] a {
     color: #000; }
 
 .toolbar[dark] {
   background-color: #222;
   border-color: #090909; }
-  .toolbar[dark] ion-title,
+  .toolbar[dark] .toolbar-title,
   .toolbar[dark] button,
-  .toolbar[dark] [button] {
+  .toolbar[dark] [button],
+  .toolbar[dark] a {
     color: #fff; }
 
 ion-action-menu {
@@ -1596,13 +1595,13 @@ ion-modal {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px); }
 
-.navbar.toolbar {
+ion-navbar.toolbar {
   position: absolute; }
 
-.navbar {
+ion-navbar {
   -webkit-transform: translate3d(100%, 0px, 0px);
   transform: translate3d(100%, 0px, 0px); }
-  .navbar.show-navbar {
+  ion-navbar.show-navbar {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px); }
 
@@ -5336,45 +5335,12 @@ icon,
     border-bottom-width: 1px;
     border-bottom-style: solid;
     min-height: 4.4rem; }
-    .ios .toolbar .toolbar-title {
-      -webkit-box-ordinal-group: 41;
-      -webkit-order: 40;
-      -ms-flex-order: 40;
-      order: 40; }
-    .ios .toolbar .toolbar-primary-item {
-      -webkit-box-ordinal-group: 31;
-      -webkit-order: 30;
-      -ms-flex-order: 30;
-      order: 30; }
-    .ios .toolbar .toolbar-secondary-item {
-      -webkit-box-ordinal-group: 51;
-      -webkit-order: 50;
-      -ms-flex-order: 50;
-      order: 50; }
     .ios .toolbar [menu-toggle] {
       -webkit-box-ordinal-group: 21;
       -webkit-order: 20;
       -ms-flex-order: 20;
       order: 20;
       cursor: pointer; }
-    .ios .toolbar ion-title {
-      font-size: 1.7rem;
-      font-weight: 500;
-      text-align: center;
-      margin-top: -2px; }
-    .ios .toolbar .back-button {
-      margin: 0 4px;
-      min-height: 3.2rem;
-      line-height: 1;
-      -webkit-box-ordinal-group: 11;
-      -webkit-order: 10;
-      -ms-flex-order: 10;
-      order: 10;
-      overflow: inherit; }
-    .ios .toolbar .back-button-icon {
-      display: inherit;
-      min-width: 20px;
-      font-size: 3.2rem; }
     .ios .toolbar button,
     .ios .toolbar [button] {
       margin-top: 0;
@@ -5389,6 +5355,47 @@ icon,
     .ios .toolbar [button] icon {
       padding: 0;
       min-width: 28px; }
+    .ios .toolbar .back-button {
+      margin: 0 4px;
+      min-height: 3.2rem;
+      line-height: 1;
+      -webkit-box-ordinal-group: 11;
+      -webkit-order: 10;
+      -ms-flex-order: 10;
+      order: 10;
+      overflow: inherit; }
+    .ios .toolbar .back-button-icon {
+      display: inherit;
+      min-width: 20px;
+      font-size: 3.2rem; }
+  .ios ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0px 90px;
+    pointer-events: none; }
+  .ios .toolbar-title {
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-align: center;
+    pointer-events: auto; }
+  .ios ion-nav-items {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-ordinal-group: 31;
+    -webkit-order: 30;
+    -ms-flex-order: 30;
+    order: 30; }
+  .ios ion-nav-items[secondary] {
+    text-align: right;
+    -webkit-box-ordinal-group: 51;
+    -webkit-order: 50;
+    -ms-flex-order: 50;
+    order: 50; }
   .ios.hairlines .toolbar {
     border-bottom-width: 0.55px; }
   .ios ion-action-menu {
@@ -5853,13 +5860,6 @@ icon,
       opacity: 0.3; }
   .md .toolbar {
     min-height: 5.6rem; }
-    .md .toolbar .toolbar-inner-title {
-      padding: 0px 12px; }
-    .md .toolbar ion-title {
-      font-size: 2rem;
-      font-weight: 500; }
-    .md .toolbar .toolbar-primary-item button:first-child {
-      margin-left: 0; }
     .md .toolbar button,
     .md .toolbar [button],
     .md .toolbar button.activated,
@@ -5879,13 +5879,16 @@ icon,
       min-width: 28px; }
     .md .toolbar [menu-toggle],
     .md .toolbar [menu-toggle].activated {
-      margin: -4px 0 -4px -4px;
       padding: 0 10px;
-      height: 5.6rem;
       min-width: 60px; }
       .md .toolbar [menu-toggle] icon,
       .md .toolbar [menu-toggle].activated icon {
         font-size: 2.4rem; }
+  .md ion-title {
+    font-size: 2rem;
+    font-weight: 500; }
+  .md ion-nav-items[primary] button:first-child {
+    margin-left: 0; }
   .md ion-action-menu {
     margin: 0; }
   .md .action-menu-container {

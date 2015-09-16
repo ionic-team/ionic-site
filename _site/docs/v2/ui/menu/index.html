@@ -12,6 +12,7 @@
     
 
     <title>Ionic 2 UI | Menu - Ionic 2 Developer Preview -  Ionic Framework</title>
+    
     <link href="/css/site.css?12" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -31,6 +32,10 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    
   </head>
 
   <body class="docs v2 docs-page docs-ui">
@@ -163,7 +168,7 @@
       <li><a href="/docs/v2/ui/slides/">Slides</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/ui/aside/">Aside</a></li>
+      <li><a href="/docs/v2/ui/menu/">Menu</a></li>
     </li>
     <li>
       <li><a href="/docs/v2/ui/modals/">Modals</a></li>
@@ -201,16 +206,16 @@
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/resources/">Resources</a>
+                <a href="/docs/v2/api/">
+                  API
+                </a>
               </li>
               
             </ul>
 
             <ul class="nav left-menu">
               <li class="menu-title">
-                <a href="/docs/v2/api/">
-                  API
-                </a>
+                <a href="/docs/v2/resources/">Resources</a>
               </li>
               
             </ul>
@@ -225,18 +230,16 @@
   </a>
 </div>
 
-<div class="docs-ui">
-
-<h1 class="title">Aside</h1>
+<h1 class="title">Menu</h1>
 
 <div class="demo">
-  <iframe src="/docs/v2/dist/demos/aside/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/aside/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+  <iframe src="/docs/v2/dist/demos/menu/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/menu/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Aside&#39;s (also known as Side Menus) control side content that slides in or is exposed under a sliding content area.</p>
+<p>Menus control side content that slides in or is exposed under a sliding content area.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view&gt;</span>
-  <span class="nt">&lt;ion-aside</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-header&quot;</span><span class="nt">&gt;</span>
         Menu
@@ -254,15 +257,24 @@
         Potatoes
       <span class="nt">&lt;/ion-item&gt;</span>
     <span class="nt">&lt;/ion-list&gt;</span>
-  <span class="nt">&lt;/ion-aside&gt;</span>
+  <span class="nt">&lt;/ion-menu&gt;</span>
 
   <span class="nt">&lt;ion-content</span> <span class="err">#</span><span class="na">content</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h2&gt;</span>Main content<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;/ion-content&gt;</span>
 <span class="nt">&lt;/ion-view&gt;</span>
 </code></pre></div>
-<p></div></p>
 
+          
+          <ul class="demo-toggle">
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-apple"></i></button>
+            </li>
+            <li>
+              <button onclick="togglePlatform()"><i class="icon ion-social-android"></i></button>
+            </li>
+          </ul>
+          
         </div>
 
       </div>
@@ -457,6 +469,31 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
+    <script>
+      function togglePlatform () {
+        var demoFrame = $('.demo > iframe')
+        var currentSrc = demoFrame.attr('src');
+        var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
+        var currentPlatform = getPlatform(currentSrc);
+        if (currentPlatform === 'ios') {
+          demoFrame.attr('src', newSrc + 'android');
+          return "android";
+        } else {
+          demoFrame.attr('src', newSrc + 'ios');
+          return "ios";
+        }
+      }
+      function getPlatform(iframeSrc) {
+        // return: 'ios' or android
+        if (iframeSrc.indexOf('android') > -1) {
+          return 'android';
+        }
+        return 'ios';
+      }
+    </script>
+    
 
   </body>
 </html>

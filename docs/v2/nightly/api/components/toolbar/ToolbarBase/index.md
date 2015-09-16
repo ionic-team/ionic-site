@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L31'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L31'>
     Improve this doc
   </a>
 </div>
@@ -43,51 +43,19 @@ TODO
 
 <h1 class="class export">ToolbarBase <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L5-L102">ionic/components/toolbar/toolbar.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L32-L80">ionic/components/toolbar/toolbar.ts (line 32)</a>
 </p>
 <p><p>TODO</p>
 </p>
 ## Members
 
-<div id="titleElement"></div>
+<div id="getTitle"></div>
 <h2>
-  <code>titleElement(eleRef)</code>
+  <code>getTitle()</code>
 
 </h2>
 
 TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        eleRef
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -100,45 +68,13 @@ TODO
 
 
 
-<div id="itemElements"></div>
+<div id="getTitleRef"></div>
 <h2>
-  <code>itemElements(eleRef)</code>
+  <code>getTitleRef()</code>
 
 </h2>
 
 TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        eleRef
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -151,45 +87,14 @@ TODO
 
 
 
-<div id="titleText"></div>
+<div id="getItemRefs"></div>
 <h2>
-  <code>titleText(eleRef)</code>
+  <code>getItemRefs()</code>
 
 </h2>
 
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        eleRef
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+A toolbar items include the left and right side `ion-nav-items`,
+and every `menu-toggle`. It does not include the `ion-title`.
 
 
 
@@ -197,42 +102,7 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="afterViewChecked"></div>
-<h2>
-  <code>afterViewChecked()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="alignTitle"></div>
-<h2>
-  <code>alignTitle()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-
+  <code>TODO</code> Array of this toolbar's item ElementRefs.
 
 
 

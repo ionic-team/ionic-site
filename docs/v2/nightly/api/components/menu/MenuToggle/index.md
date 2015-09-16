@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
     Improve this doc
   </a>
 </div>
@@ -43,28 +43,11 @@ TODO
 
 <h1 class="class export">MenuToggle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L3-L31">ionic/components/menu/menu-toggle.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L6-L54">ionic/components/menu/menu-toggle.ts (line 6)</a>
 </p>
 <p><p>TODO</p>
 </p>
 ## Members
-
-<div id="app"></div>
-<h2>
-  <code>app()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="toggle"></div>
 <h2>
@@ -105,6 +88,23 @@ TODO
     
   </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+<div id="isHidden"></div>
+<h2>
+  <code>isHidden()</code>
+
+</h2>
+
+
+
 
 
 

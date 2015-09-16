@@ -410,6 +410,23 @@ TODO
 
 
 
+<div id="isRoot"></div>
+<h2>
+  <code>isRoot()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="destroy"></div>
 <h2>
   <code>destroy()</code>
@@ -498,9 +515,9 @@ TODO
 
 
 
-<div id="navbarElement"></div>
+<div id="navbarRef"></div>
 <h2>
-  <code>navbarElement()</code>
+  <code>navbarRef()</code>
 
 </h2>
 
@@ -517,9 +534,9 @@ TODO
 
 
 
-<div id="titleElement"></div>
+<div id="titleRef"></div>
 <h2>
-  <code>titleElement()</code>
+  <code>titleRef()</code>
 
 </h2>
 
@@ -536,9 +553,9 @@ TODO
 
 
 
-<div id="backButtonElement"></div>
+<div id="navbarItemRefs"></div>
 <h2>
-  <code>backButtonElement()</code>
+  <code>navbarItemRefs()</code>
 
 </h2>
 
@@ -555,9 +572,9 @@ TODO
 
 
 
-<div id="backButtonTextElement"></div>
+<div id="backBtnRef"></div>
 <h2>
-  <code>backButtonTextElement()</code>
+  <code>backBtnRef()</code>
 
 </h2>
 
@@ -574,9 +591,9 @@ TODO
 
 
 
-<div id="navbarItemElements"></div>
+<div id="backBtnTextRef"></div>
 <h2>
-  <code>navbarItemElements()</code>
+  <code>backBtnTextRef()</code>
 
 </h2>
 

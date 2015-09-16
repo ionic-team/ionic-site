@@ -237,9 +237,13 @@
   <a href="https://github.com/driftyco/ionic2/tree/master/demos/buttons/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Buttons are a simple CSS component in Ionic 2:</p>
+<p>Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.</p>
+
+<h3>Basic Usage:</h3>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
+<h3>Colors:</h3>
+
 <p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
@@ -248,6 +252,30 @@
 <span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
+<h3>Shapes:</h3>
+
+<p><strong>Round:</strong></p>
+
+<p>The <code>round</code> property will add rounded corners to a button:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">round</span><span class="nt">&gt;</span>Round Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Block:</strong></p>
+
+<p>Adding <code>block</code> to a button will make the button take 100% of its parent&#39;s width. It will also add <code>display: block</code> to the button:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">block</span><span class="nt">&gt;</span>Block Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Full:</strong></p>
+
+<p>Adding <code>full</code> to a button will also make the button take 100% of its parent&#39;s width. However, it will also remove the button&#39;s left and right borders. This style is useful when the button should stretch across the entire width of the display.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">full</span><span class="nt">&gt;</span>Full Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Floating Action Button (fab):</strong></p>
+
+<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../api/components/Button">button API spec</a> for a full list of attributes.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Outlines:</h3>
+
 <p>To create outline buttons, just add the <code>outline</code> property:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">outline</span><span class="nt">&gt;</span>Secondary Outline<span class="nt">&lt;/button&gt;</span>
@@ -256,8 +284,32 @@
 <span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">outline</span><span class="nt">&gt;</span>Dark Outline<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<p>To add icons to a button, add the <code>icon</code> property:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">icon</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-ios-ionic-outline&quot;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+<h3>Icons:</h3>
+
+<p>To add icons to a button, add an icon component inside of it:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Float the icon left --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+    Left Icon
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Float the icon right --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    Right Icon
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Only icon (no text) --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Sizes</h3>
+
+<p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button large&gt;Large&lt;button&gt;
+&lt;button&gt;Default&lt;button&gt;
+&lt;button small&gt;Small&lt;button&gt;
 </code></pre></div>
 
           

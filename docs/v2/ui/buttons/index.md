@@ -6,6 +6,7 @@ header_title: Buttons - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
+  <a href="../../api/components/button/Button">Button API Spec</a>
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/buttons/index.md'>
     Improve this doc
   </a>
@@ -62,9 +63,9 @@ Adding `full` to a button will also make the button take 100% of its parent's wi
 <button full>Full Button</button>
 ```
 
-**Floating Action Button (fab):**
+**Floating Action Button:**
 
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../api/components/Button) for a full list of attributes.
+Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
 
 ```html
 <button fab>FAB</button>
@@ -110,7 +111,7 @@ To add icons to a button, add an icon component inside of it:
 
 Add the `large` attribute to make a button larger, or `small` to make it smaller:
 
-```
+```html
 <button large>Large<button>
 <button>Default<button>
 <button small>Small<button>

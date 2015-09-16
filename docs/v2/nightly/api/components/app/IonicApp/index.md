@@ -42,7 +42,7 @@ The base Ionic class that your app inherits from. By inheriting from this class,
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L197">ionic/components/app/app.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L200">ionic/components/app/app.ts (line 13)</a>
 </p>
 <p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
 The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>

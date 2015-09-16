@@ -333,6 +333,57 @@ Return the current device (given by cordova).
 
 
 
+<div id="is"></div>
+<h2>
+  <code>is(Platform)</code>
+
+</h2>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Platform
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>name.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether the platform name provided is detected.
+
+
+
+
 <div id="exitApp"></div>
 <h2>
   <code>exitApp()</code>

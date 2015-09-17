@@ -238,8 +238,7 @@
   <a href="https://github.com/driftyco/ionic2/tree/master/demos/navigation/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Navigation in Ionic 2 is much more &quot;native like&quot; and is heavily modeled off of <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">the navigation
-features in iOS</a>.</p>
+<p>Navigation in Ionic 2 is much more &quot;native like&quot; and is heavily modeled off of <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">the navigation features in iOS</a>.</p>
 
 <p>In general, there are 3 types of navigation in an app:</p>
 
@@ -249,7 +248,7 @@ features in iOS</a>.</p>
 <li>Content driven</li>
 </ul>
 
-<p>Ionic makes it easy to use any of the three, or some combination thereof.</p>
+<p>Ionic makes it easy to use any of the three, or some combination thereof. For example, you may have a menu of items (flat) where each item leads to a series of different pages (hierarchical).</p>
 
 <h2 id="Hierarchical">Hierarchical</h2>
 <div class="highlight"><pre><code class="language-text" data-lang="text">          +------+                                           
@@ -270,8 +269,7 @@ features in iOS</a>.</p>
 </code></pre></div>
 <h2 id="Flat">Flat</h2>
 
-<p>Flat navigation is when the user can go from one root navigation state directly
-to another.  The most common examples of this are when using <a href="../tabs/">Tabs</a> or a <a href="../menu">Menu</a>.</p>
+<p>Flat navigation is when the user can go from one root navigation state directly to another. A good time to use flat navigation is when having a back button doesn&#39;t make sense, like when switching between <a href="../tabs/">Tabs</a> or <a href="../menu">Menu</a> items.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">                    +-------+                  
                     | Earth |                  
                     +---+---+                  
@@ -284,37 +282,39 @@ to another.  The most common examples of this are when using <a href="../tabs/">
 </code></pre></div>
 <h2 id="Content_Driven">Content Driven</h2>
 
-<p>Content- or experience-driven navigation is when navigation through your app is
-tied directly to the content of your app.  Examples of this would be
-navigating through a book&#39;s pages, or exploring the world of a game.</p>
+<p>Content- or experience-driven navigation is when navigation through your app is tied directly to the content of your app.  Examples of this would be navigating through a book&#39;s pages, or exploring the world of a game.</p>
 
 <hr>
 
-<h2 id="URL_to_State_vs_State_to_URL">URL -> State vs. State -> URL</h2>
+<h2 id="URL_to_State_vs_Just_States">URL -> State vs. State -> URL</h2>
 
-<p>Traditionally routing in an app happens by navigating to a certain URL and
-having a router figure out how to map that URL to certain state.  Apps that rely
-on URLs for navigation often make use of <code>href</code> to change between states.</p>
+<p>Traditionally, routing in an app happens by navigating to a certain URL and having a router figure out how to map that URL to a certain state.  Apps that rely on URLs for navigation often make use of <code>href</code> to change between states.</p>
 
-<p>While this type of navigation is supported in Ionic, it is not recommended as it
-makes some types of navigation difficult (moving between states with flat
-navigation for example).</p>
+<p>While this type of navigation is supported in Ionic, it is not recommended, as it makes some navigation structures difficult to implement (moving between flat navigation states for example).</p>
 
-<p>Instead, to move between pages (states), you decide which view you want to show,
- and then <code>push</code> it into the navigation stack. To go back, you <code>pop</code> the current view.</p>
+<p>Instead of relying on a router, to move between pages/views/states you <code>push</code> the next state you would like to navigate to onto the navigation stack. To go back, you simply <code>pop</code> the current view.  At no point during navigation are URLs required, since the navigation stack is entirely managed within your app. However, if you do need URLs they are very easy to add.  </p>
 
-<p><h3 id="Reverse_Routing">Reverse Routing</h3>
-Using <a href="">Angular2&#39;s router</a> you can assign states a path (state -&gt; URL), that is, a corresponding
-URL that maps to that state (URL -&gt; state), but you don&#39;t have to.  It is helpful
-if you need to link directly into a particular state of your app (deeplinking
-  from another app for example).</p>
+<p><h3 id="Adding_URLs">Adding URLs to States (Reverse Routing)</h3></p>
 
-<p><h3 id="spidey">&quot;With great power comes great responsibility&quot;</h3>
- The navigation in Ionic is extremely flexible.  That means if you&#39;d like, you can
- easily nest tabs in modals in menus in tabs, etc. But just because you can
- doesn&#39;t mean you should (you shouldn&#39;t).</p>
+<p>There are many situations where your app might need URLs: for example, deeplinking directly to a particular state from another app or saving the current state when refreshing during development. If one of your app states does need a URL, you can set the url using <a href="">Angular&#39;s router</a>:  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> import {LoginPage} from &#39;login-page&#39;
+ import {RouteConfig} from &#39;angular2/router&#39;;
 
-<p>Seriously, don&#39;t do this.  Most apps do not require many levels of nested navigation.</p>
+ @App({
+   templateUrl: &#39;app/app.html&#39;
+ })
+ @RouteConfig([
+   { path: &#39;/login&#39;, component: LoginPage, as: &#39;loginPage&#39; }
+ ])
+ class MyApp {
+</code></pre></div>
+<hr>
+
+<p><h2 id="spidey">&quot;With great tabs comes great responsibility&quot;</h2></p>
+
+<p>The navigation in Ionic is extremely flexible.  That means if you&#39;d like, you can easily nest tabs in modals in menus in tabs, etc. But just because you can doesn&#39;t mean you should (you shouldn&#39;t).</p>
+
+<p>Seriously, don&#39;t do this.  Most apps do not require many levels of nested navigation!</p>
 
 
           

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+
+    
+
+    <title>Ionic 2 Sass Variables - Ionic 2 Sass Variables -  Ionic Framework</title>
+
+    <link href="/css/site.css?12" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+    
+  </head>
+
+  <body class="docs v2 docs-page docs-theming">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Ionic Sass Variables</h3>
+    <h4>Ionic 2 Sass Variables</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          
+          Check out our <a href="/docs/v2/guide/">Guide</a>, which covers all the basics of setting up.
+          
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>API</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div>
+
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/guide/">Guide</a>
+              </li>
+              
+            </ul>
+
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/ui/">UI</a>
+              </li>
+              
+            </ul>
+
+            <ul class="nav left-menu  active-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/theming/">Theming</a>
+              </li>
+              <li class="menu-section active">
+  <ul>
+    <li>
+      <li><a href="/docs/v2/theming/sass-variables/">Sass Variables</a></li>
+    </li>
+  </ul>
+</li>
+
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/utilities/">Utilities</a>
+              </li>
+              
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/plugins/">Plugins</a>
+              </li>
+              
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/api/">
+                  API
+                </a>
+              </li>
+              
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/resources/">Resources</a>
+              </li>
+              
+            </ul>
+
+        </div>
+      </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/theming/sass-variables/index.md'>
+    Improve this doc
+  </a>
+</div>
+
+<h1 class="title">Sass Variables</h1>
+
+<p>Sass Variables allow you to define a value once and use it in multiple places. Variables begin with dollar signs, and are set like CSS properties. You can change the value of the variable in one place and all instances where it is used will be changed, too. For example, if you wanted to set the same height for two different selectors, you could create a variable called <code>$control-height</code>:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="na">$control-height</span><span class="o">:</span> <span class="mi">40</span><span class="kt">px</span><span class="err">;</span>
+</code></pre></div>
+<p>Then, you can use this variable in multiple places. For simplicity&#39;s sake, we are going to assign <code>$control-height</code> to the <code>height</code> attribute of two selectors:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nc">.header</span> <span class="err">{</span>
+  <span class="na">height</span><span class="o">:</span> <span class="nv">$control-height</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nc">.sub-header</span> <span class="err">{</span>
+  <span class="na">height</span><span class="o">:</span> <span class="nv">$control-height</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>When translated to CSS, it becomes the following:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.sub-header</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This is extremely useful if you decide later on that you would like to change the value of <code>$control-height</code> and it is being used by multiple selectors. Instead of sifting through all of your code to find the places to change, you only have to update the <code>$control-height</code> variable.</p>
+
+<p>Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles in order to change the look of your application. In Ionic, you can modify the Sass directly so that the CSS file that gets generated has the customization you want.</p>
+
+<h2>Overriding Ionic&#39;s Default Variables: <code>!default</code></h2>
+
+<p>From the <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_">Sass documentation</a>:</p>
+
+<blockquote>
+<p>You can assign to variables if they aren’t already assigned by adding the !default flag to the end of the value. This means that if the variable has already been assigned to, it won’t be re-assigned, but if it doesn’t have a value yet, it will be given one.</p>
+</blockquote>
+
+<p>Ionic uses the <code>!default</code> flag for all defined Sass variables. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the <code>$text-color</code> variable like below:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="na">$text-color</span><span class="o">:</span> <span class="mh">#000</span> <span class="nv">!default</span><span class="err">;</span>
+</code></pre></div>
+<p>If you wanted to change the value of the <code>$text-color</code> variable, you can create your own Sass file with this variable and include this file prior to importing the Ionic Sass files, or you could add the variable directly to the main Sass file:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="na">$text-color</span><span class="o">:</span> <span class="mh">#888</span><span class="err">;</span>
+
+<span class="c1">// Ionic Sass</span>
+<span class="c1">// ---------------------------------</span>
+<span class="k">@import</span> <span class="s">&quot;ionic&quot;;</span>
+</code></pre></div>
+<h2>Using Ionic Modes in Sass</h2>
+
+<p>Ionic uses modes in order to customize the look of components to match the platform you are using. For example, by default when you are viewing the app on an Android device, the <code>&lt;body&gt;</code> will have <code>class=&quot;md&quot;</code> added to it:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;md&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<p>Note: I have removed all other attributes and classes from the <code>&lt;body&gt;</code> to only show what the mode looks like when added. Here is a chart of the default mode that gets added based on platform:</p>
+
+<table class="table">
+  <tr>
+    <th>Platform</th>
+    <th>Mode</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>iOS</td>
+    <td>ios</td>
+    <td>Applies iOS styling to all components.</td>
+  </tr>
+  <tr>
+    <td>Android</td>
+    <td>md</td>
+    <td>Applies Material Design styling to all components.</td>
+  </tr>  
+  <tr>
+    <td>All Other Platforms</td>
+    <td>ios</td>
+    <td>If you are on neither an iOS or an Android device, the app will get iOS styling by default.</td>
+  </tr>
+</table>
+
+<p>You can change the mode that gets assigned in the configuration of your app. Therefore, if you wanted the Material Design <code>md</code> mode on iOS, you could do it.</p>
+
+<h3>Overriding the Mode Styles</h3>
+
+<p>Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet which consists of styles shared between all modes, a material stylesheet which contains the styles for the <code>md</code> mode, and an iOS stylesheet for, you guessed it, the <code>ios</code> mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  </p>
+
+<p>You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nc">.md</span> <span class="err">{</span>
+  <span class="nt">button</span> <span class="err">{</span>
+    <span class="na">text-transform</span><span class="o">:</span> <span class="no">capitalize</span><span class="err">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>The Sass files for these modes also have unique variables which can be used to override the styles. Using the same example above, we could change the <code>md</code> button&#39;s <code>border-radius</code> by changing the value of the <code>$button-md-border-radius</code> variable in our main Sass file, before Ionic is imported:</p>
+<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="na">$button-md-border-radius</span><span class="o">:</span> <span class="mi">8</span><span class="kt">px</span><span class="err">;</span>
+
+<span class="c1">// Ionic Sass</span>
+<span class="c1">// ---------------------------------</span>
+<span class="k">@import</span> <span class="s">&quot;ionic&quot;;</span>
+</code></pre></div>
+<h2>Sass Variables used in Ionic</h2>
+
+<p>Compile JSON file for this.</p>
+
+
+          
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/v2site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+    
+
+  </body>
+</html>

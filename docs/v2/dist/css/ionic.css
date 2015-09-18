@@ -317,19 +317,6 @@ backdrop {
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px); }
 
-.swipe-handle {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  bottom: 70px;
-  width: 20px;
-  z-index: 15;
-  -webkit-transform: translate3d(-999px, 0px, 0px);
-  transform: translate3d(-999px, 0px, 0px); }
-  .swipe-handle.show-handle {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
-
 @-webkit-keyframes rotation {
   from {
     -webkit-transform: rotate(0deg);
@@ -490,6 +477,13 @@ ion-nav-items[secondary] {
   -ms-flex-order: 50;
   order: 50; }
 
+ion-nav-items button,
+ion-nav-items a,
+ion-nav-items input,
+ion-nav-items textarea,
+ion-nav-items div {
+  pointer-events: auto; }
+
 .toolbar[primary] {
   background-color: #387ef5;
   border-color: #0c60ee; }
@@ -535,7 +529,7 @@ ion-nav-items[secondary] {
   .toolbar[dark] a {
     color: #fff; }
 
-ion-action-menu {
+ion-action-sheet {
   position: absolute;
   top: 0;
   left: 0;
@@ -544,7 +538,7 @@ ion-action-menu {
   display: block;
   z-index: 1000; }
 
-action-menu-wrapper {
+action-sheet-wrapper {
   position: absolute;
   z-index: 10;
   bottom: 0;
@@ -557,10 +551,10 @@ action-menu-wrapper {
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0); }
 
-.action-menu-container {
+.action-sheet-container {
   width: auto;
   overflow: hidden; }
-  .action-menu-container button {
+  .action-sheet-container button {
     display: block;
     padding: 1px;
     width: 100%;
@@ -570,36 +564,36 @@ action-menu-wrapper {
     background-color: transparent;
     color: #007aff;
     font-size: 21px; }
-    .action-menu-container button:hover {
+    .action-sheet-container button:hover {
       color: #007aff; }
-  .action-menu-container button.activated {
+  .action-sheet-container button.activated {
     box-shadow: none;
     border-color: #d1d3d6;
     color: #007aff;
     background: #e4e5e7; }
 
-.action-menu-has-icons .icon {
+.action-sheet-has-icons .icon {
   position: absolute;
   left: 16px; }
 
-.action-menu-title {
+.action-sheet-title {
   padding: 10px;
   color: #8f8f8f;
   text-align: center;
   font-size: 13px; }
 
-.action-menu-group {
+.action-sheet-group {
   background-color: #fff;
   overflow: hidden; }
-  .action-menu-group button {
+  .action-sheet-group button {
     border-width: 1px 0px 0px 0px; }
-  .action-menu-group button:first-child:last-child {
+  .action-sheet-group button:first-child:last-child {
     border-width: 0; }
 
-.action-menu-options {
+.action-sheet-options {
   background: #f1f2f3; }
 
-.action-menu-cancel button {
+.action-sheet-cancel button {
   font-weight: 500; }
 
 item-badge {
@@ -1570,7 +1564,8 @@ ion-menu[type=reveal].show-menu {
 
 ion-menu[type=overlay] {
   z-index: 80;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); }
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  left: -8px; }
   ion-menu[type=overlay] backdrop {
     display: block;
     -webkit-transform: translate3d(-9999px, 0px, 0px);
@@ -5398,51 +5393,51 @@ icon,
     order: 50; }
   .ios.hairlines .toolbar {
     border-bottom-width: 0.55px; }
-  .ios ion-action-menu {
+  .ios ion-action-sheet {
     text-align: center; }
-  .ios .action-menu-container {
+  .ios .action-sheet-container {
     padding: 0 10px; }
-  .ios ion-action-menu button {
+  .ios ion-action-sheet button {
     min-height: 5.6rem;
     padding: 1.8rem;
     margin: 0;
     border: 0;
     background: transparent; }
-    .ios ion-action-menu button.activated {
+    .ios ion-action-sheet button.activated {
       background: #ebebeb; }
-  .ios .action-menu-group {
+  .ios .action-sheet-group {
     margin-bottom: 8px;
     border-radius: 1.3rem; }
-  .ios .action-menu-group:last-child {
+  .ios .action-sheet-group:last-child {
     margin-bottom: 10px; }
-  .ios .action-menu-title,
-  .ios .action-menu-option {
+  .ios .action-sheet-title,
+  .ios .action-sheet-option {
     min-height: 5.6rem;
     background: rgba(243, 243, 243, 0.95);
     font-weight: 400;
     border-bottom: 1px solid #d2d2d6; }
-  .ios .action-menu-title {
+  .ios .action-sheet-title {
     padding: 2rem;
     font-size: 1.2rem;
     font-weight: 500;
     color: #5f5f5f;
     border-radius: 0; }
-  .ios .action-menu-option {
+  .ios .action-sheet-option {
     font-size: 2rem;
     color: #007aff;
     border-radius: 0; }
-  .ios .action-menu-title:first-child,
-  .ios .action-menu-button:first-child,
-  .ios .action-menu-group button:first-child {
+  .ios .action-sheet-title:first-child,
+  .ios .action-sheet-button:first-child,
+  .ios .action-sheet-group button:first-child {
     border-top-left-radius: 1.3rem;
     border-top-right-radius: 1.3rem; }
-  .ios .action-menu-title:last-child,
-  .ios .action-menu-button:last-child,
-  .ios .action-menu-group button:last-child {
+  .ios .action-sheet-title:last-child,
+  .ios .action-sheet-button:last-child,
+  .ios .action-sheet-group button:last-child {
     border-bottom-left-radius: 1.3rem;
     border-bottom-right-radius: 1.3rem; }
-  .ios.hairlines .action-menu .action-menu-title,
-  .ios.hairlines .action-menu .action-menu-option {
+  .ios.hairlines .action-sheet .action-sheet-title,
+  .ios.hairlines .action-sheet .action-sheet-option {
     border-bottom-width: 0.55px; }
   .ios ion-card {
     margin: 12px 12px 12px 12px;
@@ -5885,49 +5880,50 @@ icon,
       .md .toolbar [menu-toggle].activated icon {
         font-size: 2.4rem; }
   .md ion-title {
+    padding: 0 12px;
     font-size: 2rem;
     font-weight: 500; }
   .md ion-nav-items[primary] button:first-child {
     margin-left: 0; }
-  .md ion-action-menu {
+  .md ion-action-sheet {
     margin: 0; }
-  .md .action-menu-container {
+  .md .action-sheet-container {
     margin: 0; }
-  .md .action-menu-title,
-  .md .action-menu-option,
-  .md .action-menu-destructive,
-  .md .action-menu-cancel button {
+  .md .action-sheet-title,
+  .md .action-sheet-option,
+  .md .action-sheet-destructive,
+  .md .action-sheet-cancel button {
     text-align: left;
     border-color: transparent;
     font-size: 1.6rem;
     color: #222;
     box-shadow: none;
     text-transform: none; }
-  .md ion-action-menu icon {
+  .md ion-action-sheet icon {
     display: inline-block;
     margin: 0 28px 0 0;
     min-width: 24px;
     text-align: center;
     vertical-align: middle;
     font-size: 2.4rem; }
-  .md .action-menu-title {
+  .md .action-sheet-title {
     padding: 1.9rem 1.6rem 1.7rem;
     font-size: 1.6rem;
     color: #757575; }
-  .md ion-action-menu button {
+  .md ion-action-sheet button {
     font-weight: normal;
     min-height: 4.8rem; }
-    .md ion-action-menu button.activated {
+    .md ion-action-sheet button.activated {
       background: #f1f1f1;
       border-radius: 0;
       box-shadow: none; }
-  .md .action-menu-group {
+  .md .action-sheet-group {
     margin: 0;
     border-radius: 0;
     background-color: #fafafa; }
-    .md .action-menu-group:last-child button {
+    .md .action-sheet-group:last-child button {
       margin-bottom: 8px; }
-  .md .action-menu-cancel {
+  .md .action-sheet-cancel {
     background-color: #fafafa;
     width: auto;
     border: none; }

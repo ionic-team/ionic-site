@@ -1,24 +1,24 @@
 ---
 layout: v2/docs_base
 id: ui
-title: Ionic 2 UI | Action Menus
-header_title: Action Menus - Ionic 2 UI
+title: Ionic 2 UI | Action Sheets
+header_title: Action Sheets - Ionic 2 UI
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/action-menus/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/action-sheets/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Action Menus</h1>
+<h1 class="title">Action Sheets</h1>
 
-{% include demo.html demo_url="/docs/v2/dist/demos/action-menu/" demo_name="action-menu" %}
+{% include demo.html demo_url="/docs/v2/dist/demos/action-sheet/" demo_name="action-sheet" %}
 
-Action Menus display a modal set of options to confirm or cancel an action.
+Action Sheets display a modal set of options to confirm or cancel an action.
 
 ```javascript
-ActionMenu.open({
+ActionSheet.open({
   buttons: [
     { text: 'Share This' },
     { text: 'Move' }
@@ -38,9 +38,9 @@ ActionMenu.open({
     if(index == 1) { return false; }
     return true;
   }
-}).then(actionMenu => {
-  // Action menu was created and opened
-  this.actionMenu = actionMenu;
-  // this.actionMenu.close() to close it programatically
+}).then(actionSheet => {
+  // Action sheet was created and opened
+  this.actionSheet = actionSheet;
+  // this.actionSheet.close() to close it programatically
 })
 ```

@@ -388,14 +388,15 @@ ion-loading-icon {
     background-color: transparent;
     color: #387ef5;
     box-shadow: none; }
-    .toolbar button.activated,
-    .toolbar button:hover,
-    .toolbar button.hover,
-    .toolbar [button].activated,
-    .toolbar [button]:hover,
-    .toolbar [button].hover {
-      color: #387ef5;
-      background-color: transparent; }
+
+.enable-hover .toolbar button:hover,
+.enable-hover .toolbar [button]:hover,
+.toolbar button.hover,
+.toolbar [button].hover,
+.toolbar button.activated,
+.toolbar [button].activated {
+  color: #387ef5;
+  background-color: transparent; }
 
 .toolbar[position="bottom"] {
   -webkit-box-ordinal-group: 11;

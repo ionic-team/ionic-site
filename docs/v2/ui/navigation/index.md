@@ -79,7 +79,7 @@ Instead of relying on a router, to move between pages/views/states you `push` th
 
  There are many situations where your app might need URLs: for example, deeplinking directly to a particular state from another app or saving the current state when refreshing during development. If one of your app states does need a URL, you can set the url using [Angular's router]():  
 
- ```
+ ```js
  import {LoginPage} from 'login-page'
  import {RouteConfig} from 'angular2/router';
 

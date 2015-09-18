@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L6'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L6'>
     Improve this doc
   </a>
 </div>
@@ -47,7 +47,7 @@ See the ionTab component's documentation for more details on individual tabs.
 
 <h1 class="class export">ionTabs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L6-L146">ionic/components/tabs/tabs.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L7-L149">ionic/components/tabs/tabs.ts (line 7)</a>
 </p>
 <p><p>Powers a multi-tabbed interface with a Tab Bar and a set of &quot;pages&quot; that can be tabbed through.</p>
 <p>Assign any tabs attribute to the element to define its look and feel.</p>

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L13'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,7 @@ The base Ionic class that your app inherits from. By inheriting from this class,
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L197">ionic/components/app/app.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L14-L207">ionic/components/app/app.ts (line 14)</a>
 </p>
 <p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
 The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>
@@ -196,15 +196,16 @@ Sets the document title.
 
 
 
-<div id="setTransitioning"></div>
+<div id="setEnabled"></div>
 <h2>
-  <code>setTransitioning(isTransitioning)</code>
+  <code>setEnabled(isEnabled, fallback)</code>
 
 </h2>
 
-Sets if the app is currently transitioning or not. For example
-this is set to `true` while views transition, a modal slides up, an action-menu
-slides up, etc. After the transition completes it is set back to `false`.
+Sets if the app is currently enabled or not, meaning if it's
+available to accept new user commands. For example, this is set to `false`
+while views transition, a modal slides up, an action-sheet
+slides up, etc. After the transition completes it is set back to `true`.
 
 
 
@@ -220,7 +221,7 @@ slides up, etc. After the transition completes it is set back to `false`.
     
     <tr>
       <td>
-        isTransitioning
+        isEnabled
         
         
       </td>
@@ -230,6 +231,26 @@ slides up, etc. After the transition completes it is set back to `false`.
       </td>
       <td>
         
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        fallback
+        
+        
+      </td>
+      <td>
+        
+  <code>bool</code>
+      </td>
+      <td>
+        <p>When <code>isEnabled</code> is set to <code>false</code>, this argument
+is used to set the maximum number of milliseconds that app will wait until
+it will automatically enable the app again. It&#39;s basically a fallback incase
+something goes wrong during a transition and the app wasn&#39;t re-enabled correctly.</p>
+
         
       </td>
     </tr>
@@ -245,9 +266,9 @@ slides up, etc. After the transition completes it is set back to `false`.
 
 
 
-<div id="isTransitioning"></div>
+<div id="isEnabled"></div>
 <h2>
-  <code>isTransitioning()</code>
+  <code>isEnabled()</code>
 
 </h2>
 

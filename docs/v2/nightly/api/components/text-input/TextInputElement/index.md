@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L11'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L10'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L11'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L10'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ TODO
 
 <h1 class="class export">TextInputElement <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L12-L68">ionic/components/text-input/text-input.ts (line 12)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L11-L67">ionic/components/text-input/text-input.ts (line 11)</a>
 </p>
 <p><p>TODO</p>
 </p>

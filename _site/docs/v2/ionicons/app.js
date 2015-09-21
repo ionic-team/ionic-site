@@ -53,6 +53,7 @@ $(document).ready(function() {
          newUl.appendChild(titleLi);
 
           for (var icon in group['icons']) {
+            console.log(group['icons']);
             var newLi = document.createElement('li');
             if (group['tags']) {
               newLi.setAttribute('data-tags', group['tags'].join(', '));

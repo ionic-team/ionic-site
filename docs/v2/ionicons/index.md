@@ -39,7 +39,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon undo></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-undo"></icon>
+<icon ios="ion-ios-undo" md="ion-md-undo"></icon>
 
 {% endhighlight %}
 
@@ -83,6 +83,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-code</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-code"></i>
@@ -99,7 +100,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon code></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-code"></icon>
+<icon ios="ion-ios-code" md="ion-md-code"></icon>
 
 {% endhighlight %}
 
@@ -116,6 +117,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropright</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropright"></i>
@@ -132,7 +134,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropright></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropright"></icon>
+<icon ios="ion-ios-arrow-dropright" md="ion-md-arrow-dropright"></icon>
 
 {% endhighlight %}
 
@@ -171,7 +173,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon american-football></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-american-football"></icon>
+<icon ios="ion-ios-american-football" md="ion-md-american-football"></icon>
 
 {% endhighlight %}
 
@@ -210,7 +212,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon text></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-text"></icon>
+<icon ios="ion-ios-text" md="ion-md-text"></icon>
 
 {% endhighlight %}
 
@@ -227,6 +229,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-laptop</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-laptop"></i>
@@ -243,7 +246,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon laptop></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-laptop"></icon>
+<icon ios="ion-ios-laptop" md="ion-md-laptop"></icon>
 
 {% endhighlight %}
 
@@ -260,6 +263,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-move</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-move"></i>
@@ -276,7 +280,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon move></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-move"></icon>
+<icon ios="ion-ios-move" md="ion-md-move"></icon>
 
 {% endhighlight %}
 
@@ -315,7 +319,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon help-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-help-circle"></icon>
+<icon ios="ion-ios-help-circle" md="ion-md-help-circle"></icon>
 
 {% endhighlight %}
 
@@ -359,6 +363,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-transgender</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-transgender"></i>
@@ -375,7 +380,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon transgender></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-transgender"></icon>
+<icon ios="ion-ios-transgender" md="ion-md-transgender"></icon>
 
 {% endhighlight %}
 
@@ -392,6 +397,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-watch</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-watch"></i>
@@ -408,7 +414,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon watch></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-watch"></icon>
+<icon ios="ion-ios-watch" md="ion-md-watch"></icon>
 
 {% endhighlight %}
 
@@ -474,7 +480,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon browsers></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-browsers"></icon>
+<icon ios="ion-ios-browsers" md="ion-md-browsers"></icon>
 
 {% endhighlight %}
 
@@ -513,7 +519,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon color-filter></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-color-filter"></icon>
+<icon ios="ion-ios-color-filter" md="ion-md-color-filter"></icon>
 
 {% endhighlight %}
 
@@ -530,6 +536,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropdown-circle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropdown-circle"></i>
@@ -546,7 +553,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropdown-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropdown-circle"></icon>
+<icon ios="ion-ios-arrow-dropdown-circle" md="ion-md-arrow-dropdown-circle"></icon>
 
 {% endhighlight %}
 
@@ -563,6 +570,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-log-out</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-log-out"></i>
@@ -579,7 +587,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon log-out></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-log-out"></icon>
+<icon ios="ion-ios-log-out" md="ion-md-log-out"></icon>
 
 {% endhighlight %}
 
@@ -596,6 +604,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropleft-circle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropleft-circle"></i>
@@ -612,7 +621,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropleft-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropleft-circle"></icon>
+<icon ios="ion-ios-arrow-dropleft-circle" md="ion-md-arrow-dropleft-circle"></icon>
 
 {% endhighlight %}
 
@@ -651,7 +660,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon recording></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-recording"></icon>
+<icon ios="ion-ios-recording" md="ion-md-recording"></icon>
 
 {% endhighlight %}
 
@@ -668,6 +677,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-swap</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-swap"></i>
@@ -684,7 +694,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon swap></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-swap"></icon>
+<icon ios="ion-ios-swap" md="ion-md-swap"></icon>
 
 {% endhighlight %}
 
@@ -723,7 +733,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon information-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-information-circle"></icon>
+<icon ios="ion-ios-information-circle" md="ion-md-information-circle"></icon>
 
 {% endhighlight %}
 
@@ -740,6 +750,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-help</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-help"></i>
@@ -756,7 +767,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon help></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-help"></icon>
+<icon ios="ion-ios-help" md="ion-md-help"></icon>
 
 {% endhighlight %}
 
@@ -795,7 +806,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon refresh-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-refresh-circle"></icon>
+<icon ios="ion-ios-refresh-circle" md="ion-md-refresh-circle"></icon>
 
 {% endhighlight %}
 
@@ -834,7 +845,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cut></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cut"></icon>
+<icon ios="ion-ios-cut" md="ion-md-cut"></icon>
 
 {% endhighlight %}
 
@@ -873,7 +884,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloud-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloud-circle"></icon>
+<icon ios="ion-ios-cloud-circle" md="ion-md-cloud-circle"></icon>
 
 {% endhighlight %}
 
@@ -912,7 +923,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon flask></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-flask"></icon>
+<icon ios="ion-ios-flask" md="ion-md-flask"></icon>
 
 {% endhighlight %}
 
@@ -951,7 +962,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon menu></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-menu"></icon>
+<icon ios="ion-ios-menu" md="ion-md-menu"></icon>
 
 {% endhighlight %}
 
@@ -990,7 +1001,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon flash></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-flash"></icon>
+<icon ios="ion-ios-flash" md="ion-md-flash"></icon>
 
 {% endhighlight %}
 
@@ -1029,7 +1040,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon send></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-send"></icon>
+<icon ios="ion-ios-send" md="ion-md-send"></icon>
 
 {% endhighlight %}
 
@@ -1068,7 +1079,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon desktop></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-desktop"></icon>
+<icon ios="ion-ios-desktop" md="ion-md-desktop"></icon>
 
 {% endhighlight %}
 
@@ -1112,6 +1123,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-add</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-add"></i>
@@ -1128,7 +1140,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon add></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-add"></icon>
+<icon ios="ion-ios-add" md="ion-md-add"></icon>
 
 {% endhighlight %}
 
@@ -1167,7 +1179,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon mail-open></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-mail-open"></icon>
+<icon ios="ion-ios-mail-open" md="ion-md-mail-open"></icon>
 
 {% endhighlight %}
 
@@ -1184,6 +1196,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-round-down</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-round-down"></i>
@@ -1200,7 +1213,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-round-down></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-round-down"></icon>
+<icon ios="ion-ios-arrow-round-down" md="ion-md-arrow-round-down"></icon>
 
 {% endhighlight %}
 
@@ -1217,6 +1230,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-volume-down</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-volume-down"></i>
@@ -1233,7 +1247,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon volume-down></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-volume-down"></icon>
+<icon ios="ion-ios-volume-down" md="ion-md-volume-down"></icon>
 
 {% endhighlight %}
 
@@ -1272,7 +1286,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon stopwatch></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-stopwatch"></icon>
+<icon ios="ion-ios-stopwatch" md="ion-md-stopwatch"></icon>
 
 {% endhighlight %}
 
@@ -1311,7 +1325,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon exit></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-exit"></icon>
+<icon ios="ion-ios-exit" md="ion-md-exit"></icon>
 
 {% endhighlight %}
 
@@ -1350,7 +1364,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon folder></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-folder"></icon>
+<icon ios="ion-ios-folder" md="ion-md-folder"></icon>
 
 {% endhighlight %}
 
@@ -1367,6 +1381,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-round-up</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-round-up"></i>
@@ -1383,7 +1398,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-round-up></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-round-up"></icon>
+<icon ios="ion-ios-arrow-round-up" md="ion-md-arrow-round-up"></icon>
 
 {% endhighlight %}
 
@@ -1400,6 +1415,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropdown</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropdown"></i>
@@ -1416,7 +1432,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropdown></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropdown"></icon>
+<icon ios="ion-ios-arrow-dropdown" md="ion-md-arrow-dropdown"></icon>
 
 {% endhighlight %}
 
@@ -1482,7 +1498,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon magnet></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-magnet"></icon>
+<icon ios="ion-ios-magnet" md="ion-md-magnet"></icon>
 
 {% endhighlight %}
 
@@ -1548,7 +1564,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cube></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cube"></icon>
+<icon ios="ion-ios-cube" md="ion-md-cube"></icon>
 
 {% endhighlight %}
 
@@ -1565,6 +1581,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-battery-dead</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-battery-dead"></i>
@@ -1581,7 +1598,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon battery-dead></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-battery-dead"></icon>
+<icon ios="ion-ios-battery-dead" md="ion-md-battery-dead"></icon>
 
 {% endhighlight %}
 
@@ -1647,7 +1664,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon notifications-off></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-notifications-off"></icon>
+<icon ios="ion-ios-notifications-off" md="ion-md-notifications-off"></icon>
 
 {% endhighlight %}
 
@@ -1686,7 +1703,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon rewind></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-rewind"></icon>
+<icon ios="ion-ios-rewind" md="ion-md-rewind"></icon>
 
 {% endhighlight %}
 
@@ -1725,7 +1742,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon sunny></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-sunny"></icon>
+<icon ios="ion-ios-sunny" md="ion-md-sunny"></icon>
 
 {% endhighlight %}
 
@@ -1764,7 +1781,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon contacts></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-contacts"></icon>
+<icon ios="ion-ios-contacts" md="ion-md-contacts"></icon>
 
 {% endhighlight %}
 
@@ -1803,7 +1820,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon remove-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-remove-circle"></icon>
+<icon ios="ion-ios-remove-circle" md="ion-md-remove-circle"></icon>
 
 {% endhighlight %}
 
@@ -1820,6 +1837,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-volume-up</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-volume-up"></i>
@@ -1836,7 +1854,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon volume-up></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-volume-up"></icon>
+<icon ios="ion-ios-volume-up" md="ion-md-volume-up"></icon>
 
 {% endhighlight %}
 
@@ -1902,7 +1920,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon easel></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-easel"></icon>
+<icon ios="ion-ios-easel" md="ion-md-easel"></icon>
 
 {% endhighlight %}
 
@@ -1941,7 +1959,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon appstore></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-appstore"></icon>
+<icon ios="ion-ios-appstore" md="ion-md-appstore"></icon>
 
 {% endhighlight %}
 
@@ -1980,7 +1998,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon outlet></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-outlet"></icon>
+<icon ios="ion-ios-outlet" md="ion-md-outlet"></icon>
 
 {% endhighlight %}
 
@@ -2019,7 +2037,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon compass></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-compass"></icon>
+<icon ios="ion-ios-compass" md="ion-md-compass"></icon>
 
 {% endhighlight %}
 
@@ -2085,7 +2103,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloud-download></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloud-download"></icon>
+<icon ios="ion-ios-cloud-download" md="ion-md-cloud-download"></icon>
 
 {% endhighlight %}
 
@@ -2124,7 +2142,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon trophy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-trophy"></icon>
+<icon ios="ion-ios-trophy" md="ion-md-trophy"></icon>
 
 {% endhighlight %}
 
@@ -2190,7 +2208,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon musical-notes></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-musical-notes"></icon>
+<icon ios="ion-ios-musical-notes" md="ion-md-musical-notes"></icon>
 
 {% endhighlight %}
 
@@ -2229,7 +2247,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon school></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-school"></icon>
+<icon ios="ion-ios-school" md="ion-md-school"></icon>
 
 {% endhighlight %}
 
@@ -2268,7 +2286,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon document></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-document"></icon>
+<icon ios="ion-ios-document" md="ion-md-document"></icon>
 
 {% endhighlight %}
 
@@ -2307,7 +2325,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon settings></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-settings"></icon>
+<icon ios="ion-ios-settings" md="ion-md-settings"></icon>
 
 {% endhighlight %}
 
@@ -2351,6 +2369,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-list</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-list"></i>
@@ -2367,7 +2386,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon list></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-list"></icon>
+<icon ios="ion-ios-list" md="ion-md-list"></icon>
 
 {% endhighlight %}
 
@@ -2406,7 +2425,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloudy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloudy"></icon>
+<icon ios="ion-ios-cloudy" md="ion-md-cloudy"></icon>
 
 {% endhighlight %}
 
@@ -2450,6 +2469,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-pull-request</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-pull-request"></i>
@@ -2466,7 +2486,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-pull-request></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-pull-request"></icon>
+<icon ios="ion-ios-git-pull-request" md="ion-md-git-pull-request"></icon>
 
 {% endhighlight %}
 
@@ -2505,7 +2525,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pricetags></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pricetags"></icon>
+<icon ios="ion-ios-pricetags" md="ion-md-pricetags"></icon>
 
 {% endhighlight %}
 
@@ -2544,7 +2564,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon list-box></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-list-box"></icon>
+<icon ios="ion-ios-list-box" md="ion-md-list-box"></icon>
 
 {% endhighlight %}
 
@@ -2583,7 +2603,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon disc></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-disc"></icon>
+<icon ios="ion-ios-disc" md="ion-md-disc"></icon>
 
 {% endhighlight %}
 
@@ -2622,7 +2642,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon subway></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-subway"></icon>
+<icon ios="ion-ios-subway" md="ion-md-subway"></icon>
 
 {% endhighlight %}
 
@@ -2688,7 +2708,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon radio></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-radio"></icon>
+<icon ios="ion-ios-radio" md="ion-md-radio"></icon>
 
 {% endhighlight %}
 
@@ -2727,7 +2747,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon ionitron></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-ionitron"></icon>
+<icon ios="ion-ios-ionitron" md="ion-md-ionitron"></icon>
 
 {% endhighlight %}
 
@@ -2766,7 +2786,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pizza></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pizza"></icon>
+<icon ios="ion-ios-pizza" md="ion-md-pizza"></icon>
 
 {% endhighlight %}
 
@@ -2805,7 +2825,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon add-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-add-circle"></icon>
+<icon ios="ion-ios-add-circle" md="ion-md-add-circle"></icon>
 
 {% endhighlight %}
 
@@ -2822,6 +2842,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-refresh</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-refresh"></i>
@@ -2838,7 +2859,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon refresh></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-refresh"></icon>
+<icon ios="ion-ios-refresh" md="ion-md-refresh"></icon>
 
 {% endhighlight %}
 
@@ -2877,7 +2898,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bonfire></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bonfire"></icon>
+<icon ios="ion-ios-bonfire" md="ion-md-bonfire"></icon>
 
 {% endhighlight %}
 
@@ -2916,7 +2937,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon glasses></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-glasses"></icon>
+<icon ios="ion-ios-glasses" md="ion-md-glasses"></icon>
 
 {% endhighlight %}
 
@@ -2982,7 +3003,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon locate></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-locate"></icon>
+<icon ios="ion-ios-locate" md="ion-md-locate"></icon>
 
 {% endhighlight %}
 
@@ -2999,6 +3020,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-down</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-down"></i>
@@ -3015,7 +3037,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-down></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-down"></icon>
+<icon ios="ion-ios-arrow-down" md="ion-md-arrow-down"></icon>
 
 {% endhighlight %}
 
@@ -3059,6 +3081,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-bicycle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-bicycle"></i>
@@ -3075,7 +3098,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bicycle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bicycle"></icon>
+<icon ios="ion-ios-bicycle" md="ion-md-bicycle"></icon>
 
 {% endhighlight %}
 
@@ -3114,7 +3137,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon keypad></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-keypad"></icon>
+<icon ios="ion-ios-keypad" md="ion-md-keypad"></icon>
 
 {% endhighlight %}
 
@@ -3153,7 +3176,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon map></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-map"></icon>
+<icon ios="ion-ios-map" md="ion-md-map"></icon>
 
 {% endhighlight %}
 
@@ -3170,6 +3193,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-volume-off</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-volume-off"></i>
@@ -3186,7 +3210,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon volume-off></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-volume-off"></icon>
+<icon ios="ion-ios-volume-off" md="ion-md-volume-off"></icon>
 
 {% endhighlight %}
 
@@ -3225,7 +3249,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon closed-captioning></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-closed-captioning"></icon>
+<icon ios="ion-ios-closed-captioning" md="ion-md-closed-captioning"></icon>
 
 {% endhighlight %}
 
@@ -3242,6 +3266,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-battery-full</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-battery-full"></i>
@@ -3258,7 +3283,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon battery-full></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-battery-full"></icon>
+<icon ios="ion-ios-battery-full" md="ion-md-battery-full"></icon>
 
 {% endhighlight %}
 
@@ -3297,7 +3322,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon mic-off></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-mic-off"></icon>
+<icon ios="ion-ios-mic-off" md="ion-md-mic-off"></icon>
 
 {% endhighlight %}
 
@@ -3314,6 +3339,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropright-circle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropright-circle"></i>
@@ -3330,7 +3356,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropright-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropright-circle"></icon>
+<icon ios="ion-ios-arrow-dropright-circle" md="ion-md-arrow-dropright-circle"></icon>
 
 {% endhighlight %}
 
@@ -3347,6 +3373,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-bluetooth</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-bluetooth"></i>
@@ -3363,7 +3390,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bluetooth></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bluetooth"></icon>
+<icon ios="ion-ios-bluetooth" md="ion-md-bluetooth"></icon>
 
 {% endhighlight %}
 
@@ -3402,7 +3429,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon videocam></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-videocam"></icon>
+<icon ios="ion-ios-videocam" md="ion-md-videocam"></icon>
 
 {% endhighlight %}
 
@@ -3441,7 +3468,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon analytics></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-analytics"></icon>
+<icon ios="ion-ios-analytics" md="ion-md-analytics"></icon>
 
 {% endhighlight %}
 
@@ -3480,7 +3507,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon create></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-create"></icon>
+<icon ios="ion-ios-create" md="ion-md-create"></icon>
 
 {% endhighlight %}
 
@@ -3497,6 +3524,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-repeat</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-repeat"></i>
@@ -3513,7 +3541,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon repeat></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-repeat"></icon>
+<icon ios="ion-ios-repeat" md="ion-md-repeat"></icon>
 
 {% endhighlight %}
 
@@ -3552,7 +3580,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon paper-plane></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-paper-plane"></icon>
+<icon ios="ion-ios-paper-plane" md="ion-md-paper-plane"></icon>
 
 {% endhighlight %}
 
@@ -3569,6 +3597,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-network</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-network"></i>
@@ -3585,7 +3614,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-network></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-network"></icon>
+<icon ios="ion-ios-git-network" md="ion-md-git-network"></icon>
 
 {% endhighlight %}
 
@@ -3602,6 +3631,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-forward</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-forward"></i>
@@ -3618,7 +3648,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-forward></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-forward"></icon>
+<icon ios="ion-ios-arrow-forward" md="ion-md-arrow-forward"></icon>
 
 {% endhighlight %}
 
@@ -3635,6 +3665,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-remove</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-remove"></i>
@@ -3651,7 +3682,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon remove></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-remove"></icon>
+<icon ios="ion-ios-remove" md="ion-md-remove"></icon>
 
 {% endhighlight %}
 
@@ -3690,7 +3721,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon download></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-download"></icon>
+<icon ios="ion-ios-download" md="ion-md-download"></icon>
 
 {% endhighlight %}
 
@@ -3707,6 +3738,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-close</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-close"></i>
@@ -3723,7 +3755,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon close></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-close"></icon>
+<icon ios="ion-ios-close" md="ion-md-close"></icon>
 
 {% endhighlight %}
 
@@ -3762,7 +3794,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon calendar></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-calendar"></icon>
+<icon ios="ion-ios-calendar" md="ion-md-calendar"></icon>
 
 {% endhighlight %}
 
@@ -3828,7 +3860,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon hammer></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-hammer"></icon>
+<icon ios="ion-ios-hammer" md="ion-md-hammer"></icon>
 
 {% endhighlight %}
 
@@ -3894,7 +3926,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon ribbon></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-ribbon"></icon>
+<icon ios="ion-ios-ribbon" md="ion-md-ribbon"></icon>
 
 {% endhighlight %}
 
@@ -3960,7 +3992,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon headset></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-headset"></icon>
+<icon ios="ion-ios-headset" md="ion-md-headset"></icon>
 
 {% endhighlight %}
 
@@ -3999,7 +4031,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon flower></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-flower"></icon>
+<icon ios="ion-ios-flower" md="ion-md-flower"></icon>
 
 {% endhighlight %}
 
@@ -4038,7 +4070,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon leaf></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-leaf"></icon>
+<icon ios="ion-ios-leaf" md="ion-md-leaf"></icon>
 
 {% endhighlight %}
 
@@ -4104,7 +4136,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon fastforward></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-fastforward"></icon>
+<icon ios="ion-ios-fastforward" md="ion-md-fastforward"></icon>
 
 {% endhighlight %}
 
@@ -4143,7 +4175,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon clock></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-clock"></icon>
+<icon ios="ion-ios-clock" md="ion-md-clock"></icon>
 
 {% endhighlight %}
 
@@ -4182,7 +4214,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon nuclear></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-nuclear"></icon>
+<icon ios="ion-ios-nuclear" md="ion-md-nuclear"></icon>
 
 {% endhighlight %}
 
@@ -4221,7 +4253,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon redo></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-redo"></icon>
+<icon ios="ion-ios-redo" md="ion-md-redo"></icon>
 
 {% endhighlight %}
 
@@ -4260,7 +4292,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pulse></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pulse"></icon>
+<icon ios="ion-ios-pulse" md="ion-md-pulse"></icon>
 
 {% endhighlight %}
 
@@ -4299,7 +4331,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon moon></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-moon"></icon>
+<icon ios="ion-ios-moon" md="ion-md-moon"></icon>
 
 {% endhighlight %}
 
@@ -4338,7 +4370,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon reverse-camera></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-reverse-camera"></icon>
+<icon ios="ion-ios-reverse-camera" md="ion-md-reverse-camera"></icon>
 
 {% endhighlight %}
 
@@ -4377,7 +4409,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon clipboard></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-clipboard"></icon>
+<icon ios="ion-ios-clipboard" md="ion-md-clipboard"></icon>
 
 {% endhighlight %}
 
@@ -4416,7 +4448,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon backspace></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-backspace"></icon>
+<icon ios="ion-ios-backspace" md="ion-md-backspace"></icon>
 
 {% endhighlight %}
 
@@ -4455,7 +4487,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloud></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloud"></icon>
+<icon ios="ion-ios-cloud" md="ion-md-cloud"></icon>
 
 {% endhighlight %}
 
@@ -4494,7 +4526,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon print></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-print"></icon>
+<icon ios="ion-ios-print" md="ion-md-print"></icon>
 
 {% endhighlight %}
 
@@ -4565,6 +4597,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-contrast</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-contrast"></i>
@@ -4581,7 +4614,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon contrast></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-contrast"></icon>
+<icon ios="ion-ios-contrast" md="ion-md-contrast"></icon>
 
 {% endhighlight %}
 
@@ -4598,6 +4631,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-return-left</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-return-left"></i>
@@ -4614,7 +4648,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon return-left></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-return-left"></icon>
+<icon ios="ion-ios-return-left" md="ion-md-return-left"></icon>
 
 {% endhighlight %}
 
@@ -4653,7 +4687,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon body></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-body"></icon>
+<icon ios="ion-ios-body" md="ion-md-body"></icon>
 
 {% endhighlight %}
 
@@ -4692,7 +4726,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon umbrella></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-umbrella"></icon>
+<icon ios="ion-ios-umbrella" md="ion-md-umbrella"></icon>
 
 {% endhighlight %}
 
@@ -4709,6 +4743,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-code-download</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-code-download"></i>
@@ -4725,7 +4760,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon code-download></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-code-download"></icon>
+<icon ios="ion-ios-code-download" md="ion-md-code-download"></icon>
 
 {% endhighlight %}
 
@@ -4764,7 +4799,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon power></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-power"></icon>
+<icon ios="ion-ios-power" md="ion-md-power"></icon>
 
 {% endhighlight %}
 
@@ -4803,7 +4838,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bowtie></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bowtie"></icon>
+<icon ios="ion-ios-bowtie" md="ion-md-bowtie"></icon>
 
 {% endhighlight %}
 
@@ -4820,6 +4855,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-compare</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-compare"></i>
@@ -4836,7 +4872,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-compare></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-compare"></icon>
+<icon ios="ion-ios-git-compare" md="ion-md-git-compare"></icon>
 
 {% endhighlight %}
 
@@ -4875,7 +4911,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon barcode></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-barcode"></icon>
+<icon ios="ion-ios-barcode" md="ion-md-barcode"></icon>
 
 {% endhighlight %}
 
@@ -4914,7 +4950,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cart></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cart"></icon>
+<icon ios="ion-ios-cart" md="ion-md-cart"></icon>
 
 {% endhighlight %}
 
@@ -4953,7 +4989,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon thunderstorm></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-thunderstorm"></icon>
+<icon ios="ion-ios-thunderstorm" md="ion-md-thunderstorm"></icon>
 
 {% endhighlight %}
 
@@ -4992,7 +5028,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon paper></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-paper"></icon>
+<icon ios="ion-ios-paper" md="ion-md-paper"></icon>
 
 {% endhighlight %}
 
@@ -5031,7 +5067,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon medkit></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-medkit"></icon>
+<icon ios="ion-ios-medkit" md="ion-md-medkit"></icon>
 
 {% endhighlight %}
 
@@ -5070,7 +5106,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pause></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pause"></icon>
+<icon ios="ion-ios-pause" md="ion-md-pause"></icon>
 
 {% endhighlight %}
 
@@ -5109,7 +5145,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon baseball></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-baseball"></icon>
+<icon ios="ion-ios-baseball" md="ion-md-baseball"></icon>
 
 {% endhighlight %}
 
@@ -5175,7 +5211,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon key></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-key"></icon>
+<icon ios="ion-ios-key" md="ion-md-key"></icon>
 
 {% endhighlight %}
 
@@ -5214,7 +5250,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon eye-off></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-eye-off"></icon>
+<icon ios="ion-ios-eye-off" md="ion-md-eye-off"></icon>
 
 {% endhighlight %}
 
@@ -5280,7 +5316,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon hand></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-hand"></icon>
+<icon ios="ion-ios-hand" md="ion-md-hand"></icon>
 
 {% endhighlight %}
 
@@ -5346,7 +5382,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon card></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-card"></icon>
+<icon ios="ion-ios-card" md="ion-md-card"></icon>
 
 {% endhighlight %}
 
@@ -5385,7 +5421,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon beaker></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-beaker"></icon>
+<icon ios="ion-ios-beaker" md="ion-md-beaker"></icon>
 
 {% endhighlight %}
 
@@ -5424,7 +5460,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon water></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-water"></icon>
+<icon ios="ion-ios-water" md="ion-md-water"></icon>
 
 {% endhighlight %}
 
@@ -5463,7 +5499,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon search></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-search"></icon>
+<icon ios="ion-ios-search" md="ion-md-search"></icon>
 
 {% endhighlight %}
 
@@ -5480,6 +5516,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-merge</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-merge"></i>
@@ -5496,7 +5533,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-merge></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-merge"></icon>
+<icon ios="ion-ios-git-merge" md="ion-md-git-merge"></icon>
 
 {% endhighlight %}
 
@@ -5535,7 +5572,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon restaurant></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-restaurant"></icon>
+<icon ios="ion-ios-restaurant" md="ion-md-restaurant"></icon>
 
 {% endhighlight %}
 
@@ -5574,7 +5611,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon help-buoy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-help-buoy"></icon>
+<icon ios="ion-ios-help-buoy" md="ion-md-help-buoy"></icon>
 
 {% endhighlight %}
 
@@ -5613,7 +5650,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon close-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-close-circle"></icon>
+<icon ios="ion-ios-close-circle" md="ion-md-close-circle"></icon>
 
 {% endhighlight %}
 
@@ -5630,6 +5667,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-contract</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-contract"></i>
@@ -5646,7 +5684,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon contract></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-contract"></icon>
+<icon ios="ion-ios-contract" md="ion-md-contract"></icon>
 
 {% endhighlight %}
 
@@ -5685,7 +5723,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon checkbox></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-checkbox"></icon>
+<icon ios="ion-ios-checkbox" md="ion-md-checkbox"></icon>
 
 {% endhighlight %}
 
@@ -5702,6 +5740,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-trending-up</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-trending-up"></i>
@@ -5718,7 +5757,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon trending-up></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-trending-up"></icon>
+<icon ios="ion-ios-trending-up" md="ion-md-trending-up"></icon>
 
 {% endhighlight %}
 
@@ -5784,7 +5823,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon person></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-person"></icon>
+<icon ios="ion-ios-person" md="ion-md-person"></icon>
 
 {% endhighlight %}
 
@@ -5823,7 +5862,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon tennisball></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-tennisball"></icon>
+<icon ios="ion-ios-tennisball" md="ion-md-tennisball"></icon>
 
 {% endhighlight %}
 
@@ -5889,7 +5928,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cog></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cog"></icon>
+<icon ios="ion-ios-cog" md="ion-md-cog"></icon>
 
 {% endhighlight %}
 
@@ -5928,7 +5967,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon rose></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-rose"></icon>
+<icon ios="ion-ios-rose" md="ion-md-rose"></icon>
 
 {% endhighlight %}
 
@@ -5967,7 +6006,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon wifi></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-wifi"></icon>
+<icon ios="ion-ios-wifi" md="ion-md-wifi"></icon>
 
 {% endhighlight %}
 
@@ -6033,7 +6072,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon ionic></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-ionic"></icon>
+<icon ios="ion-ios-ionic" md="ion-md-ionic"></icon>
 
 {% endhighlight %}
 
@@ -6050,6 +6089,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-checkmark</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-checkmark"></i>
@@ -6066,7 +6106,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon checkmark></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-checkmark"></icon>
+<icon ios="ion-ios-checkmark" md="ion-md-checkmark"></icon>
 
 {% endhighlight %}
 
@@ -6110,6 +6150,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-phone-portrait</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-phone-portrait"></i>
@@ -6126,7 +6167,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon phone-portrait></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-phone-portrait"></icon>
+<icon ios="ion-ios-phone-portrait" md="ion-md-phone-portrait"></icon>
 
 {% endhighlight %}
 
@@ -6143,6 +6184,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-shuffle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-shuffle"></i>
@@ -6159,7 +6201,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon shuffle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-shuffle"></icon>
+<icon ios="ion-ios-shuffle" md="ion-md-shuffle"></icon>
 
 {% endhighlight %}
 
@@ -6198,7 +6240,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon mail></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-mail"></icon>
+<icon ios="ion-ios-mail" md="ion-md-mail"></icon>
 
 {% endhighlight %}
 
@@ -6237,7 +6279,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon image></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-image"></icon>
+<icon ios="ion-ios-image" md="ion-md-image"></icon>
 
 {% endhighlight %}
 
@@ -6254,6 +6296,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-round-forward</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-round-forward"></i>
@@ -6270,7 +6313,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-round-forward></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-round-forward"></icon>
+<icon ios="ion-ios-arrow-round-forward" md="ion-md-arrow-round-forward"></icon>
 
 {% endhighlight %}
 
@@ -6309,7 +6352,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon thumbs-down></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-thumbs-down"></icon>
+<icon ios="ion-ios-thumbs-down" md="ion-md-thumbs-down"></icon>
 
 {% endhighlight %}
 
@@ -6326,6 +6369,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-volume-mute</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-volume-mute"></i>
@@ -6342,7 +6386,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon volume-mute></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-volume-mute"></icon>
+<icon ios="ion-ios-volume-mute" md="ion-md-volume-mute"></icon>
 
 {% endhighlight %}
 
@@ -6359,6 +6403,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-sync</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-sync"></i>
@@ -6375,7 +6420,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon sync></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-sync"></icon>
+<icon ios="ion-ios-sync" md="ion-md-sync"></icon>
 
 {% endhighlight %}
 
@@ -6414,7 +6459,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon no-smoking></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-no-smoking"></icon>
+<icon ios="ion-ios-no-smoking" md="ion-md-no-smoking"></icon>
 
 {% endhighlight %}
 
@@ -6480,7 +6525,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon brush></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-brush"></icon>
+<icon ios="ion-ios-brush" md="ion-md-brush"></icon>
 
 {% endhighlight %}
 
@@ -6497,6 +6542,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-female</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-female"></i>
@@ -6513,7 +6559,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon female></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-female"></icon>
+<icon ios="ion-ios-female" md="ion-md-female"></icon>
 
 {% endhighlight %}
 
@@ -6530,6 +6576,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-tablet-landscape</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-tablet-landscape"></i>
@@ -6546,7 +6593,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon tablet-landscape></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-tablet-landscape"></icon>
+<icon ios="ion-ios-tablet-landscape" md="ion-md-tablet-landscape"></icon>
 
 {% endhighlight %}
 
@@ -6585,7 +6632,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon ice-cream></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-ice-cream"></icon>
+<icon ios="ion-ios-ice-cream" md="ion-md-ice-cream"></icon>
 
 {% endhighlight %}
 
@@ -6624,7 +6671,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bookmarks></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bookmarks"></icon>
+<icon ios="ion-ios-bookmarks" md="ion-md-bookmarks"></icon>
 
 {% endhighlight %}
 
@@ -6663,7 +6710,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon sad></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-sad"></icon>
+<icon ios="ion-ios-sad" md="ion-md-sad"></icon>
 
 {% endhighlight %}
 
@@ -6702,7 +6749,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon open></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-open"></icon>
+<icon ios="ion-ios-open" md="ion-md-open"></icon>
 
 {% endhighlight %}
 
@@ -6741,7 +6788,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon train></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-train"></icon>
+<icon ios="ion-ios-train" md="ion-md-train"></icon>
 
 {% endhighlight %}
 
@@ -6780,7 +6827,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon boat></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-boat"></icon>
+<icon ios="ion-ios-boat" md="ion-md-boat"></icon>
 
 {% endhighlight %}
 
@@ -6797,6 +6844,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-return-right</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-return-right"></i>
@@ -6813,7 +6861,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon return-right></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-return-right"></icon>
+<icon ios="ion-ios-return-right" md="ion-md-return-right"></icon>
 
 {% endhighlight %}
 
@@ -6852,7 +6900,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon unlock></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-unlock"></icon>
+<icon ios="ion-ios-unlock" md="ion-md-unlock"></icon>
 
 {% endhighlight %}
 
@@ -6891,7 +6939,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon thumbs-up></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-thumbs-up"></icon>
+<icon ios="ion-ios-thumbs-up" md="ion-md-thumbs-up"></icon>
 
 {% endhighlight %}
 
@@ -6930,7 +6978,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon basketball></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-basketball"></icon>
+<icon ios="ion-ios-basketball" md="ion-md-basketball"></icon>
 
 {% endhighlight %}
 
@@ -6969,7 +7017,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon eye></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-eye"></icon>
+<icon ios="ion-ios-eye" md="ion-md-eye"></icon>
 
 {% endhighlight %}
 
@@ -6986,6 +7034,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-radio-button-off</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-radio-button-off"></i>
@@ -7002,7 +7051,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon radio-button-off></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-radio-button-off"></icon>
+<icon ios="ion-ios-radio-button-off" md="ion-md-radio-button-off"></icon>
 
 {% endhighlight %}
 
@@ -7041,7 +7090,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon jet></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-jet"></icon>
+<icon ios="ion-ios-jet" md="ion-md-jet"></icon>
 
 {% endhighlight %}
 
@@ -7107,7 +7156,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bookmark></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bookmark"></icon>
+<icon ios="ion-ios-bookmark" md="ion-md-bookmark"></icon>
 
 {% endhighlight %}
 
@@ -7124,6 +7173,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropup-circle</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropup-circle"></i>
@@ -7140,7 +7190,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropup-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropup-circle"></icon>
+<icon ios="ion-ios-arrow-dropup-circle" md="ion-md-arrow-dropup-circle"></icon>
 
 {% endhighlight %}
 
@@ -7179,7 +7229,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon people></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-people"></icon>
+<icon ios="ion-ios-people" md="ion-md-people"></icon>
 
 {% endhighlight %}
 
@@ -7218,7 +7268,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon apps></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-apps"></icon>
+<icon ios="ion-ios-apps" md="ion-md-apps"></icon>
 
 {% endhighlight %}
 
@@ -7284,7 +7334,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon construct></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-construct"></icon>
+<icon ios="ion-ios-construct" md="ion-md-construct"></icon>
 
 {% endhighlight %}
 
@@ -7301,6 +7351,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-attach</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-attach"></i>
@@ -7317,7 +7368,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon attach></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-attach"></icon>
+<icon ios="ion-ios-attach" md="ion-md-attach"></icon>
 
 {% endhighlight %}
 
@@ -7356,7 +7407,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon beer></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-beer"></icon>
+<icon ios="ion-ios-beer" md="ion-md-beer"></icon>
 
 {% endhighlight %}
 
@@ -7395,7 +7446,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon camera></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-camera"></icon>
+<icon ios="ion-ios-camera" md="ion-md-camera"></icon>
 
 {% endhighlight %}
 
@@ -7434,7 +7485,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon call></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-call"></icon>
+<icon ios="ion-ios-call" md="ion-md-call"></icon>
 
 {% endhighlight %}
 
@@ -7473,7 +7524,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon navigate></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-navigate"></icon>
+<icon ios="ion-ios-navigate" md="ion-md-navigate"></icon>
 
 {% endhighlight %}
 
@@ -7512,7 +7563,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon aperture></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-aperture"></icon>
+<icon ios="ion-ios-aperture" md="ion-md-aperture"></icon>
 
 {% endhighlight %}
 
@@ -7529,6 +7580,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-round-back</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-round-back"></i>
@@ -7545,7 +7597,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-round-back></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-round-back"></icon>
+<icon ios="ion-ios-arrow-round-back" md="ion-md-arrow-round-back"></icon>
 
 {% endhighlight %}
 
@@ -7584,7 +7636,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon megaphone></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-megaphone"></icon>
+<icon ios="ion-ios-megaphone" md="ion-md-megaphone"></icon>
 
 {% endhighlight %}
 
@@ -7623,7 +7675,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon globe></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-globe"></icon>
+<icon ios="ion-ios-globe" md="ion-md-globe"></icon>
 
 {% endhighlight %}
 
@@ -7640,6 +7692,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-reorder</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-reorder"></i>
@@ -7656,7 +7709,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon reorder></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-reorder"></icon>
+<icon ios="ion-ios-reorder" md="ion-md-reorder"></icon>
 
 {% endhighlight %}
 
@@ -7695,7 +7748,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon happy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-happy"></icon>
+<icon ios="ion-ios-happy" md="ion-md-happy"></icon>
 
 {% endhighlight %}
 
@@ -7734,7 +7787,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon nutrition></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-nutrition"></icon>
+<icon ios="ion-ios-nutrition" md="ion-md-nutrition"></icon>
 
 {% endhighlight %}
 
@@ -7773,7 +7826,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon funnel></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-funnel"></icon>
+<icon ios="ion-ios-funnel" md="ion-md-funnel"></icon>
 
 {% endhighlight %}
 
@@ -7812,7 +7865,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon partly-sunny></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-partly-sunny"></icon>
+<icon ios="ion-ios-partly-sunny" md="ion-md-partly-sunny"></icon>
 
 {% endhighlight %}
 
@@ -7878,7 +7931,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bus></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bus"></icon>
+<icon ios="ion-ios-bus" md="ion-md-bus"></icon>
 
 {% endhighlight %}
 
@@ -7944,7 +7997,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon color-wand></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-color-wand"></icon>
+<icon ios="ion-ios-color-wand" md="ion-md-color-wand"></icon>
 
 {% endhighlight %}
 
@@ -8010,7 +8063,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon notifications></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-notifications"></icon>
+<icon ios="ion-ios-notifications" md="ion-md-notifications"></icon>
 
 {% endhighlight %}
 
@@ -8049,7 +8102,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon flag></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-flag"></icon>
+<icon ios="ion-ios-flag" md="ion-md-flag"></icon>
 
 {% endhighlight %}
 
@@ -8115,7 +8168,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon link></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-link"></icon>
+<icon ios="ion-ios-link" md="ion-md-link"></icon>
 
 {% endhighlight %}
 
@@ -8154,7 +8207,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon crop></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-crop"></icon>
+<icon ios="ion-ios-crop" md="ion-md-crop"></icon>
 
 {% endhighlight %}
 
@@ -8171,6 +8224,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-branch</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-branch"></i>
@@ -8187,7 +8241,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-branch></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-branch"></icon>
+<icon ios="ion-ios-git-branch" md="ion-md-git-branch"></icon>
 
 {% endhighlight %}
 
@@ -8253,7 +8307,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bulb></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bulb"></icon>
+<icon ios="ion-ios-bulb" md="ion-md-bulb"></icon>
 
 {% endhighlight %}
 
@@ -8292,7 +8346,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon albums></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-albums"></icon>
+<icon ios="ion-ios-albums" md="ion-md-albums"></icon>
 
 {% endhighlight %}
 
@@ -8331,7 +8385,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon copy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-copy"></icon>
+<icon ios="ion-ios-copy" md="ion-md-copy"></icon>
 
 {% endhighlight %}
 
@@ -8370,7 +8424,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon bug></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-bug"></icon>
+<icon ios="ion-ios-bug" md="ion-md-bug"></icon>
 
 {% endhighlight %}
 
@@ -8387,6 +8441,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-resize</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-resize"></i>
@@ -8403,7 +8458,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon resize></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-resize"></icon>
+<icon ios="ion-ios-resize" md="ion-md-resize"></icon>
 
 {% endhighlight %}
 
@@ -8420,6 +8475,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-battery-charging</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-battery-charging"></i>
@@ -8436,7 +8492,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon battery-charging></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-battery-charging"></icon>
+<icon ios="ion-ios-battery-charging" md="ion-md-battery-charging"></icon>
 
 {% endhighlight %}
 
@@ -8475,7 +8531,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon play></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-play"></icon>
+<icon ios="ion-ios-play" md="ion-md-play"></icon>
 
 {% endhighlight %}
 
@@ -8514,7 +8570,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon woman></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-woman"></icon>
+<icon ios="ion-ios-woman" md="ion-md-woman"></icon>
 
 {% endhighlight %}
 
@@ -8553,7 +8609,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon thermometer></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-thermometer"></icon>
+<icon ios="ion-ios-thermometer" md="ion-md-thermometer"></icon>
 
 {% endhighlight %}
 
@@ -8592,7 +8648,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon skip-backward></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-skip-backward"></icon>
+<icon ios="ion-ios-skip-backward" md="ion-md-skip-backward"></icon>
 
 {% endhighlight %}
 
@@ -8631,7 +8687,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pricetag></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pricetag"></icon>
+<icon ios="ion-ios-pricetag" md="ion-md-pricetag"></icon>
 
 {% endhighlight %}
 
@@ -8670,7 +8726,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon car></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-car"></icon>
+<icon ios="ion-ios-car" md="ion-md-car"></icon>
 
 {% endhighlight %}
 
@@ -8687,6 +8743,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-radio-button-on</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-radio-button-on"></i>
@@ -8703,7 +8760,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon radio-button-on></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-radio-button-on"></icon>
+<icon ios="ion-ios-radio-button-on" md="ion-md-radio-button-on"></icon>
 
 {% endhighlight %}
 
@@ -8742,7 +8799,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cash></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cash"></icon>
+<icon ios="ion-ios-cash" md="ion-md-cash"></icon>
 
 {% endhighlight %}
 
@@ -8781,7 +8838,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon skip-forward></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-skip-forward"></icon>
+<icon ios="ion-ios-skip-forward" md="ion-md-skip-forward"></icon>
 
 {% endhighlight %}
 
@@ -8820,7 +8877,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon planet></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-planet"></icon>
+<icon ios="ion-ios-planet" md="ion-md-planet"></icon>
 
 {% endhighlight %}
 
@@ -8859,7 +8916,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon warning></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-warning"></icon>
+<icon ios="ion-ios-warning" md="ion-md-warning"></icon>
 
 {% endhighlight %}
 
@@ -8898,7 +8955,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon flame></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-flame"></icon>
+<icon ios="ion-ios-flame" md="ion-md-flame"></icon>
 
 {% endhighlight %}
 
@@ -8964,7 +9021,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloud-done></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloud-done"></icon>
+<icon ios="ion-ios-cloud-done" md="ion-md-cloud-done"></icon>
 
 {% endhighlight %}
 
@@ -9030,7 +9087,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon chatbubbles></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-chatbubbles"></icon>
+<icon ios="ion-ios-chatbubbles" md="ion-md-chatbubbles"></icon>
 
 {% endhighlight %}
 
@@ -9047,6 +9104,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-tablet-portrait</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-tablet-portrait"></i>
@@ -9063,7 +9121,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon tablet-portrait></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-tablet-portrait"></icon>
+<icon ios="ion-ios-tablet-portrait" md="ion-md-tablet-portrait"></icon>
 
 {% endhighlight %}
 
@@ -9080,6 +9138,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-male</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-male"></i>
@@ -9096,7 +9155,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon male></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-male"></icon>
+<icon ios="ion-ios-male" md="ion-md-male"></icon>
 
 {% endhighlight %}
 
@@ -9135,7 +9194,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon medical></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-medical"></icon>
+<icon ios="ion-ios-medical" md="ion-md-medical"></icon>
 
 {% endhighlight %}
 
@@ -9152,6 +9211,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-finger-print</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-finger-print"></i>
@@ -9168,7 +9228,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon finger-print></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-finger-print"></icon>
+<icon ios="ion-ios-finger-print" md="ion-md-finger-print"></icon>
 
 {% endhighlight %}
 
@@ -9207,7 +9267,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon heart></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-heart"></icon>
+<icon ios="ion-ios-heart" md="ion-md-heart"></icon>
 
 {% endhighlight %}
 
@@ -9251,6 +9311,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-up</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-up"></i>
@@ -9267,7 +9328,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-up></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-up"></icon>
+<icon ios="ion-ios-arrow-up" md="ion-md-arrow-up"></icon>
 
 {% endhighlight %}
 
@@ -9306,7 +9367,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pin></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pin"></icon>
+<icon ios="ion-ios-pin" md="ion-md-pin"></icon>
 
 {% endhighlight %}
 
@@ -9345,7 +9406,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon chatboxes></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-chatboxes"></icon>
+<icon ios="ion-ios-chatboxes" md="ion-md-chatboxes"></icon>
 
 {% endhighlight %}
 
@@ -9384,7 +9445,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon lock></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-lock"></icon>
+<icon ios="ion-ios-lock" md="ion-md-lock"></icon>
 
 {% endhighlight %}
 
@@ -9423,7 +9484,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon calculator></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-calculator"></icon>
+<icon ios="ion-ios-calculator" md="ion-md-calculator"></icon>
 
 {% endhighlight %}
 
@@ -9440,6 +9501,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-star-half</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-star-half"></i>
@@ -9456,7 +9518,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon star-half></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-star-half"></icon>
+<icon ios="ion-ios-star-half" md="ion-md-star-half"></icon>
 
 {% endhighlight %}
 
@@ -9495,7 +9557,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon share></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-share"></icon>
+<icon ios="ion-ios-share" md="ion-md-share"></icon>
 
 {% endhighlight %}
 
@@ -9534,7 +9596,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pie></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pie"></icon>
+<icon ios="ion-ios-pie" md="ion-md-pie"></icon>
 
 {% endhighlight %}
 
@@ -9551,6 +9613,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-phone-landscape</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-phone-landscape"></i>
@@ -9567,7 +9630,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon phone-landscape></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-phone-landscape"></icon>
+<icon ios="ion-ios-phone-landscape" md="ion-md-phone-landscape"></icon>
 
 {% endhighlight %}
 
@@ -9606,7 +9669,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon images></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-images"></icon>
+<icon ios="ion-ios-images" md="ion-md-images"></icon>
 
 {% endhighlight %}
 
@@ -9672,7 +9735,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon at></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-at"></icon>
+<icon ios="ion-ios-at" md="ion-md-at"></icon>
 
 {% endhighlight %}
 
@@ -9711,7 +9774,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon home></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-home"></icon>
+<icon ios="ion-ios-home" md="ion-md-home"></icon>
 
 {% endhighlight %}
 
@@ -9728,6 +9791,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropup</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropup"></i>
@@ -9744,7 +9808,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropup></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropup"></icon>
+<icon ios="ion-ios-arrow-dropup" md="ion-md-arrow-dropup"></icon>
 
 {% endhighlight %}
 
@@ -9810,7 +9874,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cafe></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cafe"></icon>
+<icon ios="ion-ios-cafe" md="ion-md-cafe"></icon>
 
 {% endhighlight %}
 
@@ -9849,7 +9913,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon archive></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-archive"></icon>
+<icon ios="ion-ios-archive" md="ion-md-archive"></icon>
 
 {% endhighlight %}
 
@@ -9888,7 +9952,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon film></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-film"></icon>
+<icon ios="ion-ios-film" md="ion-md-film"></icon>
 
 {% endhighlight %}
 
@@ -9905,6 +9969,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-git-commit</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-git-commit"></i>
@@ -9921,7 +9986,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon git-commit></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-git-commit"></icon>
+<icon ios="ion-ios-git-commit" md="ion-md-git-commit"></icon>
 
 {% endhighlight %}
 
@@ -9938,6 +10003,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-information</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-information"></i>
@@ -9954,7 +10020,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon information></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-information"></icon>
+<icon ios="ion-ios-information" md="ion-md-information"></icon>
 
 {% endhighlight %}
 
@@ -9993,7 +10059,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon microphone></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-microphone"></icon>
+<icon ios="ion-ios-microphone" md="ion-md-microphone"></icon>
 
 {% endhighlight %}
 
@@ -10032,7 +10098,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon shirt></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-shirt"></icon>
+<icon ios="ion-ios-shirt" md="ion-md-shirt"></icon>
 
 {% endhighlight %}
 
@@ -10071,7 +10137,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon paw></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-paw"></icon>
+<icon ios="ion-ios-paw" md="ion-md-paw"></icon>
 
 {% endhighlight %}
 
@@ -10137,7 +10203,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon mic></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-mic"></icon>
+<icon ios="ion-ios-mic" md="ion-md-mic"></icon>
 
 {% endhighlight %}
 
@@ -10176,7 +10242,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon game-controller-a></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-game-controller-a"></icon>
+<icon ios="ion-ios-game-controller-a" md="ion-md-game-controller-a"></icon>
 
 {% endhighlight %}
 
@@ -10193,6 +10259,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-snow</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-snow"></i>
@@ -10209,7 +10276,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon snow></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-snow"></icon>
+<icon ios="ion-ios-snow" md="ion-md-snow"></icon>
 
 {% endhighlight %}
 
@@ -10248,7 +10315,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon game-controller-b></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-game-controller-b"></icon>
+<icon ios="ion-ios-game-controller-b" md="ion-md-game-controller-b"></icon>
 
 {% endhighlight %}
 
@@ -10265,6 +10332,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-walk</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-walk"></i>
@@ -10281,7 +10349,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon walk></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-walk"></icon>
+<icon ios="ion-ios-walk" md="ion-md-walk"></icon>
 
 {% endhighlight %}
 
@@ -10320,7 +10388,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon book></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-book"></icon>
+<icon ios="ion-ios-book" md="ion-md-book"></icon>
 
 {% endhighlight %}
 
@@ -10359,7 +10427,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon square></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-square"></icon>
+<icon ios="ion-ios-square" md="ion-md-square"></icon>
 
 {% endhighlight %}
 
@@ -10398,7 +10466,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon build></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-build"></icon>
+<icon ios="ion-ios-build" md="ion-md-build"></icon>
 
 {% endhighlight %}
 
@@ -10415,6 +10483,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-back</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-back"></i>
@@ -10431,7 +10500,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-back></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-back"></icon>
+<icon ios="ion-ios-arrow-back" md="ion-md-arrow-back"></icon>
 
 {% endhighlight %}
 
@@ -10497,7 +10566,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon more></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-more"></icon>
+<icon ios="ion-ios-more" md="ion-md-more"></icon>
 
 {% endhighlight %}
 
@@ -10536,7 +10605,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloud-upload></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloud-upload"></icon>
+<icon ios="ion-ios-cloud-upload" md="ion-md-cloud-upload"></icon>
 
 {% endhighlight %}
 
@@ -10575,7 +10644,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon pint></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-pint"></icon>
+<icon ios="ion-ios-pint" md="ion-md-pint"></icon>
 
 {% endhighlight %}
 
@@ -10614,7 +10683,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon cloudy-night></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-cloudy-night"></icon>
+<icon ios="ion-ios-cloudy-night" md="ion-md-cloudy-night"></icon>
 
 {% endhighlight %}
 
@@ -10631,6 +10700,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-arrow-dropleft</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-arrow-dropleft"></i>
@@ -10647,7 +10717,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon arrow-dropleft></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-arrow-dropleft"></icon>
+<icon ios="ion-ios-arrow-dropleft" md="ion-md-arrow-dropleft"></icon>
 
 {% endhighlight %}
 
@@ -10686,7 +10756,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon person-add></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-person-add"></icon>
+<icon ios="ion-ios-person-add" md="ion-md-person-add"></icon>
 
 {% endhighlight %}
 
@@ -10725,7 +10795,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon star></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-star"></icon>
+<icon ios="ion-ios-star" md="ion-md-star"></icon>
 
 {% endhighlight %}
 
@@ -10764,7 +10834,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon briefcase></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-briefcase"></icon>
+<icon ios="ion-ios-briefcase" md="ion-md-briefcase"></icon>
 
 {% endhighlight %}
 
@@ -10803,7 +10873,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon musical-note></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-musical-note"></icon>
+<icon ios="ion-ios-musical-note" md="ion-md-musical-note"></icon>
 
 {% endhighlight %}
 
@@ -10842,7 +10912,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon quote></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-quote"></icon>
+<icon ios="ion-ios-quote" md="ion-md-quote"></icon>
 
 {% endhighlight %}
 
@@ -10859,6 +10929,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-qr-scanner</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-qr-scanner"></i>
@@ -10875,7 +10946,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon qr-scanner></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-qr-scanner"></icon>
+<icon ios="ion-ios-qr-scanner" md="ion-md-qr-scanner"></icon>
 
 {% endhighlight %}
 
@@ -10914,7 +10985,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon football></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-football"></icon>
+<icon ios="ion-ios-football" md="ion-md-football"></icon>
 
 {% endhighlight %}
 
@@ -10953,7 +11024,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon rainy></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-rainy"></icon>
+<icon ios="ion-ios-rainy" md="ion-md-rainy"></icon>
 
 {% endhighlight %}
 
@@ -10970,6 +11041,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-done-all</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-done-all"></i>
@@ -10986,7 +11058,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon done-all></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-done-all"></icon>
+<icon ios="ion-ios-done-all" md="ion-md-done-all"></icon>
 
 {% endhighlight %}
 
@@ -11025,7 +11097,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon alert></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-alert"></icon>
+<icon ios="ion-ios-alert" md="ion-md-alert"></icon>
 
 {% endhighlight %}
 
@@ -11064,7 +11136,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon podium></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-podium"></icon>
+<icon ios="ion-ios-podium" md="ion-md-podium"></icon>
 
 {% endhighlight %}
 
@@ -11103,7 +11175,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon plane></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-plane"></icon>
+<icon ios="ion-ios-plane" md="ion-md-plane"></icon>
 
 {% endhighlight %}
 
@@ -11142,7 +11214,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon timer></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-timer"></icon>
+<icon ios="ion-ios-timer" md="ion-md-timer"></icon>
 
 {% endhighlight %}
 
@@ -11181,7 +11253,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon infinite></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-infinite"></icon>
+<icon ios="ion-ios-infinite" md="ion-md-infinite"></icon>
 
 {% endhighlight %}
 
@@ -11220,7 +11292,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon stats></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-stats"></icon>
+<icon ios="ion-ios-stats" md="ion-md-stats"></icon>
 
 {% endhighlight %}
 
@@ -11286,7 +11358,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon medal></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-medal"></icon>
+<icon ios="ion-ios-medal" md="ion-md-medal"></icon>
 
 {% endhighlight %}
 
@@ -11330,6 +11402,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-expand</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-expand"></i>
@@ -11346,7 +11419,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon expand></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-expand"></icon>
+<icon ios="ion-ios-expand" md="ion-md-expand"></icon>
 
 {% endhighlight %}
 
@@ -11385,7 +11458,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon man></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-man"></icon>
+<icon ios="ion-ios-man" md="ion-md-man"></icon>
 
 {% endhighlight %}
 
@@ -11424,7 +11497,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon checkmark-circle></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-checkmark-circle"></icon>
+<icon ios="ion-ios-checkmark-circle" md="ion-md-checkmark-circle"></icon>
 
 {% endhighlight %}
 
@@ -11441,6 +11514,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-code-working</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-code-working"></i>
@@ -11457,7 +11531,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon code-working></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-code-working"></icon>
+<icon ios="ion-ios-code-working" md="ion-md-code-working"></icon>
 
 {% endhighlight %}
 
@@ -11496,7 +11570,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon photos></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-photos"></icon>
+<icon ios="ion-ios-photos" md="ion-md-photos"></icon>
 
 {% endhighlight %}
 
@@ -11513,6 +11587,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-trending-down</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-trending-down"></i>
@@ -11529,7 +11604,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon trending-down></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-trending-down"></icon>
+<icon ios="ion-ios-trending-down" md="ion-md-trending-down"></icon>
 
 {% endhighlight %}
 
@@ -11568,7 +11643,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon alarm></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-alarm"></icon>
+<icon ios="ion-ios-alarm" md="ion-md-alarm"></icon>
 
 {% endhighlight %}
 
@@ -11607,7 +11682,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon color-fill></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-color-fill"></icon>
+<icon ios="ion-ios-color-fill" md="ion-md-color-fill"></icon>
 
 {% endhighlight %}
 
@@ -11646,7 +11721,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon share-alt></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-share-alt"></icon>
+<icon ios="ion-ios-share-alt" md="ion-md-share-alt"></icon>
 
 {% endhighlight %}
 
@@ -11685,7 +11760,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon color-palette></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-color-palette"></icon>
+<icon ios="ion-ios-color-palette" md="ion-md-color-palette"></icon>
 
 {% endhighlight %}
 
@@ -11724,7 +11799,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon options></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-options"></icon>
+<icon ios="ion-ios-options" md="ion-md-options"></icon>
 
 {% endhighlight %}
 
@@ -11763,7 +11838,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon folder-open></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-folder-open"></icon>
+<icon ios="ion-ios-folder-open" md="ion-md-folder-open"></icon>
 
 {% endhighlight %}
 
@@ -11802,7 +11877,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon switch></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-switch"></icon>
+<icon ios="ion-ios-switch" md="ion-md-switch"></icon>
 
 {% endhighlight %}
 
@@ -11841,7 +11916,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon contact></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-contact"></icon>
+<icon ios="ion-ios-contact" md="ion-md-contact"></icon>
 
 {% endhighlight %}
 
@@ -11858,6 +11933,7 @@ header_sub_title: Ionic 2 Developer Preview
   <code>ios-log-in</code>
 </li>
 
+<li></li>
 
 <li>
   <i class="ion-md-log-in"></i>
@@ -11874,7 +11950,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon log-in></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-log-in"></icon>
+<icon ios="ion-ios-log-in" md="ion-md-log-in"></icon>
 
 {% endhighlight %}
 
@@ -11940,7 +12016,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon trash></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-trash"></icon>
+<icon ios="ion-ios-trash" md="ion-md-trash"></icon>
 
 {% endhighlight %}
 
@@ -11979,7 +12055,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon time></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-time"></icon>
+<icon ios="ion-ios-time" md="ion-md-time"></icon>
 
 {% endhighlight %}
 
@@ -12018,7 +12094,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon basket></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-basket"></icon>
+<icon ios="ion-ios-basket" md="ion-md-basket"></icon>
 
 {% endhighlight %}
 
@@ -12057,7 +12133,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon grid></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-grid"></icon>
+<icon ios="ion-ios-grid" md="ion-md-grid"></icon>
 
 {% endhighlight %}
 
@@ -12123,7 +12199,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon speedometer></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-speedometer"></icon>
+<icon ios="ion-ios-speedometer" md="ion-md-speedometer"></icon>
 
 {% endhighlight %}
 
@@ -12162,7 +12238,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon egg></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-egg"></icon>
+<icon ios="ion-ios-egg" md="ion-md-egg"></icon>
 
 {% endhighlight %}
 
@@ -12201,7 +12277,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon filing></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-filing"></icon>
+<icon ios="ion-ios-filing" md="ion-md-filing"></icon>
 
 {% endhighlight %}
 
@@ -12267,7 +12343,7 @@ header_sub_title: Ionic 2 Developer Preview
 <icon wine></icon>
 
 <!-- Advanced: explicity set the icon for each platform -->
-<icon ios="ion-ios-wine"></icon>
+<icon ios="ion-ios-wine" md="ion-md-wine"></icon>
 
 {% endhighlight %}
 

@@ -7,6 +7,7 @@ $(document).ready(function() {
     };
   }
 
+
   (function() {
     $.fn.modal.defaults = {
       overlay: "#000",        // Overlay color
@@ -76,7 +77,7 @@ $(document).ready(function() {
        searchSetup();
     });
 
-}());
+  }());
 
 
   function searchSetup() {
@@ -261,9 +262,6 @@ $(document).ready(function() {
         }
       }
     }
-
-
-
   }
 
   });

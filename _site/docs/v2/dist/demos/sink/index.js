@@ -1,7 +1,7 @@
-System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pages/pull-to-refresh", "./pages/list", "./pages/list-group", "./pages/card", "./pages/form", "./pages/segment", "./pages/search-bar", "./pages/table-search", "./pages/ionicons", "./pages/tabs", "./pages/menu", "./pages/animation", "./pages/slides", "./pages/action-menu", "./pages/modal"], function (_export) {
+System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pages/pull-to-refresh", "./pages/list", "./pages/list-group", "./pages/card", "./pages/form", "./pages/segment", "./pages/search-bar", "./pages/table-search", "./pages/ionicons", "./pages/tabs", "./pages/menu", "./pages/animation", "./pages/slides", "./pages/action-sheet", "./pages/modal"], function (_export) {
     "use strict";
 
-    var App, IonicApp, ButtonPage, NavPage, PullToRefreshPage, ListPage, ListGroupPage, CardPage, FormPage, SegmentPage, SearchBarPage, TableSearchPage, IconsPage, TabsPage, MenuPage, AnimationPage, SlidePage, ActionMenuPage, ModalPage, __decorate, __metadata, MyApp;
+    var App, IonicApp, ButtonPage, NavPage, PullToRefreshPage, ListPage, ListGroupPage, CardPage, FormPage, SegmentPage, SearchBarPage, TableSearchPage, IconsPage, TabsPage, MenuPage, AnimationPage, SlidePage, ActionSheetPage, ModalPage, __decorate, __metadata, MyApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -41,8 +41,8 @@ System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pag
             AnimationPage = _pagesAnimation.AnimationPage;
         }, function (_pagesSlides) {
             SlidePage = _pagesSlides.SlidePage;
-        }, function (_pagesActionMenu) {
-            ActionMenuPage = _pagesActionMenu.ActionMenuPage;
+        }, function (_pagesActionSheet) {
+            ActionSheetPage = _pagesActionSheet.ActionSheetPage;
         }, function (_pagesModal) {
             ModalPage = _pagesModal.ModalPage;
         }],
@@ -74,7 +74,7 @@ System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pag
                     _classCallCheck(this, MyApp);
 
                     this.app = app;
-                    this.components = [{ title: 'Navigation', component: NavPage }, { title: 'Tabs', component: TabsPage }, { title: 'Buttons', component: ButtonPage }, { title: 'Lists', component: ListPage }, { title: 'List Groups', component: ListGroupPage }, { title: 'Modal', component: ModalPage }, { title: 'Pull to Refresh', component: PullToRefreshPage }, { title: 'Cards', component: CardPage }, { title: 'Forms', component: FormPage }, { title: 'Segments', component: SegmentPage }, { title: 'Search Bar', component: SearchBarPage }, { title: 'Table Search', component: TableSearchPage }, { title: 'Icons', component: IconsPage }, { title: 'Menu', component: MenuPage }, { title: 'Animation', component: AnimationPage }, { title: 'Slides', component: SlidePage }, { title: 'Action Menu', component: ActionMenuPage }];
+                    this.components = [{ title: 'Navigation', component: NavPage }, { title: 'Tabs', component: TabsPage }, { title: 'Buttons', component: ButtonPage }, { title: 'Lists', component: ListPage }, { title: 'List Groups', component: ListGroupPage }, { title: 'Modal', component: ModalPage }, { title: 'Pull to Refresh', component: PullToRefreshPage }, { title: 'Cards', component: CardPage }, { title: 'Forms', component: FormPage }, { title: 'Segments', component: SegmentPage }, { title: 'Search Bar', component: SearchBarPage }, { title: 'Table Search', component: TableSearchPage }, { title: 'Icons', component: IconsPage }, { title: 'Menu', component: MenuPage }, { title: 'Animation', component: AnimationPage }, { title: 'Slides', component: SlidePage }, { title: 'Action Sheet', component: ActionSheetPage }];
                 }
 
                 _createClass(MyApp, [{
@@ -135,8 +135,8 @@ System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pag
                     path: '/slides',
                     component: SlidePage
                 }, {
-                    path: '/action-menu',
-                    component: ActionMenuPage
+                    path: '/action-sheet',
+                    component: ActionSheetPage
                 }]
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], MyApp);
         }

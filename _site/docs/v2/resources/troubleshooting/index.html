@@ -216,6 +216,89 @@
 
 <h1>Troubleshooting Your Ionic App</h1>
 
+<p>Can&#39;t find a solution on this page? Check out the <a href="http://forum.ionicframework.com">Ionic Forums</a>, where the friendly Ions of the community will help you!</p>
+
+<p><br></p>
+
+<h2>Help! My app is blank and there are no errors</h2>
+
+<ul>
+<li>Make sure your @App has a <code>template</code> or <code>templateUrl</code></li>
+<li>Make sure your @App template has an <code>&lt;ion-nav&gt;&lt;/ion-nav&gt;</code> with a <code>root</code> property:
+<code>
+&lt;ion-nav [root]=&quot;firstPage&quot;&gt;&lt;/ion-nav&gt;
+</code></li>
+</ul>
+
+<p><br></p>
+
+<h2>My component/directive isn&#39;t loading!</h2>
+
+<p>If your custom component or directive isn&#39;t working, there are a few things you can check. Make sure:</p>
+
+<ul>
+<li>you include it in the <code>directives</code> array of any components whose templates contain your component or directive</li>
+<li>your selector doesn&#39;t have any misspellings</li>
+<li>you&#39;re using the selector correctly, as an attribute, element or class</li>
+<li>your selector has the <a href="http://learnangular2.com/components/">proper syntax</a>:
+
+<ul>
+<li><code>[attr]</code> if it&#39;s an attribute selector</li>
+<li><code>element</code> if it&#39;s an element selector</li>
+<li><code>.class</code> if it&#39;s a class selector</li>
+</ul></li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;[my-dir]&#39;</span> <span class="c1">// &lt;-- [my-dir] because it&#39;s an attribute</span>
+<span class="p">})</span>                     <span class="c1">// Could be my-dir, [my-dir], .my-dir</span>
+<span class="kr">class</span> <span class="nx">MyDir</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(){</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I&#39;m alive!&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">my</span><span class="o">-</span><span class="nx">dir</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/div&gt;`</span>
+
+  <span class="c1">// Or, depending on your directive&#39;s type</span>
+  <span class="c1">//template: `&lt;my-dir&gt;Hello World&lt;/my-dir&gt;`</span>
+  <span class="c1">//template: `&lt;div class=&quot;my-dir&quot;&gt;Hello World&lt;/div&gt;`</span>
+
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyDir</span><span class="p">]</span> <span class="c1">// &lt;-- Don&#39;t forget me!</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{}</span>
+</code></pre></div>
+<p><br></p>
+
+<h2>Common JS errors:</h2>
+
+<p><br>
+<code>Cannot resolve all parameters for YourClass(someParam, someParam, ?). Make sure they all have valid type or annotations.</code></p>
+
+<p>This means that Angular is confused about one or more of the parameters for YourClass&#39;s constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it&#39;s supposed to inject.  You let Angular know by specifying the class (the type) of the parameter.</p>
+
+<ul>
+<li>First, make sure you are importing the parameter&#39;s class</li>
+<li>Next, make sure you have properly annotated the parameter or specified its type</li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">MyService</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;myservice&#39;</span><span class="p">;</span> <span class="c1">//Don&#39;t forget to import me!</span>
+
+<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="nx">Hello</span> <span class="nx">World</span><span class="err">`</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">service</span>: <span class="kt">MyService</span><span class="p">){}</span>
+    <span class="cm">/* OR */</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Inject</span><span class="p">(</span><span class="nx">MyService</span><span class="p">)</span> <span class="nx">service</span><span class="p">){}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><br>
+<code>No provider for ParamType! (MyClass -&gt; ParamType)</code></p>
+
+<p>This means Angular knows what type of thing it is supposed to inject, but it doesn&#39;t know how. Make sure:</p>
+
+<ul>
+<li>you have added the specified class to the list of bindings available to the component</li>
+</ul>
+
 
           
         </div>

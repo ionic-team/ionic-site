@@ -176,7 +176,7 @@
       <li><a href="/docs/v2/ui/modals/">Modals</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/ui/action-menus/">Action Menus</a></li>
+      <li><a href="/docs/v2/ui/action-sheets/">Action Sheets</a></li>
     </li>
     <li>
       <li><a href="/docs/v2/ui/animation/">Animation</a></li>
@@ -299,16 +299,16 @@
 <p><h3 id="Adding_URLs">Adding URLs to States (Reverse Routing)</h3></p>
 
 <p>There are many situations where your app might need URLs: for example, deeplinking directly to a particular state from another app or saving the current state when refreshing during development. If one of your app states does need a URL, you can set the url using <a href="">Angular&#39;s router</a>:  </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"> import {LoginPage} from &#39;login-page&#39;
- import {RouteConfig} from &#39;angular2/router&#39;;
+<div class="highlight"><pre><code class="language-js" data-lang="js"> <span class="kr">import</span> <span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;login-page&#39;</span>
+ <span class="kr">import</span> <span class="p">{</span><span class="nx">RouteConfig</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;angular2/router&#39;</span><span class="p">;</span>
 
- @App({
-   templateUrl: &#39;app/app.html&#39;
- })
- @RouteConfig([
-   { path: &#39;/login&#39;, component: LoginPage, as: &#39;loginPage&#39; }
- ])
- class MyApp {
+ <span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span>
+ <span class="p">})</span>
+ <span class="err">@</span><span class="nx">RouteConfig</span><span class="p">([</span>
+   <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">LoginPage</span><span class="p">,</span> <span class="nx">as</span><span class="o">:</span> <span class="s1">&#39;loginPage&#39;</span> <span class="p">}</span>
+ <span class="p">])</span>
+ <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
 </code></pre></div>
 <hr>
 

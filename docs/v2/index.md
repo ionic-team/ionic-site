@@ -5,7 +5,7 @@ title: Ionic 2 Documentation
 header_title: Ionic 2 Documentation
 header_sub_title: Ionic 2 Developer Preview
 ---
-<h1 class="title">Ionic 2 Alpha Docs</h1>
+<h1 class="title">Ionic 2 Docs</h1>
 
 
 Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK*, with initial support for Angular 2.

@@ -15,3 +15,5 @@ Ionic 2 represents the collective learning and understanding of the Ionic team o
 With Angular 2, Ionic apps are considerably more performant and easy to build. On top of that, we've built a totally new navigation and cross-platform design architecture to make it easy to build apps that are as dynamic and customizable as the best apps in the app stores (many of which are Ionic apps themselves!).
 
 We hope you find Ionic 2 faster, simpler, and easier to use.
+
+With that, let's [jump right in!](getting-started).

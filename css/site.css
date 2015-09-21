@@ -955,7 +955,9 @@ table td[class*="col-"], table th[class*="col-"] {
 .sass-variables-table {
   table-layout: fixed; }
   .sass-variables-table code {
-    white-space: pre-wrap; }
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: inline-block; }
 
 fieldset {
   padding: 0;

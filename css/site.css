@@ -5080,6 +5080,8 @@ h1 + h2 + p {
   #slider .slide-lab h3 {
     color: #C8E3FF;
     max-width: 440px; }
+  #slider .slide-lab i {
+    display: inline; }
   #slider .slide-lab .feature-img {
     background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);
     background-size: 100%;

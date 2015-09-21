@@ -4736,6 +4736,7 @@ h1 + h2 + p {
       border: 1px solid #84A6E2;
       background: #84A6E2; }
     .home .utility-bar input::-webkit-input-placeholder {
+      padding-left: 0;
       color: #bbceef; }
     .home .utility-bar input::-moz-placeholder {
       color: #bbceef; }

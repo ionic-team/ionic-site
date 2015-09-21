@@ -136,5 +136,4 @@ This will let the menu know what element should be the main content. The app wil
 
 Let's go and see how to create more pages and perform basic navigation.
 
-<a href="/docs/v2/guide/adding-pages/" button primary>Adding Pages</a>
-
+<a href="/docs/v2/guide/adding-pages/" class= "button button-positive">Adding Pages</a>

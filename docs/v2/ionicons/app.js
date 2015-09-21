@@ -41,7 +41,7 @@ $(document).ready(function() {
       var list = document.getElementById('icons');
 
         for (var iconGroup in data) {
-          var group = data[iconGroup];
+          var group = (data[iconGroup]);
           var temp = document.createElement('a');
           temp.setAttribute('href', '#'+iconGroup);
           temp.setAttribute('rel', 'modal:open');
@@ -51,7 +51,7 @@ $(document).ready(function() {
           titleLi.innerHTML = iconGroup;
           newUl.appendChild(titleLi);
 
-          group['icons'].forEach(function(icon, i) {
+          (group['icons'].slice(0, 3)).forEach(function(icon, i) {
 
             // when a group has ios and md versions, but no outline,
             // add a blank <li> where the outline version would be

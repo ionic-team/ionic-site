@@ -464,7 +464,7 @@ $(document).ready(function () {
   var searchSassResults = $('#search-sass-results');
 
   setTimeout(function(){
-    $.getJSON('/data/sass.json', function (requestData) {
+    $.getJSON('/docs/v2/data/sass.json', function (requestData) {
       addSassResults(requestData);
       searchSassReady(requestData);
     });

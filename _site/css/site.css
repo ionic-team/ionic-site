@@ -4768,7 +4768,8 @@ h1 + h2 + p {
   margin-right: 22px;
   font-size: 12px; }
   .home .social-row li i {
-    padding-right: 2px; }
+    padding-right: 2px;
+    display: inline; }
   @media (min-width: 568px) {
     .home .social-row li {
       font-size: 14px;
@@ -5005,7 +5006,7 @@ h1 + h2 + p {
   width: 100%;
   overflow-x: hidden; }
   #slider .slide {
-    padding: 125px 0 106px;
+    padding: 125px 0 101px;
     width: 100%;
     outline: none; }
   #slider .feature-img {
@@ -5055,7 +5056,7 @@ h1 + h2 + p {
     background-size: 464px;
     min-height: 595px;
     position: absolute;
-    bottom: -22px;
+    bottom: -17px;
     min-width: 464px;
     right: 40px; }
   #slider .slide-creator .btn-row .btn-download {

@@ -385,6 +385,7 @@
 
       i {
         padding-right: 2px;
+        display: inline;
       }
 
       @media (min-width: 568px) {
@@ -749,7 +750,7 @@
   overflow-x: hidden;
 
   .slide{
-    padding:125px 0 106px;
+    padding:125px 0 101px;
     width:100%;
     outline: none;
   }
@@ -814,7 +815,7 @@
       background-size: 464px;
       min-height: 595px;
       position: absolute;
-      bottom: -22px;
+      bottom: -17px;
       min-width: 464px;
       right: 40px;
     }

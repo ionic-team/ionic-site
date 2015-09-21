@@ -47,7 +47,7 @@ This is extremely useful if you decide later on that you would like to change th
 
 Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles in order to change the look of your application. In Ionic, you can modify the Sass directly so that the CSS file that gets generated has the customization you want.
 
-<h2><a id="overriding-default" href="#overriding-default">Overriding Ionic's Default Variables: <code>!default</code></a></h2>
+<h2>Overriding Ionic's Default Variables: <code>!default</code></h2>
 
 From the [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_):
 
@@ -69,7 +69,7 @@ $text-color: #888;
 @import "ionic";
 ```
 
-<h2><a id="ionic-modes" href="#ionic-modes">Using Ionic Modes in Sass</a></h2>
+<h2>Using Ionic Modes in Sass</h2>
 
 Ionic uses modes in order to customize the look of components to match the platform you are using. For example, by default when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it:
 
@@ -104,7 +104,7 @@ Note: I have removed all other attributes and classes from the `<body>` to only 
 
 You can change the mode that gets assigned in the configuration of your app. Therefore, if you wanted the Material Design `md` mode on iOS, you could do it.
 
-<h3><a id="overriding-modes" href="#overriding-modes">Overriding the Mode Styles</a></h3>
+<h3><a name="overriding-modes" href="#overriding-modes">Overriding the Mode Styles</a></h3>
 
 Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet which consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  
 
@@ -128,13 +128,14 @@ $button-md-border-radius: 8px;
 @import "ionic";
 ```
 
-<h2><a id="ionic-variables" href="#ionic-variables">Sass Variables used in Ionic</a></h2>
+<h2>Sass Variables used in Ionic</h2>
 
-<input id="search-sass-input" type="text" placeholder="Filter Sass Variables">
+<input id="search-sass-input" type="search" placeholder="Filter Sass Variables" class="form-control">
 
-<table id="search-sass-results" class="table">
+<table id="search-sass-results" class="table sass-variables-table">
   <tr>
-    <td>Variable Name</td>
-    <td>File Declared In</td>
+    <th>Variable Name</th>
+    <th>File Declared In</th>
+    <th>Default Variable</th>
   </tr>
 </table>

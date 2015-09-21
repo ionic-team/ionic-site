@@ -6,6 +6,7 @@ header_title: Ionicons - Ionic 2
 header_sub_title: Ionic 2 Developer Preview
 ---
 
+<div class="docs-ionicons">
 
 <div id="undo" style="display:none;">
   <h2 class="title">undo</h2>
@@ -12371,5 +12372,8 @@ header_sub_title: Ionic 2 Developer Preview
   <div id="icon-code"></div>
   <div id="animate-link"><a href="animation.html">See all animated icons</a></div>
 </div>
+
+</div>
+
 
 <script src="app.js"></script>

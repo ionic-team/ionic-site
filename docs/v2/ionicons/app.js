@@ -7,7 +7,6 @@ $(document).ready(function() {
     };
   }
 
-
   (function() {
     $.fn.modal.defaults = {
       overlay: "#000",        // Overlay color
@@ -39,32 +38,40 @@ $(document).ready(function() {
     }
 
     function addIcons(data) {
-       var list = document.getElementById('icons');
+      var list = document.getElementById('icons');
 
-       for (var iconGroup in data) {
+        for (var iconGroup in data) {
+          var group = data[iconGroup];
+          var temp = document.createElement('a');
+          temp.setAttribute('href', '#'+iconGroup);
+          temp.setAttribute('rel', 'modal:open');
+          var newUl = document.createElement('ul');
+          var titleLi = document.createElement('li');
+          titleLi.setAttribute('class', iconGroup);
+          titleLi.innerHTML = iconGroup;
+          newUl.appendChild(titleLi);
 
-         var group = data[iconGroup];
-         var temp = document.createElement('a');
-         temp.setAttribute('href', '#'+iconGroup);
-         temp.setAttribute('rel', 'modal:open');
-         var newUl = document.createElement('ul');
-         var titleLi = document.createElement('li');
-         titleLi.setAttribute('class', iconGroup);
-         titleLi.innerHTML = iconGroup;
-         newUl.appendChild(titleLi);
+          group['icons'].forEach(function(icon, i) {
 
-          for (var icon in group['icons']) {
+            // when a group has ios and md versions, but no outline,
+            // add a blank <li> where the outline version would be
+            if (i === 1 && group['icons'].length === 2) {
+              var emptyOutlineLi = document.createElement('li');
+              newUl.appendChild(emptyOutlineLi);
+            }
+
             var newLi = document.createElement('li');
             if (group['tags']) {
               newLi.setAttribute('data-tags', group['tags'].join(', '));
               titleLi.setAttribute('data-tags', group['tags'].join(', '));
               titleLi.setAttribute('data-pack', 'default');
             }
-            newLi.setAttribute('class', 'ion-'+group['icons'][icon]['name']);
-            newLi.setAttribute('code', group['icons'][icon]['code']);
+            newLi.setAttribute('class', 'ion-'+group['icons'][i]['name']);
+            newLi.setAttribute('code', group['icons'][i]['code']);
             newLi.setAttribute('data-pack', 'default');
             newUl.appendChild(newLi);
-          }
+          });
+
           temp.appendChild(newUl);
           list.appendChild(temp);
 

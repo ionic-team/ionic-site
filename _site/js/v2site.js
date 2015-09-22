@@ -464,7 +464,7 @@ $(document).ready(function () {
   var searchSassResults = $('#search-sass-results');
 
   setTimeout(function(){
-    $.getJSON('/data/sass.json', function (requestData) {
+    $.getJSON('/docs/v2/data/sass.json', function (requestData) {
       addSassResults(requestData);
       searchSassReady(requestData);
     });
@@ -510,7 +510,13 @@ $(document).ready(function () {
     searchSassResults.find("tr:gt(0)").remove();
 
     for(var i in results) {
-      searchSassResults.append('<tr><td><code>' + results[i].name + '</code></td><td>' + results[i].file + '</td></tr>');
+      searchSassResults.append(
+        '<tr>' +
+        '<td><code>' + results[i].name + '</code></td>' +
+        '<td>' + results[i].file + '</td>' +
+        '<td><code>' + results[i].defaultValue + '</code></td>' +
+        '</tr>'
+      );
     }
   }
 });

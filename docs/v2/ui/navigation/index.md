@@ -92,10 +92,23 @@ Instead of relying on a router, to move between pages/views/states you `push` th
  class MyApp {
  ```
 
------------
+ -----------
 
- <h2 id="spidey">"With great tabs comes great responsibility"</h2>
+<h2 id="Lifecycle">Lifecycle events</h2>
 
- The navigation in Ionic is extremely flexible.  That means if you'd like, you can easily nest tabs in modals in menus in tabs, etc. But just because you can doesn't mean you should (you shouldn't).
+ - `onViewLoaded` - Runs when the view has loaded. This event only happens once per view being created and added to the DOM. If a view leaves but is cached, then this event will not fire again on a subsequent viewing. The `onViewLoaded` event is good place to put your setup code for the view.
+ - `onViewWillEnter` - Runs when the view is about to enter and become the active view.
+ - `onViewDidEnter` - Runs when the view has fully entered and is now the active view. This event will fire, whether it was the first load or a cached view.
+ - `onViewWillLeave` - Runs when the view is about to leave and no longer be the active view.
+ - `onViewDidLeave` - Runs when the view has finished leaving and is no longer the active view.
+ - `onViewWillUnload` - Runs when the view is about to be destroyed and have its elements removed.
+ - `onViewDidUnload` - Runs after the view has been destroyed and its elements have been removed.
 
- Seriously, don't do this.  Most apps do not require many levels of nested navigation!
+<br>
+ -----------
+
+  <h2 id="spidey">"With great tabs comes great responsibility"</h2>
+
+  The navigation in Ionic is extremely flexible.  That means if you'd like, you can easily nest tabs in modals in menus in tabs, etc. But just because you can doesn't mean you should (you shouldn't).
+
+  Seriously, don't do this.  Most apps do not require many levels of nested navigation!

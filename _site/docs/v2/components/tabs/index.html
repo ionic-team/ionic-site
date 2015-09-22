@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI | Modals - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Tabs - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Modals - Ionic 2 UI</h3>
+    <h3>Tabs - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,45 +232,15 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/modals/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/tabs/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Modals</h1>
+<h1 class="title">Tabs</h1>
 
-<div class="demo">
-  <iframe src="/docs/v2/dist/demos/modal/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/modal/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
+<p>TODO</p>
 
-<p>Modals slide in off screen to display a temporary UI, often used for login or signup pages,
-message composition, and option selection.</p>
-
-<p>First, we need to create the class that will control our modal. Modals must extend
-from the <code>Modal</code> Ionic class:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">IonicComponent</span><span class="p">(</span><span class="nx">Modal</span><span class="p">)</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
-  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;my-modal&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">padding</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">primary</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;close()&quot;</span><span class="o">&gt;</span><span class="nx">Close</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;`,</span>
-  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">Content</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyModal</span> <span class="kr">extends</span> <span class="nx">Modal</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">super</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>To open a modal, we just call <code>Modal.open(MyModal)</code>:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">onOpenClicked</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Modal</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">MyModal</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
 
           
           <ul class="demo-toggle">

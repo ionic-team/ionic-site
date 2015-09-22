@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Buttons - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 UI</h3>
+    <h3>Buttons - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,15 +232,93 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/index.md'>
+  <a href="../../api/components/button/Button">Button API Spec</a>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/buttons/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">UI</h1>
+<h1 class="title">Buttons</h1>
 
-<p>TODO</p>
+<div class="demo">
+  <iframe src="/docs/v2/dist/demos/buttons/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/buttons/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+</div>
 
+<p>Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.</p>
+
+<h3>Basic Usage:</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Colors:</h3>
+
+<p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">danger</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">stable</span><span class="nt">&gt;</span>Stable<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">dark</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Shapes:</h3>
+
+<p><strong>Round:</strong></p>
+
+<p>The <code>round</code> property will add rounded corners to a button:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">round</span><span class="nt">&gt;</span>Round Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Block:</strong></p>
+
+<p>Adding <code>block</code> to a button will make the button take 100% of its parent&#39;s width. It will also add <code>display: block</code> to the button:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">block</span><span class="nt">&gt;</span>Block Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Full:</strong></p>
+
+<p>Adding <code>full</code> to a button will also make the button take 100% of its parent&#39;s width. However, it will also remove the button&#39;s left and right borders. This style is useful when the button should stretch across the entire width of the display.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">full</span><span class="nt">&gt;</span>Full Button<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p><strong>Floating Action Button:</strong></p>
+
+<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Outlines:</h3>
+
+<p>To create outline buttons, just add the <code>outline</code> property:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">outline</span><span class="nt">&gt;</span>Secondary Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">danger</span> <span class="na">outline</span><span class="nt">&gt;</span>Danger Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">stable</span> <span class="na">outline</span><span class="nt">&gt;</span>Stable Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">outline</span><span class="nt">&gt;</span>Dark Outline<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Icons:</h3>
+
+<p>To add icons to a button, add an icon component inside of it:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Float the icon left --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+    Left Icon
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Float the icon right --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    Right Icon
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Only icon (no text) --&gt;</span>
+<span class="nt">&lt;button&gt;</span>
+    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h3>Sizes</h3>
+
+<p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
+<span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
+</code></pre></div>
 
           
           <ul class="demo-toggle">

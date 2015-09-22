@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI | Tabs - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Menu - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Tabs - Ionic 2 UI</h3>
+    <h3>Menu - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,15 +232,45 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/tabs/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/menu/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Tabs</h1>
+<h1 class="title">Menu</h1>
 
-<p>TODO</p>
+<div class="demo">
+  <iframe src="/docs/v2/dist/demos/menu/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/menu/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+</div>
 
+<p>Menus control side content that slides in or is exposed under a sliding content area.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view&gt;</span>
+  <span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-header&quot;</span><span class="nt">&gt;</span>
+        Menu
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        About
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Specials
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Beer
+      <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+        Potatoes
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-menu&gt;</span>
+
+  <span class="nt">&lt;ion-content</span> <span class="err">#</span><span class="na">content</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Main content<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-view&gt;</span>
+</code></pre></div>
 
           
           <ul class="demo-toggle">

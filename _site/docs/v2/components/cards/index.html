@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI | Animation - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Cards - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Animation</h3>
+    <h3>Cards - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,51 +232,39 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/animation/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/cards/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Animation</h1>
+<h1 class="title">Cards</h1>
 
 <div class="demo">
-  <iframe src="/docs/v2/dist/demos/animations/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/animations/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+  <iframe src="/docs/v2/dist/demos/cards/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/cards/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Ionic comes with a powerful Animation system based on the Web Animation API.</p>
+<p>
+  Cards are a great way to display important pieces of content, and are quickly emerging as a core design pattern for apps. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>.
+</p>
 
-<p>Unlike CSS animations, Ionic animations can be easily triggered based on events
-and support interactive &quot;scrubbing&quot;: the ability to manually step through an animation
-such as during a drag gesture.</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="c1">// Import it</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Animation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+<p>
+  For mobile experiences, Cards make it easy to display the same information visually across many different screen sizes. They allow for more control, are flexible, and can even be animated. Cards are usually placed on top of one another, but they can also be used like a "page" and swiped between, left and right.
+</p>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyComponent</span> <span class="p">{</span>
+<p>Cards are primarily a CSS component. To use them, follow this structure:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-card&gt;</span>
 
-  <span class="c1">// Create a new animation</span>
-  <span class="kd">var</span> <span class="nx">ionitron</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#ionitron&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">spin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">ionitron</span><span class="p">);</span>
+  <span class="nt">&lt;ion-card-header&gt;</span>
+    Card Header
+  <span class="nt">&lt;/ion-card-header&gt;</span>
 
-  <span class="c1">// Add a CSS transform</span>
-  <span class="nx">spin</span>
-    <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(0deg)&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(360deg)&#39;</span><span class="p">)</span>
+  <span class="nt">&lt;ion-card-content&gt;</span>
+    <span class="c">&lt;!-- Add card content here! --&gt;</span>
+  <span class="nt">&lt;/ion-card-content&gt;</span>
 
-  <span class="c1">// Register the animation with your component</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">spin</span><span class="p">);</span>
-
-  <span class="c1">// Start the animation when the play button is tapped</span>
-  <span class="nx">play() {</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
+<span class="nt">&lt;/ion-card&gt;</span>
 </code></pre></div>
-<p>Animations also support physics curves like <code>spring</code> to build animations and UIs that feel real.</p>
-
-<p>See the full list of possible easing curves in <a href="https://github.com/driftyco/ionic2/blob/9b80cffedb9398376e69bdc2afc3440a4d0c39e0/ionic/animations/animation.js#L629">animation.js</a>.</p>
-
 
           
           <ul class="demo-toggle">

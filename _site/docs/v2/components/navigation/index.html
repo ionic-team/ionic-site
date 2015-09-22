@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI | Buttons - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Navigation - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Buttons - Ionic 2 UI</h3>
+    <h3>Navigation - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,93 +232,112 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href="../../api/components/button/Button">Button API Spec</a>
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/buttons/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/navigation/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Buttons</h1>
+<h1 class="title">Navigation</h1>
 
 <div class="demo">
-  <iframe src="/docs/v2/dist/demos/buttons/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/buttons/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+  <iframe src="/docs/v2/dist/demos/navigation/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/navigation/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.</p>
+<p>Navigation in Ionic 2 is much more &quot;native like&quot; and is heavily modeled off of <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">the navigation features in iOS</a>.</p>
 
-<h3>Basic Usage:</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<p>In general, there are 3 types of navigation in an app:</p>
+
+<ul>
+<li>Hierarchical</li>
+<li>Flat</li>
+<li>Content driven</li>
+</ul>
+
+<p>Ionic makes it easy to use any of the three, or some combination thereof. For example, you may have a menu of items (flat) where each item leads to a series of different pages (hierarchical).</p>
+
+<h2 id="Hierarchical">Hierarchical</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">          +------+                                           
+          | Home |                                           
+          +---+--+                                           
+              |                                                        
+    +---------+----------+                                       
+    |                    |                                       
++---+---+          +-----+-----+                      
+| About |          | Ice Cream |                      
++-------+          +-----+-----+                      
+                         |                                       
+          +--------------+-+-----------------+             
+          |                |                 |             
+    +-----+-----+     +----+----+     +------+-----+
+    | Chocolate |     | Vanilla |     | Strawberry |
+    +-----------+     +---------+     +------------+
 </code></pre></div>
-<h3>Colors:</h3>
+<h2 id="Flat">Flat</h2>
 
-<p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">danger</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">stable</span><span class="nt">&gt;</span>Stable<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">dark</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
+<p>Flat navigation is when the user can go from one root navigation state directly to another. A good time to use flat navigation is when having a back button doesn&#39;t make sense, like when switching between <a href="../tabs/">Tabs</a> or <a href="../menu">Menu</a> items.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">                    +-------+                  
+                    | Earth |                  
+                    +---+---+                  
+                        |                      
+       +-----------+----+-----+----------+     
+       |           |          |          |     
++------+--+   +----+--+    +--+---+   +--+----+
+| Mercury |   | Venus |    | Mars |   | Pluto |
++---------+   +-------+    +------+   +-------+
 </code></pre></div>
-<h3>Shapes:</h3>
+<h2 id="Content_Driven">Content Driven</h2>
 
-<p><strong>Round:</strong></p>
+<p>Content- or experience-driven navigation is when navigation through your app is tied directly to the content of your app.  Examples of this would be navigating through a book&#39;s pages, or exploring the world of a game.</p>
 
-<p>The <code>round</code> property will add rounded corners to a button:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">round</span><span class="nt">&gt;</span>Round Button<span class="nt">&lt;/button&gt;</span>
+<hr>
+
+<h2 id="URL_to_State_vs_Just_States">URL -> State vs. State -> URL</h2>
+
+<p>Traditionally, routing in an app happens by navigating to a certain URL and having a router figure out how to map that URL to a certain state.  Apps that rely on URLs for navigation often make use of <code>href</code> to change between states.</p>
+
+<p>While this type of navigation is supported in Ionic, it is not recommended, as it makes some navigation structures difficult to implement (moving between flat navigation states for example).</p>
+
+<p>Instead of relying on a router, to move between pages/views/states you <code>push</code> the next state you would like to navigate to onto the navigation stack. To go back, you simply <code>pop</code> the current view.  At no point during navigation are URLs required, since the navigation stack is entirely managed within your app. However, if you do need URLs they are very easy to add.  </p>
+
+<p><h3 id="Adding_URLs">Adding URLs to States (Reverse Routing)</h3></p>
+
+<p>There are many situations where your app might need URLs: for example, deeplinking directly to a particular state from another app or saving the current state when refreshing during development. If one of your app states does need a URL, you can set the url using <a href="">Angular&#39;s router</a>:  </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"> <span class="kr">import</span> <span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;login-page&#39;</span>
+ <span class="kr">import</span> <span class="p">{</span><span class="nx">RouteConfig</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;angular2/router&#39;</span><span class="p">;</span>
+
+ <span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span>
+ <span class="p">})</span>
+ <span class="err">@</span><span class="nx">RouteConfig</span><span class="p">([</span>
+   <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">LoginPage</span><span class="p">,</span> <span class="nx">as</span><span class="o">:</span> <span class="s1">&#39;loginPage&#39;</span> <span class="p">}</span>
+ <span class="p">])</span>
+ <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
 </code></pre></div>
-<p><strong>Block:</strong></p>
+<hr>
 
-<p>Adding <code>block</code> to a button will make the button take 100% of its parent&#39;s width. It will also add <code>display: block</code> to the button:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">block</span><span class="nt">&gt;</span>Block Button<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<p><strong>Full:</strong></p>
+<h2 id="Lifecycle">Lifecycle events</h2>
 
-<p>Adding <code>full</code> to a button will also make the button take 100% of its parent&#39;s width. However, it will also remove the button&#39;s left and right borders. This style is useful when the button should stretch across the entire width of the display.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">full</span><span class="nt">&gt;</span>Full Button<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<p><strong>Floating Action Button:</strong></p>
+<ul>
+<li><code>onViewLoaded</code> - Runs when the view has loaded. This event only happens once per view being created and added to the DOM. If a view leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>onViewLoaded</code> event is good place to put your setup code for the view.</li>
+<li><code>onViewWillEnter</code> - Runs when the view is about to enter and become the active view.</li>
+<li><code>onViewDidEnter</code> - Runs when the view has fully entered and is now the active view. This event will fire, whether it was the first load or a cached view.</li>
+<li><code>onViewWillLeave</code> - Runs when the view is about to leave and no longer be the active view.</li>
+<li><code>onViewDidLeave</code> - Runs when the view has finished leaving and is no longer the active view.</li>
+<li><code>onViewWillUnload</code> - Runs when the view is about to be destroyed and have its elements removed.</li>
+<li><code>onViewDidUnload</code> - Runs after the view has been destroyed and its elements have been removed.</li>
+</ul>
 
-<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h3>Outlines:</h3>
+<p><br></p>
 
-<p>To create outline buttons, just add the <code>outline</code> property:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">outline</span><span class="nt">&gt;</span>Secondary Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">danger</span> <span class="na">outline</span><span class="nt">&gt;</span>Danger Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">stable</span> <span class="na">outline</span><span class="nt">&gt;</span>Stable Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">outline</span><span class="nt">&gt;</span>Dark Outline<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h3>Icons:</h3>
+<hr>
 
-<p>To add icons to a button, add an icon component inside of it:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Float the icon left --&gt;</span>
-<span class="nt">&lt;button&gt;</span>
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
-    Left Icon
-<span class="nt">&lt;/button&gt;</span>
+<p><h2 id="spidey">&quot;With great tabs comes great responsibility&quot;</h2></p>
 
-<span class="c">&lt;!-- Float the icon right --&gt;</span>
-<span class="nt">&lt;button&gt;</span>
-    Right Icon
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
+<p>The navigation in Ionic is extremely flexible.  That means if you&#39;d like, you can easily nest tabs in modals in menus in tabs, etc. But just because you can doesn&#39;t mean you should (you shouldn&#39;t).</p>
 
-<span class="c">&lt;!-- Only icon (no text) --&gt;</span>
-<span class="nt">&lt;button&gt;</span>
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h3>Sizes</h3>
+<p>Seriously, don&#39;t do this.  Most apps do not require many levels of nested navigation!</p>
 
-<p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
-<span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
-</code></pre></div>
 
           
           <ul class="demo-toggle">

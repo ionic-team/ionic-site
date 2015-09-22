@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 UI | Slides - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 UI | Action Sheets - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -86,7 +86,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Slides - Ionic 2 UI</h3>
+    <h3>Action Sheets - Ionic 2 UI</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -141,7 +141,7 @@
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/ui/">UI</a>
+                <a href="/docs/v2/components/">Components</a>
               </li>
               <li class="menu-section active">
   <ul>
@@ -232,89 +232,45 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/slides/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/action-sheets/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Slides</h1>
+<h1 class="title">Action Sheets</h1>
 
 <div class="demo">
-  <iframe src="/docs/v2/dist/demos/slides/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/slides/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
+  <iframe src="/docs/v2/dist/demos/action-sheet/"></iframe>
+  <a href="https://github.com/driftyco/ionic2/tree/master/demos/action-sheet/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
 </div>
 
-<p>Slides make it easy to create galleries, tutorials, and page-based layouts.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-slides&gt;</span>
-
-  <span class="nt">&lt;ion-slide</span> <span class="na">style=</span><span class="s">&quot;background-color: blue&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>Page 1<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-
-  <span class="nt">&lt;ion-slide</span> <span class="na">style=</span><span class="s">&quot;background-color: yellow&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>Page 2<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-
-  <span class="nt">&lt;ion-slide</span> <span class="na">style=</span><span class="s">&quot;background-color: pink&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>Page 3<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-
-  <span class="nt">&lt;ion-pager&gt;</span>
-  <span class="nt">&lt;/ion-pager&gt;</span>
-
-<span class="nt">&lt;/ion-slides&gt;</span>
+<p>Action Sheets display a modal set of options to confirm or cancel an action.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ActionSheet</span><span class="p">.</span><span class="nx">open</span><span class="p">({</span>
+  <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Share This&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Move&#39;</span> <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nx">destructiveText</span><span class="o">:</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span>
+  <span class="nx">titleText</span><span class="o">:</span> <span class="s1">&#39;Modify your album&#39;</span><span class="p">,</span>
+  <span class="nx">cancelText</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">,</span>
+  <span class="nx">cancel</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// add cancel code..</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Canceled&#39;</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="nx">destructiveButtonClicked</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Destructive clicked&#39;</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="nx">buttonClicked</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Button clicked&#39;</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">actionSheet</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Action sheet was created and opened</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">actionSheet</span> <span class="o">=</span> <span class="nx">actionSheet</span><span class="p">;</span>
+  <span class="c1">// this.actionSheet.close() to close it programatically</span>
+<span class="p">})</span>
 </code></pre></div>
-<p>Slides take a number of configuration options on the <code>&lt;ion-slides&gt;</code> element:</p>
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Details</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        loop
-      </td>
-      <td>
-        boolean
-      </td>
-      <td>
-        Whether to loop at the beginning and end of the slides for a continuous experience.
-      </td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>
-        index
-      </td>
-      <td>
-        number
-      </td>
-      <td>
-        The index to start on
-      </td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>
-        bounce
-      </td>
-      <td>
-        boolean
-      </td>
-      <td>
-        Whether to slow down and bounce when reaching the beginning/end of the slides
-      </td>
-      <td>false</td>
-    </tr>
-  </tbody>
-</table>
-
 
           
           <ul class="demo-toggle">

@@ -336,6 +336,7 @@
       }
 
       &::-webkit-input-placeholder {
+        padding-left: 0;
         color: #bbceef;
       }
       &::-moz-placeholder {
@@ -385,6 +386,7 @@
 
       i {
         padding-right: 2px;
+        display: inline;
       }
 
       @media (min-width: 568px) {
@@ -742,7 +744,7 @@
 }
 
 #slider{
-  margin:-78px auto -99px;
+  margin:-78px auto -104px;
   padding:0;
   position: relative;
   width: 100%;
@@ -814,7 +816,7 @@
       background-size: 464px;
       min-height: 595px;
       position: absolute;
-      bottom: -22px;
+      bottom: -17px;
       min-width: 464px;
       right: 40px;
     }
@@ -847,6 +849,9 @@
     h3 {
         color: #C8E3FF;
         max-width: 440px;
+    }
+    i {
+      display: inline;
     }
     .feature-img{
       background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);

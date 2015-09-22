@@ -4736,6 +4736,7 @@ h1 + h2 + p {
       border: 1px solid #84A6E2;
       background: #84A6E2; }
     .home .utility-bar input::-webkit-input-placeholder {
+      padding-left: 0;
       color: #bbceef; }
     .home .utility-bar input::-moz-placeholder {
       color: #bbceef; }
@@ -4768,7 +4769,8 @@ h1 + h2 + p {
   margin-right: 22px;
   font-size: 12px; }
   .home .social-row li i {
-    padding-right: 2px; }
+    padding-right: 2px;
+    display: inline; }
   @media (min-width: 568px) {
     .home .social-row li {
       font-size: 14px;
@@ -4999,7 +5001,7 @@ h1 + h2 + p {
   animation-name: fadeInDown; }
 
 #slider {
-  margin: -78px auto -99px;
+  margin: -78px auto -104px;
   padding: 0;
   position: relative;
   width: 100%;
@@ -5055,7 +5057,7 @@ h1 + h2 + p {
     background-size: 464px;
     min-height: 595px;
     position: absolute;
-    bottom: -22px;
+    bottom: -17px;
     min-width: 464px;
     right: 40px; }
   #slider .slide-creator .btn-row .btn-download {
@@ -5080,6 +5082,8 @@ h1 + h2 + p {
   #slider .slide-lab h3 {
     color: #C8E3FF;
     max-width: 440px; }
+  #slider .slide-lab i {
+    display: inline; }
   #slider .slide-lab .feature-img {
     background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);
     background-size: 100%;
@@ -6656,6 +6660,272 @@ code.language-ts .k {
       background-color: #EFEFF4;
       color: #000;
       border: 1px solid #C8C7CC; }
+
+.download {
+  margin-top: 60px;
+  margin-bottom: 10px; }
+
+.download, .search {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 200px;
+  width: 100%; }
+
+.download a {
+  display: block;
+  padding: 12px 0;
+  border: 2px solid #4F8EF7;
+  border-radius: 4px;
+  background-color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 22px; }
+
+.download a:hover {
+  background: #4F8EF7;
+  color: white; }
+
+.version {
+  margin: 2px auto;
+  color: #ccc;
+  font-size: 12px;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+input {
+  font-weight: normal;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none; }
+
+input:focus {
+  outline: none; }
+
+::-webkit-input-placeholder {
+  padding-left: 26px;
+  color: #999; }
+
+:-moz-placeholder {
+  color: #999; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #999; }
+
+:-ms-input-placeholder {
+  color: #999; }
+
+.search {
+  position: relative;
+  background: #F5F5F5; }
+
+.search input {
+  padding: 4px 6px;
+  width: 175px;
+  border: 0;
+  border-radius: 4px;
+  background: #F5F5F5;
+  text-align: center;
+  font-size: 14px; }
+
+.search input.has-text + i {
+  display: none; }
+
+.search i {
+  position: absolute;
+  top: 3px;
+  left: 63px;
+  color: #999; }
+
+#icon-panel {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  padding: 10px 2px;
+  width: 260px;
+  height: 58px;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-size: 14px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  opacity: 0.96; }
+
+#icon-name {
+  display: block;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  border: 0; }
+
+#icon-code {
+  padding-top: 10px;
+  font-size: 12px; }
+
+#icons {
+  transition: opacity 0.2s ease-in-out; }
+
+section.search-matches {
+  all: initial !important; }
+
+section.search-init {
+  all: initial;
+  opacity: 0.15; }
+
+section.search-nil {
+  all: initial; }
+
+section#icons ul {
+  display: block;
+  list-style-type: none;
+  cursor: pointer;
+  border: 2px solid #fff; }
+
+section#icons a {
+  color: #373737; }
+
+section#icons ul:hover {
+  border: 2px solid #EBF0F6;
+  border-radius: 2px; }
+
+ul.icon-labels {
+  border: none !important;
+  cursor: default !important; }
+
+ul.icon-labels li {
+  font-size: 16px !important; }
+
+section#icons ul li {
+  display: inline-block;
+  width: 23%;
+  position: relative;
+  z-index: 0;
+  padding: 22px 10px;
+  border-radius: 4px;
+  list-style: none;
+  text-align: center;
+  font-weight: normal;
+  font-size: 32px;
+  cursor: pointer; }
+
+section#icons ul li:first-child {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+/* @license
+ * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Avenir Next Pro Regular by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
+ *
+ * Webfont: Avenir Next Pro Medium by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
+ *
+ * © 2013 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work
+@import url("//hello.myfonts.net/count/28882f");*/
+@font-face {
+  font-family: 'AvenirNextLTPro-Regular';
+  src: url('../site-fonts/28882F_0_0.eot');
+  src: url('fsite-onts/28882F_0_0.eot?#iefix') format('embedded-opentype'), url('../site-fonts/28882F_0_0.woff') format('woff'), url('../site-fonts/28882F_0_0.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Medium';
+  src: url('../site-fonts/28882F_1_0.eot');
+  src: url('../site-fonts/28882F_1_0.eot?#iefix') format('embedded-opentype'), url('../site-fonts/28882F_1_0.woff') format('woff'), url('../site-fonts/28882F_1_0.ttf') format('truetype'); }
+
+.modal {
+  all: initial; }
+
+ul.modal-icons {
+  display: block;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 25px; }
+
+ul.modal-icons li {
+  width: 31%;
+  display: inline-block; }
+
+ul.modal-icons li code, i {
+  display: block;
+  text-align: center; }
+
+ul.modal-icons li code {
+  width: auto; }
+
+ul.modal-icons li i {
+  font-size: 32px; }
+
+h4.modal-subtitle {
+  display: block;
+  line-height: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin: 30px 0; }
+
+.modal.current {
+  all: initial;
+  display: none;
+  width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px 30px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000; }
+
+.modal a.close-modal {
+  all: initial;
+  position: absolute;
+  top: -12.5px;
+  right: -12.5px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background: url(close.png) no-repeat 0 0; }
+
+section#icons a {
+  display: block;
+  height: auto;
+  width: auto; }
+
+.modal-spinner {
+  display: none;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -32px;
+  margin-top: -32px;
+  background: url(spinner.gif) #111 no-repeat center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px; }
 
 a {
   opacity: 0.8;

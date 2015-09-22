@@ -15,6 +15,10 @@
     {% if page.id == "ui" %}
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     {% endif %}
+
+    {% if page.id == "ionicons" %}
+    <link rel="stylesheet" type="text/css" href="/docs/v2/ionicons/css/ionicons.min.css">
+    {% endif %}
   </head>
 
   <body class="docs v2 docs-page docs-{{page.id}}">
@@ -32,6 +36,12 @@
             <ul class="nav left-menu {% if page.id == 'overview' %} active-menu{% endif %}">
               <li class="menu-title">
                 <a href="/docs/v2/">Overview</a>
+              </li>
+            </ul>
+            
+            <ul class="nav left-menu {% if page.id == 'getting-started' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
               </li>
             </ul>
 
@@ -163,6 +173,10 @@
         return 'ios';
       }
     </script>
+    {% endif %}
+
+    {% if page.id == "ionicons" %}
+    <script src="/docs/v2/ionicons/jquery.modal.min.js"></script>
     {% endif %}
 
   </body>

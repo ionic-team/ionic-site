@@ -11,9 +11,9 @@
 
     
 
-    <title>Ionic 2 UI | Action Menus - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Getting Started with Ionic 2 - Getting Started with Ionic 2 -  Ionic Framework</title>
 
-    <link href="/css/site.css?12" rel="stylesheet">
+    <link href="/css/site.css?16" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -34,11 +34,11 @@
 
 
     
-    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
     
   </head>
 
-  <body class="docs v2 docs-page docs-ui">
+  <body class="docs v2 docs-page docs-overview">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -84,8 +84,8 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Action Menus - Ionic 2 UI</h3>
-    <h4>Ionic 2 Developer Preview</h4>
+    <h3>Getting Started with Ionic 2</h3>
+    <h4>Getting Started with Ionic 2</h4>
   </div>
   <div class="news">
     <div class="container">
@@ -130,9 +130,15 @@
 
           <div>
 
-            <ul class="nav left-menu ">
+            <ul class="nav left-menu  active-menu">
               <li class="menu-title">
                 <a href="/docs/v2/">Overview</a>
+              </li>
+            </ul>
+            
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
               </li>
             </ul>
 
@@ -143,45 +149,11 @@
               
             </ul>
 
-            <ul class="nav left-menu  active-menu">
+            <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/ui/">UI</a>
               </li>
-              <li class="menu-section active">
-  <ul>
-    <li>
-      <li><a href="/docs/v2/ui/navigation/">Navigation</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/buttons/">Buttons</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/icons/">Icons</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/cards/">Cards</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/lists/">Lists</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/slides/">Slides</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/menu/">Menu</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/modals/">Modals</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/action-menus/">Action Menus</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/ui/animation/">Animation</a></li>
-    </li>
-  </ul>
-</li>
-
+              
             </ul>
 
             <ul class="nav left-menu ">
@@ -225,56 +197,27 @@
       </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/action-menus/index.md'>
-    Improve this doc
-  </a>
-</div>
+          <h1 class="title">Getting Started with Ionic 2</h1>
 
-<h1 class="title">Action Menus</h1>
+<p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.</p>
 
-<div class="demo">
-  <iframe src="/docs/v2/dist/demos/action-menu/"></iframe>
-  <a href="https://github.com/driftyco/ionic2/tree/master/demos/action-menu/index.ts">See demo source <i class="icon ion-ios-arrow-right"></i></a>
-</div>
-
-<p>Action Menus display a modal set of options to confirm or cancel an action.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ActionMenu</span><span class="p">.</span><span class="nx">open</span><span class="p">({</span>
-  <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Share This&#39;</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Move&#39;</span> <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nx">destructiveText</span><span class="o">:</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span>
-  <span class="nx">titleText</span><span class="o">:</span> <span class="s1">&#39;Modify your album&#39;</span><span class="p">,</span>
-  <span class="nx">cancelText</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">,</span>
-  <span class="nx">cancel</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// add cancel code..</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Canceled&#39;</span><span class="p">);</span>
-  <span class="p">},</span>
-  <span class="nx">destructiveButtonClicked</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Destructive clicked&#39;</span><span class="p">);</span>
-  <span class="p">},</span>
-  <span class="nx">buttonClicked</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Button clicked&#39;</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">actionMenu</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Action menu was created and opened</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">actionMenu</span> <span class="o">=</span> <span class="nx">actionMenu</span><span class="p">;</span>
-  <span class="c1">// this.actionMenu.close() to close it programatically</span>
-<span class="p">})</span>
+<p>To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic@alpha
 </code></pre></div>
+<p>(Note: do not type the dollar sign, that is a placeholder for your shell prompt).</p>
 
-          
-          <ul class="demo-toggle">
-            <li>
-              <button onclick="togglePlatform()"><i class="icon ion-social-apple"></i></button>
-            </li>
-            <li>
-              <button onclick="togglePlatform()"><i class="icon ion-social-android"></i></button>
-            </li>
-          </ul>
+<p>For more installation info, follow the official <a href="http://ionicframework.com/getting-started/">Getting Started</a> guide. This walks you through
+installing node, npm, cordova, and Ionic.</p>
+
+<p>Once that&#39;s done, create your first Ionic app:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start cutePuppyPics --v2
+</code></pre></div>
+<p>To run our app, just run</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
+</code></pre></div>
+<p>And we can play with it right in the browser!</p>
+
+
           
         </div>
 
@@ -472,28 +415,7 @@ try {
 
 
     
-    <script>
-      function togglePlatform () {
-        var demoFrame = $('.demo > iframe')
-        var currentSrc = demoFrame.attr('src');
-        var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
-        var currentPlatform = getPlatform(currentSrc);
-        if (currentPlatform === 'ios') {
-          demoFrame.attr('src', newSrc + 'android');
-          return "android";
-        } else {
-          demoFrame.attr('src', newSrc + 'ios');
-          return "ios";
-        }
-      }
-      function getPlatform(iframeSrc) {
-        // return: 'ios' or android
-        if (iframeSrc.indexOf('android') > -1) {
-          return 'android';
-        }
-        return 'ios';
-      }
-    </script>
+
     
 
   </body>

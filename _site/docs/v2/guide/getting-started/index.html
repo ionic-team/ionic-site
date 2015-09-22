@@ -13,7 +13,7 @@
 
     <title>Ionic 2 Guide | Getting Started - Ionic 2 Developer Preview -  Ionic Framework</title>
 
-    <link href="/css/site.css?12" rel="stylesheet">
+    <link href="/css/site.css?16" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -32,6 +32,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
 
     
   </head>
@@ -133,6 +135,12 @@
                 <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
+            
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
+              </li>
+            </ul>
 
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
@@ -211,20 +219,35 @@
 
 <h2>Getting Started</h2>
 
-<p>To get started, let&#39;s go and clone the official <a href="https://github.com/driftyco/ionic2-starter">Ionic 2 Starter</a>, and <code>cd</code> into it in a terminal window.</p>
-
-<p><strong>Note:</strong> don&#39;t type the dollar sign (<code>$</code>), it&#39;s there to show you how the commands might look in your terminal:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone git@github.com:driftyco/ionic2-starter.git
-<span class="nv">$ </span><span class="nb">cd </span>ionic2-starter
+<p>To get started, install the 2.0 alpha version of the <a href="/docs/what-is/#cli">CLI</a> from <a href="/docs/what-is/#npm">NPM</a>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm install -g ionic@alpha
 </code></pre></div>
-<p>Next, let&#39;s install <a href="/docs/what-is/#gulp">Gulp</a>, along with Ionic&#39;s <a href="/docs/what-is/#node">node</a> dependencies:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g gulp
-<span class="nv">$ </span>npm install
-<span class="nv">$ </span>gulp watch
-</code></pre></div>
-<p>Next, open up <code>http://localhost:8100/</code> in your browser to get a glimpse of your first Ionic 2 app:</p>
+<p><strong>Note: On OSX and Linux, you may need to use <code>sudo npm install</code>.</strong></p>
 
+<h2>Starting a new Ionic 2 application</h2>
+
+<p>Use the <code>start</code> command with the <code>--v2</code> option to specify a Ionic 2 application.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start MyIonic2Project --v2
+</code></pre></div>
+<p>This should pull Ionic 2 down, install npm modules for the application, and get cordova set up and ready to go.</p>
+
+<h2>Viewing the app in a browser</h2>
+
+<p>To get a quick preview of the Ionic 2 starter, use the <code>serve</code> command.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ionic serve
+</code></pre></div>
 <p><img src="http://ionicframework.com.s3.amazonaws.com/v2/starter1.png" style="max-width: 320px"></p>
+
+<h2>Running the app on a device</h2>
+
+<p>To run an Ionic 2 app on a device or simulator, it&#39;s the same process as an Ionic 1 app.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Will run on the ios simulator</span>
+ionic run ios
+
+<span class="c"># Will run on the android simulator</span>
+ionic run android
+</code></pre></div>
+<p>The same command with <code>--device</code> will run the app on an actual device if one is connected.</p>
 
 <h2>Project Structure</h2>
 
@@ -234,31 +257,27 @@
 
 <p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
 
-<p>To run your app, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this example we have:</p>
+<p>For your app to function, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this example we have:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
 </code></pre></div>
 <p>And the following scripts near the bottom:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;_app/app.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script&gt;</span><span class="nx">System</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span> <span class="o">&amp;&amp;</span> <span class="nx">System</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="s1">&#39;app/app&#39;</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;build/js/app.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
-<p>These two scripts are generated by the <a href="/docs/what-is/#gulp">gulp</a> task we ran earlier.</p>
-
-<p>The <code>lib/bundle.js</code> file is the bundled Angular, Angular dependencies, and Ionic code.</p>
-
-<p>The <code>_app/app.bundle.js</code> file contains the code for your app.</p>
-
-<p>Finally, <code>System.import(&#39;app/app&#39;)</code> loads your app entrypoint code and makes it available to Ionic.</p>
+<ul>
+<li><p><code>app.bundle.js</code> is a concatenated files of all your app&#39;s JavaScript, Ionic, and Angular</p></li>
+<li><p><code>cordova.js</code> will 404 during local development as it gets injected into your project during cordova&#39;s build process.</p></li>
+</ul>
 
 <h3 class="file-title">app/app.js</h3>
 
-<p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where most of the work for an Ionic 2 app will take place. When we run <code>gulp watch</code>, our code inside of <code>app/</code> is <a href="/docs/what-is/#transpiler">transpiled</a> into the correct Javascript version that the browser understands (currently, <a href="/docs/what-is/#es5">ES5</a>). That means we can work at a higher level using TypeScript and <a href="/docs/what-is/es2015-es6">ES6+</a>, but compile down to the older form of Javascript the browser needs.</p>
+<p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where most of the work for an Ionic 2 app will take place. When we run <code>ionic serve</code>, our code inside of <code>app/</code> is <a href="/docs/what-is/#transpiler">transpiled</a> into the correct Javascript version that the browser understands (currently, <a href="/docs/what-is/#es5">ES5</a>). That means we can work at a higher level using TypeScript and <a href="/docs/what-is/es2015-es6">ES6+</a>, but compile down to the older form of Javascript the browser needs.</p>
 
 <p><code>app.js</code> is the entry point for our app.</p>
 
 <p>Near the top of the file, we should see this:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
-  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/app.html&#39;</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
   <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
@@ -267,36 +286,36 @@
 </code></pre></div>
 <p>Every app has a <em>root component</em> that essentially controls the rest of the application. This is very similar to <code>ng-app</code> from Ionic and Angular 1. To specify a root component with Ionic, we use the <code>@App</code> decorator.</p>
 
-<p>In this component, we set the template to be the file at <code>_app/main.html</code>, let&#39;s take a look!</p>
+<p>In this component, we set the template to be the file at <code>app/app.html</code>, let&#39;s take a look!</p>
 
 <h3 class="file-title">app/app.html</h3>
 
-<p>Notice that our app code referenced the template in <code>_app/app.html</code>. This is the final, compiled path of that template found at <code>www/_app/app.html</code>. As developers, we will only edit the version in <code>app/</code>.</p>
-
 <p>Here&#39;s the main template for the app in <code>app/app.html</code>:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-aside</span> <span class="err">#</span><span class="na">aside</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+
   <span class="nt">&lt;ion-toolbar&gt;</span>
-    <span class="nt">&lt;ion-title&gt;</span>Menu<span class="nt">&lt;/ion-title&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
   <span class="nt">&lt;/ion-toolbar&gt;</span>
+
   <span class="nt">&lt;ion-content&gt;</span>
-    <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#c of components&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPage</span><span class="err">(</span><span class="na">aside</span><span class="err">,</span> <span class="na">c</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
-        {{c.title}}
-      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#p of pages&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPage</span><span class="err">(</span><span class="na">p</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/ion-list&gt;</span>
   <span class="nt">&lt;/ion-content&gt;</span>
-<span class="nt">&lt;/ion-aside&gt;</span>
 
-<span class="nt">&lt;ion-nav</span> <span class="err">#</span><span class="na">content</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">firstPage</span><span class="err">&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
+<span class="nt">&lt;/ion-menu&gt;</span>
+
+<span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">&quot;nav&quot;</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">rootPage</span><span class="err">&quot;</span> <span class="err">#</span><span class="na">content</span> <span class="na">swipe-back-enabled=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
 </code></pre></div>
-<p>In this template, we set up an Aside to function as a side menu, and then a navigation controller
-to act as the main content area. The app will let the user select sections from the side
-menu which will change what they see in the content area. The user will be able to navigate
-inside the content menu if the section has other pages to navigate to.</p>
+<p>In this template, we set up an <code>ion-menu</code> to function as a side menu, and then a navigation controller
+to act as the main content area. The <code>ion-menu</code> takes a property of <code>content</code>, and we can pass the local variable of <code>#content</code> from our <code>ion-nav</code>.
+This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.</p>
 
 <p>Let&#39;s go and see how to create more pages and perform basic navigation.</p>
 
-<p><a href="/docs/v2/guide/adding-pages/" button primary>Adding Pages</a></p>
+<p><a href="/docs/v2/guide/adding-pages/" class= "button button-positive">Adding Pages</a></p>
 
 
           
@@ -494,6 +513,8 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
 
     
 

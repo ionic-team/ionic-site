@@ -16,7 +16,7 @@
 
     <title>IonicApp - Class in module  -  Ionic Framework</title>
 
-    <link href="/css/site.css?12" rel="stylesheet">
+    <link href="/css/site.css?16" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -35,6 +35,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
 
     
   </head>
@@ -155,6 +157,12 @@
                 <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
+            
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
+              </li>
+            </ul>
 
             <ul class="nav left-menu ">
               <li class="menu-title">
@@ -231,41 +239,15 @@
     </ul>
   </li>
 
-  <!-- ActionMenu -->
+  <!-- ActionSheet -->
   <li class="menu-section">
-    <a href="/docs/v2/nightly/api/components/action-menu/ActionMenu/" class="api-section">
-       ActionMenu
+    <a href="/docs/v2/nightly/api/components/action-sheet/ActionSheet/" class="api-section">
+       ActionSheet
     </a>
     <ul>
       <li>
-        <a href="/docs/v2/nightly/api/components/action-menu/ActionMenu/">
-          ActionMenu
-        </a>
-      </li>
-    </ul>
-  </li>
-
-  <!-- Aside -->
-  <li class="menu-section">
-    <a href="/docs/v2/nightly/api/components/aside/Aside/" class="api-section">
-       Aside
-    </a>
-    <ul>
-      <li>
-        <a href="/docs/v2/nightly/api/components/aside/Aside/">
-          Aside
-        </a>
-      </li>
-
-      <li>
-        <a href="/docs/v2/nightly/api/components/aside/AsideBackdrop/">
-          AsideBackdrop
-        </a>
-      </li>
-
-      <li>
-        <a href="/docs/v2/nightly/api/components/aside/AsideToggle/">
-          AsideToggle
+        <a href="/docs/v2/nightly/api/components/action-sheet/ActionSheet/">
+          ActionSheet
         </a>
       </li>
     </ul>
@@ -474,6 +456,32 @@
       <li>
         <a href="/docs/v2/nightly/api/components/material/MaterialRippleEffect/">
           MaterialRippleEffect
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Menu -->
+  <li class="menu-section">
+    <a href="/docs/v2/nightly/api/components/menu/Menu/" class="api-section">
+       Menu
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/v2/nightly/api/components/menu/Menu/">
+          Menu
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/v2/nightly/api/components/menu/MenuToggle/">
+          MenuToggle
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/v2/nightly/api/components/menu/MenuType/">
+          MenuType
         </a>
       </li>
     </ul>
@@ -905,11 +913,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L13'>
     Improve this doc
   </a>
 </div>
@@ -928,7 +936,7 @@ The base Ionic class that your app inherits from. By inheriting from this class,
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13-L200">ionic/components/app/app.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L14-L207">ionic/components/app/app.ts (line 14)</a>
 </p>
 
 <p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
@@ -1059,16 +1067,17 @@ The base Ionic class that your app inherits from. By inheriting from this class,
   </tbody>
 </table>
 
-<div id="setTransitioning"></div>
+<div id="setEnabled"></div>
 
 <h2>
-  <code>setTransitioning(isTransitioning)</code>
+  <code>setEnabled(isEnabled, fallback)</code>
 
 </h2>
 
-<p>Sets if the app is currently transitioning or not. For example
-this is set to <code>true</code> while views transition, a modal slides up, an action-menu
-slides up, etc. After the transition completes it is set back to <code>false</code>.</p>
+<p>Sets if the app is currently enabled or not, meaning if it&#39;s
+available to accept new user commands. For example, this is set to <code>false</code>
+while views transition, a modal slides up, an action-sheet
+slides up, etc. After the transition completes it is set back to <code>true</code>.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -1082,7 +1091,7 @@ slides up, etc. After the transition completes it is set back to <code>false</co
     
     <tr>
       <td>
-        isTransitioning
+        isEnabled
         
         
       </td>
@@ -1096,13 +1105,33 @@ slides up, etc. After the transition completes it is set back to <code>false</co
       </td>
     </tr>
     
+    <tr>
+      <td>
+        fallback
+        
+        
+      </td>
+      <td>
+        
+  <code>bool</code>
+      </td>
+      <td>
+        <p>When <code>isEnabled</code> is set to <code>false</code>, this argument
+is used to set the maximum number of milliseconds that app will wait until
+it will automatically enable the app again. It&#39;s basically a fallback incase
+something goes wrong during a transition and the app wasn&#39;t re-enabled correctly.</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
-<div id="isTransitioning"></div>
+<div id="isEnabled"></div>
 
 <h2>
-  <code>isTransitioning()</code>
+  <code>isEnabled()</code>
 
 </h2>
 
@@ -1718,6 +1747,8 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
 
     
 

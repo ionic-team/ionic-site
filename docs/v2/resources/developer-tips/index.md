@@ -19,12 +19,14 @@ header_sub_title: Ionic 2 Developer Preview
   <section id="using-debugger">
     <h3><a href="#using-debugger">Using a Debugger</code></a></h3>
     <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
-    <code class="language-js" data-lang="js">
-      function myBrokenFunction() {
-        debugger;
-        // do other stuff
-      }
-    </code>
+
+    {% highlight js %}
+    function myBrokenFunction() {
+      debugger;
+      // do other stuff
+    }
+    {% endhighlight %}
+
     <p>When your application runs, it will pause at this function. From there, you can use your browser's developer tools to only execute Javascript step-by-step. This allows you to see exactly which line or function call is causing your function to break.</p>
   </section>
 
@@ -33,7 +35,7 @@ header_sub_title: Ionic 2 Developer Preview
     <p>By default, when you view your app in the browser, Ionic will apply the iOS theme. However, since Ionic components adapt according to their platform, it is helpful to be able to view what your app looks like on Android. To do this, simply add <code>?ionicplatform=android</code> to the URL where your app is being served: <code>http://localhost:8100/?ionicplatform=android</code>. This will change how Ionic sees which platform you are on.</p>
     <p>However, this will not change how the browser sees which platform you are on. To change how the browser sees which platform and device you are on, you must change the user-agent. To do this, open up Chrome DevTools, and toggle device mode on with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> (<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> on Mac).</p>
     <img class="docs-screenshot" src="/img/docs/change-device-platform.png">
-    <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport.</p>
+    <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport. Between this and adding the <code>?ionicplatform=android</code> URL param, you can check out how your app will look on a wide number of devices.</p>
   </section>
 
   <section id="using-ios-simulator">

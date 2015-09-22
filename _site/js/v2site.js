@@ -456,4 +456,61 @@ $(document).ready(function () {
     }, 200);
   });
 
+  // Controls the search of Sass Variables
+  var searchSassInput = $('#search-sass-input');
+
+  if(!searchSassInput.length) return;
+
+  var searchSassResults = $('#search-sass-results');
+
+  setTimeout(function(){
+    $.getJSON('/data/sass.json', function (requestData) {
+      addSassResults(requestData);
+      searchSassReady(requestData);
+    });
+  }, 5);
+
+  function searchSassReady(data) {
+    searchSassInput.on('keyup', debounce(function () {
+      var results = data,
+          query = $(this).val();
+
+      if (!query) {
+        addSassResults(data);
+        return;
+      }
+
+      query = query.split(" ");
+      for (var i in query) {
+        results = filterSassVariables(results, query[i]);
+      }
+
+      addSassResults(results);
+    }));
+  }
+
+  function filterSassVariables(data, query) {
+    return data.filter(function(el) {
+      return (el.name.indexOf(query) > -1);
+    });
+  }
+
+  function sortSassResults(results) {
+    return results.sort(function(a, b) {
+      if (a.name.slice(1) < b.name.slice(1))
+        return -1;
+      if (a.name.slice(1) > b.name.slice(1))
+        return 1;
+      return 0;
+    });
+  }
+
+  function addSassResults(results) {
+    results = sortSassResults(results);
+    searchSassResults.find("tr:gt(0)").remove();
+
+    for(var i in results) {
+      searchSassResults.append('<tr><td><code>' + results[i].name + '</code></td><td>' + results[i].file + '</td></tr>');
+    }
+  }
 });

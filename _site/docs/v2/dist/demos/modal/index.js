@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var App, IonicView, IonicApp, IonicConfig, IonicPlatform, Modal, ActionMenu, NavController, NavParams, Animation, __decorate, __metadata, MyAppCmp, ContactModal, ModalFirstPage, ModalSecondPage, FadeIn, FadeOut;
+    var App, IonicView, IonicApp, IonicConfig, IonicPlatform, Modal, ActionSheet, NavController, NavParams, Animation, __decorate, __metadata, MyAppCmp, ContactModal, ModalFirstPage, ModalSecondPage, FadeIn, FadeOut;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -19,7 +19,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             IonicConfig = _ionicIonic.IonicConfig;
             IonicPlatform = _ionicIonic.IonicPlatform;
             Modal = _ionicIonic.Modal;
-            ActionMenu = _ionicIonic.ActionMenu;
+            ActionSheet = _ionicIonic.ActionSheet;
             NavController = _ionicIonic.NavController;
             NavParams = _ionicIonic.NavParams;
             Animation = _ionicIonic.Animation;
@@ -143,12 +143,12 @@ System.register("index", ["ionic/ionic"], function (_export) {
             }), __metadata('design:paramtypes', [])], ContactModal));
 
             ModalFirstPage = (function () {
-                function ModalFirstPage(nav, modal, actionMenu) {
+                function ModalFirstPage(nav, modal, actionSheet) {
                     _classCallCheck(this, ModalFirstPage);
 
                     this.nav = nav;
                     this.modal = modal;
-                    this.actionMenu = actionMenu;
+                    this.actionSheet = actionSheet;
                 }
 
                 _createClass(ModalFirstPage, [{
@@ -169,11 +169,11 @@ System.register("index", ["ionic/ionic"], function (_export) {
                         modal.close();
                     }
                 }, {
-                    key: "openActionMenu",
-                    value: function openActionMenu() {
+                    key: "openActionSheet",
+                    value: function openActionSheet() {
                         var _this = this;
 
-                        this.actionMenu.open({
+                        this.actionSheet.open({
                             buttons: [{ text: 'Share This' }, { text: 'Move' }],
                             destructiveText: 'Delete',
                             titleText: 'Modify your album',
@@ -191,8 +191,8 @@ System.register("index", ["ionic/ionic"], function (_export) {
                                 }
                                 return true;
                             }
-                        }).then(function (actionMenuRef) {
-                            _this.actionMenuRef = actionMenuRef;
+                        }).then(function (actionSheetRef) {
+                            _this.actionSheetRef = actionSheetRef;
                         });
                     }
                 }]);
@@ -203,8 +203,8 @@ System.register("index", ["ionic/ionic"], function (_export) {
             _export("ModalFirstPage", ModalFirstPage);
 
             _export("ModalFirstPage", ModalFirstPage = __decorate([IonicView({
-                template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button id=\"e2eCloseMenu\" (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content class=\"padding\">\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionMenu()\">Open Action Menu</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandeModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
-            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof Modal !== 'undefined' && Modal || Object, typeof ActionMenu !== 'undefined' && ActionMenu || Object])], ModalFirstPage));
+                template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button id=\"e2eCloseMenu\" (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content class=\"padding\">\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionSheet()\">Open Action Sheet</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandeModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
+            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof Modal !== 'undefined' && Modal || Object, typeof ActionSheet !== 'undefined' && ActionSheet || Object])], ModalFirstPage));
 
             ModalSecondPage = function ModalSecondPage(nav, params) {
                 _classCallCheck(this, ModalSecondPage);

@@ -13,7 +13,7 @@
 
     <title>Ionic 2 Resources | Developer Tips - Ionic 2 Developer Preview -  Ionic Framework</title>
 
-    <link href="/css/site.css?12" rel="stylesheet">
+    <link href="/css/site.css?16" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -32,6 +32,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
 
     
   </head>
@@ -133,6 +135,12 @@
                 <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
+            
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
+              </li>
+            </ul>
 
             <ul class="nav left-menu ">
               <li class="menu-title">
@@ -219,12 +227,14 @@
   <section id="using-debugger">
     <h3><a href="#using-debugger">Using a Debugger</code></a></h3>
     <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
-    <code class="language-js" data-lang="js">
-      function myBrokenFunction() {
-        debugger;
-        // do other stuff
-      }
-    </code>
+
+    
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">myBrokenFunction</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kr">debugger</span><span class="p">;</span>
+      <span class="c1">// do other stuff</span>
+    <span class="p">}</span></code></pre></div>
+
+
     <p>When your application runs, it will pause at this function. From there, you can use your browser's developer tools to only execute Javascript step-by-step. This allows you to see exactly which line or function call is causing your function to break.</p>
   </section>
 
@@ -233,7 +243,7 @@
     <p>By default, when you view your app in the browser, Ionic will apply the iOS theme. However, since Ionic components adapt according to their platform, it is helpful to be able to view what your app looks like on Android. To do this, simply add <code>?ionicplatform=android</code> to the URL where your app is being served: <code>http://localhost:8100/?ionicplatform=android</code>. This will change how Ionic sees which platform you are on.</p>
     <p>However, this will not change how the browser sees which platform you are on. To change how the browser sees which platform and device you are on, you must change the user-agent. To do this, open up Chrome DevTools, and toggle device mode on with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> (<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> on Mac).</p>
     <img class="docs-screenshot" src="/img/docs/change-device-platform.png">
-    <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport.</p>
+    <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport. Between this and adding the <code>?ionicplatform=android</code> URL param, you can check out how your app will look on a wide number of devices.</p>
   </section>
 
   <section id="using-ios-simulator">
@@ -481,6 +491,8 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
 
     
 

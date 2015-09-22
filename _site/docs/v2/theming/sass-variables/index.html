@@ -13,7 +13,7 @@
 
     <title>Ionic 2 Sass Variables - Ionic 2 Sass Variables -  Ionic Framework</title>
 
-    <link href="/css/site.css?12" rel="stylesheet">
+    <link href="/css/site.css?16" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -32,6 +32,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+
+    
 
     
   </head>
@@ -133,6 +135,12 @@
                 <a href="/docs/v2/">Overview</a>
               </li>
             </ul>
+            
+            <ul class="nav left-menu ">
+              <li class="menu-title">
+                <a href="/docs/v2/getting-started">Getting Started</a>
+              </li>
+            </ul>
 
             <ul class="nav left-menu ">
               <li class="menu-title">
@@ -229,7 +237,7 @@
 
 <p>Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles in order to change the look of your application. In Ionic, you can modify the Sass directly so that the CSS file that gets generated has the customization you want.</p>
 
-<h2>Overriding Ionic&#39;s Default Variables: <code>!default</code></h2>
+<h2><a id="overriding-default" href="#overriding-default">Overriding Ionic's Default Variables: <code>!default</code></a></h2>
 
 <p>From the <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_">Sass documentation</a>:</p>
 
@@ -247,7 +255,7 @@
 <span class="c1">// ---------------------------------</span>
 <span class="k">@import</span> <span class="s">&quot;ionic&quot;;</span>
 </code></pre></div>
-<h2>Using Ionic Modes in Sass</h2>
+<h2><a id="ionic-modes" href="#ionic-modes">Using Ionic Modes in Sass</a></h2>
 
 <p>Ionic uses modes in order to customize the look of components to match the platform you are using. For example, by default when you are viewing the app on an Android device, the <code>&lt;body&gt;</code> will have <code>class=&quot;md&quot;</code> added to it:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;md&quot;</span><span class="nt">&gt;</span>
@@ -279,7 +287,7 @@
 
 <p>You can change the mode that gets assigned in the configuration of your app. Therefore, if you wanted the Material Design <code>md</code> mode on iOS, you could do it.</p>
 
-<h3>Overriding the Mode Styles</h3>
+<h3><a id="overriding-modes" href="#overriding-modes">Overriding the Mode Styles</a></h3>
 
 <p>Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet which consists of styles shared between all modes, a material stylesheet which contains the styles for the <code>md</code> mode, and an iOS stylesheet for, you guessed it, the <code>ios</code> mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  </p>
 
@@ -297,9 +305,16 @@
 <span class="c1">// ---------------------------------</span>
 <span class="k">@import</span> <span class="s">&quot;ionic&quot;;</span>
 </code></pre></div>
-<h2>Sass Variables used in Ionic</h2>
+<h2><a id="ionic-variables" href="#ionic-variables">Sass Variables used in Ionic</a></h2>
 
-<p>Compile JSON file for this.</p>
+<p><input id="search-sass-input" type="text" placeholder="Filter Sass Variables"></p>
+
+<table id="search-sass-results" class="table">
+  <tr>
+    <td>Variable Name</td>
+    <td>File Declared In</td>
+  </tr>
+</table>
 
 
           
@@ -497,6 +512,8 @@ try {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+    
 
     
 

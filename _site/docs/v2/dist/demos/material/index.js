@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var App, ActionMenu, IonicApp, IonicView, __decorate, __metadata, FirstPage, MyApp;
+    var App, ActionSheet, IonicApp, IonicView, __decorate, __metadata, FirstPage, MyApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -10,7 +10,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
     return {
         setters: [function (_ionicIonic) {
             App = _ionicIonic.App;
-            ActionMenu = _ionicIonic.ActionMenu;
+            ActionSheet = _ionicIonic.ActionSheet;
             IonicApp = _ionicIonic.IonicApp;
             IonicView = _ionicIonic.IonicView;
         }],
@@ -38,11 +38,11 @@ System.register("index", ["ionic/ionic"], function (_export) {
             };
 
             FirstPage = (function () {
-                function FirstPage(app, actionMenu) {
+                function FirstPage(app, actionSheet) {
                     _classCallCheck(this, FirstPage);
 
                     this.app = app;
-                    this.actionMenu = actionMenu;
+                    this.actionSheet = actionSheet;
                 }
 
                 _createClass(FirstPage, [{
@@ -50,7 +50,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
                     value: function showMoreMenu() {
                         var _this = this;
 
-                        this.actionMenu.open({
+                        this.actionSheet.open({
                             buttons: [{ icon: 'ion-android-share-alt', text: 'Share' }, { icon: 'ion-arrow-move', text: 'Move' }],
                             destructiveText: 'Delete',
                             titleText: 'Modify your album',
@@ -68,8 +68,8 @@ System.register("index", ["ionic/ionic"], function (_export) {
                                 }
                                 return true;
                             }
-                        }).then(function (actionMenuRef) {
-                            _this.actionMenuRef = actionMenuRef;
+                        }).then(function (actionSheetRef) {
+                            _this.actionSheetRef = actionSheetRef;
                         });
                     }
                 }]);
@@ -81,7 +81,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
 
             _export("FirstPage", FirstPage = __decorate([IonicView({
                 template: '<ion-navbar *navbar primary>' + '<ion-title>Heading</ion-title>' + '<a menu-toggle="menu">' + '<icon menu></icon>' + '</a>' + '<ion-nav-items secondary>' + '<button><ion-icon md="ion-android-search" ios="ion-ios-search-strong"></i></button>' + '<button (click)="showMoreMenu()"><i class="icon ion-android-more-vertical"></i></button>' + '</ion-nav-items>' + '</ion-navbar>' + '<ion-content>' + "\n    <button md-ripple>Cleeek</button>\n    <ion-list>\n      <ion-item>\n        <h3>All Genres</h3>\n        <h4>Jan 17 2015</h4>\n      </ion-item>\n      <ion-item>\n        Alternative\n      </ion-item>\n      <ion-item>\n        Blues\n      </ion-item>\n    </ion-list>\n\n    <div class=\"padding\">\n      <ion-card>\n        <ion-card-header>\n          New Post\n        </ion-card-header>\n        <div class=\"card-content\">\n          Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.\n        </div>\n        <img src=\"http://ionic-io-assets.s3.amazonaws.com/images/p4.png\">\n        <ion-item>\n          Posted 5 days ago\n        </ion-item>\n      </ion-card>\n    </div>\n\n    " + '</ion-content>'
-            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof ActionMenu !== 'undefined' && ActionMenu || Object])], FirstPage));
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof ActionSheet !== 'undefined' && ActionSheet || Object])], FirstPage));
 
             MyApp = function MyApp() {
                 _classCallCheck(this, MyApp);

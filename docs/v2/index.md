@@ -5,17 +5,15 @@ title: Ionic 2 Documentation
 header_title: Ionic 2 Documentation
 header_sub_title: Ionic 2 Developer Preview
 ---
-<h1 class="title">Ionic 2 Alpha Docs</h1>
+<h1 class="title">Ionic 2 Docs</h1>
 
 
-Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK based on Angular 2*.
+Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK*, with initial support for Angular 2.
 
-Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years of building web-based mobile development technology and helping developers build over <i>800,000</i> mobile apps with the SDK. After more than three months in development, Ionic 2 is finally ready to be used by an early group of testers.
+Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years building web-based mobile technology and helping developers build over 1,000,000 mobile apps with the Ionic SDK.
 
-The performance of Angular 2 has improved dramatically. As a result, Ionic 2 feels much more like a native mobile app.
+With Angular 2, Ionic apps are considerably more performant and easy to build. On top of that, we've built a totally new navigation and cross-platform design architecture to make it easy to build apps that are as dynamic and customizable as the best apps in the app stores (many of which are Ionic apps themselves!).
 
-As you test and try out Ionic, we ask that you submit issues to the [Ionic 2](https://github.com/driftyco/ionic2) repo. If you don't have access to the repo, please [let us know](mailto:max@ionic.io) and we'll get you in. We are keeping it invite-only for the short term so we can solidify the foundation before adding the full scrutiny of the broader Ionic dev community.
+We hope you find Ionic 2 faster, simpler, and easier to use.
 
-With that said, let's jump in!
-
-<a href="guide/" button primary>Get Started</a>
+With that, let's [jump right in!](getting-started).

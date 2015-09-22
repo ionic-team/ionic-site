@@ -952,6 +952,25 @@ table td[class*="col-"], table th[class*="col-"] {
       .table-responsive > .table-bordered > thead > tr:last-child > th, .table-responsive > .table-bordered > thead > tr:last-child > td, .table-responsive > .table-bordered > tbody > tr:last-child > th, .table-responsive > .table-bordered > tbody > tr:last-child > td, .table-responsive > .table-bordered > tfoot > tr:last-child > th, .table-responsive > .table-bordered > tfoot > tr:last-child > td {
         border-bottom: 0; } }
 
+.sass-variables-table {
+  }
+  .sass-variables-table tr td:first-child {
+      width: 50%; }
+  .sass-variables-table tr td:nth-child(2) {
+      width: 35%; }
+  .sass-variables-table code {
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: inline-block; }
+  .sass-variables-table .tooltip {
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 400px !important;
+  font-size: 13px !important; }
+  .sass-variables-table .tooltip-inner {
+    max-width: 400px !important;
+    padding:3px 8px;  }
+
 fieldset {
   padding: 0;
   margin: 0;
@@ -4282,27 +4301,27 @@ th.visible-print, td.visible-print {
 
 /* @license
  * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
- * 
+ *
  * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
+ * Agreement(s) entered into by the website owner. All other parties are
  * explicitly restricted from using the Licensed Webfonts(s).
- * 
+ *
  * You may obtain a valid license at the URLs below.
- * 
+ *
  * Webfont: Avenir Next Pro Regular by Linotype
  * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
- * 
+ *
  * Webfont: Avenir Next Pro Medium by Linotype
  * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
- * 
- * 
+ *
+ *
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
  * Licensed pageviews: 250,000
  * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
- * 
+ *
  * © 2013 MyFonts Inc
 */
-/* @import must be at top of file, otherwise CSS will not work 
+/* @import must be at top of file, otherwise CSS will not work
 @import url("//hello.myfonts.net/count/28882f");*/
 /* Avenir Next Pro */
 @font-face {

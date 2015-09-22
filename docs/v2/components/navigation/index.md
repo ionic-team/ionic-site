@@ -92,7 +92,133 @@ Instead of relying on a router, to move between pages/views/states you `push` th
  class MyApp {
  ```
 
- -----------
+-----------
+
+<h2 id="Views_in_Ionic">Views in Ionic</h2>
+<div class="highlight less-margin">
+  <pre>
+    <code class="language-text" data-lang="text">
+                          +-------+                                                              
+                          |  App  |                                                                               
+                          +---+---+                                                                                 
+                          &lt;ion-app&gt;
+                              |
+             +----------------+----------------+
+             |   Ionic Nav View Controller     |
+             +----------------+----------------+
+                          &lt;ion-nav&gt;    
+                              |                          @IonicView({
+                              |                            templateUrl: './login.html'
+            Pane 3  +--------------------+               })                   
+          Pane 2  +--------------------+ |  Has header, so View Controller animates into pane 1     
+        Pane 1  +--------------------+ | |              +--------------------+
+                | | Header (Pane 1)  | | |              |       Login        |
+                +--------------------+ | |              +--------------------+
+                | | |                | | |              | Username:_____     |
+                | | |                | | |              | Password:_____     |
+                | | |  Pane 3 is     | | |              |                    |
+                | | |  only content  | | |              |                    |
+                | | |                |&lt;-----------------|                    |
+                | | |                | | |              |                    |
+                | | |                | | |              |                    |
+                | +------------------|-+ |              |                    |
+                | | Footer (Pane 2)--|-|-+              |                    |
+                | +------------------|-+                |                    |
+                +--------------------+                  +--------------------+
+                      &lt;ion-pane&gt;                              &lt;ion-view&gt;
+
+                  Pane 1                    Pane 2                    Pane 3                          
+          +--------------------+    +--------------------+    +--------------------+                  
+          | Header             |    | Content            |    | Content            |                  
+          +--------------------+    |                    |    |                    |                  
+          | Content            |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    |                    |    |                    |                  
+          |                    |    +--------------------+    |                    |                 
+          |                    |    | Footer             |    |                    |                  
+          +--------------------+    +--------------------+    +--------------------+                
+
+    </code>
+  </pre>
+</div>
+
+To create a new navigation stack and view controller, use `<ion-nav>`:
+
+```ts
+  import {StartPage} from './start/start'
+
+  @App({
+    template: '<ion-nav [root]="rootPage"></ion-nav>'  
+  })
+  class MyApp {
+    // First view to push onto the stack
+    this.rootPage = StartPage;
+  }
+```
+
+You can access the navigation view controller you create by injecting it into any of your IonicView's:
+
+```ts
+
+@IonicView({
+  templateUrl: `
+    <ion-navbar *navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+
+    <ion-content> Hello World </ion-content>
+  `
+})
+class StartPage {
+  constructor(nav: NavController) {
+    this.nav = nav;
+  }
+
+  goToOtherPage(){
+    //push another view onto the history stack
+    //causing the view controller to animate the new view in
+    this.nav.push(OtherPage);
+  }                           
+}
+
+@IonicView({
+  templateUrl: './otherpage.html'
+})
+class OtherPage {}
+```
+One of the features of IonicView is that it automatically wraps your page in `<ion-view>`, so you don't need to include it in your markup.
+
+You can create additional navigation stacks by creating additional `<ion-nav>` in the templates of IonicViews that are pushed into your root nav stack.  Think 2d arrays, when you create another `<ion-nav>`, it creates a new history array that is then pushed onto the root array.  The `NavController` that gets injected into pages you push onto the new history is then the new view controller for that history.
+
+```
+Nav Stack for tabs
++---+---+
+|   |   |  <-- Settings Tab with 2 views
++---+---+              
+|   | <-- About Tab          
++---+---+---+         
+|   |   |   | <-- User Tab with 3 views
++---+---+---+   
+|   | <-- Home Tab          
++---+
+```
+
+### Panes
+
+*NOTE: You don't have to do anything with panes, it is all taken care of for you. This is just an explanation of how Ionic works.*
+
+When you push a new view onto the history/navigation stack using [`NavController.push()`](../../api/components/nav/NavController/#push), the view controller will animate the new view into the appropriate pane.
+
+Panes are the containers the view controller creates to animate views into.  The easiest scenario is animating between views with the same structure.  If you have a view with a header and content, and navigate to another view that also has a header and content, the view controller can smoothly animate the incoming view into the pane the exiting view is leaving.  This allows for things like seamless header animations between views that both have headers.
+
+But suppose you have a view with a header and content and want to navigate to a view with no header.  The view controller creates a new pane with no header that is directly behind the current pane.  It then animates the exiting view out of the current pane and the new view into the new content-only pane.
+
+-----------
 
 <h2 id="Lifecycle">Lifecycle events</h2>
 

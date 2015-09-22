@@ -37,6 +37,9 @@
 
     .highlight, p {
       margin-right: 390px;
+      &.less-margin {
+        margin-right: 120px;
+      }
     }
 
     ul.demo-toggle {

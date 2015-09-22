@@ -511,12 +511,14 @@ $(document).ready(function () {
 
     for(var i in results) {
       searchSassResults.append(
-        '<tr>' +
+        '<tr class="ionic">' +
         '<td><code>' + results[i].name + '</code></td>' +
-        '<td>' + results[i].file + '</td>' +
         '<td><code>' + results[i].defaultValue + '</code></td>' +
+        '<td><a href="https://github.com/driftyco/ionic2/blob/master/' + results[i].file + '" data-toggle="tooltip" data-placement="right" title="' + results[i].file + '" target="_blank"><i class="icon ion-link"></i></a></td>' +
         '</tr>'
       );
     }
+
+    $('[data-toggle="tooltip"]').tooltip();
   }
 });

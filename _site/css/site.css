@@ -958,6 +958,14 @@ table td[class*="col-"], table th[class*="col-"] {
     white-space: pre-wrap;
     word-break: break-word;
     display: inline-block; }
+  .sass-variables-table .tooltip {
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 400px !important;
+  font-size: 13px !important; }
+  .sass-variables-table .tooltip-inner {
+    max-width: 400px !important;
+    padding:3px 8px;  }
 
 fieldset {
   padding: 0;

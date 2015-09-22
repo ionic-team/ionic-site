@@ -1,6 +1,6 @@
 ---
 layout: v2/docs_base
-id: guide
+id: getting-started
 title: Ionic 2 Guide | Getting Started
 header_title: Getting Started - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
@@ -136,4 +136,4 @@ This will let the menu know what element should be the main content. The app wil
 
 Let's go and see how to create more pages and perform basic navigation.
 
-<a href="/docs/v2/guide/adding-pages/" class= "button button-positive">Adding Pages</a>
+<a href="../adding-pages/" class= "button button-positive">Adding Pages</a>

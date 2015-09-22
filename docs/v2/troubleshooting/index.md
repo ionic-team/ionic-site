@@ -1,6 +1,6 @@
 ---
 layout: v2/docs_base
-id: resources
+id: troubleshooting
 title: Ionic 2 Resources | Troubleshooting
 header_title: Troubleshooting - Ionic 2 Resources
 header_sub_title: Ionic 2 Developer Preview

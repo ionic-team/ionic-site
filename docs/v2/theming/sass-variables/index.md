@@ -135,7 +135,7 @@ $button-md-border-radius: 8px;
 <table id="search-sass-results" class="table sass-variables-table">
   <tr>
     <th>Variable Name</th>
-    <th>File Declared In</th>
-    <th>Default Variable</th>
+    <th>Default Value</th>
+    <th>Declared In</th>
   </tr>
 </table>

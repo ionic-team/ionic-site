@@ -13,7 +13,7 @@
 
     <title>Ionic 2 Resources | Troubleshooting - Ionic 2 Developer Preview -  Ionic Framework</title>
 
-    <link href="/css/site.css?16" rel="stylesheet">
+    <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -220,13 +220,12 @@
   </a>
 </div>
 
-<h1>Troubleshooting Your Ionic App</h1>
+<h1 id="Troubleshooting">Troubleshooting Your Ionic App</h1>
 
 <p>Can&#39;t find a solution on this page? Check out the <a href="http://forum.ionicframework.com">Ionic Forums</a>, where the friendly Ions of the community will help you!</p>
 
-<p><br></p>
-
-<h2>Help! My app is blank and there are no errors</h2>
+<p><br>
+<h2 id="Blank_app">Help! My app is blank and there are no errors</h2></p>
 
 <ul>
 <li>Make sure your @App has a <code>template</code> or <code>templateUrl</code></li>
@@ -236,9 +235,8 @@
 </code></li>
 </ul>
 
-<p><br></p>
-
-<h2>My component/directive isn&#39;t loading!</h2>
+<p><br>
+<h2 id="Directive_not_working">My component/directive isn&#39;t loading!</h2></p>
 
 <p>If your custom component or directive isn&#39;t working, there are a few things you can check. Make sure:</p>
 
@@ -272,18 +270,84 @@
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{}</span>
 </code></pre></div>
-<p><br></p>
-
-<h2>Common JS errors:</h2>
-
 <p><br>
-<code>Cannot resolve all parameters for YourClass(someParam, someParam, ?). Make sure they all have valid type or annotations.</code></p>
-
-<p>This means that Angular is confused about one or more of the parameters for YourClass&#39;s constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it&#39;s supposed to inject.  You let Angular know by specifying the class (the type) of the parameter.</p>
+<h2 id="Common_mistakes">Common mistakes:</h2></p>
 
 <ul>
-<li>First, make sure you are importing the parameter&#39;s class</li>
-<li>Next, make sure you have properly annotated the parameter or specified its type</li>
+<li>putting your <code>directives</code> array in your <code>@Component</code> options, not in <code>@View</code>.</li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="c1">//directives: [MyDirective] Wrong</span>
+<span class="p">})</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyDirective</span><span class="p">]</span> <span class="c1">// Right</span>
+<span class="p">})</span>
+</code></pre></div>
+<ul>
+<li>putting your <code>bindings</code> array in your <code>@View</code> options, not in <code>@Component</code> or <code>@Directive</code>.</li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Right</span>
+<span class="p">})</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="c1">// bindings: [MyService] Wrong</span>
+<span class="p">})</span>
+</code></pre></div>
+<ul>
+<li>Forgetting <code>()</code> after an annotation: <code>@Injectable()</code>, <code>@Optional()</code>, etc.</li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-dir&#39;</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyDirective</span> <span class="p">{</span>
+  <span class="c1">// Wrong, should be @Optional()</span>
+  <span class="c1">// @Optional does nothing here, so MyDirective will error if parent is undefined</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Optional</span> <span class="nx">parent</span>: <span class="kt">ParentComponent</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Adding bindings to every component when you mean to have the same binding instance injected to each component (services for example).  For a class to be injectable it only needs to be in the <code>bindings</code> array of that component or any parent component (for example <code>@App</code>), but not both.  Putting it in both the component that has that binding injected in addition to a parent or ancestor will create two separate binding instances. The following example illustrates the issue:</li>
+</ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">class</span> <span class="nx">MyService</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(){</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-component&#39;</span><span class="p">,</span>
+  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// &lt;-- Creates a new instance of MyService</span>
+<span class="p">})</span>                      <span class="c1">// Unnecessary because MyService is in App&#39;s bindings</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyComp</span> <span class="p">{</span>
+  <span class="c1">// id is 0</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">s</span>: <span class="kt">MyService</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;MyService id is: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;my-component&gt;&lt;/my-component&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">],</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyComp</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="c1">// id is 1, s is a different instance than MyComp</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">s</span>: <span class="kt">MyService</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;MyService id is: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><br>
+<h2 id="Common_JS_errors">Common JS errors:</h2></p>
+
+<p><br>
+<code>Cannot resolve all parameters for YourClass(?). Make sure they all have valid type or annotations.</code></p>
+
+<p>May also be preceded by <code>Error during instantiation of Token(Promise&lt;ComponentRef&gt;)</code> if it&#39;s on your <code>@App</code> component.</p>
+
+<p>This means that Angular is confused about one or more of the parameters for YourClass&#39;s constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it&#39;s supposed to inject.  You let Angular know by specifying the class (the type) of the parameter. Make sure:</p>
+
+<ul>
+<li>you are importing the parameter&#39;s class</li>
+<li>you have properly annotated the parameter or specified its type</li>
 </ul>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">MyService</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;myservice&#39;</span><span class="p">;</span> <span class="c1">//Don&#39;t forget to import me!</span>
 
@@ -296,15 +360,102 @@
   <span class="kr">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Inject</span><span class="p">(</span><span class="nx">MyService</span><span class="p">)</span> <span class="nx">service</span><span class="p">){}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>Sometimes circular references within your code can cause this error.  Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other.  To get around this, we can use the <a href=""><code>forwardRef</code></a> function built in to Angular 2.</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-button&#39;</span>
+<span class="p">})</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+               <span class="o">&lt;</span><span class="nx">icon</span><span class="o">&gt;&lt;</span><span class="err">/icon&gt;</span>
+               <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="o">/&gt;</span>
+             <span class="o">&lt;</span><span class="err">/div&gt;`</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">forwardRef</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">MyIcon</span><span class="p">)]</span> <span class="c1">// MyIcon has not been defined yet</span>
+                                         <span class="c1">// forwardRef resolves as MyIcon when it</span>
+                                         <span class="c1">// is needed</span>
+<span class="p">})</span>
+
+<span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;icon&#39;</span>  
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyIcon</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">containerButton</span>: <span class="kt">MyButton</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// MyButton has been defined</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><br>
 <code>No provider for ParamType! (MyClass -&gt; ParamType)</code></p>
 
-<p>This means Angular knows what type of thing it is supposed to inject, but it doesn&#39;t know how. Make sure:</p>
+<p>This means Angular knows what type of thing it is supposed to inject, but it doesn&#39;t know how to inject it. Make sure:</p>
 
 <ul>
-<li>you have added the specified class to the list of bindings available to the component</li>
+<li>if the parameter is a service, you have added the specified class to the list of bindings available to your app</li>
 </ul>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">MyService</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;myservice&#39;</span><span class="p">;</span>
 
+<span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span><span class="p">,</span>
+  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Don&#39;t forget me!</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+</code></pre></div>
+<p>If the parameter is another component or directive (for example, a parent component), adding it to your list of bindings will make the error go away, but this will have the same effect as #4 of the <a href="#Common_mistakes">Common Mistakes</a> above.  That is, you&#39;ll be creating a new instance of the component class (you can kind of think of it as service-ifying your component), but you aren&#39;t actually getting a reference to the component instance you want (the one from angular compiling your app).  Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-comp&#39;</span>
+<span class="p">})</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div my-dir&gt;&lt;/div&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">forwardRef</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">MyDir</span><span class="p">)]</span> <span class="c1">// MyDir hasn&#39;t been defined yet so need forwardRef</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyComp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(){</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;My Component&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;[my-dir]&#39;</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyDir</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">c</span>: <span class="kt">MyComp</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Errors when directive is on regular div because there is no MyComp in the</span>
+    <span class="c1">// component tree so there is no MyComp to inject</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Host component&#39;s name: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;&lt;my-comp&gt;&lt;/my-comp&gt;&quot;</span> <span class="o">+</span> <span class="c1">// Works, MyComp is parent of MyDir</span>
+            <span class="s2">&quot;&lt;my-comp my-dir&gt;&lt;/my-comp&gt;&quot;</span> <span class="o">+</span> <span class="c1">// Works, MyComp is host of MyDir</span>
+            <span class="s2">&quot;&lt;div my-dir&gt;&lt;/div&gt;&quot;</span><span class="p">,</span> <span class="c1">// Will error in MyDir</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyComp</span><span class="p">,</span> <span class="nx">MyDir</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{}</span>
+</code></pre></div>
+<p>Here&#39;s a diagram illustrating what injectors are available:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">                 +-------+                                         
+                 |  App  |                                         
+                 +---+---+                                         
+                     |                                                        
+       +-------------+------------+                                       
+       |                          |                                       
++------+------+          +--------+--------+                      
+| Div (MyDir) |          | MyComp (MyDir)  |  &lt;- MyComp can be injected                    
++-------------+          +--------+--------+                      
+       ^                          |                                       
+No MyComp to inject        +------+------+
+                           | Div (MyDir) | &lt;- MyComp can be injected from parent
+                           +-------------+
+</code></pre></div>
+<p>To expand on the previous example, you can use the Angular 2 <code>@Optional</code> annotation if you don&#39;t always expect a component/directive reference:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;[my-dir]&#39;</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyDir</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Optional</span><span class="p">()</span> <span class="nx">c</span>: <span class="kt">MyComp</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// No longer errors if c is undefined</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Host component&#39;s name: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
           
         </div>

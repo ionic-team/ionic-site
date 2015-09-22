@@ -12,12 +12,12 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-# Troubleshooting Your Ionic App
+<h1 id="Troubleshooting">Troubleshooting Your Ionic App</h1>
 
 Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com), where the friendly Ions of the community will help you!
 
 <br>
-## Help! My app is blank and there are no errors
+<h2 id="Blank_app">Help! My app is blank and there are no errors</h2>
 
 - Make sure your @App has a `template` or `templateUrl`
 - Make sure your @App template has an `<ion-nav></ion-nav>` with a `root` property:
@@ -26,7 +26,7 @@ Can't find a solution on this page? Check out the [Ionic Forums](http://forum.io
 ```
 
 <br>
-## My component/directive isn't loading!
+<h2 id="Directive_not_working">My component/directive isn't loading!</h2>
 
 If your custom component or directive isn't working, there are a few things you can check. Make sure:
 
@@ -58,17 +58,87 @@ class MyDir {
 class MyPage {}
 ```
 
+<br>
+<h2 id="Common_mistakes">Common mistakes:</h2>
+
+- putting your `directives` array in your `@Component` options, not in `@View`.
+
+```ts
+@Component({
+  //directives: [MyDirective] Wrong
+})
+@View({
+  directives: [MyDirective] // Right
+})
+```
+
+- putting your `bindings` array in your `@View` options, not in `@Component` or `@Directive`.
+
+```ts
+@Component({
+  bindings: [MyService] // Right
+})
+@View({
+  // bindings: [MyService] Wrong
+})
+```
+
+- Forgetting `()` after an annotation: `@Injectable()`, `@Optional()`, etc.
+
+```ts
+@Directive({
+  selector: 'my-dir'
+})
+class MyDirective {
+  // Wrong, should be @Optional()
+  // @Optional does nothing here, so MyDirective will error if parent is undefined
+  constructor(@Optional parent: ParentComponent) {}
+}
+```
+
+- Adding bindings to every component when you mean to have the same binding instance injected to each component (services for example).  For a class to be injectable it only needs to be in the `bindings` array of that component or any parent component (for example `@App`), but not both.  Putting it in both the component that has that binding injected in addition to a parent or ancestor will create two separate binding instances. The following example illustrates the issue:
+
+```ts
+let id = 0;
+class MyService {
+  constructor(){ this.id = id++; }
+}
+
+@Component({
+  selector: 'my-component',
+  bindings: [MyService] // <-- Creates a new instance of MyService
+})                      // Unnecessary because MyService is in App's bindings
+@View({
+  template: 'Hello World'
+})
+class MyComp {
+  // id is 0
+  constructor(s: MyService) { console.log("MyService id is: " + s.id); }
+}
+
+@App({
+  template: '<my-component></my-component>',
+  bindings: [MyService],
+  directives: [MyComp]
+})
+class MyApp {
+  // id is 1, s is a different instance than MyComp
+  constructor(s: MyService) { console.log("MyService id is: " + s.id); }
+}
+```
 
 <br>
-## Common JS errors:
+<h2 id="Common_JS_errors">Common JS errors:</h2>
 
 <br>
-`Cannot resolve all parameters for YourClass(someParam, someParam, ?). Make sure they all have valid type or annotations.`
+`Cannot resolve all parameters for YourClass(?). Make sure they all have valid type or annotations.`
 
-This means that Angular is confused about one or more of the parameters for YourClass's constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it's supposed to inject.  You let Angular know by specifying the class (the type) of the parameter.
+May also be preceded by `Error during instantiation of Token(Promise<ComponentRef>)` if it's on your `@App` component.
 
-- First, make sure you are importing the parameter's class
-- Next, make sure you have properly annotated the parameter or specified its type
+This means that Angular is confused about one or more of the parameters for YourClass's constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it's supposed to inject.  You let Angular know by specifying the class (the type) of the parameter. Make sure:
+
+- you are importing the parameter's class
+- you have properly annotated the parameter or specified its type
 
 ```ts
 import {MyService} from 'myservice'; //Don't forget to import me!
@@ -83,9 +153,113 @@ export class MyClass {
 }
 ```
 
+Sometimes circular references within your code can cause this error.  Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other.  To get around this, we can use the [`forwardRef`]() function built in to Angular 2.
+
+```ts
+@Component({
+  selector: 'my-button'
+})
+@View({
+  template: `<div>
+               <icon></icon>
+               <input type="button" />
+             </div>`
+  directives: [forwardRef(() => MyIcon)] // MyIcon has not been defined yet
+                                         // forwardRef resolves as MyIcon when it
+                                         // is needed
+})
+
+@Directive({
+  selector: 'icon'  
+})
+class MyIcon {
+  constructor(containerButton: MyButton) {} // MyButton has been defined
+}
+```
+
 <br>
 `No provider for ParamType! (MyClass -> ParamType)`
 
-This means Angular knows what type of thing it is supposed to inject, but it doesn't know how. Make sure:
+This means Angular knows what type of thing it is supposed to inject, but it doesn't know how to inject it. Make sure:
 
-- you have added the specified class to the list of bindings available to the component
+- if the parameter is a service, you have added the specified class to the list of bindings available to your app
+
+
+```ts
+import {MyService} from 'myservice';
+
+@App({
+  templateUrl: 'app/app.html',
+  bindings: [MyService] // Don't forget me!
+})
+class MyApp {
+```
+
+If the parameter is another component or directive (for example, a parent component), adding it to your list of bindings will make the error go away, but this will have the same effect as #4 of the [Common Mistakes](#Common_mistakes) above.  That is, you'll be creating a new instance of the component class (you can kind of think of it as service-ifying your component), but you aren't actually getting a reference to the component instance you want (the one from angular compiling your app).  Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
+
+```ts
+@Component({
+  selector: 'my-comp'
+})
+@View({
+  template: '<div my-dir></div>',
+  directives: [forwardRef(() => MyDir)] // MyDir hasn't been defined yet so need forwardRef
+})
+class MyComp {
+  constructor(){ this.name = "My Component"; }
+}
+
+@Directive({
+  selector: '[my-dir]'
+})
+class MyDir {
+  constructor(c: MyComp) {
+    // Errors when directive is on regular div because there is no MyComp in the
+    // component tree so there is no MyComp to inject
+    console.log("Host component's name: " + c.name);
+  }
+}
+
+@App({
+  template: "<my-comp></my-comp>" + // Works, MyComp is parent of MyDir
+            "<my-comp my-dir></my-comp>" + // Works, MyComp is host of MyDir
+            "<div my-dir></div>", // Will error in MyDir
+  directives: [MyComp, MyDir]
+})
+class MyApp {}
+```
+
+Here's a diagram illustrating what injectors are available:
+
+```
+                 +-------+                                         
+                 |  App  |                                         
+                 +---+---+                                         
+                     |                                                        
+       +-------------+------------+                                       
+       |                          |                                       
++------+------+          +--------+--------+                      
+| Div (MyDir) |          | MyComp (MyDir)  |  <- MyComp can be injected                    
++-------------+          +--------+--------+                      
+       ^                          |                                       
+No MyComp to inject        +------+------+
+                           | Div (MyDir) | <- MyComp can be injected from parent
+                           +-------------+
+```
+
+
+To expand on the previous example, you can use the Angular 2 `@Optional` annotation if you don't always expect a component/directive reference:
+
+```ts
+@Directive({
+  selector: '[my-dir]'
+})
+class MyDir {
+  constructor(@Optional() c: MyComp) {
+    // No longer errors if c is undefined
+    if (c) {
+      console.log("Host component's name: " + c.name);
+    }
+  }
+}
+```

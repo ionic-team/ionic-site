@@ -11,9 +11,9 @@
 
     
 
-    <title>Ionic 2 Guide | Navigating - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 Guide | Getting Started - Ionic 2 Developer Preview -  Ionic Framework</title>
 
-    <link href="/css/site.css?16" rel="stylesheet">
+    <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -38,7 +38,7 @@
     
   </head>
 
-  <body class="docs v2 docs-page docs-guide">
+  <body class="docs v2 docs-page docs-getting-started">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -84,7 +84,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Navigating - Ionic 2 Guide</h3>
+    <h3>Getting Started - Ionic 2 Guide</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -136,27 +136,21 @@
               </li>
             </ul>
             
-            <ul class="nav left-menu ">
-              <li class="menu-title">
-                <a href="/docs/v2/getting-started">Getting Started</a>
-              </li>
-            </ul>
-
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/guide/">Guide</a>
+                <a href="/docs/v2/getting-started/">Getting Started</a>
               </li>
               
 <li class="menu-section active">
   <ul>
     <li>
-      <a href="/docs/v2/guide/getting-started/">Getting Started</a>
+      <a href="/docs/v2/getting-started/project-structure/">Project Structure</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/adding-pages/">Adding Pages</a></li>
+      <a href="/docs/v2/getting-started/adding-pages/">Adding Pages</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/navigating/">Navigating</a></li>
+      <a href="/docs/v2/getting-started/navigating/">Navigating</a></li>
     </li>
   </ul>
 </li>
@@ -212,38 +206,78 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/project-structure/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Navigating to Pages</h1>
+<h1>Project Structure</h1>
 
-<p>We created a new page in the last section, but now we need to navigate to it.</p>
+<p>Now that you&#39;ve got your app running in the browser, let&#39;s walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical <a href="/docs/what-is/#cordova">Cordova</a> project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the <code>www</code> folder, and so we are going to spend most of our time there.</p>
 
-<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the
-top of the stack which takes us forwards in the app and shows a back button,
-and then we <code>pop</code> the top one off to go back to the page before it.</p>
+<h3 class="file-title">www/index.html</h3>
 
-<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example), but pages can be navigated to from anywhere which was not possible in v1. For example, we can show the same Playlist page instead of a tab, a side menu, or a modal. This means we don&#39;t use <code>href</code> to navigate around.</p>
+<p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
 
-<p>So, let&#39;s take our <code>PlaylistPage</code> from the previous example and navigate to it when we tap on a specific play list from the <code>PlaylistsPage</code> (note the &#39;s&#39;). Open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#playlist of playlists&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPlaylist</span><span class="err">(</span><span class="na">playlist</span><span class="err">)&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
+<p>For your app to function, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this example we have:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
 </code></pre></div>
-<p>When the user taps this, the <code>openPlaylist()</code> function will be called with a reference to the playlist that was tapped.</p>
+<p>And the following scripts near the bottom:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;build/js/app.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<ul>
+<li><p><code>app.bundle.js</code> is a concatenated files of all your app&#39;s JavaScript, Ionic, and Angular</p></li>
+<li><p><code>cordova.js</code> will 404 during local development as it gets injected into your project during cordova&#39;s build process.</p></li>
+</ul>
 
-<p>Open <code>app/playlists/playlists.js</code>, and let&#39;s add a method to <code>PlaylistsPage</code> to handle this:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
-  <span class="c1">// constructor and other methods above here...</span>
+<h3 class="file-title">app/app.js</h3>
 
-  <span class="nx">openPlaylist</span><span class="p">(</span><span class="nx">playlist</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">PlaylistPage</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">playlist</span>: <span class="kt">playlist</span>
-    <span class="p">})</span>
+<p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where most of the work for an Ionic 2 app will take place. When we run <code>ionic serve</code>, our code inside of <code>app/</code> is <a href="/docs/what-is/#transpiler">transpiled</a> into the correct Javascript version that the browser understands (currently, <a href="/docs/what-is/#es5">ES5</a>). That means we can work at a higher level using TypeScript and <a href="/docs/what-is/es2015-es6">ES6+</a>, but compile down to the older form of Javascript the browser needs.</p>
+
+<p><code>app.js</code> is the entry point for our app.</p>
+
+<p>Near the top of the file, we should see this:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Open the app, and navigate to the playlists page. When we tap on the page, we should see the new playlist page open with the title set to the playlist we just clicked!</p>
+<p>Every app has a <em>root component</em> that essentially controls the rest of the application. This is very similar to <code>ng-app</code> from Ionic and Angular 1. To specify a root component with Ionic, we use the <code>@App</code> decorator.</p>
+
+<p>In this component, we set the template to be the file at <code>app/app.html</code>, let&#39;s take a look!</p>
+
+<h3 class="file-title">app/app.html</h3>
+
+<p>Here&#39;s the main template for the app in <code>app/app.html</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+
+  <span class="nt">&lt;ion-content&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#p of pages&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPage</span><span class="err">(</span><span class="na">p</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+
+<span class="nt">&lt;/ion-menu&gt;</span>
+
+<span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">&quot;nav&quot;</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">rootPage</span><span class="err">&quot;</span> <span class="err">#</span><span class="na">content</span> <span class="na">swipe-back-enabled=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
+</code></pre></div>
+<p>In this template, we set up an <code>ion-menu</code> to function as a side menu, and then a navigation controller
+to act as the main content area. The <code>ion-menu</code> takes a property of <code>content</code>, and we can pass the local variable of <code>#content</code> from our <code>ion-nav</code>.
+This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.</p>
+
+<p>Let&#39;s go and see how to create more pages and perform basic navigation.</p>
+
+<p><a href="../adding-pages/" class= "button button-positive">Adding Pages</a></p>
 
 
           

@@ -11,9 +11,9 @@
 
     
 
-    <title>Ionic 2 Guide - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 Guide | Adding Pages - Ionic 2 Developer Preview -  Ionic Framework</title>
 
-    <link href="/css/site.css?16" rel="stylesheet">
+    <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
@@ -38,7 +38,7 @@
     
   </head>
 
-  <body class="docs v2 docs-page docs-guide">
+  <body class="docs v2 docs-page docs-getting-started">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -84,7 +84,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 Guide</h3>
+    <h3>Adding Pages - Ionic 2 Guide</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -136,27 +136,21 @@
               </li>
             </ul>
             
-            <ul class="nav left-menu ">
-              <li class="menu-title">
-                <a href="/docs/v2/getting-started">Getting Started</a>
-              </li>
-            </ul>
-
             <ul class="nav left-menu  active-menu">
               <li class="menu-title">
-                <a href="/docs/v2/guide/">Guide</a>
+                <a href="/docs/v2/getting-started/">Getting Started</a>
               </li>
               
 <li class="menu-section active">
   <ul>
     <li>
-      <a href="/docs/v2/guide/getting-started/">Getting Started</a>
+      <a href="/docs/v2/getting-started/project-structure/">Project Structure</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/adding-pages/">Adding Pages</a></li>
+      <a href="/docs/v2/getting-started/adding-pages/">Adding Pages</a></li>
     </li>
     <li>
-      <a href="/docs/v2/guide/navigating/">Navigating</a></li>
+      <a href="/docs/v2/getting-started/navigating/">Navigating</a></li>
     </li>
   </ul>
 </li>
@@ -212,14 +206,110 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/adding-pages/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Ionic 2 Guide</h1>
+<h1 class="title">Adding Pages</h1>
 
-<p>Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several <em>views</em>, or <em>pages</em> to the app. Finally, we will work with some of the most important controls, and go over getting your app into the app stores.</p>
+<p>Now that we have a basic understanding of the layout of an Ionic 2 app, let&#39;s walk through the process of
+creating and navigating to views, also known as &quot;pages&quot; in our app.</p>
+
+<p>Taking a look at <code>app/app.html</code>, we see this line near the bottom:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav</span> <span class="err">#</span><span class="na">content</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">firstPage</span><span class="err">&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
+</code></pre></div>
+<p>Pay attention to the <code>[root]</code> property binding. This sets what is essentially the
+first, or &quot;root&quot; page for the <code>ion-nav</code> controller. When the navigation controller loads, the component referenced
+by <code>firstPage</code> will be the root view.</p>
+
+<p>In <code>app/app.js</code>, the <code>MyApp</code> root component specifies this in its constructor:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">SongsPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./songs/songs&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">firstPage</span> <span class="o">=</span> <span class="nx">SongsPage</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>We see that <code>this.firstPage</code> is set to <code>SongsPage</code>, so <code>SongsPage</code> will be the
+first view loaded in the nav controller. Let&#39;s take a look at it.</p>
+
+<h3>SongsPage</h3>
+
+<p>Inside the <code>app/songs</code> folder, we see <code>songs.js</code>, let&#39;s open that up.</p>
+
+<p>You should see these most relevant parts, which create a new View in Ionic. An IonicView is
+  an Angular component and an Angular view configured with all the necessary directives already that is meant
+  to be loaded dynamically, so it does not use a tag selector:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/songs/songs.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">SongsPage</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">app</span>: <span class="kt">IonicApp</span><span class="p">,</span> <span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">songs</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="c1">// Songs {title: blah}</span>
+    <span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>And then inside the <code>app/songs/songs.html</code> file we see the template for this page:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-nav-items</span> <span class="na">primary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">icon</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">toggleMenu</span><span class="err">()&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;/ion-nav-items&gt;</span>
+  <span class="nt">&lt;ion-title&gt;</span>Songs<span class="nt">&lt;/ion-title&gt;</span>
+<span class="nt">&lt;/ion-navbar&gt;</span>
+
+<span class="nt">&lt;ion-content&gt;</span>
+  <span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#song of songs&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openSong</span><span class="err">(</span><span class="na">song</span><span class="err">)&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;/ion-list&gt;</span>
+<span class="nt">&lt;/ion-content&gt;</span>
+</code></pre></div>
+<p>The <code>&lt;ion-navbar *navbar&gt;</code> is what we call a template, and functions as configuration
+data for the navigation bar. As we navigate to the page, the nav bar will be updated with the
+various <code>ion-nav-items</code> for buttons in the bar, and <code>&lt;ion-title&gt;</code> for the title of the bar.</p>
+
+<p>The rest of the template is standard Ionic code that sets up our content area, and then
+renders the list of our songs.</p>
+
+<h3>Making new pages</h3>
+
+<p>To create a page that can be navigated to, we don&#39;t need to do much beyond
+making sure we correctly configure the title and anything else we want the
+navigation bar to display.</p>
+
+<p>Let&#39;s create a page to display a single playlist. Inside of the <code>app/</code> folder,
+create the <code>playlist/</code> directory and a file called <code>playlists.js</code> in it. Put this code
+into that file:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;_app/playlist/playlist.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistPage</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>And then let&#39;s put this in our <code>app/playlist/playlist.html</code> file:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-nav-items</span> <span class="na">primary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">icon</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openMenu</span><span class="err">()&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;/ion-nav-items&gt;</span>
+  <span class="nt">&lt;ion-title&gt;&lt;/ion-title&gt;</span>
+<span class="nt">&lt;/ion-navbar&gt;</span>
+
+<span class="nt">&lt;ion-content</span> <span class="na">class=</span><span class="s">&quot;padding&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/ion-content&gt;</span>
+</code></pre></div>
+<p>Now that we have our page constructed, let&#39;s continue to see how to navigate to it.</p>
+
+<p><a href="../navigating/" button primary>Navigating</a></p>
 
 
           

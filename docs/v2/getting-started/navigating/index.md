@@ -1,12 +1,12 @@
 ---
 layout: v2/docs_base
-id: guide
+id: getting-started
 title: Ionic 2 Guide | Navigating
 header_title: Navigating - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/navigating/index.md'>
     Improve this doc
   </a>
 </div>

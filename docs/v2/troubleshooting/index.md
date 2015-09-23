@@ -165,9 +165,7 @@ Sometimes circular references within your code can cause this error.  Circular r
                <input type="button" />
              </div>`
   directives: [forwardRef(() => MyIcon)] // MyIcon has not been defined yet
-                                         // forwardRef resolves as MyIcon when it
-                                         // is needed
-})
+})                                       // forwardRef resolves as MyIcon when MyIcon is needed
 
 @Directive({
   selector: 'icon'  
@@ -176,6 +174,8 @@ class MyIcon {
   constructor(containerButton: MyButton) {} // MyButton has been defined
 }
 ```
+
+-------
 
 <br>
 `No provider for ParamType! (MyClass -> ParamType)`
@@ -203,7 +203,7 @@ If the parameter is another component or directive (for example, a parent compon
 })
 @View({
   template: '<div my-dir></div>',
-  directives: [forwardRef(() => MyDir)] // MyDir hasn't been defined yet so need forwardRef
+  directives: [forwardRef(() => MyDir)]
 })
 class MyComp {
   constructor(){ this.name = "My Component"; }
@@ -213,7 +213,8 @@ class MyComp {
   selector: '[my-dir]'
 })
 class MyDir {
-  constructor(c: MyComp) {
+  constructor(c: MyComp) { <-- This is the line of interest
+
     // Errors when directive is on regular div because there is no MyComp in the
     // component tree so there is no MyComp to inject
     console.log("Host component's name: " + c.name);
@@ -221,9 +222,9 @@ class MyDir {
 }
 
 @App({
-  template: "<my-comp></my-comp>" + // Works, MyComp is parent of MyDir
-            "<my-comp my-dir></my-comp>" + // Works, MyComp is host of MyDir
-            "<div my-dir></div>", // Will error in MyDir
+  template: "<my-comp></my-comp>" + // No error in MyDir constructor, MyComp is parent of MyDir
+            "<my-comp my-dir></my-comp>" + // No error in MyDir constructor, MyComp is host of MyDir
+            "<div my-dir></div>", // Errors in MyDir constructor
   directives: [MyComp, MyDir]
 })
 class MyApp {}

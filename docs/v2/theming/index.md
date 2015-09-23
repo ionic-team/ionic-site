@@ -32,8 +32,8 @@ The generated CSS file gets placed at `www/app/build/css/app.css` in your projec
 
 There isn't much to using Sass, you just have to write it. Ionic takes care of generating the CSS file for you when you run `ionic serve`.
 
-Ionic uses Sass variables in order to customize the look of your app. You can use these same variables to make it your own. To learn more about what Sass variables are, continue on to the [next section](../sass-variables/).
+Ionic uses Sass variables in order to customize the look of your app. You can use these same variables to make it your own. To learn more about what Sass variables are, continue on to the [next section](./sass-variables/).
 
-Already know everything there is to know about Sass? We still recommend reading our sections on [Overriding Ionic Variables](../overriding-ionic), [Ionic Themes](../ionic-themes), and [Ionic Modes](../ionic-modes) in order to learn about how well Ionic and Sass work together.
+Already know everything there is to know about Sass? We still recommend reading our sections on [Overriding Ionic Variables](./overriding-ionic), [Ionic Themes](./ionic-themes), and [Ionic Modes](./ionic-modes) in order to learn about how well Ionic and Sass work together.
 
-When you're all done with that, we have a list of all of the [Ionic Variables](../ionic-variables) you can use to customize the style of your app!
+When you're all done with that, we have a list of all of the [Ionic Variables](./ionic-variables) you can use to customize the style of your app!

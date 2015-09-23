@@ -12,48 +12,7 @@ header_sub_title: Ionic 2 Developer Preview
   </a>
 </div>
 
-# Ionic 2 Tutorial
-
-Now that you have [Ionic and its dependencies installed](../installation), we can create our first Ionic app! This section will walk through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
-
-
-
-# Starting a new Ionic 2 application
-
-If you haven'tUse the `start` command with the `--v2` option to specify a Ionic 2 application.
-
-```bash
-ionic start MyIonic2Project --v2
-```
-
-This should pull Ionic 2 down, install npm modules for the application, and get cordova set up and ready to go.
-
-
-## Viewing the app in a browser
-To get a quick preview of the Ionic 2 starter, use the `serve` command.
-
-```bash
-ionic serve
-```
-
-<img src="http://ionicframework.com.s3.amazonaws.com/v2/starter1.png" style="max-width: 320px">
-
-## Running the app on a device
-
-To run an Ionic 2 app on a device or simulator, it's the same process as an Ionic 1 app.
-
-```bash
-# Will run on the ios simulator
-ionic run ios
-
-# Will run on the android simulator
-ionic run android
-```
-
-The same command with `--device` will run the app on an actual device if one is connected.
-
-
-## Project Structure
+# Project Structure
 
 Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the `www` folder, and so we are going to spend most of our time there.
 

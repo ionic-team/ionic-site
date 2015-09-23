@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 | Installing - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 | Getting Started | Tutorial - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -84,7 +84,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Developer Tips - Building to a Device</h3>
+    <h3>Getting Started - Tutorial</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -216,55 +216,79 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1>Installing Ionic</h1>
+<h1>Project Structure</h1>
 
-<p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.</p>
+<p>Let&#39;s walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical <a href="/docs/what-is/#cordova">Cordova</a> project structure where we can install native plugins and create platform-specific project files. The bulk of our application lives inside the <code>www</code> folder, and so we are going to spend most of our time there.</p>
 
-<p>To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic@alpha
+<h3 class="file-title">www/index.html</h3>
+
+<p><code>www/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS includes and <code>bootstrap</code>, or start running, our app. We won&#39;t spend much of our time in this file.</p>
+
+<p>For your app to function, Ionic looks for the <code>&lt;ionic-app&gt;</code> tag in your HTML. In this example we have:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ionic-app&gt;&lt;/ionic-app&gt;</span>
 </code></pre></div>
-<p>(Note: do not type the dollar sign, that is a placeholder for your shell prompt).</p>
-
-<p>Once that&#39;s done, create your first Ionic app:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start cutePuppyPics --v2
+<p>And the following scripts near the bottom:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;build/js/app.bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
-<p>To run our app, just run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
+<ul>
+<li><p><code>app.bundle.js</code> is a concatenated files of all your app&#39;s JavaScript, Ionic, and Angular</p></li>
+<li><p><code>cordova.js</code> will 404 during local development as it gets injected into your project during cordova&#39;s build process.</p></li>
+</ul>
+
+<h3 class="file-title">app/app.js</h3>
+
+<p>Inside of the <code>app</code> directory we find our pre-compiled Javascript code. This is where most of the work for an Ionic 2 app will take place. When we run <code>ionic serve</code>, our code inside of <code>app/</code> is <a href="/docs/what-is/#transpiler">transpiled</a> into the correct Javascript version that the browser understands (currently, <a href="/docs/what-is/#es5">ES5</a>). That means we can work at a higher level using TypeScript and <a href="/docs/what-is/es2015-es6">ES6+</a>, but compile down to the older form of Javascript the browser needs.</p>
+
+<p><code>app.js</code> is the entry point for our app.</p>
+
+<p>Near the top of the file, we should see this:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>And we can play with it right in the browser!</p>
+<p>Every app has a <em>root component</em> that essentially controls the rest of the application. This is very similar to <code>ng-app</code> from Ionic and Angular 1. To specify a root component with Ionic, we use the <code>@App</code> decorator.</p>
 
-<h2><a href="#building-to-a-device">Building to a Device</a></h2>
+<p>In this component, we set the template to be the file at <code>app/app.html</code>, let&#39;s take a look!</p>
 
-<p>After you have Ionic installed, we can build our app to a physical device. If you don&#39;t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g cordova
+<h3 class="file-title">app/app.html</h3>
+
+<p>Here&#39;s the main template for the app in <code>app/app.html</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]=&quot;</span><span class="na">content</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+
+  <span class="nt">&lt;ion-content&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#p of pages&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPage</span><span class="err">(</span><span class="na">p</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+
+<span class="nt">&lt;/ion-menu&gt;</span>
+
+<span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">&quot;nav&quot;</span> <span class="err">[</span><span class="na">root</span><span class="err">]=&quot;</span><span class="na">rootPage</span><span class="err">&quot;</span> <span class="err">#</span><span class="na">content</span> <span class="na">swipe-back-enabled=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
 </code></pre></div>
-<p>Once you have Cordova installed, and a device or emulator ready to go, we can move on and begin building your app!</p>
+<p>In this template, we set up an <code>ion-menu</code> to function as a side menu, and then a navigation controller
+to act as the main content area. The <code>ion-menu</code> takes a property of <code>content</code>, and we can pass the local variable of <code>#content</code> from our <code>ion-nav</code>.
+This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.</p>
 
-<h3><a href="#building-for-ios">Building for iOS</a></h3>
+<p>Let&#39;s go and see how to create more pages and perform basic navigation.</p>
 
-<p>To build for iOS, we need to add the iOS platform module to Cordova:</p>
+<p><a href="../adding-pages/" class= "button button-positive">Adding Pages</a></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios</code></pre></div>
-
-<p>Next, we will need to install <a href="../what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../what-is/#npm">npm</a>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install ios-sim
-</code></pre></div>
-<p>From there, we should be able to run the iOS emulator using the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic emulate ios
-</code></pre></div>
-<h3><a href="#building-for-android">Building for Android</a></h3>
-
-<p>To build for Android, we need to add the Android platform module to Cordova:</p></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add android
-</code></pre></div>
-<p>Next, we will need to install the <a href="../what-is/#android-sdk">Android SDK</a>. The Android SDK allows us to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../what-is/#genymotion">Genymotion</a> is recommended since is is much faster. Once installed, we can run an Android image and run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
-</code></pre></div>
 
           
         </div>

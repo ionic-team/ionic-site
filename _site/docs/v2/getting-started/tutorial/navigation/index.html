@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 | Installing - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Ionic 2 Guide | Navigating - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -84,7 +84,7 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Developer Tips - Building to a Device</h3>
+    <h3>Navigating - Ionic 2 Guide</h3>
     <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
@@ -216,55 +216,39 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1>Installing Ionic</h1>
+<h1 class="title">Navigating to Pages</h1>
 
-<p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.</p>
+<p>We created a new page in the last section, but now we need to navigate to it.</p>
 
-<p>To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic@alpha
+<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the
+top of the stack which takes us forwards in the app and shows a back button,
+and then we <code>pop</code> the top one off to go back to the page before it.</p>
+
+<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example), but pages can be navigated to from anywhere which was not possible in v1. For example, we can show the same Playlist page instead of a tab, a side menu, or a modal. This means we don&#39;t use <code>href</code> to navigate around.</p>
+
+<p>So, let&#39;s take our <code>PlaylistPage</code> from the previous example and navigate to it when we tap on a specific play list from the <code>PlaylistsPage</code> (note the &#39;s&#39;). Open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#playlist of playlists&quot;</span> <span class="err">(^</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPlaylist</span><span class="err">(</span><span class="na">playlist</span><span class="err">)&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
 </code></pre></div>
-<p>(Note: do not type the dollar sign, that is a placeholder for your shell prompt).</p>
+<p>When the user taps this, the <code>openPlaylist()</code> function will be called with a reference to the playlist that was tapped.</p>
 
-<p>Once that&#39;s done, create your first Ionic app:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start cutePuppyPics --v2
+<p>Open <code>app/playlists/playlists.js</code>, and let&#39;s add a method to <code>PlaylistsPage</code> to handle this:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
+  <span class="c1">// constructor and other methods above here...</span>
+
+  <span class="nx">openPlaylist</span><span class="p">(</span><span class="nx">playlist</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">PlaylistPage</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">playlist</span>: <span class="kt">playlist</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>To run our app, just run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
-</code></pre></div>
-<p>And we can play with it right in the browser!</p>
+<p>Open the app, and navigate to the playlists page. When we tap on the page, we should see the new playlist page open with the title set to the playlist we just clicked!</p>
 
-<h2><a href="#building-to-a-device">Building to a Device</a></h2>
-
-<p>After you have Ionic installed, we can build our app to a physical device. If you don&#39;t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g cordova
-</code></pre></div>
-<p>Once you have Cordova installed, and a device or emulator ready to go, we can move on and begin building your app!</p>
-
-<h3><a href="#building-for-ios">Building for iOS</a></h3>
-
-<p>To build for iOS, we need to add the iOS platform module to Cordova:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios</code></pre></div>
-
-<p>Next, we will need to install <a href="../what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../what-is/#npm">npm</a>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install ios-sim
-</code></pre></div>
-<p>From there, we should be able to run the iOS emulator using the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic emulate ios
-</code></pre></div>
-<h3><a href="#building-for-android">Building for Android</a></h3>
-
-<p>To build for Android, we need to add the Android platform module to Cordova:</p></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add android
-</code></pre></div>
-<p>Next, we will need to install the <a href="../what-is/#android-sdk">Android SDK</a>. The Android SDK allows us to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../what-is/#genymotion">Genymotion</a> is recommended since is is much faster. Once installed, we can run an Android image and run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
-</code></pre></div>
 
           
         </div>

@@ -19,6 +19,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p>Babel is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
   </section>
 
+  <section id="circlular-dependency">
+    <h3><a href="#protractor">Circular Dependency</a></h3>
+    <p>A circular dependency is a problem caused when two modules depend on each other. This can cause <a href="#dependency-injection">dependency injection</a> to break, and is to be avoided. <a href="http://misko.hevery.com/2008/08/01/circular-dependency-in-constructors-and-dependency-injection/">This article</a> outlines the problem of circular dependencies, and proposes a solution.</p>
+  </section>
+
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
     <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
@@ -32,6 +37,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="cordova">
     <h3><a href="#cordova">Cordova</a></h3>
     <p><a href="https://cordova.apache.org">Cordova</a> is a way to transform standard HTML/CSS/JS into a full-fledged native app. It provides a JavaScript API for accessing native device functionality, such as the camera or accelerometer. Cordova contains the necessary build tools for packaging webapps for iOS, Android, and Windows Phone.</p>
+  </section>
+
+  <section id="dependency-injection">
+    <h3><a href="#dependency-injection">Dependency Injection</a></h3>
+    <p>Dependency injection is a pattern used by Angular to resolve or "inject" dependencies into a <a href="#modules">module</a>. The injector finds the instance of the dependency being requested, and passes or "injects" this instance to the module.</p>
   </section>
 
   <section id="es5">
@@ -59,6 +69,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p><a href="http://gulpjs.com/">Gulp</a> is a tool for running tasks which can be used to build your application. Common build tasks include transpiling <a href="#es2015-es6">ES6</a> to <a href="#es5">ES5</a>, turning <a href="#sass">Sass</a> in to CSS, minifying code, and concatenating files.</p>
   </section>
 
+  <section id="hybrid-app">
+    <h3><a href="#hybrid-app">Hybrid App</a></h3>
+    <p>A hybrid app is a mobile app that is written using web technologies such as HTML, CSS, and JavaScript. Hybrid apps run in a WebView that contains your code. By using tools like <a href="#cordova">Cordova</a>, your code can access native device functionality such as the camera and accelerometer. Unlike <a href="#native-app">native apps</a> which typically only are built for a single platform, hybrid apps can run on iOS, Android, Windows Phone, and anywhere that has a WebView.
+    </p> 
+  </section>
+
   <section id="ionicons">
     <h3><a href="#ionicons">Ionicons</a></h3>
     <p><a href="http://ionicons.com/">Ionicons</a> is an open-source icon set used and created by Ionic. It includes iOS, Material Design, and social icons, as well as a wide range of commonly used icons. Ionicons is included by default in Ionic distributions, but they can be used in any project.</p>
@@ -67,6 +83,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="ios">
     <h3><a href="#ios">iOS</a></h3>
     <p>iOS is a mobile operating system used by the iPhone and iPad. iOS 9 is the most recent version of the operating system.</p>
+  </section>
+
+  <section id="karma">
+    <h3><a href="#karma">Karma</a></h3>
+    <p>Karma is the unit testing framework used internally for Ionic. Karma can initialize Ionic and Angular components, and run tests against them once instantiated. Karma's API provides a number of assertions and other functions that make unit testing easier. For example, Karma could instantiate a NavBar, set the title using Ionic's NavBar API, and then make sure that the title was actually updated.</p>
   </section>
 
   <section id="material-design">
@@ -99,6 +120,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
     </p> 
   </section>
 
+  <section id="native-app">
+    <h3><a href="#native-app">Native Plugin</a></h3>
+    <p>A native plugin is a piece of code that exposes an API that can be used to access native device functionality. For an Ionic app, this is typically accomplished through <a href="#cordova">Cordova</a>. These plugins expose a JavaScript API that may interact with numerous platform APIs under the hood.
+    </p> 
+  </section>
+
   <section id="node">
     <h3><a href="#node">node</a></h3>
     <p><a href="https://nodejs.org/">node</a> is a runtime environment that lets you write JavaScript on the server-side. In addition to being used for web services, node is often used to build developer tools, such as the <a href="#cli">Ionic CLI</a>.</p>
@@ -108,6 +135,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <h3><a href="#npm">npm</a></h3>
     <p><a href="https://www.npmjs.com/">npm</a> is the package manager for <a href="#node">node</a>. It allows you to install, share, and package node modules. Ionic can be installed with npm, along with a number of its dependencies.
     </p>
+  </section>
+
+  <section id="protractor">
+    <h3><a href="#protractor">Protractor</a></h3>
+    <p>Protractor is the framework Angular and Ionic use for <a href="#end-to-end-test">end-to-end testing</a>. Protractor provides an API for selecting DOM elements, and running tests against them. For example, you could use the API to easily create a test that opens your app, fills out a form, and makes sure that it loads the next page when the form is submitted.</p>
   </section>
 
   <section id="Sass">
@@ -137,6 +169,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="webpack">
     <h3><a href="#webpack">Webpack</a></h3><p>
     Webpack bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
+  </section>
+
+  <section id="web-app">
+    <h3><a href="#web-app">Web App</a></h3>
+    <p>Like a hybrid app, a web app is written using web technologies such as HTML, CSS, and JavaScript. However, unlike a <a href="#hybrid-app">hybrid app</a>, a web app can only be loaded in a browser. Also, although a web app may use responsive design and could be used by a mobile browser, it cannot access native device functionality like camera and accelerometer.
+    </p> 
   </section>
 
 </div>

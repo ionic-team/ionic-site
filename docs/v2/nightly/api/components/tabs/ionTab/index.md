@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "ionTab"
 header_sub_title: "Class in module "
@@ -37,13 +36,12 @@ docType: "class"
 
 
 
-Contains a tab's content. The content only exists while the given tab is selected.
+<p>Contains a tab&#39;s content. The content only exists while the given tab is selected.</p>
+
 
 <h1 class="class export">ionTab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L5-L128">ionic/components/tabs/tab.ts (line 5)</a>
-</p>
-<p><p>Contains a tab&#39;s content. The content only exists while the given tab is selected.</p>
 </p>
 ## Members
 

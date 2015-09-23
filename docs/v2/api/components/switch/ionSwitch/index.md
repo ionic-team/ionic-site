@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ionSwitch"
 header_sub_title: "Class in module "
@@ -37,19 +36,14 @@ docType: "class"
 
 
 
-A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <label> in order to make the entire toggle easy to tap or drag.
+<p>A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <label> in order to make the entire toggle easy to tap or drag.</p>
+<p>Toggles can also have colors assigned to them, by adding the <code>toggle-assertive</code> attribute to assign the assertive color.</p>
+<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
-Toggles can also have colors assigned to them, by adding the `toggle-assertive` attribute to assign the assertive color.
-
-See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
 
 <h1 class="class export">ionSwitch <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L47-L250">ionic/components/switch/switch.ts (line 47)</a>
-</p>
-<p><p>A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <label> in order to make the entire toggle easy to tap or drag.</p>
-<p>Toggles can also have colors assigned to them, by adding the <code>toggle-assertive</code> attribute to assign the assertive color.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 </p>
 ## Members
 

@@ -62,7 +62,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             })();
 
             HomeTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Home</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + 'home' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Home</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + 'home' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], HomeTabPage);
 
             PeekTabPage = (function () {
@@ -81,7 +81,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             })();
 
             PeekTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Peek</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + 'peek' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Peek</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + 'peek' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], PeekTabPage);
 
             TabsPage = function TabsPage() {

@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ionModal"
 header_sub_title: "Class in module "
@@ -37,13 +36,12 @@ docType: "class"
 
 
 
-The Modal is a content pane that can go over the user's main view temporarily. Usually used for making a choice or editing an item.
+<p>The Modal is a content pane that can go over the user&#39;s main view temporarily. Usually used for making a choice or editing an item.</p>
+
 
 <h1 class="class export">ionModal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L5-L60">ionic/components/modal/modal.ts (line 5)</a>
-</p>
-<p><p>The Modal is a content pane that can go over the user&#39;s main view temporarily. Usually used for making a choice or editing an item.</p>
 </p>
 ## Members
 

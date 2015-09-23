@@ -67,7 +67,7 @@ System.register("pages/dialogs", ["ionic/ionic"], function (_export) {
             _export("DialogsPage", DialogsPage);
 
             _export("DialogsPage", DialogsPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Dialogs</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Dialogs</h2>\n    <button primary outline (click)=\"doAlert()\">Do Alert</button>\n    <button primary outline (click)=\"doConfirm()\">Do Confirm</button>\n    <button primary outline (click)=\"doPrompt()\">Do Prompt</button>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Dialogs</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Dialogs</h2>\n    <button primary outline (click)=\"doAlert()\">Do Alert</button>\n    <button primary outline (click)=\"doConfirm()\">Do Confirm</button>\n    <button primary outline (click)=\"doPrompt()\">Do Prompt</button>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DialogsPage));
         }
     };

@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "ionTabs"
 header_sub_title: "Class in module "
@@ -37,22 +36,15 @@ docType: "class"
 
 
 
-Powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
+<p>Powers a multi-tabbed interface with a Tab Bar and a set of &quot;pages&quot; that can be tabbed through.</p>
+<p>Assign any tabs attribute to the element to define its look and feel.</p>
+<p>For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each OS&#39;s design specification, but can be configured with the ionicConfig.</p>
+<p>See the ionTab component&#39;s documentation for more details on individual tabs.</p>
 
-Assign any tabs attribute to the element to define its look and feel.
-
-For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each OS's design specification, but can be configured with the ionicConfig.
-
-See the ionTab component's documentation for more details on individual tabs.
 
 <h1 class="class export">ionTabs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L7-L149">ionic/components/tabs/tabs.ts (line 7)</a>
-</p>
-<p><p>Powers a multi-tabbed interface with a Tab Bar and a set of &quot;pages&quot; that can be tabbed through.</p>
-<p>Assign any tabs attribute to the element to define its look and feel.</p>
-<p>For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each OS&#39;s design specification, but can be configured with the ionicConfig.</p>
-<p>See the ionTab component&#39;s documentation for more details on individual tabs.</p>
 </p>
 ## Members
 

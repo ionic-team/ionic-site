@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "SqlStorage"
 header_sub_title: "Class in module "
@@ -37,22 +36,15 @@ docType: "class"
 
 
 
-SqlStorage uses SQLite or WebSQL (development only!) to store data in a
-persistent SQL store on the filesystem.
-
-This is the preferred storage engine, as data will be stored in appropriate
-app storage, unlike Local Storage which is treated differently by the OS.
-
+<p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
+persistent SQL store on the filesystem.</p>
+<p>This is the preferred storage engine, as data will be stored in appropriate
+app storage, unlike Local Storage which is treated differently by the OS.</p>
 
 
 <h1 class="class export">SqlStorage <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/storage/sql.ts#L5-L180">ionic/storage/sql.ts (line 5)</a>
-</p>
-<p><p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
-persistent SQL store on the filesystem.</p>
-<p>This is the preferred storage engine, as data will be stored in appropriate
-app storage, unlike Local Storage which is treated differently by the OS.</p>
 </p>
 ## Members
 

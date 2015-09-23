@@ -55,7 +55,7 @@ System.register("pages/nav", ["ionic/ionic"], function (_export) {
             _export("NavPage", NavPage);
 
             _export("NavPage", NavPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-title>Navigation</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Navigation</h2>\n    <p>\n      Navigation makes your app feel like, well, an app!\n    </p>\n    <p>\n      With the navigation features in Ionic, we can navigate to new pages,\n      go back in history (including swipe-to-go-back), and control the stack\n      of pages the user can navigate between.\n    </p>\n    <button (click)=\"push()\">Push</button>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-title>Navigation</ion-title></ion-navbar>\n\n  <ion-content padding>\n    <h2>Navigation</h2>\n    <p>\n      Navigation makes your app feel like, well, an app!\n    </p>\n    <p>\n      With the navigation features in Ionic, we can navigate to new pages,\n      go back in history (including swipe-to-go-back), and control the stack\n      of pages the user can navigate between.\n    </p>\n    <button (click)=\"push()\">Push</button>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], NavPage));
 
             NavSecondPage = function NavSecondPage(nav) {
@@ -67,7 +67,7 @@ System.register("pages/nav", ["ionic/ionic"], function (_export) {
             _export("NavSecondPage", NavSecondPage);
 
             _export("NavSecondPage", NavSecondPage = __decorate([IonicView({
-                template: "\n    <ion-navbar *navbar><ion-title>Second Page</ion-title></ion-navbar>\n    <ion-content class=\"padding\">\n      <button (click)=\"nav.pop()\">Pop</button>\n    </ion-content>\n  "
+                template: "\n    <ion-navbar *navbar><ion-title>Second Page</ion-title></ion-navbar>\n    <ion-content padding>\n      <button (click)=\"nav.pop()\">Pop</button>\n    </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], NavSecondPage));
         }
     };

@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "Animation"
 header_sub_title: "Class in module "
@@ -37,31 +36,7 @@ docType: "class"
 
 
 
-Animation Steps/Process
-  -----------------------
-  1) Construct animation (doesn't start)
-  2) Client play()'s animation, returns promise
-  3) Add before classes to elements
-  4) Remove before classes from elements
-  5) Elements staged in "from" effect w/ inline styles
-  6) Call onReady()
-  7) Wait for RENDER_DELAY milliseconds (give browser time to render)
-  8) Call onPlay()
-  8) Run from/to animation on elements
-  9) Animations finish async
- 10) Set inline styles w/ the "to" effects on elements
- 11) Add after classes to elements
- 12) Remove after classes from elements
- 13) Call onFinish()
- 14) Resolve play()'s promise
-
-
-
-<h1 class="class export">Animation <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L509">ionic/animations/animation.ts (line 5)</a>
-</p>
-<p><h2 id="animation-steps-process">Animation Steps/Process</h2>
+<h2 id="animation-steps-process">Animation Steps/Process</h2>
 <p>  1) Construct animation (doesn&#39;t start)
   2) Client play()&#39;s animation, returns promise
   3) Add before classes to elements
@@ -77,6 +52,11 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
  12) Remove after classes from elements
  13) Call onFinish()
  14) Resolve play()&#39;s promise</p>
+
+
+<h1 class="class export">Animation <span class="type">class</span></h1>
+<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L509">ionic/animations/animation.ts (line 5)</a>
 </p>
 ## Members
 
@@ -437,9 +417,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 
-<div id="progressFinish"></div>
+<div id="progressEnd"></div>
 <h2>
-  <code>progressFinish()</code>
+  <code>progressEnd()</code>
 
 </h2>
 

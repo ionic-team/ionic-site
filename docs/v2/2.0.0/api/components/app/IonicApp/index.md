@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "IonicApp"
 header_sub_title: "Class in module "
@@ -37,15 +36,12 @@ docType: "class"
 
 
 
-TODO(adamdbradley): IonicApp is injected, not inherited from now
-The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.
+<p>Service exposing the Ionic app level API.</p>
+
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L14-L207">ionic/components/app/app.ts (line 14)</a>
-</p>
-<p><p>TODO(adamdbradley): IonicApp is injected, not inherited from now
-The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.</p>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L14-L206">ionic/components/app/app.ts (line 14)</a>
 </p>
 ## Members
 

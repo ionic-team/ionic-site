@@ -46,7 +46,7 @@ System.register("pages/device-motion", ["ionic/ionic"], function (_export) {
             _export("DeviceMotionPage", DeviceMotionPage);
 
             _export("DeviceMotionPage", DeviceMotionPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <div *ng-if=\"accel\">{{accel.x}} {{accel.y}} {{accel.z}}</div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div *ng-if=\"accel\">{{accel.x}} {{accel.y}} {{accel.z}}</div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DeviceMotionPage));
         }
     };

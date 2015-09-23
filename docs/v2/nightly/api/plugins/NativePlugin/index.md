@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "NativePlugin"
 header_sub_title: "Function in module "
@@ -39,10 +38,8 @@ docType: "function"
 
 
 
-
 <h1 class="class export">NativePlugin <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/plugin.ts#L45-L54">ionic/plugins/plugin.ts (line 45)</a>
 </p>
-<p></p>
 

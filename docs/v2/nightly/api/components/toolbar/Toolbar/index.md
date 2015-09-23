@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "Toolbar"
 header_sub_title: "Class in module "
@@ -37,15 +36,12 @@ docType: "class"
 
 
 
-TODO
-
+<p>TODO</p>
 
 
 <h1 class="class export">Toolbar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L53-L82">ionic/components/toolbar/toolbar.ts (line 53)</a>
-</p>
-<p><p>TODO</p>
 </p>
 ## Members
 

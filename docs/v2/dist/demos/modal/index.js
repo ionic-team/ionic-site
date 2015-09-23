@@ -97,39 +97,39 @@ System.register("index", ["ionic/ionic"], function (_export) {
                 }
 
                 _createClass(ContactModal, [{
-                    key: "viewLoaded",
-                    value: function viewLoaded() {
-                        console.log('ContactModal viewLoaded');
+                    key: "onViewLoaded",
+                    value: function onViewLoaded() {
+                        console.log('ContactModal onViewLoaded');
                     }
                 }, {
-                    key: "viewWillEnter",
-                    value: function viewWillEnter() {
-                        console.log('ContactModal viewWillEnter');
+                    key: "onViewWillEnter",
+                    value: function onViewWillEnter() {
+                        console.log('ContactModal onViewWillEnter');
                     }
                 }, {
-                    key: "viewDidEnter",
-                    value: function viewDidEnter() {
-                        console.log('ContactModal viewDidEnter');
+                    key: "onViewDidEnter",
+                    value: function onViewDidEnter() {
+                        console.log('ContactModal onViewDidEnter');
                     }
                 }, {
-                    key: "viewWillLeave",
-                    value: function viewWillLeave() {
-                        console.log('ContactModal viewWillLeave');
+                    key: "onViewWillLeave",
+                    value: function onViewWillLeave() {
+                        console.log('ContactModal onViewWillLeave');
                     }
                 }, {
-                    key: "viewDidLeave",
-                    value: function viewDidLeave() {
-                        console.log('ContactModal viewDidLeave');
+                    key: "onViewDidLeave",
+                    value: function onViewDidLeave() {
+                        console.log('ContactModal onViewDidLeave');
                     }
                 }, {
-                    key: "viewWillUnload",
-                    value: function viewWillUnload() {
-                        console.log('ContactModal viewWillUnload');
+                    key: "onViewWillUnload",
+                    value: function onViewWillUnload() {
+                        console.log('ContactModal onViewWillUnload');
                     }
                 }, {
-                    key: "viewDidUnload",
-                    value: function viewDidUnload() {
-                        console.log('ContactModal viewDidUnload');
+                    key: "onViewDidUnload",
+                    value: function onViewDidUnload() {
+                        console.log('ContactModal onViewDidUnload');
                     }
                 }]);
 
@@ -203,7 +203,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             _export("ModalFirstPage", ModalFirstPage);
 
             _export("ModalFirstPage", ModalFirstPage = __decorate([IonicView({
-                template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button id=\"e2eCloseMenu\" (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content class=\"padding\">\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionSheet()\">Open Action Sheet</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandeModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
+                template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content padding>\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionSheet()\">Open Action Sheet</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandeModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof Modal !== 'undefined' && Modal || Object, typeof ActionSheet !== 'undefined' && ActionSheet || Object])], ModalFirstPage));
 
             ModalSecondPage = function ModalSecondPage(nav, params) {
@@ -217,7 +217,7 @@ System.register("index", ["ionic/ionic"], function (_export) {
             _export("ModalSecondPage", ModalSecondPage);
 
             _export("ModalSecondPage", ModalSecondPage = __decorate([IonicView({
-                template: "\n    <ion-navbar *navbar><ion-title>Second Page Header</ion-title></ion-navbar>\n    <ion-content class=\"padding\">\n      <p>\n        <button (click)=\"nav.pop()\">Pop (Go back to 1st)</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
+                template: "\n    <ion-navbar *navbar><ion-title>Second Page Header</ion-title></ion-navbar>\n    <ion-content padding>\n      <p>\n        <button (click)=\"nav.pop()\">Pop (Go back to 1st)</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof NavParams !== 'undefined' && NavParams || Object])], ModalSecondPage));
 
             FadeIn = (function (_Animation) {

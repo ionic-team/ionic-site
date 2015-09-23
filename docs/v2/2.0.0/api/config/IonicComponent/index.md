@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "IonicComponent"
 header_sub_title: "Function in module "
@@ -13,11 +12,11 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L127'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L121'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/annotations.ts#L127'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L121'>
     Improve this doc
   </a>
 </div>
@@ -37,14 +36,11 @@ docType: "function"
 
 
 
-TODO
-
+<p>TODO</p>
 
 
 <h1 class="class export">IonicComponent <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/annotations.ts#L128-L140">ionic/config/annotations.ts (line 128)</a>
-</p>
-<p><p>TODO</p>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L122-L134">ionic/config/decorators.ts (line 122)</a>
 </p>
 

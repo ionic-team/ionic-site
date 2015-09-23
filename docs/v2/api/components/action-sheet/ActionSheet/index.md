@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ActionSheet"
 header_sub_title: "Class in module "
@@ -39,12 +38,10 @@ docType: "class"
 
 
 
-
 <h1 class="class export">ActionSheet <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L99-L132">ionic/components/action-sheet/action-sheet.ts (line 99)</a>
 </p>
-<p></p>
 ## Members
 
 <div id="open"></div>
@@ -95,7 +92,7 @@ public API, and most often you will only use ActionSheet.open()
 
 
 * Returns: 
-  <code>Promise</code> Promise that resolves when the action menu is open.
+  <code>Promise</code> Promise that resolves when the action sheet is open.
 
 
 

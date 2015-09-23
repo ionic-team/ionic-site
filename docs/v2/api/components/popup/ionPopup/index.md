@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ionPopup"
 header_sub_title: "Class in module "
@@ -37,16 +36,13 @@ docType: "class"
 
 
 
-The Ionic Popup service allows programmatically creating and showing popup windows that require the user to respond in order to continue.
+<p>The Ionic Popup service allows programmatically creating and showing popup windows that require the user to respond in order to continue.</p>
+<p>The popup system has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
-The popup system has support for more flexible versions of the built in `alert()`, `prompt()`, and `confirm()` functions that users are used to, in addition to allowing popups with completely custom content and look.
 
 <h1 class="class export">ionPopup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L6-L191">ionic/components/popup/popup.ts (line 6)</a>
-</p>
-<p><p>The Ionic Popup service allows programmatically creating and showing popup windows that require the user to respond in order to continue.</p>
-<p>The popup system has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 </p>
 ## Members
 

@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "Dialogs"
 header_sub_title: "Class in module "
@@ -37,19 +36,14 @@ docType: "class"
 
 
 
-A native dialogs system. Native dialogs can give you a bit more
+<p>A native dialogs system. Native dialogs can give you a bit more
 control over the UI than the browser built-ins, though the Dialogs
-plugin will fall back to the built-ins when necessary.
-
+plugin will fall back to the built-ins when necessary.</p>
 
 
 <h1 class="class export">Dialogs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/dialogs/dialogs.ts#L4-L86">ionic/plugins/dialogs/dialogs.ts (line 4)</a>
-</p>
-<p><p>A native dialogs system. Native dialogs can give you a bit more
-control over the UI than the browser built-ins, though the Dialogs
-plugin will fall back to the built-ins when necessary.</p>
 </p>
 ## Members
 

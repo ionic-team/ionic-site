@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "NavbarTemplate"
 header_sub_title: "Class in module "
@@ -39,11 +38,9 @@ docType: "class"
 
 
 
-
 <h1 class="class export">NavbarTemplate <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav-bar/nav-bar.ts#L109-L127">ionic/components/nav-bar/nav-bar.ts (line 109)</a>
 </p>
-<p></p>
 ## Members
 

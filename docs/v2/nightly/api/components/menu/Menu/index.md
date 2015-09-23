@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "Menu"
 header_sub_title: "Class in module "
@@ -13,11 +12,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -37,21 +36,15 @@ docType: "class"
 
 
 
-Menu is a side-menu navigation that can be dragged out or toggled to show.
+<p>Menu is a side-menu navigation that can be dragged out or toggled to show.
 Menu supports two display styles currently: overlay, and reveal. Overlay
 is the tradtional Android drawer style, and Reveal is the traditional iOS
-style. By default, Menu will adjust to the correct style for the platform.
-
+style. By default, Menu will adjust to the correct style for the platform.</p>
 
 
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7-L238">ionic/components/menu/menu.ts (line 7)</a>
-</p>
-<p><p>Menu is a side-menu navigation that can be dragged out or toggled to show.
-Menu supports two display styles currently: overlay, and reveal. Overlay
-is the tradtional Android drawer style, and Reveal is the traditional iOS
-style. By default, Menu will adjust to the correct style for the platform.</p>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L252">ionic/components/menu/menu.ts (line 8)</a>
 </p>
 ## Members
 
@@ -157,9 +150,9 @@ Sets the state of the Menu to open or not.
 
 
 
-<div id="setProgressFinish"></div>
+<div id="setProgressEnd"></div>
 <h2>
-  <code>setProgressFinish()</code>
+  <code>setProgressEnd()</code>
 
 </h2>
 

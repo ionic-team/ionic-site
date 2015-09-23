@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "StorageEngine"
 header_sub_title: "Class in module "
@@ -39,12 +38,10 @@ docType: "class"
 
 
 
-
 <h1 class="class export">StorageEngine <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/storage/storage.ts#L34-L49">ionic/storage/storage.ts (line 34)</a>
 </p>
-<p></p>
 ## Members
 
 <div id="get"></div>

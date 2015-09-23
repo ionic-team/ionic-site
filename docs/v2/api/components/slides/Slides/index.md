@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "Slides"
 header_sub_title: "Class in module "
@@ -37,26 +36,7 @@ docType: "class"
 
 
 
-Slides is a slide box implementation based on Swiper.js
-
-Swiper.js:
-The most modern mobile touch slider and framework with hardware accelerated transitions
-
-http://www.idangero.us/swiper/
-
-Copyright 2015, Vladimir Kharlampidi
-The iDangero.us
-http://www.idangero.us/
-
-Licensed under MIT
-
-
-
-<h1 class="class export">Slides <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L15-L445">ionic/components/slides/slides.ts (line 15)</a>
-</p>
-<p><p>Slides is a slide box implementation based on Swiper.js</p>
+<p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:
 The most modern mobile touch slider and framework with hardware accelerated transitions</p>
 <p><a href="http://www.idangero.us/swiper/">http://www.idangero.us/swiper/</a></p>
@@ -64,6 +44,11 @@ The most modern mobile touch slider and framework with hardware accelerated tran
 The iDangero.us
 <a href="http://www.idangero.us/">http://www.idangero.us/</a></p>
 <p>Licensed under MIT</p>
+
+
+<h1 class="class export">Slides <span class="type">class</span></h1>
+<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L15-L445">ionic/components/slides/slides.ts (line 15)</a>
 </p>
 ## Members
 

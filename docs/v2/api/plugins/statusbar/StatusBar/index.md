@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "StatusBar"
 header_sub_title: "Class in module "
@@ -37,15 +36,12 @@ docType: "class"
 
 
 
-Manage the appearance of the native status bar.
-
+<p>Manage the appearance of the native status bar.</p>
 
 
 <h1 class="class export">StatusBar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/statusbar/statusbar.ts#L4-L112">ionic/plugins/statusbar/statusbar.ts (line 4)</a>
-</p>
-<p><p>Manage the appearance of the native status bar.</p>
 </p>
 ## Members
 

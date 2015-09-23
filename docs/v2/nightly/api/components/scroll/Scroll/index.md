@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "Scroll"
 header_sub_title: "Class in module "
@@ -37,17 +36,13 @@ docType: "class"
 
 
 
-ion-scroll is a non-flexboxed scroll area that can
-scroll horizontally or vertically.
-
+<p>ion-scroll is a non-flexboxed scroll area that can
+scroll horizontally or vertically.</p>
 
 
 <h1 class="class export">Scroll <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L10-L61">ionic/components/scroll/scroll.ts (line 10)</a>
-</p>
-<p><p>ion-scroll is a non-flexboxed scroll area that can
-scroll horizontally or vertically.</p>
 </p>
 ## Members
 

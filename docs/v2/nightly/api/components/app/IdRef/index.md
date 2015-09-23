@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "IdRef"
 header_sub_title: "Class in module "
@@ -37,19 +36,14 @@ docType: "class"
 
 
 
-IdRef is an easy way to identify unique components in an app and access them
+<p>IdRef is an easy way to identify unique components in an app and access them
 no matter where in the UI heirarchy you are. For example, this makes toggling
-a global side menu feasible from any place in the application.
-
+a global side menu feasible from any place in the application.</p>
 
 
 <h1 class="class export">IdRef <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L28">ionic/components/app/id.ts (line 3)</a>
-</p>
-<p><p>IdRef is an easy way to identify unique components in an app and access them
-no matter where in the UI heirarchy you are. For example, this makes toggling
-a global side menu feasible from any place in the application.</p>
 </p>
 ## Members
 

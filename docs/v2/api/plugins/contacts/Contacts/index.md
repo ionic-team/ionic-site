@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "Contacts"
 header_sub_title: "Class in module "
@@ -39,11 +38,9 @@ docType: "class"
 
 
 
-
 <h1 class="class export">Contacts <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/contacts/contacts.ts#L6-L92">ionic/plugins/contacts/contacts.ts (line 6)</a>
 </p>
-<p></p>
 ## Members
 

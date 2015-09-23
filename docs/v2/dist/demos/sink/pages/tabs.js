@@ -47,7 +47,7 @@ System.register("pages/tabs", ["ionic/ionic", "../sink-page"], function (_export
             };
 
             FeaturedTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Featured</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Featured</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], FeaturedTabPage);
 
             TopTabPage = function TopTabPage(nav) {
@@ -57,7 +57,7 @@ System.register("pages/tabs", ["ionic/ionic", "../sink-page"], function (_export
             };
 
             TopTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Top</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Top</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], TopTabPage);
 
             SearchTabPage = function SearchTabPage(nav) {
@@ -67,7 +67,7 @@ System.register("pages/tabs", ["ionic/ionic", "../sink-page"], function (_export
             };
 
             SearchTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Search</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Search</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], SearchTabPage);
 
             UpdatesTabPage = function UpdatesTabPage(nav) {
@@ -77,7 +77,7 @@ System.register("pages/tabs", ["ionic/ionic", "../sink-page"], function (_export
             };
 
             UpdatesTabPage = __decorate([IonicView({
-                template: '' + '<ion-navbar *navbar>' + '<ion-title>Updates</ion-title>' + '</ion-navbar>' + '<ion-content class="padding">' + '</ion-content>'
+                template: '' + '<ion-navbar *navbar>' + '<ion-title>Updates</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '</ion-content>'
             }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object])], UpdatesTabPage);
 
             TabsPage = (function (_SinkPage) {

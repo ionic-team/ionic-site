@@ -54,7 +54,7 @@ System.register("pages/device", ["ionic/ionic"], function (_export) {
             _export("DevicePage", DevicePage);
 
             _export("DevicePage", DevicePage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Device</h2>\n    <button primary outline (click)=\"doDevice()\">Get Device</button>\n    <div *ng-if=\"device\">\n      Device name: {{device.name}}\n    </div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Device</h2>\n    <button primary outline (click)=\"doDevice()\">Get Device</button>\n    <div *ng-if=\"device\">\n      Device name: {{device.name}}\n    </div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DevicePage));
         }
     };

@@ -49,7 +49,7 @@ System.register("pages/device-orientation", ["ionic/ionic"], function (_export) 
             _export("DeviceOrientationPage", DeviceOrientationPage);
 
             _export("DeviceOrientationPage", DeviceOrientationPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device Orientation</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <div style=\"text-align: center\">\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/ionitron-avatar.png\" [ng-style]=\"imageStyle\">\n    </div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Device Orientation</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div style=\"text-align: center\">\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/ionitron-avatar.png\" [ng-style]=\"imageStyle\">\n    </div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], DeviceOrientationPage));
         }
     };

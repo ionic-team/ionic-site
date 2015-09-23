@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "Geolocation"
 header_sub_title: "Class in module "
@@ -39,11 +38,9 @@ docType: "class"
 
 
 
-
 <h1 class="class export">Geolocation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/geolocation/geolocation.ts#L4-L47">ionic/plugins/geolocation/geolocation.ts (line 4)</a>
 </p>
-<p></p>
 ## Members
 

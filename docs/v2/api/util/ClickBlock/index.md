@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ClickBlock"
 header_sub_title: "Let in module "
@@ -39,10 +38,8 @@ docType: "let"
 
 
 
-
 <h1 class="class export">ClickBlock <span class="type">let</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L38-L40">ionic/util/click-block.ts (line 38)</a>
 </p>
-<p></p>
 

@@ -54,7 +54,7 @@ System.register("pages/ionicons", ["ionic/ionic", "../sink-page"], function (_ex
             _export("IconsPage", IconsPage);
 
             _export("IconsPage", IconsPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Icons</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Icons</h2>\n    <p>\n      Ionic comes with a totally free (in price and license), icon pack (known as \"Ionicons\") with over 700\n      icons for your app.\n    </p>\n    <p>\n      Ionicons is an icon font, and can be used with simple CSS icon classes (recommended), or\n      with unicode characters.\n    </p>\n    <div>\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/v2/ionicons.png\" style=\"max-width: 100%\">\n    </div>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Icons</ion-title></ion-navbar>\n\n  <ion-content padding>\n    <h2>Icons</h2>\n    <p>\n      Ionic comes with a totally free (in price and license), icon pack (known as \"Ionicons\") with over 700\n      icons for your app.\n    </p>\n    <p>\n      Ionicons is an icon font, and can be used with simple CSS icon classes (recommended), or\n      with unicode characters.\n    </p>\n    <div>\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/v2/ionicons.png\" style=\"max-width: 100%\">\n    </div>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], IconsPage));
         }
     };

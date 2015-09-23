@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-
 id: api
 title: "ToolbarTitle"
 header_sub_title: "Class in module "
@@ -39,12 +38,10 @@ docType: "class"
 
 
 
-
 <h1 class="class export">ToolbarTitle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L82-L108">ionic/components/toolbar/toolbar.ts (line 82)</a>
 </p>
-<p></p>
 ## Members
 
 <div id="getTitleText"></div>

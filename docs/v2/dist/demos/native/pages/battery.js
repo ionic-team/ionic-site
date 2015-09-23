@@ -57,7 +57,7 @@ System.register("pages/battery", ["ionic/ionic"], function (_export) {
             _export("BatteryPage", BatteryPage);
 
             _export("BatteryPage", BatteryPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Battery</ion-title>\n  </ion-navbar>\n  <ion-content class=\"padding\">\n    <h2>Battery</h2>\n    <button primary outline (click)=\"doBatteryStatus()\">Get Status</button>\n    <div *ng-if=\"battery\">\n      Battery charging: <b>{{battery.charging}}</b><br>\n      Battery level: <b>{{battery.level * 100}}</b>%<br>\n      Battery charging time: <b>{{battery.chargingTime}}</b>s<br>\n      Battery discharging time: <b>{{battery.dischargingTime}}</b>s<br>\n    </div>\n\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Battery</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Battery</h2>\n    <button primary outline (click)=\"doBatteryStatus()\">Get Status</button>\n    <div *ng-if=\"battery\">\n      Battery charging: <b>{{battery.charging}}</b><br>\n      Battery level: <b>{{battery.level * 100}}</b>%<br>\n      Battery charging time: <b>{{battery.chargingTime}}</b>s<br>\n      Battery discharging time: <b>{{battery.dischargingTime}}</b>s<br>\n    </div>\n\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [])], BatteryPage));
         }
     };

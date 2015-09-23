@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "AppLinks"
 header_sub_title: "Class in module "
@@ -37,30 +36,7 @@ docType: "class"
 
 
 
-Open installed apps on the device. Note: Android and iOS have different ways of
-opening and specifying launch params, so they have separate launch functions.
-
-Example:
-
-if(platform.is('ios') {
-  AppLinks.check('twitter://').then((installed) => {
-    AppLinks.openIOS('twitter://user?screen_name=ionicframework')
-  }, (err) => {
-
-  })
-} else if(platform.is('android') {
-  AppLinks.check('com.twitter.android').then((installed) => {
-    AppLinks.openAndroid([["action", "VIEW"], ['twitter://user?screen_name=ionicframework']])
-  })
-}
-
-
-
-<h1 class="class export">AppLinks <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/applinks/applinks.ts#L4-L71">ionic/plugins/applinks/applinks.ts (line 4)</a>
-</p>
-<p><p>Open installed apps on the device. Note: Android and iOS have different ways of
+<p>Open installed apps on the device. Note: Android and iOS have different ways of
 opening and specifying launch params, so they have separate launch functions.</p>
 <p>Example:</p>
 <p>if(platform.is(&#39;ios&#39;) {
@@ -73,6 +49,11 @@ opening and specifying launch params, so they have separate launch functions.</p
     AppLinks.openAndroid([[&quot;action&quot;, &quot;VIEW&quot;], [&#39;twitter://user?screen_name=ionicframework&#39;]])
   })
 }</p>
+
+
+<h1 class="class export">AppLinks <span class="type">class</span></h1>
+<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/plugins/applinks/applinks.ts#L4-L71">ionic/plugins/applinks/applinks.ts (line 4)</a>
 </p>
 ## Members
 

@@ -61,7 +61,7 @@ System.register("pages/aside", ["ionic/ionic", "../sink-page"], function (_expor
             _export("MenuPage", MenuPage);
 
             _export("MenuPage", MenuPage = __decorate([IonicView({
-                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Menu</ion-title></ion-navbar>\n\n  <ion-content class=\"padding\">\n    <h2>Menu</h2>\n    <p>\n      Menus slide or swipe in to show more information.\n    </p>\n    <p>\n      Try it! Just swipe from the left edge of the screen to the right to expose\n      the app menu, or tap the button to toggle the menu:\n    </p>\n    <p>\n      <div class=\"height: 50px; background-color: E05780; width: 5px; margin-left: -15px\"></div>\n    </p>\n    <p>\n      <button (click)=\"toggleMenu()\">Toggle</button>\n    </p>\n  </ion-content>\n  "
+                template: "\n  <ion-navbar *navbar><ion-nav-items primary><button icon (click)=\"toggleMenu()\"><i class=\"icon ion-navicon\"></i></button></ion-nav-items><ion-title>Menu</ion-title></ion-navbar>\n\n  <ion-content padding>\n    <h2>Menu</h2>\n    <p>\n      Menus slide or swipe in to show more information.\n    </p>\n    <p>\n      Try it! Just swipe from the left edge of the screen to the right to expose\n      the app menu, or tap the button to toggle the menu:\n    </p>\n    <p>\n      <div class=\"height: 50px; background-color: E05780; width: 5px; margin-left: -15px\"></div>\n    </p>\n    <p>\n      <button (click)=\"toggleMenu()\">Toggle</button>\n    </p>\n  </ion-content>\n  "
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], MenuPage));
         }
     };

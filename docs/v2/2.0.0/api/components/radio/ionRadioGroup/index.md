@@ -3,7 +3,6 @@ layout: "v2/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-
 id: api
 title: "ionRadioGroup"
 header_sub_title: "Class in module "
@@ -37,22 +36,15 @@ docType: "class"
 
 
 
-A radio group is a group of radio components.
+<p>A radio group is a group of radio components.</p>
+<p>Selecting a radio button in the group unselects all others in the group.</p>
+<p>New radios can be registered dynamically.</p>
+<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
-Selecting a radio button in the group unselects all others in the group.
-
-New radios can be registered dynamically.
-
-See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
 
 <h1 class="class export">ionRadioGroup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L6-L150">ionic/components/radio/radio.ts (line 6)</a>
-</p>
-<p><p>A radio group is a group of radio components.</p>
-<p>Selecting a radio button in the group unselects all others in the group.</p>
-<p>New radios can be registered dynamically.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 </p>
 ## Members
 

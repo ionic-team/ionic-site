@@ -263,3 +263,16 @@ class MyDir {
   }
 }
 ```
+
+--------
+
+<br>
+`Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching`
+`directives with a corresponding property`
+
+This one is pretty self explanatory, it happens when you try and bind a property on an element that doesn't have that property.  If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
+
+```html
+<!-- div doesn't have a 'foo' property -->
+<div [foo]="bar"></div>
+```

@@ -64,6 +64,41 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p><a href="http://ionicons.com/">Ionicons</a> is an open-source icon set used and created by Ionic. It includes iOS, Material Design, and social icons, as well as a wide range of commonly used icons. Ionicons is included by default in Ionic distributions, but they can be used in any project.</p>
   </section>
 
+  <section id="ios">
+    <h3><a href="#ios">iOS</a></h3>
+    <p>iOS is a mobile operating system used by the iPhone and iPad. iOS 9 is the most recent version of the operating system.</p>
+  </section>
+
+  <section id="material-design">
+    <h3><a href="#material-design">Material Design</a></h3>
+    <p>Material Design is a design guideline created by Google. It includes a UI interaction standard, a colorscheme, layouts, components, and much more. Material Design is used for many default system interfaces on recent versions of Android. By default Ionic components will switch to a material design theme when on Android.
+    </p> 
+  </section>
+
+  <section id="minification">
+    <h3><a href="#minification">Minification</a></h3>
+    <p>JavaScript source code can be reduced in size through minification. This process does not change the functionality of the code, even though whitespace, newlines, and other characters are removed. Minified JavaScript files will often be written `.min.js` file extension so it is clear that the contents include minified code. In a typical Ionic project, <a href="#gulp">Gulp</a> is used for minification.
+    </p> 
+  </section>
+
+
+  <section id="module-loader">
+    <h3><a href="#module-loader">Module Loader</a></h3>
+    <p>A module loader is a tool that takes <a href="#modules">modules</a> of a certian format, loads its dependencies, and makes the module available to your application. The Ionic community will often use this term to talk about module loaders like SystemJS or RequireJS.</p> 
+  </section>
+
+  <section id="modules">
+    <h3><a href="#modules">Modules</a></h3>
+    <p>Modules are organized units of code that belong together. Often times modules will be grouped by functionality. Modules can use other modules, but they have to explicitly import them. In other words, you can't globally access a function you define inside a module. Aside, from code reuse and organization, this helps avoid namespace conflicts. For example, you could define an `alert()` function inside a module, and it wouldn't conflict with `alert()` function that the `window` object provides.</p>
+    <p>Prior to to <a href="#es2015-es6">ES6</a>, JavaScript had no built in standard for defining how to build and import a module. The JavaScript community subsequently came up with two different standards for modules &mdash; <a href="#amd">AMD</a> and <a href="#commonjs">CommonJS</a>. <a href="#es2015-es6">ES6</a> modules support both of these formats, so they are considered the "future" of how JavaScript modules will be written.</p> 
+  </section>
+
+  <section id="native-app">
+    <h3><a href="#native-app">Native App</a></h3>
+    <p>A native app is a mobile app that is written using low-level APIs provided by the platform it runs on. Native apps can typically only be run on a single platform (eg: iOS, Android, Windows Phone). The term "native" is often used to compare these types of applications with Ionic apps, which are considered <a href="#hybrid">"hybrid"</a>.
+    </p> 
+  </section>
+
   <section id="node">
     <h3><a href="#node">node</a></h3>
     <p><a href="https://nodejs.org/">node</a> is a runtime environment that lets you write JavaScript on the server-side. In addition to being used for web services, node is often used to build developer tools, such as the <a href="#cli">Ionic CLI</a>.</p>

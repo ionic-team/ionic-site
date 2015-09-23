@@ -28,7 +28,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="babel">
     <h3><a href="#babel">Babel</a></h3>
-    <p>Babel is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
+    <p><a href="http://babeljs.io">Babel</a> is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
   </section>
 
   <section id="cli">

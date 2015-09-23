@@ -23,7 +23,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="autoprefixer">
     <h3><a href="#autoprefixer">Autoprefixer</a></h3>
-    <dd id="autoprefixer"><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> is a tool that adds vendor-specific-prefixes to hand-written Sass/CSS code. This ensures that standardized CSS rules you write will be applied across all supporting browsers. For example, instead of having to know every flexbox syntax used by various browsers, autoprefixer allows you to just write <code>display: flex;</code> and it'll automatically plug in the correct CSS.</p>
+    <p><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> is a tool that adds vendor-specific-prefixes to hand-written Sass/CSS code. This ensures that standardized CSS rules you write will be applied across all supporting browsers. For example, instead of having to know every flexbox syntax used by various browsers, autoprefixer allows you to just write <code>display: flex;</code> and it'll automatically plug in the correct CSS.</p>
   </section>
 
   <section id="babel">
@@ -99,7 +99,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
     </p>
   </section>
 
-  <section id="Sass">
+  <section id="sass">
     <h3><a href="#sass">Sass</a></h3>
     <p>Sass is a stylesheet language that compiles to CSS and is used by Ionic. Sass is like CSS, but with extra features such as <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_">variables</a>, <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins">mixins</a>, and <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_10">for loops</a>.</p>
   </section>

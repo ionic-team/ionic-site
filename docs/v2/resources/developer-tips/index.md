@@ -40,22 +40,36 @@ header_sub_title: Ionic 2 Developer Preview
 
   <section id="using-ios-simulator">
     <h3><a href="#using-ios-simulator">Using the iOS Simulator</a></h3>
-    <p>TODO</p>
+    <p>The iOS simulator allows you to test and debug your app before running it on an actual device. Before it can be used, we need to install <a href="https://developer.apple.com/xcode/download/">Xcode</a>, Apple's IDE. The Ionic <a href="../resources/what-is/#cli">CLI</a> can then be used to run the app in the current directory on the simulator:</p>
+
+    {% highlight bash %}
+    $ ionic emulate ios -lc
+    {% endhighlight %}
+    <p>Passing in the <code>-lc</code> flag will log console output to your terminal.</p>
+    <p>You can also use Xcode to launch the emulator and debug your app. Open up Xcode and open <code>../path-to-app/platforms/ios/myApp.xcodeproj</code>. After your app loads, you will be able to run it and see all console output inside of Xcode's output window.</p>
+
   </section>
 
-  <section id="debugging-ios-safari">
-    <h3><a href="#debugging-ios-safari">Debugging iOS with Safari</a></h3>
-    <p>TODO</p>
-  </section>
+
 
   <section id="using-genymotion-android">
     <h3><a href="#using-genymotion-android">Using the Genymotion Android Emulator</a></h3>
-    <p>TODO</p>
+    <p>While the Android SKD comes with a stock emulator, it can be very slow and unresponsive at times. <a href="https://www.genymotion.com">Genymotion</a> is an alternate emulator that is blazing fast, and allows you to emulate native functionality like GPS and camera.</p>
   </section>
 
   <section id="debugging-ios-safari">
-    <h3><a href="#debugging-ios-safari">Debugging Android with Chrome DevTools</a></h3>
-    <p>TODO</p>
+    <h3><a href="#debugging-ios-safari">Remote Debugging - iOS and Safari</a></h3>
+    <p>Safari can be used to debug an Ionic app on a connected iOS device. First, we need to enable Web Inspector on the connected device. Web Inspector can be found under <code>Settings > Safari > Advanced</code>. Next, head over to the Safari on your Mac and enable <b>Show Develop menu in menu bar</b> under <code>Safari > Preferences > Advanced</code>. The connected device should now appear in the <b>Develop</b> menu. From there, you can inspect it and use Safari's developer tools to debug your application!</p>
+  </section>
+
+  <section id="debugging-android-chrome">
+    <h3><a href="#debugging-android-chrome">Remote Debugging - Android and Chrome</a></h3>
+    <p><a href="https://developers.google.com/web/tools/setup/workspace/setup-devtools">Chrome DevTools</a> are a very powerful set of tools for debugging your application. When you use <code>ionic serve</code> to run your in the browser, DevTools can be used to inspect elements, view console logs, profile your application, and much more.</p>
+    <p>In addition to using DevTools to debug your app in the browser, DevTools can be used to debug a remote physical Android device, or even a Genymotion emulator running your app. First off, we will need to have <a href="http://developer.android.com/tools/help/adb.html">adb</a> installed. Once installed, if your device is connected, or an Android emulator is running, you should be able to see your device listed when you run the following command:</p>
+    {% highlight bash %}
+    $ adb devices
+    {% endhighlight %}
+    <p>Next, go to <code>chrome://inspect/#devices</code> in Chrome and inspect your Android device. Note: you may need to change the settings on your device to allow USB debugging. From there, you can use Chrome to debug your application just like it is in the browser!</p>
   </section>
 
 

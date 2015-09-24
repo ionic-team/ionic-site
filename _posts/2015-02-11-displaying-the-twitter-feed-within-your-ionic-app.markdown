@@ -196,7 +196,7 @@ After we have a service to get the data from Twitter and a controller to hold ou
       <div class="item item-avatar">
         <img ng-src="{{entry.user.profile_image_url}}"/>
         <h2>{{entry.user.name}}</h2>
-        <p>{{correctTimestring(entry.created_at) | date:'medium'}}</p>
+        <p></p>
       </div>
 
       <div class="item item-body">

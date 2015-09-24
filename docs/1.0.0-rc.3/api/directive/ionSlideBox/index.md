@@ -161,7 +161,7 @@ with <a href="/docs/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDel
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether a pager should be shown for this slide box. Accepts expressions via <code>show-pager=&quot;{{shouldShow()}}&quot;</code>. Defaults to true.</p>
+        <p>Whether a pager should be shown for this slide box. Accepts expressions via <code>show-pager=&quot;{% raw %}{{shouldShow()}}{% endraw %}&quot;</code>. Defaults to true.</p>
 
         
       </td>

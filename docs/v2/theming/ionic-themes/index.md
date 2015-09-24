@@ -17,7 +17,7 @@ When starting Ionic apps using the standard starter templates, either manually o
 
 ## Starter Themes
 
-The default theme is configured in the source code of the [default.scss](https://github.com/driftyco/ionic2/blob/master/ionic/themes/default.scss) file. If you open that up you'll see it has the variable `$colors`:
+The default theme is configured in the source code of the [default.scss](https://github.com/driftyco/ionic2/blob/master/ionic/themes/default.scss) file. If you open that up, you'll see it has the variable `$colors`:
 
 ```scss
 $colors: (
@@ -47,7 +47,7 @@ $colors: (
 @import "ionic";
 ```
 
-You can change the values of any of the variables in the default theme, or leave them as they are and use them in your app. By default, Ionic uses the primary theme color on all elements. For example, a button with the following markup:
+You can change the values of any of the variables in the default theme or leave them as they are and use them in your app. By default, Ionic uses the primary theme color on all elements. For example, a button with the following markup:
 
 ```html
 <a button>I'm a button</a>
@@ -61,7 +61,7 @@ is the same as writing:
 
 Since these elements are already styled using the `primary` color without adding the `primary`, you can use less markup to change the color of all elements without attributes.
 
-There is also a [dark.scss](https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss) theme provided if you don't want to use the default theme. You can import this theme before the Ionic Sass files in your `www/app/app.scss` file in order to use that theme:
+There is also a [dark.scss](https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss) theme provided, if you don't want to use the default theme. You can import this theme before the Ionic Sass files in your `www/app/app.scss` file, in order to use that theme:
 
 ```html
 @import "themes/dark";
@@ -92,6 +92,6 @@ on a button, you can add the following markup:
 <button my-brand>Tap!</button>
 ```
 
-And it will style your button using the `myBrand` color. You can add as many colors as you want, or remove all of them, it's completely up to you.
+And it will style your button using the `myBrand` color. You can add as many colors as you want, or remove all of them; it's completely up to you.
 
 If you want to change the way your app looks on different platforms, the [next section](../ionic-modes/) on Ionic Modes is what you need to continue making the app your own.

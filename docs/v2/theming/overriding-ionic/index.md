@@ -17,7 +17,7 @@ From the [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFER
 
 > You can assign to variables if they aren’t already assigned by adding the !default flag to the end of the value. This means that if the variable has already been assigned to, it won’t be re-assigned, but if it doesn’t have a value yet, it will be given one.
 
-Ionic uses the `!default` flag for many of the Sass variables that make up Ionic's css. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the `$text-color` variable like this:
+Ionic uses the `!default` flag for many of the Sass variables that make up Ionic's CSS. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the `$text-color` variable like this:
 
 ```scss
 $text-color: #000 !default;

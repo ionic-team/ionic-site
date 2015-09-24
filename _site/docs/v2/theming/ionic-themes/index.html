@@ -215,7 +215,7 @@
 
 <h2>Starter Themes</h2>
 
-<p>The default theme is configured in the source code of the <a href="https://github.com/driftyco/ionic2/blob/master/ionic/themes/default.scss">default.scss</a> file. If you open that up you&#39;ll see it has the variable <code>$colors</code>:</p>
+<p>The default theme is configured in the source code of the <a href="https://github.com/driftyco/ionic2/blob/master/ionic/themes/default.scss">default.scss</a> file. If you open that up, you&#39;ll see it has the variable <code>$colors</code>:</p>
 <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
 
   <span class="n">primary</span><span class="o">:</span>    <span class="mh">#387ef5</span><span class="o">,</span>
@@ -239,7 +239,7 @@
 <span class="c1">// ---------------------------------</span>
 <span class="o">@</span><span class="n">import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
 </code></pre></div>
-<p>You can change the values of any of the variables in the default theme, or leave them as they are and use them in your app. By default, Ionic uses the primary theme color on all elements. For example, a button with the following markup:</p>
+<p>You can change the values of any of the variables in the default theme or leave them as they are and use them in your app. By default, Ionic uses the primary theme color on all elements. For example, a button with the following markup:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">button</span><span class="nt">&gt;</span>I&#39;m a button<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <p>is the same as writing:</p>
@@ -247,7 +247,7 @@
 </code></pre></div>
 <p>Since these elements are already styled using the <code>primary</code> color without adding the <code>primary</code>, you can use less markup to change the color of all elements without attributes.</p>
 
-<p>There is also a <a href="https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss">dark.scss</a> theme provided if you don&#39;t want to use the default theme. You can import this theme before the Ionic Sass files in your <code>www/app/app.scss</code> file in order to use that theme:</p>
+<p>There is also a <a href="https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss">dark.scss</a> theme provided, if you don&#39;t want to use the default theme. You can import this theme before the Ionic Sass files in your <code>www/app/app.scss</code> file, in order to use that theme:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html">@import &quot;themes/dark&quot;;
 
 // Ionic Sass
@@ -261,7 +261,7 @@
 <p>For example, you can add a <code>myBrand</code> color like below:</p>
 <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
 
-  <span class="n">myBrand</span><span class="o">:</span> <span class="mh">#3B5998</span>
+  <span class="n">my-brand</span><span class="o">:</span> <span class="mh">#3B5998</span>
 
 <span class="p">)</span>
 </code></pre></div>
@@ -269,9 +269,9 @@
 on a button, you can add the following markup:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">my-brand</span><span class="nt">&gt;</span>Tap!<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<p>And it will style your button using the <code>myBrand</code> color. You can add as many colors as you want, or remove all of them, it&#39;s completely up to you.</p>
+<p>And it will style your button using the <code>myBrand</code> color. You can add as many colors as you want, or remove all of them; it&#39;s completely up to you.</p>
 
-<p>If you want to change the way your app looks on different platforms, the <a href="../ionic-modes">next section</a> on Ionic Modes is what you need to continue making the app your own. </p>
+<p>If you want to change the way your app looks on different platforms, the <a href="../ionic-modes/">next section</a> on Ionic Modes is what you need to continue making the app your own.</p>
 
 
           

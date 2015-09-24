@@ -217,7 +217,7 @@
 <p>You can assign to variables if they aren’t already assigned by adding the !default flag to the end of the value. This means that if the variable has already been assigned to, it won’t be re-assigned, but if it doesn’t have a value yet, it will be given one.</p>
 </blockquote>
 
-<p>Ionic uses the <code>!default</code> flag for many of the Sass variables that make up Ionic&#39;s css. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the <code>$text-color</code> variable like below:</p>
+<p>Ionic uses the <code>!default</code> flag for many of the Sass variables that make up Ionic&#39;s CSS. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the <code>$text-color</code> variable like this:</p>
 <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#000</span> <span class="nv">!default</span><span class="p">;</span>
 </code></pre></div>
 <p>If you wanted to change the value of the <code>$text-color</code> variable, you could add the variable directly to the main Sass file at <code>www/app/app.scss</code>, before the import of Ionic&#39;s Sass file:</p>
@@ -238,9 +238,9 @@
 <span class="c1">// ---------------------------------</span>
 <span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
 </code></pre></div>
-<p><em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated and you will lose any changes you&#39;ve made to them.</em></p>
+<p><em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated, and you will lose any changes you&#39;ve made to them.</em></p>
 
-<p>If you think you&#39;re ready to start changing variables in your app, a list of all of the variables with the <code>!default</code> flag (or all the variables you can override), can be found in the <a href="../ionic-variables">Ionic Sass Variables</a> section. However, we recommend reading on to the <a href="../ionic-themes">next section</a> to find out how you can use the default themes Ionic provides to further style your app.</p>
+<p>If you think you&#39;re ready to start changing variables in your app, a list of all of the variables with the <code>!default</code> flag (or all the variables you can override) can be found in the <a href="../ionic-variables/">Ionic Sass Variables</a> section. However, we recommend reading on to the <a href="../ionic-themes/">next section</a> to find out how you can use the default themes Ionic provides to further style your app.</p>
 
 
           

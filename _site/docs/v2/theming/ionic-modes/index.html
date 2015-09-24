@@ -211,7 +211,7 @@
 
 <h1 class="title">Ionic Modes</h1>
 
-<p>Ionic uses modes in order to customize the look of components to match the platform you are using. For example, by default when you are viewing the app on an Android device, the <code>&lt;body&gt;</code> will have <code>class=&quot;md&quot;</code> added to it:</p>
+<p>Ionic uses modes to customize the look of components to match the platform you are using. For example, when you are viewing the app on an Android device, the <code>&lt;body&gt;</code> will have <code>class=&quot;md&quot;</code> added to it by default:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">&quot;md&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
 <p><em>Note: I have removed all other attributes and classes from the <code>&lt;body&gt;</code> to only show what the mode looks like when added.</em></p>
@@ -250,23 +250,21 @@
 
 <h2>Overriding the Mode Styles</h2>
 
-<p>Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet which consists of styles shared between all modes, a material stylesheet which contains the styles for the <code>md</code> mode, and an iOS stylesheet for, you guessed it, the <code>ios</code> mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  </p>
+<p>Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the <code>md</code> mode, and an iOS stylesheet for, you guessed it, the <code>ios</code> mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  </p>
 
 <p>You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.md</span> <span class="p">{</span>
-  <span class="nt">button</span> <span class="p">{</span>
-    <span class="na">text-transform</span><span class="o">:</span> <span class="no">capitalize</span><span class="p">;</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.md</span> <span class="nt">button</span> <span class="p">{</span>
+  <span class="na">text-transform</span><span class="o">:</span> <span class="no">capitalize</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The Sass files for these modes also have unique variables which can be used to override the styles. Using the same example above, we could change the <code>md</code> button&#39;s <code>border-radius</code> by changing the value of the <code>$button-md-border-radius</code> variable. You can do this in your own custom Sass file or in our main Sass file, before Ionic is imported:</p>
+<p>The Sass files for these modes also have unique variables that can be used to override the styles. Using the same example above, we could change the <code>md</code> button&#39;s <code>border-radius</code> by changing the value of the <code>$button-md-border-radius</code> variable. You can do this in your own custom Sass file or in our main Sass file, before Ionic is imported:</p>
 <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$button-md-border-radius</span><span class="o">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
 
 <span class="c1">// Ionic Sass</span>
 <span class="c1">// ---------------------------------</span>
 <span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
 </code></pre></div>
-<p>Continue on to the <a href="../ionic-variables">next section</a> to see a list of all of the variables Ionic uses to style your app.</p>
+<p>Continue on to the <a href="../ionic-variables/">next section</a> to see a list of all of the variables Ionic uses to style your app.</p>
 
 
           

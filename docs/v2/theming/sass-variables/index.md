@@ -13,7 +13,7 @@ header_sub_title: Sass Variables
 
 <h1 class="title">Sass Variables</h1>
 
-Sass Variables allow you to define a value once and use it in multiple places. Variables begin with dollar signs, and are set like CSS properties. You can change the value of the variable in one place and all instances where it is used will be changed, too. For example, if you wanted to set the same height for two different selectors, you could create a variable called `$control-height`:
+Sass Variables allow you to define a value once and use it in multiple places. Variables begin with dollar signs and are set like CSS properties. You can change the value of the variable in one place, and all instances where it is used will be changed, too. For example, if you wanted to set the same height for two different selectors, you could create a variable called `$control-height`:
 
 ```scss
 $control-height: 40px;
@@ -43,8 +43,8 @@ When translated to CSS, it becomes the following:
 }
 ```
 
-This is extremely useful if you decide later on that you would like to change the value of `$control-height` and it is being used by multiple selectors. Instead of sifting through all of your code to find the places to change, you only have to update the `$control-height` variable.
+This is extremely useful if you decide later on that you would like to change the value of `$control-height`, and it is being used by multiple selectors. Instead of sifting through all of your code to find the places to change, you only have to update the `$control-height` variable.
 
-Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles in order to change the look of your application. In Ionic, you can modify the Sass directly so that the CSS file that gets generated has the customization you want.
+Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles to change the look of your application. In Ionic, you can modify the Sass directly, so that the CSS file that gets generated has the customization you want.
 
 Learn how you can override Ionic's Sass variables in order to get a custom style for your app in the [next section](../overriding-ionic/).

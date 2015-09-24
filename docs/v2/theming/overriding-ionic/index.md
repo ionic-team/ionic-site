@@ -17,7 +17,7 @@ From the [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFER
 
 > You can assign to variables if they aren’t already assigned by adding the !default flag to the end of the value. This means that if the variable has already been assigned to, it won’t be re-assigned, but if it doesn’t have a value yet, it will be given one.
 
-Ionic uses the `!default` flag for many of the Sass variables that make up Ionic's css. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the `$text-color` variable like below:
+Ionic uses the `!default` flag for many of the Sass variables that make up Ionic's css. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the `$text-color` variable like this:
 
 ```scss
 $text-color: #000 !default;
@@ -50,6 +50,6 @@ And then import the file in your `www/app/app.scss` file:
 @import "ionic";
 ```
 
-<em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated and you will lose any changes you've made to them.</em>
+<em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated, and you will lose any changes you've made to them.</em>
 
-If you think you're ready to start changing variables in your app, a list of all of the variables with the `!default` flag (or all the variables you can override), can be found in the [Ionic Sass Variables](../ionic-variables/) section. However, we recommend reading on to the [next section](../ionic-themes/) to find out how you can use the default themes Ionic provides to further style your app.
+If you think you're ready to start changing variables in your app, a list of all of the variables with the `!default` flag (or all the variables you can override) can be found in the [Ionic Sass Variables](../ionic-variables/) section. However, we recommend reading on to the [next section](../ionic-themes/) to find out how you can use the default themes Ionic provides to further style your app.

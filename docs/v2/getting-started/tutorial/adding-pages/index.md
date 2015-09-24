@@ -1,6 +1,7 @@
 ---
 layout: v2/docs_base
 id: getting-started
+subid: tutorial
 title: Ionic 2 Guide | Adding Pages
 header_title: Adding Pages - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
@@ -130,4 +131,4 @@ And then let's put this in our `app/playlist/playlist.html` file:
 
 Now that we have our page constructed, let's continue to see how to navigate to it.
 
-<a href="/docs/v2/guide/navigating/" button primary>Navigating</a>
+<a href="../navigation/" class="btn btn-primary">Navigating</a>

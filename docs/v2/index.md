@@ -1,12 +1,12 @@
 ---
 layout: v2/docs_base
-id: overview
+id: getting-started
 title: Ionic 2 Documentation
 header_title: Ionic 2 Documentation
 header_sub_title: Ionic 2 Developer Preview
 ---
-<h1 class="title">Ionic 2 Docs</h1>
 
+#Ionic 2 Docs
 
 Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK*, with initial support for Angular 2.
 
@@ -16,4 +16,4 @@ With Angular 2, Ionic apps are considerably more performant and easy to build. O
 
 We hope you find Ionic 2 faster, simpler, and easier to use.
 
-With that, let's [jump right in!](getting-started).
+With that, let's [jump right in!](getting-started)

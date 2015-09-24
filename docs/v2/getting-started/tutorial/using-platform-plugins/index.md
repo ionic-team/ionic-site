@@ -1,6 +1,7 @@
 ---
 layout: v2/docs_base
 id: getting-started
+sub-id: tutorial
 title: Ionic 2 Guide | Using Platform Plugins
 header_title: Using Platform Plugins - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview

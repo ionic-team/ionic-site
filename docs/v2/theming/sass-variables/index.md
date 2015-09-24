@@ -47,4 +47,4 @@ This is extremely useful if you decide later on that you would like to change th
 
 Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles in order to change the look of your application. In Ionic, you can modify the Sass directly so that the CSS file that gets generated has the customization you want.
 
-Learn how you can override Ionic's Sass variables in order to get a custom style for your app in the [next section](../overriding-ionic).
+Learn how you can override Ionic's Sass variables in order to get a custom style for your app in the [next section](../overriding-ionic/).

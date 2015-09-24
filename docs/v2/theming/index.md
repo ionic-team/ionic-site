@@ -18,15 +18,21 @@ still following standards of each platform. The best apps in the app stores are 
 
 We've made theming Ionic 2 apps easier than ever. Ionic is built on top of [Sass](../../what-is/#sass), which allows us to set some default styles for your app, but makes it extremely easy for you to change our defaults.
 
+## What is Sass?
+
+From the [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html):
+
+> Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax.
+
 ## Why Use Sass?
 
 Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly. Ionic uses the SCSS syntax, known as Sassy CSS, which has a `.scss` extension. Every valid CSS3 stylesheet is a valid SCSS file with the same meaning. This means that if you have some valid CSS you want to use in the Sass file you can, and it will work the same.
 
 ## How does Ionic work with Sass?
 
-Ionic compiles the Sass files in your project into a CSS file, which your app uses for styling. Ionic uses node in order to compile your Sass files, so there is no Ruby dependency.
+Ionic compiles the Sass files in your project into a CSS file, which your app uses for styling. Ionic uses [Node](../../what-is/#node) in order to compile your Sass files, so there is no Ruby dependency.
 
-The generated CSS file gets placed at `www/app/build/css/app.css` in your project structure. Do not add any styling to this file, as it will be overridden when a new CSS file is generated.
+The generated CSS file gets placed at `www/app/build/css/app.css` in your project structure. You should always add your styling to your Sass files, and never to the final CSS file.
 
 ## How do I use Sass?
 
@@ -34,6 +40,6 @@ There isn't much to using Sass, you just have to write it. Ionic takes care of g
 
 Ionic uses Sass variables in order to customize the look of your app. You can use these same variables to make it your own. To learn more about what Sass variables are, continue on to the [next section](./sass-variables/).
 
-Already know everything there is to know about Sass? We still recommend reading our sections on [Overriding Ionic Variables](./overriding-ionic), [Ionic Themes](./ionic-themes), and [Ionic Modes](./ionic-modes) in order to learn about how well Ionic and Sass work together.
+Already know everything there is to know about Sass? We still recommend reading our sections on [Overriding Ionic Variables](./overriding-ionic/), [Ionic Themes](./ionic-themes/), and [Ionic Modes](./ionic-modes/) in order to learn about how well Ionic and Sass work together.
 
-When you're all done with that, we have a list of all of the [Ionic Variables](./ionic-variables) you can use to customize the style of your app!
+When you're all done with that, we have a list of all of the [Ionic Variables](./ionic-variables/) you can use to customize the style of your app!

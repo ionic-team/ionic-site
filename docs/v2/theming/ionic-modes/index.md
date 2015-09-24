@@ -60,10 +60,8 @@ Each Ionic component has up to three stylesheets used to style it. For example, 
 You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:
 
 ```scss
-.md {
-  button {
-    text-transform: capitalize;
-  }
+.md button {
+  text-transform: capitalize;
 }
 ```
 
@@ -77,4 +75,4 @@ $button-md-border-radius: 8px;
 @import "ionic";
 ```
 
-Continue on to the [next section](../ionic-variables) to see a list of all of the variables Ionic uses to style your app.
+Continue on to the [next section](../ionic-variables/) to see a list of all of the variables Ionic uses to style your app.

@@ -80,7 +80,7 @@ For example, you can add a `myBrand` color like below:
 ```scss
 $colors: (
 
-  myBrand: #3B5998
+  my-brand: #3B5998
 
 )
 ```
@@ -94,4 +94,4 @@ on a button, you can add the following markup:
 
 And it will style your button using the `myBrand` color. You can add as many colors as you want, or remove all of them, it's completely up to you.
 
-If you want to change the way your app looks on different platforms, the [next section](../ionic-modes) on Ionic Modes is what you need to continue making the app your own. 
+If you want to change the way your app looks on different platforms, the [next section](../ionic-modes/) on Ionic Modes is what you need to continue making the app your own.

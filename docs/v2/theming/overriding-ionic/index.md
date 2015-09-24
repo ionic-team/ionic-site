@@ -52,4 +52,4 @@ And then import the file in your `www/app/app.scss` file:
 
 <em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated and you will lose any changes you've made to them.</em>
 
-If you think you're ready to start changing variables in your app, a list of all of the variables with the `!default` flag (or all the variables you can override), can be found in the [Ionic Sass Variables](../ionic-variables) section. However, we recommend reading on to the [next section](../ionic-themes) to find out how you can use the default themes Ionic provides to further style your app.
+If you think you're ready to start changing variables in your app, a list of all of the variables with the `!default` flag (or all the variables you can override), can be found in the [Ionic Sass Variables](../ionic-variables/) section. However, we recommend reading on to the [next section](../ionic-themes/) to find out how you can use the default themes Ionic provides to further style your app.

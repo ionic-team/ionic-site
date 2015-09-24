@@ -13,7 +13,7 @@ header_sub_title: Ionic Modes
 
 <h1 class="title">Ionic Modes</h1>
 
-Ionic uses modes in order to customize the look of components to match the platform you are using. For example, by default when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it:
+Ionic uses modes to customize the look of components to match the platform you are using. For example, when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it by default:
 
 ```html
 <body class="md">
@@ -55,7 +55,7 @@ You can change the mode that gets assigned in the configuration of your app. The
 
 <h2>Overriding the Mode Styles</h2>
 
-Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet which consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  
+Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  
 
 You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:
 
@@ -65,7 +65,7 @@ You can use the class that is applied to the body to override specific propertie
 }
 ```
 
-The Sass files for these modes also have unique variables which can be used to override the styles. Using the same example above, we could change the `md` button's `border-radius` by changing the value of the `$button-md-border-radius` variable. You can do this in your own custom Sass file or in our main Sass file, before Ionic is imported:
+The Sass files for these modes also have unique variables that can be used to override the styles. Using the same example above, we could change the `md` button's `border-radius` by changing the value of the `$button-md-border-radius` variable. You can do this in your own custom Sass file or in our main Sass file, before Ionic is imported:
 
 ```scss
 $button-md-border-radius: 8px;

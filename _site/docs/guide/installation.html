@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Installing Ionic and its Dependencies - Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-guide">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Installing Ionic and its Dependencies</h3>
+    <h4>How to get the most out of Ionic.</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/platform-customization/">Platform Customization</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/api/">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/cli/">CLI</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="http://learn.ionicframework.com/">Learn Ionic</a>
+              </li>
+            </ul>
+
+            <!-- Docs: Guide -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+              <li><a href="/docs/guide/preface.html">1. All About Ionic</a></li>
+              <li><a href="/docs/guide/installation.html">2. Installation</a></li>
+              <li><a href="/docs/guide/starting.html">3. Starting your app</a></li>
+              <li><a href="/docs/guide/testing.html">4. Testing your app</a></li>
+              <li><a href="/docs/guide/building.html">5. Building out your app</a></li>
+              <li><a href="/docs/guide/publishing.html">6. Publishing your app</a></li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/ionic-cli-faq/">FAQ</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/getting-help/">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/concepts/">Ionic Concepts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <p>Previous: <a href="preface.html">All About Ionic</a></p>
+
+<h1>Chapter 2: Installation</h1>
+
+<p>In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.</p>
+
+<h2>Platform notes</h2>
+
+<p>First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 6+, and Android 4.0+ (though 2.3 should work). However, since there are a lot of different Android devices, it&#39;s possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our <a href="https://github.com/driftyco/ionic">GitHub</a> project.</p>
+
+<p>You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you&#39;ll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.</p>
+
+<p>If you are on Windows, make sure to download and install <a href="http://git-scm.com/download/win">Git for Windows</a> and optionally <a href="http://sourceforge.net/projects/console/">Console2</a>. You will be executing any commands in this guide in the Git Bash or Console2 windows.</p>
+
+<p>First, we will go and install the most recent version of <a href="http://cordova.apache.org/">Apache Cordova</a>, which will take our app and bundle it into a native wrapper to turn it into a traditional native app.</p>
+
+<p>To install Cordova, make sure you have <a href="http://nodejs.org/">Node.js</a> installed, then run</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo npm install -g cordova
+</code></pre></div>
+<p>Drop <code>sudo</code> from the above command if running on Windows. Depending on the platforms you wish to develop for, you&#39;ll need to install platform-specific tools. Follow the Cordova platform guides for <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> to make sure you have everything needed for development on those platforms. Luckily, you&#39;ll only need to do this once.</p>
+
+<p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-linux-note">
+  Linux Android note
+</button></p>
+
+<div id="android-linux-note" class="collapse well">
+<p>
+  If you are running a 64-bit version of Ubuntu, you'll need to install the 32-bit libraries since Android is only 32-bit at the moment.
+  <code>$ sudo apt-get install ia32-libs</code>
+  If you are on Ubuntu 13.04 or greater, `ia32-libs` has been removed. You can use the following packages instead:
+  <code>$ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code>
+</p>
+</div>
+
+<p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#java-note">
+  Windows note on Java, Ant and Android
+</button></p>
+
+<div id="java-note" class="collapse well">
+<p>
+Windows users developing for Android: You'll want to make sure you have the following installed and set up.
+</p>
+<p>
+<em>NOTE: Whenever you make changes to the PATH, or any other environment variable, you'll need to restart or open a new tab in your shell program for the PATH change to take effect.</em>
+</p>
+<p>
+<strong>Java JDK</strong>
+</p>
+<p>
+Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java JDK</a> (NOT just the JRE).
+</p>
+<p>
+Next, create an environment variable for <code>JAVA_HOME</code> pointing to the root folder where the Java JDK was installed. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set <code>JAVA_HOME</code> to be this path. After that, add the JDK's <code>bin</code> directory to the PATH variable as well. Following the previous assumption, this should be either <code>%JAVA_HOME%\bin</code> or the full path <code>C:\Program Files\Java\jdk7\bin</code>
+</p>
+<p>
+<strong>Apache Ant</strong>
+</p>
+<p>
+To install Ant, download a zip from <a href="http://ant.apache.org/bindownload.cgi">here</a>, extract it, move the first folder in the zip to a safe place, and update your PATH to include the <code>bin</code> folder in that folder. For example, if you moved the Ant folder to <code>c:/</code>, you'd want to add this to your PATH: <code>C:\apache-ant-1.9.2\bin</code>.
+</p>
+<p>
+<strong>Android SDK</strong>
+</p>
+<p>Installing the <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is also necessary. The Android SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Android.
+</p>
+<p>
+Cordova requires the ANDROID_HOME environment variable to be set. This should point to the <code>[ANDROID_SDK_DIR]\android-sdk</code> directory (for example <code>c:\android\android-sdk</code>).
+</p>
+<p>
+Next, update your PATH to include the <code>tools/</code> and <code>platform-tools/</code> folder in that folder. So, using ANDROID_HOME, you would add both <code>%ANDROID_HOME%\tools</code> and <code>%ANDROID_HOME%\platform-tools</code>.
+</p>
+</div>
+
+<h2>Install Ionic</h2>
+
+<p>Ionic comes with a convenient command line utility to start, build, and package Ionic apps.</p>
+
+<p>To install it, simply run:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ionic
+</code></pre></div>
+<h2>Create the project</h2>
+
+<p>Now, we need to create a new Cordova project somewhere on the computer for the code for our app:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ ionic start todo blank
+</code></pre></div>
+<p>That will create a folder called <code>todo</code> in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd todo &amp;&amp; ls
+
+├── bower.json     // bower dependencies
+├── config.xml     // cordova configuration
+├── gulpfile.js    // gulp tasks
+├── hooks          // custom cordova hooks to execute on specific commands
+├── ionic.project  // ionic configuration
+├── package.json   // node dependencies
+├── platforms      // iOS/Android specific builds will reside here
+├── plugins        // where your cordova/ionic plugins will be installed
+├── scss           // scss code, which will output to www/css/
+└── www            // application - JS code and libs, CSS, images, etc.
+</code></pre></div>
+<p>If you are planning on using any version control system, you can go ahead and set it up in this new folder.</p>
+
+<h2>Configure Platforms</h2>
+
+<p>Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios
+<span class="nv">$ </span>ionic platform add android
+</code></pre></div>
+<p>If you see errors here, make sure to follow the platform guides above to install necessary platform tools.</p>
+
+<p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#osx-android-note">
+  Android on OS X note
+</button></p>
+
+<div id="osx-android-note" class="collapse well">
+<p>
+  If you get this error: <code>[Error: ERROR : Make sure JAVA_HOME is set, as well as paths to your JDK and JRE for java.]</code> Then try running this command first before adding the android platform:
+</p>
+<p>
+  <code>$ export JAVA_HOME=$(/usr/libexec/java_home)</code>
+</p>
+</div>
+
+<h2>Test it out</h2>
+
+<p>Just to make sure the default project worked, try building and running the project (substitute ios for android to build for Android instead):</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
+<span class="nv">$ </span>ionic emulate ios
+</code></pre></div>
+<p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-emulator-note">
+  Android emulator note
+</button></p>
+
+<div id="android-emulator-note" class="collapse well">
+<p>
+  We don't recommend using "emulate" for Android development. Unfortunately, the default Android emulator is horribly slow and will not accurately represent
+a real device. Using the emulator isn't even recommended for native Android development.
+</p>
+<p>
+  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic run</code> instead of <code>ionic emulate</code> as a Genymotion image appears as a physical device to the operating system.
+</p>
+<p>
+If you chose to emulate on Android, be patient as this takes several minutes as the Android emulator is booted up. If you don't see anything happen for a few minutes, make sure you've created an Android Virtual Device (AVD), and that it is using the Android SDK version 17 or above. You might have to <a href="http://stackoverflow.com/questions/7222906/failed-to-allocate-memory-8">reduce the amount of memory</a> the AVD is using if you don't see the emulator boot up in a minute. The platform guide above has more information. You may also want to double check that you have the sdk and platform tools in your PATH as noted in the platform guide.
+</p>
+<p>
+
+The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
+
+<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+</p>
+<p>
+Of course, you can always test directly on the device, and that is the recommended way to develop on Android due to the slow emulator. To do that,
+substitute <code>emulate</code> with <code>run</code> and ensure you have an Android device connected to the computer.
+</p>
+</div>
+
+<h2>Let&#39;s go!</h2>
+
+<p>Now we are ready to start building our app, so continue on to the next chapter:</p>
+
+<p><a href="starting.html">Chapter 3: Starting your app</a></p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

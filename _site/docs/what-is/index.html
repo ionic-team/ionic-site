@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Ionic Developer Glossary - Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-home">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Ionic Developer Glossary</h3>
+    <h4>Learn about the Ionic community's favorite tools</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/platform-customization/">Platform Customization</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/api/">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/cli/">CLI</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="http://learn.ionicframework.com/">Learn Ionic</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/ionic-cli-faq/">FAQ</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/getting-help/">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/concepts/">Ionic Concepts</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <h1>Ionic Developer Glossary</h1>
+
+<div id="what-is">
+
+  <section id="autoprefixer">
+    <h3><a href="#autoprefixer">Autoprefixer</a></h3>
+    <dd id="autoprefixer"><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> is a tool that adds vendor-specific-prefixes to hand-written Sass/CSS code. This ensures that standardized CSS rules you write will be applied across all supporting browsers. For example, instead of having to know every flexbox syntax used by various browsers, autoprefixer allows you to just write <code>display: flex;</code> and it'll automatically plug in the correct CSS.</p>
+  </section>
+
+  <section id="babel">
+    <h3><a href="#babel">Babel</a></h3>
+    <p>Babel is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
+  </section>
+
+  <section id="circlular-dependency">
+    <h3><a href="#protractor">Circular Dependency</a></h3>
+    <p>A circular dependency is a problem caused when two modules depend on each other. This can cause <a href="#dependency-injection">dependency injection</a> to break, and is to be avoided. <a href="http://misko.hevery.com/2008/08/01/circular-dependency-in-constructors-and-dependency-injection/">This article</a> outlines the problem of circular dependencies, and proposes a solution.</p>
+  </section>
+
+  <section id="cli">
+    <h3><a href="#cli">CLI</a></h3>
+    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
+  </section>
+
+  <section id="commonjs">
+    <h3><a href="#commonjs">CommonJS</a></h3>
+    <p>CommonJS is a group that defines standard formats for JavaScript API's. They have defined standards for JavaScript modules and packages.</p>
+  </section>
+
+  <section id="cordova">
+    <h3><a href="#cordova">Cordova</a></h3>
+    <p><a href="https://cordova.apache.org">Cordova</a> is a way to transform standard HTML/CSS/JS into a full-fledged native app. It provides a JavaScript API for accessing native device functionality, such as the camera or accelerometer. Cordova contains the necessary build tools for packaging webapps for iOS, Android, and Windows Phone.</p>
+  </section>
+
+  <section id="dependency-injection">
+    <h3><a href="#dependency-injection">Dependency Injection</a></h3>
+    <p>Dependency injection is a pattern used by Angular to resolve or "inject" dependencies into a <a href="#modules">module</a>. The injector finds the instance of the dependency being requested, and passes or "injects" this instance to the module.</p>
+  </section>
+
+  <section id="es5">
+    <h3><a href="#es5">ES5</a></h3>
+    <p>ES5 refers to EcmaScript 5th Edition. A simple way to put it is that ES5 is the version of JavaScript which developers are most familar with today.</p>
+  </section>
+
+  <section id="es2015-es6">
+    <h3><a href="#es2015-es6">ES2015/ES6</a></h3>
+    <p>ES2015/ES6 are two commonly used names for the most recent version of JavaScript. A wide range of new features have been introducted in this version, including classes, modules, iterators, and promises. The final draft of ES6 has been approved, which means eventually ES6 code will be interpreted directly by a browser. To use ES6 features today, tools such as <a href="#babel">Babel</a> and <a href="#typescript">TypeScript</a> have to <a href="#transpiler">transpile</a> ES6 code down to ES5.</p>
+  </section>
+
+  <section id="es2016-es7">
+    <h3><a href="#es2016-es7">ES2016/ES7</a></h3>
+    <p>ES2016/ES7 are two commonly used names for the experimental version of JavaScript. This future version of JavaScript will add a number of new features to the language, including async functions and typed objects. It is constantly being revised, and it is not currently suitable for production apps.</p>
+  </section>
+
+  <section id="git">
+    <h3><a href="#git">Git</a></h3>
+    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
+  </section>
+
+  <section id="gulp">
+    <h3><a href="#gulp">Gulp</a></h3>
+    <p><a href="http://gulpjs.com/">Gulp</a> is a tool for running tasks which can be used to build your application. Common build tasks include transpiling <a href="#es2015-es6">ES6</a> to <a href="#es5">ES5</a>, turning <a href="#sass">Sass</a> in to CSS, minifying code, and concatenating files.</p>
+  </section>
+
+  <section id="hybrid-app">
+    <h3><a href="#hybrid-app">Hybrid App</a></h3>
+    <p>A hybrid app is a mobile app that is written using web technologies such as HTML, CSS, and JavaScript. Hybrid apps run in a WebView that contains your code. By using tools like <a href="#cordova">Cordova</a>, your code can access native device functionality such as the camera and accelerometer. Unlike <a href="#native-app">native apps</a> which typically only are built for a single platform, hybrid apps can run on iOS, Android, Windows Phone, and anywhere that has a WebView.
+    </p> 
+  </section>
+
+  <section id="ionicons">
+    <h3><a href="#ionicons">Ionicons</a></h3>
+    <p><a href="http://ionicons.com/">Ionicons</a> is an open-source icon set used and created by Ionic. It includes iOS, Material Design, and social icons, as well as a wide range of commonly used icons. Ionicons is included by default in Ionic distributions, but they can be used in any project.</p>
+  </section>
+
+  <section id="ios">
+    <h3><a href="#ios">iOS</a></h3>
+    <p>iOS is a mobile operating system used by the iPhone and iPad. iOS 9 is the most recent version of the operating system.</p>
+  </section>
+
+  <section id="karma">
+    <h3><a href="#karma">Karma</a></h3>
+    <p>Karma is the unit testing framework used internally for Ionic. Karma can initialize Ionic and Angular components, and run tests against them once instantiated. Karma's API provides a number of assertions and other functions that make unit testing easier. For example, Karma could instantiate a NavBar, set the title using Ionic's NavBar API, and then make sure that the title was actually updated.</p>
+  </section>
+
+  <section id="material-design">
+    <h3><a href="#material-design">Material Design</a></h3>
+    <p>Material Design is a design guideline created by Google. It includes a UI interaction standard, a colorscheme, layouts, components, and much more. Material Design is used for many default system interfaces on recent versions of Android. By default Ionic components will switch to a material design theme when on Android.
+    </p> 
+  </section>
+
+  <section id="minification">
+    <h3><a href="#minification">Minification</a></h3>
+    <p>JavaScript source code can be reduced in size through minification. This process does not change the functionality of the code, even though whitespace, newlines, and other characters are removed. Minified JavaScript files will often be written `.min.js` file extension so it is clear that the contents include minified code. In a typical Ionic project, <a href="#gulp">Gulp</a> is used for minification.
+    </p> 
+  </section>
+
+
+  <section id="module-loader">
+    <h3><a href="#module-loader">Module Loader</a></h3>
+    <p>A module loader is a tool that takes <a href="#modules">modules</a> of a certian format, loads its dependencies, and makes the module available to your application. The Ionic community will often use this term to talk about module loaders like SystemJS or RequireJS.</p> 
+  </section>
+
+  <section id="modules">
+    <h3><a href="#modules">Modules</a></h3>
+    <p>Modules are organized units of code that belong together. Often times modules will be grouped by functionality. Modules can use other modules, but they have to explicitly import them. In other words, you can't globally access a function you define inside a module. Aside, from code reuse and organization, this helps avoid namespace conflicts. For example, you could define an `alert()` function inside a module, and it wouldn't conflict with `alert()` function that the `window` object provides.</p>
+    <p>Prior to to <a href="#es2015-es6">ES6</a>, JavaScript had no built in standard for defining how to build and import a module. The JavaScript community subsequently came up with two different standards for modules &mdash; <a href="#amd">AMD</a> and <a href="#commonjs">CommonJS</a>. <a href="#es2015-es6">ES6</a> modules support both of these formats, so they are considered the "future" of how JavaScript modules will be written.</p> 
+  </section>
+
+  <section id="native-app">
+    <h3><a href="#native-app">Native App</a></h3>
+    <p>A native app is a mobile app that is written using low-level APIs provided by the platform it runs on. Native apps can typically only be run on a single platform (eg: iOS, Android, Windows Phone). The term "native" is often used to compare these types of applications with Ionic apps, which are considered <a href="#hybrid">"hybrid"</a>.
+    </p> 
+  </section>
+
+  <section id="native-app">
+    <h3><a href="#native-app">Native Plugin</a></h3>
+    <p>A native plugin is a piece of code that exposes an API that can be used to access native device functionality. For an Ionic app, this is typically accomplished through <a href="#cordova">Cordova</a>. These plugins expose a JavaScript API that may interact with numerous platform APIs under the hood.
+    </p> 
+  </section>
+
+  <section id="node">
+    <h3><a href="#node">node</a></h3>
+    <p><a href="https://nodejs.org/">node</a> is a runtime environment that lets you write JavaScript on the server-side. In addition to being used for web services, node is often used to build developer tools, such as the <a href="#cli">Ionic CLI</a>.</p>
+  </section>
+
+  <section id="npm">
+    <h3><a href="#npm">npm</a></h3>
+    <p><a href="https://www.npmjs.com/">npm</a> is the package manager for <a href="#node">node</a>. It allows you to install, share, and package node modules. Ionic can be installed with npm, along with a number of its dependencies.
+    </p>
+  </section>
+
+  <section id="protractor">
+    <h3><a href="#protractor">Protractor</a></h3>
+    <p>Protractor is the framework Angular and Ionic use for <a href="#end-to-end-test">end-to-end testing</a>. Protractor provides an API for selecting DOM elements, and running tests against them. For example, you could use the API to easily create a test that opens your app, fills out a form, and makes sure that it loads the next page when the form is submitted.</p>
+  </section>
+
+  <section id="Sass">
+    <h3><a href="#sass">Sass</a></h3>
+    <p>Sass is a stylesheet language that compiles to CSS and is used by Ionic. Sass is like CSS, but with extra features such as <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_">variables</a>, <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins">mixins</a>, and <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_10">for loops</a>.</p>
+  </section>
+
+  <section id="systemjs">
+    <h3><a href="#systemjs">SystemJS</a></h3>
+    <p>SystemJS is a module loader (like RequireJS) that loads all module formats - AMD, CommonJS, and ES6, and is built on top of the <a href="https://github.com/ModuleLoader/es6-module-loader">ES6 Module Loader polyfill</a> (a polyfill implementing the way JavaScript will load modules natively in the future).</p>
+  </section>
+
+  <section id="transpiler">
+    <h3><a href="#transpiler">transpiler</a></h3>
+    <p>
+    Transpile means to convert code from one language, to another language. Typically a transpiler will convert a high-level language to another high-level language. Often times the Ionic community will talk about <em>transpiling</em> <a href="#es2015-es6">ES2015/ES6</a> or <a href="#typescript">TypeScript</a> to <a href="#es5">ES5</a>.
+    </p>
+  </section>
+
+  <section id="typescript">
+    <h3><a href="#typescript">TypeScript</a></h3>
+    <p>
+    TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/Handbook#basic-types">type declarations</a> and <a href="http://www.typescriptlang.org/Handbook#interfaces">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
+    </p>
+  </section>
+
+  <section id="webpack">
+    <h3><a href="#webpack">Webpack</a></h3><p>
+    Webpack bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
+  </section>
+
+  <section id="web-app">
+    <h3><a href="#web-app">Web App</a></h3>
+    <p>Like a hybrid app, a web app is written using web technologies such as HTML, CSS, and JavaScript. However, unlike a <a href="#hybrid-app">hybrid app</a>, a web app can only be loaded in a browser. Also, although a web app may use responsive design and could be used by a mobile browser, it cannot access native device functionality like camera and accelerometer.
+    </p> 
+  </section>
+
+</div>
+
+<script>
+$(document).ready(function() {
+  $(function () {
+
+      var setHash = function(urlHash) {
+        window.location.hash = (urlHash);
+        currentHash = urlHash;
+      };
+
+      var currentHash = "#"
+      $(document).scroll(function () {
+          $('section').each(function () {
+              var top = window.pageYOffset;
+              var distance = top - $(this).offset().top;
+              var hash = '#' + $(this).attr('id');
+              if (distance < 20 && distance > -20 && currentHash != hash) {
+                setHash(hash);
+              }
+          });
+      });
+  });
+});
+</script>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/docs/guide/">Read the Book <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            A walk through of getting Ionic installed, creating a new project, building the UI, adding logic, testing, deploying on the device, and publishing to various app stores.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="http://forum.ionicframework.com/">Community Forum <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Discuss and share ideas, hacks, and questions with others building with Ionic on the official Ionic Forum. Stop by and say Hello!
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

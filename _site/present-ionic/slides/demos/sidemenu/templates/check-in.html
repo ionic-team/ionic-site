@@ -1,0 +1,37 @@
+<ion-view title="Event Check-in">
+  <ion-content>
+    <form class="list" ng-show="showForm">
+      <div class="item item-divider">
+        Attendee Info
+      </div>
+      <label class="item item-input">
+        <input type="text" placeholder="First Name" ng-model="attendee.firstname">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Last Name" ng-model="attendee.lastname">
+      </label>
+      <div class="item item-divider">
+        Shirt Size
+      </div>
+      <ion-radio ng-repeat="shirtSize in shirtSizes"
+                 ng-value="shirtSize.value"
+                 ng-model="attendee.shirtSize">
+        {{ shirtSize.text }}
+      </ion-radio>
+      <div class="item item-divider">
+        Lunch
+      </div>
+      <ion-toggle ng-model="attendee.vegetarian">
+        Vegetarian
+      </ion-toggle>
+      <div class="padding">
+        <button class="button button-block" ng-click="submit()">Checkin</button>
+      </div>
+    </form>
+
+    <div ng-hide="showForm">
+      <pre ng-bind="attendee | json"></pre>
+      <a href="#/event/attendees">View attendees</a>
+    </div>
+  </ion-content>
+</ion-view>

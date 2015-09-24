@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>New Concepts - Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>New Concepts</h3>
+    <h4>How to get the most out of Ionic.</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="improve-docs">
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/ui/new-concepts.md'>
+    Improve this doc
+  </a>
+</div>
+
+<p>Ionic 2 brings even more parity to native SDKs like iOS and Android for the web stack.</p>
+
+<p>With that in mind, some core components (like routing) work differently in v2 than v1.</p>
+
+<h3>Navigation</h3>
+
+<p>In Ionic 1, we used UI Router with URL routing heavily to define navigation in your app.</p>
+
+<p>The overwhelming feedback from Ionic 1 developers is that the routing and navigation
+system was too difficult to use in practice. It was challenging to correctly map
+URLs to views, and the navigation system didn&#39;t give the developer enough fine-grained control.</p>
+
+<p>With v2, we&#39;ve taken a more native-friendly navigation approach with a simpler <code>push/pop</code> system.</p>
+
+<p>For example, in v1 we&#39;d create a <code>ContactDetail</code> page like this:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$stateProvider</span>
+  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/contact/:contactId&quot;</span><span class="p">,</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;templates/contact.html&quot;</span><span class="p">,</span>
+    <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;ContactCtrl&#39;</span>
+  <span class="p">});</span>
+</code></pre></div>
+<p>Then, to navigate to this, you&#39;d do <code>&lt;a ui-sref=&quot;contact({contact: contact})&quot;&gt;&lt;/a&gt;</code></p>
+
+<p>We&#39;d also need to make sure we wired up the current <code>&lt;ion-nav-view name&gt;</code> which was considerably more
+challenging when using nested navigation. Last but not least, we&#39;d need to define and implement <code>ContactCtrl</code>.</p>
+
+<p>In v2, this works a bit differently. Instead of navigating through URLs and routing (which is still
+  possible as we will see a bit later), we push and pop views onto the stack:</p>
+
+<p><code>&lt;ion-item (^click)=&quot;showContact(contact)&quot;&gt;&lt;/ion-item&gt;</code>`</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">ContactsPage</span> <span class="p">{</span>
+  <span class="nx">showContact</span><span class="p">(</span><span class="nx">contact</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ContactDetail</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">contact</span><span class="o">:</span> <span class="nx">contact</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>There are also shortcut directives we can use for links much like <code>ui-sref</code>, such as
+<code>nav-push</code> and <code>nav-pop</code> which can be used like this:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="err">[</span><span class="na">nav-push</span><span class="err">]=&quot;</span><span class="na">myContactComponent</span><span class="err">&quot;</span>
+  <span class="err">[</span><span class="na">push-data</span><span class="err">]=&quot;</span><span class="na">contact</span><span class="err">&quot;</span><span class="nt">&gt;</span>See contact<span class="nt">&lt;/button&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">nav-pop</span><span class="nt">&gt;</span>Go back<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<p>The really nice thing about this is you can infinitely navigate now (for example,
+  you can keep pushing new <code>ContactDetail</code> pages onto the stack), and
+control things like animation and the history stack the user has to navigate through.</p>
+
+<p>You can also navigate inside of practically any container. For example, a modal window that slides up
+can have its own navigation, and two split views can navigate independently, something
+that was not possible before.</p>
+
+<p>It also makes it incredibly easy to navigate to the same page in completely different
+contexts. For example, if you were building something similar to Apple&#39;s App Store
+app where there are multiple tabs at the bottom and each tab navigates independently,
+you could navigate to an <code>AppDetail</code> page from any tab, which is exactly how the App Store app works.</p>
+
+<p>For example, here&#39;s how the Minecraft <code>AppDetail</code> page looks in different tabs:</p>
+
+<p><img src="http://ionic-io-assets.s3.amazonaws.com/images/mc1.PNG" width="300" style="width: 300px">
+<img src="http://ionic-io-assets.s3.amazonaws.com/images/mc2.PNG" width="300" style="width: 300px"></p>
+
+<p>Notice the page is exactly the same, but the way the user navigated to it is different.</p>
+
+<p>This hits on a core change in Ionic 2: <strong>the history state of the app is now your
+responsibility as a developer.</strong> It&#39;s up to you to make sure navigation provides
+a good UX, but you have the freedom to navigate as you see fit.</p>
+
+<h3>Routing</h3>
+
+<p>Routing has changed significantly in Ionic 2 to make it easier to fully control the
+history UX for end users.</p>
+
+<p>In Ionic 2, routing is used more for breadcrumbs and loading state than it is for active
+navigation or full history reconstruction. For example, a URL provides a way to deep link to different views (or pages) of
+your app (for example, loading the camera view in Instagram from another app),
+but in Ionic 2 changing the location bar does not necessarily change the history the user
+experiences in the app (a major source of complexity in Ionic 1). Likewise, there
+are many paths that lead to a single URL, which was not really possible in v1.</p>
+
+<p>Using the Minecraft example from above, the URL could be <code>/app/id479516143</code>, though
+what the user sees in the entire UI for the back button, active tab, etc. could vary wildly
+depending on how the user navigated.</p>
+
+<p>The point is, that URL provides a way for us to come back to that page in the future (for example,
+through a remote app launch), but does not force us to rebuild an entire history stack to get there.</p>
+
+<p>Here&#39;s an example of routing in Ionic 2, though please note there is some boilerplate
+we will be simplifying in the near future:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;ion-view&#39;</span><span class="p">,</span>
+  <span class="nx">lifecycle</span><span class="o">:</span> <span class="p">[</span><span class="nx">onInit</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="p">...</span>
+  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">NavbarTemplate</span><span class="p">,</span> <span class="nx">Navbar</span><span class="p">,</span> <span class="nx">NavPush</span><span class="p">,</span> <span class="nx">Content</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ContactDetail</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">nav</span><span class="o">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Router</span><span class="p">.</span><span class="nx">setNavController</span><span class="p">(</span><span class="nx">nav</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">viewLoaded</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="nx">FirstPage</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">Routable</span><span class="p">(</span><span class="nx">FirstPage</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/first-page&#39;</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>The <code>Routable</code> mixin (which will soon be part of a convenient decorator) tells the routing system
+that the <code>ContactDetail</code> view should be mapped to the <code>/first-page</code> URL. If we launched the app
+with this URL, the <code>FirstPage</code> would get pushed onto the stack.</p>
+
+<p>Whenever <code>FirstPage</code> is navigated to (more specifically, when its <code>viewWillEnter</code> lifecycle method triggers),
+the address bar is updated to be <code>/first-page</code>.</p>
+
+      
+    </div>
+
+    
+  
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

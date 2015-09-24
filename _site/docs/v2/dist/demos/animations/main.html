@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Animations</title>
+  <style>
+    #ionitron {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 45%;
+      margin-top: -50px;
+      left: 50%;
+      margin-left: -50px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="http://ionicframework.com/present-ionic/slides/img/me.png" id="ionitron">
+
+  <div style="position:absolute; bottom: 0; display:inline;">
+    <button icon pause primary (click)="pause($event)">
+      Pause
+      <icon pause></icon>
+    </button>
+    <button icon play secondary (click)="play($event)">
+      Play
+      <icon play></icon>
+    </button>
+  </div>
+  
+
+</body>
+</html>

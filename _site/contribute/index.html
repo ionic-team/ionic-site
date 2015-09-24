@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Ionic - Contribute - Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Contribute to an Open Source Project</h3>
+    <h4>Help build awesomeness!</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+  <div class="col-md-2 aside-menu">
+
+    <div class="docked-menu">
+
+      <ul class="nav left-menu active-menu">
+        <li class="active"><a href="#overview">Overview</a></li>
+        <li><a href="#issues">Submit an issue</a></li>
+        <li><a href="#improve-docs">Help improve the Docs</a></li>
+        <li><a href="#pull-request-guidelines">Pull Request Guidelines</a></li>
+        <li><a href="#conventions">Coding Conventions</a></li>
+        <li><a href="#license">License</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-10 main-content">
+
+    <!-- Ionic Contribute
+      ================================================== -->
+
+    <div class="docs-section" id="overview">
+
+      <h1>Contribute To Ionic</h1>
+
+      <p>
+        If you see an area for improvement or have an idea for a new feature, we'd love to have your help! Please feel free to take part in any discussions that may be happening on our <a href="http://forum.ionicframework.com/">forum</a> or our <a href="#issues">issues</a> page. You can also stay up-to-date with Ionic by subscribing to <a href="/subscribe/">our newsletter</a>.
+      </p>
+
+      <ol>
+        <li>Join the discussion on <a href="http://forum.ionicframework.com/">Ionic's Forum</a>. Either start or take part in topics to help define what you're thinking.</li>
+        <li><a href="https://github.com/driftyco/ionic/issues">Browse existing issues</a> for ideas or to see if a similar issue has already been submitted.</li>
+        <li>Fork the <a href="https://github.com/driftyco/ionic">Github repo</a>: <code>git clone https://github.com/driftyco/ionic.git</code></li>
+        <li>Create a new branch from master: <code>git checkout -b issuenumber-new-awesomeness</code></li>
+        <li>Review our <a href="#pull-request-guidelines">pull request guidelines</a>.</li>
+        <li>Follow our <a href="#conventions">coding conventions</a>.</li>
+        <li>Did you remember to write a passing test?</li>
+        <li>Submit a pull request!</li>
+      </ol>
+
+      <p>
+        For issues relating to the Ionic documentation or this site, please use the <a href="#improve-docs">ionic-site</a> repo instead.
+      </p>
+
+    </div>
+
+
+
+    <!-- Submit An Issue On Github
+      ================================================== -->
+    <div class="docs-section" id="issues">
+      <h2>Submit An Issue For Ionic</h2>
+      <p>
+        If you see a way to improve any piece of code, please let us know. There's no such thing as too small an improvement. (If the issue is about our documentation, please see <a href="#improve-docs">next section</a>.) If you think you might have found a bug, please start by making sure it hasn't already been
+        <a href="https://github.com/driftyco/ionic/issues?state=open">reported</a>.
+      </p>
+      <p>
+        [M#IIf the issue doesn't already exist, please <a href="http://codepen.io/ionic/public-list/">fork a codepen</a> that demonstrates the problem (try to use as little code as possible: the more minimalist, the faster we can debug it). Next, <a href="/submit-issue/">create a new issue</a> that explains the problem in detail, and provides enought background as to the circumstances that triggers it. Don't forget to include the link to the codpen or plunkr you created, along with any screenshots that may identify the issue.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues">Browse Ionic Issues</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic/issues/new">Create an Ionic Issue</a>
+        <a class="btn btn-primary" href="http://codepen.io/ionic/public-list/">Create a Codepen</a>
+      </p>
+    </div>
+
+
+
+    <!-- Help Improve The Docs
+      ================================================== -->
+    <div class="docs-section" id="improve-docs">
+      <h2>Help Improve The Docs</h2>
+      <p>
+        See a typo? Have a better way to describe Ionic within our documentation? Have a great tutorial? Please help make our docs awesome. The docs for our directives and services are generated from our source code using <a href="https://github.com/angular/dgeni">dgeni</a>, so fork the <a href="https://github.com/driftyco/ionic"> main Ionic repo</a> to make an edit there. For anything site related, fork the <a href="https://github.com/driftyco/ionic-site">ionic-site repo</a>, add, correct or improve the content, then submit a pull request with the improved docs. Not sure what to do? <a href="http://ionicframework.com/submit-issue/">Submit an issue</a>, and we will address it.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic">Fork ionic</a>
+        <a class="btn btn-primary" href="https://github.com/driftyco/ionic-site">Fork ionic-site</a>
+        <a class="btn btn-primary" href="http://ionicframework.com/submit-issue/">Create a Documentation Issue</a>
+      </p>
+    </div>
+
+
+
+    <!-- Pull Request Guidelines
+      ================================================== -->
+    <div class="docs-section" id="pull-request-guidelines">
+      <h2>Pull Request Guidelines</h2>
+      <p>
+        When in doubt, keep your pull requests small. To give a PR the best chance of getting accepted, do not bundle more than one "feature" or bug fix per PR. A large "all-in-one" PR makes it very hard to accept if one of the fixes or features has issues. It's always best to create two or more smaller PRs than one big one. Make sure any changes are done to the source code, not the compiled JavaScript or CSS.
+      </p>
+    </div>
+
+
+    <!-- Conventions
+      ================================================== -->
+    <div class="docs-section" id="conventions">
+      <h2>Conventions</h2>
+      <p>
+        We try to follow best practices as much as possible.
+      </p>
+      <p>
+        For any SCSS changes, try to keep CSS properties sorted in a reasonable order, with layout and sizing properties first, and cosmetic properties below that. See our code for examples. Feel free to run your code through <a href="http://csscomb.com/">CSS Comb</a>, which will sort your CSS properties in a good order. Always use two spaces, no tabs. This goes for any HTML, CSS, or Javascript. Ionic uses an <code>.editorconfig</code> file, which most editors support, to enforce these coding standards. 
+
+      </p>
+      <p>
+        All JavaScript must pass <a href="http://www.jshint.com/">JSHint</a>, which helps detect errors and potential problems in your code.
+      </p>
+      <p>
+      Additionally, almost all Javascript code <strong>must have an accompanying test case</strong>. To run our test suite, install <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> and follow the <a href="https://github.com/driftyco/ionic#development">Development commands</a> as follows:
+      </p>
+      <p>
+    <pre>
+$ sudo npm install -g karma gulp
+$ gulp
+$ gulp karma</pre>
+      </p>
+      <p>
+      More information can be found in the <a href="https://github.com/driftyco/ionic#development">README</a>.
+      </p>
+      <p>
+      Any tests you write should go in the <code>test/TYPE</code> folder structure. Copy the format from other tests to write your own.
+      </p>
+    </div>
+
+    <div class="docs-section" id="license">
+      <h2>License</h2>
+      <p>
+        By contributing your code, you agree to license your contribution under the MIT license.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+      
+    </div>
+
+    
+  
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

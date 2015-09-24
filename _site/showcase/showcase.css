@@ -1,0 +1,108 @@
+
+.showcase {
+  margin-top: 30px;
+}
+
+.showcase-container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.showcase-header {
+  height: 50px;
+  margin-bottom: 50px;
+  background: url(/img/showcase/showcase-ionic-logo.png) no-repeat top center;
+  background-size: 131px 50px;
+}
+
+.featured-link {
+  display: block;
+  background: white;
+  padding: 15px;
+}
+
+.featured-link.left {
+  float: left;
+  padding-right: 30px;
+}
+
+.featured-link.right {
+  float: right;
+  padding-left: 30px;
+}
+
+.showcase h1 {
+  text-align: center;
+}
+
+.showcase-container {
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+.featured-row .col {
+  margin: 15px auto;
+}
+
+.featured-row .col-sm-4 {
+  max-width: 310px;
+}
+@media (min-width: 768px) {
+  .featured-row .col-sm-4 {
+    max-width: none;
+  }
+}
+
+.featured-row .col img {
+  width: 100%;
+  max-width: 310px;
+  max-height: 284px;
+}
+
+.featured-row .info {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  left: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.featured-row .info h3 {
+  color: white;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.featured-row .platforms {
+  float: right;
+}
+
+.featured-row .info p {
+  color: #999;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.icon-row .col {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.icon-row img {
+  width: 100%;
+  max-width: 160px;
+  max-height: 160px;
+}
+
+.icon-row h3 {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.icon-row p {
+  color: #666;
+  font-size: 12px;
+}
+

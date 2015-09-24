@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <title>Ionic: Advanced HTML5 Hybrid Mobile App Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="full-page home no-js">
+    <script>document.body.classList.remove('no-js');</script>
+
+    <style>
+      .snap-bar {
+        display: none;
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+
+        /*
+        margin-top: -50px;
+
+        -webkit-transform: translate(0, -50px);
+        transform: translate(0, -50px);
+        */
+
+
+        /*
+        background-color: #EDF0F7;
+        */
+        background-color: #fff;
+        color: #626D7E;
+        font-weight: 300;
+
+        text-align: center;
+        font-size: 16px;
+
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0px -2px 0px #CBD4E0;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0px -2px 0px #CBD4E0;
+        -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4), inset 0px -2px 0px #CBD4E0;
+
+        /*
+        -webkit-transition: 500ms margin ease-in-out;
+        -ms-transition: 500ms margin ease-in-out;
+        transition: 500ms margin ease-in-out;
+        */
+      }
+
+      .snap-bar .small {
+        display: none;
+      }
+
+      .span-bar span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .snap-bar.active {
+
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+
+        margin-top: 0;
+      }
+
+      @media (max-width: 767px) {
+        .snap-bar .small {
+          display: inline-block;
+        }
+        .snap-bar .large {
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      $(function() {
+        setTimeout(function(){
+          $('.snap-bar').addClass('active');
+        },1500);
+      });
+    </script>
+    <!--
+    <div id="creator-bar" class="snap-bar active">
+      <span class="large">Drag-and-drop your way to a great mobile app with the <a href="https://creator.ionic.io/" class="creator-link">Ionic Creator</a>. Beta just opened!</span>
+      <span class="small">Coming soon: The <a href="/creator" class="creator-link">Ionic Creator</a></span>
+    </div>
+    -->
+    <div id="creator-bar" class="snap-bar active">
+      <span class="large">Preview, test, and share Ionic apps with anyone! Announcing <a href="http://view.ionic.io/" class="creator-link">Ionic View</a></span>
+    </div>
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container content-container">
+      <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
+
+<div id="slider" class="primary-row">
+  <div class="slide horizontal-gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <h1>
+            Create incredible apps.
+          </h1>
+          <h3>
+            Ionic is the beautiful, open source front-end SDK for developing hybrid mobile apps with web technologies.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="/getting-started/">Get Started</a>
+            <a class="btn btn-primary btn-get-started desktop-btn" href="/docs/" alt="Docs for v1.1.0 "xenon-xerus"">Docs &amp; Help</a>
+
+            <a class="btn btn-primary btn-download mobile-btn" href="/docs/">View Docs</a>
+          </p>
+          <p class="version-text">
+            v1.1.0 "xenon-xerus" &#183; 2015-08-13 &#183; MIT Licensed
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img one">
+          <a href="http://view.ionic.io/" target="_blank"><img class="app-icon one" src="/img/homepage/ionicview-icon_2x.png"><span class="demo-link">Ionic View</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide slide-creator">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <img src="/img/homepage/creator-logo.png" class="logo" />
+          <h2>Rapidly prototype Ionic apps.</h2>
+          <h3>
+            A simple drag-&amp;-drop interface building tool for creating real
+            ionic apps with a click of the mouse.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download"
+               class="btn btn-primary btn-download desktop-btn"
+               href="https://creator.ionic.io/"
+               target="_blank">Start prototyping today</a>
+            <a class="btn btn-primary btn-download mobile-btn"
+               href="https://creator.ionic.io/"
+               target="_blank">Start prototyping today</a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img img-loaded">
+          <div class="creator-preview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide slide-lab">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <img src="/img/homepage/ionic-lab-logo.png" class="logo" />
+          <h2>Start, build, test, and deploy.</h2>
+          <h3>
+            Lab is a desktop app for Mac and Windows that makes it a joy to
+            create and work with Ionic apps.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://lab.ionic.io/" target="_blank">Learn more <i class="ion-chevron-right"></i></a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://lab.ionic.io/" target="_blank">Learn more <i class="ion-chevron-right"></i></a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img  img-loaded">
+          <div class="lab-preview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide slide-market">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 fadeIn">
+          <h1><strong>The Market</strong> is alive</h1>
+          <h3>
+            Discover and share all the best community-made starter apps, plugins, themes and more to jumpstart your Ionic app development.
+          </h3>
+          <p class="btn-row">
+            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://market.ionic.io/" target="_blank">Explore the Market</a>
+            <a class="btn btn-primary btn-download mobile-btn" href="http://market.ionic.io/" target="_blank">Explore the Market</a>
+          </p>
+        </div>
+        <div class="col-sm-6 feature-img img-loaded"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="row">
+      <ul class="social-row ionic col-md-7">
+        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-social-github"></i> <span id="gh-stargazers"></span> stars</a></li>
+        <li><a href="https://github.com/driftyco/ionic" target="_blank"><i class="ion-fork-repo"></i> <span id="gh-forks"></span> forks</a></li>
+        <li><a href="https://twitter.com/IonicFramework" target="_blank"><i class="ion-social-twitter"></i> <span id="tw-followers">Twitter</span></a></li>
+      </ul>
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-md-5">
+        <input name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Enter your email for the latest ionic news" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Email me!</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="creator-bar">
+  <img src="http://ionic-dash-static.s3.amazonaws.com/img/pushlogo.png" style="width: 200px;">
+
+  <h2>Push notifications made easy for your Ionic apps. Now in public alpha.</h2>
+
+  <a href="https://apps.ionic.io/landing/push" class="btn btn-success">Sign up now</a>
+</div>
+
+<script>
+
+  function digits(n){
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  $.ajax({
+    dataType: "jsonp",
+    url: "https://api.github.com/repos/driftyco/ionic",
+    success: function(data){
+      if(data) {
+        if(data.data.watchers){
+          $("#gh-stargazers").html(digits(data.data.watchers));
+        }
+        if(data.data.forks){
+          $("#gh-forks").html(digits(data.data.forks));
+        }
+      }
+    }
+  });
+  $.ajax({
+    dataType: "jsonp",
+    url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=ionicframework",
+    success: function(data){
+      if(data && data.length && data[0].formatted_followers_count){
+        $("#tw-followers").html(digits(data[0].formatted_followers_count));
+      }
+    }
+  });
+</script>
+
+<div id="learn-more">
+
+  <div class="desc-row">
+
+    <h3>
+      Create mobile apps with the web technologies you love.
+    </h3>
+    <p>
+      Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS <a href="/docs/components/">components</a>, gestures, and tools for building highly interactive apps. Built with <a href="http://sass-lang.com/" target="_blank">Sass</a>
+      and optimized for <a href="http://angularjs.org/" target="_blank">AngularJS</a>.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-performance">
+
+    <h4>Performance obsessed</h4>
+    <p>
+      Speed is important. So important that you only notice when it isn't there. Ionic is
+      built to perform and behave great on the latest mobile devices. With <span class="feature-row-strong">minimal DOM</span>
+      manipulation, <span class="feature-row-strong">zero jQuery</span>, and <span class="feature-row-strong">hardware accelerated</span> transitions,
+      one thing is for sure: You'll be impressed.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-angular img-right">
+
+    <h4>Angular &amp; Ionic</h4>
+    <p>
+      <span class="feature-row-strong">A match made in heaven.</span> Ionic utilizes <a href="http://angularjs.org/">Angular</a>
+      in order to create a powerful SDK most suited to develop rich and robust applications. Ionic not only
+      looks nice, but its core architecture is built for <span class="feature-row-strong">serious app development</span>,
+      and Angular ties in perfectly.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-native">
+
+    <h4>Native focused</h4>
+    <p>
+      Ionic is modeled on popular native mobile development SDKs, making it easy to understand for
+      anyone that has built a native app for <span class="feature-row-strong">iOS</span> or <span class="feature-row-strong">Android</span>. Just drop it in your code to get going,
+      and push through <a href="http://cordova.apache.org/">Cordova</a> when it's ready. <span class="feature-row-strong">Develop once, deploy everywhere</span>.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-design img-right">
+
+    <h4>Beautifully designed</h4>
+    <p>
+      Clean, simple, and functional. Ionic has been designed to work and <span class="feature-row-strong">display beautifully</span> on all current mobile devices. With tons of popular mobile components, typography, interactive paradigms, and a gorgeous (yet extensible) base theme, you'll wonder how you lived without it.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-cli">
+
+      <h4>A powerful CLI</h4>
+      <p>
+        Use just one command to <span class="feature-row-strong">create, build, test, and deploy</span> your Ionic apps onto any platform. With amazing features like Live Reload and integrated logging, you'll already be miles ahead of your native frenemies. Just run <code>npm install -g ionic</code>, and you're good to go!
+      </p>
+
+  </div>
+
+  <div class="feature-row img-learn img-right">
+
+    <h4>Fun to learn</h4>
+    <p>
+      All you need to know are <span class="feature-row-strong">HTML, CSS, and JavaScript:</span> the building blocks of the web. You'll even learn AngularJS as you work. We wrote <a href="http://learn.ionicframework.com">tons of tutorials</a> to get you started and help you level up your mobile development skills. There’s no question <span class="feature-row-strong">you'll be shipping apps in no time</span>.
+    </p>
+
+  </div>
+
+  <div class="feature-row img-nerds">
+
+      <h4>Built by nerds (like you)</h4>
+      <p>
+        Built and maintained by <span class="feature-row-strong">developers <i>and</i> designers</span> passionate about web technologies. Ionic focuses on standards compliant code, is forward thinking, and is managed through <a href="https://github.com/driftyco/ionic">Github</a>. We're making mobile development with HTML5 awesome and simple.
+      </p>
+
+  </div>
+
+</div>
+
+<div class="features">
+  <div class="container">
+    <h2>More than code. Ionic is an ecosystem.</h2>
+    <h4>
+      You'll find a suite of mobile development tools and resources at your disposal that make <br>
+      Ionic the complete mobile dev package. It's the best way to build apps. Period.</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-lab.png">
+        <h3>Ionic Lab</h3>
+        <p>
+          Build and test iOS and Android versions side-by-side. See changes instantly. <code>$ ionic serve --lab</code>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-live-reload.png">
+        <h3>LiveReload</h3>
+        <p>
+          Instantly update your apps with code changes, even
+          when running directly on your device. <code>$ ionic run --livereload</code>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-splash-icon.png">
+        <h3>Icon/Splash Generation</h3>
+        <p>
+          Generate icons and splash screens for all devices and
+          device sizes with a single command. <code>$ ionic resources</code>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-view-app.png">
+        <h3>View App</h3>
+        <p>
+          Share your Ionic apps with clients, customers, and testers
+          all around the world. All without ever going through
+          the App Store! <a href="http://view.ionic.io/">Get the app!</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-ngcordova.png">
+        <h3>ngCordova</h3>
+        <p>
+          Angular extensions for easily accessing the full native functionality
+          of the device. <a href="http://ngcordova.com/">Learn more <i class="icon ion-chevron-right"></i></a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src="/img/homepage/feature-ionicio.png">
+        <h3>Ionic.io Platform</h3>
+        <p>
+          Full-stack backend services and tools for your Ionic app.
+          Finally, a service that embraces mobile web dev! <a href="http://ionic.io/">Learn more <i class="icon ion-chevron-right"></i></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  
+<div class="testimonials" id="testimonials">
+
+  <div class="testimonial-content">
+
+    <blockquote class="testimonial-0 active" data-testimonial="0">
+      <p>
+        Ionic is the framework that I use for all of my projects, and I'm not sure I can give a bigger compliment than that. The innate sense of style and sophistication built into Ionic is awesome and makes building professional-level mobile applications a snap.
+      </p>
+      <footer style="background-image: url('/img/testimonials/testimonial-hampton@2x.png')">
+        <cite>Hampton Catlin</cite>
+        <div>Creator of <a href="http://sass-lang.com/">Sass</a></div>
+      </footer>
+    </blockquote>
+
+    <blockquote class="testimonial-1" data-testimonial="1">
+      <p>
+      Ionic will dramatically change the way mobile apps are built. Their choice of AngularJS means building functionality is now a breeze and it feels near-native. Your developers and your users will thank you.
+      </p>
+      <footer style="background-image: url('/img/testimonials/testimonial-james@2x.png')">
+        <cite>James Tamplin</cite>
+        <div>Co-founder &amp; CEO, <a href="https://www.firebase.com/">Firebase</a></div>
+      </footer>
+    </blockquote>
+
+    <blockquote class="testimonial-2" data-testimonial="2">
+      <p>
+        I was so inspired when I found Ionic. It fills a gap that’s missing when building for mobile and solves many complexities that otherwise require multiple libraries, keeping your code cleaner. Overall, it just makes mobile development fun and fast, so you can build more!
+      </p>
+      <footer style="background-image: url('/img/testimonials/testimonial-holly@2x.png')">
+        <cite>Holly Schinsky</cite>
+        <div>Developer Evangelist, <a href="http://devgirl.org/">Adobe</a></div>
+      </footer>
+    </blockquote>
+
+  </div>
+
+</div>
+
+<script>
+
+  $(window).load(function(){
+    var container = $('#testimonials');
+    var quotes = container.find('blockquote');
+
+    var activeQuote = 0;
+    var timerId;
+
+    function startTimeout() {
+      timerId = setTimeout(start, 9000);
+    }
+
+    function start() {
+      activeQuote++;
+      if(activeQuote>=quotes.length) activeQuote = 0;
+      quotes.removeClass('active');
+      quotes.eq(activeQuote).addClass('active');
+      startTimeout();
+    }
+
+    quotes.find('footer').click(function(){
+      clearTimeout(timerId);
+      quotes.removeClass('active');
+      var blockquote = $(this).closest('blockquote');
+      activeQuote = parseInt( blockquote.data('testimonial'), 10);
+      blockquote.addClass('active');
+      startTimeout();
+    });
+
+    startTimeout();
+
+  });
+
+</script>
+
+</div>
+
+
+<div class="pre-footer">
+
+  <div class="row ionic">
+
+    <div class="col-sm-6 col-a">
+      <h4>
+        <a href="/docs/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+      </h4>
+      <p>
+        Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+        the basics and help you get started from the ground up.
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-b">
+      <h4>
+        <a href="/docs/components/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+      </h4>
+      <p>
+        What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+        to get an app up and running in minutes.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="pre-footer footer-social">
+
+  <p>
+    Help us change the way the world develops for mobile.
+    <span class="spread-word">Spread the word.</span>
+  </p>
+  <ul class="share-row">
+    <li class="github-watch">
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&amp;repo=ionic&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="180" height="25"></iframe>
+    </li>
+    <li class="gplus">
+      <div class="g-plusone" data-size="medium"></div>
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    </li>
+    <li class="twitter-share">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="ionicframework" data-hashtags="html5,mobile,angularjs" data-related="maxlynch,adamdbradley,benjsperry,drifty">Tweet</a>
+    </li>
+    <li class="twitter-follow">
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <div class="fb-share-button" data-href="http://ionicframework.com/" data-type="button_count"></div>
+    </li>
+  </ul>
+
+</div>
+
+<style>
+ .navbar {
+ }
+</style>
+<script type="text/javascript" src="/js/slick.js"></script>
+<script>
+$('#slider').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: false,
+  fade: true,
+  cssEase: 'linear',
+  draggable: false,
+  autoplay: true,
+  autoplaySpeed: 10000,
+  focusOnSelect: false,
+  // https://github.com/kenwheeler/slick/issues/1537
+  accessibility: false
+})
+// .on('beforeChange', function(event, slick, currentSlide, nextSlide){
+//   console.log(event, slick, currentSlide, nextSlide);
+// });
+
+/*
+  $.fn.snapBar = function(options) {
+    return this.each(function() {
+      var $this = $(this);
+      var settings = $.extend({
+        delay: 0,
+        height: 50,
+        animationDuration: 500,
+        activeClass: 'active'
+      });
+
+      setTimeout(function() {
+        $this.addClass(settings.activeClass);
+      }, settings.delay);
+    });
+  };
+
+  $('#creator-bar').snapBar();
+  */
+</script>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  <script>
+    /*
+    $('#repo-download').click(function() {
+      var href = $(this).attr('href');
+      ga('send', 'event', 'Download', 'Repo Download', {
+      'nonInteraction': 1,
+      'hitCallback': function() {
+        window.location = href;
+      }});
+      return false;
+    })
+    */
+    // $('.creator-link').click(function() {
+    //   var href = $(this).attr('href');
+    //   ga('send', 'event', 'Click', 'Creator Bar', {
+    //   'nonInteraction': 1,
+    //   'hitCallback': function() {
+    //     window.location = href;
+    //   }});
+    //   return false;
+    // })
+  </script>
+  </body>
+</html>

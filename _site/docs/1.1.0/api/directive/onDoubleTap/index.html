@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+
+    
+
+    <title>on-double-tap - Directive in module ionic -  Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-api">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+      <div class="container">
+        <h3>on-double-tap</h3>
+        <h4>Directive in module ionic</h4>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                <select onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/nightly/api/directive/onDoubleTap/"
+   >
+    nightly 
+  </option>
+
+  <option
+   value="/docs/api/directive/onDoubleTap/"
+   selected>
+    1.1.0 (latest)
+  </option>
+
+  <option
+   value="/docs/1.0.1/api/directive/onDoubleTap/"
+   >
+    1.0.1 
+  </option>
+
+  <option
+   value="/docs/1.0.0/api/directive/onDoubleTap/"
+   >
+    1.0.0 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.5/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.5 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.4/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.4 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.3/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.3 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.2/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.2 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.1/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.1 
+  </option>
+
+  <option
+   value="/docs/1.0.0-rc.0/api/directive/onDoubleTap/"
+   >
+    1.0.0-rc.0 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.14/api/directive/onDoubleTap/"
+   >
+    1.0.0-beta.14 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.13/api/directive/onDoubleTap/"
+   >
+    1.0.0-beta.13 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.12/api/directive/onDoubleTap/"
+   >
+    1.0.0-beta.12 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.11/api/directive/onDoubleTap/"
+   >
+    1.0.0-beta.11 
+  </option>
+
+  <option
+   value="/docs/1.0.0-beta.10/api/directive/onDoubleTap/"
+   >
+    1.0.0-beta.10 
+  </option>
+
+</select>
+
+
+
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/platform-customization/">Platform Customization</a>
+              </li>
+            </ul>
+
+            <!-- Docs: JavaScript -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/docs/api/">
+                  JavaScript
+                </a>
+              </li>
+              
+  
+    
+
+  
+
+
+  <!-- Action Sheet -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicActionSheet/" class="api-section">
+       Action Sheet
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicActionSheet/">
+          $ionicActionSheet
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Backdrop -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicBackdrop/" class="api-section">
+      Backdrop
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicBackdrop/">
+          $ionicBackdrop
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Content -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionContent/" class="api-section">
+       Content
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionContent/">
+           ion-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionRefresher/">
+           ion-refresher
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionPane/">
+           ion-pane
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Form Inputs -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionCheckbox/" class="api-section">
+       Form Inputs
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionCheckbox/">
+           ion-checkbox
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionRadio/">
+           ion-radio
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionToggle/">
+           ion-toggle
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+
+  <!-- Gesture and Events -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/onHold/" class="api-section">
+      Gestures and Events
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/onHold/">
+          on-hold
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onTap/">
+          on-tap
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDoubleTap/">
+          on-double-tap
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onTouch/">
+          on-touch
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onRelease/">
+          on-release
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDrag/">
+          on-drag
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDragUp/">
+          on-drag-up
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDragRight/">
+          on-drag-right
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDragDown/">
+          on-drag-down
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onDragLeft/">
+          on-drag-left
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onSwipe/">
+          on-swipe
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onSwipeUp/">
+          on-swipe-up
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onSwipeRight/">
+          on-swipe-right
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onSwipeDown/">
+          on-swipe-down
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/onSwipeLeft/">
+          on-swipe-left
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/service/$ionicGesture/">
+          $ionicGesture
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Headers/Footers -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionHeaderBar/" class="api-section">
+       Headers/Footers
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionHeaderBar/">
+           ion-header-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionFooterBar/">
+           ion-footer-bar
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Keyboard -->
+  <li class="menu-section">
+    <a href="/docs/api/page/keyboard/" class="api-section">
+      Keyboard
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/page/keyboard/">
+          Keyboard
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/directive/keyboardAttach/">
+          keyboard-attach
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Lists -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionList/" class="api-section">
+       Lists
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionList/">
+           ion-list
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionItem/">
+           ion-item
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionDeleteButton/">
+           ion-delete-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionReorderButton/">
+           ion-reorder-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionOptionButton/">
+           ion-option-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/collectionRepeat/">
+          collection-repeat
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicListDelegate/">
+           $ionicListDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Loading -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicLoading/" class="api-section">
+      Loading
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicLoading/">
+          $ionicLoading
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="/docs/api/object/$ionicLoadingConfig/">
+          $ionicLoadingConfig
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Modal -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicModal/" class="api-section">
+       Modal
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicModal/">
+          $ionicModal
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/controller/ionicModal/">
+          ionicModal
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Navigation -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionNavView/" class="api-section">
+       Navigation
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionNavView/">
+           ion-nav-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionView/">
+           ion-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionNavBar/">
+           ion-nav-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionNavBackButton/">
+           ion-nav-back-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionNavButtons/">
+           ion-nav-buttons
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionNavTitle/">
+           ion-nav-title
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/navTransition/">
+           nav-transition
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/navDirection/">
+           nav-direction
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicNavBarDelegate/">
+          $ionicNavBarDelegate
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicHistory/">
+          $ionicHistory
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Platform -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicPlatform/" class="api-section">
+      Platform
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicPlatform/">
+          $ionicPlatform
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Popover -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicPopover/" class="api-section">
+       Popover
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicPopover/">
+          $ionicPopover
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/controller/ionicPopover/">
+          ionicPopover
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Popup -->
+  <li class="menu-section">
+    <a href="/docs/api/service/$ionicPopup/" class="api-section">
+       Popup
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/service/$ionicPopup/">
+          $ionicPopup
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Scroll -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionScroll/" class="api-section">
+       Scroll
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionScroll/">
+           ion-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionInfiniteScroll/">
+           ion-infinite-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicScrollDelegate/">
+          $ionicScrollDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Side Menus -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionSideMenus/" class="api-section">
+       Side Menus
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionSideMenus/">
+           ion-side-menus
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionSideMenuContent/">
+           ion-side-menu-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionSideMenu/">
+           ion-side-menu
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/exposeAsideWhen/">
+           expose-aside-when
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/menuToggle/">
+           menu-toggle
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/menuClose/">
+           menu-close
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicSideMenuDelegate/">
+          $ionicSideMenuDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Slide Box -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionSlideBox/" class="api-section">
+       Slide Box
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionSlideBox/">
+           ion-slide-box
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionSlidePager/">
+           ion-slide-pager
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionSlide/">
+           ion-slide
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicSlideBoxDelegate/">
+          $ionicSlideBoxDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Spinner -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionSpinner/" class="api-section">
+      Spinner
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionSpinner/">
+          ion-spinner
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Tabs -->
+  <li class="menu-section">
+    <a href="/docs/api/directive/ionTabs/" class="api-section">
+       Tabs
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/directive/ionTabs/">
+           ion-tabs
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/directive/ionTab/">
+           ion-tab
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/service/$ionicTabsDelegate/">
+          $ionicTabsDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Tap -->
+  <li class="menu-section">
+    <a href="/docs/api/page/tap/" class="api-section">
+      Tap &amp; Click
+    </a>
+  </li>
+
+
+  <!-- Utility -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Utility
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/api/provider/$ionicConfigProvider/">
+          $ionicConfigProvider
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/utility/ionic.Platform/">
+          ionic.Platform
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/utility/ionic.DomUtil/">
+          ionic.DomUtil
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/api/utility/ionic.EventController/">
+          ionic.EventController
+        </a>
+      </li>
+      <li>
+        <a href="/docs/api/service/$ionicPosition/">
+          $ionicPosition
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/cli/">CLI</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="http://learn.ionicframework.com/">Learn Ionic</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/ionic-cli-faq/">FAQ</a>
+              </li>
+            </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/getting-help/">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/concepts/">Ionic Concepts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <div class="improve-docs">
+  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L41'>
+    View Source
+  </a>
+  &nbsp;
+  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L41'>
+    Improve this doc
+  </a>
+</div>
+
+<h1 class="api-title">
+
+  on-double-tap
+
+
+
+</h1>
+
+<p>Double tap touch at a location.</p>
+
+<h2 id="usage">Usage</h2>
+  
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">on-double-tap=</span><span class="s">&quot;onDoubleTap()&quot;</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Test<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

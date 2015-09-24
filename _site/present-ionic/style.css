@@ -1,0 +1,136 @@
+html {
+    margin:0;
+    padding:0;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: url(img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 12px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    text-align:center;
+}
+
+.wrapper {
+    width: 960px;
+    text-align: center;
+    margin: auto;
+}
+
+.logo-header {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 113px;
+    width: 168px;
+    text-align: center;
+    background: url(img/present-ionic.png) no-repeat;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+     .logo-header {
+          background: url(img/present-ionic@2x.png) no-repeat;
+          background-size: 168px 113px;
+     }
+}
+
+
+h1 {
+    color: #deebff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    margin-top: 50px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    color: #fff;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+}
+
+p {
+    color: #BDD1F3;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #e15e4d;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-size: 34px;
+    background-color: #fff;
+    margin: 30px 0px;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15), inset 0px -4px 0px rgba(0, 0, 0, 0.1);
+    opacity: .9;
+    transition: .2s ease-in-out;
+    transition-property: opacity, border-color;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.btn:active {
+    opacity: .9;
+    color: #c75749;
+    padding: 22px 25px 18px 25px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 4px 0px rgba(0, 0, 0, 0.07);
+}
+
+footer {
+    bottom: 10px;
+    position: fixed;
+    text-align: center;
+    width: 960px;
+    margin: auto;
+}
+
+#twitter-share {
+    animation-duration: 1s;
+    animation-delay: 2s;
+    -webkitt-animation-duration: 1s;
+    -webkit-animation-delay: 2s;
+    -moz-animation-duration: 1s;
+    -moz-animation-delay: 2s;
+}
+
+.own {
+    color: white;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,7 +62,7 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 ### Creating a Page
 
-Next, we need to create the `HelloIonicPage` the we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
 
 <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#naming-conventions">
   Naming conventions
@@ -91,7 +91,7 @@ export class HelloIonicPage {
 
 Note that we pass in the `nav` object, and set it as a property in the constructor.
 
-All views have both a class, and an associated template. Let's checkout out `app/hello-ionic/hello-ionic.html` - the template file for this page:
+All views have both a class, and an associated template. Let's checkout `app/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -132,8 +132,6 @@ Let's check out the contents of `app/list/list.js`. Inside, you will see a new p
 {% raw %}
 import {IonicApp, IonicView, NavController, NavParams} from 'ionic/ionic';
 
-import {ItemDetailsPage} from '../item-details/item-details';
-
 @IonicView({
   templateUrl: 'app/list/list.html'
 })
@@ -144,14 +142,22 @@ export class ListPage {
    }
    ...
    itemTapped(event, item) {
-     this.nav.push(ItemDetailsPage, {
-       item: item
-      })
+     console.log('You selected', item.title);
    }
 }
 {% endraw %}
 ```
 
-This page is very similar to the `HelloIonicPage` we saw earlier. However, it is important to note that we are importing `ItemDetailsPage` and using it inside the `itemTapped` function. In the next section, we will go over navigation, and learn about how this function works.
+Let's go check out how this function gets called. Open up `app/list/list.html`:
+
+```html
+<ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">
+```
+
+This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped()` function that navigates to `ItemDetailsPage`.
+
+Also note that we can pass the click handler function the click event, and the item.
+
+Overall, this page is very similar to the `HelloIonicPage` we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!
 
 <a href="../navigation/" class="btn btn-primary">Navigating</a>

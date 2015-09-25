@@ -75,7 +75,7 @@ Here's the main template for the app in `www/app/app.html`:
   <ion-content>
     <ion-list>
       <button ion-item *ng-for="#p of pages" (click)="openPage(p)">
-        {{p.title}}
+        {% raw %}{{p.title}}{% endraw %}
       </button>
     </ion-list>
   </ion-content>

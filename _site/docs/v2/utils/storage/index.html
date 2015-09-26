@@ -206,7 +206,7 @@
   </a>
 </div>
 
-<h1>Storage</h1>
+<h1 class="title">Storage</h1>
 
 <p>All apps need to save and load data at some point. Ionic makes it easy with utilities for temporary storage (caching), and long term storage. Ionic storage services have a convenient key/value API, and some storage engines provide additional powerful operations (like SQL queries).</p>
 
@@ -234,14 +234,14 @@
 </code></pre></div>
 <p>Note: <em>do not</em> use Local Storage for data that you cannot afford to lose! Some operating systems (like iOS) will clear local storage when device storage gets low.</p>
 
-<h3>Setting values</h3>
+<h1>Setting values</h1>
 
 <p>To store a value for a given key, use <code>set()</code></p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3>Getting values</h3>
+<h1>Getting values</h1>
 
 <p>To retrieve a value for a given key, use <code>get()</code></p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">getName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
@@ -250,7 +250,7 @@
   <span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3>SQL Queries</h3>
+<h1>SQL Queries</h1>
 
 <p>When using the <code>SqlStorage</code> engine, a full query API is available:</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">saveUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
@@ -264,7 +264,7 @@
   <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3>iCloud Support</h3>
+<h1>iCloud Support</h1>
 
 <p>iOS supports a variety of storage strategies that use (or don&#39;t use) iCloud. By default, Ionic storage
 will not back up to iCloud, since storing arbitrary data in an iCloud-backup location is one of the

@@ -19,7 +19,7 @@ support for your apps.
 Unlike some translation systems, Ionic uses the full text that you wish to display in the default
 language as the translation key (rather than a lookup key).
 
-### Using `Translate`
+## Using `Translate`
 
 The `Translate` service is used to set the active language, and provide string mapping.
 
@@ -43,7 +43,7 @@ export class MyApp {
   }
 ```
 
-### Using `TranslatePipe`
+## Template Translation 
 
 To use translated strings in your templates, use the `translate` pipe:
 

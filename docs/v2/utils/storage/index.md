@@ -11,7 +11,7 @@ header_sub_title: Persisting and loading data
   </a>
 </div>
 
-# Storage
+<h1 class="title">Storage</h1>
 
 All apps need to save and load data at some point. Ionic makes it easy with utilities for temporary storage (caching), and long term storage. Ionic storage services have a convenient key/value API, and some storage engines provide additional powerful operations (like SQL queries).
 
@@ -46,7 +46,7 @@ export class MyApp {
 
 Note: _do not_ use Local Storage for data that you cannot afford to lose! Some operating systems (like iOS) will clear local storage when device storage gets low.
 
-### Setting values
+# Setting values
 
 To store a value for a given key, use `set()`
 
@@ -56,7 +56,7 @@ setName(name) {
 }
 ```
 
-### Getting values
+# Getting values
 
 To retrieve a value for a given key, use `get()`
 
@@ -68,7 +68,7 @@ getName(name) {
 }
 ```
 
-### SQL Queries
+# SQL Queries
 
 When using the `SqlStorage` engine, a full query API is available:
 
@@ -85,7 +85,7 @@ getUser() {
 }
 ```
 
-### iCloud Support
+# iCloud Support
 
 iOS supports a variety of storage strategies that use (or don't use) iCloud. By default, Ionic storage
 will not back up to iCloud, since storing arbitrary data in an iCloud-backup location is one of the

@@ -11,7 +11,7 @@
 
     
 
-    <title>Overriding Ionic Variables - Overriding Ionic's Default Variables -  Ionic Framework</title>
+    <title>Theming your Ionic app - Customizing your app to fit your brand -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -84,8 +84,8 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Overriding Ionic Variables</h3>
-    <h4>Overriding Ionic's Default Variables</h4>
+    <h3>Theming your App</h3>
+    <h4>Customizing your app to fit your brand</h4>
   </div>
   <div class="news">
     <div class="container">
@@ -165,19 +165,13 @@
               <li class="menu-section active">
   <ul>
     <li>
-      <li><a href="/docs/v2/theming/sass-variables/">Sass Variables</a></li>
+      <li><a href="/docs/v2/theming/theming-your-app/">Theming your App</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/theming/overriding-ionic/">Overriding Ionic Variables</a></li>
+      <li><a href="/docs/v2/theming/platform-specific-styles/">Platform Styles</a></li>
     </li>
     <li>
-      <li><a href="/docs/v2/theming/ionic-themes/">Ionic Themes</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/theming/ionic-modes/">Ionic Modes</a></li>
-    </li>
-    <li>
-      <li><a href="/docs/v2/theming/ionic-variables/">Ionic Sass Variables</a></li>
+      <li><a href="/docs/v2/theming/overriding-ionic-variables/">Overriding Ionic Variables</a></li>
     </li>
   </ul>
 </li>
@@ -211,43 +205,47 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Overriding Ionic's Default Variables: <code>!default</code></h1>
+<h1 class="title">Theming your Ionic App</h1>
 
-<p>From the <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_">Sass documentation</a>:</p>
+<p>Theme support is baked right in to your Ionic apps. To change the theme, just tweak the <code>$colors</code> variable in your <code>www/app/app.scss</code> file:</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
 
-<blockquote>
-<p>You can assign to variables if they aren’t already assigned by adding the !default flag to the end of the value. This means that if the variable has already been assigned to, it won’t be re-assigned, but if it doesn’t have a value yet, it will be given one.</p>
-</blockquote>
+  <span class="n">primary</span><span class="o">:</span>    <span class="mh">#387ef5</span><span class="o">,</span>
+  <span class="n">secondary</span><span class="o">:</span>  <span class="mh">#32db64</span><span class="o">,</span>
+  <span class="n">danger</span><span class="o">:</span>     <span class="mh">#f53d3d</span><span class="o">,</span>
+  <span class="n">light</span><span class="o">:</span>      <span class="mh">#f4f4f4</span><span class="o">,</span>
+  <span class="n">dark</span><span class="o">:</span>       <span class="mh">#222</span><span class="o">,</span>
 
-<p>Ionic uses the <code>!default</code> flag for many of the Sass variables that make up Ionic&#39;s CSS. This makes it extremely easy for you to override any Ionic variables by assigning a value to the variable before Ionic does. For example, Ionic defines the <code>$text-color</code> variable like this:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#000</span> <span class="nv">!default</span><span class="p">;</span>
+<span class="p">);</span>
 </code></pre></div>
-<p>If you wanted to change the value of the <code>$text-color</code> variable, you could add the variable directly to the main Sass file at <code>www/app/app.scss</code>, before the import of Ionic&#39;s Sass file:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#888</span><span class="p">;</span>
+<p>The fastest way to change the theme of your Ionic app is to set a new value for <code>primary</code>, since Ionic uses the primary color by default for buttons and other components.</p>
 
-<span class="c1">// Ionic Sass</span>
-<span class="c1">// ---------------------------------</span>
-<span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
-</code></pre></div>
-<p>Or, to keep things structured, you can create your own Sass file and import this file in your <code>www/app/app.scss</code> file. Create a file named <code>custom.scss</code> in the <code>www/app/</code> directory, with the following code:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/*** www/app/custom.scss ***/</span>
-<span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#888</span><span class="p">;</span>
-</code></pre></div>
-<p>And then import the file in your <code>www/app/app.scss</code> file:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&quot;custom&quot;</span><span class="p">;</span>
+<h2>Custom Colors</h2>
 
-<span class="c1">// Ionic Sass</span>
-<span class="c1">// ---------------------------------</span>
-<span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
+<p>To add custom colors, just add them to the map:</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
+  <span class="c1">// ...</span>
+  <span class="n">twitter</span><span class="o">:</span> <span class="mh">#55acee</span>
+<span class="p">)</span>
 </code></pre></div>
-<p><em>Note: We do not recommend changing the value of any of the variables in our Sass files directly. When a new version of Ionic is released, these files will be updated, and you will lose any changes you&#39;ve made to them.</em></p>
+<p>Ionic makes color types available as a property to many components. For example, to use our <code>twitter</code> color, add it as a property:
+<code>html
+&lt;button twitter&gt;I&#39;m a button&lt;/button&gt;
+</code></p>
 
-<p>If you think you&#39;re ready to start changing variables in your app, a list of all of the variables with the <code>!default</code> flag (or all the variables you can override) can be found in the <a href="../ionic-variables/">Ionic Sass Variables</a> section. However, we recommend reading on to the <a href="../ionic-themes/">next section</a> to find out how you can use the default themes Ionic provides to further style your app.</p>
+<h2>Dark theme</h2>
+
+<p>By default, Ionic comes with a light and dark theme. To use the dark theme, download the <a href="https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss">dark.scss</a> file and put it into your <code>www/app/themes</code> directory. Then, use it in your <code>app.scss</code> file:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">@import &quot;themes/dark&quot;;
+</code></pre></div>
+<h2>Platform styles</h2>
+
+<p>To change the look of your app on different platforms, continue to the <a href="../platform-specific-styles/">Platform Specific Styles</a> guide.</p>
 
 
           

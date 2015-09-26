@@ -19,8 +19,6 @@ Ionic uses modes to customize the look of components to match the platform you a
 <body class="md">
 ```
 
-<em>Note: I have removed all other attributes and classes from the `<body>` to only show what the mode looks like when added.</em>
-
 Here is a chart of the default mode that gets added based on platform:
 
 <table class="table">
@@ -75,4 +73,4 @@ $button-md-border-radius: 8px;
 @import "ionic";
 ```
 
-Continue on to the [next section](../ionic-variables/) to see a list of all of the variables Ionic uses to style your app.
+Continue on to the [next section](../overriding-ionic-variables/) to see a list of all of the variables Ionic uses to style your app.

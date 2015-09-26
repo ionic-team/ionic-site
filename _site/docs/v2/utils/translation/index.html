@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 | Networking - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Translation and i18n - Ionic 2 - Supporting multiple languages easily -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -38,7 +38,7 @@
     
   </head>
 
-  <body class="docs v2 docs-page docs-utilities">
+  <body class="docs v2 docs-page docs-utils">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -84,8 +84,8 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 - Networking</h3>
-    <h4>Ionic 2 Developer Preview</h4>
+    <h3>Translation and i18n</h3>
+    <h4>Supporting multiple languages easily</h4>
   </div>
   <div class="news">
     <div class="container">
@@ -151,11 +151,20 @@
               
             </ul>
 
-            <ul class="nav left-menu ">
+            <ul class="nav left-menu  active-menu">
               <li class="menu-title">
                 <a href="/docs/v2/utils/">Utilities</a>
               </li>
-              
+              <li class="menu-section active">
+  <ul>
+    <li>
+      <li><a href="/docs/v2/utils/storage/">Storage</a></li>
+      <li><a href="/docs/v2/utils/translation/">Translation</a></li>
+      <li><a href="/docs/v2/utils/events/">Events</a></li>
+    </li>
+  </ul>
+</li>
+
             </ul>
 
             <ul class="nav left-menu ">
@@ -192,50 +201,44 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Networking</h1>
+<h1>Translation and i18n</h1>
 
-<p>Sending HTTP requests to a URL is easy with Ionic&#39;s <code>Http</code> service.</p>
+<p>Ionic comes with a simple and powerful translation/internationalization system to provide multiple language
+support for your apps.</p>
 
-<div class="note">
-  <button primary small outline>Note: what happened to $http?</button>
-  <div class="info">
-    One of the changes in Angular 2's strategy is to do <i>less</i> when it comes to
-    providing wrappers for browser utilities. Since the <code>fetch()</code> API is more mature
-    and has usable polyfills, Angular 2 no longer provides a convenient <code>$http</code>-style
-    service.
-    <p />
-    We've provided one to make the <code>fetch()</code> API easier to use, especially for the
-    use case of sending and receiving JSON data.
-  </div>
-</div>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Http</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+<p>Unlike some translation systems, Ionic uses the full text that you wish to display in the default
+language as the translation key (rather than a lookup key).</p>
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://swapi.co/api/people/1&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Got Luke Skywalker</span>
-<span class="p">});</span>
+<h3>Using <code>Translate</code></h3>
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;tim&#39;</span><span class="p">,</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Response</span>
-<span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Err</span>
-<span class="p">});</span>
+<p>The <code>Translate</code> service is used to set the active language, and provide string mapping.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+
+  <span class="c1">// Inject the Translate service</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">trans</span><span class="o">:</span> <span class="nx">Translate</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Example German string mapping</span>
+    <span class="nx">trans</span><span class="p">.</span><span class="nx">translations</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="s1">&#39;Location&#39;</span><span class="o">:</span> <span class="s1">&#39;lage&#39;</span>
+    <span class="p">});</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;Location&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;lage&#39;</span>
+
+    <span class="c1">// Change the active language for the entire app</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">setLanguage</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;lage&#39;</span>
+  <span class="p">}</span>
 </code></pre></div>
-<p>To send a <code>PUT/PATCH/DELETE</code> method, substitute <code>Http.post()</code> with the lower-cased method name.</p>
+<h3>Using <code>TranslatePipe</code></h3>
 
-<p>To modify the request, pass a third object to <code>post/put/patch/delete</code> or a second object to <code>get</code> which follows
-the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">Request</a> object from the fetch API:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Http</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">reason</span><span class="o">:</span> <span class="s1">&#39;Because I can&#39;</span>
-<span class="p">},</span> <span class="p">{</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;cors&#39;</span>
-<span class="p">})</span>
+<p>To use translated strings in your templates, use the <code>translate</code> pipe:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate }}<span class="nt">&lt;/span&gt;</span>
 </code></pre></div>
 
           

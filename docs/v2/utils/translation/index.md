@@ -1,59 +1,58 @@
 ---
 layout: v2/docs_base
-id: utilities
-title: Ionic 2 | Networking
-header_title: Ionic 2 - Networking
-header_sub_title: Ionic 2 Developer Preview
+id: utils
+title: Translation and i18n - Ionic 2
+header_title: Translation and i18n
+header_sub_title: Supporting multiple languages easily
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Networking</h1>
+# Translation and i18n
 
-Sending HTTP requests to a URL is easy with Ionic's `Http` service.
+Ionic comes with a simple and powerful translation/internationalization system to provide multiple language
+support for your apps.
 
-<div class="note">
-  <button primary small outline>Note: what happened to $http?</button>
-  <div class="info">
-    One of the changes in Angular 2's strategy is to do <i>less</i> when it comes to
-    providing wrappers for browser utilities. Since the <code>fetch()</code> API is more mature
-    and has usable polyfills, Angular 2 no longer provides a convenient <code>$http</code>-style
-    service.
-    <p />
-    We've provided one to make the <code>fetch()</code> API easier to use, especially for the
-    use case of sending and receiving JSON data.
-  </div>
-</div>
+Unlike some translation systems, Ionic uses the full text that you wish to display in the default
+language as the translation key (rather than a lookup key).
+
+### Using `Translate`
+
+The `Translate` service is used to set the active language, and provide string mapping.
 
 ```javascript
+export class MyApp {
 
-import {Http} from 'ionic/ionic';
+  // Inject the Translate service
+  constructor(trans: Translate) {
 
-Http.get('http://swapi.co/api/people/1').then((resp) => {
-  // Got Luke Skywalker
-});
+    // Example German string mapping
+    trans.translations('de', {
+      'Location': 'lage'
+    });
 
-Http.post(myApi, {
-  username: 'tim',
-}).then((resp) => {
-  // Response
-}, (err) => {
-  // Err
-});
+    console.log(this.trans.translate('Location')); // Shows 'Location'
+    console.log(this.trans.translate('Location', 'de')); // Shows 'lage'
+
+    // Change the active language for the entire app
+    this.trans.setLanguage('de');
+    console.log(this.trans.translate('Location')); // Shows 'lage'
+  }
 ```
 
-To send a `PUT/PATCH/DELETE` method, substitute `Http.post()` with the lower-cased method name.
+### Using `TranslatePipe`
 
-To modify the request, pass a third object to `post/put/patch/delete` or a second object to `get` which follows
-the [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object from the fetch API:
+To use translated strings in your templates, use the `translate` pipe:
 
-```javascript
-Http.delete(myApi, {
-  reason: 'Because I can'
-}, {
-  mode: 'cors'
-})
+{% raw %}
+```html
+<!-- to use the active language -->
+<span>{{ 'Location' | translate }}</span>
+
+<!-- to use a specific language -->
+<span>{{ 'Location' | translate:"de" }}</span>
 ```
+{% endraw %}

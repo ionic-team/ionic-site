@@ -238,7 +238,11 @@ language as the translation key (rather than a lookup key).</p>
 <h3>Using <code>TranslatePipe</code></h3>
 
 <p>To use translated strings in your templates, use the <code>translate</code> pipe:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate }}<span class="nt">&lt;/span&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- to use the active language --&gt;</span>
+<span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate }}<span class="nt">&lt;/span&gt;</span>
+
+<span class="c">&lt;!-- to use a specific language --&gt;</span>
+<span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate:&quot;de&quot; }}<span class="nt">&lt;/span&gt;</span>
 </code></pre></div>
 
           

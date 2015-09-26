@@ -54,6 +54,13 @@
               {% if page.id == "platform" %}{% include v2/platform_menu.html %}{% endif %}
             </ul>
 
+            <ul class="nav left-menu {% if page.id == 'utils' %} active-menu{% endif %}">
+              <li class="menu-title">
+                <a href="/docs/v2/utils/">Utilities</a>
+              </li>
+              {% if page.id == "utils" %}{% include v2/utils_menu.html %}{% endif %}
+            </ul>
+
             <ul class="nav left-menu {% if page.id == 'theming' %} active-menu{% endif %}">
               <li class="menu-title">
                 <a href="/docs/v2/theming/">Theming</a>

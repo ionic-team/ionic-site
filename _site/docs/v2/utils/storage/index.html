@@ -11,7 +11,7 @@
 
     
 
-    <title>Ionic 2 | Networking - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Storage - Ionic 2 - Persisting and loading data -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -38,7 +38,7 @@
     
   </head>
 
-  <body class="docs v2 docs-page docs-utilities">
+  <body class="docs v2 docs-page docs-utils">
 
     <nav class="navbar navbar-default horizontal-gradient" role="navigation">
   <div class="container">
@@ -84,8 +84,8 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Ionic 2 - Networking</h3>
-    <h4>Ionic 2 Developer Preview</h4>
+    <h3>Storage</h3>
+    <h4>Persisting and loading data</h4>
   </div>
   <div class="news">
     <div class="container">
@@ -151,6 +151,22 @@
               
             </ul>
 
+            <ul class="nav left-menu  active-menu">
+              <li class="menu-title">
+                <a href="/docs/v2/utils/">Utilities</a>
+              </li>
+              <li class="menu-section active">
+  <ul>
+    <li>
+      <li><a href="/docs/v2/utils/storage/">Storage</a></li>
+      <li><a href="/docs/v2/utils/translate/">Translation</a></li>
+      <li><a href="/docs/v2/utils/events/">Events</a></li>
+    </li>
+  </ul>
+</li>
+
+            </ul>
+
             <ul class="nav left-menu ">
               <li class="menu-title">
                 <a href="/docs/v2/theming/">Theming</a>
@@ -185,51 +201,83 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Networking</h1>
+<h1>Storage</h1>
 
-<p>Sending HTTP requests to a URL is easy with Ionic&#39;s <code>Http</code> service.</p>
+<p>All apps need to save and load data at some point. Ionic makes it easy with utilities for temporary storage (caching), and long term storage. Ionic storage services have a convenient key/value API, and some storage engines provide additional powerful operations (like SQL queries).</p>
 
-<div class="note">
-  <button primary small outline>Note: what happened to $http?</button>
-  <div class="info">
-    One of the changes in Angular 2's strategy is to do <i>less</i> when it comes to
-    providing wrappers for browser utilities. Since the <code>fetch()</code> API is more mature
-    and has usable polyfills, Angular 2 no longer provides a convenient <code>$http</code>-style
-    service.
-    <p />
-    We've provided one to make the <code>fetch()</code> API easier to use, especially for the
-    use case of sending and receiving JSON data.
-  </div>
-</div>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Http</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+<h1>Persistent Storage</h1>
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://swapi.co/api/people/1&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Got Luke Skywalker</span>
-<span class="p">});</span>
+<p>For persistent storage, use the <code>SqlStorage</code> service, which uses SQLite and/or WebSQL (dev mode only).</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Storage</span><span class="p">,</span> <span class="nx">SqlStorage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;tim&#39;</span><span class="p">,</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Response</span>
-<span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Err</span>
-<span class="p">});</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">SqlStorage</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>To send a <code>PUT/PATCH/DELETE</code> method, substitute <code>Http.post()</code> with the lower-cased method name.</p>
+<h1>Local Storage</h1>
 
-<p>To modify the request, pass a third object to <code>post/put/patch/delete</code> or a second object to <code>get</code> which follows
-the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">Request</a> object from the fetch API:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Http</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">reason</span><span class="o">:</span> <span class="s1">&#39;Because I can&#39;</span>
-<span class="p">},</span> <span class="p">{</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;cors&#39;</span>
+<p>For <em>temporary</em> storage, use the <code>LocalStorage</code> service:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Storage</span><span class="p">,</span> <span class="nx">LocalStorage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">LocalStorage</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Note: <em>do not</em> use Local Storage for data that you cannot afford to lose! Some operating systems (like iOS) will clear local storage when device storage gets low.</p>
+
+<h3>Setting values</h3>
+
+<p>To store a value for a given key, use <code>set()</code></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>Getting values</h3>
+
+<p>To retrieve a value for a given key, use <code>get()</code></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">getName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// name is available here</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>SQL Queries</h3>
+
+<p>When using the <code>SqlStorage</code> engine, a full query API is available:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">saveUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;insert into users(name, email) values (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">]).</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Saved</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">getUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;select * from users where email = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">]).</span><span class="nx">then</span><span class="p">((</span><span class="nx">users</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>iCloud Support</h3>
+
+<p>iOS supports a variety of storage strategies that use (or don&#39;t use) iCloud. By default, Ionic storage
+will not back up to iCloud, since storing arbitrary data in an iCloud-backup location is one of the
+most common ways apps are rejected from the app stores.</p>
+
+<p>If you have a logical <code>document</code> that user create and then might want to back up (for example, images, text documents, etc.), set the <code>SqlStorage</code> engine
+to use the proper location:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">SqlStorage</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">backupFlag</span><span class="o">:</span> <span class="nx">SqlStorage</span><span class="p">.</span><span class="nx">DOCUMENTS</span>
 <span class="p">})</span>
 </code></pre></div>
+<p>See the <a href="https://github.com/litehelpers/Cordova-sqlite-storage#opening-a-database">Cordova SQLite</a> documentation for more info.</p>
+
 
           
         </div>

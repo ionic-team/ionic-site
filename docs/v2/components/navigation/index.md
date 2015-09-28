@@ -17,53 +17,213 @@ header_sub_title: Ionic 2 Developer Preview
 
 Navigation in Ionic 2 is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-In general, there are 3 types of navigation in an app:
+One of the biggest differences about navigation in Ionic 2 is that URLs are not required.  Instead, views are pushed and popped on/off a navigation controller's view stack.
 
- - Hierarchical
- - Flat
- - Content driven
+There are several ways to navigate throughout an Ionic app:
 
- Ionic makes it easy to use any of the three, or some combination thereof. For example, you may have a menu of items (flat) where each item leads to a series of different pages (hierarchical).
+<h2 id="Parent_child">Parent - Child</h2>
+The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](link_to_nav):
 
-<h2 id="Hierarchical">Hierarchical</h2>
+```ts
+  import {StartPage} from 'start'
 
-```
-          +------+                                           
-          | Home |                                           
-          +---+--+                                           
-              |                                                        
-    +---------+----------+                                       
-    |                    |                                       
-+---+---+          +-----+-----+                      
-| About |          | Ice Cream |                      
-+-------+          +-----+-----+                      
-                         |                                       
-          +--------------+-+-----------------+             
-          |                |                 |             
-    +-----+-----+     +----+----+     +------+-----+
-    | Chocolate |     | Vanilla |     | Strawberry |
-    +-----------+     +---------+     +------------+
+  @App({
+    template: '<ion-nav [root]="rootPage"></ion-nav>'  
+  })
+  class MyApp {
+    constructor(){
+      // First view to push onto the stack
+      this.rootPage = StartPage;
+    }
+  }
 ```
 
-<h2 id="Flat">Flat</h2>
+You can access the navigation controller you create by injecting it into any of your IonicViews:
 
-Flat navigation is when the user can go from one root navigation state directly to another. A good time to use flat navigation is when having a back button doesn't make sense, like when switching between [Tabs](../tabs/) or [Menu](../menu) items.
+```ts
+@IonicView({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
 
+    <ion-content>Hello World</ion-content>`
+})
+export class StartPage {
+  constructor(navCtrl: NavController){ //<-- Well hello there
+    this.nav = navCtrl;
+  }
+}
 ```
-                    +-------+                  
-                    | Earth |                  
-                    +---+---+                  
-                        |                      
-       +-----------+----+-----+----------+     
-       |           |          |          |     
-+------+--+   +----+--+    +--+---+   +--+----+
-| Mercury |   | Venus |    | Mars |   | Pluto |
-+---------+   +-------+    +------+   +-------+
+
+To navigate from one page to another simply push or pop a new view onto the stack:
+
+```ts
+@IonicView({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+
+    <ion-content>
+      <button (click)="goToOtherPage()">
+        Go to OtherPage
+      </button>
+    </ion-content>`
+})
+export class StartPage {
+  constructor(navCtrl: NavController) {
+    this.nav = navCtrl;
+  }
+
+  goToOtherPage(){
+    //push another view onto the history stack
+    //causing the nav controller to animate the new view in
+    this.nav.push(OtherPage);
+  }                           
+}
+
+@IonicView({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Other Page</ion-title>
+    </ion-navbar>
+
+    <ion-content>I'm the other page!</ion-content>`
+})
+class OtherPage {}
 ```
 
-<h2 id="Content_Driven">Content Driven</h2>
+If your view has an [`<ion-nav-bar>`](link_to_navbar), a back button will automatically be added to it if it is not a root view.  
 
-Content- or experience-driven navigation is when navigation through your app is tied directly to the content of your app.  Examples of this would be navigating through a book's pages, or exploring the world of a game.
+Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
+
+```ts
+@IonicView({
+  template: `
+    <ion-content>
+      <button (click)="goBack()">
+        There's no place like home
+      </button>
+    </ion-content>`
+})
+class OtherPage {
+  constructor(navCtrl: NavController) {
+    this.nav = navCtrl;
+  }
+  goBack() {
+    this.nav.pop();
+  }
+}
+```
+
+
+But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings?      
+
+You have two options: Tabs and Menu.
+
+<h2 id="Tabs">Tabs</h2>
+
+Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a Menu may be a better option.
+
+
+```ts
+@IonicView({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Heart</ion-title>
+    </ion-navbar>
+    <ion-content>Tab 1</ion-content>`
+})
+class Tab1 {}
+
+@IonicView({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Star</ion-title>
+    </ion-navbar>
+    <ion-content>Tab 2</ion-content>`
+})
+class Tab2 {}
+
+@App({
+  template: `
+    <ion-tabs>
+      <ion-tab tab-icon="heart" [root]="root1"></ion-tab>
+      <ion-tab tab-icon="star" [root]="root2"></ion-tab>
+    </ion-tabs>`
+})
+class MyApp {
+  constructor() {
+    this.root1 = Tab1;
+    this.root2 = Tab2;
+    this.root3 = Tab3;
+  }
+}
+```
+
+<h2 id="Menu">Menu</h2>
+
+As mentioned before, there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a tabbar impractical, a menu might be a better solution.  
+
+Menus also allow you to return to root views at any point. They can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
+
+However, because Menus are not always and immediately visible on screen, they require more work for the user to use.  Make sure to weigh your priorities when designing the navigational structure of your app.
+
+```ts
+
+@App({
+  template: `
+    <ion-menu [content]="content">
+      <ion-toolbar>
+        <ion-title>Pages</ion-title>
+      </ion-toolbar>
+      <ion-content>
+        <ion-list>
+          <button ion-item *ng-for="#p of pages" (click)="openPage(p)">
+            {{p.title}}
+          </button>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-nav id="nav" [root]="rootPage"></ion-nav>`
+})
+
+class MyApp {
+  constructor() {
+
+    this.pages = [
+      { title: 'Login', component: LoginPage },
+      { title: 'Signup', component: SignupPage }
+    ];
+
+    this.rootPage = GettingStartedPage;
+  }
+
+  openPage(page) {
+    // close the menu when clicking a link from the menu
+    this.app.getComponent('menu').close();
+
+    // We want to clear the nav stack
+    // we wouldn't want the back button to show in this scenario
+    let nav = this.app.getComponent('nav');
+    nav.setRoot(page.component);
+  }
+}
+```
+
+<h2 id="Lifecycle">Lifecycle events</h2>
+
+ - `onViewLoaded` - Runs when the view has loaded. This event only happens once per view being created and added to the DOM. If a view leaves but is cached, then this event will not fire again on a subsequent viewing. The `onViewLoaded` event is good place to put your setup code for the view.
+ - `onViewWillEnter` - Runs when the view is about to enter and become the active view.
+ - `onViewDidEnter` - Runs when the view has fully entered and is now the active view. This event will fire, whether it was the first load or a cached view.
+ - `onViewWillLeave` - Runs when the view is about to leave and no longer be the active view.
+ - `onViewDidLeave` - Runs when the view has finished leaving and is no longer the active view.
+ - `onViewWillUnload` - Runs when the view is about to be destroyed and have its elements removed.
+ - `onViewDidUnload` - Runs after the view has been destroyed and its elements have been removed.
+
+<br>
 
 --------------
 
@@ -147,21 +307,8 @@ Instead of relying on a router, to move between pages/views/states you `push` th
   </pre>
 </div>
 
-To create a new navigation stack and view controller, use `<ion-nav>`:
 
-```ts
-  import {StartPage} from './start/start'
 
-  @App({
-    template: '<ion-nav [root]="rootPage"></ion-nav>'  
-  })
-  class MyApp {
-    // First view to push onto the stack
-    this.rootPage = StartPage;
-  }
-```
-
-You can access the navigation view controller you create by injecting it into any of your IonicView's:
 
 ```ts
 
@@ -195,19 +342,6 @@ One of the features of IonicView is that it automatically wraps your page in `<i
 
 You can create additional navigation stacks by creating additional `<ion-nav>` in the templates of IonicViews that are pushed into your root nav stack.  Think 2d arrays, when you create another `<ion-nav>`, it creates a new history array that is then pushed onto the root array.  The `NavController` that gets injected into pages you push onto the new history is then the new view controller for that history.
 
-```
-Nav Stack for tabs
-+---+---+
-|   |   |  <-- Settings Tab with 2 views
-+---+---+              
-|   | <-- About Tab          
-+---+---+---+         
-|   |   |   | <-- User Tab with 3 views
-+---+---+---+   
-|   | <-- Home Tab          
-+---+
-```
-
 ### Panes
 
 *NOTE: You don't have to do anything with panes, it is all taken care of for you. This is just an explanation of how Ionic works.*
@@ -220,18 +354,10 @@ But suppose you have a view with a header and content and want to navigate to a 
 
 -----------
 
-<h2 id="Lifecycle">Lifecycle events</h2>
 
- - `onViewLoaded` - Runs when the view has loaded. This event only happens once per view being created and added to the DOM. If a view leaves but is cached, then this event will not fire again on a subsequent viewing. The `onViewLoaded` event is good place to put your setup code for the view.
- - `onViewWillEnter` - Runs when the view is about to enter and become the active view.
- - `onViewDidEnter` - Runs when the view has fully entered and is now the active view. This event will fire, whether it was the first load or a cached view.
- - `onViewWillLeave` - Runs when the view is about to leave and no longer be the active view.
- - `onViewDidLeave` - Runs when the view has finished leaving and is no longer the active view.
- - `onViewWillUnload` - Runs when the view is about to be destroyed and have its elements removed.
- - `onViewDidUnload` - Runs after the view has been destroyed and its elements have been removed.
-
-<br>
  -----------
+
+ Navigation in Ionic 2 is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
   <h2 id="spidey">"With great tabs comes great responsibility"</h2>
 

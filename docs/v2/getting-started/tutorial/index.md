@@ -46,20 +46,7 @@ $ ionic serve
 
 <img src="/img/docs/tutorial-screen.png" style="max-width: 320px">
 
-## Running the app on a device
-
-To run an Ionic 2 app on a device or simulator, use the `ionic run` command. Check out the [installation](../installation/) docs if you don't have a simulator or device set up.
-
-```bash
-# Will run on the ios simulator
-$ ionic run ios
-
-# Will run on the android simulator
-$ ionic run android
-```
-
-The same command with `--device` will run the app on an actual device if one is connected.
-
+You should see the welcome message shown above if everything was installed successfully.
 
 In the next section, let's go over the project structure created by the `ionic start` command.
 

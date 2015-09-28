@@ -38,13 +38,13 @@ You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start<
 
 
 ## Viewing the app in a browser
-To get a quick preview of the Ionic 2 starter, use the `serve` command.
+To get a quick preview of your app in the browser, use the `serve` command.
 
 ```bash
 $ ionic serve
 ```
 
-<img src="http://ionicframework.com.s3.amazonaws.com/v2/starter1.png" style="max-width: 320px">
+<img src="/img/docs/tutorial-screen.png" style="max-width: 320px">
 
 ## Running the app on a device
 

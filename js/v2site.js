@@ -461,6 +461,11 @@ $(document).ready(function () {
 
   var searchSassResults = $('#search-sass-results');
 
+  var commonWordEquivalents = {
+    'bg': 'background',
+    'colour': 'color'
+  };
+
   setTimeout(function(){
     $.getJSON('/docs/v2/data/sass.json', function (requestData) {
       addSassResults(requestData);
@@ -482,6 +487,7 @@ $(document).ready(function () {
 
       query = query.split(" ");
       for (var i in query) {
+        query[i] = matchEquivalentWords(query[i]);
         results = filterSassVariables(results, query[i]);
       }
 
@@ -489,9 +495,21 @@ $(document).ready(function () {
     }));
   }
 
+  // Check if this query matches one of the word equivalents
+  // - meaning without the dash or a word abbreviation
+  function matchEquivalentWords(query) {
+    query = query.toLowerCase();
+    if (commonWordEquivalents[query]) {
+      query = commonWordEquivalents[query];
+    }
+    return query;
+  }
+
   function filterSassVariables(data, query) {
     return data.filter(function(el) {
-      return (el.name.indexOf(query) > -1);
+      var elName = el.name.toLowerCase();
+      var elNameStripped = elName.replace(/-/g, '');
+      return (elName.indexOf(query) > -1 || elNameStripped.indexOf(query) > -1);
     });
   }
 

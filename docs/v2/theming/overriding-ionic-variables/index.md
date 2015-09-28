@@ -13,7 +13,7 @@ header_sub_title: Providing custom values for Ionic styles
 
 <h1 class="title">Overriding Ionic Sass Variables</h1>
 
-There are many variables you can override with Ionic. Any of the following variables can be overridden from you `www/app/app.scss` file, just add a new value above the Ionic import:
+There are many variables you can override with Ionic. Any of the following variables can be overridden from your `www/app/app.scss` file, just add a new value above the Ionic import:
 
 ```scss
 $text-color: #000099;

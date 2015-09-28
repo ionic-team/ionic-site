@@ -315,8 +315,6 @@ $(document).ready(function () {
 
   var searchInput = $('#search-input');
 
-  if(!searchInput.length || $(window).width() < 768) return;
-
   var searchResultsDiv = $('#search-results');
 
   setTimeout(function(){
@@ -355,6 +353,8 @@ $(document).ready(function () {
   }
 
   function searchReady(data) {
+    if(!searchInput.length || $(window).width() < 768) return;
+
     var idx = lunr.Index.load(data.index);
 
     searchInput.closest('.search-bar').css({visibility: 'visible'});
@@ -459,8 +459,6 @@ $(document).ready(function () {
   // Controls the search of Sass Variables
   var searchSassInput = $('#search-sass-input');
 
-  if(!searchSassInput.length) return;
-
   var searchSassResults = $('#search-sass-results');
 
   setTimeout(function(){
@@ -471,6 +469,8 @@ $(document).ready(function () {
   }, 5);
 
   function searchSassReady(data) {
+    if(!searchSassInput.length) return;
+
     searchSassInput.on('keyup', debounce(function () {
       var results = data,
           query = $(this).val();

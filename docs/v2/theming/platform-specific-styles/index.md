@@ -1,17 +1,17 @@
 ---
 layout: v2/docs_base
 id: theming
-title: Ionic Modes
-header_title: Ionic Modes
-header_sub_title: Ionic Modes
+title: Platform Specific Styles
+header_title: Platform Specific Styles
+header_sub_title: Platform Specific Styles
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/ionic-modes/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/platform-specific-styles/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Ionic Modes</h1>
+<h1 class="title">Platform Specific Styles</h1>
 
 Ionic uses modes to customize the look of components to match the platform you are using. For example, when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it by default:
 
@@ -51,7 +51,7 @@ Here is a chart of the default mode that gets added based on platform:
 
 You can change the mode that gets assigned in the configuration of your app. Therefore, if you wanted the Material Design `md` mode on iOS, you could do it.
 
-<h2>Overriding the Mode Styles</h2>
+## Overriding the Mode Styles
 
 Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  
 
@@ -73,4 +73,6 @@ $button-md-border-radius: 8px;
 @import "ionic";
 ```
 
-Continue on to the [next section](../overriding-ionic-variables/) to see a list of all of the variables Ionic uses to style your app.
+## Ionic Sass Variables
+
+The [next section](../overriding-ionic-variables/) explains how to override Ionic's variables with a list of all of the variables you can change.

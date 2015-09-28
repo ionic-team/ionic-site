@@ -6,7 +6,7 @@ header_title: Sass Variables
 header_sub_title: Sass Variables
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/scss-variables/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/sass-variables/index.md'>
     Improve this doc
   </a>
 </div>

@@ -6,7 +6,7 @@ header_title: Overriding Ionic Styles
 header_sub_title: Providing custom values for Ionic styles
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/ionic-variables/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
     Improve this doc
   </a>
 </div>

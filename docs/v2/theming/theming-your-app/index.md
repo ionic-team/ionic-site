@@ -13,7 +13,7 @@ header_sub_title: Customizing your app to fit your brand
 
 <h1 class="title">Theming your Ionic App</h1>
 
-Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` variable in your `www/app/app.scss` file:
+Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `www/app/app.scss` file:
 
 ```scss
 $colors: (
@@ -32,28 +32,33 @@ The fastest way to change the theme of your Ionic app is to set a new value for 
 
 ## Custom Colors
 
-To add custom colors, just add them to the map:
+To add custom colors, just add them to the `$colors` map:
 
 ```scss
 $colors: (
   // ...
-  twitter: #55acee
+  twitter:    #55acee
 )
 ```
 
-Ionic makes color types available as a property to many components. For example, to use our `twitter` color, add it as a property:
+Ionic makes the `$colors` keys available as a property to many components. For example, to use our `twitter` color, add the key as a property:
+
 ```html
 <button twitter>I'm a button</button>
 ```
 
 ## Dark theme
 
-By default, Ionic comes with a light and dark theme. To use the dark theme, download the [dark.scss](https://github.com/driftyco/ionic2/blob/master/ionic/themes/dark.scss) file and put it into your `www/app/themes` directory. Then, use it in your `app.scss` file:
+By default, Ionic comes with a light and dark theme. To use the dark theme, import it before the Ionic Sass files in your `app.scss` file:
 
-```html
+```scss
 @import "themes/dark";
+
+// Ionic Sass
+// ---------------------------------
+@import "ionic";
 ```
 
-## Platform styles
+## Platform Specific Styles
 
-To change the look of your app on different platforms, continue to the [Platform Specific Styles](../platform-specific-styles/) guide.
+To change the look of your app on different platforms, continue to the [next section](../platform-specific-styles/).

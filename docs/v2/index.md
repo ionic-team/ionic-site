@@ -16,4 +16,4 @@ With Angular 2, Ionic apps are considerably more performant and easy to build. O
 
 We hope you find Ionic 2 faster, simpler, and easier to use.
 
-With that, let's [jump right in!](getting-started)
+With that, let's [jump right in!](getting-started/installation/)

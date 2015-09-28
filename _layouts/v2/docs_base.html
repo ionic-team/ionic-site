@@ -3,11 +3,6 @@
   <head>
     {% include meta_tags.html %}
 
-    {% if page.id == "api" and page.versionHref != "/docs" %}
-      <!-- version {{ page.versionHref }} should not be indexed -->
-      <meta name="robots" content="noindex">
-    {% endif %}
-
     <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
 
     {% include head_includes.html %}

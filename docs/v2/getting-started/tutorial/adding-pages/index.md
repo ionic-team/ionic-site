@@ -114,7 +114,7 @@ All views have both a class, and an associated template. Let's checkout `app/hel
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` is what we call a template, and functions as configuration
+The `<ion-navbar *navbar>` component functions as configuration
 data for the navigation bar. As we navigate to the page, the nav bar will be updated with the
 various `ion-nav-items` for buttons in the bar, and `<ion-title>` for the title of the bar.
 
@@ -123,10 +123,9 @@ renders our welcome message.
 
 ### Creating Additional Pages
 
-To create an additional pages, we don't need to do much beyond making sure we correctly configure the title and anything else we want the
-navigation bar to display.
+To create an additional page, we don't need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.
 
-Let's check out the contents of `app/list/list.js`. Inside, you will see a new page is being created:
+Let's check out the contents of `app/list/list.js`. Inside, you will see a new page is being defined:
 
 ```ts
 {% raw %}
@@ -148,15 +147,13 @@ export class ListPage {
 {% endraw %}
 ```
 
-Let's go check out how this function gets called. Open up `app/list/list.html`:
+This page will create a basic list view containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
 
 ```html
 <ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">
 ```
 
-This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped()` function that navigates to `ItemDetailsPage`.
-
-Also note that we can pass the click handler function the click event, and the item.
+This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped` function that logs the title of the item to the console. Also note that we pass this function the click event, as well as the item that was tapped.
 
 Overall, this page is very similar to the `HelloIonicPage` we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!
 

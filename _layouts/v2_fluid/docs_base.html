@@ -9,47 +9,56 @@
   <body id="docs-page-{{page.id}}" class="v2 docs page-{{page.id}}">
     {% include v2_fluid/io_header.html %}
     <div class="docs-container">
-      <nav>
-        <select name="version" id="">
-          <option value="2.0.0">2.0.0 Alpha 1</option>
-        </select>
-        <ul>
-          <li>
-            <a href=""></a>
-            <ul>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-            </ul>
-          </li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-        </ul>
+      <nav class="side-nav">
+          <form class="form-group">
+            <select name="version" id="version-toggle">
+              <option value="2.0.0-a1">2.0.0 Alpha 1</option>
+            </select>
+          </form>
+          <ul>
+            <li class="{% if page.category == 'getting-started'
+                       %}active{% endif %}">
+              <a href="/docs/v2/">Getting Started</a>
+              <ul>
+                <li><a href="/docs/v2/#welcome">Welcome</a></li>
+                <li><a href="/docs/v2/#concepts">Concepts</a></li>
+                <li><a href="/docs/v2/#installations">Installations</a></li>
+                <li><a href="/docs/v2/#tutorial">Tutorial</a></li>
+                <li><a href="/docs/v2/#migration">Migration</a></li>
+                <li><a href="/docs/v2/#about-ionic">About Ionic</a></li>
+              </ul>
+            </li>
+            <li class="{% if page.category == 'components' %}active{% endif %}">
+              <a href="/docs/v2/components">Components</a>
+            </li>
+            <li class="{% if page.category == 'platform' %}active{% endif %}">
+              <a href="/docs/v2/platform">Platform</a>
+            </li>
+            <li class="{% if page.category == 'theming' %}active{% endif %}">
+              <a href="/docs/v2/theming">Theming</a>
+            </li>
+            <li class="{% if page.category == 'faq' %}active{% endif %}">
+              <a href="/docs/v2/faq">FAQ</a>
+            </li>
+            <li class="{% if page.category == 'api' %}active{% endif %}">
+              <a href="/docs/v2/api">API</a>
+            </li>
+            <li class="{% if page.category == 'resources' %}active{% endif %}">
+              <a href="/docs/v2/resources">Resources</a>
+            </li>
+          </ul>
       </nav>
-      <main>
-        <h1></h1>
-        <p></p>
-        <p></p>
-        <h1></h1>
-        <p></p>
-        <p></p>
-      </main>
-      <aside>
+      <aside class="platform-preview">
         <div class="platform-toggle">
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
+          <a class="active" ng-click="setPlatform('ios')">iOS</a>
+          <a ng-click="setPlatform('android')">Android</a>
+          <a ng-click="setPlatform('windows')">Windows</a>
         </div>
-        <div class="device"><iframe src="" frameborder="0"></iframe></div>
+        <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
       </aside>
+      <main>
+        {{ content }}
+      </main>
     </div>
-
   </body>
 </html>

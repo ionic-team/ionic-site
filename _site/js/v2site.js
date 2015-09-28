@@ -315,8 +315,6 @@ $(document).ready(function () {
 
   var searchInput = $('#search-input');
 
-  if(!searchInput.length || $(window).width() < 768) return;
-
   var searchResultsDiv = $('#search-results');
 
   setTimeout(function(){
@@ -355,6 +353,8 @@ $(document).ready(function () {
   }
 
   function searchReady(data) {
+    if(!searchInput.length || $(window).width() < 768) return;
+
     var idx = lunr.Index.load(data.index);
 
     searchInput.closest('.search-bar').css({visibility: 'visible'});
@@ -459,9 +459,12 @@ $(document).ready(function () {
   // Controls the search of Sass Variables
   var searchSassInput = $('#search-sass-input');
 
-  if(!searchSassInput.length) return;
-
   var searchSassResults = $('#search-sass-results');
+
+  var commonWordEquivalents = {
+    'bg': 'background',
+    'colour': 'color'
+  };
 
   setTimeout(function(){
     $.getJSON('/docs/v2/data/sass.json', function (requestData) {
@@ -471,6 +474,8 @@ $(document).ready(function () {
   }, 5);
 
   function searchSassReady(data) {
+    if(!searchSassInput.length) return;
+
     searchSassInput.on('keyup', debounce(function () {
       var results = data,
           query = $(this).val();
@@ -482,6 +487,7 @@ $(document).ready(function () {
 
       query = query.split(" ");
       for (var i in query) {
+        query[i] = matchEquivalentWords(query[i]);
         results = filterSassVariables(results, query[i]);
       }
 
@@ -489,9 +495,21 @@ $(document).ready(function () {
     }));
   }
 
+  // Check if this query matches one of the word equivalents
+  // - meaning without the dash or a word abbreviation
+  function matchEquivalentWords(query) {
+    query = query.toLowerCase();
+    if (commonWordEquivalents[query]) {
+      query = commonWordEquivalents[query];
+    }
+    return query;
+  }
+
   function filterSassVariables(data, query) {
     return data.filter(function(el) {
-      return (el.name.indexOf(query) > -1);
+      var elName = el.name.toLowerCase();
+      var elNameStripped = elName.replace(/-/g, '');
+      return (elName.indexOf(query) > -1 || elNameStripped.indexOf(query) > -1);
     });
   }
 

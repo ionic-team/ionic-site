@@ -9,9 +9,13 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:300);
 @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 
+@import "_vars";
+
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
+
+
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -28,12 +32,12 @@
 @import "bootstrap/buttons";
 
 // Components
-// @import "bootstrap/component-animations";
-// @import "bootstrap/dropdowns";
-// @import "bootstrap/button-groups";
-// @import "bootstrap/input-groups";
-// @import "bootstrap/navs";
-// @import "bootstrap/navbar";
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
 // @import "bootstrap/breadcrumbs";
 // @import "bootstrap/pagination";
 // @import "bootstrap/pager";
@@ -60,6 +64,6 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
-@import "_vars";
+
 @import "docs/main";
 @import "docs/theming";

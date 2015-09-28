@@ -1,3 +1,116 @@
 body{
   font-family: $font-family-default;
+  // TODO: mobile styles
+  min-width: 1200px;
+  background: linear-gradient(
+    90deg,
+    $whiteish,
+    $whiteish $sidenav-width + 5,
+    white $sidenav-width + 5,
+    white 100%
+	);
+}
+.docs-container{
+  .side-nav{ width: $sidenav-width; }
+  aside{ width: $platform-preview-width}
+  main{
+    margin-left: $sidenav-width + 20;
+    margin-right: $platform-preview-width + 20;
+  }
+}
+
+.navbar-default{
+  background: linear-gradient(to right, #3071da , #4888f1);
+  border-radius: 0;
+  margin-bottom: 0;
+  .navbar-brand{
+    padding: 22px 0 0 20px;
+    img{
+      width:140px;
+    }
+  }
+  .navbar-nav > li > a{
+    padding:30px 15px;
+    transition: .2s color;
+  }
+  .navbar-form{
+    margin-top: 22px;
+  }
+}
+.side-nav{
+  position: fixed;
+  background: $whiteish;
+  overflow-y: scroll;
+  .form-group{
+    padding: 5px 20px 17px;
+    border-bottom: 1px solid $light-grey;
+    select{
+      width: 100%;
+      background: none;
+      border-radius: 0;
+      border: none;
+      outline: none;
+      color: $grey;
+    }
+  }
+  ul{
+    list-style: none;
+    padding: 20px;
+    a{
+      color:$grey;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500;
+      display: block;
+      padding: 10px 0;
+      transition: .2s color;
+    }
+    ul .active > a,
+    a:hover{
+      color: $blue;
+      text-decoration: none;
+    }
+    ul{
+      padding: 0;
+      a{
+        color: $blackish;
+        text-transform: none;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.platform-preview{
+  position: fixed;
+  right:0;
+  padding: 30px 20px;
+  text-align: center;
+  .platform-toggle a{
+    display: inline-block;
+    padding: 7px 15px 5px;
+    border-radius: 5px;
+    color: $grey;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    transition: .2s color, .2s background-color;
+    &.active{
+      background-color: $blue;
+      color: white;
+    }
+    &:hover{
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+#demo-device{
+  &.ios{
+    background:uppercase;
+    width:391px;
+    height:764px;
+    background: center top no-repeat url(/img/device-preview-ios.png);
+    background-size: 391px;
+    margin: 25px auto 0;
+  }
 }

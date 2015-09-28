@@ -2,3 +2,29 @@
 $font-family-avenir: 'Avenir Next','Nunito',"Helvetica Neue",Helvetica,sans-serif;
 
 $font-family-default: $font-family-avenir;
+
+$whiteish:   #f6f8fa;
+$blue:       #4f8ff7;
+$light-grey: #e6e9ee;
+$grey:       #9da5b3;
+$blackish:   #494f58;
+
+$sidenav-width: 250px;
+$platform-preview-width: 434px;
+
+// bootstrap overrides
+$navbar-default-bg :    $blue;
+$navbar-default-border: $blue;
+$navbar-default-brand-color: #b2c8f7;
+$navbar-default-link-color:  #b2c8f7;
+$navbar-default-brand-hover-color: #fff;
+$navbar-default-link-hover-color:  #fff;
+
+// $navbar-default-brand-hover-bg;
+// $navbar-default-link-hover-bg;
+// $navbar-default-link-active-bg;
+// $navbar-default-link-disabled-color;
+// $navbar-default-link-disabled-bg;
+// $navbar-default-toggle-border-color;
+// $navbar-default-toggle-hover-bg;
+// $navbar-default-toggle-icon-bar-bg;

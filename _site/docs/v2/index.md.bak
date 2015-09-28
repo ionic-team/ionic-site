@@ -9,7 +9,7 @@
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
 
-    <title>Getting Started with Ionic 2 - Getting Started with Ionic 2 -  Ionic Framework</title>
+    <title>Ionic 2 Documentation - Ionic 2 Developer Preview -  Ionic Framework</title>
 
     <link href="/css/site.css?17" rel="stylesheet">
 <!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
@@ -82,8 +82,8 @@
 </nav>
 <div class="header horizontal-gradient">
   <div class="container">
-    <h3>Getting Started with Ionic 2</h3>
-    <h4>Getting Started with Ionic 2</h4>
+    <h3>Ionic 2 Documentation</h3>
+    <h4>Ionic 2 Developer Preview</h4>
   </div>
   <div class="news">
     <div class="container">
@@ -214,35 +214,17 @@
       </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
-    Improve this doc
-  </a>
-</div>
+          #Ionic 2 Docs
 
-<h1 class="title">Getting Started with Ionic 2</h1>
+Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK*, with initial support for Angular 2.
 
-<p>Welcome to the Ionic 2 Guide! In this section, we will walk through the process of creating a new Ionic 2 app. We will then add several <em>views</em>, or <em>pages</em> to the app. Finally, we will work with some of the most important controls, and go over getting your app into the app stores.</p>
+Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years building web-based mobile technology and helping developers build over 1,000,000 mobile apps with the Ionic SDK.
 
-<p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.</p>
+With Angular 2, Ionic apps are considerably more performant and easy to build. On top of that, we've built a totally new navigation and cross-platform design architecture to make it easy to build apps that are as dynamic and customizable as the best apps in the app stores (many of which are Ionic apps themselves!).
 
-<p>To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic@alpha
-</code></pre></div>
-<p>(Note: do not type the dollar sign, that is a placeholder for your shell prompt).</p>
+We hope you find Ionic 2 faster, simpler, and easier to use.
 
-<p>For more installation info, follow the official <a href="http://ionicframework.com/getting-started/">Getting Started</a> guide. This walks you through
-installing node, npm, cordova, and Ionic.</p>
-
-<p>Once that&#39;s done, create your first Ionic app:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start cutePuppyPics --v2
-</code></pre></div>
-<p>To run our app, just run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
-</code></pre></div>
-<p>And we can play with it right in the browser!</p>
-
-<p>In the <a href="project-structure/">next section</a>, we will go over the <a href="project-structure/">structure</a> of a typical Ionic project!</p>
+With that, let's [jump right in!](getting-started)
 
 
           

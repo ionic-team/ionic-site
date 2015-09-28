@@ -244,27 +244,26 @@
 <h2>Starting a New Ionic 2 App</h2>
 
 <p>If you don&#39;t already have an app started from the <a href="../installation">previous section</a>, let&#39;s create a new app! Use the <code>start</code> command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the <code>--v2</code> option.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start MyIonic2Project --v2
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start MyIonic2Project tutorial --v2
 </code></pre></div>
 <p>This will pull Ionic 2 down, install <a href="../../resources/what-is/#npm">npm modules</a> for the application, and get <a href="../../resources/what-is/#cordova">Cordova</a> set up and ready to go.</p>
 
+<p><button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#starter-templates">
+  Ionic starter templates
+</button></p>
+
+<div id="starter-templates" class="collapse well">
+You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start</code> command. This tells Ionic to bootstrap your application using the <a href="https://github.com/driftyco/ionic2-starter-tutorial">tutorial template</a>. If you do not specify a template by running <code>ionic start MyIonic2Project --v2</code>, the <a href="https://github.com/driftyco/ionic2-starter">default starter</a> will be used.
+</div>
+
 <h2>Viewing the app in a browser</h2>
 
-<p>To get a quick preview of the Ionic 2 starter, use the <code>serve</code> command.</p>
+<p>To get a quick preview of your app in the browser, use the <code>serve</code> command.</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
 </code></pre></div>
-<p><img src="http://ionicframework.com.s3.amazonaws.com/v2/starter1.png" style="max-width: 320px"></p>
+<p><img src="/img/docs/tutorial-screen.png" style="max-width: 320px"></p>
 
-<h2>Running the app on a device</h2>
-
-<p>To run an Ionic 2 app on a device or simulator, use the <code>ionic run</code> command. Check out the <a href="../installation/">installation</a> docs if you don&#39;t have a simulator or device set up.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Will run on the ios simulator</span>
-<span class="nv">$ </span>ionic run ios
-
-<span class="c"># Will run on the android simulator</span>
-<span class="nv">$ </span>ionic run android
-</code></pre></div>
-<p>The same command with <code>--device</code> will run the app on an actual device if one is connected.</p>
+<p>You should see the welcome message shown above if everything was installed successfully.</p>
 
 <p>In the next section, let&#39;s go over the project structure created by the <code>ionic start</code> command.</p>
 

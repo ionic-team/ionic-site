@@ -21,10 +21,10 @@ Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was 
 
 `www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and `bootstrap`, or start running, our app. We won't spend much of our time in this file.
 
-For your app to function, Ionic looks for the `<ionic-app>` tag in your HTML. In this example we have:
+For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In this example we have:
 
 ```html
-<ionic-app></ionic-app>
+<ion-app></ion-app>
 ```
 
 And the following scripts near the bottom:

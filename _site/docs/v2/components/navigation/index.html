@@ -340,6 +340,8 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>For more information on navigation controllers, check out the <a href="link_to_Nav">Nav API reference</a>.</p>
+
 <p>But what if you have several &quot;root&quot; or &quot;top-level&quot; views that don&#39;t have a parent-child relationship, but rather are siblings?      </p>
 
 <p>You have two options: Tabs and Menu.</p>
@@ -347,6 +349,23 @@
 <h2 id="Tabs">Tabs</h2>
 
 <p>Tabs are useful if you have a few &quot;root&quot; or &quot;top-level&quot; views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a Menu may be a better option.</p>
+
+<p>To initialize Tabs, use <a href="link_to_tabs"><code>&lt;ion-tabs&gt;</code></a>, with a child <a href="link_to_tab"><code>&lt;ion-tab&gt;</code></a> for each tab:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tabs</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tab</span> <span class="nx">tab</span><span class="o">-</span><span class="nx">icon</span><span class="o">=</span><span class="s2">&quot;heart&quot;</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;tab1Root&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-tab&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tab</span> <span class="nx">tab</span><span class="o">-</span><span class="nx">icon</span><span class="o">=</span><span class="s2">&quot;star&quot;</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;tab2Root&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-tab&gt;</span>
+    <span class="o">&lt;</span><span class="err">/ion-tabs&gt;`</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">tab1Root</span> <span class="o">=</span> <span class="nx">Tab1</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">tab1Root</span> <span class="o">=</span> <span class="nx">Tab2</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Individual tabs are just <a href="link_to_Ionic_View"><code>@IonicViews</code></a>:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
@@ -364,29 +383,39 @@
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Tab</span> <span class="mi">2</span><span class="o">&lt;</span><span class="err">/ion-content&gt;`</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{}</span>
-
-<span class="err">@</span><span class="nx">App</span><span class="p">({</span>
-  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tabs</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tab</span> <span class="nx">tab</span><span class="o">-</span><span class="nx">icon</span><span class="o">=</span><span class="s2">&quot;heart&quot;</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;root1&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-tab&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tab</span> <span class="nx">tab</span><span class="o">-</span><span class="nx">icon</span><span class="o">=</span><span class="s2">&quot;star&quot;</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;root2&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-tab&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-tabs&gt;`</span>
+</code></pre></div>
+<p>Notice that each <a href="link_to_tabs"><code>&lt;ion-tab&gt;</code></a> binds to a <code>[root]</code> property, just like the <a href="link_to_ion_nav"><code>&lt;ion-nav&gt;</code></a> example <a href="#Parent_child">above</a>.  That is because each <a href="link_to_tabs"><code>&lt;ion-tab&gt;</code></a> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="link_to_nav_controller"><code>NavControllers</code></a> injected into children <a href="link_to_Ionic_View"><code>@IonicViews</code></a> of each tab will be unique to each tab:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="p">...</span>
 <span class="p">})</span>
-<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">root1</span> <span class="o">=</span> <span class="nx">Tab1</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">root2</span> <span class="o">=</span> <span class="nx">Tab2</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">root3</span> <span class="o">=</span> <span class="nx">Tab3</span><span class="p">;</span>
+<span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Id is 1, different navigation stack than tab 2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nav</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="p">...</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">nav</span>: <span class="kt">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Id is 2, different navigation stack than tab 1</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nav</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>For more information on tabs, check out the <a href="link_to_Tabs">Tabs API reference</a>.</p>
+
 <h2 id="Menu">Menu</h2>
 
-<p>As mentioned before, there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a tabbar impractical, a menu might be a better solution.  </p>
+<p>As mentioned before, there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a TabBar impractical, a menu might be a better solution.  </p>
 
 <p>Menus also allow you to return to root views at any point. They can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  </p>
 
 <p>However, because Menus are not always and immediately visible on screen, they require more work for the user to use.  Make sure to weigh your priorities when designing the navigational structure of your app.</p>
+
+<p>To use a Menu add an <a href="link_to_menu"><code>&lt;ion-menu&gt;</code></a> to your markup next to your root <a href="link_to_nav"><code>&lt;ion-nav&gt;</code></a>:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">menu</span> <span class="p">[</span><span class="nx">content</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;content&quot;</span><span class="o">&gt;</span>
@@ -395,38 +424,49 @@
       <span class="o">&lt;</span><span class="err">/ion-toolbar&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">list</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">item</span> <span class="o">*</span><span class="nx">ng</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s2">&quot;#p of pages&quot;</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;openPage(p)&quot;</span><span class="o">&gt;</span>
-
+          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">item</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;openPage(loginPage)&quot;</span><span class="o">&gt;</span>
+            <span class="nx">Login</span>
+          <span class="o">&lt;</span><span class="err">/button&gt;</span>
+          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">item</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;openPage(signupPage)&quot;</span><span class="o">&gt;</span>
+            <span class="nx">Signup</span>
           <span class="o">&lt;</span><span class="err">/button&gt;</span>
         <span class="o">&lt;</span><span class="err">/ion-list&gt;</span>
       <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
     <span class="o">&lt;</span><span class="err">/ion-menu&gt;</span>
 
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">nav</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;nav&quot;</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;rootPage&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-nav&gt;`</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">nav</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;nav&quot;</span> <span class="err">#</span><span class="nx">content</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;loginPage&quot;</span><span class="o">&gt;&lt;</span><span class="err">/ion-nav&gt;`</span>
 <span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{}</span>
+</code></pre></div>
+<p>The <code>&lt;ion-menu&gt;</code>s bound <code>[content]</code> property gets a <a href="angular_template_refs">reference</a> to the <a href="link_to_nav"><code>&lt;ion-nav&gt;</code></a> in order to listen for drag events on the main content so it knows when to open/close.  </p>
 
+<p>Then we have two buttons with click handlers that navigate to a new root view:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;login&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">SignupPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;signup&#39;</span><span class="p">;</span>
+<span class="p">...</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">ionicApp</span>: <span class="kt">IonicApp</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">ionicApp</span><span class="p">;</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">pages</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Login&#39;</span><span class="p">,</span> <span class="nx">component</span>: <span class="kt">LoginPage</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Signup&#39;</span><span class="p">,</span> <span class="nx">component</span>: <span class="kt">SignupPage</span> <span class="p">}</span>
-    <span class="p">];</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">GettingStartedPage</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">loginPage</span> <span class="o">=</span> <span class="nx">LoginPage</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">signupPage</span> <span class="o">=</span> <span class="nx">SignupPage</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="nx">openPage</span><span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// close the menu when clicking a link from the menu</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">getComponent</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">).</span><span class="nx">close</span><span class="p">();</span>
 
-    <span class="c1">// We want to clear the nav stack</span>
+    <span class="c1">// Reset the nav controller to have just this page</span>
     <span class="c1">// we wouldn&#39;t want the back button to show in this scenario</span>
     <span class="kd">let</span> <span class="nx">nav</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">getComponent</span><span class="p">(</span><span class="s1">&#39;nav&#39;</span><span class="p">);</span>
-    <span class="nx">nav</span><span class="p">.</span><span class="nx">setRoot</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">component</span><span class="p">);</span>
+    <span class="nx">nav</span><span class="p">.</span><span class="nx">setRoot</span><span class="p">(</span><span class="nx">page</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>We inject the <a href="link_to_ionic_app"><code>IonicApp</code></a> service so we can use Ionic&#39;s <a href="link_to_id_system">id system</a> to get references to the menu and the nav controller.  We then use the NavController&#39;s <a href="link_to_setRoot"><code>setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
+
+<p>Menus can be a little more complicated, but they allow for many different configuration options.  For more examples and in depth configuration explanations, take a look at the <a href="link_to_menu_api">Menu API reference</a>.</p>
+
 <h2 id="Lifecycle">Lifecycle events</h2>
 
 <ul>

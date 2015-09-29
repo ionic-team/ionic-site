@@ -10,6 +10,7 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
@@ -78,7 +79,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="docs-container" ng-app="IonicDocs">
+    <div class="docs-container"
+         ng-app="IonicDocs"
+         >
       <nav class="side-nav">
         <!-- <form class="form-group">
   <select name="version" id="version-toggle">
@@ -91,7 +94,10 @@
   <li class="
              active">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted">
+    <ul ng-show="showGettingStarted"
+        
+          ng-init="showGettingStarted = true"
+        >
       <li class="">
         <a href="/docs/v2/">Welcome</a>
       </li>
@@ -121,7 +127,8 @@
   <!-- ### Platform ### -->
   <li class="">
     <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform">
+    <ul ng-show="showPlatform"
+        >
       <li class="">
         <a href="/docs/v2/platform/camera/">Camera</a>
       </li>
@@ -141,7 +148,8 @@
   <!-- ### Theming ### -->
   <li class="">
     <a ng-click="showTheming = !showTheming">Theming</a>
-    <ul ng-show="showTheming">
+    <ul ng-show="showTheming"
+        >
       <li class="">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
       </li>
@@ -165,7 +173,8 @@
   </li>
   <li class="">
     <a ng-click="showResources = !showResources">Resources</a>
-    <ul ng-show="showResources">
+    <ul ng-show="showResources"
+        >
       <li class="">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>
@@ -183,14 +192,7 @@
 </ul>
 
       </nav>
-      <!-- <aside class="platform-preview">
-        <div class="platform-toggle">
-          <a class="active" ng-click="setPlatform('ios')">iOS</a>
-          <a ng-click="setPlatform('android')">Android</a>
-          <a ng-click="setPlatform('windows')">Windows</a>
-        </div>
-        <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
-      </aside> -->
+      
       <main>
         <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>

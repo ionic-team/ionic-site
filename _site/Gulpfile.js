@@ -154,11 +154,7 @@ gulp.task('watch', ['server'],function() {
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
   gulp.watch('_js/**/*.js', ['server:js']);
   gulp.watch(['*.html', '_layouts/*/*', '_posts/*', '_includes/*/*',
-<<<<<<< HEAD
-              'docs/v2/**/*.md', '!docs/v2/2*', '!docs/v2/nightly'], ['server:jekyll']);
-=======
               'docs/v2/**'], ['server:jekyll']);
->>>>>>> moving over getting started section
 
 });
 

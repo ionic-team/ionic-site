@@ -1,5 +1,5 @@
 ---
-layout: v2/docs_base
+layout: v2_fluid/docs_base
 category: getting-started
 id: getting-started
 title: Ionic 2 Documentation - Welcome
@@ -16,4 +16,3 @@ We're proud to say that Ionic has been used by millions of developers to build m
 Ionic Two represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.
 
 We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.
-

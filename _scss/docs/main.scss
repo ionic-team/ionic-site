@@ -1,14 +1,14 @@
 body{
   font-family: $font-family-default;
   // TODO: mobile styles
-  min-width: 1200px;
-  background: linear-gradient(
-    90deg,
-    $whiteish,
-    $whiteish $sidenav-width + 5,
-    white $sidenav-width + 5,
-    white 100%
-	);
+   min-width: 920px;
+  // background: linear-gradient(
+  //   90deg,
+  //   $whiteish,
+  //   $whiteish $sidenav-width + 5,
+  //   white $sidenav-width + 5,
+  //   white 100%
+	// );
 }
 .docs-container{
   .side-nav{ width: $sidenav-width; }
@@ -76,7 +76,7 @@ body{
   position: fixed;
   background: $whiteish;
   overflow-y: scroll;
-  top: 95px;
+  top: 80px;
   bottom: 0;
   .form-group{
     padding: 5px 20px 17px;
@@ -115,6 +115,11 @@ body{
         font-size: 14px;
       }
     }
+  }
+}
+.docs-container{
+  main{
+    padding-right:5px;
   }
 }
 .platform-preview{

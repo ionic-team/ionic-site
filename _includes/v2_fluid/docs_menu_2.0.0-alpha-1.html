@@ -1,9 +1,11 @@
-<form class="form-group">
+<!-- <form class="form-group">
   <select name="version" id="version-toggle">
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
-</form>
+</form> -->
 <ul>
+
+  <!-- ### Getting Started ### -->
   <li class="{% if page.category == 'getting-started' %}
              active{% endif %}">
     <a>Getting Started</a>
@@ -28,25 +30,74 @@
       </li>
     </ul>
   </li>
+
+  <!-- ### Components ### -->
   <li class="{% if page.category == 'components' %}active{% endif %}">
     <a href="/docs/v2/components">Components</a>
   </li>
+
+  <!-- ### Platform ### -->
   <li class="{% if page.category == 'platform' %}active{% endif %}">
-    <a href="/docs/v2/platform">Platform</a>
+    <a href="/docs/v2/platform/">Platform</a>
+    <ul>
+      <li class="{% if page.id == 'camera' %}active{% endif %}">
+        <a href="/docs/v2/platform/camera/">Camera</a>
+      </li>
+      <li class="{% if page.id == 'geolocation' %}active{% endif %}">
+        <a href="/docs/v2/platform/geolocation/">Geolocation</a>
+      </li>
+      <li class="{% if page.id == 'push-notifications' %}active{% endif %}">
+        <a href="/docs/v2/platform/push-notifications/">Push Notifications</a>
+      </li>
+      <li>
+        <a href="http://ngcordova.com" target="_blank">
+          More Device Integrations</a>
+      </li>
+    </ul>
   </li>
+
+  <!-- ### Theming ### -->
   <li class="{% if page.category == 'theming' %}active{% endif %}">
     <a href="/docs/v2/theming">Theming</a>
+    <ul>
+      <li class="{% if page.id == 'theming-your-app' %}active{% endif %}">
+        <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
+      </li>
+      <li class="{% if page.id == 'platform-specific-styles' %}active
+                 {% endif %}">
+        <a href="/docs/v2/theming/platform-specific-styles/">
+          Platform Styles
+        </a>
+      </li>
+      <li class="{% if page.id == 'overriding-ionic-variables' %}active
+                {% endif %}">
+        <a href="/docs/v2/theming/overriding-ionic-variables/">
+          Overriding Ionic Variables
+        </a>
+      </li>
+    </ul>
   </li>
   <li class="{% if page.category == 'faq' %}active{% endif %}">
     <a href="/docs/v2/faq">FAQ</a>
   </li>
-  <li class="{% if page.category == 'api' %}active{% endif %}">
+  <li>
     <a href="/docs/v2/api">API</a>
-    <ul>
-      {% include v2_fluid/v2_api_menu_nightly.html %}
-    </ul>
   </li>
   <li class="{% if page.category == 'resources' %}active{% endif %}">
     <a href="/docs/v2/resources">Resources</a>
+    <ul>
+      <li>
+        <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
+      </li>
+      <li>
+        <a href="/docs/v2/resources/what-is/">Glossary</a>
+      </li>
+      <li>
+        <a href="/docs/v2/ionicons/">Ionicons</a>
+      </li>
+      <li>
+        <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>
+      </li>
+    </ul>
   </li>
 </ul>

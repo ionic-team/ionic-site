@@ -10,6 +10,8 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
 
@@ -76,20 +78,20 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="docs-container" ng-app="docs">
+    <div class="docs-container" ng-app="IonicDocs">
       <nav class="side-nav">
         <!-- <form class="form-group">
   <select name="version" id="version-toggle">
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul>
+<ul ng-controller="DocsNavCtrl">
 
   <!-- ### Getting Started ### -->
   <li class="
              active">
-    <a>Getting Started</a>
-    <ul>
+    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
+    <ul ng-show="showGettingStarted">
       <li class="">
         <a href="/docs/v2/">Welcome</a>
       </li>
@@ -118,8 +120,8 @@
 
   <!-- ### Platform ### -->
   <li class="">
-    <a href="/docs/v2/platform/">Platform</a>
-    <ul>
+    <a ng-click="showPlatform = !showPlatform">Platform</a>
+    <ul ng-show="showPlatform">
       <li class="">
         <a href="/docs/v2/platform/camera/">Camera</a>
       </li>
@@ -138,8 +140,8 @@
 
   <!-- ### Theming ### -->
   <li class="">
-    <a href="/docs/v2/theming">Theming</a>
-    <ul>
+    <a ng-click="showTheming = !showTheming">Theming</a>
+    <ul ng-show="showTheming">
       <li class="">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
       </li>
@@ -156,24 +158,24 @@
     </ul>
   </li>
   <li class="">
-    <a href="/docs/v2/faq">FAQ</a>
+    <a>FAQ</a>
   </li>
   <li>
     <a href="/docs/v2/api">API</a>
   </li>
   <li class="">
-    <a href="/docs/v2/resources">Resources</a>
-    <ul>
-      <li>
+    <a ng-click="showResources = !showResources">Resources</a>
+    <ul ng-show="showResources">
+      <li class="">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>
-      <li>
+      <li class="">
         <a href="/docs/v2/resources/what-is/">Glossary</a>
       </li>
-      <li>
+      <li class="">
         <a href="/docs/v2/ionicons/">Ionicons</a>
       </li>
-      <li>
+      <li class="">
         <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>
       </li>
     </ul>

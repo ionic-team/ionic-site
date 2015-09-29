@@ -1,4 +1,4 @@
-body{
+body {
   font-family: $font-family-default;
   // TODO: mobile styles
    min-width: 920px;
@@ -10,20 +10,20 @@ body{
   //   white 100%
 	// );
 }
-.docs-container{
-  .side-nav{ width: $sidenav-width; }
+.docs-container {
+  .side-nav { width: $sidenav-width; }
   > main {
-    margin-left: $sidenav-width + 20;
+    margin-left: $sidenav-width;
   }
   > aside {
     width: $platform-preview-width;
     + main {
-      margin-right: $platform-preview-width + 20;
+      margin-right: $platform-preview-width;
     }
   }
 }
 
-.navbar-default{
+.navbar-default {
   background: linear-gradient(to right, #3071da , #4888f1);
   border-radius: 0;
   margin-bottom: 0;
@@ -33,21 +33,21 @@ body{
       width:140px;
     }
   }
-  .navbar-nav > li{
+  .navbar-nav > li {
     > a{
       padding:27px 15px;
       transition: .2s color;
       border-top:3px solid transparent;
     }
-    &.active > a{
+    &.active > a {
       border-top-color: white;
     }
   }
-  .navbar-form{
+  .navbar-form {
     margin: 25px 0 0 100px;
 
-    .form-group{
-      input{
+    .form-group {
+      input {
         background:transparent;
         box-shadow: none;
         border:none;
@@ -58,7 +58,7 @@ body{
         &::-moz-placeholder {color: lighten($blue, 15);}
         &:-ms-input-placeholder {color: lighten($blue, 15);}
       }
-      &:before{
+      &:before {
         font-family: "Ionicons";
         -webkit-font-smoothing: antialiased;
         content: "\f4a5";
@@ -72,16 +72,16 @@ body{
   }
 }
 
-.side-nav{
+.side-nav {
   position: fixed;
   background: $whiteish;
   overflow-y: scroll;
   top: 80px;
   bottom: 0;
-  .form-group{
+  .form-group {
     padding: 5px 20px 17px;
     border-bottom: 1px solid $light-grey;
-    select{
+    select {
       width: 100%;
       background: none;
       border-radius: 0;
@@ -90,7 +90,7 @@ body{
       color: $grey;
     }
   }
-  ul{
+  ul {
     list-style: none;
     padding: 20px;
     a{
@@ -103,31 +103,59 @@ body{
       transition: .2s color;
     }
     ul .active > a,
-    a:hover{
+    a:hover {
       color: $blue;
       text-decoration: none;
     }
-    ul{
+    ul {
       padding: 0;
-      a{
+      opacity: 1;
+      a {
         color: $blackish;
         text-transform: none;
         font-size: 14px;
+        height: 40px;
+        transition: height cubic-bezier(0.36,0.66,0.04,1) .4s, padding cubic-bezier(0.36,0.66,0.04,1) .4s;
+      }
+      &.ng-hide-add,
+      &.ng-hide-remove {
+        transition: opacity cubic-bezier(0.36,0.66,0.04,1) .5s;
+      }
+      &.ng-hide {
+        opacity: 0;
+        a{
+          padding: 0;
+          height: 0;
+        }
       }
     }
   }
 }
-.docs-container{
-  main{
-    padding-right:5px;
+.docs-container {
+  main {
+    padding:30px 40px;
+    :first-child{
+      margin-top: 0;
+    }
+    h1,h2,h3,h4,h5{
+      color: $blacker;
+      line-height: 1.5em;
+      margin: 2em 0 1em;
+    }
+    p {
+      color: $blackish;
+      line-height: 2em;
+      margin: 2em 0 1em;
+    }
   }
+
 }
-.platform-preview{
+.platform-preview {
   position: fixed;
   right:0;
   padding: 30px 20px;
   text-align: center;
-  .platform-toggle a{
+  .platform-toggle a {
     display: inline-block;
     padding: 7px 15px 5px;
     border-radius: 5px;
@@ -136,18 +164,18 @@ body{
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     transition: .2s color, .2s background-color;
-    &.active{
+    &.active {
       background-color: $blue;
       color: white;
     }
-    &:hover{
+    &:hover {
       color: $blue;
       text-decoration: none;
     }
   }
 }
-#demo-device{
-  &.ios{
+#demo-device {
+  &.ios {
     background:uppercase;
     width:391px;
     height:764px;

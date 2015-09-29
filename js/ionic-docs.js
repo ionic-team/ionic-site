@@ -3,10 +3,11 @@
  * Copyright 115 Drifty Co. http://drifty.com/
  */
 (function() {
-var IonicDocsModule = angular.module('ionic-docs', ['ngAnimate'])
-
-.controller('DocsMainCtrl', [function($scope) {
-
+var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
+.controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+  $scope.test = function() {
+    console.log($scope)
+  }
 }])
 .controller('DocsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 

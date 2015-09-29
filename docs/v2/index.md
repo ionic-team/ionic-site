@@ -17,8 +17,3 @@ We hope you find Ionic 2 faster, simpler, and easier to use.
 
 With that, let's jump right in!
 
-#Concepts
-
-Cornhole distillery street art quinoa. Meggings four loko cred photo booth, next level ethical chambray Brooklyn before they sold out. Plaid paleo keffiyeh, ethical church-key letterpress bitters crucifix. Mustache mlkshk fap, letterpress Truffaut ugh church-key. Hashtag ethical tilde, art party vegan Austin Williamsburg. Normcore Tumblr health goth ennui, you probably haven't heard of them ethical flexitarian Neutra lumbersexual. Gentrify Helvetica YOLO, Shoreditch distillery raw denim brunch High Life quinoa cornhole stumptown kale chips taxidermy plaid paleo.
-
-Odd Future freegan blog brunch, High Life ethical Pitchfork ennui flannel. Church-key readymade try-hard trust fund fashion axe photo booth. Post-ironic twee quinoa migas biodiesel, gentrify forage street art sartorial craft beer 90's mlkshk Marfa Intelligentsia mumblecore. VHS lomo kitsch tilde DIY gluten-free. Listicle High Life next level keytar, brunch Intelligentsia narwhal bicycle rights organic. Authentic kale chips 90's Thundercats. Cray cardigan pop-up sustainable

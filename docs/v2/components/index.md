@@ -601,7 +601,7 @@ The `<ion-menu>`s bound `[content]` property gets a [reference](angular_template
 
 Then we have two buttons with click handlers that navigate to a new root view:
 
-view```ts
+```ts
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
 ...

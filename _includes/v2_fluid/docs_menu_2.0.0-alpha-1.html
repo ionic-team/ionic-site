@@ -1,0 +1,52 @@
+<form class="form-group">
+  <select name="version" id="version-toggle">
+    <option value="2.0.0-a1">2.0.0 Alpha 1</option>
+  </select>
+</form>
+<ul>
+  <li class="{% if page.category == 'getting-started' %}
+             active{% endif %}">
+    <a>Getting Started</a>
+    <ul>
+      <li class="{% if page.id == 'welcome' %}active{% endif %}">
+        <a href="/docs/v2/">Welcome</a>
+      </li>
+      <li class="{% if page.id == 'concepts' %}active{% endif %}">
+        <a href="/docs/v2/getting-started/concepts">Concepts</a>
+      </li>
+      <li class="{% if page.id == 'installations' %}active{% endif %}">
+        <a href="/docs/v2/getting-started/installations">Installations</a>
+      </li>
+      <li class="{% if page.id == 'tutorial' %}active{% endif %}">
+        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+      </li>
+      <li class="{% if page.id == 'migration' %}active{% endif %}">
+        <a href="/docs/v2/getting-started/migration">Migration</a>
+      </li>
+      <li class="{% if page.id == 'about-ionic' %}active{% endif %}">
+        <a href="/docs/v2/getting-started/about-ionic">About Ionic</a>
+      </li>
+    </ul>
+  </li>
+  <li class="{% if page.category == 'components' %}active{% endif %}">
+    <a href="/docs/v2/components">Components</a>
+  </li>
+  <li class="{% if page.category == 'platform' %}active{% endif %}">
+    <a href="/docs/v2/platform">Platform</a>
+  </li>
+  <li class="{% if page.category == 'theming' %}active{% endif %}">
+    <a href="/docs/v2/theming">Theming</a>
+  </li>
+  <li class="{% if page.category == 'faq' %}active{% endif %}">
+    <a href="/docs/v2/faq">FAQ</a>
+  </li>
+  <li class="{% if page.category == 'api' %}active{% endif %}">
+    <a href="/docs/v2/api">API</a>
+    <ul>
+      {% include v2_fluid/v2_api_menu_nightly.html %}
+    </ul>
+  </li>
+  <li class="{% if page.category == 'resources' %}active{% endif %}">
+    <a href="/docs/v2/resources">Resources</a>
+  </li>
+</ul>

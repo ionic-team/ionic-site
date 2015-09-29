@@ -40,10 +40,10 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Getting Started</a></li>
-        <li><a href="#">Docs</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Forum</a></li>
+        <li><a href="getting-started/">Getting Started</a></li>
+        <li class="active"><a href="/docs/v2/">Docs</a></li>
+        <li><a href="http://blog.ionic.io/">Blog</a></li>
+        <li><a href="http://forum.ionicframework.com/">Forum</a></li>
         <li class="dropdown">
           <a href="#"
              class="dropdown-toggle"
@@ -78,43 +78,740 @@
 
     <div class="docs-container" ng-app="docs">
       <nav class="side-nav">
-          <form class="form-group">
-            <select name="version" id="version-toggle">
-              <option value="2.0.0-a1">2.0.0 Alpha 1</option>
-            </select>
-          </form>
-          <ul>
-            <li class="
-                       active">
-              <a href="/docs/v2/">Getting Started</a>
-              <ul>
-                <li><a href="/docs/v2/#welcome">Welcome</a></li>
-                <li><a href="/docs/v2/#concepts">Concepts</a></li>
-                <li><a href="/docs/v2/#installations">Installations</a></li>
-                <li><a href="/docs/v2/#tutorial">Tutorial</a></li>
-                <li><a href="/docs/v2/#migration">Migration</a></li>
-                <li><a href="/docs/v2/#about-ionic">About Ionic</a></li>
-              </ul>
-            </li>
-            <li class="">
-              <a href="/docs/v2/components">Components</a>
-            </li>
-            <li class="">
-              <a href="/docs/v2/platform">Platform</a>
-            </li>
-            <li class="">
-              <a href="/docs/v2/theming">Theming</a>
-            </li>
-            <li class="">
-              <a href="/docs/v2/faq">FAQ</a>
-            </li>
-            <li class="">
-              <a href="/docs/v2/api">API</a>
-            </li>
-            <li class="">
-              <a href="/docs/v2/resources">Resources</a>
-            </li>
-          </ul>
+        <form class="form-group">
+  <select name="version" id="version-toggle">
+    <option value="2.0.0-a1">2.0.0 Alpha 1</option>
+  </select>
+</form>
+<ul>
+  <li class="
+             active">
+    <a>Getting Started</a>
+    <ul>
+      <li class="active">
+        <a href="/docs/v2/">Welcome</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/concepts">Concepts</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/installations">Installations</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/migration">Migration</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/about-ionic">About Ionic</a>
+      </li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="/docs/v2/components">Components</a>
+  </li>
+  <li class="">
+    <a href="/docs/v2/platform">Platform</a>
+  </li>
+  <li class="">
+    <a href="/docs/v2/theming">Theming</a>
+  </li>
+  <li class="">
+    <a href="/docs/v2/faq">FAQ</a>
+  </li>
+  <li class="">
+    <a href="/docs/v2/api">API</a>
+    <ul>
+      
+
+
+  <!-- App -->
+  <li class="menu-section">
+    <a href="/api/components/app/IonicApp/" class="api-section">
+       App
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/app/IonicApp/">
+          IonicApp
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/components/app/ionicBootStrap/">
+          ionicBootstrap
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/components/app/IdRef/">
+          IdRef
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- ActionMenu -->
+  <li class="menu-section">
+    <a href="/api/components/action-menu/ActionMenu/" class="api-section">
+       ActionMenu
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/action-menu/ActionMenu/">
+          ActionMenu
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Aside -->
+  <li class="menu-section">
+    <a href="/api/components/aside/Aside/" class="api-section">
+       Aside
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/aside/Aside/">
+          Aside
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/components/aside/AsideBackdrop/">
+          AsideBackdrop
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/components/aside/AsideToggle/">
+          AsideToggle
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Button -->
+  <li class="menu-section">
+    <a href="/api/components/button/Button/" class="api-section">
+      Button
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/button/Button/">
+          Button
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/button/TapDisabled/">
+          TapDisabled
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/button/TapClick/">
+          TapClick
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Card -->
+  <li class="menu-section">
+    <a href="/api/components/card/Card/" class="api-section">
+      Card
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/card/Card/">
+          Card
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Checkbox -->
+  <li class="menu-section">
+    <a href="/api/components/checkbox/Checkbox/" class="api-section">
+      Checkbox
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/checkbox/Checkbox/">
+          Checkbox
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Content -->
+  <li class="menu-section">
+    <a href="/api/components/content/Content/" class="api-section">
+      Content
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/content/Content/">
+          Content
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Icon -->
+  <li class="menu-section">
+    <a href="/api/components/icon/Icon/" class="api-section">
+      Icon
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/icon/Icon/">
+          Icon
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- IonItem -->
+  <li class="menu-section">
+    <a href="/api/components/item/IonItem/" class="api-section">
+      IonItem
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/item/IonItem/">
+          IonItem
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/item/ItemGroup/">
+          ItemGroup
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/item/ItemGroupTitle/">
+          ItemGroupTitle
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- IonInput -->
+  <li class="menu-section">
+    <a href="/api/components/form/IonInput/" class="api-section">
+      IonInput
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/form/IonInput/">
+          IonInput
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- TextInput -->
+  <li class="menu-section">
+    <a href="/api/components/text-input/TextInput/" class="api-section">
+      TextInput
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/text-input/TextInput/">
+          TextInput
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/text-input/TextInputElement/">
+          TextInputElement
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/text-input/Label/">
+          Label
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- IonList -->
+  <li class="menu-section">
+    <a href="/api/components/list/IonList/" class="api-section">
+      IonList
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/list/IonList/">
+          IonList
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/list/ListHeader/">
+          ListHeader
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- ShowWhen -->
+  <li class="menu-section">
+    <a href="/api/components/show-hide-when/ShowWhen/" class="api-section">
+      ShowWhen
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/show-hide-when/ShowWhen/">
+          ShowWhen
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- HideWhen -->
+  <li class="menu-section">
+    <a href="/api/components/show-hide-when/HideWhen/" class="api-section">
+      HideWhen
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/show-hide-when/HideWhen/">
+          HideWhen
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- MaterialButton -->
+  <li class="menu-section">
+    <a href="/api/components/material/MaterialButton/" class="api-section">
+      MaterialButton
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/material/MaterialButton/">
+          MaterialButton
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/material/MaterialRippleEffect/">
+          MaterialRippleEffect
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Modal -->
+  <li class="menu-section">
+    <a href="/api/components/modal/ionModal/" class="api-section">
+      Modal
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/modal/ionModal/">
+          Modal
+        </a>
+      </li>
+    </ul>
+  </li>
+
+   <!-- Nav -->
+   <li class="menu-section">
+     <a href="/api/components/nav/Nav/" class="api-section">
+       Nav
+     </a>
+     <ul>
+       <li>
+         <a href="/api/components/nav/Nav/">
+           Nav
+         </a>
+       </li>
+       <li>
+         <a href="/api/components/nav/NavController/">
+           NavController
+         </a>
+       </li>
+       <li>
+         <a href="/api/components/nav/NavParams/">
+           NavParams
+         </a>
+       </li>
+       <li>
+         <a href="/api/components/nav/NavPush/">
+           NavPush
+         </a>
+       </li>
+       <li>
+         <a href="/api/components/nav/NavPop/">
+           NavPop
+         </a>
+       </li>
+       <li>
+         <a href="/api/components/nav/NavRouter/">
+           NavRouter
+         </a>
+       </li>
+     </ul>
+   </li>
+
+  <!-- NavBar -->
+  <li class="menu-section">
+    <a href="/api/components/nav-bar/NavBar/" class="api-section">
+      NavBar
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/nav-bar/NavBar/">
+          NavBar
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/nav-bar/NavbarTemplate/">
+          NavbarTemplate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Popup -->
+  <li class="menu-section">
+    <a href="/api/components/popup/ionPopup/" class="api-section">
+      Popup
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/popup/ionPopup/">
+          Popup
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Slides -->
+  <li class="menu-section">
+    <a href="/api/components/slides/Slides/" class="api-section">
+      Slides
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/slides/Slides/">
+          Slides
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/slides/Slide/">
+          Slide
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/slides/SlideLazy/">
+          SlideLazy
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Radio -->
+  <li class="menu-section">
+    <a href="/api/components/radio/RadioGroup/" class="api-section">
+      Radio
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/radio/RadioGroup/">
+          RadioGroup
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/radio/RadioButton/">
+          RadioButton
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Scroll -->
+  <li class="menu-section">
+    <a href="/api/components/scroll/Scroll/" class="api-section">
+      Scroll
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/scroll/Scroll/">
+          Scroll
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/scroll/Refresher/">
+          Refresher
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- SearchBar -->
+  <li class="menu-section">
+    <a href="/api/components/search-bar/SearchBar/" class="api-section">
+      SearchBar
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/search-bar/SearchBar/">
+          SearchBar
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Segment -->
+  <li class="menu-section">
+    <a href="/api/components/segment/Segment/" class="api-section">
+      Segment
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/segment/Segment/">
+          Segment
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/segment/SegmentControlValueAccessor/">
+          SegmentControlValueAccessor
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/segment/SegmentButton/">
+          SegmentButton
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Switch -->
+  <li class="menu-section">
+    <a href="/api/components/switch/Switch/" class="api-section">
+      Switch
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/switch/Switch/">
+          Switch
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- IonTabs -->
+  <li class="menu-section">
+    <a href="/api/components/tabs/IonTabs/" class="api-section">
+      IonTabs
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/tabs/IonTabs/">
+          IonTabs
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/tabs/IonTab/">
+          IonTab
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Toolbar -->
+  <li class="menu-section">
+    <a href="/api/components/toolbar/Toolbar/" class="api-section">
+      Toolbar
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/toolbar/Toolbar/">
+          Toolbar
+        </a>
+      </li>
+      <li>
+        <a href="/api/components/toolbar/ToolbarBase/">
+          ToolbarBase
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- View -->
+  <li class="menu-section">
+    <a href="/api/components/view/View/" class="api-section">
+      View
+    </a>
+    <ul>
+      <li>
+        <a href="/api/components/view/ViewItem/">
+          ViewItem
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Animations -->
+  <li class="menu-section">
+    <a href="/api/animations/Animation/" class="api-section">
+      Animations
+    </a>
+    <ul>
+      <li>
+        <a href="/api/animations/Animation/">
+          Animation
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Transitions -->
+  <li class="menu-section">
+    <a href="/api/transitions/Transition/" class="api-section">
+       Transitions
+    </a>
+    <ul>
+      <li>
+        <a href="/api/transitions/Transition/">
+           Transition
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Config -->
+  <li class="menu-section">
+    <a href="/api/config/IonicConfig/" class="api-section">
+       Config
+    </a>
+    <ul>
+      <li>
+        <a href="/api/config/IonicConfig/">
+           IonicConfig
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/config/IonicDirectives/">
+           IonicDirectives
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/config/IonicView/">
+           IonicDirectives
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/config/IonicComponent/">
+           IonicDirectives
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/config/App/">
+           App
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Net -->
+  <li class="menu-section">
+    <a href="/api/net/Http/" class="api-section">
+      Net
+    </a>
+    <ul>
+      <li>
+        <a href="/api/net/Http/">
+           HTTP
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Platform -->
+  <li class="menu-section">
+    <a href="/api/platform/Platform/" class="api-section">
+      Platform
+    </a>
+    <ul>
+      <li>
+        <a href="/api/platform/Platform/">
+          Platform
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/platform/PlatformCtrl/">
+          PlatformCtrl
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+
+  <!-- Util -->
+  <li class="menu-section">
+    <a href="/api/util/ClickBlock/" class="api-section">
+      Util
+    </a>
+    <ul>
+      <li>
+        <a href="/api/util/ClickBlock/">
+          Click Block
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Storage -->
+  <li class="menu-section">
+    <a href="/api/storage/Storage/" class="api-section">
+      Storage
+    </a>
+    <ul>
+      <li>
+        <a href="/api/storage/Storage/">
+          Storage
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/storage/StorageEngine/">
+          StorageEngine
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/storage/SqlStorage/">
+          SqlStorage
+        </a>
+      </li>
+
+      <li>
+        <a href="/api/storage/LocalStorage">
+          LocalStorage
+        </a>
+      </li>
+    </ul>
+  </li>
+
+    </ul>
+  </li>
+  <li class="">
+    <a href="/docs/v2/resources">Resources</a>
+  </li>
+</ul>
+
       </nav>
       <aside class="platform-preview">
         <div class="platform-toggle">
@@ -125,23 +822,17 @@
         <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
       </aside>
       <main>
-        <h1>Ionic 2 Docs</h1>
+        <h1>Welcome to Ionic</h1>
 
-<p>Welcome to the preview version of Ionic 2 &mdash; <em>the next generation of the Ionic SDK</em>, with initial support for Angular 2.</p>
+<p>We designed Ionic to be as natural as possible for a web developer to build great mobile apps for the app stores. That means we focus on taking the standard HTML, CSS, and Javascript, just like you&#39;d use to build a website, and we help you turn it into mobile magic. These technologies have served developers well for the last twenty years, and we think that makes them a pretty great bet for the next twenty.</p>
 
-<p>Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years building web-based mobile technology and helping developers build over 1,000,000 mobile apps with the Ionic SDK.</p>
+<p>Many developers will find their Ionic apps can be built almost entirely with a standard web browser and any old computer. And once you&#39;re ready to turn on a sensor, or use a new device feature, the mobile toolkit is just an install away. We think that&#39;s pretty neat.</p>
 
-<p>With Angular 2, Ionic apps are considerably more performant and easy to build. On top of that, we&#39;ve built a totally new navigation and cross-platform design architecture to make it easy to build apps that are as dynamic and customizable as the best apps in the app stores (many of which are Ionic apps themselves!).</p>
+<p>We&#39;re proud to say that Ionic has been used by millions of developers to build millions of apps in more countries than we will ever visit in our lifetime. Over those two years, we&#39;ve been listening to your feedback on how to build a better way to build better apps.</p>
 
-<p>We hope you find Ionic 2 faster, simpler, and easier to use.</p>
+<p>Ionic Two represents that collective learning about how to make the web do more on mobile. We&#39;ve overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.</p>
 
-<p>With that, let&#39;s jump right in!</p>
-
-<h1>Concepts</h1>
-
-<p>Cornhole distillery street art quinoa. Meggings four loko cred photo booth, next level ethical chambray Brooklyn before they sold out. Plaid paleo keffiyeh, ethical church-key letterpress bitters crucifix. Mustache mlkshk fap, letterpress Truffaut ugh church-key. Hashtag ethical tilde, art party vegan Austin Williamsburg. Normcore Tumblr health goth ennui, you probably haven&#39;t heard of them ethical flexitarian Neutra lumbersexual. Gentrify Helvetica YOLO, Shoreditch distillery raw denim brunch High Life quinoa cornhole stumptown kale chips taxidermy plaid paleo.</p>
-
-<p>Odd Future freegan blog brunch, High Life ethical Pitchfork ennui flannel. Church-key readymade try-hard trust fund fashion axe photo booth. Post-ironic twee quinoa migas biodiesel, gentrify forage street art sartorial craft beer 90&#39;s mlkshk Marfa Intelligentsia mumblecore. VHS lomo kitsch tilde DIY gluten-free. Listicle High Life next level keytar, brunch Intelligentsia narwhal bicycle rights organic. Authentic kale chips 90&#39;s Thundercats. Cray cardigan pop-up sustainable</p>
+<p>We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more <em>fun</em>. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn&#39;t think of anything more fun than that.</p>
 
       </main>
     </div>

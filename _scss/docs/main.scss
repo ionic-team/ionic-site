@@ -12,10 +12,14 @@ body{
 }
 .docs-container{
   .side-nav{ width: $sidenav-width; }
-  aside{ width: $platform-preview-width}
-  main{
+  > main {
     margin-left: $sidenav-width + 20;
-    margin-right: $platform-preview-width + 20;
+  }
+  > aside {
+    width: $platform-preview-width;
+    + main {
+      margin-right: $platform-preview-width + 20;
+    }
   }
 }
 
@@ -29,18 +33,51 @@ body{
       width:140px;
     }
   }
-  .navbar-nav > li > a{
-    padding:30px 15px;
-    transition: .2s color;
+  .navbar-nav > li{
+    > a{
+      padding:27px 15px;
+      transition: .2s color;
+      border-top:3px solid transparent;
+    }
+    &.active > a{
+      border-top-color: white;
+    }
   }
   .navbar-form{
-    margin-top: 22px;
+    margin: 25px 0 0 100px;
+
+    .form-group{
+      input{
+        background:transparent;
+        box-shadow: none;
+        border:none;
+        color: white;
+        font-size:14px;
+        &::-webkit-input-placeholder {color: lighten($blue, 15);}
+        &:-moz-placeholder {color: lighten($blue, 15);}
+        &::-moz-placeholder {color: lighten($blue, 15);}
+        &:-ms-input-placeholder {color: lighten($blue, 15);}
+      }
+      &:before{
+        font-family: "Ionicons";
+        -webkit-font-smoothing: antialiased;
+        content: "\f4a5";
+        font-size:18px;
+        font-weight: 800;
+        color: lighten($blue, 15);
+        position: relative;
+        top: 5px;
+      }
+    }
   }
 }
+
 .side-nav{
   position: fixed;
   background: $whiteish;
   overflow-y: scroll;
+  top: 95px;
+  bottom: 0;
   .form-group{
     padding: 5px 20px 17px;
     border-bottom: 1px solid $light-grey;

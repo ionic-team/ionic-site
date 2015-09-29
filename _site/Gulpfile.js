@@ -1,20 +1,21 @@
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')();
-var concat      = require('gulp-concat');
-var sass        = require('gulp-sass');
-var minifyCss   = require('gulp-minify-css');
-var rename      = require('gulp-rename');
 var browserSync = require('browser-sync');
-var prefix      = require('gulp-autoprefixer');
+var concat      = require('gulp-concat');
 var cp          = require('child_process');
+var footer      = require('gulp-footer');
+var header      = require('gulp-header');
+var minifyCss   = require('gulp-minify-css');
+var ngmin       = require('gulp-ngmin')
 var pagespeed   = require('psi');
+var pkg         = require('./package.json');
+var prefix      = require('gulp-autoprefixer');
+var rename      = require('gulp-rename');
+var sass        = require('gulp-sass');
+var uglify      = require('gulp-uglify');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
-
-var paths = {
-  sass: ['scss/**/*.scss']
 };
 
 var AUTOPREFIXER_BROWSERS = [
@@ -28,19 +29,14 @@ var AUTOPREFIXER_BROWSERS = [
   'android >= 4.4',
   'bb >= 10'
 ];
-
-gulp.task('sass', function(done) {
-  return gulp.src('./scss/site.scss')
-    .pipe(sass({onError: browserSync.notify}))
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'));
-});
+var closureStart =
+  '/*!\n' +
+  ' * Ionic IO\n' +
+  ' * Copyright ' + new Date().getYear() + ' Drifty Co. http://drifty.com/\n' +
+  ' */\n' +
+  '(function() {\n';
+var closureEnd = '\n})();\n';
+var version = pkg.version;
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
@@ -67,8 +63,8 @@ gulp.task('styles:v2', function() {
     .pipe($.size({title: 'styles'}));
 });
 
-gulp.task('sass', function(done) {
-  return gulp.src('./scss/site.scss')
+gulp.task('styles:v1', function(done) {
+  return gulp.src('scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'))
@@ -92,13 +88,28 @@ gulp.task('images', function() {
     .pipe($.size({title: 'images'}));
 });
 
+// compress and concat JS
+gulp.task('js', function() {
+  return gulp.src(['_js/**/*.js'])
+    .pipe(concat('ionic-docs.js'))
+    .pipe(header(closureStart))
+    .pipe(footer(closureEnd))
+    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('_site/js'))
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('_site/js'))
+    .pipe($.size({title: 'js'}));
+});
+
 /**
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function(done) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
-        .on('close', done);
+             .on('close', done);
 });
 
 
@@ -112,7 +123,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['sass', 'images', 'jekyll-build'], function() {
+gulp.task('server', ['server:styles', 'images', 'jekyll-build'], function() {
     browserSync({
         server: {
             baseDir: '_site'
@@ -120,7 +131,7 @@ gulp.task('server', ['sass', 'images', 'jekyll-build'], function() {
     });
 });
 
-gulp.task('server:styles', ['sass'], function() {
+gulp.task('server:styles', ['styles:v2'], function() {
   browserSync.reload();
 });
 gulp.task('server:stylesv2', ['styles:v2'], function() {
@@ -132,11 +143,15 @@ gulp.task('server:jekyll', ['jekyll-build'], function() {
 gulp.task('server:images', ['images'], function() {
   browserSync.reload();
 });
+gulp.task('server:js', ['js'], function() {
+  browserSync.reload();
+});
 
 gulp.task('watch', ['server'],function() {
   gulp.watch('scss/**.scss', ['server:styles']);
   gulp.watch(['_scss/*.scss', '_scss/docs/*.scss'], ['server:stylesv2']);
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
+  gulp.watch('_js/**/*.js', ['server:js']);
   gulp.watch(['*.html', '_layouts/*/*', '_posts/*', '_includes/*/*',
               'docs/v2/*'], ['server:jekyll']);
 

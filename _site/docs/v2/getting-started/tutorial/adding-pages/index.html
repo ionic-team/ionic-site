@@ -323,7 +323,7 @@ You may have noticed that each page has its own folder that is named after the p
   <span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
 </code></pre></div>
-<p>The <code>&lt;ion-navbar *navbar&gt;</code> is what we call a template, and functions as configuration
+<p>The <code>&lt;ion-navbar *navbar&gt;</code> component functions as configuration
 data for the navigation bar. As we navigate to the page, the nav bar will be updated with the
 various <code>ion-nav-items</code> for buttons in the bar, and <code>&lt;ion-title&gt;</code> for the title of the bar.</p>
 
@@ -332,10 +332,9 @@ renders our welcome message.</p>
 
 <h3>Creating Additional Pages</h3>
 
-<p>To create an additional pages, we don&#39;t need to do much beyond making sure we correctly configure the title and anything else we want the
-navigation bar to display.</p>
+<p>To create an additional page, we don&#39;t need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.</p>
 
-<p>Let&#39;s check out the contents of <code>app/list/list.js</code>. Inside, you will see a new page is being created:</p>
+<p>Let&#39;s check out the contents of <code>app/list/list.js</code>. Inside, you will see a new page is being defined:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicApp</span><span class="p">,</span> <span class="nx">IonicView</span><span class="p">,</span> <span class="nx">NavController</span><span class="p">,</span> <span class="nx">NavParams</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
 <span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
@@ -352,12 +351,10 @@ navigation bar to display.</p>
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Let&#39;s go check out how this function gets called. Open up <code>app/list/list.html</code>:</p>
+<p>This page will create a basic list view containing a number of items. Notice that we are also defining an <code>itemTapped</code> function that logs the title of an item to the console. Let&#39;s go check out how this function gets called. Open up <code>app/list/list.html</code>:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#item of items&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">itemTapped</span><span class="err">($</span><span class="na">event</span><span class="err">,</span> <span class="na">item</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
-<p>This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our <code>itemTapped()</code> function that navigates to <code>ItemDetailsPage</code>.</p>
-
-<p>Also note that we can pass the click handler function the click event, and the item.</p>
+<p>This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our <code>itemTapped</code> function that logs the title of the item to the console. Also note that we pass this function the click event, as well as the item that was tapped.</p>
 
 <p>Overall, this page is very similar to the <code>HelloIonicPage</code> we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!</p>
 

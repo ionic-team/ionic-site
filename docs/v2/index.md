@@ -11,9 +11,9 @@ We designed Ionic to be as natural as possible for a web developer to build grea
 
 Many developers will find their Ionic apps can be built almost entirely with a standard web browser and any old computer. And once you're ready to turn on a sensor or simulate a resource constrained environment, the mobile toolkit is just an install away. We think that's pretty neat.
 
-We're proud to say that Ionic has been used by millions of developers to build millions of apps in more countries than we will ever visit in our lifetime. And over those two years, we've been listening to your feedback on how to build a better way to build better apps.
+We're proud to say that Ionic has been used by millions of developers to build millions of apps in more countries than we will ever visit in our lifetime. Over those two years, we've been listening to your feedback on how to build a better way to build better apps.
 
-Ionic Two represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the powers of the underlying device.
+Ionic Two represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.
 
-We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change the way humans interact with the world, and we couldn't think of anything more special than that.
+We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.
 

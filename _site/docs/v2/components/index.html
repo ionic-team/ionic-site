@@ -984,6 +984,35 @@ $(document).ready(function() {
 </blockquote>
 </blockquote>
 
+<script>
+$(document).ready(function() {
+
+  $(function () {
+
+      var iframe = document.getElementsByTagName('iframe')[0];
+      var currentHash = "#"
+
+      var setHash = function(urlHash) {
+        window.location.hash = (urlHash);
+        currentHash = urlHash;
+      };
+
+      $(document).scroll(function () {
+          $('h1 a').each(function () {
+              var top = window.pageYOffset;
+              var distance = top - $(this).offset().top;
+              var hash = '#' + $(this).attr('name');
+              iframe.contentWindow.postMessage($(this).attr('name'), '*');
+              if (distance < 20 && distance > -20 && currentHash != hash) {
+                setHash(hash);
+              }
+          });
+      });
+
+  });
+});
+</script>
+
       </main>
     </div>
   </body>

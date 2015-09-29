@@ -10,7 +10,6 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
@@ -19,7 +18,7 @@
     <title>Ionic 2 Components - Ionic 2 Developer Preview -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-components" class="v2 docs page-components">
+  <body id="docs-page-ui" class="v2 docs page-ui">
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -79,11 +78,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="docs-container"
-         ng-app="IonicDocs"
-         
-           ng-controller="ComponentsCtrl"
-         >
+    <div class="docs-container" ng-app="IonicDocs">
       <nav class="side-nav">
         <!-- <form class="form-group">
   <select name="version" id="version-toggle">
@@ -95,8 +90,7 @@
   <!-- ### Getting Started ### -->
   <li class="">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
-        >
+    <ul ng-show="showGettingStarted">
       <li class="">
         <a href="/docs/v2/">Welcome</a>
       </li>
@@ -119,15 +113,14 @@
   </li>
 
   <!-- ### Components ### -->
-  <li class="active">
+  <li class="">
     <a href="/docs/v2/components">Components</a>
   </li>
 
   <!-- ### Platform ### -->
   <li class="">
     <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform"
-        >
+    <ul ng-show="showPlatform">
       <li class="">
         <a href="/docs/v2/platform/camera/">Camera</a>
       </li>
@@ -147,8 +140,7 @@
   <!-- ### Theming ### -->
   <li class="">
     <a ng-click="showTheming = !showTheming">Theming</a>
-    <ul ng-show="showTheming"
-        >
+    <ul ng-show="showTheming">
       <li class="">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
       </li>
@@ -172,8 +164,7 @@
   </li>
   <li class="">
     <a ng-click="showResources = !showResources">Resources</a>
-    <ul ng-show="showResources"
-        >
+    <ul ng-show="showResources">
       <li class="">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>
@@ -191,15 +182,14 @@
 </ul>
 
       </nav>
-      
-      <aside class="platform-preview">
+      <!-- <aside class="platform-preview">
         <div class="platform-toggle">
           <a class="active" ng-click="setPlatform('ios')">iOS</a>
           <a ng-click="setPlatform('android')">Android</a>
+          <a ng-click="setPlatform('windows')">Windows</a>
         </div>
         <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
-      </aside>
-      
+      </aside> -->
       <main>
         <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/components/index.md'>
@@ -935,35 +925,6 @@ from the <code>Modal</code> Ionic class:</p>
 <h1><a name="tabs" href="#tabs">Tabs</a></h1>
 
 <p>TODO</p>
-
-<script>
-$(document).ready(function() {
-
-  $(function () {
-
-      var iframe = document.getElementsByTagName('iframe')[0];
-      var currentHash = "#"
-
-      var setHash = function(urlHash) {
-        window.location.hash = (urlHash);
-        currentHash = urlHash;
-      };
-
-      $(document).scroll(function () {
-          $('h1 a').each(function () {
-              var top = window.pageYOffset;
-              var distance = top - $(this).offset().top;
-              var hash = '#' + $(this).attr('name');
-              iframe.contentWindow.postMessage($(this).attr('name'), '*');
-              if (distance < 20 && distance > -20 && currentHash != hash) {
-                setHash(hash);
-              }
-          });
-      });
-
-  });
-});
-</script>
 
       </main>
     </div>

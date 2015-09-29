@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: getting-started
+layout: v2_fluid/docs_base
+category: getting-started
+id: tutorial
 sub-id: tutorial
 title: Ionic 2 Guide | Using Platform Plugins
 header_title: Using Platform Plugins - Ionic 2 Guide

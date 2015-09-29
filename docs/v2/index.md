@@ -1,7 +1,7 @@
 ---
 layout: v2_fluid/docs_base
 category: getting-started
-id: getting-started
+id: welcome
 title: Ionic 2 Documentation - Welcome
 ---
 

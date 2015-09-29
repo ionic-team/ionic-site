@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: getting-started
+layout: v2_fluid/docs_base
+category: getting-started
+id: tutorial
 subid: tutorial
 title: Ionic 2 | Getting Started | Tutorial
 header_title: Getting Started - Tutorial

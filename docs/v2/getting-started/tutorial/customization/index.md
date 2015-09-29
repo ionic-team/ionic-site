@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: getting-started
+layout: v2_fluid/docs_base
+category: getting-started
+id: tutorial
 title: Ionic 2 Guide | Customizing Styles
 header_title: Customizing Styles - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview

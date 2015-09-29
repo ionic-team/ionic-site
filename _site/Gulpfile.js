@@ -41,14 +41,14 @@ var version = pkg.version;
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src('_scss/v2.scss')
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     //
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'))
 
@@ -154,7 +154,11 @@ gulp.task('watch', ['server'],function() {
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
   gulp.watch('_js/**/*.js', ['server:js']);
   gulp.watch(['*.html', '_layouts/*/*', '_posts/*', '_includes/*/*',
-              'docs/v2/*'], ['server:jekyll']);
+<<<<<<< HEAD
+              'docs/v2/**/*.md', '!docs/v2/2*', '!docs/v2/nightly'], ['server:jekyll']);
+=======
+              'docs/v2/**'], ['server:jekyll']);
+>>>>>>> moving over getting started section
 
 });
 

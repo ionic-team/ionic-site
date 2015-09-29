@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: getting-started
+layout: v2_fluid/docs_base
+category: getting-started
+id: tutorial
 subid: tutorial
 title: Ionic 2 Guide | Navigating
 header_title: Navigating - Ionic 2 Guide
@@ -60,7 +61,4 @@ When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of 
 
 ### Next Steps
 
-*Nice job*! You've made it through the tutorial and are on your way towards *Ionic mastery*! If you're looking for an overview on what else is included with Ionic, check out the [Component docs](../../../components). To learn about using device APIs, head over to the [Platform section](../../../platform). If at any point you need help, check out our [developer resources section](../../../resources/), or ask a question on [the forums](http://forum.ionicframework.com/). 
-
-
-
+*Nice job*! You've made it through the tutorial and are on your way towards *Ionic mastery*! If you're looking for an overview on what else is included with Ionic, check out the [Component docs](../../../components). To learn about using device APIs, head over to the [Platform section](../../../platform). If at any point you need help, check out our [developer resources section](../../../resources/), or ask a question on [the forums](http://forum.ionicframework.com/).

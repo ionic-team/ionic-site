@@ -3614,7 +3614,7 @@ body {
   .navbar-default .navbar-nav > li.active > a {
     border-top-color: white; }
   .navbar-default .navbar-form {
-    margin: 25px 0 0 100px; }
+    margin: 22px 0 0 100px; }
     .navbar-default .navbar-form .form-group input {
       background: transparent;
       box-shadow: none;
@@ -3637,7 +3637,7 @@ body {
       font-weight: 800;
       color: #98befa;
       position: relative;
-      top: 5px; }
+      top: 3px; }
 
 .side-nav {
   position: fixed;

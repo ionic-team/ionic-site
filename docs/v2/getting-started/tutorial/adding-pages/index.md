@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: getting-started
+layout: v2_fluid/docs_base
+category: getting-started
+id: tutorial
 subid: tutorial
 title: Ionic 2 Guide | Adding Pages
 header_title: Adding Pages - Ionic 2 Guide
@@ -71,7 +72,7 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `ap
 <div id="naming-conventions" class="collapse well">
 You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a <code>.html</code> and a <code>.scss</code> file with the same name. For example, inside of <code>hello-ionic/</code> we will find <code>hello-ionic.js</code>, <code>hello-ionic.html</code>, and <code>hello-ionic.scss</code>. Although using this pattern is not required, it can be helpful to keep things organized.
 </div>
- 
+
 
 Below, you will see the `HelloIonicPage` class which has an `IonicView` [decorator](../../../resources/what-is/#decorators). This creates an IonicView - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
 

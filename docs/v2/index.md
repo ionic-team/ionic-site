@@ -7,7 +7,7 @@ title: Ionic 2 Documentation - Welcome
 
 #Welcome to Ionic
 
-We designed Ionic to be as natural as possible for a web developer to build great mobile apps for the app stores. That means we focus on taking the standard HTML, CSS, and Javascript, just like you'd use to build a website, and we help you turn it into mobile magic. These technologies have served developers well for the last twenty years. We think that makes them a pretty great bet for the next twenty.
+We designed Ionic to be as natural as possible for a web developer to build great mobile apps for the app stores. That means we focus on taking the standard HTML, CSS, and Javascript, just like you'd use to build a website, and we help you turn it into mobile magic. These technologies have served developers well for the last twenty years, and we think that makes them a pretty great bet for the next twenty.
 
 Many developers will find their Ionic apps can be built almost entirely with a standard web browser and any old computer. And once you're ready to turn on a sensor or simulate a resource constrained environment, the mobile toolkit is just an install away. We think that's pretty neat.
 

@@ -5,15 +5,8 @@ id: welcome
 title: Ionic 2 Documentation - Welcome
 ---
 
-#Ionic 2 Docs
+#Ionic 2
 
-Welcome to the preview version of Ionic 2 &mdash; *the next generation of the Ionic SDK*, with initial support for Angular 2.
+We designed Ionic to be as natural as possible for a web developer to build great mobile apps for the app store. That means we focus on taking the standard HTML, CSS, and Javascript, just like you'd use to build a website, and we help you turn it into mobile magic. These technologies have served developers well for the last twenty years. We think that makes them a pretty great bet for the next twenty.
 
-Ionic 2 represents the collective learning and understanding of the Ionic team over the last two years building web-based mobile technology and helping developers build over 1,000,000 mobile apps with the Ionic SDK.
-
-With Angular 2, Ionic apps are considerably more performant and easy to build. On top of that, we've built a totally new navigation and cross-platform design architecture to make it easy to build apps that are as dynamic and customizable as the best apps in the app stores (many of which are Ionic apps themselves!).
-
-We hope you find Ionic 2 faster, simpler, and easier to use.
-
-With that, let's jump right in!
 

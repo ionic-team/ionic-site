@@ -862,6 +862,7 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 # <a name="tabs" href="#tabs">Tabs</a>
 
 TODO
+<<<<<<< HEAD
 
 <script>
 $(document).ready(function() {
@@ -891,3 +892,5 @@ $(document).ready(function() {
   });
 });
 </script>
+=======
+>>>>>>> starting on components logic

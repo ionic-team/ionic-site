@@ -601,7 +601,7 @@ The `<ion-menu>`s bound `[content]` property gets a [reference](angular_template
 
 Then we have two buttons with click handlers that navigate to a new root view:
 
-```ts
+view```ts
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
 ...
@@ -862,3 +862,27 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 # <a name="tabs" href="#tabs">Tabs</a>
 
 TODO
+
+<script>
+$(document).ready(function() {
+  $(function () {
+
+      var setHash = function(urlHash) {
+        window.location.hash = (urlHash);
+        currentHash = urlHash;
+      };
+
+      var currentHash = "#"
+      $(document).scroll(function () {
+          $('h1 a').each(function () {
+              var top = window.pageYOffset;
+              var distance = top - $(this).offset().top;
+              var hash = '#' + $(this).attr('name');
+              if (distance < 20 && distance > -20 && currentHash != hash) {
+                setHash(hash);
+              }
+          });
+      });
+  });
+});
+</script>

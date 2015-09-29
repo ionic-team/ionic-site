@@ -10,6 +10,7 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
@@ -934,6 +935,35 @@ from the <code>Modal</code> Ionic class:</p>
 <h1><a name="tabs" href="#tabs">Tabs</a></h1>
 
 <p>TODO</p>
+
+<script>
+$(document).ready(function() {
+
+  $(function () {
+
+      var iframe = document.getElementsByTagName('iframe')[0];
+      var currentHash = "#"
+
+      var setHash = function(urlHash) {
+        window.location.hash = (urlHash);
+        currentHash = urlHash;
+      };
+
+      $(document).scroll(function () {
+          $('h1 a').each(function () {
+              var top = window.pageYOffset;
+              var distance = top - $(this).offset().top;
+              var hash = '#' + $(this).attr('name');
+              iframe.contentWindow.postMessage($(this).attr('name'), '*');
+              if (distance < 20 && distance > -20 && currentHash != hash) {
+                setHash(hash);
+              }
+          });
+      });
+
+  });
+});
+</script>
 
       </main>
     </div>

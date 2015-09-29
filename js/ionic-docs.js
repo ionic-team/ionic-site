@@ -9,7 +9,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     console.log($scope)
   }
 }])
-.controller('DocsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+.controller('ComponentsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
   // $scope.scrollTo = function(h2) {
   //   // simple anchor scroll (replace with animated scrollTo?...)

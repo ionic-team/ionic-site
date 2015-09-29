@@ -18,7 +18,7 @@
     <title>Ionic 2 Components - Ionic 2 Developer Preview -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-ui" class="v2 docs page-ui">
+  <body id="docs-page-components" class="v2 docs page-components">
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -78,7 +78,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="docs-container" ng-app="IonicDocs">
+    <div class="docs-container"
+         ng-app="IonicDocs"
+         
+           ng-controller="ComponentsCtrl"
+         >
       <nav class="side-nav">
         <!-- <form class="form-group">
   <select name="version" id="version-toggle">
@@ -113,7 +117,7 @@
   </li>
 
   <!-- ### Components ### -->
-  <li class="">
+  <li class="active">
     <a href="/docs/v2/components">Components</a>
   </li>
 
@@ -182,14 +186,15 @@
 </ul>
 
       </nav>
-      <!-- <aside class="platform-preview">
+      
+      <aside class="platform-preview">
         <div class="platform-toggle">
           <a class="active" ng-click="setPlatform('ios')">iOS</a>
           <a ng-click="setPlatform('android')">Android</a>
-          <a ng-click="setPlatform('windows')">Windows</a>
         </div>
         <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
-      </aside> -->
+      </aside>
+      
       <main>
         <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/components/index.md'>

@@ -1,9 +1,12 @@
 ---
 layout: v2_fluid/docs_base
-id: ui
+category: components
+id: components
 title: Ionic 2 Components
 header_title: Ionic 2 Components
 header_sub_title: Ionic 2 Developer Preview
+show_preview_device: true
+angular_controller: ComponentsCtrl
 ---
 <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/components/index.md'>
@@ -859,4 +862,3 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 # <a name="tabs" href="#tabs">Tabs</a>
 
 TODO
-

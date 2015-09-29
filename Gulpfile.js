@@ -41,14 +41,14 @@ var version = pkg.version;
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src('_scss/v2.scss')
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     //
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'))
 

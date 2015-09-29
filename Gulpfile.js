@@ -123,7 +123,8 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['server:styles', 'images', 'jekyll-build'], function() {
+gulp.task('server', ['server:stylesv1', 'server:stylesv2', 'images',
+                     'jekyll-build'], function() {
     browserSync({
         server: {
             baseDir: '_site'

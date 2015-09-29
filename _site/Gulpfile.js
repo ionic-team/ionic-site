@@ -123,7 +123,8 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['server:styles', 'images', 'jekyll-build'], function() {
+gulp.task('server', ['server:stylesv1', 'server:stylesv2', 'images',
+                     'jekyll-build'], function() {
     browserSync({
         server: {
             baseDir: '_site'
@@ -131,7 +132,7 @@ gulp.task('server', ['server:styles', 'images', 'jekyll-build'], function() {
     });
 });
 
-gulp.task('server:styles', ['styles:v2'], function() {
+gulp.task('server:stylesv1', ['styles:v1'], function() {
   browserSync.reload();
 });
 gulp.task('server:stylesv2', ['styles:v2'], function() {
@@ -148,7 +149,7 @@ gulp.task('server:js', ['js'], function() {
 });
 
 gulp.task('watch', ['server'],function() {
-  gulp.watch('scss/**.scss', ['server:styles']);
+  gulp.watch('scss/**.scss', ['server:stylesv1']);
   gulp.watch(['_scss/*.scss', '_scss/docs/*.scss'], ['server:stylesv2']);
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
   gulp.watch('_js/**/*.js', ['server:js']);

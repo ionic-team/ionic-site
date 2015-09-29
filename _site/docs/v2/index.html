@@ -93,7 +93,10 @@
   <li class="
              active">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted">
+    <ul ng-show="showGettingStarted"
+        
+          ng-init="showGettingStarted = true"
+        >
       <li class="active">
         <a href="/docs/v2/">Welcome</a>
       </li>
@@ -123,7 +126,8 @@
   <!-- ### Platform ### -->
   <li class="">
     <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform">
+    <ul ng-show="showPlatform"
+        >
       <li class="">
         <a href="/docs/v2/platform/camera/">Camera</a>
       </li>
@@ -143,7 +147,8 @@
   <!-- ### Theming ### -->
   <li class="">
     <a ng-click="showTheming = !showTheming">Theming</a>
-    <ul ng-show="showTheming">
+    <ul ng-show="showTheming"
+        >
       <li class="">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
       </li>
@@ -167,7 +172,8 @@
   </li>
   <li class="">
     <a ng-click="showResources = !showResources">Resources</a>
-    <ul ng-show="showResources">
+    <ul ng-show="showResources"
+        >
       <li class="">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>

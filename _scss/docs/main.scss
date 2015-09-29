@@ -26,6 +26,7 @@ body {
 .navbar-default {
   background: linear-gradient(to right, #3071da , #4888f1);
   border-radius: 0;
+  border:none;
   margin-bottom: 0;
   .navbar-brand{
     padding: 22px 0 0 20px;
@@ -92,20 +93,37 @@ body {
   }
   ul {
     list-style: none;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
     a{
       color:$grey;
       text-transform: uppercase;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 2px;
       display: block;
       padding: 10px 0;
-      transition: .2s color;
+      position:relative;
+      &:after{
+        display:block;
+        position: absolute;
+        right:0;
+        top:0;
+        bottom:0;
+        content: '';
+        border-right: 2px solid $blue;
+        transform: scaleY(0.0001);
+        transition: transform .08s ease-in-out;
+      }
     }
     ul .active > a,
     a:hover {
       color: $blue;
       text-decoration: none;
+    }
+    ul .active > a:after,
+    a:focus:after {
+      transform: scaleY(1);
+      outline:none;
     }
     ul {
       padding: 0;
@@ -114,12 +132,16 @@ body {
         color: $blackish;
         text-transform: none;
         font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
         height: 40px;
-        transition: height cubic-bezier(0.36,0.66,0.04,1) .4s, padding cubic-bezier(0.36,0.66,0.04,1) .4s;
+        transition: height cubic-bezier(0.36,0.66,0.04,1) .4s,
+                    padding cubic-bezier(0.36,0.66,0.04,1) .4s,
+                    color .2s;
       }
       &.ng-hide-add,
       &.ng-hide-remove {
-        transition: opacity cubic-bezier(0.36,0.66,0.04,1) .5s;
+        transition: opacity cubic-bezier(0.36,0.66,0.04,1) .4s;
       }
       &.ng-hide {
         opacity: 0;

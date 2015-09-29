@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: plugins
+layout: v2_fluid/docs_base
+category: platform
+id: camera
 title: Ionic 2 Plugins | Camera
 header_title: Camera - Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview

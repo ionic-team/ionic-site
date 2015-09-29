@@ -3591,9 +3591,9 @@ body {
   min-width: 920px; }
 
 .docs-container .side-nav {
-  width: 250px; }
+  width: 230px; }
 .docs-container > main {
-  margin-left: 250px; }
+  margin-left: 230px; }
 .docs-container > aside {
   width: 434px; }
   .docs-container > aside + main {
@@ -3602,6 +3602,7 @@ body {
 .navbar-default {
   background: linear-gradient(to right, #3071da, #4888f1);
   border-radius: 0;
+  border: none;
   margin-bottom: 0; }
   .navbar-default .navbar-brand {
     padding: 22px 0 0 20px; }
@@ -3657,18 +3658,37 @@ body {
       color: #9da5b3; }
   .side-nav ul {
     list-style: none;
-    padding: 20px; }
+    padding: 20px 0 20px 20px; }
     .side-nav ul a {
       color: #9da5b3;
       text-transform: uppercase;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 2px;
       display: block;
       padding: 10px 0;
-      transition: 0.2s color; }
+      position: relative; }
+      .side-nav ul a:after {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        content: '';
+        border-right: 2px solid #4f8ff7;
+        -webkit-transform: scaleY(0.0001);
+            -ms-transform: scaleY(0.0001);
+                transform: scaleY(0.0001);
+        transition: -webkit-transform 0.08s ease-in-out;
+        transition: transform 0.08s ease-in-out; }
     .side-nav ul ul .active > a, .side-nav ul a:hover {
       color: #4f8ff7;
       text-decoration: none; }
+    .side-nav ul ul .active > a:after, .side-nav ul a:focus:after {
+      -webkit-transform: scaleY(1);
+          -ms-transform: scaleY(1);
+              transform: scaleY(1);
+      outline: none; }
     .side-nav ul ul {
       padding: 0;
       opacity: 1; }
@@ -3676,10 +3696,12 @@ body {
         color: #494f58;
         text-transform: none;
         font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
         height: 40px;
-        transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s; }
+        transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s; }
       .side-nav ul ul.ng-hide-add, .side-nav ul ul.ng-hide-remove {
-        transition: opacity cubic-bezier(0.36, 0.66, 0.04, 1) 0.5s; }
+        transition: opacity cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s; }
       .side-nav ul ul.ng-hide {
         opacity: 0; }
         .side-nav ul ul.ng-hide a {

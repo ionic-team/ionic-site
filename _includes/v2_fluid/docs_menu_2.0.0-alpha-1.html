@@ -9,7 +9,10 @@
   <li class="{% if page.category == 'getting-started' %}
              active{% endif %}">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted">
+    <ul ng-show="showGettingStarted"
+        {% if page.category == 'getting-started' %}
+          ng-init="showGettingStarted = true"
+        {% endif %}>
       <li class="{% if page.id == 'welcome' %}active{% endif %}">
         <a href="/docs/v2/">Welcome</a>
       </li>
@@ -39,7 +42,10 @@
   <!-- ### Platform ### -->
   <li class="{% if page.category == 'platform' %}active{% endif %}">
     <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform">
+    <ul ng-show="showPlatform"
+        {% if page.category == 'platform' %}
+          ng-init="showPlatform = true"
+        {% endif %}>
       <li class="{% if page.id == 'camera' %}active{% endif %}">
         <a href="/docs/v2/platform/camera/">Camera</a>
       </li>
@@ -59,7 +65,10 @@
   <!-- ### Theming ### -->
   <li class="{% if page.category == 'theming' %}active{% endif %}">
     <a ng-click="showTheming = !showTheming">Theming</a>
-    <ul ng-show="showTheming">
+    <ul ng-show="showTheming"
+        {% if page.category == 'theming' %}
+          ng-init="showTheming = true"
+        {% endif %}>
       <li class="{% if page.id == 'theming-your-app' %}active{% endif %}">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
       </li>
@@ -85,7 +94,10 @@
   </li>
   <li class="{% if page.category == 'resources' %}active{% endif %}">
     <a ng-click="showResources = !showResources">Resources</a>
-    <ul ng-show="showResources">
+    <ul ng-show="showResources"
+        {% if page.category == 'Resources' %}
+          ng-init="showResources = true"
+        {% endif %}>
       <li class="{% if page.id == 'developer-tips' %}active{% endif %}">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>

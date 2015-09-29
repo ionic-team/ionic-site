@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: plugins
+layout: v2_fluid/docs_base
+category: platform
+id: geolocation
 title: Ionic 2 Plugins | Geolocation
 header_title: Geolocation - Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview

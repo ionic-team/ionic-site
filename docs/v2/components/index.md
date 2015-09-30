@@ -869,7 +869,7 @@ $(document).ready(function() {
   $(function () {
 
       var iframe = document.getElementsByTagName('iframe')[0];
-      var currentHash = "#"
+      var currentHash = "#";
 
       var setHash = function(urlHash) {
         window.location.hash = (urlHash);

@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: theming
+layout: v2_fluid/docs_base
+category: theming
+id: sass-variables
 title: Sass Variables
 header_title: Sass Variables
 header_sub_title: Sass Variables

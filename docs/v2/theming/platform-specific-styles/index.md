@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: theming
+layout: v2_fluid/docs_base
+category: theming
+id: platform-specific-styles
 title: Platform Specific Styles
 header_title: Platform Specific Styles
 header_sub_title: Platform Specific Styles

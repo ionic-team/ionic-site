@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: theming
+layout: v2_fluid/docs_base
+category: theming
+id: overriding-ionic-variables
 title: Overriding Ionic Sass Variables
 header_title: Overriding Ionic Styles
 header_sub_title: Providing custom values for Ionic styles

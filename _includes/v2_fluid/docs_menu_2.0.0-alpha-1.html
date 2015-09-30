@@ -69,8 +69,14 @@
         {% if page.category == 'theming' %}
           ng-init="showTheming = true"
         {% endif %}>
+      <li class="{% if page.id == 'theming-intro' %}active{% endif %}">
+        <a href="/docs/v2/theming/">Intro</a>
+      </li>
       <li class="{% if page.id == 'theming-your-app' %}active{% endif %}">
         <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
+      </li>
+      <li class="{% if page.id == 'sass-variables' %}active{% endif %}">
+        <a href="/docs/v2/theming/sass-variables/">Sass Variables</a>
       </li>
       <li class="{% if page.id == 'platform-specific-styles' %}active
                  {% endif %}">
@@ -95,9 +101,12 @@
   <li class="{% if page.category == 'resources' %}active{% endif %}">
     <a ng-click="showResources = !showResources">Resources</a>
     <ul ng-show="showResources"
-        {% if page.category == 'Resources' %}
+        {% if page.category == 'resources' %}
           ng-init="showResources = true"
         {% endif %}>
+      <li class="{% if page.id == 'resources-intro' %}active{% endif %}">
+        <a href="/docs/v2/resources/">Resources Intro</a>
+      </li>
       <li class="{% if page.id == 'developer-tips' %}active{% endif %}">
         <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
       </li>
@@ -105,7 +114,7 @@
         <a href="/docs/v2/resources/what-is/">Glossary</a>
       </li>
       <li class="{% if page.id == 'ionicons' %}active{% endif %}">
-        <a href="/docs/v2/ionicons/">Ionicons</a>
+        <a href="/docs/v2/resources/ionicons/">Ionicons</a>
       </li>
       <li class="{% if page.id == 'editors_and_ides' %}active{% endif %}">
         <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>

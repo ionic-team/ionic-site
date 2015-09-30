@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: resources
+layout: v2_fluid/docs_base
+category: resources
+id: editors_and_ides
 title: Ionic 2 Resources | Editors and IDEs
 header_title: Developer Tips - Helpful editors & IDEs
 header_sub_title: Ionic 2 Developer Preview

@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: resources
+layout: v2_fluid/docs_base
+category: resources
+id: resources-intro
 title: Ionic 2 Resources
 header_title: Ionic 2 Resources
 header_sub_title: Ionic 2 Developer Preview

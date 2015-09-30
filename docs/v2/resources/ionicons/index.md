@@ -1,5 +1,6 @@
 ---
-layout: v2/docs_base
+layout: v2_fluid/docs_base
+category: resources
 id: ionicons
 title: Ionic 2 | Ionicons
 header_title: Ionicons - Ionic 2
@@ -12,7 +13,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">undo</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-undo"></i>
   <code>ios-undo</code>
@@ -51,7 +52,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-github</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-github"></i>
   <code>social-github</code>
@@ -78,7 +79,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">code</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-code"></i>
   <code>ios-code</code>
@@ -112,7 +113,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropright</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropright"></i>
   <code>ios-arrow-dropright</code>
@@ -146,7 +147,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">american-football</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-american-football"></i>
   <code>ios-american-football</code>
@@ -185,7 +186,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">text</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-text"></i>
   <code>ios-text</code>
@@ -224,7 +225,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">laptop</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-laptop"></i>
   <code>ios-laptop</code>
@@ -258,7 +259,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">move</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-move"></i>
   <code>ios-move</code>
@@ -292,7 +293,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">help-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-help-circle"></i>
   <code>ios-help-circle</code>
@@ -331,7 +332,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-hackernews</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-hackernews"></i>
   <code>social-hackernews</code>
@@ -358,7 +359,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">transgender</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-transgender"></i>
   <code>ios-transgender</code>
@@ -392,7 +393,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">watch</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-watch"></i>
   <code>ios-watch</code>
@@ -426,7 +427,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-instagram</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-instagram"></i>
   <code>social-instagram</code>
@@ -453,7 +454,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">browsers</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-browsers"></i>
   <code>ios-browsers</code>
@@ -492,7 +493,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">color-filter</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-color-filter"></i>
   <code>ios-color-filter</code>
@@ -531,7 +532,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropdown-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropdown-circle"></i>
   <code>ios-arrow-dropdown-circle</code>
@@ -565,7 +566,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">log-out</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-log-out"></i>
   <code>ios-log-out</code>
@@ -599,7 +600,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropleft-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropleft-circle"></i>
   <code>ios-arrow-dropleft-circle</code>
@@ -633,7 +634,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">recording</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-recording"></i>
   <code>ios-recording</code>
@@ -672,7 +673,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">swap</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-swap"></i>
   <code>ios-swap</code>
@@ -706,7 +707,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">information-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-information-circle"></i>
   <code>ios-information-circle</code>
@@ -745,7 +746,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">help</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-help"></i>
   <code>ios-help</code>
@@ -779,7 +780,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">refresh-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-refresh-circle"></i>
   <code>ios-refresh-circle</code>
@@ -818,7 +819,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cut</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cut"></i>
   <code>ios-cut</code>
@@ -857,7 +858,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloud-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloud-circle"></i>
   <code>ios-cloud-circle</code>
@@ -896,7 +897,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">flask</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-flask"></i>
   <code>ios-flask</code>
@@ -935,7 +936,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">menu</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-menu"></i>
   <code>ios-menu</code>
@@ -974,7 +975,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">flash</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-flash"></i>
   <code>ios-flash</code>
@@ -1013,7 +1014,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">send</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-send"></i>
   <code>ios-send</code>
@@ -1052,7 +1053,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">desktop</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-desktop"></i>
   <code>ios-desktop</code>
@@ -1091,7 +1092,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-codepen</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-codepen"></i>
   <code>social-codepen</code>
@@ -1118,7 +1119,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">add</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-add"></i>
   <code>ios-add</code>
@@ -1152,7 +1153,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">mail-open</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-mail-open"></i>
   <code>ios-mail-open</code>
@@ -1191,7 +1192,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-round-down</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-round-down"></i>
   <code>ios-arrow-round-down</code>
@@ -1225,7 +1226,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">volume-down</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-volume-down"></i>
   <code>ios-volume-down</code>
@@ -1259,7 +1260,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">stopwatch</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-stopwatch"></i>
   <code>ios-stopwatch</code>
@@ -1298,7 +1299,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">exit</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-exit"></i>
   <code>ios-exit</code>
@@ -1337,7 +1338,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">folder</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-folder"></i>
   <code>ios-folder</code>
@@ -1376,7 +1377,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-round-up</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-round-up"></i>
   <code>ios-arrow-round-up</code>
@@ -1410,7 +1411,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropdown</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropdown"></i>
   <code>ios-arrow-dropdown</code>
@@ -1444,7 +1445,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-windows</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-windows"></i>
   <code>social-windows</code>
@@ -1471,7 +1472,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">magnet</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-magnet"></i>
   <code>ios-magnet</code>
@@ -1510,7 +1511,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-twitter</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-twitter"></i>
   <code>social-twitter</code>
@@ -1537,7 +1538,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cube</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cube"></i>
   <code>ios-cube</code>
@@ -1576,7 +1577,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">battery-dead</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-battery-dead"></i>
   <code>ios-battery-dead</code>
@@ -1610,7 +1611,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-skype</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-skype"></i>
   <code>social-skype</code>
@@ -1637,7 +1638,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">notifications-off</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-notifications-off"></i>
   <code>ios-notifications-off</code>
@@ -1676,7 +1677,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">rewind</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-rewind"></i>
   <code>ios-rewind</code>
@@ -1715,7 +1716,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">sunny</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-sunny"></i>
   <code>ios-sunny</code>
@@ -1754,7 +1755,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">contacts</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-contacts"></i>
   <code>ios-contacts</code>
@@ -1793,7 +1794,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">remove-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-remove-circle"></i>
   <code>ios-remove-circle</code>
@@ -1832,7 +1833,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">volume-up</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-volume-up"></i>
   <code>ios-volume-up</code>
@@ -1866,7 +1867,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-vimeo</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-vimeo"></i>
   <code>social-vimeo</code>
@@ -1893,7 +1894,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">easel</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-easel"></i>
   <code>ios-easel</code>
@@ -1932,7 +1933,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">appstore</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-appstore"></i>
   <code>ios-appstore</code>
@@ -1971,7 +1972,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">outlet</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-outlet"></i>
   <code>ios-outlet</code>
@@ -2010,7 +2011,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">compass</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-compass"></i>
   <code>ios-compass</code>
@@ -2049,7 +2050,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-tumblr</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-tumblr"></i>
   <code>social-tumblr</code>
@@ -2076,7 +2077,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloud-download</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloud-download"></i>
   <code>ios-cloud-download</code>
@@ -2115,7 +2116,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">trophy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-trophy"></i>
   <code>ios-trophy</code>
@@ -2154,7 +2155,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-xbox</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-xbox"></i>
   <code>social-xbox</code>
@@ -2181,7 +2182,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">musical-notes</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-musical-notes"></i>
   <code>ios-musical-notes</code>
@@ -2220,7 +2221,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">school</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-school"></i>
   <code>ios-school</code>
@@ -2259,7 +2260,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">document</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-document"></i>
   <code>ios-document</code>
@@ -2298,7 +2299,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">settings</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-settings"></i>
   <code>ios-settings</code>
@@ -2337,7 +2338,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-playstation</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-playstation"></i>
   <code>social-playstation</code>
@@ -2364,7 +2365,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">list</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-list"></i>
   <code>ios-list</code>
@@ -2398,7 +2399,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloudy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloudy"></i>
   <code>ios-cloudy</code>
@@ -2437,7 +2438,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-sass</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-sass"></i>
   <code>social-sass</code>
@@ -2464,7 +2465,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-pull-request</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-pull-request"></i>
   <code>ios-git-pull-request</code>
@@ -2498,7 +2499,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pricetags</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pricetags"></i>
   <code>ios-pricetags</code>
@@ -2537,7 +2538,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">list-box</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-list-box"></i>
   <code>ios-list-box</code>
@@ -2576,7 +2577,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">disc</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-disc"></i>
   <code>ios-disc</code>
@@ -2615,7 +2616,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">subway</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-subway"></i>
   <code>ios-subway</code>
@@ -2654,7 +2655,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-css3</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-css3"></i>
   <code>social-css3</code>
@@ -2681,7 +2682,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">radio</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-radio"></i>
   <code>ios-radio</code>
@@ -2720,7 +2721,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">ionitron</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-ionitron"></i>
   <code>ios-ionitron</code>
@@ -2759,7 +2760,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pizza</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pizza"></i>
   <code>ios-pizza</code>
@@ -2798,7 +2799,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">add-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-add-circle"></i>
   <code>ios-add-circle</code>
@@ -2837,7 +2838,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">refresh</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-refresh"></i>
   <code>ios-refresh</code>
@@ -2871,7 +2872,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bonfire</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bonfire"></i>
   <code>ios-bonfire</code>
@@ -2910,7 +2911,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">glasses</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-glasses"></i>
   <code>ios-glasses</code>
@@ -2949,7 +2950,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-apple</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-apple"></i>
   <code>social-apple</code>
@@ -2976,7 +2977,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">locate</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-locate"></i>
   <code>ios-locate</code>
@@ -3015,7 +3016,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-down</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-down"></i>
   <code>ios-arrow-down</code>
@@ -3049,7 +3050,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-html5</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-html5"></i>
   <code>social-html5</code>
@@ -3076,7 +3077,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bicycle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bicycle"></i>
   <code>ios-bicycle</code>
@@ -3110,7 +3111,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">keypad</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-keypad"></i>
   <code>ios-keypad</code>
@@ -3149,7 +3150,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">map</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-map"></i>
   <code>ios-map</code>
@@ -3188,7 +3189,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">volume-off</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-volume-off"></i>
   <code>ios-volume-off</code>
@@ -3222,7 +3223,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">closed-captioning</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-closed-captioning"></i>
   <code>ios-closed-captioning</code>
@@ -3261,7 +3262,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">battery-full</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-battery-full"></i>
   <code>ios-battery-full</code>
@@ -3295,7 +3296,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">mic-off</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-mic-off"></i>
   <code>ios-mic-off</code>
@@ -3334,7 +3335,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropright-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropright-circle"></i>
   <code>ios-arrow-dropright-circle</code>
@@ -3368,7 +3369,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bluetooth</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bluetooth"></i>
   <code>ios-bluetooth</code>
@@ -3402,7 +3403,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">videocam</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-videocam"></i>
   <code>ios-videocam</code>
@@ -3441,7 +3442,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">analytics</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-analytics"></i>
   <code>ios-analytics</code>
@@ -3480,7 +3481,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">create</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-create"></i>
   <code>ios-create</code>
@@ -3519,7 +3520,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">repeat</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-repeat"></i>
   <code>ios-repeat</code>
@@ -3553,7 +3554,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">paper-plane</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-paper-plane"></i>
   <code>ios-paper-plane</code>
@@ -3592,7 +3593,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-network</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-network"></i>
   <code>ios-git-network</code>
@@ -3626,7 +3627,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-forward</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-forward"></i>
   <code>ios-arrow-forward</code>
@@ -3660,7 +3661,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">remove</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-remove"></i>
   <code>ios-remove</code>
@@ -3694,7 +3695,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">download</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-download"></i>
   <code>ios-download</code>
@@ -3733,7 +3734,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">close</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-close"></i>
   <code>ios-close</code>
@@ -3767,7 +3768,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">calendar</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-calendar"></i>
   <code>ios-calendar</code>
@@ -3806,7 +3807,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-tux</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-tux"></i>
   <code>social-tux</code>
@@ -3833,7 +3834,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">hammer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-hammer"></i>
   <code>ios-hammer</code>
@@ -3872,7 +3873,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-markdown</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-markdown"></i>
   <code>social-markdown</code>
@@ -3899,7 +3900,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">ribbon</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-ribbon"></i>
   <code>ios-ribbon</code>
@@ -3938,7 +3939,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-android</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-android"></i>
   <code>social-android</code>
@@ -3965,7 +3966,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">headset</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-headset"></i>
   <code>ios-headset</code>
@@ -4004,7 +4005,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">flower</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-flower"></i>
   <code>ios-flower</code>
@@ -4043,7 +4044,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">leaf</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-leaf"></i>
   <code>ios-leaf</code>
@@ -4082,7 +4083,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-google</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-google"></i>
   <code>social-google</code>
@@ -4109,7 +4110,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">fastforward</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-fastforward"></i>
   <code>ios-fastforward</code>
@@ -4148,7 +4149,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">clock</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-clock"></i>
   <code>ios-clock</code>
@@ -4187,7 +4188,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">nuclear</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-nuclear"></i>
   <code>ios-nuclear</code>
@@ -4226,7 +4227,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">redo</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-redo"></i>
   <code>ios-redo</code>
@@ -4265,7 +4266,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pulse</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pulse"></i>
   <code>ios-pulse</code>
@@ -4304,7 +4305,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">moon</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-moon"></i>
   <code>ios-moon</code>
@@ -4343,7 +4344,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">reverse-camera</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-reverse-camera"></i>
   <code>ios-reverse-camera</code>
@@ -4382,7 +4383,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">clipboard</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-clipboard"></i>
   <code>ios-clipboard</code>
@@ -4421,7 +4422,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">backspace</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-backspace"></i>
   <code>ios-backspace</code>
@@ -4460,7 +4461,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloud</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloud"></i>
   <code>ios-cloud</code>
@@ -4499,7 +4500,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">print</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-print"></i>
   <code>ios-print</code>
@@ -4538,7 +4539,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-usd</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-usd"></i>
   <code>social-usd</code>
@@ -4565,7 +4566,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-nodejs</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-nodejs"></i>
   <code>social-nodejs</code>
@@ -4592,7 +4593,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">contrast</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-contrast"></i>
   <code>ios-contrast</code>
@@ -4626,7 +4627,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">return-left</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-return-left"></i>
   <code>ios-return-left</code>
@@ -4660,7 +4661,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">body</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-body"></i>
   <code>ios-body</code>
@@ -4699,7 +4700,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">umbrella</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-umbrella"></i>
   <code>ios-umbrella</code>
@@ -4738,7 +4739,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">code-download</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-code-download"></i>
   <code>ios-code-download</code>
@@ -4772,7 +4773,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">power</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-power"></i>
   <code>ios-power</code>
@@ -4811,7 +4812,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bowtie</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bowtie"></i>
   <code>ios-bowtie</code>
@@ -4850,7 +4851,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-compare</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-compare"></i>
   <code>ios-git-compare</code>
@@ -4884,7 +4885,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">barcode</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-barcode"></i>
   <code>ios-barcode</code>
@@ -4923,7 +4924,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cart</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cart"></i>
   <code>ios-cart</code>
@@ -4962,7 +4963,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">thunderstorm</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-thunderstorm"></i>
   <code>ios-thunderstorm</code>
@@ -5001,7 +5002,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">paper</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-paper"></i>
   <code>ios-paper</code>
@@ -5040,7 +5041,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">medkit</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-medkit"></i>
   <code>ios-medkit</code>
@@ -5079,7 +5080,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pause</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pause"></i>
   <code>ios-pause</code>
@@ -5118,7 +5119,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">baseball</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-baseball"></i>
   <code>ios-baseball</code>
@@ -5157,7 +5158,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-freebsd-devil</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-freebsd-devil"></i>
   <code>social-freebsd-devil</code>
@@ -5184,7 +5185,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">key</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-key"></i>
   <code>ios-key</code>
@@ -5223,7 +5224,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">eye-off</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-eye-off"></i>
   <code>ios-eye-off</code>
@@ -5262,7 +5263,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-pinterest</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-pinterest"></i>
   <code>social-pinterest</code>
@@ -5289,7 +5290,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">hand</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-hand"></i>
   <code>ios-hand</code>
@@ -5328,7 +5329,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-euro</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-euro"></i>
   <code>social-euro</code>
@@ -5355,7 +5356,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">card</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-card"></i>
   <code>ios-card</code>
@@ -5394,7 +5395,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">beaker</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-beaker"></i>
   <code>ios-beaker</code>
@@ -5433,7 +5434,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">water</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-water"></i>
   <code>ios-water</code>
@@ -5472,7 +5473,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">search</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-search"></i>
   <code>ios-search</code>
@@ -5511,7 +5512,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-merge</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-merge"></i>
   <code>ios-git-merge</code>
@@ -5545,7 +5546,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">restaurant</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-restaurant"></i>
   <code>ios-restaurant</code>
@@ -5584,7 +5585,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">help-buoy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-help-buoy"></i>
   <code>ios-help-buoy</code>
@@ -5623,7 +5624,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">close-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-close-circle"></i>
   <code>ios-close-circle</code>
@@ -5662,7 +5663,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">contract</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-contract"></i>
   <code>ios-contract</code>
@@ -5696,7 +5697,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">checkbox</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-checkbox"></i>
   <code>ios-checkbox</code>
@@ -5735,7 +5736,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">trending-up</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-trending-up"></i>
   <code>ios-trending-up</code>
@@ -5769,7 +5770,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-angular</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-angular"></i>
   <code>social-angular</code>
@@ -5796,7 +5797,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">person</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-person"></i>
   <code>ios-person</code>
@@ -5835,7 +5836,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">tennisball</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-tennisball"></i>
   <code>ios-tennisball</code>
@@ -5874,7 +5875,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-yahoo</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-yahoo"></i>
   <code>social-yahoo</code>
@@ -5901,7 +5902,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cog</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cog"></i>
   <code>ios-cog</code>
@@ -5940,7 +5941,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">rose</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-rose"></i>
   <code>ios-rose</code>
@@ -5979,7 +5980,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">wifi</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-wifi"></i>
   <code>ios-wifi</code>
@@ -6018,7 +6019,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-facebook</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-facebook"></i>
   <code>social-facebook</code>
@@ -6045,7 +6046,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">ionic</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-ionic"></i>
   <code>ios-ionic</code>
@@ -6084,7 +6085,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">checkmark</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-checkmark"></i>
   <code>ios-checkmark</code>
@@ -6118,7 +6119,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-linkedin</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-linkedin"></i>
   <code>social-linkedin</code>
@@ -6145,7 +6146,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">phone-portrait</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-phone-portrait"></i>
   <code>ios-phone-portrait</code>
@@ -6179,7 +6180,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">shuffle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-shuffle"></i>
   <code>ios-shuffle</code>
@@ -6213,7 +6214,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">mail</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-mail"></i>
   <code>ios-mail</code>
@@ -6252,7 +6253,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">image</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-image"></i>
   <code>ios-image</code>
@@ -6291,7 +6292,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-round-forward</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-round-forward"></i>
   <code>ios-arrow-round-forward</code>
@@ -6325,7 +6326,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">thumbs-down</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-thumbs-down"></i>
   <code>ios-thumbs-down</code>
@@ -6364,7 +6365,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">volume-mute</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-volume-mute"></i>
   <code>ios-volume-mute</code>
@@ -6398,7 +6399,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">sync</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-sync"></i>
   <code>ios-sync</code>
@@ -6432,7 +6433,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">no-smoking</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-no-smoking"></i>
   <code>ios-no-smoking</code>
@@ -6471,7 +6472,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-reddit</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-reddit"></i>
   <code>social-reddit</code>
@@ -6498,7 +6499,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">brush</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-brush"></i>
   <code>ios-brush</code>
@@ -6537,7 +6538,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">female</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-female"></i>
   <code>ios-female</code>
@@ -6571,7 +6572,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">tablet-landscape</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-tablet-landscape"></i>
   <code>ios-tablet-landscape</code>
@@ -6605,7 +6606,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">ice-cream</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-ice-cream"></i>
   <code>ios-ice-cream</code>
@@ -6644,7 +6645,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bookmarks</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bookmarks"></i>
   <code>ios-bookmarks</code>
@@ -6683,7 +6684,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">sad</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-sad"></i>
   <code>ios-sad</code>
@@ -6722,7 +6723,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">open</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-open"></i>
   <code>ios-open</code>
@@ -6761,7 +6762,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">train</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-train"></i>
   <code>ios-train</code>
@@ -6800,7 +6801,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">boat</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-boat"></i>
   <code>ios-boat</code>
@@ -6839,7 +6840,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">return-right</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-return-right"></i>
   <code>ios-return-right</code>
@@ -6873,7 +6874,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">unlock</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-unlock"></i>
   <code>ios-unlock</code>
@@ -6912,7 +6913,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">thumbs-up</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-thumbs-up"></i>
   <code>ios-thumbs-up</code>
@@ -6951,7 +6952,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">basketball</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-basketball"></i>
   <code>ios-basketball</code>
@@ -6990,7 +6991,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">eye</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-eye"></i>
   <code>ios-eye</code>
@@ -7029,7 +7030,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">radio-button-off</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-radio-button-off"></i>
   <code>ios-radio-button-off</code>
@@ -7063,7 +7064,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">jet</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-jet"></i>
   <code>ios-jet</code>
@@ -7102,7 +7103,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-whatsapp</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-whatsapp"></i>
   <code>social-whatsapp</code>
@@ -7129,7 +7130,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bookmark</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bookmark"></i>
   <code>ios-bookmark</code>
@@ -7168,7 +7169,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropup-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropup-circle"></i>
   <code>ios-arrow-dropup-circle</code>
@@ -7202,7 +7203,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">people</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-people"></i>
   <code>ios-people</code>
@@ -7241,7 +7242,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">apps</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-apps"></i>
   <code>ios-apps</code>
@@ -7280,7 +7281,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-chrome</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-chrome"></i>
   <code>social-chrome</code>
@@ -7307,7 +7308,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">construct</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-construct"></i>
   <code>ios-construct</code>
@@ -7346,7 +7347,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">attach</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-attach"></i>
   <code>ios-attach</code>
@@ -7380,7 +7381,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">beer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-beer"></i>
   <code>ios-beer</code>
@@ -7419,7 +7420,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">camera</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-camera"></i>
   <code>ios-camera</code>
@@ -7458,7 +7459,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">call</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-call"></i>
   <code>ios-call</code>
@@ -7497,7 +7498,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">navigate</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-navigate"></i>
   <code>ios-navigate</code>
@@ -7536,7 +7537,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">aperture</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-aperture"></i>
   <code>ios-aperture</code>
@@ -7575,7 +7576,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-round-back</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-round-back"></i>
   <code>ios-arrow-round-back</code>
@@ -7609,7 +7610,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">megaphone</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-megaphone"></i>
   <code>ios-megaphone</code>
@@ -7648,7 +7649,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">globe</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-globe"></i>
   <code>ios-globe</code>
@@ -7687,7 +7688,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">reorder</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-reorder"></i>
   <code>ios-reorder</code>
@@ -7721,7 +7722,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">happy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-happy"></i>
   <code>ios-happy</code>
@@ -7760,7 +7761,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">nutrition</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-nutrition"></i>
   <code>ios-nutrition</code>
@@ -7799,7 +7800,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">funnel</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-funnel"></i>
   <code>ios-funnel</code>
@@ -7838,7 +7839,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">partly-sunny</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-partly-sunny"></i>
   <code>ios-partly-sunny</code>
@@ -7877,7 +7878,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-foursquare</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-foursquare"></i>
   <code>social-foursquare</code>
@@ -7904,7 +7905,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bus</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bus"></i>
   <code>ios-bus</code>
@@ -7943,7 +7944,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-dribbble</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-dribbble"></i>
   <code>social-dribbble</code>
@@ -7970,7 +7971,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">color-wand</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-color-wand"></i>
   <code>ios-color-wand</code>
@@ -8009,7 +8010,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-snapchat</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-snapchat"></i>
   <code>social-snapchat</code>
@@ -8036,7 +8037,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">notifications</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-notifications"></i>
   <code>ios-notifications</code>
@@ -8075,7 +8076,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">flag</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-flag"></i>
   <code>ios-flag</code>
@@ -8114,7 +8115,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-yen</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-yen"></i>
   <code>social-yen</code>
@@ -8141,7 +8142,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">link</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-link"></i>
   <code>ios-link</code>
@@ -8180,7 +8181,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">crop</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-crop"></i>
   <code>ios-crop</code>
@@ -8219,7 +8220,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-branch</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-branch"></i>
   <code>ios-git-branch</code>
@@ -8253,7 +8254,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-youtube</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-youtube"></i>
   <code>social-youtube</code>
@@ -8280,7 +8281,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bulb</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bulb"></i>
   <code>ios-bulb</code>
@@ -8319,7 +8320,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">albums</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-albums"></i>
   <code>ios-albums</code>
@@ -8358,7 +8359,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">copy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-copy"></i>
   <code>ios-copy</code>
@@ -8397,7 +8398,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">bug</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-bug"></i>
   <code>ios-bug</code>
@@ -8436,7 +8437,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">resize</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-resize"></i>
   <code>ios-resize</code>
@@ -8470,7 +8471,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">battery-charging</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-battery-charging"></i>
   <code>ios-battery-charging</code>
@@ -8504,7 +8505,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">play</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-play"></i>
   <code>ios-play</code>
@@ -8543,7 +8544,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">woman</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-woman"></i>
   <code>ios-woman</code>
@@ -8582,7 +8583,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">thermometer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-thermometer"></i>
   <code>ios-thermometer</code>
@@ -8621,7 +8622,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">skip-backward</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-skip-backward"></i>
   <code>ios-skip-backward</code>
@@ -8660,7 +8661,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pricetag</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pricetag"></i>
   <code>ios-pricetag</code>
@@ -8699,7 +8700,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">car</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-car"></i>
   <code>ios-car</code>
@@ -8738,7 +8739,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">radio-button-on</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-radio-button-on"></i>
   <code>ios-radio-button-on</code>
@@ -8772,7 +8773,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cash</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cash"></i>
   <code>ios-cash</code>
@@ -8811,7 +8812,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">skip-forward</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-skip-forward"></i>
   <code>ios-skip-forward</code>
@@ -8850,7 +8851,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">planet</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-planet"></i>
   <code>ios-planet</code>
@@ -8889,7 +8890,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">warning</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-warning"></i>
   <code>ios-warning</code>
@@ -8928,7 +8929,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">flame</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-flame"></i>
   <code>ios-flame</code>
@@ -8967,7 +8968,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-dropbox</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-dropbox"></i>
   <code>social-dropbox</code>
@@ -8994,7 +8995,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloud-done</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloud-done"></i>
   <code>ios-cloud-done</code>
@@ -9033,7 +9034,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-wordpress</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-wordpress"></i>
   <code>social-wordpress</code>
@@ -9060,7 +9061,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">chatbubbles</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-chatbubbles"></i>
   <code>ios-chatbubbles</code>
@@ -9099,7 +9100,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">tablet-portrait</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-tablet-portrait"></i>
   <code>ios-tablet-portrait</code>
@@ -9133,7 +9134,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">male</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-male"></i>
   <code>ios-male</code>
@@ -9167,7 +9168,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">medical</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-medical"></i>
   <code>ios-medical</code>
@@ -9206,7 +9207,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">finger-print</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-finger-print"></i>
   <code>ios-finger-print</code>
@@ -9240,7 +9241,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">heart</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-heart"></i>
   <code>ios-heart</code>
@@ -9279,7 +9280,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-steam</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-steam"></i>
   <code>social-steam</code>
@@ -9306,7 +9307,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-up</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-up"></i>
   <code>ios-arrow-up</code>
@@ -9340,7 +9341,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pin</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pin"></i>
   <code>ios-pin</code>
@@ -9379,7 +9380,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">chatboxes</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-chatboxes"></i>
   <code>ios-chatboxes</code>
@@ -9418,7 +9419,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">lock</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-lock"></i>
   <code>ios-lock</code>
@@ -9457,7 +9458,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">calculator</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-calculator"></i>
   <code>ios-calculator</code>
@@ -9496,7 +9497,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">star-half</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-star-half"></i>
   <code>ios-star-half</code>
@@ -9530,7 +9531,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">share</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-share"></i>
   <code>ios-share</code>
@@ -9569,7 +9570,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pie</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pie"></i>
   <code>ios-pie</code>
@@ -9608,7 +9609,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">phone-landscape</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-phone-landscape"></i>
   <code>ios-phone-landscape</code>
@@ -9642,7 +9643,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">images</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-images"></i>
   <code>ios-images</code>
@@ -9681,7 +9682,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-octocat</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-octocat"></i>
   <code>social-octocat</code>
@@ -9708,7 +9709,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">at</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-at"></i>
   <code>ios-at</code>
@@ -9747,7 +9748,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">home</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-home"></i>
   <code>ios-home</code>
@@ -9786,7 +9787,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropup</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropup"></i>
   <code>ios-arrow-dropup</code>
@@ -9820,7 +9821,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-googleplus</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-googleplus"></i>
   <code>social-googleplus</code>
@@ -9847,7 +9848,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cafe</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cafe"></i>
   <code>ios-cafe</code>
@@ -9886,7 +9887,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">archive</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-archive"></i>
   <code>ios-archive</code>
@@ -9925,7 +9926,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">film</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-film"></i>
   <code>ios-film</code>
@@ -9964,7 +9965,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">git-commit</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-git-commit"></i>
   <code>ios-git-commit</code>
@@ -9998,7 +9999,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">information</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-information"></i>
   <code>ios-information</code>
@@ -10032,7 +10033,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">microphone</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-microphone"></i>
   <code>ios-microphone</code>
@@ -10071,7 +10072,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">shirt</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-shirt"></i>
   <code>ios-shirt</code>
@@ -10110,7 +10111,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">paw</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-paw"></i>
   <code>ios-paw</code>
@@ -10149,7 +10150,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-python</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-python"></i>
   <code>social-python</code>
@@ -10176,7 +10177,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">mic</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-mic"></i>
   <code>ios-mic</code>
@@ -10215,7 +10216,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">game-controller-a</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-game-controller-a"></i>
   <code>ios-game-controller-a</code>
@@ -10254,7 +10255,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">snow</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-snow"></i>
   <code>ios-snow</code>
@@ -10288,7 +10289,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">game-controller-b</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-game-controller-b"></i>
   <code>ios-game-controller-b</code>
@@ -10327,7 +10328,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">walk</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-walk"></i>
   <code>ios-walk</code>
@@ -10361,7 +10362,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">book</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-book"></i>
   <code>ios-book</code>
@@ -10400,7 +10401,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">square</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-square"></i>
   <code>ios-square</code>
@@ -10439,7 +10440,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">build</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-build"></i>
   <code>ios-build</code>
@@ -10478,7 +10479,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-back</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-back"></i>
   <code>ios-arrow-back</code>
@@ -10512,7 +10513,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-rss</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-rss"></i>
   <code>social-rss</code>
@@ -10539,7 +10540,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">more</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-more"></i>
   <code>ios-more</code>
@@ -10578,7 +10579,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloud-upload</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloud-upload"></i>
   <code>ios-cloud-upload</code>
@@ -10617,7 +10618,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">pint</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-pint"></i>
   <code>ios-pint</code>
@@ -10656,7 +10657,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">cloudy-night</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-cloudy-night"></i>
   <code>ios-cloudy-night</code>
@@ -10695,7 +10696,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">arrow-dropleft</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-arrow-dropleft"></i>
   <code>ios-arrow-dropleft</code>
@@ -10729,7 +10730,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">person-add</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-person-add"></i>
   <code>ios-person-add</code>
@@ -10768,7 +10769,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">star</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-star"></i>
   <code>ios-star</code>
@@ -10807,7 +10808,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">briefcase</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-briefcase"></i>
   <code>ios-briefcase</code>
@@ -10846,7 +10847,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">musical-note</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-musical-note"></i>
   <code>ios-musical-note</code>
@@ -10885,7 +10886,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">quote</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-quote"></i>
   <code>ios-quote</code>
@@ -10924,7 +10925,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">qr-scanner</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-qr-scanner"></i>
   <code>ios-qr-scanner</code>
@@ -10958,7 +10959,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">football</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-football"></i>
   <code>ios-football</code>
@@ -10997,7 +10998,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">rainy</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-rainy"></i>
   <code>ios-rainy</code>
@@ -11036,7 +11037,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">done-all</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-done-all"></i>
   <code>ios-done-all</code>
@@ -11070,7 +11071,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">alert</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-alert"></i>
   <code>ios-alert</code>
@@ -11109,7 +11110,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">podium</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-podium"></i>
   <code>ios-podium</code>
@@ -11148,7 +11149,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">plane</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-plane"></i>
   <code>ios-plane</code>
@@ -11187,7 +11188,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">timer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-timer"></i>
   <code>ios-timer</code>
@@ -11226,7 +11227,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">infinite</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-infinite"></i>
   <code>ios-infinite</code>
@@ -11265,7 +11266,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">stats</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-stats"></i>
   <code>ios-stats</code>
@@ -11304,7 +11305,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-bitcoin</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-bitcoin"></i>
   <code>social-bitcoin</code>
@@ -11331,7 +11332,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">medal</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-medal"></i>
   <code>ios-medal</code>
@@ -11370,7 +11371,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-javascript</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-javascript"></i>
   <code>social-javascript</code>
@@ -11397,7 +11398,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">expand</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-expand"></i>
   <code>ios-expand</code>
@@ -11431,7 +11432,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">man</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-man"></i>
   <code>ios-man</code>
@@ -11470,7 +11471,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">checkmark-circle</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-checkmark-circle"></i>
   <code>ios-checkmark-circle</code>
@@ -11509,7 +11510,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">code-working</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-code-working"></i>
   <code>ios-code-working</code>
@@ -11543,7 +11544,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">photos</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-photos"></i>
   <code>ios-photos</code>
@@ -11582,7 +11583,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">trending-down</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-trending-down"></i>
   <code>ios-trending-down</code>
@@ -11616,7 +11617,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">alarm</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-alarm"></i>
   <code>ios-alarm</code>
@@ -11655,7 +11656,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">color-fill</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-color-fill"></i>
   <code>ios-color-fill</code>
@@ -11694,7 +11695,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">share-alt</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-share-alt"></i>
   <code>ios-share-alt</code>
@@ -11733,7 +11734,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">color-palette</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-color-palette"></i>
   <code>ios-color-palette</code>
@@ -11772,7 +11773,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">options</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-options"></i>
   <code>ios-options</code>
@@ -11811,7 +11812,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">folder-open</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-folder-open"></i>
   <code>ios-folder-open</code>
@@ -11850,7 +11851,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">switch</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-switch"></i>
   <code>ios-switch</code>
@@ -11889,7 +11890,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">contact</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-contact"></i>
   <code>ios-contact</code>
@@ -11928,7 +11929,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">log-in</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-log-in"></i>
   <code>ios-log-in</code>
@@ -11962,7 +11963,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-twitch</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-twitch"></i>
   <code>social-twitch</code>
@@ -11989,7 +11990,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">trash</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-trash"></i>
   <code>ios-trash</code>
@@ -12028,7 +12029,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">time</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-time"></i>
   <code>ios-time</code>
@@ -12067,7 +12068,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">basket</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-basket"></i>
   <code>ios-basket</code>
@@ -12106,7 +12107,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">grid</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-grid"></i>
   <code>ios-grid</code>
@@ -12145,7 +12146,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-designernews</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-designernews"></i>
   <code>social-designernews</code>
@@ -12172,7 +12173,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">speedometer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-speedometer"></i>
   <code>ios-speedometer</code>
@@ -12211,7 +12212,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">egg</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-egg"></i>
   <code>ios-egg</code>
@@ -12250,7 +12251,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">filing</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-filing"></i>
   <code>ios-filing</code>
@@ -12289,7 +12290,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">social-buffer</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-social-buffer"></i>
   <code>social-buffer</code>
@@ -12316,7 +12317,7 @@ header_sub_title: Ionic 2 Developer Preview
   <h2 class="title">wine</h2>
 
   <ul class="modal-icons">
-    
+
 <li>
   <i class="ion-ios-wine"></i>
   <code>ios-wine</code>

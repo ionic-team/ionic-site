@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: resources
+layout: v2_fluid/docs_base
+category: resources
+id: what-is
 title: Ionic 2 Resources | Developer Glossary
 header_title: Developer Glossary - Ionic 2 Resources
 header_sub_title: Learn about the Ionic community's favorite tools

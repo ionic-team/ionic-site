@@ -1,6 +1,7 @@
 ---
-layout: v2/docs_base
-id: theming
+layout: v2_fluid/docs_base
+category: theming
+id: theming-your-app
 title: Theming your Ionic app
 header_title: Theming your App
 header_sub_title: Customizing your app to fit your brand

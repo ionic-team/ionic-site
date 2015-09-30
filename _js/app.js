@@ -14,7 +14,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
-    var $iframe = document.getElementsByTagName('#demo-device iframe');
+    var $iframe = $('#demo-device iframe');
 
 
 
@@ -29,7 +29,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $node.attr('id', '');
     }
     document.location.hash = $hash;
-    // TODO: set demo src
     $iframe[0].contentWindow.postMessage($hash, '*');
 
     if ($node.length) {

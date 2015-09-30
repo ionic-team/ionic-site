@@ -120,6 +120,7 @@ body {
     a:hover {
       color: $blue;
       text-decoration: none;
+      background:none;
     }
     ul .active > a:after,
     a:focus:after {
@@ -132,10 +133,10 @@ body {
       a {
         color: $blackish;
         text-transform: none;
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 13px;
+        font-weight: 400;
         letter-spacing: 0;
-        height: 40px;
+        height: 34px;
         transition: height cubic-bezier(0.36,0.66,0.04,1) .4s,
                     padding cubic-bezier(0.36,0.66,0.04,1) .4s,
                     color .2s;
@@ -162,13 +163,18 @@ body {
     }
     h1,h2,h3,h4,h5{
       color: $blacker;
-      line-height: 1.5em;
+      line-height: 1.4em;
       margin: 2em 0 1em;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     p {
       color: $blackish;
-      line-height: 2em;
+      line-height: 1.9em;
       margin: 2em 0 1em;
+      font-weight: 400;
+      font-size: 14px;
     }
   }
 

@@ -2,6 +2,10 @@ angular.module('ionicApp', ['ionic'])
 
 .controller('AppCtrl', function ($scope, $ionicActionSheet) {
 
+  $scope.component = {
+    title: 'Action Sheet',
+  }
+
   $scope.showActionsheet = function () {
 
     $ionicActionSheet.show({

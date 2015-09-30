@@ -226,10 +226,12 @@
       
       <aside class="platform-preview">
         <div class="platform-toggle">
-          <a class="active" ng-click="setPlatform('ios')">iOS</a>
-          <a ng-click="setPlatform('android')">Android</a>
+          <a ng-class="{active: iosActive}"
+             ng-click="setPlatform('ios')">iOS</a>
+          <a ng-class="{active: androidActive}"
+             ng-click="setPlatform('android')">Android</a>
         </div>
-        <div id="demo-device" class="ios">
+        <div id="demo-device" ng-class="previewPlatform">
           <iframe src="demo" frameborder="0"></iframe>
         </div>
       </aside>

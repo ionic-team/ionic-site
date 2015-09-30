@@ -98,12 +98,14 @@ body {
     a{
       color:$grey;
       text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 500;
       letter-spacing: 2px;
+      text-decoration: none;
       display: block;
       padding: 10px 0;
       position:relative;
+      cursor: pointer;
       &:after{
         display:block;
         position: absolute;
@@ -186,34 +188,52 @@ body {
 .platform-preview {
   position: fixed;
   right:0;
-  padding: 30px 20px;
   text-align: center;
-  .platform-toggle a {
-    display: inline-block;
-    padding: 7px 15px 5px;
-    border-radius: 5px;
-    color: $grey;
-    font-size: 14px;
-    font-weight: 500;
-    -webkit-font-smoothing: antialiased;
-    transition: .2s color, .2s background-color;
-    &.active {
-      background-color: $blue;
-      color: white;
-    }
-    &:hover {
-      color: $blue;
-      text-decoration: none;
+  .platform-toggle {
+    padding: 30px 20px;
+    a {
+      display: inline-block;
+      padding: 7px 15px 5px;
+      border-radius: 5px;
+      color: $grey;
+      font-size: 14px;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      transition: .2s color, .2s background-color;
+      &.active,
+      &.active:hover {
+        background-color: $blue;
+        color: white;
+      }
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
     }
   }
 }
 #demo-device {
-  &.ios {
-    background:uppercase;
-    width:391px;
-    height:764px;
-    background: center top no-repeat url(/img/device-preview-ios.png);
-    background-size: 391px;
-    margin: 25px auto 0;
+  &.ios,
+  &.android {
+    width:$platform-preview-width;
+    height:800px;
+    background: center top no-repeat url(/img/device-preview-ios.jpg);
+    background-size: $platform-preview-width;
+    margin: 0 auto;
+    iframe{
+      margin-top: 85px;
+      width: 320px;
+      height: 568px;
+    }
   }
+  &.android{
+    background-image: url(/img/device-preview-android.jpg);
+    iframe{
+      margin-top: 64px;
+      width: 360px;
+      height: 590px;
+    }
+  }
+
+
 }

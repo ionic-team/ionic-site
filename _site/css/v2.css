@@ -3850,9 +3850,9 @@ body {
 .docs-container > main {
   margin-left: 230px; }
 .docs-container > aside {
-  width: 434px; }
+  width: 467px; }
   .docs-container > aside + main {
-    margin-right: 434px; }
+    margin-right: 467px; }
 
 .navbar-default {
   background: linear-gradient(to right, #3071da, #4888f1);
@@ -3897,7 +3897,7 @@ body {
 
 .side-nav {
   position: fixed;
-  background: #f6f8fa;
+  background: #f9fafb;
   overflow-y: scroll;
   top: 80px;
   bottom: 0; }
@@ -3917,12 +3917,14 @@ body {
     .side-nav ul a {
       color: #9da5b3;
       text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 500;
       letter-spacing: 2px;
+      text-decoration: none;
       display: block;
       padding: 10px 0;
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
       .side-nav ul a:after {
         display: block;
         position: absolute;
@@ -3988,28 +3990,38 @@ body {
 .platform-preview {
   position: fixed;
   right: 0;
-  padding: 30px 20px;
   text-align: center; }
-  .platform-preview .platform-toggle a {
-    display: inline-block;
-    padding: 7px 15px 5px;
-    border-radius: 5px;
-    color: #9da5b3;
-    font-size: 14px;
-    font-weight: 500;
-    -webkit-font-smoothing: antialiased;
-    transition: 0.2s color, 0.2s background-color; }
-    .platform-preview .platform-toggle a.active {
-      background-color: #4f8ff7;
-      color: white; }
-    .platform-preview .platform-toggle a:hover {
-      color: #4f8ff7;
-      text-decoration: none; }
+  .platform-preview .platform-toggle {
+    padding: 30px 20px; }
+    .platform-preview .platform-toggle a {
+      display: inline-block;
+      padding: 7px 15px 5px;
+      border-radius: 5px;
+      color: #9da5b3;
+      font-size: 14px;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      transition: 0.2s color, 0.2s background-color; }
+      .platform-preview .platform-toggle a.active, .platform-preview .platform-toggle a.active:hover {
+        background-color: #4f8ff7;
+        color: white; }
+      .platform-preview .platform-toggle a:hover {
+        color: #4f8ff7;
+        text-decoration: none; }
 
-#demo-device.ios {
-  background: uppercase;
-  width: 391px;
-  height: 764px;
-  background: center top no-repeat url(/img/device-preview-ios.png);
-  background-size: 391px;
-  margin: 25px auto 0; }
+#demo-device.ios, #demo-device.android {
+  width: 467px;
+  height: 800px;
+  background: center top no-repeat url(/img/device-preview-ios.jpg);
+  background-size: 467px;
+  margin: 0 auto; }
+  #demo-device.ios iframe, #demo-device.android iframe {
+    margin-top: 85px;
+    width: 320px;
+    height: 568px; }
+#demo-device.android {
+  background-image: url(/img/device-preview-android.jpg); }
+  #demo-device.android iframe {
+    margin-top: 64px;
+    width: 360px;
+    height: 590px; }

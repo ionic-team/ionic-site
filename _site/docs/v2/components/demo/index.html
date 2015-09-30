@@ -18,16 +18,52 @@
 <body ng-controller="AppCtrl">
 
   <ion-header-bar class="bar-positive">
-    <h1 class="title">Action Sheet</h1>
+    <h1 class="title" ng-bind="component.title"></h1>
   </ion-header-bar>
 
   <ion-content class="has-header padding components-demo">
 
 
-    <section id="action-sheet">
+    <section id="action-sheet" ng-show=" component.title === 'Action Sheet' ">
       <button class="button" ng-click="showActionsheet()">
         Show Actionsheet
       </button>
+    </section>
+
+    <section id="animation" ng-show=" component.title === 'Animations' ">
+     TODO
+    </section>
+
+    <section id="buttons" ng-show=" component.title === 'Buttons' ">
+     TODO
+    </section>
+ 
+     <section id="cards" ng-show=" component.title === 'Cards' ">
+     TODO
+    </section>
+     
+      <section id="icons" ng-show=" component.title === 'Icons' ">
+     TODO
+    </section>
+ 
+       <section id="lists" ng-show=" component.title === 'Lists' ">
+     TODO
+    </section>
+      <section id="menus" ng-show=" component.title === 'Menus' ">
+     TODO
+    </section>
+      <section id="modals" ng-show=" component.title === 'Modals' ">
+     TODO
+    </section>
+      <section id="navigation" ng-show=" component.title === 'Navigation' ">
+     TODO
+    </section>
+      <section id="slides" ng-show=" component.title === 'Slides' ">
+     TODO
+    </section>
+
+      <section id="tabs" ng-show=" component.title === 'Tabs' ">
+     TODO
     </section>
 
   </ion-content>

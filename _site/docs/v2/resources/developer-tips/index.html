@@ -10,7 +10,8 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
@@ -19,7 +20,10 @@
     <title>Ionic 2 Resources | Developer Tips - Ionic 2 Developer Preview -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-developer-tips" class="v2 docs page-developer-tips">
+  <body id="docs-page-developer-tips"
+        class="v2 docs page-developer-tips"
+        data-spy="scroll"
+        data-target="#components-index">
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,7 +92,7 @@
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul ng-controller="DocsNavCtrl">
+<ul ng-controller="DocsNavCtrl" class="nav">
 
   <!-- ### Getting Started ### -->
   <li class="">
@@ -117,8 +121,22 @@
   </li>
 
   <!-- ### Components ### -->
-  <li class="">
+  <li id="components-index"
+      class="">
     <a href="/docs/v2/components">Components</a>
+    <ul class="nav">
+      <li><a href="#action-sheets">Action Sheets</a></li>
+      <li><a href="#animations">Animations</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#lists">Lists</a></li>
+      <li><a href="#menus">Menus</a></li>
+      <li><a href="#modals">Modals</a></li>
+      <li><a href="#navigation">Navigation</a></li>
+      <li><a href="#slides">Slides</a></li>
+      <li><a href="#tabs">Tabs</a></li>
+    </ul>
   </li>
 
   <!-- ### Platform ### -->

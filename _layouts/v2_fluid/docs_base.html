@@ -6,7 +6,10 @@
     <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-{{page.id}}" class="v2 docs page-{{page.id}}">
+  <body id="docs-page-{{page.id}}"
+        class="v2 docs page-{{page.id}}"
+        data-spy="scroll"
+        data-target="#components-index">
     {% include v2_fluid/io_header.html %}
     <div class="docs-container"
          ng-app="IonicDocs"

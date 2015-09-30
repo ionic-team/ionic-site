@@ -20,7 +20,7 @@ angular_controller: ComponentsCtrl
 TODO
 
 
-# <a name="action-sheets" href="#action-sheets">Action Sheets</a>
+<h2 id="action-sheets">Action Sheets</h2>
 
 Action Sheets display a modal set of options to confirm or cancel an action.
 
@@ -53,7 +53,7 @@ ActionSheet.open({
 ```
 
 
-# <a name="animations" href="#animations">Animations</a>
+<h2 id="animations">Animations</h2>
 
 Ionic comes with a powerful Animation system based on the Web Animation API.
 
@@ -89,7 +89,7 @@ export class MyComponent {
 ```
 
 
-# <a name="buttons" href="#buttons">Buttons</a>
+<h2 id="buttons">Buttons</h2>
 
 Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.
 
@@ -192,7 +192,7 @@ Add the `large` attribute to make a button larger, or `small` to make it smaller
 <button small>Small<button>
 ```
 
-# <a name="cards" href="#cards">Cards</a>
+<h2 id="cards">Cards</h2>
 
 <p>
   Cards are a great way to display important pieces of content, and are quickly emerging as a core design pattern for apps. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>.
@@ -217,7 +217,7 @@ Cards are primarily a CSS component. To use them, follow this structure:
 </ion-card>
 ```
 
-# <a name="icons" href="#icons">Icons</a>
+<h2 id="icons">Icons</h2>
 
 Ionic 2 comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
 
@@ -286,7 +286,7 @@ While not recommended, icons can be added using their class name. This was the t
 </a>
 
 
-# <a name="lists" href="#lists">Lists</a>
+<h2 id="lists">Lists</h2>
 
 Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
 
@@ -317,7 +317,7 @@ reference to an array of items, and the parent scroll element:
 </ion-content>
 ```
 
-# <a name="menus" href="#menus">Menus</a>
+<h2 id="menus">Menus</h2>
 
 Menus control side content that slides in or is exposed under a sliding content area.
 
@@ -349,7 +349,7 @@ Menus control side content that slides in or is exposed under a sliding content 
 </ion-view>
 ```
 
-# <a name="modals" href="#modals">Modals</a>
+<h2 id="modals">Modals</h2>
 
 Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.
@@ -384,7 +384,7 @@ export class MyPage {
 }
 ```
 
-# <a name="navigation" href="#navigation">Navigation</a>
+<h2 id="navigation">Navigation</h2>
 
 Navigation in Ionic 2 is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
@@ -782,7 +782,7 @@ But suppose you have a view with a header and content and want to navigate to a 
   Seriously, don't do this.  Most apps do not require many levels of nested navigation!
 
 
-# <a name="slides" href="#slides">Slides</a>
+<h2 id="slides">Slides</h2>
 
 Slides make it easy to create galleries, tutorials, and page-based layouts.
 
@@ -859,10 +859,9 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 </table>
 
 
-# <a name="tabs" href="#tabs">Tabs</a>
+<h2 id="tabs">Tabs</h2>
 
 TODO
-<<<<<<< HEAD
 
 <script>
 $(document).ready(function() {
@@ -892,5 +891,3 @@ $(document).ready(function() {
   });
 });
 </script>
-=======
->>>>>>> starting on components logic

@@ -19,7 +19,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   //   return $scope.expanded = slug;
   // };
   //
-  // $('body').scrollspy({target: '#index'});
+  $('body').scrollspy({target: '#components-index'});
   // var indexList = $('#index');
   // var docsEnd = $('#docs-end');
   // $(document).scroll(function() {

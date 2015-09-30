@@ -3588,6 +3588,7 @@ tbody.collapse.in {
 
 body {
   font-family: 'Avenir Next', 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+  position: relative;
   min-width: 920px; }
 
 .docs-container .side-nav {

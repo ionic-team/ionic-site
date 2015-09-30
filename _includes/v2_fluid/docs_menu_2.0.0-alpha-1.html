@@ -3,7 +3,7 @@
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul ng-controller="DocsNavCtrl">
+<ul ng-controller="DocsNavCtrl" class="nav">
 
   <!-- ### Getting Started ### -->
   <li class="{% if page.category == 'getting-started' %}
@@ -35,8 +35,22 @@
   </li>
 
   <!-- ### Components ### -->
-  <li class="{% if page.category == 'components' %}active{% endif %}">
+  <li id="components-index"
+      class="{% if page.category == 'components' %}active{% endif %}">
     <a href="/docs/v2/components">Components</a>
+    <ul class="nav">
+      <li><a href="#action-sheets">Action Sheets</a></li>
+      <li><a href="#animations">Animations</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#lists">Lists</a></li>
+      <li><a href="#menus">Menus</a></li>
+      <li><a href="#modals">Modals</a></li>
+      <li><a href="#navigation">Navigation</a></li>
+      <li><a href="#slides">Slides</a></li>
+      <li><a href="#tabs">Tabs</a></li>
+    </ul>
   </li>
 
   <!-- ### Platform ### -->

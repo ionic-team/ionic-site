@@ -10,7 +10,8 @@
 
 <link href="/css/v2.css?0" rel="stylesheet">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
@@ -19,7 +20,10 @@
     <title>Ionic 2 Components - Ionic 2 Developer Preview -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-components" class="v2 docs page-components">
+  <body id="docs-page-components"
+        class="v2 docs page-components"
+        data-spy="scroll"
+        data-target="#components-index">
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -90,7 +94,7 @@
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul ng-controller="DocsNavCtrl">
+<ul ng-controller="DocsNavCtrl" class="nav">
 
   <!-- ### Getting Started ### -->
   <li class="">
@@ -119,8 +123,22 @@
   </li>
 
   <!-- ### Components ### -->
-  <li class="active">
+  <li id="components-index"
+      class="active">
     <a href="/docs/v2/components">Components</a>
+    <ul class="nav">
+      <li><a href="#action-sheets">Action Sheets</a></li>
+      <li><a href="#animations">Animations</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#lists">Lists</a></li>
+      <li><a href="#menus">Menus</a></li>
+      <li><a href="#modals">Modals</a></li>
+      <li><a href="#navigation">Navigation</a></li>
+      <li><a href="#slides">Slides</a></li>
+      <li><a href="#tabs">Tabs</a></li>
+    </ul>
   </li>
 
   <!-- ### Platform ### -->
@@ -220,7 +238,7 @@
 
 <p>TODO</p>
 
-<h1><a name="action-sheets" href="#action-sheets">Action Sheets</a></h1>
+<h2 id="action-sheets">Action Sheets</h2>
 
 <p>Action Sheets display a modal set of options to confirm or cancel an action.</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ActionSheet</span><span class="p">.</span><span class="nx">open</span><span class="p">({</span>
@@ -249,7 +267,7 @@
   <span class="c1">// this.actionSheet.close() to close it programatically</span>
 <span class="p">})</span>
 </code></pre></div>
-<h1><a name="animations" href="#animations">Animations</a></h1>
+<h2 id="animations">Animations</h2>
 
 <p>Ionic comes with a powerful Animation system based on the Web Animation API.</p>
 
@@ -280,7 +298,7 @@ such as during a drag gesture.</p>
 
 <span class="p">}</span>
 </code></pre></div>
-<h1><a name="buttons" href="#buttons">Buttons</a></h1>
+<h2 id="buttons">Buttons</h2>
 
 <p>Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.</p>
 
@@ -356,7 +374,7 @@ such as during a drag gesture.</p>
 <span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
 </code></pre></div>
-<h1><a name="cards" href="#cards">Cards</a></h1>
+<h2 id="cards">Cards</h2>
 
 <p>
   Cards are a great way to display important pieces of content, and are quickly emerging as a core design pattern for apps. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>.
@@ -379,7 +397,7 @@ such as during a drag gesture.</p>
 
 <span class="nt">&lt;/ion-card&gt;</span>
 </code></pre></div>
-<h1><a name="icons" href="#icons">Icons</a></h1>
+<h2 id="icons">Icons</h2>
 
 <p>Ionic 2 comes with the same 700+ <a href="http://ionicons.com/">Ionicons</a> icons we&#39;ve all come to know and love.</p>
 
@@ -421,7 +439,7 @@ such as during a drag gesture.</p>
   <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
 </a></p>
 
-<h1><a name="lists" href="#lists">Lists</a></h1>
+<h2 id="lists">Lists</h2>
 
 <p>Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don&#39;t even know exists yet!</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
@@ -445,7 +463,7 @@ reference to an array of items, and the parent scroll element:</p>
   <span class="nt">&lt;/ion-list&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
 </code></pre></div>
-<h1><a name="menus" href="#menus">Menus</a></h1>
+<h2 id="menus">Menus</h2>
 
 <p>Menus control side content that slides in or is exposed under a sliding content area.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view&gt;</span>
@@ -474,7 +492,7 @@ reference to an array of items, and the parent scroll element:</p>
   <span class="nt">&lt;/ion-content&gt;</span>
 <span class="nt">&lt;/ion-view&gt;</span>
 </code></pre></div>
-<h1><a name="modals" href="#modals">Modals</a></h1>
+<h2 id="modals">Modals</h2>
 
 <p>Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.</p>
@@ -503,7 +521,7 @@ from the <code>Modal</code> Ionic class:</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h1><a name="navigation" href="#navigation">Navigation</a></h1>
+<h2 id="navigation">Navigation</h2>
 
 <p>Navigation in Ionic 2 is much more &quot;native like&quot; and is heavily modeled off of <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">the navigation features in iOS</a>.</p>
 
@@ -868,7 +886,7 @@ from the <code>Modal</code> Ionic class:</p>
 
 <p>Seriously, don&#39;t do this.  Most apps do not require many levels of nested navigation!</p>
 
-<h1><a name="slides" href="#slides">Slides</a></h1>
+<h2 id="slides">Slides</h2>
 
 <p>Slides make it easy to create galleries, tutorials, and page-based layouts.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-slides&gt;</span>
@@ -941,10 +959,9 @@ from the <code>Modal</code> Ionic class:</p>
   </tbody>
 </table>
 
-<h1><a name="tabs" href="#tabs">Tabs</a></h1>
+<h2 id="tabs">Tabs</h2>
 
-<p>TODO
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<p>TODO</p>
 
 <script>
 $(document).ready(function() {
@@ -974,24 +991,6 @@ $(document).ready(function() {
   });
 });
 </script>
-
-<h1></h1>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>starting on components logic</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
       </main>
     </div>

@@ -29,3 +29,5 @@ recommended_cordova_version: 3.3.1
 code_sample_base_url: http://plnkr.co/edit/vD0O9M?p=preview
 
 gems: [jekyll-paginate]
+
+# default vars

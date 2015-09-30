@@ -94,7 +94,7 @@
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul ng-controller="DocsNavCtrl" class="nav">
+<ul ng-controller="DocsNavCtrl">
 
   <!-- ### Getting Started ### -->
   <li class="">
@@ -125,8 +125,13 @@
   <!-- ### Components ### -->
   <li id="components-index"
       class="active">
-    <a href="/docs/v2/components">Components</a>
-    <ul class="nav">
+    <a ng-click="showComponents = !showComponents">Components</a>
+    <ul class="nav"
+        ng-show="showComponents"
+       
+         ng-init="showComponents = true"
+       >
+      
       <li><a href="#action-sheets">Action Sheets</a></li>
       <li><a href="#animations">Animations</a></li>
       <li><a href="#buttons">Buttons</a></li>
@@ -224,7 +229,9 @@
           <a class="active" ng-click="setPlatform('ios')">iOS</a>
           <a ng-click="setPlatform('android')">Android</a>
         </div>
-        <div id="demo-device" class="ios"><iframe src="" frameborder="0"></iframe></div>
+        <div id="demo-device" class="ios">
+          <iframe src="demo" frameborder="0"></iframe>
+        </div>
       </aside>
       
       <main>
@@ -963,7 +970,7 @@ from the <code>Modal</code> Ionic class:</p>
 
 <p>TODO</p>
 
-<script>
+<!-- <script>
 $(document).ready(function() {
 
   $(function () {
@@ -990,7 +997,7 @@ $(document).ready(function() {
 
   });
 });
-</script>
+</script> -->
 
       </main>
     </div>

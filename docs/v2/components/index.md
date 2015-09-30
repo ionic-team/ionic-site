@@ -863,7 +863,7 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 
 TODO
 
-<script>
+<!-- <script>
 $(document).ready(function() {
 
   $(function () {
@@ -890,4 +890,4 @@ $(document).ready(function() {
 
   });
 });
-</script>
+</script> -->

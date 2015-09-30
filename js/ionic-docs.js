@@ -11,26 +11,43 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
-  // $scope.scrollTo = function(h2) {
-  //   // simple anchor scroll (replace with animated scrollTo?...)
-  //   window.location.hash = '#' + h2;
-  // };
-  //
-  // $scope.expand = function(slug) {
-  //   setTimeout(checkOffset,210);
-  //   if ($scope.expanded == slug) {
-  //     return $scope.expanded = '';
-  //   }
-  //   return $scope.expanded = slug;
-  // };
-  //
-  $('body').scrollspy({target: '#components-index'});
-  // var indexList = $('#index');
+  $scope.setPlatform = function(platform) {
+    console.log('set plaform to ', platform)
+  }
+
+
+
+  var $scrollspy = $('body').scrollspy({target: '#components-index'});
+  $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
+    var $iframe = document.getElementsByTagName('#demo-device iframe');
+
+
+
+  function onScrollSpyChange(e) {
+    if (e.target.id === 'components-index') {
+      return;
+    }
+    var $hash, $node;
+    $hash = $("a[href^='#']", e.target).attr("href").replace(/^#/, '');
+    $node = $('#' + $hash);
+    if ($node.length) {
+      $node.attr('id', '');
+    }
+    document.location.hash = $hash;
+    // TODO: set demo src
+    $iframe[0].contentWindow.postMessage($hash, '*');
+
+    if ($node.length) {
+      return $node.attr('id', $hash);
+    }
+  }
+
+  // var indexList = $('#components-index');
   // var docsEnd = $('#docs-end');
-  // $(document).scroll(function() {
-  //   checkOffset();
-  // });
-  // function checkOffset() {
+  $(document).scroll(function() {
+    //fixyCheck();
+  });
+  function fixyCheck() {
   //   if (indexList.offset().top + indexList.height() >=
   //       docsEnd.offset().top - 10) {
   //     indexList[0].classList.add('bottom');
@@ -40,7 +57,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   //     indexList[0].classList.remove('bottom'); // restore when you scroll up
   //   }
   //
-  // }
+  }
 }]);
 
 IonicDocsModule

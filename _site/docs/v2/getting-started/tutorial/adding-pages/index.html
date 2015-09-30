@@ -92,7 +92,7 @@
     <option value="2.0.0-a1">2.0.0 Alpha 1</option>
   </select>
 </form> -->
-<ul ng-controller="DocsNavCtrl" class="nav">
+<ul ng-controller="DocsNavCtrl">
 
   <!-- ### Getting Started ### -->
   <li class="
@@ -126,19 +126,22 @@
   <!-- ### Components ### -->
   <li id="components-index"
       class="">
-    <a href="/docs/v2/components">Components</a>
-    <ul class="nav">
-      <li><a href="#action-sheets">Action Sheets</a></li>
-      <li><a href="#animations">Animations</a></li>
-      <li><a href="#buttons">Buttons</a></li>
-      <li><a href="#cards">Cards</a></li>
-      <li><a href="#icons">Icons</a></li>
-      <li><a href="#lists">Lists</a></li>
-      <li><a href="#menus">Menus</a></li>
-      <li><a href="#modals">Modals</a></li>
-      <li><a href="#navigation">Navigation</a></li>
-      <li><a href="#slides">Slides</a></li>
-      <li><a href="#tabs">Tabs</a></li>
+    <a ng-click="showComponents = !showComponents">Components</a>
+    <ul class="nav"
+        ng-show="showComponents"
+       >
+      
+      <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
+      <li><a href="/docs/v2/components/#animations">Animations</a></li>
+      <li><a href="/docs/v2/components/#buttons">Buttons</a></li>
+      <li><a href="/docs/v2/components/#cards">Cards</a></li>
+      <li><a href="/docs/v2/components/#icons">Icons</a></li>
+      <li><a href="/docs/v2/components/#lists">Lists</a></li>
+      <li><a href="/docs/v2/components/#menus">Menus</a></li>
+      <li><a href="/docs/v2/components/#modals">Modals</a></li>
+      <li><a href="/docs/v2/components/#navigation">Navigation</a></li>
+      <li><a href="/docs/v2/components/#slides">Slides</a></li>
+      <li><a href="/docs/v2/components/#tabs">Tabs</a></li>
     </ul>
   </li>
 

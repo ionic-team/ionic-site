@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{NavParams | slugify}}"
 title: "NavParams"
 header_sub_title: "Class in module "
 doc: "NavParams"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L46'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L868'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L46'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L868'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">NavParams <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L47-L68">ionic/components/nav/nav-controller.ts (line 47)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L869-L891">ionic/components/nav/nav-controller.ts (line 869)</a>
 </p>
 ## Members
 

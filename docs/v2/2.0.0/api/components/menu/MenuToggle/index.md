@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{MenuToggle | slugify}}"
 title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
@@ -41,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">MenuToggle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L6-L54">ionic/components/menu/menu-toggle.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L6-L52">ionic/components/menu/menu-toggle.ts (line 6)</a>
 </p>
 ## Members
 

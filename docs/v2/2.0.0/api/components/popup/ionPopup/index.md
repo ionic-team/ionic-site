@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{ionPopup | slugify}}"
 title: "ionPopup"
 header_sub_title: "Class in module "
 doc: "ionPopup"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L6'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L6'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +43,7 @@ docType: "class"
 
 <h1 class="class export">ionPopup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L6-L191">ionic/components/popup/popup.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L7-L194">ionic/components/popup/popup.ts (line 7)</a>
 </p>
 ## Members
 

@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{Transition | slugify}}"
 title: "Transition"
 header_sub_title: "Class in module "
 doc: "Transition"
@@ -40,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">Transition <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transitions/transition.ts#L8-L105">ionic/transitions/transition.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transitions/transition.ts#L8-L109">ionic/transitions/transition.ts (line 8)</a>
 </p>
 ## Members
 

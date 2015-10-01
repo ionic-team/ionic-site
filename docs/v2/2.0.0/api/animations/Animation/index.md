@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{Animation | slugify}}"
 title: "Animation"
 header_sub_title: "Class in module "
 doc: "Animation"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L1'>
     Improve this doc
   </a>
 </div>
@@ -56,9 +57,26 @@ docType: "class"
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L5-L509">ionic/animations/animation.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L530">ionic/animations/animation.ts (line 2)</a>
 </p>
 ## Members
+
+<div id="reset"></div>
+<h2>
+  <code>reset()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="elements"></div>
 <h2>
@@ -406,6 +424,26 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 </h2>
 
+
+
+
+
+
+
+
+
+
+
+
+<div id="getCurrentTime"></div>
+<h2>
+  <code>getCurrentTime()</code>
+
+</h2>
+
+Get the current time of the first animation
+in the list. To get a specific time of an animation, call
+subAnimationInstance.getCurrentTime()
 
 
 

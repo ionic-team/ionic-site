@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-id: api
+category: api
+id: "{{ionContent | slugify}}"
 title: "ionContent"
 header_sub_title: "Class in module "
 doc: "ionContent"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +44,7 @@ docType: "class"
 
 <h1 class="class export">ionContent <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L7-L174">ionic/components/content/content.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L190">ionic/components/content/content.ts (line 9)</a>
 </p>
 ## Members
 
@@ -263,6 +264,23 @@ Scroll to the specified position.
 
 * Returns: 
   <code>TODO</code> TODO
+
+
+
+
+<div id="scrollToTop"></div>
+<h2>
+  <code>scrollToTop()</code>
+
+</h2>
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{ionModal | slugify}}"
 title: "ionModal"
 header_sub_title: "Class in module "
 doc: "ionModal"

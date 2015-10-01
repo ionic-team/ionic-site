@@ -82,7 +82,7 @@ System.register("index", ["ionic/ionic", "./pages/button", "./pages/nav", "./pag
                     value: function openPage(menu, component) {
                         menu.close();
                         var nav = this.app.getComponent('myNav');
-                        nav.setItems([component.component]);
+                        nav.setViews([component.component]);
                     }
                 }]);
 

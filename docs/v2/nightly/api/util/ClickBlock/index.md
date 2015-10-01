@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-id: api
+category: api
+id: "{{ClickBlock | slugify}}"
 title: "ClickBlock"
 header_sub_title: "Let in module "
 doc: "ClickBlock"

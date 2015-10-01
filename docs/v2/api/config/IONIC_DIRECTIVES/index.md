@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{IONIC_DIRECTIVES | slugify}}"
 title: "IONIC_DIRECTIVES"
 header_sub_title: "Var in module "
 doc: "IONIC_DIRECTIVES"
@@ -12,11 +13,11 @@ docType: "var"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L25'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L27'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L25'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L27'>
     Improve this doc
   </a>
 </div>
@@ -42,6 +43,6 @@ template.</p>
 
 <h1 class="class export">IONIC_DIRECTIVES <span class="type">var</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L26-L91">ionic/config/decorators.ts (line 26)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L28-L95">ionic/config/decorators.ts (line 28)</a>
 </p>
 

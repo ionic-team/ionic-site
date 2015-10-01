@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
-id: api
+category: api
+id: "{{ionSwitch | slugify}}"
 title: "ionSwitch"
 header_sub_title: "Class in module "
 doc: "ionSwitch"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L46'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L43'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/switch/switch.ts#L46'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/switch/switch.ts#L43'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +44,7 @@ docType: "class"
 
 <h1 class="class export">ionSwitch <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L47-L250">ionic/components/switch/switch.ts (line 47)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L44-L245">ionic/components/switch/switch.ts (line 44)</a>
 </p>
 ## Members
 
@@ -147,23 +148,6 @@ Toggle the checked state of this switch.
 
 
 
-<div id="click"></div>
-<h2>
-  <code>click()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="writeValue"></div>
 <h2>
   <code>writeValue()</code>
@@ -252,6 +236,23 @@ Toggle the checked state of this switch.
 <div id="onDestroy"></div>
 <h2>
   <code>onDestroy()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isDisabled"></div>
+<h2>
+  <code>isDisabled()</code>
 
 </h2>
 

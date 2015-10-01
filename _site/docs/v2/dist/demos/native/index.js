@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages/contacts", "pages/device", "pages/device-motion", "pages/device-orientation", "pages/dialogs", "pages/geolocation", "pages/statusbar", "pages/vibration"], function (_export) {
     "use strict";
 
-    var IonicApp, App, CameraPage, BatteryPage, ContactsPage, DevicePage, DeviceMotionPage, DeviceOrientationPage, DialogsPage, GeolocationPage, StatusBarPage, VibrationPage, __decorate, __metadata, MyApp;
+    var IonicApp, App, Events, CameraPage, BatteryPage, ContactsPage, DevicePage, DeviceMotionPage, DeviceOrientationPage, DialogsPage, GeolocationPage, StatusBarPage, VibrationPage, __decorate, __metadata, MyApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -11,6 +11,7 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
         setters: [function (_ionicIonic) {
             IonicApp = _ionicIonic.IonicApp;
             App = _ionicIonic.App;
+            Events = _ionicIonic.Events;
         }, function (_pagesCamera) {
             CameraPage = _pagesCamera.CameraPage;
         }, function (_pagesBattery) {
@@ -56,10 +57,36 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
             };
 
             MyApp = (function () {
-                function MyApp(app) {
+                function MyApp(app, events) {
                     _classCallCheck(this, MyApp);
 
                     this.app = app;
+                    console.log('Events', events);
+                    var handler = function handler(user) {
+                        console.log('User created', user);
+                        return {
+                            what: 'what'
+                        };
+                    };
+                    var handler2 = function handler2(user) {
+                        console.log('2User created', user);
+                        return {
+                            things: 'yes'
+                        };
+                    };
+                    events.subscribe('user:created', handler);
+                    events.subscribe('user:created', handler2);
+                    setInterval(function () {
+                        var results = events.publish('user:created', {
+                            name: 'Max Lynch',
+                            id: 1
+                        });
+                        console.log('Got results', results);
+                    }, 2000);
+                    setTimeout(function () {
+                        events.unsubscribe('user:created');
+                        console.log(events.channels);
+                    }, 6000);
                     this.firstPage = CameraPage;
                     this.plugins = [{ title: 'Camera', page: CameraPage }, { title: 'Device', page: DevicePage }, { title: 'Device Motion', page: DeviceMotionPage }, { title: 'Device Orientation', page: DeviceOrientationPage }, { title: 'Dialogs', page: DialogsPage }, { title: 'Geolocation', page: GeolocationPage }, { title: 'Contacts', page: ContactsPage }, { title: 'Battery', page: BatteryPage }, { title: 'StatusBar', page: StatusBarPage }, { title: 'Vibration', page: VibrationPage }];
                 }
@@ -69,7 +96,7 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
                     value: function openPage(menu, page) {
                         menu.close();
                         var nav = this.app.getComponent('myNav');
-                        nav.setItems([page.page]);
+                        nav.setRoot(page.page);
                     }
                 }]);
 
@@ -78,7 +105,7 @@ System.register("index", ["ionic/ionic", "pages/camera", "pages/battery", "pages
 
             MyApp = __decorate([App({
                 templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], MyApp);
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof Events !== 'undefined' && Events || Object])], MyApp);
         }
     };
 });

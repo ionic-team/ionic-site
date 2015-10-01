@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{IonicApp | slugify}}"
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"
@@ -12,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L13'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L17'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L13'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L17'>
     Improve this doc
   </a>
 </div>
@@ -41,9 +42,27 @@ docType: "class"
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L14-L206">ionic/components/app/app.ts (line 14)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L18-L253">ionic/components/app/app.ts (line 18)</a>
 </p>
 ## Members
+
+<div id="bindEvents"></div>
+<h2>
+  <code>bindEvents()</code>
+
+</h2>
+
+Bind some global events and publish on the 'app' channel
+
+
+
+
+
+
+
+
+
+
 
 <div id="load"></div>
 <h2>
@@ -265,6 +284,42 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 <div id="isEnabled"></div>
 <h2>
   <code>isEnabled()</code>
+
+</h2>
+
+Boolean if the app is actively enabled or not.
+
+
+
+
+
+
+* Returns: 
+  <code>bool</code> 
+
+
+
+
+<div id="setTransitioning"></div>
+<h2>
+  <code>setTransitioning()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isTransitioning"></div>
+<h2>
+  <code>isTransitioning()</code>
 
 </h2>
 

@@ -1,9 +1,10 @@
 ---
-layout: "v2/docs_base"
+layout: "v2_fluid/docs_base"
 version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
-id: api
+category: api
+id: "{{TextInput | slugify}}"
 title: "TextInput"
 header_sub_title: "Class in module "
 doc: "TextInput"
@@ -41,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">TextInput <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L67-L439">ionic/components/text-input/text-input.ts (line 67)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L67-L441">ionic/components/text-input/text-input.ts (line 67)</a>
 </p>
 ## Members
 

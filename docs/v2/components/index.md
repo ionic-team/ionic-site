@@ -91,7 +91,7 @@ export class MyComponent {
 
 <h2 id="buttons">Buttons</h2>
 
-Buttons are an essential way to interact with an app. They are simple components in Ionic 2, and can be enhanced with a wide range of attributes.
+Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.
 
 ### Basic Usage:
 
@@ -219,7 +219,7 @@ Cards are primarily a CSS component. To use them, follow this structure:
 
 <h2 id="icons">Icons</h2>
 
-Ionic 2 comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
+Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
 
 
 ### Basic Usage:
@@ -386,7 +386,7 @@ export class MyPage {
 
 <h2 id="navigation">Navigation</h2>
 
-Navigation in Ionic 2 is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
+Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
 One of the biggest differences about navigation in Ionic 2 is that URLs are not required.  Instead, views are pushed and popped on/off a navigation controller's view stack.
 

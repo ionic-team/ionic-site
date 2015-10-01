@@ -5006,6 +5006,28 @@ h1 + h2 + p {
   position: relative;
   width: 100%;
   overflow-x: hidden; }
+  #slider .slick-prev, #slider .slick-next {
+    left: 10px;
+    top: 40%; }
+    #slider .slick-prev:before, #slider .slick-next:before {
+      content: ' ';
+      display: block;
+      position: relative;
+      background: no-repeat url(/img/slider-arrow-left.png);
+      background-size: 19px;
+      width: 19px;
+      height: 42px;
+      z-index: 1000;
+      opacity: 0.4;
+      transition: 0.3s opacity; }
+    #slider .slick-prev:hover:before, #slider .slick-next:hover:before {
+      opacity: 1; }
+  #slider .slick-next {
+    left: auto;
+    right: 10px; }
+    #slider .slick-next:before {
+      background: no-repeat url(/img/slider-arrow-right.png);
+      background-size: 19px; }
   #slider .slide {
     padding: 125px 0 101px;
     width: 100%;

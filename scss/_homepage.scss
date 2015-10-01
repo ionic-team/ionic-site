@@ -749,7 +749,34 @@
   position: relative;
   width: 100%;
   overflow-x: hidden;
-
+  .slick-prev,
+  .slick-next{
+    left: 10px;
+    top: 40%;
+    &:before {
+      content: ' ';
+      display: block;
+      position: relative;
+      background: no-repeat url(/img/slider-arrow-left.png);
+      background-size: 19px;
+      width: 19px;
+      height: 42px;
+      z-index: 1000;
+      opacity: .4;
+      transition: .3s opacity;
+    }
+    &:hover:before{
+      opacity: 1;
+    }
+  }
+  .slick-next{
+    left:auto;
+    right:10px;
+    &:before{
+      background: no-repeat url(/img/slider-arrow-right.png);
+      background-size: 19px;
+    }
+  }
   .slide{
     padding:125px 0 101px;
     width:100%;

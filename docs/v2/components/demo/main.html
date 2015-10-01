@@ -1,0 +1,304 @@
+
+<ion-toolbar><ion-title>{{ component.title }}</ion-title></ion-toolbar>
+
+<ion-content class="has-header padding components-demo">
+
+  <section id="action-sheet" [ng-class]="{hidden: component.title !== 'Action Sheets' }">
+    <button class="button" (click)="openMenu()">
+      Show Actionsheet
+    </button>
+  </section>
+
+
+  <section id="animation" [ng-class]="{hidden: component.title !== 'Animations' }">
+   <img src="http://ionicframework.com/present-ionic/slides/img/me.png" id="ionitron">
+
+   <div class="animation-buttons">
+     <button icon pause primary (click)="pause($event)">
+       Pause
+       <icon pause></icon>
+     </button>
+     <button icon play secondary (click)="play($event)">
+       Play
+       <icon play></icon>
+     </button>
+   </div>
+  </section>
+
+
+  <section id="buttons" [ng-class]="{hidden: component.title !== 'Buttons' }">
+    <h4>Colors</h4>
+
+    <p>
+      <button block>Default</button>
+    </p>
+
+    <p>
+      <button secondary block>Secondary</button>
+    </p>
+
+    <p>
+      <button danger block>Danger</button>
+    </p>
+
+    <p>
+      <button light block>Light</button>
+    </p>
+
+    <p>
+      <button dark block>Dark</button>
+    </p>
+
+    <h4>Shapes</h4>
+
+    <p>
+      <button full>Full Button</button>
+    </p>
+
+    <p>
+      <button block>Block Button</button>
+    </p>
+
+    <p>
+      <button round>Round Button</button>
+    </p>
+
+      <p>
+      <button fab style="position: relative;">FAB</button>
+    </p>
+
+    <h4>Outlines</h4>
+
+    <p>
+      <button secondary full outline>Outline + Full</button>
+    </p>
+
+    <p>
+      <button secondary block outline>Outline + Block</button>
+    </p>
+
+    <p>
+      <button secondary round outline>Outline + Round</button>
+    </p>
+
+      <p>
+      <button secondary fab outline style="position: relative;">FAB</button>
+    </p>
+
+    <h4>Icons</h4>
+
+    <p>
+      <button dark>
+        <icon star></icon>
+        Left Icon
+      </button>
+    </p>
+
+    <p>
+      <button dark>
+        Right Icon
+        <icon star></icon>
+      </button>
+    </p>
+
+    <p>
+      <button dark>
+        <icon star></icon>
+      </button>
+    </p>
+
+
+    <h4>Sizes</h4>
+
+    <p>
+      <button light large>Large</button>
+    </p>
+
+    <p>
+      <button light>Default</button>
+    </p>
+
+    <p>
+      <button light small>Small</button>
+    </p>
+  </section>
+
+
+  <section id="cards" [ng-class]="{hidden: component.title !== 'Cards' }">
+
+    <ion-card>
+
+      <ion-card-header primary>
+        Menu
+      </ion-card-header>
+
+      <ion-card-content>
+        <a ion-item href="#">
+          <icon home item-left></icon>
+          Home
+        </a>
+
+        <a ion-item href="#">
+          <icon people item-left></icon>
+          Friends
+        </a>
+
+        <button ion-item>
+          <icon musical-notes item-left></icon>
+          Music
+        </button>
+
+        <button ion-item>
+          <icon mail item-left></icon>
+          Mail
+        </button>
+      </ion-card-content>
+
+    </ion-card> 
+
+
+    <ion-card>
+
+      <ion-item>
+        <icon football item-left></icon>
+        Schedule
+        <button outline item-right>Open</button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card>
+
+      <ion-item>
+        <icon wifi item-left></icon>
+        Trophies
+        <button outline item-right>View</button>
+      </ion-item>
+
+    </ion-card>
+
+
+  </section>
+   
+    <section id="icons" [ng-class]="{hidden: component.title !== 'Icons' }">
+   TODO
+  </section>
+
+  <section id="lists" [ng-class]="{hidden: component.title !== 'Lists' }">
+    <ion-list>
+
+      <ion-header>
+        List Header
+      </ion-header>
+
+      <ion-switch>
+        <icon wifi item-left></icon>
+        Wifi
+      </ion-switch>
+
+      <ion-item>
+        <icon heart item-left></icon>
+        Affection
+        <div class="item-note" item-right>
+          Very Little
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <icon home item-left></icon>
+        Home
+        <div class="item-note" item-right>
+          Where the heart is
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-list>
+
+      <ion-header>
+        List Header
+      </ion-header>
+
+      <ion-switch checked="true">
+        <icon color-wand item-left></icon>
+        Magic
+      </ion-switch>
+
+      <ion-item>
+        <icon star item-left></icon>
+        Star status
+        <div class="item-note" item-right>
+          Super
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-list>
+
+      <ion-header>
+        List Header with text that is too long to fit inside the list header
+      </ion-header>
+
+      <ion-item>
+        <icon pizza item-left></icon>
+        Pizza
+        <div class="item-note" item-right>
+          Always
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <icon beer item-left></icon>
+        Beer
+        <div class="item-note" item-right>
+          Yes Plz
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <icon wine item-left></icon>
+        Wine
+        <div class="item-note" item-right>
+          All the time
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-list>
+
+      <ion-item>
+        <icon chatboxes item-left></icon>
+        New List, no header, Item 1
+      </ion-item>
+
+      <ion-item>
+        <icon chatboxes item-left></icon>
+        New List, no header, Item 2
+      </ion-item>
+
+    </ion-list>
+  </section>
+    <section id="menus" [ng-class]="{hidden:component.title !== 'Menus' }">
+   TODO
+  </section>
+    <section id="modals" [ng-class]="{hidden: component.title !== 'Modals' }">
+   TODO
+  </section>
+    <section id="navigation" [ng-class]="{hidden: component.title !== 'Navigation' }">
+   TODO
+  </section>
+    <section id="slides" [ng-class]="{hidden: component.title !== 'Slides' }">
+   TODO
+  </section>
+
+    <section id="tabs" [ng-class]="{hidden: component.title !== 'Tabs' }">
+   TODO
+  </section>
+
+</ion-content>

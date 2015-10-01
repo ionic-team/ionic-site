@@ -87,12 +87,8 @@
          ng-app="IonicDocs"
          >
       <nav class="side-nav">
-        <!-- <form class="form-group">
-  <select name="version" id="version-toggle">
-    <option value="2.0.0-a1">2.0.0 Alpha 1</option>
-  </select>
-</form> -->
-<ul ng-controller="DocsNavCtrl">
+        
+          <ul ng-controller="DocsNavCtrl">
 
   <!-- ### Getting Started ### -->
   <li class="">
@@ -192,12 +188,18 @@
       </li>
     </ul>
   </li>
+
+  <!-- ### FAQ ### -->
   <li class="">
     <a>FAQ</a>
   </li>
+
+  <!-- ### API ### -->
   <li>
     <a href="/docs/v2/api">API</a>
   </li>
+
+  <!-- ### Resources ### -->
   <li class="">
     <a ng-click="showResources = !showResources">Resources</a>
     <ul ng-show="showResources"
@@ -221,6 +223,7 @@
   </li>
 </ul>
 
+        
       </nav>
       
       <main>

@@ -87,137 +87,311 @@
          ng-app="IonicDocs"
          >
       <nav class="side-nav">
-        <!-- <form class="form-group">
-  <select name="version" id="version-toggle">
-    <option value="2.0.0-a1">2.0.0 Alpha 1</option>
-  </select>
-</form> -->
+        
+          <form class="form-group">
+  <select name="version"
+        id="version-toggle"
+        onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/v2/nightly/api/"
+   selected>
+    nightly 
+  </option>
+
+  <option
+   value="/docs/v2/api/"
+   >
+    2.0.0 (latest)
+  </option>
+
+</select>
+
+</form>
 <ul ng-controller="DocsNavCtrl">
-
-  <!-- ### Getting Started ### -->
-  <li class="">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
-        >
-      <li class="">
-        <a href="/docs/v2/">Welcome</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/concepts">Concepts</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/about-ionic">About Ionic</a>
-      </li>
-    </ul>
+  <li class="back-to-main">
+    <a href="/docs/v2">Back to Main Docs</a>
   </li>
-
-  <!-- ### Components ### -->
-  <li id="components-index"
-      class="">
-    <a ng-click="showComponents = !showComponents">Components</a>
-    <ul class="nav"
-        ng-show="showComponents"
-       >
+  <li class="active">
+    <a ng-click="showAPI = !showAPI">API</a>
+    <ul ng-show="showAPI" ng-init="showAPI = true">
       
-      <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
-      <li><a href="/docs/v2/components/#animations">Animations</a></li>
-      <li><a href="/docs/v2/components/#buttons">Buttons</a></li>
-      <li><a href="/docs/v2/components/#cards">Cards</a></li>
-      <li><a href="/docs/v2/components/#icons">Icons</a></li>
-      <li><a href="/docs/v2/components/#lists">Lists</a></li>
-      <li><a href="/docs/v2/components/#menus">Menus</a></li>
-      <li><a href="/docs/v2/components/#modals">Modals</a></li>
-      <li><a href="/docs/v2/components/#navigation">Navigation</a></li>
-      <li><a href="/docs/v2/components/#slides">Slides</a></li>
-      <li><a href="/docs/v2/components/#tabs">Tabs</a></li>
-    </ul>
-  </li>
+  
+    
 
-  <!-- ### Platform ### -->
-  <li class="">
-    <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform"
-        >
-      <li class="">
-        <a href="/docs/v2/platform/camera/">Camera</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/geolocation/">Geolocation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/push-notifications/">Push Notifications</a>
-      </li>
-      <li>
-        <a href="http://ngcordova.com" target="_blank">
-          More Device Integrations</a>
-      </li>
-    </ul>
-  </li>
+    
+  
+<li class="">
+  <a href="/docs/v2/nightly/api/components/action-sheet/ActionSheet">ActionSheet</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/animations/Animation">Animation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/App">App</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/applinks/AppLinks">AppLinks</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/barcode/Barcode">Barcode</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/battery/Battery">Battery</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/button/Button">Button</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/camera/Camera">Camera</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/card/Card">Card</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/util/ClickBlock">ClickBlock</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/contacts/Contacts">Contacts</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device/Device">Device</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device-motion/DeviceMotion">DeviceMotion</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device-orientation/DeviceOrientation">DeviceOrientation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/dialogs/Dialogs">Dialogs</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/util/Events">Events</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/geolocation/Geolocation">Geolocation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/show-hide-when/HideWhen">HideWhen</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/net/Http">Http</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/icon/Icon">Icon</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/IdRef">IdRef</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/checkbox/ionCheckbox">ionCheckbox</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/content/ionContent">ionContent</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/IonicApp">IonicApp</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/ionicBootstrap">ionicBootstrap</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IonicComponent">IonicComponent</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IonicConfig">IonicConfig</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IonicDirective">IonicDirective</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/IonicPlatform">IonicPlatform</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IonicView">IonicView</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IONIC_DIRECTIVES">IONIC_DIRECTIVES</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/form/ionInput">ionInput</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ionItem">ionItem</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/list/ionList">ionList</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/modal/ionModal">ionModal</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/popup/ionPopup">ionPopup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/radio/ionRadio">ionRadio</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/radio/ionRadioGroup">ionRadioGroup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/scroll/ionRefresher">ionRefresher</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/switch/ionSwitch">ionSwitch</a>
+</li>
+<li class="active">
+  <a href="/docs/v2/nightly/api/components/tabs/ionTab">ionTab</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/tabs/ionTabs">ionTabs</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ItemGroup">ItemGroup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ItemGroupTitle">ItemGroupTitle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/keyboard/Keyboard">Keyboard</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/Label">Label</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/list/ListHeader">ListHeader</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/LocalStorage">LocalStorage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/Menu">Menu</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuClose">MenuClose</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuToggle">MenuToggle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuType">MenuType</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/NativePlugin">NativePlugin</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/NativePluginDecorator">NativePluginDecorator</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/Nav">Nav</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav-bar/Navbar">Navbar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav-bar/NavbarTemplate">NavbarTemplate</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavController">NavController</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavParams">NavParams</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavPop">NavPop</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavPush">NavPush</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavRouter">NavRouter</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/scroll/Scroll">Scroll</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/search-bar/SearchBar">SearchBar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/segment/Segment">Segment</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/segment/SegmentButton">SegmentButton</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/segment/SegmentControlValueAccessor">SegmentControlValueAccessor</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/show-hide-when/ShowWhen">ShowWhen</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/Slide">Slide</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/SlideLazy">SlideLazy</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/Slides">Slides</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/SqlStorage">SqlStorage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/statusbar/StatusBar">StatusBar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/Storage">Storage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/StorageEngine">StorageEngine</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/TextInput">TextInput</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/TextInputElement">TextInputElement</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/Toolbar">Toolbar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarBase">ToolbarBase</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarItem">ToolbarItem</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarTitle">ToolbarTitle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/transitions/Transition">Transition</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/translation/Translate">Translate</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/translation/TranslatePipe">TranslatePipe</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/vibration/Vibration">Vibration</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/ViewController">ViewController</a>
+</li>
 
-  <!-- ### Theming ### -->
-  <li class="">
-    <a ng-click="showTheming = !showTheming">Theming</a>
-    <ul ng-show="showTheming"
-        >
-      <li class="">
-        <a href="/docs/v2/theming/">Intro</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/theming/sass-variables/">Sass Variables</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/theming/platform-specific-styles/">
-          Platform Styles
-        </a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/theming/overriding-ionic-variables/">
-          Overriding Ionic Variables
-        </a>
-      </li>
-    </ul>
-  </li>
-  <li class="">
-    <a>FAQ</a>
-  </li>
-  <li>
-    <a href="/docs/v2/api">API</a>
-  </li>
-  <li class="">
-    <a ng-click="showResources = !showResources">Resources</a>
-    <ul ng-show="showResources"
-        >
-      <li class="">
-        <a href="/docs/v2/resources/">Resources Intro</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/resources/what-is/">Glossary</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/resources/ionicons/">Ionicons</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>
-      </li>
+  
+
+  
+
+
+
+
     </ul>
   </li>
 </ul>
 
+        
       </nav>
       
       <main>

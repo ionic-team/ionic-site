@@ -17,7 +17,11 @@
            ng-controller="{{ page.angular_controller }}"
          {% endif %}>
       <nav class="side-nav">
-        {% include v2_fluid/docs_menu_2.0.0-alpha-1.html %}
+        {% if page.category == 'api' %}
+          {% include v2_fluid/docs_side_nav_api.html %}
+        {% else %}
+          {% include v2_fluid/docs_side_nav_main.html %}
+        {% endif %}
       </nav>
       {% if page.show_preview_device %}
       <aside class="platform-preview">

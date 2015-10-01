@@ -1,14 +1,105 @@
 
-  
-    
-{% if page.versionHref == "/docs/v2/nightly" %}
-    
-  {% include v2_fluid/api_menu_flat_nightly.html %}
-  
 
-  
+
+{% if page.versionHref == "/docs/nightly" %}
+
+  {% include api_menu_nightly.html %}
+
+
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.1" %}
+
+  {% include api_menu_1.0.1.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0" %}
+
+  {% include api_menu_1.0.0.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.5" %}
+
+  {% include api_menu_1.0.0-rc.5.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.4" %}
+
+  {% include api_menu_1.0.0-rc.4.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.3" %}
+
+  {% include api_menu_1.0.0-rc.3.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.2" %}
+
+  {% include api_menu_1.0.0-rc.2.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.1" %}
+
+  {% include api_menu_1.0.0-rc.1.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-rc.0" %}
+
+  {% include api_menu_1.0.0-rc.0.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-beta.14" %}
+
+  {% include api_menu_1.0.0-beta.14.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-beta.13" %}
+
+  {% include api_menu_1.0.0-beta.13.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-beta.12" %}
+
+  {% include api_menu_1.0.0-beta.12.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-beta.11" %}
+
+  {% include api_menu_1.0.0-beta.11.html %}
+
+
+
+
+{% elsif page.versionHref == "/docs/1.0.0-beta.10" %}
+
+  {% include api_menu_1.0.0-beta.10.html %}
+
 
 
 {% else %}
-  {% include v2_fluid/api_menu_flat_2.0.0.html %}
+  {% include api_menu_1.1.0.html %}
 {% endif %}

@@ -3901,6 +3901,27 @@ body {
   overflow-y: scroll;
   top: 80px;
   bottom: 0; }
+  .side-nav .back-to-main {
+    border: 1px solid #e6e9ee;
+    padding: 2px 12px 0;
+    margin-right: 20px;
+    margin-top: -15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center; }
+    .side-nav .back-to-main:hover {
+      border-color: #4f8ff7; }
+    .side-nav .back-to-main a {
+      padding-top: 5px; }
+      .side-nav .back-to-main a:before {
+        font-family: "Ionicons";
+        -webkit-font-smoothing: antialiased;
+        content: "\f3d2";
+        font-size: 18px;
+        font-weight: 800;
+        position: relative;
+        padding-right: 5px;
+        top: 2px; }
   .side-nav .form-group {
     padding: 5px 20px 17px;
     border-bottom: 1px solid #e6e9ee; }

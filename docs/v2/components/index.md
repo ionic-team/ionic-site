@@ -388,11 +388,11 @@ export class MyPage {
 
 Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-One of the biggest differences about navigation in Ionic 2 is that URLs are not required.  Instead, views are pushed and popped on/off a navigation controller's view stack.
+Like native, URLs are not required for navigation.  Instead, views are pushed and popped on and off a navigation controller's view stack.
 
 There are several ways to navigate throughout an Ionic app:
 
-<h2 id="Parent_child">Parent - Child</h2>
+<h2 id="basic_navigation">Basic Navigation</h2>
 The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](link_to_nav):
 
 ```ts
@@ -493,9 +493,9 @@ But what if you have several "root" or "top-level" views that don't have a paren
 
 You have two options: Tabs and Menu.
 
-<h2 id="Tabs">Tabs</h2>
+<h2 id="tabs">Tabs</h2>
 
-Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a Menu may be a better option.
+Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu) may be a better option.
 
 To initialize Tabs, use [`<ion-tabs>`](link_to_tabs), with a child [`<ion-tab>`](link_to_tab) for each tab:
 
@@ -563,7 +563,7 @@ class Tab2 {
 
 For more information on tabs, check out the [Tabs API reference](link_to_Tabs).
 
-<h2 id="Menu">Menu</h2>
+<h2 id="menu">Menu</h2>
 
 As mentioned before, there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a TabBar impractical, a menu might be a better solution.  
 

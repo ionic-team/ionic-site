@@ -224,7 +224,93 @@
       </nav>
       
       <main>
-        <p>TODO</p>
+        <p>While Angular 2 requires apps to be update for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with <a href="https://github.com/johnpapa/angular-styleguide">John Papa&#39;s Angular Style guide</a> or <a href="https://github.com/toddmotto/angularjs-styleguide">Todd Motto&#39;s Angular Style guide</a>. Both of these will provide you with steps you can take to prepare your code for migration.</p>
+
+<h3>ControllerAs Syntax</h3>
+
+<p>ControllerAs Syntax is a feature in Angular 1x where instead of binding data to <code>$scope</code>, you can bind to the direct instance of the controller instead. This makes migrating a Angular 1x controller to an Angular 2 class much easier. It&#39;s fairly easy to migrate to <code>controllerAs</code> from a traditional controller:</p>
+
+<p><em>index.html</em></p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ion-pane</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-pane&gt;</span>
+</code></pre></div>
+<p><em>app.js</em></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MainCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p>To convert this to <code>controllerAs</code> syntax, you only have to change a few things.</p>
+
+<p><em>index.html</em></p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ion-pane</span> <span class="na">ng-controller=</span><span class="s">&quot;MainCtrl as main&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-item&gt;</span>
+
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-pane&gt;</span>
+</code></pre></div>
+<p><em>app.js</em></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MainCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre></div>
+<h3>TypeScript</h3>
+
+<p>TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic 2. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If we take our controller from before, we can easily convert it to a TypeScript class like this.</p>
+
+<p><em>app.js</em></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MainCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p><em>app.ts</em></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MainCtrl</span><span class="p">{</span>
+      <span class="nx">constructor</span><span class="p">(){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
+          <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h3>Project Structure</h3>
+
+<p>With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project who&#39;s directory could look like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    |-www/
+    |
+    |--js/
+    |--|-app.js
+    |--|-HomeCtrl.js
+    |--|-DetailCtrl.js
+    |
+    |--templates/
+    |--|-Home.html
+    |--|-Detail.html
+    |
+    |-index.html
+</code></pre></div>
+<p>Could start to be reorganized to look like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    |-www/
+    |
+    |--Home/
+    |--|-HomeCtrl.js
+    |--|-Home.html
+    |
+    |--Detail/
+    |--|-DetailCtrl.js
+    |--|-Detail.html
+    |
+    |-index.html
+    |-app.js
+</code></pre></div>
+<p>Organizing your project like this can help get you in the mindset that each of your app&#39;s views/states are a component, with a template and a controller.</p>
 
       </main>
     </div>

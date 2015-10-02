@@ -319,7 +319,7 @@ reference to an array of items, and the parent scroll element:
 
 <h2 id="menus">Menus</h2>
 
-Menus control side content that slides in or is exposed under a sliding content area.
+Menus control side content that slides in or is exposed under a sliding content area. For more information on using Menus for navigation, see [Menu Navigation](#menu_navigation)
 
 ```html
 <ion-view>
@@ -388,12 +388,12 @@ export class MyPage {
 
 Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-Like native, URLs are not required for navigation.  Instead, views are pushed and popped on and off a navigation controller's view stack.
+Like native, URLs are not required for navigation.  Instead, views are pushed and popped on and off a navigation controller's view stack.  However, URLs are of course supported if you need them, using the [Angular2 router](https://angular.io/docs/js/latest/api/router/Router-class.html).
 
 There are several ways to navigate throughout an Ionic app:
 
-<h2 id="basic_navigation">Basic Navigation</h2>
-The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](link_to_nav):
+<h3 id="basic_navigation">Basic Navigation</h3>
+The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](../api/components/nav/Nav/):
 
 ```ts
   import {StartPage} from 'start'
@@ -465,7 +465,7 @@ export class StartPage {
 class OtherPage {}
 ```
 
-If your view has an [`<ion-nav-bar>`](link_to_navbar), a back button will automatically be added to it if it is not a root view.  
+If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.  
 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
 
@@ -487,17 +487,17 @@ class OtherPage {
   }
 }
 ```
-For more information on navigation controllers, check out the [Nav API reference](link_to_Nav).
+For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
 
 But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings?      
 
 You have two options: Tabs and Menu.
 
-<h2 id="tabs">Tabs</h2>
+<h3 id="tabs_navigation">Tabs Navigation</h3>
 
-Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu) may be a better option.
+Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu_navigation) may be a better option.
 
-To initialize Tabs, use [`<ion-tabs>`](link_to_tabs), with a child [`<ion-tab>`](link_to_tab) for each tab:
+To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/ionTabs/), with a child [`<ion-tab>`](../api/components/tabs/ionTab/) for each tab:
 
 ```ts
 @App({
@@ -515,7 +515,7 @@ class MyApp {
 }
 ```
 
-Individual tabs are just [`@IonicViews`](link_to_Ionic_View):
+Individual tabs are just [`@IonicViews`](../api/config/IonicView/):
 
 ```ts
 @IonicView({
@@ -537,7 +537,7 @@ class Tab1 {}
 class Tab2 {}
 ```
 
-Notice that each [`<ion-tab>`](link_to_tabs) binds to a `[root]` property, just like the [`<ion-nav>`](link_to_ion_nav) example [above](#Parent_child).  That is because each [`<ion-tab>`](link_to_tabs) is really just a navigation controller.  This means that each tab has its own history stack, and [`NavControllers`](link_to_nav_controller) injected into children [`@IonicViews`](link_to_Ionic_View) of each tab will be unique to each tab:
+Notice that each [`<ion-tab>`](../api/components/tabs/ionTab/) binds to a `[root]` property, just like the [`<ion-nav>`](../api/components/nav/Nav/) example [above](#basic_navigation).  That is because each [`<ion-tab>`](../api/components/tabs/ionTab/) is really just a navigation controller.  This means that each tab has its own history stack, and [`NavControllers`](../api/components/nav/NavController/) injected into children [`@IonicViews`](../api/config/IonicView/) of each tab will be unique to each tab:
 
 ```ts
 @IonicView({
@@ -561,9 +561,9 @@ class Tab2 {
 }
 ```
 
-For more information on tabs, check out the [Tabs API reference](link_to_Tabs).
+For more information on tabs, check out the [Tabs API reference](../api/components/tabs/ionTabs/).
 
-<h2 id="menu">Menu</h2>
+<h2 id="menu_navigation">Menu Navigation</h2>
 
 As mentioned before, there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a TabBar impractical, a menu might be a better solution.  
 
@@ -571,7 +571,7 @@ Menus also allow you to return to root views at any point. They can be helpful i
 
 However, because Menus are not always and immediately visible on screen, they require more work for the user to use.  Make sure to weigh your priorities when designing the navigational structure of your app.
 
-To use a Menu add an [`<ion-menu>`](link_to_menu) to your markup next to your root [`<ion-nav>`](link_to_nav):
+To use a Menu add an [`<ion-menu>`](../api/components/menu/Menu/) to your markup next to your root [`<ion-nav>`](../api/components/nav/Nav/):
 
 ```ts
 @App({
@@ -597,7 +597,7 @@ To use a Menu add an [`<ion-menu>`](link_to_menu) to your markup next to your ro
 class MyApp {}
 ```
 
-The `<ion-menu>`s bound `[content]` property gets a [reference](angular_template_refs) to the [`<ion-nav>`](link_to_nav) in order to listen for drag events on the main content so it knows when to open/close.  
+The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#sts=Local variables) to the [`<ion-nav>`](../api/components/nav/Nav/) in order to listen for drag events on the main content so it knows when to open/close.  
 
 Then we have two buttons with click handlers that navigate to a new root view:
 
@@ -625,9 +625,9 @@ class MyApp {
 }
 ```
 
-We inject the [`IonicApp`](link_to_ionic_app) service so we can use Ionic's [id system](link_to_id_system) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](link_to_setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
+We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can use Ionic's [id system](link_to_id_system) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
 
-Menus can be a little more complicated, but they allow for many different configuration options.  For more examples and in depth configuration explanations, take a look at the [Menu API reference](link_to_menu_api) as well as the [Nav API reference](link_to_nav).
+Menus can be a little more complicated, but they allow for many different configuration options.  For more examples and in depth configuration explanations, take a look at the [Menu API reference](../api/components/menu/Menu/) as well as the [Nav API reference](../api/components/nav/Nav/).
 
 
 <h2 id="slides">Slides</h2>

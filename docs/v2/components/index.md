@@ -62,8 +62,6 @@ Buttons are an essential way to interact with an app. They are simple components
 <button primary>Button</button>
 ```
 
-### Colors:
-
 The `primary` property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:
 
 ```html
@@ -75,17 +73,7 @@ The `primary` property sets the color of the button. Ionic includes a number of 
 <button dark>Dark</button>
 ```
 
-### Shapes:
-
-**Round:**
-
-The `round` property will add rounded corners to a button:
-
-```html
-<button round>Round Button</button>
-```
-
-**Block:**
+<h2 id="block-buttons">Block Buttons</h2>
 
 Adding `block` to a button will make the button take 100% of its parent's width. It will also add `display: block` to the button:
 
@@ -93,23 +81,15 @@ Adding `block` to a button will make the button take 100% of its parent's width.
 <button block>Block Button</button>
 ```
 
-**Full:**
-
+<h2 id="full-buttons">Full Buttons</h2>
 Adding `full` to a button will also make the button take 100% of its parent's width. However, it will also remove the button's left and right borders. This style is useful when the button should stretch across the entire width of the display.
 
 ```html
 <button full>Full Button</button>
 ```
 
-**Floating Action Button:**
 
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
-
-```html
-<button fab>FAB</button>
-```
-
-### Outlines:
+<h2 id="outline-buttons">Outline Buttons</h2>
 
 To create outline buttons, just add the `outline` property:
 
@@ -122,7 +102,39 @@ To create outline buttons, just add the `outline` property:
 <button dark outline>Dark Outline</button>
 ```
 
-### Icons:
+
+
+<h2 id="button-sizes">Button Sizes</h2>
+
+Add the `large` attribute to make a button larger, or `small` to make it smaller:
+
+```html
+<button large>Large<button>
+<button>Default<button>
+<button small>Small<button>
+```
+
+
+<h2 id="button-shapes">Button Shapes</h2>
+
+**Floating Action Button:**
+
+Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
+
+```html
+<button fab>FAB</button>
+```
+
+**Round:**
+
+The `round` property will add rounded corners to a button:
+
+```html
+<button round>Round Button</button>
+```
+
+
+<h2 id="icon-buttons">Icon Buttons</h2>
 
 To add icons to a button, add an icon component inside of it:
 
@@ -143,16 +155,6 @@ To add icons to a button, add an icon component inside of it:
 <button>
     <icon home></icon>
 </button>
-```
-
-### Sizes
-
-Add the `large` attribute to make a button larger, or `small` to make it smaller:
-
-```html
-<button large>Large<button>
-<button>Default<button>
-<button small>Small<button>
 ```
 
 <h2 id="cards">Cards</h2>

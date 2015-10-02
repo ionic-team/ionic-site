@@ -3850,8 +3850,7 @@ body {
 .docs-container > main {
   margin-left: 230px; }
 .docs-container > aside {
-  width: 467px;
-  top: -100px; }
+  width: 467px; }
   .docs-container > aside + main {
     margin-right: 467px; }
 

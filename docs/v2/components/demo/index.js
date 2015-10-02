@@ -57,7 +57,7 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "hel
                     this.nav = nav;
                     this.actionSheet = actionSheet;
                     this.navDetailsPage = NavigationDetailsPage;
-                    this.component = { title: 'Tabs' };
+                    this.component = { title: 'Action Sheets' };
                     this.setupAnimations();
                     window.addEventListener('message', function (e) {
                         zone.run(function () {
@@ -84,7 +84,7 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "hel
                         this.actionSheet.open({
                             buttons: [{ text: 'Share This' }, { text: 'Move' }],
                             destructiveText: 'Delete',
-                            titleText: 'Modify your album',
+                            titleText: 'You Opened Action Sheet',
                             cancelText: 'Cancel',
                             cancel: function cancel() {
                                 console.log('Canceled');

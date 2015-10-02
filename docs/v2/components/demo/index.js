@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "helpers"], function (_export) {
     "use strict";
 
-    var App, IonicApp, ActionSheet, Animation, NavController, NavParams, Modal, IonicView, Events, NgZone, NavigationDetailsPage, helpers, __decorate, __metadata, DemoModal, MainPage, DemoApp, _a, _b, _c, _d, _e, _f, _g;
+    var App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, NgZone, NavigationDetailsPage, helpers, __decorate, __metadata, DemoModal, MainPage, DemoApp, _a, _b, _c, _d, _e, _f, _g;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -16,7 +16,6 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "hel
             App = _ionicIonic.App;
             IonicApp = _ionicIonic.IonicApp;
             ActionSheet = _ionicIonic.ActionSheet;
-            Animation = _ionicIonic.Animation;
             NavController = _ionicIonic.NavController;
             NavParams = _ionicIonic.NavParams;
             Modal = _ionicIonic.Modal;
@@ -80,7 +79,6 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "hel
                     this.actionSheet = actionSheet;
                     this.navDetailsPage = NavigationDetailsPage;
                     this.component = { title: 'Action Sheets' };
-                    this.setupAnimations();
                     window.addEventListener('message', function (e) {
                         zone.run(function () {
                             if (e.data) {
@@ -133,29 +131,6 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "hel
                     key: "openNavDetailsPage",
                     value: function openNavDetailsPage(item) {
                         this.nav.push(NavigationDetailsPage, { name: item });
-                    }
-
-                    // **************************
-                    // Animations
-                    // **************************
-                }, {
-                    key: "setupAnimations",
-                    value: function setupAnimations() {
-                        this.animation = new Animation();
-                        this.animation.duration(2000);
-                        var ionitronSpin = new Animation(document.querySelector('#ionitron'));
-                        ionitronSpin.from('transform', 'rotate(0deg)').to('transform', 'rotate(360deg)');
-                        this.animation.add(ionitronSpin);
-                    }
-                }, {
-                    key: "play",
-                    value: function play() {
-                        this.animation.play();
-                    }
-                }, {
-                    key: "pause",
-                    value: function pause() {
-                        this.animation.pause();
                     }
 
                     // **************************

@@ -52,43 +52,6 @@ ActionSheet.open({
 })
 ```
 
-
-<h2 id="animations">Animations</h2>
-
-Ionic comes with a powerful Animation system based on the Web Animation API.
-
-Unlike CSS animations, Ionic animations can be easily triggered based on events
-and support interactive "scrubbing": the ability to manually step through an animation
-such as during a drag gesture.
-
-```ts
-
-// Import it
-import {Animation} from 'ionic/ionic';
-
-export class MyComponent {
-
-  // Create a new animation
-  var ionitron = document.querySelector('#ionitron');
-  var spin = new Animation(ionitron);
-
-  // Add a CSS transform
-  spin
-    .from('transform', 'rotate(0deg)')
-    .to('transform', 'rotate(360deg)')
-
-  // Register the animation with your component
-  this.animation.add(spin);
-
-  // Start the animation when the play button is tapped
-  play() {
-    this.animation.play();
-  }
-
-}
-```
-
-
 <h2 id="buttons">Buttons</h2>
 
 Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.

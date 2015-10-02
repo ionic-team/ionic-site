@@ -10,7 +10,7 @@ header_sub_title: "Class in module "
 doc: "Animation"
 docType: "class"
 ---
- 
+
 
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
@@ -545,3 +545,15 @@ subAnimationInstance.getCurrentTime()
   <code>dispose()</code>
 
 </h2>
+
+
+
+
+
+
+
+
+
+
+
+

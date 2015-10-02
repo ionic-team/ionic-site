@@ -87,8 +87,11 @@
          ng-app="IonicDocs"
          >
       <nav class="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text" class="form-control" placeholder="Search">
+        </form>
         
-          <form class="form-group">
+          <form class="form-group api-select">
   <select name="version"
         id="version-toggle"
         onchange="window.location.href=this.options[this.selectedIndex].value">

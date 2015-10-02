@@ -43,3 +43,4 @@ docType: "let"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L38-L40">ionic/util/click-block.ts (line 38)</a>
 </p>
+

@@ -133,7 +133,6 @@
       
       <li><a href="#docs-page-components">Overview</a></li>
       <li><a href="#action-sheets">Action Sheets</a></li>
-      <li><a href="#animations">Animations</a></li>
       <li><a href="#buttons">Buttons</a></li>
       <li><a href="#cards">Cards</a></li>
       <li><a href="#icons">Icons</a></li>
@@ -141,6 +140,7 @@
       <li><a href="#menus">Menus</a></li>
       <li><a href="#modals">Modals</a></li>
       <li><a href="#navigation">Navigation</a></li>
+      <li><a href="#popups">Popups</a></li>
       <li><a href="#slides">Slides</a></li>
       <li><a href="#tabs">Tabs</a></li>
     </ul>
@@ -282,37 +282,6 @@
   <span class="k">this</span><span class="p">.</span><span class="nx">actionSheet</span> <span class="o">=</span> <span class="nx">actionSheet</span><span class="p">;</span>
   <span class="c1">// this.actionSheet.close() to close it programatically</span>
 <span class="p">})</span>
-</code></pre></div>
-<h2 id="animations">Animations</h2>
-
-<p>Ionic comes with a powerful Animation system based on the Web Animation API.</p>
-
-<p>Unlike CSS animations, Ionic animations can be easily triggered based on events
-and support interactive &quot;scrubbing&quot;: the ability to manually step through an animation
-such as during a drag gesture.</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="c1">// Import it</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Animation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyComponent</span> <span class="p">{</span>
-
-  <span class="c1">// Create a new animation</span>
-  <span class="kd">var</span> <span class="nx">ionitron</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#ionitron&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">spin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">ionitron</span><span class="p">);</span>
-
-  <span class="c1">// Add a CSS transform</span>
-  <span class="nx">spin</span>
-    <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(0deg)&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate(360deg)&#39;</span><span class="p">)</span>
-
-  <span class="c1">// Register the animation with your component</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">spin</span><span class="p">);</span>
-
-  <span class="c1">// Start the animation when the play button is tapped</span>
-  <span class="nx">play() {</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">animation</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
 </code></pre></div>
 <h2 id="buttons">Buttons</h2>
 
@@ -666,6 +635,10 @@ from the <code>Modal</code> Ionic class:</p>
 <p>For more information on navigation controllers, check out the <a href="../api/components/nav/Nav/">Nav API reference</a>.</p>
 
 <p>But what if you have several &quot;root&quot; or &quot;top-level&quot; views that don&#39;t have a parent-child relationship, but rather are siblings? You have two options: <a href="#tabs">Tabs</a> and <a href="#menus">Menu</a>.</p>
+
+<h2 id="popups">Popups</h2>
+
+<p>TODO</p>
 
 <h2 id="slides">Slides</h2>
 

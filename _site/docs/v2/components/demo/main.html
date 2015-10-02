@@ -1,11 +1,15 @@
 
-<ion-toolbar><ion-title>{{ component.title }}</ion-title></ion-toolbar>
 
-<ion-content class="has-header padding components-demo">
+<ion-navbar *navbar class="show-navbar">
+  <ion-title>{{ component.title }}</ion-title>
+</ion-navbar>
 
-  <section id="action-sheet" [ng-class]="{hidden: component.title !== 'Action Sheets' }">
+
+<ion-content class="has-header components-demo">
+
+  <section id="action-sheet" [ng-class]="{hidden: component.title !== 'Action Sheets' }" class="section-padding">
     <button class="button" (click)="openMenu()">
-      Show Actionsheet
+      Show Action Sheet
     </button>
   </section>
 
@@ -26,8 +30,7 @@
   </section>
 
 
-  <section id="buttons" [ng-class]="{hidden: component.title !== 'Buttons' }">
-    <h4>Colors</h4>
+  <section id="buttons" [ng-class]="{hidden: component.title !== 'Buttons' }" class="section-padding">
 
     <p>
       <button block>Default</button>
@@ -49,78 +52,6 @@
       <button dark block>Dark</button>
     </p>
 
-    <h4>Shapes</h4>
-
-    <p>
-      <button full>Full Button</button>
-    </p>
-
-    <p>
-      <button block>Block Button</button>
-    </p>
-
-    <p>
-      <button round>Round Button</button>
-    </p>
-
-      <p>
-      <button fab style="position: relative;">FAB</button>
-    </p>
-
-    <h4>Outlines</h4>
-
-    <p>
-      <button secondary full outline>Outline + Full</button>
-    </p>
-
-    <p>
-      <button secondary block outline>Outline + Block</button>
-    </p>
-
-    <p>
-      <button secondary round outline>Outline + Round</button>
-    </p>
-
-      <p>
-      <button secondary fab outline style="position: relative;">FAB</button>
-    </p>
-
-    <h4>Icons</h4>
-
-    <p>
-      <button dark>
-        <icon star></icon>
-        Left Icon
-      </button>
-    </p>
-
-    <p>
-      <button dark>
-        Right Icon
-        <icon star></icon>
-      </button>
-    </p>
-
-    <p>
-      <button dark>
-        <icon star></icon>
-      </button>
-    </p>
-
-
-    <h4>Sizes</h4>
-
-    <p>
-      <button light large>Large</button>
-    </p>
-
-    <p>
-      <button light>Default</button>
-    </p>
-
-    <p>
-      <button light small>Small</button>
-    </p>
   </section>
 
 
@@ -170,7 +101,7 @@
     <ion-card>
 
       <ion-item>
-        <icon wifi item-left></icon>
+        <icon trophy item-left></icon>
         Trophies
         <button outline item-right>View</button>
       </ion-item>
@@ -180,58 +111,106 @@
 
   </section>
    
-    <section id="icons" [ng-class]="{hidden: component.title !== 'Icons' }">
-   TODO
+  <section id="icons" [ng-class]="{hidden: component.title !== 'Icons' }" class="components-icons">
+    
+    <ion-row>
+      <ion-col><icon ionic></icon></ion-col>
+      <ion-col><icon ion-social-angular></icon></ion-col>
+      <ion-col><icon ionitron></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon heart></icon></ion-col>
+      <ion-col><icon apps></icon></ion-col>
+      <ion-col><icon happy></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon people></icon></ion-col>
+      <ion-col><icon person></icon></ion-col>
+      <ion-col><icon contact></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon lock></icon></ion-col>
+      <ion-col><icon key></icon></ion-col>
+      <ion-col><icon unlock></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon map></icon></ion-col>
+      <ion-col><icon navigate></icon></ion-col>
+      <ion-col><icon pin></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon mic></icon></ion-col>
+      <ion-col><icon musical-notes></icon></ion-col>
+      <ion-col><icon volume-up></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon cafe></icon></ion-col>
+      <ion-col><icon calculator></icon></ion-col>
+      <ion-col><icon bus></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon camera></icon></ion-col>
+      <ion-col><icon cube></icon></ion-col>
+      <ion-col><icon image></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon star></icon></ion-col>
+      <ion-col><icon wine></icon></ion-col>
+      <ion-col><icon pin></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon arrow-back></icon></ion-col>
+      <ion-col><icon arrow-dropdown></icon></ion-col>
+      <ion-col><icon arrow-forward></icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><icon sunny></icon></ion-col>
+      <ion-col><icon umbrella></icon></ion-col>
+      <ion-col><icon rainy></icon></ion-col>
+    </ion-row>
+
   </section>
 
   <section id="lists" [ng-class]="{hidden: component.title !== 'Lists' }">
     <ion-list>
 
       <ion-header>
-        List Header
+        Classes
       </ion-header>
 
-      <ion-switch>
-        <icon wifi item-left></icon>
-        Wifi
-      </ion-switch>
-
       <ion-item>
-        <icon heart item-left></icon>
-        Affection
-        <div class="item-note" item-right>
-          Very Little
-        </div>
-      </ion-item>
-
-      <ion-item>
-        <icon home item-left></icon>
-        Home
-        <div class="item-note" item-right>
-          Where the heart is
-        </div>
-      </ion-item>
-
-    </ion-list>
-
-
-    <ion-list>
-
-      <ion-header>
-        List Header
-      </ion-header>
-
-      <ion-switch checked="true">
         <icon color-wand item-left></icon>
-        Magic
-      </ion-switch>
+        Dark Arts
+      </ion-item>
+
+      <ion-item>
+        <icon planet item-left></icon>
+        Astronomy
+      </ion-item>
+
+      <ion-item>
+        <icon flask item-left></icon>
+        Potions
+      </ion-item>
 
       <ion-item>
         <icon star item-left></icon>
-        Star status
-        <div class="item-note" item-right>
-          Super
-        </div>
+        Charms
+      </ion-item>
+
+      <ion-item>
+        <icon leaf item-left></icon>
+        Herbology
       </ion-item>
 
     </ion-list>
@@ -240,65 +219,98 @@
     <ion-list>
 
       <ion-header>
-        List Header with text that is too long to fit inside the list header
+        Menu
       </ion-header>
 
+      <ion-switch checked="true">
+        <icon shirt item-left></icon>
+        Cloak of Invisibility
+      </ion-switch>
+
       <ion-item>
-        <icon pizza item-left></icon>
-        Pizza
-        <div class="item-note" item-right>
-          Always
-        </div>
+        <icon call item-left></icon>
+        Call Ron
+        <div class="item-note" item-right>Sure</div>
       </ion-item>
 
       <ion-item>
-        <icon beer item-left></icon>
-        Beer
-        <div class="item-note" item-right>
-          Yes Plz
-        </div>
-      </ion-item>
-
-      <ion-item>
-        <icon wine item-left></icon>
-        Wine
-        <div class="item-note" item-right>
-          All the time
-        </div>
+        <icon book item-left></icon>
+        Study Potions
+        <div class="item-note" item-right>Maybe later</div>
       </ion-item>
 
     </ion-list>
 
 
-    <ion-list>
-
-      <ion-item>
-        <icon chatboxes item-left></icon>
-        New List, no header, Item 1
-      </ion-item>
-
-      <ion-item>
-        <icon chatboxes item-left></icon>
-        New List, no header, Item 2
-      </ion-item>
-
-    </ion-list>
   </section>
     <section id="menus" [ng-class]="{hidden:component.title !== 'Menus' }">
    TODO
   </section>
-    <section id="modals" [ng-class]="{hidden: component.title !== 'Modals' }">
-   TODO
-  </section>
-    <section id="navigation" [ng-class]="{hidden: component.title !== 'Navigation' }">
-   TODO
-  </section>
-    <section id="slides" [ng-class]="{hidden: component.title !== 'Slides' }">
+
+  <section id="modals" [ng-class]="{hidden: component.title !== 'Modals' }">
    TODO
   </section>
 
-    <section id="tabs" [ng-class]="{hidden: component.title !== 'Tabs' }">
-   TODO
+  <section id="navigation" [ng-class]="{hidden: component.title !== 'Navigation' }">
+    <ion-card>
+      <ion-card-header primary>
+        Tap for more info...
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <a ion-item href="#" (click)="openNavDetailsPage('Angular')">
+          <icon ion-social-angular item-left></icon>
+          Angular
+        </a>
+
+        <a ion-item href="#" (click)="openNavDetailsPage('CSS3')">
+          <icon ion-social-css3 item-left></icon>
+          CSS3
+        </a>
+
+        <button ion-item (click)="openNavDetailsPage('HTML5')">
+          <icon ion-social-html5 item-left></icon>
+          HTML5
+        </button>
+
+        <button ion-item (click)="openNavDetailsPage('Sass')">
+          <icon ion-social-sass item-left></icon>
+          Sass
+        </button>
+      </ion-card-content>
+
+    </ion-card> 
+
+  </section>
+  
+  <section id="slides" [ng-class]="{hidden: component.title !== 'Slides' }">
+   
+   <ion-slides id="slider" style="background-color: black" pager="true" zoom="false" index="1" loop="true">
+      <ion-slide>
+        <div class="demo-slide demo-slide-1">
+          Slide 1
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="demo-slide demo-slide-2">
+          Slide 2
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="demo-slide demo-slide-3">
+          Slide 3
+        </div>
+      </ion-slide>
+   </ion-slides>
+  </section>
+
+  <section id="tabs" [ng-class]="{hidden: component.title !== 'Tabs' }">
+    <ion-tabs tab-bar-placement="bottom">
+      <ion-tab tab-title="Food" tab-icon="pizza"></ion-tab>
+      <ion-tab tab-title="Drinks" tab-icon="beer"></ion-tab>
+      <ion-tab tab-title="Hours" tab-icon="clock"></ion-tab>
+    </ion-tabs>
   </section>
 
 </ion-content>

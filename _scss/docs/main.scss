@@ -81,40 +81,77 @@ body {
   top: 80px;
   bottom: 0;
   .back-to-main{
-    border: 1px solid #e6e9ee;
-    padding: 2px 12px 0;
-    margin-right: 20px;
-    margin-top: -15px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    text-align: center;
-    &:hover{
-      border-color: $blue;
-    }
     a{
       padding-top: 5px;
+      border: 1px solid #e6e9ee;
+      padding: 10px 12px 13px;
+      margin-right: 20px;
+      margin-top: -15px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
       &:before{
         font-family: "Ionicons";
         -webkit-font-smoothing: antialiased;
         content: "\f3d2";
-        font-size:18px;
+        font-size:16px;
         font-weight: 800;
         position: relative;
         padding-right: 5px;
         top: 2px;
       }
+      &:hover{
+        border-color: $blue;
+        color: $blue;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        background: #fdfdfd;
+      }
+      &:focus:after{
+        border-right-color: transparent;
+      }
     }
   }
   .form-group {
-    padding: 5px 20px 17px;
+    position: relative;
     border-bottom: 1px solid $light-grey;
     select {
+      padding: 17px 20px 17px;
+      display:block;
       width: 100%;
       background: none;
       border-radius: 0;
       border: none;
       outline: none;
       color: $grey;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
+      &:hover{
+        border-color: $blue;
+        color: $blue;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        background: #fdfdfd;
+      }
+    }
+    &:hover{
+      transition: .2s border-color;
+      &:before {
+        color: $blue;
+      }
+    }
+    &:before {
+      font-family: "Ionicons";
+      -webkit-font-smoothing: antialiased;
+      content: "\f35f";
+      font-size:14px;
+      font-weight: 800;
+      color: #a4abb5;
+      position: absolute;
+      top: 17px;
+      right: 20px;
+      transition: .2s color;
     }
   }
   ul {
@@ -185,9 +222,7 @@ body {
 .docs-container {
   main {
     padding:30px 40px;
-    &:first-child{
-      margin-top: 0;
-    }
+
     h1,h2,h3,h4,h5{
       color: $blacker;
       line-height: 1.4em;
@@ -195,17 +230,37 @@ body {
       font-size: 26px;
       font-weight: 400;
       letter-spacing: -0.01em;
+      &:first-child{
+        margin-top: 0;
+      }
     }
+    h2{
+      margin: 2em 0 0em;
+      font-size: 22px;
+    }
+    h3{
+      margin: 2em 0 0em;
+      font-size: 18px;
+    }
+
     p {
       color: $blackish;
       line-height: 1.9em;
-      margin: 2em 0 1em;
+      margin: 1.2em 0 1.6em;
       font-weight: 400;
       font-size: 14px;
     }
     pre {
       border: 1px solid $light-grey;
       background: white;
+    }
+    a{
+      color: $blue;
+      text-decoration: none;
+      transition: .2s color;
+      &:hover{
+        color: lighten($blue, 15);
+      }
     }
   }
 

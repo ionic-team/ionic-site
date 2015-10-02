@@ -3859,7 +3859,9 @@ body {
   background: linear-gradient(to right, #3071da, #4888f1);
   border-radius: 0;
   border: none;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10; }
   .navbar-default .navbar-brand {
     padding: 22px 0 0 20px; }
     .navbar-default .navbar-brand img {
@@ -3900,8 +3902,10 @@ body {
   position: fixed;
   background: #f9fafb;
   overflow-y: scroll;
-  top: 80px;
-  bottom: 0; }
+  top: 0;
+  bottom: 0;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch; }
   .side-nav .back-to-main a {
     padding-top: 5px;
     border: 1px solid #e6e9ee;
@@ -3931,6 +3935,30 @@ body {
   .side-nav .form-group {
     position: relative;
     border-bottom: 1px solid #e6e9ee; }
+    .side-nav .form-group.search {
+      padding: 22px 20px 20px; }
+      .side-nav .form-group.search:hover:before {
+        color: #a4abb5; }
+      .side-nav .form-group.search:before {
+        font-family: "Ionicons";
+        content: "\f4a5";
+        font-size: 20px;
+        font-weight: 800;
+        color: #a4abb5;
+        position: absolute;
+        top: 25px;
+        left: 34px;
+        transition: 0.2s color; }
+      .side-nav .form-group.search input {
+        border: 1px solid #e6e9ee;
+        border-radius: 20px;
+        padding: 15px 0 13px 35px;
+        font-size: 14px;
+        box-shadow: none;
+        transition: 0.2s border-color, 0.2s box-shadow; }
+        .side-nav .form-group.search input:focus {
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          border-color: #4f8ff7; }
     .side-nav .form-group select {
       padding: 17px 20px 17px;
       display: block;
@@ -3953,7 +3981,7 @@ body {
       transition: 0.2s border-color; }
       .side-nav .form-group:hover:before {
         color: #4f8ff7; }
-    .side-nav .form-group:before {
+    .side-nav .form-group.api-select:before {
       font-family: "Ionicons";
       -webkit-font-smoothing: antialiased;
       content: "\f35f";
@@ -3966,7 +3994,7 @@ body {
       transition: 0.2s color; }
   .side-nav ul {
     list-style: none;
-    padding: 20px 0 20px 20px; }
+    padding: 6px 0 20px 20px; }
     .side-nav ul a {
       color: #9da5b3;
       text-transform: uppercase;
@@ -4060,10 +4088,10 @@ body {
     position: fixed;
     top: 0; }
   .platform-preview .platform-toggle {
-    padding: 10px 10px 6px; }
+    padding: 8px 10px 4px; }
     .platform-preview .platform-toggle a {
       display: inline-block;
-      padding: 6px 16px 4px;
+      padding: 4px 16px 2px;
       border-radius: 5px;
       color: #9da5b3;
       font-size: 14px;

@@ -89,6 +89,9 @@
            ng-controller="ComponentsCtrl"
          >
       <nav class="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text" class="form-control" placeholder="Search">
+        </form>
         
           <ul ng-controller="DocsNavCtrl">
 
@@ -128,6 +131,7 @@
          ng-init="showComponents = true"
        >
       
+      <li><a href="#docs-page-components">Overview</a></li>
       <li><a href="#action-sheets">Action Sheets</a></li>
       <li><a href="#animations">Animations</a></li>
       <li><a href="#buttons">Buttons</a></li>

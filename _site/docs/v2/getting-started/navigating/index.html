@@ -87,6 +87,9 @@
          ng-app="IonicDocs"
          >
       <nav class="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text" class="form-control" placeholder="Search">
+        </form>
         
           <ul ng-controller="DocsNavCtrl">
 
@@ -127,6 +130,7 @@
         ng-show="showComponents"
        >
       
+      <li><a href="/docs/v2/components/#docs-page-components">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
       <li><a href="/docs/v2/components/#animations">Animations</a></li>
       <li><a href="/docs/v2/components/#buttons">Buttons</a></li>

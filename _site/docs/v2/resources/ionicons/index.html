@@ -87,6 +87,9 @@
          ng-app="IonicDocs"
          >
       <nav class="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text" class="form-control" placeholder="Search">
+        </form>
         
           <ul ng-controller="DocsNavCtrl">
 
@@ -124,6 +127,7 @@
         ng-show="showComponents"
        >
       
+      <li><a href="/docs/v2/components/#docs-page-components">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
       <li><a href="/docs/v2/components/#animations">Animations</a></li>
       <li><a href="/docs/v2/components/#buttons">Buttons</a></li>
@@ -11553,16 +11557,16 @@
   <i class="ion-ios-search"></i>
 </p>
 
-<section id="icons" class="search-nil">
+<p><section id="icons" class="search-nil"></p>
 
-  <ul class="icon-labels">
+<p><ul class="icon-labels">
     <li>Name</li>
     <li>iOS</li>
     <li>iOS-Outline</li>
     <li>Material Design</li>
-  </ul>
+  </ul></p>
 
-</section>
+<p></section></p>
 
 <div id="icon-panel">
   <input type="text" id="icon-name" onclick="this.select();" readonly>

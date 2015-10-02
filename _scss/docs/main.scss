@@ -29,6 +29,8 @@ body {
   border-radius: 0;
   border:none;
   margin-bottom: 0;
+  position: relative;
+  z-index: 10;
   .navbar-brand{
     padding: 22px 0 0 20px;
     img{
@@ -78,8 +80,10 @@ body {
   position: fixed;
   background: $whiteish;
   overflow-y: scroll;
-  top: 80px;
+  top: 0;
   bottom: 0;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
   .back-to-main{
     a{
       padding-top: 5px;
@@ -115,6 +119,36 @@ body {
   .form-group {
     position: relative;
     border-bottom: 1px solid $light-grey;
+    &.search{
+      padding:22px 20px 20px;
+      &:hover:before{
+        color: #a4abb5;
+      }
+      &:before {
+        font-family: "Ionicons";
+        content: "\f4a5";
+        font-size:20px;
+        font-weight: 800;
+        color: #a4abb5;
+        position: absolute;
+        top: 25px;
+        left: 34px;
+        transition: .2s color;
+      }
+      input{
+        border: 1px solid $light-grey;
+        border-radius: 20px;
+        padding: 15px 0 13px 35px;
+        font-size: 14px;
+        box-shadow: none;
+        transition: .2s border-color, .2s box-shadow;
+        &:focus{
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          border-color: $blue;
+        }
+      }
+
+    }
     select {
       padding: 17px 20px 17px;
       display:block;
@@ -141,7 +175,7 @@ body {
         color: $blue;
       }
     }
-    &:before {
+    &.api-select:before {
       font-family: "Ionicons";
       -webkit-font-smoothing: antialiased;
       content: "\f35f";
@@ -156,7 +190,7 @@ body {
   }
   ul {
     list-style: none;
-    padding: 20px 0 20px 20px;
+    padding: 6px 0 20px 20px;
     a{
       color:$grey;
       text-transform: uppercase;
@@ -274,10 +308,10 @@ body {
     top: 0;
   }
   .platform-toggle {
-    padding: 10px 10px 6px;
+    padding: 8px 10px 4px;
     a {
       display: inline-block;
-      padding: 6px 16px 4px;
+      padding: 4px 16px 2px;
       border-radius: 5px;
       color: $grey;
       font-size: 14px;

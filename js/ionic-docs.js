@@ -61,7 +61,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {
-    if ($('body').scrollTop() > 77) {
+    if ($('body').scrollTop() > 78) {
       $platformPreview.addClass('fixey')
     } else {
       $platformPreview.removeClass('fixey')

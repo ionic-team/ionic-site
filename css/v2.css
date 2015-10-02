@@ -3843,7 +3843,8 @@ tbody.collapse.in {
 body {
   font-family: 'Avenir Next', 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
-  min-width: 920px; }
+  min-width: 920px;
+  background: linear-gradient(90deg, #f9fafb, #f9fafb 235px, white 235px, white 100%); }
 
 .docs-container .side-nav {
   width: 230px; }
@@ -4052,14 +4053,17 @@ body {
       color: #98befa; }
 
 .platform-preview {
-  position: fixed;
+  position: absolute;
   right: 0;
   text-align: center; }
+  .platform-preview.fixey {
+    position: fixed;
+    top: 0; }
   .platform-preview .platform-toggle {
-    padding: 30px 20px; }
+    padding: 10px 10px 6px; }
     .platform-preview .platform-toggle a {
       display: inline-block;
-      padding: 7px 15px 5px;
+      padding: 6px 16px 4px;
       border-radius: 5px;
       color: #9da5b3;
       font-size: 14px;

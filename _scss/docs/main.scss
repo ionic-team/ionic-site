@@ -3,13 +3,13 @@ body {
   position: relative;
   // TODO: mobile styles
    min-width: 920px;
-  // background: linear-gradient(
-  //   90deg,
-  //   $whiteish,
-  //   $whiteish $sidenav-width + 5,
-  //   white $sidenav-width + 5,
-  //   white 100%
-	// );
+  background: linear-gradient(
+    90deg,
+    $whiteish,
+    $whiteish $sidenav-width + 5,
+    white $sidenav-width + 5,
+    white 100%
+	);
 }
 .docs-container {
   .side-nav { width: $sidenav-width; }
@@ -266,14 +266,18 @@ body {
 
 }
 .platform-preview {
-  position: fixed;
+  position: absolute;
   right:0;
   text-align: center;
+  &.fixey{
+    position: fixed;
+    top: 0;
+  }
   .platform-toggle {
-    padding: 30px 20px;
+    padding: 10px 10px 6px;
     a {
       display: inline-block;
-      padding: 7px 15px 5px;
+      padding: 6px 16px 4px;
       border-radius: 5px;
       color: $grey;
       font-size: 14px;
@@ -314,6 +318,4 @@ body {
       height: 590px;
     }
   }
-
-
 }

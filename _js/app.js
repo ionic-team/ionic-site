@@ -49,20 +49,17 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     }
   }
 
-  // var indexList = $('#components-index');
-  // var docsEnd = $('#docs-end');
-  $(document).scroll(function() {
-    //fixyCheck();
-  });
-  function fixyCheck() {
-  //   if (indexList.offset().top + indexList.height() >=
-  //       docsEnd.offset().top - 10) {
-  //     indexList[0].classList.add('bottom');
-  //   }
-  //   if ($(document).scrollTop() + window.innerHeight <
-  //       docsEnd.offset().top + 100) {
-  //     indexList[0].classList.remove('bottom'); // restore when you scroll up
-  //   }
-  //
+  // positioning the platform preview appropriately on scroll
+  var $platformPreview = $('#platform-preview');
+  var $window = $(window);
+  var $body = $('body');
+
+  $window.scroll(fixyCheck);
+  function fixyCheck(a, b, c) {
+    if ($('body').scrollTop() > 77) {
+      $platformPreview.addClass('fixey')
+    } else {
+      $platformPreview.removeClass('fixey')
+    }
   }
 }]);

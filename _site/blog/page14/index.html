@@ -77,24 +77,29 @@
   </div>
   
     <div style="float: right; margin-right: -160px">
-{% include codepen.html id="zkmhJ" %}
+
+ <div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="zkmhJ" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/zkmhJ'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+  <script async src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
+
 </div>
 
-One great thing about native SDKs is the control they give developers when it comes to common tasks like
-prompting the user for input, or showing a modal dialog.
+<p>One great thing about native SDKs is the control they give developers when it comes to common tasks like
+prompting the user for input, or showing a modal dialog.</p>
 
-Unfortunately, the browser built-ins `alert()`, `confirm()`, and `prompt()`, while convenient, are too limiting for
-those that wish to build a really custom mobile app experience.
+<p>Unfortunately, the browser built-ins <code>alert()</code>, <code>confirm()</code>, and <code>prompt()</code>, while convenient, are too limiting for
+those that wish to build a really custom mobile app experience.</p>
 
-Based on all the requests and feedback we've gotten from Ionic developers, we knew more powerful popup support was important to you. You want the ability to do things like
-prompt for a password, or have two inputs in a popup. Things that just aren't possible with the built-in browser prompts.
+<p>Based on all the requests and feedback we&#39;ve gotten from Ionic developers, we knew more powerful popup support was important to you. You want the ability to do things like
+prompt for a password, or have two inputs in a popup. Things that just aren&#39;t possible with the built-in browser prompts.</p>
 
-So today we are releasing the first implementation of popup (or "dialog") support in Ionic. Check out the live demo on the right to get a feel for how it works.
+<p>So today we are releasing the first implementation of popup (or &quot;dialog&quot;) support in Ionic. Check out the live demo on the right to get a feel for how it works.</p>
 
-We designed the popup experience off of how they function in iOS, meaning the modals can stack and will "pop" off after the most recent one is dismissed.
+<p>We designed the popup experience off of how they function in iOS, meaning the modals can stack and will &quot;pop&quot; off after the most recent one is dismissed.</p>
 
-Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously
-return prompt data to your code. We do this through Angular promises.
+<p>Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously
+return prompt data to your code. We do this through Angular promises.</p>
 
 
     <a href="/blog/popup-support">Read more...</a>
@@ -132,11 +137,11 @@ return prompt data to your code. We do this through Angular promises.
     <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 10, 2014</time>
   </div>
   
-    Today we are super excited to announce we've closed $1M in funding from [Arthur Ventures](http://arthurventures.com/), and were featured in a great [TechCrunch writeup](http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/).
+    <p>Today we are super excited to announce we&#39;ve closed $1M in funding from <a href="http://arthurventures.com/">Arthur Ventures</a>, and were featured in a great <a href="http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/">TechCrunch writeup</a>.</p>
 
-With this funding, we are going to focus on making Ionic the best mobile development framework in town, starting with dramatically improving the stability, documentation, and feature set of the framework, and improving our Android and Windows Phone support.
+<p>With this funding, we are going to focus on making Ionic the best mobile development framework in town, starting with dramatically improving the stability, documentation, and feature set of the framework, and improving our Android and Windows Phone support.</p>
 
-Since we launched the Ionic alpha at the end of November 2013, we've been blown away by your passion and excitement for the project. Today, over 200 new Ionic apps are started every day, and we are delighted by all of the [high quality apps](/examples/showcase/) the community is making.
+<p>Since we launched the Ionic alpha at the end of November 2013, we&#39;ve been blown away by your passion and excitement for the project. Today, over 200 new Ionic apps are started every day, and we are delighted by all of the <a href="/examples/showcase/">high quality apps</a> the community is making.</p>
 
 
     <a href="/blog/beta-next-week">Read more...</a>
@@ -174,13 +179,13 @@ Since we launched the Ionic alpha at the end of November 2013, we've been blown 
     <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 06, 2014</time>
   </div>
   
-    As we've built out Ionic, we've gotten a ton of questions about [Cordova](http://cordova.apache.org/) and [PhoneGap](http://phonegap.com/). These range from confusion with the naming (are Cordova and PhoneGap the same thing?), to a misunderstanding of the goals and capabilities of these projects.
+    <p>As we&#39;ve built out Ionic, we&#39;ve gotten a ton of questions about <a href="http://cordova.apache.org/">Cordova</a> and <a href="http://phonegap.com/">PhoneGap</a>. These range from confusion with the naming (are Cordova and PhoneGap the same thing?), to a misunderstanding of the goals and capabilities of these projects.</p>
 
-### A quick history lesson
+<h3>A quick history lesson</h3>
 
-PhoneGap proper was created around 2009 by a startup called Nitobi as an open source way to access the "native" environment through an embedded Web View in a native app. The goal of the project was to make it possible to build the bulk of a mobile app experience with pure web technologies like HTML5, CSS, and Javascript, but still be able to call into native code when necessary.
+<p>PhoneGap proper was created around 2009 by a startup called Nitobi as an open source way to access the &quot;native&quot; environment through an embedded Web View in a native app. The goal of the project was to make it possible to build the bulk of a mobile app experience with pure web technologies like HTML5, CSS, and Javascript, but still be able to call into native code when necessary.</p>
 
-In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and the open source core was donated to the [Apache Software Foundation](http://apache.org/) under the name Cordova.
+<p>In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and the open source core was donated to the <a href="http://apache.org/">Apache Software Foundation</a> under the name Cordova.</p>
 
 
     <a href="/blog/what-is-cordova-phonegap">Read more...</a>
@@ -218,9 +223,9 @@ In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and
     <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 03, 2014</time>
   </div>
   
-    Today we are happy to announce that [Justin Noel](http://twitter.com/calendee), also known as ([@calendee](http://forum.ionicframework.com/users/calendee/activity)), is joining the Ionic Team as a Community Manager.
+    <p>Today we are happy to announce that <a href="http://twitter.com/calendee">Justin Noel</a>, also known as (<a href="http://forum.ionicframework.com/users/calendee/activity">@calendee</a>), is joining the Ionic Team as a Community Manager.</p>
 
-You'll be seeing a lot more of Justin on the Ionic Forums, helping out with any quesitons you might have with Ionic, and also triaging issues for the Ionic core dev team.
+<p>You&#39;ll be seeing a lot more of Justin on the Ionic Forums, helping out with any quesitons you might have with Ionic, and also triaging issues for the Ionic core dev team.</p>
 
 
     <a href="/blog/welcome-justin">Read more...</a>
@@ -258,12 +263,12 @@ You'll be seeing a lot more of Justin on the Ionic Forums, helping out with any 
     <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on February 20, 2014</time>
   </div>
   
-    A few days ago we released Ionic v0.9.25 "Quokka" ([changelog](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#0925-quokka-2014-02-19)). In addition to lots of bugs getting fixed and a few new features, one big thing that changed was moving Ionic directives to use the `ion-` prefix.
+    <p>A few days ago we released Ionic v0.9.25 &quot;Quokka&quot; (<a href="https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#0925-quokka-2014-02-19">changelog</a>). In addition to lots of bugs getting fixed and a few new features, one big thing that changed was moving Ionic directives to use the <code>ion-</code> prefix.</p>
 
-This means instead of using `<side-menus>`, you'll need to start using `<ion-side-menus>`. This applies to any and all Ionic directives, including attribute and class name directives (though we rarely use those).
+<p>This means instead of using <code>&lt;side-menus&gt;</code>, you&#39;ll need to start using <code>&lt;ion-side-menus&gt;</code>. This applies to any and all Ionic directives, including attribute and class name directives (though we rarely use those).</p>
 
-We thought long and hard about making this change, and at the end of the day we felt it was more clear which directives were powered by Ionic, and safer in the case that
-you had similiar-named directives in your own application.
+<p>We thought long and hard about making this change, and at the end of the day we felt it was more clear which directives were powered by Ionic, and safer in the case that
+you had similiar-named directives in your own application.</p>
 
 
     <a href="/blog/ionic-directive-prefixes">Read more...</a>

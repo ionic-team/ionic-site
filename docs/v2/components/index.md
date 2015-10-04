@@ -282,13 +282,13 @@ reference to an array of items, and the parent scroll element:
 
 <h2 id="menus">Menus</h2>
 
-Menus control side content that slides in or is exposed under a sliding content area. Along with [Tabs](#tabs), Menus are a common way to [navigate](#navigation) through an app.
+Menus control side content that slides in or is exposed from the main content area sliding out. Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" views. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
 
-As mentioned in the [tabs section](#tabs), there are some situations where using Tabs might not be desirable.  For instance, if you have a large number of root views, making a TabBar impractical, a menu might be a better solution.  
+For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.
 
-Menus also allow you to return to root views at any point. They can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
+Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
 
-However, because Menus are not always and immediately visible on screen, they require more work for the user to use.  Make sure to weigh your priorities when designing the navigational structure of your app.
+However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
 
 To use a Menu add an [`<ion-menu>`](link_to_menu) to your markup next to your root [`<ion-nav>`](link_to_nav):
 
@@ -318,12 +318,15 @@ class MyApp {}
 
 The `<ion-menu>`s bound `[content]` property gets a [reference](angular_template_refs) to the [`<ion-nav>`](link_to_nav) in order to listen for drag events on the main content so it knows when to open/close.  
 
-Then we have two buttons with click handlers that navigate to a new root view:
+Then in our [@App](link_to_app) component we have two buttons with click handlers that navigate to a new root view:
 
 ```ts
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
-...
+
+@App({
+...  
+})
 class MyApp {
   constructor(ionicApp: IonicApp) {
     this.app = ionicApp;
@@ -489,7 +492,7 @@ class OtherPage {
 ```
 For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
 
-But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menus).
+But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs_navigation) and [Menu](#menu_navigation).
 
 
 <h2 id="popups">Popups</h2>
@@ -574,6 +577,15 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 
 <h2 id="tabs">Tabs</h2>
 
+Powers a multi-tabbed interface with a Tab Bar and a set of "pages"
+that can be tabbed through.
+
+For iOS, tabs will appear at the bottom of the screen. For Android, tabs
+will be at the top of the screen, below the nav-bar. This follows each platform's
+design specification, but can be configured with [IonicConfig](link_to_config).
+
+See the [Tab API reference](link to Tab) for more details on individual tabs.
+
 Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu) may be a better option.
 
 To initialize Tabs, use [`<ion-tabs>`](link_to_tabs), with a child [`<ion-tab>`](link_to_tab) for each tab:
@@ -616,7 +628,7 @@ class Tab1 {}
 class Tab2 {}
 ```
 
-Notice that each [`<ion-tab>`](link_to_tabs) binds to a `[root]` property, just like the [`<ion-nav>`](link_to_ion_nav) example [above](#Parent_child).  That is because each [`<ion-tab>`](link_to_tabs) is really just a navigation controller.  This means that each tab has its own history stack, and [`NavControllers`](link_to_nav_controller) injected into children [`@IonicViews`](link_to_Ionic_View) of each tab will be unique to each tab:
+Notice that each [`<ion-tab>`](link_to_tabs) binds to a `[root]` property, just like [`<ion-nav>`](link_to_ion_nav) in the [Navigation](#navigation) section above.  That is because each [<ion-tab>`](link_to_tabs) is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController`](link_to_nav_controller) instances injected into children [`@IonicViews`](link_to_Ionic_View) of each tab will be unique to each tab:
 
 ```ts
 @IonicView({
@@ -624,7 +636,7 @@ Notice that each [`<ion-tab>`](link_to_tabs) binds to a `[root]` property, just 
 })
 class Tab1 {
   constructor(nav: NavController) {
-    // Id is 1, different navigation stack than tab 2
+    // Id is 1, nav refers to Tab1
     console.log(nav.id)
   }
 }
@@ -634,7 +646,7 @@ class Tab1 {
 })
 class Tab2 {
   constructor(nav: NavController) {
-    // Id is 2, different navigation stack than tab 1
+    // Id is 2, nav refers to Tab2
     console.log(nav.id)
   }
 }

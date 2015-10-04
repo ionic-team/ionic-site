@@ -492,7 +492,7 @@ class OtherPage {
 ```
 For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
 
-But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs_navigation) and [Menu](#menu_navigation).
+But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
 
 
 <h2 id="popups">Popups</h2>
@@ -584,7 +584,9 @@ For iOS, tabs will appear at the bottom of the screen. For Android, tabs
 will be at the top of the screen, below the nav-bar. This follows each platform's
 design specification, but can be configured with [IonicConfig](link_to_config).
 
-See the [Tab API reference](link to Tab) for more details on individual tabs.
+See the [Tabs API reference](link_to_tabs) for more details on the Tabs component,
+and the [Tab API reference](link_to_tab) for more information on configuring the
+individual Tab components it contains.
 
 Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu) may be a better option.
 

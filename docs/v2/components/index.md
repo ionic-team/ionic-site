@@ -298,7 +298,9 @@ reference to an array of items, and the parent scroll element:
 <h2 id="menus">Menus</h2>
 _For more in depth information on Menus see the [Menu API reference](../api/components/menu/Menu)._
 
-Menus control side content that slides in or is exposed from the main content area sliding out. Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" views. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
+Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.
+
+Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" views. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
 
 For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.
 

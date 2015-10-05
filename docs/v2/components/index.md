@@ -369,7 +369,7 @@ We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can us
 
 Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open [Modals](#modals) over the main map content area and toggle settings on and off.
 
-For more information on tabs, check out the [Menu API reference](../api/components/menu/Menu/).
+For more information on Menus, check out the [Menu API reference](../api/components/menu/Menu/).
 
 
 <h2 id="modals">Modals</h2>

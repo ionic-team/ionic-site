@@ -4080,6 +4080,12 @@ body {
     transition: 0.2s color; }
     .docs-container main a:hover {
       color: #98befa; }
+  .docs-container main b, .docs-container main strong {
+    font-weight: 500;
+    color: #26292e; }
+  .docs-container main .nav a {
+    padding-top: 5px;
+    padding-bottom: 5px; }
 
 .platform-preview {
   position: absolute;

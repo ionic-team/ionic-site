@@ -297,8 +297,18 @@ body {
         color: lighten($blue, 15);
       }
     }
+    b,
+    strong {
+      font-weight: 500;
+      color: #26292e;
+    }
+    .nav{
+      a{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
   }
-
 }
 .platform-preview {
   position: absolute;

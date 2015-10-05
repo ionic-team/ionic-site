@@ -673,3 +673,100 @@ class Tab2 {
 ```
 
 For more information on tabs, check out the [Tabs API reference](../api/components/tabs/Tabs/).
+
+
+<h2 id="forms">Forms</h2>
+
+Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls. 
+
+<h3 id="search_bar">Search Bar</h3>
+
+A search bar takes a value and binds it to a control in your form.
+
+```html
+<form [ng-form-model]="form">
+  <ion-search-bar ng-control="searchQuery"></ion-search-bar>
+  <ion-list inset #list>
+    <ion-item *ng-for="#item of getItems()">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+</form>
+```
+
+Note the `[ng-form-model]="form"` binds to the controllers instance of `this.form`, and the `ng-control` binds to the forms `searchQuery` property. You'll also see that the component interacts with the `searchQuery` property using the `form.controls` array `this.form.controls.searchQuery.value`.
+
+```ts
+class IonicApp {
+  constructor() {
+    var fb = new FormBuilder();
+    this.form = fb.group({
+      searchQuery: ['', Validators.required]
+    });
+    this.items ['Soylent', 'BBQ', 'Salad'];
+  }
+  getItems() {
+    var q = this.form.controls.searchQuery.value;
+    if(q.trim() == '') {
+      return this.items;
+    }
+    return this.items.filter((v) => {
+      if(v.title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    })
+  }
+}
+```
+
+<h3 id="segment">Segment</h3>
+
+Use the segment to control to use radio selections.
+
+```html
+<form (submit)="doSubmit($event)" [ng-form-model]="myForm">
+    <ion-segment ng-control="mapStyle" danger>
+      <ion-segment-button value="standard">
+        Standard
+      </ion-segment-button>
+      <ion-segment-button value="hybrid">
+        Hybrid
+      </ion-segment-button>
+      <ion-segment-button value="sat">
+        Satellite
+      </ion-segment-button>
+    </ion-segment>
+    <ion-segment>
+      <ion-segment-button>
+        Friends
+      </ion-segment-button>
+      <ion-segment-button>
+        Enemies
+      </ion-segment-button>
+    </ion-segment>
+  <button type="submit" button primary>Submit</button>
+</form>
+```
+
+```ts
+@App({
+  templateUrl: 'main.html',
+  bindings: [FormBuilder],
+  directives: [FORM_DIRECTIVES]
+})
+class MyApp {
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      mapStyle: ['hybrid', Validators.required]
+    });
+    console.log(this.myForm);
+  }
+
+  doSubmit(event) {
+    console.log('Submitting form', this.myForm.value);
+    event.preventDefault();
+  }
+}
+
+```

@@ -334,7 +334,7 @@ To use a Menu add an [`<ion-menu>`](../api/components/menu/Menu/) to your markup
 class MyApp {}
 ```
 
-The `<ion-menu>`s bound `[content]` property gets a [reference](angular_template_refs) to the `<ion-nav>` in order to listen for drag events on the main content so it knows when to open/close.  
+The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables) to the `<ion-nav>` in order to listen for drag events on the main content so it knows when to open/close.
 
 Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root view:
 

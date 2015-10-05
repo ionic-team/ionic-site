@@ -56,6 +56,19 @@ ActionSheet.open({
 
 Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.
 
+
+<ul class="docs-content">
+  <li class="docs-content-header">Content</li>
+  <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
+  <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
+  <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
+  <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
+  <li class="docs-content-item"><a href="#button-shapes">Button Shapes</a></li>
+  <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
+</ul>
+
+
+
 ### Basic Usage:
 
 ```html

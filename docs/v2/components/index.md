@@ -296,7 +296,7 @@ reference to an array of items, and the parent scroll element:
 ```
 
 <h2 id="menus">Menus</h2>
-_For more in depth information on Menus see the [Menu API reference](../api/components/menu/Menu)._
+_For more in depth information on Menus, see the [Menu API reference](../api/components/menu/Menu)._
 
 Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.
 
@@ -406,7 +406,7 @@ export class MyPage {
 ```
 
 <h2 id="navigation">Navigation</h2>
-_For more in depth information on navigation see the [Nav API reference](../api/components/nav/Nav)._
+_For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
 
 Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 

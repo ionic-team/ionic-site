@@ -367,7 +367,9 @@ class MyApp {
 
 We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can use Ionic's [id system](link_to_id_system) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
 
-Menus can be a little more complicated, but they allow for many different configuration options.  For more examples and in depth configuration explanations, take a look at the [Menu API reference](../api/components/menu/Menu/) as well as the [Nav API reference](../api/components/menu/Menu/).
+Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open [Modals](#modals) over the main map content area and toggle settings on and off.
+
+For more information on tabs, check out the [Menu API reference](../api/components/menu/Menu/).
 
 
 <h2 id="modals">Modals</h2>
@@ -677,7 +679,7 @@ For more information on tabs, check out the [Tabs API reference](../api/componen
 
 <h2 id="forms">Forms</h2>
 
-Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls. 
+Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls.
 
 <h3 id="search_bar">Search Bar</h3>
 

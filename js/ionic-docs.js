@@ -25,24 +25,24 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     $scope.demoURL = 'demo'; //TODO: set to android URL
   }
   var $iframe = $('#demo-device iframe');
+  var $buttons = $("#components-buttons");
   $scope.setPlatform('ios')
-
-
-
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
 
-
-
-
   function onScrollSpyChange(e) {
+
     if (e.target.id === 'components-index') {
       return;
     }
     var $hash, $node;
     $hash = $("a[href^='#']", e.target).attr("href").replace(/^#/, '');
     $node = $('#' + $hash);
+
+    if ($hash.indexOf('button') > -1) {
+      $buttons.addClass('active');
+    }
     if ($node.length) {
       $node.attr('id', '');
     }

@@ -4128,3 +4128,14 @@ body {
     margin-top: 64px;
     width: 360px;
     height: 590px; }
+
+li.nav-item-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
+ul.docs-content {
+  list-style: none; }
+  ul.docs-content li.docs-content-header {
+    font-weight: 300;
+    color: grey; }

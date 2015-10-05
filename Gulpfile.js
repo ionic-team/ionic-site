@@ -158,4 +158,4 @@ gulp.task('watch', ['server'],function() {
 
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);

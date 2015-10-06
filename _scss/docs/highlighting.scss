@@ -1,0 +1,15 @@
+.highlight {
+  background-color: #fff;
+  padding: 0;
+  pre {
+    background: white;
+    border: 1px solid $light-grey;
+    code {
+      background: white;
+    }
+  }
+  span.err {
+    background-color: #fff;
+  }
+}
+

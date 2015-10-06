@@ -1,7 +1,7 @@
-System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tabs", "modal", "helpers"], function (_export) {
+System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs", "modal", "helpers"], function (_export) {
     "use strict";
 
-    var App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, Animation, NgZone, NavigationDetailsPage, TabsPage, DemoModal, helpers, __decorate, __metadata, MainPage, FadeIn, FadeOut, DemoApp, _a, _b, _c, _d, _e, _f, _g;
+    var FormBuilder, Validators, Control, ControlGroup, App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, Animation, NavigationDetailsPage, TabsPage, DemoModal, helpers, __decorate, __metadata, MainPage, FadeIn, FadeOut, DemoApp, _a, _b, _c, _d, _e, _f;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -12,7 +12,12 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
     return {
-        setters: [function (_ionicIonic) {
+        setters: [function (_angular2Forms) {
+            FormBuilder = _angular2Forms.FormBuilder;
+            Validators = _angular2Forms.Validators;
+            Control = _angular2Forms.Control;
+            ControlGroup = _angular2Forms.ControlGroup;
+        }, function (_ionicIonic) {
             App = _ionicIonic.App;
             IonicApp = _ionicIonic.IonicApp;
             ActionSheet = _ionicIonic.ActionSheet;
@@ -22,8 +27,6 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
             IonicView = _ionicIonic.IonicView;
             Events = _ionicIonic.Events;
             Animation = _ionicIonic.Animation;
-        }, function (_angular2Angular2) {
-            NgZone = _angular2Angular2.NgZone;
         }, function (_navigation) {
             NavigationDetailsPage = _navigation.NavigationDetailsPage;
         }, function (_tabs) {
@@ -57,7 +60,7 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
             };
 
             MainPage = (function () {
-                function MainPage(app, nav, actionSheet, zone, params, modal, events) {
+                function MainPage(app, nav, actionSheet, params, modal, events) {
                     var _this = this;
 
                     _classCallCheck(this, MainPage);
@@ -69,6 +72,10 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
                     this.actionSheet = actionSheet;
                     this.navDetailsPage = NavigationDetailsPage;
                     this.demoModal = DemoModal;
+                    this.form = new ControlGroup({
+                        firstName: new Control("", Validators.required),
+                        lastName: new Control("", Validators.required)
+                    });
                     if (params.data.location) {
                         this.component.title = params.data.location;
                     } else if (window.location.hash) {
@@ -143,6 +150,16 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
                             leaveAnimation: 'my-fade-out'
                         });
                     }
+
+                    // **************************
+                    // Form
+                    // **************************
+                }, {
+                    key: "processForm",
+                    value: function processForm(event) {
+                        // TODO: display input in a popup
+                        console.log(event);
+                    }
                 }]);
 
                 return MainPage;
@@ -151,8 +168,9 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
             _export("MainPage", MainPage);
 
             _export("MainPage", MainPage = __decorate([IonicView({
-                templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof NavController !== 'undefined' && NavController) === 'function' && _b || Object, typeof (_c = typeof ActionSheet !== 'undefined' && ActionSheet) === 'function' && _c || Object, typeof (_d = typeof NgZone !== 'undefined' && NgZone) === 'function' && _d || Object, typeof (_e = typeof NavParams !== 'undefined' && NavParams) === 'function' && _e || Object, typeof (_f = typeof Modal !== 'undefined' && Modal) === 'function' && _f || Object, typeof (_g = typeof Events !== 'undefined' && Events) === 'function' && _g || Object])], MainPage));
+                templateUrl: 'main.html',
+                bindings: [FormBuilder]
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof NavController !== 'undefined' && NavController) === 'function' && _b || Object, typeof (_c = typeof ActionSheet !== 'undefined' && ActionSheet) === 'function' && _c || Object, typeof (_d = typeof NavParams !== 'undefined' && NavParams) === 'function' && _d || Object, typeof (_e = typeof Modal !== 'undefined' && Modal) === 'function' && _e || Object, typeof (_f = typeof Events !== 'undefined' && Events) === 'function' && _f || Object])], MainPage));
 
             FadeIn = (function (_Animation) {
                 _inherits(FadeIn, _Animation);

@@ -10,7 +10,6 @@ header_sub_title: Ionic 2 Developer Preview
 
 Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com), where the friendly Ions of the community will help you!
 
-<br>
 <h2 id="Blank_app">Help! My app is blank and there are no errors</h2>
 
 - Make sure your @App has a `template` or `templateUrl`
@@ -19,7 +18,6 @@ Can't find a solution on this page? Check out the [Ionic Forums](http://forum.io
   <ion-nav [root]="firstPage"></ion-nav>
 ```
 
-<br>
 <h2 id="Directive_not_working">My component/directive isn't loading!</h2>
 
 If your custom component or directive isn't working, there are a few things you can check. Make sure:
@@ -52,7 +50,6 @@ class MyDir {
 class MyPage {}
 ```
 
-<br>
 <h2 id="Common_mistakes">Common mistakes:</h2>
 
 - putting your `directives` array in your `@Component` options, not in `@View`.
@@ -121,10 +118,8 @@ class MyApp {
 }
 ```
 
-<br>
 <h2 id="Common_JS_errors">Common JS errors:</h2>
 
-<br>
 `Cannot resolve all parameters for YourClass(?). Make sure they all have valid type or annotations.`
 
 May also be preceded by `Error during instantiation of Token(Promise<ComponentRef>)` if it's on your `@App` component.
@@ -171,7 +166,6 @@ class MyIcon {
 
 -------
 
-<br>
 `No provider for ParamType! (MyClass -> ParamType)`
 
 This means Angular knows what type of thing it is supposed to inject, but it doesn't know how to inject it. Make sure:
@@ -261,7 +255,6 @@ class MyDir {
 
 --------
 
-<br>
 `Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching`
 `directives with a corresponding property`
 
@@ -270,4 +263,18 @@ This one is pretty self explanatory, it happens when you try and bind a property
 ```html
 <!-- div doesn't have a 'foo' property -->
 <div [foo]="bar"></div>
+```
+--------
+
+`EXCEPTION: No provider for ControlContainer! (NgControlName -> ControlContainer)`
+
+This error is a more specific version of the `No provider` error above.  It happens when you use a form control like [NgControlName](https://angular.io/docs/js/latest/api/core/NgControlName-class.html) without specifying a parent [NgForm](https://angular.io/docs/js/latest/api/core/NgForm-class.html) or [NgFormModel](https://angular.io/docs/js/latest/api/core/NgFormModel-class.html).  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
+
+```ts
+@IonicView({
+  template:
+    '<form>' +
+      '<input ng-control='login'>' +
+    '</form>'
+})
 ```

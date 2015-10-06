@@ -1,5 +1,5 @@
 
- <ion-navbar *navbar class="show-navbar">
+<ion-navbar *navbar class="show-navbar">
   <ion-title>{{ component.title }}</ion-title>
 </ion-navbar>
 
@@ -32,6 +32,30 @@
   <section id="buttons" [ng-class]="{hidden: component.title !== 'Buttons' }" class="section-padding">
 
     <p>
+      <button>Default</button>
+    </p>
+
+    <p>
+      <button secondary>Secondary</button>
+    </p>
+
+    <p>
+      <button danger>Danger</button>
+    </p>
+
+    <p>
+      <button light>Light</button>
+    </p>
+
+    <p>
+      <button dark>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="block-buttons" [ng-class]="{hidden: component.title !== 'Block Buttons' }" class="section-padding">
+
+    <p>
       <button block>Default</button>
     </p>
 
@@ -49,6 +73,54 @@
 
     <p>
       <button dark block>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="full-buttons" [ng-class]="{hidden: component.title !== 'Full Buttons' }">
+
+    <p>
+      <button full>Default</button>
+    </p>
+
+    <p>
+      <button secondary full>Secondary</button>
+    </p>
+
+    <p>
+      <button danger full>Danger</button>
+    </p>
+
+    <p>
+      <button light full>Light</button>
+    </p>
+
+    <p>
+      <button dark full>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="outline-buttons" [ng-class]="{hidden: component.title !== 'Outline Buttons' }">
+
+    <p>
+      <button outline>Default</button>
+    </p>
+
+    <p>
+      <button secondary outline>Secondary</button>
+    </p>
+
+    <p>
+      <button danger outline>Danger</button>
+    </p>
+
+    <p>
+      <button light outline>Light</button>
+    </p>
+
+    <p>
+      <button dark outline>Dark</button>
     </p>
 
   </section>

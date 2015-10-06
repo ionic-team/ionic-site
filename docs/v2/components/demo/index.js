@@ -75,6 +75,7 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
 
                     _classCallCheck(this, MainPage);
 
+                    this.component = { title: 'Action Sheets' };
                     this.params = params;
                     this.nav = nav;
                     this.modal = modal;
@@ -82,8 +83,8 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
                     this.navDetailsPage = NavigationDetailsPage;
                     if (params.data.location) {
                         this.component.title = params.data.location;
-                    } else {
-                        this.component = { title: 'Action Sheets' };
+                    } else if (window.location.hash) {
+                        this.component.title = window.location.hash;
                     }
                     window.addEventListener('message', function (e) {
                         zone.run(function () {
@@ -97,7 +98,6 @@ System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tab
                         });
                     });
                     events.subscribe('page:locationChange', function (data) {
-                        console.log(data[0]);
                         _this.component.title = data[0].componentName;
                     });
                 }

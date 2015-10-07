@@ -4849,22 +4849,20 @@ body {
         color: #4f8ff7;
         text-decoration: none; }
 
-#demo-device.ios,
-#demo-device.android {
+#demo-device-ios, #demo-device-android {
   width: 467px;
   height: 800px;
   background: center top no-repeat url(/img/device-preview-ios.jpg);
   background-size: 467px;
   margin: 0 auto; }
-  #demo-device.ios iframe,
-  #demo-device.android iframe {
+  #demo-device-ios iframe, #demo-device-android iframe {
     margin-top: 85px;
     width: 320px;
     height: 568px; }
 
-#demo-device.android {
+#demo-device-android {
   background-image: url(/img/device-preview-android.jpg); }
-  #demo-device.android iframe {
+  #demo-device-android iframe {
     margin-top: 64px;
     width: 360px;
     height: 590px; }

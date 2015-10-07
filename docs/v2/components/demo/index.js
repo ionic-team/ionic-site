@@ -88,7 +88,6 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
                             if (e.data) {
                                 var data = JSON.parse(e.data);
                                 _this.component.title = helpers.toTitleCase(data.hash.replace(/-/g, ' '));
-                                console.log(_this.component.title);
                                 if (_this.component.title === 'Tabs') {
                                     _this.nav.setRoot(TabsPage);
                                 }

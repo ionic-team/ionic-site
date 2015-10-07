@@ -6,21 +6,27 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
+
+
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
-    var msg = JSON.stringify({platform: platform});
-    $iframe[0].contentWindow.postMessage(msg, '*');
     if (platform == 'ios') {
       $scope.iosActive = true;
       $scope.androidActive = false;
+      $('#demo-device-android').css('display', 'none');
+      $('#demo-device-ios').css('display', 'block');
       return;
     }
     $scope.iosActive = false;
     $scope.androidActive = true;
-    $scope.demoURL = 'demo'; //TODO: set to android URL
+    $('#demo-device-ios').css('display', 'none');
+    $('#demo-device-android').css('display', 'block');
   }
-  var $iframe = $('#demo-device iframe');
+
+  var $androidIframe = $('iframe#demo-android');
+  var $iosIframe = $('iframe#demo-ios');
   var $buttons = $("#components-buttons");
+
   $scope.setPlatform('ios')
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
@@ -42,7 +48,8 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $node.attr('id', '');
     }
     document.location.hash = $hash;
-    $iframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
+    $iosIframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
 
     if ($node.length) {
       return $node.attr('id', $hash);

@@ -34,8 +34,11 @@
           <a ng-class="{active: androidActive}"
              ng-click="setPlatform('android')">Android</a>
         </div>
-        <div id="demo-device" ng-class="previewPlatform">
-          <iframe src="demo" frameborder="0"></iframe>
+        <div id="demo-device-ios" ng-class="previewPlatform">
+          <iframe id="demo-ios" src="demo?ionicplatform=ios" frameborder="0"></iframe>
+        </div>
+        <div id="demo-device-android" ng-class="previewPlatform">
+          <iframe id="demo-android" src="demo?ionicplatform=android" frameborder="0"></iframe>
         </div>
       </aside>
       {% endif %}

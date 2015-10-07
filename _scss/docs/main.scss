@@ -341,27 +341,26 @@ body {
     }
   }
 }
-#demo-device {
-  &.ios,
-  &.android {
-    width:$platform-preview-width;
-    height:800px;
-    background: center top no-repeat url(/img/device-preview-ios.jpg);
-    background-size: $platform-preview-width;
-    margin: 0 auto;
-    iframe{ 
-      margin-top: 85px;
-      width: 320px;
-      height: 568px;
-    }
+#demo-device-ios {
+  width:$platform-preview-width;
+  height:800px;
+  background: center top no-repeat url(/img/device-preview-ios.jpg);
+  background-size: $platform-preview-width;
+  margin: 0 auto;
+  iframe{ 
+    margin-top: 85px;
+    width: 320px;
+    height: 568px;
   }
-  &.android{
-    background-image: url(/img/device-preview-android.jpg);
-    iframe{
-      margin-top: 64px;
-      width: 360px;
-      height: 590px;
-    }
+}
+
+#demo-device-android {
+  @extend #demo-device-ios;
+  background-image: url(/img/device-preview-android.jpg);
+  iframe{
+    margin-top: 64px;
+    width: 360px;
+    height: 590px;
   }
 }
 

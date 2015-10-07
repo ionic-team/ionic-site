@@ -1,7 +1,7 @@
 System.register("navigation", ["ionic/ionic", "helpers"], function (_export) {
     "use strict";
 
-    var NavController, NavParams, IonicView, Events, helpers, __decorate, __metadata, NavigationDetailsPage, _a, _b, _c;
+    var NavController, NavParams, IonicView, Events, helpers, __decorate, __metadata, NavigationDetailsPage;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -74,7 +74,7 @@ System.register("navigation", ["ionic/ionic", "helpers"], function (_export) {
 
             _export("NavigationDetailsPage", NavigationDetailsPage = __decorate([IonicView({
                 templateUrl: 'navigation.html'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof NavParams !== 'undefined' && NavParams) === 'function' && _b || Object, typeof (_c = typeof Events !== 'undefined' && Events) === 'function' && _c || Object])], NavigationDetailsPage));
+            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof NavParams !== 'undefined' && NavParams || Object, typeof Events !== 'undefined' && Events || Object])], NavigationDetailsPage));
         }
     };
 });

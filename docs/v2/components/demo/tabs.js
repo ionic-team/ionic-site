@@ -1,7 +1,7 @@
 System.register("tabs", ["ionic/ionic", "index", "helpers"], function (_export) {
     "use strict";
 
-    var NavController, NavParams, IonicView, ViewController, Events, MainPage, helpers, __decorate, __metadata, TabOneCtrl, TabsPage, _a, _b, _c, _d, _e;
+    var NavController, NavParams, IonicView, ViewController, Events, MainPage, helpers, __decorate, __metadata, TabOneCtrl, TabsPage;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -49,7 +49,7 @@ System.register("tabs", ["ionic/ionic", "index", "helpers"], function (_export) 
 
             TabOneCtrl = __decorate([IonicView({
                 template: 'Hello 1'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof ViewController !== 'undefined' && ViewController) === 'function' && _b || Object])], TabOneCtrl);
+            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof ViewController !== 'undefined' && ViewController || Object])], TabOneCtrl);
 
             TabsPage = function TabsPage(nav, params, events) {
                 var _this = this;
@@ -74,7 +74,7 @@ System.register("tabs", ["ionic/ionic", "index", "helpers"], function (_export) 
 
             _export("TabsPage", TabsPage = __decorate([IonicView({
                 templateUrl: 'tabs.html'
-            }), __metadata('design:paramtypes', [typeof (_c = typeof NavController !== 'undefined' && NavController) === 'function' && _c || Object, typeof (_d = typeof NavParams !== 'undefined' && NavParams) === 'function' && _d || Object, typeof (_e = typeof Events !== 'undefined' && Events) === 'function' && _e || Object])], TabsPage));
+            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof NavParams !== 'undefined' && NavParams || Object, typeof Events !== 'undefined' && Events || Object])], TabsPage));
         }
     };
 });

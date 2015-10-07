@@ -62,8 +62,9 @@ Buttons are an essential way to interact with an app. They are simple components
   <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
   <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
   <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
+  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
+  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
   <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
-  <li class="docs-content-item"><a href="#button-shapes">Button Shapes</a></li>
   <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
 </ul>
 
@@ -115,6 +116,26 @@ To create outline buttons, just add the `outline` property:
 <button dark outline>Dark Outline</button>
 ```
 
+<h2 id="round-buttons">Round Buttons</h2>
+
+To create a button with rounded corners, just add the `round` property:
+
+```html
+<button primary rount>Primary Round</button>
+<button secondary rount>Secondary Round</button>
+<button danger round>Danger Round</button>
+<button stable round>Stable Round</button>
+<button light round>Light Round</button>
+<button dark round>Dark Round</button>
+```
+
+<h2 id="floating-action-buttons">Floating Action Buttons</h2>
+
+Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
+
+```html
+<button fab>FAB</button>
+```
 
 
 <h2 id="button-sizes">Button Sizes</h2>
@@ -125,25 +146,6 @@ Add the `large` attribute to make a button larger, or `small` to make it smaller
 <button large>Large<button>
 <button>Default<button>
 <button small>Small<button>
-```
-
-
-<h2 id="button-shapes">Button Shapes</h2>
-
-**Floating Action Button:**
-
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
-
-```html
-<button fab>FAB</button>
-```
-
-**Round:**
-
-The `round` property will add rounded corners to a button:
-
-```html
-<button round>Round Button</button>
 ```
 
 

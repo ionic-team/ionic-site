@@ -1,7 +1,7 @@
 System.register("modal", ["ionic/ionic", "helpers"], function (_export) {
     "use strict";
 
-    var Modal, NavController, IonicView, Events, helpers, __decorate, __metadata, ModalFirstPage, DemoModal, _a, _b, _c;
+    var Modal, NavController, IonicView, Events, helpers, __decorate, __metadata, ModalFirstPage, DemoModal;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -74,7 +74,7 @@ System.register("modal", ["ionic/ionic", "helpers"], function (_export) {
 
             ModalFirstPage = __decorate([IonicView({
                 templateUrl: 'modal.html'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof Modal !== 'undefined' && Modal) === 'function' && _b || Object, typeof (_c = typeof Events !== 'undefined' && Events) === 'function' && _c || Object])], ModalFirstPage);
+            }), __metadata('design:paramtypes', [typeof NavController !== 'undefined' && NavController || Object, typeof Modal !== 'undefined' && Modal || Object, typeof Events !== 'undefined' && Events || Object])], ModalFirstPage);
 
             DemoModal = function DemoModal() {
                 _classCallCheck(this, DemoModal);

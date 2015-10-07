@@ -1,7 +1,7 @@
 System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs", "modal", "helpers"], function (_export) {
     "use strict";
 
-    var FormBuilder, Validators, Control, ControlGroup, App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, Animation, NavigationDetailsPage, TabsPage, DemoModal, helpers, __decorate, __metadata, MainPage, FadeIn, FadeOut, DemoApp;
+    var FormBuilder, Validators, Control, ControlGroup, App, IonicApp, ActionSheet, NavController, NavParams, Popup, Modal, IonicView, Events, Animation, NavigationDetailsPage, TabsPage, DemoModal, helpers, __decorate, __metadata, MainPage, FadeIn, FadeOut, DemoApp;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -23,6 +23,7 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
             ActionSheet = _ionicIonic.ActionSheet;
             NavController = _ionicIonic.NavController;
             NavParams = _ionicIonic.NavParams;
+            Popup = _ionicIonic.Popup;
             Modal = _ionicIonic.Modal;
             IonicView = _ionicIonic.IonicView;
             Events = _ionicIonic.Events;
@@ -60,7 +61,7 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
             };
 
             MainPage = (function () {
-                function MainPage(app, nav, actionSheet, params, modal, events) {
+                function MainPage(app, nav, actionSheet, params, popup, modal, events) {
                     var _this = this;
 
                     _classCallCheck(this, MainPage);
@@ -69,6 +70,7 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
                     this.params = params;
                     this.nav = nav;
                     this.modal = modal;
+                    this.popup = popup;
                     this.actionSheet = actionSheet;
                     this.navDetailsPage = NavigationDetailsPage;
                     this.demoModal = DemoModal;
@@ -153,6 +155,15 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
                     }
 
                     // **************************
+                    // Popup
+                    // **************************
+                }, {
+                    key: "showPopup",
+                    value: function showPopup() {
+                        this.popup.alert("Popup Title").then(function () {});
+                    }
+
+                    // **************************
                     // Form
                     // **************************
                 }, {
@@ -171,7 +182,7 @@ System.register("index", ["angular2/forms", "ionic/ionic", "navigation", "tabs",
             _export("MainPage", MainPage = __decorate([IonicView({
                 templateUrl: 'main.html',
                 bindings: [FormBuilder]
-            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof NavController !== 'undefined' && NavController || Object, typeof ActionSheet !== 'undefined' && ActionSheet || Object, typeof NavParams !== 'undefined' && NavParams || Object, typeof Modal !== 'undefined' && Modal || Object, typeof Events !== 'undefined' && Events || Object])], MainPage));
+            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof NavController !== 'undefined' && NavController || Object, typeof ActionSheet !== 'undefined' && ActionSheet || Object, typeof NavParams !== 'undefined' && NavParams || Object, typeof Popup !== 'undefined' && Popup || Object, typeof Modal !== 'undefined' && Modal || Object, typeof Events !== 'undefined' && Events || Object])], MainPage));
 
             FadeIn = (function (_Animation) {
                 _inherits(FadeIn, _Animation);

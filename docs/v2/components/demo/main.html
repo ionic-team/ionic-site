@@ -439,6 +439,12 @@
 
   </section>
 
+  <section id="popup" [ng-class]="{hidden: component.title !== 'Popups' }" class="section-padding">
+    <button block (click)="showPopup()">
+      Show Popup
+    </button>
+  </section>
+
   <section id="slides" [ng-class]="{hidden: component.title !== 'Slides' }">
 
    <ion-slides id="slider" style="background-color: black" pager="true" zoom="false" index="1" loop="true">

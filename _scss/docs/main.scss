@@ -273,11 +273,13 @@ body {
       margin: 2em 0 0em;
       font-size: 22px;
     }
+    h2.section-header{
+      margin-top: 4.5em;
+    }
     h3{
       margin: 2em 0 0em;
       font-size: 18px;
     }
-
     p {
       color: $blackish;
       line-height: 1.9em;
@@ -372,10 +374,12 @@ li.nav-item-hidden {
 
 ul.docs-content {
   list-style: none;
+  line-height: 26px;
+  padding-left: 16px;
 
   li.docs-content-header {
-    font-weight: 300;
-    color: grey;
+    font-weight: 400;
+    color: #B9BEC5;
   }
 
   li.docs-content-item {

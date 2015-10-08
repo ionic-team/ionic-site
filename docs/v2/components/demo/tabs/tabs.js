@@ -55,7 +55,7 @@ System.register("tabs/tabs", ["ionic/ionic"], function (_export) {
             _export("TabsPage", TabsPage);
 
             _export("TabsPage", TabsPage = __decorate([Page({
-                templateUrl: 'tabs.html'
+                templateUrl: 'tabs/tabs.html'
             }), __metadata('design:paramtypes', [typeof (_c = typeof NavController !== 'undefined' && NavController) === 'function' && _c || Object, typeof (_d = typeof NavParams !== 'undefined' && NavParams) === 'function' && _d || Object])], TabsPage));
         }
     };

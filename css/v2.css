@@ -4797,6 +4797,8 @@ body {
   .docs-container main h2 {
     margin: 2em 0 0em;
     font-size: 22px; }
+  .docs-container main h2.section-header {
+    margin-top: 4.5em; }
   .docs-container main h3 {
     margin: 2em 0 0em;
     font-size: 18px; }
@@ -4873,7 +4875,9 @@ li.nav-item-hidden {
   left: -9999px; }
 
 ul.docs-content {
-  list-style: none; }
+  list-style: none;
+  line-height: 26px;
+  padding-left: 16px; }
   ul.docs-content li.docs-content-header {
-    font-weight: 300;
-    color: grey; }
+    font-weight: 400;
+    color: #B9BEC5; }

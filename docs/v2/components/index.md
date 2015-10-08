@@ -20,7 +20,7 @@ angular_controller: ComponentsCtrl
 Ionic apps are made of high-level building blocks called components. Components allow you to quickly construct an interface for your app. Ionic comes with a number of components, including modals, popups, and cards. Although components are primarily HTML and CSS, some components also include Javascript functionality. Check out the examples below to see what each component looks like, and to learn how to use it. Once you're familiar with the basics, head over to the [API docs](../api) for ideas on how to customize each components.
 
 
-<h2 id="action-sheets">Action Sheets</h2>
+<h2 id="action-sheets" class="section-header">Action Sheets</h2>
 
 Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they **should not** be used for navigation. 
 
@@ -56,13 +56,13 @@ ActionSheet.open({
 })
 ```
 
-<h2 id="buttons">Buttons</h2>
+<h2 id="buttons" class="section-header">Buttons</h2>
 
 Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.
 
 
 <ul class="docs-content">
-  <li class="docs-content-header">Content</li>
+  <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
   <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
   <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
@@ -176,7 +176,7 @@ To add icons to a button, add an icon component inside of it:
 </button>
 ```
 
-<h2 id="cards">Cards</h2>
+<h2 id="cards" class="section-header">Cards</h2>
 
 <p>
   Cards are a great way to display important pieces of content, and are quickly emerging as a core design pattern for apps. They're are a great way to contain and organize information, while also setting up predictable expectations for the user. With so much content to display at once, and often so little screen realestate, cards have fast become the design pattern of choice for many companies, including the likes of <a href="http://www.google.com/landing/now/" target="_blank">Google</a>, <a href="https://dev.twitter.com/docs/cards" target="_blank">Twitter</a>, and <a href="https://play.spotify.com/discover" target="_blank">Spotify</a>.
@@ -201,7 +201,7 @@ Cards are primarily a CSS component. To use them, follow this structure:
 </ion-card>
 ```
 
-<h2 id="forms">Forms</h2>
+<h2 id="forms" class="section-header">Forms</h2>
 
 Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls.
 
@@ -295,7 +295,7 @@ class MyApp {
 
 ```
 
-<h2 id="icons">Icons</h2>
+<h2 id="icons" class="section-header">Icons</h2>
 
 Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
 
@@ -395,7 +395,7 @@ reference to an array of items, and the parent scroll element:
 </ion-content>
 ```
 
-<h2 id="menus">Menus</h2>
+<h2 id="menus" class="section-header">Menus</h2>
 _For more in depth information on Menus, see the [Menu API reference](../api/components/menu/Menu)._
 
 Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.
@@ -472,7 +472,7 @@ Menus can be a little more complicated, but they allow for many different config
 For more information on Menus, check out the [Menu API reference](../api/components/menu/Menu/).
 
 
-<h2 id="modals">Modals</h2>
+<h2 id="modals" class="section-header">Modals</h2>
 
 Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.
@@ -507,7 +507,7 @@ export class MyPage {
 }
 ```
 
-<h2 id="navigation">Navigation</h2>
+<h2 id="navigation" class="section-header">Navigation</h2>
 _For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
 
 Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
@@ -616,11 +616,11 @@ For more information on navigation controllers, check out the [Nav API reference
 But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
 
 
-<h2 id="popups">Popups</h2>
+<h2 id="popups" class="section-header">Popups</h2>
 TODO
 
 
-<h2 id="slides">Slides</h2>
+<h2 id="slides" class="section-header">Slides</h2>
 
 Slides make it easy to create galleries, tutorials, and page-based layouts.
 
@@ -696,7 +696,7 @@ Slides take a number of configuration options on the `<ion-slides>` element:
   </tbody>
 </table>
 
-<h2 id="tabs">Tabs</h2>
+<h2 id="tabs" class="section-header">Tabs</h2>
 _For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/),
 and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the
 individual Tab components it contains._

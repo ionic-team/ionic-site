@@ -1,5 +1,4 @@
 
-
 <ion-navbar *navbar class="show-navbar">
   <ion-title>{{ component.title }}</ion-title>
 </ion-navbar>
@@ -8,8 +7,8 @@
 <ion-content class="has-header components-demo">
 
   <section id="action-sheet" [ng-class]="{hidden: component.title !== 'Action Sheets' }" class="section-padding">
-    <button class="button" full (click)="openMenu()">
-      Show Action Sheet
+    <button block (click)="openMenu()">
+      Show Actionsheet
     </button>
   </section>
 
@@ -33,6 +32,30 @@
   <section id="buttons" [ng-class]="{hidden: component.title !== 'Buttons' }" class="section-padding">
 
     <p>
+      <button>Default</button>
+    </p>
+
+    <p>
+      <button secondary>Secondary</button>
+    </p>
+
+    <p>
+      <button danger>Danger</button>
+    </p>
+
+    <p>
+      <button light>Light</button>
+    </p>
+
+    <p>
+      <button dark>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="block-buttons" [ng-class]="{hidden: component.title !== 'Block Buttons' }" class="section-padding">
+
+    <p>
       <button block>Default</button>
     </p>
 
@@ -53,6 +76,151 @@
     </p>
 
   </section>
+
+  <section id="full-buttons" [ng-class]="{hidden: component.title !== 'Full Buttons' }">
+
+    <p>
+      <button full>Default</button>
+    </p>
+
+    <p>
+      <button secondary full>Secondary</button>
+    </p>
+
+    <p>
+      <button danger full>Danger</button>
+    </p>
+
+    <p>
+      <button light full>Light</button>
+    </p>
+
+    <p>
+      <button dark full>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="outline-buttons" [ng-class]="{hidden: component.title !== 'Outline Buttons' }" class="section-padding">
+
+    <p>
+      <button outline>Default</button>
+    </p>
+
+    <p>
+      <button secondary outline>Secondary</button>
+    </p>
+
+    <p>
+      <button danger outline>Danger</button>
+    </p>
+
+    <p>
+      <button light outline>Light</button>
+    </p>
+
+    <p>
+      <button dark outline>Dark</button>
+    </p>
+
+  </section>  
+
+  <section id="round-buttons" [ng-class]="{hidden: component.title !== 'Round Buttons' }" class="section-padding">
+
+    <p>
+      <button round>Default</button>
+    </p>
+
+    <p>
+      <button secondary round>Secondary</button>
+    </p>
+
+    <p>
+      <button danger round>Danger</button>
+    </p>
+
+    <p>
+      <button light round>Light</button>
+    </p>
+
+    <p>
+      <button dark round>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="floating-action-buttons" [ng-class]="{hidden: component.title !== 'Floating Action Buttons' }" class="section-padding">
+
+    <p>
+      <button fab fab-top fab-right>
+        <icon add></icon>
+      </button>
+    </p>
+
+  </section>
+  
+
+  <section id="button-sizes" [ng-class]="{hidden: component.title !== 'Button Sizes' }" class="section-padding">
+
+    <p>
+      <button small>Default</button>
+    </p>
+
+    <p>
+      <button secondary small>Secondary</button>
+    </p>
+
+    <p>
+      <button danger small>Danger</button>
+    </p>
+
+    <p>
+      <button light large>Light</button>
+    </p>
+
+    <p>
+      <button dark large>Dark</button>
+    </p>
+
+  </section>
+
+  <section id="icon-buttons" [ng-class]="{hidden: component.title !== 'Icon Buttons' }" class="section-padding">
+
+    <p>
+      <button>
+        <icon home></icon>
+        Home
+      </button>
+    </p>
+
+    <p>
+      <button secondary>
+        <icon people></icon>
+        Friends
+      </button>
+    </p>
+
+    <p>
+      <button danger>
+        <icon close></icon>
+      </button>
+    </p>
+
+    <p>
+      <button light>
+        <icon arrow-back></icon>
+        Back
+      </button>
+    </p>
+
+    <p>
+      <button dark>
+        <icon hammer></icon>
+      </button>
+    </p>
+
+  </section>
+  
 
 
   <section id="cards" [ng-class]="{hidden: component.title !== 'Cards' }">
@@ -85,7 +253,7 @@
         </button>
       </ion-card-content>
 
-    </ion-card> 
+    </ion-card>
 
 
     <ion-card>
@@ -110,9 +278,9 @@
 
 
   </section>
-   
+
   <section id="icons" [ng-class]="{hidden: component.title !== 'Icons' }" class="components-icons">
-    
+
     <ion-row>
       <ion-col><icon ionic></icon></ion-col>
       <ion-col><icon ion-social-angular></icon></ion-col>
@@ -175,7 +343,7 @@
 
     <ion-row>
       <ion-col><icon sunny></icon></ion-col>
-      <ion-col><icon umbrella></icon></ion-col>
+      <ion-col><icon umbrella</icon></ion-col>
       <ion-col><icon rainy></icon></ion-col>
     </ion-row>
 
@@ -208,11 +376,6 @@
         Charms
       </ion-item>
 
-      <ion-item>
-        <icon leaf item-left></icon>
-        Herbology
-      </ion-item>
-
     </ion-list>
 
 
@@ -224,19 +387,13 @@
 
       <ion-switch checked="true">
         <icon shirt item-left></icon>
-        Cloak of Invisibility
+        Invisibility Cloak
       </ion-switch>
 
       <ion-item>
         <icon call item-left></icon>
         Call Ron
-        <div class="item-note" item-right>Sure</div>
-      </ion-item>
-
-      <ion-item>
-        <icon book item-left></icon>
-        Study Potions
-        <div class="item-note" item-right>Maybe later</div>
+        <ion-note item-right>Maybe later</ion-note>
       </ion-item>
 
     </ion-list>
@@ -247,45 +404,49 @@
    TODO
   </section>
 
-  <section id="modals" [ng-class]="{hidden: component.title !== 'Modals' }">
-   TODO
+  <section id="modals" [ng-class]="{hidden: component.title !== 'Modals' }" class="section-padding">
+   <button block (click)="openModal()">
+    Show Modal
+  </button>
+
   </section>
 
   <section id="navigation" [ng-class]="{hidden: component.title !== 'Navigation' }">
-    <ion-card>
-      <ion-card-header primary>
-        Tap for more info...
-      </ion-card-header>
+    <ion-list>
 
-      <ion-card-content>
+      <a ion-item (click)="openNavDetailsPage('Angular')">
+        <icon ion-social-angular item-left></icon>
+        Angular
+      </a>
 
-        <a ion-item href="#" (click)="openNavDetailsPage('Angular')">
-          <icon ion-social-angular item-left></icon>
-          Angular
-        </a>
+      <a ion-item href="#" (click)="openNavDetailsPage('CSS3')">
+        <icon ion-social-css3 item-left></icon>
+        CSS3
+      </a>
 
-        <a ion-item href="#" (click)="openNavDetailsPage('CSS3')">
-          <icon ion-social-css3 item-left></icon>
-          CSS3
-        </a>
+      <button ion-item (click)="openNavDetailsPage('HTML5')">
+        <icon ion-social-html5 item-left></icon>
+        HTML5
+      </button>
 
-        <button ion-item (click)="openNavDetailsPage('HTML5')">
-          <icon ion-social-html5 item-left></icon>
-          HTML5
-        </button>
+      <button ion-item (click)="openNavDetailsPage('Sass')">
+        <icon ion-social-sass item-left></icon>
+        Sass
+      </button>
 
-        <button ion-item (click)="openNavDetailsPage('Sass')">
-          <icon ion-social-sass item-left></icon>
-          Sass
-        </button>
-      </ion-card-content>
+    </ion-list>
 
-    </ion-card> 
 
   </section>
-  
+
+  <section id="popup" [ng-class]="{hidden: component.title !== 'Popups' }" class="section-padding">
+    <button block (click)="showPopup()">
+      Show Popup
+    </button>
+  </section>
+
   <section id="slides" [ng-class]="{hidden: component.title !== 'Slides' }">
-   
+
    <ion-slides id="slider" style="background-color: black" pager="true" zoom="false" index="1" loop="true">
       <ion-slide>
         <div class="demo-slide demo-slide-1">
@@ -305,12 +466,20 @@
    </ion-slides>
   </section>
 
-  <section id="tabs" [ng-class]="{hidden: component.title !== 'Tabs' }">
-    <ion-tabs tab-bar-placement="bottom">
-      <ion-tab tab-title="Food" tab-icon="pizza"></ion-tab>
-      <ion-tab tab-title="Drinks" tab-icon="beer"></ion-tab>
-      <ion-tab tab-title="Hours" tab-icon="clock"></ion-tab>
-    </ion-tabs>
+  <section id="forms" [ng-class]="{hidden: component.title !== 'Forms' }">
+    <form (submit)="processForm($event)" [ng-form-model]="form">
+        <ion-list>
+        <ion-input>
+          <input ng-control="firstName" type="text" placeholder="First Name">
+        </ion-input>
+        <ion-input>
+          <input ng-control="lastName" type="text" placeholder="Last Name">
+        </ion-input>
+      </ion-list>
+      <div class="padding">
+        <button block type="submit">Create Account</button>
+      </div>
+    </form>
   </section>
 
 </ion-content>

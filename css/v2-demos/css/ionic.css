@@ -185,7 +185,7 @@ ion-view {
     display: -ms-flexbox;
     display: flex; }
 
-.no-navbar > .navbar-container {
+[no-navbar] > .navbar-container {
   display: none; }
 
 .navbar-container {
@@ -792,7 +792,7 @@ button[dark],
 
 button[clear],
 .ios .popup-buttons button,
-.ios .search-bar-cancel.left-align,
+.ios .search-bar-cancel,
 .md .popup-buttons button,
 [button][clear] {
   border-color: transparent;
@@ -800,13 +800,13 @@ button[clear],
   color: #1165f3; }
   button[clear].activated,
   .ios .popup-buttons button.activated,
-  .ios .activated.search-bar-cancel.left-align,
+  .ios .activated.search-bar-cancel,
   .md .popup-buttons button.activated,
   [button][clear].activated {
     opacity: 0.4; }
   button[clear]:hover:not(.disable-hover),
   .ios .popup-buttons button:hover:not(.disable-hover),
-  .ios .search-bar-cancel.left-align:hover:not(.disable-hover),
+  .ios .search-bar-cancel:hover:not(.disable-hover),
   .md .popup-buttons button:hover:not(.disable-hover),
   [button][clear]:hover:not(.disable-hover) {
     opacity: 0.6;
@@ -814,7 +814,7 @@ button[clear],
 
 button[clear][secondary],
 .ios .popup-buttons button[secondary],
-.ios [secondary].search-bar-cancel.left-align,
+.ios [secondary].search-bar-cancel,
 .md .popup-buttons button[secondary],
 [button][clear][secondary] {
   border-color: transparent;
@@ -822,14 +822,14 @@ button[clear][secondary],
   color: #22c251; }
   button[clear][secondary]:hover:not(.disable-hover),
   .ios .popup-buttons button[secondary]:hover:not(.disable-hover),
-  .ios [secondary].search-bar-cancel.left-align:hover:not(.disable-hover),
+  .ios [secondary].search-bar-cancel:hover:not(.disable-hover),
   .md .popup-buttons button[secondary]:hover:not(.disable-hover),
   [button][clear][secondary]:hover:not(.disable-hover) {
     color: #1c9f43; }
 
 button[clear][danger],
 .ios .popup-buttons button[danger],
-.ios [danger].search-bar-cancel.left-align,
+.ios [danger].search-bar-cancel,
 .md .popup-buttons button[danger],
 [button][clear][danger] {
   border-color: transparent;
@@ -837,14 +837,14 @@ button[clear][danger],
   color: #f31616; }
   button[clear][danger]:hover:not(.disable-hover),
   .ios .popup-buttons button[danger]:hover:not(.disable-hover),
-  .ios [danger].search-bar-cancel.left-align:hover:not(.disable-hover),
+  .ios [danger].search-bar-cancel:hover:not(.disable-hover),
   .md .popup-buttons button[danger]:hover:not(.disable-hover),
   [button][clear][danger]:hover:not(.disable-hover) {
     color: #d50b0b; }
 
 button[clear][light],
 .ios .popup-buttons button[light],
-.ios [light].search-bar-cancel.left-align,
+.ios [light].search-bar-cancel,
 .md .popup-buttons button[light],
 [button][clear][light] {
   border-color: transparent;
@@ -852,14 +852,14 @@ button[clear][light],
   color: #cbcbcb; }
   button[clear][light]:hover:not(.disable-hover),
   .ios .popup-buttons button[light]:hover:not(.disable-hover),
-  .ios [light].search-bar-cancel.left-align:hover:not(.disable-hover),
+  .ios [light].search-bar-cancel:hover:not(.disable-hover),
   .md .popup-buttons button[light]:hover:not(.disable-hover),
   [button][clear][light]:hover:not(.disable-hover) {
     color: #b7b7b7; }
 
 button[clear][dark],
 .ios .popup-buttons button[dark],
-.ios [dark].search-bar-cancel.left-align,
+.ios [dark].search-bar-cancel,
 .md .popup-buttons button[dark],
 [button][clear][dark] {
   border-color: transparent;
@@ -867,7 +867,7 @@ button[clear][dark],
   color: #4b4b4b; }
   button[clear][dark]:hover:not(.disable-hover),
   .ios .popup-buttons button[dark]:hover:not(.disable-hover),
-  .ios [dark].search-bar-cancel.left-align:hover:not(.disable-hover),
+  .ios [dark].search-bar-cancel:hover:not(.disable-hover),
   .md .popup-buttons button[dark]:hover:not(.disable-hover),
   [button][clear][dark]:hover:not(.disable-hover) {
     color: #747474; }
@@ -1146,7 +1146,7 @@ ion-item-content {
   ion-item-content button {
     pointer-events: auto; }
 
-.item-text-wrap ion-item-content {
+[text-wrap] ion-item-content {
   white-space: normal; }
 
 .list .item {
@@ -1221,6 +1221,12 @@ ion-item-options {
   right: 0;
   z-index: 1;
   height: 100%; }
+
+[item-right] {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1; }
 
 .item > icon:first-child {
   min-width: 24px;
@@ -2525,9 +2531,6 @@ input[type="search"].search-bar-input {
   line-height: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none; }
-
-.search-bar-cancel {
-  display: none; }
 
 ion-segment {
   display: block; }
@@ -5576,16 +5579,16 @@ icon,
   .ios .list button[ion-item]:not([detail-none]),
   .ios .list a[ion-item]:not([detail-none]),
   .ios .list [detail-push]:not(ion-item-sliding),
-  .ios .card button[ion-item]:not([detail-none]),
-  .ios .card a[ion-item]:not([detail-none]),
-  .ios .card [detail-push]:not(ion-item-sliding) {
+  .ios ion-card button[ion-item]:not([detail-none]),
+  .ios ion-card a[ion-item]:not([detail-none]),
+  .ios ion-card [detail-push]:not(ion-item-sliding) {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 14px 14px;
     padding-right: 32px; }
   .ios .list ion-item-sliding[detail-push] ion-item-sliding-content,
-  .ios .card ion-item-sliding[detail-push] ion-item-sliding-content {
+  .ios ion-card ion-item-sliding[detail-push] ion-item-sliding-content {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
     background-repeat: no-repeat;
     background-position: right 14px center;
@@ -6039,8 +6042,8 @@ icon,
     left: 10px;
     top: 8px;
     margin-left: calc(50% - 60px);
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
   .ios .search-bar-input {
     height: 28px;
     padding: 0 28px;
@@ -6052,8 +6055,8 @@ icon,
     background-repeat: no-repeat;
     background-position: 8px center;
     padding-left: calc(50% - 28px);
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
     .ios .search-bar-input::-webkit-input-placeholder {
       color: #9D9D9D; }
     .ios .search-bar-input::-moz-placeholder {
@@ -6072,18 +6075,21 @@ icon,
     right: 10px;
     top: 6px; }
   .ios .search-bar-input-container.left-align .search-bar-search-icon {
-    margin-left: 0;
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    margin-left: 0; }
   .ios .search-bar-input-container.left-align .search-bar-input {
-    padding-left: 28px;
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
-  .ios .search-bar-cancel.left-align {
-    display: block;
-    padding-left: 8px;
-    padding-right: 0;
+    padding-left: 28px; }
+  .ios .search-bar-cancel {
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    -webkit-transition-duration: 3s !important;
+    transition-duration: 3s !important;
+    margin-right: calc(-100%);
     min-height: 0; }
+  .ios .search-bar-cancel.left-align {
+    max-width: initial;
+    margin-right: 0;
+    padding-left: 8px;
+    padding-right: 0; }
   .ios.hairlines .search-bar {
     border-bottom-width: 0.55px; }
   .ios .ion-segment button,
@@ -6314,13 +6320,13 @@ icon,
     .md [button][full] {
       border-radius: 0; }
     .md button[clear],
-    .ios .popup-buttons .md button, .md .ios .search-bar-cancel.left-align,
-    .ios .md .search-bar-cancel.left-align, .md .popup-buttons button, .md [button][clear] {
+    .ios .popup-buttons .md button, .md .ios .search-bar-cancel,
+    .ios .md .search-bar-cancel, .md .popup-buttons button, .md [button][clear] {
       opacity: 1;
       box-shadow: none; }
       .md button[clear].activated,
-      .ios .popup-buttons .md button.activated, .md .ios .activated.search-bar-cancel.left-align,
-      .ios .md .activated.search-bar-cancel.left-align, .md .popup-buttons button.activated, .md [button][clear].activated {
+      .ios .popup-buttons .md button.activated, .md .ios .activated.search-bar-cancel,
+      .ios .md .activated.search-bar-cancel, .md .popup-buttons button.activated, .md [button][clear].activated {
         background-color: rgba(158, 158, 158, 0.2); }
     .md button[outline],
     .md [button][outline] {
@@ -6487,15 +6493,15 @@ icon,
   .md .list [item-right].icon-right icon {
     margin-right: 0;
     margin-bottom: 1px; }
-  .md .list .item-text-wrap ion-item-content {
+  .md .list [text-wrap] ion-item-content {
     font-size: 1.4rem;
     line-height: 1.5; }
   .md .list ion-note {
     color: #c4c4c4; }
   .md .list .item[actions] ion-item-content {
     margin: 4px; }
-  .md .list icon + ion-item-content,
-  .md .list icon + .text-input {
+  .md .list icon[item-left] + ion-item-content,
+  .md .list icon[item-left] + .text-input {
     margin-left: 24px; }
   .md .list ion-avatar {
     min-width: 4rem; }

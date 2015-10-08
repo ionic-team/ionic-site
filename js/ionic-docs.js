@@ -61,6 +61,32 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     }
   }
 
+  (function setUpListeners() {
+
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(messageEvent,function(e) {
+      sendCurrentHash(e.data);
+    },false);
+
+
+  })();
+
+  function sendCurrentHash(platform) {
+    // send the initial hash if possible
+    if (platform === 'ios') {
+      $iosIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');
+      return;   
+    }
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');      
+  }
+
+
+
+
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);

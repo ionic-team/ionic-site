@@ -131,10 +131,22 @@
          ng-init="showComponents = true"
        >
       
-      <li><a href="#docs-page-components">Overview</a></li>
+      <li><a href="#overview">Overview</a></li>
       <li><a href="#action-sheets">Action Sheets</a></li>
-      <li><a href="#buttons">Buttons</a></li>
+
+      <li id="components-buttons"><a href="#buttons">Buttons</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="#block-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="#full-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="#outline-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="#round-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="#floating-action-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="#button-sizes"></a></li>
+          <li class="nav-item-hidden"><a href="#icon-buttons"></a></li>
+        </ul>
+
       <li><a href="#cards">Cards</a></li>
+      <li><a href="#forms">Forms</a></li>
       <li><a href="#icons">Icons</a></li>
       <li><a href="#lists">Lists</a></li>
       <li><a href="#menus">Menus</a></li>
@@ -196,7 +208,7 @@
 
   <!-- ### FAQ ### -->
   <li class="">
-    <a>FAQ</a>
+    <a href="/docs/v2/faq/">FAQ</a>
   </li>
 
   <!-- ### API ### -->
@@ -238,8 +250,11 @@
           <a ng-class="{active: androidActive}"
              ng-click="setPlatform('android')">Android</a>
         </div>
-        <div id="demo-device" ng-class="previewPlatform">
-          <iframe src="demo" frameborder="0"></iframe>
+        <div id="demo-device-ios" ng-class="previewPlatform">
+          <iframe id="demo-ios" src="demo?ionicplatform=ios" frameborder="0"></iframe>
+        </div>
+        <div id="demo-device-android" ng-class="previewPlatform">
+          <iframe id="demo-android" src="demo?ionicplatform=android" frameborder="0"></iframe>
         </div>
       </aside>
       
@@ -287,11 +302,20 @@
 
 <p>Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.</p>
 
+<ul class="docs-content">
+  <li class="docs-content-header">Content</li>
+  <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
+  <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
+  <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
+  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
+  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
+  <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
+  <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
+</ul>
+
 <h3>Basic Usage:</h3>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<h3>Colors:</h3>
-
 <p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
@@ -300,29 +324,17 @@
 <span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<h3>Shapes:</h3>
-
-<p><strong>Round:</strong></p>
-
-<p>The <code>round</code> property will add rounded corners to a button:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">round</span><span class="nt">&gt;</span>Round Button<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<p><strong>Block:</strong></p>
+<h2 id="block-buttons">Block Buttons</h2>
 
 <p>Adding <code>block</code> to a button will make the button take 100% of its parent&#39;s width. It will also add <code>display: block</code> to the button:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">block</span><span class="nt">&gt;</span>Block Button<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<p><strong>Full:</strong></p>
+<h2 id="full-buttons">Full Buttons</h2>
 
 <p>Adding <code>full</code> to a button will also make the button take 100% of its parent&#39;s width. However, it will also remove the button&#39;s left and right borders. This style is useful when the button should stretch across the entire width of the display.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">full</span><span class="nt">&gt;</span>Full Button<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<p><strong>Floating Action Button:</strong></p>
-
-<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h3>Outlines:</h3>
+<h2 id="outline-buttons">Outline Buttons</h2>
 
 <p>To create outline buttons, just add the <code>outline</code> property:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
@@ -332,7 +344,29 @@
 <span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">outline</span><span class="nt">&gt;</span>Dark Outline<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
-<h3>Icons:</h3>
+<h2 id="round-buttons">Round Buttons</h2>
+
+<p>To create a button with rounded corners, just add the <code>round</code> property:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">rount</span><span class="nt">&gt;</span>Primary Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">rount</span><span class="nt">&gt;</span>Secondary Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">danger</span> <span class="na">round</span><span class="nt">&gt;</span>Danger Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">stable</span> <span class="na">round</span><span class="nt">&gt;</span>Stable Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">round</span><span class="nt">&gt;</span>Light Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">round</span><span class="nt">&gt;</span>Dark Round<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h2 id="floating-action-buttons">Floating Action Buttons</h2>
+
+<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<h2 id="button-sizes">Button Sizes</h2>
+
+<p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
+<span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
+</code></pre></div>
+<h2 id="icon-buttons">Icon Buttons</h2>
 
 <p>To add icons to a button, add an icon component inside of it:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Float the icon left --&gt;</span>
@@ -351,13 +385,6 @@
 <span class="nt">&lt;button&gt;</span>
     <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h3>Sizes</h3>
-
-<p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
-<span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
 </code></pre></div>
 <h2 id="cards">Cards</h2>
 
@@ -381,6 +408,87 @@
   <span class="nt">&lt;/ion-card-content&gt;</span>
 
 <span class="nt">&lt;/ion-card&gt;</span>
+</code></pre></div>
+<h2 id="forms">Forms</h2>
+
+<p>Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls.</p>
+
+<h3 id="search_bar">Search Bar</h3>
+
+<p>A search bar takes a value and binds it to a control in your form.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="err">[</span><span class="na">ng-form-model</span><span class="err">]=&quot;</span><span class="na">form</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-search-bar</span> <span class="na">ng-control=</span><span class="s">&quot;searchQuery&quot;</span><span class="nt">&gt;&lt;/ion-search-bar&gt;</span>
+  <span class="nt">&lt;ion-list</span> <span class="na">inset</span> <span class="err">#</span><span class="na">list</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#item of getItems()&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;/ion-list&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div>
+<p>Note the <code>[ng-form-model]=&quot;form&quot;</code> binds to the components instance of <code>this.form</code>, and the <code>ng-control</code> binds to the forms <code>searchQuery</code> property. You&#39;ll also see that the component interacts with the <code>searchQuery</code> property using the <code>form.controls</code> array <code>this.form.controls.searchQuery.value</code>.</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">class</span> <span class="nx">IonicApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormBuilder</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">({</span>
+      <span class="nx">searchQuery</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]</span>
+    <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="p">[</span><span class="s1">&#39;Soylent&#39;</span><span class="p">,</span> <span class="s1">&#39;BBQ&#39;</span><span class="p">,</span> <span class="s1">&#39;Salad&#39;</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">getItems() {</span>
+    <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">controls</span><span class="p">.</span><span class="nx">searchQuery</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="segment">Segment</h3>
+
+<p>Use the segment to control to use radio selections.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="err">(</span><span class="na">submit</span><span class="err">)=&quot;</span><span class="na">doSubmit</span><span class="err">($</span><span class="na">event</span><span class="err">)&quot;</span> <span class="err">[</span><span class="na">ng-form-model</span><span class="err">]=&quot;</span><span class="na">myForm</span><span class="err">&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-segment</span> <span class="na">ng-control=</span><span class="s">&quot;mapStyle&quot;</span> <span class="na">danger</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">&quot;standard&quot;</span><span class="nt">&gt;</span>
+        Standard
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+      <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">&quot;hybrid&quot;</span><span class="nt">&gt;</span>
+        Hybrid
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+      <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">&quot;sat&quot;</span><span class="nt">&gt;</span>
+        Satellite
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+    <span class="nt">&lt;/ion-segment&gt;</span>
+    <span class="nt">&lt;ion-segment&gt;</span>
+      <span class="nt">&lt;ion-segment-button&gt;</span>
+        Friends
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+      <span class="nt">&lt;ion-segment-button&gt;</span>
+        Enemies
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+    <span class="nt">&lt;/ion-segment&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">button</span> <span class="na">primary</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;main.html&#39;</span><span class="p">,</span>
+  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">FormBuilder</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">fb</span>: <span class="kt">FormBuilder</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">myForm</span> <span class="o">=</span> <span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">({</span>
+      <span class="nx">mapStyle</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;hybrid&#39;</span><span class="p">,</span> <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">doSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Submitting form&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">myForm</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="icons">Icons</h2>
 
@@ -450,7 +558,11 @@ reference to an array of items, and the parent scroll element:</p>
 </code></pre></div>
 <h2 id="menus">Menus</h2>
 
-<p>Menus control side content that slides in or is exposed from the main content area sliding out. Along with <a href="#tabs">Tabs</a>, Menus are a common way to navigate through an app if you have several &quot;root&quot; or &quot;top-level&quot; views. For the basics of navigating through an Ionic app, see the <a href="#navigation">Navigation section</a>.</p>
+<p><em>For more in depth information on Menus, see the <a href="../api/components/menu/Menu">Menu API reference</a>.</em></p>
+
+<p>Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.</p>
+
+<p>Along with <a href="#tabs">Tabs</a>, Menus are a common way to navigate through an app if you have several &quot;root&quot; or &quot;top-level&quot; views. For the basics of navigating through an Ionic app, see the <a href="#navigation">Navigation section</a>.</p>
 
 <p>For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.</p>
 
@@ -458,7 +570,7 @@ reference to an array of items, and the parent scroll element:</p>
 
 <p>However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.</p>
 
-<p>To use a Menu add an <a href="link_to_menu"><code>&lt;ion-menu&gt;</code></a> to your markup next to your root <a href="link_to_nav"><code>&lt;ion-nav&gt;</code></a>:</p>
+<p>To use a Menu add an <a href="../api/components/menu/Menu/"><code>&lt;ion-menu&gt;</code></a> to your markup next to your root <a href="../api/components/nav/Nav/"><code>&lt;ion-nav&gt;</code></a>:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">menu</span> <span class="p">[</span><span class="nx">content</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;content&quot;</span><span class="o">&gt;</span>
@@ -481,9 +593,9 @@ reference to an array of items, and the parent scroll element:</p>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{}</span>
 </code></pre></div>
-<p>The <code>&lt;ion-menu&gt;</code>s bound <code>[content]</code> property gets a <a href="angular_template_refs">reference</a> to the <a href="link_to_nav"><code>&lt;ion-nav&gt;</code></a> in order to listen for drag events on the main content so it knows when to open/close.  </p>
+<p>The <code>&lt;ion-menu&gt;</code>s bound <code>[content]</code> property gets a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a> to the <code>&lt;ion-nav&gt;</code> in order to listen for drag events on the main content so it knows when to open/close.</p>
 
-<p>Then in our <a href="link_to_app">@App</a> component we have two buttons with click handlers that navigate to a new root view:</p>
+<p>Then in our <a href="../api/config/App/">@App</a> component we have two buttons with click handlers that navigate to a new root view:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;login&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">SignupPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;signup&#39;</span><span class="p">;</span>
 
@@ -509,9 +621,11 @@ reference to an array of items, and the parent scroll element:</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>We inject the <a href="link_to_ionic_app"><code>IonicApp</code></a> service so we can use Ionic&#39;s <a href="link_to_id_system">id system</a> to get references to the menu and the nav controller.  We then use the NavController&#39;s <a href="link_to_setRoot"><code>setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
+<p>We inject the <a href="../api/components/app/IonicApp/"><code>IonicApp</code></a> service so we can use Ionic&#39;s <a href="link_to_id_system">id system</a> to get references to the menu and the nav controller.  We then use the NavController&#39;s <a href="../api/components/nav/NavController/#setRoot"><code>setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
 
-<p>Menus can be a little more complicated, but they allow for many different configuration options.  For more examples and in depth configuration explanations, take a look at the <a href="link_to_menu_api">Menu API reference</a> as well as the <a href="link_to_nav">Nav API reference</a>.</p>
+<p>Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open <a href="#modals">Modals</a> over the main map content area and toggle settings on and off.</p>
+
+<p>For more information on Menus, check out the <a href="../api/components/menu/Menu/">Menu API reference</a>.</p>
 
 <h2 id="modals">Modals</h2>
 
@@ -543,6 +657,8 @@ from the <code>Modal</code> Ionic class:</p>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="navigation">Navigation</h2>
+
+<p><em>For more in depth information on navigation, see the <a href="../api/components/nav/Nav">Nav API reference</a>.</em></p>
 
 <p>Navigation in Ionic is much more &quot;native like&quot; and is heavily modeled off of <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">the navigation features in iOS</a>.</p>
 
@@ -718,20 +834,20 @@ from the <code>Modal</code> Ionic class:</p>
 
 <h2 id="tabs">Tabs</h2>
 
-<p>Powers a multi-tabbed interface with a Tab Bar and a set of &quot;pages&quot;
+<p><em>For more details on the Tabs component, see the <a href="../api/components/tabs/Tabs/">Tabs API reference</a>,
+and the <a href="../api/components/tabs/Tab/">Tab API reference</a> for information on configuring the
+individual Tab components it contains.</em></p>
+
+<p>Tabs powers a multi-tabbed interface with a Tab Bar and a set of &quot;pages&quot;
 that can be tabbed through.</p>
 
 <p>For iOS, tabs will appear at the bottom of the screen. For Android, tabs
 will be at the top of the screen, below the nav-bar. This follows each platform&#39;s
-design specification, but can be configured with <a href="link_to_config">IonicConfig</a>.</p>
-
-<p>See the <a href="link_to_tabs">Tabs API reference</a> for more details on the Tabs component,
-and the <a href="link_to_tab">Tab API reference</a> for more information on configuring the
-individual Tab components it contains.</p>
+design specification, but can be configured with <a href="../api/config/IonicConfig/">IonicConfig</a>.</p>
 
 <p>Tabs are useful if you have a few &quot;root&quot; or &quot;top-level&quot; views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a <a href="#menu">Menu</a> may be a better option.</p>
 
-<p>To initialize Tabs, use <a href="link_to_tabs"><code>&lt;ion-tabs&gt;</code></a>, with a child <a href="link_to_tab"><code>&lt;ion-tab&gt;</code></a> for each tab:</p>
+<p>To initialize Tabs, use <a href="../api/components/tabs/Tabs/"><code>&lt;ion-tabs&gt;</code></a>, with a child <a href="../api/components/tabs/Tab/"><code>&lt;ion-tab&gt;</code></a> for each tab:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tabs</span><span class="o">&gt;</span>
@@ -746,7 +862,7 @@ individual Tab components it contains.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Individual tabs are just <a href="link_to_Ionic_View"><code>@IonicViews</code></a>:</p>
+<p>Individual tabs are just <a href="../api/config/IonicView/"><code>@IonicViews</code></a>:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
@@ -765,7 +881,7 @@ individual Tab components it contains.</p>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{}</span>
 </code></pre></div>
-<p>Notice that each <a href="link_to_tabs"><code>&lt;ion-tab&gt;</code></a> binds to a <code>[root]</code> property, just like <a href="link_to_ion_nav"><code>&lt;ion-nav&gt;</code></a> in the <a href="#navigation">Navigation</a> section above.  That is because each <a href="link_to_tabs"><ion-tab>`</a> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="link_to_nav_controller"><code>NavController</code></a> instances injected into children <a href="link_to_Ionic_View"><code>@IonicViews</code></a> of each tab will be unique to each tab:</p>
+<p>Notice that each <code>&lt;ion-tab&gt;</code> binds to a <code>[root]</code> property, just like <a href="../api/components/nav/Nav/"><code>&lt;ion-nav&gt;</code></a> in the <a href="#navigation">Navigation</a> section above.  That is because each <code>&lt;ion-tab&gt;</code> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="../api/components/nav/NavController/#injecting_nav_controller"><code>NavController instances injected</code></a> into children <code>@IonicViews</code> of each tab will be unique to each tab:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
 <span class="p">...</span>
 <span class="p">})</span>
@@ -786,7 +902,7 @@ individual Tab components it contains.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For more information on tabs, check out the <a href="link_to_Tabs">Tabs API reference</a>.</p>
+<p>For more information on tabs, check out the <a href="../api/components/tabs/Tabs/">Tabs API reference</a>.</p>
 
       </main>
     </div>

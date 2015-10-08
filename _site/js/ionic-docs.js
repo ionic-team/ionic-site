@@ -11,48 +11,81 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
+
+
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
-    var msg = JSON.stringify({platform: platform});
-    $iframe[0].contentWindow.postMessage(msg, '*');
     if (platform == 'ios') {
       $scope.iosActive = true;
       $scope.androidActive = false;
+      $('#demo-device-android').css('display', 'none');
+      $('#demo-device-ios').css('display', 'block');
       return;
     }
     $scope.iosActive = false;
     $scope.androidActive = true;
-    $scope.demoURL = 'demo'; //TODO: set to android URL
+    $('#demo-device-ios').css('display', 'none');
+    $('#demo-device-android').css('display', 'block');
   }
-  var $iframe = $('#demo-device iframe');
+
+  var $androidIframe = $('iframe#demo-android');
+  var $iosIframe = $('iframe#demo-ios');
+  var $buttons = $("#components-buttons");
+
   $scope.setPlatform('ios')
-
-
-
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
 
-
-
-
   function onScrollSpyChange(e) {
+
     if (e.target.id === 'components-index') {
       return;
     }
     var $hash, $node;
     $hash = $("a[href^='#']", e.target).attr("href").replace(/^#/, '');
     $node = $('#' + $hash);
+
+    if ($hash.indexOf('button') > -1) {
+      $buttons.addClass('active');
+    }
     if ($node.length) {
       $node.attr('id', '');
     }
     document.location.hash = $hash;
-    $iframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
+    $iosIframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: $hash}), '*');
 
     if ($node.length) {
       return $node.attr('id', $hash);
     }
   }
+
+  (function setUpListeners() {
+
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(messageEvent,function(e) {
+      sendCurrentHash(e.data);
+    },false);
+
+
+  })();
+
+  function sendCurrentHash(platform) {
+    // send the initial hash if possible
+    if (platform === 'ios') {
+      $iosIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');
+      return;   
+    }
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');      
+  }
+
+
+
 
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');

@@ -1,7 +1,7 @@
 System.register("index", ["ionic/ionic", "actionSheet/actionSheet", "helpers"], function (_export) {
     "use strict";
 
-    var App, IonicApp, IonicPlatform, ActionSheetPage, helpers, __decorate, __metadata, DemoApp;
+    var App, IonicApp, IonicPlatform, ActionSheetPage, helpers, __decorate, __metadata, DemoApp, _a, _b;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -66,7 +66,7 @@ System.register("index", ["ionic/ionic", "actionSheet/actionSheet", "helpers"], 
 
             DemoApp = __decorate([App({
                 template: '<ion-nav id="nav" [root]="rootPage"></ion-nav>'
-            }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object, typeof IonicPlatform !== 'undefined' && IonicPlatform || Object])], DemoApp);
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof IonicPlatform !== 'undefined' && IonicPlatform) === 'function' && _b || Object])], DemoApp);
         }
     };
 });

@@ -68,3 +68,18 @@ ion-scroll {
 .demo-slide-3 {
   background-color: #f53d3d;
 }
+
+scroll-content {
+  overflow-y: hidden;
+}
+
+.md .ion-md-share {
+  color: #ED4248;
+}
+.md .ion-md-arrow-dropright-circle {
+  color: #508AE4;
+}
+.md .ion-md-heart-outline {
+  color: #31D55F;
+}
+

@@ -4794,6 +4794,8 @@ body {
     letter-spacing: -0.01em; }
     .docs-container main h1:first-child, .docs-container main h2:first-child, .docs-container main h3:first-child, .docs-container main h4:first-child, .docs-container main h5:first-child {
       margin-top: 0; }
+  .docs-container main h1 {
+    margin-bottom: 0; }
   .docs-container main h2 {
     margin: 2em 0 0em;
     font-size: 22px; }
@@ -4802,6 +4804,8 @@ body {
   .docs-container main h3 {
     margin: 2em 0 0em;
     font-size: 18px; }
+  .docs-container main h3.no-para {
+    margin-bottom: 1em; }
   .docs-container main p {
     color: #4C555A;
     line-height: 1.9em;
@@ -4810,7 +4814,9 @@ body {
     font-size: 14px; }
   .docs-container main pre {
     border: 1px solid #e6e9ee;
-    background: white; }
+    background: white;
+    padding: 16px;
+    line-height: 24px; }
   .docs-container main a {
     color: #4f8ff7;
     text-decoration: none;
@@ -4881,3 +4887,29 @@ ul.docs-content {
   ul.docs-content li.docs-content-header {
     font-weight: 400;
     color: #B9BEC5; }
+
+ul.docs-example {
+  list-style: none;
+  display: block;
+  margin: 3em 0;
+  padding: 0;
+  border-radius: 4px; }
+  ul.docs-example li {
+    display: inline-block;
+    border: 1px solid #e6e9ee;
+    width: 31%;
+    margin: 0;
+    padding: 3em 0; }
+    ul.docs-example li:not(:first-child) {
+      margin-left: 10px; }
+    @media screen and (max-width: 1170px) {
+      ul.docs-example li {
+        width: 29%;
+        padding: 2.5em 0; } }
+  ul.docs-example li img {
+    display: block;
+    margin: 0 auto;
+    width: 100px; }
+    @media screen and (max-width: 1170px) {
+      ul.docs-example li img {
+        width: 90px; } }

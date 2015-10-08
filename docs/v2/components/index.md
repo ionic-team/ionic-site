@@ -72,9 +72,16 @@ Buttons are an essential way to interact with an app. They are simple components
   <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
 </ul>
 
+<ul class="docs-example">
+  <li class="docs-example-content"><img src="/img/docs/basic-button-ex.png"></li>
+  <li class="docs-example-conten"><img src="/img/docs/outline-button-ex.png"></li>
+  <li class="docs-example-conten"><img src="/img/docs/clear-button-ex.png"></li>
+
+</ul>
 
 
-### Basic Usage:
+
+<h3 class="no-para">Basic Usage:</h3>
 
 ```html
 <button primary>Button</button>

@@ -269,6 +269,9 @@ body {
         margin-top: 0;
       }
     }
+    h1 {
+      margin-bottom: 0;
+    }
     h2{
       margin: 2em 0 0em;
       font-size: 22px;
@@ -280,6 +283,9 @@ body {
       margin: 2em 0 0em;
       font-size: 18px;
     }
+    h3.no-para {
+      margin-bottom: 1em;
+    }
     p {
       color: $blackish;
       line-height: 1.9em;
@@ -290,6 +296,8 @@ body {
     pre {
       border: 1px solid $light-grey;
       background: white;
+      padding: 16px;
+      line-height: 24px;
     }
     a{
       color: $blue;
@@ -383,5 +391,36 @@ ul.docs-content {
   }
 
   li.docs-content-item {
+  }
+}
+
+ul.docs-example {
+  list-style: none;
+  display: block;
+  margin: 3em 0;
+  padding: 0;
+  border-radius: 4px;
+
+  li {
+    display: inline-block;
+    border: 1px solid #e6e9ee;
+    width: 31%;
+    margin: 0;
+    padding: 3em 0;
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+    @media screen and (max-width: 1170px) {
+      width: 29%;
+      padding: 2.5em 0;
+    }
+  }
+  li img {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    @media screen and (max-width: 1170px) {
+      width: 90px;
+    }
   }
 }

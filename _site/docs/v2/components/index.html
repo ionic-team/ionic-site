@@ -271,7 +271,9 @@
 
 <h2 id="action-sheets">Action Sheets</h2>
 
-<p>Action Sheets display a modal set of options to confirm or cancel an action.</p>
+<p>Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they <strong>should not</strong> be used for navigation. </p>
+
+<p>The Action Sheet always appears above any other components on the page, and must be dismissed in order to interact with the underlying content. When it is triggered, the rest of the page darkens to give more focus to the Action Sheet options.</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ActionSheet</span><span class="p">.</span><span class="nx">open</span><span class="p">({</span>
   <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Share This&#39;</span> <span class="p">},</span>

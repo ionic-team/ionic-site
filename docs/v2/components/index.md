@@ -22,7 +22,11 @@ Ionic apps are made of high-level building blocks called components. Components 
 
 <h2 id="action-sheets">Action Sheets</h2>
 
-Action Sheets display a modal set of options to confirm or cancel an action.
+Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they **should not** be used for navigation. 
+
+The Action Sheet always appears above any other components on the page, and must be dismissed in order to interact with the underlying content. When it is triggered, the rest of the page darkens to give more focus to the Action Sheet options.
+
+
 
 ```javascript
 ActionSheet.open({

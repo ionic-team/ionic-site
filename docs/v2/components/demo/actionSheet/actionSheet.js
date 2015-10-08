@@ -53,7 +53,7 @@ System.register("actionSheet/actionSheet", ["ionic/ionic"], function (_export) {
                             var androidSheet = {
                                 buttons: [{ text: 'Share', icon: 'share' }, { text: 'Play', icon: 'arrow-dropright-circle' }, { text: 'Favorite', icon: 'ion-md-heart-outline' }],
                                 destructiveText: 'Delete',
-                                titleText: 'Purchased',
+                                titleText: 'Albums',
                                 cancelText: 'Cancel',
                                 cancel: function cancel() {
                                     console.log('Canceled');
@@ -71,9 +71,9 @@ System.register("actionSheet/actionSheet", ["ionic/ionic"], function (_export) {
                             };
                         }
                         this.actionSheet.open(androidSheet || {
-                            buttons: [{ text: 'Share This' }, { text: 'Move' }],
+                            buttons: [{ text: 'Share' }, { text: 'Play' }, { text: 'Favorite' }],
                             destructiveText: 'Delete',
-                            titleText: 'You Opened Action Sheet',
+                            titleText: 'Albums',
                             cancelText: 'Cancel',
                             cancel: function cancel() {
                                 console.log('Canceled');

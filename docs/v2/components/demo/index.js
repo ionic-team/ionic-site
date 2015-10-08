@@ -65,7 +65,7 @@ System.register("index", ["ionic/ionic", "actionSheet/actionSheet", "helpers"], 
             };
 
             DemoApp = __decorate([App({
-                template: '<ion-nav id="nav" [root]="rootPage"></ion-nav>'
+                template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>'
             }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof IonicPlatform !== 'undefined' && IonicPlatform) === 'function' && _b || Object])], DemoApp);
         }
     };

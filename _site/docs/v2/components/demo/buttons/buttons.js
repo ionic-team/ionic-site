@@ -1,7 +1,7 @@
 System.register("buttons/buttons", ["ionic/ionic"], function (_export) {
     "use strict";
 
-    var Page, __decorate, __metadata, ButtonsPage, BlockButtonsPage, FullButtonsPage, OutlineButtonsPage, RoundButtonsPage, FabPage, ButtonSizesPage, IconButtonsPage;
+    var Page, __decorate, __metadata, ButtonsPage, BlockButtonsPage, ClearButtonsPage, FullButtonsPage, OutlineButtonsPage, RoundButtonsPage, FabPage, ButtonSizesPage, IconButtonsPage, ButtonsInComponentsPage;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -51,6 +51,16 @@ System.register("buttons/buttons", ["ionic/ionic"], function (_export) {
             _export("BlockButtonsPage", BlockButtonsPage = __decorate([Page({
                 templateUrl: 'buttons/block.html'
             }), __metadata('design:paramtypes', [])], BlockButtonsPage));
+
+            ClearButtonsPage = function ClearButtonsPage() {
+                _classCallCheck(this, ClearButtonsPage);
+            };
+
+            _export("ClearButtonsPage", ClearButtonsPage);
+
+            _export("ClearButtonsPage", ClearButtonsPage = __decorate([Page({
+                templateUrl: 'buttons/clear.html'
+            }), __metadata('design:paramtypes', [])], ClearButtonsPage));
 
             FullButtonsPage = function FullButtonsPage() {
                 _classCallCheck(this, FullButtonsPage);
@@ -111,6 +121,16 @@ System.register("buttons/buttons", ["ionic/ionic"], function (_export) {
             _export("IconButtonsPage", IconButtonsPage = __decorate([Page({
                 templateUrl: 'buttons/icons.html'
             }), __metadata('design:paramtypes', [])], IconButtonsPage));
+
+            ButtonsInComponentsPage = function ButtonsInComponentsPage() {
+                _classCallCheck(this, ButtonsInComponentsPage);
+            };
+
+            _export("ButtonsInComponentsPage", ButtonsInComponentsPage);
+
+            _export("ButtonsInComponentsPage", ButtonsInComponentsPage = __decorate([Page({
+                templateUrl: 'buttons/components.html'
+            }), __metadata('design:paramtypes', [])], ButtonsInComponentsPage));
         }
     };
 });

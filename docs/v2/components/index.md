@@ -62,7 +62,7 @@ Buttons are an essential way to interact with and navigate through an app, and s
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
-  <li class="docs-content-item"><a href="#default-buttons">Default Style</a></li>
+  <li class="docs-content-item"><a href="#buttons">Default Style</a></li>
   <li class="docs-content-item"><a href="#outline-buttons">Outline Style</a></li>
   <li class="docs-content-item"><a href="#clear-buttons">Clear Style</a></li>
   <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
@@ -99,32 +99,28 @@ The `primary` property sets the color of the button. Ionic includes a number of 
 <button dark>Dark</button>
 ```
 
-<h2 id="block-buttons">Block Buttons</h2>
+<h2 id="outline-buttons">Outline Style</h2>
 
-Adding `block` to a button will make the button take 100% of its parent's width. It will also add `display: block` to the button:
-
-```html
-<button block>Block Button</button>
-```
-
-<h2 id="full-buttons">Full Buttons</h2>
-Adding `full` to a button will also make the button take 100% of its parent's width. However, it will also remove the button's left and right borders. This style is useful when the button should stretch across the entire width of the display.
-
-```html
-<button full>Full Button</button>
-```
-
-
-<h2 id="outline-buttons">Outline Buttons</h2>
-
-To create outline buttons, just add the `outline` property:
+To use the outline style for a button, just add the `outline` property:
 
 ```html
 <button light outline>Light Outline</button>
-<button primary button-outline>Primary Outline</button>
+<button primary outline>Primary Outline</button>
 <button secondary outline>Secondary Outline</button>
 <button danger outline>Danger Outline</button>
 <button dark outline>Dark Outline</button>
+```
+
+<h2 id="clear-buttons">Clear Style</h2>
+
+To use the clear style for a button, just add the `clear` property:
+
+```html
+<button light clear>Light Clear</button>
+<button primary clear>Primary Clear</button>
+<button secondary clear>Secondary Clear</button>
+<button danger clear>Danger Clear</button>
+<button dark clear>Dark Clear</button>
 ```
 
 <h2 id="round-buttons">Round Buttons</h2>
@@ -139,14 +135,20 @@ To create a button with rounded corners, just add the `round` property:
 <button dark round>Dark Round</button>
 ```
 
-<h2 id="floating-action-buttons">Floating Action Buttons</h2>
+<h2 id="block-buttons">Block Buttons</h2>
 
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
+Adding `block` to a button will make the button take 100% of its parent's width. It will also add `display: block` to the button:
 
 ```html
-<button fab>FAB</button>
+<button block>Block Button</button>
 ```
 
+<h2 id="full-buttons">Full Buttons</h2>
+Adding `full` to a button will also make the button take 100% of its parent's width. However, it will also remove the button's left and right borders. This style is useful when the button should stretch across the entire width of the display.
+
+```html
+<button full>Full Button</button>
+```
 
 <h2 id="button-sizes">Button Sizes</h2>
 
@@ -180,6 +182,31 @@ To add icons to a button, add an icon component inside of it:
   <icon home></icon>
 </button>
 ```
+
+<h2 id="floating-action-buttons">Floating Action Buttons</h2>
+
+Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
+
+```html
+<button fab>FAB</button>
+```
+
+<h2 id="buttons-in-components">Buttons In Components</h2>
+
+Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item: 
+
+```html
+<ion-list>
+  <ion-item>
+  </ion-item>
+</ion-list>
+```
+
+
+
+
+
+
 
 <h2 id="cards" class="section-header">Cards</h2>
 

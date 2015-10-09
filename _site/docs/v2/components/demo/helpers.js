@@ -1,7 +1,7 @@
 System.register('helpers', ['actionSheet/actionSheet', 'buttons/buttons', 'cards/cards', 'forms/forms', 'icons/icons', 'lists/lists', 'menus/menus', 'modals/modals', 'navigation/navigation', 'popups/popups', 'slides/slides', 'tabs/tabs'], function (_export) {
     'use strict';
 
-    var ActionSheetPage, ButtonsPage, BlockButtonsPage, FullButtonsPage, OutlineButtonsPage, RoundButtonsPage, FabPage, ButtonSizesPage, IconButtonsPage, CardsPage, FormsPage, IconsPage, ListsPage, MenusPage, ModalsPage, NavigationPage, PopupsPage, SlidesPage, TabsPage;
+    var ActionSheetPage, ButtonsPage, BlockButtonsPage, ClearButtonsPage, FullButtonsPage, OutlineButtonsPage, RoundButtonsPage, FabPage, ButtonSizesPage, IconButtonsPage, ButtonsInComponentsPage, CardsPage, FormsPage, IconsPage, ListsPage, MenusPage, ModalsPage, NavigationPage, PopupsPage, SlidesPage, TabsPage;
 
     _export('toTitleCase', toTitleCase);
 
@@ -18,10 +18,12 @@ System.register('helpers', ['actionSheet/actionSheet', 'buttons/buttons', 'cards
             'action-sheets': ActionSheetPage,
             'buttons': ButtonsPage,
             'block-buttons': BlockButtonsPage,
+            'clear-buttons': ClearButtonsPage,
             'full-buttons': FullButtonsPage,
             'outline-buttons': OutlineButtonsPage,
             'round-buttons': RoundButtonsPage,
             'floating-action-buttons': FabPage,
+            'buttons-in-components': ButtonsInComponentsPage,
             'button-sizes': ButtonSizesPage,
             'icon-buttons': IconButtonsPage,
             'cards': CardsPage,
@@ -43,12 +45,14 @@ System.register('helpers', ['actionSheet/actionSheet', 'buttons/buttons', 'cards
         }, function (_buttonsButtons) {
             ButtonsPage = _buttonsButtons.ButtonsPage;
             BlockButtonsPage = _buttonsButtons.BlockButtonsPage;
+            ClearButtonsPage = _buttonsButtons.ClearButtonsPage;
             FullButtonsPage = _buttonsButtons.FullButtonsPage;
             OutlineButtonsPage = _buttonsButtons.OutlineButtonsPage;
             RoundButtonsPage = _buttonsButtons.RoundButtonsPage;
             FabPage = _buttonsButtons.FabPage;
             ButtonSizesPage = _buttonsButtons.ButtonSizesPage;
             IconButtonsPage = _buttonsButtons.IconButtonsPage;
+            ButtonsInComponentsPage = _buttonsButtons.ButtonsInComponentsPage;
         }, function (_cardsCards) {
             CardsPage = _cardsCards.CardsPage;
         }, function (_formsForms) {

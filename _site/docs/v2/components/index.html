@@ -302,17 +302,21 @@
 </code></pre></div>
 <h2 id="buttons" class="section-header">Buttons</h2>
 
-<p>Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.</p>
+<p>Buttons are an essential way to interact with and navigate through an app, and should clearly communicate what action will occur after the user taps them. Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#default-buttons">Default Style</a></li>
+  <li class="docs-content-item"><a href="#outline-buttons">Outline Style</a></li>
+  <li class="docs-content-item"><a href="#clear-buttons">Clear Style</a></li>
+  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
   <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
   <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
-  <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
-  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
-  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
   <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
   <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
+  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
+  <li class="docs-content-item"><a href="#buttons-in-components">Buttons In Components</a></li>
+
 </ul>
 
 <ul class="docs-example">
@@ -326,11 +330,10 @@
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">danger</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">stable</span><span class="nt">&gt;</span>Stable<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">light</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h2 id="block-buttons">Block Buttons</h2>
@@ -346,21 +349,19 @@
 <h2 id="outline-buttons">Outline Buttons</h2>
 
 <p>To create outline buttons, just add the <code>outline</code> property:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">button-outline</span><span class="nt">&gt;</span>Primary Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">outline</span><span class="nt">&gt;</span>Secondary Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">danger</span> <span class="na">outline</span><span class="nt">&gt;</span>Danger Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">stable</span> <span class="na">outline</span><span class="nt">&gt;</span>Stable Outline<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">outline</span><span class="nt">&gt;</span>Light Outline<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">outline</span><span class="nt">&gt;</span>Dark Outline<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h2 id="round-buttons">Round Buttons</h2>
 
 <p>To create a button with rounded corners, just add the <code>round</code> property:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">rount</span><span class="nt">&gt;</span>Primary Round<span class="nt">&lt;/button&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">round</span><span class="nt">&gt;</span>Light Round<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">rount</span><span class="nt">&gt;</span>Primary Round<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">secondary</span> <span class="na">rount</span><span class="nt">&gt;</span>Secondary Round<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">danger</span> <span class="na">round</span><span class="nt">&gt;</span>Danger Round<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">stable</span> <span class="na">round</span><span class="nt">&gt;</span>Stable Round<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">light</span> <span class="na">round</span><span class="nt">&gt;</span>Light Round<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">dark</span> <span class="na">round</span><span class="nt">&gt;</span>Dark Round<span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h2 id="floating-action-buttons">Floating Action Buttons</h2>
@@ -371,28 +372,28 @@
 <h2 id="button-sizes">Button Sizes</h2>
 
 <p>Add the <code>large</code> attribute to make a button larger, or <code>small</code> to make it smaller:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
 <span class="nt">&lt;button&gt;</span>Default<span class="nt">&lt;button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">large</span><span class="nt">&gt;</span>Large<span class="nt">&lt;button&gt;</span>
 </code></pre></div>
 <h2 id="icon-buttons">Icon Buttons</h2>
 
 <p>To add icons to a button, add an icon component inside of it:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Float the icon left --&gt;</span>
 <span class="nt">&lt;button&gt;</span>
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
-    Left Icon
+  <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+  Left Icon
 <span class="nt">&lt;/button&gt;</span>
 
 <span class="c">&lt;!-- Float the icon right --&gt;</span>
 <span class="nt">&lt;button&gt;</span>
-    Right Icon
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+  Right Icon
+  <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
 
 <span class="c">&lt;!-- Only icon (no text) --&gt;</span>
 <span class="nt">&lt;button&gt;</span>
-    <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
+  <span class="nt">&lt;icon</span> <span class="na">home</span><span class="nt">&gt;&lt;/icon&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
 <h2 id="cards" class="section-header">Cards</h2>

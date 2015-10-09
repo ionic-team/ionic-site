@@ -404,23 +404,16 @@ ul.docs-example {
   li {
     display: inline-block;
     border: 1px solid #e6e9ee;
-    width: 31%;
+    width: 32%;
     margin: 0;
-    padding: 3em 0;
+    padding: 8% 0;
     &:not(:first-child) {
-      margin-left: 10px;
+      margin-left: 1%;
     }
-    @media screen and (max-width: 1170px) {
-      width: 29%;
-      padding: 2.5em 0;
-    }
-  }
+ }
   li img {
     display: block;
     margin: 0 auto;
-    width: 100px;
-    @media screen and (max-width: 1170px) {
-      width: 90px;
-    }
-  }
+    width: 55.7%;
+ }
 }

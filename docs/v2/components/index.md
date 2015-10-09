@@ -58,19 +58,23 @@ ActionSheet.open({
 
 <h2 id="buttons" class="section-header">Buttons</h2>
 
-Buttons are an essential way to interact with an app. They are simple components in Ionic, and can be enhanced with a wide range of attributes.
-
+Buttons are an essential way to interact with and navigate through an app, and should clearly communicate what action will occur after the user taps them. Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#default-buttons">Default Style</a></li>
+  <li class="docs-content-item"><a href="#outline-buttons">Outline Style</a></li>
+  <li class="docs-content-item"><a href="#clear-buttons">Clear Style</a></li>
+  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
   <li class="docs-content-item"><a href="#block-buttons">Block Buttons</a></li>
   <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
-  <li class="docs-content-item"><a href="#outline-buttons">Outline Buttons</a></li>
-  <li class="docs-content-item"><a href="#round-buttons">Round Buttons</a></li>
-  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
   <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
   <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
+  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
+  <li class="docs-content-item"><a href="#buttons-in-components">Buttons In Components</a></li>
+
 </ul>
+
 
 <ul class="docs-example">
   <li class="docs-example-content"><img src="/img/docs/basic-button-ex.png"></li>
@@ -78,8 +82,6 @@ Buttons are an essential way to interact with an app. They are simple components
   <li class="docs-example-conten"><img src="/img/docs/clear-button-ex.png"></li>
 
 </ul>
-
-
 
 <h3 class="no-para">Basic Usage:</h3>
 
@@ -90,11 +92,10 @@ Buttons are an essential way to interact with an app. They are simple components
 The `primary` property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:
 
 ```html
+<button light>Light</button>
 <button primary>Primary</button>
 <button secondary>Secondary</button>
 <button danger>Danger</button>
-<button stable>Stable</button>
-<button light>Light</button>
 <button dark>Dark</button>
 ```
 
@@ -119,11 +120,10 @@ Adding `full` to a button will also make the button take 100% of its parent's wi
 To create outline buttons, just add the `outline` property:
 
 ```html
+<button light outline>Light Outline</button>
 <button primary button-outline>Primary Outline</button>
 <button secondary outline>Secondary Outline</button>
 <button danger outline>Danger Outline</button>
-<button stable outline>Stable Outline</button>
-<button light outline>Light Outline</button>
 <button dark outline>Dark Outline</button>
 ```
 
@@ -132,11 +132,10 @@ To create outline buttons, just add the `outline` property:
 To create a button with rounded corners, just add the `round` property:
 
 ```html
+<button light round>Light Round</button>
 <button primary rount>Primary Round</button>
 <button secondary rount>Secondary Round</button>
 <button danger round>Danger Round</button>
-<button stable round>Stable Round</button>
-<button light round>Light Round</button>
 <button dark round>Dark Round</button>
 ```
 
@@ -154,11 +153,10 @@ Adding `fab` to a button will turn it into a floating action button. This is a m
 Add the `large` attribute to make a button larger, or `small` to make it smaller:
 
 ```html
-<button large>Large<button>
-<button>Default<button>
 <button small>Small<button>
+<button>Default<button>
+<button large>Large<button>
 ```
-
 
 <h2 id="icon-buttons">Icon Buttons</h2>
 
@@ -167,19 +165,19 @@ To add icons to a button, add an icon component inside of it:
 ```html
 <!-- Float the icon left -->
 <button>
-    <icon home></icon>
-    Left Icon
+  <icon home></icon>
+  Left Icon
 </button>
 
 <!-- Float the icon right -->
 <button>
-    Right Icon
-    <icon home></icon>
+  Right Icon
+  <icon home></icon>
 </button>
 
 <!-- Only icon (no text) -->
 <button>
-    <icon home></icon>
+  <icon home></icon>
 </button>
 ```
 

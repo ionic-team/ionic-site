@@ -164,6 +164,9 @@ ion-view.pane-view {
   -ms-flex-direction: column;
   flex-direction: column; }
 
+ion-view.pane-view {
+  background: transparent; }
+
 ion-view {
   display: none;
   position: absolute;
@@ -185,15 +188,15 @@ ion-view {
     display: -ms-flexbox;
     display: flex; }
 
-[no-navbar] > .navbar-container {
+[no-navbar] > ion-navbar-section {
   display: none; }
 
-.navbar-container {
+ion-navbar-section {
   position: relative;
   min-height: 4.4rem;
   z-index: 10; }
 
-.content-container {
+ion-content-section {
   position: relative;
   z-index: 5;
   -webkit-box-flex: 1;
@@ -296,14 +299,24 @@ sub {
 :active {
   outline: none; }
 
-.key-input :focus {
+.focus-outline :focus {
   outline-offset: -1px;
   outline: thin dotted; }
 
-.key-input button:focus,
-.key-input [button]:focus {
-  outline-offset: -2px;
-  outline: 2px solid red; }
+.focus-outline button:focus,
+.focus-outline [button]:focus {
+  border-color: #51a7e8;
+  box-shadow: 0px 0px 8px 0px #51a7e8;
+  outline: thin solid #51a7e8; }
+
+.focus-outline ion-input.has-focus,
+.focus-outline button[ion-item]:focus,
+.focus-outline a[ion-item]:focus {
+  border-color: #51a7e8;
+  box-shadow: inset 0px 0px 8px 0px #51a7e8 !important; }
+
+.focus-outline ion-input :focus {
+  outline: none; }
 
 focus-ctrl {
   position: fixed; }
@@ -1514,13 +1527,6 @@ ion-input.item {
   -ms-flex-align: start;
   align-items: flex-start; }
 
-.key-input ion-input.has-focus {
-  border-color: #51a7e8;
-  box-shadow: inset 0px 0px 8px 0px #51a7e8; }
-
-.key-input ion-input :focus {
-  outline: none; }
-
 ion-input [text-input] {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -1531,6 +1537,14 @@ ion-input [text-input] {
 
 ion-input.has-focus [text-input] {
   pointer-events: auto; }
+
+ion-input input[scroll-assist] {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none; }
 
 ion-input textarea {
   padding-top: 9px; }
@@ -1709,14 +1723,13 @@ ion-modal {
     transform: translate3d(0px, 0px, 0px); }
 
 ion-navbar.toolbar {
-  position: absolute; }
-
-ion-navbar {
-  -webkit-transform: translate3d(100%, 0px, 0px);
-  transform: translate3d(100%, 0px, 0px); }
-  ion-navbar.show-navbar {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+  position: absolute;
+  display: none; }
+  ion-navbar.toolbar.show-navbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
 
 .back-button {
   -webkit-box-ordinal-group: 11;
@@ -2673,26 +2686,29 @@ ion-tab {
   -ms-flex-direction: column;
   flex-direction: column;
   display: none; }
-  ion-tab.show-view {
+  ion-tab.show-tab {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
 
-ion-tabs > .navbar-container {
+ion-tabs > ion-navbar-section {
   -webkit-box-ordinal-group: -29;
   -webkit-order: -30;
   -ms-flex-order: -30;
   order: -30; }
 
-.tab-bar-container {
+ion-tabs ion-navbar.toolbar.deselected-tab {
+  display: none; }
+
+ion-tab-bar-section {
   position: relative;
   -webkit-box-ordinal-group: 21;
   -webkit-order: 20;
   -ms-flex-order: 20;
   order: 20; }
 
-[tab-bar-placement=top] .tab-bar-container {
+[tab-bar-placement=top] ion-tab-bar-section {
   -webkit-box-ordinal-group: -19;
   -webkit-order: -20;
   -ms-flex-order: -20;
@@ -5415,7 +5431,7 @@ icon,
 .ion-social-youtube:before {
   content: "\f24d"; }
 
-.platform-cordova.platform-ios .navbar-container,
+.platform-cordova.platform-ios ion-navbar-section,
 .platform-cordova.platform-ios ion-navbar,
 .platform-cordova.platform-ios ion-menu > ion-toolbar {
   min-height: 64px;
@@ -5867,7 +5883,7 @@ icon,
   .ios ion-card [floating-label].has-value ion-label {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
-  .ios .navbar-container {
+  .ios ion-navbar-section {
     min-height: 4.4rem; }
   .ios ion-popup {
     background: transparent; }
@@ -6762,7 +6778,7 @@ icon,
   .md .list[inset] ion-input.item {
     padding-right: 0;
     padding-left: 0; }
-  .md .navbar-container {
+  .md ion-navbar-section {
     min-height: 5.6rem; }
   .md .toolbar .back-button {
     margin: 0 0 0 12px;

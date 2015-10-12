@@ -1,4 +1,4 @@
-System.register('helpers', ['actionSheet/actionSheet', 'buttons/buttons', 'cards/cards', 'forms/forms', 'icons/icons', 'lists/lists', 'menus/menus', 'modals/modals', 'navigation/navigation', 'popups/popups', 'slides/slides', 'tabs/tabs'], function (_export) {
+System.register('helpers', ['./actionSheet/actionSheet', './buttons/buttons', './cards/cards', './forms/forms', './icons/icons', './lists/lists', './menus/menus', './modals/modals', './navigation/navigation', './popups/popups', './slides/slides', './tabs/tabs'], function (_export) {
     'use strict';
 
     var ActionSheetPage, ButtonsPage, BlockButtonsPage, ClearButtonsPage, FullButtonsPage, OutlineButtonsPage, RoundButtonsPage, FabPage, ButtonSizesPage, IconButtonsPage, ButtonsInComponentsPage, CardsPage, FormsPage, IconsPage, ListsPage, MenusPage, ModalsPage, NavigationPage, PopupsPage, SlidesPage, TabsPage;

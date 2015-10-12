@@ -1,4 +1,4 @@
-System.register("index", ["ionic/ionic", "actionSheet/actionSheet", "helpers"], function (_export) {
+System.register("index", ["ionic/ionic", "./actionSheet/actionSheet", "./helpers"], function (_export) {
     "use strict";
 
     var App, IonicApp, IonicPlatform, ActionSheetPage, helpers, __decorate, __metadata, DemoApp, _a, _b;

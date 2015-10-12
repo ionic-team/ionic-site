@@ -235,7 +235,23 @@ Cards are primarily a CSS component. To use them, follow this structure:
 
 <h2 id="forms" class="section-header">Forms</h2>
 
-Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls.
+Forms are essential for handling user input in a secure way. They should follow styling and interaction guidelines for each platform, so that they are intuitive for users to interact with. Ionic uses Angular 2’s form library, which can be thought of as two dependent pieces, **Controls**, and **Control Groups**.
+
+Each input field in a form has a **Control**, a function that binds to the value in the field, and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
+
+A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Forms API docs](../api/forms).
+
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="{{components_link}}#fixed-inline-labels">Fixed Inline Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#floating-labels">Floating Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#inline-labels">Inline Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#inset-labels">Inset Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#placeholder-labels">Placeholder Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#stacked-labels">Stacked Labels</a></li>
+
+</ul>
 
 <h3 id="search_bar">Search Bar</h3>
 

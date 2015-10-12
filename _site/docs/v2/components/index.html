@@ -157,7 +157,17 @@
         </ul>
 
       <li><a href="#cards">Cards</a></li>
+
       <li><a href="#forms">Forms</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="#fixed-inline-labels"></a></li>
+          <li class="nav-item-hidden"><a href="#floating-labels"></a></li>
+          <li class="nav-item-hidden"><a href="#inline-labels"></a></li>
+          <li class="nav-item-hidden"><a href="#inset-labels"></a></li>
+          <li class="nav-item-hidden"><a href="#placeholder-labels"></a></li>
+          <li class="nav-item-hidden"><a href="#stacked-labels"></a></li>
+        </ul>
+
       <li><a href="#icons">Icons</a></li>
       <li><a href="#lists">Lists</a></li>
       <li><a href="#menus">Menus</a></li>
@@ -449,7 +459,22 @@
 </code></pre></div>
 <h2 id="forms" class="section-header">Forms</h2>
 
-<p>Forms in Angular 2 bind the Form to a control group. From there, you instantiate controls.</p>
+<p>Forms are essential for handling user input in a secure way. They should follow styling and interaction guidelines for each platform, so that they are intuitive for users to interact with. Ionic uses Angular 2’s form library, which can be thought of as two dependent pieces, <strong>Controls</strong>, and <strong>Control Groups</strong>.</p>
+
+<p>Each input field in a form has a <strong>Control</strong>, a function that binds to the value in the field, and performs validation. A <strong>Control Group</strong> is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.</p>
+
+<p>A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the <a href="../api/forms">Forms API docs</a>.</p>
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#fixed-inline-labels">Fixed Inline Labels</a></li>
+  <li class="docs-content-item"><a href="#floating-labels">Floating Labels</a></li>
+  <li class="docs-content-item"><a href="#inline-labels">Inline Labels</a></li>
+  <li class="docs-content-item"><a href="#inset-labels">Inset Labels</a></li>
+  <li class="docs-content-item"><a href="#placeholder-labels">Placeholder Labels</a></li>
+  <li class="docs-content-item"><a href="#stacked-labels">Stacked Labels</a></li>
+
+</ul>
 
 <h3 id="search_bar">Search Bar</h3>
 

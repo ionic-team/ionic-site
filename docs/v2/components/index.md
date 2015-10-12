@@ -250,8 +250,131 @@ A number of attributes that can be used to style forms and their various input f
   <li class="docs-content-item"><a href="{{components_link}}#inset-labels">Inset Labels</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#placeholder-labels">Placeholder Labels</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#stacked-labels">Stacked Labels</a></li>
-
 </ul>
+
+<h2 id="fixed-inline-labels">Fixed Inline Labels</h2>
+
+TODO
+
+```html
+<ion-list>
+
+  <ion-input fixed-label>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input fixed-label>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+
+<h2 id="floating-labels">Floating Labels</h2>
+
+TODO
+
+```html
+<ion-list>
+
+  <ion-input floating-label>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input floating-label>
+    <ion-label>Password</ion-label>
+    <input type="pas=sword" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+<h2 id="inline-labels" class="section-header">Inline Labels</h2>
+
+TODO
+
+```html
+<ion-list>
+
+  <ion-input>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+
+<div padding>
+  <button primary block>Sign In</button>    
+</div>
+```
+<h2 id="inset-labels" class="section-header">Inset Labels</h2>
+
+TODO
+
+```html
+<ion-list inset>
+
+  <ion-input>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+<h2 id="placeholder-labels" class="section-header">Placeholder Labels</h2>
+
+TODO
+
+```html
+<ion-list>
+
+  <ion-input>
+    <input type="text" placeholder="Username">
+  </ion-input>
+
+  <ion-input>
+    <input type="password" placeholder="Password">
+  </ion-input>
+
+</ion-list>
+
+```
+
+<h2 id="stacked-labels" class="section-header">Stacked Labels</h2>
+
+TODO
+
+```html
+<ion-list>
+
+  <ion-input stacked-label>
+    <ion-label>Username</ion-label>
+    <input type="text">
+  </ion-input>
+
+  <ion-input stacked-label>
+    <ion-label>Password</ion-label>
+    <input type="password">
+  </ion-input>
+
+</ion-list>
+```
+
 
 <h3 id="search_bar">Search Bar</h3>
 

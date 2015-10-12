@@ -56507,8 +56507,6 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _angular2Angular2 = __webpack_require__(40);
-
 	var _ionicIonic = __webpack_require__(247);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -56531,16 +56529,6 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var AndroidPrimary = function AndroidPrimary() {
-	    _classCallCheck(this, AndroidPrimary);
-	};
-	exports.AndroidPrimary = AndroidPrimary;
-	exports.AndroidPrimary = AndroidPrimary = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'android-primary',
-	    host: {
-	        '[attr.primary]': true
-	    }
-	}), __metadata('design:paramtypes', [])], AndroidPrimary);
 	var ActionSheetPage = (function () {
 	    function ActionSheetPage(actionSheet, platform) {
 	        _classCallCheck(this, ActionSheetPage);
@@ -56664,6 +56652,12 @@
 	        'icon-buttons': _buttonsButtons.IconButtonsPage,
 	        'cards': _cardsCards.CardsPage,
 	        'forms': _formsForms.FormsPage,
+	        'fixed-inline-labels': _formsForms.FixedInlinePage,
+	        'floating-labels': _formsForms.FloatingPage,
+	        'inline-labels': _formsForms.InlinePage,
+	        'inset-labels': _formsForms.InsetPage,
+	        'placeholder-labels': _formsForms.PlaceholderPage,
+	        'stacked-labels': _formsForms.StackedPage,
 	        'icons': _iconsIcons.IconsPage,
 	        'lists': _listsLists.ListsPage,
 	        'menus': _menusMenus.MenusPage,
@@ -56885,6 +56879,48 @@
 	    templateUrl: 'forms/forms.html',
 	    bindings: [_angular2Angular2.FormBuilder]
 	}), __metadata('design:paramtypes', [])], FormsPage);
+	var FixedInlinePage = function FixedInlinePage() {
+	    _classCallCheck(this, FixedInlinePage);
+	};
+	exports.FixedInlinePage = FixedInlinePage;
+	exports.FixedInlinePage = FixedInlinePage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/fixed-inline.html'
+	}), __metadata('design:paramtypes', [])], FixedInlinePage);
+	var FloatingPage = function FloatingPage() {
+	    _classCallCheck(this, FloatingPage);
+	};
+	exports.FloatingPage = FloatingPage;
+	exports.FloatingPage = FloatingPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/floating.html'
+	}), __metadata('design:paramtypes', [])], FloatingPage);
+	var InlinePage = function InlinePage() {
+	    _classCallCheck(this, InlinePage);
+	};
+	exports.InlinePage = InlinePage;
+	exports.InlinePage = InlinePage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/inline.html'
+	}), __metadata('design:paramtypes', [])], InlinePage);
+	var InsetPage = function InsetPage() {
+	    _classCallCheck(this, InsetPage);
+	};
+	exports.InsetPage = InsetPage;
+	exports.InsetPage = InsetPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/inset.html'
+	}), __metadata('design:paramtypes', [])], InsetPage);
+	var PlaceholderPage = function PlaceholderPage() {
+	    _classCallCheck(this, PlaceholderPage);
+	};
+	exports.PlaceholderPage = PlaceholderPage;
+	exports.PlaceholderPage = PlaceholderPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/placeholder.html'
+	}), __metadata('design:paramtypes', [])], PlaceholderPage);
+	var StackedPage = function StackedPage() {
+	    _classCallCheck(this, StackedPage);
+	};
+	exports.StackedPage = StackedPage;
+	exports.StackedPage = StackedPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'forms/stacked.html'
+	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
 /* 374 */

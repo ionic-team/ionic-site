@@ -475,9 +475,9 @@
   <li class="docs-content-item"><a href="#stacked-labels">Stacked Labels</a></li>
 </ul>
 
-<h2 id="fixed-inline-labels">Fixed Inline Labels</h2>
+<h2 id="fixed-inline-labels">Fixed Labels</h2>
 
-<p>TODO</p>
+<p>Use <code>fixed-label</code> to place a label to the left of the input element. When the user enters text, the label does not hide. The user&#39;s input will align on the same position, regardless of the length of the label. Note that there&#39;s nothing stopping you from also using a placeholder label too.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
 
   <span class="nt">&lt;ion-input</span> <span class="na">fixed-label</span><span class="nt">&gt;</span>
@@ -494,7 +494,9 @@
 </code></pre></div>
 <h2 id="floating-labels">Floating Labels</h2>
 
-<p>TODO</p>
+<p>Floating labels are just like <a href="#forms-stacked-labels">Stacked Labels</a>, except that their labels animate, or &quot;float&quot; up when text is entered in the input. Each <code>&lt;ion-input&gt;</code> should have the <code>floating-label</code> attribute assigned.</p>
+
+<p>Enter text in the example to the right to see the floating labels in action.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
 
   <span class="nt">&lt;ion-input</span> <span class="na">floating-label</span><span class="nt">&gt;</span>
@@ -504,14 +506,14 @@
 
   <span class="nt">&lt;ion-input</span> <span class="na">floating-label</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-label&gt;</span>Password<span class="nt">&lt;/ion-label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;pas=sword&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/ion-input&gt;</span>
 
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre></div>
 <h2 id="inline-labels" class="section-header">Inline Labels</h2>
 
-<p>TODO</p>
+<p>If a label attribute is not provided, an <code>&lt;ion-input&gt;</code> component will default to using an inline label. When the user enters text, the label does not hide. Note that there&#39;s nothing stopping you from also using a placeholder as well.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
 
   <span class="nt">&lt;ion-input&gt;</span>
@@ -532,7 +534,7 @@
 </code></pre></div>
 <h2 id="inset-labels" class="section-header">Inset Labels</h2>
 
-<p>TODO</p>
+<p>By default each input item will fill 100% of the width of its parent element (the list). However, you can inset the list by adding the <code>inset</code> attribute.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
 
   <span class="nt">&lt;ion-input&gt;</span>
@@ -549,7 +551,7 @@
 </code></pre></div>
 <h2 id="placeholder-labels" class="section-header">Placeholder Labels</h2>
 
-<p>TODO</p>
+<p>Add the <code>placeholder</code> attribute to an <code>&lt;input&gt;</code> element to simulate the input&#39;s label. When the user begins to enter text into the input, the placeholder label will be hidden.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
 
   <span class="nt">&lt;ion-input&gt;</span>
@@ -564,7 +566,8 @@
 </code></pre></div>
 <h2 id="stacked-labels" class="section-header">Stacked Labels</h2>
 
-<p>TODO</p>
+<p>A stacked label will always appear on top of the input. Each <code>&lt;ion-input&gt;</code> should have the <code>stacked-label</code> attribute.
+You can also add a placeholder so that users have a hint of what type of text the input is looking for.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
 
   <span class="nt">&lt;ion-input</span> <span class="na">stacked-label</span><span class="nt">&gt;</span>

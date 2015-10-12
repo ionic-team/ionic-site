@@ -252,9 +252,9 @@ A number of attributes that can be used to style forms and their various input f
   <li class="docs-content-item"><a href="{{components_link}}#stacked-labels">Stacked Labels</a></li>
 </ul>
 
-<h2 id="fixed-inline-labels">Fixed Inline Labels</h2>
+<h2 id="fixed-inline-labels">Fixed Labels</h2>
 
-TODO
+Use `fixed-label` to place a label to the left of the input element. When the user enters text, the label does not hide. The user's input will align on the same position, regardless of the length of the label. Note that there's nothing stopping you from also using a placeholder label too.
 
 ```html
 <ion-list>
@@ -275,7 +275,10 @@ TODO
 
 <h2 id="floating-labels">Floating Labels</h2>
 
-TODO
+Floating labels are just like [Stacked Labels](#forms-stacked-labels), except that their labels animate, or "float" up when text is entered in the input. Each `<ion-input>` should have the `floating-label` attribute assigned.
+
+Enter text in the example to the right to see the floating labels in action.
+
 
 ```html
 <ion-list>
@@ -287,7 +290,7 @@ TODO
 
   <ion-input floating-label>
     <ion-label>Password</ion-label>
-    <input type="pas=sword" value="">
+    <input type="password" value="">
   </ion-input>
 
 </ion-list>
@@ -295,7 +298,7 @@ TODO
 
 <h2 id="inline-labels" class="section-header">Inline Labels</h2>
 
-TODO
+If a label attribute is not provided, an `<ion-input>` component will default to using an inline label. When the user enters text, the label does not hide. Note that there's nothing stopping you from also using a placeholder as well.
 
 ```html
 <ion-list>
@@ -318,7 +321,7 @@ TODO
 ```
 <h2 id="inset-labels" class="section-header">Inset Labels</h2>
 
-TODO
+By default each input item will fill 100% of the width of its parent element (the list). However, you can inset the list by adding the `inset` attribute.
 
 ```html
 <ion-list inset>
@@ -338,7 +341,7 @@ TODO
 
 <h2 id="placeholder-labels" class="section-header">Placeholder Labels</h2>
 
-TODO
+Add the `placeholder` attribute to an `<input>` element to simulate the input's label. When the user begins to enter text into the input, the placeholder label will be hidden.
 
 ```html
 <ion-list>
@@ -357,7 +360,8 @@ TODO
 
 <h2 id="stacked-labels" class="section-header">Stacked Labels</h2>
 
-TODO
+A stacked label will always appear on top of the input. Each `<ion-input>` should have the `stacked-label` attribute.
+You can also add a placeholder so that users have a hint of what type of text the input is looking for.
 
 ```html
 <ion-list>

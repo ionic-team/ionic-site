@@ -1,24 +1,34 @@
-System.register("index", ["ionic/ionic", "angular2/angular2"], function (_export) {
+System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tabs", "helpers"], function (_export) {
     "use strict";
 
-    var App, ActionSheet, Animation, NgZone, __decorate, __metadata, DemoApp;
+    var App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, NgZone, NavigationDetailsPage, TabsPage, helpers, __decorate, __metadata, DemoModal, MainPage, DemoApp, _a, _b, _c, _d, _e, _f, _g;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    function toTitleCase(str) {
-        return str.replace(/\w\S*/g, function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-    }
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
     return {
         setters: [function (_ionicIonic) {
             App = _ionicIonic.App;
+            IonicApp = _ionicIonic.IonicApp;
             ActionSheet = _ionicIonic.ActionSheet;
-            Animation = _ionicIonic.Animation;
+            NavController = _ionicIonic.NavController;
+            NavParams = _ionicIonic.NavParams;
+            Modal = _ionicIonic.Modal;
+            IonicView = _ionicIonic.IonicView;
+            Events = _ionicIonic.Events;
         }, function (_angular2Angular2) {
             NgZone = _angular2Angular2.NgZone;
+        }, function (_navigation) {
+            NavigationDetailsPage = _navigation.NavigationDetailsPage;
+        }, function (_tabs) {
+            TabsPage = _tabs.TabsPage;
+        }, function (_helpers) {
+            helpers = _helpers;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -43,28 +53,62 @@ System.register("index", ["ionic/ionic", "angular2/angular2"], function (_export
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            DemoApp = (function () {
-                function DemoApp(actionSheet, zone) {
+            DemoModal = (function (_Modal) {
+                _inherits(DemoModal, _Modal);
+
+                function DemoModal() {
+                    _classCallCheck(this, DemoModal);
+
+                    _get(Object.getPrototypeOf(DemoModal.prototype), "constructor", this).call(this);
+                }
+
+                return DemoModal;
+            })(Modal);
+
+            DemoModal = __decorate([IonicView({
+                template: '<div>My Modal</div>'
+            }), __metadata('design:paramtypes', [])], DemoModal);
+
+            MainPage = (function () {
+                function MainPage(app, nav, actionSheet, zone, params, modal, events) {
                     var _this = this;
 
-                    _classCallCheck(this, DemoApp);
+                    _classCallCheck(this, MainPage);
 
+                    this.params = params;
+                    this.nav = nav;
+                    this.modal = modal;
                     this.actionSheet = actionSheet;
-                    this.component = {
-                        title: 'Action Sheets'
-                    };
-                    window.onmessage = function (e) {
+                    this.navDetailsPage = NavigationDetailsPage;
+                    if (params.data.location) {
+                        console.log('going back to', params.data.location);
+                        this.component.title = params.data.location;
+                    } else {
+                        console.log('setting to action sheet', params);
+                        this.component = { title: 'Action Sheets' };
+                    }
+                    window.addEventListener('message', function (e) {
                         zone.run(function () {
                             if (e.data) {
                                 var data = JSON.parse(e.data);
-                                _this.component.title = toTitleCase(data.hash.replace('-', ' '));
+                                _this.component.title = helpers.toTitleCase(data.hash.replace('-', ' '));
+                                if (_this.component.title === 'Tabs') {
+                                    _this.nav.setRoot(TabsPage);
+                                }
                             }
                         });
-                    };
-                    this.setupAnimations();
+                    });
+                    events.subscribe('page:locationChange', function (data) {
+                        console.log(data[0]);
+                        _this.component.title = data[0].componentName;
+                    });
                 }
 
-                _createClass(DemoApp, [{
+                // **************************
+                // Action Sheets
+                // **************************
+
+                _createClass(MainPage, [{
                     key: "openMenu",
                     value: function openMenu() {
                         var _this2 = this;
@@ -72,7 +116,7 @@ System.register("index", ["ionic/ionic", "angular2/angular2"], function (_export
                         this.actionSheet.open({
                             buttons: [{ text: 'Share This' }, { text: 'Move' }],
                             destructiveText: 'Delete',
-                            titleText: 'Modify your album',
+                            titleText: 'You Opened Action Sheet',
                             cancelText: 'Cancel',
                             cancel: function cancel() {
                                 console.log('Canceled');
@@ -91,33 +135,48 @@ System.register("index", ["ionic/ionic", "angular2/angular2"], function (_export
                             _this2.actionSheetRef = actionSheetRef;
                         });
                     }
+
+                    // **************************
+                    // Navigation
+                    // **************************
                 }, {
-                    key: "setupAnimations",
-                    value: function setupAnimations() {
-                        this.animation = new Animation();
-                        this.animation.duration(2000);
-                        var ionitronSpin = new Animation(document.querySelector('#ionitron'));
-                        ionitronSpin.from('transform', 'rotate(0deg)').to('transform', 'rotate(360deg)');
-                        this.animation.add(ionitronSpin);
+                    key: "openNavDetailsPage",
+                    value: function openNavDetailsPage(item) {
+                        this.nav.push(NavigationDetailsPage, { name: item });
                     }
+
+                    // **************************
+                    // Modal
+                    // **************************
                 }, {
-                    key: "play",
-                    value: function play() {
-                        this.animation.play();
-                    }
-                }, {
-                    key: "pause",
-                    value: function pause() {
-                        this.animation.pause();
+                    key: "openModal",
+                    value: function openModal() {
+                        this.modal.open(DemoModal, {
+                            enterAnimation: 'my-fade-in',
+                            leaveAnimation: 'my-fade-out',
+                            handle: 'my-awesome-modal'
+                        });
                     }
                 }]);
 
-                return DemoApp;
+                return MainPage;
             })();
 
-            DemoApp = __decorate([App({
+            _export("MainPage", MainPage);
+
+            _export("MainPage", MainPage = __decorate([IonicView({
                 templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [typeof ActionSheet !== 'undefined' && ActionSheet || Object, typeof NgZone !== 'undefined' && NgZone || Object])], DemoApp);
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof NavController !== 'undefined' && NavController) === 'function' && _b || Object, typeof (_c = typeof ActionSheet !== 'undefined' && ActionSheet) === 'function' && _c || Object, typeof (_d = typeof NgZone !== 'undefined' && NgZone) === 'function' && _d || Object, typeof (_e = typeof NavParams !== 'undefined' && NavParams) === 'function' && _e || Object, typeof (_f = typeof Modal !== 'undefined' && Modal) === 'function' && _f || Object, typeof (_g = typeof Events !== 'undefined' && Events) === 'function' && _g || Object])], MainPage));
+
+            DemoApp = function DemoApp() {
+                _classCallCheck(this, DemoApp);
+
+                this.rootPage = MainPage;
+            };
+
+            DemoApp = __decorate([App({
+                template: '<ion-nav [root]="rootPage"></ion-nav>'
+            }), __metadata('design:paramtypes', [])], DemoApp);
         }
     };
 });

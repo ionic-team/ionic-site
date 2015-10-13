@@ -56481,7 +56481,7 @@
 	                        _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
 	                    }
 	                    var nav = _this.app.getComponent('nav');
-	                    nav.setRoot(_this.nextPage);
+	                    helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
 	                }
 	            });
 	        });
@@ -56606,6 +56606,7 @@
 	});
 	exports.toTitleCase = toTitleCase;
 	exports.getPageFor = getPageFor;
+	exports.debounce = debounce;
 
 	var _actionSheetActionSheet = __webpack_require__(369);
 
@@ -56668,6 +56669,24 @@
 	        'tabs': _tabsTabs.TabsPage
 	    })[hash];
 	}
+
+	function debounce(func, wait, immediate) {
+	    var timeout;
+	    return function () {
+	        var context = this,
+	            args = arguments;
+	        var later = function later() {
+	            timeout = null;
+	            if (!immediate) func.apply(context, args);
+	        };
+	        var callNow = immediate && !timeout;
+	        clearTimeout(timeout);
+	        timeout = setTimeout(later, wait);
+	        if (callNow) func.apply(context, args);
+	    };
+	}
+
+	;
 
 /***/ },
 /* 371 */

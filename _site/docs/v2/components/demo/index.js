@@ -51,7 +51,7 @@ var DemoApp = function DemoApp(app, platform) {
                         _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
                     }
                     var nav = _this.app.getComponent('nav');
-                    nav.setRoot(_this.nextPage);
+                    helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
                 }
             });
         });

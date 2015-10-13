@@ -50352,6 +50352,8 @@
 	                this.cancelWidth = this.cancelButton.offsetWidth;
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
+	            // If the user passes in a value to the model we should left align
+	            this.shouldLeftAlign = this.model && this.model.trim() != '';
 	        }
 
 	        /**
@@ -50361,21 +50363,22 @@
 	    }, {
 	        key: "writeValue",
 	        value: function writeValue(value) {
-	            this.value = value;
-	            this.renderer.setElementProperty(this.elementRef, 'value', this.value);
+	            this.model = value;
 	        }
 	    }, {
 	        key: "registerOnChange",
-	        value: function registerOnChange(val) {}
+	        value: function registerOnChange(fn) {
+	            this.onChange = fn;
+	        }
 	    }, {
 	        key: "registerOnTouched",
-	        value: function registerOnTouched(val) {}
+	        value: function registerOnTouched(fn) {
+	            this.onTouched = fn;
+	        }
 	    }, {
 	        key: "inputChanged",
 	        value: function inputChanged(event) {
-	            this.value = event.target.value;
-	            this.ngControl.valueAccessor.writeValue(this.value);
-	            this.ngControl.control.updateValue(this.value);
+	            this.onChange(event.target.value);
 	        }
 	    }, {
 	        key: "inputFocused",
@@ -50390,16 +50393,16 @@
 	        key: "inputBlurred",
 	        value: function inputBlurred() {
 	            this.isFocused = false;
-	            this.shouldLeftAlign = this.value.trim() != '';
+	            this.shouldLeftAlign = this.model && this.model.trim() != '';
 	            if (this.cancelButton) {
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
 	        }
 	    }, {
 	        key: "clearInput",
-	        value: function clearInput() {
-	            this.value = '';
-	            this.ngControl.control.updateValue('');
+	        value: function clearInput(event) {
+	            this.model = '';
+	            this.onChange(this.model);
 	        }
 	    }]);
 
@@ -50408,22 +50411,17 @@
 	exports.SearchBar = SearchBar;
 	exports.SearchBar = SearchBar = __decorate([(0, _configDecorators.ConfigComponent)({
 	    selector: 'ion-search-bar',
-	    inputs: ['list', 'query'],
+	    inputs: ['list', 'model: ngModel'],
 	    defaultInputs: {
 	        'showCancel': false,
 	        'cancelText': 'Cancel',
 	        'placeholder': 'Search',
-	        'cancelAction': function cancelAction() {
-	            // TODO user will override this if they pass a function
-	            // need to allow user to call these
+	        'cancelAction': function cancelAction(event, model) {
+	            // The cancel button now works on its own to blur the input
 	            console.log('Default Cancel');
-	            this.isFocused = false;
-	            this.shouldLeftAlign = this.value.trim() != '';
-	            this.element = this.elementRef.nativeElement.querySelector('input');
-	            this.element.blur();
 	        }
 	    },
-	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder" [(ng-model)]="value">' + '<div class="search-bar-close-icon" (click)="clearInput()"></div>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction()" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
+	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder" [(ng-model)]="model">' + '<button clear *ng-if="model" class="search-bar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, model)" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], SearchBar);
 	var _a, _b, _c, _d;
@@ -56481,7 +56479,7 @@
 	                        _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
 	                    }
 	                    var nav = _this.app.getComponent('nav');
-	                    helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
+	                    helpers.debounce(nav.setRoot(_this.nextPage), 400);
 	                }
 	            });
 	        });

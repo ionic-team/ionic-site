@@ -4570,6 +4570,17 @@ tbody.collapse.in {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
+.highlight {
+  background-color: #fff;
+  padding: 0; }
+  .highlight pre {
+    background: white;
+    border: 1px solid #e6e9ee; }
+    .highlight pre code {
+      background: white; }
+  .highlight span.err {
+    background-color: #fff; }
+
 body {
   font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
@@ -4806,9 +4817,6 @@ body {
     margin: 1.2em 0 1.6em;
     font-weight: 400;
     font-size: 14px; }
-  .docs-container main pre {
-    border: 1px solid #e6e9ee;
-    background: white; }
   .docs-container main a {
     color: #4f8ff7;
     text-decoration: none;

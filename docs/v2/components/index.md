@@ -24,7 +24,7 @@ Ionic apps are made of high-level building blocks called components. Components 
 
 Action Sheets display a modal set of options to confirm or cancel an action.
 
-```javascript
+```typescript
 ActionSheet.open({
   buttons: [
     { text: 'Share This' },
@@ -216,7 +216,7 @@ A search bar takes a value and binds it to a control in your form.
 
 Note the `[ng-form-model]="form"` binds to the components instance of `this.form`, and the `ng-control` binds to the forms `searchQuery` property. You'll also see that the component interacts with the `searchQuery` property using the `form.controls` array `this.form.controls.searchQuery.value`.
 
-```ts
+```typescript
 class IonicApp {
   constructor() {
     var fb = new FormBuilder();
@@ -269,7 +269,7 @@ Use the segment to control to use radio selections.
 </form>
 ```
 
-```ts
+```typescript
 @App({
   templateUrl: 'main.html',
   bindings: [FormBuilder]
@@ -333,7 +333,7 @@ To set an icon using a variable:
 <icon [name]="myIcon"></icon>
 ```
 
-```ts
+```typescript
 export class MyFirstPage {
   constructor(nav: NavController) {
     // use the home icon
@@ -398,13 +398,13 @@ Along with [Tabs](#tabs), Menus are a common way to navigate through an app if y
 
 For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.
 
-Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
+Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
 
 However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
 
 To use a Menu add an [`<ion-menu>`](../api/components/menu/Menu/) to your markup next to your root [`<ion-nav>`](../api/components/nav/Nav/):
 
-```ts
+```typescript
 @App({
   template: `
     <ion-menu [content]="content">
@@ -432,12 +432,12 @@ The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.
 
 Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root view:
 
-```ts
+```typescript
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
 
 @App({
-...  
+...
 })
 class MyApp {
   constructor(ionicApp: IonicApp) {
@@ -474,7 +474,7 @@ message composition, and option selection.
 First, we need to create the class that will control our modal. Modals must extend
 from the `Modal` Ionic class:
 
-```javascript
+```typescript
 @IonicComponent(Modal)
 @View({
   template: `<ion-view id="my-modal">
@@ -493,7 +493,7 @@ export class MyModal extends Modal {
 
 To open a modal, we just call `Modal.open(MyModal)`:
 
-```javascript
+```typescript
 export class MyPage {
   onOpenClicked() {
     Modal.open(MyModal);
@@ -513,11 +513,11 @@ There are several ways to navigate throughout an Ionic app:
 <h3 id="basic_navigation">Basic Navigation</h3>
 The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](../api/components/nav/Nav/):
 
-```ts
+```typescript
   import {StartPage} from 'start'
 
   @App({
-    template: '<ion-nav [root]="rootPage"></ion-nav>'  
+    template: '<ion-nav [root]="rootPage"></ion-nav>'
   })
   class MyApp {
     constructor(){
@@ -529,7 +529,7 @@ The simplest way to navigate throughout your app is to create and initialize a n
 
 You can access the navigation controller you create by injecting it into any of your IonicViews:
 
-```ts
+```typescript
 @IonicView({
   template: `
     <ion-navbar *navbar>
@@ -547,7 +547,7 @@ export class StartPage {
 
 To navigate from one page to another simply push or pop a new view onto the stack:
 
-```ts
+```typescript
 @IonicView({
   template: `
     <ion-navbar *navbar>
@@ -569,7 +569,7 @@ export class StartPage {
     //push another view onto the history stack
     //causing the nav controller to animate the new view in
     this.nav.push(OtherPage);
-  }                           
+  }
 }
 
 @IonicView({
@@ -583,11 +583,11 @@ export class StartPage {
 class OtherPage {}
 ```
 
-If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.  
+If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.
 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
 
-```ts
+```typescript
 @IonicView({
   template: `
     <ion-content>
@@ -706,7 +706,7 @@ Tabs are useful if you have a few "root" or "top-level" views.  They are obvious
 
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
-```ts
+```typescript
 @App({
   template: `
     <ion-tabs>
@@ -724,7 +724,7 @@ class MyApp {
 
 Individual tabs are just [`@IonicViews`](../api/config/IonicView/):
 
-```ts
+```typescript
 @IonicView({
   template: `
     <ion-navbar *navbar>
@@ -746,7 +746,7 @@ class Tab2 {}
 
 Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@IonicViews` of each tab will be unique to each tab:
 
-```ts
+```typescript
 @IonicView({
 ...
 })

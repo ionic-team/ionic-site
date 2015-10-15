@@ -51,8 +51,8 @@ ActionSheet.open({
   }
 }).then(actionSheet => {
   // Action sheet was created and opened
-  this.actionSheet = actionSheet;
-  // this.actionSheet.close() to close it programatically
+  this.actionSheetInstance = actionSheet;
+  // this.actionSheetInstance.close() to close it
 })
 ```
 

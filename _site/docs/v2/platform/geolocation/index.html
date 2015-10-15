@@ -136,6 +136,8 @@
         ng-show="showComponents"
        >
       
+        
+      
       <li><a href="/docs/v2/components/#overview">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
 
@@ -182,19 +184,20 @@
         
           ng-init="showPlatform = true"
         >
-      <li class="">
-        <a href="/docs/v2/platform/camera/">Camera</a>
-      </li>
-      <li class="active">
-        <a href="/docs/v2/platform/geolocation/">Geolocation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/push-notifications/">Push Notifications</a>
-      </li>
-      <li>
-        <a href="http://ngcordova.com" target="_blank">
-          More Device Integrations</a>
-      </li>
+      <li><a href="/docs/v2/platform/applinks/">App Links</a></li>
+      <li><a href="/docs/v2/platform/barcode/">Barcode</a></li>
+      <li><a href="/docs/v2/platform/battery/">Battery</a></li>
+      <li><a href="/docs/v2/platform/camera/">Camera</a></li>
+      <li><a href="/docs/v2/platform/contacts/">Contacts</a></li>
+      <li><a href="/docs/v2/platform/device/">Device</a></li>
+      <li><a href="/docs/v2/platform/device-motion/">Device Motion</a></li>
+      <li><a href="/docs/v2/platform/device-orientation/">Device Orientation</a></li>
+      <li><a href="/docs/v2/platform/dialogs/">Dialogs</a></li>
+      <li><a href="/docs/v2/platform/geolocation/">Geolocation</a></li>
+      <li><a href="/docs/v2/platform/keyboard/">Keyboard</a></li>
+      <li><a href="/docs/v2/platform/statusbar/">Status Bar</a></li>
+      <li><a href="/docs/v2/platform/storage/">Storage</a></li>
+      <li><a href="/docs/v2/platform/vibration/">Vibration</a></li>
     </ul>
   </li>
 
@@ -264,7 +267,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/geolocation/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md'>
     Improve this doc
   </a>
 </div>
@@ -276,7 +279,7 @@ single value, and watching. Single value grabs one location position and returns
 while watching continuously checks for location changes and returns those.</p>
 
 <p>Both operations prompt the user to accept location sharing with your app.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Geolocation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ngcordova&#39;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Geolocation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
 <span class="kr">class</span> <span class="nx">LocationTracker</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
@@ -296,7 +299,9 @@ while watching continuously checks for location changes and returns those.</p>
      <span class="nx">enableHighAccuracy</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// may cause errors if true</span>
     <span class="p">};</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">(</span><span class="nx">watchOptions</span><span class="p">,</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">(</span><span class="nx">watchOptions</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Called continuously</span>
       <span class="kd">let</span> <span class="nx">lat</span>  <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
       <span class="kd">let</span> <span class="kr">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
@@ -306,7 +311,7 @@ while watching continuously checks for location changes and returns those.</p>
   <span class="nx">stopTracking</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">clearWatch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

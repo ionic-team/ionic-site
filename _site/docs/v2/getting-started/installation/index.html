@@ -139,6 +139,8 @@
         ng-show="showComponents"
        >
       
+        
+      
       <li><a href="/docs/v2/components/#overview">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
 
@@ -183,19 +185,20 @@
     <a ng-click="showPlatform = !showPlatform">Platform</a>
     <ul ng-show="showPlatform"
         >
-      <li class="">
-        <a href="/docs/v2/platform/camera/">Camera</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/geolocation/">Geolocation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/push-notifications/">Push Notifications</a>
-      </li>
-      <li>
-        <a href="http://ngcordova.com" target="_blank">
-          More Device Integrations</a>
-      </li>
+      <li><a href="/docs/v2/platform/applinks/">App Links</a></li>
+      <li><a href="/docs/v2/platform/barcode/">Barcode</a></li>
+      <li><a href="/docs/v2/platform/battery/">Battery</a></li>
+      <li><a href="/docs/v2/platform/camera/">Camera</a></li>
+      <li><a href="/docs/v2/platform/contacts/">Contacts</a></li>
+      <li><a href="/docs/v2/platform/device/">Device</a></li>
+      <li><a href="/docs/v2/platform/device-motion/">Device Motion</a></li>
+      <li><a href="/docs/v2/platform/device-orientation/">Device Orientation</a></li>
+      <li><a href="/docs/v2/platform/dialogs/">Dialogs</a></li>
+      <li><a href="/docs/v2/platform/geolocation/">Geolocation</a></li>
+      <li><a href="/docs/v2/platform/keyboard/">Keyboard</a></li>
+      <li><a href="/docs/v2/platform/statusbar/">Status Bar</a></li>
+      <li><a href="/docs/v2/platform/storage/">Storage</a></li>
+      <li><a href="/docs/v2/platform/vibration/">Vibration</a></li>
     </ul>
   </li>
 
@@ -298,7 +301,7 @@
 
 <p>To build for iOS, we need to add the iOS platform module to Cordova:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios</code></pre></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios</code></pre></div>
 
 <p>Next, we will need to install <a href="../what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../what-is/#npm">npm</a>:</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install ios-sim

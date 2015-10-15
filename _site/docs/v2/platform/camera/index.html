@@ -26,7 +26,7 @@
 
 
 
-    <title>Ionic 2 Plugins | Camera - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Camera | Ionic Native Plugins - Take photos and video -  Ionic Framework</title>
 
   </head>
   <body id="docs-page-camera"
@@ -136,6 +136,8 @@
         ng-show="showComponents"
        >
       
+        
+      
       <li><a href="/docs/v2/components/#overview">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
 
@@ -182,19 +184,20 @@
         
           ng-init="showPlatform = true"
         >
-      <li class="active">
-        <a href="/docs/v2/platform/camera/">Camera</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/geolocation/">Geolocation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/platform/push-notifications/">Push Notifications</a>
-      </li>
-      <li>
-        <a href="http://ngcordova.com" target="_blank">
-          More Device Integrations</a>
-      </li>
+      <li><a href="/docs/v2/platform/applinks/">App Links</a></li>
+      <li><a href="/docs/v2/platform/barcode/">Barcode</a></li>
+      <li><a href="/docs/v2/platform/battery/">Battery</a></li>
+      <li><a href="/docs/v2/platform/camera/">Camera</a></li>
+      <li><a href="/docs/v2/platform/contacts/">Contacts</a></li>
+      <li><a href="/docs/v2/platform/device/">Device</a></li>
+      <li><a href="/docs/v2/platform/device-motion/">Device Motion</a></li>
+      <li><a href="/docs/v2/platform/device-orientation/">Device Orientation</a></li>
+      <li><a href="/docs/v2/platform/dialogs/">Dialogs</a></li>
+      <li><a href="/docs/v2/platform/geolocation/">Geolocation</a></li>
+      <li><a href="/docs/v2/platform/keyboard/">Keyboard</a></li>
+      <li><a href="/docs/v2/platform/statusbar/">Status Bar</a></li>
+      <li><a href="/docs/v2/platform/storage/">Storage</a></li>
+      <li><a href="/docs/v2/platform/vibration/">Vibration</a></li>
     </ul>
   </li>
 
@@ -264,20 +267,17 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/camera/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/camera/index.md'>
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Camera</h1>
 
-<p>To take pictures in your Ionic app, use the <code>Camera</code> utility from ngCordova:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Camera</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ngcordova&#39;</span>
+<p>To take pictures in your Ionic app, use the <code>Camera</code> utility:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Camera</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
 <span class="kr">class</span> <span class="nx">PhotoTaker</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
   <span class="nx">takePhoto</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">Camera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">({</span>
       <span class="nx">quality</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
@@ -291,6 +291,10 @@
       <span class="nx">saveToPhotoAlbum</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Camera data</span>
+      <span class="c1">//let base64Image = &quot;data:image/jpeg;base64,&quot; + data;</span>
+      <span class="c1">// this.imageData = base64Image;</span>
+      <span class="c1">//</span>
+      <span class="c1">// Use this in your view: &lt;img src=&quot;&quot;&gt;</span>
     <span class="p">})</span>
   <span class="p">}</span>
 <span class="p">}</span>

@@ -1,43 +1,36 @@
 ---
 layout: v2_fluid/docs_base
 category: platform
-id: camera
-title: Ionic 2 Plugins | Camera
-header_title: Camera - Ionic 2 Plugins
-header_sub_title: Ionic 2 Developer Preview
+id: Keyboard
+title: Keyboard | Ionic Native Plugins
+header_title: Keyboard
+header_sub_title: Control the device keyboard
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/camera/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/keyboard/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Camera</h1>
+<h1 class="title">Keyboard</h1>
 
-To take pictures in your Ionic app, use the `Camera` utility:
+Control the device keyboard
 
 ```javascript
-import {Camera} from 'ionic/ionic'
+import {Keyboard, IonicPlatform} from 'ionic/ionic'
 
-class PhotoTaker {
-  takePhoto() {
-    Camera.getPicture({
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false
-    }).then((data) => {
-      // Camera data
-      //let base64Image = "data:image/jpeg;base64," + data;
-      // this.imageData = base64Image;
-      //
-      // Use this in your view: <img src="{{imageData}}">
+class MyPage {
+  constructor(platform: IonicPlatform) {
+
+    platform.ready().then(() => {
+      // Hide the accessory bar (our default)
+      Keyboard.setAccessoryBarVisible(false)
     })
+
+  }
+  userDidSomething() {
+    // In case you want to programatically close the keyboard
+    Keyboard.close()
   }
 }
 ```

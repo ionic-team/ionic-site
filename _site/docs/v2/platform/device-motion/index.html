@@ -26,11 +26,11 @@
 
 
 
-    <title>Ionic 2 Plugins | Camera - Ionic 2 Developer Preview -  Ionic Framework</title>
+    <title>Device Motion | Ionic Native Plugins - React to device motion changes -  Ionic Framework</title>
 
   </head>
-  <body id="docs-page-camera"
-        class="v2 docs page-camera"
+  <body id="docs-page-device-motion"
+        class="v2 docs page-device-motion"
         data-spy="scroll"
         data-target="#components-index">
     <nav class="navbar navbar-default">
@@ -267,35 +267,29 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/camera/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device-motion/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Camera</h1>
+<h1 class="title">Device Motion</h1>
 
-<p>To take pictures in your Ionic app, use the <code>Camera</code> utility:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Camera</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<p>React to device motion changes.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">DeviceMotion</span><span class="p">,</span> <span class="nx">IonicPlatform</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
-<span class="kr">class</span> <span class="nx">PhotoTaker</span> <span class="p">{</span>
-  <span class="nx">takePhoto</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Camera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">({</span>
-      <span class="nx">quality</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
-      <span class="nx">destinationType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">DATA_URL</span><span class="p">,</span>
-      <span class="nx">sourceType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">PictureSourceType</span><span class="p">.</span><span class="nx">CAMERA</span><span class="p">,</span>
-      <span class="nx">allowEdit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nx">encodingType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">EncodingType</span><span class="p">.</span><span class="nx">JPEG</span><span class="p">,</span>
-      <span class="nx">targetWidth</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-      <span class="nx">targetHeight</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-      <span class="nx">popoverOptions</span><span class="o">:</span> <span class="nx">CameraPopoverOptions</span><span class="p">,</span>
-      <span class="nx">saveToPhotoAlbum</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Camera data</span>
-      <span class="c1">//let base64Image = &quot;data:image/jpeg;base64,&quot; + data;</span>
-      <span class="c1">// this.imageData = base64Image;</span>
-      <span class="c1">//</span>
-      <span class="c1">// Use this in your view: &lt;img src=&quot;&quot;&gt;</span>
-    <span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">platform</span><span class="o">:</span> <span class="nx">IonicPlatform</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nx">DeviceMotion</span><span class="p">.</span><span class="nx">watchAcceleration</span><span class="p">();</span>
+
+      <span class="nx">watch</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// data.acceleration.x</span>
+        <span class="c1">// data.acceleration.y</span>
+        <span class="c1">// data.acceleration.z</span>
+      <span class="p">})</span>
+
+      <span class="nx">watch</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span> <span class="c1">// to stop watching</span>
+    <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

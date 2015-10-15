@@ -1,43 +1,37 @@
 ---
 layout: v2_fluid/docs_base
 category: platform
-id: camera
-title: Ionic 2 Plugins | Camera
-header_title: Camera - Ionic 2 Plugins
-header_sub_title: Ionic 2 Developer Preview
+id: device-motion
+title: Device Motion | Ionic Native Plugins
+header_title: Device Motion
+header_sub_title: React to device motion changes
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/camera/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device-motion/index.md'>
     Improve this doc
   </a>
 </div>
 
-<h1 class="title">Camera</h1>
+<h1 class="title">Device Motion</h1>
 
-To take pictures in your Ionic app, use the `Camera` utility:
+React to device motion changes.
 
 ```javascript
-import {Camera} from 'ionic/ionic'
+import {DeviceMotion, IonicPlatform} from 'ionic/ionic'
 
-class PhotoTaker {
-  takePhoto() {
-    Camera.getPicture({
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false
-    }).then((data) => {
-      // Camera data
-      //let base64Image = "data:image/jpeg;base64," + data;
-      // this.imageData = base64Image;
-      //
-      // Use this in your view: <img src="{{imageData}}">
-    })
+class MyPage {
+  constructor(platform: IonicPlatform) {
+    platform.ready().then(() => {
+      let watch = DeviceMotion.watchAcceleration();
+
+      watch.source.subscribe((data) => {
+        // data.acceleration.x
+        // data.acceleration.y
+        // data.acceleration.z
+      })
+
+      watch.clear() // to stop watching
+    });
   }
 }
 ```

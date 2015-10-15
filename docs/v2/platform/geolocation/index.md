@@ -7,7 +7,7 @@ header_title: Geolocation - Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview
 ---
 <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/plugins/geolocation/index.md'>
+  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md'>
     Improve this doc
   </a>
 </div>
@@ -21,7 +21,7 @@ while watching continuously checks for location changes and returns those.
 Both operations prompt the user to accept location sharing with your app.
 
 ```javascript
-import {Geolocation} from 'ngcordova'
+import {Geolocation} from 'ionic/ionic'
 
 class LocationTracker {
   constructor() {
@@ -41,7 +41,9 @@ class LocationTracker {
      enableHighAccuracy: false // may cause errors if true
     };
 
-    this.currentWatch = Geolocation.watchPosition(watchOptions, (position) => {
+    this.currentWatch = Geolocation.watchPosition(watchOptions);
+
+    this.currentWatch.source.subscribe((position) => {
       // Called continuously
       let lat  = position.coords.latitude
       let long = position.coords.longitude
@@ -51,7 +53,7 @@ class LocationTracker {
   stopTracking() {
     if(!this.currentWatch) { return; }
 
-    Geolocation.clearWatch(this.currentWatch);
+    this.currentWatch.clear();
   }
 }
 ```

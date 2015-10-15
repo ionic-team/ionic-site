@@ -272,17 +272,15 @@
   </a>
 </div>
 
-<h1 class="title">Status Bar</h1>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">StatusBar</span><span class="p">,</span> <span class="nx">IonicPlatform</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<h1 class="title">Vibration</h1>
+
+<p>Vibrate the device. Pretty simple.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Vibration</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
 <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">platform</span><span class="o">:</span> <span class="nx">IonicPlatform</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">StatusBar</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-
-      <span class="c1">// Dark for light content</span>
-      <span class="nx">StatusBar</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">StatusBar</span><span class="p">.</span><span class="nx">LIGHT_CONTENT</span><span class="p">);</span>
-    <span class="p">});</span>
+  <span class="nx">vibrate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// iOS doesn&#39;t support the duration or pattern param</span>
+    <span class="nx">Vibration</span><span class="p">.</span><span class="nx">vibrate</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

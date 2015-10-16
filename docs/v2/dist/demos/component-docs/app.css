@@ -68,3 +68,7 @@ ion-scroll {
 .demo-slide-3 {
   background-color: #f53d3d;
 }
+
+ion-content #buttons-in-components {
+  background-color: #F4F5F8;
+}

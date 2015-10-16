@@ -55,7 +55,7 @@ var FormsPage = (function () {
 exports.FormsPage = FormsPage;
 exports.FormsPage = FormsPage = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'forms/forms.html',
-    bindings: [_angular2Angular2.FormBuilder]
+    providers: [_angular2Angular2.FormBuilder]
 }), __metadata('design:paramtypes', [])], FormsPage);
 var FixedInlinePage = function FixedInlinePage() {
     _classCallCheck(this, FixedInlinePage);

@@ -35,6 +35,7 @@ var ActionSheetPage = (function () {
         _classCallCheck(this, ActionSheetPage);
 
         this.actionSheet = actionSheet;
+        console.log('actionSheet', actionSheet);
         this.platform = platform;
     }
 
@@ -83,6 +84,7 @@ var ActionSheetPage = (function () {
                     return true;
                 }
             }).then(function (actionSheetRef) {
+                console.log(actionSheetRef);
                 _this.actionSheetRef = actionSheetRef;
             });
         }

@@ -67,10 +67,10 @@ class MyPage {}
 
 ```ts
 @Component({
-  bindings: [MyService] // Right
+  providers: [MyService] // Right
 })
 (click)({
-  // bindings: [MyService] Wrong
+  // providers: [MyService] Wrong
 })
 ```
 
@@ -97,7 +97,7 @@ class MyService {
 
 @Component({
   selector: 'my-component',
-  bindings: [MyService] // <-- Creates a new instance of MyService
+  providers: [MyService] // <-- Creates a new instance of MyService
 })                      // Unnecessary because MyService is in App's bindings
 (click)({
   template: 'Hello World'
@@ -109,7 +109,7 @@ class MyComp {
 
 @App({
   template: '<my-component></my-component>',
-  bindings: [MyService],
+  providers: [MyService],
   directives: [MyComp]
 })
 class MyApp {
@@ -178,7 +178,7 @@ import {MyService} from 'myservice';
 
 @App({
   templateUrl: 'app/app.html',
-  bindings: [MyService] // Don't forget me!
+  providers: [MyService] // Don't forget me!
 })
 class MyApp {
 ```

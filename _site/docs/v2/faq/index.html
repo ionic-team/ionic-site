@@ -326,10 +326,10 @@
 <li>putting your <code>bindings</code> array in your <code>(click)</code> options, not in <code>@Component</code> or <code>@Directive</code>.</li>
 </ul>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Right</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Right</span>
 <span class="p">})</span>
 <span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
-  <span class="c1">// bindings: [MyService] Wrong</span>
+  <span class="c1">// providers: [MyService] Wrong</span>
 <span class="p">})</span>
 </code></pre></div>
 <ul>
@@ -354,7 +354,7 @@
 
 <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-component&#39;</span><span class="p">,</span>
-  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// &lt;-- Creates a new instance of MyService</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// &lt;-- Creates a new instance of MyService</span>
 <span class="p">})</span>                      <span class="c1">// Unnecessary because MyService is in App&#39;s bindings</span>
 <span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
@@ -366,7 +366,7 @@
 
 <span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;my-component&gt;&lt;/my-component&gt;&#39;</span><span class="p">,</span>
-  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">],</span>
   <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyComp</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
@@ -429,7 +429,7 @@
 
 <span class="err">@</span><span class="nx">App</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/app.html&#39;</span><span class="p">,</span>
-  <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Don&#39;t forget me!</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Don&#39;t forget me!</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
 </code></pre></div>

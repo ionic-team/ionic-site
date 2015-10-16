@@ -299,7 +299,7 @@
   <span class="kr">constructor</span><span class="p">(){</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I&#39;m alive!&quot;</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">my</span><span class="o">-</span><span class="nx">dir</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/div&gt;`</span>
 
   <span class="c1">// Or, depending on your directive&#39;s type</span>
@@ -388,7 +388,7 @@
 </ul>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">MyService</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;myservice&#39;</span><span class="p">;</span> <span class="c1">//Don&#39;t forget to import me!</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="nx">Hello</span> <span class="nx">World</span><span class="err">`</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
@@ -507,7 +507,7 @@ No MyComp to inject        +------+------+
 <p><code>EXCEPTION: No provider for ControlContainer! (NgControlName -&gt; ControlContainer)</code></p>
 
 <p>This error is a more specific version of the <code>No provider</code> error above.  It happens when you use a form control like <a href="https://angular.io/docs/js/latest/api/core/NgControlName-class.html">NgControlName</a> without specifying a parent <a href="https://angular.io/docs/js/latest/api/core/NgForm-class.html">NgForm</a> or <a href="https://angular.io/docs/js/latest/api/core/NgFormModel-class.html">NgFormModel</a>.  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses <code>form</code> as a selector so this will instantiate a new NgForm:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span>
     <span class="s1">&#39;&lt;form&gt;&#39;</span> <span class="o">+</span>
       <span class="s1">&#39;&lt;input ng-control=&#39;</span><span class="nx">login</span><span class="s1">&#39;&gt;&#39;</span> <span class="o">+</span>

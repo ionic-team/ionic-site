@@ -711,7 +711,7 @@ The simplest way to navigate throughout your app is to create and initialize a n
 You can access the navigation controller you create by injecting it into any of your IonicViews:
 
 ```ts
-@IonicView({
+@Page({
   template: `
     <ion-navbar *navbar>
       <ion-title>Login</ion-title>
@@ -729,7 +729,7 @@ export class StartPage {
 To navigate from one page to another simply push or pop a new view onto the stack:
 
 ```ts
-@IonicView({
+@Page({
   template: `
     <ion-navbar *navbar>
       <ion-title>Login</ion-title>
@@ -753,7 +753,7 @@ export class StartPage {
   }                           
 }
 
-@IonicView({
+@Page({
   template: `
     <ion-navbar *navbar>
       <ion-title>Other Page</ion-title>
@@ -769,7 +769,7 @@ If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
 
 ```ts
-@IonicView({
+@Page({
   template: `
     <ion-content>
       <button (click)="goBack()">
@@ -911,10 +911,10 @@ class MyApp {
 }
 ```
 
-Individual tabs are just [`@IonicViews`](../api/config/IonicView/):
+Individual tabs are just [`@Pages`](../api/config/IonicView/):
 
 ```ts
-@IonicView({
+@Page({
   template: `
     <ion-navbar *navbar>
       <ion-title>Heart</ion-title>
@@ -923,7 +923,7 @@ Individual tabs are just [`@IonicViews`](../api/config/IonicView/):
 })
 class Tab1 {}
 
-@IonicView({
+@Page({
   template: `
     <ion-navbar *navbar>
       <ion-title>Star</ion-title>
@@ -933,10 +933,10 @@ class Tab1 {}
 class Tab2 {}
 ```
 
-Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@IonicViews` of each tab will be unique to each tab:
+Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Pages` of each tab will be unique to each tab:
 
 ```ts
-@IonicView({
+@Page({
 ...
 })
 class Tab1 {
@@ -946,7 +946,7 @@ class Tab1 {
   }
 }
 
-@IonicView({
+@Page({
 ...
 })
 class Tab2 {

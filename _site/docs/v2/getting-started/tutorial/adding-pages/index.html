@@ -326,7 +326,7 @@ You may have noticed that each page has its own folder that is named after the p
 <p>Below, you will see the <code>HelloIonicPage</code> class which has an <code>IonicView</code> <a href="../../../resources/what-is/#decorators">decorator</a>. This creates an IonicView - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicView</span><span class="p">,</span> <span class="nx">NavController</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/hello-ionic/hello-ionic.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">HelloIonicPage</span> <span class="p">{</span>
@@ -370,7 +370,7 @@ renders our welcome message.</p>
 <p>Let&#39;s check out the contents of <code>app/list/list.js</code>. Inside, you will see a new page is being defined:</p>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="p">{</span><span class="nx">IonicApp</span><span class="p">,</span> <span class="nx">IonicView</span><span class="p">,</span> <span class="nx">NavController</span><span class="p">,</span> <span class="nx">NavParams</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/list/list.html&#39;</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ListPage</span> <span class="p">{</span>

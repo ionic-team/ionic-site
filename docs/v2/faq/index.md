@@ -38,7 +38,7 @@ class MyDir {
   constructor(){ console.log("I'm alive!"); }
 }
 
-@IonicView({
+@Page({
   template: `<div my-dir>Hello World</div>`
 
   // Or, depending on your directive's type
@@ -132,7 +132,7 @@ This means that Angular is confused about one or more of the parameters for Your
 ```ts
 import {MyService} from 'myservice'; //Don't forget to import me!
 
-@IonicView({
+@Page({
   template: `Hello World`
 })
 export class MyClass {
@@ -271,7 +271,7 @@ This one is pretty self explanatory, it happens when you try and bind a property
 This error is a more specific version of the `No provider` error above.  It happens when you use a form control like [NgControlName](https://angular.io/docs/js/latest/api/core/NgControlName-class.html) without specifying a parent [NgForm](https://angular.io/docs/js/latest/api/core/NgForm-class.html) or [NgFormModel](https://angular.io/docs/js/latest/api/core/NgFormModel-class.html).  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
 
 ```ts
-@IonicView({
+@Page({
   template:
     '<form>' +
       '<input ng-control='login'>' +

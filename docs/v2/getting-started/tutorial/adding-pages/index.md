@@ -79,7 +79,7 @@ Below, you will see the `HelloIonicPage` class which has an `IonicView` [decorat
 ```ts
 import {IonicView, NavController} from 'ionic/ionic';
 
-@IonicView({
+@Page({
   templateUrl: 'app/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {
@@ -132,7 +132,7 @@ Let's check out the contents of `app/list/list.js`. Inside, you will see a new p
 {% raw %}
 import {IonicApp, IonicView, NavController, NavParams} from 'ionic/ionic';
 
-@IonicView({
+@Page({
   templateUrl: 'app/list/list.html'
 })
 export class ListPage {

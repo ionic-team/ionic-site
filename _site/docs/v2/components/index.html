@@ -852,7 +852,7 @@ from the <code>Modal</code> Ionic class:</p>
   <span class="p">}</span>
 </code></pre></div>
 <p>You can access the navigation controller you create by injecting it into any of your IonicViews:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;</span><span class="err">/ion-title&gt;</span>
@@ -867,7 +867,7 @@ from the <code>Modal</code> Ionic class:</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>To navigate from one page to another simply push or pop a new view onto the stack:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;</span><span class="err">/ion-title&gt;</span>
@@ -891,7 +891,7 @@ from the <code>Modal</code> Ionic class:</p>
   <span class="p">}</span>                           
 <span class="p">}</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Other</span> <span class="nx">Page</span><span class="o">&lt;</span><span class="err">/ion-title&gt;</span>
@@ -904,7 +904,7 @@ from the <code>Modal</code> Ionic class:</p>
 <p>If your view has an <a href="../api/components/nav-bar/NavBar/"><code>&lt;ion-navbar&gt;</code></a>, a back button will automatically be added to it if it is not a root view.  </p>
 
 <p>Alternatively, if you want to go back, but don&#39;t have a NavBar, you can pop the current view off the stack:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;goBack()&quot;</span><span class="o">&gt;</span>
@@ -1040,8 +1040,8 @@ design specification, but can be configured with <a href="../api/config/IonicCon
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Individual tabs are just <a href="../api/config/IonicView/"><code>@IonicViews</code></a>:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<p>Individual tabs are just <a href="../api/config/IonicView/"><code>@Pages</code></a>:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Heart</span><span class="o">&lt;</span><span class="err">/ion-title&gt;</span>
@@ -1050,7 +1050,7 @@ design specification, but can be configured with <a href="../api/config/IonicCon
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{}</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span> <span class="o">*</span><span class="nx">navbar</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Star</span><span class="o">&lt;</span><span class="err">/ion-title&gt;</span>
@@ -1059,8 +1059,8 @@ design specification, but can be configured with <a href="../api/config/IonicCon
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{}</span>
 </code></pre></div>
-<p>Notice that each <code>&lt;ion-tab&gt;</code> binds to a <code>[root]</code> property, just like <a href="../api/components/nav/Nav/"><code>&lt;ion-nav&gt;</code></a> in the <a href="#navigation">Navigation</a> section above.  That is because each <code>&lt;ion-tab&gt;</code> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="../api/components/nav/NavController/#injecting_nav_controller"><code>NavController instances injected</code></a> into children <code>@IonicViews</code> of each tab will be unique to each tab:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<p>Notice that each <code>&lt;ion-tab&gt;</code> binds to a <code>[root]</code> property, just like <a href="../api/components/nav/Nav/"><code>&lt;ion-nav&gt;</code></a> in the <a href="#navigation">Navigation</a> section above.  That is because each <code>&lt;ion-tab&gt;</code> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="../api/components/nav/NavController/#injecting_nav_controller"><code>NavController instances injected</code></a> into children <code>@Pages</code> of each tab will be unique to each tab:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
 <span class="p">...</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{</span>
@@ -1070,7 +1070,7 @@ design specification, but can be configured with <a href="../api/config/IonicCon
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="err">@</span><span class="nx">IonicView</span><span class="p">({</span>
+<span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
 <span class="p">...</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{</span>

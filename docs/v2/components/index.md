@@ -546,7 +546,7 @@ Lists are used to display rows of information, such as a contact list, playlist,
 
 ```html
 <ion-list>
-  <ion-item *ng-for="#item of items" (^click)="itemSelected(item)">
+  <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
     {{item.title}}
   </ion-item>
 </ion-list>

@@ -36100,7 +36100,7 @@ System.register("angular2/src/router/router_link", ["angular2/src/core/metadata"
         selector: '[router-link]',
         properties: ['routeParams: routerLink'],
         host: {
-          '(^click)': 'onClick()',
+          '(click)': 'onClick()',
           '[attr.href]': 'visibleHref'
         }
       }), __metadata('design:paramtypes', [Router, Location])], RouterLink));
@@ -44832,7 +44832,7 @@ System.register("ionic/components/action-menu/action-menu", ["angular2/angular2"
             })();
 
             ActionMenuDirective = __decorate([View({
-                template: '<backdrop (click)="_cancel()" tappable></backdrop>' + '<action-menu-wrapper>' + '<div class="action-menu-container">' + '<div class="action-menu-group action-menu-options">' + '<div class="action-menu-title" *ng-if="titleText">{{titleText}}</div>' + '<button (^click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-menu-option">' + '<icon class="icon" [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-menu-destructive">' + '<icon class="icon" [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-menu-group action-menu-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon class="icon" [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-menu-wrapper>',
+                template: '<backdrop (click)="_cancel()" tappable></backdrop>' + '<action-menu-wrapper>' + '<div class="action-menu-container">' + '<div class="action-menu-group action-menu-options">' + '<div class="action-menu-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-menu-option">' + '<icon class="icon" [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-menu-destructive">' + '<icon class="icon" [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-menu-group action-menu-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon class="icon" [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-menu-wrapper>',
                 directives: [NgFor, NgIf, TapClick, Icon]
             }), __metadata('design:paramtypes', [])], ActionMenuDirective);
             /**
@@ -45939,7 +45939,7 @@ System.register("ionic/components/aside/aside-toggle", ["angular2/angular2", "..
                 selector: '[aside-toggle]',
                 properties: ['asideToggle'],
                 host: {
-                    '(^click)': 'toggle($event)'
+                    '(click)': 'toggle($event)'
                 }
             }), __metadata('design:paramtypes', [typeof IonicApp !== 'undefined' && IonicApp || Object])], AsideToggle));
         }

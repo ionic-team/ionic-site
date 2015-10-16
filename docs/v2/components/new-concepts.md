@@ -41,7 +41,7 @@ challenging when using nested navigation. Last but not least, we'd need to defin
 In v2, this works a bit differently. Instead of navigating through URLs and routing (which is still
   possible as we will see a bit later), we push and pop views onto the stack:
 
-`<ion-item (^click)="showContact(contact)">{{contact.name}}</ion-item>``
+`<ion-item (click)="showContact(contact)">{{contact.name}}</ion-item>``
 
 ```javascript
 class ContactsPage {

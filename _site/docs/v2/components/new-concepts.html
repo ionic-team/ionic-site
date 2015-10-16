@@ -156,7 +156,7 @@ challenging when using nested navigation. Last but not least, we&#39;d need to d
 <p>In v2, this works a bit differently. Instead of navigating through URLs and routing (which is still
   possible as we will see a bit later), we push and pop views onto the stack:</p>
 
-<p><code>&lt;ion-item (^click)=&quot;showContact(contact)&quot;&gt;&lt;/ion-item&gt;</code>`</p>
+<p><code>&lt;ion-item (click)=&quot;showContact(contact)&quot;&gt;&lt;/ion-item&gt;</code>`</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">ContactsPage</span> <span class="p">{</span>
   <span class="nx">showContact</span><span class="p">(</span><span class="nx">contact</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ContactDetail</span><span class="p">,</span> <span class="p">{</span>

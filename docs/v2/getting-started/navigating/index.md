@@ -26,7 +26,7 @@ and then we `pop` the top one off to go back to the page before it.
 So, let's take our `PlaylistPage` from the previous example and navigate to it when we tap on a specific play list from the `PlaylistsPage` (note the 's'). Open up `app/playlists/playlists.html`, and find the `<ion-item>` entry:
 
 ```html
-<ion-item *ng-for="#playlist of playlists" (^click)="openPlaylist(playlist)">{{playlist.title}}</ion-item>
+<ion-item *ng-for="#playlist of playlists" (click)="openPlaylist(playlist)">{{playlist.title}}</ion-item>
 ```
 
 When the user taps this, the `openPlaylist()` function will be called with a reference to the playlist that was tapped.

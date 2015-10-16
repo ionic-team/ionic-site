@@ -52,24 +52,24 @@ class MyPage {}
 
 <h2 id="Common_mistakes">Common mistakes:</h2>
 
-- putting your `directives` array in your `@Component` options, not in `@View`.
+- putting your `directives` array in your `@Component` options, not in `(click)`.
 
 ```ts
 @Component({
   //directives: [MyDirective] Wrong
 })
-@View({
+(click)({
   directives: [MyDirective] // Right
 })
 ```
 
-- putting your `bindings` array in your `@View` options, not in `@Component` or `@Directive`.
+- putting your `bindings` array in your `(click)` options, not in `@Component` or `@Directive`.
 
 ```ts
 @Component({
   bindings: [MyService] // Right
 })
-@View({
+(click)({
   // bindings: [MyService] Wrong
 })
 ```
@@ -99,7 +99,7 @@ class MyService {
   selector: 'my-component',
   bindings: [MyService] // <-- Creates a new instance of MyService
 })                      // Unnecessary because MyService is in App's bindings
-@View({
+(click)({
   template: 'Hello World'
 })
 class MyComp {
@@ -148,7 +148,7 @@ Sometimes circular references within your code can cause this error.  Circular r
 @Component({
   selector: 'my-button'
 })
-@View({
+(click)({
   template: `<div>
                <icon></icon>
                <input type="button" />
@@ -189,7 +189,7 @@ If the parameter is another component or directive (for example, a parent compon
 @Component({
   selector: 'my-comp'
 })
-@View({
+(click)({
   template: '<div my-dir></div>',
   directives: [forwardRef(() => MyDir)]
 })

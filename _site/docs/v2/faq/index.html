@@ -313,22 +313,22 @@
 <h2 id="Common_mistakes">Common mistakes:</h2>
 
 <ul>
-<li>putting your <code>directives</code> array in your <code>@Component</code> options, not in <code>@View</code>.</li>
+<li>putting your <code>directives</code> array in your <code>@Component</code> options, not in <code>(click)</code>.</li>
 </ul>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="c1">//directives: [MyDirective] Wrong</span>
 <span class="p">})</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+<span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyDirective</span><span class="p">]</span> <span class="c1">// Right</span>
 <span class="p">})</span>
 </code></pre></div>
 <ul>
-<li>putting your <code>bindings</code> array in your <code>@View</code> options, not in <code>@Component</code> or <code>@Directive</code>.</li>
+<li>putting your <code>bindings</code> array in your <code>(click)</code> options, not in <code>@Component</code> or <code>@Directive</code>.</li>
 </ul>
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// Right</span>
 <span class="p">})</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+<span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="c1">// bindings: [MyService] Wrong</span>
 <span class="p">})</span>
 </code></pre></div>
@@ -356,7 +356,7 @@
   <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-component&#39;</span><span class="p">,</span>
   <span class="nx">bindings</span><span class="o">:</span> <span class="p">[</span><span class="nx">MyService</span><span class="p">]</span> <span class="c1">// &lt;-- Creates a new instance of MyService</span>
 <span class="p">})</span>                      <span class="c1">// Unnecessary because MyService is in App&#39;s bindings</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+<span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyComp</span> <span class="p">{</span>
@@ -401,7 +401,7 @@
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-button&#39;</span>
 <span class="p">})</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+<span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
                <span class="o">&lt;</span><span class="nx">icon</span><span class="o">&gt;&lt;</span><span class="err">/icon&gt;</span>
                <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="o">/&gt;</span>
@@ -437,7 +437,7 @@
 <div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-comp&#39;</span>
 <span class="p">})</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
+<span class="p">(</span><span class="nx">click</span><span class="p">)({</span>
   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div my-dir&gt;&lt;/div&gt;&#39;</span><span class="p">,</span>
   <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">forwardRef</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">MyDir</span><span class="p">)]</span>
 <span class="p">})</span>

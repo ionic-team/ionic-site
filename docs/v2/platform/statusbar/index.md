@@ -14,6 +14,9 @@ header_sub_title: Modify the status bar
 
 <h1 class="title">Status Bar</h1>
 
+```bash
+$ ionic plugin install cordova-plugin-statusbar
+```
 
 ```javascript
 import {StatusBar, IonicPlatform} from 'ionic/ionic'

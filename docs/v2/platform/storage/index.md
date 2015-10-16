@@ -14,6 +14,10 @@ header_sub_title: Save and load data
 
 <h1 class="title">Storage</h1>
 
+```bash
+$ ionic plugin install cordova-sqlite-storage
+```
+
 The `Storage` service makes it easy to persist and load data on the device. The `Storage` service is an abstraction
 over specific storage engines. We provide two default engines: `SqlStorage` (based on SQLite) and `LocalStorage`. We highly recommend the SQLite based
 storage engine for long term storage. Local Storage should *only* be used for temporary, cached data that you can afford

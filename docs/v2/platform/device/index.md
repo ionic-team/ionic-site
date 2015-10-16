@@ -16,6 +16,12 @@ header_sub_title: Access device information
 
 Get information about the underlying device and platform.
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-device
+```
+
 ```javascript
 import {Device} from 'ionic/ionic'
 

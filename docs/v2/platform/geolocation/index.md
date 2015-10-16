@@ -14,6 +14,13 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Tracking GPS Location</h1>
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-geolocation
+```
+
+
 Tracking GPS location is easy with the `Geolocation` class. There are two modes:
 single value, and watching. Single value grabs one location position and returns it,
 while watching continuously checks for location changes and returns those.

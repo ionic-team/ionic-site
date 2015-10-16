@@ -16,6 +16,13 @@ header_sub_title: Check battery status
 
 Get information about the battery status of the device.
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-battery-status
+```
+
+
 ```javascript
 import {Battery} from 'ionic/ionic'
 

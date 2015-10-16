@@ -16,6 +16,12 @@ header_sub_title: Show loading indicators
 
 Show native loading and progress indicators
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-progressindicator
+```
+
 ```javascript
 import {Loading} from 'ionic/ionic'
 

@@ -16,6 +16,12 @@ header_sub_title: React to device motion changes
 
 React to device motion changes.
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-device-motion
+```
+
 ```javascript
 import {DeviceMotion, IonicPlatform} from 'ionic/ionic'
 

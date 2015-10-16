@@ -14,6 +14,11 @@ header_sub_title: Access network information
 
 <h1 class="title">Network</h1>
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-network-information
+```
 
 ```javascript
 import {Network, Events} from 'ionic/ionic'

@@ -14,6 +14,10 @@ header_sub_title: Vibrate the device
 
 <h1 class="title">Vibration</h1>
 
+```bash
+$ ionic plugin install cordova-plugin-vibration
+```
+
 Vibrate the device. Pretty simple.
 
 ```javascript

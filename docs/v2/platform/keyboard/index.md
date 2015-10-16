@@ -14,6 +14,14 @@ header_sub_title: Control the device keyboard
 
 <h1 class="title">Keyboard</h1>
 
+Show native loading and progress indicators
+
+### Install the plugin
+
+```bash
+$ ionic plugin install ionic-plugin-keyboard
+```
+
 Control the device keyboard
 
 ```javascript

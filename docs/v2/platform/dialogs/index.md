@@ -16,6 +16,13 @@ header_sub_title: Open device dialogs and prompts
 
 Open device-specific dialogs and prompts.
 
+### Install the plugin
+
+```bash
+$ ionic plugin install cordova-plugin-dialogs
+```
+
+
 ```javascript
 import {Dialogs} from 'ionic/ionic'
 

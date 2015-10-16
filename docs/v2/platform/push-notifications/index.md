@@ -14,6 +14,10 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Receiving Push Notifications</h1>
 
+```bash
+$ ionic plugin install phonegap-plugin-push
+```
+
 Every app needs to receive push notifications.
 
 To make sending and receiving push notifications easier, we've built a fully-integrated push notification

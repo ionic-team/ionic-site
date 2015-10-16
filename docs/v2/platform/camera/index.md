@@ -14,6 +14,10 @@ header_sub_title: Take photos and video
 
 <h1 class="title">Camera</h1>
 
+```bash
+$ ionic plugin install cordova-plugin-camera
+```
+
 To take pictures in your Ionic app, use the `Camera` utility:
 
 ```javascript

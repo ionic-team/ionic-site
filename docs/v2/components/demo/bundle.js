@@ -56532,7 +56532,6 @@
 	        _classCallCheck(this, ActionSheetPage);
 
 	        this.actionSheet = actionSheet;
-	        console.log('actionSheet', actionSheet);
 	        this.platform = platform;
 	    }
 
@@ -56592,7 +56591,7 @@
 	exports.ActionSheetPage = ActionSheetPage;
 	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'actionSheet/actionSheet.html'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.IonicPlatform !== 'undefined' && _ionicIonic.IonicPlatform) === 'function' && _b || Object])], ActionSheetPage);
 	var _a, _b;
 
 /***/ },

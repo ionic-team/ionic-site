@@ -792,7 +792,15 @@ But what if you have several "root" or "top-level" views that don't have a paren
 
 
 <h2 id="popups" class="section-header">Popups</h2>
-TODO
+Popups are a great way to require the user to take a specific action. They can provide the user with important information, and require them to make a decision. Ionic provides three types of popups &mdash; **alert**, **confirm**, and **prompt**. Each popup is meant to be used in a different scenario. 
+
+The **alert** popup simply displays a message to the user, and provides a button to close the popup. This popup is useful for displaying important messages (eg: *"Your battery is low!"*).
+
+The **confirm** popup displays a message, and gives the user the option to either cancel or confirm their action. This popup is useful when the user wants to perform an uncommon, but important action (eg: *"Are you sure you'd like to delete your account?"*).
+
+The **prompt** popup displays a message, and requires to user to input some data. This popup is useful when you need important information from the user in order to continue (eg: *"Please re-enter your password to continue."*).
+
+Popups are quite flexible, and can easily be customized. Check out the [API docs](../api/popup/ionPopup) for more information.
 
 
 <h2 id="slides" class="section-header">Slides</h2>

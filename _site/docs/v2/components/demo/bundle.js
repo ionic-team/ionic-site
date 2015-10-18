@@ -58106,6 +58106,10 @@
 	        'card-header': _cardsCards.CardsHeaderPage,
 	        'card-list': _cardsCards.CardsListPage,
 	        'card-image': _cardsCards.CardsImagePage,
+	        'card-background-image': _cardsCards.CardsBackgroundPage,
+	        'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
+	        'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
+	        'card-advanced-image': _cardsCards.CardsAdvancedImagePage,
 	        'forms': _formsForms.FormsPage,
 	        'fixed-inline-labels': _formsForms.FixedInlinePage,
 	        'floating-labels': _formsForms.FloatingPage,
@@ -58310,6 +58314,34 @@
 	exports.CardsImagePage = CardsImagePage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'cards/cards-image.html'
 	}), __metadata('design:paramtypes', [])], CardsImagePage);
+	var CardsBackgroundPage = function CardsBackgroundPage() {
+	    _classCallCheck(this, CardsBackgroundPage);
+	};
+	exports.CardsBackgroundPage = CardsBackgroundPage;
+	exports.CardsBackgroundPage = CardsBackgroundPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-background.html'
+	}), __metadata('design:paramtypes', [])], CardsBackgroundPage);
+	var CardsAdvancedSocialPage = function CardsAdvancedSocialPage() {
+	    _classCallCheck(this, CardsAdvancedSocialPage);
+	};
+	exports.CardsAdvancedSocialPage = CardsAdvancedSocialPage;
+	exports.CardsAdvancedSocialPage = CardsAdvancedSocialPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-advanced-social.html'
+	}), __metadata('design:paramtypes', [])], CardsAdvancedSocialPage);
+	var CardsAdvancedMapPage = function CardsAdvancedMapPage() {
+	    _classCallCheck(this, CardsAdvancedMapPage);
+	};
+	exports.CardsAdvancedMapPage = CardsAdvancedMapPage;
+	exports.CardsAdvancedMapPage = CardsAdvancedMapPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-advanced-map.html'
+	}), __metadata('design:paramtypes', [])], CardsAdvancedMapPage);
+	var CardsAdvancedImagePage = function CardsAdvancedImagePage() {
+	    _classCallCheck(this, CardsAdvancedImagePage);
+	};
+	exports.CardsAdvancedImagePage = CardsAdvancedImagePage;
+	exports.CardsAdvancedImagePage = CardsAdvancedImagePage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-advanced-image.html'
+	}), __metadata('design:paramtypes', [])], CardsAdvancedImagePage);
 
 /***/ },
 /* 375 */

@@ -58106,7 +58106,7 @@
 	        'card-header': _cardsCards.CardsHeaderPage,
 	        'card-list': _cardsCards.CardsListPage,
 	        'card-image': _cardsCards.CardsImagePage,
-	        'card-background-image': _cardsCards.CardsBackgroundPage,
+	        'card-background': _cardsCards.CardsBackgroundPage,
 	        'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
 	        'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
 	        'card-advanced-image': _cardsCards.CardsAdvancedImagePage,

@@ -4907,3 +4907,6 @@ ul.docs-example {
     display: block;
     margin: 0 auto;
     width: 55.7%; }
+
+.highlight .err {
+  background-color: #fff; }

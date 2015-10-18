@@ -1236,7 +1236,10 @@ ion-item-sliding-content {
   flex: 1; }
 
 ion-item-options {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
@@ -2524,6 +2527,11 @@ input[type="search"].search-bar-input {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
+.search-bar-close-icon {
+  min-height: 0;
+  padding: 0;
+  margin: 0; }
+
 ion-segment {
   display: block; }
 
@@ -2554,88 +2562,7 @@ ion-segment {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background: none;
-    background-color: transparent;
-    color: #fff; }
-    .ion-segment button[outline],
-    .ion-segment [button][outline] {
-      border: 1px solid #387ef5;
-      background: transparent;
-      color: #387ef5; }
-      .ion-segment button[outline].activated,
-      .ion-segment [button][outline].activated {
-        opacity: 1;
-        color: #fff;
-        background-color: #387ef5; }
-    .ion-segment button:first-of-type,
-    .ion-segment [button]:first-of-type {
-      border-radius: 4px 0px 0px 4px;
-      margin-right: 0; }
-    .ion-segment button:last-of-type,
-    .ion-segment [button]:last-of-type {
-      border-right-width: 1px;
-      border-radius: 0px 4px 4px 0px;
-      margin-left: 0; }
-
-ion-segment[primary] ion-segment-button[button] {
-  background-color: transparent;
-  color: #fff; }
-  ion-segment[primary] ion-segment-button[button][outline] {
-    border: 1px solid #387ef5;
-    background: transparent;
-    color: #387ef5; }
-    ion-segment[primary] ion-segment-button[button][outline].activated {
-      opacity: 1;
-      color: #fff !important;
-      background-color: #387ef5 !important; }
-
-ion-segment[secondary] ion-segment-button[button] {
-  background-color: transparent;
-  color: #fff; }
-  ion-segment[secondary] ion-segment-button[button][outline] {
-    border: 1px solid #32db64;
-    background: transparent;
-    color: #32db64; }
-    ion-segment[secondary] ion-segment-button[button][outline].activated {
-      opacity: 1;
-      color: #fff !important;
-      background-color: #32db64 !important; }
-
-ion-segment[danger] ion-segment-button[button] {
-  background-color: transparent;
-  color: #fff; }
-  ion-segment[danger] ion-segment-button[button][outline] {
-    border: 1px solid #f53d3d;
-    background: transparent;
-    color: #f53d3d; }
-    ion-segment[danger] ion-segment-button[button][outline].activated {
-      opacity: 1;
-      color: #fff !important;
-      background-color: #f53d3d !important; }
-
-ion-segment[light] ion-segment-button[button] {
-  background-color: transparent;
-  color: #000; }
-  ion-segment[light] ion-segment-button[button][outline] {
-    border: 1px solid #f4f4f4;
-    background: transparent;
-    color: #f4f4f4; }
-    ion-segment[light] ion-segment-button[button][outline].activated {
-      opacity: 1;
-      color: #000 !important;
-      background-color: #f4f4f4 !important; }
-
-ion-segment[dark] ion-segment-button[button] {
-  background-color: transparent;
-  color: #fff; }
-  ion-segment[dark] ion-segment-button[button][outline] {
-    border: 1px solid #222;
-    background: transparent;
-    color: #222; }
-    ion-segment[dark] ion-segment-button[button][outline].activated {
-      opacity: 1;
-      color: #fff !important;
-      background-color: #222 !important; }
+    background: none; }
 
 ion-switch {
   display: block;
@@ -5444,7 +5371,7 @@ icon,
   /*! Ionic: iOS */ }
   .ios .item-group-title {
     padding: 13px 16px 14px 16px;
-    background-color: #f5f5f5;
+    background-color: #f7f7f7;
     color: #222; }
   .ios .list .item-group > .item:first-of-type:before {
     border-top: none !important; }
@@ -5801,7 +5728,8 @@ icon,
     margin-top: 0; }
   .ios .outer-content {
     background: #efeff4; }
-  .ios ion-nav.has-views {
+  .ios ion-nav.has-views,
+  .ios ion-tab.has-views {
     background: #000; }
   .ios .list {
     margin: 0 0 32px 0; }
@@ -6061,14 +5989,15 @@ icon,
     .ios .search-bar-input::placeholder {
       color: #9D9D9D; }
   .ios .search-bar-close-icon {
-    width: 17px;
-    height: 17px;
+    width: 30px;
+    height: 100%;
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#8F8E94'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
-    background-size: 17px;
+    background-size: 18px;
     background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
-    right: 10px;
-    top: 6px; }
+    right: 0;
+    top: 0; }
   .ios .search-bar-cancel {
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
@@ -6092,20 +6021,88 @@ icon,
   .ios .ion-segment button,
   .ios .ion-segment [button] {
     border-width: 1px;
+    border-style: solid;
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear;
     min-height: 3.3rem;
     line-height: 3.3rem;
-    border-style: solid; }
-    .ios .ion-segment button.active,
-    .ios .ion-segment [button].active {
-      color: white; }
+    background-color: transparent;
+    color: #fff; }
+    .ios .ion-segment button[outline],
+    .ios .ion-segment [button][outline] {
+      border: 1px solid #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .ion-segment button[outline].activated,
+      .ios .ion-segment [button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
     .ios .ion-segment button:first-of-type,
     .ios .ion-segment [button]:first-of-type {
-      border-right-width: 0px; }
+      border-right-width: 0px;
+      border-radius: 4px 0px 0px 4px;
+      margin-right: 0; }
     .ios .ion-segment button:last-of-type,
     .ios .ion-segment [button]:last-of-type {
-      border-left-width: 0px; }
+      border-left-width: 0px;
+      border-radius: 0px 4px 4px 0px;
+      margin-left: 0; }
+  .ios ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .ios ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff !important;
+        background-color: #387ef5 !important; }
+  .ios ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .ios ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff !important;
+        background-color: #32db64 !important; }
+  .ios ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .ios ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff !important;
+        background-color: #f53d3d !important; }
+  .ios ion-segment[light] ion-segment-button[button] {
+    background-color: transparent;
+    color: #000; }
+    .ios ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000 !important;
+        background-color: #f4f4f4 !important; }
+  .ios ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .ios ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff !important;
+        background-color: #222 !important; }
   .ios ion-switch.item.activated {
     background: #fff; }
   .ios ion-switch media-switch {
@@ -6420,7 +6417,7 @@ icon,
   .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
-  .md .list .item-group-title {
+  .md .item-group-title {
     padding: 13px 16px 13px 16px;
     background-color: #fff;
     color: #222; }
@@ -6909,15 +6906,76 @@ icon,
       color: #AEAEAE; }
   .md .search-bar-close-icon {
     width: 22px;
-    height: 22px;
+    height: 100%;
+    padding: 0;
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
     background-size: 22px;
     background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
     right: 13px;
-    top: 13px; }
+    top: 0; }
   .md .search-bar-cancel {
     display: none; }
+  .md .ion-segment button,
+  .md .ion-segment [button] {
+    border-width: 0;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+    min-height: 5rem;
+    line-height: 5rem;
+    border-radius: 0;
+    border-bottom: 2px solid transparent; }
+    .md .ion-segment button.activated,
+    .md .ion-segment [button].activated {
+      color: #387ef5;
+      background-color: transparent;
+      border-color: #387ef5; }
+  .md ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .md ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #387ef5 !important;
+        border-color: #387ef5 !important; }
+  .md ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .md ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #32db64 !important;
+        border-color: #32db64 !important; }
+  .md ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .md ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f53d3d !important;
+        border-color: #f53d3d !important; }
+  .md ion-segment[light] ion-segment-button[button] {
+    background-color: transparent;
+    color: #000; }
+    .md ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f4f4f4 !important;
+        border-color: #f4f4f4 !important; }
+  .md ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent;
+    color: #fff; }
+    .md ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #222 !important;
+        border-color: #222 !important; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
   .md ion-switch switch-icon {

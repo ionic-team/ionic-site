@@ -59,6 +59,7 @@ var DemoApp = function DemoApp(app, platform) {
     });
 };
 DemoApp = __decorate([(0, _ionicIonic.App)({
-    template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>'
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.IonicPlatform !== 'undefined' && _ionicIonic.IonicPlatform) === 'function' && _b || Object])], DemoApp);
+    template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>',
+    directives: [helpers.AndroidAttribute]
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 var _a, _b;

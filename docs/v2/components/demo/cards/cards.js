@@ -28,10 +28,31 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var CardsPage = function CardsPage() {
-    _classCallCheck(this, CardsPage);
+var CardsBasicPage = function CardsBasicPage() {
+    _classCallCheck(this, CardsBasicPage);
 };
-exports.CardsPage = CardsPage;
-exports.CardsPage = CardsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'cards/cards.html'
-}), __metadata('design:paramtypes', [])], CardsPage);
+exports.CardsBasicPage = CardsBasicPage;
+exports.CardsBasicPage = CardsBasicPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'cards/cards-basic.html'
+}), __metadata('design:paramtypes', [])], CardsBasicPage);
+var CardsHeaderPage = function CardsHeaderPage() {
+    _classCallCheck(this, CardsHeaderPage);
+};
+exports.CardsHeaderPage = CardsHeaderPage;
+exports.CardsHeaderPage = CardsHeaderPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'cards/cards-header.html'
+}), __metadata('design:paramtypes', [])], CardsHeaderPage);
+var CardsListPage = function CardsListPage() {
+    _classCallCheck(this, CardsListPage);
+};
+exports.CardsListPage = CardsListPage;
+exports.CardsListPage = CardsListPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'cards/cards-list.html'
+}), __metadata('design:paramtypes', [])], CardsListPage);
+var CardsImagePage = function CardsImagePage() {
+    _classCallCheck(this, CardsImagePage);
+};
+exports.CardsImagePage = CardsImagePage;
+exports.CardsImagePage = CardsImagePage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'cards/cards-image.html'
+}), __metadata('design:paramtypes', [])], CardsImagePage);

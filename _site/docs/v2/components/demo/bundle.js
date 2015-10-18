@@ -47,9 +47,9 @@
 	__webpack_require__(1);
 	__webpack_require__(16);
 	__webpack_require__(40);
-	__webpack_require__(247);
-	__webpack_require__(367);
-	module.exports = __webpack_require__(368);
+	__webpack_require__(249);
+	__webpack_require__(369);
+	module.exports = __webpack_require__(370);
 
 
 /***/ },
@@ -6079,9 +6079,9 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(41));
-	__export(__webpack_require__(244));
-	__export(__webpack_require__(245));
 	__export(__webpack_require__(246));
+	__export(__webpack_require__(247));
+	__export(__webpack_require__(248));
 	//# sourceMappingURL=angular2.js.map
 
 /***/ },
@@ -6100,17 +6100,17 @@
 	__export(__webpack_require__(96));
 	__export(__webpack_require__(45));
 	__export(__webpack_require__(97));
-	__export(__webpack_require__(120));
 	__export(__webpack_require__(121));
-	__export(__webpack_require__(229));
-	__export(__webpack_require__(230));
-	__export(__webpack_require__(204));
+	__export(__webpack_require__(122));
+	__export(__webpack_require__(231));
 	__export(__webpack_require__(232));
-	__export(__webpack_require__(233));
-	__export(__webpack_require__(151));
+	__export(__webpack_require__(205));
 	__export(__webpack_require__(234));
-	__export(__webpack_require__(194));
-	__export(__webpack_require__(241));
+	__export(__webpack_require__(235));
+	__export(__webpack_require__(152));
+	__export(__webpack_require__(236));
+	__export(__webpack_require__(195));
+	__export(__webpack_require__(243));
 	__export(__webpack_require__(63));
 	//# sourceMappingURL=core.js.map
 
@@ -6145,68 +6145,900 @@
 	var directives_2 = __webpack_require__(62);
 	var view_2 = __webpack_require__(95);
 	var decorators_1 = __webpack_require__(48);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ComponentMetadata.
 	/**
-	 * {@link ComponentMetadata} factory function.
+	 * Declare reusable UI building blocks for an application.
+	 *
+	 * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
+	 * `@Component`
+	 * annotation specifies when a component is instantiated, and which properties and hostListeners it
+	 * binds to.
+	 *
+	 * When a component is instantiated, Angular
+	 * - creates a shadow DOM for the component.
+	 * - loads the selected template into the shadow DOM.
+	 * - creates all the injectable objects configured with `providers` and `viewProviders`.
+	 *
+	 * All template expressions and statements are then evaluated against the component instance.
+	 *
+	 * For details on the `@View` annotation, see {@link ViewMetadata}.
+	 *
+	 * ## Lifecycle hooks
+	 *
+	 * When the component class implements some {@link angular2/lifecycle_hooks} the callbacks are
+	 * called by the change detection at defined points in time during the life of the component.
+	 *
+	 * ## Example
+	 *
+	 * ```
+	 * @Component({
+	 *   selector: 'greet',
+	 *   template: 'Hello {{name}}!'
+	 * })
+	 * class Greet {
+	 *   name: string;
+	 *
+	 *   constructor() {
+	 *     this.name = 'World';
+	 *   }
+	 * }
+	 * ```
+	 *
 	 */
 	exports.Component = decorators_1.makeDecorator(directives_2.ComponentMetadata, function (fn) { return fn.View = exports.View; });
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from DirectiveMetadata.
 	/**
-	 * {@link DirectiveMetadata} factory function.
+	 * Directives allow you to attach behavior to elements in the DOM.
+	 *
+	 * {@link DirectiveMetadata}s with an embedded view are called {@link ComponentMetadata}s.
+	 *
+	 * A directive consists of a single directive annotation and a controller class. When the
+	 * directive's `selector` matches
+	 * elements in the DOM, the following steps occur:
+	 *
+	 * 1. For each directive, the `ElementInjector` attempts to resolve the directive's constructor
+	 * arguments.
+	 * 2. Angular instantiates directives for each matched element using `ElementInjector` in a
+	 * depth-first order,
+	 *    as declared in the HTML.
+	 *
+	 * ## Understanding How Injection Works
+	 *
+	 * There are three stages of injection resolution.
+	 * - *Pre-existing Injectors*:
+	 *   - The terminal {@link Injector} cannot resolve dependencies. It either throws an error or, if
+	 * the dependency was
+	 *     specified as `@Optional`, returns `null`.
+	 *   - The platform injector resolves browser singleton resources, such as: cookies, title,
+	 * location, and others.
+	 * - *Component Injectors*: Each component instance has its own {@link Injector}, and they follow
+	 * the same parent-child hierarchy
+	 *     as the component instances in the DOM.
+	 * - *Element Injectors*: Each component instance has a Shadow DOM. Within the Shadow DOM each
+	 * element has an `ElementInjector`
+	 *     which follow the same parent-child hierarchy as the DOM elements themselves.
+	 *
+	 * When a template is instantiated, it also must instantiate the corresponding directives in a
+	 * depth-first order. The
+	 * current `ElementInjector` resolves the constructor dependencies for each directive.
+	 *
+	 * Angular then resolves dependencies as follows, according to the order in which they appear in the
+	 * {@link ViewMetadata}:
+	 *
+	 * 1. Dependencies on the current element
+	 * 2. Dependencies on element injectors and their parents until it encounters a Shadow DOM boundary
+	 * 3. Dependencies on component injectors and their parents until it encounters the root component
+	 * 4. Dependencies on pre-existing injectors
+	 *
+	 *
+	 * The `ElementInjector` can inject other directives, element-specific special objects, or it can
+	 * delegate to the parent
+	 * injector.
+	 *
+	 * To inject other directives, declare the constructor parameter as:
+	 * - `directive:DirectiveType`: a directive on the current element only
+	 * - `@Host() directive:DirectiveType`: any directive that matches the type between the current
+	 * element and the
+	 *    Shadow DOM root.
+	 * - `@Query(DirectiveType) query:QueryList<DirectiveType>`: A live collection of direct child
+	 * directives.
+	 * - `@QueryDescendants(DirectiveType) query:QueryList<DirectiveType>`: A live collection of any
+	 * child directives.
+	 *
+	 * To inject element-specific special objects, declare the constructor parameter as:
+	 * - `element: ElementRef` to obtain a reference to logical element in the view.
+	 * - `viewContainer: ViewContainerRef` to control child template instantiation, for
+	 * {@link DirectiveMetadata} directives only
+	 * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
+	 *
+	 * ## Example
+	 *
+	 * The following example demonstrates how dependency injection resolves constructor arguments in
+	 * practice.
+	 *
+	 *
+	 * Assume this HTML template:
+	 *
+	 * ```
+	 * <div dependency="1">
+	 *   <div dependency="2">
+	 *     <div dependency="3" my-directive>
+	 *       <div dependency="4">
+	 *         <div dependency="5"></div>
+	 *       </div>
+	 *       <div dependency="6"></div>
+	 *     </div>
+	 *   </div>
+	 * </div>
+	 * ```
+	 *
+	 * With the following `dependency` decorator and `SomeService` injectable class.
+	 *
+	 * ```
+	 * @Injectable()
+	 * class SomeService {
+	 * }
+	 *
+	 * @Directive({
+	 *   selector: '[dependency]',
+	 *   inputs: [
+	 *     'id: dependency'
+	 *   ]
+	 * })
+	 * class Dependency {
+	 *   id:string;
+	 * }
+	 * ```
+	 *
+	 * Let's step through the different ways in which `MyDirective` could be declared...
+	 *
+	 *
+	 * ### No injection
+	 *
+	 * Here the constructor is declared with no arguments, therefore nothing is injected into
+	 * `MyDirective`.
+	 *
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor() {
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * This directive would be instantiated with no dependencies.
+	 *
+	 *
+	 * ### Component-level injection
+	 *
+	 * Directives can inject any injectable instance from the closest component injector or any of its
+	 * parents.
+	 *
+	 * Here, the constructor declares a parameter, `someService`, and injects the `SomeService` type
+	 * from the parent
+	 * component's injector.
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(someService: SomeService) {
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * This directive would be instantiated with a dependency on `SomeService`.
+	 *
+	 *
+	 * ### Injecting a directive from the current element
+	 *
+	 * Directives can inject other directives declared on the current element.
+	 *
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(dependency: Dependency) {
+	 *     expect(dependency.id).toEqual(3);
+	 *   }
+	 * }
+	 * ```
+	 * This directive would be instantiated with `Dependency` declared at the same element, in this case
+	 * `dependency="3"`.
+	 *
+	 * ### Injecting a directive from any ancestor elements
+	 *
+	 * Directives can inject other directives declared on any ancestor element (in the current Shadow
+	 * DOM), i.e. on the current element, the
+	 * parent element, or its parents.
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(@Host() dependency: Dependency) {
+	 *     expect(dependency.id).toEqual(2);
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * `@Host` checks the current element, the parent, as well as its parents recursively. If
+	 * `dependency="2"` didn't
+	 * exist on the direct parent, this injection would
+	 * have returned
+	 * `dependency="1"`.
+	 *
+	 *
+	 * ### Injecting a live collection of direct child directives
+	 *
+	 *
+	 * A directive can also query for other child directives. Since parent directives are instantiated
+	 * before child directives, a directive can't simply inject the list of child directives. Instead,
+	 * the directive injects a {@link QueryList}, which updates its contents as children are added,
+	 * removed, or moved by a directive that uses a {@link ViewContainerRef} such as a `ng-for`, an
+	 * `ng-if`, or an `ng-switch`.
+	 *
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(@Query(Dependency) dependencies:QueryList<Dependency>) {
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * This directive would be instantiated with a {@link QueryList} which contains `Dependency` 4 and
+	 * 6. Here, `Dependency` 5 would not be included, because it is not a direct child.
+	 *
+	 * ### Injecting a live collection of descendant directives
+	 *
+	 * By passing the descendant flag to `@Query` above, we can include the children of the child
+	 * elements.
+	 *
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(@Query(Dependency, {descendants: true}) dependencies:QueryList<Dependency>) {
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * This directive would be instantiated with a Query which would contain `Dependency` 4, 5 and 6.
+	 *
+	 * ### Optional injection
+	 *
+	 * The normal behavior of directives is to return an error when a specified dependency cannot be
+	 * resolved. If you
+	 * would like to inject `null` on unresolved dependency instead, you can annotate that dependency
+	 * with `@Optional()`.
+	 * This explicitly permits the author of a template to treat some of the surrounding directives as
+	 * optional.
+	 *
+	 * ```
+	 * @Directive({ selector: '[my-directive]' })
+	 * class MyDirective {
+	 *   constructor(@Optional() dependency:Dependency) {
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * This directive would be instantiated with a `Dependency` directive found on the current element.
+	 * If none can be
+	 * found, the injector supplies `null` instead of throwing an error.
+	 *
+	 * ## Example
+	 *
+	 * Here we use a decorator directive to simply define basic tool-tip behavior.
+	 *
+	 * ```
+	 * @Directive({
+	 *   selector: '[tooltip]',
+	 *   inputs: [
+	 *     'text: tooltip'
+	 *   ],
+	 *   host: {
+	 *     '(mouseenter)': 'onMouseEnter()',
+	 *     '(mouseleave)': 'onMouseLeave()'
+	 *   }
+	 * })
+	 * class Tooltip{
+	 *   text:string;
+	 *   overlay:Overlay; // NOT YET IMPLEMENTED
+	 *   overlayManager:OverlayManager; // NOT YET IMPLEMENTED
+	 *
+	 *   constructor(overlayManager:OverlayManager) {
+	 *     this.overlay = overlay;
+	 *   }
+	 *
+	 *   onMouseEnter() {
+	 *     // exact signature to be determined
+	 *     this.overlay = this.overlayManager.open(text, ...);
+	 *   }
+	 *
+	 *   onMouseLeave() {
+	 *     this.overlay.close();
+	 *     this.overlay = null;
+	 *   }
+	 * }
+	 * ```
+	 * In our HTML template, we can then add this behavior to a `<div>` or any other element with the
+	 * `tooltip` selector,
+	 * like so:
+	 *
+	 * ```
+	 * <div tooltip="some text here"></div>
+	 * ```
+	 *
+	 * Directives can also control the instantiation, destruction, and positioning of inline template
+	 * elements:
+	 *
+	 * A directive uses a {@link ViewContainerRef} to instantiate, insert, move, and destroy views at
+	 * runtime.
+	 * The {@link ViewContainerRef} is created as a result of `<template>` element, and represents a
+	 * location in the current view
+	 * where these actions are performed.
+	 *
+	 * Views are always created as children of the current {@link ViewMetadata}, and as siblings of the
+	 * `<template>` element. Thus a
+	 * directive in a child view cannot inject the directive that created it.
+	 *
+	 * Since directives that create views via ViewContainers are common in Angular, and using the full
+	 * `<template>` element syntax is wordy, Angular
+	 * also supports a shorthand notation: `<li *foo="bar">` and `<li template="foo: bar">` are
+	 * equivalent.
+	 *
+	 * Thus,
+	 *
+	 * ```
+	 * <ul>
+	 *   <li *foo="bar" title="text"></li>
+	 * </ul>
+	 * ```
+	 *
+	 * Expands in use to:
+	 *
+	 * ```
+	 * <ul>
+	 *   <template [foo]="bar">
+	 *     <li title="text"></li>
+	 *   </template>
+	 * </ul>
+	 * ```
+	 *
+	 * Notice that although the shorthand places `*foo="bar"` within the `<li>` element, the binding for
+	 * the directive
+	 * controller is correctly instantiated on the `<template>` element rather than the `<li>` element.
+	 *
+	 * ## Lifecycle hooks
+	 *
+	 * When the directive class implements some {@link angular2/lifecycle_hooks} the callbacks are
+	 * called by the change detection at defined points in time during the life of the directive.
+	 *
+	 * ## Example
+	 *
+	 * Let's suppose we want to implement the `unless` behavior, to conditionally include a template.
+	 *
+	 * Here is a simple directive that triggers on an `unless` selector:
+	 *
+	 * ```
+	 * @Directive({
+	 *   selector: '[unless]',
+	 *   inputs: ['unless']
+	 * })
+	 * export class Unless {
+	 *   viewContainer: ViewContainerRef;
+	 *   templateRef: TemplateRef;
+	 *   prevCondition: boolean;
+	 *
+	 *   constructor(viewContainer: ViewContainerRef, templateRef: TemplateRef) {
+	 *     this.viewContainer = viewContainer;
+	 *     this.templateRef = templateRef;
+	 *     this.prevCondition = null;
+	 *   }
+	 *
+	 *   set unless(newCondition) {
+	 *     if (newCondition && (isBlank(this.prevCondition) || !this.prevCondition)) {
+	 *       this.prevCondition = true;
+	 *       this.viewContainer.clear();
+	 *     } else if (!newCondition && (isBlank(this.prevCondition) || this.prevCondition)) {
+	 *       this.prevCondition = false;
+	 *       this.viewContainer.create(this.templateRef);
+	 *     }
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * We can then use this `unless` selector in a template:
+	 * ```
+	 * <ul>
+	 *   <li *unless="expr"></li>
+	 * </ul>
+	 * ```
+	 *
+	 * Once the directive instantiates the child view, the shorthand notation for the template expands
+	 * and the result is:
+	 *
+	 * ```
+	 * <ul>
+	 *   <template [unless]="exp">
+	 *     <li></li>
+	 *   </template>
+	 *   <li></li>
+	 * </ul>
+	 * ```
+	 *
+	 * Note also that although the `<li></li>` template still exists inside the `<template></template>`,
+	 * the instantiated
+	 * view occurs on the second `<li></li>` which is a sibling to the `<template>` element.
 	 */
 	exports.Directive = decorators_1.makeDecorator(directives_2.DirectiveMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ViewMetadata.
 	/**
-	 * {@link ViewMetadata} factory function.
+	 * Metadata properties available for configuring Views.
+	 *
+	 * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
+	 * `@View` annotation specifies the HTML template to use, and lists the directives that are active
+	 * within the template.
+	 *
+	 * When a component is instantiated, the template is loaded into the component's shadow root, and
+	 * the expressions and statements in the template are evaluated against the component.
+	 *
+	 * For details on the `@Component` annotation, see {@link ComponentMetadata}.
+	 *
+	 * ## Example
+	 *
+	 * ```
+	 * @Component({
+	 *   selector: 'greet',
+	 *   template: 'Hello {{name}}!',
+	 *   directives: [GreetUser, Bold]
+	 * })
+	 * class Greet {
+	 *   name: string;
+	 *
+	 *   constructor() {
+	 *     this.name = 'World';
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.View = decorators_1.makeDecorator(view_2.ViewMetadata, function (fn) { return fn.View = exports.View; });
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from AttributeMetadata.
 	/**
-	 * {@link AttributeMetadata} factory function.
+	 * Metadata properties available for configuring Views.
+	 *
+	 * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
+	 * `@View` annotation specifies the HTML template to use, and lists the directives that are active
+	 * within the template.
+	 *
+	 * When a component is instantiated, the template is loaded into the component's shadow root, and
+	 * the expressions and statements in the template are evaluated against the component.
+	 *
+	 * For details on the `@Component` annotation, see {@link ComponentMetadata}.
+	 *
+	 * ## Example
+	 *
+	 * ```
+	 * @Component({
+	 *   selector: 'greet',
+	 *   template: 'Hello {{name}}!',
+	 *   directives: [GreetUser, Bold]
+	 * })
+	 * class Greet {
+	 *   name: string;
+	 *
+	 *   constructor() {
+	 *     this.name = 'World';
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.Attribute = decorators_1.makeParamDecorator(di_2.AttributeMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from QueryMetadata.
 	/**
-	 * {@link QueryMetadata} factory function.
+	 * Declares an injectable parameter to be a live list of directives or variable
+	 * bindings from the content children of a directive.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/lY9m8HLy7z06vDoUaSN2?p=preview))
+	 *
+	 * Assume that `<tabs>` component would like to get a list its children `<pane>`
+	 * components as shown in this example:
+	 *
+	 * ```html
+	 * <tabs>
+	 *   <pane title="Overview">...</pane>
+	 *   <pane *ng-for="#o of objects" [title]="o.title">{{o.text}}</pane>
+	 * </tabs>
+	 * ```
+	 *
+	 * The preferred solution is to query for `Pane` directives using this decorator.
+	 *
+	 * ```javascript
+	 * @Component({
+	 *   selector: 'pane',
+	 *   inputs: ['title']
+	 * })
+	 * class Pane {
+	 *   title:string;
+	 * }
+	 *
+	 * @Component({
+	 *  selector: 'tabs',
+	 *  template: `
+	 *    <ul>
+	 *      <li *ng-for="#pane of panes">{{pane.title}}</li>
+	 *    </ul>
+	 *    <content></content>
+	 *  `
+	 * })
+	 * class Tabs {
+	 *   panes: QueryList<Pane>;
+	 *   constructor(@Query(Pane) panes:QueryList<Pane>) {
+	 *     this.panes = panes;
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * A query can look for variable bindings by passing in a string with desired binding symbol.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/sT2j25cH1dURAyBRCKx1?p=preview))
+	 * ```html
+	 * <seeker>
+	 *   <div #findme>...</div>
+	 * </seeker>
+	 *
+	 * @Component({ selector: 'foo' })
+	 * class seeker {
+	 *   constructor(@Query('findme') elList: QueryList<ElementRef>) {...}
+	 * }
+	 * ```
+	 *
+	 * In this case the object that is injected depend on the type of the variable
+	 * binding. It can be an ElementRef, a directive or a component.
+	 *
+	 * Passing in a comma separated list of variable bindings will query for all of them.
+	 *
+	 * ```html
+	 * <seeker>
+	 *   <div #find-me>...</div>
+	 *   <div #find-me-too>...</div>
+	 * </seeker>
+	 *
+	 *  @Component({
+	 *   selector: 'foo'
+	 * })
+	 * class Seeker {
+	 *   constructor(@Query('findMe, findMeToo') elList: QueryList<ElementRef>) {...}
+	 * }
+	 * ```
+	 *
+	 * Configure whether query looks for direct children or all descendants
+	 * of the querying element, by using the `descendants` parameter.
+	 * It is set to `false` by default.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/wtGeB977bv7qvA5FTYl9?p=preview))
+	 * ```html
+	 * <container #first>
+	 *   <item>a</item>
+	 *   <item>b</item>
+	 *   <container #second>
+	 *     <item>c</item>
+	 *   </container>
+	 * </container>
+	 * ```
+	 *
+	 * When querying for items, the first container will see only `a` and `b` by default,
+	 * but with `Query(TextDirective, {descendants: true})` it will see `c` too.
+	 *
+	 * The queried directives are kept in a depth-first pre-order with respect to their
+	 * positions in the DOM.
+	 *
+	 * Query does not look deep into any subcomponent views.
+	 *
+	 * Query is updated as part of the change-detection cycle. Since change detection
+	 * happens after construction of a directive, QueryList will always be empty when observed in the
+	 * constructor.
+	 *
+	 * The injected object is an unmodifiable live list.
+	 * See {@link QueryList} for more details.
 	 */
 	exports.Query = decorators_1.makeParamDecorator(di_2.QueryMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ContentChildrenMetadata.
 	/**
-	 * {@link ContentChildrenMetadata} factory function.
+	 * Configures a content query.
+	 *
+	 * Content queries are set before the `afterContentInit` callback is called.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * @Directive({
+	 *   selector: 'someDir'
+	 * })
+	 * class SomeDir {
+	 *   @ContentChildren(ChildDirective) contentChildren: QueryList<ChildDirective>;
+	 *
+	 *   afterContentInit() {
+	 *     // contentChildren is set
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.ContentChildren = decorators_1.makePropDecorator(di_2.ContentChildrenMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ContentChildMetadata.
 	/**
-	 * {@link ContentChildMetadata} factory function.
+	 * Configures a content query.
+	 *
+	 * Content queries are set before the `afterContentInit` callback is called.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * @Directive({
+	 *   selector: 'someDir'
+	 * })
+	 * class SomeDir {
+	 *   @ContentChild(ChildDirective) contentChild;
+	 *
+	 *   afterContentInit() {
+	 *     // contentChild is set
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.ContentChild = decorators_1.makePropDecorator(di_2.ContentChildMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ViewChildrenMetadata.
 	/**
-	 * {@link ViewChildrenMetadata} factory function.
+	 * Configures a view query.
+	 *
+	 * View queries are set before the `afterViewInit` callback is called.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * @Component({
+	 *   selector: 'someDir',
+	 *   templateUrl: 'someTemplate',
+	 *   directives: [ItemDirective]
+	 * })
+	 * class SomeDir {
+	 *   @ViewChildren(ItemDirective) viewChildren: QueryList<ItemDirective>;
+	 *
+	 *   afterViewInit() {
+	 *     // viewChildren is set
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.ViewChildren = decorators_1.makePropDecorator(di_2.ViewChildrenMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ViewChildMetadata.
 	/**
-	 * {@link ViewChildMetadata} factory function.
+	 * Configures a view query.
+	 *
+	 * View queries are set before the `afterViewInit` callback is called.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * @Component({
+	 *   selector: 'someDir',
+	 *   templateUrl: 'someTemplate',
+	 *   directives: [ItemDirective]
+	 * })
+	 * class SomeDir {
+	 *   @ViewChild(ItemDirective) viewChild:ItemDirective;
+	 *
+	 *   afterViewInit() {
+	 *     // viewChild is set
+	 *   }
+	 * }
+	 * ```
 	 */
 	exports.ViewChild = decorators_1.makePropDecorator(di_2.ViewChildMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from ViewQueryMetadata.
 	/**
-	 * {@link di/ViewQueryMetadata} factory function.
+	 * Similar to {@link QueryMetadata}, but querying the component view, instead of
+	 * the content children.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/eNsFHDf7YjyM6IzKxM1j?p=preview))
+	 *
+	 * ```javascript
+	 * @Component({...})
+	 * @View({
+	 *   template: `
+	 *     <item> a </item>
+	 *     <item> b </item>
+	 *     <item> c </item>
+	 *   `
+	 * })
+	 * class MyComponent {
+	 *   shown: boolean;
+	 *
+	 *   constructor(private @Query(Item) items:QueryList<Item>) {
+	 *     items.onChange(() => console.log(items.length));
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * Supports the same querying parameters as {@link QueryMetadata}, except
+	 * `descendants`. This always queries the whole view.
+	 *
+	 * As `shown` is flipped between true and false, items will contain zero of one
+	 * items.
+	 *
+	 * Specifies that a {@link QueryList} should be injected.
+	 *
+	 * The injected object is an iterable and observable live list.
+	 * See {@link QueryList} for more details.
 	 */
 	exports.ViewQuery = decorators_1.makeParamDecorator(di_2.ViewQueryMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from PipeMetadata.
 	/**
-	 * {@link PipeMetadata} factory function.
+	 * Declare reusable pipe function.
+	 *
+	 * ## Example
+	 *
+	 * ```
+	 * @Pipe({
+	 *   name: 'lowercase'
+	 * })
+	 * class Lowercase {
+	 *   transform(v, args) { return v.toLowerCase(); }
+	 * }
+	 * ```
 	 */
 	exports.Pipe = decorators_1.makeDecorator(directives_2.PipeMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from InputMetadata.
 	/**
-	 * {@link InputMetadata} factory function.
+	 * Declares a data-bound input property.
 	 *
-	 * See {@link InputMetadata}.
+	 * Angular automatically updates data-bound properties during change detection.
+	 *
+	 * `InputMetadata` takes an optional parameter that specifies the name
+	 * used when instantiating a component in the template. When not provided,
+	 * the name of the decorated property is used.
+	 *
+	 * ### Example
+	 *
+	 * The following example creates a component with two input properties.
+	 *
+	 * ```typescript
+	 * @Component({
+	 *   selector: 'bank-account',
+	 *   template: `
+	 *     Bank Name: {{bankName}}
+	 *     Account Id: {{id}}
+	 *   `
+	 * })
+	 * class BankAccount {
+	 *   @Input() bankName: string;
+	 *   @Input('account-id') id: string;
+	 *
+	 *   // this property is not bound, and won't be automatically updated by Angular
+	 *   normalizedBankName: string;
+	 * }
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   template: `
+	 *     <bank-account bank-name="RBC" account-id="4747"></bank-account>
+	 *   `,
+	 *   directives: [BankAccount]
+	 * })
+	 * class App {}
+	 *
+	 * bootstrap(App);
+	 * ```
 	 */
 	exports.Input = decorators_1.makePropDecorator(directives_2.InputMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from OutputMetadata.
 	/**
-	 * {@link OutputMetadata} factory function.
+	 * Declares an event-bound output property.
 	 *
-	 * See {@link OutputMetadatas}.
+	 * When an output property emits an event, an event handler attached to that event
+	 * the template is invoked.
+	 *
+	 * `OutputMetadata` takes an optional parameter that specifies the name
+	 * used when instantiating a component in the template. When not provided,
+	 * the name of the decorated property is used.
+	 *
+	 * ### Example
+	 *
+	 * ```typescript
+	 * @Directive({
+	 *   selector: 'interval-dir',
+	 * })
+	 * class IntervalDir {
+	 *   @Output() everySecond = new EventEmitter();
+	 *   @Output('everyFiveSeconds') five5Secs = new EventEmitter();
+	 *
+	 *   constructor() {
+	 *     setInterval(() => this.everySecond.next("event"), 1000);
+	 *     setInterval(() => this.five5Secs.next("event"), 5000);
+	 *   }
+	 * }
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   template: `
+	 *     <interval-dir (every-second)="everySecond()" (every-five-seconds)="everyFiveSeconds()">
+	 *     </interval-dir>
+	 *   `,
+	 *   directives: [IntervalDir]
+	 * })
+	 * class App {
+	 *   everySecond() { console.log('second'); }
+	 *   everyFiveSeconds() { console.log('five seconds'); }
+	 * }
+	 * bootstrap(App);
+	 * ```
 	 */
 	exports.Output = decorators_1.makePropDecorator(directives_2.OutputMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from HostBindingMetadata.
 	/**
-	 * {@link HostBindingMetadata} factory function.
+	 * Declares a host property binding.
+	 *
+	 * Angular automatically checks host property bindings during change detection.
+	 * If a binding changes, it will update the host element of the directive.
+	 *
+	 * `HostBindingMetadata` takes an optional parameter that specifies the property
+	 * name of the host element that will be updated. When not provided,
+	 * the class property name is used.
+	 *
+	 * ### Example
+	 *
+	 * The following example creates a directive that sets the `valid` and `invalid` classes
+	 * on the DOM element that has ng-model directive on it.
+	 *
+	 * ```typescript
+	 * @Directive({selector: '[ng-model]'})
+	 * class NgModelStatus {
+	 *   constructor(public control:NgModel) {}
+	 *   @HostBinding('[class.valid]') get valid { return this.control.valid; }
+	 *   @HostBinding('[class.invalid]') get invalid { return this.control.invalid; }
+	 * }
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   template: `<input [(ng-model)]="prop">`,
+	 *   directives: [FORM_DIRECTIVES, NgModelStatus]
+	 * })
+	 * class App {
+	 *   prop;
+	 * }
+	 *
+	 * bootstrap(App);
+	 * ```
 	 */
 	exports.HostBinding = decorators_1.makePropDecorator(directives_2.HostBindingMetadata);
+	// TODO(alexeagle): remove the duplication of this doc. It is copied from HostListenerMetadata.
 	/**
-	 * {@link HostListenerMetadata} factory function.
+	 * Declares a host listener.
+	 *
+	 * Angular will invoke the decorated method when the host element emits the specified event.
+	 *
+	 * If the decorated method returns `false`, then `preventDefault` is applied on the DOM
+	 * event.
+	 *
+	 * ### Example
+	 *
+	 * The following example declares a directive that attaches a click listener to the button and
+	 * counts clicks.
+	 *
+	 * ```typescript
+	 * @Directive({selector: 'button[counting]'})
+	 * class CountClicks {
+	 *   numberOfClicks = 0;
+	 *
+	 *   @HostListener('click', ['$event.target'])
+	 *   onClick(btn) {
+	 *     console.log("button", btn, "number of clicks:", this.numberOfClicks++);
+	 *   }
+	 * }
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   template: `<button counting>Increment</button>`,
+	 *   directives: [CountClicks]
+	 * })
+	 * class App {}
+	 *
+	 * bootstrap(App);
+	 * ```
 	 */
 	exports.HostListener = decorators_1.makePropDecorator(directives_2.HostListenerMetadata);
 	//# sourceMappingURL=metadata.js.map
@@ -6309,15 +7141,12 @@
 	 *   selector: 'pane',
 	 *   inputs: ['title']
 	 * })
-	 * @View(...)
 	 * class Pane {
 	 *   title:string;
 	 * }
 	 *
 	 * @Component({
-	 *   selector: 'tabs'
-	 * })
-	 * @View({
+	 *  selector: 'tabs',
 	 *  template: `
 	 *    <ul>
 	 *      <li *ng-for="#pane of panes">{{pane.title}}</li>
@@ -6341,10 +7170,7 @@
 	 *   <div #findme>...</div>
 	 * </seeker>
 	 *
-	 * @Component({
-	 *   selector: 'foo'
-	 * })
-	 * @View(...)
+	 * @Component({ selector: 'foo' })
 	 * class seeker {
 	 *   constructor(@Query('findme') elList: QueryList<ElementRef>) {...}
 	 * }
@@ -6364,7 +7190,6 @@
 	 *  @Component({
 	 *   selector: 'foo'
 	 * })
-	 * @View(...)
 	 * class Seeker {
 	 *   constructor(@Query('findMe, findMeToo') elList: QueryList<ElementRef>) {...}
 	 * }
@@ -6583,9 +7408,10 @@
 	 *
 	 * ```
 	 * @Component({
-	 *   selector: 'someDir'
+	 *   selector: 'someDir',
+	 *   templateUrl: 'someTemplate',
+	 *   directives: [ItemDirective]
 	 * })
-	 * @View({templateUrl: 'someTemplate', directives: [ItemDirective]})
 	 * class SomeDir {
 	 *   @ViewChildren(ItemDirective) viewChildren: QueryList<ItemDirective>;
 	 *
@@ -6616,9 +7442,10 @@
 	 *
 	 * ```
 	 * @Component({
-	 *   selector: 'someDir'
+	 *   selector: 'someDir',
+	 *   templateUrl: 'someTemplate',
+	 *   directives: [ItemDirective]
 	 * })
-	 * @View({templateUrl: 'someTemplate', directives: [ItemDirective]})
 	 * class SomeDir {
 	 *   @ViewChild(ItemDirective) viewChild:ItemDirective;
 	 *
@@ -6646,8 +7473,7 @@
 /* 44 */
 /***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';/// <reference path="../../../manual_typings/globals.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -6830,7 +7656,7 @@
 	var NumberParseError = (function (_super) {
 	    __extends(NumberParseError, _super);
 	    function NumberParseError(message) {
-	        _super.call(this, message);
+	        _super.call(this);
 	        this.message = message;
 	    }
 	    NumberParseError.prototype.toString = function () { return this.message; };
@@ -6976,6 +7802,7 @@
 	        if (milliseconds === void 0) { milliseconds = 0; }
 	        return new exports.Date(year, month - 1, day, hour, minutes, seconds, milliseconds);
 	    };
+	    DateWrapper.fromISOString = function (str) { return new exports.Date(str); };
 	    DateWrapper.fromMillis = function (ms) { return new exports.Date(ms); };
 	    DateWrapper.toMillis = function (date) { return date.getTime(); };
 	    DateWrapper.now = function () { return new exports.Date(); };
@@ -7052,21 +7879,23 @@
 	exports.resolveForwardRef = forward_ref_1.resolveForwardRef;
 	var injector_1 = __webpack_require__(50);
 	exports.Injector = injector_1.Injector;
-	var binding_1 = __webpack_require__(52);
-	exports.Binding = binding_1.Binding;
-	exports.BindingBuilder = binding_1.BindingBuilder;
-	exports.ResolvedFactory = binding_1.ResolvedFactory;
-	exports.Dependency = binding_1.Dependency;
-	exports.bind = binding_1.bind;
+	var provider_1 = __webpack_require__(52);
+	exports.Binding = provider_1.Binding;
+	exports.ProviderBuilder = provider_1.ProviderBuilder;
+	exports.ResolvedFactory = provider_1.ResolvedFactory;
+	exports.Dependency = provider_1.Dependency;
+	exports.bind = provider_1.bind;
+	exports.Provider = provider_1.Provider;
+	exports.provide = provider_1.provide;
 	var key_1 = __webpack_require__(58);
 	exports.Key = key_1.Key;
 	exports.TypeLiteral = key_1.TypeLiteral;
 	var exceptions_1 = __webpack_require__(60);
-	exports.NoBindingError = exceptions_1.NoBindingError;
-	exports.AbstractBindingError = exceptions_1.AbstractBindingError;
+	exports.NoProviderError = exceptions_1.NoProviderError;
+	exports.AbstractProviderError = exceptions_1.AbstractProviderError;
 	exports.CyclicDependencyError = exceptions_1.CyclicDependencyError;
 	exports.InstantiationError = exceptions_1.InstantiationError;
-	exports.InvalidBindingError = exceptions_1.InvalidBindingError;
+	exports.InvalidProviderError = exceptions_1.InvalidProviderError;
 	exports.NoAnnotationError = exceptions_1.NoAnnotationError;
 	exports.OutOfBoundsError = exceptions_1.OutOfBoundsError;
 	var opaque_token_1 = __webpack_require__(61);
@@ -7106,7 +7935,7 @@
 	 * }
 	 *
 	 * var injector = Injector.resolveAndCreate([
-	 *  bind("MyEngine").toClass(Engine),
+	 *  provide("MyEngine", {useClass: Engine}),
 	 *  Car
 	 * ]);
 	 *
@@ -7340,9 +8169,7 @@
 	 *
 	 * @Component({
 	 *   selector: 'parent-cmp',
-	 *   bindings: [HostService]
-	 * })
-	 * @View({
+	 *   providers: [HostService],
 	 *   template: `
 	 *     Dir: <child-directive></child-directive>
 	 *   `,
@@ -7353,9 +8180,7 @@
 	 *
 	 * @Component({
 	 *   selector: 'app',
-	 *   bindings: [OtherService]
-	 * })
-	 * @View({
+	 *   providers: [OtherService],
 	 *   template: `
 	 *     Parent: <parent-cmp></parent-cmp>
 	 *   `,
@@ -7734,7 +8559,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
-	var binding_1 = __webpack_require__(52);
+	var provider_1 = __webpack_require__(52);
 	var exceptions_1 = __webpack_require__(60);
 	var lang_1 = __webpack_require__(44);
 	var key_1 = __webpack_require__(58);
@@ -7743,19 +8568,19 @@
 	var _MAX_CONSTRUCTION_COUNTER = 10;
 	exports.UNDEFINED = lang_1.CONST_EXPR(new Object());
 	/**
-	 * Visibility of a {@link Binding}.
+	 * Visibility of a {@link Provider}.
 	 */
 	(function (Visibility) {
 	    /**
-	     * A `Public` {@link Binding} is only visible to regular (as opposed to host) child injectors.
+	     * A `Public` {@link Provider} is only visible to regular (as opposed to host) child injectors.
 	     */
 	    Visibility[Visibility["Public"] = 0] = "Public";
 	    /**
-	     * A `Private` {@link Binding} is only visible to host (as opposed to regular) child injectors.
+	     * A `Private` {@link Provider} is only visible to host (as opposed to regular) child injectors.
 	     */
 	    Visibility[Visibility["Private"] = 1] = "Private";
 	    /**
-	     * A `PublicAndPrivate` {@link Binding} is visible to both host and regular child injectors.
+	     * A `PublicAndPrivate` {@link Provider} is visible to both host and regular child injectors.
 	     */
 	    Visibility[Visibility["PublicAndPrivate"] = 2] = "PublicAndPrivate";
 	})(exports.Visibility || (exports.Visibility = {}));
@@ -7766,16 +8591,16 @@
 	}
 	var ProtoInjectorInlineStrategy = (function () {
 	    function ProtoInjectorInlineStrategy(protoEI, bwv) {
-	        this.binding0 = null;
-	        this.binding1 = null;
-	        this.binding2 = null;
-	        this.binding3 = null;
-	        this.binding4 = null;
-	        this.binding5 = null;
-	        this.binding6 = null;
-	        this.binding7 = null;
-	        this.binding8 = null;
-	        this.binding9 = null;
+	        this.provider0 = null;
+	        this.provider1 = null;
+	        this.provider2 = null;
+	        this.provider3 = null;
+	        this.provider4 = null;
+	        this.provider5 = null;
+	        this.provider6 = null;
+	        this.provider7 = null;
+	        this.provider8 = null;
+	        this.provider9 = null;
 	        this.keyId0 = null;
 	        this.keyId1 = null;
 	        this.keyId2 = null;
@@ -7798,77 +8623,77 @@
 	        this.visibility9 = null;
 	        var length = bwv.length;
 	        if (length > 0) {
-	            this.binding0 = bwv[0].binding;
+	            this.provider0 = bwv[0].provider;
 	            this.keyId0 = bwv[0].getKeyId();
 	            this.visibility0 = bwv[0].visibility;
 	        }
 	        if (length > 1) {
-	            this.binding1 = bwv[1].binding;
+	            this.provider1 = bwv[1].provider;
 	            this.keyId1 = bwv[1].getKeyId();
 	            this.visibility1 = bwv[1].visibility;
 	        }
 	        if (length > 2) {
-	            this.binding2 = bwv[2].binding;
+	            this.provider2 = bwv[2].provider;
 	            this.keyId2 = bwv[2].getKeyId();
 	            this.visibility2 = bwv[2].visibility;
 	        }
 	        if (length > 3) {
-	            this.binding3 = bwv[3].binding;
+	            this.provider3 = bwv[3].provider;
 	            this.keyId3 = bwv[3].getKeyId();
 	            this.visibility3 = bwv[3].visibility;
 	        }
 	        if (length > 4) {
-	            this.binding4 = bwv[4].binding;
+	            this.provider4 = bwv[4].provider;
 	            this.keyId4 = bwv[4].getKeyId();
 	            this.visibility4 = bwv[4].visibility;
 	        }
 	        if (length > 5) {
-	            this.binding5 = bwv[5].binding;
+	            this.provider5 = bwv[5].provider;
 	            this.keyId5 = bwv[5].getKeyId();
 	            this.visibility5 = bwv[5].visibility;
 	        }
 	        if (length > 6) {
-	            this.binding6 = bwv[6].binding;
+	            this.provider6 = bwv[6].provider;
 	            this.keyId6 = bwv[6].getKeyId();
 	            this.visibility6 = bwv[6].visibility;
 	        }
 	        if (length > 7) {
-	            this.binding7 = bwv[7].binding;
+	            this.provider7 = bwv[7].provider;
 	            this.keyId7 = bwv[7].getKeyId();
 	            this.visibility7 = bwv[7].visibility;
 	        }
 	        if (length > 8) {
-	            this.binding8 = bwv[8].binding;
+	            this.provider8 = bwv[8].provider;
 	            this.keyId8 = bwv[8].getKeyId();
 	            this.visibility8 = bwv[8].visibility;
 	        }
 	        if (length > 9) {
-	            this.binding9 = bwv[9].binding;
+	            this.provider9 = bwv[9].provider;
 	            this.keyId9 = bwv[9].getKeyId();
 	            this.visibility9 = bwv[9].visibility;
 	        }
 	    }
-	    ProtoInjectorInlineStrategy.prototype.getBindingAtIndex = function (index) {
+	    ProtoInjectorInlineStrategy.prototype.getProviderAtIndex = function (index) {
 	        if (index == 0)
-	            return this.binding0;
+	            return this.provider0;
 	        if (index == 1)
-	            return this.binding1;
+	            return this.provider1;
 	        if (index == 2)
-	            return this.binding2;
+	            return this.provider2;
 	        if (index == 3)
-	            return this.binding3;
+	            return this.provider3;
 	        if (index == 4)
-	            return this.binding4;
+	            return this.provider4;
 	        if (index == 5)
-	            return this.binding5;
+	            return this.provider5;
 	        if (index == 6)
-	            return this.binding6;
+	            return this.provider6;
 	        if (index == 7)
-	            return this.binding7;
+	            return this.provider7;
 	        if (index == 8)
-	            return this.binding8;
+	            return this.provider8;
 	        if (index == 9)
-	            return this.binding9;
+	            return this.provider9;
 	        throw new exceptions_1.OutOfBoundsError(index);
 	    };
 	    ProtoInjectorInlineStrategy.prototype.createInjectorStrategy = function (injector) {
@@ -7880,20 +8705,20 @@
 	var ProtoInjectorDynamicStrategy = (function () {
 	    function ProtoInjectorDynamicStrategy(protoInj, bwv) {
 	        var len = bwv.length;
-	        this.bindings = collection_1.ListWrapper.createFixedSize(len);
+	        this.providers = collection_1.ListWrapper.createFixedSize(len);
 	        this.keyIds = collection_1.ListWrapper.createFixedSize(len);
 	        this.visibilities = collection_1.ListWrapper.createFixedSize(len);
 	        for (var i = 0; i < len; i++) {
-	            this.bindings[i] = bwv[i].binding;
+	            this.providers[i] = bwv[i].provider;
 	            this.keyIds[i] = bwv[i].getKeyId();
 	            this.visibilities[i] = bwv[i].visibility;
 	        }
 	    }
-	    ProtoInjectorDynamicStrategy.prototype.getBindingAtIndex = function (index) {
-	        if (index < 0 || index >= this.bindings.length) {
+	    ProtoInjectorDynamicStrategy.prototype.getProviderAtIndex = function (index) {
+	        if (index < 0 || index >= this.providers.length) {
 	            throw new exceptions_1.OutOfBoundsError(index);
 	        }
-	        return this.bindings[index];
+	        return this.providers[index];
 	    };
 	    ProtoInjectorDynamicStrategy.prototype.createInjectorStrategy = function (ei) {
 	        return new InjectorDynamicStrategy(this, ei);
@@ -7903,12 +8728,12 @@
 	exports.ProtoInjectorDynamicStrategy = ProtoInjectorDynamicStrategy;
 	var ProtoInjector = (function () {
 	    function ProtoInjector(bwv) {
-	        this.numberOfBindings = bwv.length;
+	        this.numberOfProviders = bwv.length;
 	        this._strategy = bwv.length > _MAX_CONSTRUCTION_COUNTER ?
 	            new ProtoInjectorDynamicStrategy(this, bwv) :
 	            new ProtoInjectorInlineStrategy(this, bwv);
 	    }
-	    ProtoInjector.prototype.getBindingAtIndex = function (index) { return this._strategy.getBindingAtIndex(index); };
+	    ProtoInjector.prototype.getProviderAtIndex = function (index) { return this._strategy.getProviderAtIndex(index); };
 	    return ProtoInjector;
 	})();
 	exports.ProtoInjector = ProtoInjector;
@@ -7928,8 +8753,8 @@
 	        this.obj9 = exports.UNDEFINED;
 	    }
 	    InjectorInlineStrategy.prototype.resetConstructionCounter = function () { this.injector._constructionCounter = 0; };
-	    InjectorInlineStrategy.prototype.instantiateBinding = function (binding, visibility) {
-	        return this.injector._new(binding, visibility);
+	    InjectorInlineStrategy.prototype.instantiateProvider = function (provider, visibility) {
+	        return this.injector._new(provider, visibility);
 	    };
 	    InjectorInlineStrategy.prototype.attach = function (parent, isHost) {
 	        var inj = this.injector;
@@ -7941,61 +8766,61 @@
 	        var inj = this.injector;
 	        if (p.keyId0 === keyId && canSee(p.visibility0, visibility)) {
 	            if (this.obj0 === exports.UNDEFINED) {
-	                this.obj0 = inj._new(p.binding0, p.visibility0);
+	                this.obj0 = inj._new(p.provider0, p.visibility0);
 	            }
 	            return this.obj0;
 	        }
 	        if (p.keyId1 === keyId && canSee(p.visibility1, visibility)) {
 	            if (this.obj1 === exports.UNDEFINED) {
-	                this.obj1 = inj._new(p.binding1, p.visibility1);
+	                this.obj1 = inj._new(p.provider1, p.visibility1);
 	            }
 	            return this.obj1;
 	        }
 	        if (p.keyId2 === keyId && canSee(p.visibility2, visibility)) {
 	            if (this.obj2 === exports.UNDEFINED) {
-	                this.obj2 = inj._new(p.binding2, p.visibility2);
+	                this.obj2 = inj._new(p.provider2, p.visibility2);
 	            }
 	            return this.obj2;
 	        }
 	        if (p.keyId3 === keyId && canSee(p.visibility3, visibility)) {
 	            if (this.obj3 === exports.UNDEFINED) {
-	                this.obj3 = inj._new(p.binding3, p.visibility3);
+	                this.obj3 = inj._new(p.provider3, p.visibility3);
 	            }
 	            return this.obj3;
 	        }
 	        if (p.keyId4 === keyId && canSee(p.visibility4, visibility)) {
 	            if (this.obj4 === exports.UNDEFINED) {
-	                this.obj4 = inj._new(p.binding4, p.visibility4);
+	                this.obj4 = inj._new(p.provider4, p.visibility4);
 	            }
 	            return this.obj4;
 	        }
 	        if (p.keyId5 === keyId && canSee(p.visibility5, visibility)) {
 	            if (this.obj5 === exports.UNDEFINED) {
-	                this.obj5 = inj._new(p.binding5, p.visibility5);
+	                this.obj5 = inj._new(p.provider5, p.visibility5);
 	            }
 	            return this.obj5;
 	        }
 	        if (p.keyId6 === keyId && canSee(p.visibility6, visibility)) {
 	            if (this.obj6 === exports.UNDEFINED) {
-	                this.obj6 = inj._new(p.binding6, p.visibility6);
+	                this.obj6 = inj._new(p.provider6, p.visibility6);
 	            }
 	            return this.obj6;
 	        }
 	        if (p.keyId7 === keyId && canSee(p.visibility7, visibility)) {
 	            if (this.obj7 === exports.UNDEFINED) {
-	                this.obj7 = inj._new(p.binding7, p.visibility7);
+	                this.obj7 = inj._new(p.provider7, p.visibility7);
 	            }
 	            return this.obj7;
 	        }
 	        if (p.keyId8 === keyId && canSee(p.visibility8, visibility)) {
 	            if (this.obj8 === exports.UNDEFINED) {
-	                this.obj8 = inj._new(p.binding8, p.visibility8);
+	                this.obj8 = inj._new(p.provider8, p.visibility8);
 	            }
 	            return this.obj8;
 	        }
 	        if (p.keyId9 === keyId && canSee(p.visibility9, visibility)) {
 	            if (this.obj9 === exports.UNDEFINED) {
-	                this.obj9 = inj._new(p.binding9, p.visibility9);
+	                this.obj9 = inj._new(p.provider9, p.visibility9);
 	            }
 	            return this.obj9;
 	        }
@@ -8032,12 +8857,12 @@
 	    function InjectorDynamicStrategy(protoStrategy, injector) {
 	        this.protoStrategy = protoStrategy;
 	        this.injector = injector;
-	        this.objs = collection_1.ListWrapper.createFixedSize(protoStrategy.bindings.length);
+	        this.objs = collection_1.ListWrapper.createFixedSize(protoStrategy.providers.length);
 	        collection_1.ListWrapper.fill(this.objs, exports.UNDEFINED);
 	    }
 	    InjectorDynamicStrategy.prototype.resetConstructionCounter = function () { this.injector._constructionCounter = 0; };
-	    InjectorDynamicStrategy.prototype.instantiateBinding = function (binding, visibility) {
-	        return this.injector._new(binding, visibility);
+	    InjectorDynamicStrategy.prototype.instantiateProvider = function (provider, visibility) {
+	        return this.injector._new(provider, visibility);
 	    };
 	    InjectorDynamicStrategy.prototype.attach = function (parent, isHost) {
 	        var inj = this.injector;
@@ -8049,7 +8874,7 @@
 	        for (var i = 0; i < p.keyIds.length; i++) {
 	            if (p.keyIds[i] === keyId && canSee(p.visibilities[i], visibility)) {
 	                if (this.objs[i] === exports.UNDEFINED) {
-	                    this.objs[i] = this.injector._new(p.bindings[i], p.visibilities[i]);
+	                    this.objs[i] = this.injector._new(p.providers[i], p.visibilities[i]);
 	                }
 	                return this.objs[i];
 	            }
@@ -8066,16 +8891,16 @@
 	    return InjectorDynamicStrategy;
 	})();
 	exports.InjectorDynamicStrategy = InjectorDynamicStrategy;
-	var BindingWithVisibility = (function () {
-	    function BindingWithVisibility(binding, visibility) {
-	        this.binding = binding;
+	var ProviderWithVisibility = (function () {
+	    function ProviderWithVisibility(provider, visibility) {
+	        this.provider = provider;
 	        this.visibility = visibility;
 	    }
 	    ;
-	    BindingWithVisibility.prototype.getKeyId = function () { return this.binding.key.id; };
-	    return BindingWithVisibility;
+	    ProviderWithVisibility.prototype.getKeyId = function () { return this.provider.key.id; };
+	    return ProviderWithVisibility;
 	})();
-	exports.BindingWithVisibility = BindingWithVisibility;
+	exports.ProviderWithVisibility = ProviderWithVisibility;
 	/**
 	 * A dependency injection container used for instantiating objects and resolving dependencies.
 	 *
@@ -8116,19 +8941,21 @@
 	        if (_parent === void 0) { _parent = null; }
 	        if (_depProvider === void 0) { _depProvider = null; }
 	        if (_debugContext === void 0) { _debugContext = null; }
-	        this._proto = _proto;
-	        this._parent = _parent;
 	        this._depProvider = _depProvider;
 	        this._debugContext = _debugContext;
+	        /** @internal */
 	        this._isHost = false;
+	        /** @internal */
 	        this._constructionCounter = 0;
+	        this._proto = _proto;
+	        this._parent = _parent;
 	        this._strategy = _proto._strategy.createInjectorStrategy(this);
 	    }
 	    /**
-	     * Turns an array of binding definitions into an array of resolved bindings.
+	     * Turns an array of provider definitions into an array of resolved providers.
 	     *
 	     * A resolution is a process of flattening multiple nested arrays and converting individual
-	     * bindings into an array of {@link ResolvedBinding}s.
+	     * providers into an array of {@link ResolvedProvider}s.
 	     *
 	     * ### Example ([live demo](http://plnkr.co/edit/AiXTHi?p=preview))
 	     *
@@ -8142,29 +8969,29 @@
 	     *   constructor(public engine:Engine) {}
 	     * }
 	     *
-	     * var bindings = Injector.resolve([Car, [[Engine]]]);
+	     * var providers = Injector.resolve([Car, [[Engine]]]);
 	     *
-	     * expect(bindings.length).toEqual(2);
+	     * expect(providers.length).toEqual(2);
 	     *
-	     * expect(bindings[0] instanceof ResolvedBinding).toBe(true);
-	     * expect(bindings[0].key.displayName).toBe("Car");
-	     * expect(bindings[0].dependencies.length).toEqual(1);
-	     * expect(bindings[0].factory).toBeDefined();
+	     * expect(providers[0] instanceof ResolvedProvider).toBe(true);
+	     * expect(providers[0].key.displayName).toBe("Car");
+	     * expect(providers[0].dependencies.length).toEqual(1);
+	     * expect(providers[0].factory).toBeDefined();
 	     *
-	     * expect(bindings[1].key.displayName).toBe("Engine");
+	     * expect(providers[1].key.displayName).toBe("Engine");
 	     * });
 	     * ```
 	     *
-	     * See {@link fromResolvedBindings} for more info.
+	     * See {@link Injector#fromResolvedProviders} for more info.
 	     */
-	    Injector.resolve = function (bindings) {
-	        return binding_1.resolveBindings(bindings);
+	    Injector.resolve = function (providers) {
+	        return provider_1.resolveProviders(providers);
 	    };
 	    /**
-	     * Resolves an array of bindings and creates an injector from those bindings.
+	     * Resolves an array of providers and creates an injector from those providers.
 	     *
-	     * The passed-in bindings can be an array of `Type`, {@link Binding},
-	     * or a recursive array of more bindings.
+	     * The passed-in providers can be an array of `Type`, {@link Provider},
+	     * or a recursive array of more providers.
 	     *
 	     * ### Example ([live demo](http://plnkr.co/edit/ePOccA?p=preview))
 	     *
@@ -8182,16 +9009,16 @@
 	     * expect(injector.get(Car) instanceof Car).toBe(true);
 	     * ```
 	     *
-	     * This function is slower than the corresponding `fromResolvedBindings`
-	     * because it needs to resolve the passed-in bindings first.
-	     * See {@link resolve} and {@link fromResolvedBindings}.
+	     * This function is slower than the corresponding `fromResolvedProviders`
+	     * because it needs to resolve the passed-in providers first.
+	     * See {@link Injector#resolve} and {@link Injector#fromResolvedProviders}.
 	     */
-	    Injector.resolveAndCreate = function (bindings) {
-	        var resolvedBindings = Injector.resolve(bindings);
-	        return Injector.fromResolvedBindings(resolvedBindings);
+	    Injector.resolveAndCreate = function (providers) {
+	        var resolvedProviders = Injector.resolve(providers);
+	        return Injector.fromResolvedProviders(resolvedProviders);
 	    };
 	    /**
-	     * Creates an injector from previously resolved bindings.
+	     * Creates an injector from previously resolved providers.
 	     *
 	     * This API is the recommended way to construct injectors in performance-sensitive parts.
 	     *
@@ -8207,15 +9034,21 @@
 	     *   constructor(public engine:Engine) {}
 	     * }
 	     *
-	     * var bindings = Injector.resolve([Car, Engine]);
-	     * var injector = Injector.fromResolvedBindings(bindings);
+	     * var providers = Injector.resolve([Car, Engine]);
+	     * var injector = Injector.fromResolvedProviders(providers);
 	     * expect(injector.get(Car) instanceof Car).toBe(true);
 	     * ```
 	     */
-	    Injector.fromResolvedBindings = function (bindings) {
-	        var bd = bindings.map(function (b) { return new BindingWithVisibility(b, Visibility.Public); });
+	    Injector.fromResolvedProviders = function (providers) {
+	        var bd = providers.map(function (b) { return new ProviderWithVisibility(b, Visibility.Public); });
 	        var proto = new ProtoInjector(bd);
 	        return new Injector(proto, null, null);
+	    };
+	    /**
+	     * @deprecated
+	     */
+	    Injector.fromResolvedBindings = function (providers) {
+	        return Injector.fromResolvedProviders(providers);
 	    };
 	    /**
 	     * @internal
@@ -8223,13 +9056,13 @@
 	    Injector.prototype.debugContext = function () { return this._debugContext(); };
 	    /**
 	     * Retrieves an instance from the injector based on the provided token.
-	     * Throws {@link NoBindingError} if not found.
+	     * Throws {@link NoProviderError} if not found.
 	     *
 	     * ### Example ([live demo](http://plnkr.co/edit/HeXSHg?p=preview))
 	     *
 	     * ```typescript
 	     * var injector = Injector.resolveAndCreate([
-	     *   bind("validToken").toValue("Value")
+	     *   provide("validToken", {useValue: "Value"})
 	     * ]);
 	     * expect(injector.get("validToken")).toEqual("Value");
 	     * expect(() => injector.get("invalidToken")).toThrowError();
@@ -8253,7 +9086,7 @@
 	     *
 	     * ```typescript
 	     * var injector = Injector.resolveAndCreate([
-	     *   bind("validToken").toValue("Value")
+	     *   provide("validToken", {useValue: "Value"})
 	     * ]);
 	     * expect(injector.getOptional("validToken")).toEqual("Value");
 	     * expect(injector.getOptional("invalidToken")).toBe(null);
@@ -8303,38 +9136,38 @@
 	        configurable: true
 	    });
 	    /**
-	     * Resolves an array of bindings and creates a child injector from those bindings.
+	     * Resolves an array of providers and creates a child injector from those providers.
 	     *
 	     * <!-- TODO: Add a link to the section of the user guide talking about hierarchical injection.
 	     * -->
 	     *
-	     * The passed-in bindings can be an array of `Type`, {@link Binding},
-	     * or a recursive array of more bindings.
+	     * The passed-in providers can be an array of `Type`, {@link Provider},
+	     * or a recursive array of more providers.
 	     *
 	     * ### Example ([live demo](http://plnkr.co/edit/opB3T4?p=preview))
 	     *
 	     * ```typescript
-	     * class ParentBinding {}
-	     * class ChildBinding {}
+	     * class ParentProvider {}
+	     * class ChildProvider {}
 	     *
-	     * var parent = Injector.resolveAndCreate([ParentBinding]);
-	     * var child = parent.resolveAndCreateChild([ChildBinding]);
+	     * var parent = Injector.resolveAndCreate([ParentProvider]);
+	     * var child = parent.resolveAndCreateChild([ChildProvider]);
 	     *
-	     * expect(child.get(ParentBinding) instanceof ParentBinding).toBe(true);
-	     * expect(child.get(ChildBinding) instanceof ChildBinding).toBe(true);
-	     * expect(child.get(ParentBinding)).toBe(parent.get(ParentBinding));
+	     * expect(child.get(ParentProvider) instanceof ParentProvider).toBe(true);
+	     * expect(child.get(ChildProvider) instanceof ChildProvider).toBe(true);
+	     * expect(child.get(ParentProvider)).toBe(parent.get(ParentProvider));
 	     * ```
 	     *
 	     * This function is slower than the corresponding `createChildFromResolved`
-	     * because it needs to resolve the passed-in bindings first.
-	     * See {@link resolve} and {@link createChildFromResolved}.
+	     * because it needs to resolve the passed-in providers first.
+	     * See {@link Injector#resolve} and {@link Injector#createChildFromResolved}.
 	     */
-	    Injector.prototype.resolveAndCreateChild = function (bindings) {
-	        var resolvedBindings = Injector.resolve(bindings);
-	        return this.createChildFromResolved(resolvedBindings);
+	    Injector.prototype.resolveAndCreateChild = function (providers) {
+	        var resolvedProviders = Injector.resolve(providers);
+	        return this.createChildFromResolved(resolvedProviders);
 	    };
 	    /**
-	     * Creates a child injector from previously resolved bindings.
+	     * Creates a child injector from previously resolved providers.
 	     *
 	     * <!-- TODO: Add a link to the section of the user guide talking about hierarchical injection.
 	     * -->
@@ -8344,29 +9177,29 @@
 	     * ### Example ([live demo](http://plnkr.co/edit/VhyfjN?p=preview))
 	     *
 	     * ```typescript
-	     * class ParentBinding {}
-	     * class ChildBinding {}
+	     * class ParentProvider {}
+	     * class ChildProvider {}
 	     *
-	     * var parentBindings = Injector.resolve([ParentBinding]);
-	     * var childBindings = Injector.resolve([ChildBinding]);
+	     * var parentProviders = Injector.resolve([ParentProvider]);
+	     * var childProviders = Injector.resolve([ChildProvider]);
 	     *
-	     * var parent = Injector.fromResolvedBindings(parentBindings);
-	     * var child = parent.createChildFromResolved(childBindings);
+	     * var parent = Injector.fromResolvedProviders(parentProviders);
+	     * var child = parent.createChildFromResolved(childProviders);
 	     *
-	     * expect(child.get(ParentBinding) instanceof ParentBinding).toBe(true);
-	     * expect(child.get(ChildBinding) instanceof ChildBinding).toBe(true);
-	     * expect(child.get(ParentBinding)).toBe(parent.get(ParentBinding));
+	     * expect(child.get(ParentProvider) instanceof ParentProvider).toBe(true);
+	     * expect(child.get(ChildProvider) instanceof ChildProvider).toBe(true);
+	     * expect(child.get(ParentProvider)).toBe(parent.get(ParentProvider));
 	     * ```
 	     */
-	    Injector.prototype.createChildFromResolved = function (bindings) {
-	        var bd = bindings.map(function (b) { return new BindingWithVisibility(b, Visibility.Public); });
+	    Injector.prototype.createChildFromResolved = function (providers) {
+	        var bd = providers.map(function (b) { return new ProviderWithVisibility(b, Visibility.Public); });
 	        var proto = new ProtoInjector(bd);
 	        var inj = new Injector(proto, null, null);
 	        inj._parent = this;
 	        return inj;
 	    };
 	    /**
-	     * Resolves a binding and instantiates an object in the context of the injector.
+	     * Resolves a provider and instantiates an object in the context of the injector.
 	     *
 	     * The created object does not get cached by the injector.
 	     *
@@ -8389,11 +9222,11 @@
 	     * expect(car).not.toBe(injector.resolveAndInstantiate(Car));
 	     * ```
 	     */
-	    Injector.prototype.resolveAndInstantiate = function (binding) {
-	        return this.instantiateResolved(Injector.resolve([binding])[0]);
+	    Injector.prototype.resolveAndInstantiate = function (provider) {
+	        return this.instantiateResolved(Injector.resolve([provider])[0]);
 	    };
 	    /**
-	     * Instantiates an object using a resolved binding in the context of the injector.
+	     * Instantiates an object using a resolved provider in the context of the injector.
 	     *
 	     * The created object does not get cached by the injector.
 	     *
@@ -8410,63 +9243,64 @@
 	     * }
 	     *
 	     * var injector = Injector.resolveAndCreate([Engine]);
-	     * var carBinding = Injector.resolve([Car])[0];
-	     * var car = injector.instantiateResolved(carBinding);
+	     * var carProvider = Injector.resolve([Car])[0];
+	     * var car = injector.instantiateResolved(carProvider);
 	     * expect(car.engine).toBe(injector.get(Engine));
-	     * expect(car).not.toBe(injector.instantiateResolved(carBinding));
+	     * expect(car).not.toBe(injector.instantiateResolved(carProvider));
 	     * ```
 	     */
-	    Injector.prototype.instantiateResolved = function (binding) {
-	        return this._instantiateBinding(binding, Visibility.PublicAndPrivate);
+	    Injector.prototype.instantiateResolved = function (provider) {
+	        return this._instantiateProvider(provider, Visibility.PublicAndPrivate);
 	    };
-	    Injector.prototype._new = function (binding, visibility) {
+	    /** @internal */
+	    Injector.prototype._new = function (provider, visibility) {
 	        if (this._constructionCounter++ > this._strategy.getMaxNumberOfObjects()) {
-	            throw new exceptions_1.CyclicDependencyError(this, binding.key);
+	            throw new exceptions_1.CyclicDependencyError(this, provider.key);
 	        }
-	        return this._instantiateBinding(binding, visibility);
+	        return this._instantiateProvider(provider, visibility);
 	    };
-	    Injector.prototype._instantiateBinding = function (binding, visibility) {
-	        if (binding.multiBinding) {
-	            var res = collection_1.ListWrapper.createFixedSize(binding.resolvedFactories.length);
-	            for (var i = 0; i < binding.resolvedFactories.length; ++i) {
-	                res[i] = this._instantiate(binding, binding.resolvedFactories[i], visibility);
+	    Injector.prototype._instantiateProvider = function (provider, visibility) {
+	        if (provider.multiProvider) {
+	            var res = collection_1.ListWrapper.createFixedSize(provider.resolvedFactories.length);
+	            for (var i = 0; i < provider.resolvedFactories.length; ++i) {
+	                res[i] = this._instantiate(provider, provider.resolvedFactories[i], visibility);
 	            }
 	            return res;
 	        }
 	        else {
-	            return this._instantiate(binding, binding.resolvedFactories[0], visibility);
+	            return this._instantiate(provider, provider.resolvedFactories[0], visibility);
 	        }
 	    };
-	    Injector.prototype._instantiate = function (binding, resolvedFactory, visibility) {
+	    Injector.prototype._instantiate = function (provider, resolvedFactory, visibility) {
 	        var factory = resolvedFactory.factory;
 	        var deps = resolvedFactory.dependencies;
 	        var length = deps.length;
 	        var d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19;
 	        try {
-	            d0 = length > 0 ? this._getByDependency(binding, deps[0], visibility) : null;
-	            d1 = length > 1 ? this._getByDependency(binding, deps[1], visibility) : null;
-	            d2 = length > 2 ? this._getByDependency(binding, deps[2], visibility) : null;
-	            d3 = length > 3 ? this._getByDependency(binding, deps[3], visibility) : null;
-	            d4 = length > 4 ? this._getByDependency(binding, deps[4], visibility) : null;
-	            d5 = length > 5 ? this._getByDependency(binding, deps[5], visibility) : null;
-	            d6 = length > 6 ? this._getByDependency(binding, deps[6], visibility) : null;
-	            d7 = length > 7 ? this._getByDependency(binding, deps[7], visibility) : null;
-	            d8 = length > 8 ? this._getByDependency(binding, deps[8], visibility) : null;
-	            d9 = length > 9 ? this._getByDependency(binding, deps[9], visibility) : null;
-	            d10 = length > 10 ? this._getByDependency(binding, deps[10], visibility) : null;
-	            d11 = length > 11 ? this._getByDependency(binding, deps[11], visibility) : null;
-	            d12 = length > 12 ? this._getByDependency(binding, deps[12], visibility) : null;
-	            d13 = length > 13 ? this._getByDependency(binding, deps[13], visibility) : null;
-	            d14 = length > 14 ? this._getByDependency(binding, deps[14], visibility) : null;
-	            d15 = length > 15 ? this._getByDependency(binding, deps[15], visibility) : null;
-	            d16 = length > 16 ? this._getByDependency(binding, deps[16], visibility) : null;
-	            d17 = length > 17 ? this._getByDependency(binding, deps[17], visibility) : null;
-	            d18 = length > 18 ? this._getByDependency(binding, deps[18], visibility) : null;
-	            d19 = length > 19 ? this._getByDependency(binding, deps[19], visibility) : null;
+	            d0 = length > 0 ? this._getByDependency(provider, deps[0], visibility) : null;
+	            d1 = length > 1 ? this._getByDependency(provider, deps[1], visibility) : null;
+	            d2 = length > 2 ? this._getByDependency(provider, deps[2], visibility) : null;
+	            d3 = length > 3 ? this._getByDependency(provider, deps[3], visibility) : null;
+	            d4 = length > 4 ? this._getByDependency(provider, deps[4], visibility) : null;
+	            d5 = length > 5 ? this._getByDependency(provider, deps[5], visibility) : null;
+	            d6 = length > 6 ? this._getByDependency(provider, deps[6], visibility) : null;
+	            d7 = length > 7 ? this._getByDependency(provider, deps[7], visibility) : null;
+	            d8 = length > 8 ? this._getByDependency(provider, deps[8], visibility) : null;
+	            d9 = length > 9 ? this._getByDependency(provider, deps[9], visibility) : null;
+	            d10 = length > 10 ? this._getByDependency(provider, deps[10], visibility) : null;
+	            d11 = length > 11 ? this._getByDependency(provider, deps[11], visibility) : null;
+	            d12 = length > 12 ? this._getByDependency(provider, deps[12], visibility) : null;
+	            d13 = length > 13 ? this._getByDependency(provider, deps[13], visibility) : null;
+	            d14 = length > 14 ? this._getByDependency(provider, deps[14], visibility) : null;
+	            d15 = length > 15 ? this._getByDependency(provider, deps[15], visibility) : null;
+	            d16 = length > 16 ? this._getByDependency(provider, deps[16], visibility) : null;
+	            d17 = length > 17 ? this._getByDependency(provider, deps[17], visibility) : null;
+	            d18 = length > 18 ? this._getByDependency(provider, deps[18], visibility) : null;
+	            d19 = length > 19 ? this._getByDependency(provider, deps[19], visibility) : null;
 	        }
 	        catch (e) {
-	            if (e instanceof exceptions_1.AbstractBindingError || e instanceof exceptions_1.InstantiationError) {
-	                e.addKey(this, binding.key);
+	            if (e instanceof exceptions_1.AbstractProviderError || e instanceof exceptions_1.InstantiationError) {
+	                e.addKey(this, provider.key);
 	            }
 	            throw e;
 	        }
@@ -8539,48 +9373,51 @@
 	            }
 	        }
 	        catch (e) {
-	            throw new exceptions_1.InstantiationError(this, e, e.stack, binding.key);
+	            throw new exceptions_1.InstantiationError(this, e, e.stack, provider.key);
 	        }
 	        return obj;
 	    };
-	    Injector.prototype._getByDependency = function (binding, dep, bindingVisibility) {
+	    Injector.prototype._getByDependency = function (provider, dep, providerVisibility) {
 	        var special = lang_1.isPresent(this._depProvider) ?
-	            this._depProvider.getDependency(this, binding, dep) :
+	            this._depProvider.getDependency(this, provider, dep) :
 	            exports.UNDEFINED;
 	        if (special !== exports.UNDEFINED) {
 	            return special;
 	        }
 	        else {
-	            return this._getByKey(dep.key, dep.lowerBoundVisibility, dep.upperBoundVisibility, dep.optional, bindingVisibility);
+	            return this._getByKey(dep.key, dep.lowerBoundVisibility, dep.upperBoundVisibility, dep.optional, providerVisibility);
 	        }
 	    };
-	    Injector.prototype._getByKey = function (key, lowerBoundVisibility, upperBoundVisibility, optional, bindingVisibility) {
+	    Injector.prototype._getByKey = function (key, lowerBoundVisibility, upperBoundVisibility, optional, providerVisibility) {
 	        if (key === INJECTOR_KEY) {
 	            return this;
 	        }
 	        if (upperBoundVisibility instanceof metadata_1.SelfMetadata) {
-	            return this._getByKeySelf(key, optional, bindingVisibility);
+	            return this._getByKeySelf(key, optional, providerVisibility);
 	        }
 	        else if (upperBoundVisibility instanceof metadata_1.HostMetadata) {
-	            return this._getByKeyHost(key, optional, bindingVisibility, lowerBoundVisibility);
+	            return this._getByKeyHost(key, optional, providerVisibility, lowerBoundVisibility);
 	        }
 	        else {
-	            return this._getByKeyDefault(key, optional, bindingVisibility, lowerBoundVisibility);
+	            return this._getByKeyDefault(key, optional, providerVisibility, lowerBoundVisibility);
 	        }
 	    };
+	    /** @internal */
 	    Injector.prototype._throwOrNull = function (key, optional) {
 	        if (optional) {
 	            return null;
 	        }
 	        else {
-	            throw new exceptions_1.NoBindingError(this, key);
+	            throw new exceptions_1.NoProviderError(this, key);
 	        }
 	    };
-	    Injector.prototype._getByKeySelf = function (key, optional, bindingVisibility) {
-	        var obj = this._strategy.getObjByKeyId(key.id, bindingVisibility);
+	    /** @internal */
+	    Injector.prototype._getByKeySelf = function (key, optional, providerVisibility) {
+	        var obj = this._strategy.getObjByKeyId(key.id, providerVisibility);
 	        return (obj !== exports.UNDEFINED) ? obj : this._throwOrNull(key, optional);
 	    };
-	    Injector.prototype._getByKeyHost = function (key, optional, bindingVisibility, lowerBoundVisibility) {
+	    /** @internal */
+	    Injector.prototype._getByKeyHost = function (key, optional, providerVisibility, lowerBoundVisibility) {
 	        var inj = this;
 	        if (lowerBoundVisibility instanceof metadata_1.SkipSelfMetadata) {
 	            if (inj._isHost) {
@@ -8591,7 +9428,7 @@
 	            }
 	        }
 	        while (inj != null) {
-	            var obj = inj._strategy.getObjByKeyId(key.id, bindingVisibility);
+	            var obj = inj._strategy.getObjByKeyId(key.id, providerVisibility);
 	            if (obj !== exports.UNDEFINED)
 	                return obj;
 	            if (lang_1.isPresent(inj._parent) && inj._isHost) {
@@ -8603,28 +9440,30 @@
 	        }
 	        return this._throwOrNull(key, optional);
 	    };
+	    /** @internal */
 	    Injector.prototype._getPrivateDependency = function (key, optional, inj) {
 	        var obj = inj._parent._strategy.getObjByKeyId(key.id, Visibility.Private);
 	        return (obj !== exports.UNDEFINED) ? obj : this._throwOrNull(key, optional);
 	    };
-	    Injector.prototype._getByKeyDefault = function (key, optional, bindingVisibility, lowerBoundVisibility) {
+	    /** @internal */
+	    Injector.prototype._getByKeyDefault = function (key, optional, providerVisibility, lowerBoundVisibility) {
 	        var inj = this;
 	        if (lowerBoundVisibility instanceof metadata_1.SkipSelfMetadata) {
-	            bindingVisibility = inj._isHost ? Visibility.PublicAndPrivate : Visibility.Public;
+	            providerVisibility = inj._isHost ? Visibility.PublicAndPrivate : Visibility.Public;
 	            inj = inj._parent;
 	        }
 	        while (inj != null) {
-	            var obj = inj._strategy.getObjByKeyId(key.id, bindingVisibility);
+	            var obj = inj._strategy.getObjByKeyId(key.id, providerVisibility);
 	            if (obj !== exports.UNDEFINED)
 	                return obj;
-	            bindingVisibility = inj._isHost ? Visibility.PublicAndPrivate : Visibility.Public;
+	            providerVisibility = inj._isHost ? Visibility.PublicAndPrivate : Visibility.Public;
 	            inj = inj._parent;
 	        }
 	        return this._throwOrNull(key, optional);
 	    };
 	    Object.defineProperty(Injector.prototype, "displayName", {
 	        get: function () {
-	            return "Injector(bindings: [" + _mapBindings(this, function (b) { return (" \"" + b.key.displayName + "\" "); }).join(", ") + "])";
+	            return "Injector(providers: [" + _mapProviders(this, function (b) { return (" \"" + b.key.displayName + "\" "); }).join(", ") + "])";
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -8634,10 +9473,10 @@
 	})();
 	exports.Injector = Injector;
 	var INJECTOR_KEY = key_1.Key.get(Injector);
-	function _mapBindings(injector, fn) {
+	function _mapProviders(injector, fn) {
 	    var res = [];
-	    for (var i = 0; i < injector._proto.numberOfBindings; ++i) {
-	        res.push(fn(injector._proto.getBindingAtIndex(i)));
+	    for (var i = 0; i < injector._proto.numberOfProviders; ++i) {
+	        res.push(fn(injector._proto.getProviderAtIndex(i)));
 	    }
 	    return res;
 	}
@@ -8735,10 +9574,6 @@
 	        return r;
 	    };
 	    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs(pairs); };
-	    MapWrapper.forEach = function (m, fn) { m.forEach(fn); };
-	    MapWrapper.get = function (map, key) { return map.get(key); };
-	    MapWrapper.size = function (m) { return m.size; };
-	    MapWrapper.delete = function (m, k) { m.delete(k); };
 	    MapWrapper.clearValues = function (m) { _clearValues(m); };
 	    MapWrapper.iterable = function (m) { return m; };
 	    MapWrapper.keys = function (m) { return _arrayFromMap(m, false); };
@@ -8994,7 +9829,12 @@
 /* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	'use strict';var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
 	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
@@ -9013,9 +9853,6 @@
 	var metadata_1 = __webpack_require__(46);
 	var exceptions_2 = __webpack_require__(60);
 	var forward_ref_1 = __webpack_require__(49);
-	/**
-	 * @internal
-	 */
 	var Dependency = (function () {
 	    function Dependency(key, optional, lowerBoundVisibility, upperBoundVisibility, properties) {
 	        this.key = key;
@@ -9032,61 +9869,116 @@
 	/**
 	 * Describes how the {@link Injector} should instantiate a given token.
 	 *
-	 * See {@link bind}.
+	 * See {@link provide}.
 	 *
 	 * ### Example ([live demo](http://plnkr.co/edit/GNAyj6K6PfYg2NBzgwZ5?p%3Dpreview&p=preview))
 	 *
 	 * ```javascript
 	 * var injector = Injector.resolveAndCreate([
-	 *   new Binding("message", { toValue: 'Hello' })
+	 *   new Provider("message", { useValue: 'Hello' })
 	 * ]);
 	 *
 	 * expect(injector.get("message")).toEqual('Hello');
 	 * ```
 	 */
-	var Binding = (function () {
-	    function Binding(token, _a) {
-	        var toClass = _a.toClass, toValue = _a.toValue, toAlias = _a.toAlias, toFactory = _a.toFactory, deps = _a.deps, multi = _a.multi;
+	var Provider = (function () {
+	    function Provider(token, _a) {
+	        var useClass = _a.useClass, useValue = _a.useValue, useExisting = _a.useExisting, useFactory = _a.useFactory, deps = _a.deps, multi = _a.multi;
 	        this.token = token;
-	        this.toClass = toClass;
-	        this.toValue = toValue;
-	        this.toAlias = toAlias;
-	        this.toFactory = toFactory;
+	        this.useClass = useClass;
+	        this.useValue = useValue;
+	        this.useExisting = useExisting;
+	        this.useFactory = useFactory;
 	        this.dependencies = deps;
 	        this._multi = multi;
 	    }
-	    Object.defineProperty(Binding.prototype, "multi", {
+	    Object.defineProperty(Provider.prototype, "multi", {
 	        // TODO: Provide a full working example after alpha38 is released.
 	        /**
-	         * Creates multiple bindings matching the same token (a multi-binding).
+	         * Creates multiple providers matching the same token (a multi-provider).
 	         *
-	         * Multi-bindings are used for creating pluggable service, where the system comes
-	         * with some default bindings, and the user can register additonal bindings.
-	         * The combination of the default bindings and the additional bindings will be
+	         * Multi-providers are used for creating pluggable service, where the system comes
+	         * with some default providers, and the user can register additonal providers.
+	         * The combination of the default providers and the additional providers will be
 	         * used to drive the behavior of the system.
 	         *
 	         * ### Example
 	         *
 	         * ```typescript
 	         * var injector = Injector.resolveAndCreate([
-	         *   new Binding("Strings", { toValue: "String1", multi: true}),
-	         *   new Binding("Strings", { toValue: "String2", multi: true})
+	         *   new Provider("Strings", { useValue: "String1", multi: true}),
+	         *   new Provider("Strings", { useValue: "String2", multi: true})
 	         * ]);
 	         *
 	         * expect(injector.get("Strings")).toEqual(["String1", "String2"]);
 	         * ```
 	         *
-	         * Multi-bindings and regular bindings cannot be mixed. The following
+	         * Multi-providers and regular providers cannot be mixed. The following
 	         * will throw an exception:
 	         *
 	         * ```typescript
 	         * var injector = Injector.resolveAndCreate([
-	         *   new Binding("Strings", { toValue: "String1", multi: true }),
-	         *   new Binding("Strings", { toValue: "String2"})
+	         *   new Provider("Strings", { useValue: "String1", multi: true }),
+	         *   new Provider("Strings", { useValue: "String2"})
 	         * ]);
 	         * ```
 	         */
 	        get: function () { return lang_1.normalizeBool(this._multi); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Provider = __decorate([
+	        lang_1.CONST(), 
+	        __metadata('design:paramtypes', [Object, Object])
+	    ], Provider);
+	    return Provider;
+	})();
+	exports.Provider = Provider;
+	/**
+	 * @deprecated
+	 */
+	var Binding = (function (_super) {
+	    __extends(Binding, _super);
+	    function Binding(token, _a) {
+	        var toClass = _a.toClass, toValue = _a.toValue, toAlias = _a.toAlias, toFactory = _a.toFactory, deps = _a.deps, multi = _a.multi;
+	        _super.call(this, token, {
+	            useClass: toClass,
+	            useValue: toValue,
+	            useExisting: toAlias,
+	            useFactory: toFactory,
+	            deps: deps,
+	            multi: multi
+	        });
+	    }
+	    Object.defineProperty(Binding.prototype, "toClass", {
+	        /**
+	         * @deprecated
+	         */
+	        get: function () { return this.useClass; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Binding.prototype, "toAlias", {
+	        /**
+	         * @deprecated
+	         */
+	        get: function () { return this.useExisting; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Binding.prototype, "toFactory", {
+	        /**
+	         * @deprecated
+	         */
+	        get: function () { return this.useFactory; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Binding.prototype, "toValue", {
+	        /**
+	         * @deprecated
+	         */
+	        get: function () { return this.useValue; },
 	        enumerable: true,
 	        configurable: true
 	    });
@@ -9095,25 +9987,24 @@
 	        __metadata('design:paramtypes', [Object, Object])
 	    ], Binding);
 	    return Binding;
-	})();
+	})(Provider);
 	exports.Binding = Binding;
-	var ResolvedBinding_ = (function () {
-	    function ResolvedBinding_(key, resolvedFactories, multiBinding) {
+	var ResolvedProvider_ = (function () {
+	    function ResolvedProvider_(key, resolvedFactories, multiProvider) {
 	        this.key = key;
 	        this.resolvedFactories = resolvedFactories;
-	        this.multiBinding = multiBinding;
+	        this.multiProvider = multiProvider;
 	    }
-	    Object.defineProperty(ResolvedBinding_.prototype, "resolvedFactory", {
+	    Object.defineProperty(ResolvedProvider_.prototype, "resolvedFactory", {
 	        get: function () { return this.resolvedFactories[0]; },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    return ResolvedBinding_;
+	    return ResolvedProvider_;
 	})();
-	exports.ResolvedBinding_ = ResolvedBinding_;
+	exports.ResolvedProvider_ = ResolvedProvider_;
 	/**
-	 * @internal
-	 * An internal resolved representation of a factory function created by resolving {@link Binding}.
+	 * An internal resolved representation of a factory function created by resolving {@link Provider}.
 	 */
 	var ResolvedFactory = (function () {
 	    function ResolvedFactory(
@@ -9132,23 +10023,44 @@
 	})();
 	exports.ResolvedFactory = ResolvedFactory;
 	/**
-	 * Creates a {@link Binding}.
+	 * @deprecated
+	 * Creates a {@link Provider}.
 	 *
-	 * To construct a {@link Binding}, bind a `token` to either a class, a value, a factory function, or
-	 * to an alias to another `token`.
-	 * See {@link BindingBuilder} for more details.
+	 * To construct a {@link Provider}, bind a `token` to either a class, a value, a factory function,
+	 * or
+	 * to an existing `token`.
+	 * See {@link ProviderBuilder} for more details.
 	 *
 	 * The `token` is most commonly a class or {@link angular2/di/OpaqueToken}.
 	 */
 	function bind(token) {
-	    return new BindingBuilder(token);
+	    return new ProviderBuilder(token);
 	}
 	exports.bind = bind;
 	/**
+	 * Creates a {@link Provider}.
+	 *
+	 * See {@link Provider} for more details.
+	 *
+	 * <!-- TODO: improve the docs -->
+	 */
+	function provide(token, _a) {
+	    var useClass = _a.useClass, useValue = _a.useValue, useExisting = _a.useExisting, useFactory = _a.useFactory, deps = _a.deps, multi = _a.multi;
+	    return new Provider(token, {
+	        useClass: useClass,
+	        useValue: useValue,
+	        useExisting: useExisting,
+	        useFactory: useFactory,
+	        deps: deps,
+	        multi: multi
+	    });
+	}
+	exports.provide = provide;
+	/**
 	 * Helper class for the {@link bind} function.
 	 */
-	var BindingBuilder = (function () {
-	    function BindingBuilder(token) {
+	var ProviderBuilder = (function () {
+	    function ProviderBuilder(token) {
 	        this.token = token;
 	    }
 	    /**
@@ -9166,11 +10078,11 @@
 	     *
 	     * var injectorClass = Injector.resolveAndCreate([
 	     *   Car,
-	     *   bind(Vehicle).toClass(Car)
+	     *   provide(Vehicle, {useClass: Car})
 	     * ]);
 	     * var injectorAlias = Injector.resolveAndCreate([
 	     *   Car,
-	     *   bind(Vehicle).toAlias(Car)
+	     *   provide(Vehicle, {useExisting: Car})
 	     * ]);
 	     *
 	     * expect(injectorClass.get(Vehicle)).not.toBe(injectorClass.get(Car));
@@ -9180,11 +10092,11 @@
 	     * expect(injectorAlias.get(Vehicle) instanceof Car).toBe(true);
 	     * ```
 	     */
-	    BindingBuilder.prototype.toClass = function (type) {
+	    ProviderBuilder.prototype.toClass = function (type) {
 	        if (!lang_1.isType(type)) {
-	            throw new exceptions_1.BaseException("Trying to create a class binding but \"" + lang_1.stringify(type) + "\" is not a class!");
+	            throw new exceptions_1.BaseException("Trying to create a class provider but \"" + lang_1.stringify(type) + "\" is not a class!");
 	        }
-	        return new Binding(this.token, { toClass: type });
+	        return new Provider(this.token, { useClass: type });
 	    };
 	    /**
 	     * Binds a DI token to a value.
@@ -9193,18 +10105,18 @@
 	     *
 	     * ```typescript
 	     * var injector = Injector.resolveAndCreate([
-	     *   bind('message').toValue('Hello')
+	     *   provide('message', {useValue: 'Hello'})
 	     * ]);
 	     *
 	     * expect(injector.get('message')).toEqual('Hello');
 	     * ```
 	     */
-	    BindingBuilder.prototype.toValue = function (value) { return new Binding(this.token, { toValue: value }); };
+	    ProviderBuilder.prototype.toValue = function (value) { return new Provider(this.token, { useValue: value }); };
 	    /**
-	     * Binds a DI token as an alias for an existing token.
+	     * Binds a DI token to an existing token.
 	     *
-	     * An alias means that we will return the same instance as if the alias token was used. (This is
-	     * in contrast to `toClass` where a separate instance of `toClass` will be returned.)
+	     * Angular will return the same instance as if the provided token was used. (This is
+	     * in contrast to `useClass` where a separate instance of `useClass` will be returned.)
 	     *
 	     * ### Example ([live demo](http://plnkr.co/edit/uBaoF2pN5cfc5AfZapNw?p=preview))
 	     *
@@ -9219,11 +10131,11 @@
 	     *
 	     * var injectorAlias = Injector.resolveAndCreate([
 	     *   Car,
-	     *   bind(Vehicle).toAlias(Car)
+	     *   provide(Vehicle, {useExisting: Car})
 	     * ]);
 	     * var injectorClass = Injector.resolveAndCreate([
 	     *   Car,
-	     *   bind(Vehicle).toClass(Car)
+	     *   provide(Vehicle, {useClass: Car})
 	     * ]);
 	     *
 	     * expect(injectorAlias.get(Vehicle)).toBe(injectorAlias.get(Car));
@@ -9233,11 +10145,11 @@
 	     * expect(injectorClass.get(Vehicle) instanceof Car).toBe(true);
 	     * ```
 	     */
-	    BindingBuilder.prototype.toAlias = function (aliasToken) {
+	    ProviderBuilder.prototype.toAlias = function (aliasToken) {
 	        if (lang_1.isBlank(aliasToken)) {
 	            throw new exceptions_1.BaseException("Can not alias " + lang_1.stringify(this.token) + " to a blank value!");
 	        }
-	        return new Binding(this.token, { toAlias: aliasToken });
+	        return new Provider(this.token, { useExisting: aliasToken });
 	    };
 	    /**
 	     * Binds a DI token to a function which computes the value.
@@ -9246,132 +10158,132 @@
 	     *
 	     * ```typescript
 	     * var injector = Injector.resolveAndCreate([
-	     *   bind(Number).toFactory(() => { return 1+2; }),
-	     *   bind(String).toFactory((v) => { return "Value: " + v; }, [Number])
+	     *   provide(Number, {useFactory: () => { return 1+2; }}),
+	     *   provide(String, {useFactory: (v) => { return "Value: " + v; }, deps: [Number]})
 	     * ]);
 	     *
 	     * expect(injector.get(Number)).toEqual(3);
 	     * expect(injector.get(String)).toEqual('Value: 3');
 	     * ```
 	     */
-	    BindingBuilder.prototype.toFactory = function (factory, dependencies) {
+	    ProviderBuilder.prototype.toFactory = function (factory, dependencies) {
 	        if (!lang_1.isFunction(factory)) {
-	            throw new exceptions_1.BaseException("Trying to create a factory binding but \"" + lang_1.stringify(factory) + "\" is not a function!");
+	            throw new exceptions_1.BaseException("Trying to create a factory provider but \"" + lang_1.stringify(factory) + "\" is not a function!");
 	        }
-	        return new Binding(this.token, { toFactory: factory, deps: dependencies });
+	        return new Provider(this.token, { useFactory: factory, deps: dependencies });
 	    };
-	    return BindingBuilder;
+	    return ProviderBuilder;
 	})();
-	exports.BindingBuilder = BindingBuilder;
+	exports.ProviderBuilder = ProviderBuilder;
 	/**
-	 * Resolve a single binding.
+	 * Resolve a single provider.
 	 */
-	function resolveFactory(binding) {
+	function resolveFactory(provider) {
 	    var factoryFn;
 	    var resolvedDeps;
-	    if (lang_1.isPresent(binding.toClass)) {
-	        var toClass = forward_ref_1.resolveForwardRef(binding.toClass);
-	        factoryFn = reflection_1.reflector.factory(toClass);
-	        resolvedDeps = _dependenciesFor(toClass);
+	    if (lang_1.isPresent(provider.useClass)) {
+	        var useClass = forward_ref_1.resolveForwardRef(provider.useClass);
+	        factoryFn = reflection_1.reflector.factory(useClass);
+	        resolvedDeps = _dependenciesFor(useClass);
 	    }
-	    else if (lang_1.isPresent(binding.toAlias)) {
+	    else if (lang_1.isPresent(provider.useExisting)) {
 	        factoryFn = function (aliasInstance) { return aliasInstance; };
-	        resolvedDeps = [Dependency.fromKey(key_1.Key.get(binding.toAlias))];
+	        resolvedDeps = [Dependency.fromKey(key_1.Key.get(provider.useExisting))];
 	    }
-	    else if (lang_1.isPresent(binding.toFactory)) {
-	        factoryFn = binding.toFactory;
-	        resolvedDeps = _constructDependencies(binding.toFactory, binding.dependencies);
+	    else if (lang_1.isPresent(provider.useFactory)) {
+	        factoryFn = provider.useFactory;
+	        resolvedDeps = _constructDependencies(provider.useFactory, provider.dependencies);
 	    }
 	    else {
-	        factoryFn = function () { return binding.toValue; };
+	        factoryFn = function () { return provider.useValue; };
 	        resolvedDeps = _EMPTY_LIST;
 	    }
 	    return new ResolvedFactory(factoryFn, resolvedDeps);
 	}
 	exports.resolveFactory = resolveFactory;
 	/**
-	 * Converts the {@link Binding} into {@link ResolvedBinding}.
+	 * Converts the {@link Provider} into {@link ResolvedProvider}.
 	 *
-	 * {@link Injector} internally only uses {@link ResolvedBinding}, {@link Binding} contains
-	 * convenience binding syntax.
+	 * {@link Injector} internally only uses {@link ResolvedProvider}, {@link Provider} contains
+	 * convenience provider syntax.
 	 */
-	function resolveBinding(binding) {
-	    return new ResolvedBinding_(key_1.Key.get(binding.token), [resolveFactory(binding)], false);
+	function resolveProvider(provider) {
+	    return new ResolvedProvider_(key_1.Key.get(provider.token), [resolveFactory(provider)], false);
 	}
-	exports.resolveBinding = resolveBinding;
+	exports.resolveProvider = resolveProvider;
 	/**
-	 * Resolve a list of Bindings.
+	 * Resolve a list of Providers.
 	 */
-	function resolveBindings(bindings) {
-	    var normalized = _createListOfBindings(_normalizeBindings(bindings, new Map()));
+	function resolveProviders(providers) {
+	    var normalized = _createListOfProviders(_normalizeProviders(providers, new Map()));
 	    return normalized.map(function (b) {
-	        if (b instanceof _NormalizedBinding) {
-	            return new ResolvedBinding_(b.key, [b.resolvedFactory], false);
+	        if (b instanceof _NormalizedProvider) {
+	            return new ResolvedProvider_(b.key, [b.resolvedFactory], false);
 	        }
 	        else {
 	            var arr = b;
-	            return new ResolvedBinding_(arr[0].key, arr.map(function (_) { return _.resolvedFactory; }), true);
+	            return new ResolvedProvider_(arr[0].key, arr.map(function (_) { return _.resolvedFactory; }), true);
 	        }
 	    });
 	}
-	exports.resolveBindings = resolveBindings;
+	exports.resolveProviders = resolveProviders;
 	/**
 	 * The algorithm works as follows:
 	 *
-	 * [Binding] -> [_NormalizedBinding|[_NormalizedBinding]] -> [ResolvedBinding]
+	 * [Provider] -> [_NormalizedProvider|[_NormalizedProvider]] -> [ResolvedProvider]
 	 *
-	 * _NormalizedBinding is essentially a resolved binding before it was grouped by key.
+	 * _NormalizedProvider is essentially a resolved provider before it was grouped by key.
 	 */
-	var _NormalizedBinding = (function () {
-	    function _NormalizedBinding(key, resolvedFactory) {
+	var _NormalizedProvider = (function () {
+	    function _NormalizedProvider(key, resolvedFactory) {
 	        this.key = key;
 	        this.resolvedFactory = resolvedFactory;
 	    }
-	    return _NormalizedBinding;
+	    return _NormalizedProvider;
 	})();
-	function _createListOfBindings(flattenedBindings) {
-	    return collection_1.MapWrapper.values(flattenedBindings);
+	function _createListOfProviders(flattenedProviders) {
+	    return collection_1.MapWrapper.values(flattenedProviders);
 	}
-	function _normalizeBindings(bindings, res) {
-	    bindings.forEach(function (b) {
+	function _normalizeProviders(providers, res) {
+	    providers.forEach(function (b) {
 	        if (b instanceof lang_1.Type) {
-	            _normalizeBinding(bind(b).toClass(b), res);
+	            _normalizeProvider(provide(b, { useClass: b }), res);
 	        }
-	        else if (b instanceof Binding) {
-	            _normalizeBinding(b, res);
+	        else if (b instanceof Provider) {
+	            _normalizeProvider(b, res);
 	        }
 	        else if (b instanceof Array) {
-	            _normalizeBindings(b, res);
+	            _normalizeProviders(b, res);
 	        }
-	        else if (b instanceof BindingBuilder) {
-	            throw new exceptions_2.InvalidBindingError(b.token);
+	        else if (b instanceof ProviderBuilder) {
+	            throw new exceptions_2.InvalidProviderError(b.token);
 	        }
 	        else {
-	            throw new exceptions_2.InvalidBindingError(b);
+	            throw new exceptions_2.InvalidProviderError(b);
 	        }
 	    });
 	    return res;
 	}
-	function _normalizeBinding(b, res) {
+	function _normalizeProvider(b, res) {
 	    var key = key_1.Key.get(b.token);
 	    var factory = resolveFactory(b);
-	    var normalized = new _NormalizedBinding(key, factory);
+	    var normalized = new _NormalizedProvider(key, factory);
 	    if (b.multi) {
-	        var existingBinding = res.get(key.id);
-	        if (existingBinding instanceof Array) {
-	            existingBinding.push(normalized);
+	        var existingProvider = res.get(key.id);
+	        if (existingProvider instanceof Array) {
+	            existingProvider.push(normalized);
 	        }
-	        else if (lang_1.isBlank(existingBinding)) {
+	        else if (lang_1.isBlank(existingProvider)) {
 	            res.set(key.id, [normalized]);
 	        }
 	        else {
-	            throw new exceptions_2.MixingMultiBindingsWithRegularBindings(existingBinding, b);
+	            throw new exceptions_2.MixingMultiProvidersWithRegularProvidersError(existingProvider, b);
 	        }
 	    }
 	    else {
-	        var existingBinding = res.get(key.id);
-	        if (existingBinding instanceof Array) {
-	            throw new exceptions_2.MixingMultiBindingsWithRegularBindings(existingBinding, b);
+	        var existingProvider = res.get(key.id);
+	        if (existingProvider instanceof Array) {
+	            throw new exceptions_2.MixingMultiProvidersWithRegularProvidersError(existingProvider, b);
 	        }
 	        res.set(key.id, normalized);
 	    }
@@ -9441,14 +10353,13 @@
 	function _createDependency(token, optional, lowerBoundVisibility, upperBoundVisibility, depProps) {
 	    return new Dependency(key_1.Key.get(token), optional, lowerBoundVisibility, upperBoundVisibility, depProps);
 	}
-	//# sourceMappingURL=binding.js.map
+	//# sourceMappingURL=provider.js.map
 
 /***/ },
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';/// <reference path="../../../manual_typings/globals.d.ts" />
-	var __extends = (this && this.__extends) || function (d, b) {
+	'use strict';var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -9557,7 +10468,7 @@
 	 *   }
 	 * }
 	 *
-	 * bootstrap(MyApp, [bind(ExceptionHandler).toClass(MyExceptionHandler)])
+	 * bootstrap(MyApp, [provide(ExceptionHandler, {useClass: MyExceptionHandler})])
 	 *
 	 * ```
 	 */
@@ -9606,13 +10517,16 @@
 	        if (this._rethrowException)
 	            throw exception;
 	    };
+	    /** @internal */
 	    ExceptionHandler.prototype._extractMessage = function (exception) {
 	        return exception instanceof exceptions_1.WrappedException ? exception.wrapperMessage : exception.toString();
 	    };
+	    /** @internal */
 	    ExceptionHandler.prototype._longStackTrace = function (stackTrace) {
 	        return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join("\n\n-----async gap-----\n") :
 	            stackTrace.toString();
 	    };
+	    /** @internal */
 	    ExceptionHandler.prototype._findContext = function (exception) {
 	        try {
 	            if (!(exception instanceof exceptions_1.WrappedException))
@@ -9625,6 +10539,7 @@
 	            return null;
 	        }
 	    };
+	    /** @internal */
 	    ExceptionHandler.prototype._findOriginalException = function (exception) {
 	        if (!(exception instanceof exceptions_1.WrappedException))
 	            return null;
@@ -9634,6 +10549,7 @@
 	        }
 	        return e;
 	    };
+	    /** @internal */
 	    ExceptionHandler.prototype._findOriginalStack = function (exception) {
 	        if (!(exception instanceof exceptions_1.WrappedException))
 	            return null;
@@ -9684,9 +10600,13 @@
 	exports.ReflectionInfo = ReflectionInfo;
 	var Reflector = (function () {
 	    function Reflector(reflectionCapabilities) {
+	        /** @internal */
 	        this._injectableInfo = new collection_1.Map();
+	        /** @internal */
 	        this._getters = new collection_1.Map();
+	        /** @internal */
 	        this._setters = new collection_1.Map();
+	        /** @internal */
 	        this._methods = new collection_1.Map();
 	        this._usedKeys = null;
 	        this.reflectionCapabilities = reflectionCapabilities;
@@ -9788,12 +10708,14 @@
 	            return this.reflectionCapabilities.method(name);
 	        }
 	    };
+	    /** @internal */
 	    Reflector.prototype._getReflectionInfo = function (typeOrFunc) {
 	        if (lang_1.isPresent(this._usedKeys)) {
 	            this._usedKeys.add(typeOrFunc);
 	        }
 	        return this._injectableInfo.get(typeOrFunc);
 	    };
+	    /** @internal */
 	    Reflector.prototype._containsReflectionInfo = function (typeOrFunc) { return this._injectableInfo.has(typeOrFunc); };
 	    Reflector.prototype.importUri = function (type) { return this.reflectionCapabilities.importUri(type); };
 	    return Reflector;
@@ -9886,6 +10808,7 @@
 	        ;
 	        throw new Error("Cannot create a factory for '" + lang_1.stringify(t) + "' because its constructor has more than 20 arguments");
 	    };
+	    /** @internal */
 	    ReflectionCapabilities.prototype._zipTypesAndAnnotaions = function (paramTypes, paramAnnotations) {
 	        var result;
 	        if (typeof paramTypes === 'undefined') {
@@ -9981,8 +10904,7 @@
 /* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var collection_1 = __webpack_require__(51);
-	var lang_1 = __webpack_require__(44);
+	'use strict';var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var type_literal_1 = __webpack_require__(59);
 	var forward_ref_1 = __webpack_require__(49);
@@ -9999,7 +10921,7 @@
 	 * injector to store created objects in a more efficient way.
 	 *
 	 * `Key` should not be created directly. {@link Injector} creates keys automatically when resolving
-	 * bindings.
+	 * providers.
 	 */
 	var Key = (function () {
 	    /**
@@ -10059,7 +10981,7 @@
 	        return newKey;
 	    };
 	    Object.defineProperty(KeyRegistry.prototype, "numberOfKeys", {
-	        get: function () { return collection_1.MapWrapper.size(this._allKeys); },
+	        get: function () { return this._allKeys.size; },
 	        enumerable: true,
 	        configurable: true
 	    });
@@ -10074,7 +10996,6 @@
 /***/ function(module, exports) {
 
 	'use strict';/**
-	 * @internal
 	 * Type literals is a Dart-only feature. This is here only so we can x-compile
 	 * to multiple languages.
 	 */
@@ -10127,33 +11048,33 @@
 	    }
 	}
 	/**
-	 * Base class for all errors arising from misconfigured bindings.
+	 * Base class for all errors arising from misconfigured providers.
 	 */
-	var AbstractBindingError = (function (_super) {
-	    __extends(AbstractBindingError, _super);
-	    function AbstractBindingError(injector, key, constructResolvingMessage) {
+	var AbstractProviderError = (function (_super) {
+	    __extends(AbstractProviderError, _super);
+	    function AbstractProviderError(injector, key, constructResolvingMessage) {
 	        _super.call(this, "DI Exception");
 	        this.keys = [key];
 	        this.injectors = [injector];
 	        this.constructResolvingMessage = constructResolvingMessage;
 	        this.message = this.constructResolvingMessage(this.keys);
 	    }
-	    AbstractBindingError.prototype.addKey = function (injector, key) {
+	    AbstractProviderError.prototype.addKey = function (injector, key) {
 	        this.injectors.push(injector);
 	        this.keys.push(key);
 	        this.message = this.constructResolvingMessage(this.keys);
 	    };
-	    Object.defineProperty(AbstractBindingError.prototype, "context", {
+	    Object.defineProperty(AbstractProviderError.prototype, "context", {
 	        get: function () { return this.injectors[this.injectors.length - 1].debugContext(); },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    return AbstractBindingError;
+	    return AbstractProviderError;
 	})(exceptions_1.BaseException);
-	exports.AbstractBindingError = AbstractBindingError;
+	exports.AbstractProviderError = AbstractProviderError;
 	/**
 	 * Thrown when trying to retrieve a dependency by `Key` from {@link Injector}, but the
-	 * {@link Injector} does not have a {@link Binding} for {@link Key}.
+	 * {@link Injector} does not have a {@link Provider} for {@link Key}.
 	 *
 	 * ### Example ([live demo](http://plnkr.co/edit/vq8D3FRB9aGbnWJqtEPE?p=preview))
 	 *
@@ -10165,17 +11086,17 @@
 	 * expect(() => Injector.resolveAndCreate([A])).toThrowError();
 	 * ```
 	 */
-	var NoBindingError = (function (_super) {
-	    __extends(NoBindingError, _super);
-	    function NoBindingError(injector, key) {
+	var NoProviderError = (function (_super) {
+	    __extends(NoProviderError, _super);
+	    function NoProviderError(injector, key) {
 	        _super.call(this, injector, key, function (keys) {
 	            var first = lang_1.stringify(collection_1.ListWrapper.first(keys).token);
 	            return "No provider for " + first + "!" + constructResolvingPath(keys);
 	        });
 	    }
-	    return NoBindingError;
-	})(AbstractBindingError);
-	exports.NoBindingError = NoBindingError;
+	    return NoProviderError;
+	})(AbstractProviderError);
+	exports.NoProviderError = NoProviderError;
 	/**
 	 * Thrown when dependencies form a cycle.
 	 *
@@ -10183,8 +11104,8 @@
 	 *
 	 * ```typescript
 	 * var injector = Injector.resolveAndCreate([
-	 *   bind("one").toFactory((two) => "two", [[new Inject("two")]]),
-	 *   bind("two").toFactory((one) => "one", [[new Inject("one")]])
+	 *   provide("one", {useFactory: (two) => "two", deps: [[new Inject("two")]]}),
+	 *   provide("two", {useFactory: (one) => "one", deps: [[new Inject("one")]]})
 	 * ]);
 	 *
 	 * expect(() => injector.get("one")).toThrowError();
@@ -10200,7 +11121,7 @@
 	        });
 	    }
 	    return CyclicDependencyError;
-	})(AbstractBindingError);
+	})(AbstractProviderError);
 	exports.CyclicDependencyError = CyclicDependencyError;
 	/**
 	 * Thrown when a constructing type returns with an Error.
@@ -10261,7 +11182,7 @@
 	})(exceptions_1.WrappedException);
 	exports.InstantiationError = InstantiationError;
 	/**
-	 * Thrown when an object other then {@link Binding} (or `Type`) is passed to {@link Injector}
+	 * Thrown when an object other then {@link Provider} (or `Type`) is passed to {@link Injector}
 	 * creation.
 	 *
 	 * ### Example ([live demo](http://plnkr.co/edit/YatCFbPAMCL0JSSQ4mvH?p=preview))
@@ -10270,15 +11191,15 @@
 	 * expect(() => Injector.resolveAndCreate(["not a type"])).toThrowError();
 	 * ```
 	 */
-	var InvalidBindingError = (function (_super) {
-	    __extends(InvalidBindingError, _super);
-	    function InvalidBindingError(binding) {
-	        _super.call(this, "Invalid binding - only instances of Binding and Type are allowed, got: " +
-	            binding.toString());
+	var InvalidProviderError = (function (_super) {
+	    __extends(InvalidProviderError, _super);
+	    function InvalidProviderError(provider) {
+	        _super.call(this, "Invalid provider - only instances of Provider and Type are allowed, got: " +
+	            provider.toString());
 	    }
-	    return InvalidBindingError;
+	    return InvalidProviderError;
 	})(exceptions_1.BaseException);
-	exports.InvalidBindingError = InvalidBindingError;
+	exports.InvalidProviderError = InvalidProviderError;
 	/**
 	 * Thrown when the class has no annotation information.
 	 *
@@ -10295,7 +11216,7 @@
 	 * expect(() => Injector.resolveAndCreate([A])).toThrowError();
 	 * ```
 	 *
-	 * This error is also thrown when the class not marked with {@link @Injectable} has parameter types.
+	 * This error is also thrown when the class not marked with {@link Injectable} has parameter types.
 	 *
 	 * ```typescript
 	 * class B {}
@@ -10352,26 +11273,26 @@
 	exports.OutOfBoundsError = OutOfBoundsError;
 	// TODO: add a working example after alpha38 is released
 	/**
-	 * Thrown when a multi binding and a regular binding are bound to the same token.
+	 * Thrown when a multi provider and a regular provider are bound to the same token.
 	 *
 	 * ### Example
 	 *
 	 * ```typescript
 	 * expect(() => Injector.resolveAndCreate([
-	 *   new Binding("Strings", {toValue: "string1", multi: true}),
-	 *   new Binding("Strings", {toValue: "string2", multi: false})
+	 *   new Provider("Strings", {useValue: "string1", multi: true}),
+	 *   new Provider("Strings", {useValue: "string2", multi: false})
 	 * ])).toThrowError();
 	 * ```
 	 */
-	var MixingMultiBindingsWithRegularBindings = (function (_super) {
-	    __extends(MixingMultiBindingsWithRegularBindings, _super);
-	    function MixingMultiBindingsWithRegularBindings(binding1, binding2) {
-	        _super.call(this, "Cannot mix multi bindings and regular bindings, got: " + binding1.toString() + " " +
-	            binding2.toString());
+	var MixingMultiProvidersWithRegularProvidersError = (function (_super) {
+	    __extends(MixingMultiProvidersWithRegularProvidersError, _super);
+	    function MixingMultiProvidersWithRegularProvidersError(provider1, provider2) {
+	        _super.call(this, "Cannot mix multi providers and regular providers, got: " + provider1.toString() + " " +
+	            provider2.toString());
 	    }
-	    return MixingMultiBindingsWithRegularBindings;
+	    return MixingMultiProvidersWithRegularProvidersError;
 	})(exceptions_1.BaseException);
-	exports.MixingMultiBindingsWithRegularBindings = MixingMultiBindingsWithRegularBindings;
+	exports.MixingMultiProvidersWithRegularProvidersError = MixingMultiProvidersWithRegularProvidersError;
 	//# sourceMappingURL=exceptions.js.map
 
 /***/ },
@@ -10391,22 +11312,22 @@
 	};
 	var lang_1 = __webpack_require__(44);
 	/**
-	 * Creates a token that can be used in a DI Binding.
+	 * Creates a token that can be used in a DI Provider.
 	 *
 	 * ### Example ([live demo](http://plnkr.co/edit/Ys9ezXpj2Mnoy3Uc8KBp?p=preview))
 	 *
 	 * ```typescript
-	 * var t = new OpaqueToken("binding");
+	 * var t = new OpaqueToken("value");
 	 *
 	 * var injector = Injector.resolveAndCreate([
-	 *   bind(t).toValue("bindingValue")
+	 *   provide(t, {useValue: "providedValue"})
 	 * ]);
 	 *
 	 * expect(injector.get(t)).toEqual("bindingValue");
 	 * ```
 	 *
 	 * Using an `OpaqueToken` is preferable to using strings as tokens because of possible collisions
-	 * caused by multiple bindings using the same string as two different tokens.
+	 * caused by multiple providers using the same string as two different tokens.
 	 *
 	 * Using an `OpaqueToken` is preferable to using an `Object` as tokens because it provides better
 	 * error messages.
@@ -10829,20 +11750,181 @@
 	var DirectiveMetadata = (function (_super) {
 	    __extends(DirectiveMetadata, _super);
 	    function DirectiveMetadata(_a) {
-	        var _b = _a === void 0 ? {} : _a, selector = _b.selector, inputs = _b.inputs, outputs = _b.outputs, properties = _b.properties, events = _b.events, host = _b.host, bindings = _b.bindings, exportAs = _b.exportAs, moduleId = _b.moduleId, queries = _b.queries;
+	        var _b = _a === void 0 ? {} : _a, selector = _b.selector, inputs = _b.inputs, outputs = _b.outputs, properties = _b.properties, events = _b.events, host = _b.host, bindings = _b.bindings, providers = _b.providers, exportAs = _b.exportAs, moduleId = _b.moduleId, queries = _b.queries;
 	        _super.call(this);
 	        this.selector = selector;
-	        this.inputs = inputs;
-	        this.outputs = outputs;
+	        this._inputs = inputs;
+	        this._properties = properties;
+	        this._outputs = outputs;
+	        this._events = events;
 	        this.host = host;
-	        // TODO: remove this once properties and events are removed.
-	        this.properties = properties;
-	        this.events = events;
 	        this.exportAs = exportAs;
 	        this.moduleId = moduleId;
 	        this.queries = queries;
-	        this.bindings = bindings;
+	        this._providers = providers;
+	        this._bindings = bindings;
 	    }
+	    Object.defineProperty(DirectiveMetadata.prototype, "inputs", {
+	        /**
+	         * Enumerates the set of data-bound input properties for a directive
+	         *
+	         * Angular automatically updates input properties during change detection.
+	         *
+	         * The `inputs` property defines a set of `directiveProperty` to `bindingProperty`
+	         * configuration:
+	         *
+	         * - `directiveProperty` specifies the component property where the value is written.
+	         * - `bindingProperty` specifies the DOM property where the value is read from.
+	         *
+	         * When `bindingProperty` is not provided, it is assumed to be equal to `directiveProperty`.
+	         *
+	         * ### Example ([live demo](http://plnkr.co/edit/ivhfXY?p=preview))
+	         *
+	         * The following example creates a component with two data-bound properties.
+	         *
+	         * ```typescript
+	         * @Component({
+	         *   selector: 'bank-account',
+	         *   inputs: ['bankName', 'id: account-id'],
+	         *   template: `
+	         *     Bank Name: {{bankName}}
+	         *     Account Id: {{id}}
+	         *   `
+	         * })
+	         * class BankAccount {
+	         *   bankName: string;
+	         *   id: string;
+	         *
+	         *   // this property is not bound, and won't be automatically updated by Angular
+	         *   normalizedBankName: string;
+	         * }
+	         *
+	         * @Component({
+	         *   selector: 'app',
+	         *   template: `
+	         *     <bank-account bank-name="RBC" account-id="4747"></bank-account>
+	         *   `,
+	         *   directives: [BankAccount]
+	         * })
+	         * class App {}
+	         *
+	         * bootstrap(App);
+	         * ```
+	         *
+	         */
+	        get: function () {
+	            return lang_1.isPresent(this._properties) && this._properties.length > 0 ? this._properties :
+	                this._inputs;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(DirectiveMetadata.prototype, "properties", {
+	        get: function () { return this.inputs; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(DirectiveMetadata.prototype, "outputs", {
+	        /**
+	         * Enumerates the set of event-bound output properties.
+	         *
+	         * When an output property emits an event, an event handler attached to that event
+	         * the template is invoked.
+	         *
+	         * The `outputs` property defines a set of `directiveProperty` to `bindingProperty`
+	         * configuration:
+	         *
+	         * - `directiveProperty` specifies the component property that emits events.
+	         * - `bindingProperty` specifies the DOM property the event handler is attached to.
+	         *
+	         * ### Example ([live demo](http://plnkr.co/edit/d5CNq7?p=preview))
+	         *
+	         * ```typescript
+	         * @Directive({
+	         *   selector: 'interval-dir',
+	         *   outputs: ['everySecond', 'five5Secs: everyFiveSeconds']
+	         * })
+	         * class IntervalDir {
+	         *   everySecond = new EventEmitter();
+	         *   five5Secs = new EventEmitter();
+	         *
+	         *   constructor() {
+	         *     setInterval(() => this.everySecond.next("event"), 1000);
+	         *     setInterval(() => this.five5Secs.next("event"), 5000);
+	         *   }
+	         * }
+	         *
+	         * @Component({
+	         *   selector: 'app',
+	         *   template: `
+	         *     <interval-dir (every-second)="everySecond()" (every-five-seconds)="everyFiveSeconds()">
+	         *     </interval-dir>
+	         *   `,
+	         *   directives: [IntervalDir]
+	         * })
+	         * class App {
+	         *   everySecond() { console.log('second'); }
+	         *   everyFiveSeconds() { console.log('five seconds'); }
+	         * }
+	         * bootstrap(App);
+	         * ```
+	         *
+	         */
+	        get: function () {
+	            return lang_1.isPresent(this._events) && this._events.length > 0 ? this._events : this._outputs;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(DirectiveMetadata.prototype, "events", {
+	        get: function () { return this.outputs; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(DirectiveMetadata.prototype, "providers", {
+	        /**
+	         * Defines the set of injectable objects that are visible to a Directive and its light DOM
+	         * children.
+	         *
+	         * ## Simple Example
+	         *
+	         * Here is an example of a class that can be injected:
+	         *
+	         * ```
+	         * class Greeter {
+	         *    greet(name:string) {
+	         *      return 'Hello ' + name + '!';
+	         *    }
+	         * }
+	         *
+	         * @Directive({
+	         *   selector: 'greet',
+	         *   bindings: [
+	         *     Greeter
+	         *   ]
+	         * })
+	         * class HelloWorld {
+	         *   greeter:Greeter;
+	         *
+	         *   constructor(greeter:Greeter) {
+	         *     this.greeter = greeter;
+	         *   }
+	         * }
+	         * ```
+	         */
+	        get: function () {
+	            return lang_1.isPresent(this._bindings) && this._bindings.length > 0 ? this._bindings :
+	                this._providers;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(DirectiveMetadata.prototype, "bindings", {
+	        /** @deprecated */
+	        get: function () { return this.providers; },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    DirectiveMetadata = __decorate([
 	        lang_1.CONST(), 
 	        __metadata('design:paramtypes', [Object])
@@ -10861,7 +11943,7 @@
 	 * When a component is instantiated, Angular
 	 * - creates a shadow DOM for the component.
 	 * - loads the selected template into the shadow DOM.
-	 * - creates all the injectable objects configured with `bindings` and `viewBindings`.
+	 * - creates all the injectable objects configured with `providers` and `viewProviders`.
 	 *
 	 * All template expressions and statements are then evaluated against the component instance.
 	 *
@@ -10876,9 +11958,7 @@
 	 *
 	 * ```
 	 * @Component({
-	 *   selector: 'greet'
-	 * })
-	 * @View({
+	 *   selector: 'greet',
 	 *   template: 'Hello {{name}}!'
 	 * })
 	 * class Greet {
@@ -10894,7 +11974,7 @@
 	var ComponentMetadata = (function (_super) {
 	    __extends(ComponentMetadata, _super);
 	    function ComponentMetadata(_a) {
-	        var _b = _a === void 0 ? {} : _a, selector = _b.selector, inputs = _b.inputs, outputs = _b.outputs, properties = _b.properties, events = _b.events, host = _b.host, exportAs = _b.exportAs, moduleId = _b.moduleId, bindings = _b.bindings, viewBindings = _b.viewBindings, _c = _b.changeDetection, changeDetection = _c === void 0 ? change_detection_1.ChangeDetectionStrategy.Default : _c, queries = _b.queries, templateUrl = _b.templateUrl, template = _b.template, styleUrls = _b.styleUrls, styles = _b.styles, directives = _b.directives, pipes = _b.pipes, encapsulation = _b.encapsulation;
+	        var _b = _a === void 0 ? {} : _a, selector = _b.selector, inputs = _b.inputs, outputs = _b.outputs, properties = _b.properties, events = _b.events, host = _b.host, exportAs = _b.exportAs, moduleId = _b.moduleId, bindings = _b.bindings, providers = _b.providers, viewBindings = _b.viewBindings, viewProviders = _b.viewProviders, _c = _b.changeDetection, changeDetection = _c === void 0 ? change_detection_1.ChangeDetectionStrategy.Default : _c, queries = _b.queries, templateUrl = _b.templateUrl, template = _b.template, styleUrls = _b.styleUrls, styles = _b.styles, directives = _b.directives, pipes = _b.pipes, encapsulation = _b.encapsulation;
 	        _super.call(this, {
 	            selector: selector,
 	            inputs: inputs,
@@ -10905,10 +11985,12 @@
 	            exportAs: exportAs,
 	            moduleId: moduleId,
 	            bindings: bindings,
+	            providers: providers,
 	            queries: queries
 	        });
 	        this.changeDetection = changeDetection;
-	        this.viewBindings = viewBindings;
+	        this._viewProviders = viewProviders;
+	        this._viewBindings = viewBindings;
 	        this.templateUrl = templateUrl;
 	        this.template = template;
 	        this.styleUrls = styleUrls;
@@ -10917,6 +11999,57 @@
 	        this.pipes = pipes;
 	        this.encapsulation = encapsulation;
 	    }
+	    Object.defineProperty(ComponentMetadata.prototype, "viewProviders", {
+	        /**
+	         * Defines the set of injectable objects that are visible to its view DOM children.
+	         *
+	         * ## Simple Example
+	         *
+	         * Here is an example of a class that can be injected:
+	         *
+	         * ```
+	         * class Greeter {
+	         *    greet(name:string) {
+	         *      return 'Hello ' + name + '!';
+	         *    }
+	         * }
+	         *
+	         * @Directive({
+	         *   selector: 'needs-greeter'
+	         * })
+	         * class NeedsGreeter {
+	         *   greeter:Greeter;
+	         *
+	         *   constructor(greeter:Greeter) {
+	         *     this.greeter = greeter;
+	         *   }
+	         * }
+	         *
+	         * @Component({
+	         *   selector: 'greet',
+	         *   viewProviders: [
+	         *     Greeter
+	         *   ],
+	         *   template: `<needs-greeter></needs-greeter>`,
+	         *   directives: [NeedsGreeter]
+	         * })
+	         * class HelloWorld {
+	         * }
+	         *
+	         * ```
+	         */
+	        get: function () {
+	            return lang_1.isPresent(this._viewBindings) && this._viewBindings.length > 0 ? this._viewBindings :
+	                this._viewProviders;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(ComponentMetadata.prototype, "viewBindings", {
+	        get: function () { return this.viewProviders; },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    ComponentMetadata = __decorate([
 	        lang_1.CONST(), 
 	        __metadata('design:paramtypes', [Object])
@@ -10972,8 +12105,8 @@
 	 * The following example creates a component with two input properties.
 	 *
 	 * ```typescript
-	 * @Component({selector: 'bank-account'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'bank-account',
 	 *   template: `
 	 *     Bank Name: {{bankName}}
 	 *     Account Id: {{id}}
@@ -10987,8 +12120,8 @@
 	 *   normalizedBankName: string;
 	 * }
 	 *
-	 * @Component({selector: 'app'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'app',
 	 *   template: `
 	 *     <bank-account bank-name="RBC" account-id="4747"></bank-account>
 	 *   `,
@@ -11040,8 +12173,8 @@
 	 *   }
 	 * }
 	 *
-	 * @Component({selector: 'app'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'app',
 	 *   template: `
 	 *     <interval-dir (every-second)="everySecond()" (every-five-seconds)="everyFiveSeconds()">
 	 *     </interval-dir>
@@ -11089,8 +12222,8 @@
 	 *   @HostBinding('[class.invalid]') get invalid { return this.control.invalid; }
 	 * }
 	 *
-	 * @Component({selector: 'app'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'app',
 	 *   template: `<input [(ng-model)]="prop">`,
 	 *   directives: [FORM_DIRECTIVES, NgModelStatus]
 	 * })
@@ -11136,8 +12269,8 @@
 	 *   }
 	 * }
 	 *
-	 * @Component({selector: 'app'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'app',
 	 *   template: `<button counting>Increment</button>`,
 	 *   directives: [CountClicks]
 	 * })
@@ -11283,7 +12416,7 @@
 	        }
 	    };
 	    /**
-	     * Takes an array of {@link IterableDifferFactory} and returns a binding used to extend the
+	     * Takes an array of {@link IterableDifferFactory} and returns a provider used to extend the
 	     * inherited {@link IterableDiffers} instance with the provided factories and return a new
 	     * {@link IterableDiffers} instance.
 	     *
@@ -11295,15 +12428,15 @@
 	     *
 	     * ```
 	     * @Component({
-	     *   viewBindings: [
+	     *   viewProviders: [
 	     *     IterableDiffers.extend([new ImmutableListDiffer()])
 	     *   ]
 	     * })
 	     * ```
 	     */
 	    IterableDiffers.extend = function (factories) {
-	        return new di_1.Binding(IterableDiffers, {
-	            toFactory: function (parent) {
+	        return new di_1.Provider(IterableDiffers, {
+	            useFactory: function (parent) {
 	                if (lang_1.isBlank(parent)) {
 	                    // Typically would occur when calling IterableDiffers.extend inside of dependencies passed
 	                    // to
@@ -11495,6 +12628,8 @@
 	     * currentKey, and clear all of the queues (additions, moves, removals).
 	     * Set the previousIndexes of moved and added items to their currentIndexes
 	     * Reset the list of additions, moves and removals
+	     *
+	     * @internal
 	     */
 	    DefaultIterableDiffer.prototype._reset = function () {
 	        if (this.isDirty) {
@@ -11522,6 +12657,8 @@
 	     *   item.
 	     * - `item` is the current item in the collection
 	     * - `index` is the position of the item in the collection
+	     *
+	     * @internal
 	     */
 	    DefaultIterableDiffer.prototype._mismatch = function (record, item, index) {
 	        // The previous record after which we will append the current one.
@@ -11578,6 +12715,8 @@
 	     * at the end. Which will show up as the two 'a's switching position. This is incorrect, since a
 	     * better way to think of it is as insert of 'b' rather then switch 'a' with 'b' and then add 'a'
 	     * at the end.
+	     *
+	     * @internal
 	     */
 	    DefaultIterableDiffer.prototype._verifyReinsertion = function (record, item, index) {
 	        var reinsertRecord = this._unlinkedRecords === null ? null : this._unlinkedRecords.get(item);
@@ -11594,6 +12733,8 @@
 	     * Get rid of any excess {@link CollectionChangeRecord}s from the previous collection
 	     *
 	     * - `record` The first excess {@link CollectionChangeRecord}.
+	     *
+	     * @internal
 	     */
 	    DefaultIterableDiffer.prototype._truncate = function (record) {
 	        // Anything after that needs to be removed;
@@ -11618,6 +12759,7 @@
 	            this._removalsTail._nextRemoved = null;
 	        }
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._reinsertAfter = function (record, prevRecord, index) {
 	        if (this._unlinkedRecords !== null) {
 	            this._unlinkedRecords.remove(record);
@@ -11640,12 +12782,14 @@
 	        this._addToMoves(record, index);
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._moveAfter = function (record, prevRecord, index) {
 	        this._unlink(record);
 	        this._insertAfter(record, prevRecord, index);
 	        this._addToMoves(record, index);
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._addAfter = function (record, prevRecord, index) {
 	        this._insertAfter(record, prevRecord, index);
 	        if (this._additionsTail === null) {
@@ -11661,6 +12805,7 @@
 	        }
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._insertAfter = function (record, prevRecord, index) {
 	        // todo(vicb)
 	        // assert(record != prevRecord);
@@ -11691,9 +12836,11 @@
 	        record.currentIndex = index;
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._remove = function (record) {
 	        return this._addToRemovals(this._unlink(record));
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._unlink = function (record) {
 	        if (this._linkedRecords !== null) {
 	            this._linkedRecords.remove(record);
@@ -11717,6 +12864,7 @@
 	        }
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._addToMoves = function (record, toIndex) {
 	        // todo(vicb)
 	        // assert(record._nextMoved === null);
@@ -11735,6 +12883,7 @@
 	        }
 	        return record;
 	    };
+	    /** @internal */
 	    DefaultIterableDiffer.prototype._addToRemovals = function (record) {
 	        if (this._unlinkedRecords === null) {
 	            this._unlinkedRecords = new _DuplicateMap();
@@ -11791,14 +12940,23 @@
 	        this.item = item;
 	        this.currentIndex = null;
 	        this.previousIndex = null;
+	        /** @internal */
 	        this._nextPrevious = null;
+	        /** @internal */
 	        this._prev = null;
+	        /** @internal */
 	        this._next = null;
+	        /** @internal */
 	        this._prevDup = null;
+	        /** @internal */
 	        this._nextDup = null;
+	        /** @internal */
 	        this._prevRemoved = null;
+	        /** @internal */
 	        this._nextRemoved = null;
+	        /** @internal */
 	        this._nextAdded = null;
+	        /** @internal */
 	        this._nextMoved = null;
 	    }
 	    CollectionChangeRecord.prototype.toString = function () {
@@ -11813,7 +12971,9 @@
 	// A linked list of CollectionChangeRecords with the same CollectionChangeRecord.item
 	var _DuplicateItemRecordList = (function () {
 	    function _DuplicateItemRecordList() {
+	        /** @internal */
 	        this._head = null;
+	        /** @internal */
 	        this._tail = null;
 	    }
 	    /**
@@ -11920,12 +13080,12 @@
 	        var recordList = this.map.get(key);
 	        // Remove the list of duplicates when it gets empty
 	        if (recordList.remove(record)) {
-	            collection_1.MapWrapper.delete(this.map, key);
+	            this.map.delete(key);
 	        }
 	        return record;
 	    };
 	    Object.defineProperty(_DuplicateMap.prototype, "isEmpty", {
-	        get: function () { return collection_1.MapWrapper.size(this.map) === 0; },
+	        get: function () { return this.map.size === 0; },
 	        enumerable: true,
 	        configurable: true
 	    });
@@ -11972,7 +13132,7 @@
 	        }
 	    };
 	    /**
-	     * Takes an array of {@link KeyValueDifferFactory} and returns a binding used to extend the
+	     * Takes an array of {@link KeyValueDifferFactory} and returns a provider used to extend the
 	     * inherited {@link KeyValueDiffers} instance with the provided factories and return a new
 	     * {@link KeyValueDiffers} instance.
 	     *
@@ -11984,15 +13144,15 @@
 	     *
 	     * ```
 	     * @Component({
-	     *   viewBindings: [
+	     *   viewProviders: [
 	     *     KeyValueDiffers.extend([new ImmutableMapDiffer()])
 	     *   ]
 	     * })
 	     * ```
 	     */
 	    KeyValueDiffers.extend = function (factories) {
-	        return new di_1.Binding(KeyValueDiffers, {
-	            toFactory: function (parent) {
+	        return new di_1.Provider(KeyValueDiffers, {
+	            useFactory: function (parent) {
 	                if (lang_1.isBlank(parent)) {
 	                    // Typically would occur when calling KeyValueDiffers.extend inside of dependencies passed
 	                    // to
@@ -12171,6 +13331,7 @@
 	        this._truncate(lastOldSeqRecord, oldSeqRecord);
 	        return this.isDirty;
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._reset = function () {
 	        if (this.isDirty) {
 	            var record;
@@ -12214,6 +13375,7 @@
 	            this._removalsHead = this._removalsTail = null;
 	        }
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._truncate = function (lastRecord, record) {
 	        while (record !== null) {
 	            if (lastRecord === null) {
@@ -12235,13 +13397,15 @@
 	        for (var rec = this._removalsHead; rec !== null; rec = rec._nextRemoved) {
 	            rec.previousValue = rec.currentValue;
 	            rec.currentValue = null;
-	            collection_1.MapWrapper.delete(this._records, rec.key);
+	            this._records.delete(rec.key);
 	        }
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._isInRemovals = function (record) {
 	        return record === this._removalsHead || record._nextRemoved !== null ||
 	            record._prevRemoved !== null;
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._addToRemovals = function (record) {
 	        // todo(vicb) assert
 	        // assert(record._next == null);
@@ -12258,6 +13422,7 @@
 	            this._removalsTail = record;
 	        }
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._removeFromSeq = function (prev, record) {
 	        var next = record._next;
 	        if (prev === null) {
@@ -12272,6 +13437,7 @@
 	        //  return true;
 	        //})());
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._removeFromRemovals = function (record) {
 	        // todo(vicb) assert
 	        // assert(record._next == null);
@@ -12293,6 +13459,7 @@
 	        }
 	        record._prevRemoved = record._nextRemoved = null;
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._addToAdditions = function (record) {
 	        // todo(vicb): assert
 	        // assert(record._next == null);
@@ -12308,6 +13475,7 @@
 	            this._additionsTail = record;
 	        }
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._addToChanges = function (record) {
 	        // todo(vicb) assert
 	        // assert(record._nextAdded == null);
@@ -12348,9 +13516,10 @@
 	            "additions: " + additions.join(', ') + "\n" + "changes: " + changes.join(', ') + "\n" +
 	            "removals: " + removals.join(', ') + "\n";
 	    };
+	    /** @internal */
 	    DefaultKeyValueDiffer.prototype._forEach = function (obj, fn) {
 	        if (obj instanceof Map) {
-	            collection_1.MapWrapper.forEach(obj, fn);
+	            obj.forEach(fn);
 	        }
 	        else {
 	            collection_1.StringMapWrapper.forEach(obj, fn);
@@ -12364,11 +13533,17 @@
 	        this.key = key;
 	        this.previousValue = null;
 	        this.currentValue = null;
+	        /** @internal */
 	        this._nextPrevious = null;
+	        /** @internal */
 	        this._next = null;
+	        /** @internal */
 	        this._nextAdded = null;
+	        /** @internal */
 	        this._nextRemoved = null;
+	        /** @internal */
 	        this._prevRemoved = null;
+	        /** @internal */
 	        this._nextChanged = null;
 	    }
 	    KVChangeRecord.prototype.toString = function () {
@@ -13289,7 +14464,7 @@
 	    return ParseException;
 	})(exceptions_1.BaseException);
 	var Parser = (function () {
-	    function Parser(_lexer, providedReflector) {
+	    function Parser(/** @internal */ _lexer, providedReflector) {
 	        if (providedReflector === void 0) { providedReflector = null; }
 	        this._lexer = _lexer;
 	        this._reflector = lang_1.isPresent(providedReflector) ? providedReflector : reflection_1.reflector;
@@ -13907,9 +15082,6 @@
 	'use strict';var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	/**
-	 * @internal
-	 */
 	var Locals = (function () {
 	    function Locals(parent, current) {
 	        this.parent = parent;
@@ -13970,8 +15142,8 @@
 	 * ### Example
 	 *
 	 * ```typescript
-	 * @Component({selector: 'parent'})
-	 * @View({
+	 * @Component({
+	 *   selector: 'parent',
 	 *   template: `
 	 *     <child [prop]="parentProp"></child>
 	 *   `,
@@ -14017,9 +15189,7 @@
 	 * }
 	 *
 	 * @Component({
-	 *   selector: 'app'
-	 * })
-	 * @View({
+	 *   selector: 'app',
 	 *   template: `
 	 *     <child [prop]="field.first"></child>
 	 *   `,
@@ -14220,6 +15390,7 @@
 	            this._setArgumentToPureFunction(numberOfRecordsBefore);
 	        }
 	    };
+	    /** @internal */
 	    ProtoRecordBuilder.prototype._setArgumentToPureFunction = function (startIndex) {
 	        var _this = this;
 	        for (var i = startIndex; i < this.records.length; ++i) {
@@ -14235,6 +15406,7 @@
 	            }
 	        }
 	    };
+	    /** @internal */
 	    ProtoRecordBuilder.prototype._appendRecords = function (b, variableNames, bindingIndex) {
 	        if (b.isDirectiveLifecycle()) {
 	            this.records.push(new proto_record_1.ProtoRecord(proto_record_1.RecordType.DirectiveLifecycle, b.lifecycleEvent, null, [], [], -1, null, this.records.length + 1, b, false, false, false, false, null));
@@ -14936,6 +16108,7 @@
 	        });
 	        return preventDefault;
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._processEventBinding = function (eb, locals) {
 	        var values = collection_1.ListWrapper.createFixedSize(eb.records.length);
 	        values[0] = this.values[0];
@@ -14952,12 +16125,14 @@
 	        }
 	        throw new exceptions_1.BaseException("Cannot be reached");
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._markPathAsCheckOnce = function (proto) {
 	        if (!proto.bindingRecord.isDefaultChangeDetection()) {
 	            var dir = proto.bindingRecord.directiveRecord;
 	            this._getDetectorFor(dir.directiveIndex).markPathToRootAsCheckOnce();
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._matchingEventBindings = function (eventName, elIndex) {
 	        return collection_1.ListWrapper.filter(this._eventBindings, function (eb) { return eb.eventName == eventName && eb.elIndex === elIndex; });
 	    };
@@ -14982,6 +16157,7 @@
 	        collection_1.ListWrapper.fill(this.localPipes, null);
 	        collection_1.ListWrapper.fill(this.prevContexts, change_detection_util_1.ChangeDetectionUtil.uninitialized);
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._destroyPipes = function () {
 	        for (var i = 0; i < this.localPipes.length; ++i) {
 	            if (lang_1.isPresent(this.localPipes[i])) {
@@ -15029,6 +16205,7 @@
 	            }
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._firstInBinding = function (r) {
 	        var prev = change_detection_util_1.ChangeDetectionUtil.protoByIndex(this._records, r.selfIndex - 1);
 	        return lang_1.isBlank(prev) || prev.bindingRecord !== r.bindingRecord;
@@ -15057,6 +16234,7 @@
 	            }
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._updateDirectiveOrElement = function (change, bindingRecord) {
 	        if (lang_1.isBlank(bindingRecord.directiveRecord)) {
 	            _super.prototype.notifyDispatcher.call(this, change.currentValue);
@@ -15069,6 +16247,7 @@
 	            _super.prototype.logBindingUpdate.call(this, change.currentValue);
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._addChange = function (bindingRecord, change, changes) {
 	        if (bindingRecord.callOnChanges()) {
 	            return _super.prototype.addChange.call(this, changes, change.previousValue, change.currentValue);
@@ -15077,8 +16256,11 @@
 	            return changes;
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._getDirectiveFor = function (directiveIndex) { return this.directives.getDirectiveFor(directiveIndex); };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._getDetectorFor = function (directiveIndex) { return this.directives.getDetectorFor(directiveIndex); };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._check = function (proto, throwOnChange, values, locals) {
 	        if (proto.isPipeRecord()) {
 	            return this._pipeCheck(proto, throwOnChange, values);
@@ -15087,6 +16269,7 @@
 	            return this._referenceCheck(proto, throwOnChange, values, locals);
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._referenceCheck = function (proto, throwOnChange, values, locals) {
 	        if (this._pureFuncAndArgsDidNotChange(proto)) {
 	            this._setChanged(proto, false);
@@ -15124,6 +16307,7 @@
 	            return null;
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._calculateCurrValue = function (proto, values, locals) {
 	        switch (proto.mode) {
 	            case proto_record_1.RecordType.Self:
@@ -15176,6 +16360,7 @@
 	                throw new exceptions_1.BaseException("Unknown operation " + proto.mode);
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._pipeCheck = function (proto, throwOnChange, values) {
 	        var context = this._readContext(proto, values);
 	        var selectedPipe = this._pipeFor(proto, context);
@@ -15212,6 +16397,7 @@
 	            }
 	        }
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._pipeFor = function (proto, context) {
 	        var storedPipe = this._readPipe(proto);
 	        if (lang_1.isPresent(storedPipe))
@@ -15220,6 +16406,7 @@
 	        this._writePipe(proto, pipe);
 	        return pipe;
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._readContext = function (proto, values) {
 	        if (proto.contextIndex == -1) {
 	            return this._getDirectiveFor(proto.directiveIndex);
@@ -15229,17 +16416,24 @@
 	        }
 	        return values[proto.contextIndex];
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._readSelf = function (proto, values) { return values[proto.selfIndex]; };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._writeSelf = function (proto, value, values) { values[proto.selfIndex] = value; };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._readPipe = function (proto) { return this.localPipes[proto.selfIndex]; };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._writePipe = function (proto, value) { this.localPipes[proto.selfIndex] = value; };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._setChanged = function (proto, value) {
 	        if (proto.argumentToPureFunction)
 	            this.changes[proto.selfIndex] = value;
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._pureFuncAndArgsDidNotChange = function (proto) {
 	        return proto.isPureFunction() && !this._argsChanged(proto);
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._argsChanged = function (proto) {
 	        var args = proto.args;
 	        for (var i = 0; i < args.length; ++i) {
@@ -15249,9 +16443,11 @@
 	        }
 	        return false;
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._argsOrContextChanged = function (proto) {
 	        return this._argsChanged(proto) || this.changes[proto.contextIndex];
 	    };
+	    /** @internal */
 	    DynamicChangeDetector.prototype._readArgs = function (proto, values) {
 	        var res = collection_1.ListWrapper.createFixedSize(proto.args.length);
 	        var args = proto.args;
@@ -15418,12 +16614,14 @@
 	        this.afterViewLifecycleCallbacksInternal();
 	    };
 	    AbstractChangeDetector.prototype.afterViewLifecycleCallbacksInternal = function () { };
+	    /** @internal */
 	    AbstractChangeDetector.prototype._detectChangesInLightDomChildren = function (throwOnChange) {
 	        var c = this.lightDomChildren;
 	        for (var i = 0; i < c.length; ++i) {
 	            c[i].runDetectChanges(throwOnChange);
 	        }
 	    };
+	    /** @internal */
 	    AbstractChangeDetector.prototype._detectChangesInShadowDomChildren = function (throwOnChange) {
 	        var c = this.shadowDomChildren;
 	        for (var i = 0; i < c.length; ++i) {
@@ -15856,6 +17054,7 @@
 	    }
 	    JitProtoChangeDetector.isSupported = function () { return true; };
 	    JitProtoChangeDetector.prototype.instantiate = function (dispatcher) { return this._factory(dispatcher); };
+	    /** @internal */
 	    JitProtoChangeDetector.prototype._createFactory = function (definition) {
 	        return new change_detection_jit_generator_1.ChangeDetectorJITGenerator(definition, 'util', 'AbstractChangeDetector').generate();
 	    };
@@ -15913,14 +17112,17 @@
 	        var _this = this;
 	        return "\n      var " + this.typeName + " = function " + this.typeName + "(dispatcher) {\n        " + this.abstractChangeDetectorVarName + ".call(\n            this, " + JSON.stringify(this.id) + ", dispatcher, " + this.records.length + ",\n            " + this.typeName + ".gen_propertyBindingTargets, " + this.typeName + ".gen_directiveIndices,\n            " + codegen_facade_1.codify(this.changeDetectionStrategy) + ");\n        this.dehydrateDirectives(false);\n      }\n\n      " + this.typeName + ".prototype = Object.create(" + this.abstractChangeDetectorVarName + ".prototype);\n\n      " + this.typeName + ".prototype.detectChangesInRecordsInternal = function(throwOnChange) {\n        " + this._names.genInitLocals() + "\n        var " + IS_CHANGED_LOCAL + " = false;\n        var " + CHANGES_LOCAL + " = null;\n\n        " + this.records.map(function (r) { return _this._genRecord(r); }).join("\n") + "\n      }\n\n      " + this._maybeGenHandleEventInternal() + "\n\n      " + this._genCheckNoChanges() + "\n\n      " + this._maybeGenAfterContentLifecycleCallbacks() + "\n\n      " + this._maybeGenAfterViewLifecycleCallbacks() + "\n\n      " + this._maybeGenHydrateDirectives() + "\n\n      " + this._maybeGenDehydrateDirectives() + "\n\n      " + this._genPropertyBindingTargets() + "\n\n      " + this._genDirectiveIndices() + "\n    ";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genPropertyBindingTargets = function () {
 	        var targets = this._logic.genPropertyBindingTargets(this.propertyBindingTargets, this.genConfig.genDebugInfo);
 	        return this.typeName + ".gen_propertyBindingTargets = " + targets + ";";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genDirectiveIndices = function () {
 	        var indices = this._logic.genDirectiveIndices(this.directiveRecords);
 	        return this.typeName + ".gen_directiveIndices = " + indices + ";";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenHandleEventInternal = function () {
 	        var _this = this;
 	        if (this.eventBindings.length > 0) {
@@ -15931,11 +17133,13 @@
 	            return '';
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genEventBinding = function (eb) {
 	        var _this = this;
 	        var recs = eb.records.map(function (r) { return _this._genEventBindingEval(eb, r); }).join("\n");
 	        return "\n    if (eventName === \"" + eb.eventName + "\" && elIndex === " + eb.elIndex + ") {\n      " + recs + "\n    }";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genEventBindingEval = function (eb, r) {
 	        if (r.lastInBinding) {
 	            var evalRecord = this._logic.genEventBindingEvalValue(eb, r);
@@ -15947,6 +17151,7 @@
 	            return this._logic.genEventBindingEvalValue(eb, r);
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genMarkPathToRootAsCheckOnce = function (r) {
 	        var br = r.bindingRecord;
 	        if (br.isDefaultChangeDetection()) {
@@ -15956,10 +17161,12 @@
 	            return this._names.getDetectorName(br.directiveRecord.directiveIndex) + ".markPathToRootAsCheckOnce();";
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genUpdatePreventDefault = function (eb, r) {
 	        var local = this._names.getEventLocalName(eb, r.selfIndex);
 	        return "if (" + local + " === false) { " + this._names.getPreventDefaultAccesor() + " = true};";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenDehydrateDirectives = function () {
 	        var destroyPipesCode = this._names.genPipeOnDestroy();
 	        if (destroyPipesCode) {
@@ -15970,6 +17177,7 @@
 	            return '';
 	        return this.typeName + ".prototype.dehydrateDirectives = function(destroyPipes) {\n        " + destroyPipesCode + "\n        " + dehydrateFieldsCode + "\n    }";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenHydrateDirectives = function () {
 	        var hydrateDirectivesCode = this._logic.genHydrateDirectives(this.directiveRecords);
 	        var hydrateDetectorsCode = this._logic.genHydrateDetectors(this.directiveRecords);
@@ -15977,6 +17185,7 @@
 	            return '';
 	        return this.typeName + ".prototype.hydrateDirectives = function(directives) {\n      " + hydrateDirectivesCode + "\n      " + hydrateDetectorsCode + "\n    }";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenAfterContentLifecycleCallbacks = function () {
 	        var notifications = this._logic.genContentLifecycleCallbacks(this.directiveRecords);
 	        if (notifications.length > 0) {
@@ -15987,6 +17196,7 @@
 	            return '';
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenAfterViewLifecycleCallbacks = function () {
 	        var notifications = this._logic.genViewLifecycleCallbacks(this.directiveRecords);
 	        if (notifications.length > 0) {
@@ -15997,6 +17207,7 @@
 	            return '';
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genRecord = function (r) {
 	        var rec;
 	        if (r.isLifeCycleRecord()) {
@@ -16010,6 +17221,7 @@
 	        }
 	        return "\n      " + this._maybeFirstInBinding(r) + "\n      " + rec + "\n      " + this._maybeGenLastInDirective(r) + "\n    ";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genDirectiveLifecycle = function (r) {
 	        if (r.name === "DoCheck") {
 	            return this._genOnCheck(r);
@@ -16024,6 +17236,7 @@
 	            throw new exceptions_1.BaseException("Unknown lifecycle event '" + r.name + "'");
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genPipeCheck = function (r) {
 	        var _this = this;
 	        var context = this._names.getLocalName(r.contextIndex);
@@ -16046,6 +17259,7 @@
 	            return init + " if (" + condition + ") { " + genCode + " }";
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genReferenceCheck = function (r) {
 	        var _this = this;
 	        var oldValue = this._names.getFieldName(r.selfIndex);
@@ -16066,9 +17280,11 @@
 	            return genCode;
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genChangeMarker = function (r) {
 	        return r.argumentToPureFunction ? this._names.getChangeName(r.selfIndex) + " = true" : "";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genUpdateDirectiveOrElement = function (r) {
 	        if (!r.lastInBinding)
 	            return "";
@@ -16084,6 +17300,7 @@
 	            return "\n        " + this._genThrowOnChangeCheck(oldValue, newValue) + "\n        this.notifyDispatcher(" + newValue + ");\n        " + notifyDebug + "\n      ";
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genThrowOnChangeCheck = function (oldValue, newValue) {
 	        if (this.genConfig.genCheckNoChanges) {
 	            return "\n        if(throwOnChange) {\n          this.throwOnChangeError(" + oldValue + ", " + newValue + ");\n        }\n        ";
@@ -16092,6 +17309,7 @@
 	            return '';
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genCheckNoChanges = function () {
 	        if (this.genConfig.genCheckNoChanges) {
 	            return this.typeName + ".prototype.checkNoChanges = function() { this.runDetectChanges(true); }";
@@ -16100,6 +17318,7 @@
 	            return '';
 	        }
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genAddToChanges = function (r) {
 	        var newValue = this._names.getLocalName(r.selfIndex);
 	        var oldValue = this._names.getFieldName(r.selfIndex);
@@ -16107,6 +17326,7 @@
 	            return "";
 	        return CHANGES_LOCAL + " = this.addChange(" + CHANGES_LOCAL + ", " + oldValue + ", " + newValue + ");";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeFirstInBinding = function (r) {
 	        var prev = change_detection_util_1.ChangeDetectionUtil.protoByIndex(this.records, r.selfIndex - 1);
 	        var firstInBindng = lang_1.isBlank(prev) || prev.bindingRecord !== r.bindingRecord;
@@ -16114,23 +17334,28 @@
 	            this._names.getPropertyBindingIndex() + " = " + r.propertyBindingIndex + ";" :
 	            '';
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._maybeGenLastInDirective = function (r) {
 	        if (!r.lastInDirective)
 	            return "";
 	        return "\n      " + CHANGES_LOCAL + " = null;\n      " + this._genNotifyOnPushDetectors(r) + "\n      " + IS_CHANGED_LOCAL + " = false;\n    ";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genOnCheck = function (r) {
 	        var br = r.bindingRecord;
 	        return "if (!throwOnChange) " + this._names.getDirectiveName(br.directiveRecord.directiveIndex) + ".doCheck();";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genOnInit = function (r) {
 	        var br = r.bindingRecord;
 	        return "if (!throwOnChange && !" + this._names.getAlreadyCheckedName() + ") " + this._names.getDirectiveName(br.directiveRecord.directiveIndex) + ".onInit();";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genOnChange = function (r) {
 	        var br = r.bindingRecord;
 	        return "if (!throwOnChange && " + CHANGES_LOCAL + ") " + this._names.getDirectiveName(br.directiveRecord.directiveIndex) + ".onChanges(" + CHANGES_LOCAL + ");";
 	    };
+	    /** @internal */
 	    ChangeDetectorJITGenerator.prototype._genNotifyOnPushDetectors = function (r) {
 	        var br = r.bindingRecord;
 	        if (!r.lastInDirective || br.isDefaultChangeDetection())
@@ -16182,6 +17407,7 @@
 	        this._eventBindings = _eventBindings;
 	        this._directiveRecords = _directiveRecords;
 	        this._utilName = _utilName;
+	        /** @internal */
 	        this._sanitizedEventNames = new collection_1.Map();
 	        this._sanitizedNames = collection_1.ListWrapper.createFixedSize(this._records.length + 1);
 	        this._sanitizedNames[exports.CONTEXT_INDEX] = _CONTEXT_ACCESSOR;
@@ -16197,6 +17423,7 @@
 	            this._sanitizedEventNames.set(eb, names);
 	        }
 	    }
+	    /** @internal */
 	    CodegenNameUtil.prototype._addFieldPrefix = function (name) { return "" + _FIELD_PREFIX + name; };
 	    CodegenNameUtil.prototype.getDispatcherName = function () { return this._addFieldPrefix(_DISPATCHER_ACCESSOR); };
 	    CodegenNameUtil.prototype.getPipesAccessorName = function () { return this._addFieldPrefix(_PIPES_ACCESSOR); };
@@ -16208,7 +17435,7 @@
 	    CodegenNameUtil.prototype.getPropertyBindingIndex = function () { return this._addFieldPrefix(_PROP_BINDING_INDEX); };
 	    CodegenNameUtil.prototype.getLocalName = function (idx) { return "l_" + this._sanitizedNames[idx]; };
 	    CodegenNameUtil.prototype.getEventLocalName = function (eb, idx) {
-	        return "l_" + collection_1.MapWrapper.get(this._sanitizedEventNames, eb)[idx];
+	        return "l_" + this._sanitizedEventNames.get(eb)[idx];
 	    };
 	    CodegenNameUtil.prototype.getChangeName = function (idx) { return "c_" + this._sanitizedNames[idx]; };
 	    /**
@@ -16242,7 +17469,7 @@
 	    CodegenNameUtil.prototype.genInitEventLocals = function () {
 	        var _this = this;
 	        var res = [(this.getLocalName(exports.CONTEXT_INDEX) + " = " + this.getFieldName(exports.CONTEXT_INDEX))];
-	        collection_1.MapWrapper.forEach(this._sanitizedEventNames, function (names, eb) {
+	        this._sanitizedEventNames.forEach(function (names, eb) {
 	            for (var i = 0; i < names.length; ++i) {
 	                if (i !== exports.CONTEXT_INDEX) {
 	                    res.push("" + _this.getEventLocalName(eb, i));
@@ -16404,6 +17631,7 @@
 	        }
 	        return getLocalName(protoRec.selfIndex) + " = " + rhs + ";";
 	    };
+	    /** @internal */
 	    CodegenLogicUtil.prototype._observe = function (exp, rec) {
 	        // This is an experimental feature. Works only in Dart.
 	        if (this._changeDetection === constants_1.ChangeDetectionStrategy.OnPushObserve) {
@@ -16430,6 +17658,7 @@
 	        });
 	        return "[" + bs.join(", ") + "]";
 	    };
+	    /** @internal */
 	    CodegenLogicUtil.prototype._genInterpolation = function (protoRec) {
 	        var iVals = [];
 	        for (var i = 0; i < protoRec.args.length; ++i) {
@@ -16586,9 +17815,7 @@
 	 *
 	 * ```
 	 * @Component({
-	 *   selector: 'greet'
-	 * })
-	 * @View({
+	 *   selector: 'greet',
 	 *   template: 'Hello {{name}}!',
 	 *   directives: [GreetUser, Bold]
 	 * })
@@ -16641,23 +17868,23 @@
 	 */
 	var async_pipe_1 = __webpack_require__(98);
 	exports.AsyncPipe = async_pipe_1.AsyncPipe;
-	var date_pipe_1 = __webpack_require__(112);
+	var date_pipe_1 = __webpack_require__(113);
 	exports.DatePipe = date_pipe_1.DatePipe;
-	var default_pipes_1 = __webpack_require__(114);
+	var default_pipes_1 = __webpack_require__(115);
 	exports.DEFAULT_PIPES = default_pipes_1.DEFAULT_PIPES;
 	exports.DEFAULT_PIPES_TOKEN = default_pipes_1.DEFAULT_PIPES_TOKEN;
-	var json_pipe_1 = __webpack_require__(117);
+	var json_pipe_1 = __webpack_require__(118);
 	exports.JsonPipe = json_pipe_1.JsonPipe;
-	var slice_pipe_1 = __webpack_require__(118);
+	var slice_pipe_1 = __webpack_require__(119);
 	exports.SlicePipe = slice_pipe_1.SlicePipe;
-	var lowercase_pipe_1 = __webpack_require__(116);
+	var lowercase_pipe_1 = __webpack_require__(117);
 	exports.LowerCasePipe = lowercase_pipe_1.LowerCasePipe;
-	var number_pipe_1 = __webpack_require__(119);
+	var number_pipe_1 = __webpack_require__(120);
 	exports.NumberPipe = number_pipe_1.NumberPipe;
 	exports.DecimalPipe = number_pipe_1.DecimalPipe;
 	exports.PercentPipe = number_pipe_1.PercentPipe;
 	exports.CurrencyPipe = number_pipe_1.CurrencyPipe;
-	var uppercase_pipe_1 = __webpack_require__(115);
+	var uppercase_pipe_1 = __webpack_require__(116);
 	exports.UpperCasePipe = uppercase_pipe_1.UpperCasePipe;
 	//# sourceMappingURL=pipes.js.map
 
@@ -16681,7 +17908,7 @@
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
 	var change_detection_1 = __webpack_require__(63);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	var ObservableStrategy = (function () {
 	    function ObservableStrategy() {
 	    }
@@ -16716,9 +17943,7 @@
 	 * ```
 	 * import {Observable} from 'angular2/core';
 	 * @Component({
-	 *   selector: "task-cmp"
-	 * })
-	 * @View({
+	 *   selector: "task-cmp",
 	 *   template: "Time: {{ time | async }}"
 	 * })
 	 * class Task {
@@ -16731,12 +17956,16 @@
 	 */
 	var AsyncPipe = (function () {
 	    function AsyncPipe(_ref) {
-	        this._ref = _ref;
+	        /** @internal */
 	        this._latestValue = null;
+	        /** @internal */
 	        this._latestReturnedValue = null;
+	        /** @internal */
 	        this._subscription = null;
+	        /** @internal */
 	        this._obj = null;
 	        this._strategy = null;
+	        this._ref = _ref;
 	    }
 	    AsyncPipe.prototype.onDestroy = function () {
 	        if (lang_1.isPresent(this._subscription)) {
@@ -16762,6 +17991,7 @@
 	            return change_detection_1.WrappedValue.wrap(this._latestValue);
 	        }
 	    };
+	    /** @internal */
 	    AsyncPipe.prototype._subscribe = function (obj) {
 	        var _this = this;
 	        this._obj = obj;
@@ -16769,6 +17999,7 @@
 	        this._subscription =
 	            this._strategy.createSubscription(obj, function (value) { return _this._updateLatestValue(obj, value); });
 	    };
+	    /** @internal */
 	    AsyncPipe.prototype._selectStrategy = function (obj) {
 	        if (lang_1.isPromise(obj)) {
 	            return _promiseStrategy;
@@ -16780,6 +18011,7 @@
 	            throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(AsyncPipe, obj);
 	        }
 	    };
+	    /** @internal */
 	    AsyncPipe.prototype._dispose = function () {
 	        this._strategy.dispose(this._subscription);
 	        this._latestValue = null;
@@ -16787,6 +18019,7 @@
 	        this._subscription = null;
 	        this._obj = null;
 	    };
+	    /** @internal */
 	    AsyncPipe.prototype._updateLatestValue = function (async, value) {
 	        if (async === this._obj) {
 	            this._latestValue = value;
@@ -16812,54 +18045,18 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	///<reference path="../../../typings/tsd.d.ts" />
 	var lang_1 = __webpack_require__(44);
+	var promise_1 = __webpack_require__(100);
+	exports.PromiseWrapper = promise_1.PromiseWrapper;
+	exports.Promise = promise_1.Promise;
 	// TODO(jeffbcross): use ES6 import once typings are available
-	var Subject = __webpack_require__(100);
-	var PromiseWrapper = (function () {
-	    function PromiseWrapper() {
-	    }
-	    PromiseWrapper.resolve = function (obj) { return Promise.resolve(obj); };
-	    PromiseWrapper.reject = function (obj, _) { return Promise.reject(obj); };
-	    // Note: We can't rename this method into `catch`, as this is not a valid
-	    // method name in Dart.
-	    PromiseWrapper.catchError = function (promise, onError) {
-	        return promise.catch(onError);
-	    };
-	    PromiseWrapper.all = function (promises) {
-	        if (promises.length == 0)
-	            return Promise.resolve([]);
-	        return Promise.all(promises);
-	    };
-	    PromiseWrapper.then = function (promise, success, rejection) {
-	        return promise.then(success, rejection);
-	    };
-	    PromiseWrapper.wrap = function (computation) {
-	        return new Promise(function (res, rej) {
-	            try {
-	                res(computation());
-	            }
-	            catch (e) {
-	                rej(e);
-	            }
-	        });
-	    };
-	    PromiseWrapper.completer = function () {
-	        var resolve;
-	        var reject;
-	        var p = new Promise(function (res, rej) {
-	            resolve = res;
-	            reject = rej;
-	        });
-	        return { promise: p, resolve: resolve, reject: reject };
-	    };
-	    return PromiseWrapper;
-	})();
-	exports.PromiseWrapper = PromiseWrapper;
+	var Subject = __webpack_require__(101);
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
 	    }
-	    TimerWrapper.setTimeout = function (fn, millis) { return lang_1.global.setTimeout(fn, millis); };
+	    TimerWrapper.setTimeout = function (fn, millis) {
+	        return lang_1.global.setTimeout(fn, millis);
+	    };
 	    TimerWrapper.clearTimeout = function (id) { lang_1.global.clearTimeout(id); };
 	    TimerWrapper.setInterval = function (fn, millis) {
 	        return lang_1.global.setInterval(fn, millis);
@@ -16902,8 +18099,9 @@
 	 * title gets clicked:
 	 *
 	 * ```
-	 * @Component({selector: 'zippy'})
-	 * @View({template: `
+	 * @Component({
+	 *   selector: 'zippy',
+	 *   template: `
 	 *   <div class="zippy">
 	 *     <div (click)="toggle()">Toggle</div>
 	 *     <div [hidden]="!visible">
@@ -16935,6 +18133,7 @@
 	    __extends(EventEmitter, _super);
 	    function EventEmitter() {
 	        _super.apply(this, arguments);
+	        /** @internal */
 	        this._subject = new Subject();
 	    }
 	    EventEmitter.prototype.observer = function (generator) {
@@ -16951,6 +18150,54 @@
 
 /***/ },
 /* 100 */
+/***/ function(module, exports) {
+
+	'use strict';// Promises are put into their own facade file so that they can be used without
+	// introducing a dependency on rxjs. They are re-exported through facade/async.
+	var PromiseWrapper = (function () {
+	    function PromiseWrapper() {
+	    }
+	    PromiseWrapper.resolve = function (obj) { return Promise.resolve(obj); };
+	    PromiseWrapper.reject = function (obj, _) { return Promise.reject(obj); };
+	    // Note: We can't rename this method into `catch`, as this is not a valid
+	    // method name in Dart.
+	    PromiseWrapper.catchError = function (promise, onError) {
+	        return promise.catch(onError);
+	    };
+	    PromiseWrapper.all = function (promises) {
+	        if (promises.length == 0)
+	            return Promise.resolve([]);
+	        return Promise.all(promises);
+	    };
+	    PromiseWrapper.then = function (promise, success, rejection) {
+	        return promise.then(success, rejection);
+	    };
+	    PromiseWrapper.wrap = function (computation) {
+	        return new Promise(function (res, rej) {
+	            try {
+	                res(computation());
+	            }
+	            catch (e) {
+	                rej(e);
+	            }
+	        });
+	    };
+	    PromiseWrapper.completer = function () {
+	        var resolve;
+	        var reject;
+	        var p = new Promise(function (res, rej) {
+	            resolve = res;
+	            reject = rej;
+	        });
+	        return { promise: p, resolve: resolve, reject: reject };
+	    };
+	    return PromiseWrapper;
+	})();
+	exports.PromiseWrapper = PromiseWrapper;
+	//# sourceMappingURL=promise.js.map
+
+/***/ },
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16963,19 +18210,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _Observable2 = __webpack_require__(101);
+	var _Observable2 = __webpack_require__(102);
 
 	var _Observable3 = _interopRequireDefault(_Observable2);
 
-	var _Subscriber = __webpack_require__(102);
+	var _Subscriber = __webpack_require__(103);
 
 	var _Subscriber2 = _interopRequireDefault(_Subscriber);
 
-	var _Subscription = __webpack_require__(106);
+	var _Subscription = __webpack_require__(107);
 
 	var _Subscription2 = _interopRequireDefault(_Subscription);
 
-	var _subjectsSubjectSubscription = __webpack_require__(110);
+	var _subjectsSubjectSubscription = __webpack_require__(111);
 
 	var _subjectsSubjectSubscription2 = _interopRequireDefault(_subjectsSubjectSubscription);
 
@@ -16988,7 +18235,6 @@
 	var _subscriberNext = _Subscriber2['default'].prototype._next;
 	var _subscriberError = _Subscriber2['default'].prototype._error;
 	var _subscriberComplete = _Subscriber2['default'].prototype._complete;
-	var _observableSubscribe = _Observable3['default'].prototype._subscribe;
 
 	var Subject = (function (_Observable) {
 	    _inherits(Subject, _Observable);
@@ -17138,7 +18384,8 @@
 	    }
 
 	    BidirectionalSubject.prototype._subscribe = function _subscribe(subscriber) {
-	        return _observableSubscribe.call(this, subscriber);
+	        var operator = this.operator;
+	        return this.source._subscribe.call(this.source, operator ? operator.call(subscriber) : subscriber);
 	    };
 
 	    BidirectionalSubject.prototype.next = function next(x) {
@@ -17171,7 +18418,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 101 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17182,11 +18429,13 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _Subscriber = __webpack_require__(102);
+	var _Subscriber = __webpack_require__(103);
 
 	var _Subscriber2 = _interopRequireDefault(_Subscriber);
 
-	var _utilSymbol_observable = __webpack_require__(107);
+	var _utilRoot = __webpack_require__(108);
+
+	var _utilSymbol_observable = __webpack_require__(110);
 
 	var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
 
@@ -17203,7 +18452,7 @@
 	     * @param {Function} subscribe the function that is
 	     * called when the Observable is initially subscribed to. This function is given a Subscriber, to which new values
 	     * can be `next`ed, or an `error` method can be called to raise an error, or `complete` can be called to notify
-	     * of a succesful completion.
+	     * of a successful completion.
 	     */
 
 	    function Observable(subscribe) {
@@ -17216,7 +18465,7 @@
 	    }
 
 	    // HACK: Since TypeScript inherits static properties too, we have to
-	    // fight against TypeScript here so Subject can have a different static create signature.
+	    // fight against TypeScript here so Subject can have a different static create signature
 	    /**
 	     * @static
 	     * @method create
@@ -17227,7 +18476,7 @@
 
 	    /**
 	     * @method lift
-	     * @param {Operator} the operator defining the operation to take on the observable
+	     * @param {Operator} operator the operator defining the operation to take on the observable
 	     * @returns {Observable} a new observable with the Operator applied
 	     * @description creates a new Observable, with this Observable as the source, and the passed
 	     * operator defined as the new observable's operator.
@@ -17281,14 +18530,25 @@
 	    /**
 	     * @method forEach
 	     * @param {Function} next a handler for each value emitted by the observable
+	     * @param {PromiseConstructor} PromiseCtor? a constructor function used to instantiate the Promise
 	     * @returns {Promise} a promise that either resolves on observable completion or
 	     *  rejects with the handled error
 	     */
 
-	    Observable.prototype.forEach = function forEach(next) {
+	    Observable.prototype.forEach = function forEach(next, PromiseCtor) {
 	        var _this = this;
 
-	        return new Promise(function (resolve, reject) {
+	        if (!PromiseCtor) {
+	            if (_utilRoot.root.Rx && _utilRoot.root.Rx.config && _utilRoot.root.Rx.config.Promise) {
+	                PromiseCtor = _utilRoot.root.Rx.config.Promise;
+	            } else if (_utilRoot.root.Promise) {
+	                PromiseCtor = _utilRoot.root.Promise;
+	            }
+	        }
+	        if (!PromiseCtor) {
+	            throw new Error('no Promise impl found');
+	        }
+	        return new PromiseCtor(function (resolve, reject) {
 	            _this.subscribe(next, reject, resolve);
 	        });
 	    };
@@ -17307,7 +18567,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 102 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17322,19 +18582,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _utilNoop = __webpack_require__(103);
+	var _utilNoop = __webpack_require__(104);
 
 	var _utilNoop2 = _interopRequireDefault(_utilNoop);
 
-	var _utilThrowError = __webpack_require__(104);
+	var _utilThrowError = __webpack_require__(105);
 
 	var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
 
-	var _utilTryOrOnError = __webpack_require__(105);
+	var _utilTryOrOnError = __webpack_require__(106);
 
 	var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
 
-	var _Subscription2 = __webpack_require__(106);
+	var _Subscription2 = __webpack_require__(107);
 
 	var _Subscription3 = _interopRequireDefault(_Subscription2);
 
@@ -17456,7 +18716,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 103 */
+/* 104 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17469,7 +18729,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 104 */
+/* 105 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17484,7 +18744,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 105 */
+/* 106 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17507,7 +18767,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 106 */
+/* 107 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17604,29 +18864,6 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 107 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _root = __webpack_require__(108);
-
-	if (!_root.root.Symbol) {
-	    _root.root.Symbol = {};
-	}
-	if (!_root.root.Symbol.observable) {
-	    if (typeof _root.root.Symbol['for'] === 'function') {
-	        _root.root.Symbol.observable = _root.root.Symbol['for']('observable');
-	    } else {
-	        _root.root.Symbol.observable = '@@observable';
-	    }
-	}
-	exports['default'] = _root.root.Symbol.observable;
-	module.exports = exports['default'];
-
-/***/ },
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17675,15 +18912,42 @@
 
 	exports.__esModule = true;
 
+	var _root = __webpack_require__(108);
+
+	if (!_root.root.Symbol) {
+	    _root.root.Symbol = {};
+	}
+	if (!_root.root.Symbol.observable) {
+	    if (typeof _root.root.Symbol['for'] === 'function') {
+	        _root.root.Symbol.observable = _root.root.Symbol['for']('observable');
+	    } else {
+	        _root.root.Symbol.observable = '@@observable';
+	    }
+	}
+	exports['default'] = _root.root.Symbol.observable;
+	module.exports = exports['default'];
+
+/***/ },
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _Subscription2 = __webpack_require__(106);
+	var _Subscription2 = __webpack_require__(107);
 
 	var _Subscription3 = _interopRequireDefault(_Subscription2);
+
+	var _Subscriber = __webpack_require__(103);
+
+	var _Subscriber2 = _interopRequireDefault(_Subscriber);
 
 	var SubjectSubscription = (function (_Subscription) {
 	    _inherits(SubjectSubscription, _Subscription);
@@ -17708,6 +18972,9 @@
 	        if (!observers || observers.length === 0 || subject.isUnsubscribed) {
 	            return;
 	        }
+	        if (this.observer instanceof _Subscriber2['default']) {
+	            this.observer.unsubscribe();
+	        }
 	        var subscriberIndex = observers.indexOf(this.observer);
 	        if (subscriberIndex !== -1) {
 	            observers.splice(subscriberIndex, 1);
@@ -17721,7 +18988,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -17741,7 +19008,7 @@
 	//# sourceMappingURL=invalid_pipe_argument_exception.js.map
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -17756,11 +19023,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(44);
-	var intl_1 = __webpack_require__(113);
+	var intl_1 = __webpack_require__(114);
 	var di_1 = __webpack_require__(45);
 	var metadata_1 = __webpack_require__(42);
 	var collection_1 = __webpack_require__(51);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	// TODO: move to a global configurable location along with other i18n components.
 	var defaultLocale = 'en-US';
 	/**
@@ -17861,7 +19128,7 @@
 	//# sourceMappingURL=date_pipe.js.map
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports) {
 
 	'use strict';(function (NumberFormatStyle) {
@@ -17970,16 +19237,16 @@
 	//# sourceMappingURL=intl.js.map
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var async_pipe_1 = __webpack_require__(98);
-	var uppercase_pipe_1 = __webpack_require__(115);
-	var lowercase_pipe_1 = __webpack_require__(116);
-	var json_pipe_1 = __webpack_require__(117);
-	var slice_pipe_1 = __webpack_require__(118);
-	var date_pipe_1 = __webpack_require__(112);
-	var number_pipe_1 = __webpack_require__(119);
+	var uppercase_pipe_1 = __webpack_require__(116);
+	var lowercase_pipe_1 = __webpack_require__(117);
+	var json_pipe_1 = __webpack_require__(118);
+	var slice_pipe_1 = __webpack_require__(119);
+	var date_pipe_1 = __webpack_require__(113);
+	var number_pipe_1 = __webpack_require__(120);
 	var lang_1 = __webpack_require__(44);
 	var di_1 = __webpack_require__(45);
 	var DEFAULT_PIPES_LIST = lang_1.CONST_EXPR([
@@ -17994,11 +19261,11 @@
 	    date_pipe_1.DatePipe
 	]);
 	exports.DEFAULT_PIPES_TOKEN = lang_1.CONST_EXPR(new di_1.OpaqueToken("Default Pipes"));
-	exports.DEFAULT_PIPES = lang_1.CONST_EXPR(new di_1.Binding(exports.DEFAULT_PIPES_TOKEN, { toValue: DEFAULT_PIPES_LIST }));
+	exports.DEFAULT_PIPES = lang_1.CONST_EXPR(new di_1.Provider(exports.DEFAULT_PIPES_TOKEN, { useValue: DEFAULT_PIPES_LIST }));
 	//# sourceMappingURL=default_pipes.js.map
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -18015,7 +19282,7 @@
 	var lang_1 = __webpack_require__(44);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	/**
 	 * Implements uppercase transforms to text.
 	 *
@@ -18025,9 +19292,7 @@
 	 *
 	 *  ```
 	 * @Component({
-	 *   selector: "username-cmp"
-	 * })
-	 * @View({
+	 *   selector: "username-cmp",
 	 *   template: "Username: {{ user | uppercase }}"
 	 * })
 	 * class Username {
@@ -18060,7 +19325,7 @@
 	//# sourceMappingURL=uppercase_pipe.js.map
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -18077,7 +19342,7 @@
 	var lang_1 = __webpack_require__(44);
 	var di_1 = __webpack_require__(45);
 	var metadata_1 = __webpack_require__(42);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	/**
 	 * Implements lowercase transforms to text.
 	 *
@@ -18087,9 +19352,7 @@
 	 *
 	 *  ```
 	 * @Component({
-	 *   selector: "username-cmp"
-	 * })
-	 * @View({
+	 *   selector: "username-cmp",
 	 *   template: "Username: {{ user | lowercase }}"
 	 * })
 	 * class Username {
@@ -18122,7 +19385,7 @@
 	//# sourceMappingURL=lowercase_pipe.js.map
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -18148,9 +19411,7 @@
 	 *
 	 *  ```
 	 * @Component({
-	 *   selector: "user-cmp"
-	 * })
-	 * @View({
+	 *   selector: "user-cmp",
 	 *   template: "User: {{ user | json }}"
 	 * })
 	 * class Username {
@@ -18181,7 +19442,7 @@
 	//# sourceMappingURL=json_pipe.js.map
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -18199,7 +19460,7 @@
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
 	var di_1 = __webpack_require__(45);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	var metadata_1 = __webpack_require__(42);
 	/**
 	 * Creates a new List or String containing only a subset (slice) of the
@@ -18291,7 +19552,7 @@
 	//# sourceMappingURL=slice_pipe.js.map
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -18312,11 +19573,11 @@
 	};
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var intl_1 = __webpack_require__(113);
+	var intl_1 = __webpack_require__(114);
 	var di_1 = __webpack_require__(45);
 	var metadata_1 = __webpack_require__(42);
 	var collection_1 = __webpack_require__(51);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(111);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(112);
 	var defaultLocale = 'en-US';
 	var _re = lang_1.RegExpWrapper.create('^(\\d+)?\\.((\\d+)(\\-(\\d+))?)?$');
 	var NumberPipe = (function () {
@@ -18477,7 +19738,7 @@
 	//# sourceMappingURL=number_pipe.js.map
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for Facade
@@ -18491,18 +19752,18 @@
 	//# sourceMappingURL=facade.js.map
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var compiler_1 = __webpack_require__(122);
-	var application_common_1 = __webpack_require__(193);
-	var application_tokens_1 = __webpack_require__(167);
+	var compiler_1 = __webpack_require__(123);
+	var application_common_1 = __webpack_require__(194);
+	var application_tokens_1 = __webpack_require__(168);
 	exports.APP_COMPONENT = application_tokens_1.APP_COMPONENT;
 	exports.APP_ID = application_tokens_1.APP_ID;
-	var application_common_2 = __webpack_require__(193);
+	var application_common_2 = __webpack_require__(194);
 	exports.platform = application_common_2.platform;
-	var application_ref_1 = __webpack_require__(227);
+	var application_ref_1 = __webpack_require__(229);
 	exports.PlatformRef = application_ref_1.PlatformRef;
 	exports.ApplicationRef = application_ref_1.ApplicationRef;
 	exports.applicationCommonBindings = application_ref_1.applicationCommonBindings;
@@ -18512,7 +19773,7 @@
 	/// See [commonBootstrap] for detailed documentation.
 	function bootstrap(appComponentType, appBindings) {
 	    if (appBindings === void 0) { appBindings = null; }
-	    var bindings = [compiler_1.compilerBindings()];
+	    var bindings = [compiler_1.compilerProviders()];
 	    if (lang_1.isPresent(appBindings)) {
 	        bindings.push(appBindings);
 	    }
@@ -18522,39 +19783,39 @@
 	//# sourceMappingURL=application.js.map
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var runtime_compiler_1 = __webpack_require__(123);
-	var template_compiler_1 = __webpack_require__(168);
+	'use strict';var runtime_compiler_1 = __webpack_require__(124);
+	var template_compiler_1 = __webpack_require__(169);
 	exports.TemplateCompiler = template_compiler_1.TemplateCompiler;
-	var directive_metadata_1 = __webpack_require__(169);
+	var directive_metadata_1 = __webpack_require__(170);
 	exports.CompileDirectiveMetadata = directive_metadata_1.CompileDirectiveMetadata;
 	exports.CompileTypeMetadata = directive_metadata_1.CompileTypeMetadata;
 	exports.CompileTemplateMetadata = directive_metadata_1.CompileTemplateMetadata;
-	var source_module_1 = __webpack_require__(172);
+	var source_module_1 = __webpack_require__(173);
 	exports.SourceModule = source_module_1.SourceModule;
 	exports.SourceWithImports = source_module_1.SourceWithImports;
 	var lang_1 = __webpack_require__(44);
 	var di_1 = __webpack_require__(45);
-	var template_parser_1 = __webpack_require__(183);
-	var html_parser_1 = __webpack_require__(184);
-	var template_normalizer_1 = __webpack_require__(188);
-	var runtime_metadata_1 = __webpack_require__(189);
-	var change_detector_compiler_1 = __webpack_require__(173);
-	var style_compiler_1 = __webpack_require__(177);
-	var command_compiler_1 = __webpack_require__(182);
-	var template_compiler_2 = __webpack_require__(168);
+	var template_parser_1 = __webpack_require__(184);
+	var html_parser_1 = __webpack_require__(185);
+	var template_normalizer_1 = __webpack_require__(189);
+	var runtime_metadata_1 = __webpack_require__(190);
+	var change_detector_compiler_1 = __webpack_require__(174);
+	var style_compiler_1 = __webpack_require__(178);
+	var command_compiler_1 = __webpack_require__(183);
+	var template_compiler_2 = __webpack_require__(169);
 	var change_detection_1 = __webpack_require__(64);
-	var compiler_1 = __webpack_require__(124);
-	var runtime_compiler_2 = __webpack_require__(123);
-	var element_schema_registry_1 = __webpack_require__(186);
-	var dom_element_schema_registry_1 = __webpack_require__(190);
-	var url_resolver_1 = __webpack_require__(180);
-	var app_root_url_1 = __webpack_require__(191);
-	var anchor_based_app_root_url_1 = __webpack_require__(192);
+	var compiler_1 = __webpack_require__(125);
+	var runtime_compiler_2 = __webpack_require__(124);
+	var element_schema_registry_1 = __webpack_require__(187);
+	var dom_element_schema_registry_1 = __webpack_require__(191);
+	var url_resolver_1 = __webpack_require__(181);
+	var app_root_url_1 = __webpack_require__(192);
+	var anchor_based_app_root_url_1 = __webpack_require__(193);
 	var change_detection_2 = __webpack_require__(64);
-	function compilerBindings() {
+	function compilerProviders() {
 	    return [
 	        change_detection_2.Lexer,
 	        change_detection_2.Parser,
@@ -18565,23 +19826,24 @@
 	        style_compiler_1.StyleCompiler,
 	        command_compiler_1.CommandCompiler,
 	        change_detector_compiler_1.ChangeDetectionCompiler,
-	        di_1.bind(change_detection_1.ChangeDetectorGenConfig)
-	            .toValue(new change_detection_1.ChangeDetectorGenConfig(lang_1.assertionsEnabled(), lang_1.assertionsEnabled(), false, true)),
+	        di_1.provide(change_detection_1.ChangeDetectorGenConfig, {
+	            useValue: new change_detection_1.ChangeDetectorGenConfig(lang_1.assertionsEnabled(), lang_1.assertionsEnabled(), false, true)
+	        }),
 	        template_compiler_2.TemplateCompiler,
-	        di_1.bind(runtime_compiler_2.RuntimeCompiler).toClass(runtime_compiler_1.RuntimeCompiler_),
-	        di_1.bind(compiler_1.Compiler).toAlias(runtime_compiler_2.RuntimeCompiler),
+	        di_1.provide(runtime_compiler_2.RuntimeCompiler, { useClass: runtime_compiler_1.RuntimeCompiler_ }),
+	        di_1.provide(compiler_1.Compiler, { useExisting: runtime_compiler_2.RuntimeCompiler }),
 	        dom_element_schema_registry_1.DomElementSchemaRegistry,
-	        di_1.bind(element_schema_registry_1.ElementSchemaRegistry).toAlias(dom_element_schema_registry_1.DomElementSchemaRegistry),
+	        di_1.provide(element_schema_registry_1.ElementSchemaRegistry, { useExisting: dom_element_schema_registry_1.DomElementSchemaRegistry }),
 	        anchor_based_app_root_url_1.AnchorBasedAppRootUrl,
-	        di_1.bind(app_root_url_1.AppRootUrl).toAlias(anchor_based_app_root_url_1.AnchorBasedAppRootUrl),
+	        di_1.provide(app_root_url_1.AppRootUrl, { useExisting: anchor_based_app_root_url_1.AnchorBasedAppRootUrl }),
 	        url_resolver_1.UrlResolver
 	    ];
 	}
-	exports.compilerBindings = compilerBindings;
+	exports.compilerProviders = compilerProviders;
 	//# sourceMappingURL=compiler.js.map
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -18600,9 +19862,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var compiler_1 = __webpack_require__(124);
-	var proto_view_factory_1 = __webpack_require__(125);
-	var template_compiler_1 = __webpack_require__(168);
+	var compiler_1 = __webpack_require__(125);
+	var proto_view_factory_1 = __webpack_require__(126);
+	var template_compiler_1 = __webpack_require__(169);
 	var di_1 = __webpack_require__(45);
 	var RuntimeCompiler = (function (_super) {
 	    __extends(RuntimeCompiler, _super);
@@ -18637,7 +19899,7 @@
 	//# sourceMappingURL=runtime_compiler.js.map
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -18656,13 +19918,13 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var proto_view_factory_1 = __webpack_require__(125);
+	var proto_view_factory_1 = __webpack_require__(126);
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var async_1 = __webpack_require__(99);
 	var reflection_1 = __webpack_require__(55);
-	var template_commands_1 = __webpack_require__(149);
+	var template_commands_1 = __webpack_require__(150);
 	/**
 	 * Low-level service for compiling {@link Component}s into {@link ProtoViewRef ProtoViews}s, which
 	 * can later be used to create and render a Component instance.
@@ -18715,7 +19977,7 @@
 	//# sourceMappingURL=compiler.js.map
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -18735,18 +19997,18 @@
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var di_1 = __webpack_require__(45);
-	var pipe_binding_1 = __webpack_require__(126);
-	var pipes_1 = __webpack_require__(127);
-	var view_1 = __webpack_require__(129);
-	var element_binder_1 = __webpack_require__(132);
-	var element_injector_1 = __webpack_require__(133);
-	var directive_resolver_1 = __webpack_require__(146);
-	var view_resolver_1 = __webpack_require__(147);
-	var pipe_resolver_1 = __webpack_require__(148);
+	var pipe_provider_1 = __webpack_require__(127);
+	var pipes_1 = __webpack_require__(128);
+	var view_1 = __webpack_require__(130);
+	var element_binder_1 = __webpack_require__(133);
+	var element_injector_1 = __webpack_require__(134);
+	var directive_resolver_1 = __webpack_require__(147);
+	var view_resolver_1 = __webpack_require__(148);
+	var pipe_resolver_1 = __webpack_require__(149);
 	var pipes_2 = __webpack_require__(97);
-	var template_commands_1 = __webpack_require__(149);
-	var render_1 = __webpack_require__(150);
-	var application_tokens_1 = __webpack_require__(167);
+	var template_commands_1 = __webpack_require__(150);
+	var render_1 = __webpack_require__(151);
+	var application_tokens_1 = __webpack_require__(168);
 	var ProtoViewFactory = (function () {
 	    function ProtoViewFactory(_renderer, defaultPipes, _directiveResolver, _viewResolver, _pipeResolver, appId) {
 	        this._renderer = _renderer;
@@ -18778,7 +20040,7 @@
 	            var compiledTemplateData = cmd.template.getData(this._appId);
 	            this._renderer.registerComponentTemplate(cmd.templateId, compiledTemplateData.commands, compiledTemplateData.styles, cmd.nativeShadow);
 	            var boundPipes = this._flattenPipes(view).map(function (pipe) { return _this._bindPipe(pipe); });
-	            nestedProtoView = new view_1.AppProtoView(compiledTemplateData.commands, view_1.ViewType.COMPONENT, true, compiledTemplateData.changeDetectorFactory, null, pipes_1.ProtoPipes.fromBindings(boundPipes));
+	            nestedProtoView = new view_1.AppProtoView(compiledTemplateData.commands, view_1.ViewType.COMPONENT, true, compiledTemplateData.changeDetectorFactory, null, pipes_1.ProtoPipes.fromProviders(boundPipes));
 	            // Note: The cache is updated before recursing
 	            // to be able to resolve cycles
 	            this._cache.set(cmd.template.id, nestedProtoView);
@@ -18805,9 +20067,9 @@
 	        var mergeInfo = new view_1.AppProtoViewMergeInfo(initializer.mergeEmbeddedViewCount, initializer.mergeElementCount, initializer.mergeViewCount);
 	        protoView.init(render, initializer.elementBinders, initializer.boundTextCount, mergeInfo, initializer.variableLocations);
 	    };
-	    ProtoViewFactory.prototype._bindPipe = function (typeOrBinding) {
-	        var meta = this._pipeResolver.resolve(typeOrBinding);
-	        return pipe_binding_1.PipeBinding.createFromType(typeOrBinding, meta);
+	    ProtoViewFactory.prototype._bindPipe = function (typeOrProvider) {
+	        var meta = this._pipeResolver.resolve(typeOrProvider);
+	        return pipe_provider_1.PipeProvider.createFromType(typeOrProvider, meta);
 	    };
 	    ProtoViewFactory.prototype._flattenPipes = function (view) {
 	        if (lang_1.isBlank(view.pipes))
@@ -18932,11 +20194,11 @@
 	    if (lang_1.isBlank(parentProtoElementInjector)) {
 	        distanceToParentPei = -1;
 	    }
-	    var componentDirectiveBinding = null;
+	    var componentDirectiveProvider = null;
 	    var isEmbeddedTemplate = false;
-	    var directiveBindings = beginElementCmd.directives.map(function (type) { return bindDirective(directiveResolver, type); });
+	    var directiveProviders = beginElementCmd.directives.map(function (type) { return provideDirective(directiveResolver, type); });
 	    if (beginElementCmd instanceof template_commands_1.BeginComponentCmd) {
-	        componentDirectiveBinding = directiveBindings[0];
+	        componentDirectiveProvider = directiveProviders[0];
 	    }
 	    else if (beginElementCmd instanceof template_commands_1.EmbeddedTemplateCmd) {
 	        isEmbeddedTemplate = true;
@@ -18948,22 +20210,21 @@
 	    //   so that, when hydrating, $implicit can be set to the element.
 	    // - <template> elements need their own ElementInjector so that we can query their TemplateRef
 	    var hasVariables = beginElementCmd.variableNameAndValues.length > 0;
-	    if (directiveBindings.length > 0 || hasVariables || isEmbeddedTemplate) {
+	    if (directiveProviders.length > 0 || hasVariables || isEmbeddedTemplate) {
 	        var directiveVariableBindings = new Map();
 	        if (!isEmbeddedTemplate) {
-	            directiveVariableBindings =
-	                createDirectiveVariableBindings(beginElementCmd.variableNameAndValues, directiveBindings);
+	            directiveVariableBindings = createDirectiveVariableBindings(beginElementCmd.variableNameAndValues, directiveProviders);
 	        }
-	        protoElementInjector = element_injector_1.ProtoElementInjector.create(parentProtoElementInjector, boundElementIndex, directiveBindings, lang_1.isPresent(componentDirectiveBinding), distanceToParentPei, directiveVariableBindings);
+	        protoElementInjector = element_injector_1.ProtoElementInjector.create(parentProtoElementInjector, boundElementIndex, directiveProviders, lang_1.isPresent(componentDirectiveProvider), distanceToParentPei, directiveVariableBindings);
 	        protoElementInjector.attributes = arrayToMap(beginElementCmd.attrNameAndValues, false);
 	    }
-	    return new element_binder_1.ElementBinder(boundElementIndex, parentElementBinder, distanceToParentBinder, protoElementInjector, componentDirectiveBinding, nestedProtoView);
+	    return new element_binder_1.ElementBinder(boundElementIndex, parentElementBinder, distanceToParentBinder, protoElementInjector, componentDirectiveProvider, nestedProtoView);
 	}
-	function bindDirective(directiveResolver, type) {
+	function provideDirective(directiveResolver, type) {
 	    var annotation = directiveResolver.resolve(type);
-	    return element_injector_1.DirectiveBinding.createFromType(type, annotation);
+	    return element_injector_1.DirectiveProvider.createFromType(type, annotation);
 	}
-	function createDirectiveVariableBindings(variableNameAndValues, directiveBindings) {
+	function createDirectiveVariableBindings(variableNameAndValues, directiveProviders) {
 	    var directiveVariableBindings = new Map();
 	    for (var i = 0; i < variableNameAndValues.length; i += 2) {
 	        var templateName = variableNameAndValues[i];
@@ -19005,7 +20266,7 @@
 	//# sourceMappingURL=proto_view_factory.js.map
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -19013,33 +20274,33 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var binding_1 = __webpack_require__(52);
+	var provider_1 = __webpack_require__(52);
 	var di_1 = __webpack_require__(45);
-	var PipeBinding = (function (_super) {
-	    __extends(PipeBinding, _super);
-	    function PipeBinding(name, pure, key, resolvedFactories, multiBinding) {
+	var PipeProvider = (function (_super) {
+	    __extends(PipeProvider, _super);
+	    function PipeProvider(name, pure, key, resolvedFactories, multiBinding) {
 	        _super.call(this, key, resolvedFactories, multiBinding);
 	        this.name = name;
 	        this.pure = pure;
 	    }
-	    PipeBinding.createFromType = function (type, metadata) {
-	        var binding = new di_1.Binding(type, { toClass: type });
-	        var rb = binding_1.resolveBinding(binding);
-	        return new PipeBinding(metadata.name, metadata.pure, rb.key, rb.resolvedFactories, rb.multiBinding);
+	    PipeProvider.createFromType = function (type, metadata) {
+	        var provider = new di_1.Provider(type, { useClass: type });
+	        var rb = provider_1.resolveProvider(provider);
+	        return new PipeProvider(metadata.name, metadata.pure, rb.key, rb.resolvedFactories, rb.multiProvider);
 	    };
-	    return PipeBinding;
-	})(binding_1.ResolvedBinding_);
-	exports.PipeBinding = PipeBinding;
-	//# sourceMappingURL=pipe_binding.js.map
+	    return PipeProvider;
+	})(provider_1.ResolvedProvider_);
+	exports.PipeProvider = PipeProvider;
+	//# sourceMappingURL=pipe_provider.js.map
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	var cd = __webpack_require__(128);
+	var cd = __webpack_require__(129);
 	var ProtoPipes = (function () {
 	    function ProtoPipes(
 	        /**
@@ -19049,16 +20310,16 @@
 	        this.config = config;
 	        this.config = config;
 	    }
-	    ProtoPipes.fromBindings = function (bindings) {
+	    ProtoPipes.fromProviders = function (providers) {
 	        var config = {};
-	        bindings.forEach(function (b) { return config[b.name] = b; });
+	        providers.forEach(function (b) { return config[b.name] = b; });
 	        return new ProtoPipes(config);
 	    };
 	    ProtoPipes.prototype.get = function (name) {
-	        var binding = this.config[name];
-	        if (lang_1.isBlank(binding))
+	        var provider = this.config[name];
+	        if (lang_1.isBlank(provider))
 	            throw new exceptions_1.BaseException("Cannot find pipe '" + name + "'.");
-	        return binding;
+	        return provider;
 	    };
 	    return ProtoPipes;
 	})();
@@ -19067,6 +20328,7 @@
 	    function Pipes(proto, injector) {
 	        this.proto = proto;
 	        this.injector = injector;
+	        /** @internal */
 	        this._config = {};
 	    }
 	    Pipes.prototype.get = function (name) {
@@ -19087,7 +20349,7 @@
 	//# sourceMappingURL=pipes.js.map
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports) {
 
 	'use strict';var SelectedPipe = (function () {
@@ -19101,7 +20363,7 @@
 	//# sourceMappingURL=pipes.js.map
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -19114,9 +20376,9 @@
 	var interfaces_1 = __webpack_require__(74);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var view_ref_1 = __webpack_require__(130);
-	var util_1 = __webpack_require__(131);
-	var view_ref_2 = __webpack_require__(130);
+	var view_ref_1 = __webpack_require__(131);
+	var util_1 = __webpack_require__(132);
+	var view_ref_2 = __webpack_require__(131);
 	var interfaces_2 = __webpack_require__(74);
 	exports.DebugContext = interfaces_2.DebugContext;
 	var REFLECT_PREFIX = 'ng-reflect-';
@@ -19397,7 +20659,7 @@
 	        this.variableLocations = variableLocations;
 	        this.protoLocals = new collection_1.Map();
 	        if (lang_1.isPresent(this.templateVariableBindings)) {
-	            collection_1.MapWrapper.forEach(this.templateVariableBindings, function (templateName, _) { _this.protoLocals.set(templateName, null); });
+	            this.templateVariableBindings.forEach(function (templateName, _) { _this.protoLocals.set(templateName, null); });
 	        }
 	        if (lang_1.isPresent(variableLocations)) {
 	            // The view's locals needs to have a full set of variable names at construction time
@@ -19405,7 +20667,7 @@
 	            // want
 	            // to actually create variable bindings for the $implicit bindings, add to the
 	            // protoLocals manually.
-	            collection_1.MapWrapper.forEach(variableLocations, function (_, templateName) { _this.protoLocals.set(templateName, null); });
+	            variableLocations.forEach(function (_, templateName) { _this.protoLocals.set(templateName, null); });
 	        }
 	    };
 	    AppProtoView.prototype.isInitialized = function () { return lang_1.isPresent(this.elementBinders); };
@@ -19415,7 +20677,7 @@
 	//# sourceMappingURL=view.js.map
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -19506,8 +20768,8 @@
 	    __extends(ViewRef_, _super);
 	    function ViewRef_(_view) {
 	        _super.call(this);
-	        this._view = _view;
 	        this._changeDetectorRef = null;
+	        this._view = _view;
 	    }
 	    Object.defineProperty(ViewRef_.prototype, "render", {
 	        /**
@@ -19599,7 +20861,7 @@
 	//# sourceMappingURL=view_ref.js.map
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -19616,7 +20878,7 @@
 	//# sourceMappingURL=util.js.map
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -19639,7 +20901,7 @@
 	//# sourceMappingURL=element_binder.js.map
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -19653,21 +20915,21 @@
 	var collection_1 = __webpack_require__(51);
 	var di_1 = __webpack_require__(45);
 	var injector_1 = __webpack_require__(50);
-	var binding_1 = __webpack_require__(52);
+	var provider_1 = __webpack_require__(52);
 	var di_2 = __webpack_require__(43);
-	var avmModule = __webpack_require__(134);
-	var view_container_ref_1 = __webpack_require__(141);
-	var element_ref_1 = __webpack_require__(137);
-	var template_ref_1 = __webpack_require__(138);
+	var avmModule = __webpack_require__(135);
+	var view_container_ref_1 = __webpack_require__(142);
+	var element_ref_1 = __webpack_require__(138);
+	var template_ref_1 = __webpack_require__(139);
 	var directives_1 = __webpack_require__(62);
-	var directive_lifecycle_reflector_1 = __webpack_require__(142);
+	var directive_lifecycle_reflector_1 = __webpack_require__(143);
 	var change_detection_1 = __webpack_require__(64);
-	var query_list_1 = __webpack_require__(144);
+	var query_list_1 = __webpack_require__(145);
 	var reflection_1 = __webpack_require__(55);
-	var event_config_1 = __webpack_require__(145);
-	var pipe_binding_1 = __webpack_require__(126);
-	var interfaces_1 = __webpack_require__(143);
-	var view_container_ref_2 = __webpack_require__(141);
+	var event_config_1 = __webpack_require__(146);
+	var pipe_provider_1 = __webpack_require__(127);
+	var interfaces_1 = __webpack_require__(144);
+	var view_container_ref_2 = __webpack_require__(142);
 	var _staticKeys;
 	var StaticKeys = (function () {
 	    function StaticKeys() {
@@ -19712,6 +20974,7 @@
 	        this.queryDecorator = queryDecorator;
 	        this._verify();
 	    }
+	    /** @internal */
 	    DirectiveDependency.prototype._verify = function () {
 	        var count = 0;
 	        if (lang_1.isPresent(this.queryDecorator))
@@ -19734,21 +20997,21 @@
 	    return DirectiveDependency;
 	})(di_1.Dependency);
 	exports.DirectiveDependency = DirectiveDependency;
-	var DirectiveBinding = (function (_super) {
-	    __extends(DirectiveBinding, _super);
-	    function DirectiveBinding(key, factory, deps, metadata, bindings, viewBindings) {
-	        _super.call(this, key, [new binding_1.ResolvedFactory(factory, deps)], false);
+	var DirectiveProvider = (function (_super) {
+	    __extends(DirectiveProvider, _super);
+	    function DirectiveProvider(key, factory, deps, metadata, providers, viewProviders) {
+	        _super.call(this, key, [new provider_1.ResolvedFactory(factory, deps)], false);
 	        this.metadata = metadata;
-	        this.bindings = bindings;
-	        this.viewBindings = viewBindings;
+	        this.providers = providers;
+	        this.viewProviders = viewProviders;
 	        this.callOnDestroy = directive_lifecycle_reflector_1.hasLifecycleHook(interfaces_1.LifecycleHooks.OnDestroy, key.token);
 	    }
-	    Object.defineProperty(DirectiveBinding.prototype, "displayName", {
+	    Object.defineProperty(DirectiveProvider.prototype, "displayName", {
 	        get: function () { return this.key.displayName; },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(DirectiveBinding.prototype, "queries", {
+	    Object.defineProperty(DirectiveProvider.prototype, "queries", {
 	        get: function () {
 	            if (lang_1.isBlank(this.metadata.queries))
 	                return [];
@@ -19762,7 +21025,7 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(DirectiveBinding.prototype, "eventEmitters", {
+	    Object.defineProperty(DirectiveProvider.prototype, "eventEmitters", {
 	        get: function () {
 	            return lang_1.isPresent(this.metadata) && lang_1.isPresent(this.metadata.outputs) ? this.metadata.outputs :
 	                [];
@@ -19770,24 +21033,26 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    DirectiveBinding.createFromBinding = function (binding, meta) {
+	    DirectiveProvider.createFromProvider = function (provider, meta) {
 	        if (lang_1.isBlank(meta)) {
 	            meta = new directives_1.DirectiveMetadata();
 	        }
-	        var rb = binding_1.resolveBinding(binding);
+	        var rb = provider_1.resolveProvider(provider);
 	        var rf = rb.resolvedFactories[0];
 	        var deps = rf.dependencies.map(DirectiveDependency.createFrom);
-	        var bindings = lang_1.isPresent(meta.bindings) ? meta.bindings : [];
-	        var viewBindigs = meta instanceof directives_1.ComponentMetadata && lang_1.isPresent(meta.viewBindings) ? meta.viewBindings : [];
-	        return new DirectiveBinding(rb.key, rf.factory, deps, meta, bindings, viewBindigs);
+	        var providers = lang_1.isPresent(meta.providers) ? meta.providers : [];
+	        var viewBindigs = meta instanceof directives_1.ComponentMetadata && lang_1.isPresent(meta.viewProviders) ?
+	            meta.viewProviders :
+	            [];
+	        return new DirectiveProvider(rb.key, rf.factory, deps, meta, providers, viewBindigs);
 	    };
-	    DirectiveBinding.createFromType = function (type, annotation) {
-	        var binding = new di_1.Binding(type, { toClass: type });
-	        return DirectiveBinding.createFromBinding(binding, annotation);
+	    DirectiveProvider.createFromType = function (type, annotation) {
+	        var provider = new di_1.Provider(type, { useClass: type });
+	        return DirectiveProvider.createFromProvider(provider, annotation);
 	    };
-	    return DirectiveBinding;
-	})(binding_1.ResolvedBinding_);
-	exports.DirectiveBinding = DirectiveBinding;
+	    return DirectiveProvider;
+	})(provider_1.ResolvedProvider_);
+	exports.DirectiveProvider = DirectiveProvider;
 	// TODO(rado): benchmark and consider rolling in as ElementInjector fields.
 	var PreBuiltObjects = (function () {
 	    function PreBuiltObjects(viewManager, view, elementRef, templateRef) {
@@ -19822,25 +21087,26 @@
 	})();
 	exports.EventEmitterAccessor = EventEmitterAccessor;
 	function _createEventEmitterAccessors(bwv) {
-	    var binding = bwv.binding;
-	    if (!(binding instanceof DirectiveBinding))
+	    var provider = bwv.provider;
+	    if (!(provider instanceof DirectiveProvider))
 	        return [];
-	    var db = binding;
+	    var db = provider;
 	    return db.eventEmitters.map(function (eventConfig) {
 	        var parsedEvent = event_config_1.EventConfig.parse(eventConfig);
 	        return new EventEmitterAccessor(parsedEvent.eventName, reflection_1.reflector.getter(parsedEvent.fieldName));
 	    });
 	}
-	function _createProtoQueryRefs(bindings) {
+	function _createProtoQueryRefs(providers) {
 	    var res = [];
-	    collection_1.ListWrapper.forEachWithIndex(bindings, function (b, i) {
-	        if (b.binding instanceof DirectiveBinding) {
+	    collection_1.ListWrapper.forEachWithIndex(providers, function (b, i) {
+	        if (b.provider instanceof DirectiveProvider) {
+	            var directiveProvider = b.provider;
 	            // field queries
-	            var queries = b.binding.queries;
+	            var queries = directiveProvider.queries;
 	            queries.forEach(function (q) { return res.push(new ProtoQueryRef(i, q.setter, q.metadata)); });
 	            // queries passed into the constructor.
 	            // TODO: remove this after constructor queries are no longer supported
-	            var deps = b.binding.resolvedFactories[0].dependencies;
+	            var deps = directiveProvider.resolvedFactory.dependencies;
 	            deps.forEach(function (d) {
 	                if (lang_1.isPresent(d.queryDecorator))
 	                    res.push(new ProtoQueryRef(i, null, d.queryDecorator));
@@ -19850,12 +21116,12 @@
 	    return res;
 	}
 	var ProtoElementInjector = (function () {
-	    function ProtoElementInjector(parent, index, bwv, distanceToParent, _firstBindingIsComponent, directiveVariableBindings) {
+	    function ProtoElementInjector(parent, index, bwv, distanceToParent, _firstProviderIsComponent, directiveVariableBindings) {
 	        this.parent = parent;
 	        this.index = index;
 	        this.distanceToParent = distanceToParent;
-	        this._firstBindingIsComponent = _firstBindingIsComponent;
 	        this.directiveVariableBindings = directiveVariableBindings;
+	        this._firstProviderIsComponent = _firstProviderIsComponent;
 	        var length = bwv.length;
 	        this.protoInjector = new injector_1.ProtoInjector(bwv);
 	        this.eventEmitterAccessors = collection_1.ListWrapper.createFixedSize(length);
@@ -19864,36 +21130,36 @@
 	        }
 	        this.protoQueryRefs = _createProtoQueryRefs(bwv);
 	    }
-	    ProtoElementInjector.create = function (parent, index, bindings, firstBindingIsComponent, distanceToParent, directiveVariableBindings) {
+	    ProtoElementInjector.create = function (parent, index, providers, firstProviderIsComponent, distanceToParent, directiveVariableBindings) {
 	        var bd = [];
-	        ProtoElementInjector._createDirectiveBindingWithVisibility(bindings, bd, firstBindingIsComponent);
-	        if (firstBindingIsComponent) {
-	            ProtoElementInjector._createViewBindingsWithVisibility(bindings, bd);
+	        ProtoElementInjector._createDirectiveProviderWithVisibility(providers, bd, firstProviderIsComponent);
+	        if (firstProviderIsComponent) {
+	            ProtoElementInjector._createViewProvidersWithVisibility(providers, bd);
 	        }
-	        ProtoElementInjector._createBindingsWithVisibility(bindings, bd);
-	        return new ProtoElementInjector(parent, index, bd, distanceToParent, firstBindingIsComponent, directiveVariableBindings);
+	        ProtoElementInjector._createProvidersWithVisibility(providers, bd);
+	        return new ProtoElementInjector(parent, index, bd, distanceToParent, firstProviderIsComponent, directiveVariableBindings);
 	    };
-	    ProtoElementInjector._createDirectiveBindingWithVisibility = function (dirBindings, bd, firstBindingIsComponent) {
-	        dirBindings.forEach(function (dirBinding) {
-	            bd.push(ProtoElementInjector._createBindingWithVisibility(firstBindingIsComponent, dirBinding, dirBindings, dirBinding));
+	    ProtoElementInjector._createDirectiveProviderWithVisibility = function (dirProviders, bd, firstProviderIsComponent) {
+	        dirProviders.forEach(function (dirProvider) {
+	            bd.push(ProtoElementInjector._createProviderWithVisibility(firstProviderIsComponent, dirProvider, dirProviders, dirProvider));
 	        });
 	    };
-	    ProtoElementInjector._createBindingsWithVisibility = function (dirBindings, bd) {
-	        var bindingsFromAllDirectives = [];
-	        dirBindings.forEach(function (dirBinding) {
-	            bindingsFromAllDirectives =
-	                collection_1.ListWrapper.concat(bindingsFromAllDirectives, dirBinding.bindings);
+	    ProtoElementInjector._createProvidersWithVisibility = function (dirProviders, bd) {
+	        var providersFromAllDirectives = [];
+	        dirProviders.forEach(function (dirProvider) {
+	            providersFromAllDirectives =
+	                collection_1.ListWrapper.concat(providersFromAllDirectives, dirProvider.providers);
 	        });
-	        var resolved = di_1.Injector.resolve(bindingsFromAllDirectives);
-	        resolved.forEach(function (b) { return bd.push(new injector_1.BindingWithVisibility(b, injector_1.Visibility.Public)); });
+	        var resolved = di_1.Injector.resolve(providersFromAllDirectives);
+	        resolved.forEach(function (b) { return bd.push(new injector_1.ProviderWithVisibility(b, injector_1.Visibility.Public)); });
 	    };
-	    ProtoElementInjector._createBindingWithVisibility = function (firstBindingIsComponent, dirBinding, dirBindings, binding) {
-	        var isComponent = firstBindingIsComponent && dirBindings[0] === dirBinding;
-	        return new injector_1.BindingWithVisibility(binding, isComponent ? injector_1.Visibility.PublicAndPrivate : injector_1.Visibility.Public);
+	    ProtoElementInjector._createProviderWithVisibility = function (firstProviderIsComponent, dirProvider, dirProviders, provider) {
+	        var isComponent = firstProviderIsComponent && dirProviders[0] === dirProvider;
+	        return new injector_1.ProviderWithVisibility(provider, isComponent ? injector_1.Visibility.PublicAndPrivate : injector_1.Visibility.Public);
 	    };
-	    ProtoElementInjector._createViewBindingsWithVisibility = function (dirBindings, bd) {
-	        var resolvedViewBindings = di_1.Injector.resolve(dirBindings[0].viewBindings);
-	        resolvedViewBindings.forEach(function (b) { return bd.push(new injector_1.BindingWithVisibility(b, injector_1.Visibility.Private)); });
+	    ProtoElementInjector._createViewProvidersWithVisibility = function (dirProviders, bd) {
+	        var resolvedViewProviders = di_1.Injector.resolve(dirProviders[0].viewProviders);
+	        resolvedViewProviders.forEach(function (b) { return bd.push(new injector_1.ProviderWithVisibility(b, injector_1.Visibility.Private)); });
 	    };
 	    ProtoElementInjector.prototype.instantiate = function (parent) {
 	        return new ElementInjector(this, parent);
@@ -19904,7 +21170,7 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    ProtoElementInjector.prototype.getBindingAtIndex = function (index) { return this.protoInjector.getBindingAtIndex(index); };
+	    ProtoElementInjector.prototype.getProviderAtIndex = function (index) { return this.protoInjector.getProviderAtIndex(index); };
 	    return ProtoElementInjector;
 	})();
 	exports.ProtoElementInjector = ProtoElementInjector;
@@ -19921,8 +21187,8 @@
 	    function ElementInjector(_proto, parent) {
 	        var _this = this;
 	        _super.call(this, parent);
-	        this._proto = _proto;
 	        this._preBuiltObjects = null;
+	        this._proto = _proto;
 	        this._injector =
 	            new di_1.Injector(this._proto.protoInjector, null, this, function () { return _this._debugContext(); });
 	        // we couple ourselves to the injector strategy to avoid polymoprhic calls
@@ -20015,11 +21281,11 @@
 	    ElementInjector.prototype.getView = function () { return this._preBuiltObjects.view; };
 	    ElementInjector.prototype.directParent = function () { return this._proto.distanceToParent < 2 ? this.parent : null; };
 	    ElementInjector.prototype.isComponentKey = function (key) { return this._strategy.isComponentKey(key); };
-	    ElementInjector.prototype.getDependency = function (injector, binding, dep) {
+	    ElementInjector.prototype.getDependency = function (injector, provider, dep) {
 	        var key = dep.key;
-	        if (binding instanceof DirectiveBinding) {
+	        if (provider instanceof DirectiveProvider) {
 	            var dirDep = dep;
-	            var dirBin = binding;
+	            var dirProvider = provider;
 	            var staticKeys = StaticKeys.instance();
 	            if (key.id === staticKeys.viewManagerId)
 	                return this._preBuiltObjects.viewManager;
@@ -20030,7 +21296,7 @@
 	            if (dirDep.key.id === StaticKeys.instance().changeDetectorRefId) {
 	                // We provide the component's view change detector to components and
 	                // the surrounding component's change detector to directives.
-	                if (dirBin.metadata instanceof directives_1.ComponentMetadata) {
+	                if (dirProvider.metadata instanceof directives_1.ComponentMetadata) {
 	                    var componentView = this._preBuiltObjects.view.getNestedView(this._preBuiltObjects.elementRef.boundElementIndex);
 	                    return componentView.changeDetector.ref;
 	                }
@@ -20049,12 +21315,12 @@
 	                    if (dirDep.optional) {
 	                        return null;
 	                    }
-	                    throw new di_1.NoBindingError(null, dirDep.key);
+	                    throw new di_1.NoProviderError(null, dirDep.key);
 	                }
 	                return this._preBuiltObjects.templateRef;
 	            }
 	        }
-	        else if (binding instanceof pipe_binding_1.PipeBinding) {
+	        else if (provider instanceof pipe_provider_1.PipeProvider) {
 	            if (dep.key.id === StaticKeys.instance().changeDetectorRefId) {
 	                var componentView = this._preBuiltObjects.view.getNestedView(this._preBuiltObjects.elementRef.boundElementIndex);
 	                return componentView.changeDetector.ref;
@@ -20272,7 +21538,7 @@
 	    return DynamicQueryStrategy;
 	})();
 	/**
-	 * Strategy used by the `ElementInjector` when the number of bindings is 10 or less.
+	 * Strategy used by the `ElementInjector` when the number of providers is 10 or less.
 	 * In such a case, inlining fields is beneficial for performances.
 	 */
 	var ElementInjectorInlineStrategy = (function () {
@@ -20284,26 +21550,26 @@
 	        var i = this.injectorStrategy;
 	        var p = i.protoStrategy;
 	        i.resetConstructionCounter();
-	        if (p.binding0 instanceof DirectiveBinding && lang_1.isPresent(p.keyId0) && i.obj0 === injector_1.UNDEFINED)
-	            i.obj0 = i.instantiateBinding(p.binding0, p.visibility0);
-	        if (p.binding1 instanceof DirectiveBinding && lang_1.isPresent(p.keyId1) && i.obj1 === injector_1.UNDEFINED)
-	            i.obj1 = i.instantiateBinding(p.binding1, p.visibility1);
-	        if (p.binding2 instanceof DirectiveBinding && lang_1.isPresent(p.keyId2) && i.obj2 === injector_1.UNDEFINED)
-	            i.obj2 = i.instantiateBinding(p.binding2, p.visibility2);
-	        if (p.binding3 instanceof DirectiveBinding && lang_1.isPresent(p.keyId3) && i.obj3 === injector_1.UNDEFINED)
-	            i.obj3 = i.instantiateBinding(p.binding3, p.visibility3);
-	        if (p.binding4 instanceof DirectiveBinding && lang_1.isPresent(p.keyId4) && i.obj4 === injector_1.UNDEFINED)
-	            i.obj4 = i.instantiateBinding(p.binding4, p.visibility4);
-	        if (p.binding5 instanceof DirectiveBinding && lang_1.isPresent(p.keyId5) && i.obj5 === injector_1.UNDEFINED)
-	            i.obj5 = i.instantiateBinding(p.binding5, p.visibility5);
-	        if (p.binding6 instanceof DirectiveBinding && lang_1.isPresent(p.keyId6) && i.obj6 === injector_1.UNDEFINED)
-	            i.obj6 = i.instantiateBinding(p.binding6, p.visibility6);
-	        if (p.binding7 instanceof DirectiveBinding && lang_1.isPresent(p.keyId7) && i.obj7 === injector_1.UNDEFINED)
-	            i.obj7 = i.instantiateBinding(p.binding7, p.visibility7);
-	        if (p.binding8 instanceof DirectiveBinding && lang_1.isPresent(p.keyId8) && i.obj8 === injector_1.UNDEFINED)
-	            i.obj8 = i.instantiateBinding(p.binding8, p.visibility8);
-	        if (p.binding9 instanceof DirectiveBinding && lang_1.isPresent(p.keyId9) && i.obj9 === injector_1.UNDEFINED)
-	            i.obj9 = i.instantiateBinding(p.binding9, p.visibility9);
+	        if (p.provider0 instanceof DirectiveProvider && lang_1.isPresent(p.keyId0) && i.obj0 === injector_1.UNDEFINED)
+	            i.obj0 = i.instantiateProvider(p.provider0, p.visibility0);
+	        if (p.provider1 instanceof DirectiveProvider && lang_1.isPresent(p.keyId1) && i.obj1 === injector_1.UNDEFINED)
+	            i.obj1 = i.instantiateProvider(p.provider1, p.visibility1);
+	        if (p.provider2 instanceof DirectiveProvider && lang_1.isPresent(p.keyId2) && i.obj2 === injector_1.UNDEFINED)
+	            i.obj2 = i.instantiateProvider(p.provider2, p.visibility2);
+	        if (p.provider3 instanceof DirectiveProvider && lang_1.isPresent(p.keyId3) && i.obj3 === injector_1.UNDEFINED)
+	            i.obj3 = i.instantiateProvider(p.provider3, p.visibility3);
+	        if (p.provider4 instanceof DirectiveProvider && lang_1.isPresent(p.keyId4) && i.obj4 === injector_1.UNDEFINED)
+	            i.obj4 = i.instantiateProvider(p.provider4, p.visibility4);
+	        if (p.provider5 instanceof DirectiveProvider && lang_1.isPresent(p.keyId5) && i.obj5 === injector_1.UNDEFINED)
+	            i.obj5 = i.instantiateProvider(p.provider5, p.visibility5);
+	        if (p.provider6 instanceof DirectiveProvider && lang_1.isPresent(p.keyId6) && i.obj6 === injector_1.UNDEFINED)
+	            i.obj6 = i.instantiateProvider(p.provider6, p.visibility6);
+	        if (p.provider7 instanceof DirectiveProvider && lang_1.isPresent(p.keyId7) && i.obj7 === injector_1.UNDEFINED)
+	            i.obj7 = i.instantiateProvider(p.provider7, p.visibility7);
+	        if (p.provider8 instanceof DirectiveProvider && lang_1.isPresent(p.keyId8) && i.obj8 === injector_1.UNDEFINED)
+	            i.obj8 = i.instantiateProvider(p.provider8, p.visibility8);
+	        if (p.provider9 instanceof DirectiveProvider && lang_1.isPresent(p.keyId9) && i.obj9 === injector_1.UNDEFINED)
+	            i.obj9 = i.instantiateProvider(p.provider9, p.visibility9);
 	    };
 	    ElementInjectorInlineStrategy.prototype.dehydrate = function () {
 	        var i = this.injectorStrategy;
@@ -20321,100 +21587,110 @@
 	    ElementInjectorInlineStrategy.prototype.callOnDestroy = function () {
 	        var i = this.injectorStrategy;
 	        var p = i.protoStrategy;
-	        if (p.binding0 instanceof DirectiveBinding && p.binding0.callOnDestroy) {
+	        if (p.provider0 instanceof DirectiveProvider &&
+	            p.provider0.callOnDestroy) {
 	            i.obj0.onDestroy();
 	        }
-	        if (p.binding1 instanceof DirectiveBinding && p.binding1.callOnDestroy) {
+	        if (p.provider1 instanceof DirectiveProvider &&
+	            p.provider1.callOnDestroy) {
 	            i.obj1.onDestroy();
 	        }
-	        if (p.binding2 instanceof DirectiveBinding && p.binding2.callOnDestroy) {
+	        if (p.provider2 instanceof DirectiveProvider &&
+	            p.provider2.callOnDestroy) {
 	            i.obj2.onDestroy();
 	        }
-	        if (p.binding3 instanceof DirectiveBinding && p.binding3.callOnDestroy) {
+	        if (p.provider3 instanceof DirectiveProvider &&
+	            p.provider3.callOnDestroy) {
 	            i.obj3.onDestroy();
 	        }
-	        if (p.binding4 instanceof DirectiveBinding && p.binding4.callOnDestroy) {
+	        if (p.provider4 instanceof DirectiveProvider &&
+	            p.provider4.callOnDestroy) {
 	            i.obj4.onDestroy();
 	        }
-	        if (p.binding5 instanceof DirectiveBinding && p.binding5.callOnDestroy) {
+	        if (p.provider5 instanceof DirectiveProvider &&
+	            p.provider5.callOnDestroy) {
 	            i.obj5.onDestroy();
 	        }
-	        if (p.binding6 instanceof DirectiveBinding && p.binding6.callOnDestroy) {
+	        if (p.provider6 instanceof DirectiveProvider &&
+	            p.provider6.callOnDestroy) {
 	            i.obj6.onDestroy();
 	        }
-	        if (p.binding7 instanceof DirectiveBinding && p.binding7.callOnDestroy) {
+	        if (p.provider7 instanceof DirectiveProvider &&
+	            p.provider7.callOnDestroy) {
 	            i.obj7.onDestroy();
 	        }
-	        if (p.binding8 instanceof DirectiveBinding && p.binding8.callOnDestroy) {
+	        if (p.provider8 instanceof DirectiveProvider &&
+	            p.provider8.callOnDestroy) {
 	            i.obj8.onDestroy();
 	        }
-	        if (p.binding9 instanceof DirectiveBinding && p.binding9.callOnDestroy) {
+	        if (p.provider9 instanceof DirectiveProvider &&
+	            p.provider9.callOnDestroy) {
 	            i.obj9.onDestroy();
 	        }
 	    };
 	    ElementInjectorInlineStrategy.prototype.getComponent = function () { return this.injectorStrategy.obj0; };
 	    ElementInjectorInlineStrategy.prototype.isComponentKey = function (key) {
-	        return this._ei._proto._firstBindingIsComponent && lang_1.isPresent(key) &&
+	        return this._ei._proto._firstProviderIsComponent && lang_1.isPresent(key) &&
 	            key.id === this.injectorStrategy.protoStrategy.keyId0;
 	    };
 	    ElementInjectorInlineStrategy.prototype.addDirectivesMatchingQuery = function (query, list) {
 	        var i = this.injectorStrategy;
 	        var p = i.protoStrategy;
-	        if (lang_1.isPresent(p.binding0) && p.binding0.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider0) && p.provider0.key.token === query.selector) {
 	            if (i.obj0 === injector_1.UNDEFINED)
-	                i.obj0 = i.instantiateBinding(p.binding0, p.visibility0);
+	                i.obj0 = i.instantiateProvider(p.provider0, p.visibility0);
 	            list.push(i.obj0);
 	        }
-	        if (lang_1.isPresent(p.binding1) && p.binding1.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider1) && p.provider1.key.token === query.selector) {
 	            if (i.obj1 === injector_1.UNDEFINED)
-	                i.obj1 = i.instantiateBinding(p.binding1, p.visibility1);
+	                i.obj1 = i.instantiateProvider(p.provider1, p.visibility1);
 	            list.push(i.obj1);
 	        }
-	        if (lang_1.isPresent(p.binding2) && p.binding2.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider2) && p.provider2.key.token === query.selector) {
 	            if (i.obj2 === injector_1.UNDEFINED)
-	                i.obj2 = i.instantiateBinding(p.binding2, p.visibility2);
+	                i.obj2 = i.instantiateProvider(p.provider2, p.visibility2);
 	            list.push(i.obj2);
 	        }
-	        if (lang_1.isPresent(p.binding3) && p.binding3.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider3) && p.provider3.key.token === query.selector) {
 	            if (i.obj3 === injector_1.UNDEFINED)
-	                i.obj3 = i.instantiateBinding(p.binding3, p.visibility3);
+	                i.obj3 = i.instantiateProvider(p.provider3, p.visibility3);
 	            list.push(i.obj3);
 	        }
-	        if (lang_1.isPresent(p.binding4) && p.binding4.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider4) && p.provider4.key.token === query.selector) {
 	            if (i.obj4 === injector_1.UNDEFINED)
-	                i.obj4 = i.instantiateBinding(p.binding4, p.visibility4);
+	                i.obj4 = i.instantiateProvider(p.provider4, p.visibility4);
 	            list.push(i.obj4);
 	        }
-	        if (lang_1.isPresent(p.binding5) && p.binding5.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider5) && p.provider5.key.token === query.selector) {
 	            if (i.obj5 === injector_1.UNDEFINED)
-	                i.obj5 = i.instantiateBinding(p.binding5, p.visibility5);
+	                i.obj5 = i.instantiateProvider(p.provider5, p.visibility5);
 	            list.push(i.obj5);
 	        }
-	        if (lang_1.isPresent(p.binding6) && p.binding6.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider6) && p.provider6.key.token === query.selector) {
 	            if (i.obj6 === injector_1.UNDEFINED)
-	                i.obj6 = i.instantiateBinding(p.binding6, p.visibility6);
+	                i.obj6 = i.instantiateProvider(p.provider6, p.visibility6);
 	            list.push(i.obj6);
 	        }
-	        if (lang_1.isPresent(p.binding7) && p.binding7.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider7) && p.provider7.key.token === query.selector) {
 	            if (i.obj7 === injector_1.UNDEFINED)
-	                i.obj7 = i.instantiateBinding(p.binding7, p.visibility7);
+	                i.obj7 = i.instantiateProvider(p.provider7, p.visibility7);
 	            list.push(i.obj7);
 	        }
-	        if (lang_1.isPresent(p.binding8) && p.binding8.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider8) && p.provider8.key.token === query.selector) {
 	            if (i.obj8 === injector_1.UNDEFINED)
-	                i.obj8 = i.instantiateBinding(p.binding8, p.visibility8);
+	                i.obj8 = i.instantiateProvider(p.provider8, p.visibility8);
 	            list.push(i.obj8);
 	        }
-	        if (lang_1.isPresent(p.binding9) && p.binding9.key.token === query.selector) {
+	        if (lang_1.isPresent(p.provider9) && p.provider9.key.token === query.selector) {
 	            if (i.obj9 === injector_1.UNDEFINED)
-	                i.obj9 = i.instantiateBinding(p.binding9, p.visibility9);
+	                i.obj9 = i.instantiateProvider(p.provider9, p.visibility9);
 	            list.push(i.obj9);
 	        }
 	    };
 	    return ElementInjectorInlineStrategy;
 	})();
 	/**
-	 * Strategy used by the `ElementInjector` when the number of bindings is 10 or less.
+	 * Strategy used by the `ElementInjector` when the number of providers is 10 or less.
 	 * In such a case, inlining fields is beneficial for performances.
 	 */
 	var ElementInjectorDynamicStrategy = (function () {
@@ -20427,9 +21703,9 @@
 	        var p = inj.protoStrategy;
 	        inj.resetConstructionCounter();
 	        for (var i = 0; i < p.keyIds.length; i++) {
-	            if (p.bindings[i] instanceof DirectiveBinding && lang_1.isPresent(p.keyIds[i]) &&
+	            if (p.providers[i] instanceof DirectiveProvider && lang_1.isPresent(p.keyIds[i]) &&
 	                inj.objs[i] === injector_1.UNDEFINED) {
-	                inj.objs[i] = inj.instantiateBinding(p.bindings[i], p.visibilities[i]);
+	                inj.objs[i] = inj.instantiateProvider(p.providers[i], p.visibilities[i]);
 	            }
 	        }
 	    };
@@ -20440,9 +21716,9 @@
 	    ElementInjectorDynamicStrategy.prototype.callOnDestroy = function () {
 	        var ist = this.injectorStrategy;
 	        var p = ist.protoStrategy;
-	        for (var i = 0; i < p.bindings.length; i++) {
-	            if (p.bindings[i] instanceof DirectiveBinding &&
-	                p.bindings[i].callOnDestroy) {
+	        for (var i = 0; i < p.providers.length; i++) {
+	            if (p.providers[i] instanceof DirectiveProvider &&
+	                p.providers[i].callOnDestroy) {
 	                ist.objs[i].onDestroy();
 	            }
 	        }
@@ -20450,15 +21726,15 @@
 	    ElementInjectorDynamicStrategy.prototype.getComponent = function () { return this.injectorStrategy.objs[0]; };
 	    ElementInjectorDynamicStrategy.prototype.isComponentKey = function (key) {
 	        var p = this.injectorStrategy.protoStrategy;
-	        return this._ei._proto._firstBindingIsComponent && lang_1.isPresent(key) && key.id === p.keyIds[0];
+	        return this._ei._proto._firstProviderIsComponent && lang_1.isPresent(key) && key.id === p.keyIds[0];
 	    };
 	    ElementInjectorDynamicStrategy.prototype.addDirectivesMatchingQuery = function (query, list) {
 	        var ist = this.injectorStrategy;
 	        var p = ist.protoStrategy;
-	        for (var i = 0; i < p.bindings.length; i++) {
-	            if (p.bindings[i].key.token === query.selector) {
+	        for (var i = 0; i < p.providers.length; i++) {
+	            if (p.providers[i].key.token === query.selector) {
 	                if (ist.objs[i] === injector_1.UNDEFINED) {
-	                    ist.objs[i] = ist.instantiateBinding(p.bindings[i], p.visibilities[i]);
+	                    ist.objs[i] = ist.instantiateProvider(p.providers[i], p.visibilities[i]);
 	                }
 	                list.push(ist.objs[i]);
 	            }
@@ -20550,7 +21826,7 @@
 	    };
 	    QueryRef.prototype._visitInjector = function (inj, aggregator) {
 	        if (this.protoQueryRef.query.isVarBindingQuery) {
-	            this._aggregateVariableBindings(inj, aggregator);
+	            this._aggregateVariableBinding(inj, aggregator);
 	        }
 	        else {
 	            this._aggregateDirective(inj, aggregator);
@@ -20572,7 +21848,7 @@
 	                this._visitViewContainer(vc, aggregator);
 	        }
 	    };
-	    QueryRef.prototype._aggregateVariableBindings = function (inj, aggregator) {
+	    QueryRef.prototype._aggregateVariableBinding = function (inj, aggregator) {
 	        var vb = this.protoQueryRef.query.varBindings;
 	        for (var i = 0; i < vb.length; ++i) {
 	            if (inj.hasVariableBinding(vb[i])) {
@@ -20594,7 +21870,7 @@
 	//# sourceMappingURL=element_injector.js.map
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -20619,14 +21895,14 @@
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var viewModule = __webpack_require__(129);
-	var view_ref_1 = __webpack_require__(130);
-	var api_1 = __webpack_require__(135);
-	var view_manager_utils_1 = __webpack_require__(136);
-	var view_pool_1 = __webpack_require__(139);
-	var view_listener_1 = __webpack_require__(140);
+	var viewModule = __webpack_require__(130);
+	var view_ref_1 = __webpack_require__(131);
+	var api_1 = __webpack_require__(136);
+	var view_manager_utils_1 = __webpack_require__(137);
+	var view_pool_1 = __webpack_require__(140);
+	var view_listener_1 = __webpack_require__(141);
 	var profile_1 = __webpack_require__(84);
-	var proto_view_factory_1 = __webpack_require__(125);
+	var proto_view_factory_1 = __webpack_require__(126);
 	/**
 	 * Service exposing low level API for creating, moving and destroying Views.
 	 *
@@ -20657,12 +21933,19 @@
 	        this._viewListener = _viewListener;
 	        this._utils = _utils;
 	        this._renderer = _renderer;
+	        /** @internal */
 	        this._createRootHostViewScope = profile_1.wtfCreateScope('AppViewManager#createRootHostView()');
+	        /** @internal */
 	        this._destroyRootHostViewScope = profile_1.wtfCreateScope('AppViewManager#destroyRootHostView()');
+	        /** @internal */
 	        this._createEmbeddedViewInContainerScope = profile_1.wtfCreateScope('AppViewManager#createEmbeddedViewInContainer()');
+	        /** @internal */
 	        this._createHostViewInContainerScope = profile_1.wtfCreateScope('AppViewManager#createHostViewInContainer()');
+	        /** @internal */
 	        this._destroyViewInContainerScope = profile_1.wtfCreateScope('AppViewMananger#destroyViewInContainer()');
+	        /** @internal */
 	        this._attachViewInContainerScope = profile_1.wtfCreateScope('AppViewMananger#attachViewInContainer()');
+	        /** @internal */
 	        this._detachViewInContainerScope = profile_1.wtfCreateScope('AppViewMananger#detachViewInContainer()');
 	        this._protoViewFactory = _protoViewFactory;
 	    }
@@ -20736,6 +22019,7 @@
 	    /**
 	     *
 	     * See {@link AppViewManager#destroyViewInContainer}.
+	     * @internal
 	     */
 	    AppViewManager_.prototype._createViewInContainer = function (viewContainerLocation, index, protoView, context, imperativelyCreatedInjector) {
 	        var parentView = view_ref_1.internalView(viewContainerLocation.parentView);
@@ -20762,6 +22046,7 @@
 	        this._utils.hydrateViewInContainer(parentView, boundElementIndex, contextView, contextBoundElementIndex, index, imperativelyCreatedInjector);
 	        return view.ref;
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._attachRenderView = function (parentView, boundElementIndex, index, view) {
 	        var elementRef = parentView.elementRefs[boundElementIndex];
 	        if (index === 0) {
@@ -20806,12 +22091,14 @@
 	        this._renderer.detachFragment(view.renderFragment);
 	        return profile_1.wtfLeave(s, view.ref);
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._createMainView = function (protoView, renderViewWithFragments) {
 	        var mergedParentView = this._utils.createView(protoView, renderViewWithFragments, this, this._renderer);
 	        this._renderer.setEventDispatcher(mergedParentView.render, mergedParentView);
 	        this._viewListener.viewCreated(mergedParentView);
 	        return mergedParentView;
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._createPooledView = function (protoView) {
 	        var view = this._viewPool.getView(protoView);
 	        if (lang_1.isBlank(view)) {
@@ -20819,6 +22106,7 @@
 	        }
 	        return view;
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._destroyPooledView = function (view) {
 	        var wasReturned = this._viewPool.returnView(view);
 	        if (!wasReturned) {
@@ -20826,6 +22114,7 @@
 	            this._renderer.destroyView(view.render);
 	        }
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._destroyViewInContainer = function (parentView, boundElementIndex, index) {
 	        var viewContainer = parentView.viewContainers[boundElementIndex];
 	        var view = viewContainer.views[index];
@@ -20844,6 +22133,7 @@
 	            this._destroyPooledView(view);
 	        }
 	    };
+	    /** @internal */
 	    AppViewManager_.prototype._viewDehydrateRecurse = function (view) {
 	        if (view.hydrated()) {
 	            this._utils.dehydrateView(view);
@@ -20875,7 +22165,7 @@
 	//# sourceMappingURL=view_manager.js.map
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -21002,7 +22292,7 @@
 	//# sourceMappingURL=api.js.map
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21018,12 +22308,12 @@
 	};
 	var di_1 = __webpack_require__(45);
 	var collection_1 = __webpack_require__(51);
-	var eli = __webpack_require__(133);
+	var eli = __webpack_require__(134);
 	var lang_1 = __webpack_require__(44);
-	var viewModule = __webpack_require__(129);
-	var element_ref_1 = __webpack_require__(137);
-	var template_ref_1 = __webpack_require__(138);
-	var pipes_1 = __webpack_require__(127);
+	var viewModule = __webpack_require__(130);
+	var element_ref_1 = __webpack_require__(138);
+	var template_ref_1 = __webpack_require__(139);
+	var pipes_1 = __webpack_require__(128);
 	var AppViewManagerUtils = (function () {
 	    function AppViewManagerUtils() {
 	    }
@@ -21142,7 +22432,7 @@
 	            inj.unlink();
 	        }
 	    };
-	    AppViewManagerUtils.prototype.hydrateViewInContainer = function (parentView, boundElementIndex, contextView, contextBoundElementIndex, index, imperativelyCreatedBindings) {
+	    AppViewManagerUtils.prototype.hydrateViewInContainer = function (parentView, boundElementIndex, contextView, contextBoundElementIndex, index, imperativelyCreatedProviders) {
 	        if (lang_1.isBlank(contextView)) {
 	            contextView = parentView;
 	            contextBoundElementIndex = boundElementIndex;
@@ -21150,11 +22440,12 @@
 	        var viewContainer = parentView.viewContainers[boundElementIndex];
 	        var view = viewContainer.views[index];
 	        var elementInjector = contextView.elementInjectors[contextBoundElementIndex];
-	        var injector = lang_1.isPresent(imperativelyCreatedBindings) ?
-	            di_1.Injector.fromResolvedBindings(imperativelyCreatedBindings) :
+	        var injector = lang_1.isPresent(imperativelyCreatedProviders) ?
+	            di_1.Injector.fromResolvedProviders(imperativelyCreatedProviders) :
 	            null;
 	        this._hydrateView(view, injector, elementInjector.getHost(), contextView.context, contextView.locals);
 	    };
+	    /** @internal */
 	    AppViewManagerUtils.prototype._hydrateView = function (initView, imperativelyCreatedInjector, hostElementInjector, context, parentLocals) {
 	        var viewIdx = initView.viewOffset;
 	        var endViewOffset = viewIdx + initView.proto.mergeInfo.viewCount - 1;
@@ -21193,9 +22484,10 @@
 	            }
 	        }
 	    };
+	    /** @internal */
 	    AppViewManagerUtils.prototype._populateViewLocals = function (view, elementInjector, boundElementIdx) {
 	        if (lang_1.isPresent(elementInjector.getDirectiveVariableBindings())) {
-	            collection_1.MapWrapper.forEach(elementInjector.getDirectiveVariableBindings(), function (directiveIndex, name) {
+	            elementInjector.getDirectiveVariableBindings().forEach(function (directiveIndex, name) {
 	                if (lang_1.isBlank(directiveIndex)) {
 	                    view.locals.set(name, view.elementRefs[boundElementIdx].nativeElement);
 	                }
@@ -21205,6 +22497,7 @@
 	            });
 	        }
 	    };
+	    /** @internal */
 	    AppViewManagerUtils.prototype._setUpEventEmitters = function (view, elementInjector, boundElementIndex) {
 	        var emitters = elementInjector.getEventEmitterAccessors();
 	        for (var directiveIndex = 0; directiveIndex < emitters.length; ++directiveIndex) {
@@ -21246,7 +22539,7 @@
 	//# sourceMappingURL=view_manager_utils.js.map
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -21332,7 +22625,7 @@
 	//# sourceMappingURL=element_ref.js.map
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -21340,7 +22633,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var view_ref_1 = __webpack_require__(130);
+	var view_ref_1 = __webpack_require__(131);
 	/**
 	 * Represents an Embedded Template that can be used to instantiate Embedded Views.
 	 *
@@ -21389,7 +22682,7 @@
 	//# sourceMappingURL=template_ref.js.map
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21412,6 +22705,7 @@
 	exports.APP_VIEW_POOL_CAPACITY = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppViewPool.viewPoolCapacity'));
 	var AppViewPool = (function () {
 	    function AppViewPool(poolCapacityPerProtoView) {
+	        /** @internal */
 	        this._pooledViewsPerProtoView = new collection_1.Map();
 	        this._poolCapacityPerProtoView = poolCapacityPerProtoView;
 	    }
@@ -21446,7 +22740,7 @@
 	//# sourceMappingURL=view_pool.js.map
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21479,7 +22773,7 @@
 	//# sourceMappingURL=view_listener.js.map
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -21490,7 +22784,7 @@
 	var collection_1 = __webpack_require__(51);
 	var exceptions_1 = __webpack_require__(53);
 	var lang_1 = __webpack_require__(44);
-	var view_ref_1 = __webpack_require__(130);
+	var view_ref_1 = __webpack_require__(131);
 	/**
 	 * Represents a container where one or more Views can be attached.
 	 *
@@ -21560,13 +22854,13 @@
 	            index = this.length;
 	        return this.viewManager.createEmbeddedViewInContainer(this.element, index, templateRef);
 	    };
-	    ViewContainerRef_.prototype.createHostView = function (protoViewRef, index, dynamicallyCreatedBindings) {
+	    ViewContainerRef_.prototype.createHostView = function (protoViewRef, index, dynamicallyCreatedProviders) {
 	        if (protoViewRef === void 0) { protoViewRef = null; }
 	        if (index === void 0) { index = -1; }
-	        if (dynamicallyCreatedBindings === void 0) { dynamicallyCreatedBindings = null; }
+	        if (dynamicallyCreatedProviders === void 0) { dynamicallyCreatedProviders = null; }
 	        if (index == -1)
 	            index = this.length;
-	        return this.viewManager.createHostViewInContainer(this.element, index, protoViewRef, dynamicallyCreatedBindings);
+	        return this.viewManager.createHostViewInContainer(this.element, index, protoViewRef, dynamicallyCreatedProviders);
 	    };
 	    // TODO(i): refactor insert+remove into move
 	    ViewContainerRef_.prototype.insert = function (viewRef, index) {
@@ -21599,11 +22893,11 @@
 	//# sourceMappingURL=view_container_ref.js.map
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var interfaces_1 = __webpack_require__(143);
+	var interfaces_1 = __webpack_require__(144);
 	function hasLifecycleHook(lcInterface, token) {
 	    if (!(token instanceof lang_1.Type))
 	        return false;
@@ -21633,13 +22927,10 @@
 	//# sourceMappingURL=directive_lifecycle_reflector.js.map
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports) {
 
-	'use strict';/**
-	 * @internal
-	 */
-	(function (LifecycleHooks) {
+	'use strict';(function (LifecycleHooks) {
 	    LifecycleHooks[LifecycleHooks["OnInit"] = 0] = "OnInit";
 	    LifecycleHooks[LifecycleHooks["OnDestroy"] = 1] = "OnDestroy";
 	    LifecycleHooks[LifecycleHooks["DoCheck"] = 2] = "DoCheck";
@@ -21666,7 +22957,7 @@
 	//# sourceMappingURL=interfaces.js.map
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
@@ -21722,9 +23013,21 @@
 	        configurable: true
 	    });
 	    /**
-	     * returns a new list with the passsed in function applied to each element.
+	     * returns a new array with the passed in function applied to each element.
 	     */
 	    QueryList.prototype.map = function (fn) { return this._results.map(fn); };
+	    /**
+	     * returns a filtered array.
+	     */
+	    QueryList.prototype.filter = function (fn) { return this._results.filter(fn); };
+	    /**
+	     * returns a reduced value.
+	     */
+	    QueryList.prototype.reduce = function (fn, init) { return this._results.reduce(fn, init); };
+	    /**
+	     * converts QueryList into an array
+	     */
+	    QueryList.prototype.toArray = function () { return collection_1.ListWrapper.clone(this._results); };
 	    QueryList.prototype[lang_1.getSymbolIterator()] = function () { return this._results[lang_1.getSymbolIterator()](); };
 	    QueryList.prototype.toString = function () { return this._results.toString(); };
 	    /**
@@ -21739,7 +23042,7 @@
 	//# sourceMappingURL=query_list.js.map
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -21771,7 +23074,7 @@
 	//# sourceMappingURL=event_config.js.map
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21873,23 +23176,18 @@
 	        var mergedOutputs = lang_1.isPresent(dm.outputs) ? collection_1.ListWrapper.concat(dm.outputs, outputs) : outputs;
 	        var mergedHost = lang_1.isPresent(dm.host) ? collection_1.StringMapWrapper.merge(dm.host, host) : host;
 	        var mergedQueries = lang_1.isPresent(dm.queries) ? collection_1.StringMapWrapper.merge(dm.queries, queries) : queries;
-	        // TODO: remove after migrating from properties to inputs
-	        if (mergedInputs.length == 0 && lang_1.isPresent(dm.properties))
-	            mergedInputs = dm.properties;
-	        if (mergedOutputs.length == 0 && lang_1.isPresent(dm.events))
-	            mergedOutputs = dm.events;
 	        if (dm instanceof metadata_1.ComponentMetadata) {
 	            return new metadata_1.ComponentMetadata({
 	                selector: dm.selector,
 	                inputs: mergedInputs,
 	                outputs: mergedOutputs,
 	                host: mergedHost,
-	                bindings: dm.bindings,
 	                exportAs: dm.exportAs,
 	                moduleId: dm.moduleId,
 	                queries: mergedQueries,
 	                changeDetection: dm.changeDetection,
-	                viewBindings: dm.viewBindings
+	                providers: dm.providers,
+	                viewProviders: dm.viewProviders
 	            });
 	        }
 	        else {
@@ -21898,10 +23196,10 @@
 	                inputs: mergedInputs,
 	                outputs: mergedOutputs,
 	                host: mergedHost,
-	                bindings: dm.bindings,
 	                exportAs: dm.exportAs,
 	                moduleId: dm.moduleId,
-	                queries: mergedQueries
+	                queries: mergedQueries,
+	                providers: dm.providers
 	            });
 	        }
 	    };
@@ -21915,7 +23213,7 @@
 	//# sourceMappingURL=directive_resolver.js.map
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21938,6 +23236,7 @@
 	var reflection_1 = __webpack_require__(55);
 	var ViewResolver = (function () {
 	    function ViewResolver() {
+	        /** @internal */
 	        this._cache = new collection_1.Map();
 	    }
 	    ViewResolver.prototype.resolve = function (component) {
@@ -21948,6 +23247,7 @@
 	        }
 	        return view;
 	    };
+	    /** @internal */
 	    ViewResolver.prototype._resolve = function (component) {
 	        var compMeta;
 	        var viewMeta;
@@ -22009,6 +23309,7 @@
 	        }
 	        return null;
 	    };
+	    /** @internal */
 	    ViewResolver.prototype._throwMixingViewAndComponent = function (propertyName, component) {
 	        throw new exceptions_1.BaseException("Component '" + lang_1.stringify(component) + "' cannot have both '" + propertyName + "' and '@View' set at the same time\"");
 	    };
@@ -22022,7 +23323,7 @@
 	//# sourceMappingURL=view_resolver.js.map
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -22076,7 +23377,7 @@
 	//# sourceMappingURL=pipe_resolver.js.map
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -22280,7 +23581,7 @@
 	//# sourceMappingURL=template_commands.js.map
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -22292,15 +23593,15 @@
 	 *
 	 * JavaScript users should import from angular2/core.
 	 */
-	__export(__webpack_require__(151));
+	__export(__webpack_require__(152));
 	//# sourceMappingURL=render.js.map
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for render
-	var render_1 = __webpack_require__(152);
+	var render_1 = __webpack_require__(153);
 	exports.Renderer = render_1.Renderer;
 	exports.RenderViewRef = render_1.RenderViewRef;
 	exports.RenderProtoViewRef = render_1.RenderProtoViewRef;
@@ -22310,7 +23611,7 @@
 	//# sourceMappingURL=render.js.map
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -22321,14 +23622,14 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(153));
+	__export(__webpack_require__(154));
+	__export(__webpack_require__(157));
 	__export(__webpack_require__(156));
-	__export(__webpack_require__(155));
-	__export(__webpack_require__(135));
+	__export(__webpack_require__(136));
 	//# sourceMappingURL=render.js.map
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -22350,13 +23651,15 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var dom_adapter_1 = __webpack_require__(154);
+	var dom_adapter_1 = __webpack_require__(155);
 	var di_1 = __webpack_require__(45);
 	var collection_1 = __webpack_require__(51);
-	var dom_tokens_1 = __webpack_require__(155);
+	var dom_tokens_1 = __webpack_require__(156);
 	var SharedStylesHost = (function () {
 	    function SharedStylesHost() {
+	        /** @internal */
 	        this._styles = [];
+	        /** @internal */
 	        this._stylesSet = new Set();
 	    }
 	    SharedStylesHost.prototype.addStyles = function (styles) {
@@ -22387,6 +23690,7 @@
 	        this._hostNodes = new Set();
 	        this._hostNodes.add(doc.head);
 	    }
+	    /** @internal */
 	    DomSharedStylesHost.prototype._addStylesToHost = function (styles, host) {
 	        for (var i = 0; i < styles.length; i++) {
 	            var style = styles[i];
@@ -22413,7 +23717,7 @@
 	//# sourceMappingURL=shared_styles_host.js.map
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -22436,7 +23740,7 @@
 	//# sourceMappingURL=dom_adapter.js.map
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var di_1 = __webpack_require__(45);
@@ -22451,7 +23755,7 @@
 	//# sourceMappingURL=dom_tokens.js.map
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -22474,18 +23778,18 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var di_1 = __webpack_require__(45);
-	var animation_builder_1 = __webpack_require__(157);
+	var animation_builder_1 = __webpack_require__(158);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var dom_adapter_1 = __webpack_require__(154);
-	var event_manager_1 = __webpack_require__(163);
-	var shared_styles_host_1 = __webpack_require__(153);
+	var dom_adapter_1 = __webpack_require__(155);
+	var event_manager_1 = __webpack_require__(164);
+	var shared_styles_host_1 = __webpack_require__(154);
 	var profile_1 = __webpack_require__(84);
-	var api_1 = __webpack_require__(135);
-	var dom_tokens_1 = __webpack_require__(155);
-	var view_factory_1 = __webpack_require__(165);
-	var view_1 = __webpack_require__(166);
-	var util_1 = __webpack_require__(131);
+	var api_1 = __webpack_require__(136);
+	var dom_tokens_1 = __webpack_require__(156);
+	var view_factory_1 = __webpack_require__(166);
+	var view_1 = __webpack_require__(167);
+	var util_1 = __webpack_require__(132);
 	var DomRenderer = (function (_super) {
 	    __extends(DomRenderer, _super);
 	    function DomRenderer() {
@@ -22589,8 +23893,11 @@
 	        this._animate = _animate;
 	        this._componentCmds = new Map();
 	        this._nativeShadowStyles = new Map();
+	        /** @internal */
 	        this._createRootHostViewScope = profile_1.wtfCreateScope('DomRenderer#createRootHostView()');
+	        /** @internal */
 	        this._createViewScope = profile_1.wtfCreateScope('DomRenderer#createView()');
+	        /** @internal */
 	        this._detachFragmentScope = profile_1.wtfCreateScope('DomRenderer#detachFragment()');
 	        this._document = document;
 	    }
@@ -22680,6 +23987,9 @@
 	            dom_adapter_1.DOM.setAttribute(node, attrNameAndValues[attrIdx], attrNameAndValues[attrIdx + 1]);
 	        }
 	    };
+	    DomRenderer_.prototype.createRootContentInsertionPoint = function () {
+	        return dom_adapter_1.DOM.createComment('root-content-insertion-point');
+	    };
 	    DomRenderer_.prototype.createShadowRoot = function (host, templateId) {
 	        var sr = dom_adapter_1.DOM.createShadowRoot(host);
 	        var styles = this._nativeShadowStyles.get(templateId);
@@ -22736,7 +24046,7 @@
 	//# sourceMappingURL=dom_renderer.js.map
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -22751,8 +24061,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(45);
-	var css_animation_builder_1 = __webpack_require__(158);
-	var browser_details_1 = __webpack_require__(162);
+	var css_animation_builder_1 = __webpack_require__(159);
+	var browser_details_1 = __webpack_require__(163);
 	var AnimationBuilder = (function () {
 	    /**
 	     * Used for DI
@@ -22776,11 +24086,11 @@
 	//# sourceMappingURL=animation_builder.js.map
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var css_animation_options_1 = __webpack_require__(159);
-	var animation_1 = __webpack_require__(160);
+	'use strict';var css_animation_options_1 = __webpack_require__(160);
+	var animation_1 = __webpack_require__(161);
 	var CssAnimationBuilder = (function () {
 	    /**
 	     * Accepts public properties for CssAnimationBuilder
@@ -22867,7 +24177,7 @@
 	//# sourceMappingURL=css_animation_builder.js.map
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports) {
 
 	'use strict';var CssAnimationOptions = (function () {
@@ -22885,14 +24195,14 @@
 	//# sourceMappingURL=css_animation_options.js.map
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var math_1 = __webpack_require__(161);
-	var util_1 = __webpack_require__(131);
+	var math_1 = __webpack_require__(162);
+	var util_1 = __webpack_require__(132);
 	var collection_1 = __webpack_require__(51);
-	var dom_adapter_1 = __webpack_require__(154);
+	var dom_adapter_1 = __webpack_require__(155);
 	var Animation = (function () {
 	    /**
 	     * Stores the start time and starts the animation
@@ -23072,7 +24382,7 @@
 	//# sourceMappingURL=animation.js.map
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -23081,7 +24391,7 @@
 	//# sourceMappingURL=math.js.map
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -23096,8 +24406,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(45);
-	var math_1 = __webpack_require__(161);
-	var dom_adapter_1 = __webpack_require__(154);
+	var math_1 = __webpack_require__(162);
+	var dom_adapter_1 = __webpack_require__(155);
 	var BrowserDetails = (function () {
 	    function BrowserDetails() {
 	        this.elapsedTimeIncludesDelay = false;
@@ -23161,7 +24471,7 @@
 	//# sourceMappingURL=browser_details.js.map
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -23186,8 +24496,8 @@
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	var dom_adapter_1 = __webpack_require__(154);
-	var ng_zone_1 = __webpack_require__(164);
+	var dom_adapter_1 = __webpack_require__(155);
+	var ng_zone_1 = __webpack_require__(165);
 	var di_1 = __webpack_require__(45);
 	exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
 	var EventManager = (function () {
@@ -23206,6 +24516,7 @@
 	        return plugin.addGlobalEventListener(target, eventName, handler);
 	    };
 	    EventManager.prototype.getZone = function () { return this._zone; };
+	    /** @internal */
 	    EventManager.prototype._findPluginFor = function (eventName) {
 	        var plugins = this._plugins;
 	        for (var i = 0; i < plugins.length; i++) {
@@ -23267,7 +24578,7 @@
 	//# sourceMappingURL=event_manager.js.map
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
@@ -23291,9 +24602,7 @@
 	 * import {Component, View, NgIf, NgZone} from 'angular2/angular2';
 	 *
 	 * @Component({
-	 *   selector: 'ng-zone-demo'
-	 * })
-	 * @View({
+	 *   selector: 'ng-zone-demo'.
 	 *   template: `
 	 *     <h2>Demo: NgZone</h2>
 	 *
@@ -23352,17 +24661,26 @@
 	     */
 	    function NgZone(_a) {
 	        var enableLongStackTrace = _a.enableLongStackTrace;
+	        /** @internal */
 	        this._runScope = profile_1.wtfCreateScope("NgZone#run()");
+	        /** @internal */
 	        this._microtaskScope = profile_1.wtfCreateScope("NgZone#microtask()");
-	        this._inVmTurnDone = false;
-	        this._pendingTimeouts = [];
-	        this._onTurnStart = null;
-	        this._onTurnDone = null;
-	        this._onEventDone = null;
-	        this._onErrorHandler = null;
+	        // Number of microtasks pending from _innerZone (& descendants)
+	        /** @internal */
 	        this._pendingMicrotasks = 0;
+	        // Whether some code has been executed in the _innerZone (& descendants) in the current turn
+	        /** @internal */
 	        this._hasExecutedCodeInInnerZone = false;
+	        // run() call depth in _mountZone. 0 at the end of a macrotask
+	        // zone.run(() => {         // top-level call
+	        //   zone.run(() => {});    // nested call -> in-turn
+	        // });
+	        /** @internal */
 	        this._nestedRun = 0;
+	        /** @internal */
+	        this._inVmTurnDone = false;
+	        /** @internal */
+	        this._pendingTimeouts = [];
 	        if (lang_1.global.zone) {
 	            this._disabled = false;
 	            this._mountZone = lang_1.global.zone;
@@ -23475,6 +24793,7 @@
 	            return this._mountZone.run(fn);
 	        }
 	    };
+	    /** @internal */
 	    NgZone.prototype._createInnerZone = function (zone, enableLongStackTrace) {
 	        var microtaskScope = this._microtaskScope;
 	        var ngZone = this;
@@ -23566,6 +24885,7 @@
 	            _innerZone: true
 	        });
 	    };
+	    /** @internal */
 	    NgZone.prototype._onError = function (zone, e) {
 	        if (lang_1.isPresent(this._onErrorHandler)) {
 	            var trace = [lang_1.normalizeBlank(e.stack)];
@@ -23587,11 +24907,11 @@
 	//# sourceMappingURL=ng_zone.js.map
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var view_1 = __webpack_require__(166);
+	var view_1 = __webpack_require__(167);
 	function createRenderView(fragmentCmds, inplaceElement, nodeFactory) {
 	    var view;
 	    var eventDispatcher = function (boundElementIndex, eventName, event) {
@@ -23603,7 +24923,7 @@
 	    for (var i = 0; i < context.fragments.length; i++) {
 	        fragments.push(new view_1.DefaultRenderFragmentRef(context.fragments[i]));
 	    }
-	    view = new view_1.DefaultRenderView(fragments, context.boundTextNodes, context.boundElements, context.nativeShadowRoots, context.globalEventAdders);
+	    view = new view_1.DefaultRenderView(fragments, context.boundTextNodes, context.boundElements, context.nativeShadowRoots, context.globalEventAdders, context.rootContentInsertionPoints);
 	    return view;
 	}
 	exports.createRenderView = createRenderView;
@@ -23618,6 +24938,9 @@
 	        this.boundTextNodes = [];
 	        this.nativeShadowRoots = [];
 	        this.fragments = [];
+	        this.rootContentInsertionPoints = [];
+	        this.componentCount = 0;
+	        this.isHost = lang_1.isPresent((_inplaceElement));
 	    }
 	    BuildContext.prototype.build = function (fragmentCmds) {
 	        this.enqueueFragmentBuilder(null, fragmentCmds);
@@ -23632,6 +24955,7 @@
 	        }
 	    };
 	    BuildContext.prototype.enqueueComponentBuilder = function (component) {
+	        this.componentCount++;
 	        this._builders.push(new RenderViewBuilder(component, null, this.factory.resolveComponentTemplate(component.cmd.templateId)));
 	    };
 	    BuildContext.prototype.enqueueFragmentBuilder = function (parentComponent, commands) {
@@ -23690,10 +25014,22 @@
 	    };
 	    RenderViewBuilder.prototype.visitNgContent = function (cmd, context) {
 	        if (lang_1.isPresent(this.parentComponent)) {
-	            var projectedNodes = this.parentComponent.project(cmd.index);
-	            for (var i = 0; i < projectedNodes.length; i++) {
-	                var node = projectedNodes[i];
-	                this._addChild(node, cmd.ngContentIndex, context);
+	            if (this.parentComponent.isRoot) {
+	                var insertionPoint = context.factory.createRootContentInsertionPoint();
+	                if (this.parent instanceof Component) {
+	                    context.factory.appendChild(this.parent.shadowRoot, insertionPoint);
+	                }
+	                else {
+	                    context.factory.appendChild(this.parent, insertionPoint);
+	                }
+	                context.rootContentInsertionPoints.push(insertionPoint);
+	            }
+	            else {
+	                var projectedNodes = this.parentComponent.project(cmd.index);
+	                for (var i = 0; i < projectedNodes.length; i++) {
+	                    var node = projectedNodes[i];
+	                    this._addChild(node, cmd.ngContentIndex, context);
+	                }
 	            }
 	        }
 	        return null;
@@ -23713,7 +25049,8 @@
 	            root = context.factory.createShadowRoot(el, cmd.templateId);
 	            context.nativeShadowRoots.push(root);
 	        }
-	        var component = new Component(el, root, cmd);
+	        var isRoot = context.componentCount === 0 && context.isHost;
+	        var component = new Component(el, root, cmd, isRoot);
 	        context.enqueueComponentBuilder(component);
 	        this.parentStack.push(component);
 	        return null;
@@ -23770,10 +25107,11 @@
 	    return RenderViewBuilder;
 	})();
 	var Component = (function () {
-	    function Component(hostElement, shadowRoot, cmd) {
+	    function Component(hostElement, shadowRoot, cmd, isRoot) {
 	        this.hostElement = hostElement;
 	        this.shadowRoot = shadowRoot;
 	        this.cmd = cmd;
+	        this.isRoot = isRoot;
 	        this.contentNodesByNgContentIndex = [];
 	    }
 	    Component.prototype.addContentNode = function (ngContentIndex, node, context) {
@@ -23804,7 +25142,7 @@
 	//# sourceMappingURL=view_factory.js.map
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -23815,7 +25153,7 @@
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
-	var api_1 = __webpack_require__(135);
+	var api_1 = __webpack_require__(136);
 	var DefaultProtoViewRef = (function (_super) {
 	    __extends(DefaultProtoViewRef, _super);
 	    function DefaultProtoViewRef(cmds) {
@@ -23836,13 +25174,14 @@
 	exports.DefaultRenderFragmentRef = DefaultRenderFragmentRef;
 	var DefaultRenderView = (function (_super) {
 	    __extends(DefaultRenderView, _super);
-	    function DefaultRenderView(fragments, boundTextNodes, boundElements, nativeShadowRoots, globalEventAdders) {
+	    function DefaultRenderView(fragments, boundTextNodes, boundElements, nativeShadowRoots, globalEventAdders, rootContentInsertionPoints) {
 	        _super.call(this);
 	        this.fragments = fragments;
 	        this.boundTextNodes = boundTextNodes;
 	        this.boundElements = boundElements;
 	        this.nativeShadowRoots = nativeShadowRoots;
 	        this.globalEventAdders = globalEventAdders;
+	        this.rootContentInsertionPoints = rootContentInsertionPoints;
 	        this.hydrated = false;
 	        this.eventDispatcher = null;
 	        this.globalEventRemovers = null;
@@ -23882,7 +25221,7 @@
 	//# sourceMappingURL=view.js.map
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var di_1 = __webpack_require__(45);
@@ -23897,7 +25236,6 @@
 	 *
 	 * ```
 	 * @Component(...)
-	 * @View(...)
 	 * class MyApp {
 	 *   ...
 	 * }
@@ -23915,24 +25253,24 @@
 	 * {@link ViewEncapsulation#Emulated} is being used.
 	 *
 	 * If you need to avoid randomly generated value to be used as an application id, you can provide
-	 * a custom value via a DI binding <!-- TODO: provider --> configuring the root {@link Injector}
+	 * a custom value via a DI provider <!-- TODO: provider --> configuring the root {@link Injector}
 	 * using this token.
 	 */
 	exports.APP_ID = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppId'));
-	function _appIdRandomBindingFactory() {
+	function _appIdRandomProviderFactory() {
 	    return "" + _randomChar() + _randomChar() + _randomChar();
 	}
 	/**
 	 * Bindings that will generate a random APP_ID_TOKEN.
 	 */
-	exports.APP_ID_RANDOM_BINDING = lang_1.CONST_EXPR(new di_1.Binding(exports.APP_ID, { toFactory: _appIdRandomBindingFactory, deps: [] }));
+	exports.APP_ID_RANDOM_PROVIDER = lang_1.CONST_EXPR(new di_1.Provider(exports.APP_ID, { useFactory: _appIdRandomProviderFactory, deps: [] }));
 	function _randomChar() {
 	    return lang_1.StringWrapper.fromCharCode(97 + lang_1.Math.floor(lang_1.Math.random() * 25));
 	}
 	//# sourceMappingURL=application_tokens.js.map
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -23953,19 +25291,19 @@
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
 	var async_1 = __webpack_require__(99);
-	var template_commands_1 = __webpack_require__(149);
-	var directive_metadata_1 = __webpack_require__(169);
+	var template_commands_1 = __webpack_require__(150);
+	var directive_metadata_1 = __webpack_require__(170);
 	var di_1 = __webpack_require__(45);
-	var source_module_1 = __webpack_require__(172);
-	var change_detector_compiler_1 = __webpack_require__(173);
-	var style_compiler_1 = __webpack_require__(177);
-	var command_compiler_1 = __webpack_require__(182);
-	var template_parser_1 = __webpack_require__(183);
-	var template_normalizer_1 = __webpack_require__(188);
-	var runtime_metadata_1 = __webpack_require__(189);
-	var application_tokens_1 = __webpack_require__(167);
-	var command_compiler_2 = __webpack_require__(182);
-	var util_1 = __webpack_require__(171);
+	var source_module_1 = __webpack_require__(173);
+	var change_detector_compiler_1 = __webpack_require__(174);
+	var style_compiler_1 = __webpack_require__(178);
+	var command_compiler_1 = __webpack_require__(183);
+	var template_parser_1 = __webpack_require__(184);
+	var template_normalizer_1 = __webpack_require__(189);
+	var runtime_metadata_1 = __webpack_require__(190);
+	var application_tokens_1 = __webpack_require__(168);
+	var command_compiler_2 = __webpack_require__(183);
+	var util_1 = __webpack_require__(172);
 	var di_2 = __webpack_require__(45);
 	var TemplateCompiler = (function () {
 	    function TemplateCompiler(_runtimeMetadataResolver, _templateNormalizer, _templateParser, _styleCompiler, _commandCompiler, _cdCompiler, appId) {
@@ -24170,16 +25508,16 @@
 	//# sourceMappingURL=template_compiler.js.map
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
 	var change_detection_1 = __webpack_require__(64);
 	var view_1 = __webpack_require__(95);
-	var selector_1 = __webpack_require__(170);
-	var util_1 = __webpack_require__(171);
-	var interfaces_1 = __webpack_require__(143);
+	var selector_1 = __webpack_require__(171);
+	var util_1 = __webpack_require__(172);
+	var interfaces_1 = __webpack_require__(144);
 	// group 1: "property" from "[property]"
 	// group 2: "event" from "(event)"
 	var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
@@ -24374,7 +25712,7 @@
 	//# sourceMappingURL=directive_metadata.js.map
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
@@ -24663,6 +26001,7 @@
 	        }
 	        return result;
 	    };
+	    /** @internal */
 	    SelectorMatcher.prototype._matchTerminal = function (map, name, cssSelector, matchedCallback) {
 	        if (lang_1.isBlank(map) || lang_1.isBlank(name)) {
 	            return false;
@@ -24683,7 +26022,8 @@
 	        }
 	        return result;
 	    };
-	    SelectorMatcher.prototype._matchPartial = function (map, name, cssSelector, matchedCallback /*: (CssSelector, any) => void*/) {
+	    /** @internal */
+	    SelectorMatcher.prototype._matchPartial = function (map, name, cssSelector, matchedCallback /*: (c: CssSelector, a: any) => void*/) {
 	        if (lang_1.isBlank(map) || lang_1.isBlank(name)) {
 	            return false;
 	        }
@@ -24737,7 +26077,7 @@
 	//# sourceMappingURL=selector.js.map
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -24843,7 +26183,7 @@
 	//# sourceMappingURL=util.js.map
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -24908,7 +26248,7 @@
 	//# sourceMappingURL=source_module.js.map
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -24922,12 +26262,12 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(172);
+	var source_module_1 = __webpack_require__(173);
 	var change_detection_jit_generator_1 = __webpack_require__(91);
-	var change_definition_factory_1 = __webpack_require__(174);
+	var change_definition_factory_1 = __webpack_require__(175);
 	var change_detection_1 = __webpack_require__(64);
-	var change_detector_codegen_1 = __webpack_require__(176);
-	var util_1 = __webpack_require__(171);
+	var change_detector_codegen_1 = __webpack_require__(177);
+	var util_1 = __webpack_require__(172);
 	var di_1 = __webpack_require__(45);
 	var ABSTRACT_CHANGE_DETECTOR = "AbstractChangeDetector";
 	var UTIL = "ChangeDetectionUtil";
@@ -24994,15 +26334,15 @@
 	//# sourceMappingURL=change_detector_compiler.js.map
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var reflection_1 = __webpack_require__(55);
 	var change_detection_1 = __webpack_require__(64);
-	var template_ast_1 = __webpack_require__(175);
-	var interfaces_1 = __webpack_require__(143);
+	var template_ast_1 = __webpack_require__(176);
+	var interfaces_1 = __webpack_require__(144);
 	function createChangeDetectorDefinitions(componentType, componentStrategy, genConfig, parsedTemplate) {
 	    var pvVisitors = [];
 	    var visitor = new ProtoViewVisitor(null, pvVisitors, componentStrategy);
@@ -25157,7 +26497,7 @@
 	//# sourceMappingURL=change_definition_factory.js.map
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -25348,7 +26688,7 @@
 	//# sourceMappingURL=template_ast.js.map
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	'use strict';// Note: This class is only here so that we can reference it from TypeScript code.
@@ -25368,7 +26708,7 @@
 	//# sourceMappingURL=change_detector_codegen.js.map
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -25382,15 +26722,15 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(172);
+	var source_module_1 = __webpack_require__(173);
 	var view_1 = __webpack_require__(95);
-	var xhr_1 = __webpack_require__(178);
+	var xhr_1 = __webpack_require__(179);
 	var lang_1 = __webpack_require__(44);
 	var async_1 = __webpack_require__(99);
-	var shadow_css_1 = __webpack_require__(179);
-	var url_resolver_1 = __webpack_require__(180);
-	var style_url_resolver_1 = __webpack_require__(181);
-	var util_1 = __webpack_require__(171);
+	var shadow_css_1 = __webpack_require__(180);
+	var url_resolver_1 = __webpack_require__(181);
+	var style_url_resolver_1 = __webpack_require__(182);
+	var util_1 = __webpack_require__(172);
 	var di_1 = __webpack_require__(45);
 	var COMPONENT_VARIABLE = '%COMP%';
 	var COMPONENT_REGEX = /%COMP%/g;
@@ -25423,7 +26763,7 @@
 	        return this._styleCodeGen(template.styles, template.styleUrls, shim, suffix);
 	    };
 	    StyleCompiler.prototype.compileStylesheetCodeGen = function (stylesheetUrl, cssText) {
-	        var styleWithImports = style_url_resolver_1.resolveStyleUrls(this._urlResolver, stylesheetUrl, cssText);
+	        var styleWithImports = style_url_resolver_1.extractStyleUrls(this._urlResolver, stylesheetUrl, cssText);
 	        return [
 	            this._styleModule(stylesheetUrl, false, this._styleCodeGen([styleWithImports.style], styleWithImports.styleUrls, false, '')),
 	            this._styleModule(stylesheetUrl, true, this._styleCodeGen([styleWithImports.style], styleWithImports.styleUrls, true, ''))
@@ -25437,7 +26777,7 @@
 	            var result = _this._styleCache.get(cacheKey);
 	            if (lang_1.isBlank(result)) {
 	                result = _this._xhr.get(absUrl).then(function (style) {
-	                    var styleWithImports = style_url_resolver_1.resolveStyleUrls(_this._urlResolver, absUrl, style);
+	                    var styleWithImports = style_url_resolver_1.extractStyleUrls(_this._urlResolver, absUrl, style);
 	                    return _this._loadStyles([styleWithImports.style], styleWithImports.styleUrls, encapsulate);
 	                });
 	                _this._styleCache.set(cacheKey, result);
@@ -25504,7 +26844,7 @@
 	//# sourceMappingURL=style_compiler.js.map
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports) {
 
 	'use strict';var XHR = (function () {
@@ -25517,10 +26857,10 @@
 	//# sourceMappingURL=xhr.js.map
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var dom_adapter_1 = __webpack_require__(154);
+	'use strict';var dom_adapter_1 = __webpack_require__(155);
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	/**
@@ -25673,6 +27013,7 @@
 	        cssText = this._insertDirectives(cssText);
 	        return this._scopeCssText(cssText, selector, hostSelector);
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._insertDirectives = function (cssText) {
 	        cssText = this._insertPolyfillDirectivesInCssText(cssText);
 	        return this._insertPolyfillRulesInCssText(cssText);
@@ -25691,6 +27032,7 @@
 	     * scopeName menu-item {
 	     *
 	    **/
+	    /** @internal */
 	    ShadowCss.prototype._insertPolyfillDirectivesInCssText = function (cssText) {
 	        // Difference with webcomponents.js: does not handle comments
 	        return lang_1.StringWrapper.replaceAllMapped(cssText, _cssContentNextSelectorRe, function (m) { return m[1] + '{'; });
@@ -25710,6 +27052,7 @@
 	     * scopeName menu-item {...}
 	     *
 	    **/
+	    /** @internal */
 	    ShadowCss.prototype._insertPolyfillRulesInCssText = function (cssText) {
 	        // Difference with webcomponents.js: does not handle comments
 	        return lang_1.StringWrapper.replaceAllMapped(cssText, _cssContentRuleRe, function (m) {
@@ -25727,6 +27070,7 @@
 	     *
 	     *  scopeName .foo { ... }
 	    */
+	    /** @internal */
 	    ShadowCss.prototype._scopeCssText = function (cssText, scopeSelector, hostSelector) {
 	        var _this = this;
 	        var unscoped = this._extractUnscopedRulesFromCssText(cssText);
@@ -25755,6 +27099,7 @@
 	     * menu-item {...}
 	     *
 	    **/
+	    /** @internal */
 	    ShadowCss.prototype._extractUnscopedRulesFromCssText = function (cssText) {
 	        // Difference with webcomponents.js: does not handle comments
 	        var r = '', m;
@@ -25774,6 +27119,7 @@
 	     *
 	     * scopeName.foo > .bar
 	    */
+	    /** @internal */
 	    ShadowCss.prototype._convertColonHost = function (cssText) {
 	        return this._convertColonRule(cssText, _cssColonHostRe, this._colonHostPartReplacer);
 	    };
@@ -25792,9 +27138,11 @@
 	     *
 	     * scopeName.foo .bar { ... }
 	    */
+	    /** @internal */
 	    ShadowCss.prototype._convertColonHostContext = function (cssText) {
 	        return this._convertColonRule(cssText, _cssColonHostContextRe, this._colonHostContextPartReplacer);
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._convertColonRule = function (cssText, regExp, partReplacer) {
 	        // p1 = :host, p2 = contents of (), p3 rest of rule
 	        return lang_1.StringWrapper.replaceAllMapped(cssText, regExp, function (m) {
@@ -25814,6 +27162,7 @@
 	            }
 	        });
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._colonHostContextPartReplacer = function (host, part, suffix) {
 	        if (lang_1.StringWrapper.contains(part, _polyfillHost)) {
 	            return this._colonHostPartReplacer(host, part, suffix);
@@ -25822,6 +27171,7 @@
 	            return host + part + suffix + ', ' + part + ' ' + host + suffix;
 	        }
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._colonHostPartReplacer = function (host, part, suffix) {
 	        return host + lang_1.StringWrapper.replace(part, _polyfillHost, '') + suffix;
 	    };
@@ -25829,6 +27179,7 @@
 	     * Convert combinators like ::shadow and pseudo-elements like ::content
 	     * by replacing with space.
 	    */
+	    /** @internal */
 	    ShadowCss.prototype._convertShadowDOMSelectors = function (cssText) {
 	        for (var i = 0; i < _shadowDOMSelectorsRe.length; i++) {
 	            cssText = lang_1.StringWrapper.replaceAll(cssText, _shadowDOMSelectorsRe[i], ' ');
@@ -25836,6 +27187,7 @@
 	        return cssText;
 	    };
 	    // change a selector like 'div' to 'name div'
+	    /** @internal */
 	    ShadowCss.prototype._scopeRules = function (cssRules, scopeSelector, hostSelector) {
 	        var cssText = '';
 	        if (lang_1.isPresent(cssRules)) {
@@ -25872,6 +27224,7 @@
 	        }
 	        return cssText;
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._ieSafeCssTextFromKeyFrameRule = function (rule) {
 	        var cssText = '@keyframes ' + rule.name + ' {';
 	        for (var i = 0; i < rule.cssRules.length; i++) {
@@ -25881,6 +27234,7 @@
 	        cssText += ' }';
 	        return cssText;
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._scopeSelector = function (selector, scopeSelector, hostSelector, strict) {
 	        var r = [], parts = selector.split(',');
 	        for (var i = 0; i < parts.length; i++) {
@@ -25895,10 +27249,12 @@
 	        }
 	        return r.join(', ');
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._selectorNeedsScoping = function (selector, scopeSelector) {
 	        var re = this._makeScopeMatcher(scopeSelector);
 	        return !lang_1.isPresent(lang_1.RegExpWrapper.firstMatch(re, selector));
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._makeScopeMatcher = function (scopeSelector) {
 	        var lre = /\[/g;
 	        var rre = /\]/g;
@@ -25906,11 +27262,13 @@
 	        scopeSelector = lang_1.StringWrapper.replaceAll(scopeSelector, rre, '\\]');
 	        return lang_1.RegExpWrapper.create('^(' + scopeSelector + ')' + _selectorReSuffix, 'm');
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._applySelectorScope = function (selector, scopeSelector, hostSelector) {
 	        // Difference from webcomponentsjs: scopeSelector could not be an array
 	        return this._applySimpleSelectorScope(selector, scopeSelector, hostSelector);
 	    };
 	    // scope via name and [is=name]
+	    /** @internal */
 	    ShadowCss.prototype._applySimpleSelectorScope = function (selector, scopeSelector, hostSelector) {
 	        if (lang_1.isPresent(lang_1.RegExpWrapper.firstMatch(_polyfillHostRe, selector))) {
 	            var replaceBy = this.strictStyling ? "[" + hostSelector + "]" : scopeSelector;
@@ -25923,6 +27281,7 @@
 	    };
 	    // return a selector with [name] suffix on each simple selector
 	    // e.g. .foo.bar > .zot becomes .foo[name].bar[name] > .zot[name]
+	    /** @internal */
 	    ShadowCss.prototype._applyStrictSelectorScope = function (selector, scopeSelector) {
 	        var isRe = /\[is=([^\]]*)\]/g;
 	        scopeSelector = lang_1.StringWrapper.replaceAllMapped(scopeSelector, isRe, function (m) { return m[1]; });
@@ -25947,11 +27306,13 @@
 	        }
 	        return scoped;
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._insertPolyfillHostInCssText = function (selector) {
 	        selector = lang_1.StringWrapper.replaceAll(selector, _colonHostContextRe, _polyfillHostContext);
 	        selector = lang_1.StringWrapper.replaceAll(selector, _colonHostRe, _polyfillHost);
 	        return selector;
 	    };
+	    /** @internal */
 	    ShadowCss.prototype._propertiesFromRule = function (rule) {
 	        var cssText = rule.style.cssText;
 	        // TODO(sorvell): Safari cssom incorrectly removes quotes from the content
@@ -26023,7 +27384,7 @@
 	//# sourceMappingURL=shadow_css.js.map
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26313,23 +27674,12 @@
 	//# sourceMappingURL=url_resolver.js.map
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Some of the code comes from WebComponents.JS
 	// https://github.com/webcomponents/webcomponentsjs/blob/master/src/HTMLImports/path.js
 	var lang_1 = __webpack_require__(44);
-	/**
-	 * Rewrites URLs by resolving '@import' and 'url()' URLs from the given base URL,
-	 * removes and returns the @import urls
-	 */
-	function resolveStyleUrls(resolver, baseUrl, cssText) {
-	    var foundUrls = [];
-	    cssText = extractUrls(resolver, baseUrl, cssText, foundUrls);
-	    cssText = replaceUrls(resolver, baseUrl, cssText);
-	    return new StyleWithImports(cssText, foundUrls);
-	}
-	exports.resolveStyleUrls = resolveStyleUrls;
 	var StyleWithImports = (function () {
 	    function StyleWithImports(style, styleUrls) {
 	        this.style = style;
@@ -26338,43 +27688,39 @@
 	    return StyleWithImports;
 	})();
 	exports.StyleWithImports = StyleWithImports;
-	function extractUrls(resolver, baseUrl, cssText, foundUrls) {
-	    return lang_1.StringWrapper.replaceAllMapped(cssText, _cssImportRe, function (m) {
+	function isStyleUrlResolvable(url) {
+	    if (lang_1.isBlank(url) || url.length === 0 || url[0] == '/')
+	        return false;
+	    var schemeMatch = lang_1.RegExpWrapper.firstMatch(_urlWithSchemaRe, url);
+	    return lang_1.isBlank(schemeMatch) || schemeMatch[1] == 'package';
+	}
+	exports.isStyleUrlResolvable = isStyleUrlResolvable;
+	/**
+	 * Rewrites stylesheets by resolving and removing the @import urls that
+	 * are either relative or don't have a `package:` scheme
+	 */
+	function extractStyleUrls(resolver, baseUrl, cssText) {
+	    var foundUrls = [];
+	    var modifiedCssText = lang_1.StringWrapper.replaceAllMapped(cssText, _cssImportRe, function (m) {
 	        var url = lang_1.isPresent(m[1]) ? m[1] : m[2];
-	        var schemeMatch = lang_1.RegExpWrapper.firstMatch(_urlWithSchemaRe, url);
-	        if (lang_1.isPresent(schemeMatch) && schemeMatch[1] != 'package') {
+	        if (!isStyleUrlResolvable(url)) {
 	            // Do not attempt to resolve non-package absolute URLs with URI scheme
 	            return m[0];
 	        }
 	        foundUrls.push(resolver.resolve(baseUrl, url));
 	        return '';
 	    });
+	    return new StyleWithImports(modifiedCssText, foundUrls);
 	}
-	function replaceUrls(resolver, baseUrl, cssText) {
-	    return lang_1.StringWrapper.replaceAllMapped(cssText, _cssUrlRe, function (m) {
-	        var pre = m[1];
-	        var originalUrl = m[2];
-	        if (lang_1.RegExpWrapper.test(_dataUrlRe, originalUrl)) {
-	            // Do not attempt to resolve data: URLs
-	            return m[0];
-	        }
-	        var url = lang_1.StringWrapper.replaceAll(originalUrl, _quoteRe, '');
-	        var post = m[3];
-	        var resolvedUrl = resolver.resolve(baseUrl, url);
-	        return pre + "'" + resolvedUrl + "'" + post;
-	    });
-	}
-	var _cssUrlRe = /(url\()([^)]*)(\))/g;
+	exports.extractStyleUrls = extractStyleUrls;
 	var _cssImportRe = /@import\s+(?:url\()?\s*(?:(?:['"]([^'"]*))|([^;\)\s]*))[^;]*;?/g;
-	var _quoteRe = /['"]/g;
-	var _dataUrlRe = /^['"]?data:/g;
 	// TODO: can't use /^[^:/?#.]+:/g due to clang-format bug:
 	//       https://github.com/angular/angular/issues/4596
-	var _urlWithSchemaRe = /^['"]?([a-zA-Z\-\+\.]+):/g;
+	var _urlWithSchemaRe = /^([a-zA-Z\-\+\.]+):/g;
 	//# sourceMappingURL=style_url_resolver.js.map
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26390,15 +27736,17 @@
 	};
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
-	var template_commands_1 = __webpack_require__(149);
-	var template_ast_1 = __webpack_require__(175);
-	var source_module_1 = __webpack_require__(172);
+	var template_commands_1 = __webpack_require__(150);
+	var template_ast_1 = __webpack_require__(176);
+	var source_module_1 = __webpack_require__(173);
 	var view_1 = __webpack_require__(95);
-	var style_compiler_1 = __webpack_require__(177);
-	var util_1 = __webpack_require__(171);
+	var style_compiler_1 = __webpack_require__(178);
+	var util_1 = __webpack_require__(172);
 	var di_1 = __webpack_require__(45);
 	exports.TEMPLATE_COMMANDS_MODULE_REF = source_module_1.moduleRef("package:angular2/src/core/linker/template_commands" + util_1.MODULE_SUFFIX);
 	var IMPLICIT_TEMPLATE_VAR = '\$implicit';
+	var CLASS_ATTR = 'class';
+	var STYLE_ATTR = 'style';
 	var CommandCompiler = (function () {
 	    function CommandCompiler() {
 	    }
@@ -26520,14 +27868,14 @@
 	        this.transitiveNgContentCount = 0;
 	    }
 	    CommandBuilderVisitor.prototype._readAttrNameAndValues = function (directives, attrAsts) {
-	        var attrNameAndValues = visitAndReturnContext(this, attrAsts, []);
+	        var attrs = keyValueArrayToMap(visitAndReturnContext(this, attrAsts, []));
 	        directives.forEach(function (directiveMeta) {
 	            collection_1.StringMapWrapper.forEach(directiveMeta.hostAttributes, function (value, name) {
-	                attrNameAndValues.push(name);
-	                attrNameAndValues.push(value);
+	                var prevValue = attrs[name];
+	                attrs[name] = lang_1.isPresent(prevValue) ? mergeAttributeValue(name, prevValue, value) : value;
 	            });
 	        });
-	        return removeKeyValueArrayDuplicates(attrNameAndValues);
+	        return mapToKeyValueArray(attrs);
 	    };
 	    CommandBuilderVisitor.prototype.visitNgContent = function (ast, context) {
 	        this.transitiveNgContentCount++;
@@ -26630,6 +27978,34 @@
 	    }
 	    return resultKeyValueArray;
 	}
+	function keyValueArrayToMap(keyValueArr) {
+	    var data = {};
+	    for (var i = 0; i < keyValueArr.length; i += 2) {
+	        data[keyValueArr[i]] = keyValueArr[i + 1];
+	    }
+	    return data;
+	}
+	function mapToKeyValueArray(data) {
+	    var entryArray = [];
+	    collection_1.StringMapWrapper.forEach(data, function (value, name) { entryArray.push([name, value]); });
+	    // We need to sort to get a defined output order
+	    // for tests and for caching generated artifacts...
+	    collection_1.ListWrapper.sort(entryArray, function (entry1, entry2) { return lang_1.StringWrapper.compare(entry1[0], entry2[0]); });
+	    var keyValueArray = [];
+	    entryArray.forEach(function (entry) {
+	        keyValueArray.push(entry[0]);
+	        keyValueArray.push(entry[1]);
+	    });
+	    return keyValueArray;
+	}
+	function mergeAttributeValue(attrName, attrValue1, attrValue2) {
+	    if (attrName == CLASS_ATTR || attrName == STYLE_ATTR) {
+	        return attrValue1 + " " + attrValue2;
+	    }
+	    else {
+	        return attrValue2;
+	    }
+	}
 	var DirectiveContext = (function () {
 	    function DirectiveContext(index, eventTargetAndNames, targetVariableNameAndValues, targetDirectives) {
 	        this.index = index;
@@ -26669,7 +28045,7 @@
 	//# sourceMappingURL=command_compiler.js.map
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26688,13 +28064,14 @@
 	var di_1 = __webpack_require__(45);
 	var exceptions_1 = __webpack_require__(53);
 	var change_detection_1 = __webpack_require__(64);
-	var html_parser_1 = __webpack_require__(184);
-	var template_ast_1 = __webpack_require__(175);
-	var selector_1 = __webpack_require__(170);
-	var element_schema_registry_1 = __webpack_require__(186);
-	var template_preparser_1 = __webpack_require__(187);
-	var html_ast_1 = __webpack_require__(185);
-	var util_1 = __webpack_require__(171);
+	var html_parser_1 = __webpack_require__(185);
+	var template_ast_1 = __webpack_require__(176);
+	var selector_1 = __webpack_require__(171);
+	var element_schema_registry_1 = __webpack_require__(187);
+	var template_preparser_1 = __webpack_require__(188);
+	var style_url_resolver_1 = __webpack_require__(182);
+	var html_ast_1 = __webpack_require__(186);
+	var util_1 = __webpack_require__(172);
 	// Group 1 = "bind-"
 	// Group 2 = "var-" or "#"
 	// Group 3 = "on-"
@@ -26805,10 +28182,16 @@
 	        var nodeName = element.name;
 	        var preparsedElement = template_preparser_1.preparseElement(element);
 	        if (preparsedElement.type === template_preparser_1.PreparsedElementType.SCRIPT ||
-	            preparsedElement.type === template_preparser_1.PreparsedElementType.STYLE ||
-	            preparsedElement.type === template_preparser_1.PreparsedElementType.STYLESHEET) {
+	            preparsedElement.type === template_preparser_1.PreparsedElementType.STYLE) {
 	            // Skipping <script> for security reasons
-	            // Skipping <style> and stylesheets as we already processed them
+	            // Skipping <style> as we already processed them
+	            // in the StyleCompiler
+	            return null;
+	        }
+	        if (preparsedElement.type === template_preparser_1.PreparsedElementType.STYLESHEET &&
+	            style_url_resolver_1.isStyleUrlResolvable(preparsedElement.hrefAttr)) {
+	            // Skipping stylesheets with either relative urls or package scheme as we already processed
+	            // them
 	            // in the StyleCompiler
 	            return null;
 	        }
@@ -26845,7 +28228,8 @@
 	                new template_ast_1.NgContentAst(this.ngContentCount++, elementNgContentIndex, element.sourceInfo);
 	        }
 	        else if (isTemplateElement) {
-	            this._assertNoComponentsNorElementBindingsOnTemplate(directives, elementProps, events, element.sourceInfo);
+	            this._assertAllEventsPublishedByDirectives(directives, events, element.sourceInfo);
+	            this._assertNoComponentsNorElementBindingsOnTemplate(directives, elementProps, element.sourceInfo);
 	            parsedElement = new template_ast_1.EmbeddedTemplateAst(attrs, vars, directives, children, elementNgContentIndex, element.sourceInfo);
 	        }
 	        else {
@@ -26858,7 +28242,7 @@
 	            var templateCssSelector = createElementCssSelector(TEMPLATE_ELEMENT, templateMatchableAttrs);
 	            var templateDirectives = this._createDirectiveAsts(element.name, this._parseDirectives(this.selectorMatcher, templateCssSelector), templateElementOrDirectiveProps, [], element.sourceInfo);
 	            var templateElementProps = this._createElementPropertyAsts(element.name, templateElementOrDirectiveProps, templateDirectives);
-	            this._assertNoComponentsNorElementBindingsOnTemplate(templateDirectives, templateElementProps, [], element.sourceInfo);
+	            this._assertNoComponentsNorElementBindingsOnTemplate(templateDirectives, templateElementProps, element.sourceInfo);
 	            parsedElement = new template_ast_1.EmbeddedTemplateAst([], templateVars, templateDirectives, [parsedElement], component.findNgContentIndex(templateCssSelector), element.sourceInfo);
 	        }
 	        return parsedElement;
@@ -26956,7 +28340,7 @@
 	        targetProps.push(new BoundElementOrDirectiveProperty(name, ast, false, sourceInfo));
 	    };
 	    TemplateParseVisitor.prototype._parseAssignmentEvent = function (name, expression, sourceInfo, targetMatchableAttrs, targetEvents) {
-	        this._parseEvent(name, expression + "=$event", sourceInfo, targetMatchableAttrs, targetEvents);
+	        this._parseEvent(name + "-change", expression + "=$event", sourceInfo, targetMatchableAttrs, targetEvents);
 	    };
 	    TemplateParseVisitor.prototype._parseEvent = function (name, expression, sourceInfo, targetMatchableAttrs, targetEvents) {
 	        // long format: 'target: eventName'
@@ -27121,7 +28505,7 @@
 	            this._reportError("More than one component: " + componentTypeNames.join(',') + " in " + sourceInfo);
 	        }
 	    };
-	    TemplateParseVisitor.prototype._assertNoComponentsNorElementBindingsOnTemplate = function (directives, elementProps, events, sourceInfo) {
+	    TemplateParseVisitor.prototype._assertNoComponentsNorElementBindingsOnTemplate = function (directives, elementProps, sourceInfo) {
 	        var _this = this;
 	        var componentTypeNames = this._findComponentDirectiveNames(directives);
 	        if (componentTypeNames.length > 0) {
@@ -27130,8 +28514,17 @@
 	        elementProps.forEach(function (prop) {
 	            _this._reportError("Property binding " + prop.name + " not used by any directive on an embedded template in " + prop.sourceInfo);
 	        });
+	    };
+	    TemplateParseVisitor.prototype._assertAllEventsPublishedByDirectives = function (directives, events, sourceInfo) {
+	        var _this = this;
+	        var allDirectiveEvents = new Set();
+	        directives.forEach(function (directive) {
+	            collection_1.StringMapWrapper.forEach(directive.directive.outputs, function (eventName, _) { allDirectiveEvents.add(eventName); });
+	        });
 	        events.forEach(function (event) {
-	            _this._reportError("Event binding " + event.name + " on an embedded template in " + event.sourceInfo);
+	            if (lang_1.isPresent(event.target) || !collection_1.SetWrapper.has(allDirectiveEvents, event.name)) {
+	                _this._reportError("Event binding " + event.fullName + " not emitted by any directive on an embedded template in " + sourceInfo);
+	            }
 	        });
 	    };
 	    return TemplateParseVisitor;
@@ -27237,7 +28630,7 @@
 	//# sourceMappingURL=template_parser.js.map
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27252,9 +28645,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(44);
-	var dom_adapter_1 = __webpack_require__(154);
-	var html_ast_1 = __webpack_require__(185);
-	var util_1 = __webpack_require__(171);
+	var dom_adapter_1 = __webpack_require__(155);
+	var html_ast_1 = __webpack_require__(186);
+	var util_1 = __webpack_require__(172);
 	var di_1 = __webpack_require__(45);
 	var NG_NON_BINDABLE = 'ng-non-bindable';
 	var HtmlParser = (function () {
@@ -27284,7 +28677,8 @@
 	}
 	function parseAttr(element, parentSourceInfo, attrName, attrValue) {
 	    // TODO(tbosch): add source row/column source info from parse5 / package:html
-	    return new html_ast_1.HtmlAttrAst(attrName, attrValue, parentSourceInfo + "[" + attrName + "=" + attrValue + "]");
+	    var lowerCaseAttrName = attrName.toLowerCase();
+	    return new html_ast_1.HtmlAttrAst(lowerCaseAttrName, attrValue, parentSourceInfo + "[" + lowerCaseAttrName + "=" + attrValue + "]");
 	}
 	function parseElement(element, indexInParent, parentSourceInfo) {
 	    // normalize nodename always as lower case so that following build steps
@@ -27358,7 +28752,7 @@
 	//# sourceMappingURL=html_parser.js.map
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -27407,7 +28801,7 @@
 	//# sourceMappingURL=html_ast.js.map
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports) {
 
 	'use strict';var ElementSchemaRegistry = (function () {
@@ -27421,7 +28815,7 @@
 	//# sourceMappingURL=element_schema_registry.js.map
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -27498,7 +28892,7 @@
 	//# sourceMappingURL=template_preparser.js.map
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27512,18 +28906,19 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var directive_metadata_1 = __webpack_require__(169);
+	var directive_metadata_1 = __webpack_require__(170);
 	var lang_1 = __webpack_require__(44);
+	var collection_1 = __webpack_require__(51);
 	var exceptions_1 = __webpack_require__(53);
 	var async_1 = __webpack_require__(99);
-	var xhr_1 = __webpack_require__(178);
-	var url_resolver_1 = __webpack_require__(180);
-	var style_url_resolver_1 = __webpack_require__(181);
+	var xhr_1 = __webpack_require__(179);
+	var url_resolver_1 = __webpack_require__(181);
+	var style_url_resolver_1 = __webpack_require__(182);
 	var di_1 = __webpack_require__(45);
 	var view_1 = __webpack_require__(95);
-	var html_ast_1 = __webpack_require__(185);
-	var html_parser_1 = __webpack_require__(184);
-	var template_preparser_1 = __webpack_require__(187);
+	var html_ast_1 = __webpack_require__(186);
+	var html_parser_1 = __webpack_require__(185);
+	var template_preparser_1 = __webpack_require__(188);
 	var TemplateNormalizer = (function () {
 	    function TemplateNormalizer(_xhr, _urlResolver, _domParser) {
 	        this._xhr = _xhr;
@@ -27552,8 +28947,9 @@
 	        var allStyles = templateMeta.styles.concat(visitor.styles);
 	        var allStyleAbsUrls = visitor.styleUrls.map(function (url) { return _this._urlResolver.resolve(templateAbsUrl, url); })
 	            .concat(templateMeta.styleUrls.map(function (url) { return _this._urlResolver.resolve(directiveType.moduleUrl, url); }));
+	        allStyleAbsUrls = collection_1.ListWrapper.filter(allStyleAbsUrls, style_url_resolver_1.isStyleUrlResolvable);
 	        var allResolvedStyles = allStyles.map(function (style) {
-	            var styleWithImports = style_url_resolver_1.resolveStyleUrls(_this._urlResolver, templateAbsUrl, style);
+	            var styleWithImports = style_url_resolver_1.extractStyleUrls(_this._urlResolver, templateAbsUrl, style);
 	            styleWithImports.styleUrls.forEach(function (styleUrl) { return allStyleAbsUrls.push(styleUrl); });
 	            return styleWithImports.style;
 	        });
@@ -27622,7 +29018,7 @@
 	//# sourceMappingURL=template_normalizer.js.map
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27640,15 +29036,15 @@
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	var cpl = __webpack_require__(169);
+	var cpl = __webpack_require__(170);
 	var dirAnn = __webpack_require__(62);
-	var directive_resolver_1 = __webpack_require__(146);
-	var view_resolver_1 = __webpack_require__(147);
-	var directive_lifecycle_reflector_1 = __webpack_require__(142);
-	var interfaces_1 = __webpack_require__(143);
+	var directive_resolver_1 = __webpack_require__(147);
+	var view_resolver_1 = __webpack_require__(148);
+	var directive_lifecycle_reflector_1 = __webpack_require__(143);
+	var interfaces_1 = __webpack_require__(144);
 	var reflection_1 = __webpack_require__(55);
 	var di_2 = __webpack_require__(45);
-	var util_1 = __webpack_require__(171);
+	var util_1 = __webpack_require__(172);
 	// group 1: "property" from "[property]"
 	// group 2: "event" from "(event)"
 	var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
@@ -27749,7 +29145,7 @@
 	//# sourceMappingURL=runtime_metadata.js.map
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -27771,8 +29167,8 @@
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
-	var dom_adapter_1 = __webpack_require__(154);
-	var element_schema_registry_1 = __webpack_require__(186);
+	var dom_adapter_1 = __webpack_require__(155);
+	var element_schema_registry_1 = __webpack_require__(187);
 	var DomElementSchemaRegistry = (function (_super) {
 	    __extends(DomElementSchemaRegistry, _super);
 	    function DomElementSchemaRegistry() {
@@ -27812,7 +29208,7 @@
 	//# sourceMappingURL=dom_element_schema_registry.js.map
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27850,7 +29246,7 @@
 	//# sourceMappingURL=app_root_url.js.map
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -27869,8 +29265,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var app_root_url_1 = __webpack_require__(191);
-	var dom_adapter_1 = __webpack_require__(154);
+	var app_root_url_1 = __webpack_require__(192);
+	var dom_adapter_1 = __webpack_require__(155);
 	var di_1 = __webpack_require__(45);
 	/**
 	 * Extension of {@link AppRootUrl} that uses a DOM anchor tag to set the root url to
@@ -27895,31 +29291,31 @@
 	//# sourceMappingURL=anchor_based_app_root_url.js.map
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var forms_1 = __webpack_require__(194);
+	'use strict';var forms_1 = __webpack_require__(195);
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
-	var browser_adapter_1 = __webpack_require__(217);
-	var browser_testability_1 = __webpack_require__(219);
-	var dom_adapter_1 = __webpack_require__(154);
-	var xhr_1 = __webpack_require__(178);
+	var browser_adapter_1 = __webpack_require__(219);
+	var browser_testability_1 = __webpack_require__(222);
+	var dom_adapter_1 = __webpack_require__(155);
+	var xhr_1 = __webpack_require__(179);
 	var xhr_impl_1 = __webpack_require__(221);
-	var event_manager_1 = __webpack_require__(163);
-	var key_events_1 = __webpack_require__(222);
-	var hammer_gestures_1 = __webpack_require__(223);
-	var testability_1 = __webpack_require__(220);
-	var api_1 = __webpack_require__(135);
-	var render_1 = __webpack_require__(152);
-	var shared_styles_host_1 = __webpack_require__(153);
-	var platform_bindings_1 = __webpack_require__(225);
-	var animation_builder_1 = __webpack_require__(157);
-	var browser_details_1 = __webpack_require__(162);
-	var wtf_init_1 = __webpack_require__(226);
-	var application_ref_1 = __webpack_require__(227);
+	var event_manager_1 = __webpack_require__(164);
+	var key_events_1 = __webpack_require__(224);
+	var hammer_gestures_1 = __webpack_require__(225);
+	var testability_1 = __webpack_require__(223);
+	var api_1 = __webpack_require__(136);
+	var render_1 = __webpack_require__(153);
+	var shared_styles_host_1 = __webpack_require__(154);
+	var platform_bindings_1 = __webpack_require__(227);
+	var animation_builder_1 = __webpack_require__(158);
+	var browser_details_1 = __webpack_require__(163);
+	var wtf_init_1 = __webpack_require__(228);
+	var application_ref_1 = __webpack_require__(229);
 	/**
-	 * A default set of bindings which apply only to an Angular application running on
+	 * A default set of providers which apply only to an Angular application running on
 	 * the UI thread.
 	 */
 	function applicationDomBindings() {
@@ -27927,22 +29323,21 @@
 	        throw "Must set a root DOM adapter first.";
 	    }
 	    return [
-	        di_1.bind(render_1.DOCUMENT)
-	            .toValue(dom_adapter_1.DOM.defaultDoc()),
+	        di_1.provide(render_1.DOCUMENT, { useValue: dom_adapter_1.DOM.defaultDoc() }),
 	        event_manager_1.EventManager,
-	        new di_1.Binding(event_manager_1.EVENT_MANAGER_PLUGINS, { toClass: event_manager_1.DomEventsPlugin, multi: true }),
-	        new di_1.Binding(event_manager_1.EVENT_MANAGER_PLUGINS, { toClass: key_events_1.KeyEventsPlugin, multi: true }),
-	        new di_1.Binding(event_manager_1.EVENT_MANAGER_PLUGINS, { toClass: hammer_gestures_1.HammerGesturesPlugin, multi: true }),
-	        di_1.bind(render_1.DomRenderer).toClass(render_1.DomRenderer_),
-	        di_1.bind(api_1.Renderer).toAlias(render_1.DomRenderer),
+	        new di_1.Provider(event_manager_1.EVENT_MANAGER_PLUGINS, { useClass: event_manager_1.DomEventsPlugin, multi: true }),
+	        new di_1.Provider(event_manager_1.EVENT_MANAGER_PLUGINS, { useClass: key_events_1.KeyEventsPlugin, multi: true }),
+	        new di_1.Provider(event_manager_1.EVENT_MANAGER_PLUGINS, { useClass: hammer_gestures_1.HammerGesturesPlugin, multi: true }),
+	        di_1.provide(render_1.DomRenderer, { useClass: render_1.DomRenderer_ }),
+	        di_1.provide(api_1.Renderer, { useExisting: render_1.DomRenderer }),
 	        shared_styles_host_1.DomSharedStylesHost,
-	        di_1.bind(shared_styles_host_1.SharedStylesHost).toAlias(shared_styles_host_1.DomSharedStylesHost),
-	        platform_bindings_1.EXCEPTION_BINDING,
-	        di_1.bind(xhr_1.XHR).toValue(new xhr_impl_1.XHRImpl()),
+	        di_1.provide(shared_styles_host_1.SharedStylesHost, { useExisting: shared_styles_host_1.DomSharedStylesHost }),
+	        platform_bindings_1.EXCEPTION_PROVIDER,
+	        di_1.provide(xhr_1.XHR, { useValue: new xhr_impl_1.XHRImpl() }),
 	        testability_1.Testability,
 	        browser_details_1.BrowserDetails,
 	        animation_builder_1.AnimationBuilder,
-	        forms_1.FORM_BINDINGS
+	        forms_1.FORM_PROVIDERS
 	    ];
 	}
 	exports.applicationDomBindings = applicationDomBindings;
@@ -27951,25 +29346,25 @@
 	 *
 	 * See {@link PlatformRef} for details on the Angular platform.
 	 *
-	 * # Without specified bindings
+	 * # Without specified providers
 	 *
-	 * If no bindings are specified, `platform`'s behavior depends on whether an existing
+	 * If no providers are specified, `platform`'s behavior depends on whether an existing
 	 * platform exists:
 	 *
 	 * If no platform exists, a new one will be created with the default {@link platformBindings}.
 	 *
-	 * If a platform already exists, it will be returned (regardless of what bindings it
+	 * If a platform already exists, it will be returned (regardless of what providers it
 	 * was created with). This is a convenience feature, allowing for multiple applications
 	 * to be loaded into the same platform without awareness of each other.
 	 *
-	 * # With specified bindings
+	 * # With specified providers
 	 *
-	 * It is also possible to specify bindings to be made in the new platform. These bindings
+	 * It is also possible to specify providers to be made in the new platform. These providers
 	 * will be shared between all applications on the page. For example, an abstraction for
 	 * the browser cookie jar should be bound at the platform level, because there is only one
 	 * cookie jar regardless of how many applications on the age will be accessing it.
 	 *
-	 * If bindings are specified directly, `platform` will create the Angular platform with
+	 * If providers are specified directly, `platform` will create the Angular platform with
 	 * them if a platform did not exist already. If it did exist, however, an error will be
 	 * thrown.
 	 *
@@ -28007,19 +29402,17 @@
 	 * ```
 	 *
 	 * An application is bootstrapped inside an existing browser DOM, typically `index.html`.
-	 * Unlike Angular 1, Angular 2 does not compile/process bindings in `index.html`. This is
+	 * Unlike Angular 1, Angular 2 does not compile/process providers in `index.html`. This is
 	 * mainly for security reasons, as well as architectural changes in Angular 2. This means
 	 * that `index.html` can safely be processed using server-side technologies such as
-	 * bindings. Bindings can thus use double-curly `{{ syntax }}` without collision from
+	 * providers. Bindings can thus use double-curly `{{ syntax }}` without collision from
 	 * Angular 2 component double-curly `{{ syntax }}`.
 	 *
 	 * We can use this script code:
 	 *
 	 * ```
 	 * @Component({
-	 *    selector: 'my-app'
-	 * })
-	 * @View({
+	 *    selector: 'my-app',
 	 *    template: 'Hello {{ name }}!'
 	 * })
 	 * class MyApp {
@@ -28048,7 +29441,7 @@
 	 *  4. It creates a shadow DOM on the selected component's host element and loads the
 	 *     template into it.
 	 *  5. It instantiates the specified component.
-	 *  6. Finally, Angular performs change detection to apply the initial data bindings for the
+	 *  6. Finally, Angular performs change detection to apply the initial data providers for the
 	 *     application.
 	 *
 	 *
@@ -28092,7 +29485,7 @@
 	 * # API
 	 * - `appComponentType`: The root component which should act as the application. This is
 	 *   a reference to a `Type` which is annotated with `@Component(...)`.
-	 * - `componentInjectableBindings`: An additional set of bindings that can be added to the
+	 * - `componentInjectableBindings`: An additional set of providers that can be added to the
 	 *   app injector to override default injection behavior.
 	 * - `errorReporter`: `function(exception:any, stackTrace:string)` a default error reporter
 	 *   for unhandled exceptions.
@@ -28112,7 +29505,7 @@
 	//# sourceMappingURL=application_common.js.map
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -28128,63 +29521,69 @@
 	 * explicitly.
 	 *
 	 */
-	var model_1 = __webpack_require__(195);
+	var model_1 = __webpack_require__(196);
 	exports.AbstractControl = model_1.AbstractControl;
 	exports.Control = model_1.Control;
 	exports.ControlGroup = model_1.ControlGroup;
 	exports.ControlArray = model_1.ControlArray;
-	var abstract_control_directive_1 = __webpack_require__(197);
+	var abstract_control_directive_1 = __webpack_require__(198);
 	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-	var control_container_1 = __webpack_require__(198);
+	var control_container_1 = __webpack_require__(199);
 	exports.ControlContainer = control_container_1.ControlContainer;
-	var ng_control_name_1 = __webpack_require__(199);
+	var ng_control_name_1 = __webpack_require__(200);
 	exports.NgControlName = ng_control_name_1.NgControlName;
-	var ng_form_control_1 = __webpack_require__(208);
+	var ng_form_control_1 = __webpack_require__(210);
 	exports.NgFormControl = ng_form_control_1.NgFormControl;
-	var ng_model_1 = __webpack_require__(209);
+	var ng_model_1 = __webpack_require__(211);
 	exports.NgModel = ng_model_1.NgModel;
-	var ng_control_1 = __webpack_require__(200);
+	var ng_control_1 = __webpack_require__(201);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_group_1 = __webpack_require__(210);
+	var ng_control_group_1 = __webpack_require__(212);
 	exports.NgControlGroup = ng_control_group_1.NgControlGroup;
-	var ng_form_model_1 = __webpack_require__(211);
+	var ng_form_model_1 = __webpack_require__(213);
 	exports.NgFormModel = ng_form_model_1.NgFormModel;
-	var ng_form_1 = __webpack_require__(212);
+	var ng_form_1 = __webpack_require__(214);
 	exports.NgForm = ng_form_1.NgForm;
-	var default_value_accessor_1 = __webpack_require__(203);
+	var default_value_accessor_1 = __webpack_require__(204);
 	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-	var ng_control_status_1 = __webpack_require__(213);
+	var ng_control_status_1 = __webpack_require__(215);
 	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-	var checkbox_value_accessor_1 = __webpack_require__(206);
+	var checkbox_value_accessor_1 = __webpack_require__(208);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-	var select_control_value_accessor_1 = __webpack_require__(207);
+	var select_control_value_accessor_1 = __webpack_require__(209);
 	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
 	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-	var directives_1 = __webpack_require__(214);
+	var directives_1 = __webpack_require__(216);
 	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
-	var validators_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	exports.NG_VALIDATORS = validators_1.NG_VALIDATORS;
 	exports.Validators = validators_1.Validators;
-	var validators_2 = __webpack_require__(215);
-	exports.DefaultValidators = validators_2.DefaultValidators;
-	var form_builder_1 = __webpack_require__(216);
+	var validators_2 = __webpack_require__(217);
+	exports.RequiredValidator = validators_2.RequiredValidator;
+	exports.MinLengthValidator = validators_2.MinLengthValidator;
+	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
+	var form_builder_1 = __webpack_require__(218);
 	exports.FormBuilder = form_builder_1.FormBuilder;
-	var form_builder_2 = __webpack_require__(216);
+	var form_builder_2 = __webpack_require__(218);
 	var lang_1 = __webpack_require__(44);
 	/**
-	 * Shorthand set of bindings used for building Angular forms.
+	 * Shorthand set of providers used for building Angular forms.
 	 *
 	 * ### Example:
 	 *
 	 * ```typescript
-	 * bootstrap(MyApp, [FORM_BINDINGS]);
+	 * bootstrap(MyApp, [FORM_PROVIDERS]);
 	 * ```
 	 */
-	exports.FORM_BINDINGS = lang_1.CONST_EXPR([form_builder_2.FormBuilder]);
+	exports.FORM_PROVIDERS = lang_1.CONST_EXPR([form_builder_2.FormBuilder]);
+	/**
+	 * @deprecated
+	 */
+	exports.FORM_BINDINGS = exports.FORM_PROVIDERS;
 	//# sourceMappingURL=forms.js.map
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28195,7 +29594,7 @@
 	var lang_1 = __webpack_require__(44);
 	var async_1 = __webpack_require__(99);
 	var collection_1 = __webpack_require__(51);
-	var validators_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	/**
 	 * Indicates that a Control is valid, i.e. that no errors exist in the input value.
 	 */
@@ -28235,7 +29634,9 @@
 	var AbstractControl = (function () {
 	    function AbstractControl(validator) {
 	        this.validator = validator;
+	        /** @internal */
 	        this._pristine = true;
+	        /** @internal */
 	        this._touched = false;
 	    }
 	    Object.defineProperty(AbstractControl.prototype, "value", {
@@ -28307,11 +29708,11 @@
 	        onlySelf = lang_1.normalizeBool(onlySelf);
 	        emitEvent = lang_1.isPresent(emitEvent) ? emitEvent : true;
 	        this._updateValue();
+	        this._errors = this.validator(this);
+	        this._status = lang_1.isPresent(this._errors) ? exports.INVALID : exports.VALID;
 	        if (emitEvent) {
 	            async_1.ObservableWrapper.callNext(this._valueChanges, this._value);
 	        }
-	        this._errors = this.validator(this);
-	        this._status = lang_1.isPresent(this._errors) ? exports.INVALID : exports.VALID;
 	        if (lang_1.isPresent(this._parent) && !onlySelf) {
 	            this._parent.updateValueAndValidity({ onlySelf: onlySelf, emitEvent: emitEvent });
 	        }
@@ -28331,6 +29732,7 @@
 	        if (path === void 0) { path = null; }
 	        return lang_1.isPresent(this.getError(errorCode, path));
 	    };
+	    /** @internal */
 	    AbstractControl.prototype._updateValue = function () { };
 	    return AbstractControl;
 	})();
@@ -28431,17 +29833,21 @@
 	        var c = collection_1.StringMapWrapper.contains(this.controls, controlName);
 	        return c && this._included(controlName);
 	    };
+	    /** @internal */
 	    ControlGroup.prototype._setParentForControls = function () {
 	        var _this = this;
 	        collection_1.StringMapWrapper.forEach(this.controls, function (control, name) { control.setParent(_this); });
 	    };
+	    /** @internal */
 	    ControlGroup.prototype._updateValue = function () { this._value = this._reduceValue(); };
+	    /** @internal */
 	    ControlGroup.prototype._reduceValue = function () {
 	        return this._reduceChildren({}, function (acc, control, name) {
 	            acc[name] = control.value;
 	            return acc;
 	        });
 	    };
+	    /** @internal */
 	    ControlGroup.prototype._reduceChildren = function (initValue, fn) {
 	        var _this = this;
 	        var res = initValue;
@@ -28452,6 +29858,7 @@
 	        });
 	        return res;
 	    };
+	    /** @internal */
 	    ControlGroup.prototype._included = function (controlName) {
 	        var isOptional = collection_1.StringMapWrapper.contains(this._optionals, controlName);
 	        return !isOptional || collection_1.StringMapWrapper.get(this._optionals, controlName);
@@ -28526,7 +29933,9 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /** @internal */
 	    ControlArray.prototype._updateValue = function () { this._value = this.controls.map(function (control) { return control.value; }); };
+	    /** @internal */
 	    ControlArray.prototype._setParentForControls = function () {
 	        var _this = this;
 	        this.controls.forEach(function (control) { control.setParent(_this); });
@@ -28537,7 +29946,7 @@
 	//# sourceMappingURL=model.js.map
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -28559,6 +29968,26 @@
 	    }
 	    Validators.required = function (control) {
 	        return lang_1.isBlank(control.value) || control.value == "" ? { "required": true } : null;
+	    };
+	    Validators.minLength = function (minLength) {
+	        return function (control) {
+	            if (lang_1.isPresent(Validators.required(control)))
+	                return null;
+	            var v = control.value;
+	            return v.length < minLength ?
+	                { "minlength": { "requiredLength": minLength, "actualLength": v.length } } :
+	                null;
+	        };
+	    };
+	    Validators.maxLength = function (maxLength) {
+	        return function (control) {
+	            if (lang_1.isPresent(Validators.required(control)))
+	                return null;
+	            var v = control.value;
+	            return v.length > maxLength ?
+	                { "maxlength": { "requiredLength": maxLength, "actualLength": v.length } } :
+	                null;
+	        };
 	    };
 	    Validators.nullValidator = function (c) { return null; };
 	    Validators.compose = function (validators) {
@@ -28605,7 +30034,7 @@
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -28660,7 +30089,7 @@
 	//# sourceMappingURL=abstract_control_directive.js.map
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28668,7 +30097,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(197);
+	var abstract_control_directive_1 = __webpack_require__(198);
 	/**
 	 * A directive that contains multiple {@link NgControl}.
 	 *
@@ -28695,7 +30124,7 @@
 	//# sourceMappingURL=control_container.js.map
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28721,12 +30150,12 @@
 	var async_1 = __webpack_require__(99);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var control_container_1 = __webpack_require__(198);
-	var ng_control_1 = __webpack_require__(200);
-	var control_value_accessor_1 = __webpack_require__(201);
-	var shared_1 = __webpack_require__(202);
-	var validators_1 = __webpack_require__(196);
-	var controlNameBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, { toAlias: di_1.forwardRef(function () { return NgControlName; }) }));
+	var control_container_1 = __webpack_require__(199);
+	var ng_control_1 = __webpack_require__(201);
+	var control_value_accessor_1 = __webpack_require__(202);
+	var shared_1 = __webpack_require__(203);
+	var validators_1 = __webpack_require__(197);
+	var controlNameBinding = lang_1.CONST_EXPR(new di_1.Provider(ng_control_1.NgControl, { useExisting: di_1.forwardRef(function () { return NgControlName; }) }));
 	/**
 	 * Creates and binds a control with a specified name to a DOM element.
 	 *
@@ -28739,8 +30168,8 @@
 	 * changes.
 	 *
 	 *  ```
-	 * @Component({selector: "login-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "login-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: `
 	 *        <form #f="form" (submit)='onLogIn(f.value)'>
@@ -28761,8 +30190,8 @@
 	 * We can also use ng-model to bind a domain model to the form.
 	 *
 	 *  ```
-	 * @Component({selector: "login-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "login-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: `
 	 *        <form (submit)='onLogIn()'>
@@ -28787,6 +30216,7 @@
 	    function NgControlName(parent, validators, valueAccessors) {
 	        _super.call(this);
 	        this.update = new async_1.EventEmitter();
+	        /** @internal */
 	        this._added = false;
 	        this._parent = parent;
 	        this.validators = validators;
@@ -28832,7 +30262,7 @@
 	            selector: '[ng-control]',
 	            bindings: [controlNameBinding],
 	            inputs: ['name: ngControl', 'model: ngModel'],
-	            outputs: ['update: ngModel'],
+	            outputs: ['update: ngModelChange'],
 	            exportAs: 'form'
 	        }),
 	        __param(0, di_1.Host()),
@@ -28849,7 +30279,7 @@
 	//# sourceMappingURL=ng_control_name.js.map
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28857,7 +30287,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(197);
+	var abstract_control_directive_1 = __webpack_require__(198);
 	/**
 	 * A base class that all control directive extend.
 	 * It binds a {@link Control} object to a DOM element.
@@ -28890,7 +30320,7 @@
 	//# sourceMappingURL=ng_control.js.map
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -28899,16 +30329,17 @@
 	//# sourceMappingURL=control_value_accessor.js.map
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var validators_1 = __webpack_require__(196);
-	var default_value_accessor_1 = __webpack_require__(203);
-	var checkbox_value_accessor_1 = __webpack_require__(206);
-	var select_control_value_accessor_1 = __webpack_require__(207);
+	var validators_1 = __webpack_require__(197);
+	var default_value_accessor_1 = __webpack_require__(204);
+	var number_value_accessor_1 = __webpack_require__(207);
+	var checkbox_value_accessor_1 = __webpack_require__(208);
+	var select_control_value_accessor_1 = __webpack_require__(209);
 	function controlPath(name, parent) {
 	    var p = collection_1.ListWrapper.clone(parent.path);
 	    p.push(name);
@@ -28962,7 +30393,7 @@
 	        if (v instanceof default_value_accessor_1.DefaultValueAccessor) {
 	            defaultAccessor = v;
 	        }
-	        else if (v instanceof checkbox_value_accessor_1.CheckboxControlValueAccessor ||
+	        else if (v instanceof checkbox_value_accessor_1.CheckboxControlValueAccessor || v instanceof number_value_accessor_1.NumberValueAccessor ||
 	            v instanceof select_control_value_accessor_1.SelectControlValueAccessor) {
 	            if (lang_1.isPresent(builtinAccessor))
 	                _throwError(dir, "More than one built-in value accessor matches");
@@ -28987,7 +30418,7 @@
 	//# sourceMappingURL=shared.js.map
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29002,13 +30433,13 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var metadata_1 = __webpack_require__(42);
-	var linker_1 = __webpack_require__(204);
-	var render_1 = __webpack_require__(151);
+	var linker_1 = __webpack_require__(205);
+	var render_1 = __webpack_require__(152);
 	var di_1 = __webpack_require__(45);
-	var control_value_accessor_1 = __webpack_require__(201);
+	var control_value_accessor_1 = __webpack_require__(202);
 	var lang_1 = __webpack_require__(44);
-	var shared_1 = __webpack_require__(202);
-	var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, { toAlias: di_1.forwardRef(function () { return DefaultValueAccessor; }), multi: true }));
+	var shared_1 = __webpack_require__(203);
+	var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: di_1.forwardRef(function () { return DefaultValueAccessor; }), multi: true }));
 	/**
 	 * The default accessor for writing a value and listening to changes that is used by the
 	 * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
@@ -29049,35 +30480,35 @@
 	//# sourceMappingURL=default_value_accessor.js.map
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for compiler
-	var directive_resolver_1 = __webpack_require__(146);
+	var directive_resolver_1 = __webpack_require__(147);
 	exports.DirectiveResolver = directive_resolver_1.DirectiveResolver;
-	var compiler_1 = __webpack_require__(124);
+	var compiler_1 = __webpack_require__(125);
 	exports.Compiler = compiler_1.Compiler;
-	var view_manager_1 = __webpack_require__(134);
+	var view_manager_1 = __webpack_require__(135);
 	exports.AppViewManager = view_manager_1.AppViewManager;
-	var query_list_1 = __webpack_require__(144);
+	var query_list_1 = __webpack_require__(145);
 	exports.QueryList = query_list_1.QueryList;
-	var dynamic_component_loader_1 = __webpack_require__(205);
+	var dynamic_component_loader_1 = __webpack_require__(206);
 	exports.DynamicComponentLoader = dynamic_component_loader_1.DynamicComponentLoader;
-	var element_ref_1 = __webpack_require__(137);
+	var element_ref_1 = __webpack_require__(138);
 	exports.ElementRef = element_ref_1.ElementRef;
-	var template_ref_1 = __webpack_require__(138);
+	var template_ref_1 = __webpack_require__(139);
 	exports.TemplateRef = template_ref_1.TemplateRef;
-	var view_ref_1 = __webpack_require__(130);
+	var view_ref_1 = __webpack_require__(131);
 	exports.ViewRef = view_ref_1.ViewRef;
 	exports.ProtoViewRef = view_ref_1.ProtoViewRef;
-	var view_container_ref_1 = __webpack_require__(141);
+	var view_container_ref_1 = __webpack_require__(142);
 	exports.ViewContainerRef = view_container_ref_1.ViewContainerRef;
-	var dynamic_component_loader_2 = __webpack_require__(205);
+	var dynamic_component_loader_2 = __webpack_require__(206);
 	exports.ComponentRef = dynamic_component_loader_2.ComponentRef;
 	//# sourceMappingURL=linker.js.map
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29097,9 +30528,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(45);
-	var compiler_1 = __webpack_require__(124);
+	var compiler_1 = __webpack_require__(125);
 	var lang_1 = __webpack_require__(44);
-	var view_manager_1 = __webpack_require__(134);
+	var view_manager_1 = __webpack_require__(135);
 	/**
 	 * Represents an instance of a Component created via {@link DynamicComponentLoader}.
 	 *
@@ -29193,16 +30624,16 @@
 	            return new ComponentRef_(newLocation, component, type, injector, dispose);
 	        });
 	    };
-	    DynamicComponentLoader_.prototype.loadIntoLocation = function (type, hostLocation, anchorName, bindings) {
-	        if (bindings === void 0) { bindings = null; }
-	        return this.loadNextToLocation(type, this._viewManager.getNamedElementInComponentView(hostLocation, anchorName), bindings);
+	    DynamicComponentLoader_.prototype.loadIntoLocation = function (type, hostLocation, anchorName, providers) {
+	        if (providers === void 0) { providers = null; }
+	        return this.loadNextToLocation(type, this._viewManager.getNamedElementInComponentView(hostLocation, anchorName), providers);
 	    };
-	    DynamicComponentLoader_.prototype.loadNextToLocation = function (type, location, bindings) {
+	    DynamicComponentLoader_.prototype.loadNextToLocation = function (type, location, providers) {
 	        var _this = this;
-	        if (bindings === void 0) { bindings = null; }
+	        if (providers === void 0) { providers = null; }
 	        return this._compiler.compileInHost(type).then(function (hostProtoViewRef) {
 	            var viewContainer = _this._viewManager.getViewContainer(location);
-	            var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, bindings);
+	            var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, providers);
 	            var newLocation = _this._viewManager.getHostElement(hostViewRef);
 	            var component = _this._viewManager.getComponent(newLocation);
 	            var dispose = function () {
@@ -29224,7 +30655,7 @@
 	//# sourceMappingURL=dynamic_component_loader.js.map
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29239,13 +30670,74 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var metadata_1 = __webpack_require__(42);
-	var render_1 = __webpack_require__(151);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
+	var render_1 = __webpack_require__(152);
 	var di_1 = __webpack_require__(45);
-	var control_value_accessor_1 = __webpack_require__(201);
+	var control_value_accessor_1 = __webpack_require__(202);
 	var lang_1 = __webpack_require__(44);
-	var shared_1 = __webpack_require__(202);
-	var CHECKBOX_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, { toAlias: di_1.forwardRef(function () { return CheckboxControlValueAccessor; }), multi: true }));
+	var shared_1 = __webpack_require__(203);
+	var NUMBER_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: di_1.forwardRef(function () { return NumberValueAccessor; }), multi: true }));
+	/**
+	 * The accessor for writing a number value and listening to changes that is used by the
+	 * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
+	 *
+	 *  # Example
+	 *  ```
+	 *  <input type="number" [(ng-model)]="age">
+	 *  ```
+	 */
+	var NumberValueAccessor = (function () {
+	    function NumberValueAccessor(_renderer, _elementRef) {
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	    }
+	    NumberValueAccessor.prototype.writeValue = function (value) { shared_1.setProperty(this._renderer, this._elementRef, 'value', value); };
+	    NumberValueAccessor.prototype.registerOnChange = function (fn) {
+	        this.onChange = function (value) { fn(lang_1.NumberWrapper.parseFloat(value)); };
+	    };
+	    NumberValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    NumberValueAccessor = __decorate([
+	        metadata_1.Directive({
+	            selector: 'input[type=number][ng-control],input[type=number][ng-form-control],input[type=number][ng-model]',
+	            host: {
+	                '(change)': 'onChange($event.target.value)',
+	                '(input)': 'onChange($event.target.value)',
+	                '(blur)': 'onTouched()'
+	            },
+	            bindings: [NUMBER_VALUE_ACCESSOR]
+	        }), 
+	        __metadata('design:paramtypes', [render_1.Renderer, linker_1.ElementRef])
+	    ], NumberValueAccessor);
+	    return NumberValueAccessor;
+	})();
+	exports.NumberValueAccessor = NumberValueAccessor;
+	//# sourceMappingURL=number_value_accessor.js.map
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+	    }
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var metadata_1 = __webpack_require__(42);
+	var render_1 = __webpack_require__(152);
+	var linker_1 = __webpack_require__(205);
+	var di_1 = __webpack_require__(45);
+	var control_value_accessor_1 = __webpack_require__(202);
+	var lang_1 = __webpack_require__(44);
+	var shared_1 = __webpack_require__(203);
+	var CHECKBOX_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: di_1.forwardRef(function () { return CheckboxControlValueAccessor; }), multi: true }));
 	/**
 	 * The accessor for writing a value and listening to changes on a checkbox input element.
 	 *
@@ -29278,7 +30770,7 @@
 	//# sourceMappingURL=checkbox_value_accessor.js.map
 
 /***/ },
-/* 207 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29296,14 +30788,14 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var di_1 = __webpack_require__(45);
-	var render_1 = __webpack_require__(151);
-	var linker_1 = __webpack_require__(204);
+	var render_1 = __webpack_require__(152);
+	var linker_1 = __webpack_require__(205);
 	var metadata_1 = __webpack_require__(42);
 	var async_1 = __webpack_require__(99);
-	var control_value_accessor_1 = __webpack_require__(201);
+	var control_value_accessor_1 = __webpack_require__(202);
 	var lang_1 = __webpack_require__(44);
-	var shared_1 = __webpack_require__(202);
-	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, { toAlias: di_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
+	var shared_1 = __webpack_require__(203);
+	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: di_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
 	/**
 	 * Marks `<option>` as dynamic, so Angular can be notified when options change.
 	 *
@@ -29365,7 +30857,7 @@
 	//# sourceMappingURL=select_control_value_accessor.js.map
 
 /***/ },
-/* 208 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29391,11 +30883,11 @@
 	var async_1 = __webpack_require__(99);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var ng_control_1 = __webpack_require__(200);
-	var validators_1 = __webpack_require__(196);
-	var control_value_accessor_1 = __webpack_require__(201);
-	var shared_1 = __webpack_require__(202);
-	var formControlBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, { toAlias: di_1.forwardRef(function () { return NgFormControl; }) }));
+	var ng_control_1 = __webpack_require__(201);
+	var validators_1 = __webpack_require__(197);
+	var control_value_accessor_1 = __webpack_require__(202);
+	var shared_1 = __webpack_require__(203);
+	var formControlBinding = lang_1.CONST_EXPR(new di_1.Provider(ng_control_1.NgControl, { useExisting: di_1.forwardRef(function () { return NgFormControl; }) }));
 	/**
 	 * Binds an existing {@link Control} to a DOM element.
 	 *
@@ -29407,9 +30899,7 @@
 	 *
 	 *  ```typescript
 	 * @Component({
-	 *   selector: 'my-app'
-	 * })
-	 * @View({
+	 *   selector: 'my-app',
 	 *   template: `
 	 *     <div>
 	 *       <h2>NgFormControl Example</h2>
@@ -29434,8 +30924,8 @@
 	 * ### Example ([live demo](http://plnkr.co/edit/yHMLuHO7DNgT8XvtjTDH?p=preview))
 	 *
 	 *  ```typescript
-	 * @Component({selector: "login-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "login-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: "<input type='text' [ng-form-control]='loginControl' [(ng-model)]='login'>"
 	 *      })
@@ -29450,6 +30940,7 @@
 	    function NgFormControl(validators, valueAccessors) {
 	        _super.call(this);
 	        this.update = new async_1.EventEmitter();
+	        /** @internal */
 	        this._added = false;
 	        this.validators = validators;
 	        this.valueAccessor = shared_1.selectValueAccessor(this, valueAccessors);
@@ -29489,7 +30980,7 @@
 	            selector: '[ng-form-control]',
 	            bindings: [formControlBinding],
 	            inputs: ['form: ngFormControl', 'model: ngModel'],
-	            outputs: ['update: ngModel'],
+	            outputs: ['update: ngModelChange'],
 	            exportAs: 'form'
 	        }),
 	        __param(0, di_1.Optional()),
@@ -29504,7 +30995,7 @@
 	//# sourceMappingURL=ng_form_control.js.map
 
 /***/ },
-/* 209 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29530,12 +31021,12 @@
 	var async_1 = __webpack_require__(99);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var control_value_accessor_1 = __webpack_require__(201);
-	var ng_control_1 = __webpack_require__(200);
-	var model_1 = __webpack_require__(195);
-	var validators_1 = __webpack_require__(196);
-	var shared_1 = __webpack_require__(202);
-	var formControlBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, { toAlias: di_1.forwardRef(function () { return NgModel; }) }));
+	var control_value_accessor_1 = __webpack_require__(202);
+	var ng_control_1 = __webpack_require__(201);
+	var model_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
+	var shared_1 = __webpack_require__(203);
+	var formControlBinding = lang_1.CONST_EXPR(new di_1.Provider(ng_control_1.NgControl, { useExisting: di_1.forwardRef(function () { return NgModel; }) }));
 	/**
 	 * Binds a domain model to a form control.
 	 *
@@ -29547,8 +31038,8 @@
 	 *
 	 * ### Example ([live demo](http://plnkr.co/edit/R3UX5qDaUqFO2VYR0UzH?p=preview))
 	 *  ```typescript
-	 * @Component({selector: "search-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "search-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: `<input type='text' [(ng-model)]="searchQuery">`
 	 *      })
@@ -29561,7 +31052,9 @@
 	    __extends(NgModel, _super);
 	    function NgModel(validators, valueAccessors) {
 	        _super.call(this);
+	        /** @internal */
 	        this._control = new model_1.Control();
+	        /** @internal */
 	        this._added = false;
 	        this.update = new async_1.EventEmitter();
 	        this.validators = validators;
@@ -29602,7 +31095,7 @@
 	            selector: '[ng-model]:not([ng-control]):not([ng-form-control])',
 	            bindings: [formControlBinding],
 	            inputs: ['model: ngModel'],
-	            outputs: ['update: ngModel'],
+	            outputs: ['update: ngModelChange'],
 	            exportAs: 'form'
 	        }),
 	        __param(0, di_1.Optional()),
@@ -29617,7 +31110,7 @@
 	//# sourceMappingURL=ng_model.js.map
 
 /***/ },
-/* 210 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29642,9 +31135,9 @@
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
-	var control_container_1 = __webpack_require__(198);
-	var shared_1 = __webpack_require__(202);
-	var controlGroupBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, { toAlias: di_1.forwardRef(function () { return NgControlGroup; }) }));
+	var control_container_1 = __webpack_require__(199);
+	var shared_1 = __webpack_require__(203);
+	var controlGroupBinding = lang_1.CONST_EXPR(new di_1.Provider(control_container_1.ControlContainer, { useExisting: di_1.forwardRef(function () { return NgControlGroup; }) }));
 	/**
 	 * Creates and binds a control group to a DOM element.
 	 *
@@ -29656,8 +31149,8 @@
 	 * We can work with each group separately: check its validity, get its value, listen to its changes.
 	 *
 	 *  ```
-	 * @Component({selector: "signup-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "signup-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: `
 	 *              <form #f="form" (submit)='onSignUp(f.value)'>
@@ -29723,7 +31216,7 @@
 	//# sourceMappingURL=ng_control_group.js.map
 
 /***/ },
-/* 211 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29747,9 +31240,9 @@
 	var async_1 = __webpack_require__(99);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var control_container_1 = __webpack_require__(198);
-	var shared_1 = __webpack_require__(202);
-	var formDirectiveBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, { toAlias: di_1.forwardRef(function () { return NgFormModel; }) }));
+	var control_container_1 = __webpack_require__(199);
+	var shared_1 = __webpack_require__(203);
+	var formDirectiveProvider = lang_1.CONST_EXPR(new di_1.Provider(control_container_1.ControlContainer, { useExisting: di_1.forwardRef(function () { return NgFormModel; }) }));
 	/**
 	 * Binds an existing control group to a DOM element.
 	 *
@@ -29760,9 +31253,7 @@
 	 *
 	 *  ```typescript
 	 * @Component({
-	 *   selector: 'my-app'
-	 * })
-	 * @View({
+	 *   selector: 'my-app',
 	 *   template: `
 	 *     <div>
 	 *       <h2>NgFormModel Example</h2>
@@ -29795,8 +31286,8 @@
 	 * We can also use ng-model to bind a domain model to the form.
 	 *
 	 *  ```typescript
-	 * @Component({selector: "login-comp"})
-	 * @View({
+	 * @Component({
+	 *      selector: "login-comp",
 	 *      directives: [FORM_DIRECTIVES],
 	 *      template: `
 	 *        <form [ng-form-model]='loginForm'>
@@ -29869,6 +31360,7 @@
 	        async_1.ObservableWrapper.callNext(this.ngSubmit, null);
 	        return false;
 	    };
+	    /** @internal */
 	    NgFormModel.prototype._updateDomValue = function () {
 	        var _this = this;
 	        this.directives.forEach(function (dir) {
@@ -29879,7 +31371,7 @@
 	    NgFormModel = __decorate([
 	        metadata_1.Directive({
 	            selector: '[ng-form-model]',
-	            bindings: [formDirectiveBinding],
+	            bindings: [formDirectiveProvider],
 	            inputs: ['form: ng-form-model'],
 	            host: { '(submit)': 'onSubmit()' },
 	            outputs: ['ngSubmit'],
@@ -29893,7 +31385,7 @@
 	//# sourceMappingURL=ng_form_model.js.map
 
 /***/ },
-/* 212 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29917,10 +31409,10 @@
 	var lang_1 = __webpack_require__(44);
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var control_container_1 = __webpack_require__(198);
-	var model_1 = __webpack_require__(195);
-	var shared_1 = __webpack_require__(202);
-	var formDirectiveBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, { toAlias: di_1.forwardRef(function () { return NgForm; }) }));
+	var control_container_1 = __webpack_require__(199);
+	var model_1 = __webpack_require__(196);
+	var shared_1 = __webpack_require__(203);
+	var formDirectiveProvider = lang_1.CONST_EXPR(new di_1.Provider(control_container_1.ControlContainer, { useExisting: di_1.forwardRef(function () { return NgForm; }) }));
 	/**
 	 * If `NgForm` is bound in a component, `<form>` elements in that component will be
 	 * upgraded to use the Angular form system.
@@ -29932,9 +31424,9 @@
 	 *
 	 * # Structure
 	 *
-	 * An Angular form is a collection of {@link Control}s in some hierarchy.
-	 * `Control`s can be at the top level or can be organized in {@link ControlGroups}
-	 * or {@link ControlArray}s. This hierarchy is reflected in the form's `value`, a
+	 * An Angular form is a collection of `Control`s in some hierarchy.
+	 * `Control`s can be at the top level or can be organized in `ControlGroup`s
+	 * or `ControlArray`s. This hierarchy is reflected in the form's `value`, a
 	 * JSON object that mirrors the form structure.
 	 *
 	 * # Submission
@@ -29945,9 +31437,7 @@
 	 *
 	 *  ```typescript
 	 * @Component({
-	 *   selector: 'my-app'
-	 * })
-	 * @View({
+	 *   selector: 'my-app',
 	 *   template: `
 	 *     <div>
 	 *       <p>Submit the form to see the data object Angular builds</p>
@@ -30063,15 +31553,17 @@
 	        async_1.ObservableWrapper.callNext(this.ngSubmit, null);
 	        return false;
 	    };
+	    /** @internal */
 	    NgForm.prototype._findContainer = function (path) {
 	        path.pop();
 	        return collection_1.ListWrapper.isEmpty(path) ? this.form : this.form.find(path);
 	    };
+	    /** @internal */
 	    NgForm.prototype._later = function (fn) { async_1.PromiseWrapper.then(async_1.PromiseWrapper.resolve(null), fn, function (_) { }); };
 	    NgForm = __decorate([
 	        metadata_1.Directive({
 	            selector: 'form:not([ng-no-form]):not([ng-form-model]),ng-form,[ng-form]',
-	            bindings: [formDirectiveBinding],
+	            bindings: [formDirectiveProvider],
 	            host: {
 	                '(submit)': 'onSubmit()',
 	            },
@@ -30086,7 +31578,7 @@
 	//# sourceMappingURL=ng_form.js.map
 
 /***/ },
-/* 213 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30105,7 +31597,7 @@
 	};
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var ng_control_1 = __webpack_require__(200);
+	var ng_control_1 = __webpack_require__(201);
 	var lang_1 = __webpack_require__(44);
 	var NgControlStatus = (function () {
 	    function NgControlStatus(cd) {
@@ -30174,45 +31666,48 @@
 	//# sourceMappingURL=ng_control_status.js.map
 
 /***/ },
-/* 214 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var ng_control_name_1 = __webpack_require__(199);
-	var ng_form_control_1 = __webpack_require__(208);
-	var ng_model_1 = __webpack_require__(209);
-	var ng_control_group_1 = __webpack_require__(210);
-	var ng_form_model_1 = __webpack_require__(211);
-	var ng_form_1 = __webpack_require__(212);
-	var default_value_accessor_1 = __webpack_require__(203);
-	var checkbox_value_accessor_1 = __webpack_require__(206);
-	var ng_control_status_1 = __webpack_require__(213);
-	var select_control_value_accessor_1 = __webpack_require__(207);
-	var validators_1 = __webpack_require__(215);
-	var ng_control_name_2 = __webpack_require__(199);
+	var ng_control_name_1 = __webpack_require__(200);
+	var ng_form_control_1 = __webpack_require__(210);
+	var ng_model_1 = __webpack_require__(211);
+	var ng_control_group_1 = __webpack_require__(212);
+	var ng_form_model_1 = __webpack_require__(213);
+	var ng_form_1 = __webpack_require__(214);
+	var default_value_accessor_1 = __webpack_require__(204);
+	var checkbox_value_accessor_1 = __webpack_require__(208);
+	var number_value_accessor_1 = __webpack_require__(207);
+	var ng_control_status_1 = __webpack_require__(215);
+	var select_control_value_accessor_1 = __webpack_require__(209);
+	var validators_1 = __webpack_require__(217);
+	var ng_control_name_2 = __webpack_require__(200);
 	exports.NgControlName = ng_control_name_2.NgControlName;
-	var ng_form_control_2 = __webpack_require__(208);
+	var ng_form_control_2 = __webpack_require__(210);
 	exports.NgFormControl = ng_form_control_2.NgFormControl;
-	var ng_model_2 = __webpack_require__(209);
+	var ng_model_2 = __webpack_require__(211);
 	exports.NgModel = ng_model_2.NgModel;
-	var ng_control_1 = __webpack_require__(200);
+	var ng_control_1 = __webpack_require__(201);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_group_2 = __webpack_require__(210);
+	var ng_control_group_2 = __webpack_require__(212);
 	exports.NgControlGroup = ng_control_group_2.NgControlGroup;
-	var ng_form_model_2 = __webpack_require__(211);
+	var ng_form_model_2 = __webpack_require__(213);
 	exports.NgFormModel = ng_form_model_2.NgFormModel;
-	var ng_form_2 = __webpack_require__(212);
+	var ng_form_2 = __webpack_require__(214);
 	exports.NgForm = ng_form_2.NgForm;
-	var default_value_accessor_2 = __webpack_require__(203);
+	var default_value_accessor_2 = __webpack_require__(204);
 	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-	var checkbox_value_accessor_2 = __webpack_require__(206);
+	var checkbox_value_accessor_2 = __webpack_require__(208);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-	var select_control_value_accessor_2 = __webpack_require__(207);
+	var select_control_value_accessor_2 = __webpack_require__(209);
 	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
 	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
-	var validators_2 = __webpack_require__(215);
-	exports.DefaultValidators = validators_2.DefaultValidators;
-	var ng_control_status_2 = __webpack_require__(213);
+	var validators_2 = __webpack_require__(217);
+	exports.RequiredValidator = validators_2.RequiredValidator;
+	exports.MinLengthValidator = validators_2.MinLengthValidator;
+	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
+	var ng_control_status_2 = __webpack_require__(215);
 	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
 	/**
 	 *
@@ -30223,11 +31718,9 @@
 	 * ### Example:
 	 *
 	 * ```typescript
-	 * @View({
-	 *   directives: [FORM_DIRECTIVES]
-	 * })
 	 * @Component({
-	 *   selector: 'my-app'
+	 *   selector: 'my-app',
+	 *   directives: [FORM_DIRECTIVES]
 	 * })
 	 * class MyApp {}
 	 * ```
@@ -30241,15 +31734,18 @@
 	    ng_form_1.NgForm,
 	    select_control_value_accessor_1.NgSelectOption,
 	    default_value_accessor_1.DefaultValueAccessor,
+	    number_value_accessor_1.NumberValueAccessor,
 	    checkbox_value_accessor_1.CheckboxControlValueAccessor,
 	    select_control_value_accessor_1.SelectControlValueAccessor,
 	    ng_control_status_1.NgControlStatus,
-	    validators_1.DefaultValidators
+	    validators_1.RequiredValidator,
+	    validators_1.MinLengthValidator,
+	    validators_1.MaxLengthValidator
 	]);
 	//# sourceMappingURL=directives.js.map
 
 /***/ },
-/* 215 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30263,28 +31759,78 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
 	var di_1 = __webpack_require__(45);
 	var lang_1 = __webpack_require__(44);
 	var metadata_1 = __webpack_require__(42);
-	var validators_1 = __webpack_require__(196);
-	var DEFAULT_VALIDATORS = lang_1.CONST_EXPR(new di_1.Binding(validators_1.NG_VALIDATORS, { toValue: validators_1.Validators.required, multi: true }));
-	var DefaultValidators = (function () {
-	    function DefaultValidators() {
+	var validators_1 = __webpack_require__(197);
+	var lang_2 = __webpack_require__(44);
+	var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, { useValue: validators_1.Validators.required, multi: true }));
+	var RequiredValidator = (function () {
+	    function RequiredValidator() {
 	    }
-	    DefaultValidators = __decorate([
+	    RequiredValidator = __decorate([
 	        metadata_1.Directive({
 	            selector: '[required][ng-control],[required][ng-form-control],[required][ng-model]',
-	            bindings: [DEFAULT_VALIDATORS]
+	            providers: [REQUIRED_VALIDATOR]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], DefaultValidators);
-	    return DefaultValidators;
+	    ], RequiredValidator);
+	    return RequiredValidator;
 	})();
-	exports.DefaultValidators = DefaultValidators;
+	exports.RequiredValidator = RequiredValidator;
+	function createMinLengthValidator(dir) {
+	    return validators_1.Validators.minLength(dir.minLength);
+	}
+	var MIN_LENGTH_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, {
+	    useFactory: createMinLengthValidator,
+	    deps: [di_1.forwardRef(function () { return MinLengthValidator; })],
+	    multi: true
+	}));
+	var MinLengthValidator = (function () {
+	    function MinLengthValidator(minLength) {
+	        this.minLength = lang_2.NumberWrapper.parseInt(minLength, 10);
+	    }
+	    MinLengthValidator = __decorate([
+	        metadata_1.Directive({
+	            selector: '[minlength][ng-control],[minlength][ng-form-control],[minlength][ng-model]',
+	            providers: [MIN_LENGTH_VALIDATOR]
+	        }),
+	        __param(0, metadata_1.Attribute("minlength")), 
+	        __metadata('design:paramtypes', [String])
+	    ], MinLengthValidator);
+	    return MinLengthValidator;
+	})();
+	exports.MinLengthValidator = MinLengthValidator;
+	function createMaxLengthValidator(dir) {
+	    return validators_1.Validators.maxLength(dir.maxLength);
+	}
+	var MAX_LENGTH_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, {
+	    useFactory: createMaxLengthValidator,
+	    deps: [di_1.forwardRef(function () { return MaxLengthValidator; })],
+	    multi: true
+	}));
+	var MaxLengthValidator = (function () {
+	    function MaxLengthValidator(maxLength) {
+	        this.maxLength = lang_2.NumberWrapper.parseInt(maxLength, 10);
+	    }
+	    MaxLengthValidator = __decorate([
+	        metadata_1.Directive({
+	            selector: '[maxlength][ng-control],[maxlength][ng-form-control],[maxlength][ng-model]',
+	            providers: [MAX_LENGTH_VALIDATOR]
+	        }),
+	        __param(0, metadata_1.Attribute("maxlength")), 
+	        __metadata('design:paramtypes', [String])
+	    ], MaxLengthValidator);
+	    return MaxLengthValidator;
+	})();
+	exports.MaxLengthValidator = MaxLengthValidator;
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 216 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30301,21 +31847,19 @@
 	var di_1 = __webpack_require__(45);
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
-	var modelModule = __webpack_require__(195);
+	var modelModule = __webpack_require__(196);
 	/**
 	 * Creates a form object from a user-specified configuration.
 	 *
 	 * # Example
 	 *
 	 * ```
-	 * import {Component, View, bootstrap} from 'angular2/angular2';
+	 * import {Component, bootstrap} from 'angular2/angular2';
 	 * import {FormBuilder, Validators, FORM_DIRECTIVES, ControlGroup} from 'angular2/core';
 	 *
 	 * @Component({
 	 *   selector: 'login-comp',
-	 *   viewBindings: [FormBuilder]
-	 * })
-	 * @View({
+	 *   viewProviders: [FormBuilder],
 	 *   template: `
 	 *     <form [control-group]="loginForm">
 	 *       Login <input control="login">
@@ -30397,6 +31941,7 @@
 	            return new modelModule.ControlArray(controls);
 	        }
 	    };
+	    /** @internal */
 	    FormBuilder.prototype._reduceControls = function (controlsConfig) {
 	        var _this = this;
 	        var controls = {};
@@ -30405,6 +31950,7 @@
 	        });
 	        return controls;
 	    };
+	    /** @internal */
 	    FormBuilder.prototype._createControl = function (controlConfig) {
 	        if (controlConfig instanceof modelModule.Control ||
 	            controlConfig instanceof modelModule.ControlGroup ||
@@ -30430,7 +31976,7 @@
 	//# sourceMappingURL=form_builder.js.map
 
 /***/ },
-/* 217 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30440,8 +31986,8 @@
 	};
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
-	var dom_adapter_1 = __webpack_require__(154);
-	var generic_browser_adapter_1 = __webpack_require__(218);
+	var dom_adapter_1 = __webpack_require__(155);
+	var generic_browser_adapter_1 = __webpack_require__(220);
 	var _attrToPropMap = {
 	    'class': 'className',
 	    'innerHtml': 'innerHTML',
@@ -30812,7 +32358,7 @@
 	//# sourceMappingURL=browser_adapter.js.map
 
 /***/ },
-/* 218 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30822,7 +32368,8 @@
 	};
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
-	var dom_adapter_1 = __webpack_require__(154);
+	var dom_adapter_1 = __webpack_require__(155);
+	var xhr_impl_1 = __webpack_require__(221);
 	/**
 	 * Provides DOM operations in any browser environment.
 	 */
@@ -30864,6 +32411,7 @@
 	            this._transitionEnd = null;
 	        }
 	    }
+	    GenericBrowserDomAdapter.prototype.getXHR = function () { return xhr_impl_1.XHRImpl; };
 	    GenericBrowserDomAdapter.prototype.getDistributedNodes = function (el) { return el.getDistributedNodes(); };
 	    GenericBrowserDomAdapter.prototype.resolveAndSetHref = function (el, baseUrl, href) {
 	        el.href = href == null ? baseUrl : baseUrl + '/../' + href;
@@ -30912,10 +32460,60 @@
 	//# sourceMappingURL=generic_browser_adapter.js.map
 
 /***/ },
-/* 219 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var testability_1 = __webpack_require__(220);
+	'use strict';var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var promise_1 = __webpack_require__(100);
+	var lang_1 = __webpack_require__(44);
+	var xhr_1 = __webpack_require__(179);
+	var XHRImpl = (function (_super) {
+	    __extends(XHRImpl, _super);
+	    function XHRImpl() {
+	        _super.apply(this, arguments);
+	    }
+	    XHRImpl.prototype.get = function (url) {
+	        var completer = promise_1.PromiseWrapper.completer();
+	        var xhr = new XMLHttpRequest();
+	        xhr.open('GET', url, true);
+	        xhr.responseType = 'text';
+	        xhr.onload = function () {
+	            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+	            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
+	            var response = lang_1.isPresent(xhr.response) ? xhr.response : xhr.responseText;
+	            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+	            var status = xhr.status === 1223 ? 204 : xhr.status;
+	            // fix status code when it is 0 (0 status is undocumented).
+	            // Occurs when accessing file resources or on Android 4.1 stock browser
+	            // while retrieving files from application cache.
+	            if (status === 0) {
+	                status = response ? 200 : 0;
+	            }
+	            if (200 <= status && status <= 300) {
+	                completer.resolve(response);
+	            }
+	            else {
+	                completer.reject("Failed to load " + url, null);
+	            }
+	        };
+	        xhr.onerror = function () { completer.reject("Failed to load " + url, null); };
+	        xhr.send();
+	        return completer.promise;
+	    };
+	    return XHRImpl;
+	})(xhr_1.XHR);
+	exports.XHRImpl = XHRImpl;
+	//# sourceMappingURL=xhr_impl.js.map
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';var testability_1 = __webpack_require__(223);
 	var lang_1 = __webpack_require__(44);
 	var PublicTestability = (function () {
 	    function PublicTestability(testability) {
@@ -30923,8 +32521,11 @@
 	    }
 	    PublicTestability.prototype.isStable = function () { return this._testability.isStable(); };
 	    PublicTestability.prototype.whenStable = function (callback) { this._testability.whenStable(callback); };
-	    PublicTestability.prototype.findBindings = function (using, binding, exactMatch) {
-	        return this._testability.findBindings(using, binding, exactMatch);
+	    PublicTestability.prototype.findBindings = function (using, provider, exactMatch) {
+	        return this.findProviders(using, provider, exactMatch);
+	    };
+	    PublicTestability.prototype.findProviders = function (using, provider, exactMatch) {
+	        return this._testability.findBindings(using, provider, exactMatch);
 	    };
 	    return PublicTestability;
 	})();
@@ -30952,7 +32553,7 @@
 	//# sourceMappingURL=browser_testability.js.map
 
 /***/ },
-/* 220 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30967,11 +32568,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(45);
-	var dom_adapter_1 = __webpack_require__(154);
+	var dom_adapter_1 = __webpack_require__(155);
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var ng_zone_1 = __webpack_require__(164);
+	var ng_zone_1 = __webpack_require__(165);
 	var async_1 = __webpack_require__(99);
 	/**
 	 * The Testability service provides testing hooks that can be accessed from
@@ -30980,12 +32581,15 @@
 	 */
 	var Testability = (function () {
 	    function Testability(_ngZone) {
-	        this._ngZone = _ngZone;
+	        /** @internal */
 	        this._pendingCount = 0;
+	        /** @internal */
 	        this._callbacks = [];
+	        /** @internal */
 	        this._isAngularEventPending = false;
 	        this._watchAngularEvents(_ngZone);
 	    }
+	    /** @internal */
 	    Testability.prototype._watchAngularEvents = function (_ngZone) {
 	        var _this = this;
 	        _ngZone.overrideOnTurnStart(function () { _this._isAngularEventPending = true; });
@@ -31007,6 +32611,7 @@
 	        return this._pendingCount;
 	    };
 	    Testability.prototype.isStable = function () { return this._pendingCount == 0 && !this._isAngularEventPending; };
+	    /** @internal */
 	    Testability.prototype._runCallbacksIfReady = function () {
 	        var _this = this;
 	        if (!this.isStable()) {
@@ -31027,7 +32632,11 @@
 	    // This only accounts for ngZone, and not pending counts. Use `whenStable` to
 	    // check for stability.
 	    Testability.prototype.isAngularEventPending = function () { return this._isAngularEventPending; };
-	    Testability.prototype.findBindings = function (using, binding, exactMatch) {
+	    Testability.prototype.findBindings = function (using, provider, exactMatch) {
+	        // TODO(juliemr): implement.
+	        return [];
+	    };
+	    Testability.prototype.findProviders = function (using, provider, exactMatch) {
 	        // TODO(juliemr): implement.
 	        return [];
 	    };
@@ -31040,6 +32649,7 @@
 	exports.Testability = Testability;
 	var TestabilityRegistry = (function () {
 	    function TestabilityRegistry() {
+	        /** @internal */
 	        this._applications = new collection_1.Map();
 	        testabilityGetter.addToWindow(this);
 	    }
@@ -31088,7 +32698,7 @@
 	//# sourceMappingURL=testability.js.map
 
 /***/ },
-/* 221 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31107,76 +32717,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var di_1 = __webpack_require__(45);
-	var async_1 = __webpack_require__(99);
-	var lang_1 = __webpack_require__(44);
-	var xhr_1 = __webpack_require__(178);
-	var XHRImpl = (function (_super) {
-	    __extends(XHRImpl, _super);
-	    function XHRImpl() {
-	        _super.apply(this, arguments);
-	    }
-	    XHRImpl.prototype.get = function (url) {
-	        var completer = async_1.PromiseWrapper.completer();
-	        var xhr = new XMLHttpRequest();
-	        xhr.open('GET', url, true);
-	        xhr.responseType = 'text';
-	        xhr.onload = function () {
-	            // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-	            // response/responseType properties were introduced in XHR Level2 spec (supported by IE10)
-	            var response = lang_1.isPresent(xhr.response) ? xhr.response : xhr.responseText;
-	            // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
-	            var status = xhr.status === 1223 ? 204 : xhr.status;
-	            // fix status code when it is 0 (0 status is undocumented).
-	            // Occurs when accessing file resources or on Android 4.1 stock browser
-	            // while retrieving files from application cache.
-	            if (status === 0) {
-	                status = response ? 200 : 0;
-	            }
-	            if (200 <= status && status <= 300) {
-	                completer.resolve(response);
-	            }
-	            else {
-	                completer.reject("Failed to load " + url, null);
-	            }
-	        };
-	        xhr.onerror = function () { completer.reject("Failed to load " + url, null); };
-	        xhr.send();
-	        return completer.promise;
-	    };
-	    XHRImpl = __decorate([
-	        di_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], XHRImpl);
-	    return XHRImpl;
-	})(xhr_1.XHR);
-	exports.XHRImpl = XHRImpl;
-	//# sourceMappingURL=xhr_impl.js.map
-
-/***/ },
-/* 222 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
-	        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
-	        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
-	    }
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var dom_adapter_1 = __webpack_require__(154);
+	var dom_adapter_1 = __webpack_require__(155);
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
-	var event_manager_1 = __webpack_require__(163);
+	var event_manager_1 = __webpack_require__(164);
 	var di_1 = __webpack_require__(45);
 	var modifierKeys = ['alt', 'control', 'meta', 'shift'];
 	var modifierKeyGetters = {
@@ -31273,11 +32817,10 @@
 	//# sourceMappingURL=key_events.js.map
 
 /***/ },
-/* 223 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';/// <reference path="../../../../../typings/hammerjs/hammerjs.d.ts"/>
-	var __extends = (this && this.__extends) || function (d, b) {
+	'use strict';var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -31293,7 +32836,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var hammer_common_1 = __webpack_require__(224);
+	var hammer_common_1 = __webpack_require__(226);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var di_1 = __webpack_require__(45);
@@ -31331,7 +32874,7 @@
 	//# sourceMappingURL=hammer_gestures.js.map
 
 /***/ },
-/* 224 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31339,7 +32882,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var event_manager_1 = __webpack_require__(163);
+	var event_manager_1 = __webpack_require__(164);
 	var collection_1 = __webpack_require__(51);
 	var _eventNames = {
 	    // pan
@@ -31393,17 +32936,18 @@
 	//# sourceMappingURL=hammer_common.js.map
 
 /***/ },
-/* 225 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var di_1 = __webpack_require__(45);
 	var exceptions_1 = __webpack_require__(53);
-	var dom_adapter_1 = __webpack_require__(154);
-	exports.EXCEPTION_BINDING = di_1.bind(exceptions_1.ExceptionHandler).toFactory(function () { return new exceptions_1.ExceptionHandler(dom_adapter_1.DOM, false); }, []);
+	var dom_adapter_1 = __webpack_require__(155);
+	exports.EXCEPTION_PROVIDER = di_1.provide(exceptions_1.ExceptionHandler, { useFactory: function () { return new exceptions_1.ExceptionHandler(dom_adapter_1.DOM, false); }, deps: [] });
+	exports.EXCEPTION_BINDING = exports.EXCEPTION_PROVIDER;
 	//# sourceMappingURL=platform_bindings.js.map
 
 /***/ },
-/* 226 */
+/* 228 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -31414,7 +32958,7 @@
 	//# sourceMappingURL=wtf_init.js.map
 
 /***/ },
-/* 227 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31422,89 +32966,94 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var ng_zone_1 = __webpack_require__(164);
+	var ng_zone_1 = __webpack_require__(165);
 	var lang_1 = __webpack_require__(44);
 	var di_1 = __webpack_require__(45);
-	var application_tokens_1 = __webpack_require__(167);
+	var application_tokens_1 = __webpack_require__(168);
 	var async_1 = __webpack_require__(99);
 	var collection_1 = __webpack_require__(51);
 	var reflection_1 = __webpack_require__(55);
-	var testability_1 = __webpack_require__(220);
-	var dynamic_component_loader_1 = __webpack_require__(205);
+	var testability_1 = __webpack_require__(223);
+	var dynamic_component_loader_1 = __webpack_require__(206);
 	var exceptions_1 = __webpack_require__(53);
-	var dom_adapter_1 = __webpack_require__(154);
-	var view_ref_1 = __webpack_require__(130);
-	var life_cycle_1 = __webpack_require__(228);
+	var dom_adapter_1 = __webpack_require__(155);
+	var view_ref_1 = __webpack_require__(131);
+	var life_cycle_1 = __webpack_require__(230);
 	var change_detection_1 = __webpack_require__(64);
-	var view_pool_1 = __webpack_require__(139);
-	var view_manager_1 = __webpack_require__(134);
-	var view_manager_utils_1 = __webpack_require__(136);
-	var view_listener_1 = __webpack_require__(140);
-	var proto_view_factory_1 = __webpack_require__(125);
+	var view_pool_1 = __webpack_require__(140);
+	var view_manager_1 = __webpack_require__(135);
+	var view_manager_utils_1 = __webpack_require__(137);
+	var view_listener_1 = __webpack_require__(141);
+	var proto_view_factory_1 = __webpack_require__(126);
 	var pipes_1 = __webpack_require__(97);
-	var view_resolver_1 = __webpack_require__(147);
-	var directive_resolver_1 = __webpack_require__(146);
-	var pipe_resolver_1 = __webpack_require__(148);
-	var compiler_1 = __webpack_require__(124);
-	var dynamic_component_loader_2 = __webpack_require__(205);
-	var view_manager_2 = __webpack_require__(134);
-	var compiler_2 = __webpack_require__(124);
+	var view_resolver_1 = __webpack_require__(148);
+	var directive_resolver_1 = __webpack_require__(147);
+	var pipe_resolver_1 = __webpack_require__(149);
+	var compiler_1 = __webpack_require__(125);
+	var dynamic_component_loader_2 = __webpack_require__(206);
+	var view_manager_2 = __webpack_require__(135);
+	var compiler_2 = __webpack_require__(125);
 	/**
-	 * Constructs the set of bindings meant for use at the platform level.
+	 * Constructs the set of providers meant for use at the platform level.
 	 *
-	 * These are bindings that should be singletons shared among all Angular applications
+	 * These are providers that should be singletons shared among all Angular applications
 	 * running on the page.
 	 */
 	function platformBindings() {
-	    return [di_1.bind(reflection_1.Reflector).toValue(reflection_1.reflector), testability_1.TestabilityRegistry];
+	    return [di_1.provide(reflection_1.Reflector, { useValue: reflection_1.reflector }), testability_1.TestabilityRegistry];
 	}
 	exports.platformBindings = platformBindings;
 	/**
-	 * Construct bindings specific to an individual root component.
+	 * Construct providers specific to an individual root component.
 	 */
-	function _componentBindings(appComponentType) {
+	function _componentProviders(appComponentType) {
 	    return [
-	        di_1.bind(application_tokens_1.APP_COMPONENT)
-	            .toValue(appComponentType),
-	        di_1.bind(application_tokens_1.APP_COMPONENT_REF_PROMISE)
-	            .toFactory(function (dynamicComponentLoader, injector) {
-	            // TODO(rado): investigate whether to support bindings on root component.
-	            return dynamicComponentLoader.loadAsRoot(appComponentType, null, injector)
-	                .then(function (componentRef) {
-	                if (lang_1.isPresent(componentRef.location.nativeElement)) {
-	                    injector.get(testability_1.TestabilityRegistry)
-	                        .registerApplication(componentRef.location.nativeElement, injector.get(testability_1.Testability));
-	                }
-	                return componentRef;
-	            });
-	        }, [dynamic_component_loader_1.DynamicComponentLoader, di_1.Injector]),
-	        di_1.bind(appComponentType)
-	            .toFactory(function (p) { return p.then(function (ref) { return ref.instance; }); }, [application_tokens_1.APP_COMPONENT_REF_PROMISE]),
+	        di_1.provide(application_tokens_1.APP_COMPONENT, { useValue: appComponentType }),
+	        di_1.provide(application_tokens_1.APP_COMPONENT_REF_PROMISE, {
+	            useFactory: function (dynamicComponentLoader, injector) {
+	                // TODO(rado): investigate whether to support bindings on root component.
+	                return dynamicComponentLoader.loadAsRoot(appComponentType, null, injector)
+	                    .then(function (componentRef) {
+	                    if (lang_1.isPresent(componentRef.location.nativeElement)) {
+	                        injector.get(testability_1.TestabilityRegistry)
+	                            .registerApplication(componentRef.location.nativeElement, injector.get(testability_1.Testability));
+	                    }
+	                    return componentRef;
+	                });
+	            },
+	            deps: [dynamic_component_loader_1.DynamicComponentLoader, di_1.Injector]
+	        }),
+	        di_1.provide(appComponentType, {
+	            useFactory: function (p) { return p.then(function (ref) { return ref.instance; }); },
+	            deps: [application_tokens_1.APP_COMPONENT_REF_PROMISE]
+	        }),
 	    ];
 	}
 	/**
-	 * Construct a default set of bindings which should be included in any Angular
+	 * Construct a default set of providers which should be included in any Angular
 	 * application, regardless of whether it runs on the UI thread or in a web worker.
 	 */
 	function applicationCommonBindings() {
 	    return [
-	        di_1.bind(compiler_1.Compiler)
-	            .toClass(compiler_2.Compiler_),
-	        application_tokens_1.APP_ID_RANDOM_BINDING,
+	        di_1.provide(compiler_1.Compiler, { useClass: compiler_2.Compiler_ }),
+	        application_tokens_1.APP_ID_RANDOM_PROVIDER,
 	        view_pool_1.AppViewPool,
-	        di_1.bind(view_pool_1.APP_VIEW_POOL_CAPACITY).toValue(10000),
-	        di_1.bind(view_manager_1.AppViewManager).toClass(view_manager_2.AppViewManager_),
+	        di_1.provide(view_pool_1.APP_VIEW_POOL_CAPACITY, { useValue: 10000 }),
+	        di_1.provide(view_manager_1.AppViewManager, { useClass: view_manager_2.AppViewManager_ }),
 	        view_manager_utils_1.AppViewManagerUtils,
 	        view_listener_1.AppViewListener,
 	        proto_view_factory_1.ProtoViewFactory,
 	        view_resolver_1.ViewResolver,
 	        pipes_1.DEFAULT_PIPES,
-	        di_1.bind(change_detection_1.IterableDiffers).toValue(change_detection_1.defaultIterableDiffers),
-	        di_1.bind(change_detection_1.KeyValueDiffers).toValue(change_detection_1.defaultKeyValueDiffers),
+	        di_1.provide(change_detection_1.IterableDiffers, { useValue: change_detection_1.defaultIterableDiffers }),
+	        di_1.provide(change_detection_1.KeyValueDiffers, { useValue: change_detection_1.defaultKeyValueDiffers }),
 	        directive_resolver_1.DirectiveResolver,
 	        pipe_resolver_1.PipeResolver,
-	        di_1.bind(dynamic_component_loader_1.DynamicComponentLoader).toClass(dynamic_component_loader_2.DynamicComponentLoader_),
-	        di_1.bind(life_cycle_1.LifeCycle).toFactory(function (exceptionHandler) { return new life_cycle_1.LifeCycle_(null, lang_1.assertionsEnabled()); }, [exceptions_1.ExceptionHandler]),
+	        di_1.provide(dynamic_component_loader_1.DynamicComponentLoader, { useClass: dynamic_component_loader_2.DynamicComponentLoader_ }),
+	        di_1.provide(life_cycle_1.LifeCycle, {
+	            useFactory: function (exceptionHandler) { return new life_cycle_1.LifeCycle_(null, lang_1.assertionsEnabled()); },
+	            deps: [exceptions_1.ExceptionHandler]
+	        })
 	    ];
 	}
 	exports.applicationCommonBindings = applicationCommonBindings;
@@ -31516,9 +33065,6 @@
 	}
 	exports.createNgZone = createNgZone;
 	var _platform;
-	/**
-	 * @internal
-	 */
 	function platformCommon(bindings, initializer) {
 	    if (lang_1.isPresent(_platform)) {
 	        if (lang_1.isBlank(bindings)) {
@@ -31550,7 +33096,7 @@
 	    Object.defineProperty(PlatformRef.prototype, "injector", {
 	        /**
 	         * Retrieve the platform {@link Injector}, which is the parent injector for
-	         * every Angular application on the page and provides singleton bindings.
+	         * every Angular application on the page and provides singleton providers.
 	         */
 	        get: function () { return exceptions_1.unimplemented(); },
 	        enumerable: true,
@@ -31566,6 +33112,7 @@
 	        _super.call(this);
 	        this._injector = _injector;
 	        this._dispose = _dispose;
+	        /** @internal */
 	        this._applications = [];
 	    }
 	    Object.defineProperty(PlatformRef_.prototype, "injector", {
@@ -31588,15 +33135,16 @@
 	        });
 	        return completer.promise;
 	    };
-	    PlatformRef_.prototype._initApp = function (zone, bindings) {
+	    PlatformRef_.prototype._initApp = function (zone, providers) {
 	        var _this = this;
 	        var injector;
+	        var app;
 	        zone.run(function () {
-	            bindings.push(di_1.bind(ng_zone_1.NgZone).toValue(zone));
-	            bindings.push(di_1.bind(ApplicationRef).toValue(_this));
+	            providers.push(di_1.provide(ng_zone_1.NgZone, { useValue: zone }));
+	            providers.push(di_1.provide(ApplicationRef, { useFactory: function () { return app; }, deps: [] }));
 	            var exceptionHandler;
 	            try {
-	                injector = _this.injector.resolveAndCreateChild(bindings);
+	                injector = _this.injector.resolveAndCreateChild(providers);
 	                exceptionHandler = injector.get(exceptions_1.ExceptionHandler);
 	                zone.overrideOnErrorHandler(function (e, s) { return exceptionHandler.call(e, s); });
 	            }
@@ -31609,7 +33157,7 @@
 	                }
 	            }
 	        });
-	        var app = new ApplicationRef_(this, zone, injector);
+	        app = new ApplicationRef_(this, zone, injector);
 	        this._applications.push(app);
 	        return app;
 	    };
@@ -31617,6 +33165,7 @@
 	        this._applications.forEach(function (app) { return app.dispose(); });
 	        this._dispose();
 	    };
+	    /** @internal */
 	    PlatformRef_.prototype._applicationDisposed = function (app) { collection_1.ListWrapper.remove(this._applications, app); };
 	    return PlatformRef_;
 	})(PlatformRef);
@@ -31647,6 +33196,15 @@
 	        configurable: true
 	    });
 	    ;
+	    Object.defineProperty(ApplicationRef.prototype, "componentTypes", {
+	        /**
+	         * Get a list of component types registered to this application.
+	         */
+	        get: function () { return exceptions_1.unimplemented(); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    ;
 	    return ApplicationRef;
 	})();
 	exports.ApplicationRef = ApplicationRef;
@@ -31659,21 +33217,23 @@
 	        this._injector = _injector;
 	        this._bootstrapListeners = [];
 	        this._rootComponents = [];
+	        this._rootComponentTypes = [];
 	    }
 	    ApplicationRef_.prototype.registerBootstrapListener = function (listener) {
 	        this._bootstrapListeners.push(listener);
 	    };
-	    ApplicationRef_.prototype.bootstrap = function (componentType, bindings) {
+	    ApplicationRef_.prototype.bootstrap = function (componentType, providers) {
 	        var _this = this;
 	        var completer = async_1.PromiseWrapper.completer();
 	        this._zone.run(function () {
-	            var componentBindings = _componentBindings(componentType);
-	            if (lang_1.isPresent(bindings)) {
-	                componentBindings.push(bindings);
+	            var componentProviders = _componentProviders(componentType);
+	            if (lang_1.isPresent(providers)) {
+	                componentProviders.push(providers);
 	            }
 	            var exceptionHandler = _this._injector.get(exceptions_1.ExceptionHandler);
+	            _this._rootComponentTypes.push(componentType);
 	            try {
-	                var injector = _this._injector.resolveAndCreateChild(componentBindings);
+	                var injector = _this._injector.resolveAndCreateChild(componentProviders);
 	                var compRefToken = injector.get(application_tokens_1.APP_COMPONENT_REF_PROMISE);
 	                var tick = function (componentRef) {
 	                    var appChangeDetector = view_ref_1.internalView(componentRef.hostView).changeDetector;
@@ -31710,13 +33270,18 @@
 	        this._rootComponents.forEach(function (ref) { return ref.dispose(); });
 	        this._platform._applicationDisposed(this);
 	    };
+	    Object.defineProperty(ApplicationRef_.prototype, "componentTypes", {
+	        get: function () { return this._rootComponentTypes; },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    return ApplicationRef_;
 	})(ApplicationRef);
 	exports.ApplicationRef_ = ApplicationRef_;
 	//# sourceMappingURL=application_ref.js.map
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31777,6 +33342,7 @@
 	        if (changeDetector === void 0) { changeDetector = null; }
 	        if (enforceNoNewChanges === void 0) { enforceNoNewChanges = false; }
 	        _super.call(this);
+	        /** @internal */
 	        this._runningTick = false;
 	        this._changeDetectors = [];
 	        if (lang_1.isPresent(changeDetector)) {
@@ -31820,34 +33386,34 @@
 	//# sourceMappingURL=life_cycle.js.map
 
 /***/ },
-/* 229 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Note: This file only exists so that Dart users can import
 	// bootstrap from angular2/bootstrap. JS users should import
 	// from angular2/core.
-	var application_1 = __webpack_require__(121);
+	var application_1 = __webpack_require__(122);
 	exports.bootstrap = application_1.bootstrap;
 	//# sourceMappingURL=bootstrap.js.map
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for Services
-	var app_root_url_1 = __webpack_require__(191);
+	var app_root_url_1 = __webpack_require__(192);
 	exports.AppRootUrl = app_root_url_1.AppRootUrl;
-	var url_resolver_1 = __webpack_require__(180);
+	var url_resolver_1 = __webpack_require__(181);
 	exports.UrlResolver = url_resolver_1.UrlResolver;
-	var title_1 = __webpack_require__(231);
+	var title_1 = __webpack_require__(233);
 	exports.Title = title_1.Title;
 	//# sourceMappingURL=services.js.map
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var dom_adapter_1 = __webpack_require__(154);
+	'use strict';var dom_adapter_1 = __webpack_require__(155);
 	/**
 	 * A service that can be used to get and set the title of a current HTML document.
 	 *
@@ -31875,25 +33441,25 @@
 	//# sourceMappingURL=title.js.map
 
 /***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for LifeCycle
-	var life_cycle_1 = __webpack_require__(228);
+	var life_cycle_1 = __webpack_require__(230);
 	exports.LifeCycle = life_cycle_1.LifeCycle;
 	//# sourceMappingURL=lifecycle.js.map
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Public API for Zone
-	var ng_zone_1 = __webpack_require__(164);
+	var ng_zone_1 = __webpack_require__(165);
 	exports.NgZone = ng_zone_1.NgZone;
 	//# sourceMappingURL=zone.js.map
 
 /***/ },
-/* 234 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -31905,24 +33471,24 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	var lang_1 = __webpack_require__(44);
-	var ng_class_1 = __webpack_require__(235);
-	var ng_for_1 = __webpack_require__(236);
-	var ng_if_1 = __webpack_require__(237);
-	var ng_style_1 = __webpack_require__(238);
-	var ng_switch_1 = __webpack_require__(239);
-	var ng_class_2 = __webpack_require__(235);
+	var ng_class_1 = __webpack_require__(237);
+	var ng_for_1 = __webpack_require__(238);
+	var ng_if_1 = __webpack_require__(239);
+	var ng_style_1 = __webpack_require__(240);
+	var ng_switch_1 = __webpack_require__(241);
+	var ng_class_2 = __webpack_require__(237);
 	exports.NgClass = ng_class_2.NgClass;
-	var ng_for_2 = __webpack_require__(236);
+	var ng_for_2 = __webpack_require__(238);
 	exports.NgFor = ng_for_2.NgFor;
-	var ng_if_2 = __webpack_require__(237);
+	var ng_if_2 = __webpack_require__(239);
 	exports.NgIf = ng_if_2.NgIf;
-	var ng_style_2 = __webpack_require__(238);
+	var ng_style_2 = __webpack_require__(240);
 	exports.NgStyle = ng_style_2.NgStyle;
-	var ng_switch_2 = __webpack_require__(239);
+	var ng_switch_2 = __webpack_require__(241);
 	exports.NgSwitch = ng_switch_2.NgSwitch;
 	exports.NgSwitchWhen = ng_switch_2.NgSwitchWhen;
 	exports.NgSwitchDefault = ng_switch_2.NgSwitchDefault;
-	__export(__webpack_require__(240));
+	__export(__webpack_require__(242));
 	/**
 	 * A collection of Angular core directives that are likely to be used in each and every Angular
 	 * application.
@@ -31939,9 +33505,7 @@
 	 * import {OtherDirective} from './myDirectives';
 	 *
 	 * @Component({
-	 *  selector: 'my-component'
-	 * })
-	 * @View({
+	 *   selector: 'my-component',
 	 *   templateUrl: 'myComponent.html',
 	 *   directives: [NgClass, NgIf, NgFor, NgSwitch, NgSwitchWhen, NgSwitchDefault, OtherDirective]
 	 * })
@@ -31956,9 +33520,7 @@
 	 * import {OtherDirective} from './myDirectives';
 	 *
 	 * @Component({
-	 *  selector: 'my-component'
-	 * })
-	 * @View({
+	 *   selector: 'my-component',
 	 *   templateUrl: 'myComponent.html',
 	 *   directives: [CORE_DIRECTIVES, OtherDirective]
 	 * })
@@ -31971,7 +33533,7 @@
 	//# sourceMappingURL=directives.js.map
 
 /***/ },
-/* 235 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31987,28 +33549,66 @@
 	};
 	var lang_1 = __webpack_require__(44);
 	var metadata_1 = __webpack_require__(42);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
 	var change_detection_1 = __webpack_require__(63);
-	var render_1 = __webpack_require__(151);
+	var render_1 = __webpack_require__(152);
 	var collection_1 = __webpack_require__(51);
 	/**
-	 * Adds and removes CSS classes based on an {expression} value.
+	 * The `NgClass` directive conditionally adds and removes CSS classes on an HTML element based on
+	 * an expression's evaluation result.
 	 *
-	 * The result of expression is used to add and remove CSS classes using the following logic,
-	 * based on expression's value type:
-	 * - {string} - all the CSS classes (space - separated) are added
-	 * - {Array} - all the CSS classes (Array elements) are added
-	 * - {Object} - each key corresponds to a CSS class name while values
-	 * are interpreted as {boolean} expression. If a given expression
-	 * evaluates to {true} a corresponding CSS class is added - otherwise
-	 * it is removed.
+	 * The result of an expression evaluation is interpreted differently depending on type of
+	 * the expression evaluation result:
+	 * - `string` - all the CSS classes listed in a string (space delimited) are added
+	 * - `Array` - all the CSS classes (Array elements) are added
+	 * - `Object` - each key corresponds to a CSS class name while values are interpreted as expressions
+	 * evaluating to `Boolean`. If a given expression evaluates to `true` a corresponding CSS class
+	 * is added - otherwise it is removed.
 	 *
-	 * # Example:
+	 * While the `NgClass` directive can interpret expressions evaluating to `string`, `Array`
+	 * or `Object`, the `Object`-based version is the most often used and has an advantage of keeping
+	 * all the CSS class names in a template.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/a4YdtmWywhJ33uqfpPPn?p=preview)):
 	 *
 	 * ```
-	 * <div class="message" [ng-class]="{error: errorCount > 0}">
-	 *     Please check errors.
-	 * </div>
+	 * import {Component, NgClass} from 'angular2/angular2';
+	 *
+	 * @Component({
+	 *   selector: 'toggle-button',
+	 *   inputs: ['isDisabled'],
+	 *   template: `
+	 *      <div class="button" [ng-class]="{active: isOn, disabled: isDisabled}"
+	 *          (click)="toggle(!isOn)">
+	 *          Click me!
+	 *      </div>`,
+	 *   styles: [`
+	 *     .button {
+	 *       width: 120px;
+	 *       border: medium solid black;
+	 *     }
+	 *
+	 *     .active {
+	 *       background-color: red;
+	 *    }
+	 *
+	 *     .disabled {
+	 *       color: gray;
+	 *       border: medium solid gray;
+	 *     }
+	 *   `]
+	 *   directives: [NgClass]
+	 * })
+	 * class ToggleButton {
+	 *   isOn = false;
+	 *   isDisabled = false;
+	 *
+	 *   toggle(newState) {
+	 *     if (!this.isDisabled) {
+	 *       this.isOn = newState;
+	 *     }
+	 *   }
+	 * }
 	 * ```
 	 */
 	var NgClass = (function () {
@@ -32120,7 +33720,7 @@
 	//# sourceMappingURL=ng_class.js.map
 
 /***/ },
-/* 236 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32136,7 +33736,7 @@
 	};
 	var metadata_1 = __webpack_require__(42);
 	var change_detection_1 = __webpack_require__(63);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
 	var lang_1 = __webpack_require__(44);
 	/**
 	 * The `NgFor` directive instantiates a template once per item from an iterable. The context for
@@ -32183,6 +33783,11 @@
 	                this._differ = this._iterableDiffers.find(value).create(this._cdr);
 	            }
 	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgFor.prototype, "ngForTemplate", {
+	        set: function (value) { this._templateRef = value; },
 	        enumerable: true,
 	        configurable: true
 	    });
@@ -32252,7 +33857,7 @@
 	        return tuples;
 	    };
 	    NgFor = __decorate([
-	        metadata_1.Directive({ selector: '[ng-for][ng-for-of]', inputs: ['ngForOf'] }), 
+	        metadata_1.Directive({ selector: '[ng-for][ng-for-of]', inputs: ['ngForOf', 'ngForTemplate'] }), 
 	        __metadata('design:paramtypes', [linker_1.ViewContainerRef, linker_1.TemplateRef, change_detection_1.IterableDiffers, change_detection_1.ChangeDetectorRef])
 	    ], NgFor);
 	    return NgFor;
@@ -32268,7 +33873,7 @@
 	//# sourceMappingURL=ng_for.js.map
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32283,7 +33888,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var metadata_1 = __webpack_require__(42);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
 	var lang_1 = __webpack_require__(44);
 	/**
 	 * Removes or recreates a portion of the DOM tree based on an {expression}.
@@ -32337,7 +33942,7 @@
 	//# sourceMappingURL=ng_if.js.map
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32352,9 +33957,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var change_detection_1 = __webpack_require__(63);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
 	var metadata_1 = __webpack_require__(42);
-	var render_1 = __webpack_require__(151);
+	var render_1 = __webpack_require__(152);
 	var lang_1 = __webpack_require__(44);
 	/**
 	 * The `NgStyle` directive changes styles based on a result of expression evaluation.
@@ -32371,12 +33976,10 @@
 	 * ### Example ([live demo](http://plnkr.co/edit/YamGS6GkUh9GqWNQhCyM?p=preview)):
 	 *
 	 * ```
-	 * import {Component, View, NgStyle} from 'angular2/angular2';
+	 * import {Component, NgStyle} from 'angular2/angular2';
 	 *
 	 * @Component({
-	 *  selector: 'ng-style-example'
-	 * })
-	 * @View({
+	 *  selector: 'ng-style-example',
 	 *  template: `
 	 *    <h1 [ng-style]="{'font-style': style, 'font-size': size, 'font-weight': weight}">
 	 *      Change style of this text!
@@ -32451,7 +34054,7 @@
 	//# sourceMappingURL=ng_style.js.map
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32470,7 +34073,7 @@
 	};
 	var metadata_1 = __webpack_require__(42);
 	var di_1 = __webpack_require__(45);
-	var linker_1 = __webpack_require__(204);
+	var linker_1 = __webpack_require__(205);
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
 	var _WHEN_DEFAULT = lang_1.CONST_EXPR(new Object());
@@ -32532,6 +34135,7 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /** @internal */
 	    NgSwitch.prototype._onWhenValueChanged = function (oldWhen, newWhen, view) {
 	        this._deregisterView(oldWhen, view);
 	        this._registerView(newWhen, view);
@@ -32553,6 +34157,7 @@
 	            this._activateViews(this._valueViews.get(_WHEN_DEFAULT));
 	        }
 	    };
+	    /** @internal */
 	    NgSwitch.prototype._emptyAllActiveViews = function () {
 	        var activeContainers = this._activeViews;
 	        for (var i = 0; i < activeContainers.length; i++) {
@@ -32560,6 +34165,7 @@
 	        }
 	        this._activeViews = [];
 	    };
+	    /** @internal */
 	    NgSwitch.prototype._activateViews = function (views) {
 	        // TODO(vicb): assert(this._activeViews.length === 0);
 	        if (lang_1.isPresent(views)) {
@@ -32569,6 +34175,7 @@
 	            this._activeViews = views;
 	        }
 	    };
+	    /** @internal */
 	    NgSwitch.prototype._registerView = function (value, view) {
 	        var views = this._valueViews.get(value);
 	        if (lang_1.isBlank(views)) {
@@ -32577,6 +34184,7 @@
 	        }
 	        views.push(view);
 	    };
+	    /** @internal */
 	    NgSwitch.prototype._deregisterView = function (value, view) {
 	        // `_WHEN_DEFAULT` is used a marker for non-registered whens
 	        if (value === _WHEN_DEFAULT)
@@ -32615,6 +34223,7 @@
 	    function NgSwitchWhen(viewContainer, templateRef, _switch) {
 	        this._switch = _switch;
 	        // `_WHEN_DEFAULT` is used as a marker for a not yet initialized value
+	        /** @internal */
 	        this._value = _WHEN_DEFAULT;
 	        this._view = new SwitchView(viewContainer, templateRef);
 	    }
@@ -32660,29 +34269,30 @@
 	//# sourceMappingURL=ng_switch.js.map
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports) {
 
 	'use strict';// TS does not have Observables
 	//# sourceMappingURL=observable_list_diff.js.map
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var debug_element_1 = __webpack_require__(242);
+	'use strict';var debug_element_1 = __webpack_require__(244);
 	exports.DebugElement = debug_element_1.DebugElement;
 	exports.asNativeElements = debug_element_1.asNativeElements;
 	exports.By = debug_element_1.By;
 	exports.Scope = debug_element_1.Scope;
 	exports.inspectElement = debug_element_1.inspectElement;
-	var debug_element_view_listener_1 = __webpack_require__(243);
+	var debug_element_view_listener_1 = __webpack_require__(245);
 	exports.inspectNativeElement = debug_element_view_listener_1.inspectNativeElement;
+	exports.ELEMENT_PROBE_PROVIDERS = debug_element_view_listener_1.ELEMENT_PROBE_PROVIDERS;
 	exports.ELEMENT_PROBE_BINDINGS = debug_element_view_listener_1.ELEMENT_PROBE_BINDINGS;
 	//# sourceMappingURL=debug.js.map
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32693,8 +34303,8 @@
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
 	var exceptions_1 = __webpack_require__(53);
-	var dom_adapter_1 = __webpack_require__(154);
-	var view_ref_1 = __webpack_require__(130);
+	var dom_adapter_1 = __webpack_require__(155);
+	var view_ref_1 = __webpack_require__(131);
 	/**
 	 * A DebugElement contains information from the Angular compiler about an
 	 * element and provides access to the corresponding ElementInjector and
@@ -32841,6 +34451,7 @@
 	        return this._elementInjector.get(type);
 	    };
 	    DebugElement_.prototype.getLocal = function (name) { return this._parentView.locals.get(name); };
+	    /** @internal */
 	    DebugElement_.prototype._getChildElements = function (view, parentBoundElementIndex) {
 	        var _this = this;
 	        var els = [];
@@ -32926,7 +34537,7 @@
 	//# sourceMappingURL=debug_element.js.map
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32943,10 +34554,10 @@
 	var lang_1 = __webpack_require__(44);
 	var collection_1 = __webpack_require__(51);
 	var di_1 = __webpack_require__(45);
-	var view_listener_1 = __webpack_require__(140);
-	var dom_adapter_1 = __webpack_require__(154);
-	var api_1 = __webpack_require__(135);
-	var debug_element_1 = __webpack_require__(242);
+	var view_listener_1 = __webpack_require__(141);
+	var dom_adapter_1 = __webpack_require__(155);
+	var api_1 = __webpack_require__(136);
+	var debug_element_1 = __webpack_require__(244);
 	var NG_ID_PROPERTY = 'ngid';
 	var INSPECT_GLOBAL_NAME = 'ng.probe';
 	var NG_ID_SEPARATOR = '#';
@@ -32995,8 +34606,8 @@
 	    };
 	    DebugElementViewListener.prototype.viewDestroyed = function (view) {
 	        var viewId = _allIdsByView.get(view);
-	        collection_1.MapWrapper.delete(_allIdsByView, view);
-	        collection_1.MapWrapper.delete(_allViewsById, viewId);
+	        _allIdsByView.delete(view);
+	        _allViewsById.delete(viewId);
 	    };
 	    DebugElementViewListener = __decorate([
 	        di_1.Injectable(), 
@@ -33005,14 +34616,15 @@
 	    return DebugElementViewListener;
 	})();
 	exports.DebugElementViewListener = DebugElementViewListener;
-	exports.ELEMENT_PROBE_BINDINGS = lang_1.CONST_EXPR([
+	exports.ELEMENT_PROBE_PROVIDERS = lang_1.CONST_EXPR([
 	    DebugElementViewListener,
-	    lang_1.CONST_EXPR(new di_1.Binding(view_listener_1.AppViewListener, { toAlias: DebugElementViewListener })),
+	    lang_1.CONST_EXPR(new di_1.Provider(view_listener_1.AppViewListener, { useExisting: DebugElementViewListener })),
 	]);
+	exports.ELEMENT_PROBE_BINDINGS = exports.ELEMENT_PROBE_PROVIDERS;
 	//# sourceMappingURL=debug_element_view_listener.js.map
 
 /***/ },
-/* 244 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var profile_1 = __webpack_require__(84);
@@ -33023,7 +34635,7 @@
 	//# sourceMappingURL=profile.js.map
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -33035,19 +34647,19 @@
 	//# sourceMappingURL=lifecycle_hooks.js.map
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
 	 * This file is only used for dart applications and for internal examples
 	 * that compile with both JavaScript and Dart.
 	 */
-	var bootstrap_1 = __webpack_require__(229);
+	var bootstrap_1 = __webpack_require__(231);
 	exports.bootstrap = bootstrap_1.bootstrap;
 	//# sourceMappingURL=bootstrap.js.map
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33060,86 +34672,82 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _configBootstrap = __webpack_require__(248);
+	var _configBootstrap = __webpack_require__(250);
 
 	_defaults(exports, _interopExportWildcard(_configBootstrap, _defaults));
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	_defaults(exports, _interopExportWildcard(_configConfig, _defaults));
 
-	var _configModes = __webpack_require__(339);
+	var _configModes = __webpack_require__(342);
 
 	_defaults(exports, _interopExportWildcard(_configModes, _defaults));
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
 	_defaults(exports, _interopExportWildcard(_configDecorators, _defaults));
 
-	var _netHttp = __webpack_require__(340);
-
-	_defaults(exports, _interopExportWildcard(_netHttp, _defaults));
-
-	var _components = __webpack_require__(341);
+	var _components = __webpack_require__(343);
 
 	_defaults(exports, _interopExportWildcard(_components, _defaults));
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
-	var _platformRegistry = __webpack_require__(343);
+	var _platformRegistry = __webpack_require__(345);
 
 	_defaults(exports, _interopExportWildcard(_platformRegistry, _defaults));
 
-	var _platformPlugins = __webpack_require__(344);
+	var _platformPlugins = __webpack_require__(346);
 
 	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
 
-	var _platformStorage = __webpack_require__(359);
+	var _platformStorage = __webpack_require__(361);
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
-	var _utilClickBlock = __webpack_require__(273);
+	var _utilClickBlock = __webpack_require__(275);
 
 	_defaults(exports, _interopExportWildcard(_utilClickBlock, _defaults));
 
-	var _utilEvents = __webpack_require__(334);
+	var _utilEvents = __webpack_require__(337);
 
 	_defaults(exports, _interopExportWildcard(_utilEvents, _defaults));
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
-	var _animationsBuiltins = __webpack_require__(363);
+	var _animationsBuiltins = __webpack_require__(365);
 
 	_defaults(exports, _interopExportWildcard(_animationsBuiltins, _defaults));
 
-	var _transitionsTransition = __webpack_require__(300);
+	var _transitionsTransition = __webpack_require__(302);
 
 	_defaults(exports, _interopExportWildcard(_transitionsTransition, _defaults));
 
-	var _transitionsIosTransition = __webpack_require__(364);
+	var _transitionsIosTransition = __webpack_require__(366);
 
 	_defaults(exports, _interopExportWildcard(_transitionsIosTransition, _defaults));
 
-	var _transitionsMdTransition = __webpack_require__(365);
+	var _transitionsMdTransition = __webpack_require__(367);
 
 	_defaults(exports, _interopExportWildcard(_transitionsMdTransition, _defaults));
 
 	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
 
-	var _translationTranslate = __webpack_require__(335);
+	var _translationTranslate = __webpack_require__(338);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
-	var _translationTranslate_pipe = __webpack_require__(366);
+	var _translationTranslate_pipe = __webpack_require__(368);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate_pipe, _defaults));
 
 /***/ },
-/* 248 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33147,49 +34755,51 @@
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-	exports.ionicBindings = ionicBindings;
+	exports.ionicProviders = ionicProviders;
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _angular2Router = __webpack_require__(249);
+	var _angular2Router = __webpack_require__(251);
 
-	var _componentsAppApp = __webpack_require__(272);
+	var _componentsAppApp = __webpack_require__(274);
 
-	var _config = __webpack_require__(274);
+	var _config = __webpack_require__(276);
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
-	var _componentsOverlayOverlayController = __webpack_require__(278);
+	var _componentsOverlayOverlayController = __webpack_require__(280);
 
-	var _utilForm = __webpack_require__(281);
+	var _utilForm = __webpack_require__(283);
 
-	var _utilKeyboard = __webpack_require__(282);
+	var _utilKeyboard = __webpack_require__(284);
 
-	var _componentsActionSheetActionSheet = __webpack_require__(283);
+	var _componentsActionSheetActionSheet = __webpack_require__(285);
 
-	var _componentsModalModal = __webpack_require__(285);
+	var _componentsModalModal = __webpack_require__(287);
 
-	var _componentsPopupPopup = __webpack_require__(333);
+	var _componentsPopupPopup = __webpack_require__(336);
 
-	var _utilEvents = __webpack_require__(334);
+	var _utilEvents = __webpack_require__(337);
 
-	var _componentsNavNavRegistry = __webpack_require__(329);
+	var _componentsNavNavRegistry = __webpack_require__(332);
 
-	var _translationTranslate = __webpack_require__(335);
+	var _translationTranslate = __webpack_require__(338);
 
-	var _componentsTapClickTapClick = __webpack_require__(336);
+	var _utilFeatureDetect = __webpack_require__(321);
 
-	var _utilDom = __webpack_require__(277);
+	var _componentsTapClickTapClick = __webpack_require__(339);
+
+	var _utilDom = __webpack_require__(279);
 
 	var dom = _interopRequireWildcard(_utilDom);
 
-	function ionicBindings(rootCmp, config) {
+	function ionicProviders(config) {
 	    var app = new _componentsAppApp.IonicApp();
-	    var platform = new _platformPlatform.IonicPlatform();
-	    if (!(config instanceof _config.IonicConfig)) {
-	        config = new _config.IonicConfig(config);
+	    var platform = new _platformPlatform.Platform();
+	    if (!(config instanceof _config.Config)) {
+	        config = new _config.Config(config);
 	    }
 	    platform.url(window.location.href);
 	    platform.userAgent(window.navigator.userAgent);
@@ -33198,14 +34808,15 @@
 	    config.setPlatform(platform);
 	    var events = new _utilEvents.Events();
 	    var tapClick = new _componentsTapClickTapClick.TapClick(app, config, window, document);
-	    setupDom(window, document, config, platform);
+	    var featureDetect = new _utilFeatureDetect.FeatureDetect();
+	    setupDom(window, document, config, platform, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
-	    return [(0, _angular2Angular2.bind)(_componentsAppApp.IonicApp).toValue(app), (0, _angular2Angular2.bind)(_config.IonicConfig).toValue(config), (0, _angular2Angular2.bind)(_platformPlatform.IonicPlatform).toValue(platform), (0, _angular2Angular2.bind)(_componentsTapClickTapClick.TapClick).toValue(tapClick), (0, _angular2Angular2.bind)(_utilEvents.Events).toValue(events), _utilForm.IonicForm, _utilKeyboard.IonicKeyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _componentsNavNavRegistry.NavRegistry, (0, _angular2Router.routerBindings)(rootCmp), (0, _angular2Angular2.bind)(_angular2Router.LocationStrategy).toClass(_angular2Router.HashLocationStrategy)];
+	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_componentsTapClickTapClick.TapClick, { useValue: tapClick }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _componentsNavNavRegistry.NavRegistry, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy })];
 	}
 
-	function setupDom(window, document, config, platform) {
+	function setupDom(window, document, config, platform, featureDetect) {
 	    var bodyEle = document.body;
 	    if (!bodyEle) {
 	        return dom.ready(function () {
@@ -33234,20 +34845,8 @@
 	    if (config.get('hoverCSS') !== false) {
 	        bodyEle.classList.add('enable-hover');
 	    }
-	    /**
-	    * Hairline Shim
-	    * Add the "hairline" CSS class name to the body tag
-	    * if the browser supports subpixels.
-	    */
-	    if (window.devicePixelRatio >= 2) {
-	        var hairlineEle = document.createElement('div');
-	        hairlineEle.style.border = '.5px solid transparent';
-	        bodyEle.appendChild(hairlineEle);
-	        if (hairlineEle.offsetHeight === 1) {
-	            bodyEle.classList.add('hairlines');
-	        }
-	        bodyEle.removeChild(hairlineEle);
-	    }
+	    // run feature detection tests
+	    featureDetect.run(window, document);
 	}
 	/**
 	 * Bind some global events and publish on the 'app' channel
@@ -33284,7 +34883,7 @@
 	}
 
 /***/ },
-/* 249 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -33295,65 +34894,61 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var router_1 = __webpack_require__(250);
+	var router_1 = __webpack_require__(252);
 	exports.Router = router_1.Router;
-	var router_outlet_1 = __webpack_require__(254);
+	var router_outlet_1 = __webpack_require__(256);
 	exports.RouterOutlet = router_outlet_1.RouterOutlet;
-	var router_link_1 = __webpack_require__(257);
+	var router_link_1 = __webpack_require__(259);
 	exports.RouterLink = router_link_1.RouterLink;
-	var instruction_1 = __webpack_require__(251);
+	var instruction_1 = __webpack_require__(253);
 	exports.RouteParams = instruction_1.RouteParams;
-	var route_registry_1 = __webpack_require__(260);
+	var route_registry_1 = __webpack_require__(262);
 	exports.RouteRegistry = route_registry_1.RouteRegistry;
-	var location_strategy_1 = __webpack_require__(259);
+	var location_strategy_1 = __webpack_require__(261);
 	exports.LocationStrategy = location_strategy_1.LocationStrategy;
-	var hash_location_strategy_1 = __webpack_require__(269);
+	var hash_location_strategy_1 = __webpack_require__(271);
 	exports.HashLocationStrategy = hash_location_strategy_1.HashLocationStrategy;
-	var path_location_strategy_1 = __webpack_require__(270);
+	var path_location_strategy_1 = __webpack_require__(272);
 	exports.PathLocationStrategy = path_location_strategy_1.PathLocationStrategy;
-	var location_1 = __webpack_require__(258);
+	var location_1 = __webpack_require__(260);
 	exports.Location = location_1.Location;
 	exports.APP_BASE_HREF = location_1.APP_BASE_HREF;
-	__export(__webpack_require__(268));
-	__export(__webpack_require__(271));
-	var lifecycle_annotations_1 = __webpack_require__(256);
+	__export(__webpack_require__(270));
+	__export(__webpack_require__(273));
+	var lifecycle_annotations_1 = __webpack_require__(258);
 	exports.CanActivate = lifecycle_annotations_1.CanActivate;
-	var instruction_2 = __webpack_require__(251);
+	var instruction_2 = __webpack_require__(253);
 	exports.Instruction = instruction_2.Instruction;
 	exports.ComponentInstruction = instruction_2.ComponentInstruction;
 	var angular2_1 = __webpack_require__(40);
 	exports.OpaqueToken = angular2_1.OpaqueToken;
-	var route_data_1 = __webpack_require__(255);
+	var route_data_1 = __webpack_require__(257);
 	exports.ROUTE_DATA = route_data_1.ROUTE_DATA;
-	var location_strategy_2 = __webpack_require__(259);
-	var path_location_strategy_2 = __webpack_require__(270);
-	var router_2 = __webpack_require__(250);
-	var router_outlet_2 = __webpack_require__(254);
-	var router_link_2 = __webpack_require__(257);
-	var route_registry_2 = __webpack_require__(260);
-	var location_2 = __webpack_require__(258);
-	var core_1 = __webpack_require__(41);
+	var location_strategy_2 = __webpack_require__(261);
+	var path_location_strategy_2 = __webpack_require__(272);
+	var router_2 = __webpack_require__(252);
+	var router_outlet_2 = __webpack_require__(256);
+	var router_link_2 = __webpack_require__(259);
+	var route_registry_2 = __webpack_require__(262);
+	var location_2 = __webpack_require__(260);
+	var angular2_2 = __webpack_require__(40);
 	var lang_1 = __webpack_require__(44);
+	var exceptions_1 = __webpack_require__(53);
 	/**
 	 * Token used to bind the component with the top-level {@link RouteConfig}s for the
 	 * application.
 	 *
-	 * You can use the {@link routerBindings} function in your {@link bootstrap} bindings to
-	 * simplify setting up these bindings.
-	 *
 	 * ## Example ([live demo](http://plnkr.co/edit/iRUP8B5OUbxCWQ3AcIDm))
 	 *
 	 * ```
-	 * import {Component, View} from 'angular2/angular2';
+	 * import {Component} from 'angular2/angular2';
 	 * import {
 	 *   ROUTER_DIRECTIVES,
-	 *   ROUTER_BINDINGS,
-	 *   ROUTER_PRIMARY_COMPONENT,
+	 *   ROUTER_PROVIDERS,
 	 *   RouteConfig
 	 * } from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -33361,13 +34956,10 @@
 	 *   // ...
 	 * }
 	 *
-	 * bootstrap(AppCmp, [
-	 *   ROUTER_BINDINGS,
-	 *   bind(ROUTER_PRIMARY_COMPONENT).toValue(AppCmp)
-	 * ]);
+	 * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
 	 * ```
 	 */
-	exports.ROUTER_PRIMARY_COMPONENT = lang_1.CONST_EXPR(new core_1.OpaqueToken('RouterPrimaryComponent'));
+	exports.ROUTER_PRIMARY_COMPONENT = lang_1.CONST_EXPR(new angular2_2.OpaqueToken('RouterPrimaryComponent'));
 	/**
 	 * A list of directives. To use the router directives like {@link RouterOutlet} and
 	 * {@link RouterLink}, add this to your `directives` array in the {@link View} decorator of your
@@ -33376,11 +34968,10 @@
 	 * ## Example ([live demo](http://plnkr.co/edit/iRUP8B5OUbxCWQ3AcIDm))
 	 *
 	 * ```
-	 * import {Component, View} from 'angular2/angular2';
-	 * import {ROUTER_DIRECTIVES, routerBindings, RouteConfig} from 'angular2/router';
+	 * import {Component} from 'angular2/angular2';
+	 * import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -33388,31 +34979,24 @@
 	 *    // ...
 	 * }
 	 *
-	 * bootstrap(AppCmp, [routerBindings(AppCmp)]);
+	 * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
 	 * ```
 	 */
 	exports.ROUTER_DIRECTIVES = lang_1.CONST_EXPR([router_outlet_2.RouterOutlet, router_link_2.RouterLink]);
 	/**
-	 * A list of {@link Binding}s. To use the router, you must add this to your application.
-	 *
-	 * Note that you also need to bind to {@link ROUTER_PRIMARY_COMPONENT}.
-	 *
-	 * You can use the {@link routerBindings} function in your {@link bootstrap} bindings to
-	 * simplify setting up these bindings.
+	 * A list of {@link Provider}s. To use the router, you must add this to your application.
 	 *
 	 * ## Example ([live demo](http://plnkr.co/edit/iRUP8B5OUbxCWQ3AcIDm))
 	 *
 	 * ```
-	 * import {Component, View} from 'angular2/angular2';
+	 * import {Component} from 'angular2/angular2';
 	 * import {
 	 *   ROUTER_DIRECTIVES,
-	 *   ROUTER_BINDINGS,
-	 *   ROUTER_PRIMARY_COMPONENT,
+	 *   ROUTER_PROVIDERS,
 	 *   RouteConfig
 	 * } from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -33420,54 +35004,36 @@
 	 *   // ...
 	 * }
 	 *
-	 * bootstrap(AppCmp, [
-	 *   ROUTER_BINDINGS,
-	 *   bind(ROUTER_PRIMARY_COMPONENT).toValue(AppCmp)
-	 * ]);
+	 * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
 	 * ```
 	 */
-	exports.ROUTER_BINDINGS = lang_1.CONST_EXPR([
+	exports.ROUTER_PROVIDERS = lang_1.CONST_EXPR([
 	    route_registry_2.RouteRegistry,
-	    lang_1.CONST_EXPR(new core_1.Binding(location_strategy_2.LocationStrategy, { toClass: path_location_strategy_2.PathLocationStrategy })),
+	    lang_1.CONST_EXPR(new angular2_2.Provider(location_strategy_2.LocationStrategy, { useClass: path_location_strategy_2.PathLocationStrategy })),
 	    location_2.Location,
-	    lang_1.CONST_EXPR(new core_1.Binding(router_2.Router, {
-	        toFactory: routerFactory,
+	    lang_1.CONST_EXPR(new angular2_2.Provider(router_2.Router, {
+	        useFactory: routerFactory,
 	        deps: lang_1.CONST_EXPR([route_registry_2.RouteRegistry, location_2.Location, exports.ROUTER_PRIMARY_COMPONENT])
-	    }))
+	    })),
+	    lang_1.CONST_EXPR(new angular2_2.Provider(exports.ROUTER_PRIMARY_COMPONENT, { useFactory: routerPrimaryComponentFactory, deps: lang_1.CONST_EXPR([angular2_2.ApplicationRef]) }))
 	]);
+	/**
+	 * @deprecated
+	 */
+	exports.ROUTER_BINDINGS = exports.ROUTER_PROVIDERS;
 	function routerFactory(registry, location, primaryComponent) {
 	    return new router_2.RootRouter(registry, location, primaryComponent);
 	}
-	/**
-	 * A list of {@link Binding}s. To use the router, you must add these bindings to
-	 * your application.
-	 *
-	 * ## Example ([live demo](http://plnkr.co/edit/iRUP8B5OUbxCWQ3AcIDm))
-	 *
-	 * ```
-	 * import {Component, View} from 'angular2/angular2';
-	 * import {ROUTER_DIRECTIVES, routerBindings, RouteConfig} from 'angular2/router';
-	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
-	 * @RouteConfig([
-	 *  {...},
-	 * ])
-	 * class AppCmp {
-	 *   // ...
-	 * }
-	 *
-	 * bootstrap(AppCmp, [routerBindings(AppCmp)]);
-	 * ```
-	 */
-	function routerBindings(primaryComponent) {
-	    return [exports.ROUTER_BINDINGS, core_1.bind(exports.ROUTER_PRIMARY_COMPONENT).toValue(primaryComponent)];
+	function routerPrimaryComponentFactory(app) {
+	    if (app.componentTypes.length == 0) {
+	        throw new exceptions_1.BaseException("Bootstrap at least one component before injecting Router.");
+	    }
+	    return app.componentTypes[0];
 	}
-	exports.routerBindings = routerBindings;
 	//# sourceMappingURL=router.js.map
 
 /***/ },
-/* 250 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -33479,8 +35045,8 @@
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var instruction_1 = __webpack_require__(251);
-	var route_lifecycle_reflector_1 = __webpack_require__(252);
+	var instruction_1 = __webpack_require__(253);
+	var route_lifecycle_reflector_1 = __webpack_require__(254);
 	var _resolveToTrue = async_1.PromiseWrapper.resolve(true);
 	var _resolveToFalse = async_1.PromiseWrapper.resolve(false);
 	/**
@@ -33643,6 +35209,7 @@
 	            return _this._afterPromiseFinishNavigating(_this._navigate(instruction, _skipLocationChange));
 	        });
 	    };
+	    /** @internal */
 	    Router.prototype._navigate = function (instruction, _skipLocationChange) {
 	        var _this = this;
 	        return this._settleInstruction(instruction)
@@ -33669,6 +35236,7 @@
 	    // guaranteed that the `componentType`s for the terminal async routes have been loaded by the time
 	    // we begin navigation. The method below simply traverses instructions and resolves any components
 	    // for which `componentType` is not present
+	    /** @internal */
 	    Router.prototype._settleInstruction = function (instruction) {
 	        var _this = this;
 	        var unsettledInstructions = [];
@@ -33694,6 +35262,7 @@
 	    /*
 	     * Recursively set reuse flags
 	     */
+	    /** @internal */
 	    Router.prototype._canReuse = function (instruction) {
 	        var _this = this;
 	        if (lang_1.isBlank(this._outlet)) {
@@ -33767,12 +35336,12 @@
 	            }
 	        }
 	        var promises = [];
-	        collection_1.MapWrapper.forEach(this._auxRouters, function (router, name) {
-	            promises.push(router.commit(instruction.auxInstruction[name]));
-	        });
+	        this._auxRouters.forEach(function (router, name) { promises.push(router.commit(instruction.auxInstruction[name])); });
 	        return next.then(function (_) { return async_1.PromiseWrapper.all(promises); });
 	    };
+	    /** @internal */
 	    Router.prototype._startNavigating = function () { this.navigating = true; };
+	    /** @internal */
 	    Router.prototype._finishNavigating = function () { this.navigating = false; };
 	    /**
 	     * Subscribe to URL updates from the router
@@ -33884,13 +35453,14 @@
 	    RootRouter.prototype.commit = function (instruction, _skipLocationChange) {
 	        var _this = this;
 	        if (_skipLocationChange === void 0) { _skipLocationChange = false; }
-	        var emitUrl = instruction_1.stringifyInstruction(instruction);
-	        if (emitUrl.length > 0) {
-	            emitUrl = '/' + emitUrl;
+	        var emitPath = instruction_1.stringifyInstructionPath(instruction);
+	        var emitQuery = instruction_1.stringifyInstructionQuery(instruction);
+	        if (emitPath.length > 0) {
+	            emitPath = '/' + emitPath;
 	        }
 	        var promise = _super.prototype.commit.call(this, instruction);
 	        if (!_skipLocationChange) {
-	            promise = promise.then(function (_) { _this._location.go(emitUrl); });
+	            promise = promise.then(function (_) { _this._location.go(emitPath, emitQuery); });
 	        }
 	        return promise;
 	    };
@@ -33951,7 +35521,7 @@
 	//# sourceMappingURL=router.js.map
 
 /***/ },
-/* 251 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -33971,18 +35541,16 @@
 	 * ## Example
 	 *
 	 * ```
-	 * import {bootstrap, Component, View} from 'angular2/angular2';
-	 * import {Router, ROUTER_DIRECTIVES, routerBindings, RouteConfig} from 'angular2/router';
+	 * import {bootstrap, Component} from 'angular2/angular2';
+	 * import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {path: '/user/:id', component: UserCmp, as: 'UserCmp'},
 	 * ])
 	 * class AppCmp {}
 	 *
-	 * @Component({...})
-	 * @View({ template: 'user: {{id}}' })
+	 * @Component({ template: 'user: {{id}}' })
 	 * class UserCmp {
 	 *   string: id;
 	 *   constructor(params: RouteParams) {
@@ -33990,7 +35558,7 @@
 	 *   }
 	 * }
 	 *
-	 * bootstrap(AppCmp, routerBindings(AppCmp));
+	 * bootstrap(AppCmp, ROUTER_PROVIDERS);
 	 * ```
 	 */
 	var RouteParams = (function () {
@@ -34011,11 +35579,10 @@
 	 * ## Example
 	 *
 	 * ```
-	 * import {bootstrap, Component, View} from 'angular2/angular2';
-	 * import {Router, ROUTER_DIRECTIVES, routerBindings, RouteConfig} from 'angular2/router';
+	 * import {bootstrap, Component} from 'angular2/angular2';
+	 * import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -34026,7 +35593,7 @@
 	 *   }
 	 * }
 	 *
-	 * bootstrap(AppCmp, routerBindings(AppCmp));
+	 * bootstrap(AppCmp, ROUTER_PROVIDERS);
 	 * ```
 	 */
 	var Instruction = (function () {
@@ -34062,13 +35629,20 @@
 	})();
 	exports.PrimaryInstruction = PrimaryInstruction;
 	function stringifyInstruction(instruction) {
-	    var params = instruction.component.urlParams.length > 0 ?
-	        ('?' + instruction.component.urlParams.join('&')) :
-	        '';
-	    return instruction.component.urlPath + stringifyAux(instruction) +
-	        stringifyPrimary(instruction.child) + params;
+	    return stringifyInstructionPath(instruction) + stringifyInstructionQuery(instruction);
 	}
 	exports.stringifyInstruction = stringifyInstruction;
+	function stringifyInstructionPath(instruction) {
+	    return instruction.component.urlPath + stringifyAux(instruction) +
+	        stringifyPrimary(instruction.child);
+	}
+	exports.stringifyInstructionPath = stringifyInstructionPath;
+	function stringifyInstructionQuery(instruction) {
+	    return instruction.component.urlParams.length > 0 ?
+	        ('?' + instruction.component.urlParams.join('&')) :
+	        '';
+	}
+	exports.stringifyInstructionQuery = stringifyInstructionQuery;
 	function stringifyPrimary(instruction) {
 	    if (lang_1.isBlank(instruction)) {
 	        return '';
@@ -34171,11 +35745,11 @@
 	//# sourceMappingURL=instruction.js.map
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
-	var lifecycle_annotations_impl_1 = __webpack_require__(253);
+	var lifecycle_annotations_impl_1 = __webpack_require__(255);
 	var reflection_1 = __webpack_require__(55);
 	function hasLifecycleHook(e, type) {
 	    if (!(type instanceof lang_1.Type))
@@ -34197,7 +35771,7 @@
 	//# sourceMappingURL=route_lifecycle_reflector.js.map
 
 /***/ },
-/* 253 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -34242,7 +35816,7 @@
 	//# sourceMappingURL=lifecycle_annotations_impl.js.map
 
 /***/ },
-/* 254 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -34263,14 +35837,12 @@
 	var collection_1 = __webpack_require__(51);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var metadata_1 = __webpack_require__(42);
-	var linker_1 = __webpack_require__(204);
-	var di_1 = __webpack_require__(45);
-	var routerMod = __webpack_require__(250);
-	var instruction_1 = __webpack_require__(251);
-	var route_data_1 = __webpack_require__(255);
-	var hookMod = __webpack_require__(256);
-	var route_lifecycle_reflector_1 = __webpack_require__(252);
+	var angular2_1 = __webpack_require__(40);
+	var routerMod = __webpack_require__(252);
+	var instruction_1 = __webpack_require__(253);
+	var route_data_1 = __webpack_require__(257);
+	var hookMod = __webpack_require__(258);
+	var route_lifecycle_reflector_1 = __webpack_require__(254);
 	var _resolveToTrue = async_1.PromiseWrapper.resolve(true);
 	/**
 	 * A router outlet is a placeholder that Angular dynamically fills based on the application's route.
@@ -34307,13 +35879,12 @@
 	        this._currentInstruction = nextInstruction;
 	        var componentType = nextInstruction.componentType;
 	        var childRouter = this._parentRouter.childRouter(componentType);
-	        var bindings = di_1.Injector.resolve([
-	            di_1.bind(route_data_1.ROUTE_DATA)
-	                .toValue(nextInstruction.routeData()),
-	            di_1.bind(instruction_1.RouteParams).toValue(new instruction_1.RouteParams(nextInstruction.params)),
-	            di_1.bind(routerMod.Router).toValue(childRouter)
+	        var providers = angular2_1.Injector.resolve([
+	            angular2_1.provide(route_data_1.ROUTE_DATA, { useValue: nextInstruction.routeData() }),
+	            angular2_1.provide(instruction_1.RouteParams, { useValue: new instruction_1.RouteParams(nextInstruction.params) }),
+	            angular2_1.provide(routerMod.Router, { useValue: childRouter })
 	        ]);
-	        return this._loader.loadNextToLocation(componentType, this._elementRef, bindings)
+	        return this._loader.loadNextToLocation(componentType, this._elementRef, providers)
 	            .then(function (componentRef) {
 	            _this._componentRef = componentRef;
 	            if (route_lifecycle_reflector_1.hasLifecycleHook(hookMod.onActivate, componentType)) {
@@ -34398,9 +35969,9 @@
 	        return async_1.PromiseWrapper.resolve(result);
 	    };
 	    RouterOutlet = __decorate([
-	        metadata_1.Directive({ selector: 'router-outlet' }),
-	        __param(3, metadata_1.Attribute('name')), 
-	        __metadata('design:paramtypes', [linker_1.ElementRef, linker_1.DynamicComponentLoader, routerMod.Router, String])
+	        angular2_1.Directive({ selector: 'router-outlet' }),
+	        __param(3, angular2_1.Attribute('name')), 
+	        __metadata('design:paramtypes', [angular2_1.ElementRef, angular2_1.DynamicComponentLoader, routerMod.Router, String])
 	    ], RouterOutlet);
 	    return RouterOutlet;
 	})();
@@ -34408,16 +35979,16 @@
 	//# sourceMappingURL=router_outlet.js.map
 
 /***/ },
-/* 255 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var di_1 = __webpack_require__(45);
+	'use strict';var angular2_1 = __webpack_require__(40);
 	var lang_1 = __webpack_require__(44);
-	exports.ROUTE_DATA = lang_1.CONST_EXPR(new di_1.OpaqueToken('routeData'));
+	exports.ROUTE_DATA = lang_1.CONST_EXPR(new angular2_1.OpaqueToken('routeData'));
 	//# sourceMappingURL=route_data.js.map
 
 /***/ },
-/* 256 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -34425,8 +35996,8 @@
 	 * to be used by the decorator versions of these annotations.
 	 */
 	var decorators_1 = __webpack_require__(48);
-	var lifecycle_annotations_impl_1 = __webpack_require__(253);
-	var lifecycle_annotations_impl_2 = __webpack_require__(253);
+	var lifecycle_annotations_impl_1 = __webpack_require__(255);
+	var lifecycle_annotations_impl_2 = __webpack_require__(255);
 	exports.canReuse = lifecycle_annotations_impl_2.canReuse;
 	exports.canDeactivate = lifecycle_annotations_impl_2.canDeactivate;
 	exports.onActivate = lifecycle_annotations_impl_2.onActivate;
@@ -34455,10 +36026,8 @@
 	 * import {CanActivate} from 'angular2/router';
 	 *
 	 * @Component({
-	 *   selector: 'control-panel-cmp'
-	 * })
-	 * @View({
-	 *  template: '<div>Control Panel: ...</div>'
+	 *   selector: 'control-panel-cmp',
+	 *   template: '<div>Control Panel: ...</div>'
 	 * })
 	 * @CanActivate(() => checkIfUserIsLoggedIn())
 	 * class ControlPanelCmp {
@@ -34470,7 +36039,7 @@
 	//# sourceMappingURL=lifecycle_annotations.js.map
 
 /***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -34485,9 +36054,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var metadata_1 = __webpack_require__(42);
-	var router_1 = __webpack_require__(250);
-	var location_1 = __webpack_require__(258);
-	var instruction_1 = __webpack_require__(251);
+	var router_1 = __webpack_require__(252);
+	var location_1 = __webpack_require__(260);
+	var instruction_1 = __webpack_require__(253);
 	/**
 	 * The RouterLink directive lets you link to specific parts of your app.
 	 *
@@ -34495,21 +36064,21 @@
 
 	 * ```
 	 * @RouteConfig([
-	 *   { path: '/user', component: UserCmp, as: 'user' }
+	 *   { path: '/user', component: UserCmp, as: 'User' }
 	 * ]);
 	 * class MyComp {}
 	 * ```
 	 *
-	 * When linking to this `user` route, you can write:
+	 * When linking to this `User` route, you can write:
 	 *
 	 * ```
-	 * <a [router-link]="['./user']">link to user component</a>
+	 * <a [router-link]="['./User']">link to user component</a>
 	 * ```
 	 *
 	 * RouterLink expects the value to be an array of route names, followed by the params
-	 * for that level of routing. For instance `['/team', {teamId: 1}, 'user', {userId: 2}]`
-	 * means that we want to generate a link for the `team` route with params `{teamId: 1}`,
-	 * and with a child route `user` with params `{userId: 2}`.
+	 * for that level of routing. For instance `['/Team', {teamId: 1}, 'User', {userId: 2}]`
+	 * means that we want to generate a link for the `Team` route with params `{teamId: 1}`,
+	 * and with a child route `User` with params `{userId: 2}`.
 	 *
 	 * The first route name should be prepended with `/`, `./`, or `../`.
 	 * If the route begins with `/`, the router will look up the route from the root of the app.
@@ -34560,7 +36129,7 @@
 	//# sourceMappingURL=router_link.js.map
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -34577,28 +36146,27 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var location_strategy_1 = __webpack_require__(259);
+	var location_strategy_1 = __webpack_require__(261);
 	var lang_1 = __webpack_require__(44);
 	var async_1 = __webpack_require__(99);
 	var lang_2 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var di_1 = __webpack_require__(45);
+	var angular2_1 = __webpack_require__(40);
 	/**
 	 * The `APP_BASE_HREF` token represents the base href to be used with the
 	 * {@link PathLocationStrategy}.
 	 *
-	 * If you're using {@link PathLocationStrategy}, you must provide a binding to a string
+	 * If you're using {@link PathLocationStrategy}, you must provide a provider to a string
 	 * representing the URL prefix that should be preserved when generating and recognizing
 	 * URLs.
 	 *
 	 * ## Example
 	 *
 	 * ```
-	 * import {Component, View} from 'angular2/angular2';
-	 * import {ROUTER_DIRECTIVES, routerBindings, RouteConfig} from 'angular2/router';
+	 * import {Component} from 'angular2/angular2';
+	 * import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -34607,13 +36175,13 @@
 	 * }
 	 *
 	 * bootstrap(AppCmp, [
-	 *   routerBindings(AppCmp),
+	 *   ROUTER_PROVIDERS,
 	 *   PathLocationStrategy,
-	 *   bind(APP_BASE_HREF).toValue('/my/app')
+	 *   provide(APP_BASE_HREF, {useValue: '/my/app'})
 	 * ]);
 	 * ```
 	 */
-	exports.APP_BASE_HREF = lang_1.CONST_EXPR(new di_1.OpaqueToken('appBaseHref'));
+	exports.APP_BASE_HREF = lang_1.CONST_EXPR(new angular2_1.OpaqueToken('appBaseHref'));
 	/**
 	 * `Location` is a service that applications can use to interact with a browser's URL.
 	 * Depending on which {@link LocationStrategy} is used, `Location` will either persist
@@ -34633,16 +36201,15 @@
 	 * ## Example
 	 *
 	 * ```
-	 * import {Component, View} from 'angular2/angular2';
+	 * import {Component} from 'angular2/angular2';
 	 * import {
 	 *   ROUTER_DIRECTIVES,
-	 *   routerBindings,
+	 *   ROUTER_PROVIDERS,
 	 *   RouteConfig,
 	 *   Location
 	 * } from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -34652,17 +36219,18 @@
 	 *   }
 	 * }
 	 *
-	 * bootstrap(AppCmp, [routerBindings(AppCmp)]);
+	 * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
 	 * ```
 	 */
 	var Location = (function () {
 	    function Location(platformStrategy, href) {
 	        var _this = this;
 	        this.platformStrategy = platformStrategy;
+	        /** @internal */
 	        this._subject = new async_1.EventEmitter();
 	        var browserBaseHref = lang_1.isPresent(href) ? href : this.platformStrategy.getBaseHref();
 	        if (lang_2.isBlank(browserBaseHref)) {
-	            throw new exceptions_1.BaseException("No base href set. Either provide a binding for the APP_BASE_HREF token or add a base element to the document.");
+	            throw new exceptions_1.BaseException("No base href set. Either provide a provider for the APP_BASE_HREF token or add a base element to the document.");
 	        }
 	        this._baseHref = stripTrailingSlash(stripIndexHtml(browserBaseHref));
 	        this.platformStrategy.onPopState(function (_) { async_1.ObservableWrapper.callNext(_this._subject, { 'url': _this.path(), 'pop': true }); });
@@ -34692,9 +36260,10 @@
 	     * Changes the browsers URL to the normalized version of the given URL, and pushes a
 	     * new item onto the platform's history.
 	     */
-	    Location.prototype.go = function (url) {
-	        var finalUrl = this.normalizeAbsolutely(url);
-	        this.platformStrategy.pushState(null, '', finalUrl);
+	    Location.prototype.go = function (path, query) {
+	        if (query === void 0) { query = ''; }
+	        var absolutePath = this.normalizeAbsolutely(path);
+	        this.platformStrategy.pushState(null, '', absolutePath, query);
 	    };
 	    /**
 	     * Navigates forward in the platform's history.
@@ -34713,9 +36282,9 @@
 	        async_1.ObservableWrapper.subscribe(this._subject, onNext, onThrow, onReturn);
 	    };
 	    Location = __decorate([
-	        di_1.Injectable(),
-	        __param(1, di_1.Optional()),
-	        __param(1, di_1.Inject(exports.APP_BASE_HREF)), 
+	        angular2_1.Injectable(),
+	        __param(1, angular2_1.Optional()),
+	        __param(1, angular2_1.Inject(exports.APP_BASE_HREF)), 
 	        __metadata('design:paramtypes', [location_strategy_1.LocationStrategy, String])
 	    ], Location);
 	    return Location;
@@ -34749,7 +36318,7 @@
 	//# sourceMappingURL=location.js.map
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -34774,10 +36343,14 @@
 	    return LocationStrategy;
 	})();
 	exports.LocationStrategy = LocationStrategy;
+	function normalizeQueryParams(params) {
+	    return (params.length > 0 && params.substring(0, 1) != '?') ? ('?' + params) : params;
+	}
+	exports.normalizeQueryParams = normalizeQueryParams;
 	//# sourceMappingURL=location_strategy.js.map
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -34791,17 +36364,17 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var route_recognizer_1 = __webpack_require__(261);
-	var instruction_1 = __webpack_require__(251);
+	var route_recognizer_1 = __webpack_require__(263);
+	var instruction_1 = __webpack_require__(253);
 	var collection_1 = __webpack_require__(51);
 	var async_1 = __webpack_require__(99);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
-	var route_config_impl_1 = __webpack_require__(264);
+	var route_config_impl_1 = __webpack_require__(266);
 	var reflection_1 = __webpack_require__(55);
-	var di_1 = __webpack_require__(45);
-	var route_config_nomalizer_1 = __webpack_require__(267);
-	var url_parser_1 = __webpack_require__(263);
+	var angular2_1 = __webpack_require__(40);
+	var route_config_nomalizer_1 = __webpack_require__(269);
+	var url_parser_1 = __webpack_require__(265);
 	var _resolveToNull = async_1.PromiseWrapper.resolve(null);
 	/**
 	 * The RouteRegistry holds route configurations for each component in an Angular app.
@@ -35024,7 +36597,7 @@
 	        return null;
 	    };
 	    RouteRegistry = __decorate([
-	        di_1.Injectable(), 
+	        angular2_1.Injectable(), 
 	        __metadata('design:paramtypes', [])
 	    ], RouteRegistry);
 	    return RouteRegistry;
@@ -35053,17 +36626,17 @@
 	//# sourceMappingURL=route_registry.js.map
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	var path_recognizer_1 = __webpack_require__(262);
-	var route_config_impl_1 = __webpack_require__(264);
-	var async_route_handler_1 = __webpack_require__(265);
-	var sync_route_handler_1 = __webpack_require__(266);
-	var url_parser_1 = __webpack_require__(263);
+	var path_recognizer_1 = __webpack_require__(264);
+	var route_config_impl_1 = __webpack_require__(266);
+	var async_route_handler_1 = __webpack_require__(267);
+	var sync_route_handler_1 = __webpack_require__(268);
+	var url_parser_1 = __webpack_require__(265);
 	/**
 	 * `RouteRecognizer` is responsible for recognizing routes for a single component.
 	 * It is consumed by `RouteRegistry`, which knows how to recognize an entire hierarchy of
@@ -35128,6 +36701,7 @@
 	        });
 	        return solutions;
 	    };
+	    /** @internal */
 	    RouteRecognizer.prototype._redirect = function (urlParse) {
 	        for (var i = 0; i < this.redirects.length; i += 1) {
 	            var redirector = this.redirects[i];
@@ -35195,14 +36769,14 @@
 	//# sourceMappingURL=route_recognizer.js.map
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	var collection_1 = __webpack_require__(51);
-	var url_parser_1 = __webpack_require__(263);
-	var instruction_1 = __webpack_require__(251);
+	var url_parser_1 = __webpack_require__(265);
+	var instruction_1 = __webpack_require__(253);
 	var TouchMap = (function () {
 	    function TouchMap(map) {
 	        var _this = this;
@@ -35467,7 +37041,7 @@
 	//# sourceMappingURL=path_recognizer.js.map
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -35495,6 +37069,7 @@
 	        return this.path + this._matrixParamsToString() + this._auxToString() + this._childString();
 	    };
 	    Url.prototype.segmentToString = function () { return this.path + this._matrixParamsToString(); };
+	    /** @internal */
 	    Url.prototype._auxToString = function () {
 	        return this.auxiliary.length > 0 ?
 	            ('(' + this.auxiliary.map(function (sibling) { return sibling.toString(); }).join('//') + ')') :
@@ -35506,6 +37081,7 @@
 	        }
 	        return ';' + serializeParams(this.params).join(';');
 	    };
+	    /** @internal */
 	    Url.prototype._childString = function () { return lang_1.isPresent(this.child) ? ('/' + this.child.toString()) : ''; };
 	    return Url;
 	})();
@@ -35539,10 +37115,10 @@
 	    return url;
 	}
 	exports.pathSegmentsToUrl = pathSegmentsToUrl;
-	var SEGMENT_RE = lang_1.RegExpWrapper.create('^[^\\/\\(\\)\\?;=&]+');
+	var SEGMENT_RE = lang_1.RegExpWrapper.create('^[^\\/\\(\\)\\?;=&#]+');
 	function matchUrlSegment(str) {
 	    var match = lang_1.RegExpWrapper.firstMatch(SEGMENT_RE, str);
-	    return lang_1.isPresent(match) ? match[0] : null;
+	    return lang_1.isPresent(match) ? match[0] : '';
 	}
 	var UrlParser = (function () {
 	    function UrlParser() {
@@ -35681,7 +37257,7 @@
 	//# sourceMappingURL=url_parser.js.map
 
 /***/ },
-/* 264 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35862,7 +37438,7 @@
 	//# sourceMappingURL=route_config_impl.js.map
 
 /***/ },
-/* 265 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(44);
@@ -35870,6 +37446,7 @@
 	    function AsyncRouteHandler(_loader, data) {
 	        this._loader = _loader;
 	        this.data = data;
+	        /** @internal */
 	        this._resolvedComponent = null;
 	    }
 	    AsyncRouteHandler.prototype.resolveComponentType = function () {
@@ -35888,7 +37465,7 @@
 	//# sourceMappingURL=async_route_handler.js.map
 
 /***/ },
-/* 266 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var async_1 = __webpack_require__(99);
@@ -35896,6 +37473,7 @@
 	    function SyncRouteHandler(componentType, data) {
 	        this.componentType = componentType;
 	        this.data = data;
+	        /** @internal */
 	        this._resolvedComponent = null;
 	        this._resolvedComponent = async_1.PromiseWrapper.resolve(componentType);
 	    }
@@ -35906,10 +37484,10 @@
 	//# sourceMappingURL=sync_route_handler.js.map
 
 /***/ },
-/* 267 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var route_config_decorator_1 = __webpack_require__(268);
+	'use strict';var route_config_decorator_1 = __webpack_require__(270);
 	var lang_1 = __webpack_require__(44);
 	var exceptions_1 = __webpack_require__(53);
 	/**
@@ -35960,12 +37538,12 @@
 	//# sourceMappingURL=route_config_nomalizer.js.map
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var route_config_impl_1 = __webpack_require__(264);
+	'use strict';var route_config_impl_1 = __webpack_require__(266);
 	var decorators_1 = __webpack_require__(48);
-	var route_config_impl_2 = __webpack_require__(264);
+	var route_config_impl_2 = __webpack_require__(266);
 	exports.Route = route_config_impl_2.Route;
 	exports.Redirect = route_config_impl_2.Redirect;
 	exports.AuxRoute = route_config_impl_2.AuxRoute;
@@ -35974,7 +37552,7 @@
 	//# sourceMappingURL=route_config_decorator.js.map
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -35993,17 +37571,14 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var dom_adapter_1 = __webpack_require__(154);
-	var di_1 = __webpack_require__(45);
-	var location_strategy_1 = __webpack_require__(259);
+	var dom_adapter_1 = __webpack_require__(155);
+	var angular2_1 = __webpack_require__(40);
+	var location_strategy_1 = __webpack_require__(261);
 	/**
 	 * `HashLocationStrategy` is a {@link LocationStrategy} used to configure the
 	 * {@link Location} service to represent its state in the
 	 * [hash fragment](https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax)
 	 * of the browser's URL.
-	 *
-	 * `HashLocationStrategy` is the default binding for {@link LocationStrategy}
-	 * provided in {@link routerBindings} and {@link ROUTER_BINDINGS}.
 	 *
 	 * For instance, if you call `location.go('/foo')`, the browser's URL will become
 	 * `example.com#/foo`.
@@ -36014,13 +37589,12 @@
 	 * import {Component, View} from 'angular2/angular2';
 	 * import {
 	 *   ROUTER_DIRECTIVES,
-	 *   routerBindings,
+	 *   ROUTER_PROVIDERS,
 	 *   RouteConfig,
 	 *   Location
 	 * } from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -36030,9 +37604,7 @@
 	 *   }
 	 * }
 	 *
-	 * bootstrap(AppCmp, [
-	 *   routerBindings(AppCmp) // includes binding to HashLocationStrategy
-	 * ]);
+	 * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
 	 * ```
 	 */
 	var HashLocationStrategy = (function (_super) {
@@ -36053,15 +37625,23 @@
 	        // Dart will complain if a call to substring is
 	        // executed with a position value that extends the
 	        // length of string.
-	        return path.length > 0 ? path.substring(1) : path;
+	        return (path.length > 0 ? path.substring(1) : path) +
+	            location_strategy_1.normalizeQueryParams(this._location.search);
 	    };
-	    HashLocationStrategy.prototype.pushState = function (state, title, url) {
-	        this._history.pushState(state, title, '#' + url);
+	    HashLocationStrategy.prototype.pushState = function (state, title, path, queryParams) {
+	        var url = path + location_strategy_1.normalizeQueryParams(queryParams);
+	        if (url.length == 0) {
+	            url = this._location.pathname;
+	        }
+	        else {
+	            url = '#' + url;
+	        }
+	        this._history.pushState(state, title, url);
 	    };
 	    HashLocationStrategy.prototype.forward = function () { this._history.forward(); };
 	    HashLocationStrategy.prototype.back = function () { this._history.back(); };
 	    HashLocationStrategy = __decorate([
-	        di_1.Injectable(), 
+	        angular2_1.Injectable(), 
 	        __metadata('design:paramtypes', [])
 	    ], HashLocationStrategy);
 	    return HashLocationStrategy;
@@ -36070,7 +37650,7 @@
 	//# sourceMappingURL=hash_location_strategy.js.map
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -36089,16 +37669,19 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var dom_adapter_1 = __webpack_require__(154);
-	var di_1 = __webpack_require__(45);
-	var location_strategy_1 = __webpack_require__(259);
+	var dom_adapter_1 = __webpack_require__(155);
+	var angular2_1 = __webpack_require__(40);
+	var location_strategy_1 = __webpack_require__(261);
 	/**
 	 * `PathLocationStrategy` is a {@link LocationStrategy} used to configure the
 	 * {@link Location} service to represent its state in the
 	 * [path](https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax) of the
 	 * browser's URL.
 	 *
-	 * If you're using `PathLocationStrategy`, you must provide a binding for
+	 * `PathLocationStrategy` is the default binding for {@link LocationStrategy}
+	 * provided in {@link ROUTER_PROVIDERS}.
+	 *
+	 * If you're using `PathLocationStrategy`, you must provide a provider for
 	 * {@link APP_BASE_HREF} to a string representing the URL prefix that should
 	 * be preserved when generating and recognizing URLs.
 	 *
@@ -36109,19 +37692,16 @@
 	 * ## Example
 	 *
 	 * ```
-	 * import {Component, View, bind} from 'angular2/angular2';
+	 * import {Component, provide} from 'angular2/angular2';
 	 * import {
 	 *   APP_BASE_HREF
 	 *   ROUTER_DIRECTIVES,
-	 *   routerBindings,
+	 *   ROUTER_PROVIDERS,
 	 *   RouteConfig,
-	 *   Location,
-	 *   LocationStrategy,
-	 *   PathLocationStrategy
+	 *   Location
 	 * } from 'angular2/router';
 	 *
-	 * @Component({...})
-	 * @View({directives: [ROUTER_DIRECTIVES]})
+	 * @Component({directives: [ROUTER_DIRECTIVES]})
 	 * @RouteConfig([
 	 *  {...},
 	 * ])
@@ -36132,9 +37712,8 @@
 	 * }
 	 *
 	 * bootstrap(AppCmp, [
-	 *   routerBindings(AppCmp),
-	 *   bind(LocationStrategy).toClass(PathLocationStrategy),
-	 *   bind(APP_BASE_HREF).toValue('/my/app')
+	 *   ROUTER_PROVIDERS, // includes binding to PathLocationStrategy
+	 *   provide(APP_BASE_HREF, {useValue: '/my/app'})
 	 * ]);
 	 * ```
 	 */
@@ -36150,12 +37729,14 @@
 	        dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('popstate', fn, false);
 	    };
 	    PathLocationStrategy.prototype.getBaseHref = function () { return this._baseHref; };
-	    PathLocationStrategy.prototype.path = function () { return this._location.pathname; };
-	    PathLocationStrategy.prototype.pushState = function (state, title, url) { this._history.pushState(state, title, url); };
+	    PathLocationStrategy.prototype.path = function () { return this._location.pathname + location_strategy_1.normalizeQueryParams(this._location.search); };
+	    PathLocationStrategy.prototype.pushState = function (state, title, url, queryParams) {
+	        this._history.pushState(state, title, (url + location_strategy_1.normalizeQueryParams(queryParams)));
+	    };
 	    PathLocationStrategy.prototype.forward = function () { this._history.forward(); };
 	    PathLocationStrategy.prototype.back = function () { this._history.back(); };
 	    PathLocationStrategy = __decorate([
-	        di_1.Injectable(), 
+	        angular2_1.Injectable(), 
 	        __metadata('design:paramtypes', [])
 	    ], PathLocationStrategy);
 	    return PathLocationStrategy;
@@ -36164,13 +37745,13 @@
 	//# sourceMappingURL=path_location_strategy.js.map
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports) {
 
 	'use strict';//# sourceMappingURL=route_definition.js.map
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36185,7 +37766,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _utilClickBlock = __webpack_require__(273);
+	var _utilClickBlock = __webpack_require__(275);
 
 	/**
 	 * Component registry service.  For more information on registering
@@ -36346,7 +37927,7 @@
 	exports.IonicApp = IonicApp;
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36392,7 +37973,7 @@
 	exports.ClickBlock = ClickBlock;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -36400,7 +37981,7 @@
 	* @name Config
 	* @module ionic
 	* @description
-	* IonicConfig allows you to set the modes of your components
+	* Config allows you to set the modes of your components
 	*/
 	'use strict';
 
@@ -36412,22 +37993,22 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
-	var _utilUtil = __webpack_require__(276);
+	var _utilUtil = __webpack_require__(278);
 
 	/**
 	* TODO
 	*/
 
-	var IonicConfig = (function () {
+	var Config = (function () {
 	    /**
 	     * TODO
 	     * @param  {Object} config   The config for your app
 	     */
 
-	    function IonicConfig(config) {
-	        _classCallCheck(this, IonicConfig);
+	    function Config(config) {
+	        _classCallCheck(this, Config);
 
 	        this._s = config && (0, _utilUtil.isObject)(config) && !(0, _utilUtil.isArray)(config) ? config : {};
 	        this._c = {}; // cached values
@@ -36439,12 +38020,12 @@
 	    /**
 	    * @name settings()
 	    * @description
-	    * IonicConfig lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	    * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
 	    *
 	    *
 	    * @usage
 	    * ```ts
-	    * import {IonicConfig} from 'ionic/ionic';
+	    * import {Config} from 'ionic/ionic';
 	    * @App({
 	    *   template: `<ion-nav [root]="root"></ion-nav>`
 	    *   config: {
@@ -36459,7 +38040,7 @@
 	    * ```
 	    */
 
-	    _createClass(IonicConfig, [{
+	    _createClass(Config, [{
 	        key: 'settings',
 	        value: function settings() {
 	            var args = arguments;
@@ -36544,20 +38125,20 @@
 	                                if ((0, _utilUtil.isDefined)(configObj[key])) {
 	                                    userPlatformValue = configObj[key];
 	                                }
-	                                configObj = IonicConfig.getModeConfig(configObj.mode);
+	                                configObj = Config.getModeConfig(configObj.mode);
 	                                if (configObj && (0, _utilUtil.isDefined)(configObj[key])) {
 	                                    userPlatformModeValue = configObj[key];
 	                                }
 	                            }
 	                        }
 	                        // get default platform's setting
-	                        configObj = _platformPlatform.IonicPlatform.get(activePlatformKeys[i]);
+	                        configObj = _platformPlatform.Platform.get(activePlatformKeys[i]);
 	                        if (configObj && configObj.settings) {
 	                            if ((0, _utilUtil.isDefined)(configObj.settings[key])) {
 	                                // found a setting for this platform
 	                                platformValue = configObj.settings[key];
 	                            }
-	                            configObj = IonicConfig.getModeConfig(configObj.settings.mode);
+	                            configObj = Config.getModeConfig(configObj.settings.mode);
 	                            if (configObj && (0, _utilUtil.isDefined)(configObj[key])) {
 	                                // found setting for this platform's mode
 	                                platformModeValue = configObj[key];
@@ -36565,7 +38146,7 @@
 	                        }
 	                    }
 	                }
-	                configObj = IonicConfig.getModeConfig(this._s.mode);
+	                configObj = Config.getModeConfig(this._s.mode);
 	                if (configObj && (0, _utilUtil.isDefined)(configObj[key])) {
 	                    userDefaultModeValue = configObj[key];
 	                }
@@ -36604,15 +38185,15 @@
 	        }
 	    }]);
 
-	    return IonicConfig;
+	    return Config;
 	})();
 
-	exports.IonicConfig = IonicConfig;
+	exports.Config = Config;
 
 	var modeConfigs = {};
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -36620,7 +38201,7 @@
 	+* @name platform
 	+* @module ionic
 	+* @description
-	+* IonicPlatform returns the availble information about your current platform
+	+* Platform returns the availble information about your current platform
 	+*/
 	'use strict';
 
@@ -36634,11 +38215,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilUtil = __webpack_require__(276);
+	var _utilUtil = __webpack_require__(278);
 
 	var util = _interopRequireWildcard(_utilUtil);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var dom = _interopRequireWildcard(_utilDom);
 
@@ -36646,13 +38227,13 @@
 	 * TODO
 	 */
 
-	var IonicPlatform = (function () {
-	    function IonicPlatform() {
+	var Platform = (function () {
+	    function Platform() {
 	        var _this = this;
 
 	        var platforms = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
-	        _classCallCheck(this, IonicPlatform);
+	        _classCallCheck(this, Platform);
 
 	        this._platforms = platforms;
 	        this._versions = {};
@@ -36669,9 +38250,9 @@
 	     * @returns {bool}
 	     *
 	     * ```
-	     * import {IonicPlatform} 'ionic/ionic';
+	     * import {Platform} 'ionic/ionic';
 	     * export MyClass {
-	     *    constructor(platform: IonicPlatform){
+	     *    constructor(platform: Platform){
 	     *      this.platform = platform;
 	     *      if(this.platform.is('ios'){
 	     *        // what ever you need to do for
@@ -36682,7 +38263,7 @@
 	     * ```
 	     */
 
-	    _createClass(IonicPlatform, [{
+	    _createClass(Platform, [{
 	        key: 'is',
 	        value: function is(platformName) {
 	            return this._platforms.indexOf(platformName) > -1;
@@ -36696,9 +38277,9 @@
 	         * it would return mobile, ios, and iphone.
 	         *
 	         * ```
-	         * import {IonicPlatform} 'ionic/ionic';
+	         * import {Platform} 'ionic/ionic';
 	         * export MyClass {
-	         *    constructor(platform: IonicPlatform){
+	         *    constructor(platform: Platform){
 	         *      this.platform = platform;
 	         *      console.log(this.platform.platforms());
 	         *      // This will return an array of all the availble platforms
@@ -36723,9 +38304,9 @@
 	         * Returns an object containing the os version
 	         *
 	         * ```
-	         * import {IonicPlatform} 'ionic/ionic';
+	         * import {Platform} 'ionic/ionic';
 	         * export MyClass {
-	         *    constructor(platform: IonicPlatform){
+	         *    constructor(platform: Platform){
 	         *      this.platform = platform;
 	         *      console.log(this.platform.versions('android'));
 	         *      // Returns an object with the os version as a string,
@@ -36754,9 +38335,9 @@
 	         * Returns a promise when the platform is ready and native functionality can be called
 	         *
 	         * ```
-	         * import {IonicPlatform} 'ionic/ionic';
+	         * import {Platform} 'ionic/ionic';
 	         * export MyClass {
-	         *    constructor(platform: IonicPlatform){
+	         *    constructor(platform: Platform){
 	         *      this.platform = platform;
 	         *      this.platform.ready().then(() => {
 	         *        console.log('Platform ready');
@@ -37088,10 +38669,10 @@
 	        }
 	    }]);
 
-	    return IonicPlatform;
+	    return Platform;
 	})();
 
-	exports.IonicPlatform = IonicPlatform;
+	exports.Platform = Platform;
 
 	function insertSuperset(platformNode) {
 	    var supersetPlaformName = platformNode.superset();
@@ -37112,7 +38693,7 @@
 	    function PlatformNode(platformName) {
 	        _classCallCheck(this, PlatformNode);
 
-	        this.c = IonicPlatform.get(platformName);
+	        this.c = Platform.get(platformName);
 	        this.isEngine = this.c.isEngine;
 	    }
 
@@ -37203,7 +38784,7 @@
 	    }, {
 	        key: 'getSubsetParents',
 	        value: function getSubsetParents(subsetPlatformName) {
-	            var platformRegistry = IonicPlatform.registry();
+	            var platformRegistry = Platform.registry();
 	            var parentPlatformNames = [];
 	            var platform = null;
 	            for (var platformName in platformRegistry) {
@@ -37223,7 +38804,7 @@
 	var platformDefault = null;
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports) {
 
 	// Simple noop function
@@ -37531,7 +39112,7 @@
 	}
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37815,17 +39396,8 @@
 
 	var dimensionCache = {};
 	var dimensionIds = 0;
-	function getStyle(el, cssprop) {
-	    if (el.currentStyle) {
-	        return el.currentStyle[cssprop];
-	    } else if (window.getComputedStyle) {
-	        return window.getComputedStyle(el)[cssprop];
-	    }
-	    // finally try and get inline style
-	    return el.style[cssprop];
-	}
 	function isStaticPositioned(element) {
-	    return (getStyle(element, 'position') || 'static') === 'static';
+	    return (element.style.position || 'static') === 'static';
 	}
 	/**
 	 * returns the closest, non-statically positioned parentOffset of a given element
@@ -37859,8 +39431,8 @@
 	    }
 	    var boundingClientRect = element.getBoundingClientRect();
 	    return {
-	        width: boundingClientRect.width || element.prop('offsetWidth'),
-	        height: boundingClientRect.height || element.prop('offsetHeight'),
+	        width: boundingClientRect.width || element.offsetWidth,
+	        height: boundingClientRect.height || element.offsetHeight,
 	        top: elBCR.top - offsetParentBCR.top,
 	        left: elBCR.left - offsetParentBCR.left
 	    };
@@ -37876,15 +39448,15 @@
 	function offset(element) {
 	    var boundingClientRect = element.getBoundingClientRect();
 	    return {
-	        width: boundingClientRect.width || element.prop('offsetWidth'),
-	        height: boundingClientRect.height || element.prop('offsetHeight'),
+	        width: boundingClientRect.width || element.offsetWidth,
+	        height: boundingClientRect.height || element.offsetHeight,
 	        top: boundingClientRect.top + (window.pageYOffset || document.documentElement.scrollTop),
 	        left: boundingClientRect.left + (window.pageXOffset || document.documentElement.scrollLeft)
 	    };
 	}
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37901,11 +39473,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -38074,7 +39646,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38087,9 +39659,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
-	var _utilUtil = __webpack_require__(276);
+	var _utilUtil = __webpack_require__(278);
 
 	/**
 	  Animation Steps/Process
@@ -38932,7 +40504,7 @@
 	var AnimationRegistry = {};
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38947,19 +40519,19 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _ionicUtilDom = __webpack_require__(277);
+	var _ionicUtilDom = __webpack_require__(279);
 
 	var domUtil = _interopRequireWildcard(_ionicUtilDom);
 
 	var dom = domUtil;
 	exports.dom = dom;
 
-	var _ionicUtilUtil = __webpack_require__(276);
+	var _ionicUtilUtil = __webpack_require__(278);
 
 	_defaults(exports, _interopExportWildcard(_ionicUtilUtil, _defaults));
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38974,7 +40546,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	/**
 	 * The Input component is used to focus text input elements.
@@ -39007,11 +40579,11 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var IonicForm = (function () {
-	    function IonicForm(config, zone) {
+	var Form = (function () {
+	    function Form(config, zone) {
 	        var _this = this;
 
-	        _classCallCheck(this, IonicForm);
+	        _classCallCheck(this, Form);
 
 	        this._config = config;
 	        this._zone = zone;
@@ -39022,7 +40594,7 @@
 	        });
 	    }
 
-	    _createClass(IonicForm, [{
+	    _createClass(Form, [{
 	        key: "register",
 	        value: function register(input) {
 	            this._inputs.push(input);
@@ -39106,14 +40678,14 @@
 	        }
 	    }]);
 
-	    return IonicForm;
+	    return Form;
 	})();
-	exports.IonicForm = IonicForm;
-	exports.IonicForm = IonicForm = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _b || Object])], IonicForm);
+	exports.Form = Form;
+	exports.Form = Form = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _b || Object])], Form);
 	var _a, _b;
 
 /***/ },
-/* 282 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39130,11 +40702,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _form = __webpack_require__(281);
+	var _form = __webpack_require__(283);
 
-	var _dom = __webpack_require__(277);
+	var _dom = __webpack_require__(279);
 
 	var dom = _interopRequireWildcard(_dom);
 
@@ -39158,11 +40730,11 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var IonicKeyboard = (function () {
-	    function IonicKeyboard(config, form, zone) {
+	var Keyboard = (function () {
+	    function Keyboard(config, form, zone) {
 	        var _this = this;
 
-	        _classCallCheck(this, IonicKeyboard);
+	        _classCallCheck(this, Keyboard);
 
 	        this.form = form;
 	        this.zone = zone;
@@ -39171,7 +40743,7 @@
 	        });
 	    }
 
-	    _createClass(IonicKeyboard, [{
+	    _createClass(Keyboard, [{
 	        key: "isOpen",
 	        value: function isOpen() {
 	            return dom.hasFocusedTextInput();
@@ -39253,26 +40825,28 @@
 	            }
 	            function enableKeyInput() {
 	                cssClass();
-	                document.removeEventListener('mousedown', pointerDown);
-	                document.removeEventListener('touchstart', pointerDown);
-	                if (isKeyInputEnabled) {
-	                    document.addEventListener('mousedown', pointerDown);
-	                    document.addEventListener('touchstart', pointerDown);
-	                }
+	                this.zone.runOutsideAngular(function () {
+	                    document.removeEventListener('mousedown', pointerDown);
+	                    document.removeEventListener('touchstart', pointerDown);
+	                    if (isKeyInputEnabled) {
+	                        document.addEventListener('mousedown', pointerDown);
+	                        document.addEventListener('touchstart', pointerDown);
+	                    }
+	                });
 	            }
 	            document.addEventListener('keydown', keyDown);
 	        }
 	    }]);
 
-	    return IonicKeyboard;
+	    return Keyboard;
 	})();
-	exports.IonicKeyboard = IonicKeyboard;
-	exports.IonicKeyboard = IonicKeyboard = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _a || Object, typeof (_b = typeof _form.IonicForm !== 'undefined' && _form.IonicForm) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _c || Object])], IonicKeyboard);
+	exports.Keyboard = Keyboard;
+	exports.Keyboard = Keyboard = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _a || Object, typeof (_b = typeof _form.Form !== 'undefined' && _form.Form) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _c || Object])], Keyboard);
 	var KEYBOARD_CLOSE_POLLING = 150;
 	var _a, _b, _c;
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -39300,15 +40874,15 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _overlayOverlayController = __webpack_require__(278);
+	var _overlayOverlayController = __webpack_require__(280);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _iconIcon = __webpack_require__(284);
+	var _iconIcon = __webpack_require__(286);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -39452,7 +41026,7 @@
 	    return ActionSheet;
 	})();
 	exports.ActionSheet = ActionSheet;
-	exports.ActionSheet = ActionSheet = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], ActionSheet);
+	exports.ActionSheet = ActionSheet = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], ActionSheet);
 	var OVERLAY_TYPE = 'action-sheet';
 	/**
 	 * Animations for action sheet
@@ -39542,7 +41116,7 @@
 	var _a, _b;
 
 /***/ },
-/* 284 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39557,7 +41131,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -39657,11 +41231,11 @@
 	    host: {
 	        'role': 'img'
 	    }
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Icon);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Icon);
 	var _a, _b, _c;
 
 /***/ },
-/* 285 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39682,15 +41256,15 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _overlayOverlayController = __webpack_require__(278);
+	var _overlayOverlayController = __webpack_require__(280);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -39702,7 +41276,7 @@
 	 * ```ts
 	 * class MyApp {
 	 *
-	 *  constructor(modal: Modal, app: IonicApp, ionicConfig: IonicConfig) {
+	 *  constructor(modal: Modal, app: IonicApp, Config: Config) {
 	 *    this.modal = modal;
 	 *  }
 	 *
@@ -39783,7 +41357,7 @@
 	    return Modal;
 	})();
 	exports.Modal = Modal;
-	exports.Modal = Modal = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], Modal);
+	exports.Modal = Modal = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], Modal);
 	var OVERLAY_TYPE = 'modal';
 	/**
 	 * Animations for modals
@@ -39851,7 +41425,7 @@
 	var _a, _b;
 
 /***/ },
-/* 286 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39875,13 +41449,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _bootstrap = __webpack_require__(248);
+	var _bootstrap = __webpack_require__(250);
 
-	var _directives = __webpack_require__(287);
+	var _directives = __webpack_require__(289);
 
 	/**
 	 * @private
@@ -40022,13 +41596,13 @@
 	        annotations.push(new _angular2Angular2.Component(args));
 	        // redefine with added annotations
 	        Reflect.defineMetadata('annotations', annotations, cls);
-	        (0, _angular2Angular2.bootstrap)(cls, (0, _bootstrap.ionicBindings)(cls, args.config));
+	        (0, _angular2Angular2.bootstrap)(cls, (0, _bootstrap.ionicProviders)(args.config));
 	        return cls;
 	    };
 	}
 
 /***/ },
-/* 287 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40039,67 +41613,67 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _componentsOverlayOverlay = __webpack_require__(288);
+	var _componentsOverlayOverlay = __webpack_require__(290);
 
-	var _componentsMenuMenu = __webpack_require__(289);
+	var _componentsMenuMenu = __webpack_require__(291);
 
-	var _componentsMenuMenuToggle = __webpack_require__(297);
+	var _componentsMenuMenuToggle = __webpack_require__(299);
 
-	var _componentsMenuMenuClose = __webpack_require__(304);
+	var _componentsMenuMenuClose = __webpack_require__(306);
 
-	var _componentsButtonButton = __webpack_require__(305);
+	var _componentsButtonButton = __webpack_require__(307);
 
-	var _componentsBlurBlur = __webpack_require__(306);
+	var _componentsBlurBlur = __webpack_require__(308);
 
-	var _componentsContentContent = __webpack_require__(307);
+	var _componentsContentContent = __webpack_require__(309);
 
-	var _componentsScrollScroll = __webpack_require__(309);
+	var _componentsScrollScroll = __webpack_require__(311);
 
-	var _componentsScrollPullToRefresh = __webpack_require__(310);
+	var _componentsScrollPullToRefresh = __webpack_require__(312);
 
-	var _componentsSlidesSlides = __webpack_require__(311);
+	var _componentsSlidesSlides = __webpack_require__(313);
 
-	var _componentsTabsTabs = __webpack_require__(313);
+	var _componentsTabsTabs = __webpack_require__(315);
 
-	var _componentsTabsTab = __webpack_require__(314);
+	var _componentsTabsTab = __webpack_require__(316);
 
-	var _componentsListList = __webpack_require__(315);
+	var _componentsListList = __webpack_require__(317);
 
-	var _componentsItemItem = __webpack_require__(317);
+	var _componentsItemItem = __webpack_require__(319);
 
-	var _componentsItemItemGroup = __webpack_require__(318);
+	var _componentsItemItemGroup = __webpack_require__(320);
 
-	var _componentsItemItemSliding = __webpack_require__(319);
+	var _componentsItemItemSliding = __webpack_require__(322);
 
-	var _componentsToolbarToolbar = __webpack_require__(303);
+	var _componentsToolbarToolbar = __webpack_require__(305);
 
-	var _componentsIconIcon = __webpack_require__(284);
+	var _componentsIconIcon = __webpack_require__(286);
 
-	var _componentsCheckboxCheckbox = __webpack_require__(320);
+	var _componentsCheckboxCheckbox = __webpack_require__(323);
 
-	var _componentsSwitchSwitch = __webpack_require__(321);
+	var _componentsSwitchSwitch = __webpack_require__(324);
 
-	var _componentsTextInputTextInput = __webpack_require__(322);
+	var _componentsTextInputTextInput = __webpack_require__(325);
 
-	var _componentsTextInputLabel = __webpack_require__(323);
+	var _componentsTextInputLabel = __webpack_require__(326);
 
-	var _componentsSegmentSegment = __webpack_require__(324);
+	var _componentsSegmentSegment = __webpack_require__(327);
 
-	var _componentsRadioRadio = __webpack_require__(325);
+	var _componentsRadioRadio = __webpack_require__(328);
 
-	var _componentsSearchBarSearchBar = __webpack_require__(326);
+	var _componentsSearchBarSearchBar = __webpack_require__(329);
 
-	var _componentsNavNav = __webpack_require__(327);
+	var _componentsNavNav = __webpack_require__(330);
 
-	var _componentsNavNavPush = __webpack_require__(328);
+	var _componentsNavNavPush = __webpack_require__(331);
 
-	var _componentsNavNavRouter = __webpack_require__(330);
+	var _componentsNavNavRouter = __webpack_require__(333);
 
-	var _componentsNavBarNavBar = __webpack_require__(302);
+	var _componentsNavBarNavBar = __webpack_require__(304);
 
-	var _componentsAppId = __webpack_require__(331);
+	var _componentsAppId = __webpack_require__(334);
 
-	var _componentsShowHideWhenShowHideWhen = __webpack_require__(332);
+	var _componentsShowHideWhenShowHideWhen = __webpack_require__(335);
 
 	/**
 	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
@@ -40127,7 +41701,7 @@
 	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
 
 /***/ },
-/* 288 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40142,7 +41716,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _overlayController = __webpack_require__(278);
+	var _overlayController = __webpack_require__(280);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -40195,7 +41769,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 289 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40216,19 +41790,19 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
-	var _utilKeyboard = __webpack_require__(282);
+	var _utilKeyboard = __webpack_require__(284);
 
-	var _menuGestures = __webpack_require__(291);
+	var _menuGestures = __webpack_require__(293);
 
 	var gestures = _interopRequireWildcard(_menuGestures);
 
@@ -40541,7 +42115,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return MenuBackdrop;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.IonicKeyboard !== 'undefined' && _utilKeyboard.IonicKeyboard) === 'function' && _e || Object])], Menu);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object])], Menu);
 	var menuTypes = {};
 	var FALLBACK_MENU_TYPE = 'reveal';
 	/**
@@ -40587,7 +42161,7 @@
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 290 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40602,7 +42176,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _ionicUtilDom = __webpack_require__(277);
+	var _ionicUtilDom = __webpack_require__(279);
 
 	var dom = _interopRequireWildcard(_ionicUtilDom);
 
@@ -40683,7 +42257,7 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 291 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40700,7 +42274,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(292);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(294);
 
 	var MenuContentGesture = (function (_SlideEdgeGesture) {
 	    _inherits(MenuContentGesture, _SlideEdgeGesture);
@@ -40807,7 +42381,7 @@
 	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 292 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40824,11 +42398,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideGesture = __webpack_require__(293);
+	var _ionicGesturesSlideGesture = __webpack_require__(295);
 
-	var _utilUtil = __webpack_require__(276);
+	var _utilUtil = __webpack_require__(278);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var SlideEdgeGesture = (function (_SlideGesture) {
 	    _inherits(SlideEdgeGesture, _SlideGesture);
@@ -40890,7 +42464,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 293 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40909,9 +42483,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesDragGesture = __webpack_require__(294);
+	var _ionicGesturesDragGesture = __webpack_require__(296);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -41016,7 +42590,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 294 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41035,9 +42609,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesGesture = __webpack_require__(295);
+	var _ionicGesturesGesture = __webpack_require__(297);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -41096,7 +42670,7 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41111,11 +42685,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _ionicGesturesHammer = __webpack_require__(296);
+	var _ionicGesturesHammer = __webpack_require__(298);
 
 	/**
 	 * A gesture recognizer class.
@@ -41190,7 +42764,7 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports) {
 
 	/*! Hammer.JS - v2.0.4 - 2014-09-28
@@ -41348,6 +42922,7 @@
 	 */
 	function addEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
+	        console.debug('hammer addEventListener', type, target.tagName);
 	        target.addEventListener(type, handler, false);
 	    });
 	}
@@ -41359,6 +42934,7 @@
 	 */
 	function removeEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
+	        console.debug('hammer removeEventListener', type, target.tagName);
 	        target.removeEventListener(type, handler, false);
 	    });
 	}
@@ -41546,6 +43122,7 @@
 	     * bind the events
 	     */
 	    init: function init() {
+	        console.debug('hammer Input init');
 	        this.evEl && addEventListeners(this.element, this.evEl, this.domHandler);
 	        this.evTarget && addEventListeners(this.target, this.evTarget, this.domHandler);
 	        this.evWin && addEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
@@ -43325,7 +44902,7 @@
 	//})(window, document, 'Hammer');
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43344,13 +44921,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _navViewController = __webpack_require__(298);
+	var _navViewController = __webpack_require__(300);
 
-	var _navBarNavBar = __webpack_require__(302);
+	var _navBarNavBar = __webpack_require__(304);
 
 	/**
 	* TODO
@@ -43427,7 +45004,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43440,7 +45017,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _navController = __webpack_require__(299);
+	var _navController = __webpack_require__(301);
 
 	/**
 	 * TODO
@@ -43775,7 +45352,7 @@
 	exports.ViewController = ViewController;
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43796,21 +45373,21 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
-	var _viewController = __webpack_require__(298);
+	var _viewController = __webpack_require__(300);
 
-	var _transitionsTransition = __webpack_require__(300);
+	var _transitionsTransition = __webpack_require__(302);
 
-	var _swipeBack = __webpack_require__(301);
+	var _swipeBack = __webpack_require__(303);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	/**
 	 * _For examples on the basic usage of NavController, check out the [Navigation section](../../../../components/#navigation)
@@ -43839,27 +45416,14 @@
 	 *
 	 * Behind the scenes, when Ionic instantiates a new NavController, it creates an
 	 * injector with NavController bound to that instance (usually either a Nav or
-	 * Tab) and adds the injector to its own bindings.  For more information on
-	 * binding and dependency injection, see [Binding and DI]().
+	 * Tab) and adds the injector to its own providers.  For more information on
+	 * providers and dependency injection, see [Providers and DI]().
 	 *
 	 * ```ts
 	 * // class NavController
-	 * //"this" is either Nav or Tab, both extend NavController
-	 * this.bindings = Injector.resolve([
-	 *   bind(NavController).toValue(this)
+	 * this.providers = Injector.resolve([
+	 *   provide(NavController, {useValue: this})
 	 * ]);
-	 * ```
-	 *
-	 * That way you don't need to worry about getting a hold of the proper
-	 * NavController for views that may be used in either a Tab or a Nav:
-	 *
-	 * ```ts
-	 *  class MyPage {
-	 *    constructor(@Optional() tab: Tab, @Optional() nav: Nav) {
-	 *    	// Unhhhhh so much typinggggg
-	 *      // What if we are in a nav that is in a tab, or vice versa, so these both resolve?
-	 *    }
-	 *  }
 	 * ```
 	 *
 	 * Instead, you can inject NavController and know that it is the correct
@@ -43919,7 +45483,7 @@
 	var NavController = (function (_Ion) {
 	    _inherits(NavController, _Ion);
 
-	    function NavController(parentnavCtrl, app, config, elementRef, compiler, loader, viewManager, zone) {
+	    function NavController(parentnavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, NavController);
 
 	        _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
@@ -43930,6 +45494,7 @@
 	        this._loader = loader;
 	        this._viewManager = viewManager;
 	        this._zone = zone;
+	        this.renderer = renderer;
 	        this._views = [];
 	        this._sbTrans = null;
 	        this._sbEnabled = config.get('swipeBackEnabled') || false;
@@ -43937,7 +45502,7 @@
 	        this.id = ++ctrlIds;
 	        this._ids = -1;
 	        // build a new injector for child ViewControllers to use
-	        this.bindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(NavController).toValue(this)]);
+	        this.providers = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.provide)(NavController, { useValue: this })]);
 	    }
 
 	    /**
@@ -43951,6 +45516,8 @@
 	    _createClass(NavController, [{
 	        key: 'push',
 	        value: function push(componentType) {
+	            var _this = this;
+
 	            var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
@@ -43983,6 +45550,9 @@
 	            enteringView.shouldCache = false;
 	            // add the view to the stack
 	            this._add(enteringView);
+	            (0, _utilDom.raf)(function () {
+	                _this._cleanup(enteringView);
+	            });
 	            if (this.router) {
 	                // notify router of the state change
 	                this.router.stateChange('push', enteringView, params);
@@ -44233,7 +45803,7 @@
 	    }, {
 	        key: 'transition',
 	        value: function transition(enteringView, leavingView, opts, callback) {
-	            var _this = this;
+	            var _this2 = this;
 
 	            if (!enteringView || enteringView === leavingView) {
 	                return callback();
@@ -44247,7 +45817,7 @@
 	                    // already marked as a view that will be destroyed, don't continue
 	                    return callback();
 	                }
-	                _this._zone.runOutsideAngular(function () {
+	                _this2._zone.runOutsideAngular(function () {
 	                    enteringView.shouldDestroy = false;
 	                    enteringView.shouldCache = false;
 	                    enteringView.willEnter();
@@ -44257,7 +45827,7 @@
 	                    enteringView.state = STAGED_ENTERING_STATE;
 	                    leavingView.state = STAGED_LEAVING_STATE;
 	                    // init the transition animation
-	                    var transAnimation = _transitionsTransition.Transition.create(_this, opts);
+	                    var transAnimation = _transitionsTransition.Transition.create(_this2, opts);
 	                    if (opts.animate === false) {
 	                        // force it to not animate the elements, just apply the "to" styles
 	                        transAnimation.clearDuration();
@@ -44267,8 +45837,8 @@
 	                    if (duration > 64) {
 	                        // block any clicks during the transition and provide a
 	                        // fallback to remove the clickblock if something goes wrong
-	                        _this.app.setEnabled(false, duration);
-	                        _this.app.setTransitioning(true, duration);
+	                        _this2.app.setEnabled(false, duration);
+	                        _this2.app.setTransitioning(true, duration);
 	                    }
 	                    // start the transition
 	                    transAnimation.play().then(function () {
@@ -44280,8 +45850,8 @@
 	                        enteringView.didEnter();
 	                        leavingView.didLeave();
 	                        // all done!
-	                        _this._zone.run(function () {
-	                            _this._transComplete();
+	                        _this2._zone.run(function () {
+	                            _this2._transComplete();
 	                            callback();
 	                        });
 	                    });
@@ -44314,8 +45884,8 @@
 	    }, {
 	        key: 'loadNextToAnchor',
 	        value: function loadNextToAnchor(type, location, viewCtrl) {
-	            var bindings = this.bindings.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_viewController.ViewController).toValue(viewCtrl), (0, _angular2Angular2.bind)(NavParams).toValue(viewCtrl.params)]));
-	            return this._loader.loadNextToLocation(type, location, bindings);
+	            var providers = this.providers.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.provide)(_viewController.ViewController, { useValue: viewCtrl }), (0, _angular2Angular2.provide)(NavParams, { useValue: viewCtrl.params })]));
+	            return this._loader.loadNextToLocation(type, location, providers);
 	        }
 
 	        /**
@@ -44325,7 +45895,7 @@
 	    }, {
 	        key: 'swipeBackStart',
 	        value: function swipeBackStart() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            if (!this.app.isEnabled() || !this.canSwipeBack()) {
 	                return;
@@ -44351,14 +45921,14 @@
 	            enteringView.willEnter();
 	            // wait for the new view to complete setup
 	            enteringView.stage(function () {
-	                _this2._zone.runOutsideAngular(function () {
+	                _this3._zone.runOutsideAngular(function () {
 	                    // set that the new view pushed on the stack is staged to be entering/leaving
 	                    // staged state is important for the transition to find the correct view
 	                    enteringView.state = STAGED_ENTERING_STATE;
 	                    leavingView.state = STAGED_LEAVING_STATE;
 	                    // init the swipe back transition animation
-	                    _this2._sbTrans = _transitionsTransition.Transition.create(_this2, opts);
-	                    _this2._sbTrans.easing('linear').progressStart();
+	                    _this3._sbTrans = _transitionsTransition.Transition.create(_this3, opts);
+	                    _this3._sbTrans.easing('linear').progressStart();
 	                });
 	            });
 	        }
@@ -44388,17 +45958,17 @@
 	    }, {
 	        key: 'swipeBackEnd',
 	        value: function swipeBackEnd(completeSwipeBack, rate) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            if (!this._sbTrans) return;
 	            // disables the app during the transition
 	            this.app.setEnabled(false);
 	            this.app.setTransitioning(true);
 	            this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
-	                _this3._zone.run(function () {
+	                _this4._zone.run(function () {
 	                    // find the views that were entering and leaving
-	                    var enteringView = _this3.getStagedEnteringView();
-	                    var leavingView = _this3.getStagedLeavingView();
+	                    var enteringView = _this4.getStagedEnteringView();
+	                    var leavingView = _this4.getStagedLeavingView();
 	                    if (enteringView && leavingView) {
 	                        // finish up the animation
 	                        if (completeSwipeBack) {
@@ -44408,9 +45978,9 @@
 	                            leavingView.state = CACHED_STATE;
 	                            enteringView.didEnter();
 	                            leavingView.didLeave();
-	                            if (_this3.router) {
+	                            if (_this4.router) {
 	                                // notify router of the pop state change
-	                                _this3.router.stateChange('pop', enteringView);
+	                                _this4.router.stateChange('pop', enteringView);
 	                            }
 	                        } else {
 	                            // cancelled the swipe back, they didn't end up going back
@@ -44425,10 +45995,10 @@
 	                        }
 	                    }
 	                    // empty out and dispose the swipe back transition animation
-	                    _this3._sbTrans && _this3._sbTrans.dispose();
-	                    _this3._sbTrans = null;
+	                    _this4._sbTrans && _this4._sbTrans.dispose();
+	                    _this4._sbTrans = null;
 	                    // all done!
-	                    _this3._transComplete();
+	                    _this4._transComplete();
 	                });
 	            });
 	        }
@@ -44510,7 +46080,7 @@
 	    }, {
 	        key: '_transComplete',
 	        value: function _transComplete() {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            this._views.forEach(function (view) {
 	                if (view) {
@@ -44527,18 +46097,18 @@
 	            this.app.setTransitioning(false);
 	            this._sbComplete();
 	            (0, _utilDom.raf)(function () {
-	                _this4._cleanup();
+	                _this5._cleanup();
 	            });
 	        }
 	    }, {
 	        key: '_cleanup',
-	        value: function _cleanup() {
-	            var _this5 = this;
+	        value: function _cleanup(activeView) {
+	            var _this6 = this;
 
 	            // the active view, and the previous view, should be rendered in dom and ready to go
 	            // all others, like a cached page 2 back, should be display: none and not rendered
 	            var destroys = [];
-	            var activeView = this.getActive();
+	            activeView = activeView || this.getActive();
 	            var previousView = this.getPrevious(activeView);
 	            this._views.forEach(function (view) {
 	                if (view) {
@@ -44547,16 +46117,29 @@
 	                    } else {
 	                        var isActiveView = view === activeView;
 	                        var isPreviousView = view === previousView;
-	                        view.domCache(isActiveView, isPreviousView);
+	                        view.domCache && view.domCache(isActiveView, isPreviousView);
 	                    }
 	                }
 	            });
 	            // all views being destroyed should be removed from the list of views
 	            // and completely removed from the dom
 	            destroys.forEach(function (view) {
-	                _this5._remove(view);
+	                _this6._remove(view);
 	                view.destroy();
 	            });
+	        }
+	    }, {
+	        key: 'addHasViews',
+	        value: function addHasViews() {
+	            var _this7 = this;
+
+	            if (this._views.length === 1) {
+	                this._zone.runOutsideAngular(function () {
+	                    setTimeout(function () {
+	                        _this7.renderer.setElementClass(_this7.elementRef, 'has-views', true);
+	                    }, 200);
+	                });
+	            }
 	        }
 
 	        /**
@@ -44874,7 +46457,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -44919,7 +46502,7 @@
 	var transitionRegistry = {};
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44936,7 +46519,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(292);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(294);
 
 	var SwipeBackGesture = (function (_SlideEdgeGesture) {
 	    _inherits(SwipeBackGesture, _SlideEdgeGesture);
@@ -44978,7 +46561,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -44997,19 +46580,19 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _iconIcon = __webpack_require__(284);
+	var _iconIcon = __webpack_require__(286);
 
-	var _toolbarToolbar = __webpack_require__(303);
+	var _toolbarToolbar = __webpack_require__(305);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _navViewController = __webpack_require__(298);
+	var _navViewController = __webpack_require__(300);
 
-	var _navNavController = __webpack_require__(299);
+	var _navNavController = __webpack_require__(301);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -45132,7 +46715,7 @@
 	    selector: 'ion-navbar',
 	    template: '<div class="toolbar-inner">' + '<button class="back-button">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
 	    directives: [BackButton, BackButtonText, _iconIcon.Icon]
-	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_d = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _d || Object, typeof (_e = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], Navbar);
+	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_d = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _d || Object, typeof (_e = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], Navbar);
 	/*
 	  Used to find and register headers in a view, and this directive's
 	  content will be moved up to the common navbar location, and created
@@ -45150,7 +46733,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45169,11 +46752,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _navBarNavBar = __webpack_require__(302);
+	var _navBarNavBar = __webpack_require__(304);
 
 	/**
 	 * TODO
@@ -45277,7 +46860,7 @@
 	exports.Toolbar = Toolbar = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-toolbar',
 	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Toolbar);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Toolbar);
 	var ToolbarTitle = (function (_Ion2) {
 	    _inherits(ToolbarTitle, _Ion2);
 
@@ -45327,7 +46910,7 @@
 	var _a, _b, _c, _d, _e, _f, _g;
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45346,9 +46929,9 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
 	/**
 	* TODO
@@ -45404,7 +46987,7 @@
 	var _a, _b;
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45417,7 +47000,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	/**
 	 * TODO
@@ -45495,13 +47078,13 @@
 	exports.Button = Button;
 	exports.Button = Button = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'button,[button]'
-	}), __param(3, (0, _angular2Angular2.Attribute)('type')), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object, String])], Button);
+	}), __param(3, (0, _angular2Angular2.Attribute)('type')), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object, String])], Button);
 	var TEXT = 1;
 	var ICON = 2;
 	var _a, _b, _c;
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45548,7 +47131,7 @@
 	var _a, _b;
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45567,17 +47150,17 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _utilKeyboard = __webpack_require__(282);
+	var _utilKeyboard = __webpack_require__(284);
 
-	var _navViewController = __webpack_require__(298);
+	var _navViewController = __webpack_require__(300);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
-	var _animationsScrollTo = __webpack_require__(308);
+	var _animationsScrollTo = __webpack_require__(310);
 
 	/**
 	 * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
@@ -45624,7 +47207,7 @@
 
 	    /**
 	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
-	     * @param {IonicConfig} config  The config object to change content's default settings.
+	     * @param {Config} config  The config object to change content's default settings.
 	     */
 
 	    function Content(elementRef, config, keyboard, viewCtrl) {
@@ -45795,11 +47378,11 @@
 	exports.Content = Content = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-content',
 	    template: '<scroll-content>' + '<ng-content></ng-content>' + '</scroll-content>'
-	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.IonicKeyboard !== 'undefined' && _utilKeyboard.IonicKeyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Content);
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Content);
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45812,7 +47395,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var ScrollTo = (function () {
 	    function ScrollTo(ele, x, y, duration) {
@@ -45910,7 +47493,7 @@
 	exports.ScrollTo = ScrollTo;
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45929,9 +47512,9 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	/**
 	 * Scroll is a non-flexboxed scroll area that can scroll horizontally or
@@ -45963,13 +47546,13 @@
 	    /**
 	     * TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     */
 
-	    function Scroll(elementRef, ionicConfig) {
+	    function Scroll(elementRef, Config) {
 	        _classCallCheck(this, Scroll);
 
-	        _get(Object.getPrototypeOf(Scroll.prototype), "constructor", this).call(this, elementRef, ionicConfig);
+	        _get(Object.getPrototypeOf(Scroll.prototype), "constructor", this).call(this, elementRef, Config);
 	        this.maxScale = 3;
 	        this.zoomDuration = 250;
 	    }
@@ -46012,11 +47595,11 @@
 	        '[class.scroll-y]': 'scrollY'
 	    },
 	    template: '<scroll-content>' + '<div class="scroll-zoom-wrapper">' + '<ng-content></ng-content>' + '</div>' + '</scroll-content>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], Scroll);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], Scroll);
 	var _a, _b;
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46033,13 +47616,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _contentContent = __webpack_require__(307);
+	var _contentContent = __webpack_require__(309);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _ionicUtilDom = __webpack_require__(277);
+	var _ionicUtilDom = __webpack_require__(279);
 
 	/**
 	 * Allows you to add pull-to-refresh to an Content component.
@@ -46471,7 +48054,7 @@
 	var _a, _b;
 
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46492,21 +48075,21 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _ionicAnimationsAnimation = __webpack_require__(279);
+	var _ionicAnimationsAnimation = __webpack_require__(281);
 
-	var _ionicGesturesGesture = __webpack_require__(295);
+	var _ionicGesturesGesture = __webpack_require__(297);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(312);
+	var _swiperWidget = __webpack_require__(314);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -46918,7 +48501,7 @@
 	    inputs: ['loop', 'index', 'bounce', 'pager', 'options', 'zoom', 'zoomDuration', 'zoomMax'],
 	    template: '<div class="swiper-container">' + '<div class="swiper-wrapper">' + '<ng-content></ng-content>' + '</div>' + '<div [class.hide]="!showPager" class="swiper-pagination"></div>' + '</div>',
 	    directives: [_angular2Angular2.NgClass]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], Slides);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], Slides);
 	/**
 	 * TODO
 	 */
@@ -46953,7 +48536,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports) {
 
 	/**
@@ -47070,7 +48653,7 @@
 	      ===========================*/ //Define Touch Events
 	var desktopEvents=['mousedown','mousemove','mouseup'];if(window.navigator.pointerEnabled)desktopEvents = ['pointerdown','pointermove','pointerup'];else if(window.navigator.msPointerEnabled)desktopEvents = ['MSPointerDown','MSPointerMove','MSPointerUp'];s.touchEvents = {start:s.support.touch || !s.params.simulateTouch?'touchstart':desktopEvents[0],move:s.support.touch || !s.params.simulateTouch?'touchmove':desktopEvents[1],end:s.support.touch || !s.params.simulateTouch?'touchend':desktopEvents[2]}; // WP8 Touch Events Fix
 	if(window.navigator.pointerEnabled || window.navigator.msPointerEnabled){(s.params.touchEventsTarget === 'container'?s.container:s.wrapper).addClass('swiper-wp8-' + s.params.direction);} // Attach/detach events
-	s.initEvents = function(detach){var actionDom=detach?'off':'on';var action=detach?'removeEventListener':'addEventListener';var touchEventsTarget=s.params.touchEventsTarget === 'container'?s.container[0]:s.wrapper[0];var target=s.support.touch?touchEventsTarget:document;var moveCapture=s.params.nested?true:false; //Touch Events
+	s.initEvents = function(detach){console.debug('swiper initEvents',detach?'detach':'attach');var actionDom=detach?'off':'on';var action=detach?'removeEventListener':'addEventListener';var touchEventsTarget=s.params.touchEventsTarget === 'container'?s.container[0]:s.wrapper[0];var target=s.support.touch?touchEventsTarget:document;var moveCapture=s.params.nested?true:false; //Touch Events
 	if(s.browser.ie){touchEventsTarget[action](s.touchEvents.start,s.onTouchStart,false);target[action](s.touchEvents.move,s.onTouchMove,moveCapture);target[action](s.touchEvents.end,s.onTouchEnd,false);}else {if(s.support.touch){touchEventsTarget[action](s.touchEvents.start,s.onTouchStart,false);touchEventsTarget[action](s.touchEvents.move,s.onTouchMove,moveCapture);touchEventsTarget[action](s.touchEvents.end,s.onTouchEnd,false);}if(params.simulateTouch && !s.device.ios && !s.device.android){touchEventsTarget[action]('mousedown',s.onTouchStart,false);document[action]('mousemove',s.onTouchMove,moveCapture);document[action]('mouseup',s.onTouchEnd,false);}}window[action]('resize',s.onResize); // Next, Prev, Index
 	if(s.params.nextButton){$(s.params.nextButton)[actionDom]('click',s.onClickNext);if(s.params.a11y && s.a11y)$(s.params.nextButton)[actionDom]('keydown',s.a11y.onEnterKey);}if(s.params.prevButton){$(s.params.prevButton)[actionDom]('click',s.onClickPrev);if(s.params.a11y && s.a11y)$(s.params.prevButton)[actionDom]('keydown',s.a11y.onEnterKey);}if(s.params.pagination && s.params.paginationClickable){$(s.paginationContainer)[actionDom]('click','.' + s.params.bulletClass,s.onClickIndex);if(s.params.a11y && s.a11y)$(s.paginationContainer)[actionDom]('keydown','.' + s.params.bulletClass,s.a11y.onEnterKey);} // Prevent Links Clicks
 	if(s.params.preventClicks || s.params.preventClicksPropagation)touchEventsTarget[action]('click',s.preventClicks,true);};s.attachEvents = function(detach){s.initEvents();};s.detachEvents = function(){s.initEvents(true);}; /*=========================
@@ -47245,7 +48828,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47264,17 +48847,17 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _navViewController = __webpack_require__(298);
+	var _navViewController = __webpack_require__(300);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
-	var _iconIcon = __webpack_require__(284);
+	var _iconIcon = __webpack_require__(286);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -47370,6 +48953,7 @@
 
 	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
 	        this.app = app;
+	        this.preload = config.get('preloadTabs');
 	        // collection of children "Tab" instances, which extends NavController
 	        this._tabs = [];
 	        // Tabs may also be an actual ViewController which was navigated to
@@ -47462,6 +49046,11 @@
 	            }
 	            return null;
 	        }
+	    }, {
+	        key: "getIndex",
+	        value: function getIndex(tab) {
+	            return this._tabs.indexOf(tab);
+	        }
 
 	        /**
 	         * @private
@@ -47487,7 +49076,8 @@
 	    selector: 'ion-tabs',
 	    defaultInputs: {
 	        'tabBarPlacement': 'bottom',
-	        'tabBarIcons': 'top'
+	        'tabBarIcons': 'top',
+	        'preloadTabs': true
 	    },
 	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tab-bar-section>' + '<tab-bar role="tablist">' + '<a *ng-for="#t of _tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tab-bar>' + '</ion-tab-bar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
 	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, (0, _angular2Angular2.forwardRef)(function () {
@@ -47497,7 +49087,7 @@
 	    }), (0, _angular2Angular2.forwardRef)(function () {
 	        return TabNavBarAnchor;
 	    })]
-	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Tabs);
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Tabs);
 	var _tabIds = -1;
 	/**
 	 * @private
@@ -47549,7 +49139,7 @@
 	        '[class.icon-only]': 'hasIconOnly',
 	        '(click)': 'onClick($event)'
 	    }
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_e = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object])], TabButton);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_e = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object])], TabButton);
 	/**
 	 * @private
 	 * TODO
@@ -47587,7 +49177,7 @@
 	})();
 	TabHighlight = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'tab-highlight'
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_g = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _h || Object])], TabHighlight);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _h || Object])], TabHighlight);
 	/**
 	 * @private
 	 * TODO
@@ -47601,7 +49191,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47620,13 +49210,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _navNavController = __webpack_require__(299);
+	var _navNavController = __webpack_require__(301);
 
-	var _tabs = __webpack_require__(313);
+	var _tabs = __webpack_require__(315);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -47700,11 +49290,11 @@
 	var Tab = (function (_NavController) {
 	    _inherits(Tab, _NavController);
 
-	    function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone) {
+	    function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, Tab);
 
 	        // A Tab is a NavController for its child pages
-	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone);
+	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
 	        this.tabs = tabs;
 	        this._isInitial = tabs.add(this);
 	    }
@@ -47712,18 +49302,17 @@
 	    _createClass(Tab, [{
 	        key: "onInit",
 	        value: function onInit() {
-	            console.debug('Tab onInit');
+	            console.debug('Tab onInit', this.getIndex());
 	            if (this._isInitial) {
 	                this.tabs.select(this);
-	            }
+	            } else if (this.tabs.preloadTabs) {}
 	        }
 	    }, {
 	        key: "load",
 	        value: function load(callback) {
 	            if (!this._loaded && this.root) {
 	                var opts = {
-	                    animate: false,
-	                    navbar: false
+	                    animate: false
 	                };
 	                this.push(this.root, null, opts).then(callback);
 	                this._loaded = true;
@@ -47764,8 +49353,14 @@
 	                        });
 	                    })();
 	                }
+	                _this.addHasViews();
 	                done();
 	            });
+	        }
+	    }, {
+	        key: "getIndex",
+	        value: function getIndex() {
+	            return this.tabs.getIndex(this);
 	        }
 	    }]);
 
@@ -47785,17 +49380,17 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return TabContentAnchor;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object])], Tab);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], Tab);
 	var TabContentAnchor = function TabContentAnchor(tab, elementRef) {
 	    _classCallCheck(this, TabContentAnchor);
 
 	    tab.contentAnchorRef = elementRef;
 	};
-	TabContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof (_j = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _j || Object])], TabContentAnchor);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	TabContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof (_k = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _k || Object])], TabContentAnchor);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47816,13 +49411,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _virtual = __webpack_require__(316);
+	var _virtual = __webpack_require__(318);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -47863,7 +49458,7 @@
 	    /**
 	     * TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     */
 
 	    function List(elementRef, config, renderer) {
@@ -47942,7 +49537,7 @@
 	exports.List = List = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'ion-list',
 	    inputs: ['items', 'virtual', 'content']
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], List);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], List);
 	/**
 	 * TODO
 	 */
@@ -47960,7 +49555,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48075,7 +49670,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48137,7 +49732,7 @@
 	var _a, _b;
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48152,13 +49747,15 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _contentContent = __webpack_require__(307);
+	var _contentContent = __webpack_require__(309);
 
-	var _utilUtil = __webpack_require__(276);
+	var _utilUtil = __webpack_require__(278);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
-	var _configConfig = __webpack_require__(274);
+	var _utilFeatureDetect = __webpack_require__(321);
+
+	var _configConfig = __webpack_require__(276);
 
 	/**
 	 * TODO
@@ -48209,13 +49806,14 @@
 	     * @param {ElementRef} elementRef  TODO
 	     */
 
-	    function ItemGroupTitle(elementRef, config, content) {
+	    function ItemGroupTitle(elementRef, config, content, featureDetect) {
 	        _classCallCheck(this, ItemGroupTitle);
 
 	        this.isSticky = true;
 	        this.content = content;
 	        this.ele = elementRef.nativeElement;
 	        this.parent = this.ele.parentNode;
+	        this.isCssValid = true; //featureDetect.has('positionsticky')
 	    }
 
 	    _createClass(ItemGroupTitle, [{
@@ -48223,7 +49821,7 @@
 	        value: function onInit() {
 	            var _this = this;
 
-	            if (!this.content) {
+	            if (!this.content || this.isCssValid) {
 	                return;
 	            }
 	            this.scrollContent = this.content.elementRef.nativeElement.children[0];
@@ -48267,9 +49865,7 @@
 	            if (executeImmediately) {
 	                this.applyTransform(element, translateDyPixelsUp);
 	            } else {
-	                // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-	                // see http://ionicframework.com/docs/api/utility/ionic.DomUtil/
-	                requestAnimationFrame(function (a) {
+	                (0, _utilDom.raf)(function (a) {
 	                    return _this2.applyTransform(element, translateDyPixelsUp);
 	                });
 	            }
@@ -48340,11 +49936,82 @@
 	        'class': 'item-group-title',
 	        '[class.sticky]': 'isSticky'
 	    }
-	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _d || Object])], ItemGroupTitle);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _d || Object, typeof (_e = typeof _utilFeatureDetect.FeatureDetect !== 'undefined' && _utilFeatureDetect.FeatureDetect) === 'function' && _e || Object])], ItemGroupTitle);
+	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 319 */
+/* 321 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var FeatureDetect = (function () {
+	    function FeatureDetect() {
+	        _classCallCheck(this, FeatureDetect);
+	    }
+
+	    _createClass(FeatureDetect, [{
+	        key: 'run',
+	        value: function run(window, document) {
+	            this._results = {};
+	            for (var _name in featureDetects) {
+	                this._results[_name] = featureDetects[_name](window, document, document.body);
+	            }
+	        }
+	    }, {
+	        key: 'has',
+	        value: function has(featureName) {
+	            return !!this._results[featureName];
+	        }
+	    }], [{
+	        key: 'add',
+	        value: function add(name, fn) {
+	            featureDetects[name] = fn;
+	        }
+	    }]);
+
+	    return FeatureDetect;
+	})();
+
+	exports.FeatureDetect = FeatureDetect;
+
+	var featureDetects = {};
+	FeatureDetect.add('positionsticky', function (window, document) {
+	    // css position sticky
+	    var ele = document.createElement('div');
+	    ele.style.cssText = 'position:-webkit-sticky;position:sticky';
+	    return ele.style.position.indexOf('sticky') > -1;
+	});
+	FeatureDetect.add('hairlines', function (window, document, body) {
+	    /**
+	    * Hairline Shim
+	    * Add the "hairline" CSS class name to the body tag
+	    * if the browser supports subpixels.
+	    */
+	    var canDo = false;
+	    if (window.devicePixelRatio >= 2) {
+	        var hairlineEle = document.createElement('div');
+	        hairlineEle.style.border = '.5px solid transparent';
+	        body.appendChild(hairlineEle);
+	        if (hairlineEle.offsetHeight === 1) {
+	            body.classList.add('hairlines');
+	            canDo = true;
+	        }
+	        body.removeChild(hairlineEle);
+	    }
+	    return canDo;
+	});
+
+/***/ },
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48363,13 +50030,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ionicGesturesDragGesture = __webpack_require__(294);
+	var _ionicGesturesDragGesture = __webpack_require__(296);
 
-	var _ionicGesturesHammer = __webpack_require__(296);
+	var _ionicGesturesHammer = __webpack_require__(298);
 
-	var _ionicComponentsListList = __webpack_require__(315);
+	var _ionicComponentsListList = __webpack_require__(317);
 
-	var _ionicUtilDom = __webpack_require__(277);
+	var _ionicUtilDom = __webpack_require__(279);
 
 	/**
 	 * @name ionItem
@@ -48420,16 +50087,17 @@
 	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
 	     */
 
-	    function ItemSliding(elementRef, renderer, list) {
+	    function ItemSliding(elementRef, renderer, list, zone) {
 	        _classCallCheck(this, ItemSliding);
 
+	        this._zone = zone;
 	        renderer.setElementClass(elementRef, 'item', true);
 	        this._isOpen = false;
 	        this._isSlideActive = false;
 	        this._isTransitioning = false;
 	        this._transform = '';
 	        this.list = list;
-	        this.ele = elementRef.nativeElement;
+	        this.elementRef = elementRef;
 	        this.swipeButtons = {};
 	        this.optionButtons = {};
 	    }
@@ -48437,31 +50105,33 @@
 	    _createClass(ItemSliding, [{
 	        key: "onInit",
 	        value: function onInit() {
-	            this._initSliding();
+	            var _this = this;
+
+	            var ele = this.elementRef.nativeElement;
+	            this.itemSlidingContent = ele.querySelector('ion-item-sliding-content');
+	            this.itemOptions = ele.querySelector('ion-item-options');
+	            this.openAmount = 0;
+	            this._zone.runOutsideAngular(function () {
+	                _this.gesture = new ItemSlideGesture(_this, _this.itemSlidingContent, _this._zone);
+	            });
 	        }
 	    }, {
-	        key: "_initSliding",
-	        value: function _initSliding() {
-	            var itemSlidingContent = this.ele.querySelector('ion-item-sliding-content');
-	            var itemOptionsContent = this.ele.querySelector('ion-item-options');
-	            console.log('List width', this.list.width());
-	            this.itemSlidingContent = itemSlidingContent;
-	            this.itemOptions = itemOptionsContent;
-	            this.itemWidth = this.list.width();
-	            this.openAmount = 0;
-	            this.gesture = new ItemSlideGesture(this, itemSlidingContent);
+	        key: "onDestroy",
+	        value: function onDestroy() {
+	            this.gesture && this.gesture.unlisten();
+	            this.itemSlidingContent = this.itemOptionsContent = null;
 	        }
 	    }, {
 	        key: "close",
 	        value: function close(andStopDrag) {
-	            var _this = this;
+	            var _this2 = this;
 
 	            this.openAmount = 0;
 	            // Enable it once, it'll get disabled on the next drag
 	            (0, _ionicUtilDom.raf)(function () {
-	                _this.enableAnimation();
-	                if (_this.itemSlidingContent) {
-	                    _this.itemSlidingContent.style[_ionicUtilDom.CSS.transform] = 'translateX(0)';
+	                _this2.enableAnimation();
+	                if (_this2.itemSlidingContent) {
+	                    _this2.itemSlidingContent.style[_ionicUtilDom.CSS.transform] = 'translateX(0)';
 	                }
 	            });
 	        }
@@ -48488,11 +50158,6 @@
 	        key: "getOpenAmt",
 	        value: function getOpenAmt() {
 	            return this.openAmount;
-	        }
-	    }, {
-	        key: "getItemWidth",
-	        value: function getItemWidth() {
-	            return this.itemWidth;
 	        }
 	    }, {
 	        key: "disableAnimation",
@@ -48533,15 +50198,15 @@
 	exports.ItemSliding = ItemSliding = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-item-sliding,[ion-item-sliding]',
 	    inputs: ['sliding'],
-	    template: '<ng-content select="ion-item-options"></ng-content>' + '<ion-item-sliding-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '<ng-content select="[item-right]"></ng-content>' + '</ion-item-sliding-content>',
+	    template: '<ng-content select="ion-item-options"></ng-content>' + '<ion-item-sliding-content>' + '<ng-content select="[item-left]"></ng-content>' + '<ng-content select="[item-right]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '</ion-item-sliding-content>',
 	    directives: [_angular2Angular2.NgIf]
-	}), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _b || Object, typeof (_c = typeof _ionicComponentsListList.List !== 'undefined' && _ionicComponentsListList.List) === 'function' && _c || Object])], ItemSliding);
+	}), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _b || Object, typeof (_c = typeof _ionicComponentsListList.List !== 'undefined' && _ionicComponentsListList.List) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _d || Object])], ItemSliding);
 
 	var ItemSlideGesture = (function (_DragGesture) {
 	    _inherits(ItemSlideGesture, _DragGesture);
 
-	    function ItemSlideGesture(item, el) {
-	        var _this2 = this;
+	    function ItemSlideGesture(item, el, zone) {
+	        var _this3 = this;
 
 	        _classCallCheck(this, ItemSlideGesture);
 
@@ -48549,21 +50214,26 @@
 	            direction: 'x',
 	            threshold: el.offsetWidth
 	        });
-	        this.el = el;
 	        this.item = item;
 	        this.canDrag = true;
 	        this.listen();
-	        this.el.addEventListener('touchstart', function (e) {
-	            _this2.item.didTouch();
-	            (0, _ionicUtilDom.raf)(function () {
-	                _this2.item.itemOptionsWidth = _this2.item.itemOptions && _this2.item.itemOptions.offsetWidth || 0;
-	            });
-	        });
-	        this.el.addEventListener('touchend', function (e) {
-	            _this2.item.didClose = false;
-	        });
-	        this.el.addEventListener('touchcancel', function (e) {
-	            _this2.item.didClose = false;
+	        zone.runOutsideAngular(function () {
+	            var touchStart = function touchStart(e) {
+	                _this3.item.didTouch();
+	                (0, _ionicUtilDom.raf)(function () {
+	                    _this3.item.itemOptionsWidth = _this3.item.itemOptions && _this3.item.itemOptions.offsetWidth || 0;
+	                });
+	            };
+	            el.addEventListener('touchstart', touchStart);
+	            el.addEventListener('mousedown', touchStart);
+	            var touchEnd = function touchEnd(e) {
+	                _this3.item.didClose = false;
+	            };
+	            el.addEventListener('touchend', touchEnd);
+	            el.addEventListener('mouseup', touchEnd);
+	            el.addEventListener('mouseout', touchEnd);
+	            el.addEventListener('mouseleave', touchEnd);
+	            el.addEventListener('touchcancel', touchEnd);
 	        });
 	    }
 
@@ -48599,7 +50269,7 @@
 	    }, {
 	        key: "onDragEnd",
 	        value: function onDragEnd(ev) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            if (!this.slide || !this.slide.started) return;
 	            var buttonsWidth = this.item.itemOptionsWidth;
@@ -48621,17 +50291,17 @@
 	            (0, _ionicUtilDom.raf)(function () {
 	                if (restingPoint === 0) {
 	                    // Reset to zero
-	                    _this3.item.open('');
-	                    var buttons = _this3.item.itemOptions;
-	                    clearTimeout(_this3.hideButtonsTimeout);
-	                    _this3.hideButtonsTimeout = setTimeout(function () {
+	                    _this4.item.open('');
+	                    var buttons = _this4.item.itemOptions;
+	                    clearTimeout(_this4.hideButtonsTimeout);
+	                    _this4.hideButtonsTimeout = setTimeout(function () {
 	                        buttons && buttons.classList.add('invisible');
 	                    }, 250);
 	                } else {
-	                    _this3.item.open(restingPoint);
+	                    _this4.item.open(restingPoint);
 	                }
-	                _this3.item.enableAnimation();
-	                _this3.slide = null;
+	                _this4.item.enableAnimation();
+	                _this4.slide = null;
 	            });
 	        }
 	    }]);
@@ -48639,10 +50309,10 @@
 	    return ItemSlideGesture;
 	})(_ionicGesturesDragGesture.DragGesture);
 
-	var _a, _b, _c;
+	var _a, _b, _c, _d;
 
 /***/ },
-/* 320 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48657,7 +50327,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _utilForm = __webpack_require__(281);
+	var _utilForm = __webpack_require__(283);
 
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except it's styled differently
@@ -48801,11 +50471,11 @@
 	        '(click)': 'click($event)'
 	    },
 	    template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
-	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], Checkbox);
+	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _utilForm.Form !== 'undefined' && _utilForm.Form) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], Checkbox);
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48820,11 +50490,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _utilForm = __webpack_require__(281);
+	var _utilForm = __webpack_require__(283);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	/**
 	 * @name mediaSwitch
@@ -48860,7 +50530,7 @@
 	 * TODO
 	 * @param {Switch} swtch  TODO
 	 * @param {} elementRef  TODO
-	 * @param {IonicConfig} config  TODO
+	 * @param {Config} config  TODO
 	 */
 	function MediaSwitch(swtch, elementRef) {
 	    _classCallCheck(this, MediaSwitch);
@@ -48913,7 +50583,7 @@
 	    /**
 	     * TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     * @param {NgControl=} ngControl  TODO
 	     */
 
@@ -49063,11 +50733,11 @@
 	    },
 	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<media-switch disable-activated>' + '<switch-icon></switch-icon>' + '</media-switch>',
 	    directives: [MediaSwitch]
-	}), __param(4, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_b = typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _f || Object])], Switch);
+	}), __param(4, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_b = typeof _utilForm.Form !== 'undefined' && _utilForm.Form) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _f || Object])], Switch);
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49084,19 +50754,19 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _utilForm = __webpack_require__(281);
+	var _utilForm = __webpack_require__(283);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _contentContent = __webpack_require__(307);
+	var _contentContent = __webpack_require__(309);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var dom = _interopRequireWildcard(_utilDom);
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
 	/**
 	 * TODO
@@ -49421,7 +51091,7 @@
 	    directives: [_angular2Angular2.NgIf, (0, _angular2Angular2.forwardRef)(function () {
 	        return InputScrollAssist;
 	    })]
-	}), __param(7, (0, _angular2Angular2.Optional)()), __param(7, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object, typeof (_e = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _f || Object, typeof (_g = typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform) === 'function' && _g || Object, typeof (_h = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _h || Object])], _TextInput);
+	}), __param(7, (0, _angular2Angular2.Optional)()), __param(7, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _utilForm.Form !== 'undefined' && _utilForm.Form) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object, typeof (_e = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _f || Object, typeof (_g = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _g || Object, typeof (_h = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _h || Object])], _TextInput);
 	var TextInputElement = (function () {
 	    function TextInputElement(type, elementRef, renderer, wrapper) {
 	        _classCallCheck(this, TextInputElement);
@@ -49503,12 +51173,12 @@
 	    host: {
 	        '(focus)': 'receivedFocus($event)'
 	    }
-	}), __metadata('design:paramtypes', [typeof (_l = typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm) === 'function' && _l || Object, _TextInput])], InputScrollAssist);
+	}), __metadata('design:paramtypes', [typeof (_l = typeof _utilForm.Form !== 'undefined' && _utilForm.Form) === 'function' && _l || Object, _TextInput])], InputScrollAssist);
 	var SCROLL_INTO_VIEW_DURATION = 400;
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
-/* 323 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49523,11 +51193,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _textInput = __webpack_require__(322);
+	var _textInput = __webpack_require__(325);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	/**
 	 * TODO
@@ -49560,7 +51230,7 @@
 	var Label = (function () {
 	    /**
 	     * TODO
-	     * @param {IonicConfig} config
+	     * @param {Config} config
 	     */
 
 	    function Label(config, container) {
@@ -49622,12 +51292,12 @@
 	        '(mousedown)': 'pointerStart($event)',
 	        '(mouseup)': 'pointerEnd($event)'
 	    }
-	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _a || Object, typeof (_b = typeof _textInput.TextInput !== 'undefined' && _textInput.TextInput) === 'function' && _b || Object])], Label);
+	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _a || Object, typeof (_b = typeof _textInput.TextInput !== 'undefined' && _textInput.TextInput) === 'function' && _b || Object])], Label);
 	var labelIds = -1;
 	var _a, _b;
 
 /***/ },
-/* 324 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49646,9 +51316,9 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
 	/**
 	 * TODO
@@ -49685,14 +51355,14 @@
 	     * TODO
 	     * @param {NgControl} ngControl  TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     * @param {Renderer} renderer  TODO
 	     */
 
-	    function Segment(ngControl, elementRef, ionicConfig, renderer) {
+	    function Segment(ngControl, elementRef, config, renderer) {
 	        _classCallCheck(this, Segment);
 
-	        _get(Object.getPrototypeOf(Segment.prototype), "constructor", this).call(this, elementRef, ionicConfig);
+	        _get(Object.getPrototypeOf(Segment.prototype), "constructor", this).call(this, elementRef, config);
 	        this.ele = elementRef.nativeElement;
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
@@ -49726,32 +51396,14 @@
 	    }, {
 	        key: "selectFromValue",
 	        value: function selectFromValue(value) {
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = this.buttons[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var button = _step.value;
-
-	                    if (button.value === value) {
-	                        button.isActive = true;
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator["return"]) {
-	                        _iterator["return"]();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
+	            if (this.buttons.length == 0) {
+	                return;
 	            }
+	            this.buttons.forEach(function (button) {
+	                if (button.value === value) {
+	                    button.isActive = true;
+	                }
+	            });
 	        }
 
 	        /**
@@ -49763,31 +51415,9 @@
 	        value: function selected(segmentButton) {
 	            var _this = this;
 
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-
-	            try {
-	                for (var _iterator2 = this.buttons[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var button = _step2.value;
-
-	                    button.isActive = false;
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2["return"]) {
-	                        _iterator2["return"]();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-
+	            this.buttons.forEach(function (button) {
+	                button.isActive = false;
+	            });
 	            segmentButton.isActive = true;
 	            //this.onChange();
 	            if (!this.ngControl) {
@@ -49821,7 +51451,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return SegmentButton;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], Segment);
+	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], Segment);
 	/**
 	 * TODO
 	 */
@@ -49930,9 +51560,41 @@
 	    }
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Segment, typeof (_h = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], SegmentButton);
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	// TODO Android animation similar to tabs
+	// /**
+	//  * @private
+	//  * TODO
+	//  */
+	// @Directive({
+	//   selector: 'tab-highlight'
+	// })
+	// class TabHighlight {
+	//   constructor(@Host() tabs: Tabs, config: Config, elementRef: ElementRef) {
+	//     if (config.get('mode') === 'md') {
+	//       tabs.highlight = this;
+	//       this.elementRef = elementRef;
+	//     }
+	//   }
+	//
+	//   select(tab) {
+	//     setTimeout(() => {
+	//       let d = tab.btn.getDimensions();
+	//       let ele = this.elementRef.nativeElement;
+	//       ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+	//
+	//       if (!this.init) {
+	//         this.init = true;
+	//         setTimeout(() => {
+	//           ele.classList.add('animate');
+	//         }, 64)
+	//       }
+	//     }, 32);
+	//   }
+	//
+	// }
 
 /***/ },
-/* 325 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49951,11 +51613,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _listList = __webpack_require__(315);
+	var _listList = __webpack_require__(317);
 
 	/**
 	 * A radio group is a group of radio components.
@@ -50024,7 +51686,7 @@
 	    /**
 	     * TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     * @param {NgControl=} ngControl  TODO
 	     * @param {QueryList<ListHeader>} headerQuery  TODO
 	     */
@@ -50179,7 +51841,7 @@
 	        '[attr.aria-activedescendant]': 'activeId',
 	        '[attr.aria-describedby]': 'describedById'
 	    }
-	}), __param(3, (0, _angular2Angular2.Optional)()), __param(4, (0, _angular2Angular2.Query)(_listList.ListHeader)), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.QueryList !== 'undefined' && _angular2Angular2.QueryList) === 'function' && _e || Object])], RadioGroup);
+	}), __param(3, (0, _angular2Angular2.Optional)()), __param(4, (0, _angular2Angular2.Query)(_listList.ListHeader)), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.QueryList !== 'undefined' && _angular2Angular2.QueryList) === 'function' && _e || Object])], RadioGroup);
 	/**
 	 * @name ionRadio
 	 * @description
@@ -50202,7 +51864,7 @@
 	     * Radio button constructor.
 	     * @param {RadioGroup=} group  The parent radio group, if any.
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     */
 
 	    function RadioButton(group, elementRef, config, renderer) {
@@ -50258,12 +51920,12 @@
 	        '(click)': 'click($event)'
 	    },
 	    template: '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<media-radio>' + '<radio-icon></radio-icon>' + '</media-radio>'
-	}), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [RadioGroup, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], RadioButton);
+	}), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [RadioGroup, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], RadioButton);
 	var radioGroupIds = -1;
 	var _a, _b, _c, _d, _e, _f, _g, _h;
 
 /***/ },
-/* 326 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50282,11 +51944,11 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ion = __webpack_require__(290);
+	var _ion = __webpack_require__(292);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
 	/**
 	 * @name Search Bar
@@ -50324,7 +51986,7 @@
 	    /**
 	     * TODO
 	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
+	     * @param {Config} config  TODO
 	     */
 
 	    function SearchBar(elementRef, config, ngControl, renderer) {
@@ -50338,8 +52000,7 @@
 	            return;
 	        }
 	        this.ngControl = ngControl;
-	        ngControl.valueAccessor = this;
-	        this.query = '';
+	        this.ngControl.valueAccessor = this;
 	    }
 
 	    // Add the margin for iOS
@@ -50353,7 +52014,8 @@
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
 	            // If the user passes in a value to the model we should left align
-	            this.shouldLeftAlign = this.model && this.model.trim() != '';
+	            this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
+	            this.query = this.ngControl.value || '';
 	        }
 
 	        /**
@@ -50363,7 +52025,7 @@
 	    }, {
 	        key: "writeValue",
 	        value: function writeValue(value) {
-	            this.model = value;
+	            this.query = value;
 	        }
 	    }, {
 	        key: "registerOnChange",
@@ -50378,6 +52040,8 @@
 	    }, {
 	        key: "inputChanged",
 	        value: function inputChanged(event) {
+	            console.log('input changed');
+	            this.writeValue(event.target.value);
 	            this.onChange(event.target.value);
 	        }
 	    }, {
@@ -50393,7 +52057,7 @@
 	        key: "inputBlurred",
 	        value: function inputBlurred() {
 	            this.isFocused = false;
-	            this.shouldLeftAlign = this.model && this.model.trim() != '';
+	            this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
 	            if (this.cancelButton) {
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
@@ -50401,8 +52065,8 @@
 	    }, {
 	        key: "clearInput",
 	        value: function clearInput(event) {
-	            this.model = '';
-	            this.onChange(this.model);
+	            this.writeValue('');
+	            this.onChange('');
 	        }
 	    }]);
 
@@ -50411,7 +52075,6 @@
 	exports.SearchBar = SearchBar;
 	exports.SearchBar = SearchBar = __decorate([(0, _configDecorators.ConfigComponent)({
 	    selector: 'ion-search-bar',
-	    inputs: ['list', 'model: ngModel'],
 	    defaultInputs: {
 	        'showCancel': false,
 	        'cancelText': 'Cancel',
@@ -50421,9 +52084,9 @@
 	            console.log('Default Cancel');
 	        }
 	    },
-	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder" [(ng-model)]="model">' + '<button clear *ng-if="model" class="search-bar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, model)" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
+	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="search-bar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, model)" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], SearchBar);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], SearchBar);
 	var _a, _b, _c, _d;
 	/*
 	export class SearchPipe extends Pipe {
@@ -50448,7 +52111,7 @@
 	*/
 
 /***/ },
-/* 327 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50467,13 +52130,13 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _configDecorators = __webpack_require__(286);
+	var _configDecorators = __webpack_require__(288);
 
-	var _navController = __webpack_require__(299);
+	var _navController = __webpack_require__(301);
 
 	/**
 	 * _For a quick walkthrough of navigation in Ionic, check out the
@@ -50628,10 +52291,10 @@
 	     * @param {NgZone} zone  TODO
 	     */
 
-	    function Nav(hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone) {
+	    function Nav(hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, Nav);
 
-	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone);
+	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
 	        this.panes = [];
 	    }
 
@@ -50723,6 +52386,7 @@
 	                                });
 	                            })();
 	                        }
+	                        _this.addHasViews();
 	                        done();
 	                    });
 	                });
@@ -50831,14 +52495,11 @@
 	    defaultInputs: {
 	        'swipeBackEnabled': true
 	    },
-	    host: {
-	        '[class.has-views]': '_views.length > 0'
-	    },
 	    template: '<template pane-anchor></template>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return NavPaneAnchor;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object])], Nav);
+	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], Nav);
 	/**
 	 * @private
 	 */
@@ -50847,7 +52508,7 @@
 
 	    nav.anchorElementRef(elementRef);
 	};
-	NavPaneAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[pane-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Nav, typeof (_j = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _j || Object])], NavPaneAnchor);
+	NavPaneAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[pane-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Nav, typeof (_k = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _k || Object])], NavPaneAnchor);
 	/**
 	 * @private
 	 */
@@ -50858,7 +52519,7 @@
 	};
 	NavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[navbar-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Pane;
-	}))), __metadata('design:paramtypes', [Pane, typeof (_k = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _k || Object])], NavBarAnchor);
+	}))), __metadata('design:paramtypes', [Pane, typeof (_l = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _l || Object])], NavBarAnchor);
 	/**
 	 * @private
 	 */
@@ -50869,7 +52530,7 @@
 	};
 	ContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Pane;
-	}))), __metadata('design:paramtypes', [Pane, typeof (_l = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _l || Object])], ContentAnchor);
+	}))), __metadata('design:paramtypes', [Pane, typeof (_m = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _m || Object])], ContentAnchor);
 	/**
 	 * @private
 	 */
@@ -50899,11 +52560,11 @@
 	    selector: 'ion-pane',
 	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-content-section>' + '<template content-anchor></template>' + '</ion-content-section>',
 	    directives: [NavBarAnchor, ContentAnchor]
-	}), __metadata('design:paramtypes', [Nav, typeof (_m = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _m || Object, typeof (_o = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _o || Object])], Pane);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+	}), __metadata('design:paramtypes', [Nav, typeof (_o = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _o || Object, typeof (_p = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _p || Object])], Pane);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 
 /***/ },
-/* 328 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50918,9 +52579,9 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _navController = __webpack_require__(299);
+	var _navController = __webpack_require__(301);
 
-	var _navRegistry = __webpack_require__(329);
+	var _navRegistry = __webpack_require__(332);
 
 	/**
 	 * Directive for declaratively linking to a new page instead of using
@@ -51069,7 +52730,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 329 */
+/* 332 */
 /***/ function(module, exports) {
 
 	/**
@@ -51115,7 +52776,7 @@
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
-/* 330 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51134,9 +52795,9 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _angular2Router = __webpack_require__(249);
+	var _angular2Router = __webpack_require__(251);
 
-	var _nav = __webpack_require__(327);
+	var _nav = __webpack_require__(330);
 
 	/**
 	 * TODO
@@ -51272,7 +52933,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 331 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51287,7 +52948,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _app = __webpack_require__(272);
+	var _app = __webpack_require__(274);
 
 	/**
 	 * IdRef is an easy way to identify unique components in an app and access them
@@ -51368,7 +53029,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 332 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51387,7 +53048,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _platformPlatform = __webpack_require__(275);
+	var _platformPlatform = __webpack_require__(277);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -51497,7 +53158,7 @@
 	    host: {
 	        '[hidden]': 'hidden'
 	    }
-	}), __param(0, (0, _angular2Angular2.Attribute)('show-when')), __metadata('design:paramtypes', [String, typeof (_a = typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _b || Object])], ShowWhen);
+	}), __param(0, (0, _angular2Angular2.Attribute)('show-when')), __metadata('design:paramtypes', [String, typeof (_a = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _b || Object])], ShowWhen);
 	/**
 	 * TODO
 	 */
@@ -51531,11 +53192,11 @@
 	    host: {
 	        '[hidden]': 'hidden'
 	    }
-	}), __param(0, (0, _angular2Angular2.Attribute)('hide-when')), __metadata('design:paramtypes', [String, typeof (_c = typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _d || Object])], HideWhen);
+	}), __param(0, (0, _angular2Angular2.Attribute)('hide-when')), __metadata('design:paramtypes', [String, typeof (_c = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _d || Object])], HideWhen);
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 333 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51556,15 +53217,15 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _overlayOverlayController = __webpack_require__(278);
+	var _overlayOverlayController = __webpack_require__(280);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
-	var _buttonButton = __webpack_require__(305);
+	var _buttonButton = __webpack_require__(307);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -51851,7 +53512,7 @@
 	    return Popup;
 	})();
 	exports.Popup = Popup;
-	exports.Popup = Popup = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], Popup);
+	exports.Popup = Popup = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _overlayOverlayController.OverlayController !== 'undefined' && _overlayOverlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], Popup);
 	var OVERLAY_TYPE = 'popup';
 	// TODO add button type to button: [type]="button.type"
 	var PopupCmp = (function () {
@@ -51997,7 +53658,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 334 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52136,7 +53797,7 @@
 	exports.Events = Events = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Events);
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52245,7 +53906,7 @@
 	exports.Translate = Translate = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Translate);
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52260,15 +53921,15 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _appApp = __webpack_require__(272);
+	var _appApp = __webpack_require__(274);
 
-	var _configConfig = __webpack_require__(274);
+	var _configConfig = __webpack_require__(276);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
-	var _activator = __webpack_require__(337);
+	var _activator = __webpack_require__(340);
 
-	var _ripple = __webpack_require__(338);
+	var _ripple = __webpack_require__(341);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -52518,11 +54179,11 @@
 	    return TapClick;
 	})();
 	exports.TapClick = TapClick;
-	exports.TapClick = TapClick = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig) === 'function' && _b || Object])], TapClick);
+	exports.TapClick = TapClick = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], TapClick);
 	var _a, _b;
 
 /***/ },
-/* 337 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52535,7 +54196,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
 	var Activator = (function () {
 	    function Activator(app, config) {
@@ -52589,7 +54250,7 @@
 	        key: 'clearState',
 	        value: function clearState() {
 	            // all states should return to normal
-	            if ((!this.app.isEnabled() || this.app.isTransitioning()) && this.clearAttempt < 30) {
+	            if ((!this.app.isEnabled() || this.app.isTransitioning()) && this.clearAttempt < 100) {
 	                // the app is actively disabled, so don't bother deactivating anything.
 	                // this makes it easier on the GPU so it doesn't have to redraw any
 	                // buttons during a transition. This will retry in XX milliseconds.
@@ -52630,7 +54291,7 @@
 	exports.Activator = Activator;
 
 /***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52647,11 +54308,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _activator = __webpack_require__(337);
+	var _activator = __webpack_require__(340);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
 	var RippleActivator = (function (_Activator) {
 	    _inherits(RippleActivator, _Activator);
@@ -52782,15 +54443,15 @@
 	var OPACITY_OUT_DURATION = 750;
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(274);
+	var _config = __webpack_require__(276);
 
 	// iOS Mode Settings
-	_config.IonicConfig.setModeConfig('ios', {
+	_config.Config.setModeConfig('ios', {
 	    actionSheetEnter: 'action-sheet-slide-in',
 	    actionSheetLeave: 'action-sheet-slide-out',
 	    actionSheetCancelIcon: '',
@@ -52806,7 +54467,7 @@
 	    popupPopOut: 'popup-pop-out'
 	});
 	// Material Design Mode Settings
-	_config.IonicConfig.setModeConfig('md', {
+	_config.Config.setModeConfig('md', {
 	    actionSheetEnter: 'action-sheet-md-slide-in',
 	    actionSheetLeave: 'action-sheet-md-slide-out',
 	    actionSheetCancelIcon: 'ion-md-close',
@@ -52825,258 +54486,7 @@
 	});
 
 /***/ },
-/* 340 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var _ionicUtil = __webpack_require__(280);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	//TODO(mlynch): surely, there must be another way, sir?
-	window._jsonpcallbacks = {
-	    counter: 0
-	};
-	/**
-	 * The Http class makes it easy to send GET/POST/PUT/DELETE/PATCH requests
-	 * and send/receive JSON (or anything else) through a simple API.
-	 *
-	 * Http uses the `fetch()` API underneath, or a polyfill if it's not natively supported.
-	 */
-
-	var Http = (function () {
-	    function Http() {
-	        _classCallCheck(this, Http);
-	    }
-
-	    _createClass(Http, null, [{
-	        key: 'fetch',
-
-	        /**
-	         * The raw fetch() operation.
-	         *
-	         * Generally, you want to use one of get()/post()/put()/delete() but
-	         * this is useful if you want to do something crazy.
-	         *
-	         * @param url the URL to pass to fetch
-	         * @param options the options to configure the fetch
-	         * @return es6 promise from the fetch.
-	         */
-	        value: function fetch(url, options) {
-	            return window.fetch(url, options).then(function (response) {
-	                // status "0" to handle local files fetching (e.g. Cordova/Phonegap etc.)
-	                if (response.status === 200 || response.status === 0) {
-	                    // We have a good response, let's check the response headers and return
-	                    // deserialized JSON or return the text from the response.
-	                    if (response.headers.get('Content-Type') === 'application/json') {
-	                        return response.json();
-	                    }
-	                    return response.text();
-	                } else {
-	                    return Promise.reject(response, new Error(response.statusText));
-	                }
-	            })['catch'](function (err) {
-	                return Promise.reject(err);
-	            });
-	        }
-	    }, {
-	        key: 'jsonp',
-	        value: function jsonp(url, callbackId, options) {
-	            return new Promise(function (resolve, reject) {
-	                var script = document.createElement('script');
-	                script.src = url;
-	                script.async = true;
-	                script.type = 'text/javascript';
-	                var callback = function callback(event) {
-	                    script.removeEventListener('load', callback);
-	                    script.removeEventListener('error', callback);
-	                    document.body.removeChild(script);
-	                    var text = undefined,
-	                        status = undefined;
-	                    if (event) {
-	                        if (event.type === "load" && !window._jsonpcallbacks[callbackId].called) {
-	                            event = { type: "error" };
-	                        }
-	                        text = event.type;
-	                        status = event.type === "error" ? 404 : 200;
-	                        resolve(window._jsonpcallbacks[callbackId].data, status, text);
-	                    } else {
-	                        reject();
-	                    }
-	                    /*
-	                    var jsonpDone = jsonpReq(url.replace('JSON_CALLBACK', 'angular.callbacks.' + callbackId),
-	                        callbackId, function(status, text) {
-	                      completeRequest(callback, status, callbacks[callbackId].data, "", text);
-	                      callbacks[callbackId] = noop;
-	                    });
-	                    */
-	                };
-	                script.addEventListener('load', callback);
-	                script.addEventListener('error', callback);
-	                document.body.appendChild(script);
-	                return callback;
-	            });
-	        }
-	    }, {
-	        key: '_method',
-	        value: function _method(method, url, data, options, sendsJson) {
-	            options = util.defaults(options, {
-	                method: method,
-	                headers: {
-	                    'Accept': 'application/json,text/plain,*/*'
-	                }
-	            });
-	            if (options.body) {
-	                options.body = typeof data === 'string' ? data : JSON.stringify(data);
-	            }
-	            if (sendsJson) {
-	                options.headers['Content-Type'] = 'application/json';
-	            }
-	            if (options.method == 'jsonp') {
-	                var callbackId;
-
-	                var _ret = (function () {
-	                    // Adopted from Angular 1
-	                    var callbacks = window._jsonpcallbacks;
-	                    callbackId = '_' + (callbacks.counter++).toString(36);
-
-	                    callbacks[callbackId] = function (data) {
-	                        callbacks[callbackId].data = data;
-	                        callbacks[callbackId].called = true;
-	                    };
-	                    /*
-	                    var jsonpDone = jsonpReq(url.replace('JSON_CALLBACK', 'angular.callbacks.' + callbackId),
-	                        callbackId, function(status, text) {
-	                      completeRequest(callback, status, callbacks[callbackId].data, "", text);
-	                      callbacks[callbackId] = noop;
-	                    });
-	                    */
-	                    url = url.replace('JSON_CALLBACK', '_jsonpcallbacks.' + callbackId);
-	                    return {
-	                        v: Http.jsonp(url, callbackId, options)
-	                    };
-	                })();
-
-	                if (typeof _ret === 'object') return _ret.v;
-	            } else {
-	                return Http.fetch(url, options);
-	            }
-	        }
-
-	        /**
-	         * Send a GET request to the given URL.
-	         *
-	         * By default, options sends the `Accept` header as `application/json,text/plain,* / *`,
-	         *
-	         * @param url the URL to POST to
-	         * @param options the options to configure the post with.
-	         * @return promise
-	         */
-	    }, {
-	        key: 'get',
-	        value: function get(url) {
-	            var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	            return Http._method('get', url, {}, options);
-	        }
-
-	        /**
-	         * Send a POST request to the given URL.
-	         *
-	         * By default, options sends the `Accept` header as `application/json,text/plain,* / *`,
-	         * and the `Content-Type` header as `application/json`
-	         *
-	         * @param url the URL to POST to
-	         * @param options the options to configure the post with.
-	         * @return promise
-	         */
-	    }, {
-	        key: 'post',
-	        value: function post(url) {
-	            var data = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            return Http._method('post', url, data, options, true);
-	        }
-
-	        /**
-	         * Send a PUT request to the given URL.
-	         *
-	         * By default, options sends the `Accept` header as `application/json,text/plain,* / *`,
-	         * and the `Content-Type` header as `application/json`
-	         *
-	         * @param url the URL to PUT to
-	         * @param data the JSON data to send
-	         * @param options the options to configure the post with.
-	         * @return promise
-	         */
-	    }, {
-	        key: 'put',
-	        value: function put(url) {
-	            var data = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            return Http._method('put', url, data, options, true);
-	        }
-
-	        /**
-	         * Send a DELETE request to the given URL.
-	         *
-	         * By default, options sends the `Accept` header as `application/json,text/plain,* / *`,
-	         * and the `Content-Type` header as `application/json`
-	         *
-	         * @param url the URL to DELETE to
-	         * @param data the JSON data to send
-	         * @param options the options to configure the post with.
-	         * @return promise
-	         */
-	    }, {
-	        key: 'delete',
-	        value: function _delete(url) {
-	            var data = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            return Http._method('delete', url, data, options, true);
-	        }
-
-	        /**
-	         * Send a PATH request to the given URL.
-	         *
-	         * By default, options sends the `Accept` header as `application/json,text/plain,* / *`,
-	         * and the `Content-Type` header as `application/json`
-	         *
-	         * @param url the URL to PATH to
-	         * @param options the options to configure the post with.
-	         * @return promise
-	         */
-	    }, {
-	        key: 'patch',
-	        value: function patch(url) {
-	            var data = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            return Http._method('patch', url, data, options, true);
-	        }
-	    }]);
-
-	    return Http;
-	})();
-
-	exports.Http = Http;
-
-/***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53089,160 +54499,160 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _ionicComponentsAppApp = __webpack_require__(272);
+	var _ionicComponentsAppApp = __webpack_require__(274);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppApp, _defaults));
 
-	var _ionicComponentsAppId = __webpack_require__(331);
+	var _ionicComponentsAppId = __webpack_require__(334);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppId, _defaults));
 
-	var _ionicComponentsActionSheetActionSheet = __webpack_require__(283);
+	var _ionicComponentsActionSheetActionSheet = __webpack_require__(285);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsActionSheetActionSheet, _defaults));
 
-	var _ionicComponentsBlurBlur = __webpack_require__(306);
+	var _ionicComponentsBlurBlur = __webpack_require__(308);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsBlurBlur, _defaults));
 
-	var _ionicComponentsButtonButton = __webpack_require__(305);
+	var _ionicComponentsButtonButton = __webpack_require__(307);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsButtonButton, _defaults));
 
-	var _ionicComponentsCheckboxCheckbox = __webpack_require__(320);
+	var _ionicComponentsCheckboxCheckbox = __webpack_require__(323);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsCheckboxCheckbox, _defaults));
 
-	var _ionicComponentsContentContent = __webpack_require__(307);
+	var _ionicComponentsContentContent = __webpack_require__(309);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsContentContent, _defaults));
 
-	var _ionicComponentsIconIcon = __webpack_require__(284);
+	var _ionicComponentsIconIcon = __webpack_require__(286);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsIconIcon, _defaults));
 
-	var _ionicComponentsItemItem = __webpack_require__(317);
+	var _ionicComponentsItemItem = __webpack_require__(319);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItem, _defaults));
 
-	var _ionicComponentsItemItemGroup = __webpack_require__(318);
+	var _ionicComponentsItemItemGroup = __webpack_require__(320);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemGroup, _defaults));
 
-	var _ionicComponentsItemItemSliding = __webpack_require__(319);
+	var _ionicComponentsItemItemSliding = __webpack_require__(322);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemSliding, _defaults));
 
-	var _ionicComponentsMenuMenu = __webpack_require__(289);
+	var _ionicComponentsMenuMenu = __webpack_require__(291);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenu, _defaults));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(342);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(344);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuTypes, _defaults));
 
-	var _ionicComponentsMenuMenuToggle = __webpack_require__(297);
+	var _ionicComponentsMenuMenuToggle = __webpack_require__(299);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuToggle, _defaults));
 
-	var _ionicComponentsMenuMenuClose = __webpack_require__(304);
+	var _ionicComponentsMenuMenuClose = __webpack_require__(306);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuClose, _defaults));
 
-	var _ionicComponentsTextInputTextInput = __webpack_require__(322);
+	var _ionicComponentsTextInputTextInput = __webpack_require__(325);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputTextInput, _defaults));
 
-	var _ionicComponentsTextInputLabel = __webpack_require__(323);
+	var _ionicComponentsTextInputLabel = __webpack_require__(326);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputLabel, _defaults));
 
-	var _ionicComponentsListList = __webpack_require__(315);
+	var _ionicComponentsListList = __webpack_require__(317);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsListList, _defaults));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(332);
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(335);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
-	var _ionicComponentsModalModal = __webpack_require__(285);
+	var _ionicComponentsModalModal = __webpack_require__(287);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsModalModal, _defaults));
 
-	var _ionicComponentsNavNav = __webpack_require__(327);
+	var _ionicComponentsNavNav = __webpack_require__(330);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNav, _defaults));
 
-	var _ionicComponentsNavNavController = __webpack_require__(299);
+	var _ionicComponentsNavNavController = __webpack_require__(301);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavController, _defaults));
 
-	var _ionicComponentsNavViewController = __webpack_require__(298);
+	var _ionicComponentsNavViewController = __webpack_require__(300);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavViewController, _defaults));
 
-	var _ionicComponentsNavNavPush = __webpack_require__(328);
+	var _ionicComponentsNavNavPush = __webpack_require__(331);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavPush, _defaults));
 
-	var _ionicComponentsNavNavRouter = __webpack_require__(330);
+	var _ionicComponentsNavNavRouter = __webpack_require__(333);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavRouter, _defaults));
 
-	var _ionicComponentsNavBarNavBar = __webpack_require__(302);
+	var _ionicComponentsNavBarNavBar = __webpack_require__(304);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavBarNavBar, _defaults));
 
-	var _ionicComponentsOverlayOverlay = __webpack_require__(288);
+	var _ionicComponentsOverlayOverlay = __webpack_require__(290);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsOverlayOverlay, _defaults));
 
-	var _ionicComponentsPopupPopup = __webpack_require__(333);
+	var _ionicComponentsPopupPopup = __webpack_require__(336);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsPopupPopup, _defaults));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(311);
+	var _ionicComponentsSlidesSlides = __webpack_require__(313);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSlidesSlides, _defaults));
 
-	var _ionicComponentsRadioRadio = __webpack_require__(325);
+	var _ionicComponentsRadioRadio = __webpack_require__(328);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsRadioRadio, _defaults));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(309);
+	var _ionicComponentsScrollScroll = __webpack_require__(311);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollScroll, _defaults));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(310);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(312);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
-	var _ionicComponentsSearchBarSearchBar = __webpack_require__(326);
+	var _ionicComponentsSearchBarSearchBar = __webpack_require__(329);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchBarSearchBar, _defaults));
 
-	var _ionicComponentsSegmentSegment = __webpack_require__(324);
+	var _ionicComponentsSegmentSegment = __webpack_require__(327);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSegmentSegment, _defaults));
 
-	var _ionicComponentsSwitchSwitch = __webpack_require__(321);
+	var _ionicComponentsSwitchSwitch = __webpack_require__(324);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSwitchSwitch, _defaults));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(313);
+	var _ionicComponentsTabsTabs = __webpack_require__(315);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTabs, _defaults));
 
-	var _ionicComponentsTabsTab = __webpack_require__(314);
+	var _ionicComponentsTabsTab = __webpack_require__(316);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTab, _defaults));
 
-	var _ionicComponentsToolbarToolbar = __webpack_require__(303);
+	var _ionicComponentsToolbarToolbar = __webpack_require__(305);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsToolbarToolbar, _defaults));
 
 /***/ },
-/* 342 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53259,9 +54669,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _menu = __webpack_require__(289);
+	var _menu = __webpack_require__(291);
 
-	var _ionicAnimationsAnimation = __webpack_require__(279);
+	var _ionicAnimationsAnimation = __webpack_require__(281);
 
 	/**
 	 * Menu Type
@@ -53429,27 +54839,27 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 343 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _platform = __webpack_require__(275);
+	var _platform = __webpack_require__(277);
 
-	var _utilDom = __webpack_require__(277);
+	var _utilDom = __webpack_require__(279);
 
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'core',
 	    settings: {
 	        mode: 'ios',
 	        keyboardHeight: 290
 	    }
 	});
-	_platform.IonicPlatform.setDefault('core');
-	_platform.IonicPlatform.register({
+	_platform.Platform.setDefault('core');
+	_platform.Platform.register({
 	    name: 'mobile'
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'phablet',
 	    isMatch: function isMatch(p) {
 	        var smallest = Math.min(p.width(), p.height());
@@ -53457,7 +54867,7 @@
 	        return smallest > 390 && smallest < 520 && (largest > 620 && largest < 800);
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'tablet',
 	    isMatch: function isMatch(p) {
 	        var smallest = Math.min(p.width(), p.height());
@@ -53465,7 +54875,7 @@
 	        return smallest > 460 && smallest < 820 && (largest > 780 && largest < 1400);
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'android',
 	    superset: 'mobile',
 	    subsets: ['phablet', 'tablet'],
@@ -53482,7 +54892,7 @@
 	        return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'ios',
 	    superset: 'mobile',
 	    subsets: ['ipad', 'iphone'],
@@ -53508,7 +54918,7 @@
 	        return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'ipad',
 	    superset: 'tablet',
 	    settings: {
@@ -53518,14 +54928,14 @@
 	        return p.isPlatform('ipad');
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'iphone',
 	    subsets: ['phablet'],
 	    isMatch: function isMatch(p) {
 	        return p.isPlatform('iphone');
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'windowsphone',
 	    superset: 'mobile',
 	    subsets: ['phablet', 'tablet'],
@@ -53539,7 +54949,7 @@
 	        return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);
 	    }
 	});
-	_platform.IonicPlatform.register({
+	_platform.Platform.register({
 	    name: 'cordova',
 	    isEngine: true,
 	    methods: {
@@ -53559,7 +54969,7 @@
 	});
 
 /***/ },
-/* 344 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53572,64 +54982,64 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	_defaults(exports, _interopExportWildcard(_plugin, _defaults));
 
-	var _applinksApplinks = __webpack_require__(346);
+	var _applinksApplinks = __webpack_require__(348);
 
 	_defaults(exports, _interopExportWildcard(_applinksApplinks, _defaults));
 
-	var _barcodeBarcode = __webpack_require__(347);
+	var _barcodeBarcode = __webpack_require__(349);
 
 	_defaults(exports, _interopExportWildcard(_barcodeBarcode, _defaults));
 
-	var _batteryBattery = __webpack_require__(348);
+	var _batteryBattery = __webpack_require__(350);
 
 	_defaults(exports, _interopExportWildcard(_batteryBattery, _defaults));
 
-	var _cameraCamera = __webpack_require__(349);
+	var _cameraCamera = __webpack_require__(351);
 
 	_defaults(exports, _interopExportWildcard(_cameraCamera, _defaults));
 
-	var _contactsContacts = __webpack_require__(350);
+	var _contactsContacts = __webpack_require__(352);
 
 	_defaults(exports, _interopExportWildcard(_contactsContacts, _defaults));
 
-	var _dialogsDialogs = __webpack_require__(351);
+	var _dialogsDialogs = __webpack_require__(353);
 
 	_defaults(exports, _interopExportWildcard(_dialogsDialogs, _defaults));
 
-	var _deviceDevice = __webpack_require__(352);
+	var _deviceDevice = __webpack_require__(354);
 
 	_defaults(exports, _interopExportWildcard(_deviceDevice, _defaults));
 
-	var _deviceMotionDeviceMotion = __webpack_require__(353);
+	var _deviceMotionDeviceMotion = __webpack_require__(355);
 
 	_defaults(exports, _interopExportWildcard(_deviceMotionDeviceMotion, _defaults));
 
-	var _deviceOrientationDeviceOrientation = __webpack_require__(354);
+	var _deviceOrientationDeviceOrientation = __webpack_require__(356);
 
 	_defaults(exports, _interopExportWildcard(_deviceOrientationDeviceOrientation, _defaults));
 
-	var _geolocationGeolocation = __webpack_require__(355);
+	var _geolocationGeolocation = __webpack_require__(357);
 
 	_defaults(exports, _interopExportWildcard(_geolocationGeolocation, _defaults));
 
-	var _keyboardKeyboard = __webpack_require__(356);
+	var _keyboardKeyboard = __webpack_require__(358);
 
 	_defaults(exports, _interopExportWildcard(_keyboardKeyboard, _defaults));
 
-	var _statusbarStatusbar = __webpack_require__(357);
+	var _statusbarStatusbar = __webpack_require__(359);
 
 	_defaults(exports, _interopExportWildcard(_statusbarStatusbar, _defaults));
 
-	var _vibrationVibration = __webpack_require__(358);
+	var _vibrationVibration = __webpack_require__(360);
 
 	_defaults(exports, _interopExportWildcard(_vibrationVibration, _defaults));
 
 /***/ },
-/* 345 */
+/* 347 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -53697,7 +55107,7 @@
 	}
 
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53712,7 +55122,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Open installed apps on the device. Note: Android and iOS have different ways of
@@ -53814,7 +55224,7 @@
 	    name: 'AppLinks',
 	    platforms: ['ios', 'android'],
 	    engines: {
-	        cordova: 'cordova-plugin-statusbar'
+	        cordova: 'com.lampa.startapp'
 	    },
 	    pluginCheck: function pluginCheck() {
 	        return !!navigator.startApp;
@@ -53822,7 +55232,7 @@
 	}), __metadata('design:paramtypes', [])], AppLinks);
 
 /***/ },
-/* 347 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53835,7 +55245,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Scan barcodes and QR codes.
@@ -53957,7 +55367,7 @@
 	}), __metadata('design:paramtypes', [])], Barcode);
 
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53972,11 +55382,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Track battery status. Uses the HTMl5 Battery API if available or
@@ -54072,7 +55482,7 @@
 	}), __metadata('design:paramtypes', [])], _Battery);
 
 /***/ },
-/* 349 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54087,11 +55497,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Take a photo or capture video.
@@ -54210,7 +55620,7 @@
 	}), __metadata('design:paramtypes', [])], Camera);
 
 /***/ },
-/* 350 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54223,7 +55633,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Access and manage Contacts on the device.
@@ -54393,7 +55803,7 @@
 	}), __metadata('design:paramtypes', [])], Contacts);
 
 /***/ },
-/* 351 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54406,7 +55816,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * A native dialogs system. Native dialogs can give you a bit more
@@ -54563,7 +55973,7 @@
 	}), __metadata('design:paramtypes', [])], Dialogs);
 
 /***/ },
-/* 352 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54576,7 +55986,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Access information about the underlying device and platform.
@@ -54751,7 +56161,7 @@
 	}), __metadata('design:paramtypes', [])], _Device);
 
 /***/ },
-/* 353 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -54769,11 +56179,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Respond to device movement in the x/y/z axes.
@@ -54919,7 +56329,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceMotion);
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -54937,11 +56347,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Respond to device orientation changes (compass).
@@ -55070,7 +56480,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -55086,7 +56496,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Get geolocation data.
@@ -55192,7 +56602,7 @@
 	}), __metadata('design:paramtypes', [])], Geolocation);
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55205,7 +56615,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Manage the native keyboard. Note: this plugin performs mainly in the native
@@ -55311,7 +56721,7 @@
 	}), __metadata('design:paramtypes', [])], Keyboard);
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55324,7 +56734,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	 * Manage the appearance of the native status bar.
@@ -55482,7 +56892,7 @@
 	}), __metadata('design:paramtypes', [])], _StatusBar);
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55495,7 +56905,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(345);
+	var _plugin = __webpack_require__(347);
 
 	/**
 	* Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
@@ -55560,7 +56970,7 @@
 	}), __metadata('design:paramtypes', [])], Vibration);
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55573,20 +56983,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _storageStorage = __webpack_require__(360);
+	var _storageStorage = __webpack_require__(362);
 
 	_defaults(exports, _interopExportWildcard(_storageStorage, _defaults));
 
-	var _storageLocalStorage = __webpack_require__(361);
+	var _storageLocalStorage = __webpack_require__(363);
 
 	_defaults(exports, _interopExportWildcard(_storageLocalStorage, _defaults));
 
-	var _storageSql = __webpack_require__(362);
+	var _storageSql = __webpack_require__(364);
 
 	_defaults(exports, _interopExportWildcard(_storageSql, _defaults));
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports) {
 
 	/**
@@ -55685,7 +57095,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55702,7 +57112,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(360);
+	var _storage = __webpack_require__(362);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -55768,7 +57178,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55787,9 +57197,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(360);
+	var _storage = __webpack_require__(362);
 
-	var _ionicUtil = __webpack_require__(280);
+	var _ionicUtil = __webpack_require__(282);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -56019,7 +57429,7 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56030,7 +57440,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _animation = __webpack_require__(279);
+	var _animation = __webpack_require__(281);
 
 	var SlideIn = (function (_Animation) {
 	    _inherits(SlideIn, _Animation);
@@ -56093,7 +57503,7 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56104,9 +57514,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(300);
+	var _transition = __webpack_require__(302);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
 	var DURATION = 550;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
@@ -56165,6 +57575,10 @@
 	                // back direction
 	                enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
 	                enteringNavbarBg.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+	                if (enteringView.enableBack()) {
+	                    enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+	                    enteringBackButton.fadeIn();
+	                }
 	            } else {
 	                // forward direction
 	                enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
@@ -56222,7 +57636,7 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56233,9 +57647,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(300);
+	var _transition = __webpack_require__(302);
 
-	var _animationsAnimation = __webpack_require__(279);
+	var _animationsAnimation = __webpack_require__(281);
 
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
@@ -56325,7 +57739,7 @@
 	_transition.Transition.register('md', MDTransition);
 
 /***/ },
-/* 366 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56340,7 +57754,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _translate = __webpack_require__(335);
+	var _translate = __webpack_require__(338);
 
 	/**
 	 * The Translate pipe makes it easy to translate strings.
@@ -56402,7 +57816,7 @@
 	var _a;
 
 /***/ },
-/* 367 */
+/* 369 */
 /***/ function(module, exports) {
 
 	// Copyright 2014 Google Inc. All rights reserved.
@@ -56423,7 +57837,7 @@
 	//# sourceMappingURL=web-animations.min.js.map
 
 /***/ },
-/* 368 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56432,11 +57846,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
-	var _actionSheetActionSheet = __webpack_require__(369);
+	var _actionSheetActionSheet = __webpack_require__(371);
 
-	var _helpers = __webpack_require__(370);
+	var _helpers = __webpack_require__(372);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -56487,12 +57901,13 @@
 	    });
 	};
 	DemoApp = __decorate([(0, _ionicIonic.App)({
-	    template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.IonicPlatform !== 'undefined' && _ionicIonic.IonicPlatform) === 'function' && _b || Object])], DemoApp);
+	    template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>',
+	    directives: [helpers.AndroidAttribute]
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 	var _a, _b;
 
 /***/ },
-/* 369 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56505,7 +57920,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -56591,45 +58006,82 @@
 	exports.ActionSheetPage = ActionSheetPage;
 	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'actionSheet/actionSheet.html'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.IonicPlatform !== 'undefined' && _ionicIonic.IonicPlatform) === 'function' && _b || Object])], ActionSheetPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
 	var _a, _b;
 
 /***/ },
-/* 370 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.toTitleCase = toTitleCase;
 	exports.getPageFor = getPageFor;
 	exports.debounce = debounce;
 
-	var _actionSheetActionSheet = __webpack_require__(369);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _buttonsButtons = __webpack_require__(371);
+	var _angular2Angular2 = __webpack_require__(40);
 
-	var _cardsCards = __webpack_require__(372);
+	var _ionicIonic = __webpack_require__(249);
 
-	var _formsForms = __webpack_require__(373);
+	var _actionSheetActionSheet = __webpack_require__(371);
 
-	var _iconsIcons = __webpack_require__(374);
+	var _buttonsButtons = __webpack_require__(373);
 
-	var _listsLists = __webpack_require__(375);
+	var _cardsCards = __webpack_require__(374);
 
-	var _menusMenus = __webpack_require__(376);
+	var _formsForms = __webpack_require__(375);
 
-	var _modalsModals = __webpack_require__(377);
+	var _iconsIcons = __webpack_require__(376);
 
-	var _navigationNavigation = __webpack_require__(378);
+	var _listsLists = __webpack_require__(377);
 
-	var _popupsPopups = __webpack_require__(379);
+	var _menusMenus = __webpack_require__(378);
 
-	var _slidesSlides = __webpack_require__(380);
+	var _modalsModals = __webpack_require__(379);
 
-	var _tabsTabs = __webpack_require__(381);
+	var _navigationNavigation = __webpack_require__(380);
+
+	var _popupsPopups = __webpack_require__(381);
+
+	var _slidesSlides = __webpack_require__(382);
+
+	var _tabsTabs = __webpack_require__(383);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var AndroidAttribute = function AndroidAttribute(platform, elementRef, renderer) {
+	    _classCallCheck(this, AndroidAttribute);
+
+	    this.isAndroid = platform.is('android');
+	    renderer.setElementAttribute(elementRef, 'primary', this.isAndroid ? true : null);
+	};
+	exports.AndroidAttribute = AndroidAttribute;
+	exports.AndroidAttribute = AndroidAttribute = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: '.android-attr'
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], AndroidAttribute);
 
 	function toTitleCase(str) {
 	    return str.replace(/\w\S*/g, function (txt) {
@@ -56650,7 +58102,10 @@
 	        'buttons-in-components': _buttonsButtons.ButtonsInComponentsPage,
 	        'button-sizes': _buttonsButtons.ButtonSizesPage,
 	        'icon-buttons': _buttonsButtons.IconButtonsPage,
-	        'cards': _cardsCards.CardsPage,
+	        'cards': _cardsCards.CardsBasicPage,
+	        'card-header': _cardsCards.CardsHeaderPage,
+	        'card-list': _cardsCards.CardsListPage,
+	        'card-image': _cardsCards.CardsImagePage,
 	        'forms': _formsForms.FormsPage,
 	        'fixed-inline-labels': _formsForms.FixedInlinePage,
 	        'floating-labels': _formsForms.FloatingPage,
@@ -56686,9 +58141,10 @@
 	}
 
 	;
+	var _a, _b, _c;
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56699,7 +58155,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -56793,7 +58249,7 @@
 	}), __metadata('design:paramtypes', [])], ButtonsInComponentsPage);
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56804,7 +58260,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -56826,16 +58282,37 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var CardsPage = function CardsPage() {
-	    _classCallCheck(this, CardsPage);
+	var CardsBasicPage = function CardsBasicPage() {
+	    _classCallCheck(this, CardsBasicPage);
 	};
-	exports.CardsPage = CardsPage;
-	exports.CardsPage = CardsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards.html'
-	}), __metadata('design:paramtypes', [])], CardsPage);
+	exports.CardsBasicPage = CardsBasicPage;
+	exports.CardsBasicPage = CardsBasicPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-basic.html'
+	}), __metadata('design:paramtypes', [])], CardsBasicPage);
+	var CardsHeaderPage = function CardsHeaderPage() {
+	    _classCallCheck(this, CardsHeaderPage);
+	};
+	exports.CardsHeaderPage = CardsHeaderPage;
+	exports.CardsHeaderPage = CardsHeaderPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-header.html'
+	}), __metadata('design:paramtypes', [])], CardsHeaderPage);
+	var CardsListPage = function CardsListPage() {
+	    _classCallCheck(this, CardsListPage);
+	};
+	exports.CardsListPage = CardsListPage;
+	exports.CardsListPage = CardsListPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-list.html'
+	}), __metadata('design:paramtypes', [])], CardsListPage);
+	var CardsImagePage = function CardsImagePage() {
+	    _classCallCheck(this, CardsImagePage);
+	};
+	exports.CardsImagePage = CardsImagePage;
+	exports.CardsImagePage = CardsImagePage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-image.html'
+	}), __metadata('design:paramtypes', [])], CardsImagePage);
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56850,7 +58327,7 @@
 
 	var _angular2Angular2 = __webpack_require__(40);
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -56941,7 +58418,7 @@
 	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56952,7 +58429,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -56983,7 +58460,7 @@
 	}), __metadata('design:paramtypes', [])], IconsPage);
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56994,7 +58471,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57025,7 +58502,7 @@
 	}), __metadata('design:paramtypes', [])], ListsPage);
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57038,7 +58515,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57116,7 +58593,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57133,7 +58610,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57244,7 +58721,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57257,7 +58734,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57326,7 +58803,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57339,7 +58816,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57409,7 +58886,7 @@
 	var _a;
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57420,7 +58897,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57451,7 +58928,7 @@
 	}), __metadata('design:paramtypes', [])], SlidesPage);
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57462,7 +58939,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _ionicIonic = __webpack_require__(247);
+	var _ionicIonic = __webpack_require__(249);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);

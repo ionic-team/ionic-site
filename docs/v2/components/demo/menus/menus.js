@@ -53,10 +53,9 @@ PageThree = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'menus/menu-events.html'
 }), __metadata('design:paramtypes', [])], PageThree);
 var MenusPage = (function () {
-    function MenusPage(app, events, nav) {
+    function MenusPage(app, events) {
         _classCallCheck(this, MenusPage);
 
-        this.nav = nav;
         this.app = app;
         this.rootView = PageOne;
         this.pages = [{ title: 'Home', component: PageOne }, { title: 'Friends', component: PageTwo }, { title: 'Events', component: PageThree }];
@@ -67,13 +66,13 @@ var MenusPage = (function () {
         value: function onViewWillUnload() {}
     }, {
         key: "openPage",
-        value: function openPage(menu, page) {
+        value: function openPage(page) {
             // close the menu when clicking a link from the menu
-            menu.close();
+            this.app.getComponent('leftMenu').close();
             // Reset the content nav to have just this page
             // we wouldn't want the back button to show in this scenario
-            // let nav = this.app.getComponent('nav');
-            this.nav.setRoot(page.component);
+            var nav = this.app.getComponent('nav');
+            nav.setRoot(page.component);
         }
     }]);
 
@@ -82,5 +81,5 @@ var MenusPage = (function () {
 exports.MenusPage = MenusPage;
 exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'menus/menus.html'
-}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _e || Object])], MenusPage);
-var _a, _b, _c, _d, _e;
+}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _d || Object])], MenusPage);
+var _a, _b, _c, _d;

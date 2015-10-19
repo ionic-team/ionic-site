@@ -106,7 +106,7 @@ function getPageFor(hash) {
         'lists': _listsLists.BasicListsPage,
         'avatar-list': _listsLists.AvatarListsPage,
         'icon-list': _listsLists.IconListsPage,
-        'dividers': _listsLists.BasicDividersPage,
+        'list-dividers': _listsLists.BasicDividersPage,
         'inset-list': _listsLists.BasicInsetListsPage,
         'list-headers': _listsLists.ListHeadersPage,
         'menus': _menusMenus.MenusPage,

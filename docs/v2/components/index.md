@@ -694,33 +694,40 @@ For more information on Menus, check out the [Menu API reference](../api/compone
 Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.
 
-First, we need to create the class that will control our modal. Modals must extend
-from the `Modal` Ionic class:
+First, we need to create the class that will control our modal. Let's import `Modal`:
 
 ```javascript
-@IonicComponent(Modal)
-@View({
-  template: `<ion-view id="my-modal">
-    <ion-content padding>
-      <button primary (click)="close()">Close</button>
-    </ion-content>
-  </ion-view>`,
-  directives: [Content]
+import {Modal} from 'ionic/ionic';
+```
+
+Next, let's create our modal and define add its template:
+
+```javascript
+@Page({
+  template: `
+  <ion-pane padding>
+    <h2>I'm a modal!</h2>
+    <button primary (click)="close()">Close</button>
+  </ion-pane>`
 })
-export class MyModal extends Modal {
+class MyModal extends Modal {
   constructor() {
-    super();
   }
 }
 ```
 
-To open a modal, we just call `Modal.open(MyModal)`:
+
+Finally, let's add the code that will open our Modal:
 
 ```javascript
-export class MyPage {
-  onOpenClicked() {
-    Modal.open(MyModal);
+class MyPage {
+  constructor(modal: Modal){
+    this.modal = Modal;
   }
+  showModal() {
+    this.modal.open(MyModal);
+  }
+
 }
 ```
 

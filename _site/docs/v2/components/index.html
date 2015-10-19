@@ -853,28 +853,31 @@ reference to an array of items, and the parent scroll element:</p>
 <p>Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.</p>
 
-<p>First, we need to create the class that will control our modal. Modals must extend
-from the <code>Modal</code> Ionic class:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">IonicComponent</span><span class="p">(</span><span class="nx">Modal</span><span class="p">)</span>
-<span class="err">@</span><span class="nx">View</span><span class="p">({</span>
-  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span><span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;my-modal&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">padding</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">primary</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;close()&quot;</span><span class="o">&gt;</span><span class="nx">Close</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;`,</span>
-  <span class="nx">directives</span><span class="o">:</span> <span class="p">[</span><span class="nx">Content</span><span class="p">]</span>
+<p>First, we need to create the class that will control our modal. Let&#39;s import <code>Modal</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Modal</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Next, let&#39;s create our modal and define add its template:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="err">@</span><span class="nx">Page</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="err">`</span>
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">pane</span> <span class="nx">padding</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span><span class="err">&#39;</span><span class="nx">m</span> <span class="nx">a</span> <span class="nx">modal</span><span class="o">!&lt;</span><span class="err">/h2&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">primary</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;close()&quot;</span><span class="o">&gt;</span><span class="nx">Close</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+  <span class="o">&lt;</span><span class="err">/ion-pane&gt;`</span>
 <span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyModal</span> <span class="kr">extends</span> <span class="nx">Modal</span> <span class="p">{</span>
+<span class="kr">class</span> <span class="nx">MyModal</span> <span class="kr">extends</span> <span class="nx">Modal</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">super</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>To open a modal, we just call <code>Modal.open(MyModal)</code>:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">onOpenClicked</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Modal</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">MyModal</span><span class="p">);</span>
+<p>Finally, let&#39;s add the code that will open our Modal:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">modal</span><span class="o">:</span> <span class="nx">Modal</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modal</span> <span class="o">=</span> <span class="nx">Modal</span><span class="p">;</span>
   <span class="p">}</span>
+  <span class="nx">showModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">MyModal</span><span class="p">);</span>
+  <span class="p">}</span>
+
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="navigation" class="section-header">Navigation</h2>

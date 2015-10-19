@@ -585,6 +585,17 @@ While not recommended, icons can be added using their class name. This was the t
 
 Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
 
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="{{components_link}}#inset-list">Inset List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#no-dividers">No Divider</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
+</ul>
+ 
+
+<h3 class="no-para">Basic Usage:</h3>
 
 ```html
 <ion-list>
@@ -594,8 +605,26 @@ Lists are used to display rows of information, such as a contact list, playlist,
 </ion-list>
 ```
 
+
+
+<h2 id="inset-list">Inset List</h2>
+
 By default, lists have an outside margin, to remove that add the `inset` property
 to make the list flush with the parent container.
+
+
+<h2 id="no-dividers">No Dividers</h2>
+TODO
+
+<h2 id="list-headers">List Headers</h2>
+TODO
+
+<h2 id="icon-list">Icon List</h2>
+TODO
+
+<h2 id="avatar-list">Avatar List</h2>
+TODO
+
 
 ### Virtual Scrolling (Experimental)
 

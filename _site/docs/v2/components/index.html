@@ -178,7 +178,17 @@
         </ul>
 
       <li><a href="#icons">Icons</a></li>
+
       <li><a href="#lists">Lists</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="#inset-list"></a></li>
+          <li class="nav-item-hidden"><a href="#no-dividers"></a></li>
+          <li class="nav-item-hidden"><a href="#list-headers"></a></li>
+          <li class="nav-item-hidden"><a href="#icon-list"></a></li>
+          <li class="nav-item-hidden"><a href="#avatar-list"></a></li>
+        </ul>
+
+
       <li><a href="#menus">Menus</a></li>
       <li><a href="#modals">Modals</a></li>
       <li><a href="#navigation">Navigation</a></li>
@@ -756,14 +766,44 @@ You can also add a placeholder so that users have a hint of what type of text th
 <h2 id="lists">Lists</h2>
 
 <p>Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don&#39;t even know exists yet!</p>
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#inset-list">Inset List</a></li>
+  <li class="docs-content-item"><a href="#no-dividers">No Divider</a></li>
+  <li class="docs-content-item"><a href="#list-headers">List Headers</a></li>
+  <li class="docs-content-item"><a href="#icon-list">Icon List</a></li>
+  <li class="docs-content-item"><a href="#avatar-list">Avatar List</a></li>
+</ul>
+ 
+
+<h3 class="no-para">Basic Usage:</h3>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#item of items&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)&quot;</span><span class="nt">&gt;</span>
 
   <span class="nt">&lt;/ion-item&gt;</span>
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre></div>
+<h2 id="inset-list">Inset List</h2>
+
 <p>By default, lists have an outside margin, to remove that add the <code>inset</code> property
 to make the list flush with the parent container.</p>
+
+<h2 id="no-dividers">No Dividers</h2>
+
+<p>TODO</p>
+
+<h2 id="list-headers">List Headers</h2>
+
+<p>TODO</p>
+
+<h2 id="icon-list">Icon List</h2>
+
+<p>TODO</p>
+
+<h2 id="avatar-list">Avatar List</h2>
+
+<p>TODO</p>
 
 <h3>Virtual Scrolling (Experimental)</h3>
 

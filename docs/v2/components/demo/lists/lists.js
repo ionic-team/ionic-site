@@ -28,10 +28,45 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ListsPage = function ListsPage() {
-    _classCallCheck(this, ListsPage);
+var BasicListsPage = function BasicListsPage() {
+    _classCallCheck(this, BasicListsPage);
 };
-exports.ListsPage = ListsPage;
-exports.ListsPage = ListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/lists.html'
-}), __metadata('design:paramtypes', [])], ListsPage);
+exports.BasicListsPage = BasicListsPage;
+exports.BasicListsPage = BasicListsPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/basic-lists.html'
+}), __metadata('design:paramtypes', [])], BasicListsPage);
+var BasicDividersPage = function BasicDividersPage() {
+    _classCallCheck(this, BasicDividersPage);
+};
+exports.BasicDividersPage = BasicDividersPage;
+exports.BasicDividersPage = BasicDividersPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/dividers.html'
+}), __metadata('design:paramtypes', [])], BasicDividersPage);
+var BasicInsetListsPage = function BasicInsetListsPage() {
+    _classCallCheck(this, BasicInsetListsPage);
+};
+exports.BasicInsetListsPage = BasicInsetListsPage;
+exports.BasicInsetListsPage = BasicInsetListsPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/inset-lists.html'
+}), __metadata('design:paramtypes', [])], BasicInsetListsPage);
+var ListHeadersPage = function ListHeadersPage() {
+    _classCallCheck(this, ListHeadersPage);
+};
+exports.ListHeadersPage = ListHeadersPage;
+exports.ListHeadersPage = ListHeadersPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/list-headers.html'
+}), __metadata('design:paramtypes', [])], ListHeadersPage);
+var IconListsPage = function IconListsPage() {
+    _classCallCheck(this, IconListsPage);
+};
+exports.IconListsPage = IconListsPage;
+exports.IconListsPage = IconListsPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/icon-lists.html'
+}), __metadata('design:paramtypes', [])], IconListsPage);
+var AvatarListsPage = function AvatarListsPage() {
+    _classCallCheck(this, AvatarListsPage);
+};
+exports.AvatarListsPage = AvatarListsPage;
+exports.AvatarListsPage = AvatarListsPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/avatar-lists.html'
+}), __metadata('design:paramtypes', [])], AvatarListsPage);

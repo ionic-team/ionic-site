@@ -122,7 +122,8 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+  background-color: #fff; }
 
 ion-app {
   display: -webkit-box;
@@ -1719,6 +1720,15 @@ ion-modal {
   min-height: 100%;
   width: 100%;
   background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-transform: translate3d(0px, 100%, 0px);
   transform: translate3d(0px, 100%, 0px); }
   ion-modal.show-overlay {
@@ -5441,13 +5451,15 @@ icon,
   .ios .list ion-note {
     color: #aeacb4; }
   .ios .list ion-avatar {
-    min-width: 3.6rem; }
+    min-width: 3.6rem;
+    min-height: 3.6rem; }
     .ios .list ion-avatar img {
       max-width: 3.6rem;
       max-height: 3.6rem;
       border-radius: 1.8rem; }
   .ios .list ion-thumbnail {
-    min-width: 5.6rem; }
+    min-width: 5.6rem;
+    min-height: 5.6rem; }
     .ios .list ion-thumbnail img {
       max-width: 5.6rem;
       max-height: 5.6rem; }
@@ -5472,6 +5484,7 @@ icon,
     margin-top: 1px;
     margin-bottom: 1px; }
   .ios .list ion-item-options button, .ios .list ion-item-options [button] {
+    min-height: calc(100% - 2px);
     height: calc(100% - 2px);
     margin: 1px 0 2px 0;
     border: none;
@@ -5516,10 +5529,18 @@ icon,
     background-position: right 14px center;
     background-size: 14px 14px;
     padding-right: 32px; }
+  .ios.hairlines .list ion-item-options button, .ios.hairlines .list ion-item-options [button] {
+    min-height: calc(100% - 1px);
+    height: calc(100% - 1px);
+    margin-top: 0.55px;
+    margin-bottom: 0.55px; }
+  .ios.hairlines .list ion-item-sliding-content {
+    margin-top: 0.55px;
+    margin-bottom: 0.55px; }
   .ios.hairlines .list .item {
-    margin-top: -0.5px; }
+    margin-top: -0.55px; }
     .ios.hairlines .list .item:last-child {
-      margin-bottom: -0.5px; }
+      margin-bottom: -0.55px; }
     .ios.hairlines .list .item:before,
     .ios.hairlines .list .item:after {
       border-top-width: 0.55px; }
@@ -5654,6 +5675,8 @@ icon,
   .ios.hairlines .action-sheet .action-sheet-title,
   .ios.hairlines .action-sheet .action-sheet-option {
     border-bottom-width: 0.55px; }
+  .ios .action-sheet-destructive {
+    color: #f53d3d; }
   .ios ion-card {
     margin: 12px 12px 12px 12px;
     font-size: 1.4rem;
@@ -6496,13 +6519,15 @@ icon,
   .md .list icon[item-left] + [text-input] {
     margin-left: 24px; }
   .md .list ion-avatar {
-    min-width: 4rem; }
+    min-width: 4rem;
+    min-height: 4rem; }
     .md .list ion-avatar img {
       max-width: 4rem;
       max-height: 4rem;
       border-radius: 2rem; }
   .md .list ion-thumbnail {
-    min-width: 8rem; }
+    min-width: 8rem;
+    min-height: 8rem; }
     .md .list ion-thumbnail img {
       max-width: 8rem;
       max-height: 8rem; }

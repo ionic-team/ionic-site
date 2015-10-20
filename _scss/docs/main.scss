@@ -299,7 +299,7 @@ body {
       padding: 16px;
       line-height: 24px;
     }
-    a{
+    a:not(a.btn){
       color: $blue;
       text-decoration: none;
       transition: .2s color;

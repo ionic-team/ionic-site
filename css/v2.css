@@ -4817,11 +4817,11 @@ body {
     background: white;
     padding: 16px;
     line-height: 24px; }
-  .docs-container main a {
+  .docs-container main a:not(a.btn) {
     color: #4f8ff7;
     text-decoration: none;
     transition: .2s color; }
-    .docs-container main a:hover {
+    .docs-container main a:not(a.btn):hover {
       color: #98befa; }
   .docs-container main b,
   .docs-container main strong {

@@ -40,6 +40,7 @@ var DemoApp = function DemoApp(app, platform) {
 
     this.app = app;
     this.platform = platform;
+    this.androidAttribute = helpers.AndroidAttribute;
     this.platform.ready().then(function () {
         window.addEventListener('message', function (e) {
             zone.run(function () {
@@ -59,7 +60,6 @@ var DemoApp = function DemoApp(app, platform) {
     });
 };
 DemoApp = __decorate([(0, _ionicIonic.App)({
-    template: '<ion-nav id="nav" [root]="rootPage"></ion-nav><ion-overlay></ion-overlay>',
-    directives: [helpers.AndroidAttribute]
+    template: '<img src="img/android-statusbar-blue.png" style="display:none" id="md-only"><ion-nav id="nav" [root]="rootPage" #content></ion-nav><ion-overlay></ion-overlay>'
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 var _a, _b;

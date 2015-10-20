@@ -60,6 +60,7 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 var AndroidAttribute = function AndroidAttribute(platform, elementRef, renderer) {
     _classCallCheck(this, AndroidAttribute);
 
+    console.log('init');
     this.isAndroid = platform.is('android');
     renderer.setElementAttribute(elementRef, 'primary', this.isAndroid ? true : null);
 };

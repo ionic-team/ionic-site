@@ -25,6 +25,8 @@ $ npm install -g ionic@alpha
 
 (Note: do not type the dollar sign, that is a placeholder for your shell prompt).
 
+> Worried about your V1 Ionic projects? Don't worry! The alpha release has all the functionality to work with both V1 projects and V2 projects.
+
 Once that's done, create your first Ionic app:
 
 ```bash

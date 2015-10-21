@@ -6,9 +6,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _ionicIonic = require('ionic/ionic');
+
+var _angular2Angular2 = require('angular2/angular2');
+
+var _helpers = require('../helpers');
+
+var helpers = _interopRequireWildcard(_helpers);
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -35,19 +43,28 @@ var PageOne = function PageOne() {
     _classCallCheck(this, PageOne);
 };
 PageOne = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'menus/menu-home.html'
+    templateUrl: 'menus/menu-home.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], PageOne);
 var PageTwo = function PageTwo() {
     _classCallCheck(this, PageTwo);
 };
 PageTwo = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'menus/menu-friends.html'
+    templateUrl: 'menus/menu-friends.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], PageTwo);
 var PageThree = function PageThree() {
     _classCallCheck(this, PageThree);
 };
 PageThree = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'menus/menu-events.html'
+    templateUrl: 'menus/menu-events.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], PageThree);
 var MenusPage = (function () {
     function MenusPage(app) {
@@ -74,6 +91,9 @@ var MenusPage = (function () {
 })();
 exports.MenusPage = MenusPage;
 exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'menus/menus.html'
+    templateUrl: 'menus/menus.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], MenusPage);
 var _a;

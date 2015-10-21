@@ -10,6 +10,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _ionicIonic = require('ionic/ionic');
 
+var _helpers = require('../helpers');
+
+var _angular2Angular2 = require('angular2/angular2');
+
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -73,6 +77,9 @@ var PopupsPage = (function () {
 })();
 exports.PopupsPage = PopupsPage;
 exports.PopupsPage = PopupsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'popups/popups.html'
+    templateUrl: 'popups/popups.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Popup !== 'undefined' && _ionicIonic.Popup) === 'function' && _a || Object])], PopupsPage);
 var _a;

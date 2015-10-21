@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 Plugins | Geolocation - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -284,57 +279,61 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md">
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Tracking GPS Location</h1>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-plugin-geolocation
-</code></pre></div>
-<p>Tracking GPS location is easy with the <code>Geolocation</code> class. There are two modes:
-single value, and watching. Single value grabs one location position and returns it,
+<h3 id="install-the-plugin">Install the plugin</h3>
+
+<pre><code class="language-bash">$ ionic plugin install cordova-plugin-geolocation
+</code></pre>
+
+<p>Tracking GPS location is easy with the <code>Geolocation</code> class. There are two modes:<br />
+single value, and watching. Single value grabs one location position and returns it,<br />
 while watching continuously checks for location changes and returns those.</p>
 
 <p>Both operations prompt the user to accept location sharing with your app.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Geolocation</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
-<span class="kr">class</span> <span class="nx">LocationTracker</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">({</span>
-    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="kd">let</span> <span class="nx">lat</span>  <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
-      <span class="kd">let</span> <span class="kr">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
-    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-     <span class="c1">// error</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
+<pre><code class="language-javascript">import {Geolocation} from 'ionic/ionic'
 
-  <span class="nx">startTracking</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">watchOptions</span> <span class="o">=</span> <span class="p">{</span>
-     <span class="nx">frequency</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
-     <span class="nx">timeout</span> <span class="o">:</span> <span class="mi">3000</span><span class="p">,</span>
-     <span class="nx">enableHighAccuracy</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// may cause errors if true</span>
-    <span class="p">};</span>
+class LocationTracker {
+  constructor() {
+    Geolocation.getCurrentPosition({
+    }).then((position) =&gt; {
+      let lat  = position.coords.latitude
+      let long = position.coords.longitude
+    }, (err) =&gt; {
+     // error
+    });
+  }
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">(</span><span class="nx">watchOptions</span><span class="p">);</span>
+  startTracking() {
+    var watchOptions = {
+     frequency : 1000,
+     timeout : 3000,
+     enableHighAccuracy: false // may cause errors if true
+    };
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Called continuously</span>
-      <span class="kd">let</span> <span class="nx">lat</span>  <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
-      <span class="kd">let</span> <span class="kr">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
+    this.currentWatch = Geolocation.watchPosition(watchOptions);
 
-  <span class="nx">stopTracking</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+    this.currentWatch.source.subscribe((position) =&gt; {
+      // Called continuously
+      let lat  = position.coords.latitude
+      let long = position.coords.longitude
+    });
+  }
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">currentWatch</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+  stopTracking() {
+    if(!this.currentWatch) { return; }
+
+    this.currentWatch.clear();
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

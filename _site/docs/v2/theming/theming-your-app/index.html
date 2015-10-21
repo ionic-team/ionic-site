@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Theming your Ionic app - Customizing your app to fit your brand -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md">
     Improve this doc
   </a>
 </div>
@@ -292,39 +287,48 @@
 <h1 class="title">Theming your Ionic App</h1>
 
 <p>Theme support is baked right in to your Ionic apps. To change the theme, just tweak the <code>$colors</code> <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">map</a> in your <code>www/app/app.scss</code> file:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
 
-  <span class="n">primary</span><span class="o">:</span>    <span class="mh">#387ef5</span><span class="o">,</span>
-  <span class="n">secondary</span><span class="o">:</span>  <span class="mh">#32db64</span><span class="o">,</span>
-  <span class="n">danger</span><span class="o">:</span>     <span class="mh">#f53d3d</span><span class="o">,</span>
-  <span class="n">light</span><span class="o">:</span>      <span class="mh">#f4f4f4</span><span class="o">,</span>
-  <span class="n">dark</span><span class="o">:</span>       <span class="mh">#222</span><span class="o">,</span>
+<pre><code class="language-scss">$colors: (
 
-<span class="p">);</span>
-</code></pre></div>
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+
+);
+
+</code></pre>
+
 <p>The fastest way to change the theme of your Ionic app is to set a new value for <code>primary</code>, since Ionic uses the primary color by default for buttons and other components.</p>
 
-<h2>Custom Colors</h2>
+<h2 id="custom-colors">Custom Colors</h2>
 
 <p>To add custom colors, just add them to the <code>$colors</code> map:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span>
-  <span class="c1">// ...</span>
-  <span class="n">twitter</span><span class="o">:</span>    <span class="mh">#55acee</span>
-<span class="p">)</span>
-</code></pre></div>
+
+<pre><code class="language-scss">$colors: (
+  // ...
+  twitter:    #55acee
+)
+</code></pre>
+
 <p>Ionic makes the <code>$colors</code> keys available as a property to many components. For example, to use our <code>twitter</code> color, add the key as a property:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">twitter</span><span class="nt">&gt;</span>I&#39;m a button<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<h2>Dark theme</h2>
+
+<pre><code class="language-html">&lt;button twitter&gt;I'm a button&lt;/button&gt;
+</code></pre>
+
+<h2 id="dark-theme">Dark theme</h2>
 
 <p>By default, Ionic comes with a light and dark theme. To use the dark theme, import it before the Ionic Sass files in your <code>app.scss</code> file:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&quot;themes/dark&quot;</span><span class="p">;</span>
 
-<span class="c1">// Ionic Sass</span>
-<span class="c1">// ---------------------------------</span>
-<span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
-</code></pre></div>
-<h2>Platform Specific Styles</h2>
+<pre><code class="language-scss">@import "themes/dark";
+
+// Ionic Sass
+// ---------------------------------
+@import "ionic";
+</code></pre>
+
+<h2 id="platform-specific-styles">Platform Specific Styles</h2>
 
 <p>To change the look of your app on different platforms, continue to the <a href="../platform-specific-styles/">next section</a>.</p>
 

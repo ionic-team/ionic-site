@@ -73416,6 +73416,8 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
+	var _helpers = __webpack_require__(517);
+
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -73499,7 +73501,8 @@
 	})();
 	exports.ActionSheetPage = ActionSheetPage;
 	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'actionSheet/actionSheet.html'
+	    templateUrl: 'actionSheet/actionSheet.html',
+	    directives: [_helpers.AndroidAttribute]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
 	var _a, _b;
 
@@ -73569,7 +73572,6 @@
 	var AndroidAttribute = function AndroidAttribute(platform, elementRef, renderer) {
 	    _classCallCheck(this, AndroidAttribute);
 
-	    console.log('init');
 	    this.isAndroid = platform.is('android');
 	    renderer.setElementAttribute(elementRef, 'primary', this.isAndroid ? true : null);
 	};
@@ -73661,6 +73663,10 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
+
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -73686,70 +73692,100 @@
 	};
 	exports.ButtonsPage = ButtonsPage;
 	exports.ButtonsPage = ButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/buttons.html'
+	    templateUrl: 'buttons/buttons.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], ButtonsPage);
 	var BlockButtonsPage = function BlockButtonsPage() {
 	    _classCallCheck(this, BlockButtonsPage);
 	};
 	exports.BlockButtonsPage = BlockButtonsPage;
 	exports.BlockButtonsPage = BlockButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/block.html'
+	    templateUrl: 'buttons/block.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], BlockButtonsPage);
 	var ClearButtonsPage = function ClearButtonsPage() {
 	    _classCallCheck(this, ClearButtonsPage);
 	};
 	exports.ClearButtonsPage = ClearButtonsPage;
 	exports.ClearButtonsPage = ClearButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/clear.html'
+	    templateUrl: 'buttons/clear.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], ClearButtonsPage);
 	var FullButtonsPage = function FullButtonsPage() {
 	    _classCallCheck(this, FullButtonsPage);
 	};
 	exports.FullButtonsPage = FullButtonsPage;
 	exports.FullButtonsPage = FullButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/full.html'
+	    templateUrl: 'buttons/full.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], FullButtonsPage);
 	var OutlineButtonsPage = function OutlineButtonsPage() {
 	    _classCallCheck(this, OutlineButtonsPage);
 	};
 	exports.OutlineButtonsPage = OutlineButtonsPage;
 	exports.OutlineButtonsPage = OutlineButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/outline.html'
+	    templateUrl: 'buttons/outline.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], OutlineButtonsPage);
 	var RoundButtonsPage = function RoundButtonsPage() {
 	    _classCallCheck(this, RoundButtonsPage);
 	};
 	exports.RoundButtonsPage = RoundButtonsPage;
 	exports.RoundButtonsPage = RoundButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/round.html'
+	    templateUrl: 'buttons/round.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], RoundButtonsPage);
 	var FabPage = function FabPage() {
 	    _classCallCheck(this, FabPage);
 	};
 	exports.FabPage = FabPage;
 	exports.FabPage = FabPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/fab.html'
+	    templateUrl: 'buttons/fab.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], FabPage);
 	var ButtonSizesPage = function ButtonSizesPage() {
 	    _classCallCheck(this, ButtonSizesPage);
 	};
 	exports.ButtonSizesPage = ButtonSizesPage;
 	exports.ButtonSizesPage = ButtonSizesPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/sizes.html'
+	    templateUrl: 'buttons/sizes.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], ButtonSizesPage);
 	var IconButtonsPage = function IconButtonsPage() {
 	    _classCallCheck(this, IconButtonsPage);
 	};
 	exports.IconButtonsPage = IconButtonsPage;
 	exports.IconButtonsPage = IconButtonsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/icons.html'
+	    templateUrl: 'buttons/icons.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], IconButtonsPage);
 	var ButtonsInComponentsPage = function ButtonsInComponentsPage() {
 	    _classCallCheck(this, ButtonsInComponentsPage);
 	};
 	exports.ButtonsInComponentsPage = ButtonsInComponentsPage;
 	exports.ButtonsInComponentsPage = ButtonsInComponentsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'buttons/components.html'
+	    templateUrl: 'buttons/components.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], ButtonsInComponentsPage);
 
 /***/ },
@@ -73765,6 +73801,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73791,56 +73831,80 @@
 	};
 	exports.CardsBasicPage = CardsBasicPage;
 	exports.CardsBasicPage = CardsBasicPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-basic.html'
+	    templateUrl: 'cards/cards-basic.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsBasicPage);
 	var CardsHeaderPage = function CardsHeaderPage() {
 	    _classCallCheck(this, CardsHeaderPage);
 	};
 	exports.CardsHeaderPage = CardsHeaderPage;
 	exports.CardsHeaderPage = CardsHeaderPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-header.html'
+	    templateUrl: 'cards/cards-header.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsHeaderPage);
 	var CardsListPage = function CardsListPage() {
 	    _classCallCheck(this, CardsListPage);
 	};
 	exports.CardsListPage = CardsListPage;
 	exports.CardsListPage = CardsListPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-list.html'
+	    templateUrl: 'cards/cards-list.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsListPage);
 	var CardsImagePage = function CardsImagePage() {
 	    _classCallCheck(this, CardsImagePage);
 	};
 	exports.CardsImagePage = CardsImagePage;
 	exports.CardsImagePage = CardsImagePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-image.html'
+	    templateUrl: 'cards/cards-image.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsImagePage);
 	var CardsBackgroundPage = function CardsBackgroundPage() {
 	    _classCallCheck(this, CardsBackgroundPage);
 	};
 	exports.CardsBackgroundPage = CardsBackgroundPage;
 	exports.CardsBackgroundPage = CardsBackgroundPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-background.html'
+	    templateUrl: 'cards/cards-background.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsBackgroundPage);
 	var CardsAdvancedSocialPage = function CardsAdvancedSocialPage() {
 	    _classCallCheck(this, CardsAdvancedSocialPage);
 	};
 	exports.CardsAdvancedSocialPage = CardsAdvancedSocialPage;
 	exports.CardsAdvancedSocialPage = CardsAdvancedSocialPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-advanced-social.html'
+	    templateUrl: 'cards/cards-advanced-social.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsAdvancedSocialPage);
 	var CardsAdvancedMapPage = function CardsAdvancedMapPage() {
 	    _classCallCheck(this, CardsAdvancedMapPage);
 	};
 	exports.CardsAdvancedMapPage = CardsAdvancedMapPage;
 	exports.CardsAdvancedMapPage = CardsAdvancedMapPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-advanced-map.html'
+	    templateUrl: 'cards/cards-advanced-map.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsAdvancedMapPage);
 	var CardsAdvancedImagePage = function CardsAdvancedImagePage() {
 	    _classCallCheck(this, CardsAdvancedImagePage);
 	};
 	exports.CardsAdvancedImagePage = CardsAdvancedImagePage;
 	exports.CardsAdvancedImagePage = CardsAdvancedImagePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-advanced-image.html'
+	    templateUrl: 'cards/cards-advanced-image.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], CardsAdvancedImagePage);
 
 /***/ },
@@ -73860,6 +73924,8 @@
 	var _angular2Angular2 = __webpack_require__(41);
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73904,49 +73970,70 @@
 	exports.FormsPage = FormsPage;
 	exports.FormsPage = FormsPage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'forms/forms.html',
-	    providers: [_angular2Angular2.FormBuilder]
+	    providers: [_angular2Angular2.FormBuilder],
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], FormsPage);
 	var FixedInlinePage = function FixedInlinePage() {
 	    _classCallCheck(this, FixedInlinePage);
 	};
 	exports.FixedInlinePage = FixedInlinePage;
 	exports.FixedInlinePage = FixedInlinePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/fixed-inline.html'
+	    templateUrl: 'forms/fixed-inline.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], FixedInlinePage);
 	var FloatingPage = function FloatingPage() {
 	    _classCallCheck(this, FloatingPage);
 	};
 	exports.FloatingPage = FloatingPage;
 	exports.FloatingPage = FloatingPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/floating.html'
+	    templateUrl: 'forms/floating.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], FloatingPage);
 	var InlinePage = function InlinePage() {
 	    _classCallCheck(this, InlinePage);
 	};
 	exports.InlinePage = InlinePage;
 	exports.InlinePage = InlinePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/inline.html'
+	    templateUrl: 'forms/inline.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], InlinePage);
 	var InsetPage = function InsetPage() {
 	    _classCallCheck(this, InsetPage);
 	};
 	exports.InsetPage = InsetPage;
 	exports.InsetPage = InsetPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/inset.html'
+	    templateUrl: 'forms/inset.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], InsetPage);
 	var PlaceholderPage = function PlaceholderPage() {
 	    _classCallCheck(this, PlaceholderPage);
 	};
 	exports.PlaceholderPage = PlaceholderPage;
 	exports.PlaceholderPage = PlaceholderPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/placeholder.html'
+	    templateUrl: 'forms/placeholder.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], PlaceholderPage);
 	var StackedPage = function StackedPage() {
 	    _classCallCheck(this, StackedPage);
 	};
 	exports.StackedPage = StackedPage;
 	exports.StackedPage = StackedPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'forms/stacked.html'
+	    templateUrl: 'forms/stacked.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
@@ -73962,6 +74049,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73988,7 +74079,10 @@
 	};
 	exports.IconsPage = IconsPage;
 	exports.IconsPage = IconsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'icons/icons.html'
+	    templateUrl: 'icons/icons.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], IconsPage);
 
 /***/ },
@@ -74004,6 +74098,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74030,42 +74128,60 @@
 	};
 	exports.BasicListsPage = BasicListsPage;
 	exports.BasicListsPage = BasicListsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/basic-lists.html'
+	    templateUrl: 'lists/basic-lists.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], BasicListsPage);
 	var BasicDividersPage = function BasicDividersPage() {
 	    _classCallCheck(this, BasicDividersPage);
 	};
 	exports.BasicDividersPage = BasicDividersPage;
 	exports.BasicDividersPage = BasicDividersPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/dividers.html'
+	    templateUrl: 'lists/dividers.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], BasicDividersPage);
 	var BasicInsetListsPage = function BasicInsetListsPage() {
 	    _classCallCheck(this, BasicInsetListsPage);
 	};
 	exports.BasicInsetListsPage = BasicInsetListsPage;
 	exports.BasicInsetListsPage = BasicInsetListsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/inset-lists.html'
+	    templateUrl: 'lists/inset-lists.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], BasicInsetListsPage);
 	var ListHeadersPage = function ListHeadersPage() {
 	    _classCallCheck(this, ListHeadersPage);
 	};
 	exports.ListHeadersPage = ListHeadersPage;
 	exports.ListHeadersPage = ListHeadersPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/list-headers.html'
+	    templateUrl: 'lists/list-headers.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], ListHeadersPage);
 	var IconListsPage = function IconListsPage() {
 	    _classCallCheck(this, IconListsPage);
 	};
 	exports.IconListsPage = IconListsPage;
 	exports.IconListsPage = IconListsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/icon-lists.html'
+	    templateUrl: 'lists/icon-lists.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], IconListsPage);
 	var AvatarListsPage = function AvatarListsPage() {
 	    _classCallCheck(this, AvatarListsPage);
 	};
 	exports.AvatarListsPage = AvatarListsPage;
 	exports.AvatarListsPage = AvatarListsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/avatar-lists.html'
+	    templateUrl: 'lists/avatar-lists.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], AvatarListsPage);
 
 /***/ },
@@ -74080,9 +74196,17 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
+
+	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74109,19 +74233,28 @@
 	    _classCallCheck(this, PageOne);
 	};
 	PageOne = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-home.html'
+	    templateUrl: 'menus/menu-home.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], PageOne);
 	var PageTwo = function PageTwo() {
 	    _classCallCheck(this, PageTwo);
 	};
 	PageTwo = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-friends.html'
+	    templateUrl: 'menus/menu-friends.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], PageTwo);
 	var PageThree = function PageThree() {
 	    _classCallCheck(this, PageThree);
 	};
 	PageThree = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-events.html'
+	    templateUrl: 'menus/menu-events.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], PageThree);
 	var MenusPage = (function () {
 	    function MenusPage(app) {
@@ -74148,7 +74281,10 @@
 	})();
 	exports.MenusPage = MenusPage;
 	exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menus.html'
+	    templateUrl: 'menus/menus.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], MenusPage);
 	var _a;
 
@@ -74164,9 +74300,17 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
+
+	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74207,7 +74351,10 @@
 	    return ModalsFirstPage;
 	})();
 	ModalsFirstPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'modals/modals.html'
+	    templateUrl: 'modals/modals.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], ModalsFirstPage);
 	var ModalsContentPage = (function () {
 	    function ModalsContentPage(modal, events) {
@@ -74229,7 +74376,10 @@
 	    return ModalsContentPage;
 	})();
 	ModalsContentPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'modals/modals-content.html'
+	    templateUrl: 'modals/modals-content.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _e || Object])], ModalsContentPage);
 	var ModalsPage = function ModalsPage() {
 	    _classCallCheck(this, ModalsPage);
@@ -74254,9 +74404,17 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
+
+	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74300,7 +74458,10 @@
 	    this.selection['icon'] = navIcons[this.selection.title];
 	};
 	NavigationDetailsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'navigation/navigation-details.html'
+	    templateUrl: 'navigation/navigation-details.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], NavigationDetailsPage);
 	var NavigationPage = (function () {
 	    function NavigationPage(nav) {
@@ -74320,7 +74481,10 @@
 	})();
 	exports.NavigationPage = NavigationPage;
 	exports.NavigationPage = NavigationPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'navigation/navigation.html'
+	    templateUrl: 'navigation/navigation.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _d || Object])], NavigationPage);
 	var _a, _b, _c, _d;
 
@@ -74339,6 +74503,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _helpers = __webpack_require__(517);
+
+	var _angular2Angular2 = __webpack_require__(41);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74403,7 +74571,10 @@
 	})();
 	exports.PopupsPage = PopupsPage;
 	exports.PopupsPage = PopupsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'popups/popups.html'
+	    templateUrl: 'popups/popups.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Popup !== 'undefined' && _ionicIonic.Popup) === 'function' && _a || Object])], PopupsPage);
 	var _a;
 
@@ -74420,6 +74591,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74446,7 +74621,10 @@
 	};
 	exports.SlidesPage = SlidesPage;
 	exports.SlidesPage = SlidesPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'slides/slides.html'
+	    templateUrl: 'slides/slides.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [])], SlidesPage);
 
 /***/ },
@@ -74459,9 +74637,17 @@
 	    value: true
 	});
 
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(517);
+
+	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74491,7 +74677,10 @@
 	    this.view = view;
 	};
 	TabOneCtrl = __decorate([(0, _ionicIonic.Page)({
-	    template: 'Hello 1'
+	    template: 'Hello 1',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabOneCtrl);
 	var TabsPage = function TabsPage(nav, params) {
 	    _classCallCheck(this, TabsPage);
@@ -74500,7 +74689,10 @@
 	};
 	exports.TabsPage = TabsPage;
 	exports.TabsPage = TabsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'tabs/tabs.html'
+	    templateUrl: 'tabs/tabs.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsPage);
 	var _a, _b, _c, _d;
 

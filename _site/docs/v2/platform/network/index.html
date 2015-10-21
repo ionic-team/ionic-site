@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Network | Ionic Native Plugins - Access network information -  Ionic Framework</title>
 
@@ -284,32 +279,36 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/network/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/network/index.md">
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Network</h1>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-plugin-network-information
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Network</span><span class="p">,</span> <span class="nx">Events</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<h3 id="install-the-plugin">Install the plugin</h3>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">events</span><span class="o">:</span> <span class="nx">Events</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">isOnline</span> <span class="o">=</span> <span class="nx">Network</span><span class="p">.</span><span class="nx">isOnline</span><span class="p">();</span>
+<pre><code class="language-bash">$ ionic plugin install cordova-plugin-network-information
+</code></pre>
 
-    <span class="c1">// Respond to online/offline changes</span>
-    <span class="nx">events</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;app:offline&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// App is offline</span>
-    <span class="p">})</span>
+<pre><code class="language-javascript">import {Network, Events} from 'ionic/ionic'
 
-    <span class="nx">events</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;app:online&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// App is online</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+class MyPage {
+  constructor(events: Events) {
+    var isOnline = Network.isOnline();
+
+    // Respond to online/offline changes
+    events.subscribe('app:offline', () =&gt; {
+      // App is offline
+    })
+
+    events.subscribe('app:online', () =&gt; {
+      // App is online
+    })
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

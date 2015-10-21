@@ -6,9 +6,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _ionicIonic = require('ionic/ionic');
+
+var _angular2Angular2 = require('angular2/angular2');
+
+var _helpers = require('../helpers');
+
+var helpers = _interopRequireWildcard(_helpers);
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -49,7 +57,10 @@ var ModalsFirstPage = (function () {
     return ModalsFirstPage;
 })();
 ModalsFirstPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'modals/modals.html'
+    templateUrl: 'modals/modals.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], ModalsFirstPage);
 var ModalsContentPage = (function () {
     function ModalsContentPage(modal, events) {
@@ -71,7 +82,10 @@ var ModalsContentPage = (function () {
     return ModalsContentPage;
 })();
 ModalsContentPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'modals/modals-content.html'
+    templateUrl: 'modals/modals-content.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _e || Object])], ModalsContentPage);
 var ModalsPage = function ModalsPage() {
     _classCallCheck(this, ModalsPage);

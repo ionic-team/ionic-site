@@ -8,6 +8,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _ionicIonic = require('ionic/ionic');
 
+var _angular2Angular2 = require('angular2/angular2');
+
+var _helpers = require('../helpers');
+
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -33,5 +37,8 @@ var IconsPage = function IconsPage() {
 };
 exports.IconsPage = IconsPage;
 exports.IconsPage = IconsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'icons/icons.html'
+    templateUrl: 'icons/icons.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], IconsPage);

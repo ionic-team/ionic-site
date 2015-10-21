@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 | Getting Started | Tutorial - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -285,20 +280,22 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md">
     Improve this doc
   </a>
 </div>
 
-<h1>Ionic 2 Tutorial</h1>
+<h1 id="ionic-2-tutorial">Ionic 2 Tutorial</h1>
 
-<p>Now that we have <a href="../installation">Ionic and its dependencies installed</a>, let&#39;s build our first app! This section will walk through the process of starting a new application, adding pages, navigating between those pages, and more. Let&#39;s get started!</p>
+<p>Now that we have <a href="../installation">Ionic and its dependencies installed</a>, let’s build our first app! This section will walk through the process of starting a new application, adding pages, navigating between those pages, and more. Let’s get started!</p>
 
-<h2>Starting a New Ionic 2 App</h2>
+<h2 id="starting-a-new-ionic-2-app">Starting a New Ionic 2 App</h2>
 
-<p>If you don&#39;t already have an app started from the <a href="../installation">previous section</a>, let&#39;s create a new app! Use the <code>start</code> command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the <code>--v2</code> option.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start MyIonic2Project tutorial --v2
-</code></pre></div>
+<p>If you don’t already have an app started from the <a href="../installation">previous section</a>, let’s create a new app! Use the <code>start</code> command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the <code>--v2</code> option.</p>
+
+<pre><code class="language-bash">$ ionic start MyIonic2Project tutorial --v2
+</code></pre>
+
 <p>This will pull Ionic 2 down, install <a href="../../resources/what-is/#npm">npm modules</a> for the application, and get <a href="../../resources/what-is/#cordova">Cordova</a> set up and ready to go.</p>
 
 <p><button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#starter-templates">
@@ -309,17 +306,18 @@
 You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start</code> command. This tells Ionic to bootstrap your application using the <a href="https://github.com/driftyco/ionic2-starter-tutorial">tutorial template</a>. If you do not specify a template by running <code>ionic start MyIonic2Project --v2</code>, the <a href="https://github.com/driftyco/ionic2-starter">default starter</a> will be used.
 </div>
 
-<h2>Viewing the app in a browser</h2>
+<h2 id="viewing-the-app-in-a-browser">Viewing the app in a browser</h2>
+<p>Let’s <code>cd</code> in to the folder that was created. To get a quick preview of your app in the browser, use the <code>serve</code> command.</p>
 
-<p>Let&#39;s <code>cd</code> in to the folder that was created. To get a quick preview of your app in the browser, use the <code>serve</code> command.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>MyIonic2Project/
-<span class="nv">$ </span>ionic serve
-</code></pre></div>
-<p><img src="/img/docs/tutorial-screen.png" style="max-width: 320px"></p>
+<pre><code class="language-bash">$ cd MyIonic2Project/
+$ ionic serve
+</code></pre>
+
+<p><img src="/img/docs/tutorial-screen.png" style="max-width: 320px" /></p>
 
 <p>You should see the welcome message shown above if everything was installed successfully.</p>
 
-<p>In the next section, let&#39;s go over the project structure created by the <code>ionic start</code> command.</p>
+<p>In the next section, let’s go over the project structure created by the <code>ionic start</code> command.</p>
 
 <p><a href="project-structure/" class="btn btn-primary">Project Structure</a></p>
 

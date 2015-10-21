@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 | Installing - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -285,59 +280,72 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md">
     Improve this doc
   </a>
 </div>
 
-<h1>Installing Ionic</h1>
+<h1 id="installing-ionic">Installing Ionic</h1>
 
 <p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.</p>
 
 <p>To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g ionic@alpha
-</code></pre></div>
+
+<pre><code class="language-bash">$ npm install -g ionic@alpha
+</code></pre>
+
 <p>(Note: do not type the dollar sign, that is a placeholder for your shell prompt).</p>
 
 <blockquote>
-<p>Worried about your V1 Ionic projects? Don&#39;t worry! The alpha release has all the functionality to work with both V1 projects and V2 projects.</p>
+  <p>Worried about your V1 Ionic projects? Don’t worry! The alpha release has all the functionality to work with both V1 projects and V2 projects.</p>
 </blockquote>
 
-<p>Once that&#39;s done, create your first Ionic app:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start cutePuppyPics --v2
-</code></pre></div>
+<p>Once that’s done, create your first Ionic app:</p>
+
+<pre><code class="language-bash">$ ionic start cutePuppyPics --v2
+</code></pre>
+
 <p>To run our app, just run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
-</code></pre></div>
+
+<pre><code class="language-bash">$ ionic serve
+</code></pre>
+
 <p>And we can play with it right in the browser!</p>
 
-<h2><a href="#building-to-a-device">Building to a Device</a></h2>
+<h2 id="building-to-a-devicebuilding-to-a-device"><a href="#building-to-a-device">Building to a Device</a></h2>
+<p>After you have Ionic installed, we can build our app to a physical device. If you don’t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
 
-<p>After you have Ionic installed, we can build our app to a physical device. If you don&#39;t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g cordova
-</code></pre></div>
+<pre><code class="language-bash">$ sudo npm install -g cordova
+</code></pre>
+
 <p>Once you have Cordova installed, and a device or emulator ready to go, we can move on and begin building your app!</p>
 
-<h3><a href="#building-for-ios">Building for iOS</a></h3>
-
+<h3 id="building-for-iosbuilding-for-ios"><a href="#building-for-ios">Building for iOS</a></h3>
 <p>To build for iOS, we need to add the iOS platform module to Cordova:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ionic platform add ios</code></pre></figure>
 
 <p>Next, we will need to install <a href="../what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../what-is/#npm">npm</a>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install ios-sim
-</code></pre></div>
-<p>From there, we should be able to run the iOS emulator using the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic emulate ios
-</code></pre></div>
-<h3><a href="#building-for-android">Building for Android</a></h3>
 
-<p>To build for Android, we need to add the Android platform module to Cordova:</p></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add android
-</code></pre></div>
+<pre><code class="language-bash">$ npm install ios-sim
+</code></pre>
+
+<p>From there, we should be able to run the iOS emulator using the following command:</p>
+
+<pre><code class="language-bash">$ ionic emulate ios
+</code></pre>
+
+<h3 id="building-for-androidbuilding-for-android"><a href="#building-for-android">Building for Android</a></h3>
+<p>To build for Android, we need to add the Android platform module to Cordova:&lt;/p&gt;</p>
+
+<pre><code class="language-bash">$ ionic platform add android
+</code></pre>
+
 <p>Next, we will need to install the <a href="../what-is/#android-sdk">Android SDK</a>. The Android SDK allows us to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../what-is/#genymotion">Genymotion</a> is recommended since is is much faster. Once installed, we can run an Android image and run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
-</code></pre></div>
+
+<pre><code class="language-bash">$ ionic run android
+</code></pre>
+
       </main>
     </div>
   </body>

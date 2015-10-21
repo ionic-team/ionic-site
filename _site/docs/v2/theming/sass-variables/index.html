@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Sass Variables - Sass Variables -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/sass-variables/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/sass-variables/index.md">
     Improve this doc
   </a>
 </div>
@@ -292,31 +287,37 @@
 <h1 class="title">Sass Variables</h1>
 
 <p>Sass Variables allow you to define a value once and use it in multiple places. Variables begin with dollar signs and are set like CSS properties. You can change the value of the variable in one place, and all instances where it is used will be changed, too. For example, if you wanted to set the same height for two different selectors, you could create a variable called <code>$control-height</code>:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$control-height</span><span class="o">:</span> <span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
-</code></pre></div>
-<p>Then, you can use this variable in multiple places. For simplicity&#39;s sake, we are going to assign <code>$control-height</code> to the <code>height</code> attribute of two selectors:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.header</span> <span class="p">{</span>
-  <span class="na">height</span><span class="o">:</span> <span class="nv">$control-height</span><span class="p">;</span>
-<span class="p">}</span>
 
-<span class="nc">.sub-header</span> <span class="p">{</span>
-  <span class="na">height</span><span class="o">:</span> <span class="nv">$control-height</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-scss">$control-height: 40px;
+</code></pre>
+
+<p>Then, you can use this variable in multiple places. For simplicity’s sake, we are going to assign <code>$control-height</code> to the <code>height</code> attribute of two selectors:</p>
+
+<pre><code class="language-scss">.header {
+  height: $control-height;
+}
+
+.sub-header {
+  height: $control-height;
+}
+</code></pre>
+
 <p>When translated to CSS, it becomes the following:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header</span> <span class="p">{</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
-<span class="p">}</span>
 
-<span class="nc">.sub-header</span> <span class="p">{</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-css">.header {
+  height: 40px;
+}
+
+.sub-header {
+  height: 40px;
+}
+</code></pre>
+
 <p>This is extremely useful if you decide later on that you would like to change the value of <code>$control-height</code>, and it is being used by multiple selectors. Instead of sifting through all of your code to find the places to change, you only have to update the <code>$control-height</code> variable.</p>
 
 <p>Sass variables go hand in hand with Ionic. With some CSS frameworks, you have to create a new stylesheet and override their styles to change the look of your application. In Ionic, you can modify the Sass directly, so that the CSS file that gets generated has the customization you want.</p>
 
-<p>Learn how you can override Ionic&#39;s Sass variables in order to get a custom style for your app in the <a href="../overriding-ionic/">next section</a>.</p>
+<p>Learn how you can override Ionic’s Sass variables in order to get a custom style for your app in the <a href="../overriding-ionic/">next section</a>.</p>
 
       </main>
     </div>

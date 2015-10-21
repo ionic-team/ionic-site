@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Contacts | Ionic Native Plugins - Access and create contacts on the device -  Ionic Framework</title>
 
@@ -284,61 +279,65 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/contact/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/contact/index.md">
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Contacts</h1>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-plugin-contacts
-</code></pre></div>
-<p>Use the <code>Contacts</code> class to access contacts from the user&#39;s address book, or to create and modify contacts.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Contacts</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+<pre><code class="language-bash">$ ionic plugin install cordova-plugin-contacts
+</code></pre>
 
-  <span class="nx">newContact</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/** Valid fields for the info object:</span>
-<span class="cm">    * {</span>
-<span class="cm">    * id: A globally unique identifier.</span>
-<span class="cm">    * displayName: The name of this Contact, suitable for display to end-users.</span>
-<span class="cm">    * name: An object containing all components of a persons name.</span>
-<span class="cm">    * nickname: A casual name by which to address the contact.</span>
-<span class="cm">    * phoneNumbers: An array of all the contact&#39;s phone numbers.</span>
-<span class="cm">    * emails: An array of all the contact&#39;s email addresses.</span>
-<span class="cm">    * addresses: An array of all the contact&#39;s addresses.</span>
-<span class="cm">    * ims: An array of all the contact&#39;s IM addresses.</span>
-<span class="cm">    * organizations: An array of all the contact&#39;s organizations.</span>
-<span class="cm">    * birthday: The birthday of the contact.</span>
-<span class="cm">    * note: A note about the contact.</span>
-<span class="cm">    * photos: An array of the contact&#39;s photos.</span>
-<span class="cm">    * categories: An array of all the user-defined categories associated with the contact.</span>
-<span class="cm">    * urls: An array of web pages associated with the contact.</span>
-<span class="cm">    * }</span>
-<span class="cm">    */</span>
+<p>Use the <code>Contacts</code> class to access contacts from the user’s address book, or to create and modify contacts.</p>
 
-    <span class="nx">Contacts</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">info</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">contact</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// New contact is in contact</span>
-    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Handle an error</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
+<pre><code class="language-javascript">import {Contacts} from 'ionic/ionic'
 
-  <span class="nx">getContact</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Let the user pick a contact from the address book</span>
-    <span class="nx">Contacts</span><span class="p">.</span><span class="nx">pickContact</span><span class="p">((</span><span class="nx">contact</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Got a contact</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
+class MyPage {
 
-  <span class="nx">findContact</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+  newContact(info) {
+    /** Valid fields for the info object:
+    * {
+    * id: A globally unique identifier.
+    * displayName: The name of this Contact, suitable for display to end-users.
+    * name: An object containing all components of a persons name.
+    * nickname: A casual name by which to address the contact.
+    * phoneNumbers: An array of all the contact's phone numbers.
+    * emails: An array of all the contact's email addresses.
+    * addresses: An array of all the contact's addresses.
+    * ims: An array of all the contact's IM addresses.
+    * organizations: An array of all the contact's organizations.
+    * birthday: The birthday of the contact.
+    * note: A note about the contact.
+    * photos: An array of the contact's photos.
+    * categories: An array of all the user-defined categories associated with the contact.
+    * urls: An array of web pages associated with the contact.
+    * }
+    */
 
-    <span class="c1">// Search for a displayName of &#39;Max&#39; (set fields to one of the above fields to change the search field)</span>
-    <span class="nx">Contacts</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">filter</span><span class="o">:</span> <span class="s1">&#39;Max&#39;</span> <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">contact</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+    Contacts.save(info).then((contact) =&gt; {
+      // New contact is in contact
+    }, (err) =&gt; {
+      // Handle an error
+    })
+  }
+
+  getContact() {
+    // Let the user pick a contact from the address book
+    Contacts.pickContact((contact) =&gt; {
+      // Got a contact
+    })
+  }
+
+  findContact(query) {
+
+    // Search for a displayName of 'Max' (set fields to one of the above fields to change the search field)
+    Contacts.find({filter: 'Max' }).then((contact) =&gt; {
+    })
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

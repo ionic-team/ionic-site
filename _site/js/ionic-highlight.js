@@ -1,5 +1,5 @@
 (function(factory) {
-	console.log("here");
+
   // Setup highlight.js for different environments. First is Node.js or
   // CommonJS.
   if(typeof exports !== 'undefined') {

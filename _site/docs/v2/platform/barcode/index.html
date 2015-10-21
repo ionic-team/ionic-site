@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Barcode Scanner | Ionic Native Plugins - Scan and create barcodes and QR codes -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/barcode/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/barcode/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,23 +288,27 @@
 
 <p>Use the <code>Barcode</code> class to create and scan barcodes and QR codes.</p>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install phonegap-plugin-barcodescanner
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Barcode</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<h3 id="install-the-plugin">Install the plugin</h3>
 
-<span class="kr">class</span> <span class="nx">BarcodePage</span> <span class="p">{</span>
-  <span class="nx">scan</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Barcode</span><span class="p">.</span><span class="nx">scan</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span> <span class="o">+</span> <span class="s2">&quot;Format: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">format</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span> <span class="o">+</span> <span class="s2">&quot;Cancelled: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">cancelled</span><span class="p">);</span>
-    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
+<pre><code class="language-bash">$ ionic plugin install phonegap-plugin-barcodescanner
+</code></pre>
 
-  <span class="nx">create</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Barcode</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">Barcode</span><span class="p">.</span><span class="nx">TEXT_TYPE</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span> <span class="p">(</span><span class="nx">fail</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-javascript">import {Barcode} from 'ionic/ionic'
+
+class BarcodePage {
+  scan() {
+    Barcode.scan().then((data) =&gt; {
+      console.log("Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
+    }, (err) =&gt; {
+    })
+  }
+
+  create() {
+    Barcode.encode(Barcode.TEXT_TYPE).then((data) =&gt; {}, (fail) =&gt; {});
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Loading | Ionic Native Plugins - Show loading indicators -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/loading/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/loading/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,16 +288,20 @@
 
 <p>Show native loading and progress indicators</p>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-plugin-progressindicator
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Loading</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<h3 id="install-the-plugin">Install the plugin</h3>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">startLoading</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Loading</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Waiting...&#39;</span><span class="p">)</span> <span class="c1">// Dim the background and show label</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-bash">$ ionic plugin install cordova-plugin-progressindicator
+</code></pre>
+
+<pre><code class="language-javascript">import {Loading} from 'ionic/ionic'
+
+class MyPage {
+  startLoading() {
+    Loading.show(true, 'Waiting...') // Dim the background and show label
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

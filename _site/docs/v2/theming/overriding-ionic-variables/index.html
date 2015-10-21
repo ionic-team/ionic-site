@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Overriding Ionic Sass Variables - Providing custom values for Ionic styles -  Ionic Framework</title>
 
@@ -285,7 +280,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,11 +288,13 @@
 <h1 class="title">Overriding Ionic Sass Variables</h1>
 
 <p>There are many variables you can override with Ionic. Any of the following variables can be overridden from your <code>www/app/app.scss</code> file, just add a new value above the Ionic import:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$text-color</span><span class="o">:</span> <span class="mh">#000099</span><span class="p">;</span>
 
-<span class="k">@import</span> <span class="s2">&quot;ionic&quot;</span><span class="p">;</span>
-</code></pre></div>
-<p><input id="search-sass-input" type="search" placeholder="Filter Sass Variables" class="form-control"></p>
+<pre><code class="language-scss">$text-color: #000099;
+
+@import "ionic";
+</code></pre>
+
+<p><input id="search-sass-input" type="search" placeholder="Filter Sass Variables" class="form-control" /></p>
 
 <table id="search-sass-results" class="table sass-variables-table">
   <tr>

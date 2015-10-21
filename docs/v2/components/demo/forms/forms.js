@@ -12,6 +12,8 @@ var _angular2Angular2 = require('angular2/angular2');
 
 var _ionicIonic = require('ionic/ionic');
 
+var _helpers = require('../helpers');
+
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -55,47 +57,68 @@ var FormsPage = (function () {
 exports.FormsPage = FormsPage;
 exports.FormsPage = FormsPage = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'forms/forms.html',
-    providers: [_angular2Angular2.FormBuilder]
+    providers: [_angular2Angular2.FormBuilder],
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], FormsPage);
 var FixedInlinePage = function FixedInlinePage() {
     _classCallCheck(this, FixedInlinePage);
 };
 exports.FixedInlinePage = FixedInlinePage;
 exports.FixedInlinePage = FixedInlinePage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/fixed-inline.html'
+    templateUrl: 'forms/fixed-inline.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], FixedInlinePage);
 var FloatingPage = function FloatingPage() {
     _classCallCheck(this, FloatingPage);
 };
 exports.FloatingPage = FloatingPage;
 exports.FloatingPage = FloatingPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/floating.html'
+    templateUrl: 'forms/floating.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], FloatingPage);
 var InlinePage = function InlinePage() {
     _classCallCheck(this, InlinePage);
 };
 exports.InlinePage = InlinePage;
 exports.InlinePage = InlinePage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/inline.html'
+    templateUrl: 'forms/inline.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], InlinePage);
 var InsetPage = function InsetPage() {
     _classCallCheck(this, InsetPage);
 };
 exports.InsetPage = InsetPage;
 exports.InsetPage = InsetPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/inset.html'
+    templateUrl: 'forms/inset.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], InsetPage);
 var PlaceholderPage = function PlaceholderPage() {
     _classCallCheck(this, PlaceholderPage);
 };
 exports.PlaceholderPage = PlaceholderPage;
 exports.PlaceholderPage = PlaceholderPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/placeholder.html'
+    templateUrl: 'forms/placeholder.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], PlaceholderPage);
 var StackedPage = function StackedPage() {
     _classCallCheck(this, StackedPage);
 };
 exports.StackedPage = StackedPage;
 exports.StackedPage = StackedPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'forms/stacked.html'
+    templateUrl: 'forms/stacked.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [])], StackedPage);

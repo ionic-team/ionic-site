@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 Guide | Navigating - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -285,7 +280,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,26 +288,32 @@
 <h1 class="title">Navigating to Pages</h1>
 
 <p>Recall from the previous section we had a function inside our <code>ListPage</code> class that looked something like this:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="nx">itemTapped</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You selected:&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Let&#39;s improve it so it navigates to a new page:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="nx">itemTapped</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">item</span>: <span class="kt">item</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>You might have noticed we are referencing <code>ItemDetailsPage</code>. This is a page included in the tutorial starter.  Let&#39;s imported it in <code>app/list/list.js</code> so we can use it:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="p">...</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">ItemDetailsPage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../item-details/item-details&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>After saving the file, you will notice the <code>ionic serve</code> process will recompile your app with the new changes, and reload the browser. Let&#39;s revisit our app in the browser, and when we tap an item, it will navigate to the item details page!</p>
 
-<h2>How It Works</h2>
+<pre><code class="language-ts">itemTapped(event, item) {
+    console.log('You selected:', item.title);
+}
+</code></pre>
 
-<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the top of the stack, which takes us forwards in the app and shows a back button. To go backwards, we <code>pop</code> the top page off. Since we set <code>this.nav</code> in the constructor, we can call <code>this.nav.push()</code>, and pass it the page we want to navigate to. We can also pass it an object containing data we would like to pass to the page being navigated to. Using <code>push</code> to navigate to a new page is simple, but Ionic&#39;s <a href="../../../components/navigation">navigation system</a> is very flexible. Check out the <a href="../../../components/navigation">navigation docs</a> to see more advanced navigation examples.</p>
+<p>Let’s improve it so it navigates to a new page:</p>
+
+<pre><code class="language-ts">itemTapped(event, item) {
+    this.nav.push(ItemDetailsPage, {
+      item: item
+    });
+}
+</code></pre>
+
+<p>You might have noticed we are referencing <code>ItemDetailsPage</code>. This is a page included in the tutorial starter.  Let’s imported it in <code>app/list/list.js</code> so we can use it:</p>
+
+<pre><code class="language-ts">...
+import {ItemDetailsPage} from '../item-details/item-details';
+</code></pre>
+
+<p>After saving the file, you will notice the <code>ionic serve</code> process will recompile your app with the new changes, and reload the browser. Let’s revisit our app in the browser, and when we tap an item, it will navigate to the item details page!</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the top of the stack, which takes us forwards in the app and shows a back button. To go backwards, we <code>pop</code> the top page off. Since we set <code>this.nav</code> in the constructor, we can call <code>this.nav.push()</code>, and pass it the page we want to navigate to. We can also pass it an object containing data we would like to pass to the page being navigated to. Using <code>push</code> to navigate to a new page is simple, but Ionic’s <a href="../../../components/navigation">navigation system</a> is very flexible. Check out the <a href="../../../components/navigation">navigation docs</a> to see more advanced navigation examples.</p>
 
 <p><button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#v1-changes">
   Navigation model differences from Ionic 1
@@ -322,9 +323,9 @@
 When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example).  This means we aren't not limited to using `href` to navigate around. However,  we still have the option to use a URL to navigate to a page when necessary.
 </div>
 
-<h3>Next Steps</h3>
+<h3 id="next-steps">Next Steps</h3>
 
-<p><em>Nice job</em>! You&#39;ve made it through the tutorial and are on your way towards <em>Ionic mastery</em>! If you&#39;re looking for an overview on what else is included with Ionic, check out the <a href="../../../components">Component docs</a>. To learn about using device APIs, head over to the <a href="../../../platform">Platform section</a>. If at any point you need help, check out our <a href="../../../resources/">developer resources section</a>, or ask a question on <a href="http://forum.ionicframework.com/">the forums</a>.</p>
+<p><em>Nice job</em>! You’ve made it through the tutorial and are on your way towards <em>Ionic mastery</em>! If you’re looking for an overview on what else is included with Ionic, check out the <a href="../../../components">Component docs</a>. To learn about using device APIs, head over to the <a href="../../../platform">Platform section</a>. If at any point you need help, check out our <a href="../../../resources/">developer resources section</a>, or ask a question on <a href="http://forum.ionicframework.com/">the forums</a>.</p>
 
       </main>
     </div>

@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Keyboard | Ionic Native Plugins - Control the device keyboard -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/keyboard/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/keyboard/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,27 +288,31 @@
 
 <p>Show native loading and progress indicators</p>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install ionic-plugin-keyboard
-</code></pre></div>
+<h3 id="install-the-plugin">Install the plugin</h3>
+
+<pre><code class="language-bash">$ ionic plugin install ionic-plugin-keyboard
+</code></pre>
+
 <p>Control the device keyboard</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Keyboard</span><span class="p">,</span> <span class="nx">IonicPlatform</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">platform</span><span class="o">:</span> <span class="nx">IonicPlatform</span><span class="p">)</span> <span class="p">{</span>
+<pre><code class="language-javascript">import {Keyboard, IonicPlatform} from 'ionic/ionic'
 
-    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Hide the accessory bar (our default)</span>
-      <span class="nx">Keyboard</span><span class="p">.</span><span class="nx">setAccessoryBarVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
-    <span class="p">})</span>
+class MyPage {
+  constructor(platform: IonicPlatform) {
 
-  <span class="p">}</span>
-  <span class="nx">userDidSomething</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// In case you want to programatically close the keyboard</span>
-    <span class="nx">Keyboard</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+    platform.ready().then(() =&gt; {
+      // Hide the accessory bar (our default)
+      Keyboard.setAccessoryBarVisible(false)
+    })
+
+  }
+  userDidSomething() {
+    // In case you want to programatically close the keyboard
+    Keyboard.close()
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

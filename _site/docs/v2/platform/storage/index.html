@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Storage | Ionic Native Plugins - Save and load data -  Ionic Framework</title>
 
@@ -282,44 +277,48 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md">
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Storage</h1>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-sqlite-storage
-</code></pre></div>
-<p>The <code>Storage</code> service makes it easy to persist and load data on the device. The <code>Storage</code> service is an abstraction
-over specific storage engines. We provide two default engines: <code>SqlStorage</code> (based on SQLite) and <code>LocalStorage</code>. We highly recommend the SQLite based
-storage engine for long term storage. Local Storage should <em>only</em> be used for temporary, cached data that you can afford
+
+<pre><code class="language-bash">$ ionic plugin install cordova-sqlite-storage
+</code></pre>
+
+<p>The <code>Storage</code> service makes it easy to persist and load data on the device. The <code>Storage</code> service is an abstraction<br />
+over specific storage engines. We provide two default engines: <code>SqlStorage</code> (based on SQLite) and <code>LocalStorage</code>. We highly recommend the SQLite based<br />
+storage engine for long term storage. Local Storage should <em>only</em> be used for temporary, cached data that you can afford<br />
 to lose.</p>
 
 <p>The Storage service comes with a simple key/value API, which is what the vast majority of apps will need for simple storage.</p>
 
-<p>Some engines, like the <code>SqlStorage</code> engine, expose a more powerful query system underneath. That means you can perform
+<p>Some engines, like the <code>SqlStorage</code> engine, expose a more powerful query system underneath. That means you can perform<br />
 full SQL queries if you like.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Storage</span><span class="p">,</span> <span class="nx">SqlStorage</span><span class="p">,</span> <span class="nx">IonicPlatform</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">SqlStorage</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">name</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Name</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-  <span class="nx">getUsers</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// If using the SqlStorage engine, we can perform arbitrary SQL queries</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;select * from users&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-javascript">import {Storage, SqlStorage, IonicPlatform} from 'ionic/ionic'
+
+class MyPage {
+  constructor() {
+    this.storage = new Storage(SqlStorage);
+  }
+  setName(name) {
+    this.storage.set('name', name);
+  }
+  getName() {
+    this.storage.get('name').then(name =&gt; {
+      // Name
+    })
+  }
+  getUsers() {
+    // If using the SqlStorage engine, we can perform arbitrary SQL queries
+    this.storage.query('select * from users').then((data) =&gt; {
+    })
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

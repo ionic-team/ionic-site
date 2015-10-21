@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 Resources | Developer Tips - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -284,17 +279,17 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md">
     Improve this doc
   </a>
 </div>
 
-<h1>Ionic Developer Tips</h1>
+<h1 id="ionic-developer-tips">Ionic Developer Tips</h1>
 
 <div id="what-is">
 
   <section id="using-debugger">
-    <h3><a href="#using-debugger">Using a Debugger</code></a></h3>
+    <h3><a href="#using-debugger">Using a Debugger</a></h3>
     <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
 
     
@@ -312,7 +307,7 @@
     <h3><a href="#changing-the-platform">Changing the Platform</a></h3>
     <p>By default, when you view your app in the browser, Ionic will apply the iOS theme. However, since Ionic components adapt according to their platform, it is helpful to be able to view what your app looks like on Android. To do this, simply add <code>?ionicplatform=android</code> to the URL where your app is being served: <code>http://localhost:8100/?ionicplatform=android</code>. This will change how Ionic sees which platform you are on.</p>
     <p>However, this will not change how the browser sees which platform you are on. To change how the browser sees which platform and device you are on, you must change the user-agent. To do this, open up Chrome DevTools, and toggle device mode on with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> (<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> on Mac).</p>
-    <img class="docs-screenshot" src="/img/docs/change-device-platform.png">
+    <img class="docs-screenshot" src="/img/docs/change-device-platform.png" />
     <p>Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport. Between this and adding the <code>?ionicplatform=android</code> URL param, you can check out how your app will look on a wide number of devices.</p>
   </section>
 
@@ -338,7 +333,7 @@
 
   <section id="debugging-ios-safari">
     <h3><a href="#debugging-ios-safari">Remote Debugging - iOS and Safari</a></h3>
-    <p>Safari can be used to debug an Ionic app on a connected iOS device. First, we need to enable Web Inspector on the connected device. Web Inspector can be found under <code>Settings > Safari > Advanced</code>. Next, head over to the Safari on your Mac and enable <b>Show Develop menu in menu bar</b> under <code>Safari > Preferences > Advanced</code>. The connected device should now appear in the <b>Develop</b> menu. From there, you can inspect it and use Safari's developer tools to debug your application!</p>
+    <p>Safari can be used to debug an Ionic app on a connected iOS device. First, we need to enable Web Inspector on the connected device. Web Inspector can be found under <code>Settings &gt; Safari &gt; Advanced</code>. Next, head over to the Safari on your Mac and enable <b>Show Develop menu in menu bar</b> under <code>Safari &gt; Preferences &gt; Advanced</code>. The connected device should now appear in the <b>Develop</b> menu. From there, you can inspect it and use Safari's developer tools to debug your application!</p>
   </section>
 
   <section id="debugging-android-chrome">
@@ -380,6 +375,7 @@ $(document).ready(function() {
   });
 });
 </script>
+
 
       </main>
     </div>

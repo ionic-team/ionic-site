@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Device Motion | Ionic Native Plugins - React to device motion changes -  Ionic Framework</title>
 
@@ -284,7 +279,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device-motion/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device-motion/index.md">
     Improve this doc
   </a>
 </div>
@@ -293,26 +288,30 @@
 
 <p>React to device motion changes.</p>
 
-<h3>Install the plugin</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic plugin install cordova-plugin-device-motion
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">DeviceMotion</span><span class="p">,</span> <span class="nx">IonicPlatform</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span>
+<h3 id="install-the-plugin">Install the plugin</h3>
 
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">platform</span><span class="o">:</span> <span class="nx">IonicPlatform</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="kd">let</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nx">DeviceMotion</span><span class="p">.</span><span class="nx">watchAcceleration</span><span class="p">();</span>
+<pre><code class="language-bash">$ ionic plugin install cordova-plugin-device-motion
+</code></pre>
 
-      <span class="nx">watch</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="c1">// data.acceleration.x</span>
-        <span class="c1">// data.acceleration.y</span>
-        <span class="c1">// data.acceleration.z</span>
-      <span class="p">})</span>
+<pre><code class="language-javascript">import {DeviceMotion, IonicPlatform} from 'ionic/ionic'
 
-      <span class="nx">watch</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span> <span class="c1">// to stop watching</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+class MyPage {
+  constructor(platform: IonicPlatform) {
+    platform.ready().then(() =&gt; {
+      let watch = DeviceMotion.watchAcceleration();
+
+      watch.source.subscribe((data) =&gt; {
+        // data.acceleration.x
+        // data.acceleration.y
+        // data.acceleration.z
+      })
+
+      watch.clear() // to stop watching
+    });
+  }
+}
+</code></pre>
+
       </main>
     </div>
   </body>

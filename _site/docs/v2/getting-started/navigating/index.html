@@ -17,14 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
     <title>Ionic 2 Guide | Navigating - Ionic 2 Developer Preview -  Ionic Framework</title>
 
@@ -285,7 +280,7 @@
       
       <main>
         <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/navigating/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/navigating/index.md">
     Improve this doc
   </a>
 </div>
@@ -294,28 +289,32 @@
 
 <p>We created a new page in the last section, but now we need to navigate to it.</p>
 
-<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the
-top of the stack which takes us forwards in the app and shows a back button,
+<p>Navigation in Ionic 2 works like a simple stack, where we <code>push</code> new pages onto the<br />
+top of the stack which takes us forwards in the app and shows a back button,<br />
 and then we <code>pop</code> the top one off to go back to the page before it.</p>
 
-<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example), but pages can be navigated to from anywhere which was not possible in v1. For example, we can show the same Playlist page instead of a tab, a side menu, or a modal. This means we don&#39;t use <code>href</code> to navigate around.</p>
+<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example), but pages can be navigated to from anywhere which was not possible in v1. For example, we can show the same Playlist page instead of a tab, a side menu, or a modal. This means we don’t use <code>href</code> to navigate around.</p>
 
-<p>So, let&#39;s take our <code>PlaylistPage</code> from the previous example and navigate to it when we tap on a specific play list from the <code>PlaylistsPage</code> (note the &#39;s&#39;). Open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">&quot;#playlist of playlists&quot;</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">openPlaylist</span><span class="err">(</span><span class="na">playlist</span><span class="err">)&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
-</code></pre></div>
+<p>So, let’s take our <code>PlaylistPage</code> from the previous example and navigate to it when we tap on a specific play list from the <code>PlaylistsPage</code> (note the ‘s’). Open up <code>app/playlists/playlists.html</code>, and find the <code>&lt;ion-item&gt;</code> entry:</p>
+
+<pre><code class="language-html">&lt;ion-item *ng-for="#playlist of playlists" (click)="openPlaylist(playlist)"&gt;&lt;/ion-item&gt;
+</code></pre>
+
 <p>When the user taps this, the <code>openPlaylist()</code> function will be called with a reference to the playlist that was tapped.</p>
 
-<p>Open <code>app/playlists/playlists.js</code>, and let&#39;s add a method to <code>PlaylistsPage</code> to handle this:</p>
-<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
-  <span class="c1">// constructor and other methods above here...</span>
+<p>Open <code>app/playlists/playlists.js</code>, and let’s add a method to <code>PlaylistsPage</code> to handle this:</p>
 
-  <span class="nx">openPlaylist</span><span class="p">(</span><span class="nx">playlist</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">PlaylistPage</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">playlist</span>: <span class="kt">playlist</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-ts">export class PlaylistsPage {
+  // constructor and other methods above here...
+
+  openPlaylist(playlist) {
+    this.nav.push(PlaylistPage, {
+      playlist: playlist
+    })
+  }
+}
+</code></pre>
+
 <p>Open the app, and navigate to the playlists page. When we tap on the page, we should see the new playlist page open with the title set to the playlist we just clicked!</p>
 
       </main>

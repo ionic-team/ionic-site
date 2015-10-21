@@ -265,9 +265,23 @@ Just like a normal page, cards can be customized to include headers. To add use 
 
 
 <h2 id="card-list">Lists In Cards</h2>
-TODO
+A card can contain a list of items. To create a card list, add elements with the `ion-item` attribute inside of your card:
 
-
+```html
+<ion-card>
+    <ion-card-header>
+      Explore Nearby
+    </ion-card-header>
+    <a href="#" ion-item>
+      <icon cart item-left></icon>
+      Shopping
+    </a>
+    <a href="#" ion-item>
+      <icon medical item-left></icon>
+      Hospital
+    </a>
+</ion-card>
+```
 
 
 <h2 id="card-image">Images In Cards</h2>

@@ -2,8 +2,9 @@
 name: Ionic Framework
 description: The official Ionic Framework blog
 url: http://ionicframework.com/blog
-markdown: redcarpet
-highlighter: pygments
+markdown: kramdown
+kramdown:
+  input: GFM
 permalink: /blog/:title
 paginate: 5
 paginate_path: "blog/page:num"

@@ -22,13 +22,13 @@ Ionic apps are made of high-level building blocks called components. Components 
 
 <h2 id="action-sheets" class="section-header">Action Sheets</h2>
 
-Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they **should not** be used for navigation. 
+Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they **should not** be used for navigation.
 
 The Action Sheet always appears above any other components on the page, and must be dismissed in order to interact with the underlying content. When it is triggered, the rest of the page darkens to give more focus to the Action Sheet options.
 
 
 
-```javascript
+```typescript
 ActionSheet.open({
   buttons: [
     { text: 'Share This' },
@@ -193,7 +193,7 @@ Adding `fab` to a button will turn it into a floating action button. This is a m
 
 <h2 id="buttons-in-components">Buttons In Components</h2>
 
-Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item: 
+Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item:
 
 ```html
 <ion-list>
@@ -247,7 +247,7 @@ Cards are primarily a CSS component. To use add a basic card, follow this struct
 
 </ion-card>
 ```
- 
+
 <h2 id="card-header">Card Headers</h2>
 Just like a normal page, cards can be customized to include headers. To add use add a card header, add the `<ion-card-header>` component inside of your card:
 
@@ -295,8 +295,8 @@ Images often vary in size, so it is important that they adopt a consistent style
       Nine Inch Nails Live
     </h2>
     <p>
-      The most popular industrial group ever, and largely 
-      responsible for bringing the music to a mass audience.        
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
     </p>
   </ion-card-content>
 </ion-card>
@@ -398,7 +398,7 @@ If a label attribute is not provided, an `<ion-input>` component will default to
 </ion-list>
 
 <div padding>
-  <button primary block>Sign In</button>    
+  <button primary block>Sign In</button>
 </div>
 ```
 <h2 id="inset-labels" class="section-header">Inset Labels</h2>
@@ -479,7 +479,7 @@ A search bar takes a value and binds it to a control in your form.
 
 Note the `[ng-form-model]="form"` binds to the components instance of `this.form`, and the `ng-control` binds to the forms `searchQuery` property. You'll also see that the component interacts with the `searchQuery` property using the `form.controls` array `this.form.controls.searchQuery.value`.
 
-```ts
+```typescript
 class IonicApp {
   constructor() {
     var fb = new FormBuilder();
@@ -532,7 +532,7 @@ Use the segment to control to use radio selections.
 </form>
 ```
 
-```ts
+```typescript
 @App({
   templateUrl: 'main.html',
   bindings: [FormBuilder]
@@ -596,7 +596,7 @@ To set an icon using a variable:
 <icon [name]="myIcon"></icon>
 ```
 
-```ts
+```typescript
 export class MyFirstPage {
   constructor(nav: NavController) {
     // use the home icon
@@ -634,7 +634,7 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
 </ul>
- 
+
 
 <h3 class="no-para">Basic Usage:</h3>
 
@@ -688,13 +688,13 @@ Along with [Tabs](#tabs), Menus are a common way to navigate through an app if y
 
 For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.
 
-Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
+Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
 
 However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
 
 To use a Menu add an [`<ion-menu>`](../api/components/menu/Menu/) to your markup next to your root [`<ion-nav>`](../api/components/nav/Nav/):
 
-```ts
+```typescript
 @App({
   template: `
     <ion-menu [content]="content">
@@ -722,12 +722,12 @@ The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.
 
 Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root view:
 
-```ts
+```typescript
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
 
 @App({
-...  
+...
 })
 class MyApp {
   constructor(ionicApp: IonicApp) {
@@ -763,13 +763,13 @@ message composition, and option selection.
 
 First, we need to create the class that will control our modal. Let's import `Modal`:
 
-```javascript
+```typescript
 import {Modal} from 'ionic/ionic';
 ```
 
 Next, let's create our modal and define add its template:
 
-```javascript
+```typescript
 @Page({
   template: `
   <ion-pane padding>
@@ -786,7 +786,7 @@ class MyModal extends Modal {
 
 Finally, let's add the code that will open our Modal:
 
-```javascript
+```typescript
 class MyPage {
   constructor(modal: Modal){
     this.modal = Modal;
@@ -810,11 +810,11 @@ There are several ways to navigate throughout an Ionic app:
 <h3 id="basic_navigation">Basic Navigation</h3>
 The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](../api/components/nav/Nav/):
 
-```ts
+```typescript
   import {StartPage} from 'start'
 
   @App({
-    template: '<ion-nav [root]="rootPage"></ion-nav>'  
+    template: '<ion-nav [root]="rootPage"></ion-nav>'
   })
   class MyApp {
     constructor(){
@@ -826,7 +826,7 @@ The simplest way to navigate throughout your app is to create and initialize a n
 
 You can access the navigation controller you create by injecting it into any of your IonicViews:
 
-```ts
+```typescript
 @Page({
   template: `
     <ion-navbar *navbar>
@@ -844,7 +844,7 @@ export class StartPage {
 
 To navigate from one page to another simply push or pop a new view onto the stack:
 
-```ts
+```typescript
 @Page({
   template: `
     <ion-navbar *navbar>
@@ -866,7 +866,7 @@ export class StartPage {
     //push another view onto the history stack
     //causing the nav controller to animate the new view in
     this.nav.push(OtherPage);
-  }                           
+  }
 }
 
 @Page({
@@ -880,11 +880,11 @@ export class StartPage {
 class OtherPage {}
 ```
 
-If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.  
+If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.
 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
 
-```ts
+```typescript
 @Page({
   template: `
     <ion-content>
@@ -908,7 +908,7 @@ But what if you have several "root" or "top-level" views that don't have a paren
 
 
 <h2 id="popups" class="section-header">Popups</h2>
-Popups are a great way to require the user to take a specific action. They can provide the user with important information, and require them to make a decision. Ionic provides three types of popups &mdash; **alert**, **confirm**, and **prompt**. Each popup is meant to be used in a different scenario. 
+Popups are a great way to require the user to take a specific action. They can provide the user with important information, and require them to make a decision. Ionic provides three types of popups &mdash; **alert**, **confirm**, and **prompt**. Each popup is meant to be used in a different scenario.
 
 The **alert** popup simply displays a message to the user, and provides a button to close the popup. This popup is useful for displaying important messages (eg: *"Your battery is low!"*).
 
@@ -1011,7 +1011,7 @@ Tabs are useful if you have a few "root" or "top-level" views.  They are obvious
 
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
-```ts
+```typescript
 @App({
   template: `
     <ion-tabs>
@@ -1029,7 +1029,7 @@ class MyApp {
 
 Individual tabs are just [`@Pages`](../api/config/IonicView/):
 
-```ts
+```typescript
 @Page({
   template: `
     <ion-navbar *navbar>
@@ -1051,7 +1051,7 @@ class Tab2 {}
 
 Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Pages` of each tab will be unique to each tab:
 
-```ts
+```typescript
 @Page({
 ...
 })

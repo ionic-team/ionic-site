@@ -73495,6 +73495,14 @@
 	                _this.actionSheetRef = actionSheetRef;
 	            });
 	        }
+	    }, {
+	        key: "onPageWillLeave",
+	        value: function onPageWillLeave() {
+	            var actionSheet = this.actionSheet.get();
+	            if (actionSheet) {
+	                actionSheet.close();
+	            }
+	        }
 	    }]);
 
 	    return ActionSheetPage;
@@ -74381,16 +74389,31 @@
 	        return helpers.AndroidAttribute;
 	    })]
 	}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _e || Object])], ModalsContentPage);
-	var ModalsPage = function ModalsPage() {
-	    _classCallCheck(this, ModalsPage);
+	var ModalsPage = (function () {
+	    function ModalsPage(modal) {
+	        _classCallCheck(this, ModalsPage);
 
-	    this.rootView = ModalsFirstPage;
-	};
+	        this.rootView = ModalsFirstPage;
+	        this.modal = modal;
+	    }
+
+	    _createClass(ModalsPage, [{
+	        key: "onPageWillLeave",
+	        value: function onPageWillLeave() {
+	            var modal = this.modal.get();
+	            if (modal) {
+	                modal.close();
+	            }
+	        }
+	    }]);
+
+	    return ModalsPage;
+	})();
 	exports.ModalsPage = ModalsPage;
 	exports.ModalsPage = ModalsPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-nav [root]="rootView"></ion-nav>'
-	}), __metadata('design:paramtypes', [])], ModalsPage);
-	var _a, _b, _c, _d, _e;
+	}), __metadata('design:paramtypes', [typeof (_f = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _f || Object])], ModalsPage);
+	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
 /* 525 */
@@ -74564,6 +74587,15 @@
 	                cancelText: "Disagree",
 	                okText: "Agree"
 	            });
+	        }
+	    }, {
+	        key: "onPageWillLeave",
+	        value: function onPageWillLeave() {
+	            var popup = this.popup.get();
+	            // only try to close if there is an active popup
+	            if (popup) {
+	                popup.close();
+	            }
 	        }
 	    }]);
 

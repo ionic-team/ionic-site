@@ -89,6 +89,14 @@ var ActionSheetPage = (function () {
                 _this.actionSheetRef = actionSheetRef;
             });
         }
+    }, {
+        key: "onPageWillLeave",
+        value: function onPageWillLeave() {
+            var actionSheet = this.actionSheet.get();
+            if (actionSheet) {
+                actionSheet.close();
+            }
+        }
     }]);
 
     return ActionSheetPage;

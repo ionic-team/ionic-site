@@ -71,6 +71,15 @@ var PopupsPage = (function () {
                 okText: "Agree"
             });
         }
+    }, {
+        key: "onPageWillLeave",
+        value: function onPageWillLeave() {
+            var popup = this.popup.get();
+            // only try to close if there is an active popup
+            if (popup) {
+                popup.close();
+            }
+        }
     }]);
 
     return PopupsPage;

@@ -288,7 +288,7 @@
 <h1 class="title">Adding Pages</h1>
 
 <p>Now that we have a basic understanding of the layout of an Ionic 2 app, let’s walk through the process of<br />
-creating and navigating to views, also known as “pages” in our app.</p>
+creating and navigating to pages in our app.</p>
 
 <p>Taking a look at <code>app/app.html</code>, we see this line near the bottom:</p>
 
@@ -296,7 +296,7 @@ creating and navigating to views, also known as “pages” in our app.</p>
 </code></pre>
 
 <p>Pay attention to the <code>[root]</code> property binding. This sets what is essentially the<br />
-first, or “root” page for the <code>ion-nav</code> controller. When the navigation controller loads, the component referenced by <code>rootPage</code> will be the root view.</p>
+first, or “root” page for the <code>ion-nav</code> controller. When the navigation controller loads, the component referenced by <code>rootPage</code> will be the root page.</p>
 
 <p>In <code>app/app.js</code>, the <code>MyApp</code> root component specifies this in its constructor:</p>
 
@@ -328,7 +328,7 @@ class MyApp {
 
 </code></pre>
 
-<p>We see that <code>this.rootPage</code> is set to <code>HelloIonicPage</code>, so <code>HelloIonicPage</code> will be the first view loaded in the nav controller. Let’s take a look at it.</p>
+<p>We see that <code>this.rootPage</code> is set to <code>HelloIonicPage</code>, so <code>HelloIonicPage</code> will be the first page loaded in the nav controller. Let’s take a look at it.</p>
 
 <h3 id="creating-a-page">Creating a Page</h3>
 
@@ -342,9 +342,9 @@ class MyApp {
 You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a <code>.html</code> and a <code>.scss</code> file with the same name. For example, inside of <code>hello-ionic/</code> we will find <code>hello-ionic.js</code>, <code>hello-ionic.html</code>, and <code>hello-ionic.scss</code>. Although using this pattern is not required, it can be helpful to keep things organized.
 </div>
 
-<p>Below, you will see the <code>HelloIonicPage</code> class which has an <code>IonicView</code> <a href="../../../resources/what-is/#decorators">decorator</a>. This creates an IonicView - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:</p>
+<p>Below, you will see the <code>HelloIonicPage</code> class which has a <code>Page</code> <a href="../../../resources/what-is/#decorators">decorator</a>. This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:</p>
 
-<pre><code class="language-ts">import {IonicView, NavController} from 'ionic/ionic';
+<pre><code class="language-ts">import {Page, NavController} from 'ionic/ionic';
 
 @Page({
   templateUrl: 'app/hello-ionic/hello-ionic.html'
@@ -359,7 +359,7 @@ export class HelloIonicPage {
 
 <p>Note that we pass in the <code>nav</code> object, and set it as a property in the constructor.</p>
 
-<p>All views have both a class, and an associated template. Let’s checkout <code>app/hello-ionic/hello-ionic.html</code> - the template file for this page:</p>
+<p>All pages have both a class, and an associated template. Let’s checkout <code>app/hello-ionic/hello-ionic.html</code> - the template file for this page:</p>
 
 <pre><code class="language-html">
 &lt;ion-navbar *navbar&gt;
@@ -395,7 +395,7 @@ renders our welcome message.</p>
 <p>Let’s check out the contents of <code>app/list/list.js</code>. Inside, you will see a new page is being defined:</p>
 
 <pre><code class="language-ts">
-import {IonicApp, IonicView, NavController, NavParams} from 'ionic/ionic';
+import {IonicApp, Page, NavController, NavParams} from 'ionic/ionic';
 
 @Page({
   templateUrl: 'app/list/list.html'
@@ -413,7 +413,7 @@ export class ListPage {
 
 </code></pre>
 
-<p>This page will create a basic list view containing a number of items. Notice that we are also defining an <code>itemTapped</code> function that logs the title of an item to the console. Let’s go check out how this function gets called. Open up <code>app/list/list.html</code>:</p>
+<p>This page will create a basic list page containing a number of items. Notice that we are also defining an <code>itemTapped</code> function that logs the title of an item to the console. Let’s go check out how this function gets called. Open up <code>app/list/list.html</code>:</p>
 
 <pre><code class="language-html">&lt;ion-item *ng-for="#item of items" (click)="itemTapped($event, item)"&gt;
 </code></pre>

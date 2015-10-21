@@ -285,7 +285,22 @@ A card can contain a list of items. To create a card list, add elements with the
 
 
 <h2 id="card-image">Images In Cards</h2>
-TODO
+Images often vary in size, so it is important that they adopt a consistent style throughout your app. Images can easily be added to cards. Adding an image to a card will give the image a constant width, and a variable height. Lists, headers, and other card components can easily be combined with image cards. To add an image to a card, use the following markup:
+
+```html
+<ion-card>
+  <img src="img/nin-live.png"/>
+  <ion-card-content>
+    <h2 class="card-title">
+      Nine Inch Nails Live
+    </h2>
+    <p>
+      The most popular industrial group ever, and largely 
+      responsible for bringing the music to a mass audience.        
+    </p>
+  </ion-card-content>
+</ion-card>
+```
 
 <h2 id="card-background">Background Images</h2>
 TODO

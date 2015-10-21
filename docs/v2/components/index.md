@@ -249,7 +249,18 @@ Cards are primarily a CSS component. To use add a basic card, follow this struct
 ```
  
 <h2 id="card-header">Card Headers</h2>
-TODO
+Just like a normal page, cards can be customized to include headers. To add use add a card header, add the `<ion-card-header>` component inside of your card:
+
+```html
+<ion-card>
+  <ion-card-header>
+    Header
+  </ion-card-header>
+  <ion-card-content>
+    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+  </ion-card-content>
+</ion-card>
+```
 
 
 

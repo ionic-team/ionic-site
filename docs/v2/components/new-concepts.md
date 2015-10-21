@@ -116,7 +116,7 @@ we will be simplifying in the near future:
   selector: 'ion-view',
   lifecycle: [onInit]
 })
-@View({
+@Page({
   template: ...
   directives: [NavbarTemplate, Navbar, NavPush, Content]
 })

@@ -684,11 +684,11 @@ _For more in depth information on Menus, see the [Menu API reference](../api/com
 
 Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.
 
-Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" views. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
+Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" pages. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
 
-For situations where using Tabs might not be desirable, for example if you have a large number of root views (making a TabBar impractical), a menu might be a better solution.
+For situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.
 
-Menus also allow you to return to root views at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
+Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
 
 However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
 
@@ -720,7 +720,7 @@ class MyApp {}
 
 The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables) to the `<ion-nav>` in order to listen for drag events on the main content so it knows when to open/close.
 
-Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root view:
+Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root page:
 
 ```typescript
 import {LoginPage} from 'login';
@@ -803,7 +803,7 @@ _For more in depth information on navigation, see the [Nav API reference](../api
 
 Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-Like native, URLs are not required for navigation.  Instead, views are pushed and popped on and off a navigation controller's view stack.  However, URLs are of course supported if you need them, using the [Angular2 router](https://angular.io/docs/js/latest/api/router/Router-class.html).
+Like native, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  However, URLs are of course supported if you need them, using the [Angular2 router](https://angular.io/docs/js/latest/api/router/Router-class.html).
 
 There are several ways to navigate throughout an Ionic app:
 
@@ -818,13 +818,13 @@ The simplest way to navigate throughout your app is to create and initialize a n
   })
   class MyApp {
     constructor(){
-      // First view to push onto the stack
+      // First page to push onto the stack
       this.rootPage = StartPage;
     }
   }
 ```
 
-You can access the navigation controller you create by injecting it into any of your IonicViews:
+You can access the navigation controller you create by injecting it into any of your Pages:
 
 ```typescript
 @Page({
@@ -842,7 +842,7 @@ export class StartPage {
 }
 ```
 
-To navigate from one page to another simply push or pop a new view onto the stack:
+To navigate from one page to another simply push or pop a new page onto the stack:
 
 ```typescript
 @Page({
@@ -863,8 +863,8 @@ export class StartPage {
   }
 
   goToOtherPage(){
-    //push another view onto the history stack
-    //causing the nav controller to animate the new view in
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
     this.nav.push(OtherPage);
   }
 }
@@ -880,9 +880,9 @@ export class StartPage {
 class OtherPage {}
 ```
 
-If your view has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root view.
+If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.  
 
-Alternatively, if you want to go back, but don't have a NavBar, you can pop the current view off the stack:
+Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
 
 ```typescript
 @Page({
@@ -904,7 +904,7 @@ class OtherPage {
 ```
 For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
 
-But what if you have several "root" or "top-level" views that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
+But what if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
 
 
 <h2 id="popups" class="section-header">Popups</h2>
@@ -1007,7 +1007,7 @@ For iOS, tabs will appear at the bottom of the screen. For Android, tabs
 will be at the top of the screen, below the nav-bar. This follows each platform's
 design specification, but can be configured with [IonicConfig](../api/config/IonicConfig/).
 
-Tabs are useful if you have a few "root" or "top-level" views.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root views, a [Menu](#menu) may be a better option.
+Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menu) may be a better option.
 
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 

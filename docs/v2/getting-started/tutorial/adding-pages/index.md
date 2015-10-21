@@ -17,7 +17,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 
 Now that we have a basic understanding of the layout of an Ionic 2 app, let's walk through the process of
-creating and navigating to views, also known as "pages" in our app.
+creating and navigating to pages in our app.
 
 Taking a look at `app/app.html`, we see this line near the bottom:
 
@@ -26,7 +26,7 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 ```
 
 Pay attention to the `[root]` property binding. This sets what is essentially the
-first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root view.
+first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root page.
 
 In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
@@ -59,7 +59,7 @@ class MyApp {
 
 ```
 
-We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be the first view loaded in the nav controller. Let's take a look at it.
+We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be the first page loaded in the nav controller. Let's take a look at it.
 
 ### Creating a Page
 
@@ -74,10 +74,10 @@ You may have noticed that each page has its own folder that is named after the p
 </div>
 
 
-Below, you will see the `HelloIonicPage` class which has an `IonicView` [decorator](../../../resources/what-is/#decorators). This creates an IonicView - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
+Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
 
 ```ts
-import {IonicView, NavController} from 'ionic/ionic';
+import {Page, NavController} from 'ionic/ionic';
 
 @Page({
   templateUrl: 'app/hello-ionic/hello-ionic.html'
@@ -92,7 +92,7 @@ export class HelloIonicPage {
 
 Note that we pass in the `nav` object, and set it as a property in the constructor.
 
-All views have both a class, and an associated template. Let's checkout `app/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template. Let's checkout `app/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -130,7 +130,7 @@ Let's check out the contents of `app/list/list.js`. Inside, you will see a new p
 
 ```ts
 {% raw %}
-import {IonicApp, IonicView, NavController, NavParams} from 'ionic/ionic';
+import {IonicApp, Page, NavController, NavParams} from 'ionic/ionic';
 
 @Page({
   templateUrl: 'app/list/list.html'
@@ -148,7 +148,7 @@ export class ListPage {
 {% endraw %}
 ```
 
-This page will create a basic list view containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
+This page will create a basic list page containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
 
 ```html
 <ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">

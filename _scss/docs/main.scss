@@ -299,7 +299,7 @@ body {
       padding: 16px;
       line-height: 24px;
     }
-    a:not(a.btn){
+    a:not(.btn){
       color: $blue;
       text-decoration: none;
       transition: .2s color;
@@ -393,6 +393,7 @@ ul.docs-content {
 
   li.docs-content-item {
   }
+
 }
 
 ul.docs-example {

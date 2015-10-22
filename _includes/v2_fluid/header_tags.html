@@ -6,7 +6,7 @@
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
 {% if page.id == "ionicons" %}
-<link rel="stylesheet" type="text/css" href="/docs/v2/ionicons/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="/css/v2-demos/ionicons/ionicons.min.css">
 {% endif %}
 <link href="/css/v2.css?1" rel="stylesheet">
 
@@ -19,3 +19,8 @@
 <link rel="stylesheet" href="/css/ionic-hljs.css">
 <script src="/js/ionic-highlight.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+{% if page.id == "ionicons" %}
+<script src="/docs/v2/resources/ionicons/jquery.modal.min.js"></script>
+{% endif %}
+

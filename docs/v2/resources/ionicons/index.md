@@ -1,5 +1,5 @@
 ---
-layout: v2/docs_base
+layout: v2_fluid/docs_base
 category: resources
 id: ionicons
 title: Ionic 2 | Ionicons

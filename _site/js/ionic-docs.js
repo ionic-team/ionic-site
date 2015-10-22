@@ -31,11 +31,32 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   var $androidIframe = $('iframe#demo-android');
   var $iosIframe = $('iframe#demo-ios');
   var $buttons = $("#components-buttons");
+  var $cards = $('#components-cards');
+  var $forms = $('#components-forms');
+  var $lists = $('#components-lists');
 
   $scope.setPlatform('ios')
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
+
+  (function setSubSections() {
+    var sections = {
+      'components-buttons': null,
+      'components-cards': null,
+      'components-forms': null,
+      'components-lists': null
+    };
+    for (s in sections) {
+      var subSections = document.getElementById(s).nextElementSibling.children;
+      for (var i = subSections.length - 1; i >= 0; i--) {
+        var subSectionName = subSections[i].children[0].href.split('#')[1];
+        sections[subSectionName] = s;
+      };
+    };
+    $scope.subSections = sections;
+  }());
+
 
   function onScrollSpyChange(e) {
 
@@ -45,6 +66,8 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     var $hash, $node;
     $hash = $("a[href^='#']", e.target).attr("href").replace(/^#/, '');
     $node = $('#' + $hash);
+
+    setActive($hash);
 
     if ($hash.indexOf('button') > -1) {
       $buttons.addClass('active');
@@ -58,6 +81,16 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 
     if ($node.length) {
       return $node.attr('id', $hash);
+    }
+  }
+
+  function setActive(hash) {
+    // given a url hash, set the correct section to 'active'
+    if (hash in $scope.subSections) {
+      if ($scope.subSections[hash] === 'components-buttons') { $buttons.addClass('active'); }
+      if ($scope.subSections[hash] === 'components-cards')   { $cards.addClass('active'); }
+      if ($scope.subSections[hash] === 'components-forms')   { $forms.addClass('active'); }
+      if ($scope.subSections[hash] === 'components-lists')   { $lists.addClass('active'); }
     }
   }
 

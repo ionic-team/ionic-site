@@ -8,11 +8,12 @@ header_sub_title: Ionic 2 Developer Preview
 show_preview_device: true
 angular_controller: ComponentsCtrl
 ---
-<div class="improve-docs">
+
+<!-- <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/components/index.md'>
     Improve this doc
   </a>
-</div>
+</div> -->
 
 
 # Components

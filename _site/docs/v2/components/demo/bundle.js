@@ -73396,7 +73396,7 @@
 	    });
 	};
 	DemoApp = __decorate([(0, _ionicIonic.App)({
-	    template: '<img src="img/android-statusbar-blue.png" style="display:none" id="md-only"><ion-nav id="nav" [root]="rootPage" #content></ion-nav><ion-overlay></ion-overlay>'
+	    template: '<img src="img/android-statusbar-blue.png" style="display:none" id="md-only">' + '<img src="img/ios-statusbar.png" style="display:none" id="ios-only">' + '<ion-nav id="nav" [root]="rootPage" #content></ion-nav>' + '<ion-overlay></ion-overlay>'
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 	var _a, _b;
 

@@ -8,13 +8,11 @@ header_title: Getting Started - Tutorial
 header_sub_title: Ionic 2 Developer Preview
 ---
 
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>
-    Improve this doc
-  </a>
-</div>
-
 # Ionic 2 Tutorial
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>
+  Improve this doc
+</a>
 
 Now that we have [Ionic and its dependencies installed](../installation), let's build our first app! This section will walk through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 

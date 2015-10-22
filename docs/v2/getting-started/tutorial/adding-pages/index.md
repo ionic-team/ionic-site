@@ -7,14 +7,12 @@ title: Ionic 2 Guide | Adding Pages
 header_title: Adding Pages - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Adding Pages</h1>
 
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md'>
+  Improve this doc
+</a>
 
 Now that we have a basic understanding of the layout of an Ionic 2 app, let's walk through the process of
 creating and navigating to pages in our app.

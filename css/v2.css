@@ -4576,6 +4576,11 @@ body {
   min-width: 920px;
   background: linear-gradient(90deg, #f9fafb, #f9fafb 235px, white 235px, white 100%); }
 
+a.improve-docs {
+  position: absolute;
+  right: 50px;
+  top: 127px; }
+
 .docs-container .side-nav {
   width: 230px; }
 
@@ -4784,7 +4789,7 @@ body {
           height: 0; }
 
 .docs-container main {
-  padding: 30px 40px; }
+  padding: 50px 40px; }
   .docs-container main h1, .docs-container main h2, .docs-container main h3, .docs-container main h4, .docs-container main h5 {
     color: #26292e;
     line-height: 1.4em;

@@ -5,15 +5,11 @@ id: installation
 title: Ionic 2 | Installing
 header_title: Developer Tips - Building to a Device
 header_sub_title: Ionic 2 Developer Preview
----
-
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
-    Improve this doc
-  </a>
-</div>
+---  
 
 # Installing Ionic
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>Improve this doc</a>
 
 Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.
 

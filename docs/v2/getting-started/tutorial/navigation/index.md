@@ -7,13 +7,12 @@ title: Ionic 2 Guide | Navigating
 header_title: Navigating - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Navigating to Pages</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
+Improve this doc
+</a>
 
 
 Recall from the previous section we had a function inside our `ListPage` class that looked something like this:

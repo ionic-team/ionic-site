@@ -11,6 +11,11 @@ body {
     white 100%
 	);
 }
+a.improve-docs {
+  position: absolute;
+  right: 40px + 10px;
+  top: 134px - 7px;
+}
 .docs-container {
   .side-nav { width: $sidenav-width; }
   > main {
@@ -256,7 +261,7 @@ body {
 }
 .docs-container {
   main {
-    padding:30px 40px;
+    padding: 50px 40px;
 
     h1,h2,h3,h4,h5{
       color: $blacker;

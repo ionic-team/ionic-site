@@ -8,13 +8,11 @@ header_title: Getting Started - Tutorial
 header_sub_title: Ionic 2 Developer Preview
 ---
 
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/tutorial/index.md'>
-    Improve this doc
-  </a>
-</div>
-
 # Project Structure
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/project-structure/index.md'>
+  Improve this doc
+</a>
 
 Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files. The bulk of our application lives inside the `www` folder, and so we are going to spend most of our time there.
 

@@ -7,6 +7,11 @@ header_title: Getting Started - Migration
 header_sub_title: Ionic 2 Developer Preview
 ---
 
+# Migrating from Angular 1
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/migration/index.md'>Improve this doc</a>
+
+
 While Angular 2 requires apps to be update for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with [John Papa's Angular Style guide](https://github.com/johnpapa/angular-styleguide) or [Todd Motto's Angular Style guide](https://github.com/toddmotto/angularjs-styleguide). Both of these will provide you with steps you can take to prepare your code for migration.
 
 ### ControllerAs Syntax

@@ -68391,30 +68391,29 @@
 	         */
 	    }, {
 	        key: "stateChange",
-	        value: function stateChange(type, viewCtrl) {}
-	        // stateChange is called by Ionic's NavController
-	        // type could be "push" or "pop"
-	        // viewCtrl is Ionic's ViewController class, which has the properties "componentType" and "params"
-	        // only do an update if there's an actual view change
-	        // if (!viewCtrl || this._activeViewId === viewCtrl.id) return;
-	        // this._activeViewId = viewCtrl.id;
-	        // // get the best PathRecognizer for this view's componentType
-	        // let pathRecognizer = this.getPathRecognizerByComponent(viewCtrl.componentType);
-	        // if (pathRecognizer) {
-	        //   // generate a componentInstruction from the view's PathRecognizer and params
-	        //   let componentInstruction = pathRecognizer.generate(viewCtrl.params.data);
-	        //   // create an Instruction from the componentInstruction
-	        //   let instruction = new Instruction(componentInstruction, null);
-	        //   // update the browser's URL
-	        //   this._parentRouter.navigateInstruction(instruction);
-	        // }
+	        value: function stateChange(type, viewCtrl) {
+	            // stateChange is called by Ionic's NavController
+	            // type could be "push" or "pop"
+	            // viewCtrl is Ionic's ViewController class, which has the properties "componentType" and "params"
+	            // only do an update if there's an actual view change
+	            if (!viewCtrl || this._activeViewId === viewCtrl.id) return;
+	            this._activeViewId = viewCtrl.id;
+	            // get the best PathRecognizer for this view's componentType
+	            var pathRecognizer = this.getPathRecognizerByComponent(viewCtrl.componentType);
+	            if (pathRecognizer) {
+	                // generate a componentInstruction from the view's PathRecognizer and params
+	                var componentInstruction = pathRecognizer.generate(viewCtrl.params.data);
+	                // create an Instruction from the componentInstruction
+	                var instruction = new _angular2Router.Instruction(componentInstruction, null);
+	                this._parentRouter.navigateByInstruction(instruction);
+	            }
+	        }
 
 	        /**
 	         * TODO
 	         * @param {TODO} componentType  TODO
 	         * @returns {TODO} TODO
 	         */
-
 	    }, {
 	        key: "getPathRecognizerByComponent",
 	        value: function getPathRecognizerByComponent(componentType) {
@@ -73663,6 +73662,8 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
+	var _angular2Angular2 = __webpack_require__(41);
+
 	var _helpers = __webpack_require__(517);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -73757,7 +73758,9 @@
 	exports.ActionSheetPage = ActionSheetPage;
 	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'actionSheet/actionSheet.html',
-	    directives: [_helpers.AndroidAttribute]
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
 	var _a, _b;
 

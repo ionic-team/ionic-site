@@ -10,6 +10,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _ionicIonic = require('ionic/ionic');
 
+var _angular2Angular2 = require('angular2/angular2');
+
 var _helpers = require('../helpers');
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -104,6 +106,8 @@ var ActionSheetPage = (function () {
 exports.ActionSheetPage = ActionSheetPage;
 exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'actionSheet/actionSheet.html',
-    directives: [_helpers.AndroidAttribute]
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return _helpers.AndroidAttribute;
+    })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
 var _a, _b;

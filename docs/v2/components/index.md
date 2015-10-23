@@ -790,7 +790,7 @@ Finally, let's add the code that will open our Modal:
 ```typescript
 class MyPage {
   constructor(modal: Modal){
-    this.modal = Modal;
+    this.modal = modal;
   }
   showModal() {
     this.modal.open(MyModal);

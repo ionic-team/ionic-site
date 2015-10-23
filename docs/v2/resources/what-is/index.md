@@ -6,13 +6,12 @@ title: Ionic 2 Resources | Developer Glossary
 header_title: Developer Glossary - Ionic 2 Resources
 header_sub_title: Learn about the Ionic community's favorite tools
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/what-is/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 # Ionic Developer Glossary
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/what-is/index.md'>
+  Improve this doc
+</a>
 
 <div id="what-is">
 

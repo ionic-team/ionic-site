@@ -6,13 +6,12 @@ title: App Links | Ionic Native Plugins
 header_title: App Links
 header_sub_title: Check for and launch installed apps
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/applinks/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">App Links</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/applinks/index.md'>
+  Improve this doc
+</a>
 
 ### Install the plugin
 

@@ -6,13 +6,12 @@ title: Dialogs | Ionic Native Plugins
 header_title: Dialogs
 header_sub_title: Open device dialogs and prompts
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/dialogs/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Dialogs</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/dialogs/index.md'>
+  Improve this doc
+</a>
 
 Open device-specific dialogs and prompts.
 

@@ -6,13 +6,12 @@ title: Contacts | Ionic Native Plugins
 header_title: Contacts
 header_sub_title: Access and create contacts on the device
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/contact/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Contacts</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/contact/index.md'>
+  Improve this doc
+</a>
 
 ```bash
 $ ionic plugin install cordova-plugin-contacts

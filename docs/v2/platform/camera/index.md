@@ -6,13 +6,12 @@ title: Camera | Ionic Native Plugins
 header_title: Camera Support
 header_sub_title: Take photos and video
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/camera/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Camera</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/camera/index.md'>
+  Improve this doc
+</a>
 
 ```bash
 $ ionic plugin install cordova-plugin-camera

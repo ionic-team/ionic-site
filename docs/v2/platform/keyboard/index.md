@@ -6,13 +6,13 @@ title: Keyboard | Ionic Native Plugins
 header_title: Keyboard
 header_sub_title: Control the device keyboard
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/keyboard/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Keyboard</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/keyboard/index.md'>
+  Improve this doc
+</a>
+
 
 Show native loading and progress indicators
 

@@ -6,13 +6,12 @@ title: Status Bar | Ionic Native Plugins
 header_title: Status Bar
 header_sub_title: Modify the status bar
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/statusbar/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Status Bar</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/statusbar/index.md'>
+  Improve this doc
+</a>
 
 ```bash
 $ ionic plugin install cordova-plugin-statusbar

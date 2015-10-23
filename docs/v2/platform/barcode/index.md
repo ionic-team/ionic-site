@@ -6,13 +6,13 @@ title: Barcode Scanner | Ionic Native Plugins
 header_title: Barcode Scanner
 header_sub_title: Scan and create barcodes and QR codes
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/barcode/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Barcode Scanner</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/barcode/index.md'>
+  Improve this doc
+</a>
+
 
 Use the `Barcode` class to create and scan barcodes and QR codes.
 

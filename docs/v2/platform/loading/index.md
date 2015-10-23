@@ -6,13 +6,12 @@ title: Loading | Ionic Native Plugins
 header_title: Loading
 header_sub_title: Show loading indicators
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/loading/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Loading</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/loading/index.md'>
+  Improve this doc
+</a>
 
 Show native loading and progress indicators
 

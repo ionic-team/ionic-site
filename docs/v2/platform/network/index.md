@@ -6,13 +6,13 @@ title: Network | Ionic Native Plugins
 header_title: Network
 header_sub_title: Access network information
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/network/index.md'>
-    Improve this doc
-  </a>
-</div>
+
 
 <h1 class="title">Network</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/network/index.md'>
+  Improve this doc
+</a>
 
 ### Install the plugin
 

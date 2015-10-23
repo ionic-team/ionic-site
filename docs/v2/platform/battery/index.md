@@ -6,13 +6,13 @@ title: Battery Status | Ionic Native Plugins
 header_title: Battery Status
 header_sub_title: Check battery status
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/battery/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Battery Status</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/battery/index.md'>
+  Improve this doc
+</a>
+
 
 Get information about the battery status of the device.
 

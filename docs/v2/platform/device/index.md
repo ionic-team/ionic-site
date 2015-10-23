@@ -6,13 +6,12 @@ title: Device | Ionic Native Plugins
 header_title: Device
 header_sub_title: Access device information
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Device</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/device/index.md'>
+  Improve this doc
+</a>
 
 Get information about the underlying device and platform.
 

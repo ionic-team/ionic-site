@@ -7,15 +7,12 @@ header_title: Developer Tips - Helpful editors & IDEs
 header_sub_title: Ionic 2 Developer Preview
 ---
 
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
-    Improve this doc
-  </a>
-</div>
 
-<h1>
-  Editors and IDEs
-</h1>
+# Editors and IDEs
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+  Improve this doc
+</a>
 
 <p>
 With Ionic 2 being built on ES6 and TypeScript, it's important that your editors or IDE can support these new languages.

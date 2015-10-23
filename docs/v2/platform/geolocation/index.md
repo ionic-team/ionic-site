@@ -6,13 +6,12 @@ title: Ionic 2 Plugins | Geolocation
 header_title: Geolocation - Ionic 2 Plugins
 header_sub_title: Ionic 2 Developer Preview
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Tracking GPS Location</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/geolocation/index.md'>
+  Improve this doc
+</a>
 
 ### Install the plugin
 

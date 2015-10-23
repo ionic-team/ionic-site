@@ -6,13 +6,13 @@ title: Storage | Ionic Native Plugins
 header_title: Storage
 header_sub_title: Save and load data
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md'>
-    Improve this doc
-  </a>
-</div>
+
 
 <h1 class="title">Storage</h1>
+
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md'>
+  Improve this doc
+</a>
 
 ```bash
 $ ionic plugin install cordova-sqlite-storage

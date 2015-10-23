@@ -73336,13 +73336,17 @@
 
 	"use strict";
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _actionSheetActionSheet = __webpack_require__(516);
+	var _menusMenus = __webpack_require__(516);
+
+	var _actionSheetActionSheet = __webpack_require__(518);
 
 	var _helpers = __webpack_require__(517);
 
@@ -73369,34 +73373,51 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var DemoApp = function DemoApp(app, platform) {
-	    var _this = this;
+	var DemoApp = (function () {
+	    function DemoApp(app, platform) {
+	        var _this = this;
 
-	    _classCallCheck(this, DemoApp);
+	        _classCallCheck(this, DemoApp);
 
-	    this.app = app;
-	    this.platform = platform;
-	    this.androidAttribute = helpers.AndroidAttribute;
-	    this.platform.ready().then(function () {
-	        window.addEventListener('message', function (e) {
-	            zone.run(function () {
-	                if (e.data) {
-	                    var data = JSON.parse(e.data);
-	                    if (data.hash) {
-	                        _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
-	                    } else {
-	                        _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
+	        this.app = app;
+	        this.platform = platform;
+	        this.androidAttribute = helpers.AndroidAttribute;
+	        this.pages = [{ title: 'Home', component: _menusMenus.PageOne }, { title: 'Friends', component: _menusMenus.PageTwo }, { title: 'Events', component: _menusMenus.PageThree }];
+	        this.platform.ready().then(function () {
+	            window.addEventListener('message', function (e) {
+	                zone.run(function () {
+	                    if (e.data) {
+	                        var data = JSON.parse(e.data);
+	                        if (data.hash) {
+	                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
+	                        } else {
+	                            _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
+	                        }
+	                        var nav = _this.app.getComponent('nav');
+	                        helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
 	                    }
-	                    var nav = _this.app.getComponent('nav');
-	                    helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
-	                }
+	                });
 	            });
+	            window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
 	        });
-	        window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
-	    });
-	};
+	    }
+
+	    _createClass(DemoApp, [{
+	        key: "openPage",
+	        value: function openPage(page) {
+	            // close the menu when clicking a link from the menu
+	            this.app.getComponent('leftMenu').close();
+	            // Reset the content nav to have just this page
+	            // we wouldn't want the back button to show in this scenario
+	            var nav = this.app.getComponent('nav');
+	            nav.setRoot(page.component);
+	        }
+	    }]);
+
+	    return DemoApp;
+	})();
 	DemoApp = __decorate([(0, _ionicIonic.App)({
-	    template: '<img src="img/android-statusbar-blue.png" style="display:none" id="md-only">' + '<img src="img/ios-statusbar.png" style="display:none" id="ios-only">' + '<ion-nav id="nav" [root]="rootPage" #content></ion-nav>' + '<ion-overlay></ion-overlay>'
+	    templateUrl: 'app.html'
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 	var _a, _b;
 
@@ -73410,13 +73431,17 @@
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(250);
 
+	var _angular2Angular2 = __webpack_require__(41);
+
 	var _helpers = __webpack_require__(517);
+
+	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73438,81 +73463,46 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var ActionSheetPage = (function () {
-	    function ActionSheetPage(actionSheet, platform) {
-	        _classCallCheck(this, ActionSheetPage);
-
-	        this.actionSheet = actionSheet;
-	        this.platform = platform;
-	    }
-
-	    _createClass(ActionSheetPage, [{
-	        key: "openMenu",
-	        value: function openMenu() {
-	            var _this = this;
-
-	            if (this.platform.is('android')) {
-	                var androidSheet = {
-	                    buttons: [{ text: 'Share', icon: 'share' }, { text: 'Play', icon: 'arrow-dropright-circle' }, { text: 'Favorite', icon: 'ion-md-heart-outline' }],
-	                    destructiveText: 'Delete',
-	                    titleText: 'Albums',
-	                    cancelText: 'Cancel',
-	                    cancel: function cancel() {
-	                        console.log('Canceled');
-	                    },
-	                    destructiveButtonClicked: function destructiveButtonClicked() {
-	                        console.log('Destructive clicked');
-	                    },
-	                    buttonClicked: function buttonClicked(index) {
-	                        console.log('Button clicked', index);
-	                        if (index == 1) {
-	                            return false;
-	                        }
-	                        return true;
-	                    }
-	                };
-	            }
-	            this.actionSheet.open(androidSheet || {
-	                buttons: [{ text: 'Share' }, { text: 'Play' }, { text: 'Favorite' }],
-	                destructiveText: 'Delete',
-	                titleText: 'Albums',
-	                cancelText: 'Cancel',
-	                cancel: function cancel() {
-	                    console.log('Canceled');
-	                },
-	                destructiveButtonClicked: function destructiveButtonClicked() {
-	                    console.log('Destructive clicked');
-	                },
-	                buttonClicked: function buttonClicked(index) {
-	                    console.log('Button clicked', index);
-	                    if (index == 1) {
-	                        return false;
-	                    }
-	                    return true;
-	                }
-	            }).then(function (actionSheetRef) {
-	                console.log(actionSheetRef);
-	                _this.actionSheetRef = actionSheetRef;
-	            });
-	        }
-	    }, {
-	        key: "onPageWillLeave",
-	        value: function onPageWillLeave() {
-	            var actionSheet = this.actionSheet.get();
-	            if (actionSheet) {
-	                actionSheet.close();
-	            }
-	        }
-	    }]);
-
-	    return ActionSheetPage;
-	})();
-	exports.ActionSheetPage = ActionSheetPage;
-	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'actionSheet/actionSheet.html',
-	    directives: [_helpers.AndroidAttribute]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
-	var _a, _b;
+	var MenusPage = function MenusPage() {
+	    _classCallCheck(this, MenusPage);
+	};
+	exports.MenusPage = MenusPage;
+	exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'menus/menu-home.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], MenusPage);
+	var PageOne = function PageOne() {
+	    _classCallCheck(this, PageOne);
+	};
+	exports.PageOne = PageOne;
+	exports.PageOne = PageOne = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'menus/menu-home.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], PageOne);
+	var PageTwo = function PageTwo() {
+	    _classCallCheck(this, PageTwo);
+	};
+	exports.PageTwo = PageTwo;
+	exports.PageTwo = PageTwo = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'menus/menu-friends.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], PageTwo);
+	var PageThree = function PageThree() {
+	    _classCallCheck(this, PageThree);
+	};
+	exports.PageThree = PageThree;
+	exports.PageThree = PageThree = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'menus/menu-events.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], PageThree);
 
 /***/ },
 /* 517 */
@@ -73533,19 +73523,19 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _actionSheetActionSheet = __webpack_require__(516);
+	var _actionSheetActionSheet = __webpack_require__(518);
 
-	var _buttonsButtons = __webpack_require__(518);
+	var _buttonsButtons = __webpack_require__(519);
 
-	var _cardsCards = __webpack_require__(519);
+	var _cardsCards = __webpack_require__(520);
 
-	var _formsForms = __webpack_require__(520);
+	var _formsForms = __webpack_require__(521);
 
-	var _iconsIcons = __webpack_require__(521);
+	var _iconsIcons = __webpack_require__(522);
 
-	var _listsLists = __webpack_require__(522);
+	var _listsLists = __webpack_require__(523);
 
-	var _menusMenus = __webpack_require__(523);
+	var _menusMenus = __webpack_require__(516);
 
 	var _modalsModals = __webpack_require__(524);
 
@@ -73659,6 +73649,120 @@
 
 /***/ },
 /* 518 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(250);
+
+	var _helpers = __webpack_require__(517);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ActionSheetPage = (function () {
+	    function ActionSheetPage(actionSheet, platform) {
+	        _classCallCheck(this, ActionSheetPage);
+
+	        this.actionSheet = actionSheet;
+	        this.platform = platform;
+	    }
+
+	    _createClass(ActionSheetPage, [{
+	        key: "openMenu",
+	        value: function openMenu() {
+	            var _this = this;
+
+	            if (this.platform.is('android')) {
+	                var androidSheet = {
+	                    buttons: [{ text: 'Share', icon: 'share' }, { text: 'Play', icon: 'arrow-dropright-circle' }, { text: 'Favorite', icon: 'ion-md-heart-outline' }],
+	                    destructiveText: 'Delete',
+	                    titleText: 'Albums',
+	                    cancelText: 'Cancel',
+	                    cancel: function cancel() {
+	                        console.log('Canceled');
+	                    },
+	                    destructiveButtonClicked: function destructiveButtonClicked() {
+	                        console.log('Destructive clicked');
+	                    },
+	                    buttonClicked: function buttonClicked(index) {
+	                        console.log('Button clicked', index);
+	                        if (index == 1) {
+	                            return false;
+	                        }
+	                        return true;
+	                    }
+	                };
+	            }
+	            this.actionSheet.open(androidSheet || {
+	                buttons: [{ text: 'Share' }, { text: 'Play' }, { text: 'Favorite' }],
+	                destructiveText: 'Delete',
+	                titleText: 'Albums',
+	                cancelText: 'Cancel',
+	                cancel: function cancel() {
+	                    console.log('Canceled');
+	                },
+	                destructiveButtonClicked: function destructiveButtonClicked() {
+	                    console.log('Destructive clicked');
+	                },
+	                buttonClicked: function buttonClicked(index) {
+	                    console.log('Button clicked', index);
+	                    if (index == 1) {
+	                        return false;
+	                    }
+	                    return true;
+	                }
+	            }).then(function (actionSheetRef) {
+	                console.log(actionSheetRef);
+	                _this.actionSheetRef = actionSheetRef;
+	            });
+	        }
+	    }, {
+	        key: "onPageWillLeave",
+	        value: function onPageWillLeave() {
+	            var actionSheet = this.actionSheet.get();
+	            if (actionSheet) {
+	                actionSheet.close();
+	            }
+	        }
+	    }]);
+
+	    return ActionSheetPage;
+	})();
+	exports.ActionSheetPage = ActionSheetPage;
+	exports.ActionSheetPage = ActionSheetPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'actionSheet/actionSheet.html',
+	    directives: [_helpers.AndroidAttribute]
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ActionSheetPage);
+	var _a, _b;
+
+/***/ },
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73797,7 +73901,7 @@
 	}), __metadata('design:paramtypes', [])], ButtonsInComponentsPage);
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73916,7 +74020,7 @@
 	}), __metadata('design:paramtypes', [])], CardsAdvancedImagePage);
 
 /***/ },
-/* 520 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74045,7 +74149,7 @@
 	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
-/* 521 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74094,7 +74198,7 @@
 	}), __metadata('design:paramtypes', [])], IconsPage);
 
 /***/ },
-/* 522 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74191,110 +74295,6 @@
 	        return _helpers.AndroidAttribute;
 	    })]
 	}), __metadata('design:paramtypes', [])], AvatarListsPage);
-
-/***/ },
-/* 523 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicIonic = __webpack_require__(250);
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _helpers = __webpack_require__(517);
-
-	var helpers = _interopRequireWildcard(_helpers);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-
-	var PageOne = function PageOne() {
-	    _classCallCheck(this, PageOne);
-	};
-	PageOne = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-home.html',
-	    directives: [(0, _angular2Angular2.forwardRef)(function () {
-	        return helpers.AndroidAttribute;
-	    })]
-	}), __metadata('design:paramtypes', [])], PageOne);
-	var PageTwo = function PageTwo() {
-	    _classCallCheck(this, PageTwo);
-	};
-	PageTwo = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-friends.html',
-	    directives: [(0, _angular2Angular2.forwardRef)(function () {
-	        return helpers.AndroidAttribute;
-	    })]
-	}), __metadata('design:paramtypes', [])], PageTwo);
-	var PageThree = function PageThree() {
-	    _classCallCheck(this, PageThree);
-	};
-	PageThree = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menu-events.html',
-	    directives: [(0, _angular2Angular2.forwardRef)(function () {
-	        return helpers.AndroidAttribute;
-	    })]
-	}), __metadata('design:paramtypes', [])], PageThree);
-	var MenusPage = (function () {
-	    function MenusPage(app) {
-	        _classCallCheck(this, MenusPage);
-
-	        this.app = app;
-	        this.rootPage = PageOne;
-	        this.pages = [{ title: 'Home', component: PageOne }, { title: 'Friends', component: PageTwo }, { title: 'Events', component: PageThree }];
-	    }
-
-	    _createClass(MenusPage, [{
-	        key: "openPage",
-	        value: function openPage(menu, page) {
-	            // close the menu when clicking a link from the menu
-	            this.app.getComponent('leftMenu').close();
-	            // Reset the content nav to have just this page
-	            // we wouldn't want the back button to show in this scenario
-	            var nav = this.app.getComponent('menuNav');
-	            nav.setRoot(page.component);
-	        }
-	    }]);
-
-	    return MenusPage;
-	})();
-	exports.MenusPage = MenusPage;
-	exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'menus/menus.html',
-	    directives: [(0, _angular2Angular2.forwardRef)(function () {
-	        return helpers.AndroidAttribute;
-	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], MenusPage);
-	var _a;
 
 /***/ },
 /* 524 */

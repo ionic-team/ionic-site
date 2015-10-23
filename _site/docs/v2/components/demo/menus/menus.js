@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38,11 +36,21 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
+var MenusPage = function MenusPage() {
+    _classCallCheck(this, MenusPage);
+};
+exports.MenusPage = MenusPage;
+exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'menus/menu-home.html',
+    directives: [(0, _angular2Angular2.forwardRef)(function () {
+        return helpers.AndroidAttribute;
+    })]
+}), __metadata('design:paramtypes', [])], MenusPage);
 var PageOne = function PageOne() {
     _classCallCheck(this, PageOne);
 };
-PageOne = __decorate([(0, _ionicIonic.Page)({
+exports.PageOne = PageOne;
+exports.PageOne = PageOne = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'menus/menu-home.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
@@ -51,7 +59,8 @@ PageOne = __decorate([(0, _ionicIonic.Page)({
 var PageTwo = function PageTwo() {
     _classCallCheck(this, PageTwo);
 };
-PageTwo = __decorate([(0, _ionicIonic.Page)({
+exports.PageTwo = PageTwo;
+exports.PageTwo = PageTwo = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'menus/menu-friends.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
@@ -60,40 +69,10 @@ PageTwo = __decorate([(0, _ionicIonic.Page)({
 var PageThree = function PageThree() {
     _classCallCheck(this, PageThree);
 };
-PageThree = __decorate([(0, _ionicIonic.Page)({
+exports.PageThree = PageThree;
+exports.PageThree = PageThree = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'menus/menu-events.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [])], PageThree);
-var MenusPage = (function () {
-    function MenusPage(app) {
-        _classCallCheck(this, MenusPage);
-
-        this.app = app;
-        this.rootPage = PageOne;
-        this.pages = [{ title: 'Home', component: PageOne }, { title: 'Friends', component: PageTwo }, { title: 'Events', component: PageThree }];
-    }
-
-    _createClass(MenusPage, [{
-        key: "openPage",
-        value: function openPage(menu, page) {
-            // close the menu when clicking a link from the menu
-            this.app.getComponent('leftMenu').close();
-            // Reset the content nav to have just this page
-            // we wouldn't want the back button to show in this scenario
-            var nav = this.app.getComponent('menuNav');
-            nav.setRoot(page.component);
-        }
-    }]);
-
-    return MenusPage;
-})();
-exports.MenusPage = MenusPage;
-exports.MenusPage = MenusPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'menus/menus.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], MenusPage);
-var _a;

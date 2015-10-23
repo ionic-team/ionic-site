@@ -5109,7 +5109,7 @@ ul.docs-example {
     width: 30px;
     height: 30px;
     text-indent: -9999px;
-    background: url(close.png) no-repeat 0 0; }
+    background: url(../img/close.png) no-repeat 0 0; }
   .docs-ionicons section#icons a {
     display: block;
     height: auto;

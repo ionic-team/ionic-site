@@ -11,6 +11,9 @@ body {
     white 100%
 	);
 }
+#components-index ul.nav > li > a {
+  background-color: #F9FAFB;
+}
 a.improve-docs {
   position: absolute;
   right: 40px + 10px;

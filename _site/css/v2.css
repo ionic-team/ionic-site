@@ -4577,6 +4577,9 @@ body {
   min-width: 920px;
   background: linear-gradient(90deg, #f9fafb, #f9fafb 235px, white 235px, white 100%); }
 
+#components-index ul.nav > li > a {
+  background-color: #F9FAFB; }
+
 a.improve-docs {
   position: absolute;
   right: 50px;

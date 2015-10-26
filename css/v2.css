@@ -4660,7 +4660,7 @@ a.improve-docs {
     .side-nav .back-to-main a:before {
       font-family: "Ionicons";
       -webkit-font-smoothing: antialiased;
-      content: "\f3d2";
+      content: "\f3cf";
       font-size: 16px;
       font-weight: 800;
       position: relative;
@@ -4726,7 +4726,7 @@ a.improve-docs {
     .side-nav .form-group.api-select:before {
       font-family: "Ionicons";
       -webkit-font-smoothing: antialiased;
-      content: "\f35f";
+      content: "\f3d0";
       font-size: 14px;
       font-weight: 800;
       color: #a4abb5;

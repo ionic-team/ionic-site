@@ -851,88 +851,92 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <p>Available in:
-<div class="label label-danger">Ionic-Angular 0.9.x</div></p>
+          <p>Available in:</p>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
-<h1>Modal</h1>
+<h1 id="modal">Modal</h1>
 
 <p>The Modal is a slide-in pane that takes up the full width of the screen and can display any content:</p>
 
-<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/modal.gif" alt="modal" style="border: 1px solid #eee;"></p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/modal.gif" alt="modal" style="border: 1px solid #eee;" /></p>
 
-<h2>AngularIonic Usage</h2>
+<h2 id="angularionic-usage">AngularIonic Usage</h2>
 
-<p>To use the <code>Modal</code> service in your Angular code, create a modal template, then inject the Modal service into your
+<p>To use the <code>Modal</code> service in your Angular code, create a modal template, then inject the Modal service into your<br />
 controllers, and then load the Modal and show/hide it based on user actions:</p>
 
-<h3>HTML</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!--</span>
-<span class="c">The template can be placed on the current page by using Angular&#39;s script template</span>
-<span class="c">loading, or loaded from a separate or external HTML file accessible by URL.</span>
+<h3 id="html">HTML</h3>
 
-<span class="c">Here we are using the script tag method of defining an Angular template.</span>
-<span class="c">--&gt;</span>
-<span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;modal.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;modal&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">header</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;bar bar-header bar-positive&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Contact</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;button button-clear button-positive&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;closeModal()&quot;</span><span class="o">&gt;</span><span class="nx">Cancel</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-    <span class="o">&lt;</span><span class="err">/header&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">label</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;item item-input&quot;</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;input-label&quot;</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Name</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-          <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="err">/label&gt;</span>
-        <span class="o">&lt;</span><span class="nx">label</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;item item-input&quot;</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;input-label&quot;</span><span class="o">&gt;</span><span class="nx">Last</span> <span class="nx">Name</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-          <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="err">/label&gt;</span>
-        <span class="o">&lt;</span><span class="nx">label</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;item item-input&quot;</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;input-label&quot;</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-          <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="err">/label&gt;</span>
-        <span class="o">&lt;</span><span class="nx">button</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;button button-full button-positive&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;closeModal()&quot;</span><span class="o">&gt;</span><span class="nx">Create</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-      <span class="o">&lt;</span><span class="err">/div&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
-<h3>Javascript</h3>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+<pre><code class="language-html">&lt;!--
+The template can be placed on the current page by using Angular's script template
+loading, or loaded from a separate or external HTML file accessible by URL.
 
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ModalCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">)</span> <span class="p">{</span>
+Here we are using the script tag method of defining an Angular template.
+--&gt;
+&lt;script id="modal.html" type="text/ng-template"&gt;
+  &lt;div class="modal"&gt;
+    &lt;header class="bar bar-header bar-positive"&gt;
+      &lt;h1 class="title"&gt;New Contact&lt;/h1&gt;
+      &lt;button class="button button-clear button-positive" ng-click="closeModal()"&gt;Cancel&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;ion-content has-header="true" padding="true"&gt;
+      &lt;div class="list"&gt;
+        &lt;label class="item item-input"&gt;
+          &lt;span class="input-label"&gt;First Name&lt;/span&gt;
+          &lt;input type="text" placeholder=""&gt;
+        &lt;/label&gt;
+        &lt;label class="item item-input"&gt;
+          &lt;span class="input-label"&gt;Last Name&lt;/span&gt;
+          &lt;input type="text" placeholder=""&gt;
+        &lt;/label&gt;
+        &lt;label class="item item-input"&gt;
+          &lt;span class="input-label"&gt;Email&lt;/span&gt;
+          &lt;input type="text" placeholder=""&gt;
+        &lt;/label&gt;
+        &lt;button class="button button-full button-positive" ng-click="closeModal()"&gt;Create&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/ion-content&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+</code></pre>
 
-  <span class="c1">// Load the modal from the given template URL</span>
-  <span class="nx">$ionicModal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">&#39;modal.html&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">;</span>
-  <span class="p">},</span> <span class="p">{</span>
-    <span class="c1">// Use our scope for the scope of the modal to keep it simple</span>
-    <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
-    <span class="c1">// The animation we want to use for the modal entrance</span>
-    <span class="nx">animation</span><span class="o">:</span> <span class="s1">&#39;slide-in-up&#39;</span>
-  <span class="p">});</span>
+<h3 id="javascript">Javascript</h3>
 
-  <span class="c1">// Test data</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">contacts</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Gordon Freeman&#39;</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Barney Calhoun&#39;</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Lamarr the Headcrab&#39;</span> <span class="p">}</span>
-  <span class="p">];</span>
+<pre><code class="language-javascript">angular.module('test', ['ionic'])
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">openModal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-  <span class="p">};</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">closeModal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-  <span class="p">};</span>
+.controller('ModalCtrl', function($scope, $ionicModal) {
 
-  <span class="c1">//Be sure to cleanup the modal</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$destroy&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
+  // Load the modal from the given template URL
+  $ionicModal.fromTemplateUrl('modal.html', function(modal) {
+    $scope.modal = modal;
+  }, {
+    // Use our scope for the scope of the modal to keep it simple
+    scope: $scope,
+    // The animation we want to use for the modal entrance
+    animation: 'slide-in-up'
+  });
+
+  // Test data
+  $scope.contacts = [
+    { name: 'Gordon Freeman' },
+    { name: 'Barney Calhoun' },
+    { name: 'Lamarr the Headcrab' }
+  ];
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  //Be sure to cleanup the modal
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+});
+</code></pre>
+
         </div>
 
       </div>

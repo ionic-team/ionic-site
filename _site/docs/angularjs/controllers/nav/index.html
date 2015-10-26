@@ -851,14 +851,14 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <p>Available in:
-<div class="label label-primary">Ionic 0.9.x</div></p>
+          <p>Available in:</p>
+<div class="label label-primary">Ionic 0.9.x</div>
 
-<h1>Nav Controller</h1>
+<h1 id="nav-controller">Nav Controller</h1>
 
 <p>The <code>&lt;ion-nav-view&gt;</code> directive is used to render templates in your application.  Each template is part of a state.  States are usually mapped to a url, and are defined programatically using angular-ui-router (see (https://github.com/angular-ui/ui-router/wiki)[their docs], and remember to replace ui-view with ion-nav-view in examples).</p>
 
-<h2>API</h2>
+<h2 id="api">API</h2>
 
 <table class="table">
   <thead>
@@ -879,47 +879,53 @@
   </tbody>
 </table>
 
-<h2>&lt;ion-nav-view&gt; Example</h2>
+<h2 id="ion-nav-view-example">&lt;ion-nav-view&gt; Example</h2>
 
 <p>In this example, we will create a navigation view that contains our different states for the app.</p>
 
 <p>To do this, in our markup use the <code>&lt;ion-nav-view&gt;</code> top level directive, adding a <code>&lt;ion-nav-bar&gt;</code> directive which will render a header bar that updates as we navigate through the navigation stack.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-view&gt;</span>
-  <span class="c">&lt;!-- Center content --&gt;</span>
-  <span class="nt">&lt;ion-nav-bar&gt;</span>
-  <span class="nt">&lt;/ion-nav-bar&gt;</span>
-<span class="nt">&lt;/ion-nav-view&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-view&gt;
+  &lt;!-- Center content --&gt;
+  &lt;ion-nav-bar&gt;
+  &lt;/ion-nav-bar&gt;
+&lt;/ion-nav-view&gt;
+</code></pre>
+
 <p>Next, we need to setup our states that will be rendered.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$stateProvider</span>
-  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;home.html&#39;</span>
-  <span class="p">})</span>
-  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;music&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/music&#39;</span><span class="p">,</span>
-    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;music.html&#39;</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
+
+<pre><code class="language-js">var app = angular.module('myApp', ['ionic']);
+app.config(function($stateProvider) {
+  $stateProvider
+  .state('index', {
+    url: '/',
+    templateUrl: 'home.html'
+  })
+  .state('music', {
+    url: '/music',
+    templateUrl: 'music.html'
+  });
+});
+</code></pre>
+
 <p>Then on app start, <code>$stateProvider</code> will look at the url, see it matches the <code>index</code> state, and then try to load <code>home.html</code> into the <code>&lt;ion-nav-view&gt;</code>.</p>
 
-<p>Pages are loaded by the URLs given. One simple way to create templates in Angular is to put them directly into your HTML file and use the <code>&lt;script type=&quot;text/ng-template&quot;&gt;</code> syntax. So here is one way to put <code>home.html</code> into our app:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;home&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!--</span> <span class="nx">The</span> <span class="nx">title</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">shown</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">navbar</span> <span class="o">--&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Home&#39;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;HomeCtrl&quot;</span><span class="o">&gt;</span>
-      <span class="c">&lt;!--</span> <span class="nx">The</span> <span class="nx">content</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">page</span> <span class="o">--&gt;</span>
-      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#/music&quot;</span><span class="o">&gt;</span><span class="nx">Go</span> <span class="nx">to</span> <span class="nx">music</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="err">/a&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
+<p>Pages are loaded by the URLs given. One simple way to create templates in Angular is to put them directly into your HTML file and use the <code>&lt;script type="text/ng-template"&gt;</code> syntax. So here is one way to put <code>home.html</code> into our app:</p>
+
+<pre><code class="language-html">&lt;script id="home" type="text/ng-template"&gt;
+  &lt;!-- The title of the ion-view will be shown on the navbar --&gt;
+  &lt;ion-view title="'Home'"&gt;
+    &lt;ion-content ng-controller="HomeCtrl"&gt;
+      &lt;!-- The content of the page --&gt;
+      &lt;a href="#/music"&gt;Go to music page!&lt;/a&gt;
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/script&gt;
+</code></pre>
+
 <p>This is good to do because the template will be cached for very fast loading, instead of loading it off of the network.</p>
 
-<p>We can use urls to navigate, or use anything from the angular-ui-router library (see <a href="https://github.com/angular-ui/ui-router/wiki">angular-ui-router&#39;s documentation</a> for more information on states and transitioning between them.</p>
+<p>We can use urls to navigate, or use anything from the angular-ui-router library (see <a href="https://github.com/angular-ui/ui-router/wiki">angular-ui-router’s documentation</a> for more information on states and transitioning between them.</p>
 
         </div>
 

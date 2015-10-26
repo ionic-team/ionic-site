@@ -851,29 +851,29 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <p>Available in:
-<div class="label label-danger">Ionic-Angular 0.9.x</div></p>
+          <p>Available in:</p>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
-<h1>Views and Navigation</h1>
+<h1 id="views-and-navigation">Views and Navigation</h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="HjnFx" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/HjnFx'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="HjnFx" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/HjnFx">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p>As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic&#39;s navigation system is its ability to manage multiple histories.</p>
+<p>As a user navigates throughout your app, Ionic is able to keep track of their navigation history. By knowing their history, transitions between views correctly slide either left or right, or no transition at all. An additional benefit to Ionic’s navigation system is its ability to manage multiple histories.</p>
 
-<p>Ionic uses the <a href="https://github.com/angular-ui/ui-router">AngularUI Router</a> module so app interfaces can be organized into various &quot;states&quot;. Like Angular&#39;s core <code>$route</code> service, URLs <em>can</em> be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much flexibility. More about the <a href="/docs/angularjs/controllers/nav/">navView directive here</a>.</p>
+<p>Ionic uses the <a href="https://github.com/angular-ui/ui-router">AngularUI Router</a> module so app interfaces can be organized into various “states”. Like Angular’s core <code>$route</code> service, URLs <em>can</em> be used to control the views. However, the AngularUI Router provides a more powerful state manager in that states are bound to named, nested, and parallel views, allowing more than one template to be rendered on the same page. Additionally, each state is not required to be bound to a URL, and data can be pushed to each state which allows much flexibility. More about the <a href="/docs/angularjs/controllers/nav/">navView directive here</a>.</p>
 
-<p>With Angular&#39;s core <a href="http://docs.angularjs.org/api/ngRoute.$route">$route service</a>, the <code>ngView</code> was used to render the template of the current route. With the AngularUI Router as the base, Ionic instead uses the <code>navView</code> directive to renders templates. One of the largest advantages to <code>navView</code> is that views can be nested, and allows multiple nav-views on one page.</p>
+<p>With Angular’s core <a href="http://docs.angularjs.org/api/ngRoute.$route">$route service</a>, the <code>ngView</code> was used to render the template of the current route. With the AngularUI Router as the base, Ionic instead uses the <code>navView</code> directive to renders templates. One of the largest advantages to <code>navView</code> is that views can be nested, and allows multiple nav-views on one page.</p>
 
-<h2>Navigation History</h2>
+<h2 id="navigation-history">Navigation History</h2>
 
-<p>The View Service keeps track of the user&#39;s navigation history, such as what views are forward and backward from the current view (like a browser&#39;s back button). Using the service, the directives also know which direction an animations transition should happen, such as navigating between views (should it  slide left because you&#39;re navigating forward, or slide right because you&#39;re navigating backwards).</p>
+<p>The View Service keeps track of the user’s navigation history, such as what views are forward and backward from the current view (like a browser’s back button). Using the service, the directives also know which direction an animations transition should happen, such as navigating between views (should it  slide left because you’re navigating forward, or slide right because you’re navigating backwards).</p>
 
-<p>The View Service is leveraged by the Ionic&#39;s <code>tabs</code> directive, which has child <code>tab</code> directives. Each tab requires its own history stack (forward and back buttons), and to do so each tab has its own <code>navView</code> directive. This system is similar to what you see in modern apps, such as iOS&#39;s App Store, or Android&#39;s Play Store.</p>
+<p>The View Service is leveraged by the Ionic’s <code>tabs</code> directive, which has child <code>tab</code> directives. Each tab requires its own history stack (forward and back buttons), and to do so each tab has its own <code>navView</code> directive. This system is similar to what you see in modern apps, such as iOS’s App Store, or Android’s Play Store.</p>
 
-<h2>&lt;ion-nav-view&gt;</h2>
+<h2 id="ion-nav-view">&lt;ion-nav-view&gt;</h2>
 
 <table class="table">
   <thead>
@@ -894,7 +894,7 @@
   </tbody>
 </table>
 
-<h2>&lt;ion-nav-bar&gt;</h2>
+<h2 id="ion-nav-bar">&lt;ion-nav-bar&gt;</h2>
 
 <table class="table">
   <thead>
@@ -945,122 +945,134 @@
   </tbody>
 </table>
 
-<h2>Quick Start</h2>
+<h2 id="quick-start">Quick Start</h2>
 
 <p>To start, we place a <code>&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;</code> at the root of the app. The ion-nav-view directive tells Ionic where to place your templates. A view can be unnamed or named, but only one unnamed view can be within any template (or root html). The ion-nav-view directive is based off of the <a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-view">ui-view directive within the ui-router</a>.</p>
 
 <p>If have an <code>&lt;ion-nav-view&gt;</code> element, we can also create an <code>&lt;ion-nav-bar&gt;</code> which will create a topbar that updates as the application state changes. We can also add some styles and set up animations:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;starter&quot;</span><span class="nt">&gt;</span>
 
-  <span class="c">&lt;!-- The nav bar that will be updated as we navigate --&gt;</span>
-  <span class="nt">&lt;ion-nav-bar</span> <span class="na">animation=</span><span class="s">&quot;nav-title-slide-ios7&quot;</span>
-           <span class="na">type=</span><span class="s">&quot;bar-positive&quot;</span>
-           <span class="na">back-button-type=</span><span class="s">&quot;button-icon&quot;</span>
-           <span class="na">back-button-icon=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/ion-nav-bar&gt;</span>
+<pre><code class="language-html">&lt;body ng-app="starter"&gt;
 
-  <span class="c">&lt;!-- where the initial view template will be rendered --&gt;</span>
-  <span class="nt">&lt;ion-nav-view</span> <span class="na">animation=</span><span class="s">&quot;slide-left-right&quot;</span><span class="nt">&gt;&lt;/ion-nav-view&gt;</span>
+  &lt;!-- The nav bar that will be updated as we navigate --&gt;
+  &lt;ion-nav-bar animation="nav-title-slide-ios7"
+           type="bar-positive"
+           back-button-type="button-icon"
+           back-button-icon="ion-arrow-left-c"&gt;&lt;/ion-nav-bar&gt;
 
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-<h3>State Provider Setup</h3>
+  &lt;!-- where the initial view template will be rendered --&gt;
+  &lt;ion-nav-view animation="slide-left-right"&gt;&lt;/ion-nav-view&gt;
 
-<p>We can set up Angular to listen for various routes, match which state should be loaded, and render the state&#39;s template into the correct <code>&lt;ion-nav-view&gt;</code>.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
+&lt;/body&gt;
+</code></pre>
 
-<span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">,</span> <span class="nx">$urlRouterProvider</span><span class="p">)</span> <span class="p">{</span>
+<h3 id="state-provider-setup">State Provider Setup</h3>
 
-  <span class="nx">$stateProvider</span>
-    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/home&quot;</span><span class="p">,</span>
-      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;home.html&quot;</span><span class="p">,</span>
-      <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;HomeCtrl&#39;</span>
-    <span class="p">})</span>
-    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/about&quot;</span><span class="p">,</span>
-      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;about.html&quot;</span><span class="p">,</span>
-      <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;AboutCtrl&#39;</span>
-    <span class="p">})</span>
-    <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/contact&quot;</span><span class="p">,</span>
-      <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;contact.html&quot;</span>
-    <span class="p">})</span>
+<p>We can set up Angular to listen for various routes, match which state should be loaded, and render the state’s template into the correct <code>&lt;ion-nav-view&gt;</code>.</p>
 
-    <span class="c1">// if none of the above are matched, go to this one</span>
-    <span class="nx">$urlRouterProvider</span><span class="p">.</span><span class="nx">otherwise</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">);</span>
-<span class="p">})</span>
+<pre><code class="language-javascript">angular.module('myApp', ['ionic'])
 
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;HomeCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;HomeCtrl&#39;</span><span class="p">);</span>
-<span class="p">})</span>
+.config(function($stateProvider, $urlRouterProvider) {
 
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AboutCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;AboutCtrl&#39;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<p>Please visit <a href="https://github.com/angular-ui/ui-router/wiki">AngularUI Router&#39;s docs</a> for more info. Below is a great video by the AngularUI Router guys that may help to explain how it all works:</p>
+  $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "home.html",
+      controller: 'HomeCtrl'
+    })
+    .state('about', {
+      url: "/about",
+      templateUrl: "about.html",
+      controller: 'AboutCtrl'
+    })
+    .state('contact', {
+      url: "/contact",
+      templateUrl: "contact.html"
+    })
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo" frameborder="0" allowfullscreen></iframe>
+    // if none of the above are matched, go to this one
+    $urlRouterProvider.otherwise("/home");
+})
 
-<h3>Nav Bar And Header Titles</h3>
+.controller('HomeCtrl', function($scope) {
+  console.log('HomeCtrl');
+})
+
+.controller('AboutCtrl', function($scope) {
+  console.log('AboutCtrl');
+});
+</code></pre>
+
+<p>Please visit <a href="https://github.com/angular-ui/ui-router/wiki">AngularUI Router’s docs</a> for more info. Below is a great video by the AngularUI Router guys that may help to explain how it all works:</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="nav-bar-and-header-titles">Nav Bar And Header Titles</h3>
 
 <p>The <code>ion-nav-bar</code> uses the View Service to update the header title as the user transitions through the app. For each transition, the title comes from the <code>title</code> attribute within the <code>view</code> transitioning in.</p>
 
-<h3>Templates and Views</h3>
+<h3 id="templates-and-views">Templates and Views</h3>
 
-<p>Next, in each state&#39;s template should contain a <code>view</code> directive, which provides the view&#39;s title:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;home.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Home&#39;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-      <span class="p">...</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<p>Next, in each state’s template should contain a <code>view</code> directive, which provides the view’s title:</p>
 
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;about.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;About&#39;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-      <span class="p">...</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<pre><code class="language-javascript">
+&lt;script id="home.html" type="text/ng-template"&gt;
+  &lt;ion-view title="'Home'"&gt;
+    &lt;ion-content has-header="true" padding="true"&gt;
+      ...
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/script&gt;
 
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;contact.html&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/ng-template&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Contact&#39;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nx">padding</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-      <span class="p">...</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></div>
+&lt;script id="about.html" type="text/ng-template"&gt;
+  &lt;ion-view title="'About'"&gt;
+    &lt;ion-content has-header="true" padding="true"&gt;
+      ...
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/script&gt;
+
+&lt;script id="contact.html" type="text/ng-template"&gt;
+  &lt;ion-view title="'Contact'"&gt;
+    &lt;ion-content has-header="true" padding="true"&gt;
+      ...
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/script&gt;
+
+</code></pre>
+
 <p>Inside of each <code>&lt;ion-view&gt;</code> we can specify the title, left buttons, and right buttons that will be updated on the nav bar.</p>
 
-<p>Note: To hide the back button for a given view, use the <code>hide-back-button=&quot;true&quot;</code> attribute on the <code>&lt;ion-view&gt;</code>.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view</span> <span class="na">ng-controller=</span><span class="s">&quot;AppCtrl&quot;</span> <span class="na">title=</span><span class="s">&quot;myTitle&quot;</span> <span class="na">left-buttons=</span><span class="s">&quot;leftButtons&quot;</span> <span class="na">right-buttons=</span><span class="s">&quot;rightButtons&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/ion-view&gt;</span>
-</code></pre></div>
-<p>We can then specify these fields on the scope in our controller:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">myTitle</span> <span class="o">=</span> <span class="s1">&#39;Page One&#39;</span><span class="p">;</span>
+<p>Note: To hide the back button for a given view, use the <code>hide-back-button="true"</code> attribute on the <code>&lt;ion-view&gt;</code>.</p>
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive&#39;</span><span class="p">,</span>
-      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;&lt;i class=&quot;icon ion-navicon&quot;&gt;&lt;/i&gt;&#39;</span><span class="p">,</span>
-      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">];</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">rightButtons</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-clear&#39;</span><span class="p">,</span>
-      <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span>
-      <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">});</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;ion-view ng-controller="AppCtrl" title="myTitle" left-buttons="leftButtons" right-buttons="rightButtons"&gt;
+&lt;/ion-view&gt;
+</code></pre>
+
+<p>We can then specify these fields on the scope in our controller:</p>
+
+<pre><code class="language-javascript">app.controller('AppCtrl', function($scope) {
+  $scope.myTitle = 'Page One';
+
+  $scope.leftButtons = [
+    {
+      type: 'button-positive',
+      content: '&lt;i class="icon ion-navicon"&gt;&lt;/i&gt;',
+      tap: function(e) {
+      }
+    }
+  ];
+  $scope.rightButtons = [
+    {
+      type: 'button-clear',
+      content: 'Edit',
+      tap: function(e) {
+      }
+    }
+  ]
+});
+</code></pre>
+
         </div>
 
       </div>

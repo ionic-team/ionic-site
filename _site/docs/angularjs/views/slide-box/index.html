@@ -851,17 +851,17 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <p>Available in:
+          <p>Available in:</p>
 <div class="label label-danger">Ionic-Angular 0.9.0</div>
-<div class="label label-primary">Ionic 0.9.0</div></p>
+<div class="label label-primary">Ionic 0.9.0</div>
 
-<h1>Slide Box</h1>
+<h1 id="slide-box">Slide Box</h1>
 
 <p>The Slide Box is a multi-page container where each page can be swiped or dragged between:</p>
 
-<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif"></p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif" /></p>
 
-<h2>&lt;ion-slide-box&gt;</h2>
+<h2 id="ion-slide-box">&lt;ion-slide-box&gt;</h2>
 
 <table class="table">
   <thead>
@@ -912,42 +912,44 @@
   </tbody>
 </table>
 
-<h2>Ionic-Angular Usage</h2>
+<h2 id="ionic-angular-usage">Ionic-Angular Usage</h2>
 
 <p>To use the slide box in your apps, use the following markup:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-slide-box&gt;</span>
-  <span class="nt">&lt;ion-slide&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box blue&quot;</span><span class="nt">&gt;&lt;h1&gt;</span>BLUE<span class="nt">&lt;/h1&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-  <span class="nt">&lt;ion-slide&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box yellow&quot;</span><span class="nt">&gt;&lt;h1&gt;</span>YELLOW<span class="nt">&lt;/h1&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-  <span class="nt">&lt;ion-slide&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box pink&quot;</span><span class="nt">&gt;&lt;h1&gt;</span>PINK<span class="nt">&lt;/h1&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/ion-slide&gt;</span>
-<span class="nt">&lt;/ion-slide-box&gt;</span>
-</code></pre></div>
-<h2>Actions</h2>
 
-<p><b>Go to slide</b>: 
-The slide index numbers start from 0, 1, 2 .... n.
+<pre><code class="language-html">&lt;ion-slide-box&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box blue"&gt;&lt;h1&gt;BLUE&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box yellow"&gt;&lt;h1&gt;YELLOW&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box pink"&gt;&lt;h1&gt;PINK&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+&lt;/ion-slide-box&gt;
+</code></pre>
+
+<h2 id="actions">Actions</h2>
+
+<p><b>Go to slide</b>: <br />
+The slide index numbers start from 0, 1, 2 …. n.<br />
 <code>javascript
 var gotoSlide = function(index) {
-  $scope.$broadcast(&#39;slideBox.setSlide&#39;, index);
+  $scope.$broadcast('slideBox.setSlide', index);
 };
 </code></p>
 
-<p><b>Previous slide</b>:
+<p><b>Previous slide</b>:<br />
 <code>javascript
 var prevSlide = function() {
-  $scope.$broadcast(&#39;slideBox.prevSlide&#39;);
+  $scope.$broadcast('slideBox.prevSlide');
 };
 </code></p>
 
-<p><b>Next slide</b>:
+<p><b>Next slide</b>:<br />
 <code>javascript
 var nextSlide = function() {
-  $scope.$broadcast(&#39;slideBox.nextSlide&#39;);
+  $scope.$broadcast('slideBox.nextSlide');
 };
 </code></p>
 

@@ -851,10 +851,10 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <p>Available in:
-<div class="label label-danger">Ionic-Angular 0.9.x</div></p>
+          <p>Available in:</p>
+<div class="label label-danger">Ionic-Angular 0.9.x</div>
 
-<h1>Headers</h1>
+<h1 id="headers">Headers</h1>
 
 <p>While Ionic provides <a href="/docs/components/#header">simple Header and Footer</a> bars that can be created through HTML and CSS alone, Header bars specifically can be extended in order to provide dynamic layout features such as auto-title centering and animation. They are also used by the <a href="../../controllers/view-state/">Views and Navigation Controller</a> to animate a title on navigation and toggle a back button.</p>
 
@@ -862,29 +862,34 @@
 
 <p>Using two-way data binding, the header bar will automatically readjust the heading title alignment when the title or buttons change.</p>
 
-<h2>Ionic-Angular Usage</h2>
+<h2 id="ionic-angular-usage">Ionic-Angular Usage</h2>
 
 <p>To use the dynamic header bar behavior in Ionic-Angular, use the <code>&lt;ion-header-bar&gt;</code> directive:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-header-bar</span>
-  <span class="na">title=</span><span class="s">&quot;headerTitle&quot;</span>
-  <span class="na">left-buttons=</span><span class="s">&quot;leftButtons&quot;</span>
-  <span class="na">right-buttons=</span><span class="s">&quot;rightButtons&quot;</span>
-  <span class="na">type=</span><span class="s">&quot;bar-positive&quot;</span>
-  <span class="na">align-title=</span><span class="s">&quot;center&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/ion-header-bar&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-header-bar
+  title="headerTitle"
+  left-buttons="leftButtons"
+  right-buttons="rightButtons"
+  type="bar-positive"
+  align-title="center"&gt;
+&lt;/ion-header-bar&gt;
+
+</code></pre>
+
 <p>Where <code>headerTitle</code>, <code>leftButtons</code>, and <code>rightButtons</code> are angular expressions. Pass in <code>left</code> for the <code>align-title</code> attribute to align the title to the left for more Android-friendly layouts.</p>
 
 <p>For example, to specify left buttons, you can set <code>$scope.leftButtons</code> to be:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$scope</span><span class="p">.</span><span class="nx">leftButtons</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive&#39;</span><span class="p">,</span>
-    <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;&lt;i class=&quot;icon ion-navicon&quot;&gt;&lt;/i&gt;&#39;</span><span class="p">,</span>
-    <span class="nx">tap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">$scope.leftButtons = [
+  {
+    type: 'button-positive',
+    content: '&lt;i class="icon ion-navicon"&gt;&lt;/i&gt;',
+    tap: function(e) {
+    }
+  }
+]
+</code></pre>
+
 <p>Which will create a left-side button with the <code>ion-navicon</code> icon. You can do the same for the right side.</p>
 
         </div>

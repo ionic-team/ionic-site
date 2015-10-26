@@ -9,8 +9,6 @@ body.has-scrollbar ion-menu scroll-content {
   margin-right: 0;
 }
 
-
-
 section.hidden {
   display: none !important;
 }

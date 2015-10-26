@@ -23,7 +23,7 @@ $(document).ready(function() {
   };
 
   setTimeout(function(){
-    $.getJSON('/docs/v2/data/sass.json', function (requestData) {
+    $.getJSON('sass.json', function (requestData) {
       addSassResults(requestData);
       searchSassReady(requestData);
     });

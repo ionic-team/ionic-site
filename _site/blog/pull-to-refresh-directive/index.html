@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Understanding Pull to Refresh</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/pull-to-refresh-directive/">Understanding Pull to Refresh</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Understanding Pull to Refresh" data-url="http://ionicframework.com/blog/pull-to-refresh-directive" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/pull-to-refresh-directive"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/pull-to-refresh-directive" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="/img/blog/andrew-mcgivery.png" class="author-icon"><a href="https://twitter.com/andrewmcgivery" target="_blank">Andrew McGivery</a> on January 28, 2015</time>
+  </div>
+
+<p><em>This is a guest post by Andrew McGivery, an application developer with a strong background in<br />
+Android, AngularJS, Ionic, C#, SQL, and front end development. Andrew writes often about Ionic and how to build great<br />
+hybrid apps. Read more on <a href="http://mcgivery.com/">Andrew’s personal blog</a></em></p>
+
+<p>With the rise of social networks, the “feed” has become a popular design pattern, especially in mobile apps. The idea is to load in new items to the top of a feed by pulling down from the top of the list until you see a loading indicator, letting go, and watching as new items magically (not really) add themselves in.</p>
+
+<p>Ionic has an awesome directive that has undergone a redo fairly recently to accomplish exactly this. In this post, we’ll break down a basic example of using this directive, a list, and the <a href="https://randomuser.me/">Random User API</a> to see how to use the directive with example data (feel free to follow along <a href="http://codepen.io/andrewmcgivery/pen/ZYyVgp">on CodePen</a>).</p>
+
+<!-- more -->
+
+<h3 id="ionrefresher-pull-to-refresh-directive">ionRefresher (Pull to Refresh Directive)</h3>
+<p>The Ionic directive we are going to use is the <code>ion-refresher</code> (<a href="http://ionicframework.com/docs/api/directive/ionRefresher/">Official Documentation</a>). The most basic usage is as follows:</p>
+
+<pre><code class="language-html">&lt;ion-refresher on-refresh="doRefresh()"&gt;&lt;/ion-refresher&gt;
+</code></pre>
+
+<p><code>on-refresh</code> should point to a <code>$scope</code> function that gets the new data, updates a list, and then lets the refresher know it is done. This refresher should be above some kind of list.</p>
+
+<h3 id="view">View</h3>
+<p>For our example, we’ll be using the following view markup:</p>
+
+<pre><code class="language-html">&lt;ion-refresher on-refresh="doRefresh()"&gt;&lt;/ion-refresher&gt;
+&lt;ion-list&gt;
+  &lt;ion-item class="item-avatar" ng-repeat="item in items"&gt;
+    &lt;img src=" " /&gt;
+    ##  
+    &lt;p&gt; &lt;/p&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
+<p>which looks something like this, once rendered:</p>
+
+<p><img src="http://mcgivery.com/wp-content/uploads/2015/01/list.png" alt="rendered list" /></p>
+
+<p>Remember that this list iterates over the <code>$scope.items</code> array.</p>
+
+<pre><code class="language-html">ng-repeat="item in items"
+</code></pre>
+
+<h3 id="factory">Factory</h3>
+<p>In our example, we’re going to be making a call to the Random User API to get some data to play with. To do this, we’ll create a factory that makes these API calls. This factory will have two methods: <code>GetFeed</code> and <code>GetNewUser</code>. <code>GetFeed</code> will be called when our app loads to get the initial data, and the <code>GetNewUser</code> will be called each time we do a pull to refresh.</p>
+
+<pre><code class="language-javascript">.factory('PersonService', function($http){
+  var BASE_URL = "http://api.randomuser.me/";
+  var items = [];
+
+  return {
+    GetFeed: function(){
+      return $http.get(BASE_URL+'?results=10').then(function(response){
+        items = response.data.results;
+        return items;
+      });
+    },
+    GetNewUser: function(){
+      return $http.get(BASE_URL).then(function(response){
+        items = response.data.results;
+        return items;
+      });
+    }
+  }
+})
+</code></pre>
+
+<p>Our <code>GetFeed</code> call returns 10 results, and each call to <code>GetNewUser</code> returns 1 result.</p>
+
+<h3 id="controller">Controller</h3>
+<p>Our controller needs to do 2 things:</p>
+
+<ol>
+  <li>Fill the feed with the initial items</li>
+  <li>Handle the pull to refresh</li>
+</ol>
+
+<p>First, to fill our feed, we’ll want to make a call to the PersonService and assign the result to the <code>$scope.items</code> array:</p>
+
+<pre><code class="language-javascript">.controller('MyCtrl', function($scope, $timeout, PersonService) {
+  $scope.items = [];
+
+  PersonService.GetFeed().then(function(items){
+    $scope.items = items;
+  });
+});
+</code></pre>
+
+<p>Next, we need to handle the pull to refresh. Recall we configured our directive to call a <code>doRefresh</code> function. We’ll need to define this function:</p>
+
+<pre><code class="language-javascript">$scope.doRefresh = function() {
+
+}
+</code></pre>
+
+<p>In this function, we should call the <code>GetNewUser</code> function and add these items to the beginning of the array.</p>
+
+<pre><code class="language-javascript">$scope.doRefresh = function() {
+  PersonService.GetNewUser().then(function(items){
+    $scope.items = items.concat($scope.items);
+  });
+};
+</code></pre>
+
+<p>You’ll notice we are using the <code>array.concat</code> function to add the items in. This is because <code>items</code> is an array, so we need to add the two arrays together.</p>
+
+<p>We still need to do one final thing. We need to let the scroller know that we’re done loading in the new items, so it can hide the loading indicator. To do this, we need to broadcast the <code>scroll.refreshComplete</code> event.</p>
+
+<pre><code class="language-javascript">$scope.doRefresh = function() {
+  PersonService.GetNewUser().then(function(items){
+    $scope.items = items.concat($scope.items);
+
+    //Stop the ion-refresher from spinning
+    $scope.$broadcast('scroll.refreshComplete');
+  });
+};
+</code></pre>
+
+<p>In its entirety, our controller looks like this:</p>
+
+<pre><code class="language-javascript">.controller('MyCtrl', function($scope, $timeout, PersonService) {
+  $scope.items = [];
+
+  PersonService.GetFeed().then(function(items){
+    $scope.items = items;
+  });
+
+  $scope.doRefresh = function() {
+    PersonService.GetNewUser().then(function(items){
+      $scope.items = items.concat($scope.items);
+
+      //Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  };
+
+});
+</code></pre>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Using the code above (full code on <a href="http://codepen.io/andrewmcgivery/pen/ZYyVgp/">CodePen</a>), you can accomplish this common pull to refresh patten in your Ionic Apps. Questions? Feel free to comment below!</p>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Understanding Pull to Refresh" data-url="http://ionicframework.com/blog/pull-to-refresh-directive" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/pull-to-refresh-directive"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

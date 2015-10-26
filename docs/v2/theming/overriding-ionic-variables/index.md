@@ -6,6 +6,10 @@ title: Overriding Ionic Sass Variables
 header_title: Overriding Ionic Styles
 header_sub_title: Providing custom values for Ionic styles
 ---
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="app.js"></script>
+
 <div class="improve-docs">
   <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
     Improve this doc
@@ -24,7 +28,7 @@ $text-color: #000099;
 
 <input id="search-sass-input" type="search" placeholder="Filter Sass Variables" class="form-control">
 
-<table id="search-sass-results" class="table sass-variables-table">
+<table id="search-sass-results" class="table">
   <tr>
     <th>Variable Name</th>
     <th>Default Value</th>

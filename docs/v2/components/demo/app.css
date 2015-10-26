@@ -1,7 +1,15 @@
 body, body:hover, body a, body button, body media-switch {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
-  overflow: hidden;
 }
+
+body.has-scrollbar scroll-content {
+  margin-right: -15px;
+}
+body.has-scrollbar ion-menu scroll-content {
+  margin-right: 0;
+}
+
+
 
 section.hidden {
   display: none !important;
@@ -71,7 +79,6 @@ ion-scroll {
 
 scroll-content {
   overflow-y: scroll;
-  margin-right: -15px;
 }
 
 .md .ion-md-share {
@@ -194,7 +201,6 @@ ion-card.adv-map p {
 .demo-list-icons icon#secondary {
   color: #32DB64;
 }
-
 body.md {
   border-top: 24px solid black;
 }

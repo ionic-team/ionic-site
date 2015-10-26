@@ -63,6 +63,12 @@ var DemoApp = (function () {
                 });
             });
             window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
+            if (helpers.hasScrollbar() === true) {
+                setTimeout(function () {
+                    var body = document.getElementsByTagName('body')[0];
+                    body.className = body.className + ' has-scrollbar';
+                }, 500);
+            }
         });
     }
 

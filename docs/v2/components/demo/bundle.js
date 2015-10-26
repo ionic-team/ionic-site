@@ -74616,7 +74616,6 @@
 	        value: function doConfirm() {
 	            this.popup.confirm({
 	                title: "Use this lightsaber?",
-	                subTitle: "You can't exchange lightsabers",
 	                template: "Do you agree to use this lightsaber to do good across the intergalactic galaxy?",
 	                cancelText: "Disagree",
 	                okText: "Agree"

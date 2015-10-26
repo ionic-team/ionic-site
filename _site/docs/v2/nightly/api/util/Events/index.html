@@ -8,8 +8,7 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-
-<link href="/css/v2.css?0" rel="stylesheet">
+<link href="/css/v2.css?1" rel="stylesheet">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -17,10 +16,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 
@@ -408,11 +406,11 @@
       
       <main>
         <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0'>
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0">
     Improve this doc
   </a>
 </div>
@@ -428,22 +426,19 @@
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
-
 <h1 class="class export">Events <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+<p class="module">exported from <a href="undefined">ionic/ionic</a><br />
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L1-L87">ionic/util/events.ts (line 1)</a>
 </p>
-
-<h2>Members</h2>
+<p>## Members</p>
 
 <div id="subscribe"></div>
-
 <h2>
   <code>subscribe(topic, handler)</code>
 
 </h2>
 
-<p>Subscribe to an event topic. Events that get posted to that topic
+<p>Subscribe to an event topic. Events that get posted to that topic<br />
 will trigger the provided handler.</p>
 
 <table class="table" style="margin:0;">
@@ -494,13 +489,12 @@ will trigger the provided handler.</p>
 </table>
 
 <div id="unsubscribe"></div>
-
 <h2>
   <code>unsubscribe(topic, handler)</code>
 
 </h2>
 
-<p>Unsubscribe from the given topic. Your handler will
+<p>Unsubscribe from the given topic. Your handler will<br />
 no longer receive events published to this topic.</p>
 
 <table class="table" style="margin:0;">
@@ -551,12 +545,11 @@ no longer receive events published to this topic.</p>
 </table>
 
 <ul>
-<li>Returns: 
-true if a handler was removed</li>
+  <li>Returns: <br />
+ true if a handler was removed</li>
 </ul>
 
 <div id="publish"></div>
-
 <h2>
   <code>publish(topic, eventData)</code>
 
@@ -611,7 +604,9 @@ true if a handler was removed</li>
   </tbody>
 </table>
 
+
       </main>
     </div>
+
   </body>
 </html>

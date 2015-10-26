@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1">
     Improve this doc
   </a>
 </div>
@@ -866,42 +866,46 @@
 
 </h1>
 
-<p>Ionic automatically takes platform configurations into account to adjust things like what
-transition style to use and whether tab icons should show on the top or bottom. For example,
-iOS will move forward by transitioning the entering view from right to center and the leaving
-view from center to left. However, Android will transition with the entering view going from
-bottom to center, covering the previous view, which remains stationary. It should be noted
-that when a platform is not iOS or Android, then it&#39;ll default to iOS. So if you are
-developing on a desktop browser, it&#39;s going to take on iOS default configs.</p>
+<p>Ionic automatically takes platform configurations into account to adjust things like what<br />
+transition style to use and whether tab icons should show on the top or bottom. For example,<br />
+iOS will move forward by transitioning the entering view from right to center and the leaving<br />
+view from center to left. However, Android will transition with the entering view going from<br />
+bottom to center, covering the previous view, which remains stationary. It should be noted<br />
+that when a platform is not iOS or Android, then it’ll default to iOS. So if you are<br />
+developing on a desktop browser, it’s going to take on iOS default configs.</p>
 
-<p>These configs can be changed using the <code>$ionicConfigProvider</code> during the configuration phase
-of your app. Additionally, <code>$ionicConfig</code> can also set and get config values during the run
+<p>These configs can be changed using the <code>$ionicConfigProvider</code> during the configuration phase<br />
+of your app. Additionally, <code>$ionicConfig</code> can also set and get config values during the run<br />
 phase and within the app itself.</p>
 
-<p>By default, all base config variables are set to <code>&#39;platform&#39;</code>, which means it&#39;ll take on the
-default config of the platform on which it&#39;s running. Config variables can be set at this
-level so all platforms follow the same setting, rather than its platform config.
+<p>By default, all base config variables are set to <code>'platform'</code>, which means it’ll take on the<br />
+default config of the platform on which it’s running. Config variables can be set at this<br />
+level so all platforms follow the same setting, rather than its platform config.<br />
 The following code would set the same config variable for all platforms:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">maxCache</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</code></pre></div>
-<p>Additionally, each platform can have it&#39;s own config within the <code>$ionicConfigProvider.platform</code>
+
+<pre><code class="language-js">$ionicConfigProvider.views.maxCache(10);
+</code></pre>
+
+<p>Additionally, each platform can have it’s own config within the <code>$ionicConfigProvider.platform</code><br />
 property. The config below would only apply to Android devices.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">platform</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">maxCache</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-</code></pre></div>
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;reallyCoolApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
 
-<span class="nx">myApp</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$ionicConfigProvider</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">maxCache</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<pre><code class="language-js">$ionicConfigProvider.platform.android.views.maxCache(5);
+</code></pre>
 
-  <span class="c1">// note that you can also chain configs</span>
-  <span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">backButton</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Go Back&#39;</span><span class="p">).</span><span class="nx">icon</span><span class="p">(</span><span class="s1">&#39;ion-chevron-left&#39;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">var myApp = angular.module('reallyCoolApp', ['ionic']);
+
+myApp.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.views.maxCache(5);
+
+  // note that you can also chain configs
+  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="views.transition"></div>
-
 <h2>
   <code>views.transition(transition)</code>
 
@@ -948,23 +952,22 @@ to <code>ios</code>.</li>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> value</li>
 </ul>
 
 <div id="views.maxCache"></div>
-
 <h2>
   <code>views.maxCache(maxNumber)</code>
 
 </h2>
 
-<p>Maximum number of view elements to cache in the DOM. When the max number is
-exceeded, the view with the longest time period since it was accessed is removed. Views that
-stay in the DOM cache the view&#39;s scope, current state, and scroll position. The scope is
-disconnected from the <code>$watch</code> cycle when it is cached and reconnected when it enters again.
-When the maximum cache is <code>0</code>, the leaving view&#39;s element will be removed from the DOM after
-each view transition, and the next time the same view is shown, it will have to re-compile,
+<p>Maximum number of view elements to cache in the DOM. When the max number is<br />
+exceeded, the view with the longest time period since it was accessed is removed. Views that<br />
+stay in the DOM cache the view’s scope, current state, and scroll position. The scope is<br />
+disconnected from the <code>$watch</code> cycle when it is cached and reconnected when it enters again.<br />
+When the maximum cache is <code>0</code>, the leaving view’s element will be removed from the DOM after<br />
+each view transition, and the next time the same view is shown, it will have to re-compile,<br />
 attach to the DOM, and link the element again. This disables caching, in effect.</p>
 
 <table class="table" style="margin:0;">
@@ -998,22 +1001,21 @@ attach to the DOM, and link the element again. This disables caching, in effect.
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>number</code> How many views Ionic will hold onto until the a view is removed.</li>
 </ul>
 
 <div id="views.forwardCache"></div>
-
 <h2>
   <code>views.forwardCache(value)</code>
 
 </h2>
 
-<p>By default, when navigating, views that were recently visited are cached, and
-the same instance data and DOM elements are referenced when navigating back. However, when
-navigating back in the history, the &quot;forward&quot; views are removed from the cache. If you
-navigate forward to the same view again, it&#39;ll create a new DOM element and controller
-instance. Basically, any forward views are reset each time. Set this config to <code>true</code> to have
+<p>By default, when navigating, views that were recently visited are cached, and<br />
+the same instance data and DOM elements are referenced when navigating back. However, when<br />
+navigating back in the history, the “forward” views are removed from the cache. If you<br />
+navigate forward to the same view again, it’ll create a new DOM element and controller<br />
+instance. Basically, any forward views are reset each time. Set this config to <code>true</code> to have<br />
 forward views cached and not reset on each load.</p>
 
 <table class="table" style="margin:0;">
@@ -1046,19 +1048,18 @@ forward views cached and not reset on each load.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>boolean</code> </li>
+  <li>Returns: <br />
+<code>boolean</code></li>
 </ul>
 
 <div id="scrolling.jsScrolling"></div>
-
 <h2>
   <code>scrolling.jsScrolling(value)</code>
 
 </h2>
 
-<p>Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to
-<code>false</code> has the same effect as setting each <code>ion-content</code> to have <code>overflow-scroll=&#39;true&#39;</code>.</p>
+<p>Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to<br />
+<code>false</code> has the same effect as setting each <code>ion-content</code> to have <code>overflow-scroll='true'</code>.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -1091,12 +1092,11 @@ forward views cached and not reset on each load.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>boolean</code> </li>
+  <li>Returns: <br />
+<code>boolean</code></li>
 </ul>
 
 <div id="backButton.icon"></div>
-
 <h2>
   <code>backButton.icon(value)</code>
 
@@ -1134,12 +1134,11 @@ forward views cached and not reset on each load.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="backButton.text"></div>
-
 <h2>
   <code>backButton.text(value)</code>
 
@@ -1178,18 +1177,17 @@ forward views cached and not reset on each load.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="backButton.previousTitleText"></div>
-
 <h2>
   <code>backButton.previousTitleText(value)</code>
 
 </h2>
 
-<p>If the previous title text should become the back button text. This
+<p>If the previous title text should become the back button text. This<br />
 is the default for iOS.</p>
 
 <table class="table" style="margin:0;">
@@ -1222,12 +1220,11 @@ is the default for iOS.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>boolean</code> </li>
+  <li>Returns: <br />
+<code>boolean</code></li>
 </ul>
 
 <div id="form.checkbox"></div>
-
 <h2>
   <code>form.checkbox(value)</code>
 
@@ -1265,12 +1262,11 @@ is the default for iOS.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="form.toggle"></div>
-
 <h2>
   <code>form.toggle(value)</code>
 
@@ -1308,12 +1304,11 @@ is the default for iOS.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="tabs.style"></div>
-
 <h2>
   <code>tabs.style(value)</code>
 
@@ -1352,12 +1347,11 @@ is the default for iOS.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="tabs.position"></div>
-
 <h2>
   <code>tabs.position(value)</code>
 
@@ -1396,19 +1390,18 @@ is the default for iOS.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="templates.maxPrefetch"></div>
-
 <h2>
   <code>templates.maxPrefetch(value)</code>
 
 </h2>
 
-<p>Sets the maximum number of templates to prefetch from the templateUrls defined in
-$stateProvider.state. If set to <code>0</code>, the user will have to wait
+<p>Sets the maximum number of templates to prefetch from the templateUrls defined in<br />
+$stateProvider.state. If set to <code>0</code>, the user will have to wait<br />
 for a template to be fetched the first time when navigating to a new page. Default <code>30</code>.</p>
 
 <table class="table" style="margin:0;">
@@ -1443,12 +1436,11 @@ for a template to be fetched the first time when navigating to a new page. Defau
 </table>
 
 <ul>
-<li>Returns: 
-<code>integer</code> </li>
+  <li>Returns: <br />
+<code>integer</code></li>
 </ul>
 
 <div id="navBar.alignTitle"></div>
-
 <h2>
   <code>navBar.alignTitle(value)</code>
 
@@ -1498,12 +1490,11 @@ If the platform is <code>android</code>, it will default to <code>left</code>. I
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> value</li>
 </ul>
 
 <div id="navBar.positionPrimaryButtons"></div>
-
 <h2>
   <code>navBar.positionPrimaryButtons(value)</code>
 
@@ -1552,12 +1543,11 @@ If the platform is <code>android</code>, it will default to <code>right</code>. 
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> value</li>
 </ul>
 
 <div id="navBar.positionSecondaryButtons"></div>
-
 <h2>
   <code>navBar.positionSecondaryButtons(value)</code>
 
@@ -1606,9 +1596,10 @@ If the platform is <code>android</code>, it will default to <code>right</code>. 
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> value</li>
 </ul>
+
 
         </div>
 

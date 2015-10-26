@@ -776,11 +776,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/actionSheet.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/actionSheet.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/actionSheet.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/actionSheet.js#L1">
     Improve this doc
   </a>
 </div>
@@ -793,52 +793,52 @@
 
 </h1>
 
-<p>The Action Sheet is a slide-up pane that lets the user choose from a set of options.
+<p>The Action Sheet is a slide-up pane that lets the user choose from a set of options.<br />
 Dangerous options are highlighted in red and made obvious.</p>
 
-<p>There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
+<p>There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even<br />
 hitting escape on the keyboard for desktop testing.</p>
 
-<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif" alt="Action Sheet"></p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif" alt="Action Sheet" /></p>
 
-<h2>Usage</h2>
-
+<h2 id="usage">Usage</h2>
 <p>To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mySuperApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicActionSheet</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
 
- <span class="c1">// Triggered on a button click, or some other target</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">show</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<pre><code class="language-js">angular.module('mySuperApp', ['ionic'])
+.controller(function($scope, $ionicActionSheet, $timeout) {
 
-   <span class="c1">// Show the action sheet</span>
-   <span class="kd">var</span> <span class="nx">hideSheet</span> <span class="o">=</span> <span class="nx">$ionicActionSheet</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
-     <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span>
-       <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&lt;b&gt;Share&lt;/b&gt; This&#39;</span> <span class="p">},</span>
-       <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Move&#39;</span> <span class="p">}</span>
-     <span class="p">],</span>
-     <span class="nx">destructiveText</span><span class="o">:</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span>
-     <span class="nx">titleText</span><span class="o">:</span> <span class="s1">&#39;Modify your album&#39;</span><span class="p">,</span>
-     <span class="nx">cancelText</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">,</span>
-     <span class="nx">cancel</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-          <span class="c1">// add cancel code..</span>
-        <span class="p">},</span>
-     <span class="nx">buttonClicked</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-     <span class="p">}</span>
-   <span class="p">});</span>
+ // Triggered on a button click, or some other target
+ $scope.show = function() {
 
-   <span class="c1">// For example&#39;s sake, hide the sheet after two seconds</span>
-   <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">hideSheet</span><span class="p">();</span>
-   <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+   // Show the action sheet
+   var hideSheet = $ionicActionSheet.show({
+     buttons: [
+       { text: '&lt;b&gt;Share&lt;/b&gt; This' },
+       { text: 'Move' }
+     ],
+     destructiveText: 'Delete',
+     titleText: 'Modify your album',
+     cancelText: 'Cancel',
+     cancel: function() {
+          // add cancel code..
+        },
+     buttonClicked: function(index) {
+       return true;
+     }
+   });
 
- <span class="p">};</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+   // For example's sake, hide the sheet after two seconds
+   $timeout(function() {
+     hideSheet();
+   }, 2000);
+
+ };
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="show"></div>
-
 <h2>
   <code>show(options)</code>
 
@@ -846,7 +846,7 @@ hitting escape on the keyboard for desktop testing.</p>
 
 <p>Load and return a new action sheet.</p>
 
-<p>A new isolated scope will be created for the
+<p>A new isolated scope will be created for the<br />
 action sheet and the new element will be appended into the body.</p>
 
 <table class="table" style="margin:0;">
@@ -895,9 +895,10 @@ to a new state.  Default true.</li>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>function</code> <code>hideSheet</code> A function which, when called, hides &amp; cancels the action sheet.</li>
 </ul>
+
 
         </div>
 

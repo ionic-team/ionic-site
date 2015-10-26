@@ -813,11 +813,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L8'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L8">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L8'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L8">
     Improve this doc
   </a>
 </div>
@@ -828,43 +828,44 @@
 
 
 
-<br/>
+<br />
 <small>
   Delegate: <a href="/docs/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>
 </small>
 
 </h1>
 
-<p>If we have an <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a> directive, we can also create an
+<p>If we have an <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a> directive, we can also create an<br />
 <code>&lt;ion-nav-bar&gt;</code>, which will create a topbar that updates as the application state changes.</p>
 
 <p>We can add a back button by putting an <a href="/docs/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> inside.</p>
 
-<p>We can add buttons depending on the currently visible view using
+<p>We can add buttons depending on the currently visible view using<br />
 <a href="/docs/api/directive/ionNavButtons/"><code>ionNavButtons</code></a>.</p>
 
-<p>Add an <a href="/docs/components#animations">animation class</a> to the element via the
-<code>animation</code> attribute to enable animated changing of titles 
-(recommended: &#39;nav-title-slide-ios7&#39;).</p>
+<p>Add an <a href="/docs/components#animations">animation class</a> to the element via the<br />
+<code>animation</code> attribute to enable animated changing of titles <br />
+(recommended: ‘nav-title-slide-ios7’).</p>
 
-<p>Note that the ion-nav-bar element will only work correctly if your content has an
+<p>Note that the ion-nav-bar element will only work correctly if your content has an<br />
 ionView around it.</p>
 
 <h2 id="usage">Usage</h2>
-  
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;starter&quot;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- The nav bar that will be updated as we navigate --&gt;</span>
-  <span class="nt">&lt;ion-nav-bar</span> <span class="na">class=</span><span class="s">&quot;bar-positive&quot;</span> <span class="na">animation=</span><span class="s">&quot;nav-title-slide-ios7&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-nav-bar&gt;</span>
 
-  <span class="c">&lt;!-- where the initial view template will be rendered --&gt;</span>
-  <span class="nt">&lt;ion-nav-view&gt;</span>
-    <span class="nt">&lt;ion-view&gt;</span>
-      <span class="nt">&lt;ion-content&gt;</span>Hello!<span class="nt">&lt;/ion-content&gt;</span>
-    <span class="nt">&lt;/ion-view&gt;</span>
-  <span class="nt">&lt;/ion-nav-view&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;body ng-app="starter"&gt;
+  &lt;!-- The nav bar that will be updated as we navigate --&gt;
+  &lt;ion-nav-bar class="bar-positive" animation="nav-title-slide-ios7"&gt;
+  &lt;/ion-nav-bar&gt;
+
+  &lt;!-- where the initial view template will be rendered --&gt;
+  &lt;ion-nav-view&gt;
+    &lt;ion-view&gt;
+      &lt;ion-content&gt;Hello!&lt;/ion-content&gt;
+    &lt;/ion-view&gt;
+  &lt;/ion-nav-view&gt;
+&lt;/body&gt;
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -926,7 +927,7 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Defaults to &#39;c
       <td>
         <p>By default, the navbar will scroll the content
 to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
-<p></table><br/></p>
+<p><br /></p>
 <h3 id="alternative-usage">Alternative Usage</h3>
 <p>Alternatively, you may put ion-nav-bar inside of each individual view&#39;s ion-view element.
 This will allow you to have the whole navbar, not just its contents, transition every view change.</p>
@@ -951,6 +952,7 @@ This will allow you to have the whole navbar, not just its contents, transition 
     
   </tbody>
 </table>
+
 
         </div>
 

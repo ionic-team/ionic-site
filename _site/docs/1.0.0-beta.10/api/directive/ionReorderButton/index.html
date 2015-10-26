@@ -776,11 +776,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/itemReorderButton.js#L5'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/itemReorderButton.js#L5">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/itemReorderButton.js#L5'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/itemReorderButton.js#L5">
     Improve this doc
   </a>
 </div>
@@ -799,24 +799,26 @@
 </h1>
 
 <h2 id="usage">Usage</h2>
-  
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
+
+<pre><code class="language-html">&lt;ion-list ng-controller="MyCtrl"&gt;
+  &lt;ion-item ng-repeat="item in items"&gt;
     Item 
-    <span class="nt">&lt;ion-reorder-button</span> <span class="na">class=</span><span class="s">&quot;ion-navicon&quot;</span>
-                        <span class="na">on-reorder=</span><span class="s">&quot;moveItem(item, $fromIndex, $toIndex)&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/ion-reorder&gt;</span>
-  <span class="nt">&lt;/ion-item&gt;</span>
-<span class="nt">&lt;/ion-list&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">moveItem</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">fromIndex</span><span class="p">,</span> <span class="nx">toIndex</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//Move the item in the array</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">fromIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">toIndex</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">item</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
+    &lt;ion-reorder-button class="ion-navicon"
+                        on-reorder="moveItem(item, $fromIndex, $toIndex)"&gt;
+    &lt;/ion-reorder&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope) {
+  $scope.items = [1, 2, 3, 4];
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    //Move the item in the array
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+  };
+}
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -849,6 +851,7 @@ Parameters given: $fromIndex, $toIndex.</p>
     
   </tbody>
 </table>
+
 
         </div>
 

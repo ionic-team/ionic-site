@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/animation.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/animation.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/animation.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/animation.js#L2">
     Improve this doc
   </a>
 </div>
@@ -836,40 +836,42 @@
 
 <p>A powerful animation and transition system for Ionic apps.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mySuperApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicAnimation</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">anim</span> <span class="o">=</span> <span class="nx">$ionicAnimation</span><span class="p">({</span>
-    <span class="c1">// A unique, reusable name</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;popIn&#39;</span><span class="p">,</span>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">angular.module('mySuperApp', ['ionic'])
+.controller(function($scope, $ionicAnimation) {
+   var anim = $ionicAnimation({
+    // A unique, reusable name
+    name: 'popIn',
 
-    <span class="c1">// The duration of an auto playthrough</span>
-    <span class="nx">duration</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    // The duration of an auto playthrough
+    duration: 0.5,
 
-    <span class="c1">// How long to wait before running the animation</span>
-    <span class="nx">delay</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    // How long to wait before running the animation
+    delay: 0,
 
-    <span class="c1">// Whether to reverse after doing one run through</span>
-    <span class="nx">autoReverse</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    // Whether to reverse after doing one run through
+    autoReverse: false,
 
-    <span class="c1">// How many times to repeat? -1 or null for infinite</span>
-    <span class="nx">repeat</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    // How many times to repeat? -1 or null for infinite
+    repeat: -1,
 
-    <span class="c1">// Timing curve to use (same as CSS timing functions), or a function of time &quot;t&quot; to handle it yourself</span>
-    <span class="nx">curve</span><span class="o">:</span> <span class="s1">&#39;ease-in-out&#39;</span>
+    // Timing curve to use (same as CSS timing functions), or a function of time "t" to handle it yourself
+    curve: 'ease-in-out'
 
-    <span class="nx">onStart</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// Callback on start</span>
-    <span class="p">},</span>
-    <span class="nx">onEnd</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// Callback on end</span>
-    <span class="p">},</span>
-    <span class="nx">step</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">amt</span><span class="p">)</span> <span class="p">{</span>
+    onStart: function() {
+      // Callback on start
+    },
+    onEnd: function() {
+      // Callback on end
+    },
+    step: function(amt) {
 
-    <span class="p">}</span>
-  <span class="p">})</span>
-<span class="p">});</span>
-</code></pre></div>
+    }
+  })
+});
+</code></pre>
+
+
         </div>
 
       </div>

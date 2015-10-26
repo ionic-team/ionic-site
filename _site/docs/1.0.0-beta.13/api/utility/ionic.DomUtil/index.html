@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/dom.js#L37'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/utils/dom.js#L37">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L37'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L37">
     Improve this doc
   </a>
 </div>
@@ -834,10 +834,9 @@
 
 </h1>
 
-<h2>Methods</h2>
+<h2 id="methods">Methods</h2>
 
 <div id="requestAnimationFrame"></div>
-
 <h2>
   <code>requestAnimationFrame(callback)</code><small>(alias: ionic.requestAnimationFrame)</small>
 
@@ -877,14 +876,13 @@ happens.</p>
 </table>
 
 <div id="animationFrameThrottle"></div>
-
 <h2>
   <code>animationFrameThrottle(callback)</code><small>(alias: ionic.animationFrameThrottle)</small>
 
 </h2>
 
-<p>When given a callback, if that callback is called 100 times between
-animation frames, adding Throttle will make it only run the last of
+<p>When given a callback, if that callback is called 100 times between<br />
+animation frames, adding Throttle will make it only run the last of<br />
 the 100 calls.</p>
 
 <table class="table" style="margin:0;">
@@ -919,20 +917,19 @@ requestAnimationFrame</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>function</code> A function which will then call the passed in callback.
-The passed in callback will receive the context the returned function is
+  <li>Returns: <br />
+<code>function</code> A function which will then call the passed in callback.<br />
+The passed in callback will receive the context the returned function is<br />
 called with.</li>
 </ul>
 
 <div id="getPositionInParent"></div>
-
 <h2>
   <code>getPositionInParent(element)</code>
 
 </h2>
 
-<p>Find an element&#39;s scroll offset within its container.</p>
+<p>Find an element’s scroll offset within its container.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -965,23 +962,22 @@ called with.</li>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> A position object with the following properties:
-
-<ul>
-<li><code>{number}</code> <code>left</code> The left offset of the element.</li>
-<li><code>{number}</code> <code>top</code> The top offset of the element.</li>
-</ul></li>
+    <ul>
+      <li><code>{number}</code> <code>left</code> The left offset of the element.</li>
+      <li><code>{number}</code> <code>top</code> The top offset of the element.</li>
+    </ul>
+  </li>
 </ul>
 
 <div id="ready"></div>
-
 <h2>
   <code>ready(callback)</code>
 
 </h2>
 
-<p>Call a function when the DOM is ready, or if it is already ready
+<p>Call a function when the DOM is ready, or if it is already ready<br />
 call the function immediately.</p>
 
 <table class="table" style="margin:0;">
@@ -1015,7 +1011,6 @@ call the function immediately.</p>
 </table>
 
 <div id="getTextBounds"></div>
-
 <h2>
   <code>getTextBounds(textNode)</code>
 
@@ -1054,27 +1049,26 @@ call the function immediately.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> An object representing the bounds of the node. Properties:
-
-<ul>
-<li><code>{number}</code> <code>left</code> The left position of the textNode.</li>
-<li><code>{number}</code> <code>right</code> The right position of the textNode.</li>
-<li><code>{number}</code> <code>top</code> The top position of the textNode.</li>
-<li><code>{number}</code> <code>bottom</code> The bottom position of the textNode.</li>
-<li><code>{number}</code> <code>width</code> The width of the textNode.</li>
-<li><code>{number}</code> <code>height</code> The height of the textNode.</li>
-</ul></li>
+    <ul>
+      <li><code>{number}</code> <code>left</code> The left position of the textNode.</li>
+      <li><code>{number}</code> <code>right</code> The right position of the textNode.</li>
+      <li><code>{number}</code> <code>top</code> The top position of the textNode.</li>
+      <li><code>{number}</code> <code>bottom</code> The bottom position of the textNode.</li>
+      <li><code>{number}</code> <code>width</code> The width of the textNode.</li>
+      <li><code>{number}</code> <code>height</code> The height of the textNode.</li>
+    </ul>
+  </li>
 </ul>
 
 <div id="getChildIndex"></div>
-
 <h2>
   <code>getChildIndex(element, type)</code>
 
 </h2>
 
-<p>Get the first index of a child node within the given element of the
+<p>Get the first index of a child node within the given element of the<br />
 specified type.</p>
 
 <table class="table" style="margin:0;">
@@ -1125,12 +1119,11 @@ specified type.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>number</code> The index, or -1, of a child with nodeName matching type.</li>
 </ul>
 
 <div id="getParentWithClass"></div>
-
 <h2>
   <code>getParentWithClass(element, className)</code>
 
@@ -1182,13 +1175,12 @@ specified type.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>DOMElement</code> The closest parent of element matching the
+  <li>Returns: <br />
+<code>DOMElement</code> The closest parent of element matching the<br />
 className, or null.</li>
 </ul>
 
 <div id="getParentOrSelfWithClass"></div>
-
 <h2>
   <code>getParentOrSelfWithClass(element, className)</code>
 
@@ -1240,13 +1232,12 @@ className, or null.</li>
 </table>
 
 <ul>
-<li>Returns: 
-<code>DOMElement</code> The closest parent or self matching the
+  <li>Returns: <br />
+<code>DOMElement</code> The closest parent or self matching the<br />
 className, or null.</li>
 </ul>
 
 <div id="rectContains"></div>
-
 <h2>
   <code>rectContains(x, y, x1, y1, x2, y2)</code>
 
@@ -1362,10 +1353,11 @@ className, or null.</li>
 </table>
 
 <ul>
-<li>Returns: 
-<code>boolean</code> Whether {x,y} fits within the rectangle defined by
+  <li>Returns: <br />
+<code>boolean</code> Whether {x,y} fits within the rectangle defined by<br />
 {x1,y1,x2,y2}.</li>
 </ul>
+
 
         </div>
 

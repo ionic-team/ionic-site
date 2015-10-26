@@ -813,11 +813,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1">
     Improve this doc
   </a>
 </div>
@@ -839,45 +839,53 @@
 
 <p>Will show up when the user is able to go back in the current navigation stack.</p>
 
-<p>By default, will go back when clicked.  If you wish for more advanced behavior, see the
+<p>By default, will go back when clicked.  If you wish for more advanced behavior, see the<br />
 examples below.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
 <p>With default click action:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button</span> <span class="na">class=</span><span class="s">&quot;button-clear&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Back
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-bar&gt;
+  &lt;ion-nav-back-button class="button-clear"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+
 <p>With custom click action, using <a href="/docs/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button</span> <span class="na">class=</span><span class="s">&quot;button-clear&quot;</span>
-    <span class="na">ng-click=</span><span class="s">&quot;goBack()&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Back
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">goBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicNavBarDelegate</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Displaying the previous title on the back button, again using
+
+<pre><code class="language-html">&lt;ion-nav-bar ng-controller="MyCtrl"&gt;
+  &lt;ion-nav-back-button class="button-clear"
+    ng-click="goBack()"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope, $ionicNavBarDelegate) {
+  $scope.goBack = function() {
+    $ionicNavBarDelegate.back();
+  };
+}
+</code></pre>
+
+<p>Displaying the previous title on the back button, again using<br />
 <a href="/docs/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button</span> <span class="na">class=</span><span class="s">&quot;button-icon&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>{{getPreviousTitle() || &#39;Back&#39;}}
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">getPreviousTitle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">.</span><span class="nx">getPreviousTitle</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-bar ng-controller="MyCtrl"&gt;
+  &lt;ion-nav-back-button class="button-icon"&gt;
+    &lt;i class="icon ion-arrow-left-c"&gt;&lt;/i&gt;{{getPreviousTitle() || 'Back'}}
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope, $ionicNavBarDelegate) {
+  $scope.getPreviousTitle = function() {
+    return $ionicNavBarDelegate.getPreviousTitle();
+  };
+}
+</code></pre>
+
+
         </div>
 
       </div>

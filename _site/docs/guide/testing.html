@@ -199,33 +199,39 @@
         <div class="col-md-10 col-sm-9 main-content">
           <p>Previous: <a href="starting.html">Starting your app</a></p>
 
-<h1>Chapter 4: Testing your app</h1>
+<h1 id="chapter-4-testing-your-app">Chapter 4: Testing your app</h1>
 
 <p>Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are four ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, in a mobile browser on your phone, or as a native app on the phone.</p>
 
-<h3>Desktop browser testing</h3>
+<h3 id="desktop-browser-testing">Desktop browser testing</h3>
 
-<p>Testing your app in a browser is as simple as running the serve command in your project&#39;s root folder.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve
-</code></pre></div>
+<p>Testing your app in a browser is as simple as running the serve command in your project’s root folder.</p>
+
+<pre><code class="language-bash">$ ionic serve
+</code></pre>
+
 <p>This will start a live-reload server for your project. When changes are made to any HTML, CSS, or JavaScript files, the browser will automatically reload when the files are saved.</p>
 
-<p><img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running"></p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running" /></p>
 
 <p>Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!</p>
 
-<h3>Simulator testing</h3>
+<h3 id="simulator-testing">Simulator testing</h3>
 
 <p>You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
-<span class="nv">$ </span>ionic emulate ios
-</code></pre></div>
-<p>Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in <code>platforms/PLATFORM</code> inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root <code>www</code> folder, and when you&#39;ve made changes to this folder, run the command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova prepare ios
-</code></pre></div>
-<p>Which will update the ios specific project with the code from the <code>www</code> folder. Note: this will overwrite any changes you&#39;ve made to the <code>platforms/ios/www</code> and other platform-specific folders.</p>
 
-<h3>Mobile browser testing</h3>
+<pre><code class="language-bash">$ ionic build ios
+$ ionic emulate ios
+</code></pre>
+
+<p>Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in <code>platforms/PLATFORM</code> inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root <code>www</code> folder, and when you’ve made changes to this folder, run the command:</p>
+
+<pre><code class="language-bash">$ cordova prepare ios
+</code></pre>
+
+<p>Which will update the ios specific project with the code from the <code>www</code> folder. Note: this will overwrite any changes you’ve made to the <code>platforms/ios/www</code> and other platform-specific folders.</p>
+
+<h3 id="mobile-browser-testing">Mobile browser testing</h3>
 
 <p>You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to enable the remote web inspector on both the device and Safari on desktop. To do this with iOS 7 and OS X Mavericks, enable the <code>Web Inspector</code> option in the iOS Settings -&gt; Safari -&gt; Advanced section, and also enable the Developer Menu in the Advanced section of the Safari OS X settings.</p>
 
@@ -233,22 +239,25 @@
 
 <p>If you are using the local server method from the Desktop testing section and you are on the same network as the desktop computer, you can connect to the ip address of the desktop computer to test. So, if our desktop is running a test server at <code>192.168.1.123:8000</code>, we can just load that address into our mobile Chrome or Safari to test it.</p>
 
-<p>One problem with testing in a mobile browser is that it&#39;s probably the furthest of the three options from the actual app experience. This is largely because the browser app is meant for browsing websites, so it often adds functionality that conflicts with your app. For example, Chrome and Safari both listen for drag events on the sides of the app which let you switch between open tabs. They also have issues with the URL bars getting in the way, and some scrolling behavior is not the same as it is in the web view running in Cordova. It is fine for small tests, but not recommended for more complex apps.</p>
+<p>One problem with testing in a mobile browser is that it’s probably the furthest of the three options from the actual app experience. This is largely because the browser app is meant for browsing websites, so it often adds functionality that conflicts with your app. For example, Chrome and Safari both listen for drag events on the sides of the app which let you switch between open tabs. They also have issues with the URL bars getting in the way, and some scrolling behavior is not the same as it is in the web view running in Cordova. It is fine for small tests, but not recommended for more complex apps.</p>
 
-<h3>Testing as a native app</h3>
+<h3 id="testing-as-a-native-app">Testing as a native app</h3>
 
-<p>Since we are building a native (or &quot;hybrid&quot;) app, we can (and should!) test it as one. There are several ways to do this. If you are building for iOS, you&#39;ll need to sign up for an <a href="https://developer.apple.com/">Apple Developer</a> account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don&#39;t blame us!). Once you have an account and you have set up XCode with your certificates to enable device testing, you&#39;ll want to open the XCode project from <code>platforms/ios/</code> and do your testing from XCode.</p>
+<p>Since we are building a native (or “hybrid”) app, we can (and should!) test it as one. There are several ways to do this. If you are building for iOS, you’ll need to sign up for an <a href="https://developer.apple.com/">Apple Developer</a> account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don’t blame us!). Once you have an account and you have set up XCode with your certificates to enable device testing, you’ll want to open the XCode project from <code>platforms/ios/</code> and do your testing from XCode.</p>
 
 <p>Testing on Android is much easier and faster. To test on the device, simply plug it in, and run</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic run android
-</code></pre></div>
-<p>If this doesn&#39;t work, make sure you have USB debugging enabled on your device, as <a href="http://developer.android.com/tools/device.html">described</a> on the Android developer site.</p>
 
-<h2>Building it out</h2>
+<pre><code class="language-bash">$ ionic run android
+</code></pre>
 
-<p>Now that we have a shell to test and we know how to test our app, let&#39;s start building out the guts of the app!</p>
+<p>If this doesn’t work, make sure you have USB debugging enabled on your device, as <a href="http://developer.android.com/tools/device.html">described</a> on the Android developer site.</p>
+
+<h2 id="building-it-out">Building it out</h2>
+
+<p>Now that we have a shell to test and we know how to test our app, let’s start building out the guts of the app!</p>
 
 <p><a href="building.html">Chapter 5: Building out your app</a></p>
+
 
         </div>
 

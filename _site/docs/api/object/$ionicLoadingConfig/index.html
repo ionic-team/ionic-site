@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L35'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L35">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L35'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L35">
     Improve this doc
   </a>
 </div>
@@ -868,17 +868,19 @@
 
 <p>Set the default options to be passed to the <a href="/docs/api/service/$ionicLoading/"><code>$ionicLoading</code></a> service.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;$ionicLoadingConfig&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Default Loading Template...&#39;</span>
-<span class="p">});</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicLoading</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">showLoading</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicLoading</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span> <span class="c1">//options default to values in $ionicLoadingConfig</span>
-  <span class="p">};</span>
-<span class="p">});</span>
-</code></pre></div>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">var app = angular.module('myApp', ['ionic'])
+app.constant('$ionicLoadingConfig', {
+  template: 'Default Loading Template...'
+});
+app.controller('AppCtrl', function($scope, $ionicLoading) {
+  $scope.showLoading = function() {
+    $ionicLoading.show(); //options default to values in $ionicLoadingConfig
+  };
+});
+</code></pre>
+
+
         </div>
 
       </div>

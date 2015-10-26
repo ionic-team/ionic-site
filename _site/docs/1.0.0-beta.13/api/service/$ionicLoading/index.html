@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L12'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L12">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L12'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L12">
     Improve this doc
   </a>
 </div>
@@ -834,32 +834,32 @@
 
 </h1>
 
-<p>An overlay that can be used to indicate activity while blocking user
+<p>An overlay that can be used to indicate activity while blocking user<br />
 interaction.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;LoadingApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoadingCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicLoading</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">show</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicLoading</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
-      <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Loading...&#39;</span>
-    <span class="p">});</span>
-  <span class="p">};</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">hide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$ionicLoading</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">angular.module('LoadingApp', ['ionic'])
+.controller('LoadingCtrl', function($scope, $ionicLoading) {
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="show"></div>
-
 <h2>
   <code>show(opts)</code>
 
 </h2>
 
-<p>Shows a loading indicator. If the indicator is already shown,
+<p>Shows a loading indicator. If the indicator is already shown,<br />
 it will set the options given and keep the indicator shown.</p>
 
 <table class="table" style="margin:0;">
@@ -901,13 +901,13 @@ hiding the indicator. By default, the indicator will be shown until <code>.hide(
 </table>
 
 <div id="hide"></div>
-
 <h2>
   <code>hide()</code>
 
 </h2>
 
 <p>Hides the loading indicator, if shown.</p>
+
 
         </div>
 

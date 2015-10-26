@@ -859,11 +859,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/exposeAsideWhen.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/exposeAsideWhen.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/exposeAsideWhen.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/exposeAsideWhen.js#L1">
     Improve this doc
   </a>
 </div>
@@ -881,38 +881,39 @@
 
 </h1>
 
-<p>It is common for a tablet application to hide a menu when in portrait mode, but to show the
-same menu on the left side when the tablet is in landscape mode. The <code>exposeAsideWhen</code> attribute
+<p>It is common for a tablet application to hide a menu when in portrait mode, but to show the<br />
+same menu on the left side when the tablet is in landscape mode. The <code>exposeAsideWhen</code> attribute<br />
 directive can be used to accomplish a similar interface.</p>
 
-<p>By default, side menus are hidden underneath its side menu content, and can be opened by either
-swiping the content left or right, or toggling a button to show the side menu. However, by adding the
-<code>exposeAsideWhen</code> attribute directive to an <a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive,
-a side menu can be given instructions on &quot;when&quot; the menu should be exposed (always viewable). For
-example, the <code>expose-aside-when=&quot;large&quot;</code> attribute will keep the side menu hidden when the viewport&#39;s
-width is less than <code>768px</code>, but when the viewport&#39;s width is <code>768px</code> or greater, the menu will then
-always be shown and can no longer be opened or closed like it could when it was hidden for smaller
+<p>By default, side menus are hidden underneath its side menu content, and can be opened by either<br />
+swiping the content left or right, or toggling a button to show the side menu. However, by adding the<br />
+<code>exposeAsideWhen</code> attribute directive to an <a href="/docs/nightly/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive,<br />
+a side menu can be given instructions on “when” the menu should be exposed (always viewable). For<br />
+example, the <code>expose-aside-when="large"</code> attribute will keep the side menu hidden when the viewport’s<br />
+width is less than <code>768px</code>, but when the viewport’s width is <code>768px</code> or greater, the menu will then<br />
+always be shown and can no longer be opened or closed like it could when it was hidden for smaller<br />
 viewports.</p>
 
-<p>Using <code>large</code> as the attribute&#39;s value is a shortcut value to <code>(min-width:768px)</code> since it is
-the most common use-case. However, for added flexibility, any valid media query could be added
-as the value, such as <code>(min-width:600px)</code> or even multiple queries such as
+<p>Using <code>large</code> as the attribute’s value is a shortcut value to <code>(min-width:768px)</code> since it is<br />
+the most common use-case. However, for added flexibility, any valid media query could be added<br />
+as the value, such as <code>(min-width:600px)</code> or even multiple queries such as<br />
 <code>(min-width:750px) and (max-width:1200px)</code>.</p>
 
 <h2 id="usage">Usage</h2>
-  
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
-  <span class="c">&lt;!-- Center content --&gt;</span>
-  <span class="nt">&lt;ion-side-menu-content&gt;</span>
-  <span class="nt">&lt;/ion-side-menu-content&gt;</span>
 
-  <span class="c">&lt;!-- Left menu --&gt;</span>
-  <span class="nt">&lt;ion-side-menu</span> <span class="na">expose-aside-when=</span><span class="s">&quot;large&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu&gt;</span>
-<span class="nt">&lt;/ion-side-menus&gt;</span>
-</code></pre></div>
-<p>For a complete side menu example, see the
+<pre><code class="language-html">&lt;ion-side-menus&gt;
+  &lt;!-- Center content --&gt;
+  &lt;ion-side-menu-content&gt;
+  &lt;/ion-side-menu-content&gt;
+
+  &lt;!-- Left menu --&gt;
+  &lt;ion-side-menu expose-aside-when="large"&gt;
+  &lt;/ion-side-menu&gt;
+&lt;/ion-side-menus&gt;
+</code></pre>
+<p>For a complete side menu example, see the<br />
 <a href="/docs/nightly/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> documentation.</p>
+
 
         </div>
 

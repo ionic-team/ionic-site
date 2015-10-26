@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/history.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/history.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/history.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/history.js#L1">
     Improve this doc
   </a>
 </div>
@@ -866,51 +866,48 @@
 
 </h1>
 
-<p>$ionicHistory keeps track of views as the user navigates through an app. Similar to the way a
-browser behaves, an Ionic app is able to keep track of the previous view, the current view, and
-the forward view (if there is one).  However, a typical web browser only keeps track of one
+<p>$ionicHistory keeps track of views as the user navigates through an app. Similar to the way a<br />
+browser behaves, an Ionic app is able to keep track of the previous view, the current view, and<br />
+the forward view (if there is one).  However, a typical web browser only keeps track of one<br />
 history stack in a linear fashion.</p>
 
-<p>Unlike a traditional browser environment, apps and webapps have parallel independent histories,
-such as with tabs. Should a user navigate few pages deep on one tab, and then switch to a new
-tab and back, the back button relates not to the previous tab, but to the previous pages
+<p>Unlike a traditional browser environment, apps and webapps have parallel independent histories,<br />
+such as with tabs. Should a user navigate few pages deep on one tab, and then switch to a new<br />
+tab and back, the back button relates not to the previous tab, but to the previous pages<br />
 visited within <em>that</em> tab.</p>
 
 <p><code>$ionicHistory</code> facilitates this parallel history architecture.</p>
 
-<h2>Methods</h2>
+<h2 id="methods">Methods</h2>
 
 <div id="viewHistory"></div>
-
 <h2>
   <code>viewHistory()</code>
 
 </h2>
 
-<p>The app&#39;s view history data, such as all the views and histories, along
+<p>The app’s view history data, such as all the views and histories, along<br />
 with how they are ordered and linked together within the navigation stack.</p>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> Returns an object containing the apps view history data.</li>
 </ul>
 
 <div id="currentView"></div>
-
 <h2>
   <code>currentView()</code>
 
 </h2>
 
-<p>The app&#39;s current view.</p>
+<p>The app’s current view.</p>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> Returns the current view.</li>
 </ul>
 
 <div id="currentHistoryId"></div>
-
 <h2>
   <code>currentHistoryId()</code>
 
@@ -919,18 +916,17 @@ with how they are ordered and linked together within the navigation stack.</p>
 <p>The ID of the history stack which is the parent container of the current view.</p>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> Returns the current history ID.</li>
 </ul>
 
 <div id="currentTitle"></div>
-
 <h2>
   <code>currentTitle([val])</code>
 
 </h2>
 
-<p>Gets and sets the current view&#39;s title.</p>
+<p>Gets and sets the current view’s title.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -963,59 +959,55 @@ with how they are ordered and linked together within the navigation stack.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>string</code> Returns the current view&#39;s title.</li>
+  <li>Returns: <br />
+<code>string</code> Returns the current view’s title.</li>
 </ul>
 
 <div id="backView"></div>
-
 <h2>
   <code>backView()</code>
 
 </h2>
 
-<p>Returns the view that was before the current view in the history stack.
-If the user navigated from View A to View B, then View A would be the back view, and
+<p>Returns the view that was before the current view in the history stack.<br />
+If the user navigated from View A to View B, then View A would be the back view, and<br />
 View B would be the current view.</p>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> Returns the back view.</li>
 </ul>
 
 <div id="backTitle"></div>
-
 <h2>
   <code>backTitle()</code>
 
 </h2>
 
-<p>Gets the back view&#39;s title.</p>
+<p>Gets the back view’s title.</p>
 
 <ul>
-<li>Returns: 
-<code>string</code> Returns the back view&#39;s title.</li>
+  <li>Returns: <br />
+<code>string</code> Returns the back view’s title.</li>
 </ul>
 
 <div id="forwardView"></div>
-
 <h2>
   <code>forwardView()</code>
 
 </h2>
 
-<p>Returns the view that was in front of the current view in the history stack.
-A forward view would exist if the user navigated from View A to View B, then
-navigated back to View A. At this point then View B would be the forward view, and View
+<p>Returns the view that was in front of the current view in the history stack.<br />
+A forward view would exist if the user navigated from View A to View B, then<br />
+navigated back to View A. At this point then View B would be the forward view, and View<br />
 A would be the current view.</p>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>object</code> Returns the forward view.</li>
 </ul>
 
 <div id="currentStateName"></div>
-
 <h2>
   <code>currentStateName()</code>
 
@@ -1024,12 +1016,11 @@ A would be the current view.</p>
 <p>Returns the current state name.</p>
 
 <ul>
-<li>Returns: 
-<code>string</code> </li>
+  <li>Returns: <br />
+<code>string</code></li>
 </ul>
 
 <div id="goBack"></div>
-
 <h2>
   <code>goBack([backCount])</code>
 
@@ -1073,55 +1064,55 @@ cross history stacks, meaning it can only go as far back as the current history.
 </table>
 
 <div id="clearHistory"></div>
-
 <h2>
   <code>clearHistory()</code>
 
 </h2>
 
-<p>Clears out the app&#39;s entire history, except for the current view.</p>
+<p>Clears out the app’s entire history, except for the current view.</p>
 
 <div id="clearCache"></div>
-
 <h2>
   <code>clearCache()</code>
 
 </h2>
 
-<p>Removes all cached views within every <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>.
-This both removes the view element from the DOM, and destroy it&#39;s scope.</p>
+<p>Removes all cached views within every <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>.<br />
+This both removes the view element from the DOM, and destroy it’s scope.</p>
 
 <ul>
-<li>Returns: 
-promise</li>
+  <li>Returns: <br />
+ promise</li>
 </ul>
 
 <div id="nextViewOptions"></div>
-
 <h2>
   <code>nextViewOptions()</code>
 
 </h2>
 
-<p>Sets options for the next view. This method can be useful to override
-certain view/transition defaults right before a view transition happens. For example,
-the <a href="/docs/api/directive/menuClose/"><code>menuClose</code></a> directive uses this method internally to ensure
-an animated view transition does not happen when a side menu is open, and also sets
-the next view as the root of its history stack. After the transition these options
+<p>Sets options for the next view. This method can be useful to override<br />
+certain view/transition defaults right before a view transition happens. For example,<br />
+the <a href="/docs/api/directive/menuClose/"><code>menuClose</code></a> directive uses this method internally to ensure<br />
+an animated view transition does not happen when a side menu is open, and also sets<br />
+the next view as the root of its history stack. After the transition these options<br />
 are set back to null.</p>
 
 <p>Available options:</p>
 
 <ul>
-<li><code>disableAnimate</code>: Do not animate the next transition.</li>
-<li><code>disableBack</code>: The next view should forget its back view, and set it to null.</li>
-<li><code>historyRoot</code>: The next view should become the root view in its history stack.</li>
+  <li><code>disableAnimate</code>: Do not animate the next transition.</li>
+  <li><code>disableBack</code>: The next view should forget its back view, and set it to null.</li>
+  <li><code>historyRoot</code>: The next view should become the root view in its history stack.</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$ionicHistory</span><span class="p">.</span><span class="nx">nextViewOptions</span><span class="p">({</span>
-  <span class="nx">disableAnimate</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">disableBack</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
-</code></pre></div>
+
+<pre><code class="language-js">$ionicHistory.nextViewOptions({
+  disableAnimate: true,
+  disableBack: true
+});
+</code></pre>
+
+
         </div>
 
       </div>

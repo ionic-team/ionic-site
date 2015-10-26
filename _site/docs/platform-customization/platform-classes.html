@@ -194,11 +194,11 @@
         </div>
 
         <div class="col-md-10 col-sm-9 main-content">
-          <h1>Platform Classes</h1>
+          <h1 id="platform-classes">Platform Classes</h1>
 
 <p>Ionic automagically adds classes to the <code>&lt;body&gt;</code> of your project based on the device you are using to view the project. This means if you are viewing your app on an iOS device, the <code>&lt;body&gt;</code> will have the <code>platform-ios</code> class applied. Some information about the different classes can be found below.</p>
 
-<h2>Platform Device Classes</h2>
+<h2 id="platform-device-classes">Platform Device Classes</h2>
 
 <p><code><a href="/docs/api/utility/ionic.Platform/">ionic.Platform</a></code> is used to retrieve the device information and apply classes to the <code>&lt;body&gt;</code> of the project. These classes are used by the Ionic SDK to give the project a platform specific look and feel, and can be used by you to override styles.</p>
 
@@ -245,7 +245,7 @@
   </tr>
 </table>
 
-<h2>Platform OS Version Classes</h2>
+<h2 id="platform-os-version-classes">Platform OS Version Classes</h2>
 
 <p>Ionic also adds classes based on the OS version. This can be used to customize your project for a specific OS version. A class is added for the major version and the major + minor versions.</p>
 
@@ -279,13 +279,15 @@
   </tr>  
 </table>
 
-<h2>Using Platform Classes to Override Styling</h2>
+<h2 id="using-platform-classes-to-override-styling">Using Platform Classes to Override Styling</h2>
 
 <p>You can use any of the above classes to override Ionic styling. For example, if you wanted to override the header title on Android to be uppercase, you could use the following code:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.platform-android</span> <span class="nc">.bar-header</span> <span class="p">{</span>
-  <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>  
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-css">.platform-android .bar-header {
+  text-transform: uppercase;  
+}
+</code></pre>
+
 <p>This would uppercase the title for Android, but any other device would remain lowercase.</p>
 
 <p>You could even go as far as customizing the side menu style based on the platform. The possibilities are endless!</p>

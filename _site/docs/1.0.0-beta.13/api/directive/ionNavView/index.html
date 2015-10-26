@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L5'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L5">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L5'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L5">
     Improve this doc
   </a>
 </div>
@@ -834,88 +834,90 @@
 
 </h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="odqCz" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/odqCz'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="odqCz" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/odqCz">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p>As a user navigates throughout your app, Ionic is able to keep track of their
-navigation history. By knowing their history, transitions between views
-correctly slide either left or right, or no transition at all. An additional
-benefit to Ionic&#39;s navigation system is its ability to manage multiple
+<p>As a user navigates throughout your app, Ionic is able to keep track of their<br />
+navigation history. By knowing their history, transitions between views<br />
+correctly slide either left or right, or no transition at all. An additional<br />
+benefit to Ionic’s navigation system is its ability to manage multiple<br />
 histories.</p>
 
-<p>Ionic uses the AngularUI Router module so app interfaces can be organized
-into various &quot;states&quot;. Like Angular&#39;s core $route service, URLs can be used
-to control the views. However, the AngularUI Router provides a more powerful
-state manager in that states are bound to named, nested, and parallel views,
-allowing more than one template to be rendered on the same page.
-Additionally, each state is not required to be bound to a URL, and data can
+<p>Ionic uses the AngularUI Router module so app interfaces can be organized<br />
+into various “states”. Like Angular’s core $route service, URLs can be used<br />
+to control the views. However, the AngularUI Router provides a more powerful<br />
+state manager in that states are bound to named, nested, and parallel views,<br />
+allowing more than one template to be rendered on the same page.<br />
+Additionally, each state is not required to be bound to a URL, and data can<br />
 be pushed to each state which allows much flexibility.</p>
 
-<p>The ionNavView directive is used to render templates in your application. Each template
-is part of a state. States are usually mapped to a url, and are defined programatically
-using angular-ui-router (see <a href="https://github.com/angular-ui/ui-router/wiki">their docs</a>,
+<p>The ionNavView directive is used to render templates in your application. Each template<br />
+is part of a state. States are usually mapped to a url, and are defined programatically<br />
+using angular-ui-router (see <a href="https://github.com/angular-ui/ui-router/wiki">their docs</a>,<br />
 and remember to replace ui-view with ion-nav-view in examples).</p>
 
 <h2 id="usage">Usage</h2>
-  
 
 <p>In this example, we will create a navigation view that contains our different states for the app.</p>
 
-<p>To do this, in our markup we use ionNavView top level directive. To display a header bar we use
-the <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive that updates as we navigate through the
+<p>To do this, in our markup we use ionNavView top level directive. To display a header bar we use<br />
+the <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive that updates as we navigate through the<br />
 navigation stack.</p>
 
-<p>You can use any <a href="/docs/components#animations">animation class</a> on the navView&#39;s <code>animation</code> attribute
+<p>You can use any <a href="/docs/components#animations">animation class</a> on the navView’s <code>animation</code> attribute<br />
 to have its pages animate.</p>
 
-<p>Recommended for page transitions: &#39;slide-left-right&#39;, &#39;slide-left-right-ios7&#39;, &#39;slide-in-up&#39;.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;</span>
-<span class="nt">&lt;ion-nav-view</span> <span class="na">animation=</span><span class="s">&quot;slide-left-right&quot;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- Center content --&gt;</span>
-<span class="nt">&lt;/ion-nav-view&gt;</span>
-</code></pre></div>
+<p>Recommended for page transitions: ‘slide-left-right’, ‘slide-left-right-ios7’, ‘slide-in-up’.</p>
+
+<pre><code class="language-html">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;
+&lt;ion-nav-view animation="slide-left-right"&gt;
+  &lt;!-- Center content --&gt;
+&lt;/ion-nav-view&gt;
+</code></pre>
+
 <p>Next, we need to setup our states that will be rendered.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$stateProvider</span>
-  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;home.html&#39;</span>
-  <span class="p">})</span>
-  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;music&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/music&#39;</span><span class="p">,</span>
-    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;music.html&#39;</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-<p>Then on app start, $stateProvider will look at the url, see it matches the index state,
+
+<pre><code class="language-js">var app = angular.module('myApp', ['ionic']);
+app.config(function($stateProvider) {
+  $stateProvider
+  .state('index', {
+    url: '/',
+    templateUrl: 'home.html'
+  })
+  .state('music', {
+    url: '/music',
+    templateUrl: 'music.html'
+  });
+});
+</code></pre>
+<p>Then on app start, $stateProvider will look at the url, see it matches the index state,<br />
 and then try to load home.html into the <code>&lt;ion-nav-view&gt;</code>.</p>
 
-<p>Pages are loaded by the URLs given. One simple way to create templates in Angular is to put
-them directly into your HTML file and use the <code>&lt;script type=&quot;text/ng-template&quot;&gt;</code> syntax.
+<p>Pages are loaded by the URLs given. One simple way to create templates in Angular is to put<br />
+them directly into your HTML file and use the <code>&lt;script type="text/ng-template"&gt;</code> syntax.<br />
 So here is one way to put home.html into our app:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;home&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!--</span> <span class="nx">The</span> <span class="nx">title</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">shown</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">navbar</span> <span class="o">--&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">view</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&#39;Home&#39;&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;HomeCtrl&quot;</span><span class="o">&gt;</span>
-      <span class="c">&lt;!--</span> <span class="nx">The</span> <span class="nx">content</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">page</span> <span class="o">--&gt;</span>
-      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#/music&quot;</span><span class="o">&gt;</span><span class="nx">Go</span> <span class="nx">to</span> <span class="nx">music</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="err">/a&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-view&gt;</span>
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
-<p>This is good to do because the template will be cached for very fast loading, instead of
+
+<pre><code class="language-html">&lt;script id="home" type="text/ng-template"&gt;
+  &lt;!-- The title of the ion-view will be shown on the navbar --&gt;
+  &lt;ion-view title="'Home'"&gt;
+    &lt;ion-content ng-controller="HomeCtrl"&gt;
+      &lt;!-- The content of the page --&gt;
+      &lt;a href="#/music"&gt;Go to music page!&lt;/a&gt;
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p>This is good to do because the template will be cached for very fast loading, instead of<br />
 having to fetch them from the network.</p>
 
-<p>Please visit <a href="https://github.com/angular-ui/ui-router/wiki">AngularUI Router&#39;s docs</a> for
-more info. Below is a great video by the AngularUI Router guys that may help to explain
+<p>Please visit <a href="https://github.com/angular-ui/ui-router/wiki">AngularUI Router’s docs</a> for<br />
+more info. Below is a great video by the AngularUI Router guys that may help to explain<br />
 how it all works:</p>
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
-frameborder="0" allowfullscreen></iframe>
-  
+<iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="api" style="clear:both;">API</h2>
 
@@ -950,6 +952,7 @@ information, see ui-router&#39;s <a href="http://angular-ui.github.io/ui-router/
     
   </tbody>
 </table>
+
 
         </div>
 

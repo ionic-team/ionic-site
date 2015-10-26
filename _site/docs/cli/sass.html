@@ -209,24 +209,26 @@
       </div>
 
       <div class="col-md-10 col-sm-9 main-content">
-        <h1>Using Sass</h1>
+        <h1 id="using-sass">Using Sass</h1>
 
-<p>By default, starter projects are hooked up to Ionic&#39;s precompiled CSS file, which is found in the project&#39;s <code>www/lib/ionic/css</code> directory, and is linked to the app in the head of the root <code>index.html</code> file. However, Ionic projects can also be customized using <a href="http://sass-lang.com/">Sass</a>, which gives developers and designers &quot;superpowers&quot; in terms of creating and maintaining CSS. Below are two ways to setup Sass for your Ionic project (the <code>ionic setup sass</code> command simply does the manual steps for you). Once Sass has been setup for your Ionic project, then the <code>ionic serve</code> command will also watch for Sass changes.</p>
+<p>By default, starter projects are hooked up to Ionic’s precompiled CSS file, which is found in the project’s <code>www/lib/ionic/css</code> directory, and is linked to the app in the head of the root <code>index.html</code> file. However, Ionic projects can also be customized using <a href="http://sass-lang.com/">Sass</a>, which gives developers and designers “superpowers” in terms of creating and maintaining CSS. Below are two ways to setup Sass for your Ionic project (the <code>ionic setup sass</code> command simply does the manual steps for you). Once Sass has been setup for your Ionic project, then the <code>ionic serve</code> command will also watch for Sass changes.</p>
 
-<h4>Setup Sass Automatically</h4>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic setup sass
-</code></pre></div>
-<p>You can start to write your sass in your <code>./scss/ionic.app.scss</code> file.
+<h4 id="setup-sass-automatically">Setup Sass Automatically</h4>
+
+<pre><code class="language-bash">$ ionic setup sass
+</code></pre>
+
+<p>You can start to write your sass in your <code>./scss/ionic.app.scss</code> file.<br />
 If you need any more help working with sass, we have an <a href="http://learn.ionicframework.com/formulas/working-with-sass/">article on our learn site</a> that covers the basics.</p>
 
-<h4>Setup Sass Manually</h4>
+<h4 id="setup-sass-manually">Setup Sass Manually</h4>
 
 <ol>
-<li>Run <code>npm install</code> from the working directory of an Ionic project. This will install <a href="http://gulpjs.com/">gulp.js</a> and a few handy tasks, such as <a href="https://www.npmjs.org/package/gulp-sass">gulp-sass</a> and <a href="https://www.npmjs.org/package/gulp-minify-css">gulp-minify-css</a>.</li>
-<li>Remove <code>&lt;link href=&quot;lib/ionic/css/ionic.css&quot; rel=&quot;stylesheet&quot;&gt;</code> from the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
-<li>Remove <code>&lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;</code> from the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
-<li>Add <code>&lt;link href=&quot;css/ionic.app.css&quot; rel=&quot;stylesheet&quot;&gt;</code> to the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
-<li>In the <code>ionic.project</code> file, add the JavaScript property <code>&quot;gulpStartupTasks&quot;: [&quot;sass&quot;, &quot;watch&quot;]</code> (this can also be customized to whatever gulp tasks you&#39;d like).</li>
+  <li>Run <code>npm install</code> from the working directory of an Ionic project. This will install <a href="http://gulpjs.com/">gulp.js</a> and a few handy tasks, such as <a href="https://www.npmjs.org/package/gulp-sass">gulp-sass</a> and <a href="https://www.npmjs.org/package/gulp-minify-css">gulp-minify-css</a>.</li>
+  <li>Remove <code>&lt;link href="lib/ionic/css/ionic.css" rel="stylesheet"&gt;</code> from the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
+  <li>Remove <code>&lt;link href="css/style.css" rel="stylesheet"&gt;</code> from the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
+  <li>Add <code>&lt;link href="css/ionic.app.css" rel="stylesheet"&gt;</code> to the <code>&lt;head&gt;</code> of the root <code>index.html</code> file.</li>
+  <li>In the <code>ionic.project</code> file, add the JavaScript property <code>"gulpStartupTasks": ["sass", "watch"]</code> (this can also be customized to whatever gulp tasks you’d like).</li>
 </ol>
 
       </div>

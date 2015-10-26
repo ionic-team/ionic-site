@@ -8,8 +8,7 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-
-<link href="/css/v2.css?0" rel="stylesheet">
+<link href="/css/v2.css?1" rel="stylesheet">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -17,10 +16,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 
@@ -408,11 +406,11 @@
       
       <main>
         <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8">
     Improve this doc
   </a>
 </div>
@@ -426,21 +424,16 @@
 </h1>
 
 <p>The ionContent component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
-
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
-
 <p>You can implement pull-to-refresh with the ionRefresher component.</p>
 
 <h1 class="class export">ionContent <span class="type">class</span></h1>
-
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+<p class="module">exported from <a href="undefined">ionic/ionic</a><br />
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L190">ionic/components/content/content.ts (line 9)</a>
 </p>
-
-<h2>Members</h2>
+<p>## Members</p>
 
 <div id="onInit"></div>
-
 <h2>
   <code>onInit()</code>
 
@@ -449,13 +442,12 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <p>TODO</p>
 
 <div id="addScrollEventListener"></div>
-
 <h2>
   <code>addScrollEventListener(handler)</code>
 
 </h2>
 
-<p>Adds the specified scroll handler to the content&#39; scroll element.</p>
+<p>Adds the specified scroll handler to the content’ scroll element.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -488,18 +480,17 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Function</code> A function that removes the scroll handler.</li>
 </ul>
 
 <div id="addTouchMoveListener"></div>
-
 <h2>
   <code>addTouchMoveListener(handler)</code>
 
 </h2>
 
-<p>Adds the specified touchmove handler to the content&#39;s scroll element.</p>
+<p>Adds the specified touchmove handler to the content’s scroll element.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -532,12 +523,11 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Function</code> A function that removes the touchmove handler.</li>
 </ul>
 
 <div id="scrollTo"></div>
-
 <h2>
   <code>scrollTo(x, y, duration, tolerance)</code>
 
@@ -627,52 +617,51 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>TODO</code> TODO</li>
 </ul>
 
 <div id="scrollToTop"></div>
-
 <h2>
   <code>scrollToTop()</code>
 
 </h2>
 
 <div id="getDimensions"></div>
-
 <h2>
   <code>getDimensions()</code>
 
 </h2>
 
-<p>Returns the content and scroll elements&#39; dimensions.</p>
+<p>Returns the content and scroll elements’ dimensions.</p>
 
 <ul>
-<li>Returns: 
-<code>Object</code> dimensions  The content and scroll elements&#39; dimensions
-{Number} dimensions.contentHeight  content offsetHeight
-{Number} dimensions.contentTop  content offsetTop
-{Number} dimensions.contentBottom  content offsetTop+offsetHeight
-{Number} dimensions.contentWidth  content offsetWidth
-{Number} dimensions.contentLeft  content offsetLeft
-{Number} dimensions.contentRight  content offsetLeft + offsetWidth
-{Number} dimensions.scrollHeight  scroll scrollHeight
-{Number} dimensions.scrollTop  scroll scrollTop
-{Number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
-{Number} dimensions.scrollWidth  scroll scrollWidth
-{Number} dimensions.scrollLeft  scroll scrollLeft
-{Number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
+  <li>Returns: <br />
+<code>Object</code> dimensions  The content and scroll elements’ dimensions<br />
+{Number} dimensions.contentHeight  content offsetHeight<br />
+{Number} dimensions.contentTop  content offsetTop<br />
+{Number} dimensions.contentBottom  content offsetTop+offsetHeight<br />
+{Number} dimensions.contentWidth  content offsetWidth<br />
+{Number} dimensions.contentLeft  content offsetLeft<br />
+{Number} dimensions.contentRight  content offsetLeft + offsetWidth<br />
+{Number} dimensions.scrollHeight  scroll scrollHeight<br />
+{Number} dimensions.scrollTop  scroll scrollTop<br />
+{Number} dimensions.scrollBottom  scroll scrollTop + scrollHeight<br />
+{Number} dimensions.scrollWidth  scroll scrollWidth<br />
+{Number} dimensions.scrollLeft  scroll scrollLeft<br />
+{Number} dimensions.scrollRight  scroll scrollLeft + scrollWidth<br />
 TODO: figure out how to get this to work</li>
 </ul>
 
 <div id="addKeyboardPadding"></div>
-
 <h2>
   <code>addKeyboardPadding()</code>
 
 </h2>
 
+
       </main>
     </div>
+
   </body>
 </html>

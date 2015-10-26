@@ -8,8 +8,7 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-
-<link href="/css/v2.css?0" rel="stylesheet">
+<link href="/css/v2.css?1" rel="stylesheet">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -17,10 +16,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 
@@ -402,11 +400,11 @@
       
       <main>
         <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4">
     Improve this doc
   </a>
 </div>
@@ -426,23 +424,20 @@ app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
 
-
 <h1 class="class export">SqlStorage <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+<p class="module">exported from <a href="undefined">ionic/ionic</a><br />
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L5-L204">ionic/platform/storage/sql.ts (line 5)</a>
 </p>
-
-<h2>Members</h2>
+<p>## Members</p>
 
 <div id="query"></div>
-
 <h2>
   <code>query(query, params)</code>
 
 </h2>
 
-<p>Perform an arbitrary SQL operation on the database. Use this method
-to have full control over the underlying database through SQL operations
+<p>Perform an arbitrary SQL operation on the database. Use this method<br />
+to have full control over the underlying database through SQL operations<br />
 like SELECT, INSERT, and UPDATE.</p>
 
 <table class="table" style="margin:0;">
@@ -493,12 +488,11 @@ like SELECT, INSERT, and UPDATE.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</li>
 </ul>
 
 <div id="get"></div>
-
 <h2>
   <code>get(key)</code>
 
@@ -537,12 +531,11 @@ like SELECT, INSERT, and UPDATE.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</li>
 </ul>
 
 <div id="set"></div>
-
 <h2>
   <code>set(key, value)</code>
 
@@ -598,12 +591,11 @@ like SELECT, INSERT, and UPDATE.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</li>
 </ul>
 
 <div id="remove"></div>
-
 <h2>
   <code>remove(key, value)</code>
 
@@ -659,11 +651,13 @@ like SELECT, INSERT, and UPDATE.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</li>
 </ul>
 
+
       </main>
     </div>
+
   </body>
 </html>

@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L2">
     Improve this doc
   </a>
 </div>
@@ -866,67 +866,69 @@
 
 </h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="7ec1ec58f2489ab8f359fa1a0fe89c15" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/7ec1ec58f2489ab8f359fa1a0fe89c15'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="7ec1ec58f2489ab8f359fa1a0fe89c15" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/7ec1ec58f2489ab8f359fa1a0fe89c15">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p><code>collection-repeat</code> allows an app to show huge lists of items much more performantly than
+<p><code>collection-repeat</code> allows an app to show huge lists of items much more performantly than<br />
 <code>ng-repeat</code>.</p>
 
 <p>It renders into the DOM only as many items as are currently visible.</p>
 
-<p>This means that on a phone screen that can fit eight items, only the eight items matching
+<p>This means that on a phone screen that can fit eight items, only the eight items matching<br />
 the current scroll position will be rendered.</p>
 
 <p><strong>The Basics</strong>:</p>
 
 <ul>
-<li>The data given to collection-repeat must be an array.</li>
-<li>If the <code>item-height</code> and <code>item-width</code> attributes are not supplied, it will be assumed that
+  <li>The data given to collection-repeat must be an array.</li>
+  <li>If the <code>item-height</code> and <code>item-width</code> attributes are not supplied, it will be assumed that<br />
 every item in the list has the same dimensions as the first item.</li>
-<li>Don&#39;t use angular one-time binding (<code>::</code>) with collection-repeat. The scope of each item is
-assigned new data and re-digested as you scroll. Bindings need to update, and one-time bindings
-won&#39;t.</li>
+  <li>Don’t use angular one-time binding (<code>::</code>) with collection-repeat. The scope of each item is<br />
+assigned new data and re-digested as you scroll. Bindings need to update, and one-time bindings<br />
+won’t.</li>
 </ul>
 
 <p><strong>Performance Tips</strong>:</p>
 
 <ul>
-<li>The iOS webview has a performance bottleneck when switching out <code>&lt;img src&gt;</code> attributes.
-To increase performance of images on iOS, cache your images in advance and,
-if possible, lower the number of unique images. We&#39;re working on <a href="https://github.com/driftyco/ionic/issues/3194">a solution</a>.</li>
+  <li>The iOS webview has a performance bottleneck when switching out <code>&lt;img src&gt;</code> attributes.<br />
+To increase performance of images on iOS, cache your images in advance and,<br />
+if possible, lower the number of unique images. We’re working on <a href="https://github.com/driftyco/ionic/issues/3194">a solution</a>.</li>
 </ul>
 
 <h2 id="usage">Usage</h2>
-  
 
-<h4>Basic Item List (<a href="http://codepen.io/ionic/pen/0c2c35a34a8b18ad4d793fef0b081693">codepen</a>)</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="na">collection-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
+<h4 id="basic-item-list-codepenhttpcodepenioionicpen0c2c35a34a8b18ad4d793fef0b081693">Basic Item List (<a href="http://codepen.io/ionic/pen/0c2c35a34a8b18ad4d793fef0b081693">codepen</a>)</h4>
+<pre><code class="language-html">&lt;ion-content&gt;
+  &lt;ion-item collection-repeat="item in items"&gt;
     {{item}}
-  <span class="nt">&lt;/ion-item&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div>
-<h4>Grid of Images (<a href="http://codepen.io/ionic/pen/5515d4efd9d66f780e96787387f41664">codepen</a>)</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">collection-repeat=</span><span class="s">&quot;photo in photos&quot;</span>
-    <span class="na">item-width=</span><span class="s">&quot;33%&quot;</span>
-    <span class="na">item-height=</span><span class="s">&quot;200px&quot;</span>
-    <span class="na">ng-src=</span><span class="s">&quot;{{photo.url}}&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div>
-<h4>Horizontal Scroller, Dynamic Item Width (<a href="http://codepen.io/ionic/pen/67cc56b349124a349acb57a0740e030e">codepen</a>)</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Available Kittens:<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;ion-scroll</span> <span class="na">direction=</span><span class="s">&quot;x&quot;</span> <span class="na">class=</span><span class="s">&quot;available-scroller&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;photo&quot;</span> <span class="na">collection-repeat=</span><span class="s">&quot;photo in main.photos&quot;</span>
-       <span class="na">item-height=</span><span class="s">&quot;250&quot;</span> <span class="na">item-width=</span><span class="s">&quot;photo.width + 30&quot;</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/ion-scroll&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div>
+  &lt;/ion-item&gt;
+&lt;/ion-content&gt;
+</code></pre>
+
+<h4 id="grid-of-images-codepenhttpcodepenioionicpen5515d4efd9d66f780e96787387f41664">Grid of Images (<a href="http://codepen.io/ionic/pen/5515d4efd9d66f780e96787387f41664">codepen</a>)</h4>
+<pre><code class="language-html">&lt;ion-content&gt;
+  &lt;img collection-repeat="photo in photos"
+    item-width="33%"
+    item-height="200px"
+    ng-src="{{photo.url}}"&gt;
+&lt;/ion-content&gt;
+</code></pre>
+
+<h4 id="horizontal-scroller-dynamic-item-width-codepenhttpcodepenioionicpen67cc56b349124a349acb57a0740e030e">Horizontal Scroller, Dynamic Item Width (<a href="http://codepen.io/ionic/pen/67cc56b349124a349acb57a0740e030e">codepen</a>)</h4>
+<pre><code class="language-html">&lt;ion-content&gt;
+  &lt;h2&gt;Available Kittens:&lt;/h2&gt;
+  &lt;ion-scroll direction="x" class="available-scroller"&gt;
+    &lt;div class="photo" collection-repeat="photo in main.photos"
+       item-height="250" item-width="photo.width + 30"&gt;
+       &lt;img ng-src=""&gt;
+    &lt;/div&gt;
+  &lt;/ion-scroll&gt;
+&lt;/ion-content&gt;
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -1037,6 +1039,7 @@ if possible, lower the number of unique images. We&#39;re working on <a href="ht
     
   </tbody>
 </table>
+
 
         </div>
 

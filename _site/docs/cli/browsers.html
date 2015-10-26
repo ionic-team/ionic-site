@@ -209,29 +209,29 @@
       </div>
 
       <div class="col-md-10 col-sm-9 main-content">
-        <h1>Using Alternate Browsers</h1>
+        <h1 id="using-alternate-browsers">Using Alternate Browsers</h1>
 
-<p>Hybrid development relies on a browser to view your application. Since Ionic relies heavily on these browsers, we&#39;ve decided to implement alternate browsers that you may choose from. Currently, we only support the Android platform and have plans to provide alternate browsers for the iOS platform.</p>
+<p>Hybrid development relies on a browser to view your application. Since Ionic relies heavily on these browsers, we’ve decided to implement alternate browsers that you may choose from. Currently, we only support the Android platform and have plans to provide alternate browsers for the iOS platform.</p>
 
 <p>For older Android devices, there is a system provided browser that does not follow most web standards, CSS rendering, or even parsing and running JavaScript efficiently.</p>
 
 <p>Ionic provides you a method to provide an alternate browser other than the system provided browsers, starting with the Chromium browser.</p>
 
-<h2>Viewing browsers available</h2>
+<h2 id="viewing-browsers-available">Viewing browsers available</h2>
 
 <p><code>ionic browser list</code> - this should show all the browsers available by platform.</p>
 
-<h3>Specifying a browser</h3>
+<h3 id="specifying-a-browser">Specifying a browser</h3>
 
 <p>For Android, there is a project that bundles up Chromium to be used in place of the default Android browser. The project that provides Chromium is called Crosswalk.</p>
 
 <p><code>ionic browser add crosswalk</code> - this will install the Chromium browser for Android. By default, it will install Chromium 37 (Crosswalk 8.37.189.12 version).</p>
 
-<h3>Specifying a version</h3>
+<h3 id="specifying-a-version">Specifying a version</h3>
 
 <p><code>ionic browser add crosswalk@10.39.235.15</code> - this specifies a newer version of Chromium.</p>
 
-<h3>Removing the browser for a platform</h3>
+<h3 id="removing-the-browser-for-a-platform">Removing the browser for a platform</h3>
 
 <p><code>ionic browser revert android</code> or <code>ionic browser revert ios</code></p>
 
@@ -239,7 +239,7 @@
 
 <p>Note: this will remove the entire <code>platforms/android</code> or <code>platforms/ios</code> folder(s). If you have any custom Java or Objective-C code in these folders, they will be removed.</p>
 
-<h3>Removing a browser</h3>
+<h3 id="removing-a-browser">Removing a browser</h3>
 
 <p><code>ionic browser rm crosswalk</code> - this is essentially the same as <code>ionic browser revert android</code></p>
 

@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuToggle.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuToggle.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuToggle.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuToggle.js#L1">
     Improve this doc
   </a>
 </div>
@@ -869,25 +869,28 @@
 <p>Toggle a side menu on the given side.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
-<p>Below is an example of a link within a nav bar. Tapping this button
+<p>Below is an example of a link within a nav bar. Tapping this button<br />
 would open the given side menu, and tapping it again would close it.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;</span>
-  <span class="nt">&lt;ion-nav-buttons</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;button</span> <span class="na">menu-toggle=</span><span class="s">&quot;left&quot;</span> <span class="na">class=</span><span class="s">&quot;button button-icon icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-nav-buttons&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div>
-<h3>Button Hidden On Child Views</h3>
 
-<p>By default, the menu toggle button will only appear on a root
-level side-menu page. Navigating in to child views will hide the menu-
-toggle button. They can be made visible on child pages by setting the
-enable-menu-with-back-views attribute of the <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
+<pre><code class="language-html">&lt;ion-nav-bar&gt;
+  &lt;ion-nav-buttons side="left"&gt;
+   &lt;button menu-toggle="left" class="button button-icon icon ion-navicon"&gt;&lt;/button&gt;
+  &lt;/ion-nav-buttons&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+
+<h3 id="button-hidden-on-child-views">Button Hidden On Child Views</h3>
+<p>By default, the menu toggle button will only appear on a root<br />
+level side-menu page. Navigating in to child views will hide the menu-<br />
+toggle button. They can be made visible on child pages by setting the<br />
+enable-menu-with-back-views attribute of the <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a><br />
 directive to true.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus</span> <span class="na">enable-menu-with-back-views=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-side-menus enable-menu-with-back-views="true"&gt;
+</code></pre>
+
+
         </div>
 
       </div>

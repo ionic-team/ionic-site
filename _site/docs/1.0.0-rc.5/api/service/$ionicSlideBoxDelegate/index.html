@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/slideBoxDelegate.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/slideBoxDelegate.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/slideBoxDelegate.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/slideBoxDelegate.js#L1">
     Improve this doc
   </a>
 </div>
@@ -868,44 +868,44 @@
 
 <p>Delegate that controls the <a href="/docs/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directive.</p>
 
-<p>Methods called directly on the $ionicSlideBoxDelegate service will control all slide boxes.  Use the <a href="/docs/api/service/$ionicSlideBoxDelegate/#$getByHandle">$getByHandle</a>
+<p>Methods called directly on the $ionicSlideBoxDelegate service will control all slide boxes.  Use the <a href="/docs/api/service/$ionicSlideBoxDelegate/#$getByHandle">$getByHandle</a><br />
 method to control specific slide box instances.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-view&gt;</span>
-  <span class="nt">&lt;ion-slide-box&gt;</span>
-    <span class="nt">&lt;ion-slide&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box blue&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;nextSlide()&quot;</span><span class="nt">&gt;</span>Next slide!<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/ion-slide&gt;</span>
-    <span class="nt">&lt;ion-slide&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box red&quot;</span><span class="nt">&gt;</span>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-html">&lt;ion-view&gt;
+  &lt;ion-slide-box&gt;
+    &lt;ion-slide&gt;
+      &lt;div class="box blue"&gt;
+        &lt;button ng-click="nextSlide()"&gt;Next slide!&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/ion-slide&gt;
+    &lt;ion-slide&gt;
+      &lt;div class="box red"&gt;
         Slide 2!
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/ion-slide&gt;</span>
-  <span class="nt">&lt;/ion-slide-box&gt;</span>
-<span class="nt">&lt;/ion-view&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSlideBoxDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">nextSlide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicSlideBoxDelegate</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Methods</h2>
+      &lt;/div&gt;
+    &lt;/ion-slide&gt;
+  &lt;/ion-slide-box&gt;
+&lt;/ion-view&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope, $ionicSlideBoxDelegate) {
+  $scope.nextSlide = function() {
+    $ionicSlideBoxDelegate.next();
+  }
+}
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="update"></div>
-
 <h2>
   <code>update()</code>
 
 </h2>
 
-<p>Update the slidebox (for example if using Angular with ng-repeat,
+<p>Update the slidebox (for example if using Angular with ng-repeat,<br />
 resize it for the elements inside).</p>
 
 <div id="slide"></div>
-
 <h2>
   <code>slide(to, [speed])</code>
 
@@ -959,7 +959,6 @@ resize it for the elements inside).</p>
 </table>
 
 <div id="enableSlide"></div>
-
 <h2>
   <code>enableSlide([shouldEnable])</code>
 
@@ -996,12 +995,11 @@ resize it for the elements inside).</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether sliding is enabled.</li>
 </ul>
 
 <div id="previous"></div>
-
 <h2>
   <code>previous([speed])</code>
 
@@ -1040,7 +1038,6 @@ resize it for the elements inside).</p>
 </table>
 
 <div id="next"></div>
-
 <h2>
   <code>next([speed])</code>
 
@@ -1079,17 +1076,15 @@ resize it for the elements inside).</p>
 </table>
 
 <div id="stop"></div>
-
 <h2>
   <code>stop()</code>
 
 </h2>
 
-<p>Stop sliding. The slideBox will not move again until
+<p>Stop sliding. The slideBox will not move again until<br />
 explicitly told to do so.</p>
 
 <div id="start"></div>
-
 <h2>
   <code>start()</code>
 
@@ -1098,31 +1093,28 @@ explicitly told to do so.</p>
 <p>Start sliding again if the slideBox was stopped.</p>
 
 <div id="currentIndex"></div>
-
 <h2>
   <code>currentIndex()</code>
 
 </h2>
 
 <ul>
-<li>Returns: 
-number The index of the current slide.</li>
+  <li>Returns: <br />
+ number The index of the current slide.</li>
 </ul>
 
 <div id="slidesCount"></div>
-
 <h2>
   <code>slidesCount()</code>
 
 </h2>
 
 <ul>
-<li>Returns: 
-number The number of slides there are currently.</li>
+  <li>Returns: <br />
+ number The number of slides there are currently.</li>
 </ul>
 
 <div id="$getByHandle"></div>
-
 <h2>
   <code>$getByHandle(handle)</code>
 
@@ -1158,13 +1150,14 @@ number The number of slides there are currently.</li>
 </table>
 
 <ul>
-<li>Returns: 
-<code>delegateInstance</code> A delegate instance that controls only the
-<a href="/docs/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directives with <code>delegate-handle</code> matching
+  <li>Returns: <br />
+ <code>delegateInstance</code> A delegate instance that controls only the<br />
+<a href="/docs/api/directive/ionSlideBox/"><code>ionSlideBox</code></a> directives with <code>delegate-handle</code> matching<br />
 the given handle.</li>
 </ul>
 
-<p>Example: <code>$ionicSlideBoxDelegate.$getByHandle(&#39;my-handle&#39;).stop();</code></p>
+<p>Example: <code>$ionicSlideBoxDelegate.$getByHandle('my-handle').stop();</code></p>
+
 
         </div>
 

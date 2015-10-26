@@ -859,11 +859,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popup.js#L17'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/popup.js#L17">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popup.js#L17'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/popup.js#L17">
     Improve this doc
   </a>
 </div>
@@ -876,93 +876,93 @@
 
 </h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="zkmhJ" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/zkmhJ'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="zkmhJ" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/zkmhJ">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p>The Ionic Popup service allows programmatically creating and showing popup
+<p>The Ionic Popup service allows programmatically creating and showing popup<br />
 windows that require the user to respond in order to continue.</p>
 
-<p>The popup system has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>,
-and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely
+<p>The popup system has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>,<br />
+and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely<br />
 custom content and look.</p>
 
-<p>An input can be given an <code>autofocus</code> attribute so it automatically receives focus when
-the popup first shows. However, depending on certain use-cases this can cause issues with
-the tap/click system, which is why Ionic prefers using the <code>autofocus</code> attribute as
+<p>An input can be given an <code>autofocus</code> attribute so it automatically receives focus when<br />
+the popup first shows. However, depending on certain use-cases this can cause issues with<br />
+the tap/click system, which is why Ionic prefers using the <code>autofocus</code> attribute as<br />
 an opt-in feature and not the default.</p>
 
-<h2>Usage</h2>
-
+<h2 id="usage">Usage</h2>
 <p>A few basic examples, see below for details about all of the options available.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;mySuperApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PopupCtrl&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicPopup</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
 
-<span class="c1">// Triggered on a button click, or some other target</span>
-<span class="nx">$scope</span><span class="p">.</span><span class="nx">showPopup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
+<pre><code class="language-js">angular.module('mySuperApp', ['ionic'])
+.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
 
-  <span class="c1">// An elaborate, custom popup</span>
-  <span class="kd">var</span> <span class="nx">myPopup</span> <span class="o">=</span> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
-    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;input type=&quot;password&quot; ng-model=&quot;data.wifi&quot;&gt;&#39;</span><span class="p">,</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Enter Wi-Fi Password&#39;</span><span class="p">,</span>
-    <span class="nx">subTitle</span><span class="o">:</span> <span class="s1">&#39;Please use normal things&#39;</span><span class="p">,</span>
-    <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
-    <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span> <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&lt;b&gt;Save&lt;/b&gt;&#39;</span><span class="p">,</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;button-positive&#39;</span><span class="p">,</span>
-        <span class="nx">onTap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">wifi</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">//don&#39;t allow the user to close unless he enters wifi password</span>
-            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">wifi</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">});</span>
-  <span class="nx">myPopup</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Tapped!&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
-  <span class="p">});</span>
-  <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">myPopup</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span> <span class="c1">//close the popup after 3 seconds for some reason</span>
-  <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
- <span class="p">};</span>
- <span class="c1">// A confirm dialog</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">showConfirm</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">confirmPopup</span> <span class="o">=</span> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">confirm</span><span class="p">({</span>
-     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Consume Ice Cream&#39;</span><span class="p">,</span>
-     <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Are you sure you want to eat this ice cream?&#39;</span>
-   <span class="p">});</span>
-   <span class="nx">confirmPopup</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You are sure&#39;</span><span class="p">);</span>
-     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You are not sure&#39;</span><span class="p">);</span>
-     <span class="p">}</span>
-   <span class="p">});</span>
- <span class="p">};</span>
+// Triggered on a button click, or some other target
+$scope.showPopup = function() {
+  $scope.data = {}
 
- <span class="c1">// An alert dialog</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">showAlert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">alertPopup</span> <span class="o">=</span> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">alert</span><span class="p">({</span>
-     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Don\&#39;t eat that!&#39;</span><span class="p">,</span>
-     <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;It might taste good&#39;</span>
-   <span class="p">});</span>
-   <span class="nx">alertPopup</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Thank you for not eating my delicious ice cream cone&#39;</span><span class="p">);</span>
-   <span class="p">});</span>
- <span class="p">};</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    template: '&lt;input type="password" ng-model="data.wifi"&gt;',
+    title: 'Enter Wi-Fi Password',
+    subTitle: 'Please use normal things',
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel' },
+      {
+        text: '&lt;b&gt;Save&lt;/b&gt;',
+        type: 'button-positive',
+        onTap: function(e) {
+          if (!$scope.data.wifi) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            return $scope.data.wifi;
+          }
+        }
+      }
+    ]
+  });
+  myPopup.then(function(res) {
+    console.log('Tapped!', res);
+  });
+  $timeout(function() {
+     myPopup.close(); //close the popup after 3 seconds for some reason
+  }, 3000);
+ };
+ // A confirm dialog
+ $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Consume Ice Cream',
+     template: 'Are you sure you want to eat this ice cream?'
+   });
+   confirmPopup.then(function(res) {
+     if(res) {
+       console.log('You are sure');
+     } else {
+       console.log('You are not sure');
+     }
+   });
+ };
+
+ // An alert dialog
+ $scope.showAlert = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Don\'t eat that!',
+     template: 'It might taste good'
+   });
+   alertPopup.then(function(res) {
+     console.log('Thank you for not eating my delicious ice cream cone');
+   });
+ };
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="show"></div>
-
 <h2>
   <code>show(options)</code>
 
@@ -970,11 +970,11 @@ an opt-in feature and not the default.</p>
 
 <p>Show a complex popup. This is the master show function for all popups.</p>
 
-<p>A complex popup has a <code>buttons</code> array, with each button having a <code>text</code> and <code>type</code>
-field, in addition to an <code>onTap</code> function.  The <code>onTap</code> function, called when
-the corresponding button on the popup is tapped, will by default close the popup
-and resolve the popup promise with its return value.  If you wish to prevent the
-default and keep the popup open on button tap, call <code>event.preventDefault()</code> on the
+<p>A complex popup has a <code>buttons</code> array, with each button having a <code>text</code> and <code>type</code><br />
+field, in addition to an <code>onTap</code> function.  The <code>onTap</code> function, called when<br />
+the corresponding button on the popup is tapped, will by default close the popup<br />
+and resolve the popup promise with its return value.  If you wish to prevent the<br />
+default and keep the popup open on button tap, call <code>event.preventDefault()</code> on the<br />
 passed in tap event.  Details below.</p>
 
 <table class="table" style="margin:0;">
@@ -1031,19 +1031,18 @@ passed in tap event.  Details below.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> A promise which is resolved when the popup is closed. Has an additional
+  <li>Returns: <br />
+<code>object</code> A promise which is resolved when the popup is closed. Has an additional<br />
 <code>close</code> function, which can be used to programmatically close the popup.</li>
 </ul>
 
 <div id="alert"></div>
-
 <h2>
   <code>alert(options)</code>
 
 </h2>
 
-<p>Show a simple alert popup with a message and one button that the user can
+<p>Show a simple alert popup with a message and one button that the user can<br />
 tap to close the popup.</p>
 
 <table class="table" style="margin:0;">
@@ -1086,14 +1085,13 @@ tap to close the popup.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> A promise which is resolved when the popup is closed. Has one additional
-function <code>close</code>, which can be called with any value to programmatically close the popup
+  <li>Returns: <br />
+<code>object</code> A promise which is resolved when the popup is closed. Has one additional<br />
+function <code>close</code>, which can be called with any value to programmatically close the popup<br />
 with the given value.</li>
 </ul>
 
 <div id="confirm"></div>
-
 <h2>
   <code>confirm(options)</code>
 
@@ -1101,7 +1099,7 @@ with the given value.</li>
 
 <p>Show a simple confirm popup with a Cancel and OK button.</p>
 
-<p>Resolves the promise with true if the user presses the OK button, and false if the
+<p>Resolves the promise with true if the user presses the OK button, and false if the<br />
 user presses the Cancel button.</p>
 
 <table class="table" style="margin:0;">
@@ -1146,31 +1144,32 @@ user presses the Cancel button.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> A promise which is resolved when the popup is closed. Has one additional
-function <code>close</code>, which can be called with any value to programmatically close the popup
+  <li>Returns: <br />
+<code>object</code> A promise which is resolved when the popup is closed. Has one additional<br />
+function <code>close</code>, which can be called with any value to programmatically close the popup<br />
 with the given value.</li>
 </ul>
 
 <div id="prompt"></div>
-
 <h2>
   <code>prompt(options)</code>
 
 </h2>
 
-<p>Show a simple prompt popup, which has an input, OK button, and Cancel button.
-Resolves the promise with the value of the input if the user presses OK, and with undefined
+<p>Show a simple prompt popup, which has an input, OK button, and Cancel button.<br />
+Resolves the promise with the value of the input if the user presses OK, and with undefined<br />
 if the user presses Cancel.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="nx">$ionicPopup</span><span class="p">.</span><span class="nx">prompt</span><span class="p">({</span>
-   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Password Check&#39;</span><span class="p">,</span>
-   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;Enter your secret password&#39;</span><span class="p">,</span>
-   <span class="nx">inputType</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
-   <span class="nx">inputPlaceholder</span><span class="o">:</span> <span class="s1">&#39;Your password&#39;</span>
- <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your password is&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
- <span class="p">});</span>
-</code></pre></div>
+
+<pre><code class="language-javascript"> $ionicPopup.prompt({
+   title: 'Password Check',
+   template: 'Enter your secret password',
+   inputType: 'password',
+   inputPlaceholder: 'Your password'
+ }).then(function(res) {
+   console.log('Your password is', res);
+ });
+</code></pre>
+
 <table class="table" style="margin:0;">
   <thead>
     <tr>
@@ -1215,11 +1214,12 @@ if the user presses Cancel.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> A promise which is resolved when the popup is closed. Has one additional
-function <code>close</code>, which can be called with any value to programmatically close the popup
+  <li>Returns: <br />
+<code>object</code> A promise which is resolved when the popup is closed. Has one additional<br />
+function <code>close</code>, which can be called with any value to programmatically close the popup<br />
 with the given value.</li>
 </ul>
+
 
         </div>
 

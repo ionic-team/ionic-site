@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/view.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/view.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/view.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/view.js#L1">
     Improve this doc
   </a>
 </div>
@@ -871,40 +871,41 @@
 
 </h1>
 
-<p>A container for view content and any navigational and header bar information. When a view
-enters and exits its parent <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>, the view also emits view
-information, such as its title, whether the back button should be displayed or not, whether the
-corresponding <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> should be displayed or not, which transition the view
+<p>A container for view content and any navigational and header bar information. When a view<br />
+enters and exits its parent <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>, the view also emits view<br />
+information, such as its title, whether the back button should be displayed or not, whether the<br />
+corresponding <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> should be displayed or not, which transition the view<br />
 should use to animate, and which direction to animate.</p>
 
-<p><em>Views are cached to improve performance.</em> When a view is navigated away from, its element is
-left in the DOM, and its scope is disconnected from the <code>$watch</code> cycle. When navigating to a
-view that is already cached, its scope is reconnected, and the existing element, which was
-left in the DOM, becomes active again. This can be disabled, or the maximum number of cached
-views changed in <a href="/docs/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>, in the view&#39;s <code>$state</code> configuration, or
+<p><em>Views are cached to improve performance.</em> When a view is navigated away from, its element is<br />
+left in the DOM, and its scope is disconnected from the <code>$watch</code> cycle. When navigating to a<br />
+view that is already cached, its scope is reconnected, and the existing element, which was<br />
+left in the DOM, becomes active again. This can be disabled, or the maximum number of cached<br />
+views changed in <a href="/docs/api/provider/$ionicConfigProvider/"><code>$ionicConfigProvider</code></a>, in the view’s <code>$state</code> configuration, or<br />
 as an attribute on the view itself (see below).</p>
 
 <h2 id="usage">Usage</h2>
-  
 
-<p>Below is an example where our page will load with a <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> containing
-&quot;My Page&quot; as the title.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;</span>
-<span class="nt">&lt;ion-nav-view&gt;</span>
-  <span class="nt">&lt;ion-view</span> <span class="na">view-title=</span><span class="s">&quot;My Page&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-content&gt;</span>
+<p>Below is an example where our page will load with a <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> containing<br />
+“My Page” as the title.</p>
+
+<pre><code class="language-html">&lt;ion-nav-bar&gt;&lt;/ion-nav-bar&gt;
+&lt;ion-nav-view&gt;
+  &lt;ion-view view-title="My Page"&gt;
+    &lt;ion-content&gt;
       Hello!
-    <span class="nt">&lt;/ion-content&gt;</span>
-  <span class="nt">&lt;/ion-view&gt;</span>
-<span class="nt">&lt;/ion-nav-view&gt;</span>
-</code></pre></div>
-<h2>View LifeCycle and Events</h2>
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/ion-nav-view&gt;
+</code></pre>
 
-<p>Views can be cached, which means <strong><em>controllers normally only load once</em></strong>, which may
-affect your controller logic. To know when a view has entered or left, events
-have been added that are emitted from the view&#39;s scope. These events also
-contain data about the view, such as the title and whether the back button should
-show. Also contained is transition data, such as the transition type and
+<h2 id="view-lifecycle-and-events">View LifeCycle and Events</h2>
+
+<p>Views can be cached, which means <strong><em>controllers normally only load once</em></strong>, which may<br />
+affect your controller logic. To know when a view has entered or left, events<br />
+have been added that are emitted from the view’s scope. These events also<br />
+contain data about the view, such as the title and whether the back button should<br />
+show. Also contained is transition data, such as the transition type and<br />
 direction that will be or was used.</p>
 
 <table class="table">
@@ -949,11 +950,11 @@ removed from the DOM.</td>
  </tr>
 </table>
 
-<h2>Caching</h2>
+<h2 id="caching">Caching</h2>
 
-<p>Caching can be disabled and enabled in multiple ways. By default, Ionic will
-cache a maximum of 10 views. You can optionally choose to disable caching at
-either an individual view basis, or by global configuration. Please see the
+<p>Caching can be disabled and enabled in multiple ways. By default, Ionic will<br />
+cache a maximum of 10 views. You can optionally choose to disable caching at<br />
+either an individual view basis, or by global configuration. Please see the<br />
 <em>Caching</em> section in <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a> for more info.</p>
 
 <h2 id="api" style="clear:both;">API</h2>
@@ -1062,6 +1063,7 @@ from, or there isn&#39;t a previous view. Default <code>true</code></p>
     
   </tbody>
 </table>
+
 
         </div>
 

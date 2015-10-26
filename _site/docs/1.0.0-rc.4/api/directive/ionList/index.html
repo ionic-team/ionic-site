@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/list.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/list.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/list.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/list.js#L1">
     Improve this doc
   </a>
 </div>
@@ -864,75 +864,80 @@
 
 
 
-<br/>
+<br />
 <small>
   Delegate: <a href="/docs/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>
 </small>
 
 </h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="JsHjf" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/JsHjf'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="JsHjf" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/JsHjf">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p>The List is a widely used interface element in almost any mobile app, and can include
+<p>The List is a widely used interface element in almost any mobile app, and can include<br />
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
 
-<p>Both the list, which contains items, and the list items themselves can be any HTML
-element. The containing element requires the <code>list</code> class and each list item requires
+<p>Both the list, which contains items, and the list items themselves can be any HTML<br />
+element. The containing element requires the <code>list</code> class and each list item requires<br />
 the <code>item</code> class.</p>
 
-<p>However, using the ionList and ionItem directives make it easy to support various
+<p>However, using the ionList and ionItem directives make it easy to support various<br />
 interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
 
-<p>Related: <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a>, <a href="/docs/api/directive/ionOptionButton/"><code>ionOptionButton</code></a>
+<p>Related: <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a>, <a href="/docs/api/directive/ionOptionButton/"><code>ionOptionButton</code></a><br />
 <a href="/docs/api/directive/ionReorderButton/"><code>ionReorderButton</code></a>, <a href="/docs/api/directive/ionDeleteButton/"><code>ionDeleteButton</code></a>, <a href="/docs/components/#list"><code>list CSS documentation</code></a>.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
 <p>Basic Usage:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
+
+<pre><code class="language-html">&lt;ion-list&gt;
+  &lt;ion-item ng-repeat="item in items"&gt;
     Hello, {{item}}!
-  <span class="nt">&lt;/ion-item&gt;</span>
-<span class="nt">&lt;/ion-list&gt;</span>
-</code></pre></div>
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
 <p>Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-list</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span>
-          <span class="na">show-delete=</span><span class="s">&quot;shouldShowDelete&quot;</span>
-          <span class="na">show-reorder=</span><span class="s">&quot;shouldShowReorder&quot;</span>
-          <span class="na">can-swipe=</span><span class="s">&quot;listCanSwipe&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span>
-            <span class="na">class=</span><span class="s">&quot;item-thumbnail-left&quot;</span><span class="nt">&gt;</span>
 
-    <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;{{item.img}}&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2&gt;</span>{{item.title}}<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;p&gt;</span>{{item.description}}<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;ion-option-button</span> <span class="na">class=</span><span class="s">&quot;button-positive&quot;</span>
-                       <span class="na">ng-click=</span><span class="s">&quot;share(item)&quot;</span><span class="nt">&gt;</span>
+<pre><code class="language-html">&lt;ion-list ng-controller="MyCtrl"
+          show-delete="shouldShowDelete"
+          show-reorder="shouldShowReorder"
+          can-swipe="listCanSwipe"&gt;
+  &lt;ion-item ng-repeat="item in items"
+            class="item-thumbnail-left"&gt;
+
+    &lt;img ng-src="{{item.img}}"&gt;
+    &lt;h2&gt;{{item.title}}&lt;/h2&gt;
+    &lt;p&gt;{{item.description}}&lt;/p&gt;
+    &lt;ion-option-button class="button-positive"
+                       ng-click="share(item)"&gt;
       Share
-    <span class="nt">&lt;/ion-option-button&gt;</span>
-    <span class="nt">&lt;ion-option-button</span> <span class="na">class=</span><span class="s">&quot;button-info&quot;</span>
-                       <span class="na">ng-click=</span><span class="s">&quot;edit(item)&quot;</span><span class="nt">&gt;</span>
+    &lt;/ion-option-button&gt;
+    &lt;ion-option-button class="button-info"
+                       ng-click="edit(item)"&gt;
       Edit
-    <span class="nt">&lt;/ion-option-button&gt;</span>
-    <span class="nt">&lt;ion-delete-button</span> <span class="na">class=</span><span class="s">&quot;ion-minus-circled&quot;</span>
-                       <span class="na">ng-click=</span><span class="s">&quot;items.splice($index, 1)&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/ion-delete-button&gt;</span>
-    <span class="nt">&lt;ion-reorder-button</span> <span class="na">class=</span><span class="s">&quot;ion-navicon&quot;</span>
-                        <span class="na">on-reorder=</span><span class="s">&quot;reorderItem(item, $fromIndex, $toIndex)&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/ion-reorder-button&gt;</span>
+    &lt;/ion-option-button&gt;
+    &lt;ion-delete-button class="ion-minus-circled"
+                       ng-click="items.splice($index, 1)"&gt;
+    &lt;/ion-delete-button&gt;
+    &lt;ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(item, $fromIndex, $toIndex)"&gt;
+    &lt;/ion-reorder-button&gt;
 
-  <span class="nt">&lt;/ion-item&gt;</span>
-<span class="nt">&lt;/ion-list&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">shouldShowDelete</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">shouldShowReorder</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
- <span class="nx">$scope</span><span class="p">.</span><span class="nx">listCanSwipe</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="p">});</span>
-</code></pre></div>
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
+<pre><code class="language-javascript">app.controller('MyCtrl', function($scope) {
+ $scope.shouldShowDelete = false;
+ $scope.shouldShowReorder = false;
+ $scope.listCanSwipe = true
+});
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -1036,6 +1041,7 @@ option buttons. Default: true.</p>
     
   </tbody>
 </table>
+
 
         </div>
 

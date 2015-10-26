@@ -190,17 +190,17 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/index.md">
     Improve this doc
   </a>
 </div>
 
 <h1 class="title">Networking</h1>
 
-<p>Sending HTTP requests to a URL is easy with Ionic&#39;s <code>Http</code> service.</p>
+<p>Sending HTTP requests to a URL is easy with Ionic’s <code>Http</code> service.</p>
 
 <div class="note">
-  <button primary small outline>Note: what happened to $http?</button>
+  <button primary="" small="" outline="">Note: what happened to $http?</button>
   <div class="info">
     One of the changes in Angular 2's strategy is to do <i>less</i> when it comes to
     providing wrappers for browser utilities. Since the <code>fetch()</code> API is more mature
@@ -211,30 +211,35 @@
     use case of sending and receiving JSON data.
   </div>
 </div>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Http</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://swapi.co/api/people/1&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Got Luke Skywalker</span>
-<span class="p">});</span>
+<pre><code class="language-javascript">
+import {Http} from 'ionic/ionic';
 
-<span class="nx">Http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;tim&#39;</span><span class="p">,</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">resp</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Response</span>
-<span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Err</span>
-<span class="p">});</span>
-</code></pre></div>
+Http.get('http://swapi.co/api/people/1').then((resp) =&gt; {
+  // Got Luke Skywalker
+});
+
+Http.post(myApi, {
+  username: 'tim',
+}).then((resp) =&gt; {
+  // Response
+}, (err) =&gt; {
+  // Err
+});
+</code></pre>
+
 <p>To send a <code>PUT/PATCH/DELETE</code> method, substitute <code>Http.post()</code> with the lower-cased method name.</p>
 
-<p>To modify the request, pass a third object to <code>post/put/patch/delete</code> or a second object to <code>get</code> which follows
+<p>To modify the request, pass a third object to <code>post/put/patch/delete</code> or a second object to <code>get</code> which follows<br />
 the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">Request</a> object from the fetch API:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Http</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">myApi</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">reason</span><span class="o">:</span> <span class="s1">&#39;Because I can&#39;</span>
-<span class="p">},</span> <span class="p">{</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;cors&#39;</span>
-<span class="p">})</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">Http.delete(myApi, {
+  reason: 'Because I can'
+}, {
+  mode: 'cors'
+})
+</code></pre>
+
 
           
         </div>

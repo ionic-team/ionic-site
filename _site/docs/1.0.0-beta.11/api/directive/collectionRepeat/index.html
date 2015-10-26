@@ -813,11 +813,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L1">
     Improve this doc
   </a>
 </div>
@@ -830,85 +830,89 @@
 
 </h1>
 
-<p><div class="phone-case">
-  <p data-height="568" data-theme-id="3572" data-slug-hash="mFygh" data-default-tab="result" class='codepen'>See the Pen by <a href='http://codepen.io/ionic/pen/mFygh'>Ionic</a> (<a href='http://codepen.io/ionic'>@ionic</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-  <script async src="//codepen.io/assets/embed/ei.js"></script>
- </div></p>
+<div class="phone-case">
+  <p data-height="568" data-theme-id="3572" data-slug-hash="mFygh" data-default-tab="result" class="codepen">See the Pen by <a href="http://codepen.io/ionic/pen/mFygh">Ionic</a> (<a href="http://codepen.io/ionic">@ionic</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+  <script async="" src="//codepen.io/assets/embed/ei.js"></script>
+ </div>
 
-<p><code>collection-repeat</code> is a directive that allows you to render lists with
+<p><code>collection-repeat</code> is a directive that allows you to render lists with<br />
 thousands of items in them, and experience little to no performance penalty.</p>
 
 <p>Demo:</p>
 
-<p>The directive renders onto the screen only the items that should be currently visible.
-So if you have 1,000 items in your list but only ten fit on your screen,
-collection-repeat will only render into the DOM the ten that are in the current
+<p>The directive renders onto the screen only the items that should be currently visible.<br />
+So if you have 1,000 items in your list but only ten fit on your screen,<br />
+collection-repeat will only render into the DOM the ten that are in the current<br />
 scroll position.</p>
 
 <p>Here are a few things to keep in mind while using collection-repeat:</p>
 
 <ol>
-<li>The data supplied to collection-repeat must be an array.</li>
-<li>You must explicitly tell the directive what size your items will be in the DOM, using directive attributes.
+  <li>The data supplied to collection-repeat must be an array.</li>
+  <li>You must explicitly tell the directive what size your items will be in the DOM, using directive attributes.<br />
 Pixel amounts or percentages are allowed (see below).</li>
-<li>The elements rendered will be absolutely positioned: be sure to let your CSS work with
+  <li>The elements rendered will be absolutely positioned: be sure to let your CSS work with<br />
 this (see below).</li>
-<li>Each collection-repeat list will take up all of its parent scrollView&#39;s space.
-If you wish to have multiple lists on one page, put each list within its own
+  <li>Each collection-repeat list will take up all of its parent scrollView’s space.<br />
+If you wish to have multiple lists on one page, put each list within its own<br />
 <a href="/docs/api/directive/ionScroll/">ionScroll</a> container.</li>
-<li>You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that
-have a collection-repeat inside.  ng-show and ng-hide apply the <code>display: none</code> css rule to the content&#39;s
-style, causing the scrollView to read the width and height of the content as 0.  Resultingly,
+  <li>You should not use the ng-show and ng-hide directives on your ion-content/ion-scroll elements that<br />
+have a collection-repeat inside.  ng-show and ng-hide apply the <code>display: none</code> css rule to the content’s<br />
+style, causing the scrollView to read the width and height of the content as 0.  Resultingly,<br />
 collection-repeat will render elements that have just been un-hidden incorrectly.</li>
 </ol>
 
 <h2 id="usage">Usage</h2>
-  
 
-<h4>Basic Usage (single rows of items)</h4>
+<h4 id="basic-usage-single-rows-of-items">Basic Usage (single rows of items)</h4>
 
-<p>Notice two things here: we use ng-style to set the height of the item to match
-what the repeater thinks our item height is.  Additionally, we add a css rule
-to make our item stretch to fit the full screen (since it will be absolutely
+<p>Notice two things here: we use ng-style to set the height of the item to match<br />
+what the repeater thinks our item height is.  Additionally, we add a css rule<br />
+to make our item stretch to fit the full screen (since it will be absolutely<br />
 positioned).</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item my-item&quot;</span>
-      <span class="na">collection-repeat=</span><span class="s">&quot;item in items&quot;</span>
-      <span class="na">collection-item-width=</span><span class="s">&quot;&#39;100%&#39;&quot;</span>
-      <span class="na">collection-item-height=</span><span class="s">&quot;getItemHeight(item, $index)&quot;</span>
-      <span class="na">ng-style=</span><span class="s">&quot;{height: getItemHeight(item, $index)}&quot;</span><span class="nt">&gt;</span>
-      {{item}}
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ContentCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Item &#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
-  <span class="p">}</span>
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">getItemHeight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//Make evenly indexed items be 10px taller, for the sake of example</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">index</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">50</span> <span class="o">:</span> <span class="mi">60</span><span class="p">;</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.my-item</span> <span class="p">{</span>
-  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="k">right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4>Grid Usage (three items per row)</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item item-avatar my-image-item&quot;</span>
-    <span class="na">collection-repeat=</span><span class="s">&quot;image in images&quot;</span>
-    <span class="na">collection-item-width=</span><span class="s">&quot;&#39;33%&#39;&quot;</span>
-    <span class="na">collection-item-height=</span><span class="s">&quot;&#39;33%&#39;&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div>
-<p>Percentage of total visible list dimensions. This example shows a 3 by 3 matrix that fits on the screen (3 rows and 3 colums). Note that dimensions are used in the creation of the element and therefore a measurement of the item cannnot be used as an input dimension.
+<pre><code class="language-html">&lt;ion-content ng-controller="ContentCtrl"&gt;
+  &lt;div class="list"&gt;
+    &lt;div class="item my-item"
+      collection-repeat="item in items"
+      collection-item-width="'100%'"
+      collection-item-height="getItemHeight(item, $index)"
+      ng-style="{height: getItemHeight(item, $index)}"&gt;
+      {{item}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">function ContentCtrl($scope) {
+  $scope.items = [];
+  for (var i = 0; i &lt; 1000; i++) {
+    $scope.items.push('Item ' + i);
+  }
+
+  $scope.getItemHeight = function(item, index) {
+    //Make evenly indexed items be 10px taller, for the sake of example
+    return (index % 2) === 0 ? 50 : 60;
+  };
+}
+</code></pre>
+<pre><code class="language-css">.my-item {
+  left: 0;
+  right: 0;
+}
+</code></pre>
+
+<h4 id="grid-usage-three-items-per-row">Grid Usage (three items per row)</h4>
+
+<pre><code class="language-html">&lt;ion-content&gt;
+  &lt;div class="item item-avatar my-image-item"
+    collection-repeat="image in images"
+    collection-item-width="'33%'"
+    collection-item-height="'33%'"&gt;
+    &lt;img ng-src=""&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+<p>Percentage of total visible list dimensions. This example shows a 3 by 3 matrix that fits on the screen (3 rows and 3 colums). Note that dimensions are used in the creation of the element and therefore a measurement of the item cannnot be used as an input dimension.<br />
 <code>css
 .my-image-item img {
   height: 33%;
@@ -1006,6 +1010,7 @@ to items in conjunction with a tracking expression.</p>
     
   </tbody>
 </table>
+
 
         </div>
 

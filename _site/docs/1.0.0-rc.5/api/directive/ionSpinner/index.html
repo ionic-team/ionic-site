@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/spinner.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/spinner.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/spinner.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/spinner.js#L1">
     Improve this doc
   </a>
 </div>
@@ -866,17 +866,17 @@
 
 </h1>
 
-<p>The <code>ionSpinner</code> directive provides a variety of animated spinners.
-Spinners enables you to give your users feedback that the app is
-processing/thinking/waiting/chillin&#39; out, or whatever you&#39;d like it to indicate.
-By default, the <a href="/docs/api/directive/ionRefresher/"><code>ionRefresher</code></a> feature uses this spinner, rather
-than rotating font icons (previously included in <a href="http://ionicons.com/">ionicons</a>).
-While font icons are great for simple or stationary graphics, they&#39;re not suited to
+<p>The <code>ionSpinner</code> directive provides a variety of animated spinners.<br />
+Spinners enables you to give your users feedback that the app is<br />
+processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.<br />
+By default, the <a href="/docs/api/directive/ionRefresher/"><code>ionRefresher</code></a> feature uses this spinner, rather<br />
+than rotating font icons (previously included in <a href="http://ionicons.com/">ionicons</a>).<br />
+While font icons are great for simple or stationary graphics, they’re not suited to<br />
 provide great animations, which is why Ionic uses SVG instead.</p>
 
-<p>Ionic offers ten spinners out of the box, and by default, it will use the appropriate spinner
-for the platform on which it&#39;s running. Under the hood, the <code>ionSpinner</code> directive dynamically
-builds the required SVG element, which allows Ionic to provide all ten of the animated SVGs
+<p>Ionic offers ten spinners out of the box, and by default, it will use the appropriate spinner<br />
+for the platform on which it’s running. Under the hood, the <code>ionSpinner</code> directive dynamically<br />
+builds the required SVG element, which allows Ionic to provide all ten of the animated SVGs<br />
 within 3KB.</p>
 
 <style>
@@ -998,39 +998,45 @@ within 3KB.</p>
  </tr>
 </table>
 
-<p>Each spinner uses SVG with SMIL animations, however, the Android spinner also uses JavaScript
-so it also works on Android 4.0-4.3. Additionally, each spinner can be styled with CSS,
+<p>Each spinner uses SVG with SMIL animations, however, the Android spinner also uses JavaScript<br />
+so it also works on Android 4.0-4.3. Additionally, each spinner can be styled with CSS,<br />
 and scaled to any size.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
-<p>The following code would use the default spinner for the platform it&#39;s running from. If it&#39;s neither
-iOS or Android, it&#39;ll default to use <code>ios</code>.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-spinner&gt;&lt;/ion-spinner&gt;</span>
-</code></pre></div>
-<p>By setting the <code>icon</code> attribute, you can specify which spinner to use, no matter what
+<p>The following code would use the default spinner for the platform it’s running from. If it’s neither<br />
+iOS or Android, it’ll default to use <code>ios</code>.</p>
+
+<pre><code class="language-html">&lt;ion-spinner&gt;&lt;/ion-spinner&gt;
+</code></pre>
+
+<p>By setting the <code>icon</code> attribute, you can specify which spinner to use, no matter what<br />
 the platform is.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-spinner</span> <span class="na">icon=</span><span class="s">&quot;spiral&quot;</span><span class="nt">&gt;&lt;/ion-spinner&gt;</span>
-</code></pre></div>
-<h2>Spinner Colors</h2>
 
-<p>Like with most of Ionic&#39;s other components, spinners can also be styled using
-Ionic&#39;s standard color naming convention. For example:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-spinner</span> <span class="na">class=</span><span class="s">&quot;spinner-energized&quot;</span><span class="nt">&gt;&lt;/ion-spinner&gt;</span>
-</code></pre></div>
-<h2>Styling SVG with CSS</h2>
+<pre><code class="language-html">&lt;ion-spinner icon="spiral"&gt;&lt;/ion-spinner&gt;
+</code></pre>
 
-<p>One cool thing about SVG is its ability to be styled with CSS! Some of the properties
-have different names, for example, SVG uses the term <code>stroke</code> instead of <code>border</code>, and
+<h2 id="spinner-colors">Spinner Colors</h2>
+<p>Like with most of Ionic’s other components, spinners can also be styled using<br />
+Ionic’s standard color naming convention. For example:</p>
+
+<pre><code class="language-html">&lt;ion-spinner class="spinner-energized"&gt;&lt;/ion-spinner&gt;
+</code></pre>
+
+<h2 id="styling-svg-with-css">Styling SVG with CSS</h2>
+<p>One cool thing about SVG is its ability to be styled with CSS! Some of the properties<br />
+have different names, for example, SVG uses the term <code>stroke</code> instead of <code>border</code>, and<br />
 <code>fill</code> instead of <code>background-color</code>.</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.spinner</span> <span class="nt">svg</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
-  <span class="n">stroke</span><span class="o">:</span> <span class="m">#444</span><span class="p">;</span>
-  <span class="n">fill</span><span class="o">:</span> <span class="m">#444</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-css">.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #444;
+}
+</code></pre>
+
+
         </div>
 
       </div>

@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/platform.js#L8'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/platform.js#L8">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/platform.js#L8'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/platform.js#L8">
     Improve this doc
   </a>
 </div>
@@ -868,19 +868,18 @@
 
 <p>An angular abstraction of <a href="/docs/api/utility/ionic.Platform/"><code>ionic.Platform</code></a>.</p>
 
-<p>Used to detect the current platform, as well as do things like override the
+<p>Used to detect the current platform, as well as do things like override the<br />
 Android back button in PhoneGap/Cordova.</p>
 
-<h2>Methods</h2>
+<h2 id="methods">Methods</h2>
 
 <div id="onHardwareBackButton"></div>
-
 <h2>
   <code>onHardwareBackButton(callback)</code>
 
 </h2>
 
-<p>Some platforms have a hardware back button, so this is one way to
+<p>Some platforms have a hardware back button, so this is one way to<br />
 bind to it.</p>
 
 <table class="table" style="margin:0;">
@@ -914,7 +913,6 @@ bind to it.</p>
 </table>
 
 <div id="offHardwareBackButton"></div>
-
 <h2>
   <code>offHardwareBackButton(callback)</code>
 
@@ -954,32 +952,31 @@ originally bound.</p>
 </table>
 
 <div id="registerBackButtonAction"></div>
-
 <h2>
   <code>registerBackButtonAction(callback, priority, [actionId])</code>
 
 </h2>
 
-<p>Register a hardware back button action. Only one action will execute
-when the back button is clicked, so this method decides which of
+<p>Register a hardware back button action. Only one action will execute<br />
+when the back button is clicked, so this method decides which of<br />
 the registered back button actions has the highest priority.</p>
 
-<p>For example, if an actionsheet is showing, the back button should
-close the actionsheet, but it should not also go back a page view
+<p>For example, if an actionsheet is showing, the back button should<br />
+close the actionsheet, but it should not also go back a page view<br />
 or close a modal which may be open.</p>
 
-<p>The priorities for the existing back button hooks are as follows:
-  Return to previous view = 100
-  Close side menu = 150
-  Dismiss modal = 200
-  Close action sheet = 300
-  Dismiss popup = 400
+<p>The priorities for the existing back button hooks are as follows:<br />
+  Return to previous view = 100<br />
+  Close side menu = 150<br />
+  Dismiss modal = 200<br />
+  Close action sheet = 300<br />
+  Dismiss popup = 400<br />
   Dismiss loading overlay = 500</p>
 
-<p>Your back button action will override each of the above actions
-whose priority is less than the priority you provide. For example,
-an action assigned a priority of 101 will override the &#39;return to
-previous view&#39; action, but not any of the other actions.</p>
+<p>Your back button action will override each of the above actions<br />
+whose priority is less than the priority you provide. For example,<br />
+an action assigned a priority of 101 will override the ‘return to<br />
+previous view’ action, but not any of the other actions.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -1048,21 +1045,20 @@ random unique id.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>function</code> A function that, when called, will deregister
+  <li>Returns: <br />
+<code>function</code> A function that, when called, will deregister<br />
 this backButtonAction.</li>
 </ul>
 
 <div id="on"></div>
-
 <h2>
   <code>on(type, callback)</code>
 
 </h2>
 
-<p>Add Cordova event listeners, such as <code>pause</code>, <code>resume</code>, <code>volumedownbutton</code>, <code>batterylow</code>,
-<code>offline</code>, etc. More information about available event types can be found in
-<a href="https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events">Cordova&#39;s event documentation</a>.</p>
+<p>Add Cordova event listeners, such as <code>pause</code>, <code>resume</code>, <code>volumedownbutton</code>, <code>batterylow</code>,<br />
+<code>offline</code>, etc. More information about available event types can be found in<br />
+<a href="https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events">Cordova’s event documentation</a>.</p>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -1112,18 +1108,17 @@ this backButtonAction.</li>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>function</code> Returns a deregistration function to remove the event listener.</li>
 </ul>
 
 <div id="ready"></div>
-
 <h2>
   <code>ready([callback])</code>
 
 </h2>
 
-<p>Trigger a callback once the device is ready,
+<p>Trigger a callback once the device is ready,<br />
 or immediately if the device is already ready.</p>
 
 <table class="table" style="margin:0;">
@@ -1157,9 +1152,10 @@ or immediately if the device is already ready.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>promise</code> A promise which is resolved when the device is ready.</li>
 </ul>
+
 
         </div>
 

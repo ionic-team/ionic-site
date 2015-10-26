@@ -859,11 +859,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/templateCache.js#L5'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/templateCache.js#L5">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/templateCache.js#L5'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/templateCache.js#L5">
     Improve this doc
   </a>
 </div>
@@ -878,39 +878,43 @@
 
 <p>A service that preemptively caches template files to eliminate transition flicker and boost performance.</p>
 
-<h2>Usage</h2>
-
+<h2 id="usage">Usage</h2>
 <p>State templates are cached automatically, but you can optionally cache other templates.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$ionicTemplateCache</span><span class="p">(</span><span class="s1">&#39;myNgIncludeTemplate.html&#39;</span><span class="p">);</span>
-</code></pre></div>
-<p>Optionally disable all preemptive caching with the <code>$ionicConfigProvider</code> or individual states by setting <code>prefetchTemplate</code>
+
+<pre><code class="language-js">$ionicTemplateCache('myNgIncludeTemplate.html');
+</code></pre>
+
+<p>Optionally disable all preemptive caching with the <code>$ionicConfigProvider</code> or individual states by setting <code>prefetchTemplate</code><br />
 in the <code>$state</code> definition</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-  <span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$stateProvider</span><span class="p">,</span> <span class="nx">$ionicConfigProvider</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="c1">// disable preemptive template caching globally</span>
-    <span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">prefetch</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<pre><code class="language-js">  angular.module('myApp', ['ionic'])
+  .config(function($stateProvider, $ionicConfigProvider) {
 
-    <span class="c1">// disable individual states</span>
-    <span class="nx">$stateProvider</span>
-      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;tabs&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/tab&quot;</span><span class="p">,</span>
-        <span class="kr">abstract</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">prefetchTemplate</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;tabs-templates/tabs.html&quot;</span>
-      <span class="p">})</span>
-      <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">&#39;tabs.home&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/home&quot;</span><span class="p">,</span>
-        <span class="nx">views</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s1">&#39;home-tab&#39;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">prefetchTemplate</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;tabs-templates/home.html&quot;</span><span class="p">,</span>
-            <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;HomeTabCtrl&#39;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
-  <span class="p">});</span>
-</code></pre></div>
+    // disable preemptive template caching globally
+    $ionicConfigProvider.templates.prefetch(false);
+
+    // disable individual states
+    $stateProvider
+      .state('tabs', {
+        url: "/tab",
+        abstract: true,
+        prefetchTemplate: false,
+        templateUrl: "tabs-templates/tabs.html"
+      })
+      .state('tabs.home', {
+        url: "/home",
+        views: {
+          'home-tab': {
+            prefetchTemplate: false,
+            templateUrl: "tabs-templates/home.html",
+            controller: 'HomeTabCtrl'
+          }
+        }
+      });
+  });
+</code></pre>
+
+
         </div>
 
       </div>

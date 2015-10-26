@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuClose.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuClose.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuClose.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuClose.js#L1">
     Improve this doc
   </a>
 </div>
@@ -866,31 +866,35 @@
 
 </h1>
 
-<p><code>menu-close</code> is an attribute directive that closes a currently opened side menu.
-Note that by default, navigation transitions will not animate between views when
-the menu is open. Additionally, this directive will reset the entering view&#39;s
-history stack, making the new page the root of the history stack. This is done
-to replicate the user experience seen in most side menu implementations, which is
-to not show the back button at the root of the stack and show only the
-menu button. We recommend that you also use the <code>enable-menu-with-back-views=&quot;false&quot;</code>
+<p><code>menu-close</code> is an attribute directive that closes a currently opened side menu.<br />
+Note that by default, navigation transitions will not animate between views when<br />
+the menu is open. Additionally, this directive will reset the entering view’s<br />
+history stack, making the new page the root of the history stack. This is done<br />
+to replicate the user experience seen in most side menu implementations, which is<br />
+to not show the back button at the root of the stack and show only the<br />
+menu button. We recommend that you also use the <code>enable-menu-with-back-views="false"</code><br />
 <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> attribute when using the menuClose directive.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
-<p>Below is an example of a link within a side menu. Tapping this link would
+<p>Below is an example of a link within a side menu. Tapping this link would<br />
 automatically close the currently opened menu.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">menu-close</span> <span class="na">href=</span><span class="s">&quot;#/home&quot;</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
-</code></pre></div>
-<p>Note that if your destination state uses a resolve and that resolve asyncronously
-takes longer than a standard transition (300ms), you&#39;ll need to set the
+
+<pre><code class="language-html">&lt;a menu-close href="#/home" class="item"&gt;Home&lt;/a&gt;
+</code></pre>
+
+<p>Note that if your destination state uses a resolve and that resolve asyncronously<br />
+takes longer than a standard transition (300ms), you’ll need to set the<br />
 <code>nextViewOptions</code> manually as your resolve completes.</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$ionicHistory</span><span class="p">.</span><span class="nx">nextViewOptions</span><span class="p">({</span>
- <span class="nx">historyRoot</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
- <span class="nx">disableAnimate</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
- <span class="nx">expire</span><span class="o">:</span> <span class="mi">300</span>
-<span class="p">});</span>
-</code></pre></div>
+
+<p>```js<br />
+$ionicHistory.nextViewOptions({<br />
+ historyRoot: true,<br />
+ disableAnimate: true,<br />
+ expire: 300<br />
+});</p>
+
+
         </div>
 
       </div>

@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/refresher.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/refresher.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/refresher.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/refresher.js#L2">
     Improve this doc
   </a>
 </div>
@@ -873,38 +873,40 @@
 
 <p>Allows you to add pull-to-refresh to a scrollView.</p>
 
-<p>Place it as the first child of your <a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> or
+<p>Place it as the first child of your <a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> or<br />
 <a href="/docs/api/directive/ionScroll/"><code>ionScroll</code></a> element.</p>
 
-<p>When refreshing is complete, $broadcast the &#39;scroll.refreshComplete&#39; event
+<p>When refreshing is complete, $broadcast the ‘scroll.refreshComplete’ event<br />
 from your controller.</p>
 
 <h2 id="usage">Usage</h2>
-  
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyController&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-refresher</span>
-    <span class="na">pulling-text=</span><span class="s">&quot;Pull to refresh...&quot;</span>
-    <span class="na">on-refresh=</span><span class="s">&quot;doRefresh()&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-refresher&gt;</span>
-  <span class="nt">&lt;ion-list&gt;</span>
-    <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
-  <span class="nt">&lt;/ion-list&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">doRefresh</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/new-items&#39;</span><span class="p">)</span>
-     <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">newItems</span><span class="p">)</span> <span class="p">{</span>
-       <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">newItems</span><span class="p">;</span>
-     <span class="p">})</span>
-     <span class="p">.</span><span class="k">finally</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-       <span class="c1">// Stop the ion-refresher from spinning</span>
-       <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">&#39;scroll.refreshComplete&#39;</span><span class="p">);</span>
-     <span class="p">});</span>
-  <span class="p">};</span>
-<span class="p">});</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-content ng-controller="MyController"&gt;
+  &lt;ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()"&gt;
+  &lt;/ion-refresher&gt;
+  &lt;ion-list&gt;
+    &lt;ion-item ng-repeat="item in items"&gt;&lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+&lt;/ion-content&gt;
+</code></pre>
+<pre><code class="language-js">angular.module('testApp', ['ionic'])
+.controller('MyController', function($scope, $http) {
+  $scope.items = [1,2,3];
+  $scope.doRefresh = function() {
+    $http.get('/new-items')
+     .success(function(newItems) {
+       $scope.items = newItems;
+     })
+     .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
+});
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -1029,6 +1031,7 @@ icon when it reaches its activated threshold. To be used with a custom <code>pul
     
   </tbody>
 </table>
+
 
         </div>
 

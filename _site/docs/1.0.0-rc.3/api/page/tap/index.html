@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/tap.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/utils/tap.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/tap.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/utils/tap.js#L2">
     Improve this doc
   </a>
 </div>
@@ -866,53 +866,56 @@
 
 </h1>
 
-<p>On touch devices such as a phone or tablet, some browsers implement a 300ms delay between
-the time the user stops touching the display and the moment the browser executes the
-click. This delay was initially introduced so the browser can know whether the user wants to
-double-tap to zoom in on the webpage.  Basically, the browser waits roughly 300ms to see if
+<p>On touch devices such as a phone or tablet, some browsers implement a 300ms delay between<br />
+the time the user stops touching the display and the moment the browser executes the<br />
+click. This delay was initially introduced so the browser can know whether the user wants to<br />
+double-tap to zoom in on the webpage.  Basically, the browser waits roughly 300ms to see if<br />
 the user is double-tapping, or just tapping on the display once.</p>
 
-<p>Out of the box, Ionic automatically removes the 300ms delay in order to make Ionic apps
-feel more &quot;native&quot; like. Resultingly, other solutions such as
-<a href="https://github.com/ftlabs/fastclick">fastclick</a> and Angular&#39;s
+<p>Out of the box, Ionic automatically removes the 300ms delay in order to make Ionic apps<br />
+feel more “native” like. Resultingly, other solutions such as<br />
+<a href="https://github.com/ftlabs/fastclick">fastclick</a> and Angular’s<br />
 <a href="https://docs.angularjs.org/api/ngTouch">ngTouch</a> should not be included, to avoid conflicts.</p>
 
-<p>Some browsers already remove the delay with certain settings, such as the CSS property
-<code>touch-events: none</code> or with specific meta tag viewport values. However, each of these
-browsers still handle clicks differently, such as when to fire off or cancel the event
-(like scrolling when the target is a button, or holding a button down).
-For browsers that already remove the 300ms delay, consider Ionic&#39;s tap system as a way to
-normalize how clicks are handled across the various devices so there&#39;s an expected response
-no matter what the device, platform or version. Additionally, Ionic will prevent
+<p>Some browsers already remove the delay with certain settings, such as the CSS property<br />
+<code>touch-events: none</code> or with specific meta tag viewport values. However, each of these<br />
+browsers still handle clicks differently, such as when to fire off or cancel the event<br />
+(like scrolling when the target is a button, or holding a button down).<br />
+For browsers that already remove the 300ms delay, consider Ionic’s tap system as a way to<br />
+normalize how clicks are handled across the various devices so there’s an expected response<br />
+no matter what the device, platform or version. Additionally, Ionic will prevent<br />
 ghostclicks which even browsers that remove the delay still experience.</p>
 
-<p>In some cases, third-party libraries may also be working with touch events which can interfere
-with the tap system. For example, mapping libraries like Google or Leaflet Maps often implement
-a touch detection system which conflicts with Ionic&#39;s tap system.</p>
+<p>In some cases, third-party libraries may also be working with touch events which can interfere<br />
+with the tap system. For example, mapping libraries like Google or Leaflet Maps often implement<br />
+a touch detection system which conflicts with Ionic’s tap system.</p>
 
-<h3>Disabling the tap system</h3>
+<h3 id="disabling-the-tap-system">Disabling the tap system</h3>
 
-<p>To disable the tap for an element and all of its children elements,
-add the attribute <code>data-tap-disabled=&quot;true&quot;</code>.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">data-tap-disabled=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;google-map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
-<h3>Additional Notes:</h3>
+<p>To disable the tap for an element and all of its children elements,<br />
+add the attribute <code>data-tap-disabled="true"</code>.</p>
+
+<pre><code class="language-html">&lt;div data-tap-disabled="true"&gt;
+    &lt;div id="google-map"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="additional-notes">Additional Notes:</h3>
 
 <ul>
-<li>Ionic tap  works with Ionic&#39;s JavaScript scrolling</li>
-<li>Elements can come and go from the DOM and Ionic tap doesn&#39;t keep adding and removing
+  <li>Ionic tap  works with Ionic’s JavaScript scrolling</li>
+  <li>Elements can come and go from the DOM and Ionic tap doesn’t keep adding and removing<br />
 listeners</li>
-<li>No &quot;tap delay&quot; after the first &quot;tap&quot; (you can tap as fast as you want, they all click)</li>
-<li>Minimal events listeners, only being added to document</li>
-<li>Correct focus in/out on each input type (select, textearea, range) on each platform/device</li>
-<li>Shows and hides virtual keyboard correctly for each platform/device</li>
-<li>Works with labels surrounding inputs</li>
-<li>Does not fire off a click if the user moves the pointer too far</li>
-<li>Adds and removes an &#39;activated&#39; css class</li>
-<li>Multiple <a href="https://github.com/driftyco/ionic/blob/master/test/unit/utils/tap.unit.js">unit tests</a> for each scenario</li>
+  <li>No “tap delay” after the first “tap” (you can tap as fast as you want, they all click)</li>
+  <li>Minimal events listeners, only being added to document</li>
+  <li>Correct focus in/out on each input type (select, textearea, range) on each platform/device</li>
+  <li>Shows and hides virtual keyboard correctly for each platform/device</li>
+  <li>Works with labels surrounding inputs</li>
+  <li>Does not fire off a click if the user moves the pointer too far</li>
+  <li>Adds and removes an ‘activated’ css class</li>
+  <li>Multiple <a href="https://github.com/driftyco/ionic/blob/master/test/unit/utils/tap.unit.js">unit tests</a> for each scenario</li>
 </ul>
+
 
         </div>
 

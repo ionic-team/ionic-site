@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/modal.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/modal.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/modal.js#L1">
     Improve this doc
   </a>
 </div>
@@ -836,64 +836,65 @@
 
 <p>Related: <a href="/docs/api/controller/ionicModal/">ionicModal controller</a>.</p>
 
-<p>The Modal is a content pane that can go over the user&#39;s main view
+<p>The Modal is a content pane that can go over the user’s main view<br />
 temporarily.  Usually used for making a choice or editing an item.</p>
 
 <p>Put the content of the modal inside of an <code>&lt;ion-modal-view&gt;</code> element.</p>
 
-<p><strong>Notes:</strong>
-- A modal will broadcast &#39;modal.shown&#39;, &#39;modal.hidden&#39;, and &#39;modal.removed&#39; events from its originating
-scope, passing in itself as an event argument. Both the modal.removed and modal.hidden events are
+<p><strong>Notes:</strong><br />
+- A modal will broadcast ‘modal.shown’, ‘modal.hidden’, and ‘modal.removed’ events from its originating<br />
+scope, passing in itself as an event argument. Both the modal.removed and modal.hidden events are<br />
 called when the modal is removed.</p>
 
 <ul>
-<li>This example assumes your modal is in your main index file or another template file. If it is in its own
+  <li>This example assumes your modal is in your main index file or another template file. If it is in its own<br />
 template file, remove the script tags and call it by file name.</li>
 </ul>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;my-modal.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">modal</span><span class="o">-</span><span class="nx">view</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">-</span><span class="nx">bar</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">Modal</span> <span class="nx">title</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-header-bar&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
-      <span class="nx">Hello</span><span class="o">!</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-modal-view&gt;</span>
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$ionicModal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">&#39;my-modal.html&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
-    <span class="nx">animation</span><span class="o">:</span> <span class="s1">&#39;slide-in-up&#39;</span>
-  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">;</span>
-  <span class="p">});</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">openModal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-  <span class="p">};</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">closeModal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-  <span class="p">};</span>
-  <span class="c1">//Cleanup the modal when we&#39;re done with it!</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$destroy&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-  <span class="p">});</span>
-  <span class="c1">// Execute action on hide modal</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;modal.hidden&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Execute action</span>
-  <span class="p">});</span>
-  <span class="c1">// Execute action on remove modal</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;modal.removed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Execute action</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-html">&lt;script id="my-modal.html" type="text/ng-template"&gt;
+  &lt;ion-modal-view&gt;
+    &lt;ion-header-bar&gt;
+      &lt;h1 class="title"&gt;My Modal title&lt;/h1&gt;
+    &lt;/ion-header-bar&gt;
+    &lt;ion-content&gt;
+      Hello!
+    &lt;/ion-content&gt;
+  &lt;/ion-modal-view&gt;
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-js">angular.module('testApp', ['ionic'])
+.controller('MyController', function($scope, $ionicModal) {
+  $ionicModal.fromTemplateUrl('my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="fromTemplate"></div>
-
 <h2>
   <code>fromTemplate(templateString, options)</code>
 
@@ -948,13 +949,12 @@ content.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> An instance of an <a href="/docs/api/controller/ionicModal/"><code>ionicModal</code></a>
+  <li>Returns: <br />
+<code>object</code> An instance of an <a href="/docs/api/controller/ionicModal/"><code>ionicModal</code></a><br />
 controller.</li>
 </ul>
 
 <div id="fromTemplateUrl"></div>
-
 <h2>
   <code>fromTemplateUrl(templateUrl, options)</code>
 
@@ -1009,10 +1009,11 @@ options object.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>promise</code> A promise that will be resolved with an instance of
+  <li>Returns: <br />
+<code>promise</code> A promise that will be resolved with an instance of<br />
 an <a href="/docs/api/controller/ionicModal/"><code>ionicModal</code></a> controller.</li>
 </ul>
+
 
         </div>
 

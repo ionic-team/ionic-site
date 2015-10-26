@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1">
     Improve this doc
   </a>
 </div>
@@ -834,27 +834,27 @@
 
 </h1>
 
-<p>$ionicConfigProvider can be used during the configuration phase of your app
+<p>$ionicConfigProvider can be used during the configuration phase of your app<br />
 to change how Ionic works.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;reallyCoolApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">]);</span>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">var myApp = angular.module('reallyCoolApp', ['ionic']);
 
-<span class="nx">myApp</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$ionicConfigProvider</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$ionicConfigProvider</span><span class="p">.</span><span class="nx">prefetchTemplates</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+myApp.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.prefetchTemplates(false);
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="prefetchTemplates"></div>
-
 <h2>
   <code>prefetchTemplates(shouldPrefetch)</code>
 
 </h2>
 
-<p>Set whether Ionic should prefetch all templateUrls defined in
-$stateProvider.state. Default true. If set to false, the user will have to wait
+<p>Set whether Ionic should prefetch all templateUrls defined in<br />
+$stateProvider.state. Default true. If set to false, the user will have to wait<br />
 for a template to be fetched the first time he/she is going to a a new page.</p>
 
 <table class="table" style="margin:0;">
@@ -889,9 +889,10 @@ for a template to be fetched the first time he/she is going to a a new page.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether Ionic will prefetch templateUrls defined in $stateProvider.state.</li>
 </ul>
+
 
         </div>
 

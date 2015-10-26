@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/controller/listController.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/controller/listController.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/controller/listController.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/controller/listController.js#L2">
     Improve this doc
   </a>
 </div>
@@ -836,30 +836,32 @@
 
 <p>Delegate for controlling the <a href="/docs/api/directive/ionList/"><code>ionList</code></a> directive.</p>
 
-<p>Methods called directly on the $ionicListDelegate service will control all lists.
-Use the <a href="/docs/api/service/$ionicListDelegate/#$getByHandle">$getByHandle</a>
+<p>Methods called directly on the $ionicListDelegate service will control all lists.<br />
+Use the <a href="/docs/api/service/$ionicListDelegate/#$getByHandle">$getByHandle</a><br />
 method to control specific ionList instances.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;showDeleteButtons()&quot;</span><span class="nt">&gt;&lt;/button&gt;</span>
-  <span class="nt">&lt;ion-list&gt;</span>
-    <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">&quot;i in items&quot;</span><span class="nt">&gt;</span>
+<h2 id="usage">Usage</h2>
+<p>````html</p>
+<ion-content ng-controller="MyCtrl">
+  <button class="button" ng-click="showDeleteButtons()"></button>
+  <ion-list>
+    <ion-item ng-repeat="i in items">
       Hello, {{i}}!
-      <span class="nt">&lt;ion-delete-button</span> <span class="na">class=</span><span class="s">&quot;ion-minus-circled&quot;</span><span class="nt">&gt;&lt;/ion-delete-button&gt;</span>
-    <span class="nt">&lt;/ion-item&gt;</span>
-  <span class="nt">&lt;/ion-list&gt;</span>
-<span class="nt">&lt;/ion-content&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicListDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">showDeleteButtons</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicListDelegate</span><span class="p">.</span><span class="nx">showDelete</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Methods</h2>
+      <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<pre><code>```js
+function MyCtrl($scope, $ionicListDelegate) {
+  $scope.showDeleteButtons = function() {
+    $ionicListDelegate.showDelete(true);
+  };
+}
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="showReorder"></div>
-
 <h2>
   <code>showReorder([showReorder])</code>
 
@@ -896,12 +898,11 @@ method to control specific ionList instances.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether the reorder buttons are shown.</li>
 </ul>
 
 <div id="showDelete"></div>
-
 <h2>
   <code>showDelete([showDelete])</code>
 
@@ -938,12 +939,11 @@ method to control specific ionList instances.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether the delete buttons are shown.</li>
 </ul>
 
 <div id="canSwipeItems"></div>
-
 <h2>
   <code>canSwipeItems([canSwipeItems])</code>
 
@@ -981,12 +981,11 @@ option buttons.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether the list is able to swipe to show option buttons.</li>
 </ul>
 
 <div id="closeOptionButtons"></div>
-
 <h2>
   <code>closeOptionButtons()</code>
 
@@ -995,7 +994,6 @@ option buttons.</p>
 <p>Closes any option buttons on the list that are swiped open.</p>
 
 <div id="$getByHandle"></div>
-
 <h2>
   <code>$getByHandle(handle)</code>
 
@@ -1031,13 +1029,14 @@ option buttons.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>delegateInstance</code> A delegate instance that controls only the
-<a href="/docs/api/directive/ionList/"><code>ionList</code></a> directives with <code>delegate-handle</code> matching
+  <li>Returns: <br />
+ <code>delegateInstance</code> A delegate instance that controls only the<br />
+<a href="/docs/api/directive/ionList/"><code>ionList</code></a> directives with <code>delegate-handle</code> matching<br />
 the given handle.</li>
 </ul>
 
-<p>Example: <code>$ionicListDelegate.$getByHandle(&#39;my-handle&#39;).showReorder(true);</code></p>
+<p>Example: <code>$ionicListDelegate.$getByHandle('my-handle').showReorder(true);</code></p>
+
 
         </div>
 

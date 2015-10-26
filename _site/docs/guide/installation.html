@@ -199,24 +199,26 @@
         <div class="col-md-10 col-sm-9 main-content">
           <p>Previous: <a href="preface.html">All About Ionic</a></p>
 
-<h1>Chapter 2: Installation</h1>
+<h1 id="chapter-2-installation">Chapter 2: Installation</h1>
 
 <p>In this chapter, we are going to walk through the process of downloading Ionic and installing all necessary dependencies for development.</p>
 
-<h2>Platform notes</h2>
+<h2 id="platform-notes">Platform notes</h2>
 
-<p>First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 6+, and Android 4.0+ (though 2.3 should work). However, since there are a lot of different Android devices, it&#39;s possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our <a href="https://github.com/driftyco/ionic">GitHub</a> project.</p>
+<p>First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 6+, and Android 4.0+ (though 2.3 should work). However, since there are a lot of different Android devices, it’s possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our <a href="https://github.com/driftyco/ionic">GitHub</a> project.</p>
 
-<p>You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you&#39;ll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.</p>
+<p>You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you’ll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.</p>
 
 <p>If you are on Windows, make sure to download and install <a href="http://git-scm.com/download/win">Git for Windows</a> and optionally <a href="http://sourceforge.net/projects/console/">Console2</a>. You will be executing any commands in this guide in the Git Bash or Console2 windows.</p>
 
 <p>First, we will go and install the most recent version of <a href="http://cordova.apache.org/">Apache Cordova</a>, which will take our app and bundle it into a native wrapper to turn it into a traditional native app.</p>
 
 <p>To install Cordova, make sure you have <a href="http://nodejs.org/">Node.js</a> installed, then run</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo npm install -g cordova
-</code></pre></div>
-<p>Drop <code>sudo</code> from the above command if running on Windows. Depending on the platforms you wish to develop for, you&#39;ll need to install platform-specific tools. Follow the Cordova platform guides for <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> to make sure you have everything needed for development on those platforms. Luckily, you&#39;ll only need to do this once.</p>
+
+<pre><code>$ sudo npm install -g cordova
+</code></pre>
+
+<p>Drop <code>sudo</code> from the above command if running on Windows. Depending on the platforms you wish to develop for, you’ll need to install platform-specific tools. Follow the Cordova platform guides for <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a href="http://cordova.apache.org/docs/en/3.4.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> to make sure you have everything needed for development on those platforms. Luckily, you’ll only need to do this once.</p>
 
 <p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-linux-note">
   Linux Android note
@@ -270,20 +272,25 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 </p>
 </div>
 
-<h2>Install Ionic</h2>
+<h2 id="install-ionic">Install Ionic</h2>
 
 <p>Ionic comes with a convenient command line utility to start, build, and package Ionic apps.</p>
 
 <p>To install it, simply run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ionic
-</code></pre></div>
-<h2>Create the project</h2>
+
+<pre><code class="language-bash">$ sudo npm install -g ionic
+</code></pre>
+
+<h2 id="create-the-project">Create the project</h2>
 
 <p>Now, we need to create a new Cordova project somewhere on the computer for the code for our app:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ ionic start todo blank
-</code></pre></div>
+
+<pre><code>$ ionic start todo blank
+</code></pre>
+
 <p>That will create a folder called <code>todo</code> in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd todo &amp;&amp; ls
+
+<pre><code>$ cd todo &amp;&amp; ls
 
 ├── bower.json     // bower dependencies
 ├── config.xml     // cordova configuration
@@ -295,15 +302,18 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 ├── plugins        // where your cordova/ionic plugins will be installed
 ├── scss           // scss code, which will output to www/css/
 └── www            // application - JS code and libs, CSS, images, etc.
-</code></pre></div>
+</code></pre>
+
 <p>If you are planning on using any version control system, you can go ahead and set it up in this new folder.</p>
 
-<h2>Configure Platforms</h2>
+<h2 id="configure-platforms">Configure Platforms</h2>
 
 <p>Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios
-<span class="nv">$ </span>ionic platform add android
-</code></pre></div>
+
+<pre><code class="language-bash">$ ionic platform add ios
+$ ionic platform add android
+</code></pre>
+
 <p>If you see errors here, make sure to follow the platform guides above to install necessary platform tools.</p>
 
 <p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#osx-android-note">
@@ -319,12 +329,14 @@ Next, update your PATH to include the <code>tools/</code> and <code>platform-too
 </p>
 </div>
 
-<h2>Test it out</h2>
+<h2 id="test-it-out">Test it out</h2>
 
 <p>Just to make sure the default project worked, try building and running the project (substitute ios for android to build for Android instead):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build ios
-<span class="nv">$ </span>ionic emulate ios
-</code></pre></div>
+
+<pre><code class="language-bash">$ ionic build ios
+$ ionic emulate ios
+</code></pre>
+
 <p><button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-emulator-note">
   Android emulator note
 </button></p>
@@ -344,7 +356,7 @@ If you chose to emulate on Android, be patient as this takes several minutes as 
 
 The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator" />
 </p>
 <p>
 Of course, you can always test directly on the device, and that is the recommended way to develop on Android due to the slow emulator. To do that,
@@ -352,7 +364,7 @@ substitute <code>emulate</code> with <code>run</code> and ensure you have an And
 </p>
 </div>
 
-<h2>Let&#39;s go!</h2>
+<h2 id="lets-go">Let’s go!</h2>
 
 <p>Now we are ready to start building our app, so continue on to the next chapter:</p>
 

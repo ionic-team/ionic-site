@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L1">
     Improve this doc
   </a>
 </div>
@@ -868,75 +868,76 @@
 
 <p>Related: <a href="/docs/api/controller/ionicPopover/">ionicPopover controller</a>.</p>
 
-<p>The Popover is a view that floats above an app’s content. Popovers provide an
-easy way to present or gather information from the user and are
+<p>The Popover is a view that floats above an app’s content. Popovers provide an<br />
+easy way to present or gather information from the user and are<br />
 commonly used in the following situations:</p>
 
 <ul>
-<li>Show more info about the current view</li>
-<li>Select a commonly used tool or configuration</li>
-<li>Present a list of actions to perform inside one of your views</li>
+  <li>Show more info about the current view</li>
+  <li>Select a commonly used tool or configuration</li>
+  <li>Present a list of actions to perform inside one of your views</li>
 </ul>
 
 <p>Put the content of the popover inside of an <code>&lt;ion-popover-view&gt;</code> element.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;openPopover($event)&quot;</span><span class="nt">&gt;</span>Open Popover<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/p&gt;</span>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;button ng-click="openPopover($event)"&gt;Open Popover&lt;/button&gt;
+&lt;/p&gt;
 
-<span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;my-popover.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">popover</span><span class="o">-</span><span class="nx">view</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">-</span><span class="nx">bar</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">Popover</span> <span class="nx">Title</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-    <span class="o">&lt;</span><span class="err">/ion-header-bar&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
-      <span class="nx">Hello</span><span class="o">!</span>
-    <span class="o">&lt;</span><span class="err">/ion-content&gt;</span>
-  <span class="o">&lt;</span><span class="err">/ion-popover-view&gt;</span>
-<span class="nt">&lt;/script&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;testApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">])</span>
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicPopover</span><span class="p">)</span> <span class="p">{</span>
+&lt;script id="my-popover.html" type="text/ng-template"&gt;
+  &lt;ion-popover-view&gt;
+    &lt;ion-header-bar&gt;
+      &lt;h1 class="title"&gt;My Popover Title&lt;/h1&gt;
+    &lt;/ion-header-bar&gt;
+    &lt;ion-content&gt;
+      Hello!
+    &lt;/ion-content&gt;
+  &lt;/ion-popover-view&gt;
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-js">angular.module('testApp', ['ionic'])
+.controller('MyController', function($scope, $ionicPopover) {
 
-  <span class="c1">// .fromTemplate() method</span>
-  <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="s1">&#39;&lt;ion-popover-view&gt;&lt;ion-header-bar&gt; &lt;h1 class=&quot;title&quot;&gt;My Popover Title&lt;/h1&gt; &lt;/ion-header-bar&gt; &lt;ion-content&gt; Hello! &lt;/ion-content&gt;&lt;/ion-popover-view&gt;&#39;</span><span class="p">;</span>
+  // .fromTemplate() method
+  var template = '&lt;ion-popover-view&gt;&lt;ion-header-bar&gt; &lt;h1 class="title"&gt;My Popover Title&lt;/h1&gt; &lt;/ion-header-bar&gt; &lt;ion-content&gt; Hello! &lt;/ion-content&gt;&lt;/ion-popover-view&gt;';
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">popover</span> <span class="o">=</span> <span class="nx">$ionicPopover</span><span class="p">.</span><span class="nx">fromTemplate</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
-  <span class="p">});</span>
+  $scope.popover = $ionicPopover.fromTemplate(template, {
+    scope: $scope,
+  });
 
-  <span class="c1">// .fromTemplateUrl() method</span>
-  <span class="nx">$ionicPopover</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">&#39;my-popover.html&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
-  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">popover</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">popover</span> <span class="o">=</span> <span class="nx">popover</span><span class="p">;</span>
-  <span class="p">});</span>
+  // .fromTemplateUrl() method
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
 
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">openPopover</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">popover</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">$event</span><span class="p">);</span>
-  <span class="p">};</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">closePopover</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">popover</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-  <span class="p">};</span>
-  <span class="c1">//Cleanup the popover when we&#39;re done with it!</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$destroy&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">popover</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-  <span class="p">});</span>
-  <span class="c1">// Execute action on hide popover</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;popover.hidden&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Execute action</span>
-  <span class="p">});</span>
-  <span class="c1">// Execute action on remove popover</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;popover.removed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Execute action</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-<h2>Methods</h2>
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+});
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="fromTemplate"></div>
-
 <h2>
   <code>fromTemplate(templateString, options)</code>
 
@@ -991,13 +992,12 @@ content.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>object</code> An instance of an <a href="/docs/api/controller/ionicPopover/"><code>ionicPopover</code></a>
+  <li>Returns: <br />
+<code>object</code> An instance of an <a href="/docs/api/controller/ionicPopover/"><code>ionicPopover</code></a><br />
 controller (ionicPopover is built on top of $ionicPopover).</li>
 </ul>
 
 <div id="fromTemplateUrl"></div>
-
 <h2>
   <code>fromTemplateUrl(templateUrl, options)</code>
 
@@ -1051,10 +1051,11 @@ controller (ionicPopover is built on top of $ionicPopover).</li>
 </table>
 
 <ul>
-<li>Returns: 
-<code>promise</code> A promise that will be resolved with an instance of
+  <li>Returns: <br />
+<code>promise</code> A promise that will be resolved with an instance of<br />
 an <a href="/docs/api/controller/ionicPopover/"><code>ionicPopover</code></a> controller (ionicPopover is built on top of $ionicPopover).</li>
 </ul>
+
 
         </div>
 

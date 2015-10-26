@@ -209,40 +209,46 @@
       </div>
 
       <div class="col-md-10 col-sm-9 main-content">
-        <h1>Icon and Splash Screen Image Generation</h1>
+        <h1 id="icon-and-splash-screen-image-generation">Icon and Splash Screen Image Generation</h1>
 
-<p><a href="http://ionicframework.com/blog/automating-icons-and-splash-screens/">Automatically generate icons and splash screens</a> from source images to create each size needed for each platform, in addition to copying each resized and cropped image into each platform&#39;s resources directory. Source images can either be a <code>png</code>, <code>psd</code> <strong>Photoshop</strong> or <code>ai</code> <strong>Illustrator</strong> file. Images are generated using Ionic&#39;s image resizing and cropping server, instead of requiring special libraries and plugins to be installed locally.</p>
+<p><a href="http://ionicframework.com/blog/automating-icons-and-splash-screens/">Automatically generate icons and splash screens</a> from source images to create each size needed for each platform, in addition to copying each resized and cropped image into each platform’s resources directory. Source images can either be a <code>png</code>, <code>psd</code> <strong>Photoshop</strong> or <code>ai</code> <strong>Illustrator</strong> file. Images are generated using Ionic’s image resizing and cropping server, instead of requiring special libraries and plugins to be installed locally.</p>
 
-<p>Since each platform has different image requirements, it&#39;s best to make a source image for the largest size needed, and let the CLI do all the resizing, cropping and copying for you. Newly generated images will be placed in the <code>resources</code> directory at the root of the Cordova project. Additionally, the CLI will update and add the correct <code>&lt;platform&gt;</code> configs to the project&#39;s <a href="http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens">config.xml</a> file.</p>
+<p>Since each platform has different image requirements, it’s best to make a source image for the largest size needed, and let the CLI do all the resizing, cropping and copying for you. Newly generated images will be placed in the <code>resources</code> directory at the root of the Cordova project. Additionally, the CLI will update and add the correct <code>&lt;platform&gt;</code> configs to the project’s <a href="http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens">config.xml</a> file.</p>
 
-<p>During the build process, Cordova (v3.6 or later) will look through the project&#39;s <a href="http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens">config.xml</a> file and copy the newly created resource images to the platform&#39;s specific resource folder. For example, Android&#39;s resource folder can be found in <code>platforms/android/res</code>, and iOS uses <code>platforms/ios/APP_NAME/Resources</code>.</p>
+<p>During the build process, Cordova (v3.6 or later) will look through the project’s <a href="http://cordova.apache.org/docs/en/edge/config_ref_images.md.html#Icons%20and%20Splash%20Screens">config.xml</a> file and copy the newly created resource images to the platform’s specific resource folder. For example, Android’s resource folder can be found in <code>platforms/android/res</code>, and iOS uses <code>platforms/ios/APP_NAME/Resources</code>.</p>
 
-<h3>Icon Source Image</h3>
+<h3 id="icon-source-image">Icon Source Image</h3>
 
-<p>Save an <code>icon.png</code>, <code>icon.psd</code> or <code>icon.ai</code> file within the <code>resources</code> directory at the root of the Cordova project. The icon image&#39;s minimum dimensions should be 192x192 px, and should have <strong>no</strong> rounded corners. Note that each platform will apply it&#39;s own mask and effects to the icons. For example, iOS will automatically apply it&#39;s custom rounded corners, so the source file should not already come with rounded corners. This <a href="http://code.ionicframework.com/resources/icon.psd">Photoshop icon template</a> provides the recommended size and guidelines of the artwork&#39;s safe zone.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic resources --icon
-</code></pre></div>
+<p>Save an <code>icon.png</code>, <code>icon.psd</code> or <code>icon.ai</code> file within the <code>resources</code> directory at the root of the Cordova project. The icon image’s minimum dimensions should be 192x192 px, and should have <strong>no</strong> rounded corners. Note that each platform will apply it’s own mask and effects to the icons. For example, iOS will automatically apply it’s custom rounded corners, so the source file should not already come with rounded corners. This <a href="http://code.ionicframework.com/resources/icon.psd">Photoshop icon template</a> provides the recommended size and guidelines of the artwork’s safe zone.</p>
+
+<pre><code class="language-bash">$ ionic resources --icon
+</code></pre>
+
 <ul>
-<li><a href="http://code.ionicframework.com/resources/icon.psd">Photoshop Icon Template</a></li>
+  <li><a href="http://code.ionicframework.com/resources/icon.psd">Photoshop Icon Template</a></li>
 </ul>
 
-<h3>Splash Screen Source Image</h3>
+<h3 id="splash-screen-source-image">Splash Screen Source Image</h3>
 
-<p>Save a <code>splash.png</code>, <code>splash.psd</code> or <code>splash.ai</code> file within the <code>resources</code> directory at the root of the Cordova project. Splash screen dimensions vary for each platform, device and orientation, so a square source image is required the generate each of various sizes. The source image&#39;s minimum dimensions should be 2208x2208 px, and its artwork should be centered within the square, knowing that each generated image will be center cropped into landscape and portrait images. The splash screen&#39;s artwork should roughly fit within a center square (1200x1200 px). This <a href="http://code.ionicframework.com/resources/splash.psd">Photoshop splash screen template</a> provides the recommended size and guidelines of the artwork&#39;s safe zone. Additionally, when the <code>Orientation</code> <a href="http://cordova.apache.org/docs/en/edge/config_ref_index.md.html#The%20config.xml%20File_global_preferences">preference config</a> is set to either <code>landscape</code> or <code>portrait</code> mode, then only the necessary images will be generated.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic resources --splash
-</code></pre></div>
+<p>Save a <code>splash.png</code>, <code>splash.psd</code> or <code>splash.ai</code> file within the <code>resources</code> directory at the root of the Cordova project. Splash screen dimensions vary for each platform, device and orientation, so a square source image is required the generate each of various sizes. The source image’s minimum dimensions should be 2208x2208 px, and its artwork should be centered within the square, knowing that each generated image will be center cropped into landscape and portrait images. The splash screen’s artwork should roughly fit within a center square (1200x1200 px). This <a href="http://code.ionicframework.com/resources/splash.psd">Photoshop splash screen template</a> provides the recommended size and guidelines of the artwork’s safe zone. Additionally, when the <code>Orientation</code> <a href="http://cordova.apache.org/docs/en/edge/config_ref_index.md.html#The%20config.xml%20File_global_preferences">preference config</a> is set to either <code>landscape</code> or <code>portrait</code> mode, then only the necessary images will be generated.</p>
+
+<pre><code class="language-bash">$ ionic resources --splash
+</code></pre>
+
 <ul>
-<li><a href="http://code.ionicframework.com/resources/splash.psd">Photoshop Splash Screen Template</a></li>
+  <li><a href="http://code.ionicframework.com/resources/splash.psd">Photoshop Splash Screen Template</a></li>
 </ul>
 
-<h3>Generating Icons and Splash Screens</h3>
+<h3 id="generating-icons-and-splash-screens">Generating Icons and Splash Screens</h3>
 
 <p>To generate both icons and splash screens, follow the instructions above and run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic resources
-</code></pre></div>
-<h3>Platform Specific Resource Images</h3>
 
-<p>One source image can be used to generate images for each platform by placing the file within the <code>resources</code> directory, such as <code>resources/icon.png</code>. To use different source images for individual platforms, place the source image in the respective platform&#39;s directory. For example, to use a different icon for Android, it should follow this path: <code>resources/android/icon.png</code>, and a different image for iOS would use this path: <code>resources/ios/icon.png</code>.</p>
+<pre><code class="language-bash">$ ionic resources
+</code></pre>
+
+<h3 id="platform-specific-resource-images">Platform Specific Resource Images</h3>
+
+<p>One source image can be used to generate images for each platform by placing the file within the <code>resources</code> directory, such as <code>resources/icon.png</code>. To use different source images for individual platforms, place the source image in the respective platform’s directory. For example, to use a different icon for Android, it should follow this path: <code>resources/android/icon.png</code>, and a different image for iOS would use this path: <code>resources/ios/icon.png</code>.</p>
 
       </div>
 

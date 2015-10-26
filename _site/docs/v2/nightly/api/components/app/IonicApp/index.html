@@ -8,8 +8,7 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-
-<link href="/css/v2.css?0" rel="stylesheet">
+<link href="/css/v2.css?1" rel="stylesheet">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -17,10 +16,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
 <script src="/js/ionic-docs.min.js"></script>
 
-
-
-
-
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 
@@ -408,11 +406,11 @@
       
       <main>
         <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L17'>
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L17">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L17'>
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L17">
     Improve this doc
   </a>
 </div>
@@ -428,24 +426,20 @@
 <p>Service exposing the Ionic app level API.</p>
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
-
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
+<p class="module">exported from <a href="undefined">ionic/ionic</a><br />
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L18-L253">ionic/components/app/app.ts (line 18)</a>
 </p>
-
-<h2>Members</h2>
+<p>## Members</p>
 
 <div id="bindEvents"></div>
-
 <h2>
   <code>bindEvents()</code>
 
 </h2>
 
-<p>Bind some global events and publish on the &#39;app&#39; channel</p>
+<p>Bind some global events and publish on the ‘app’ channel</p>
 
 <div id="load"></div>
-
 <h2>
   <code>load(appRef)</code>
 
@@ -484,7 +478,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <div id="focusHolder"></div>
-
 <h2>
   <code>focusHolder([val])</code>
 
@@ -523,12 +516,11 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>TODO</code> TODO</li>
 </ul>
 
 <div id="title"></div>
-
 <h2>
   <code>title(val)</code>
 
@@ -567,15 +559,14 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </table>
 
 <div id="setEnabled"></div>
-
 <h2>
   <code>setEnabled(isEnabled, fallback)</code>
 
 </h2>
 
-<p>Sets if the app is currently enabled or not, meaning if it&#39;s
-available to accept new user commands. For example, this is set to <code>false</code>
-while views transition, a modal slides up, an action-sheet
+<p>Sets if the app is currently enabled or not, meaning if it’s<br />
+available to accept new user commands. For example, this is set to <code>false</code><br />
+while views transition, a modal slides up, an action-sheet<br />
 slides up, etc. After the transition completes it is set back to <code>true</code>.</p>
 
 <table class="table" style="margin:0;">
@@ -628,7 +619,6 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 </table>
 
 <div id="isEnabled"></div>
-
 <h2>
   <code>isEnabled()</code>
 
@@ -637,19 +627,17 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 <p>Boolean if the app is actively enabled or not.</p>
 
 <ul>
-<li>Returns: 
-<code>bool</code> </li>
+  <li>Returns: <br />
+<code>bool</code></li>
 </ul>
 
 <div id="setTransitioning"></div>
-
 <h2>
   <code>setTransitioning()</code>
 
 </h2>
 
 <div id="isTransitioning"></div>
-
 <h2>
   <code>isTransitioning()</code>
 
@@ -658,12 +646,11 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 <p>Boolean if the app is actively transitioning or not.</p>
 
 <ul>
-<li>Returns: 
-<code>bool</code> </li>
+  <li>Returns: <br />
+<code>bool</code></li>
 </ul>
 
 <div id="ref"></div>
-
 <h2>
   <code>ref([val])</code>
 
@@ -702,12 +689,11 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 </table>
 
 <ul>
-<li>Returns: 
-TODO</li>
+  <li>Returns: <br />
+ TODO</li>
 </ul>
 
 <div id="injector"></div>
-
 <h2>
   <code>injector()</code>
 
@@ -716,12 +702,11 @@ TODO</li>
 <p>TODO</p>
 
 <ul>
-<li>Returns: 
-TODO</li>
+  <li>Returns: <br />
+ TODO</li>
 </ul>
 
 <div id="zoneRun"></div>
-
 <h2>
   <code>zoneRun(fn)</code>
 
@@ -760,7 +745,6 @@ TODO</li>
 </table>
 
 <div id="zoneRunOutside"></div>
-
 <h2>
   <code>zoneRunOutside(fn)</code>
 
@@ -799,7 +783,6 @@ TODO</li>
 </table>
 
 <div id="register"></div>
-
 <h2>
   <code>register(id, component)</code>
 
@@ -855,7 +838,6 @@ TODO</li>
 </table>
 
 <div id="unregister"></div>
-
 <h2>
   <code>unregister(id)</code>
 
@@ -894,7 +876,6 @@ TODO</li>
 </table>
 
 <div id="getRegisteredComponent"></div>
-
 <h2>
   <code>getRegisteredComponent(cls)</code>
 
@@ -933,12 +914,11 @@ TODO</li>
 </table>
 
 <ul>
-<li>Returns: 
-the matching component, or undefined if none was found</li>
+  <li>Returns: <br />
+ the matching component, or undefined if none was found</li>
 </ul>
 
 <div id="getComponent"></div>
-
 <h2>
   <code>getComponent(key)</code>
 
@@ -977,18 +957,17 @@ the matching component, or undefined if none was found</li>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>TODO</code> TODO</li>
 </ul>
 
 <div id="appendComponent"></div>
-
 <h2>
   <code>appendComponent(componentType)</code>
 
 </h2>
 
-<p>Create and append the given component into the root
+<p>Create and append the given component into the root<br />
 element of the app.</p>
 
 <table class="table" style="margin:0;">
@@ -1022,18 +1001,17 @@ element of the app.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>Promise</code> Promise that resolves with the ContainerRef created</li>
 </ul>
 
 <div id="isRTL"></div>
-
 <h2>
   <code>isRTL([val])</code>
 
 </h2>
 
-<p>If val is defined, specifies whether app text is RTL.  If val is undefined
+<p>If val is defined, specifies whether app text is RTL.  If val is undefined<br />
 returns whether app text is RTL.</p>
 
 <table class="table" style="margin:0;">
@@ -1067,11 +1045,13 @@ returns whether app text is RTL.</p>
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> true if app text is RTL, false if otherwise.</li>
 </ul>
 
+
       </main>
     </div>
+
   </body>
 </html>

@@ -859,11 +859,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/backdrop.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/backdrop.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/backdrop.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/backdrop.js#L1">
     Improve this doc
   </a>
 </div>
@@ -876,36 +876,36 @@
 
 </h1>
 
-<p>Shows and hides a backdrop over the UI.  Appears behind popups, loading,
+<p>Shows and hides a backdrop over the UI.  Appears behind popups, loading,<br />
 and other overlays.</p>
 
-<p>Often, multiple UI components require a backdrop, but only one backdrop is
+<p>Often, multiple UI components require a backdrop, but only one backdrop is<br />
 ever needed in the DOM at a time.</p>
 
-<p>Therefore, each component that requires the backdrop to be shown calls
-<code>$ionicBackdrop.retain()</code> when it wants the backdrop, then <code>$ionicBackdrop.release()</code>
+<p>Therefore, each component that requires the backdrop to be shown calls<br />
+<code>$ionicBackdrop.retain()</code> when it wants the backdrop, then <code>$ionicBackdrop.release()</code><br />
 when it is done with the backdrop.</p>
 
 <p>For each time <code>retain</code> is called, the backdrop will be shown until <code>release</code> is called.</p>
 
-<p>For example, if <code>retain</code> is called three times, the backdrop will be shown until <code>release</code>
+<p>For example, if <code>retain</code> is called three times, the backdrop will be shown until <code>release</code><br />
 is called three times.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicBackdrop</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//Show a backdrop for one second</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">action</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicBackdrop</span><span class="p">.</span><span class="nx">retain</span><span class="p">();</span>
-    <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">$ionicBackdrop</span><span class="p">.</span><span class="nx">release</span><span class="p">();</span>
-    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Methods</h2>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-js">function MyController($scope, $ionicBackdrop, $timeout) {
+  //Show a backdrop for one second
+  $scope.action = function() {
+    $ionicBackdrop.retain();
+    $timeout(function() {
+      $ionicBackdrop.release();
+    }, 1000);
+  };
+}
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="retain"></div>
-
 <h2>
   <code>retain()</code>
 
@@ -914,13 +914,13 @@ is called three times.</p>
 <p>Retains the backdrop.</p>
 
 <div id="release"></div>
-
 <h2>
   <code>release()</code>
 
 </h2>
 
 <p>Releases the backdrop.</p>
+
 
         </div>
 

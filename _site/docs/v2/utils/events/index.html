@@ -199,7 +199,7 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/events.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utilities/events.md">
     Improve this doc
   </a>
 </div>
@@ -208,38 +208,42 @@
 
 <p>Ionic provides a publish/subscribe event system for application-level events.</p>
 
-<h2>Sending and Receiving Events</h2>
+<h2 id="sending-and-receiving-events">Sending and Receiving Events</h2>
 
-<p>Use the <code>Events</code> service to <code>subscribe</code> to event channels to receive events of that type. Use <code>publish</code> to publsh a new
+<p>Use the <code>Events</code> service to <code>subscribe</code> to event channels to receive events of that type. Use <code>publish</code> to publsh a new<br />
 event to subscribers of that type.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">events</span><span class="o">:</span> <span class="nx">Events</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">userCreatedHandler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// User created</span>
-    <span class="p">};</span>
 
-    <span class="c1">// Listening to new events</span>
-    <span class="nx">events</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;user:created&#39;</span><span class="p">,</span> <span class="nx">userCreatedHander</span><span class="p">);</span>
-  <span class="p">}</span>
+<pre><code class="language-javascript">export class MyApp {
+  constructor(events: Events) {
+    var userCreatedHandler = (user) =&gt; {
+      // User created
+    };
 
-  <span class="nx">createUser</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// user created...</span>
-    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">events</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;user:created&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ionitron&#39;</span><span class="p">,</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;ionitron@ionic.io&#39;</span>
-      <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Unsubscribing from events</h2>
+    // Listening to new events
+    events.subscribe('user:created', userCreatedHander);
+  }
+
+  createUser() {
+    // user created...
+    var results = events.publish('user:created', {
+      name: 'Ionitron',
+      email: 'ionitron@ionic.io'
+      id: 1
+    })
+  }
+}
+</code></pre>
+
+<h2 id="unsubscribing-from-events">Unsubscribing from events</h2>
 
 <p>To stop recieving events of a given type, use <code>unsubscribe</code></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Ignore `user:created` events</span>
-<span class="nx">events</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">(</span><span class="s1">&#39;user:created&#39;</span><span class="p">,</span> <span class="nx">userCreatedHandler</span><span class="p">);</span>
 
-<span class="c1">// Or leave userCreatedHandler empty to remove ALL handlers on that event channel.</span>
-</code></pre></div>
+<pre><code class="language-javascript">// Ignore `user:created` events
+events.unsubscribe('user:created', userCreatedHandler);
+
+// Or leave userCreatedHandler empty to remove ALL handlers on that event channel.
+</code></pre>
+
 
           
         </div>

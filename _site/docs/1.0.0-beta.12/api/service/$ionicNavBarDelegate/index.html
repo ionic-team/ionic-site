@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/navBarDelegate.js#L2'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/service/navBarDelegate.js#L2">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/navBarDelegate.js#L2'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/service/navBarDelegate.js#L2">
     Improve this doc
   </a>
 </div>
@@ -836,24 +836,25 @@
 
 <p>Delegate for controlling the <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> directive.</p>
 
-<h2>Usage</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-nav-bar&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;setNavTitle(&#39;banana&#39;)&quot;</span><span class="nt">&gt;</span>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-html">&lt;body ng-controller="MyCtrl"&gt;
+  &lt;ion-nav-bar&gt;
+    &lt;button ng-click="setNavTitle('banana')"&gt;
       Set title to banana!
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-nav-bar&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicNavBarDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">setNavTitle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$ionicNavBarDelegate</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Methods</h2>
+    &lt;/button&gt;
+  &lt;/ion-nav-bar&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope, $ionicNavBarDelegate) {
+  $scope.setNavTitle = function(title) {
+    $ionicNavBarDelegate.setTitle(title);
+  }
+}
+</code></pre>
+
+<h2 id="methods">Methods</h2>
 
 <div id="back"></div>
-
 <h2>
   <code>back([event])</code>
 
@@ -892,7 +893,6 @@
 </table>
 
 <div id="align"></div>
-
 <h2>
   <code>align([direction])</code>
 
@@ -932,13 +932,12 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 </table>
 
 <div id="showBackButton"></div>
-
 <h2>
   <code>showBackButton([show])</code>
 
 </h2>
 
-<p>Set/get whether the <a href="/docs/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> is shown
+<p>Set/get whether the <a href="/docs/api/directive/ionNavBackButton/"><code>ionNavBackButton</code></a> is shown<br />
 (if it exists).</p>
 
 <table class="table" style="margin:0;">
@@ -972,12 +971,11 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether the back button is shown.</li>
 </ul>
 
 <div id="showBar"></div>
-
 <h2>
   <code>showBar(show)</code>
 
@@ -1016,12 +1014,11 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 </table>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>boolean</code> Whether the bar is shown.</li>
 </ul>
 
 <div id="setTitle"></div>
-
 <h2>
   <code>setTitle(title)</code>
 
@@ -1060,7 +1057,6 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Default: &#39;cent
 </table>
 
 <div id="changeTitle"></div>
-
 <h2>
   <code>changeTitle(title, direction)</code>
 
@@ -1117,31 +1113,28 @@ Available: &#39;forward&#39;, &#39;back&#39;.</p>
 </table>
 
 <div id="getTitle"></div>
-
 <h2>
   <code>getTitle()</code>
 
 </h2>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> The current title of the navbar.</li>
 </ul>
 
 <div id="getPreviousTitle"></div>
-
 <h2>
   <code>getPreviousTitle()</code>
 
 </h2>
 
 <ul>
-<li>Returns: 
+  <li>Returns: <br />
 <code>string</code> The previous title of the navbar.</li>
 </ul>
 
 <div id="$getByHandle"></div>
-
 <h2>
   <code>$getByHandle(handle)</code>
 
@@ -1177,12 +1170,13 @@ Available: &#39;forward&#39;, &#39;back&#39;.</p>
 </table>
 
 <ul>
-<li>Returns: 
-<code>delegateInstance</code> A delegate instance that controls only the
+  <li>Returns: <br />
+ <code>delegateInstance</code> A delegate instance that controls only the<br />
 navBars with delegate-handle matching the given handle.</li>
 </ul>
 
-<p>Example: <code>$ionicNavBarDelegate.$getByHandle(&#39;myHandle&#39;).setTitle(&#39;newTitle&#39;)</code></p>
+<p>Example: <code>$ionicNavBarDelegate.$getByHandle('myHandle').setTitle('newTitle')</code></p>
+
 
         </div>
 

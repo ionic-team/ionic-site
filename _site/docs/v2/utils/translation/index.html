@@ -199,49 +199,54 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md">
     Improve this doc
   </a>
 </div>
 
-<h1>Translation and i18n</h1>
+<h1 id="translation-and-i18n">Translation and i18n</h1>
 
-<p>Ionic comes with a simple and powerful translation/internationalization system to provide multiple language
+<p>Ionic comes with a simple and powerful translation/internationalization system to provide multiple language<br />
 support for your apps.</p>
 
-<p>Unlike some translation systems, Ionic uses the full text that you wish to display in the default
+<p>Unlike some translation systems, Ionic uses the full text that you wish to display in the default<br />
 language as the translation key (rather than a lookup key).</p>
 
-<h2>Using <code>Translate</code></h2>
+<h2 id="using-translate">Using <code>Translate</code></h2>
 
 <p>The <code>Translate</code> service is used to set the active language, and provide string mapping.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
 
-  <span class="c1">// Inject the Translate service</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">trans</span><span class="o">:</span> <span class="nx">Translate</span><span class="p">)</span> <span class="p">{</span>
+<pre><code class="language-javascript">export class MyApp {
 
-    <span class="c1">// Example German string mapping</span>
-    <span class="nx">trans</span><span class="p">.</span><span class="nx">translations</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="s1">&#39;Location&#39;</span><span class="o">:</span> <span class="s1">&#39;lage&#39;</span>
-    <span class="p">});</span>
+  // Inject the Translate service
+  constructor(trans: Translate) {
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;Location&#39;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;lage&#39;</span>
+    // Example German string mapping
+    trans.translations('de', {
+      'Location': 'lage'
+    });
 
-    <span class="c1">// Change the active language for the entire app</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">setLanguage</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">trans</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">));</span> <span class="c1">// Shows &#39;lage&#39;</span>
-  <span class="p">}</span>
-</code></pre></div>
-<h2>Template Translation</h2>
+    console.log(this.trans.translate('Location')); // Shows 'Location'
+    console.log(this.trans.translate('Location', 'de')); // Shows 'lage'
+
+    // Change the active language for the entire app
+    this.trans.setLanguage('de');
+    console.log(this.trans.translate('Location')); // Shows 'lage'
+  }
+</code></pre>
+
+<h2 id="template-translation">Template Translation</h2>
 
 <p>To use translated strings in your templates, use the <code>translate</code> pipe:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- to use the active language --&gt;</span>
-<span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate }}<span class="nt">&lt;/span&gt;</span>
 
-<span class="c">&lt;!-- to use a specific language --&gt;</span>
-<span class="nt">&lt;span&gt;</span>{{ &#39;Location&#39; | translate:&quot;de&quot; }}<span class="nt">&lt;/span&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;!-- to use the active language --&gt;
+&lt;span&gt;{{ 'Location' | translate }}&lt;/span&gt;
+
+&lt;!-- to use a specific language --&gt;
+&lt;span&gt;{{ 'Location' | translate:"de" }}&lt;/span&gt;
+</code></pre>
+
+
 
           
         </div>

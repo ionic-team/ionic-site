@@ -817,11 +817,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenus.js#L3'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenus.js#L3">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenus.js#L3'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenus.js#L3">
     Improve this doc
   </a>
 </div>
@@ -832,64 +832,66 @@
 
 
 
-<br/>
+<br />
 <small>
   Delegate: <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>
 </small>
 
 </h1>
 
-<p>A container element for side menu(s) and the main content. Allows the left
-and/or right side menu to be toggled by dragging the main content area side
+<p>A container element for side menu(s) and the main content. Allows the left<br />
+and/or right side menu to be toggled by dragging the main content area side<br />
 to side.</p>
 
-<p>To automatically close an opened menu you can add the <a href="/docs/api/directive/menuClose/"><code>menuClose</code></a>
-attribute directive. Including the <code>menu-close</code> attribute is usually added to
-links and buttons within <code>ion-side-menu</code> content, so that when the element is
+<p>To automatically close an opened menu you can add the <a href="/docs/api/directive/menuClose/"><code>menuClose</code></a><br />
+attribute directive. Including the <code>menu-close</code> attribute is usually added to<br />
+links and buttons within <code>ion-side-menu</code> content, so that when the element is<br />
 clicked then the opened side menu will automatically close.</p>
 
-<p>By default, side menus are hidden underneath its side menu content, and can be opened by
-either swiping the content left or right, or toggling a button to show the side menu. However,
-by adding the <a href="/docs/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a> attribute directive to an
-<a href="/docs/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions
-on &quot;when&quot; the menu should be exposed (always viewable).</p>
+<p>By default, side menus are hidden underneath its side menu content, and can be opened by<br />
+either swiping the content left or right, or toggling a button to show the side menu. However,<br />
+by adding the <a href="/docs/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a> attribute directive to an<br />
+<a href="/docs/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions<br />
+on “when” the menu should be exposed (always viewable).</p>
 
-<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif" alt="Side Menu"></p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif" alt="Side Menu" /></p>
 
 <p>For more information on side menus, check out:</p>
 
 <ul>
-<li><a href="/docs/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a></li>
-<li><a href="/docs/api/directive/ionSideMenu/"><code>ionSideMenu</code></a></li>
-<li><a href="/docs/api/directive/menuClose/"><code>menuClose</code></a></li>
-<li><a href="/docs/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a></li>
+  <li><a href="/docs/api/directive/ionSideMenuContent/"><code>ionSideMenuContent</code></a></li>
+  <li><a href="/docs/api/directive/ionSideMenu/"><code>ionSideMenu</code></a></li>
+  <li><a href="/docs/api/directive/menuClose/"><code>menuClose</code></a></li>
+  <li><a href="/docs/api/directive/exposeAsideWhen/"><code>exposeAsideWhen</code></a></li>
 </ul>
 
 <h2 id="usage">Usage</h2>
-  
 
-<p>To use side menus, add an <code>&lt;ion-side-menus&gt;</code> parent element,
-an <code>&lt;ion-side-menu-content&gt;</code> for the center content,
+<p>To use side menus, add an <code>&lt;ion-side-menus&gt;</code> parent element,<br />
+an <code>&lt;ion-side-menu-content&gt;</code> for the center content,<br />
 and one or more <code>&lt;ion-side-menu&gt;</code> directives.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-side-menus&gt;</span>
-  <span class="c">&lt;!-- Center content --&gt;</span>
-  <span class="nt">&lt;ion-side-menu-content</span> <span class="na">ng-controller=</span><span class="s">&quot;ContentController&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu-content&gt;</span>
 
-  <span class="c">&lt;!-- Left menu --&gt;</span>
-  <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu&gt;</span>
+<pre><code class="language-html">&lt;ion-side-menus&gt;
+  &lt;!-- Center content --&gt;
+  &lt;ion-side-menu-content ng-controller="ContentController"&gt;
+  &lt;/ion-side-menu-content&gt;
 
-  <span class="c">&lt;!-- Right menu --&gt;</span>
-  <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/ion-side-menu&gt;</span>
-<span class="nt">&lt;/ion-side-menus&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ContentController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">toggleLeft</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicSideMenuDelegate</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
+  &lt;!-- Left menu --&gt;
+  &lt;ion-side-menu side="left"&gt;
+  &lt;/ion-side-menu&gt;
+
+  &lt;!-- Right menu --&gt;
+  &lt;ion-side-menu side="right"&gt;
+  &lt;/ion-side-menu&gt;
+&lt;/ion-side-menus&gt;
+</code></pre>
+<pre><code class="language-js">function ContentController($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+}
+</code></pre>
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -922,6 +924,7 @@ with <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDel
     
   </tbody>
 </table>
+
 
         </div>
 

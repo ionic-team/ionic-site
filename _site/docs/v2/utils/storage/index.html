@@ -199,7 +199,7 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md'>
+  <a href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/utils/storage/index.md">
     Improve this doc
   </a>
 </div>
@@ -208,72 +208,84 @@
 
 <p>All apps need to save and load data at some point. Ionic makes it easy with utilities for temporary storage (caching), and long term storage. Ionic storage services have a convenient key/value API, and some storage engines provide additional powerful operations (like SQL queries).</p>
 
-<h1>Persistent Storage</h1>
+<h1 id="persistent-storage">Persistent Storage</h1>
 
 <p>For persistent storage, use the <code>SqlStorage</code> service, which uses SQLite and/or WebSQL (dev mode only).</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Storage</span><span class="p">,</span> <span class="nx">SqlStorage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">SqlStorage</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h1>Local Storage</h1>
+<pre><code class="language-javascript">import {Storage, SqlStorage} from 'ionic/ionic';
+
+export class MyApp {
+  constructor() {
+    this.storage = new Storage(SqlStorage);
+  }
+}
+</code></pre>
+
+<h1 id="local-storage">Local Storage</h1>
 
 <p>For <em>temporary</em> storage, use the <code>LocalStorage</code> service:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Storage</span><span class="p">,</span> <span class="nx">LocalStorage</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic/ionic&#39;</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">LocalStorage</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-javascript">import {Storage, LocalStorage} from 'ionic/ionic';
+
+export class MyApp {
+  constructor() {
+    this.storage = new Storage(LocalStorage);
+  }
+}
+</code></pre>
+
 <p>Note: <em>do not</em> use Local Storage for data that you cannot afford to lose! Some operating systems (like iOS) will clear local storage when device storage gets low.</p>
 
-<h1>Setting values</h1>
+<h1 id="setting-values">Setting values</h1>
 
 <p>To store a value for a given key, use <code>set()</code></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<h1>Getting values</h1>
+
+<pre><code class="language-javascript">setName(name) {
+  this.storage.set('name', name);
+}
+</code></pre>
+
+<h1 id="getting-values">Getting values</h1>
 
 <p>To retrieve a value for a given key, use <code>get()</code></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">getName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// name is available here</span>
-  <span class="p">})</span>
-<span class="p">}</span>
-</code></pre></div>
-<h1>SQL Queries</h1>
+
+<pre><code class="language-javascript">getName(name) {
+  this.storage.get('name').then((value) =&gt; {
+    // name is available here
+  })
+}
+</code></pre>
+
+<h1 id="sql-queries">SQL Queries</h1>
 
 <p>When using the <code>SqlStorage</code> engine, a full query API is available:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">saveUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;insert into users(name, email) values (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">]).</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// Saved</span>
-  <span class="p">})</span>
-<span class="p">}</span>
 
-<span class="nx">getUser</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">&#39;select * from users where email = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">]).</span><span class="nx">then</span><span class="p">((</span><span class="nx">users</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div>
-<h1>iCloud Support</h1>
+<pre><code class="language-javascript">saveUser(user) {
+  this.storage.query('insert into users(name, email) values (?, ?)', [user.name, user.email]).then(() =&gt; {
+    // Saved
+  })
+}
 
-<p>iOS supports a variety of storage strategies that use (or don&#39;t use) iCloud. By default, Ionic storage
-will not back up to iCloud, since storing arbitrary data in an iCloud-backup location is one of the
+getUser() {
+  this.storage.query('select * from users where email = ?', [user.email]).then((users) =&gt; {
+  });
+}
+</code></pre>
+
+<h1 id="icloud-support">iCloud Support</h1>
+
+<p>iOS supports a variety of storage strategies that use (or don’t use) iCloud. By default, Ionic storage<br />
+will not back up to iCloud, since storing arbitrary data in an iCloud-backup location is one of the<br />
 most common ways apps are rejected from the app stores.</p>
 
-<p>If you have a logical <code>document</code> that user create and then might want to back up (for example, images, text documents, etc.), set the <code>SqlStorage</code> engine
+<p>If you have a logical <code>document</code> that user create and then might want to back up (for example, images, text documents, etc.), set the <code>SqlStorage</code> engine<br />
 to use the proper location:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Storage</span><span class="p">(</span><span class="nx">SqlStorage</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">backupFlag</span><span class="o">:</span> <span class="nx">SqlStorage</span><span class="p">.</span><span class="nx">DOCUMENTS</span>
-<span class="p">})</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">this.storage = new Storage(SqlStorage, {
+  backupFlag: SqlStorage.DOCUMENTS
+})
+</code></pre>
+
 <p>See the <a href="https://github.com/litehelpers/Cordova-sqlite-storage#opening-a-database">Cordova SQLite</a> documentation for more info.</p>
 
 

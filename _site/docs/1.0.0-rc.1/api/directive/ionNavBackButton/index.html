@@ -849,11 +849,11 @@
 
         <div class="col-md-10 col-sm-9 main-content">
           <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1'>
+  <a href="http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1">
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1'>
+  <a href="http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1">
     Improve this doc
   </a>
 </div>
@@ -873,43 +873,50 @@
 
 <p>Creates a back button inside an <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>.</p>
 
-<p>The back button will appear when the user is able to go back in the current navigation stack. By
-default, the markup of the back button is automatically built using platform-appropriate defaults
+<p>The back button will appear when the user is able to go back in the current navigation stack. By<br />
+default, the markup of the back button is automatically built using platform-appropriate defaults<br />
 (iOS back button icon on iOS and Android icon on Android).</p>
 
-<p>Additionally, the button is automatically set to <code>$ionicGoBack()</code> on click/tap. By default, the
-app will navigate back one view when the back button is clicked.  More advanced behavior is also
+<p>Additionally, the button is automatically set to <code>$ionicGoBack()</code> on click/tap. By default, the<br />
+app will navigate back one view when the back button is clicked.  More advanced behavior is also<br />
 possible, as outlined below.</p>
 
 <h2 id="usage">Usage</h2>
-  
 
 <p>Recommended markup for default settings:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button&gt;</span>
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-bar&gt;
+  &lt;ion-nav-back-button&gt;
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+
 <p>With custom inner markup, and automatically adds a default click action:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button</span> <span class="na">class=</span><span class="s">&quot;button-clear&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Back
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-bar&gt;
+  &lt;ion-nav-back-button class="button-clear"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+
 <p>With custom inner markup and custom click action, using <a href="/docs/api/service/$ionicHistory/"><code>$ionicHistory</code></a>:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ion-nav-bar</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-nav-back-button</span> <span class="na">class=</span><span class="s">&quot;button-clear&quot;</span>
-    <span class="na">ng-click=</span><span class="s">&quot;myGoBack()&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;ion-arrow-left-c&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Back
-  <span class="nt">&lt;/ion-nav-back-button&gt;</span>
-<span class="nt">&lt;/ion-nav-bar&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicHistory</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">myGoBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$ionicHistory</span><span class="p">.</span><span class="nx">goBack</span><span class="p">();</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-html">&lt;ion-nav-bar ng-controller="MyCtrl"&gt;
+  &lt;ion-nav-back-button class="button-clear"
+    ng-click="myGoBack()"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+</code></pre>
+<pre><code class="language-js">function MyCtrl($scope, $ionicHistory) {
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
+}
+</code></pre>
+
+
         </div>
 
       </div>

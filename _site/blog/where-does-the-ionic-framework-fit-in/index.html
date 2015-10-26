@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Where does the Ionic Framework fit in?</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/where-does-the-ionic-framework-fit-in/">Where does the Ionic Framework fit in?</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Where does the Ionic Framework fit in?" data-url="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/eeff5848f4231174094d2bc3cce26a05?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/adamdbradley" target="_blank">@adamdbradley</a> on October 28, 2013</time>
+  </div>
+
+<p>When reviewing any new technology, library, or framework, you’ll first ask, “Where does this fit into the stack, and how would it benefit me?” TL;DR: Ionic’s ultimate goal is to make it easier to develop native mobile apps with HTML5, also known as Hybrid apps.</p>
+
+<h3>The Missing Piece</h3>
+<p>Every semi-colon slinging cowboy is out riding alone in the wild-west of building native apps with HTML5. Great tools like <a href="http://phonegap.com/">PhoneGap</a> and <a href="http://cordova.apache.org/">Cordova</a> that package up HTML, CSS, and JavaScript into multi-platform native apps already exist. Developers are skilled at creating web-based applications and there is a magnitude of resources to pull from. However, in today’s landscape we feel there is something missing to easily bridge the gap between HTML5 and native app development.</p>
+
+<h3>Compare it to something I know</h3>
+<p>While Ionic is not an exact one-for-one comparison to <a href="http://getbootstrap.com/">Twitter Bootstrap</a>, it may be helpful when explaining where Ionic fits in. Let’s jump in the wayback machine and recall a time prior to the popularity of front-end frameworks. Developers were laying down some mean code, but they had to start from scratch for each project, and individually figure out the quirks of each browser. Eventually developers were given a huge push forward by starting projects with the <em>[insert your favorite front-end framework here]</em>.</p>
+
+<p>Great frameworks like Twitter Bootstrap simply make it easier to develop web apps and web sites, not because developers can’t write it themselves, but because it gives them a great starting point to build high-quality projects. Immediate benefits include a slick design and built-in cross-browser testing at no cost. But in my opinion, the great achievements of Twitter Bootstrap are the knowledge sharing it has brought developers, and the excellent way to document and promote recommended design patterns it provides.</p>
+
+<!-- more -->
+
+<h3>Let’s Build Something Awesome</h3>
+<p>The Ionic Framework has similar goals in that we want to help promote recommended design patterns and document best practices. That’s why the framework is entirely open-source (<a href="http://opensource.org/licenses/MIT">MIT Licensed</a>) so that as a community we can share our knowledge to build some great apps with HTML5. And as such, we trust others will help share best practices so that we can all continually improve.</p>
+
+<p>Ionic is what lays the foundation for your hybrid app’s HTML, CSS and JavaScript. Instead of each developer having to individually figure out the quirks of native app development with HTML5, we’ve documented our recommendations, written the base CSS, and created a great architecture to build on top of. </p>
+
+<h3>HTML5 is ready!</h3>
+<p>Today’s mobile browsers compared to “yesterday’s” have become exponentially more advanced with modern APIs, and the devices themselves continually increase their performance. The best part is, there’s no sign of either slowing down, it’s only going to get better! There has never been a better time to kick-start a framework centered around native app development with HTML5. </p>
+
+<p>That said, Ionic is built for the devices of today and the future, not for devices built years ago. It’s focused on native app development and not mobile website creation.</p>
+
+<h3>Markup and Presentation</h3>
+<p>We’re confident in our design patterns, but one area we made sure to focus on is giving developers full control. The CSS can stand on its own, but it is also built to be enhanced by the developer. For simplicity you can always just add in your own CSS and override default properties. And for even more power and flexibility, the core is written with <a href="http://sass-lang.com/">SASS</a> and includes easily customized variables and mixins. While the default design is similar to iOS, we feel we’ve left the CSS in a state which can be easily extended to get your own look and feel. </p>
+
+<p>I’d also like to point out that while Ionic’s appearance is very “iOS 7”, it is purposefully not a “pixel-perfect” replication of it. The more CSS it takes to make it an exact match, the more developers have to override to get their own look. We feel its more important to let developers build an app for their brands rather than working so hard to be like everyone else.</p>
+
+<h3>Application Scripting</h3>
+<p>Ionic not only comes with well documented markup and CSS, but also JavaScript design patterns to help you build some serious apps with similar concepts to iOS and Android. We wanted to let developers create the same kind of powerful UI interactions seen in native apps, like side menus and navigation controllers. We wanted to free hybrid apps from the URL bar and move towards more generic and powerful View Controller concepts.</p>
+
+<p>In the beginning stages of Ionic, <a href="http://angularjs.org/">AngularJS</a> continually entered our conversations and we quickly found it fit in great with our goals. If you know AngularJS already you're going to love Ionic, and if you don’t know AngularJS yet then there is no better way to learn it than by building a practical native app. For us AngularJS just made sense, and as you build your first app with Ionic we hope you feel the same way too.</p>
+
+<h3>Conclusion</h3>
+<p>Ionic is that missing piece when creating native apps with web standards. Just drop in some CSS and JavaScript, and you’ll quickly get up to speed developing native applications with HTML5. <em>(And don't forget it includes our open-source font pack, <a href="http://ionicons.com/">Ionicons</a>.)</em></p>
+
+<p>Use our default look and feel or customize it for your brand. And when you are ready to push to the app stores, compile your app with <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://cordova.apache.org/">Cordova</a> (or <a href="https://trigger.io/">Trigger.io</a>), and you have a native-feeling app that will run on the most popular of platforms.</p>
+
+<p>Go forth and build something awesome!</p>
+
+<p>
+  <div>Adam</div>
+  <div><a href="http://twitter.com/adamdbradley">@adamdbradley</a></div>
+</p>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Where does the Ionic Framework fit in?" data-url="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/where-does-the-ionic-framework-fit-in"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

@@ -73632,9 +73632,10 @@
 	        'card-list': _cardsCards.CardsListPage,
 	        'card-image': _cardsCards.CardsImagePage,
 	        'card-background': _cardsCards.CardsBackgroundPage,
+	        'advanced-cards': _cardsCards.CardsAdvancedSocialPage,
 	        'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
 	        'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
-	        'card-advanced-image': _cardsCards.CardsAdvancedImagePage,
+	        'card-advanced-weather': _cardsCards.CardsAdvancedWeatherPage,
 	        'forms': _formsForms.FormsPage,
 	        'fixed-inline-labels': _formsForms.FixedInlinePage,
 	        'floating-labels': _formsForms.FloatingPage,
@@ -74042,16 +74043,16 @@
 	        return _helpers.AndroidAttribute;
 	    })]
 	}), __metadata('design:paramtypes', [])], CardsAdvancedMapPage);
-	var CardsAdvancedImagePage = function CardsAdvancedImagePage() {
-	    _classCallCheck(this, CardsAdvancedImagePage);
+	var CardsAdvancedWeatherPage = function CardsAdvancedWeatherPage() {
+	    _classCallCheck(this, CardsAdvancedWeatherPage);
 	};
-	exports.CardsAdvancedImagePage = CardsAdvancedImagePage;
-	exports.CardsAdvancedImagePage = CardsAdvancedImagePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'cards/cards-advanced-image.html',
+	exports.CardsAdvancedWeatherPage = CardsAdvancedWeatherPage;
+	exports.CardsAdvancedWeatherPage = CardsAdvancedWeatherPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'cards/cards-advanced-weather.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], CardsAdvancedImagePage);
+	}), __metadata('design:paramtypes', [])], CardsAdvancedWeatherPage);
 
 /***/ },
 /* 521 */

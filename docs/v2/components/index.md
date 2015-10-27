@@ -226,9 +226,6 @@ Although buttons can be used on their own, they can easily be used within other 
   <li class="docs-content-item"><a href="#card-list">Card Lists</a></li>
   <li class="docs-content-item"><a href="#card-image">Card Images</a></li>
   <li class="docs-content-item"><a href="#card-background">Background Images</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-social">Advanced Cards: Social</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-map">Advanced Cards: Map</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-image">Advanced Cards: Images</a></li>
 </ul>
 
 <h3 class="no-para">Basic Usage:</h3>
@@ -306,13 +303,26 @@ Images often vary in size, so it is important that they adopt a consistent style
 <h2 id="card-background">Background Images</h2>
 TODO
 
-<h2 id="card-advanced-social">Advanced Cards: Social</h2>
+
+<h2 id="advanced-cards" class="section-header">Advanced Cards</h2>
+
+The styles from different types of cards can be combined to create advanced cards. Cards can also receive custom CSS. Below are a few advanced cards that have been built by combining various card attributes with a small amount of custom CSS.
+
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#card-advanced-social">Social Cards</a></li>
+  <li class="docs-content-item"><a href="#card-advanced-map">Map Cards</a></li>
+  <li class="docs-content-item"><a href="#card-advanced-weather">Weather Cards</a></li>
+</ul>
+
+<h2 id="card-advanced-social">Social Cards</h2>
 TODO
 
-<h2 id="card-advanced-map">Advanced Cards: Map</h2>
+<h2 id="card-advanced-map">Map Cards</h2>
 TODO
 
-<h2 id="card-advanced-images">Advanced Cards: Images</h2>
+<h2 id="card-advanced-weather">Weather Cards</h2>
 TODO
 
 

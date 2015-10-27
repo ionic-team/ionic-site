@@ -227,4 +227,22 @@ body.ios img#ios-only {
   z-index: 9999;
 }
 
+.item-bold {
+  font-weight: bold;
+}
+.item-subtle {
+  color: #656565;
+  margin-left: -3px !important;
+}
+.item-subtle:before {
+  content: '•';
+  padding-right: 5px;
+}
+p.time-ago {
+  color: #bbbbbb !important;
+  margin-left: 4px !important;
+  margin-right: 0px !important;
+
+}
+
 

@@ -102,13 +102,13 @@ exports.CardsAdvancedMapPage = CardsAdvancedMapPage = __decorate([(0, _ionicIoni
         return _helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [])], CardsAdvancedMapPage);
-var CardsAdvancedImagePage = function CardsAdvancedImagePage() {
-    _classCallCheck(this, CardsAdvancedImagePage);
+var CardsAdvancedWeatherPage = function CardsAdvancedWeatherPage() {
+    _classCallCheck(this, CardsAdvancedWeatherPage);
 };
-exports.CardsAdvancedImagePage = CardsAdvancedImagePage;
-exports.CardsAdvancedImagePage = CardsAdvancedImagePage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'cards/cards-advanced-image.html',
+exports.CardsAdvancedWeatherPage = CardsAdvancedWeatherPage;
+exports.CardsAdvancedWeatherPage = CardsAdvancedWeatherPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'cards/cards-advanced-weather.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], CardsAdvancedImagePage);
+}), __metadata('design:paramtypes', [])], CardsAdvancedWeatherPage);

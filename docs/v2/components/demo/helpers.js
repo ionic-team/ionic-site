@@ -121,7 +121,7 @@ function getPageFor(hash) {
         'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
         'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
         'card-advanced-weather': _cardsCards.CardsAdvancedWeatherPage,
-        'forms': _formsForms.FormsPage,
+        'inputs': _formsForms.FormsPage,
         'fixed-inline-labels': _formsForms.FixedInlinePage,
         'floating-labels': _formsForms.FloatingPage,
         'inline-labels': _formsForms.InlinePage,

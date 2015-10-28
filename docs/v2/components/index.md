@@ -329,13 +329,13 @@ TODO
 TODO
 
 
-<h2 id="forms" class="section-header">Forms</h2>
+<h2 id="inputs" class="section-header">Inputs</h2>
 
-Forms are essential for handling user input in a secure way. They should follow styling and interaction guidelines for each platform, so that they are intuitive for users to interact with. Ionic uses Angular 2’s form library, which can be thought of as two dependent pieces, **Controls**, and **Control Groups**.
+Inputs are essential for collecting and handling user input in a secure way. They should follow styling and interaction guidelines for each platform, so that they are intuitive for users to interact with. Ionic uses Angular 2’s form library, which can be thought of as two dependent pieces, **Controls**, and **Control Groups**.
 
 Each input field in a form has a **Control**, a function that binds to the value in the field, and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
 
-A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Forms API docs](../api/forms).
+A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Inputs API docs](../api/inputs).
 
 
 <ul class="docs-content">

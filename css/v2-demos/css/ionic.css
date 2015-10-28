@@ -827,7 +827,8 @@ button[clear],
   .ios .activated.search-bar-cancel,
   .md .popup-buttons button.activated,
   [button][clear].activated {
-    opacity: 0.4; }
+    opacity: 0.4;
+    background: transparent; }
   button[clear]:hover:not(.disable-hover),
   .ios .popup-buttons button:hover:not(.disable-hover),
   .ios .search-bar-cancel:hover:not(.disable-hover),
@@ -5379,6 +5380,12 @@ icon,
 
 .ios {
   /*! Ionic: iOS */ }
+  .ios hr {
+    border-width: 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.12); }
+  .ios.hairlines hr {
+    height: 0.55px; }
   .ios .item-group-title {
     padding: 13px 16px 14px 16px;
     background-color: #f7f7f7;
@@ -6045,12 +6052,11 @@ icon,
   .ios .ion-segment [button] {
     border-width: 1px;
     border-style: solid;
-    -webkit-transition: 100ms all linear;
-    transition: 100ms all linear;
-    min-height: 3.3rem;
-    line-height: 3.3rem;
+    min-height: 3rem;
+    line-height: 3rem;
     background-color: transparent;
-    color: #fff; }
+    color: #fff;
+    font-size: 1.3rem; }
     .ios .ion-segment button[outline],
     .ios .ion-segment [button][outline] {
       border: 1px solid #387ef5;
@@ -6060,12 +6066,19 @@ icon,
       .ios .ion-segment [button][outline].activated {
         opacity: 1;
         color: #fff;
-        background-color: #387ef5; }
+        background-color: #387ef5;
+        -webkit-transition: 100ms all linear;
+        transition: 100ms all linear; }
+      .ios .ion-segment button[outline]:hover:not(.activated),
+      .ios .ion-segment [button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
     .ios .ion-segment button:first-of-type,
     .ios .ion-segment [button]:first-of-type {
-      border-right-width: 0px;
       border-radius: 4px 0px 0px 4px;
       margin-right: 0; }
+    .ios .ion-segment button:not(:first-of-type),
+    .ios .ion-segment [button]:not(:first-of-type) {
+      border-left-width: 0px; }
     .ios .ion-segment button:last-of-type,
     .ios .ion-segment [button]:last-of-type {
       border-left-width: 0px;
@@ -6080,8 +6093,10 @@ icon,
       color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff !important;
-        background-color: #387ef5 !important; }
+        color: #fff;
+        background-color: #387ef5; }
+      .ios ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
   .ios ion-segment[secondary] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6091,8 +6106,10 @@ icon,
       color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff !important;
-        background-color: #32db64 !important; }
+        color: #fff;
+        background-color: #32db64; }
+      .ios ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
   .ios ion-segment[danger] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6102,8 +6119,10 @@ icon,
       color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff !important;
-        background-color: #f53d3d !important; }
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
   .ios ion-segment[light] ion-segment-button[button] {
     background-color: transparent;
     color: #000; }
@@ -6113,8 +6132,10 @@ icon,
       color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #000 !important;
-        background-color: #f4f4f4 !important; }
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
   .ios ion-segment[dark] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6124,8 +6145,10 @@ icon,
       color: #222; }
       .ios ion-segment[dark] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff !important;
-        background-color: #222 !important; }
+        color: #fff;
+        background-color: #222; }
+      .ios ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-switch.item.activated {
     background: #fff; }
   .ios ion-switch media-switch {
@@ -6237,6 +6260,10 @@ icon,
 
 .md {
   /*! Ionic: Material Design */ }
+  .md hr {
+    border-width: 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08); }
   .md .toolbar {
     min-height: 5.6rem; }
     .md .toolbar button,
@@ -6841,6 +6868,8 @@ icon,
     justify-content: flex-end; }
     .md .popup-buttons button {
       min-height: 36px; }
+      .md .popup-buttons button.activated {
+        opacity: 1; }
   .md ion-radio radio-icon {
     position: relative;
     top: 0;
@@ -6947,10 +6976,12 @@ icon,
     border-width: 0;
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear;
-    min-height: 5rem;
-    line-height: 5rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    min-height: 4rem;
+    line-height: 4rem;
     border-radius: 0;
-    border-bottom: 2px solid transparent; }
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); }
     .md .ion-segment button.activated,
     .md .ion-segment [button].activated {
       color: #387ef5;
@@ -6963,8 +6994,8 @@ icon,
       color: #387ef5; }
       .md ion-segment[primary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #387ef5 !important;
-        border-color: #387ef5 !important; }
+        color: #387ef5;
+        border-color: #387ef5; }
   .md ion-segment[secondary] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6972,8 +7003,8 @@ icon,
       color: #32db64; }
       .md ion-segment[secondary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #32db64 !important;
-        border-color: #32db64 !important; }
+        color: #32db64;
+        border-color: #32db64; }
   .md ion-segment[danger] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6981,8 +7012,8 @@ icon,
       color: #f53d3d; }
       .md ion-segment[danger] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #f53d3d !important;
-        border-color: #f53d3d !important; }
+        color: #f53d3d;
+        border-color: #f53d3d; }
   .md ion-segment[light] ion-segment-button[button] {
     background-color: transparent;
     color: #000; }
@@ -6990,8 +7021,8 @@ icon,
       color: #f4f4f4; }
       .md ion-segment[light] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #f4f4f4 !important;
-        border-color: #f4f4f4 !important; }
+        color: #f4f4f4;
+        border-color: #f4f4f4; }
   .md ion-segment[dark] ion-segment-button[button] {
     background-color: transparent;
     color: #fff; }
@@ -6999,8 +7030,8 @@ icon,
       color: #222; }
       .md ion-segment[dark] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #222 !important;
-        border-color: #222 !important; }
+        color: #222;
+        border-color: #222; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
   .md ion-switch switch-icon {

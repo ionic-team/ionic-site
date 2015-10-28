@@ -67546,7 +67546,6 @@
 	    }, {
 	        key: "inputChanged",
 	        value: function inputChanged(event) {
-	            console.log('input changed');
 	            this.writeValue(event.target.value);
 	            this.onChange(event.target.value);
 	        }

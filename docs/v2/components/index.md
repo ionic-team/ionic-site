@@ -326,6 +326,9 @@ TODO
 <h2 id="card-advanced-weather">Weather Cards</h2>
 TODO
 
+<h2 id="checkbox" class="section-header">Checkbox</h2>
+TODO
+
 
 <h2 id="inputs" class="section-header">Inputs</h2>
 
@@ -931,6 +934,16 @@ The **prompt** popup displays a message, and requires to user to input some data
 Popups are quite flexible, and can easily be customized. Check out the [API docs](../api/popup/ionPopup) for more information.
 
 
+<h2 id="radio" class="section-header">Radio</h2>
+TODO
+
+<h2 id="range" class="section-header">Range</h2>
+TODO
+
+
+<h2 id="select" class="section-header">Select</h2>
+TODO
+
 <h2 id="slides" class="section-header">Slides</h2>
 
 Slides make it easy to create galleries, tutorials, and page-based layouts.
@@ -1006,6 +1019,10 @@ Slides take a number of configuration options on the `<ion-slides>` element:
     </tr>
   </tbody>
 </table>
+
+<h2 id="switch" class="section-header">Switch</h2>
+TODO
+
 
 <h2 id="tabs" class="section-header">Tabs</h2>
 _For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/),

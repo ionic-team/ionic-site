@@ -24,6 +24,8 @@ var _formsForms = require('./forms/forms');
 
 var _iconsIcons = require('./icons/icons');
 
+var _inputsInputs = require('./inputs/inputs');
+
 var _listsLists = require('./lists/lists');
 
 var _menusMenus = require('./menus/menus');
@@ -121,6 +123,11 @@ function getPageFor(hash) {
         'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
         'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
         'card-advanced-weather': _cardsCards.CardsAdvancedWeatherPage,
+        'checkbox': _inputsInputs.CheckboxPage,
+        'radio': _inputsInputs.RadioPage,
+        'range': _inputsInputs.RangePage,
+        'select': _inputsInputs.SelectPage,
+        'switch': _inputsInputs.SwitchPage,
         'inputs': _formsForms.FormsPage,
         'fixed-inline-labels': _formsForms.FixedInlinePage,
         'floating-labels': _formsForms.FloatingPage,

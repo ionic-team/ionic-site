@@ -226,9 +226,7 @@ Although buttons can be used on their own, they can easily be used within other 
   <li class="docs-content-item"><a href="#card-list">Card Lists</a></li>
   <li class="docs-content-item"><a href="#card-image">Card Images</a></li>
   <li class="docs-content-item"><a href="#card-background">Background Images</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-social">Social Cards</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-map">Map Cards</a></li>
-  <li class="docs-content-item"><a href="#card-advanced-weather">Weather Cards</a></li>
+  <li class="docs-content-item"><a href="#advanced-cards">Advanced Cards</a></li>
 </ul>
 
 <h3 class="no-para">Basic Usage:</h3>

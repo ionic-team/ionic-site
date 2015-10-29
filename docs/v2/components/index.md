@@ -683,21 +683,6 @@ to make the list flush with the parent container.
 *Coming soon.*
 
 
-### Virtual Scrolling (Experimental)
-
-Virtual Scrolling (previously known as Collection Repeat) makes it possible to scroll through
-massive lists without any slow downs.
-
-To enable it, set the `virtual` property on the list, as well as providing a
-reference to an array of items, and the parent scroll element:
-
-```html
-<ion-content #content>
-  <ion-list inset virtual [items]="items" [content]="content">
-  </ion-list>
-</ion-content>
-```
-
 <h2 id="menus" class="section-header">Menus</h2>
 _For more in depth information on Menus, see the [Menu API reference](../api/components/menu/Menu)._
 

@@ -144,7 +144,7 @@ Adding `block` to a button will make the button take 100% of its parent's width.
 <button block>Block Button</button>
 ```
 
-<h2 id="full-buttons">Full Buttons</h2>
+<h3 class="section-nav" id="full-buttons">Full Buttons</h3>
 Adding `full` to a button will also make the button take 100% of its parent's width. However, it will also remove the button's left and right borders. This style is useful when the button should stretch across the entire width of the display.
 
 ```html
@@ -297,7 +297,7 @@ Images often vary in size, so it is important that they adopt a consistent style
 ```
 
 <h3 class="section-nav" id="card-background">Background Images</h3>
-TODO
+*Coming soon.*
 
 
 <h2 id="advanced-cards" class="section-header">Advanced Cards</h2>
@@ -313,16 +313,16 @@ The styles from different types of cards can be combined to create advanced card
 </ul>
 
 <h3 class="section-nav" id="card-advanced-social">Social Cards</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="card-advanced-map">Map Cards</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="card-advanced-weather">Weather Cards</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="checkbox" class="section-header">Checkbox</h3>
-TODO
+*Coming soon.*
 
 
 <h2 id="inputs" class="section-header">Inputs</h2>
@@ -657,7 +657,7 @@ Lists are used to display rows of information, such as a contact list, playlist,
 ```
 
 <h3 class="section-nav" id="list-dividers">List Dividers</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="inset-list">Inset List</h3>
 
@@ -665,13 +665,13 @@ By default, lists have an outside margin, to remove that add the `inset` propert
 to make the list flush with the parent container.
 
 <h3 class="section-nav" id="list-headers">List Headers</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="icon-list">Icon List</h3>
-TODO
+*Coming soon.*
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
-TODO
+*Coming soon.*
 
 
 ### Virtual Scrolling (Experimental)
@@ -930,14 +930,14 @@ Popups are quite flexible, and can easily be customized. Check out the [API docs
 
 
 <h2 id="radio" class="section-header">Radio</h2>
-TODO
+*Coming soon.*
 
 <h2 id="range" class="section-header">Range</h2>
-TODO
+*Coming soon.*
 
 
 <h2 id="select" class="section-header">Select</h2>
-TODO
+*Coming soon.*
 
 <h2 id="slides" class="section-header">Slides</h2>
 
@@ -1016,7 +1016,7 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 </table>
 
 <h2 id="switch" class="section-header">Switch</h2>
-TODO
+*Coming soon.*
 
 
 <h2 id="tabs" class="section-header">Tabs</h2>

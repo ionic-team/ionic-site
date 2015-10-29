@@ -142,6 +142,8 @@ function getPageFor(hash) {
         'list-dividers': _listsLists.BasicDividersPage,
         'inset-list': _listsLists.BasicInsetListsPage,
         'list-headers': _listsLists.ListHeadersPage,
+        'three-line-list': _listsLists.ThreeLineListsPage,
+        'thumbnail-list': _listsLists.ThumbnailListsPage,
         'menus': _menusMenus.MenusPage,
         'modals': _modalsModals.ModalsPage,
         'navigation': _navigationNavigation.NavigationPage,

@@ -188,6 +188,8 @@
           <li class="nav-item-hidden"><a href="#list-headers"></a></li>
           <li class="nav-item-hidden"><a href="#icon-list"></a></li>
           <li class="nav-item-hidden"><a href="#avatar-list"></a></li>
+          <li class="nav-item-hidden"><a href="#thumbnail-list"></a></li>
+          <li class="nav-item-hidden"><a href="#three-line-list"></a></li>
         </ul>
 
 
@@ -590,8 +592,62 @@
 <h3 class="section-nav" id="card-advanced-weather">Weather Cards</h3>
 <p><em>Coming soon.</em></p>
 
-<h3 class="section-header" id="checkbox">Checkbox</h3>
+<h2 id="checkbox" class="section-header">Checkbox</h2>
 <p><em>Coming soon.</em></p>
+
+<h2 id="icons" class="section-header">Icons</h2>
+
+<p>Ionic comes with the same 700+ <a href="http://ionicons.com/">Ionicons</a> icons we’ve all come to know and love.</p>
+
+<h3 id="basic-usage">Basic Usage:</h3>
+
+<p>To use an icon, just add the Icon’s CSS class to your element:</p>
+
+<pre><code class="language-html">&lt;icon heart&gt;&lt;/icon&gt;
+</code></pre>
+
+<h3 id="active--inactive-icons">Active / Inactive Icons:</h3>
+
+<p>All icons have both <code>active</code> and <code>inactive</code> states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the <code>is-active</code> attribute to <code>true</code> or false to change the state of the icon. Icons will default to active if a value is not specified.</p>
+
+<pre><code class="language-html">&lt;icon heart&gt;&lt;/icon&gt;                    &lt;!-- active --&gt;
+&lt;icon heart is-active="false"&gt;&lt;/icon&gt;  &lt;!-- inactive --&gt;
+</code></pre>
+
+<h3 id="platform-specific-icons">Platform Specific Icons:</h3>
+
+<p>Many icons have both <strong>Material Design</strong> and <strong>iOS</strong> versions. Ionic will automatically use the correct version based on the platform.</p>
+
+<p>However, if you want more control, you can explicitly set the icon to use for each platform. Use the <code>md</code> (material design) and <code>ios</code> attributes to specify a platform specific icon:</p>
+
+<pre><code class="language-html">&lt;icon ios="ion-social-apple" md="ion-social-android"&gt;&lt;/icon&gt;
+</code></pre>
+
+<h3 id="variable-icons">Variable Icons:</h3>
+
+<p>To set an icon using a variable:</p>
+
+<pre><code class="language-html">&lt;icon [name]="myIcon"&gt;&lt;/icon&gt;
+</code></pre>
+
+<pre><code class="language-typescript">export class MyFirstPage {
+  constructor(nav: NavController) {
+    // use the home icon
+    this.myIcon = "home";
+  }
+}
+</code></pre>
+
+<h3 id="as-a-class">As a Class:</h3>
+
+<p>While not recommended, icons can be added using their class name. This was the typical way to add icons in Ionic 1, so you may encounter the following syntax from time to time:</p>
+
+<pre><code class="language-html">&lt;i class="icon ion-home"&gt;&lt;/i&gt;
+</code></pre>
+
+<p><a href="http://ionicons.com">
+  <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
+</a></p>
 
 <h2 id="inputs" class="section-header">Inputs</h2>
 
@@ -816,60 +872,6 @@ class MyApp {
 
 </code></pre>
 
-<h2 id="icons" class="section-header">Icons</h2>
-
-<p>Ionic comes with the same 700+ <a href="http://ionicons.com/">Ionicons</a> icons we’ve all come to know and love.</p>
-
-<h3 id="basic-usage">Basic Usage:</h3>
-
-<p>To use an icon, just add the Icon’s CSS class to your element:</p>
-
-<pre><code class="language-html">&lt;icon heart&gt;&lt;/icon&gt;
-</code></pre>
-
-<h3 id="active--inactive-icons">Active / Inactive Icons:</h3>
-
-<p>All icons have both <code>active</code> and <code>inactive</code> states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the <code>is-active</code> attribute to <code>true</code> or false to change the state of the icon. Icons will default to active if a value is not specified.</p>
-
-<pre><code class="language-html">&lt;icon heart&gt;&lt;/icon&gt;                    &lt;!-- active --&gt;
-&lt;icon heart is-active="false"&gt;&lt;/icon&gt;  &lt;!-- inactive --&gt;
-</code></pre>
-
-<h3 id="platform-specific-icons">Platform Specific Icons:</h3>
-
-<p>Many icons have both <strong>Material Design</strong> and <strong>iOS</strong> versions. Ionic will automatically use the correct version based on the platform.</p>
-
-<p>However, if you want more control, you can explicitly set the icon to use for each platform. Use the <code>md</code> (material design) and <code>ios</code> attributes to specify a platform specific icon:</p>
-
-<pre><code class="language-html">&lt;icon ios="ion-social-apple" md="ion-social-android"&gt;&lt;/icon&gt;
-</code></pre>
-
-<h3 id="variable-icons">Variable Icons:</h3>
-
-<p>To set an icon using a variable:</p>
-
-<pre><code class="language-html">&lt;icon [name]="myIcon"&gt;&lt;/icon&gt;
-</code></pre>
-
-<pre><code class="language-typescript">export class MyFirstPage {
-  constructor(nav: NavController) {
-    // use the home icon
-    this.myIcon = "home";
-  }
-}
-</code></pre>
-
-<h3 id="as-a-class">As a Class:</h3>
-
-<p>While not recommended, icons can be added using their class name. This was the typical way to add icons in Ionic 1, so you may encounter the following syntax from time to time:</p>
-
-<pre><code class="language-html">&lt;i class="icon ion-home"&gt;&lt;/i&gt;
-</code></pre>
-
-<p><a href="http://ionicons.com">
-  <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
-</a></p>
-
 <h2 id="lists">Lists</h2>
 
 <p>Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don’t even know exists yet!</p>
@@ -882,6 +884,8 @@ class MyApp {
   <li class="docs-content-item"><a href="#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="#avatar-list">Avatar List</a></li>
+  <li class="docs-content-item"><a href="#thumbnail-list">Thumbnail List</a></li>
+  <li class="docs-content-item"><a href="#three-line-list">Three-line List Items</a></li>
 </ul>
 
 <h3 class="no-para">Basic Usage:</h3>
@@ -908,6 +912,12 @@ to make the list flush with the parent container.</p>
 <p><em>Coming soon.</em></p>
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
+<p><em>Coming soon.</em></p>
+
+<h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
+<p><em>Coming soon.</em></p>
+
+<h3 class="section-nav" id="three-line-list">Three-line List Items</h3>
 <p><em>Coming soon.</em></p>
 
 <h3 id="virtual-scrolling-experimental">Virtual Scrolling (Experimental)</h3>

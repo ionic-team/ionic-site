@@ -321,8 +321,76 @@ The styles from different types of cards can be combined to create advanced card
 <h3 class="section-nav" id="card-advanced-weather">Weather Cards</h3>
 *Coming soon.*
 
-<h3 class="section-nav" id="checkbox" class="section-header">Checkbox</h3>
+<h2 id="checkbox" class="section-header">Checkbox</h2>
 *Coming soon.*
+
+<h2 id="icons" class="section-header">Icons</h2>
+
+Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
+
+
+### Basic Usage:
+
+To use an icon, just add the Icon's CSS class to your element:
+
+```html
+<icon heart></icon>
+```
+
+
+### Active / Inactive Icons:
+
+All icons have both `active` and `inactive` states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the `is-active` attribute to `true` or false to change the state of the icon. Icons will default to active if a value is not specified.
+
+```html
+<icon heart></icon>                    <!-- active -->
+<icon heart is-active="false"></icon>  <!-- inactive -->
+```
+
+
+### Platform Specific Icons:
+
+Many icons have both **Material Design** and **iOS** versions. Ionic will automatically use the correct version based on the platform.
+
+However, if you want more control, you can explicitly set the icon to use for each platform. Use the `md` (material design) and `ios` attributes to specify a platform specific icon:
+
+```html
+<icon ios="ion-social-apple" md="ion-social-android"></icon>
+```
+
+
+
+### Variable Icons:
+
+To set an icon using a variable:
+
+```html
+<icon [name]="myIcon"></icon>
+```
+
+```typescript
+export class MyFirstPage {
+  constructor(nav: NavController) {
+    // use the home icon
+    this.myIcon = "home";
+  }
+}
+```
+
+
+### As a Class:
+
+While not recommended, icons can be added using their class name. This was the typical way to add icons in Ionic 1, so you may encounter the following syntax from time to time:
+
+```html
+<i class="icon ion-home"></i>
+```
+
+
+
+<a href="http://ionicons.com">
+  <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
+</a>
 
 
 <h2 id="inputs" class="section-header">Inputs</h2>
@@ -562,74 +630,6 @@ class MyApp {
 
 ```
 
-<h2 id="icons" class="section-header">Icons</h2>
-
-Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all come to know and love.
-
-
-### Basic Usage:
-
-To use an icon, just add the Icon's CSS class to your element:
-
-```html
-<icon heart></icon>
-```
-
-
-### Active / Inactive Icons:
-
-All icons have both `active` and `inactive` states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the `is-active` attribute to `true` or false to change the state of the icon. Icons will default to active if a value is not specified.
-
-```html
-<icon heart></icon>                    <!-- active -->
-<icon heart is-active="false"></icon>  <!-- inactive -->
-```
-
-
-### Platform Specific Icons:
-
-Many icons have both **Material Design** and **iOS** versions. Ionic will automatically use the correct version based on the platform.
-
-However, if you want more control, you can explicitly set the icon to use for each platform. Use the `md` (material design) and `ios` attributes to specify a platform specific icon:
-
-```html
-<icon ios="ion-social-apple" md="ion-social-android"></icon>
-```
-
-
-
-### Variable Icons:
-
-To set an icon using a variable:
-
-```html
-<icon [name]="myIcon"></icon>
-```
-
-```typescript
-export class MyFirstPage {
-  constructor(nav: NavController) {
-    // use the home icon
-    this.myIcon = "home";
-  }
-}
-```
-
-
-### As a Class:
-
-While not recommended, icons can be added using their class name. This was the typical way to add icons in Ionic 1, so you may encounter the following syntax from time to time:
-
-```html
-<i class="icon ion-home"></i>
-```
-
-
-
-<a href="http://ionicons.com">
-  <button class="btn btn-primary ion-forward icon-right">Explore the full icon set</button>
-</a>
-
 
 <h2 id="lists">Lists</h2>
 
@@ -643,6 +643,8 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#three-line-list">Three-line List Items</a></li>
 </ul>
 
 
@@ -671,6 +673,13 @@ to make the list flush with the parent container.
 *Coming soon.*
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
+*Coming soon.*
+
+<h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
+*Coming soon.*
+
+
+<h3 class="section-nav" id="three-line-list">Three-line List Items</h3>
 *Coming soon.*
 
 

@@ -7,6 +7,47 @@ header_title: Getting Started - Migration
 header_sub_title: Ionic 2 Developer Preview
 ---
 
+
+# Whats New in Ionic 2
+Ionic 2 is built on top of Angular 2, which is complete rewrite of the original framework. All the parts of Angualr you know are still there, but there are new syntax and structural changes that developers need to be aware of. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
+
+For Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2 they have been merged into on instance.
+
+Take this V1 on example.
+
+
+V1
+
+```
+.config(function($statProvider){
+  $statProvider
+  .state('main', {
+    url: '/',
+    templateUrl: 'templates/main.html',
+    controller: 'MainCtrl'
+  })
+})
+
+.controller('MainCtrl', function(){
+
+})
+```
+
+We can rewrite this in V2 like so.
+
+```
+@Page({
+  templateUrl:'main/main.html'
+})
+export class MainCmp {
+  constructor(){
+
+  }
+}
+```
+
+Other changes, such as our navigation chagnes, are much more different, but all for the best. Now we can treat components as arbitrary views, and navigate to them how every we want. This makes navigation much more flexible and allows for much more native-styled navigation stacks.
+
 # Migrating from Angular 1
 
 <a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/migration/index.md'>Improve this doc</a>

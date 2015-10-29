@@ -112,9 +112,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     // send the initial hash if possible
     if (platform === 'ios') {
       $iosIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');
-      return;   
+      return;
     }
-    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');      
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');
   }
 
 
@@ -123,11 +123,10 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);
-  var $body = $('body');
 
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {
-    if ($('body').scrollTop() > 78) {
+    if ($window.scrollTop() > 78) {
       $platformPreview.addClass('fixey')
     } else {
       $platformPreview.removeClass('fixey')

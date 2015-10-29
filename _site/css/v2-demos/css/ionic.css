@@ -900,7 +900,7 @@ button[clear][dark],
 button[outline],
 [button][outline] {
   border: 1px solid #387ef5;
-  background: #fff;
+  background: transparent;
   color: #387ef5; }
   button[outline].activated,
   [button][outline].activated {
@@ -911,7 +911,7 @@ button[outline],
 button[secondary][outline],
 [button][secondary][outline] {
   border-color: #24cf57;
-  background: #fff;
+  background: transparent;
   color: #24cf57; }
   button[secondary][outline].activated,
   [button][secondary][outline].activated {
@@ -921,7 +921,7 @@ button[secondary][outline],
 button[danger][outline],
 [button][danger][outline] {
   border-color: #f42525;
-  background: #fff;
+  background: transparent;
   color: #f42525; }
   button[danger][outline].activated,
   [button][danger][outline].activated {
@@ -931,7 +931,7 @@ button[danger][outline],
 button[light][outline],
 [button][light][outline] {
   border-color: #dbdbdb;
-  background: #fff;
+  background: transparent;
   color: #dbdbdb; }
   button[light][outline].activated,
   [button][light][outline].activated {
@@ -941,7 +941,7 @@ button[light][outline],
 button[dark][outline],
 [button][dark][outline] {
   border-color: #3c3c3c;
-  background: #fff;
+  background: transparent;
   color: #3c3c3c; }
   button[dark][outline].activated,
   [button][dark][outline].activated {
@@ -5386,6 +5386,8 @@ icon,
     background-color: rgba(0, 0, 0, 0.12); }
   .ios.hairlines hr {
     height: 0.55px; }
+  .ios button[block] {
+    display: block; }
   .ios .item-group-title {
     padding: 13px 16px 14px 16px;
     background-color: #f7f7f7;
@@ -5694,8 +5696,7 @@ icon,
     .ios ion-card .item {
       padding-right: 8px;
       padding-left: 8px;
-      font-size: 1.6rem;
-      border-radius: inherit; }
+      font-size: 1.6rem; }
     .ios ion-card ion-item-content {
       padding: 13px 8px 14px 8px; }
     .ios ion-card ion-card-content {
@@ -5710,14 +5711,16 @@ icon,
     .ios ion-card ion-card-header + ion-card-content,
     .ios ion-card .item + ion-card-content {
       padding-top: 0; }
-    .ios ion-card [actions] ion-item-content {
-      padding: 0; }
-    .ios ion-card [actions] button,
-    .ios ion-card [actions] [button] {
-      margin: 10px 8px 10px 8px;
-      padding: 2px 6px;
-      min-height: 26px;
-      font-size: 1.3rem; }
+    .ios ion-card [actions] {
+      border-radius: inherit; }
+      .ios ion-card [actions] ion-item-content {
+        padding: 0; }
+      .ios ion-card [actions] button,
+      .ios ion-card [actions] [button] {
+        margin: 10px 8px 10px 8px;
+        padding: 2px 6px;
+        min-height: 26px;
+        font-size: 1.3rem; }
     .ios ion-card [item-left],
     .ios ion-card [item-right] {
       margin: 10px 8px 10px 8px; }

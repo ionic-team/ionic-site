@@ -57427,6 +57427,7 @@
 	                    this._gesture = new gestures.LeftMenuGesture(this);
 	                    break;
 	            }
+	            this._targetGesture = new gestures.TargetGesture(this);
 	        }
 	    }, {
 	        key: "_initType",
@@ -57593,6 +57594,7 @@
 	        value: function onDestroy() {
 	            this.app.unregister(this.id);
 	            this._gesture && this._gesture.destroy();
+	            this._targetGesture && this._targetGesture.destroy();
 	            this._type && this._type.onDestroy();
 	            this._cntEle = null;
 	        }
@@ -57774,7 +57776,9 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -57782,20 +57786,30 @@
 
 	var _ionicGesturesSlideEdgeGesture = __webpack_require__(440);
 
+	var _ionicUtil = __webpack_require__(428);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
 	var MenuContentGesture = (function (_SlideEdgeGesture) {
 	    _inherits(MenuContentGesture, _SlideEdgeGesture);
 
-	    function MenuContentGesture(menu) {
+	    function MenuContentGesture(menu, targetEl) {
+	        var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
 	        _classCallCheck(this, MenuContentGesture);
 
-	        _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, menu.getContentElement(), {
+	        _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, targetEl, util.extend({
 	            direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
 	            edge: menu.side,
 	            threshold: 75
-	        });
+	        }, options));
 	        this.menu = menu;
 	        this.listen();
 	    }
+
+	    /**
+	     * Support dragging the target menu as well as the content.
+	     */
 
 	    _createClass(MenuContentGesture, [{
 	        key: 'canStart',
@@ -57838,13 +57852,29 @@
 	    return MenuContentGesture;
 	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
 
-	var LeftMenuGesture = (function (_MenuContentGesture) {
-	    _inherits(LeftMenuGesture, _MenuContentGesture);
+	var TargetGesture = (function (_MenuContentGesture) {
+	    _inherits(TargetGesture, _MenuContentGesture);
+
+	    function TargetGesture(menu) {
+	        _classCallCheck(this, TargetGesture);
+
+	        _get(Object.getPrototypeOf(TargetGesture.prototype), 'constructor', this).call(this, menu, menu.getNativeElement(), {
+	            threshold: 0
+	        });
+	    }
+
+	    return TargetGesture;
+	})(MenuContentGesture);
+
+	exports.TargetGesture = TargetGesture;
+
+	var LeftMenuGesture = (function (_MenuContentGesture2) {
+	    _inherits(LeftMenuGesture, _MenuContentGesture2);
 
 	    function LeftMenuGesture(menu) {
 	        _classCallCheck(this, LeftMenuGesture);
 
-	        _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu);
+	        _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
 	    }
 
 	    return LeftMenuGesture;
@@ -57852,13 +57882,13 @@
 
 	exports.LeftMenuGesture = LeftMenuGesture;
 
-	var RightMenuGesture = (function (_MenuContentGesture2) {
-	    _inherits(RightMenuGesture, _MenuContentGesture2);
+	var RightMenuGesture = (function (_MenuContentGesture3) {
+	    _inherits(RightMenuGesture, _MenuContentGesture3);
 
 	    function RightMenuGesture(menu) {
 	        _classCallCheck(this, RightMenuGesture);
 
-	        _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu);
+	        _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
 	    }
 
 	    _createClass(RightMenuGesture, [{
@@ -68831,7 +68861,8 @@
 	            return new Promise(function (resolve, reject) {
 	                opts.promiseResolve = resolve;
 	                opts.promiseReject = reject;
-	                return _this.ctrl.open(OVERLAY_TYPE, PopupCmp, util.extend(_this._defaults, opts));
+	                var defaults = util.merge({}, _this._defaults);
+	                return _this.ctrl.open(OVERLAY_TYPE, PopupCmp, util.extend(defaults, opts));
 	            });
 	        }
 
@@ -71112,6 +71143,68 @@
 	    return Camera;
 	})();
 	exports.Camera = Camera;
+	/**
+	 * @enum {number}
+	 */
+	Camera.DestinationType = {
+	    /** Return base64 encoded string */
+	    DATA_URL: 0,
+	    /** Return file uri (content://media/external/images/media/2 for Android) */
+	    FILE_URI: 1,
+	    /** Return native uri (eg. asset-library://... for iOS) */
+	    NATIVE_URI: 2
+	};
+	/**
+	 * @enum {number}
+	 */
+	Camera.EncodingType = {
+	    /** Return JPEG encoded image */
+	    JPEG: 0,
+	    /** Return PNG encoded image */
+	    PNG: 1
+	};
+	/**
+	 * @enum {number}
+	 */
+	Camera.MediaType = {
+	    /** Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType */
+	    PICTURE: 0,
+	    /** Allow selection of video only, ONLY RETURNS URL */
+	    VIDEO: 1,
+	    /** Allow selection from all media types */
+	    ALLMEDIA: 2
+	};
+	/**
+	 * @enum {number}
+	 */
+	Camera.PictureSourceType = {
+	    /** Choose image from picture library (same as SAVEDPHOTOALBUM for Android) */
+	    PHOTOLIBRARY: 0,
+	    /** Take picture from camera */
+	    CAMERA: 1,
+	    /** Choose image from picture library (same as PHOTOLIBRARY for Android) */
+	    SAVEDPHOTOALBUM: 2
+	};
+	/**
+	 * Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
+	 * @enum {number}
+	 */
+	Camera.PopoverArrowDirection = {
+	    ARROW_UP: 1,
+	    ARROW_DOWN: 2,
+	    ARROW_LEFT: 4,
+	    ARROW_RIGHT: 8,
+	    ARROW_ANY: 15
+	};
+	/**
+	 * @enum {number}
+	 */
+	Camera.Direction = {
+	    /** Use the back-facing camera */
+	    BACK: 0,
+	    /** Use the front-facing camera */
+	    FRONT: 1
+	};
 	exports.Camera = Camera = __decorate([(0, _plugin.NativePlugin)({
 	    name: 'Camera',
 	    platforms: ['ios', 'android'],

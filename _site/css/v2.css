@@ -4907,7 +4907,8 @@ a.improve-docs {
     padding: 2em 0 0em;
     font-size: 22px; }
   .docs-container main h2.section-header {
-    margin-top: 4.5em; }
+    border-top: 1px solid #F0F3F7;
+    margin-top: 5.6em; }
   .docs-container main h3 {
     margin: 2em 0 0em;
     font-size: 18px; }

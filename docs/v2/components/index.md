@@ -100,7 +100,7 @@ The `primary` property sets the color of the button. Ionic includes a number of 
 <button dark>Dark</button>
 ```
 
-<h2 id="outline-buttons">Outline Style</h2>
+<h3 class="section-nav" id="outline-buttons">Outline Style</h3>
 
 To use the outline style for a button, just add the `outline` property:
 
@@ -112,7 +112,7 @@ To use the outline style for a button, just add the `outline` property:
 <button dark outline>Dark Outline</button>
 ```
 
-<h2 id="clear-buttons">Clear Style</h2>
+<h3 class="section-nav" id="clear-buttons">Clear Style</h3>
 
 To use the clear style for a button, just add the `clear` property:
 
@@ -124,7 +124,7 @@ To use the clear style for a button, just add the `clear` property:
 <button dark clear>Dark Clear</button>
 ```
 
-<h2 id="round-buttons">Round Buttons</h2>
+<h3 class="section-nav" id="round-buttons">Round Buttons</h3>
 
 To create a button with rounded corners, just add the `round` property:
 
@@ -136,7 +136,7 @@ To create a button with rounded corners, just add the `round` property:
 <button dark round>Dark Round</button>
 ```
 
-<h2 id="block-buttons">Block Buttons</h2>
+<h3 class="section-nav" id="block-buttons">Block Buttons</h3>
 
 Adding `block` to a button will make the button take 100% of its parent's width. It will also add `display: block` to the button:
 
@@ -151,7 +151,7 @@ Adding `full` to a button will also make the button take 100% of its parent's wi
 <button full>Full Button</button>
 ```
 
-<h2 id="button-sizes">Button Sizes</h2>
+<h3 class="section-nav" id="button-sizes">Button Sizes</h3>
 
 Add the `large` attribute to make a button larger, or `small` to make it smaller:
 
@@ -161,7 +161,7 @@ Add the `large` attribute to make a button larger, or `small` to make it smaller
 <button large>Large<button>
 ```
 
-<h2 id="icon-buttons">Icon Buttons</h2>
+<h3 class="section-nav" id="icon-buttons">Icon Buttons</h3>
 
 To add icons to a button, add an icon component inside of it:
 
@@ -184,7 +184,7 @@ To add icons to a button, add an icon component inside of it:
 </button>
 ```
 
-<h2 id="floating-action-buttons">Floating Action Buttons</h2>
+<h3 class="section-nav" id="floating-action-buttons">Floating Action Buttons</h3>
 
 Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
 
@@ -192,7 +192,7 @@ Adding `fab` to a button will turn it into a floating action button. This is a m
 <button fab>FAB</button>
 ```
 
-<h2 id="buttons-in-components">Buttons In Components</h2>
+<h3 class="section-nav" id="buttons-in-components">Buttons In Components</h3>
 
 Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item:
 
@@ -202,11 +202,6 @@ Although buttons can be used on their own, they can easily be used within other 
   </ion-item>
 </ion-list>
 ```
-
-
-
-
-
 
 
 <h2 id="cards" class="section-header">Cards</h2>
@@ -247,7 +242,7 @@ Cards are primarily a CSS component. To use add a basic card, follow this struct
 </ion-card>
 ```
 
-<h2 id="card-header">Card Headers</h2>
+<h3 class="section-nav" id="card-header">Card Headers</h3>
 Just like a normal page, cards can be customized to include headers. To add use add a card header, add the `<ion-card-header>` component inside of your card:
 
 ```html
@@ -263,7 +258,7 @@ Just like a normal page, cards can be customized to include headers. To add use 
 
 
 
-<h2 id="card-list">Lists In Cards</h2>
+<h3 class="section-nav" id="card-list">Lists In Cards</h3>
 A card can contain a list of items. To create a card list, add elements with the `ion-item` attribute inside of your card:
 
 ```html
@@ -283,7 +278,7 @@ A card can contain a list of items. To create a card list, add elements with the
 ```
 
 
-<h2 id="card-image">Images In Cards</h2>
+<h3 class="section-nav" id="card-image">Images In Cards</h3>
 Images often vary in size, so it is important that they adopt a consistent style throughout your app. Images can easily be added to cards. Adding an image to a card will give the image a constant width, and a variable height. Lists, headers, and other card components can easily be combined with image cards. To add an image to a card, use the following markup:
 
 ```html
@@ -301,7 +296,7 @@ Images often vary in size, so it is important that they adopt a consistent style
 </ion-card>
 ```
 
-<h2 id="card-background">Background Images</h2>
+<h3 class="section-nav" id="card-background">Background Images</h3>
 TODO
 
 
@@ -317,16 +312,16 @@ The styles from different types of cards can be combined to create advanced card
   <li class="docs-content-item"><a href="#card-advanced-weather">Weather Cards</a></li>
 </ul>
 
-<h2 id="card-advanced-social">Social Cards</h2>
+<h3 class="section-nav" id="card-advanced-social">Social Cards</h3>
 TODO
 
-<h2 id="card-advanced-map">Map Cards</h2>
+<h3 class="section-nav" id="card-advanced-map">Map Cards</h3>
 TODO
 
-<h2 id="card-advanced-weather">Weather Cards</h2>
+<h3 class="section-nav" id="card-advanced-weather">Weather Cards</h3>
 TODO
 
-<h2 id="checkbox" class="section-header">Checkbox</h2>
+<h3 class="section-nav" id="checkbox" class="section-header">Checkbox</h3>
 TODO
 
 
@@ -349,7 +344,7 @@ A number of attributes that can be used to style forms and their various input f
   <li class="docs-content-item"><a href="{{components_link}}#stacked-labels">Stacked Labels</a></li>
 </ul>
 
-<h2 id="fixed-inline-labels">Fixed Labels</h2>
+<h3 class="section-nav" id="fixed-inline-labels">Fixed Labels</h3>
 
 Use `fixed-label` to place a label to the left of the input element. When the user enters text, the label does not hide. The user's input will align on the same position, regardless of the length of the label. Note that there's nothing stopping you from also using a placeholder label too.
 
@@ -370,7 +365,7 @@ Use `fixed-label` to place a label to the left of the input element. When the us
 ```
 
 
-<h2 id="floating-labels">Floating Labels</h2>
+<h3 class="section-nav" id="floating-labels">Floating Labels</h3>
 
 Floating labels are just like [Stacked Labels](#forms-stacked-labels), except that their labels animate, or "float" up when text is entered in the input. Each `<ion-input>` should have the `floating-label` attribute assigned.
 
@@ -393,7 +388,7 @@ Enter text in the example to the right to see the floating labels in action.
 </ion-list>
 ```
 
-<h2 id="inline-labels" class="section-header">Inline Labels</h2>
+<h3 class="section-nav" id="inline-labels" class="section-header">Inline Labels</h3>
 
 If a label attribute is not provided, an `<ion-input>` component will default to using an inline label. When the user enters text, the label does not hide. Note that there's nothing stopping you from also using a placeholder as well.
 
@@ -416,7 +411,7 @@ If a label attribute is not provided, an `<ion-input>` component will default to
   <button primary block>Sign In</button>
 </div>
 ```
-<h2 id="inset-labels" class="section-header">Inset Labels</h2>
+<h3 class="section-nav" id="inset-labels" class="section-header">Inset Labels</h3>
 
 By default each input item will fill 100% of the width of its parent element (the list). However, you can inset the list by adding the `inset` attribute.
 
@@ -436,7 +431,7 @@ By default each input item will fill 100% of the width of its parent element (th
 </ion-list>
 ```
 
-<h2 id="placeholder-labels" class="section-header">Placeholder Labels</h2>
+<h3 class="section-nav" id="placeholder-labels" class="section-header">Placeholder Labels</h3>
 
 Add the `placeholder` attribute to an `<input>` element to simulate the input's label. When the user begins to enter text into the input, the placeholder label will be hidden.
 
@@ -455,7 +450,7 @@ Add the `placeholder` attribute to an `<input>` element to simulate the input's 
 
 ```
 
-<h2 id="stacked-labels" class="section-header">Stacked Labels</h2>
+<h3 class="section-nav" id="stacked-labels" class="section-header">Stacked Labels</h3>
 
 A stacked label will always appear on top of the input. Each `<ion-input>` should have the `stacked-label` attribute.
 You can also add a placeholder so that users have a hint of what type of text the input is looking for.
@@ -661,21 +656,21 @@ Lists are used to display rows of information, such as a contact list, playlist,
 </ion-list>
 ```
 
-<h2 id="list-dividers">List Dividers</h2>
+<h3 class="section-nav" id="list-dividers">List Dividers</h3>
 TODO
 
-<h2 id="inset-list">Inset List</h2>
+<h3 class="section-nav" id="inset-list">Inset List</h3>
 
 By default, lists have an outside margin, to remove that add the `inset` property
 to make the list flush with the parent container.
 
-<h2 id="list-headers">List Headers</h2>
+<h3 class="section-nav" id="list-headers">List Headers</h3>
 TODO
 
-<h2 id="icon-list">Icon List</h2>
+<h3 class="section-nav" id="icon-list">Icon List</h3>
 TODO
 
-<h2 id="avatar-list">Avatar List</h2>
+<h3 class="section-nav" id="avatar-list">Avatar List</h3>
 TODO
 
 

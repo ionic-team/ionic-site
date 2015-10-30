@@ -6367,30 +6367,9 @@ icon,
     .md button :hover:not(.disable-hover),
     .md [button] :hover:not(.disable-hover) {
       background-color: rgba(158, 158, 158, 0.1); }
-    .md button.activated,
-    .md [button].activated {
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21); }
     .md button[full],
     .md [button][full] {
       border-radius: 0; }
-    .md button[clear],
-    .ios .popup-buttons .md button, .md .ios .search-bar-cancel,
-    .ios .md .search-bar-cancel, .md .popup-buttons button, .md [button][clear] {
-      opacity: 1;
-      box-shadow: none; }
-      .md button[clear].activated,
-      .ios .popup-buttons .md button.activated, .md .ios .activated.search-bar-cancel,
-      .ios .md .activated.search-bar-cancel, .md .popup-buttons button.activated, .md [button][clear].activated {
-        background-color: rgba(158, 158, 158, 0.2); }
-    .md button[outline],
-    .md [button][outline] {
-      box-shadow: none; }
-      .md button[outline].activated,
-      .md [button][outline].activated {
-        opacity: 1; }
-      .md button[outline] md-ripple,
-      .md [button][outline] md-ripple {
-        background: rgba(56, 126, 245, 0.1); }
     .md button[round],
     .md [button][round] {
       border-radius: 64px;
@@ -6405,13 +6384,37 @@ icon,
       padding: 0 0.9em;
       min-height: 2.1em;
       font-size: 1.3rem; }
+    .md button.activated,
+    .md [button].activated {
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21); }
     .md button[fab],
     .md [button][fab] {
       border-radius: 50%;
-      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1) !important; }
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1); }
+      .md button[fab].activated,
+      .md [button][fab].activated {
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
     .md button.icon-only,
     .md [button].icon-only {
       padding: 0; }
+    .md button[outline],
+    .md [button][outline] {
+      box-shadow: none; }
+      .md button[outline].activated,
+      .md [button][outline].activated {
+        opacity: 1; }
+      .md button[outline] md-ripple,
+      .md [button][outline] md-ripple {
+        background: rgba(56, 126, 245, 0.1); }
+    .md button[clear],
+    .ios .popup-buttons .md button, .md .ios .search-bar-cancel,
+    .ios .md .search-bar-cancel, .md .popup-buttons button, .md [button][clear] {
+      opacity: 1;
+      box-shadow: none; }
+      .md button[clear].activated,
+      .ios .popup-buttons .md button.activated, .md .ios .activated.search-bar-cancel,
+      .ios .md .activated.search-bar-cancel, .md .popup-buttons button.activated, .md [button][clear].activated {
+        background-color: rgba(158, 158, 158, 0.2); }
   .md button[secondary].activated,
   .md [button][secondary].activated {
     opacity: 1; }
@@ -7162,25 +7165,25 @@ icon,
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url(../fonts/roboto-light.ttf) format("truetype"), url(../fonts/roboto-light.woff) format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url(../fonts/roboto-regular.ttf) format("truetype"), url(../fonts/roboto-regular.woff) format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url(../fonts/roboto-medium.ttf) format("truetype"), url(../fonts/roboto-medium.woff) format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url(../fonts/roboto-bold.ttf) format("truetype"), url(../fonts/roboto-bold.woff) format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .md {
   font-family: "Roboto", "Helvetica Neue", sans-serif; }

@@ -5687,6 +5687,10 @@ icon,
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     overflow: hidden; }
+    .ios ion-card .list {
+      margin-bottom: 0; }
+      .ios ion-card .list ion-item-content {
+        padding: 0; }
     .ios ion-card .item {
       padding-right: 8px;
       padding-left: 8px;
@@ -5813,6 +5817,13 @@ icon,
         border-top: none; }
   .ios .list[inset] + .list[inset] {
     margin-top: 0; }
+  .ios.hairlines .list[no-borders] ion-header:after,
+  .ios.hairlines .list[no-borders] .item:before,
+  .ios.hairlines .list[no-borders] .item:after,
+  .ios .list[no-borders] ion-header:after,
+  .ios .list[no-borders] .item:before,
+  .ios .list[no-borders] .item:after {
+    border-width: 0; }
   .ios .list [text-input],
   .ios ion-card [text-input] {
     margin: 13px 8px 14px 8px;
@@ -6669,6 +6680,10 @@ icon,
     border-top: none; }
   .md .list[inset] + .list[inset] {
     margin-top: 0; }
+  .md .list[no-borders] ion-header:after,
+  .md .list[no-borders] .item:before,
+  .md .list[no-borders] .item:after {
+    border-width: 0; }
   .md ion-card {
     margin: 10px 10px 10px 10px;
     font-size: 1.4rem;
@@ -6676,6 +6691,10 @@ icon,
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     border-radius: 2px;
     overflow: hidden; }
+    .md ion-card .list {
+      margin-bottom: 0; }
+      .md ion-card .list ion-item-content {
+        padding: 0; }
     .md ion-card .item {
       padding-right: 8px;
       padding-left: 8px;

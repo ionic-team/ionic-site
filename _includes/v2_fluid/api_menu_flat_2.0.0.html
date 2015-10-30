@@ -1,4 +1,7 @@
 
+<li class="{% if page.id == '{{ | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api"></a>
+</li>
 <li class="{% if page.id == '{{ActionSheet | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/action-sheet/ActionSheet">ActionSheet</a>
 </li>
@@ -17,20 +20,32 @@
 <li class="{% if page.id == '{{Battery | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/battery/Battery">Battery</a>
 </li>
+<li class="{% if page.id == '{{Blur | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/blur/Blur">Blur</a>
+</li>
 <li class="{% if page.id == '{{Button | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/button/Button">Button</a>
 </li>
 <li class="{% if page.id == '{{Camera | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/camera/Camera">Camera</a>
 </li>
-<li class="{% if page.id == '{{Card | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/card/Card">Card</a>
+<li class="{% if page.id == '{{Checkbox | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/checkbox/Checkbox">Checkbox</a>
 </li>
 <li class="{% if page.id == '{{ClickBlock | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/util/ClickBlock">ClickBlock</a>
 </li>
+<li class="{% if page.id == '{{Config | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/config/Config">Config</a>
+</li>
+<li class="{% if page.id == '{{ConfigComponent | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/config/ConfigComponent">ConfigComponent</a>
+</li>
 <li class="{% if page.id == '{{Contacts | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/contacts/Contacts">Contacts</a>
+</li>
+<li class="{% if page.id == '{{Content | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/content/Content">Content</a>
 </li>
 <li class="{% if page.id == '{{Device | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/device/Device">Device</a>
@@ -53,77 +68,26 @@
 <li class="{% if page.id == '{{HideWhen | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/show-hide-when/HideWhen">HideWhen</a>
 </li>
-<li class="{% if page.id == '{{Http | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/net/Http">Http</a>
-</li>
 <li class="{% if page.id == '{{Icon | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/icon/Icon">Icon</a>
 </li>
 <li class="{% if page.id == '{{IdRef | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/app/IdRef">IdRef</a>
 </li>
-<li class="{% if page.id == '{{ionCheckbox | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/checkbox/ionCheckbox">ionCheckbox</a>
-</li>
-<li class="{% if page.id == '{{ionContent | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/content/ionContent">ionContent</a>
-</li>
 <li class="{% if page.id == '{{IonicApp | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/app/IonicApp">IonicApp</a>
 </li>
-<li class="{% if page.id == '{{ionicBootstrap | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/app/ionicBootstrap">ionicBootstrap</a>
-</li>
-<li class="{% if page.id == '{{IonicComponent | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/config/IonicComponent">IonicComponent</a>
-</li>
-<li class="{% if page.id == '{{IonicConfig | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/config/IonicConfig">IonicConfig</a>
-</li>
-<li class="{% if page.id == '{{IonicDirective | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/config/IonicDirective">IonicDirective</a>
-</li>
-<li class="{% if page.id == '{{IonicPlatform | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/platform/IonicPlatform">IonicPlatform</a>
-</li>
-<li class="{% if page.id == '{{IonicView | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/config/IonicView">IonicView</a>
-</li>
-<li class="{% if page.id == '{{IONIC_DIRECTIVES | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/config/IONIC_DIRECTIVES">IONIC_DIRECTIVES</a>
-</li>
-<li class="{% if page.id == '{{ionInput | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/form/ionInput">ionInput</a>
+<li class="{% if page.id == '{{ionicProviders | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/config/ionicProviders">ionicProviders</a>
 </li>
 <li class="{% if page.id == '{{ionItem | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/item/ionItem">ionItem</a>
 </li>
-<li class="{% if page.id == '{{ionList | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/list/ionList">ionList</a>
-</li>
-<li class="{% if page.id == '{{ionModal | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/modal/ionModal">ionModal</a>
-</li>
-<li class="{% if page.id == '{{ionPopup | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/popup/ionPopup">ionPopup</a>
-</li>
 <li class="{% if page.id == '{{ionRadio | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/radio/ionRadio">ionRadio</a>
 </li>
-<li class="{% if page.id == '{{ionRadioGroup | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/radio/ionRadioGroup">ionRadioGroup</a>
-</li>
-<li class="{% if page.id == '{{ionRefresher | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/scroll/ionRefresher">ionRefresher</a>
-</li>
-<li class="{% if page.id == '{{ionSwitch | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/switch/ionSwitch">ionSwitch</a>
-</li>
-<li class="{% if page.id == '{{ionTab | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/tabs/ionTab">ionTab</a>
-</li>
-<li class="{% if page.id == '{{ionTabs | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/tabs/ionTabs">ionTabs</a>
+<li class="{% if page.id == '{{Item | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/item/Item">Item</a>
 </li>
 <li class="{% if page.id == '{{ItemGroup | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/item/ItemGroup">ItemGroup</a>
@@ -136,6 +100,9 @@
 </li>
 <li class="{% if page.id == '{{Label | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/text-input/Label">Label</a>
+</li>
+<li class="{% if page.id == '{{List | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/list/List">List</a>
 </li>
 <li class="{% if page.id == '{{ListHeader | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/list/ListHeader">ListHeader</a>
@@ -154,6 +121,9 @@
 </li>
 <li class="{% if page.id == '{{MenuType | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/menu/MenuType">MenuType</a>
+</li>
+<li class="{% if page.id == '{{Modal | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/modal/Modal">Modal</a>
 </li>
 <li class="{% if page.id == '{{NativePlugin | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/NativePlugin">NativePlugin</a>
@@ -185,11 +155,29 @@
 <li class="{% if page.id == '{{NavRouter | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/nav/NavRouter">NavRouter</a>
 </li>
+<li class="{% if page.id == '{{OverlayAnchor | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/overlay/OverlayAnchor">OverlayAnchor</a>
+</li>
+<li class="{% if page.id == '{{Page | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/config/Page">Page</a>
+</li>
+<li class="{% if page.id == '{{Platform | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/platform/Platform">Platform</a>
+</li>
+<li class="{% if page.id == '{{Popup | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/popup/Popup">Popup</a>
+</li>
+<li class="{% if page.id == '{{RadioGroup | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/radio/RadioGroup">RadioGroup</a>
+</li>
+<li class="{% if page.id == '{{Refresher | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/scroll/Refresher">Refresher</a>
+</li>
 <li class="{% if page.id == '{{Scroll | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/scroll/Scroll">Scroll</a>
 </li>
-<li class="{% if page.id == '{{SearchBar | slugify}}' %}active{% endif %}">
-  <a href="/docs/v2/api/components/search-bar/SearchBar">SearchBar</a>
+<li class="{% if page.id == '{{Search Bar | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/search-bar/Search Bar">Search Bar</a>
 </li>
 <li class="{% if page.id == '{{Segment | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/segment/Segment">Segment</a>
@@ -223,6 +211,15 @@
 </li>
 <li class="{% if page.id == '{{StorageEngine | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/platform/storage/StorageEngine">StorageEngine</a>
+</li>
+<li class="{% if page.id == '{{Switch | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/switch/Switch">Switch</a>
+</li>
+<li class="{% if page.id == '{{Tab | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/tabs/Tab">Tab</a>
+</li>
+<li class="{% if page.id == '{{Tabs | slugify}}' %}active{% endif %}">
+  <a href="/docs/v2/api/components/tabs/Tabs">Tabs</a>
 </li>
 <li class="{% if page.id == '{{TextInput | slugify}}' %}active{% endif %}">
   <a href="/docs/v2/api/components/text-input/TextInput">TextInput</a>

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/contacts/contacts.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/contacts/contacts.ts#L0'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/contacts/contacts.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/contacts/contacts.ts#L0'>
     Improve this doc
   </a>
 </div>
@@ -44,7 +44,6 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 <h1 class="class export">Contacts <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/contacts/contacts.ts#L4-L140">ionic/platform/contacts/contacts.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/contacts/contacts.ts#L1-L137">ionic/platform/contacts/contacts.ts (line 1)</a>
 </p>
-## Members
 

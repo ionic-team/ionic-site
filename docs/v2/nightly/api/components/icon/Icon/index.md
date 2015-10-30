@@ -37,13 +37,18 @@ docType: "class"
 
 
 
-<p>TODO</p>
 
 
 <h1 class="class export">Icon <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/icon/icon.ts#L3-L108">ionic/components/icon/icon.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/icon/icon.ts#L3-L97">ionic/components/icon/icon.ts (line 3)</a>
 </p>
+<h2>Directive</h2>
+  <span>selector: icon</span>
+
+  <span>inputs: name, ios, md, isActive</span>
+
+
 ## Members
 
 <div id="elementRef"></div>
@@ -86,7 +91,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 </h2>
 
-TODO
 
 
 

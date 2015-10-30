@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/device/device.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/device/device.ts#L0'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/device/device.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/device/device.ts#L0'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,6 @@ docType: "class"
 
 <h1 class="class export">Device <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/device/device.ts#L4-L132">ionic/platform/device/device.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/device/device.ts#L1-L129">ionic/platform/device/device.ts (line 1)</a>
 </p>
-## Members
 

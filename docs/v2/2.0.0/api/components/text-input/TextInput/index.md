@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L66'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L8'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L66'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L8'>
     Improve this doc
   </a>
 </div>
@@ -42,9 +42,47 @@ docType: "class"
 
 <h1 class="class export">TextInput <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L67-L441">ionic/components/text-input/text-input.ts (line 67)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L9-L339">ionic/components/text-input/text-input.ts (line 9)</a>
 </p>
+<h2>Component</h2>
+  <span>selector: ion-input</span>
+
+
 ## Members
+
+<div id="registerInput"></div>
+<h2>
+  <code>registerInput()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerLabel"></div>
+<h2>
+  <code>registerLabel()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="onInit"></div>
 <h2>
@@ -52,7 +90,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 </h2>
 
-TODO
 
 
 
@@ -66,43 +103,12 @@ TODO
 
 <div id="pointerStart"></div>
 <h2>
-  <code>pointerStart(ev)</code>
+  <code>pointerStart()</code>
 
 </h2>
 
-TODO
 
 
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        ev
-        
-        
-      </td>
-      <td>
-        
-  <code>Event</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -114,43 +120,12 @@ TODO
 
 <div id="pointerEnd"></div>
 <h2>
-  <code>pointerEnd(ev)</code>
+  <code>pointerEnd()</code>
 
 </h2>
 
-TODO
 
 
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        ev
-        
-        
-      </td>
-      <td>
-        
-  <code>Event</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -166,26 +141,40 @@ TODO
 
 </h2>
 
-TODO
 
 
 
 
 
 
-* Returns: 
-  <code>TODO</code> TODO
 
 
 
 
-<div id="deregListeners"></div>
+
+<div id="focusChange"></div>
 <h2>
-  <code>deregListeners()</code>
+  <code>focusChange()</code>
 
 </h2>
 
-TODO
+
+
+
+
+
+
+
+
+
+
+
+<div id="hasValue"></div>
+<h2>
+  <code>hasValue()</code>
+
+</h2>
+
 
 
 
@@ -203,7 +192,23 @@ TODO
 
 </h2>
 
-TODO
+
+
+
+
+
+
+
+
+
+
+
+<div id="deregListeners"></div>
+<h2>
+  <code>deregListeners()</code>
+
+</h2>
+
 
 
 
@@ -221,7 +226,6 @@ TODO
 
 </h2>
 
-TODO
 
 
 
@@ -233,9 +237,9 @@ TODO
 
 
 
-<div id="inputHasFocus"></div>
+<div id="hasFocus"></div>
 <h2>
-  <code>inputHasFocus()</code>
+  <code>hasFocus()</code>
 
 </h2>
 
@@ -250,79 +254,14 @@ TODO
 
 
 
-<div id="inputHasValue"></div>
+<div id="onDestroy"></div>
 <h2>
-  <code>inputHasValue()</code>
+  <code>onDestroy()</code>
 
 </h2>
 
 
 
-
-
-
-
-
-
-
-
-
-<div id="activeTabIndex"></div>
-<h2>
-  <code>activeTabIndex()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="receivedFocus"></div>
-<h2>
-  <code>receivedFocus(receivedFocus)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        receivedFocus
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

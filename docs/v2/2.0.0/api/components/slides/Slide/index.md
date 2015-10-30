@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L444'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L442'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L444'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L442'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,12 @@ docType: "class"
 
 <h1 class="class export">Slide <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L445-L472">ionic/components/slides/slides.ts (line 445)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L443-L468">ionic/components/slides/slides.ts (line 443)</a>
 </p>
-## Members
+<h2>Component</h2>
+  <span>selector: ion-slide</span>
+
+  <span>inputs: zoom</span>
+
+
 

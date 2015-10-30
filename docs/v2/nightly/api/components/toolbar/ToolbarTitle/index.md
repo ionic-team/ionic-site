@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L82'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L78'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L82'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L78'>
     Improve this doc
   </a>
 </div>
@@ -41,8 +41,12 @@ docType: "class"
 
 <h1 class="class export">ToolbarTitle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L83-L109">ionic/components/toolbar/toolbar.ts (line 83)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L79-L103">ionic/components/toolbar/toolbar.ts (line 79)</a>
 </p>
+<h2>Component</h2>
+  <span>selector: ion-title</span>
+
+
 ## Members
 
 <div id="getTitleText"></div>

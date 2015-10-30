@@ -49,7 +49,7 @@
 	__webpack_require__(18);
 	__webpack_require__(41);
 	__webpack_require__(250);
-	module.exports = __webpack_require__(515);
+	module.exports = __webpack_require__(516);
 
 
 /***/ },
@@ -38001,7 +38001,7 @@
 
 	_defaults(exports, _interopExportWildcard(_configDecorators, _defaults));
 
-	var _components = __webpack_require__(489);
+	var _components = __webpack_require__(490);
 
 	_defaults(exports, _interopExportWildcard(_components, _defaults));
 
@@ -38009,15 +38009,15 @@
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
-	var _platformRegistry = __webpack_require__(491);
+	var _platformRegistry = __webpack_require__(492);
 
 	_defaults(exports, _interopExportWildcard(_platformRegistry, _defaults));
 
-	var _platformPlugins = __webpack_require__(492);
+	var _platformPlugins = __webpack_require__(493);
 
 	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
 
-	var _platformStorage = __webpack_require__(507);
+	var _platformStorage = __webpack_require__(508);
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
@@ -38033,7 +38033,7 @@
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
-	var _animationsBuiltins = __webpack_require__(511);
+	var _animationsBuiltins = __webpack_require__(512);
 
 	_defaults(exports, _interopExportWildcard(_animationsBuiltins, _defaults));
 
@@ -38041,11 +38041,11 @@
 
 	_defaults(exports, _interopExportWildcard(_transitionsTransition, _defaults));
 
-	var _transitionsIosTransition = __webpack_require__(512);
+	var _transitionsIosTransition = __webpack_require__(513);
 
 	_defaults(exports, _interopExportWildcard(_transitionsIosTransition, _defaults));
 
-	var _transitionsMdTransition = __webpack_require__(513);
+	var _transitionsMdTransition = __webpack_require__(514);
 
 	_defaults(exports, _interopExportWildcard(_transitionsMdTransition, _defaults));
 
@@ -38055,7 +38055,7 @@
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
-	var _translationTranslate_pipe = __webpack_require__(514);
+	var _translationTranslate_pipe = __webpack_require__(515);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate_pipe, _defaults));
 
@@ -38122,13 +38122,13 @@
 	    platform.load();
 	    config.setPlatform(platform);
 	    var events = new _utilEvents.Events();
-	    var tapClick = new _componentsTapClickTapClick.TapClick(app, config, window, document);
+	    (0, _componentsTapClickTapClick.initTapClick)(window, document, app, config);
 	    var featureDetect = new _utilFeatureDetect.FeatureDetect();
 	    setupDom(window, document, config, platform, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
-	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_componentsTapClickTapClick.TapClick, { useValue: tapClick }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _componentsNavNavRegistry.NavRegistry, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
+	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _componentsNavNavRegistry.NavRegistry, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
 	}
 
 	function setupDom(window, document, config, platform, featureDetect) {
@@ -57835,7 +57835,7 @@
 	exports.FeatureDetect = FeatureDetect;
 
 	var featureDetects = {};
-	FeatureDetect.add('positionsticky', function (window, document) {
+	FeatureDetect.add('sticky', function (window, document) {
 	    // css position sticky
 	    var ele = document.createElement('div');
 	    ele.style.cssText = 'position:-webkit-sticky;position:sticky';
@@ -57865,21 +57865,12 @@
 /* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _appApp = __webpack_require__(420);
-
-	var _configConfig = __webpack_require__(422);
+	exports.initTapClick = initTapClick;
 
 	var _utilDom = __webpack_require__(425);
 
@@ -57887,256 +57878,164 @@
 
 	var _ripple = __webpack_require__(442);
 
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
+	var startCoord = null;
+	var pointerTolerance = 4;
+	var lastTouch = 0;
+	var lastActivated = 0;
+	var disableNativeClickTime = 0;
+	var disableNativeClickLimit = 1000;
+	var activator = null;
+	var isEnabled = false;
+	var app = null;
+	var config = null;
+	var win = null;
+	var doc = null;
+
+	function initTapClick(windowInstance, documentInstance, appInstance, configInstance) {
+	    win = windowInstance;
+	    doc = documentInstance;
+	    app = appInstance;
+	    config = configInstance;
+	    activator = config.get('mdRipple') ? new _ripple.RippleActivator(app, config) : new _activator.Activator(app, config);
+	    isEnabled = config.get('tapPolyfill') !== false;
+	    addListener('click', click, true);
+	    addListener('touchstart', touchStart);
+	    addListener('touchend', touchEnd);
+	    addListener('touchcancel', touchCancel);
+	    addListener('mousedown', mouseDown, true);
+	    addListener('mouseup', mouseUp, true);
+	}
+
+	function touchStart(ev) {
+	    touchAction();
+	    pointerStart(ev);
+	}
+	function touchEnd(ev) {
+	    touchAction();
+	    if (isEnabled && startCoord && app.isEnabled()) {
+	        var endCoord = (0, _utilDom.pointerCoord)(ev);
+	        if (!(0, _utilDom.hasPointerMoved)(pointerTolerance, startCoord, endCoord)) {
+	            console.debug('create click from touch');
+	            setDisableNativeClick();
+	            ;
+	            var clickEvent = doc.createEvent('MouseEvents');
+	            clickEvent.initMouseEvent('click', true, true, win, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+	            clickEvent.isIonicTap = true;
+	            ev.target.dispatchEvent(clickEvent);
+	        }
 	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var TapClick = (function () {
-	    function TapClick(app, config) {
-	        _classCallCheck(this, TapClick);
-
-	        var self = this;
-	        self.app = app;
-	        self.pointerTolerance = 4;
-	        self.lastTouch = 0;
-	        self.lastActivated = 0;
-	        self.disableClick = 0;
-	        self.disableClickLimit = 1000;
-	        if (config.get('mdRipple')) {
-	            self.activator = new _ripple.RippleActivator(app, config);
-	        } else {
-	            self.activator = new _activator.Activator(app, config);
-	        }
-	        self.enable(config.get('tapPolyfill') !== false);
-	        function bindDom(type, listener, useCapture) {
-	            document.addEventListener(type, listener, useCapture);
-	        }
-	        bindDom('click', function (ev) {
-	            self.click(ev);
-	        }, true);
-	        bindDom('touchstart', function (ev) {
-	            self.lastTouch = Date.now();
-	            self.pointerStart(ev);
-	        });
-	        bindDom('touchend', function (ev) {
-	            self.lastTouch = Date.now();
-	            self.touchEnd(ev);
-	        });
-	        bindDom('touchcancel', function (ev) {
-	            self.lastTouch = Date.now();
-	            self.pointerCancel(ev);
-	        });
-	        bindDom('mousedown', function (ev) {
-	            self.mouseDown(ev);
-	        }, true);
-	        bindDom('mouseup', function (ev) {
-	            self.mouseUp(ev);
-	        }, true);
-	        self.pointerMove = function (ev) {
-	            var moveCoord = (0, _utilDom.pointerCoord)(ev);
-	            if ((0, _utilDom.hasPointerMoved)(10, self.start, moveCoord)) {
-	                self.pointerCancel(ev);
-	            }
-	        };
-	        self.moveListeners = function (shouldAdd) {
-	            document.removeEventListener('touchmove', self.pointerMove);
-	            document.removeEventListener('mousemove', self.pointerMove);
-	            if (shouldAdd) {
-	                bindDom('touchmove', self.pointerMove);
-	                bindDom('mousemove', self.pointerMove);
-	            }
-	        };
+	    pointerEnd(ev);
+	}
+	function touchCancel(ev) {
+	    touchAction();
+	    pointerCancel(ev);
+	}
+	function mouseDown(ev) {
+	    if (isDisabledNativeClick()) {
+	        console.debug('mouseDown prevent');
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	    } else if (lastTouch + disableNativeClickLimit < Date.now()) {
+	        pointerStart(ev);
 	    }
-
-	    _createClass(TapClick, [{
-	        key: "enable",
-	        value: function enable(shouldEnable) {
-	            this._enabled = shouldEnable;
+	}
+	function mouseUp(ev) {
+	    if (isDisabledNativeClick()) {
+	        console.debug('mouseUp prevent');
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	    }
+	    if (lastTouch + disableNativeClickLimit < Date.now()) {
+	        pointerEnd(ev);
+	    }
+	}
+	function pointerStart(ev) {
+	    var activatableEle = getActivatableTarget(ev.target);
+	    if (activatableEle) {
+	        startCoord = (0, _utilDom.pointerCoord)(ev);
+	        var now = Date.now();
+	        if (lastActivated + 100 < now) {
+	            activator.downAction(ev, activatableEle, startCoord.x, startCoord.y);
+	            lastActivated = now;
 	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} ev  TODO
-	         */
-	    }, {
-	        key: "touchEnd",
-	        value: function touchEnd(ev) {
-	            var self = this;
-	            if (self._enabled && self.start && self.app.isEnabled()) {
-	                var endCoord = (0, _utilDom.pointerCoord)(ev);
-	                if (!(0, _utilDom.hasPointerMoved)(self.pointerTolerance, self.start, endCoord)) {
-	                    console.debug('create click');
-	                    self.disableClick = Date.now();
-	                    var clickEvent = document.createEvent('MouseEvents');
-	                    clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
-	                    clickEvent.isIonicTap = true;
-	                    ev.target.dispatchEvent(clickEvent);
-	                }
-	            }
-	            self.pointerEnd(ev);
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} ev  TODO
-	         */
-	    }, {
-	        key: "mouseDown",
-	        value: function mouseDown(ev) {
-	            if (this.isDisabledClick()) {
-	                console.debug('mouseDown prevent');
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	            } else if (this.lastTouch + 999 < Date.now()) {
-	                this.pointerStart(ev);
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} ev  TODO
-	         */
-	    }, {
-	        key: "mouseUp",
-	        value: function mouseUp(ev) {
-	            if (this.isDisabledClick()) {
-	                console.debug('mouseUp prevent');
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	            }
-	            if (this.lastTouch + 999 < Date.now()) {
-	                this.pointerEnd(ev);
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} ev  TODO
-	         */
-	    }, {
-	        key: "pointerStart",
-	        value: function pointerStart(ev) {
-	            var activatableEle = this.getActivatableTarget(ev.target);
-	            if (activatableEle) {
-	                this.start = (0, _utilDom.pointerCoord)(ev);
-	                var now = Date.now();
-	                if (this.lastActivated + 100 < now) {
-	                    this.activator.downAction(ev, activatableEle, this.start.x, this.start.y);
-	                    this.lastActivated = now;
-	                }
-	                this.moveListeners(true);
-	            } else {
-	                this.start = null;
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         */
-	    }, {
-	        key: "pointerEnd",
-	        value: function pointerEnd(ev) {
-	            this.activator.upAction();
-	            this.moveListeners(false);
-	        }
-
-	        /**
-	         * TODO
-	         */
-	    }, {
-	        key: "pointerCancel",
-	        value: function pointerCancel(ev) {
-	            console.debug('pointerCancel');
-	            this.activator.clearState();
-	            this.moveListeners(false);
-	            this.disableClick = Date.now();
-	        }
-	    }, {
-	        key: "isDisabledClick",
-	        value: function isDisabledClick() {
-	            return this.disableClick + this.disableClickLimit > Date.now();
-	        }
-
-	        /**
-	         * Whether the supplied click event should be allowed or not.
-	         * @param {MouseEvent} ev  The click event.
-	         * @return {boolean} True if click event should be allowed, otherwise false.
-	         */
-	    }, {
-	        key: "allowClick",
-	        value: function allowClick(ev) {
-	            if (!this.app.isEnabled()) {
-	                return false;
-	            }
-	            if (!ev.isIonicTap) {
-	                if (this.isDisabledClick()) {
-	                    return false;
-	                }
-	            }
+	        moveListeners(true);
+	    } else {
+	        startCoord = null;
+	    }
+	}
+	function pointerEnd(ev) {
+	    activator.upAction();
+	    moveListeners(false);
+	}
+	function pointerMove(ev) {
+	    var moveCoord = (0, _utilDom.pointerCoord)(ev);
+	    if ((0, _utilDom.hasPointerMoved)(10, startCoord, moveCoord)) {
+	        pointerCancel(ev);
+	    }
+	}
+	function pointerCancel(ev) {
+	    console.debug('pointerCancel from', ev.type);
+	    activator.clearState();
+	    moveListeners(false);
+	    setDisableNativeClick();
+	}
+	function moveListeners(shouldAdd) {
+	    removeListener('touchmove', pointerMove);
+	    removeListener('mousemove', pointerMove);
+	    if (shouldAdd) {
+	        addListener('touchmove', pointerMove);
+	        addListener('mousemove', pointerMove);
+	    }
+	}
+	function setDisableNativeClick() {
+	    disableNativeClickTime = Date.now() + disableNativeClickLimit;
+	}
+	function isDisabledNativeClick() {
+	    return disableNativeClickTime > Date.now();
+	}
+	function click(ev) {
+	    var preventReason = null;
+	    if (!app.isEnabled()) {
+	        preventReason = 'appDisabled';
+	    } else if (!ev.isIonicTap && isDisabledNativeClick()) {
+	        preventReason = 'nativeClick';
+	    }
+	    if (preventReason !== null) {
+	        console.debug('click prevent', preventReason);
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	    }
+	}
+	function getActivatableTarget(ele) {
+	    var targetEle = ele;
+	    for (var x = 0; x < 4; x++) {
+	        if (!targetEle) break;
+	        if (isActivatable(targetEle)) return targetEle;
+	        targetEle = targetEle.parentElement;
+	    }
+	    return null;
+	}
+	function isActivatable(ele) {
+	    if (/^(A|BUTTON)$/.test(ele.tagName)) {
+	        return true;
+	    }
+	    var attributes = ele.attributes;
+	    for (var i = 0, l = attributes.length; i < l; i++) {
+	        if (/click|tappable/.test(attributes[i].name)) {
 	            return true;
 	        }
-
-	        /**
-	         * TODO
-	         * @param {MouseEvent} ev  TODO
-	         */
-	    }, {
-	        key: "click",
-	        value: function click(ev) {
-	            if (!this.allowClick(ev)) {
-	                console.debug('click prevent');
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	            }
-	        }
-	    }, {
-	        key: "getActivatableTarget",
-	        value: function getActivatableTarget(ele) {
-	            var targetEle = ele;
-	            for (var x = 0; x < 4; x++) {
-	                if (!targetEle) break;
-	                if (this.isActivatable(targetEle)) return targetEle;
-	                targetEle = targetEle.parentElement;
-	            }
-	            return null;
-	        }
-	    }, {
-	        key: "isActivatable",
-	        value: function isActivatable(ele) {
-	            if (/^(A|BUTTON)$/.test(ele.tagName)) {
-	                return true;
-	            }
-	            var attributes = ele.attributes;
-	            for (var i = 0, l = attributes.length; i < l; i++) {
-	                if (/click|tappable/.test(attributes[i].name)) {
-	                    return true;
-	                }
-	            }
-	            return false;
-	        }
-	    }]);
-
-	    return TapClick;
-	})();
-	exports.TapClick = TapClick;
-	exports.TapClick = TapClick = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object])], TapClick);
-	var _a, _b;
+	    }
+	    return false;
+	}
+	function touchAction() {
+	    lastTouch = Date.now();
+	}
+	function addListener(type, listener, useCapture) {
+	    doc.addEventListener(type, listener, useCapture);
+	}
+	function removeListener(type, listener) {
+	    doc.removeEventListener(type, listener);
+	}
 
 /***/ },
 /* 441 */
@@ -58161,7 +58060,7 @@
 	        this.app = app;
 	        this.queue = [];
 	        this.active = [];
-	        this.clearStateTimeout = 180;
+	        this.clearStateTimeout = 80;
 	        this.clearAttempt = 0;
 	        this.activatedClass = config.get('activatedClass') || 'activated';
 	        this.x = 0;
@@ -58618,53 +58517,53 @@
 
 	var _componentsContentContent = __webpack_require__(464);
 
-	var _componentsScrollScroll = __webpack_require__(466);
+	var _componentsScrollScroll = __webpack_require__(467);
 
-	var _componentsScrollPullToRefresh = __webpack_require__(467);
+	var _componentsScrollPullToRefresh = __webpack_require__(468);
 
-	var _componentsSlidesSlides = __webpack_require__(468);
+	var _componentsSlidesSlides = __webpack_require__(469);
 
-	var _componentsTabsTabs = __webpack_require__(470);
+	var _componentsTabsTabs = __webpack_require__(471);
 
-	var _componentsTabsTab = __webpack_require__(471);
+	var _componentsTabsTab = __webpack_require__(472);
 
-	var _componentsListList = __webpack_require__(472);
+	var _componentsListList = __webpack_require__(473);
 
-	var _componentsItemItem = __webpack_require__(474);
+	var _componentsItemItem = __webpack_require__(475);
 
-	var _componentsItemItemGroup = __webpack_require__(475);
+	var _componentsItemItemGroup = __webpack_require__(476);
 
-	var _componentsItemItemSliding = __webpack_require__(476);
+	var _componentsItemItemSliding = __webpack_require__(477);
 
 	var _componentsToolbarToolbar = __webpack_require__(461);
 
 	var _componentsIconIcon = __webpack_require__(432);
 
-	var _componentsCheckboxCheckbox = __webpack_require__(477);
+	var _componentsCheckboxCheckbox = __webpack_require__(478);
 
-	var _componentsSwitchSwitch = __webpack_require__(478);
+	var _componentsSwitchSwitch = __webpack_require__(479);
 
-	var _componentsTextInputTextInput = __webpack_require__(479);
+	var _componentsTextInputTextInput = __webpack_require__(480);
 
-	var _componentsTextInputLabel = __webpack_require__(480);
+	var _componentsTextInputLabel = __webpack_require__(481);
 
-	var _componentsSegmentSegment = __webpack_require__(481);
+	var _componentsSegmentSegment = __webpack_require__(482);
 
-	var _componentsRadioRadio = __webpack_require__(482);
+	var _componentsRadioRadio = __webpack_require__(483);
 
-	var _componentsSearchBarSearchBar = __webpack_require__(483);
+	var _componentsSearchBarSearchBar = __webpack_require__(484);
 
-	var _componentsNavNav = __webpack_require__(484);
+	var _componentsNavNav = __webpack_require__(485);
 
-	var _componentsNavNavPush = __webpack_require__(485);
+	var _componentsNavNavPush = __webpack_require__(486);
 
-	var _componentsNavNavRouter = __webpack_require__(486);
+	var _componentsNavNavRouter = __webpack_require__(487);
 
 	var _componentsNavBarNavBar = __webpack_require__(460);
 
-	var _componentsAppId = __webpack_require__(487);
+	var _componentsAppId = __webpack_require__(488);
 
-	var _componentsShowHideWhenShowHideWhen = __webpack_require__(488);
+	var _componentsShowHideWhenShowHideWhen = __webpack_require__(489);
 
 	/**
 	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
@@ -62273,6 +62172,14 @@
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getNativeElement().querySelector('.toolbar-background');
 	        }
+	    }, {
+	        key: 'hideBackButton',
+	        value: function hideBackButton(shouldHide) {
+	            var navbar = this.getNavbar();
+	            if (navbar) {
+	                navbar.hideBackButton = !!shouldHide;
+	            }
+	        }
 
 	        /**
 	         * The view has loaded. This event only happens once per view being
@@ -63701,6 +63608,14 @@
 	    }
 
 	    _createClass(Navbar, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            var hideBackButton = this.hideBackButton;
+	            if (typeof hideBackButton === 'string') {
+	                this.hideBackButton = hideBackButton === '' || hideBackButton === 'true';
+	            }
+	        }
+	    }, {
 	        key: "getBackButtonRef",
 	        value: function getBackButtonRef() {
 	            return this.bbRef;
@@ -63737,10 +63652,11 @@
 	exports.Navbar = Navbar;
 	exports.Navbar = Navbar = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-navbar',
-	    template: '<div class="toolbar-inner">' + '<button class="back-button">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
+	    template: '<div class="toolbar-inner">' + '<button class="back-button" [hidden]="hideBackButton">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
 	    host: {
 	        '[hidden]': '_hidden'
 	    },
+	    inputs: ['hideBackButton'],
 	    directives: [BackButton, BackButtonText, _iconIcon.Icon]
 	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_d = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _d || Object, typeof (_e = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], Navbar);
 	/*
@@ -64095,6 +64011,10 @@
 
 	var _animationsScrollTo = __webpack_require__(465);
 
+	var _utilFeatureDetect = __webpack_require__(439);
+
+	var _stickyPoly = __webpack_require__(466);
+
 	/**
 	 * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
 	 *
@@ -64143,10 +64063,12 @@
 	     * @param {Config} config  The config object to change content's default settings.
 	     */
 
-	    function Content(elementRef, config, keyboard, viewCtrl) {
+	    function Content(elementRef, config, keyboard, viewCtrl, featureDetect, _zone) {
 	        _classCallCheck(this, Content);
 
 	        _get(Object.getPrototypeOf(Content.prototype), "constructor", this).call(this, elementRef, config);
+	        this.featureDetect = featureDetect;
+	        this._zone = _zone;
 	        this.scrollPadding = 0;
 	        this.keyboard = keyboard;
 	        if (viewCtrl) {
@@ -64155,16 +64077,30 @@
 	        }
 	    }
 
-	    /**
-	     * TODO
-	     * @private
-	     */
-
 	    _createClass(Content, [{
+	        key: "getStickyPolyfill",
+	        value: function getStickyPolyfill() {
+	            return this._sticky;
+	        }
+
+	        /**
+	         * TODO
+	         * @private
+	         */
+	    }, {
 	        key: "onInit",
 	        value: function onInit() {
+	            var _this = this;
+
 	            _get(Object.getPrototypeOf(Content.prototype), "onInit", this).call(this);
 	            this.scrollElement = this.getNativeElement().children[0];
+	            if (!this.featureDetect.has('sticky')) {
+	                this._zone.runOutsideAngular(function () {
+	                    setTimeout(function () {
+	                        _this._sticky = (0, _stickyPoly.StickyPoly)(_this.scrollElement);
+	                    });
+	                });
+	            }
 	        }
 
 	        /**
@@ -64175,7 +64111,7 @@
 	    }, {
 	        key: "addScrollEventListener",
 	        value: function addScrollEventListener(handler) {
-	            var _this = this;
+	            var _this2 = this;
 
 	            if (!this.scrollElement) {
 	                return;
@@ -64184,7 +64120,7 @@
 	            this.scrollElement.removeEventListener('scroll', handler);
 	            this.scrollElement.addEventListener('scroll', handler);
 	            return function () {
-	                _this.scrollElement.removeEventListener('scroll', handler);
+	                _this2.scrollElement.removeEventListener('scroll', handler);
 	            };
 	        }
 
@@ -64196,7 +64132,7 @@
 	    }, {
 	        key: "addTouchMoveListener",
 	        value: function addTouchMoveListener(handler) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            if (!this.scrollElement) {
 	                return;
@@ -64205,7 +64141,7 @@
 	            this.scrollElement.removeEventListener('touchmove', handler);
 	            this.scrollElement.addEventListener('touchmove', handler);
 	            return function () {
-	                _this2.scrollElement.removeEventListener('touchmove', handler);
+	                _this3.scrollElement.removeEventListener('touchmove', handler);
 	            };
 	        }
 
@@ -64282,7 +64218,7 @@
 	    }, {
 	        key: "addScrollPadding",
 	        value: function addScrollPadding(newScrollPadding) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            if (newScrollPadding > this.scrollPadding) {
 	                console.debug('addScrollPadding', newScrollPadding);
@@ -64292,13 +64228,13 @@
 	                    console.debug('add scroll keyboard close callback', newScrollPadding);
 	                    this.keyboardPromise = this.keyboard.onClose(function () {
 	                        console.debug('scroll keyboard closed', newScrollPadding);
-	                        if (_this3) {
-	                            if (_this3.scrollPadding && _this3.scrollElement) {
-	                                var _close = new _animationsAnimation.Animation(_this3.scrollElement);
-	                                _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
+	                        if (_this4) {
+	                            if (_this4.scrollPadding && _this4.scrollElement) {
+	                                var _close = new _animationsAnimation.Animation(_this4.scrollElement);
+	                                _close.duration(150).fromTo('paddingBottom', _this4.scrollPadding + 'px', '0px').play();
 	                            }
-	                            _this3.scrollPadding = 0;
-	                            _this3.keyboardPromise = null;
+	                            _this4.scrollPadding = 0;
+	                            _this4.keyboardPromise = null;
 	                        }
 	                    });
 	                }
@@ -64312,8 +64248,8 @@
 	exports.Content = Content = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-content',
 	    template: '<scroll-content>' + '<ng-content></ng-content>' + '</scroll-content>'
-	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Content);
-	var _a, _b, _c, _d;
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object, typeof (_e = typeof _utilFeatureDetect.FeatureDetect !== 'undefined' && _utilFeatureDetect.FeatureDetect) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _f || Object])], Content);
+	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
 /* 465 */
@@ -64428,6 +64364,408 @@
 
 /***/ },
 /* 466 */
+/***/ function(module, exports) {
+
+	/*!
+	 * Stickyfill -- `position: sticky` polyfill
+	 * v. 1.1.3 | https://github.com/wilddeer/stickyfill
+	 * Copyright Oleg Korsunsky | http://wd.dizaina.net/
+	 *
+	 * MIT License
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	exports.StickyPoly = StickyPoly;
+
+	function StickyPoly(target) {
+	    var watchArray = [],
+	        scroll,
+	        initialized = false,
+	        html = document.documentElement,
+	        noop = function noop() {},
+	        checkTimer,
+
+	    //visibility API strings
+	    hiddenPropertyName = 'hidden',
+	        visibilityChangeEventName = 'visibilitychange';
+	    //fallback to prefixed names in old webkit browsers
+	    if (document.webkitHidden !== undefined) {
+	        hiddenPropertyName = 'webkitHidden';
+	        visibilityChangeEventName = 'webkitvisibilitychange';
+	    }
+	    //test getComputedStyle
+	    if (!window.getComputedStyle) {
+	        seppuku();
+	    }
+	    //test for native support
+	    var prefixes = ['', '-webkit-', '-moz-', '-ms-'],
+	        block = document.createElement('div');
+	    for (var i = prefixes.length - 1; i >= 0; i--) {
+	        try {
+	            block.style.position = prefixes[i] + 'sticky';
+	        } catch (e) {}
+	        if (block.style.position != '') {
+	            seppuku();
+	        }
+	    }
+	    updateScrollPos();
+	    //commit seppuku!
+	    function seppuku() {
+	        init = add = rebuild = pause = stop = kill = noop;
+	    }
+	    function mergeObjects(targetObj, sourceObject) {
+	        for (var key in sourceObject) {
+	            if (sourceObject.hasOwnProperty(key)) {
+	                targetObj[key] = sourceObject[key];
+	            }
+	        }
+	    }
+	    function parseNumeric(val) {
+	        return parseFloat(val) || 0;
+	    }
+	    function updateScrollPos() {
+	        scroll = {
+	            top: target.scrollTop,
+	            left: target.scrollLeft };
+	    }
+	    function onScroll() {
+	        /*
+	        console.log(scroll.top);
+	          if (target.scrollLeft != scroll.left) {
+	              updateScrollPos();
+	              rebuild();
+	              return;
+	          }
+	               if (target.scrollTop != scroll.top) {
+	              updateScrollPos();
+	              recalcAllPos();
+	          }
+	          */
+	        updateScrollPos();
+	        recalcAllPos();
+	    }
+	    //fixes flickering
+	    function onWheel(event) {
+	        setTimeout(function () {
+	            if (target.scrollTop != scroll.top) {
+	                scroll.top = target.scrollTop;
+	                recalcAllPos();
+	            }
+	        }, 0);
+	    }
+	    function recalcAllPos() {
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            recalcElementPos(watchArray[i]);
+	        }
+	    }
+	    function recalcElementPos(el) {
+	        if (!el.inited) return;
+	        var currentMode = scroll.top <= el.limit.start ? 0 : scroll.top >= el.limit.end ? 2 : 1;
+	        if (el.mode != currentMode) {
+	            switchElementMode(el, currentMode);
+	        }
+	    }
+	    //checks whether stickies start or stop positions have changed
+	    function fastCheck() {
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            if (!watchArray[i].inited) continue;
+	            var deltaTop = Math.abs(getDocOffsetTop(watchArray[i].clone) - watchArray[i].docOffsetTop),
+	                deltaHeight = Math.abs(watchArray[i].parent.node.offsetHeight - watchArray[i].parent.height);
+	            if (deltaTop >= 2 || deltaHeight >= 2) return false;
+	        }
+	        return true;
+	    }
+	    function initElement(el) {
+	        if (isNaN(parseFloat(el.computed.top)) || el.isCell || el.computed.display == 'none') return;
+	        el.inited = true;
+	        if (!el.clone) clone(el);
+	        if (el.parent.computed.position != 'absolute' && el.parent.computed.position != 'relative') el.parent.node.style.position = 'relative';
+	        recalcElementPos(el);
+	        el.parent.height = el.parent.node.offsetHeight;
+	        el.docOffsetTop = getDocOffsetTop(el.clone);
+	    }
+	    function deinitElement(el) {
+	        var deinitParent = true;
+	        el.clone && killClone(el);
+	        mergeObjects(el.node.style, el.css);
+	        //check whether element's parent is used by other stickies
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            if (watchArray[i].node !== el.node && watchArray[i].parent.node === el.parent.node) {
+	                deinitParent = false;
+	                break;
+	            }
+	        }
+	        ;
+	        if (deinitParent) el.parent.node.style.position = el.parent.css.position;
+	        el.mode = -1;
+	    }
+	    function initAll() {
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            initElement(watchArray[i]);
+	        }
+	    }
+	    function deinitAll() {
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            deinitElement(watchArray[i]);
+	        }
+	    }
+	    function switchElementMode(el, mode) {
+	        var nodeStyle = el.node.style;
+	        switch (mode) {
+	            case 0:
+	                nodeStyle.position = 'absolute';
+	                nodeStyle.left = el.offset.left + 'px';
+	                nodeStyle.right = el.offset.right + 'px';
+	                nodeStyle.top = el.offset.top + 'px';
+	                nodeStyle.bottom = 'auto';
+	                nodeStyle.width = 'auto';
+	                nodeStyle.marginLeft = 0;
+	                nodeStyle.marginRight = 0;
+	                nodeStyle.marginTop = 0;
+	                break;
+	            case 1:
+	                nodeStyle.position = 'fixed';
+	                nodeStyle.left = el.box.left + 'px';
+	                nodeStyle.right = el.box.right + 'px';
+	                nodeStyle.top = el.css.top;
+	                nodeStyle.bottom = 'auto';
+	                nodeStyle.width = 'auto';
+	                nodeStyle.marginLeft = 0;
+	                nodeStyle.marginRight = 0;
+	                nodeStyle.marginTop = 0;
+	                break;
+	            case 2:
+	                nodeStyle.position = 'absolute';
+	                nodeStyle.left = el.offset.left + 'px';
+	                nodeStyle.right = el.offset.right + 'px';
+	                nodeStyle.top = 'auto';
+	                nodeStyle.bottom = 0;
+	                nodeStyle.width = 'auto';
+	                nodeStyle.marginLeft = 0;
+	                nodeStyle.marginRight = 0;
+	                break;
+	        }
+	        el.mode = mode;
+	    }
+	    function clone(el) {
+	        el.clone = document.createElement('div');
+	        var refElement = el.node.nextSibling || el.node,
+	            cloneStyle = el.clone.style;
+	        cloneStyle.height = el.height + 'px';
+	        cloneStyle.width = el.width + 'px';
+	        cloneStyle.marginTop = el.computed.marginTop;
+	        cloneStyle.marginBottom = el.computed.marginBottom;
+	        cloneStyle.marginLeft = el.computed.marginLeft;
+	        cloneStyle.marginRight = el.computed.marginRight;
+	        cloneStyle.padding = cloneStyle.border = cloneStyle.borderSpacing = 0;
+	        cloneStyle.fontSize = '1em';
+	        cloneStyle.position = 'static';
+	        cloneStyle.cssFloat = el.computed.cssFloat;
+	        el.node.parentNode.insertBefore(el.clone, refElement);
+	    }
+	    function killClone(el) {
+	        el.clone.parentNode.removeChild(el.clone);
+	        el.clone = undefined;
+	    }
+	    function getElementParams(node) {
+	        var computedStyle = getComputedStyle(node),
+	            parentNode = node.parentNode,
+	            parentComputedStyle = getComputedStyle(parentNode),
+	            cachedPosition = node.style.position;
+	        node.style.position = 'relative';
+	        var computed = {
+	            top: computedStyle.top,
+	            marginTop: computedStyle.marginTop,
+	            marginBottom: computedStyle.marginBottom,
+	            marginLeft: computedStyle.marginLeft,
+	            marginRight: computedStyle.marginRight,
+	            cssFloat: computedStyle.cssFloat,
+	            display: computedStyle.display
+	        },
+	            numeric = {
+	            top: parseNumeric(computedStyle.top),
+	            marginBottom: parseNumeric(computedStyle.marginBottom),
+	            paddingLeft: parseNumeric(computedStyle.paddingLeft),
+	            paddingRight: parseNumeric(computedStyle.paddingRight),
+	            borderLeftWidth: parseNumeric(computedStyle.borderLeftWidth),
+	            borderRightWidth: parseNumeric(computedStyle.borderRightWidth)
+	        };
+	        node.style.position = cachedPosition;
+	        var css = {
+	            position: node.style.position,
+	            top: node.style.top,
+	            bottom: node.style.bottom,
+	            left: node.style.left,
+	            right: node.style.right,
+	            width: node.style.width,
+	            marginTop: node.style.marginTop,
+	            marginLeft: node.style.marginLeft,
+	            marginRight: node.style.marginRight
+	        },
+	            nodeOffset = getElementOffset(node),
+	            parentOffset = getElementOffset(parentNode),
+	            parent = {
+	            node: parentNode,
+	            css: {
+	                position: parentNode.style.position
+	            },
+	            computed: {
+	                position: parentComputedStyle.position
+	            },
+	            numeric: {
+	                borderLeftWidth: parseNumeric(parentComputedStyle.borderLeftWidth),
+	                borderRightWidth: parseNumeric(parentComputedStyle.borderRightWidth),
+	                borderTopWidth: parseNumeric(parentComputedStyle.borderTopWidth),
+	                borderBottomWidth: parseNumeric(parentComputedStyle.borderBottomWidth)
+	            }
+	        },
+	            el = {
+	            node: node,
+	            box: {
+	                left: nodeOffset.win.left,
+	                right: html.clientWidth - nodeOffset.win.right
+	            },
+	            offset: {
+	                top: nodeOffset.win.top - parentOffset.win.top - parent.numeric.borderTopWidth,
+	                left: nodeOffset.win.left - parentOffset.win.left - parent.numeric.borderLeftWidth,
+	                right: -nodeOffset.win.right + parentOffset.win.right - parent.numeric.borderRightWidth
+	            },
+	            css: css,
+	            isCell: computedStyle.display == 'table-cell',
+	            computed: computed,
+	            numeric: numeric,
+	            width: nodeOffset.win.right - nodeOffset.win.left,
+	            height: nodeOffset.win.bottom - nodeOffset.win.top,
+	            mode: -1,
+	            inited: false,
+	            parent: parent,
+	            limit: {
+	                start: nodeOffset.doc.top - numeric.top,
+	                end: parentOffset.doc.top + parentNode.offsetHeight - parent.numeric.borderBottomWidth - node.offsetHeight - numeric.top - numeric.marginBottom
+	            }
+	        };
+	        return el;
+	    }
+	    function getDocOffsetTop(node) {
+	        var docOffsetTop = 0;
+	        while (node) {
+	            docOffsetTop += node.offsetTop;
+	            node = node.offsetParent;
+	        }
+	        return docOffsetTop;
+	    }
+	    function getElementOffset(node) {
+	        var box = node.getBoundingClientRect();
+	        return {
+	            doc: {
+	                top: box.top + target.scrollTop,
+	                left: box.left + target.scrollLeft },
+	            win: box
+	        };
+	    }
+	    function startFastCheckTimer() {
+	        checkTimer = setInterval(function () {
+	            !fastCheck() && rebuild();
+	        }, 500);
+	    }
+	    function stopFastCheckTimer() {
+	        clearInterval(checkTimer);
+	    }
+	    function handlePageVisibilityChange() {
+	        if (!initialized) return;
+	        if (document[hiddenPropertyName]) {
+	            stopFastCheckTimer();
+	        } else {
+	            startFastCheckTimer();
+	        }
+	    }
+	    function init() {
+	        if (initialized) return;
+	        // Store the left/top scroll positions
+	        updateScrollPos();
+	        // Initialize all elements added
+	        initAll();
+	        target.addEventListener('scroll', onScroll);
+	        target.addEventListener('wheel', onWheel);
+	        //watch for width changes
+	        target.addEventListener('resize', rebuild);
+	        target.addEventListener('orientationchange', rebuild);
+	        //watch for page visibility
+	        document.addEventListener(visibilityChangeEventName, handlePageVisibilityChange);
+	        // Start a timer to respond to changes in the layout/size
+	        startFastCheckTimer();
+	        initialized = true;
+	    }
+	    function rebuild() {
+	        if (!initialized) return;
+	        deinitAll();
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            watchArray[i] = getElementParams(watchArray[i].node);
+	        }
+	        initAll();
+	    }
+	    function pause() {
+	        target.removeEventListener('scroll', onScroll);
+	        target.removeEventListener('wheel', onWheel);
+	        target.removeEventListener('resize', rebuild);
+	        target.removeEventListener('orientationchange', rebuild);
+	        document.removeEventListener(visibilityChangeEventName, handlePageVisibilityChange);
+	        stopFastCheckTimer();
+	        initialized = false;
+	    }
+	    function stop() {
+	        pause();
+	        deinitAll();
+	    }
+	    function kill() {
+	        stop();
+	        //empty the array without loosing the references,
+	        //the most performant method according to http://jsperf.com/empty-javascript-array
+	        while (watchArray.length) {
+	            watchArray.pop();
+	        }
+	    }
+	    function add(node) {
+	        //check if Stickyfill is already applied to the node
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            if (watchArray[i].node === node) return;
+	        }
+	        ;
+	        var el = getElementParams(node);
+	        watchArray.push(el);
+	        if (!initialized) {
+	            init();
+	        } else {
+	            initElement(el);
+	        }
+	    }
+	    function remove(node) {
+	        for (var i = watchArray.length - 1; i >= 0; i--) {
+	            if (watchArray[i].node === node) {
+	                deinitElement(watchArray[i]);
+	                watchArray.splice(i, 1);
+	            }
+	        }
+	        ;
+	    }
+	    //expose Stickyfill
+	    return {
+	        stickies: watchArray,
+	        add: add,
+	        remove: remove,
+	        init: init,
+	        rebuild: rebuild,
+	        pause: pause,
+	        stop: stop,
+	        kill: kill
+	    };
+	}
+
+/***/ },
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64533,7 +64871,7 @@
 	var _a, _b;
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64988,7 +65326,7 @@
 	var _a, _b;
 
 /***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65023,7 +65361,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(469);
+	var _swiperWidget = __webpack_require__(470);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -65470,7 +65808,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports) {
 
 	/**
@@ -65762,7 +66100,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66111,7 +66449,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66136,7 +66474,7 @@
 
 	var _navNavController = __webpack_require__(457);
 
-	var _tabs = __webpack_require__(470);
+	var _tabs = __webpack_require__(471);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -66305,7 +66643,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66330,7 +66668,7 @@
 
 	var _configConfig = __webpack_require__(422);
 
-	var _virtual = __webpack_require__(473);
+	var _virtual = __webpack_require__(474);
 
 	var _ionicUtil = __webpack_require__(428);
 
@@ -66470,7 +66808,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -66585,7 +66923,7 @@
 	};
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66647,7 +66985,7 @@
 	var _a, _b;
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66663,12 +67001,6 @@
 	var _angular2Angular2 = __webpack_require__(41);
 
 	var _contentContent = __webpack_require__(464);
-
-	var _utilUtil = __webpack_require__(424);
-
-	var _utilDom = __webpack_require__(425);
-
-	var _utilFeatureDetect = __webpack_require__(439);
 
 	var _configConfig = __webpack_require__(422);
 
@@ -66721,14 +67053,13 @@
 	     * @param {ElementRef} elementRef  TODO
 	     */
 
-	    function ItemGroupTitle(elementRef, config, content, featureDetect) {
+	    function ItemGroupTitle(elementRef, config, content) {
 	        _classCallCheck(this, ItemGroupTitle);
 
-	        this.isSticky = true;
+	        this.elementRef = elementRef;
 	        this.content = content;
-	        this.ele = elementRef.nativeElement;
-	        this.parent = this.ele.parentNode;
-	        this.isCssValid = true; //featureDetect.has('positionsticky')
+	        // make sure the sticky class gets set on the title
+	        this.isSticky = true;
 	    }
 
 	    _createClass(ItemGroupTitle, [{
@@ -66736,109 +67067,11 @@
 	        value: function onInit() {
 	            var _this = this;
 
-	            if (!this.content || this.isCssValid) {
-	                return;
-	            }
-	            this.scrollContent = this.content.elementRef.nativeElement.children[0];
-	            this.scrollMin = 0;
-	            this.scrollMax = 0;
-	            this.scrollTransition = 0;
-	            this.isSticking = false;
-	            this.scrollContent.addEventListener('scroll', function (event) {
-	                return _this.scrollEvent(event);
+	            setTimeout(function () {
+	                if (_this.content.getStickyPolyfill()) {
+	                    _this.content.getStickyPolyfill().add(_this.elementRef.nativeElement);
+	                }
 	            });
-	            this.calculateScrollLimits = function (scrollTop) {
-	                var containerPosition = (0, _utilDom.position)(_this.parent);
-	                var elementOffset = (0, _utilDom.offset)(_this.ele);
-	                var containerTop = containerPosition.top;
-	                var containerHeight = containerPosition.height;
-	                var affixHeight = elementOffset.height;
-	                _this.scrollMin = containerTop;
-	                _this.scrollMax = _this.scrollMin + containerHeight;
-	                _this.scrollTransition = _this.scrollMax - affixHeight;
-	            };
-	            // throttled version of the same calculation
-	            var CALCULATION_THROTTLE_MS = 500;
-	            this.throttledCalculateScrollLimits = (0, _utilUtil.throttle)(this.calculateScrollLimits, CALCULATION_THROTTLE_MS, { trailing: false });
-	        }
-	    }, {
-	        key: "applyTransform",
-	        value: function applyTransform(element, transformString) {
-	            // do not apply the transformation if it is already applied
-	            if (element.style[_utilDom.CSS.transform] == transformString) {} else {
-	                element.style[_utilDom.CSS.transform] = transformString;
-	            }
-	        }
-	    }, {
-	        key: "translateUp",
-	        value: function translateUp(element, dy, executeImmediately) {
-	            var _this2 = this;
-
-	            var translateDyPixelsUp = dy == 0 ? 'translate3d(0px, 0px, 0px)' : 'translate3d(0px, -' + dy + 'px, 0px)';
-	            // if immediate execution is requested, then just execute immediately
-	            // if not, execute in the animation frame.
-	            if (executeImmediately) {
-	                this.applyTransform(element, translateDyPixelsUp);
-	            } else {
-	                (0, _utilDom.raf)(function (a) {
-	                    return _this2.applyTransform(element, translateDyPixelsUp);
-	                });
-	            }
-	        }
-	    }, {
-	        key: "createAffixClone",
-	        value: function createAffixClone() {
-	            var clone = this.ele.cloneNode(true);
-	            clone.style.position = 'absolute';
-	            clone.style.top = 0;
-	            clone.style.left = 0;
-	            clone.style.right = 0;
-	            this.scrollContent.parentNode.appendChild(clone);
-	            return clone;
-	        }
-	    }, {
-	        key: "scrollEvent",
-	        value: function scrollEvent(event) {
-	            var scrollTop = event.target.scrollTop;
-	            // when scroll to top, we should always execute the immediate calculation.
-	            // this is because of some weird problem which is hard to describe.
-	            // if you want to experiment, always use the throttled one and just click on the page
-	            // you will see all affix elements stacked on top
-	            if (scrollTop == 0) {
-	                this.calculateScrollLimits(scrollTop);
-	            } else {
-	                this.throttledCalculateScrollLimits(scrollTop);
-	            }
-	            // when we scrolled to the container, create the clone of element and place it on top
-	            if (scrollTop >= this.scrollMin && scrollTop <= this.scrollMax) {
-	                // we need to track if we created the clone just now
-	                // that is important since normally we apply the transforms in the animation frame
-	                // but, we need to apply the transform immediately when we add the element for the first time. otherwise it is too late!
-	                var cloneCreatedJustNow = false;
-	                if (!this.affixClone) {
-	                    this.affixClone = this.createAffixClone();
-	                    cloneCreatedJustNow = true;
-	                    this.isSticking = true;
-	                }
-	                // if we're reaching towards the end of the container, apply some nice translation to move up/down the clone
-	                // but if we're reached already to the container and we're far away than the end, move clone to top
-	                if (scrollTop > this.scrollTransition) {
-	                    this.translateUp(this.affixClone, Math.floor(scrollTop - this.scrollTransition), cloneCreatedJustNow);
-	                } else {
-	                    this.translateUp(this.affixClone, 0, cloneCreatedJustNow);
-	                }
-	            } else {
-	                this.removeAffixClone();
-	                this.isSticking = false;
-	            }
-	        }
-	    }, {
-	        key: "removeAffixClone",
-	        value: function removeAffixClone() {
-	            if (this.affixClone) {
-	                this.scrollContent.parentNode.removeChild(this.affixClone);
-	                this.affixClone = null;
-	            }
 	        }
 	    }]);
 
@@ -66851,11 +67084,11 @@
 	        'class': 'item-group-title',
 	        '[class.sticky]': 'isSticky'
 	    }
-	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _d || Object, typeof (_e = typeof _utilFeatureDetect.FeatureDetect !== 'undefined' && _utilFeatureDetect.FeatureDetect) === 'function' && _e || Object])], ItemGroupTitle);
-	var _a, _b, _c, _d, _e;
+	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _d || Object])], ItemGroupTitle);
+	var _a, _b, _c, _d;
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66878,7 +67111,7 @@
 
 	var _ionicGesturesHammer = __webpack_require__(454);
 
-	var _ionicComponentsListList = __webpack_require__(472);
+	var _ionicComponentsListList = __webpack_require__(473);
 
 	var _ionicUtilDom = __webpack_require__(425);
 
@@ -67156,7 +67389,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67319,7 +67552,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67581,7 +67814,7 @@
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68022,7 +68255,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68039,7 +68272,7 @@
 
 	var _configConfig = __webpack_require__(422);
 
-	var _textInput = __webpack_require__(479);
+	var _textInput = __webpack_require__(480);
 
 	var _utilDom = __webpack_require__(425);
 
@@ -68141,7 +68374,7 @@
 	var _a, _b;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68407,7 +68640,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68430,7 +68663,7 @@
 
 	var _ion = __webpack_require__(448);
 
-	var _listList = __webpack_require__(472);
+	var _listList = __webpack_require__(473);
 
 	/**
 	 * A radio group is a group of radio components.
@@ -68738,7 +68971,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68923,7 +69156,7 @@
 	*/
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69134,7 +69367,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69300,7 +69533,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69321,7 +69554,7 @@
 
 	var _angular2Router = __webpack_require__(252);
 
-	var _nav = __webpack_require__(484);
+	var _nav = __webpack_require__(485);
 
 	/**
 	 * TODO
@@ -69456,7 +69689,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69552,7 +69785,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69719,7 +69952,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69736,7 +69969,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppApp, _defaults));
 
-	var _ionicComponentsAppId = __webpack_require__(487);
+	var _ionicComponentsAppId = __webpack_require__(488);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppId, _defaults));
 
@@ -69752,7 +69985,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsButtonButton, _defaults));
 
-	var _ionicComponentsCheckboxCheckbox = __webpack_require__(477);
+	var _ionicComponentsCheckboxCheckbox = __webpack_require__(478);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsCheckboxCheckbox, _defaults));
 
@@ -69764,15 +69997,15 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsIconIcon, _defaults));
 
-	var _ionicComponentsItemItem = __webpack_require__(474);
+	var _ionicComponentsItemItem = __webpack_require__(475);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItem, _defaults));
 
-	var _ionicComponentsItemItemGroup = __webpack_require__(475);
+	var _ionicComponentsItemItemGroup = __webpack_require__(476);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemGroup, _defaults));
 
-	var _ionicComponentsItemItemSliding = __webpack_require__(476);
+	var _ionicComponentsItemItemSliding = __webpack_require__(477);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemSliding, _defaults));
 
@@ -69780,7 +70013,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenu, _defaults));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(490);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(491);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuTypes, _defaults));
 
@@ -69792,19 +70025,19 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuClose, _defaults));
 
-	var _ionicComponentsTextInputTextInput = __webpack_require__(479);
+	var _ionicComponentsTextInputTextInput = __webpack_require__(480);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputTextInput, _defaults));
 
-	var _ionicComponentsTextInputLabel = __webpack_require__(480);
+	var _ionicComponentsTextInputLabel = __webpack_require__(481);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputLabel, _defaults));
 
-	var _ionicComponentsListList = __webpack_require__(472);
+	var _ionicComponentsListList = __webpack_require__(473);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsListList, _defaults));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(488);
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(489);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
@@ -69812,7 +70045,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsModalModal, _defaults));
 
-	var _ionicComponentsNavNav = __webpack_require__(484);
+	var _ionicComponentsNavNav = __webpack_require__(485);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNav, _defaults));
 
@@ -69824,11 +70057,11 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavViewController, _defaults));
 
-	var _ionicComponentsNavNavPush = __webpack_require__(485);
+	var _ionicComponentsNavNavPush = __webpack_require__(486);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavPush, _defaults));
 
-	var _ionicComponentsNavNavRouter = __webpack_require__(486);
+	var _ionicComponentsNavNavRouter = __webpack_require__(487);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavRouter, _defaults));
 
@@ -69844,39 +70077,39 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsPopupPopup, _defaults));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(468);
+	var _ionicComponentsSlidesSlides = __webpack_require__(469);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSlidesSlides, _defaults));
 
-	var _ionicComponentsRadioRadio = __webpack_require__(482);
+	var _ionicComponentsRadioRadio = __webpack_require__(483);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsRadioRadio, _defaults));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(466);
+	var _ionicComponentsScrollScroll = __webpack_require__(467);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollScroll, _defaults));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(467);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(468);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
-	var _ionicComponentsSearchBarSearchBar = __webpack_require__(483);
+	var _ionicComponentsSearchBarSearchBar = __webpack_require__(484);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchBarSearchBar, _defaults));
 
-	var _ionicComponentsSegmentSegment = __webpack_require__(481);
+	var _ionicComponentsSegmentSegment = __webpack_require__(482);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSegmentSegment, _defaults));
 
-	var _ionicComponentsSwitchSwitch = __webpack_require__(478);
+	var _ionicComponentsSwitchSwitch = __webpack_require__(479);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSwitchSwitch, _defaults));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(470);
+	var _ionicComponentsTabsTabs = __webpack_require__(471);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTabs, _defaults));
 
-	var _ionicComponentsTabsTab = __webpack_require__(471);
+	var _ionicComponentsTabsTab = __webpack_require__(472);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTab, _defaults));
 
@@ -69885,7 +70118,7 @@
 	_defaults(exports, _interopExportWildcard(_ionicComponentsToolbarToolbar, _defaults));
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70123,7 +70356,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70253,7 +70486,7 @@
 	});
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70266,64 +70499,64 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	_defaults(exports, _interopExportWildcard(_plugin, _defaults));
 
-	var _applinksApplinks = __webpack_require__(494);
+	var _applinksApplinks = __webpack_require__(495);
 
 	_defaults(exports, _interopExportWildcard(_applinksApplinks, _defaults));
 
-	var _barcodeBarcode = __webpack_require__(495);
+	var _barcodeBarcode = __webpack_require__(496);
 
 	_defaults(exports, _interopExportWildcard(_barcodeBarcode, _defaults));
 
-	var _batteryBattery = __webpack_require__(496);
+	var _batteryBattery = __webpack_require__(497);
 
 	_defaults(exports, _interopExportWildcard(_batteryBattery, _defaults));
 
-	var _cameraCamera = __webpack_require__(497);
+	var _cameraCamera = __webpack_require__(498);
 
 	_defaults(exports, _interopExportWildcard(_cameraCamera, _defaults));
 
-	var _contactsContacts = __webpack_require__(498);
+	var _contactsContacts = __webpack_require__(499);
 
 	_defaults(exports, _interopExportWildcard(_contactsContacts, _defaults));
 
-	var _dialogsDialogs = __webpack_require__(499);
+	var _dialogsDialogs = __webpack_require__(500);
 
 	_defaults(exports, _interopExportWildcard(_dialogsDialogs, _defaults));
 
-	var _deviceDevice = __webpack_require__(500);
+	var _deviceDevice = __webpack_require__(501);
 
 	_defaults(exports, _interopExportWildcard(_deviceDevice, _defaults));
 
-	var _deviceMotionDeviceMotion = __webpack_require__(501);
+	var _deviceMotionDeviceMotion = __webpack_require__(502);
 
 	_defaults(exports, _interopExportWildcard(_deviceMotionDeviceMotion, _defaults));
 
-	var _deviceOrientationDeviceOrientation = __webpack_require__(502);
+	var _deviceOrientationDeviceOrientation = __webpack_require__(503);
 
 	_defaults(exports, _interopExportWildcard(_deviceOrientationDeviceOrientation, _defaults));
 
-	var _geolocationGeolocation = __webpack_require__(503);
+	var _geolocationGeolocation = __webpack_require__(504);
 
 	_defaults(exports, _interopExportWildcard(_geolocationGeolocation, _defaults));
 
-	var _keyboardKeyboard = __webpack_require__(504);
+	var _keyboardKeyboard = __webpack_require__(505);
 
 	_defaults(exports, _interopExportWildcard(_keyboardKeyboard, _defaults));
 
-	var _statusbarStatusbar = __webpack_require__(505);
+	var _statusbarStatusbar = __webpack_require__(506);
 
 	_defaults(exports, _interopExportWildcard(_statusbarStatusbar, _defaults));
 
-	var _vibrationVibration = __webpack_require__(506);
+	var _vibrationVibration = __webpack_require__(507);
 
 	_defaults(exports, _interopExportWildcard(_vibrationVibration, _defaults));
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -70391,7 +70624,7 @@
 	}
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70406,7 +70639,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Open installed apps on the device. Note: Android and iOS have different ways of
@@ -70516,7 +70749,7 @@
 	}), __metadata('design:paramtypes', [])], AppLinks);
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70529,7 +70762,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Scan barcodes and QR codes.
@@ -70651,7 +70884,7 @@
 	}), __metadata('design:paramtypes', [])], Barcode);
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70670,7 +70903,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Track battery status. Uses the HTMl5 Battery API if available or
@@ -70766,7 +70999,7 @@
 	}), __metadata('design:paramtypes', [])], _Battery);
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70785,7 +71018,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Take a photo or capture video.
@@ -70966,7 +71199,7 @@
 	}), __metadata('design:paramtypes', [])], Camera);
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70979,7 +71212,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Access and manage Contacts on the device.
@@ -71149,7 +71382,7 @@
 	}), __metadata('design:paramtypes', [])], Contacts);
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71162,7 +71395,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * A native dialogs system. Native dialogs can give you a bit more
@@ -71319,7 +71552,7 @@
 	}), __metadata('design:paramtypes', [])], Dialogs);
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71332,7 +71565,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Access information about the underlying device and platform.
@@ -71507,7 +71740,7 @@
 	}), __metadata('design:paramtypes', [])], _Device);
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -71529,7 +71762,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Respond to device movement in the x/y/z axes.
@@ -71675,7 +71908,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceMotion);
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -71697,7 +71930,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Respond to device orientation changes (compass).
@@ -71826,7 +72059,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -71842,7 +72075,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Get geolocation data.
@@ -71948,7 +72181,7 @@
 	}), __metadata('design:paramtypes', [])], Geolocation);
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71961,7 +72194,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Manage the native keyboard. Note: this plugin performs mainly in the native
@@ -72067,7 +72300,7 @@
 	}), __metadata('design:paramtypes', [])], Keyboard);
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72080,7 +72313,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	 * Manage the appearance of the native status bar.
@@ -72238,7 +72471,7 @@
 	}), __metadata('design:paramtypes', [])], _StatusBar);
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72251,7 +72484,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(493);
+	var _plugin = __webpack_require__(494);
 
 	/**
 	* Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
@@ -72316,7 +72549,7 @@
 	}), __metadata('design:paramtypes', [])], Vibration);
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72329,20 +72562,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _storageStorage = __webpack_require__(508);
+	var _storageStorage = __webpack_require__(509);
 
 	_defaults(exports, _interopExportWildcard(_storageStorage, _defaults));
 
-	var _storageLocalStorage = __webpack_require__(509);
+	var _storageLocalStorage = __webpack_require__(510);
 
 	_defaults(exports, _interopExportWildcard(_storageLocalStorage, _defaults));
 
-	var _storageSql = __webpack_require__(510);
+	var _storageSql = __webpack_require__(511);
 
 	_defaults(exports, _interopExportWildcard(_storageSql, _defaults));
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports) {
 
 	/**
@@ -72441,7 +72674,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72458,7 +72691,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(508);
+	var _storage = __webpack_require__(509);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -72524,7 +72757,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72543,7 +72776,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(508);
+	var _storage = __webpack_require__(509);
 
 	var _ionicUtil = __webpack_require__(428);
 
@@ -72775,7 +73008,7 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72849,7 +73082,7 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72995,7 +73228,7 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73062,7 +73295,7 @@
 	_transition.Transition.register('md', MDTransition);
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73139,7 +73372,7 @@
 	var _a;
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73152,11 +73385,11 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _menusMenus = __webpack_require__(516);
+	var _menusMenus = __webpack_require__(517);
 
-	var _actionSheetActionSheet = __webpack_require__(518);
+	var _actionSheetActionSheet = __webpack_require__(519);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -73236,7 +73469,7 @@
 	var _a, _b;
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73253,7 +73486,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -73319,7 +73552,7 @@
 	}), __metadata('design:paramtypes', [])], PageThree);
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73338,31 +73571,31 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _actionSheetActionSheet = __webpack_require__(518);
+	var _actionSheetActionSheet = __webpack_require__(519);
 
-	var _buttonsButtons = __webpack_require__(519);
+	var _buttonsButtons = __webpack_require__(520);
 
-	var _cardsCards = __webpack_require__(520);
+	var _cardsCards = __webpack_require__(521);
 
-	var _formsForms = __webpack_require__(521);
+	var _formsForms = __webpack_require__(522);
 
-	var _iconsIcons = __webpack_require__(522);
+	var _iconsIcons = __webpack_require__(523);
 
-	var _inputsInputs = __webpack_require__(523);
+	var _inputsInputs = __webpack_require__(524);
 
-	var _listsLists = __webpack_require__(524);
+	var _listsLists = __webpack_require__(525);
 
-	var _menusMenus = __webpack_require__(516);
+	var _menusMenus = __webpack_require__(517);
 
-	var _modalsModals = __webpack_require__(525);
+	var _modalsModals = __webpack_require__(526);
 
-	var _navigationNavigation = __webpack_require__(526);
+	var _navigationNavigation = __webpack_require__(527);
 
-	var _popupsPopups = __webpack_require__(527);
+	var _popupsPopups = __webpack_require__(528);
 
-	var _slidesSlides = __webpack_require__(528);
+	var _slidesSlides = __webpack_require__(529);
 
-	var _tabsTabs = __webpack_require__(529);
+	var _tabsTabs = __webpack_require__(530);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73497,7 +73730,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73514,7 +73747,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73615,7 +73848,7 @@
 	var _a, _b;
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73630,7 +73863,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73754,7 +73987,7 @@
 	}), __metadata('design:paramtypes', [])], ButtonsInComponentsPage);
 
 /***/ },
-/* 520 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73769,7 +74002,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73873,7 +74106,7 @@
 	}), __metadata('design:paramtypes', [])], CardsAdvancedWeatherPage);
 
 /***/ },
-/* 521 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73890,7 +74123,7 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74002,7 +74235,7 @@
 	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
-/* 522 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74017,7 +74250,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74051,7 +74284,7 @@
 	}), __metadata('design:paramtypes', [])], IconsPage);
 
 /***/ },
-/* 523 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74068,7 +74301,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -74144,7 +74377,7 @@
 	}), __metadata('design:paramtypes', [])], SwitchPage);
 
 /***/ },
-/* 524 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74159,7 +74392,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74263,7 +74496,7 @@
 	}), __metadata('design:paramtypes', [])], ThumbnailListsPage);
 
 /***/ },
-/* 525 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74282,7 +74515,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -74382,7 +74615,7 @@
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 526 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74401,7 +74634,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -74478,7 +74711,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 527 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74493,7 +74726,7 @@
 
 	var _ionicIonic = __webpack_require__(250);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var _angular2Angular2 = __webpack_require__(41);
 
@@ -74576,7 +74809,7 @@
 	var _a;
 
 /***/ },
-/* 528 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74591,7 +74824,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74625,7 +74858,7 @@
 	}), __metadata('design:paramtypes', [])], SlidesPage);
 
 /***/ },
-/* 529 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74642,7 +74875,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _helpers = __webpack_require__(517);
+	var _helpers = __webpack_require__(518);
 
 	var helpers = _interopRequireWildcard(_helpers);
 

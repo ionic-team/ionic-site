@@ -1,182 +1,92 @@
-System.register("index", ["ionic/ionic", "angular2/angular2", "navigation", "tabs", "helpers"], function (_export) {
-    "use strict";
+"use strict";
 
-    var App, IonicApp, ActionSheet, NavController, NavParams, Modal, IonicView, Events, NgZone, NavigationDetailsPage, TabsPage, helpers, __decorate, __metadata, DemoModal, MainPage, DemoApp, _a, _b, _c, _d, _e, _f, _g;
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _ionicIonic = require('ionic/ionic');
 
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _menusMenus = require('./menus/menus');
 
-    return {
-        setters: [function (_ionicIonic) {
-            App = _ionicIonic.App;
-            IonicApp = _ionicIonic.IonicApp;
-            ActionSheet = _ionicIonic.ActionSheet;
-            NavController = _ionicIonic.NavController;
-            NavParams = _ionicIonic.NavParams;
-            Modal = _ionicIonic.Modal;
-            IonicView = _ionicIonic.IonicView;
-            Events = _ionicIonic.Events;
-        }, function (_angular2Angular2) {
-            NgZone = _angular2Angular2.NgZone;
-        }, function (_navigation) {
-            NavigationDetailsPage = _navigation.NavigationDetailsPage;
-        }, function (_tabs) {
-            TabsPage = _tabs.TabsPage;
-        }, function (_helpers) {
-            helpers = _helpers;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
+var _actionSheetActionSheet = require('./actionSheet/actionSheet');
 
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
+var _helpers = require('./helpers');
 
-            DemoModal = (function (_Modal) {
-                _inherits(DemoModal, _Modal);
+var helpers = _interopRequireWildcard(_helpers);
 
-                function DemoModal() {
-                    _classCallCheck(this, DemoModal);
+var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+    switch (arguments.length) {
+        case 2:
+            return decorators.reduceRight(function (o, d) {
+                return d && d(o) || o;
+            }, target);
+        case 3:
+            return decorators.reduceRight(function (o, d) {
+                return (d && d(target, key), void 0);
+            }, void 0);
+        case 4:
+            return decorators.reduceRight(function (o, d) {
+                return d && d(target, key, o) || o;
+            }, desc);
+    }
+};
+var __metadata = undefined && undefined.__metadata || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
-                    _get(Object.getPrototypeOf(DemoModal.prototype), "constructor", this).call(this);
-                }
+var DemoApp = (function () {
+    function DemoApp(app, platform) {
+        var _this = this;
 
-                return DemoModal;
-            })(Modal);
+        _classCallCheck(this, DemoApp);
 
-            DemoModal = __decorate([IonicView({
-                template: '<div>My Modal</div>'
-            }), __metadata('design:paramtypes', [])], DemoModal);
-
-            MainPage = (function () {
-                function MainPage(app, nav, actionSheet, zone, params, modal, events) {
-                    var _this = this;
-
-                    _classCallCheck(this, MainPage);
-
-                    this.params = params;
-                    this.nav = nav;
-                    this.modal = modal;
-                    this.actionSheet = actionSheet;
-                    this.navDetailsPage = NavigationDetailsPage;
-                    if (params.data.location) {
-                        console.log('going back to', params.data.location);
-                        this.component.title = params.data.location;
-                    } else {
-                        console.log('setting to action sheet', params);
-                        this.component = { title: 'Action Sheets' };
+        this.app = app;
+        this.platform = platform;
+        this.androidAttribute = helpers.AndroidAttribute;
+        this.pages = [{ title: 'Home', component: _menusMenus.PageOne }, { title: 'Friends', component: _menusMenus.PageTwo }, { title: 'Events', component: _menusMenus.PageThree }];
+        this.platform.ready().then(function () {
+            window.addEventListener('message', function (e) {
+                zone.run(function () {
+                    if (e.data) {
+                        var data = JSON.parse(e.data);
+                        if (data.hash) {
+                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
+                        } else {
+                            _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
+                        }
+                        var nav = _this.app.getComponent('nav');
+                        helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
                     }
-                    window.addEventListener('message', function (e) {
-                        zone.run(function () {
-                            if (e.data) {
-                                var data = JSON.parse(e.data);
-                                _this.component.title = helpers.toTitleCase(data.hash.replace('-', ' '));
-                                if (_this.component.title === 'Tabs') {
-                                    _this.nav.setRoot(TabsPage);
-                                }
-                            }
-                        });
-                    });
-                    events.subscribe('page:locationChange', function (data) {
-                        console.log(data[0]);
-                        _this.component.title = data[0].componentName;
-                    });
-                }
+                });
+            });
+            window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
+            if (helpers.hasScrollbar() === true) {
+                setTimeout(function () {
+                    var body = document.getElementsByTagName('body')[0];
+                    body.className = body.className + ' has-scrollbar';
+                }, 500);
+            }
+        });
+    }
 
-                // **************************
-                // Action Sheets
-                // **************************
-
-                _createClass(MainPage, [{
-                    key: "openMenu",
-                    value: function openMenu() {
-                        var _this2 = this;
-
-                        this.actionSheet.open({
-                            buttons: [{ text: 'Share This' }, { text: 'Move' }],
-                            destructiveText: 'Delete',
-                            titleText: 'You Opened Action Sheet',
-                            cancelText: 'Cancel',
-                            cancel: function cancel() {
-                                console.log('Canceled');
-                            },
-                            destructiveButtonClicked: function destructiveButtonClicked() {
-                                console.log('Destructive clicked');
-                            },
-                            buttonClicked: function buttonClicked(index) {
-                                console.log('Button clicked', index);
-                                if (index == 1) {
-                                    return false;
-                                }
-                                return true;
-                            }
-                        }).then(function (actionSheetRef) {
-                            _this2.actionSheetRef = actionSheetRef;
-                        });
-                    }
-
-                    // **************************
-                    // Navigation
-                    // **************************
-                }, {
-                    key: "openNavDetailsPage",
-                    value: function openNavDetailsPage(item) {
-                        this.nav.push(NavigationDetailsPage, { name: item });
-                    }
-
-                    // **************************
-                    // Modal
-                    // **************************
-                }, {
-                    key: "openModal",
-                    value: function openModal() {
-                        this.modal.open(DemoModal, {
-                            enterAnimation: 'my-fade-in',
-                            leaveAnimation: 'my-fade-out',
-                            handle: 'my-awesome-modal'
-                        });
-                    }
-                }]);
-
-                return MainPage;
-            })();
-
-            _export("MainPage", MainPage);
-
-            _export("MainPage", MainPage = __decorate([IonicView({
-                templateUrl: 'main.html'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof NavController !== 'undefined' && NavController) === 'function' && _b || Object, typeof (_c = typeof ActionSheet !== 'undefined' && ActionSheet) === 'function' && _c || Object, typeof (_d = typeof NgZone !== 'undefined' && NgZone) === 'function' && _d || Object, typeof (_e = typeof NavParams !== 'undefined' && NavParams) === 'function' && _e || Object, typeof (_f = typeof Modal !== 'undefined' && Modal) === 'function' && _f || Object, typeof (_g = typeof Events !== 'undefined' && Events) === 'function' && _g || Object])], MainPage));
-
-            DemoApp = function DemoApp() {
-                _classCallCheck(this, DemoApp);
-
-                this.rootPage = MainPage;
-            };
-
-            DemoApp = __decorate([App({
-                template: '<ion-nav [root]="rootPage"></ion-nav>'
-            }), __metadata('design:paramtypes', [])], DemoApp);
+    _createClass(DemoApp, [{
+        key: "openPage",
+        value: function openPage(page) {
+            // close the menu when clicking a link from the menu
+            this.app.getComponent('leftMenu').close();
+            // Reset the content nav to have just this page
+            // we wouldn't want the back button to show in this scenario
+            var nav = this.app.getComponent('nav');
+            nav.setRoot(page.component);
         }
-    };
-});
+    }]);
+
+    return DemoApp;
+})();
+DemoApp = __decorate([(0, _ionicIonic.App)({
+    templateUrl: 'app.html'
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
+var _a, _b;

@@ -62,11 +62,11 @@ ControllerAs Syntax is a feature in Angular 1x where instead of binding data to 
 _index.html_
 
 ```html
-    <ion-pane ng-controller="MainCtrl">
+    <ion-content ng-controller="MainCtrl">
       <ion-item>
         {{data.text}}
       </ion-item>
-    </ion-pane>
+    </ion-content>
 ```
 
 _app.js_
@@ -84,11 +84,11 @@ To convert this to `controllerAs` syntax, you only have to change a few things.
 _index.html_
 
 ```html
-    <ion-pane ng-controller="MainCtrl as main">
+    <ion-content ng-controller="MainCtrl as main">
       <ion-item>
         {{data.text}}
       </ion-item>
-    </ion-pane>
+    </ion-content>
 ```
 
 _app.js_

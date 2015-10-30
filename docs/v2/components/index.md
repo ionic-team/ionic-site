@@ -776,10 +776,10 @@ Next, let's create our modal and define add its template:
 ```typescript
 @Page({
   template: `
-  <ion-pane padding>
+  <ion-content padding>
     <h2>I'm a modal!</h2>
     <button primary (click)="close()">Close</button>
-  </ion-pane>`
+  </ion-content>`
 })
 class MyModal extends Modal {
   constructor() {

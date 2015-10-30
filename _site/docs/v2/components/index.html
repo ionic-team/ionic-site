@@ -1008,10 +1008,10 @@ message composition, and option selection.</p>
 
 <pre><code class="language-typescript">@Page({
   template: `
-  &lt;ion-pane padding&gt;
+  &lt;ion-content padding&gt;
     &lt;h2&gt;I'm a modal!&lt;/h2&gt;
     &lt;button primary (click)="close()"&gt;Close&lt;/button&gt;
-  &lt;/ion-pane&gt;`
+  &lt;/ion-content&gt;`
 })
 class MyModal extends Modal {
   constructor() {

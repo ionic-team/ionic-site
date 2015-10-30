@@ -631,7 +631,7 @@ class MyApp {
 ```
 
 
-<h2 id="lists">Lists</h2>
+<h2 id="lists" class="section-header">Lists</h2>
 
 Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
 

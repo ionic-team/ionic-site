@@ -692,7 +692,22 @@ By default, lists have an outside margin, to remove that add the `inset` propert
 *Coming soon.*
 
 <h3 class="section-nav" id="icon-list">Icon List</h3>
-*Coming soon.*
+
+Adding [icons](#icons) to list items is a great way to hint about the contents of each item. The position of the icon can be set using the `item-left` and `item-right` attributes:
+
+
+```html
+<ion-list>
+
+  <ion-item>
+    <icon leaf item-left></icon>
+    Herbology
+    <icon rose item-right></icon>
+  </ion-item>
+
+</ion-list>
+```
+
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
 *Coming soon.*

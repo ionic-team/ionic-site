@@ -141,7 +141,8 @@ ion-tabs {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
 
 ion-navbar-section {
   display: block;
@@ -1316,13 +1317,6 @@ ion-input.item {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start; }
-
-.item.item.item.no-border-bottom:after,
-.item.item.item.no-border-bottom + .item:before {
-  border: none; }
-
-.item.item.item.no-border-bottom + .item {
-  margin-top: -13px; }
 
 /**
  * The hidden right-side buttons that can be exposed under a list item
@@ -5633,6 +5627,11 @@ icon,
     .ios.hairlines .list .item:before,
     .ios.hairlines .list .item:after {
       border-top-width: 0.55px; }
+  .ios .item[no-lines]:before,
+  .ios .item[no-lines]:after {
+    border-width: 0; }
+  .ios .item[no-lines] + .item:before {
+    border-width: 0; }
   .ios .toolbar {
     min-height: 4.4rem; }
     .ios .toolbar [menu-toggle] {
@@ -5907,12 +5906,12 @@ icon,
         border-top: none; }
   .ios .list[inset] + .list[inset] {
     margin-top: 0; }
-  .ios.hairlines .list[no-borders] ion-header:after,
-  .ios.hairlines .list[no-borders] .item:before,
-  .ios.hairlines .list[no-borders] .item:after,
-  .ios .list[no-borders] ion-header:after,
-  .ios .list[no-borders] .item:before,
-  .ios .list[no-borders] .item:after {
+  .ios.hairlines .list[no-lines] ion-header:after,
+  .ios.hairlines .list[no-lines] .item:before,
+  .ios.hairlines .list[no-lines] .item:after,
+  .ios .list[no-lines] ion-header:after,
+  .ios .list[no-lines] .item:before,
+  .ios .list[no-lines] .item:after {
     border-width: 0; }
   .ios .list [text-input],
   .ios ion-card [text-input] {
@@ -6810,6 +6809,11 @@ icon,
     .md button.item.activated {
       background-color: #f1f1f1;
       box-shadow: none; }
+  .md .item[no-lines]:before,
+  .md .item[no-lines]:after {
+    border-width: 0; }
+  .md .item[no-lines] + .item:before {
+    border-width: 0; }
   .md .list {
     margin: 0 0 16px 0; }
     .md .list ion-header {
@@ -6838,9 +6842,10 @@ icon,
     border-top: none; }
   .md .list[inset] + .list[inset] {
     margin-top: 0; }
-  .md .list[no-borders] ion-header:after,
-  .md .list[no-borders] .item:before,
-  .md .list[no-borders] .item:after {
+  .md .list[no-lines] ion-header + .item:before {
+    border-width: 1px; }
+  .md .list[no-lines] .item:before,
+  .md .list[no-lines] .item:after {
     border-width: 0; }
   .md ion-card {
     margin: 10px 10px 10px 10px;

@@ -660,7 +660,21 @@ Lists are used to display rows of information, such as a contact list, playlist,
 </ul>
 
 
-<h3 class="no-para">Basic Usage:</h3>
+<h3 class="no-para">Basic Usage (No Lines)</h3>
+
+Adding the `no-lines` attribute will hide the dividers between list items:
+
+```html
+<ion-list no-lines>
+  <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
+    {{item.title}}
+  </ion-item>
+</ion-list>
+```
+
+<h3 class="section-nav" id="list-dividers">Basic Usage (Default)</h3>
+
+By default, all lists will be styled with divider lines:
 
 ```html
 <ion-list>
@@ -670,13 +684,9 @@ Lists are used to display rows of information, such as a contact list, playlist,
 </ion-list>
 ```
 
-<h3 class="section-nav" id="list-dividers">List Dividers</h3>
-*Coming soon.*
-
 <h3 class="section-nav" id="inset-list">Inset List</h3>
 
-By default, lists have an outside margin, to remove that add the `inset` property
-to make the list flush with the parent container.
+By default, lists have an outside margin, to remove that add the `inset` property to make the list flush with the parent container.
 
 <h3 class="section-nav" id="list-headers">List Headers</h3>
 *Coming soon.*

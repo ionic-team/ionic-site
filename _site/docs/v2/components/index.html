@@ -898,7 +898,20 @@ class MyApp {
   <li class="docs-content-item"><a href="#three-line-list">Three-line List Items</a></li>
 </ul>
 
-<h3 class="no-para">Basic Usage:</h3>
+<h3 class="no-para">Basic Usage (No Lines)</h3>
+
+<p>Adding the <code>no-lines</code> attribute will hide the dividers between list items:</p>
+
+<pre><code class="language-html">&lt;ion-list no-lines&gt;
+  &lt;ion-item *ng-for="#item of items" (click)="itemSelected(item)"&gt;
+    
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
+<h3 class="section-nav" id="list-dividers">Basic Usage (Default)</h3>
+
+<p>By default, all lists will be styled with divider lines:</p>
 
 <pre><code class="language-html">&lt;ion-list&gt;
   &lt;ion-item *ng-for="#item of items" (click)="itemSelected(item)"&gt;
@@ -907,13 +920,9 @@ class MyApp {
 &lt;/ion-list&gt;
 </code></pre>
 
-<h3 class="section-nav" id="list-dividers">List Dividers</h3>
-<p><em>Coming soon.</em></p>
-
 <h3 class="section-nav" id="inset-list">Inset List</h3>
 
-<p>By default, lists have an outside margin, to remove that add the <code>inset</code> property<br />
-to make the list flush with the parent container.</p>
+<p>By default, lists have an outside margin, to remove that add the <code>inset</code> property to make the list flush with the parent container.</p>
 
 <h3 class="section-nav" id="list-headers">List Headers</h3>
 <p><em>Coming soon.</em></p>

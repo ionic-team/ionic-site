@@ -710,14 +710,62 @@ Adding [icons](#icons) to list items is a great way to hint about the contents o
 
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
-*Coming soon.*
+
+Item avatars showcase an image larger than an icon, but smaller than a thumbnail. To use an avatar, add an `<ion-avatar>` component inside of an item. The position of the avatar can be set using the `item-left` and `item-right` attributes:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="img/avatar-cher.png">
+    </ion-avatar>
+    <h2>Cher</h2>
+    <p>Ugh. As if.</p>
+  </ion-item>
+
+</ion-list>
+```
+
 
 <h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
-*Coming soon.*
+
+Item thumbnails showcase an image that takes up the entire height of an item. To use a thumbnail, add an `<ion-thumbnail>` component inside of an item. The position of the thumbnail can be set using the `item-left` and `item-right` attributes:
+
+```html
+<ion-list>
+
+<ion-item>
+  <ion-thumbnail item-left>
+    <img src="img/thumbnail-totoro.png">
+  </ion-thumbnail>
+  <h2>My Neighbor Totoro</h2>
+  <p>Hayao Miyazaki • 1988</p>
+  <button clear item-right>View</button>
+</ion-item>
+
+</ion-list>
+```
 
 
 <h3 class="section-nav" id="three-line-list">Three-line List Items</h3>
-*Coming soon.*
+
+Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="img/avatar-finn.png">
+    </ion-avatar>
+    <h2>Finn</h2>
+    <h3>Don't Know What To Do!</h3>
+    <p>I've had a pretty messed up day. If we just...</p>
+  </ion-item>
+
+</ion-list>
+```
 
 
 <h2 id="menus" class="section-header">Menus</h2>

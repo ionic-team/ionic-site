@@ -943,13 +943,57 @@ class MyApp {
 </code></pre>
 
 <h3 class="section-nav" id="avatar-list">Avatar List</h3>
-<p><em>Coming soon.</em></p>
+
+<p>Item avatars showcase an image larger than an icon, but smaller than a thumbnail. To use an avatar, add an <code>&lt;ion-avatar&gt;</code> component inside of an item. The position of the avatar can be set using the <code>item-left</code> and <code>item-right</code> attributes:</p>
+
+<pre><code class="language-html">&lt;ion-list&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-avatar item-left&gt;
+      &lt;img src="img/avatar-cher.png"&gt;
+    &lt;/ion-avatar&gt;
+    &lt;h2&gt;Cher&lt;/h2&gt;
+    &lt;p&gt;Ugh. As if.&lt;/p&gt;
+  &lt;/ion-item&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
 
 <h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
-<p><em>Coming soon.</em></p>
+
+<p>Item thumbnails showcase an image that takes up the entire height of an item. To use a thumbnail, add an <code>&lt;ion-thumbnail&gt;</code> component inside of an item. The position of the thumbnail can be set using the <code>item-left</code> and <code>item-right</code> attributes:</p>
+
+<pre><code class="language-html">&lt;ion-list&gt;
+
+&lt;ion-item&gt;
+  &lt;ion-thumbnail item-left&gt;
+    &lt;img src="img/thumbnail-totoro.png"&gt;
+  &lt;/ion-thumbnail&gt;
+  &lt;h2&gt;My Neighbor Totoro&lt;/h2&gt;
+  &lt;p&gt;Hayao Miyazaki • 1988&lt;/p&gt;
+  &lt;button clear item-right&gt;View&lt;/button&gt;
+&lt;/ion-item&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
 
 <h3 class="section-nav" id="three-line-list">Three-line List Items</h3>
-<p><em>Coming soon.</em></p>
+
+<p>Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an <code>&lt;ion-item&gt;</code>, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:</p>
+
+<pre><code class="language-html">&lt;ion-list&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-avatar item-left&gt;
+      &lt;img src="img/avatar-finn.png"&gt;
+    &lt;/ion-avatar&gt;
+    &lt;h2&gt;Finn&lt;/h2&gt;
+    &lt;h3&gt;Don't Know What To Do!&lt;/h3&gt;
+    &lt;p&gt;I've had a pretty messed up day. If we just...&lt;/p&gt;
+  &lt;/ion-item&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
 
 <h2 id="menus" class="section-header">Menus</h2>
 <p><em>For more in depth information on Menus, see the <a href="../api/components/menu/Menu">Menu API reference</a>.</em></p>

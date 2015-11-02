@@ -92,16 +92,16 @@ exports.AvatarListsPage = AvatarListsPage = __decorate([(0, _ionicIonic.Page)({
         return _helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [])], AvatarListsPage);
-var ThreeLineListsPage = function ThreeLineListsPage() {
-    _classCallCheck(this, ThreeLineListsPage);
+var MultilineListsPage = function MultilineListsPage() {
+    _classCallCheck(this, MultilineListsPage);
 };
-exports.ThreeLineListsPage = ThreeLineListsPage;
-exports.ThreeLineListsPage = ThreeLineListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/three-lists.html',
+exports.MultilineListsPage = MultilineListsPage;
+exports.MultilineListsPage = MultilineListsPage = __decorate([(0, _ionicIonic.Page)({
+    templateUrl: 'lists/multiline-lists.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], ThreeLineListsPage);
+}), __metadata('design:paramtypes', [])], MultilineListsPage);
 var ThumbnailListsPage = function ThumbnailListsPage() {
     _classCallCheck(this, ThumbnailListsPage);
 };

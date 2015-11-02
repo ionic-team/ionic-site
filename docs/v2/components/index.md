@@ -656,7 +656,7 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
-  <li class="docs-content-item"><a href="{{components_link}}#three-line-list">Three-line List Items</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#multiline-list">Multiline List</a></li>
 </ul>
 
 
@@ -748,7 +748,7 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
 ```
 
 
-<h3 class="section-nav" id="three-line-list">Three-line List Items</h3>
+<h3 class="section-nav" id="multiline-list">Multiline List</h3>
 
 Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
 

@@ -73699,7 +73699,7 @@
 	        'list-dividers': _listsLists.BasicDividersPage,
 	        'inset-list': _listsLists.BasicInsetListsPage,
 	        'list-headers': _listsLists.ListHeadersPage,
-	        'three-line-list': _listsLists.ThreeLineListsPage,
+	        'multiline-list': _listsLists.MultilineListsPage,
 	        'thumbnail-list': _listsLists.ThumbnailListsPage,
 	        'menus': _menusMenus.MenusPage,
 	        'modals': _modalsModals.ModalsPage,
@@ -74474,16 +74474,16 @@
 	        return _helpers.AndroidAttribute;
 	    })]
 	}), __metadata('design:paramtypes', [])], AvatarListsPage);
-	var ThreeLineListsPage = function ThreeLineListsPage() {
-	    _classCallCheck(this, ThreeLineListsPage);
+	var MultilineListsPage = function MultilineListsPage() {
+	    _classCallCheck(this, MultilineListsPage);
 	};
-	exports.ThreeLineListsPage = ThreeLineListsPage;
-	exports.ThreeLineListsPage = ThreeLineListsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/three-lists.html',
+	exports.MultilineListsPage = MultilineListsPage;
+	exports.MultilineListsPage = MultilineListsPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/multiline-lists.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], ThreeLineListsPage);
+	}), __metadata('design:paramtypes', [])], MultilineListsPage);
 	var ThumbnailListsPage = function ThumbnailListsPage() {
 	    _classCallCheck(this, ThumbnailListsPage);
 	};

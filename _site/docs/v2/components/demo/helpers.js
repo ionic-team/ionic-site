@@ -40,6 +40,10 @@ var _slidesSlides = require('./slides/slides');
 
 var _tabsTabs = require('./tabs/tabs');
 
+var _tabsTabsIcon = require('./tabs/tabs-icon');
+
+var _tabsTabsIconText = require('./tabs/tabs-icon-text');
+
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -149,7 +153,9 @@ function getPageFor(hash) {
         'navigation': _navigationNavigation.NavigationPage,
         'popups': _popupsPopups.PopupsPage,
         'slides': _slidesSlides.SlidesPage,
-        'tabs': _tabsTabs.TabsPage
+        'tabs': _tabsTabs.TabsPage,
+        'tabs-icon': _tabsTabsIcon.TabsIconPage,
+        'tabs-icon-text': _tabsTabsIconText.TabsIconTextPage
     })[hash];
 }
 

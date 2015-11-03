@@ -1118,6 +1118,7 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 
 
 <h2 id="tabs" class="section-header">Tabs</h2>
+
 _For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/),
 and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the
 individual Tab components it contains._
@@ -1130,6 +1131,17 @@ will be at the top of the screen, below the nav-bar. This follows each platform'
 design specification, but can be configured with [IonicConfig](../api/config/IonicConfig/).
 
 Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menu) may be a better option.
+
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#tabs">Text Tabs</a></li>
+  <li class="docs-content-item"><a href="#tabs-icon">Icon Tabs</a></li>
+  <li class="docs-content-item"><a href="#tabs-icon-text">Text and Icon Tabs</a></li>
+</ul>
+
+### Basic Usage
+
 
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
@@ -1195,4 +1207,85 @@ class Tab2 {
 }
 ```
 
+<h3 class="section-nav" id="tabs-icon">Icon Tabs</h3>
+
+To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can be passed the name of any [icon](#icon):
+
+```typescript
+@Page({
+  template: '' +
+  '<ion-navbar *navbar>' +
+  '<ion-title>Tabs</ion-title>' +
+  '</ion-navbar>' +
+  '<ion-content>' +
+  '</ion-content>',
+})
+class TabIconCtrl {
+  constructor(nav: NavController, view: ViewController) {
+    this.nav = nav;
+    this.view = view;
+  }
+}
+
+@Page({
+  template:
+  '<ion-tabs>' +
+  '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' +
+  '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' +
+  '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' +
+  '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' +
+  '</ion-tabs>',
+})
+export class TabsIconPage {
+  constructor(nav: NavController) {
+    this.nav = nav;
+    this.tabOne = TabIconCtrl;
+    this.tabTwo = TabIconCtrl;
+    this.tabThree = TabIconCtrl;
+    this.tabFour = TabIconCtrl;
+  }
+}
+```
+
+<h3 class="section-nav" id="tabs-icon-text">Icon and Text</h3>
+
+To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attributes:
+
+```typescript
+@Page({
+  template: '' +
+  '<ion-navbar *navbar>' +
+  '<ion-title>Tabs</ion-title>' +
+  '</ion-navbar>' +
+  '<ion-content>' +
+  '</ion-content>',
+})
+class TabIconTextCtrl {
+  constructor(nav: NavController, view: ViewController) {
+    this.nav = nav;
+    this.view = view;
+  }
+}
+
+@Page({
+  template:
+  '<ion-tabs>' +
+  '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' +
+  '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' +
+  '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' +
+  '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' +
+  '</ion-tabs>',
+})
+export class TabsIconTextPage {
+  constructor(nav: NavController, params: NavParams) {
+    this.nav = nav;
+    this.tabOne = TabIconTextCtrl;
+    this.tabTwo = TabIconTextCtrl;
+    this.tabThree = TabIconTextCtrl;
+    this.tabFour = TabIconTextCtrl;
+  }
+}
+```
+
 For more information on tabs, check out the [Tabs API reference](../api/components/tabs/Tabs/).
+

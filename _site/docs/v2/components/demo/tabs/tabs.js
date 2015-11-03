@@ -37,28 +37,28 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabOneCtrl = function TabOneCtrl(nav, view) {
-    _classCallCheck(this, TabOneCtrl);
+var TabTextCtrl = function TabTextCtrl(nav, view) {
+    _classCallCheck(this, TabTextCtrl);
 
     this.nav = nav;
     this.view = view;
 };
-TabOneCtrl = __decorate([(0, _ionicIonic.Page)({
-    template: 'Hello 1',
+TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabOneCtrl);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabTextCtrl);
 var TabsPage = function TabsPage(nav, params) {
     _classCallCheck(this, TabsPage);
 
     this.nav = nav;
+    this.tabOne = TabTextCtrl;
+    this.tabTwo = TabTextCtrl;
+    this.tabThree = TabTextCtrl;
 };
 exports.TabsPage = TabsPage;
 exports.TabsPage = TabsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'tabs/tabs.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return helpers.AndroidAttribute;
-    })]
+    template: '<ion-tabs>' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
 }), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsPage);
 var _a, _b, _c, _d;

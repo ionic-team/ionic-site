@@ -73651,6 +73651,10 @@
 
 	var _tabsTabs = __webpack_require__(530);
 
+	var _tabsTabsIcon = __webpack_require__(531);
+
+	var _tabsTabsIconText = __webpack_require__(532);
+
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -73760,7 +73764,9 @@
 	        'navigation': _navigationNavigation.NavigationPage,
 	        'popups': _popupsPopups.PopupsPage,
 	        'slides': _slidesSlides.SlidesPage,
-	        'tabs': _tabsTabs.TabsPage
+	        'tabs': _tabsTabs.TabsPage,
+	        'tabs-icon': _tabsTabsIcon.TabsIconPage,
+	        'tabs-icon-text': _tabsTabsIconText.TabsIconTextPage
 	    })[hash];
 	}
 
@@ -74954,30 +74960,170 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabOneCtrl = function TabOneCtrl(nav, view) {
-	    _classCallCheck(this, TabOneCtrl);
+	var TabTextCtrl = function TabTextCtrl(nav, view) {
+	    _classCallCheck(this, TabTextCtrl);
 
 	    this.nav = nav;
 	    this.view = view;
 	};
-	TabOneCtrl = __decorate([(0, _ionicIonic.Page)({
-	    template: 'Hello 1',
+	TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabOneCtrl);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabTextCtrl);
 	var TabsPage = function TabsPage(nav, params) {
 	    _classCallCheck(this, TabsPage);
 
 	    this.nav = nav;
+	    this.tabOne = TabTextCtrl;
+	    this.tabTwo = TabTextCtrl;
+	    this.tabThree = TabTextCtrl;
 	};
 	exports.TabsPage = TabsPage;
 	exports.TabsPage = TabsPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'tabs/tabs.html',
+	    template: '<ion-tabs>' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
+	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsPage);
+	var _a, _b, _c, _d;
+
+/***/ },
+/* 531 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(518);
+
+	var helpers = _interopRequireWildcard(_helpers);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+
+	var TabIconCtrl = function TabIconCtrl(nav, view) {
+	    _classCallCheck(this, TabIconCtrl);
+
+	    this.nav = nav;
+	    this.view = view;
+	};
+	TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
+	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconCtrl);
+	var TabsIconPage = function TabsIconPage(nav, params) {
+	    _classCallCheck(this, TabsIconPage);
+
+	    this.nav = nav;
+	    this.tabOne = TabIconCtrl;
+	    this.tabTwo = TabIconCtrl;
+	    this.tabThree = TabIconCtrl;
+	    this.tabFour = TabIconCtrl;
+	};
+	exports.TabsIconPage = TabsIconPage;
+	exports.TabsIconPage = TabsIconPage = __decorate([(0, _ionicIonic.Page)({
+	    template: '<ion-tabs>' + '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
+	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsIconPage);
+	var _a, _b, _c, _d;
+
+/***/ },
+/* 532 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(250);
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _helpers = __webpack_require__(518);
+
+	var helpers = _interopRequireWildcard(_helpers);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+
+	var TabIconTextCtrl = function TabIconTextCtrl(nav, view) {
+	    _classCallCheck(this, TabIconTextCtrl);
+
+	    this.nav = nav;
+	    this.view = view;
+	};
+	TabIconTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconTextCtrl);
+	var TabsIconTextPage = function TabsIconTextPage(nav, params) {
+	    _classCallCheck(this, TabsIconTextPage);
+
+	    this.nav = nav;
+	    this.tabOne = TabIconTextCtrl;
+	    this.tabTwo = TabIconTextCtrl;
+	    this.tabThree = TabIconTextCtrl;
+	    this.tabFour = TabIconTextCtrl;
+	};
+	exports.TabsIconTextPage = TabsIconTextPage;
+	exports.TabsIconTextPage = TabsIconTextPage = __decorate([(0, _ionicIonic.Page)({
+	    template: '<ion-tabs>' + '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
+	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsIconTextPage);
 	var _a, _b, _c, _d;
 
 /***/ }

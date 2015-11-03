@@ -37,28 +37,29 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabTextCtrl = function TabTextCtrl(nav, view) {
-    _classCallCheck(this, TabTextCtrl);
+var TabIconCtrl = function TabIconCtrl(nav, view) {
+    _classCallCheck(this, TabIconCtrl);
 
     this.nav = nav;
     this.view = view;
 };
-TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
     template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabTextCtrl);
-var TabsPage = function TabsPage(nav, params) {
-    _classCallCheck(this, TabsPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconCtrl);
+var TabsIconPage = function TabsIconPage(nav, params) {
+    _classCallCheck(this, TabsIconPage);
 
     this.nav = nav;
-    this.tabOne = TabTextCtrl;
-    this.tabTwo = TabTextCtrl;
-    this.tabThree = TabTextCtrl;
+    this.tabOne = TabIconCtrl;
+    this.tabTwo = TabIconCtrl;
+    this.tabThree = TabIconCtrl;
+    this.tabFour = TabIconCtrl;
 };
-exports.TabsPage = TabsPage;
-exports.TabsPage = TabsPage = __decorate([(0, _ionicIonic.Page)({
-    template: '<ion-tabs>' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
-}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsPage);
+exports.TabsIconPage = TabsIconPage;
+exports.TabsIconPage = TabsIconPage = __decorate([(0, _ionicIonic.Page)({
+    template: '<ion-tabs>' + '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
+}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], TabsIconPage);
 var _a, _b, _c, _d;

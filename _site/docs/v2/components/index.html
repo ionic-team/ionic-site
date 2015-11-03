@@ -901,8 +901,8 @@ class MyApp {
   <li class="docs-content-item"><a href="#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="#avatar-list">Avatar List</a></li>
-  <li class="docs-content-item"><a href="#thumbnail-list">Thumbnail List</a></li>
   <li class="docs-content-item"><a href="#multiline-list">Multiline List</a></li>
+  <li class="docs-content-item"><a href="#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
 <h3 class="no-para">Basic Usage (No Lines)</h3>
@@ -966,24 +966,6 @@ class MyApp {
 &lt;/ion-list&gt;
 </code></pre>
 
-<h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
-
-<p>Item thumbnails showcase an image that takes up the entire height of an item. To use a thumbnail, add an <code>&lt;ion-thumbnail&gt;</code> component inside of an item. The position of the thumbnail can be set using the <code>item-left</code> and <code>item-right</code> attributes:</p>
-
-<pre><code class="language-html">&lt;ion-list&gt;
-
-&lt;ion-item&gt;
-  &lt;ion-thumbnail item-left&gt;
-    &lt;img src="img/thumbnail-totoro.png"&gt;
-  &lt;/ion-thumbnail&gt;
-  &lt;h2&gt;My Neighbor Totoro&lt;/h2&gt;
-  &lt;p&gt;Hayao Miyazaki • 1988&lt;/p&gt;
-  &lt;button clear item-right&gt;View&lt;/button&gt;
-&lt;/ion-item&gt;
-
-&lt;/ion-list&gt;
-</code></pre>
-
 <h3 class="section-nav" id="multiline-list">Multiline List</h3>
 
 <p>Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an <code>&lt;ion-item&gt;</code>, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:</p>
@@ -998,6 +980,24 @@ class MyApp {
     &lt;h3&gt;Don't Know What To Do!&lt;/h3&gt;
     &lt;p&gt;I've had a pretty messed up day. If we just...&lt;/p&gt;
   &lt;/ion-item&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
+
+<h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
+
+<p>Item thumbnails showcase an image that takes up the entire height of an item. To use a thumbnail, add an <code>&lt;ion-thumbnail&gt;</code> component inside of an item. The position of the thumbnail can be set using the <code>item-left</code> and <code>item-right</code> attributes:</p>
+
+<pre><code class="language-html">&lt;ion-list&gt;
+
+&lt;ion-item&gt;
+  &lt;ion-thumbnail item-left&gt;
+    &lt;img src="img/thumbnail-totoro.png"&gt;
+  &lt;/ion-thumbnail&gt;
+  &lt;h2&gt;My Neighbor Totoro&lt;/h2&gt;
+  &lt;p&gt;Hayao Miyazaki • 1988&lt;/p&gt;
+  &lt;button clear item-right&gt;View&lt;/button&gt;
+&lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
 </code></pre>

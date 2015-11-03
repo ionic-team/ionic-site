@@ -655,8 +655,8 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
-  <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#multiline-list">Multiline List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
 
@@ -727,6 +727,25 @@ Item avatars showcase an image larger than an icon, but smaller than a thumbnail
 </ion-list>
 ```
 
+<h3 class="section-nav" id="multiline-list">Multiline List</h3>
+
+Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="img/avatar-finn.png">
+    </ion-avatar>
+    <h2>Finn</h2>
+    <h3>Don't Know What To Do!</h3>
+    <p>I've had a pretty messed up day. If we just...</p>
+  </ion-item>
+
+</ion-list>
+```
+
 
 <h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
 
@@ -743,26 +762,6 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
   <p>Hayao Miyazaki • 1988</p>
   <button clear item-right>View</button>
 </ion-item>
-
-</ion-list>
-```
-
-
-<h3 class="section-nav" id="multiline-list">Multiline List</h3>
-
-Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
-
-```html
-<ion-list>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="img/avatar-finn.png">
-    </ion-avatar>
-    <h2>Finn</h2>
-    <h3>Don't Know What To Do!</h3>
-    <p>I've had a pretty messed up day. If we just...</p>
-  </ion-item>
 
 </ion-list>
 ```

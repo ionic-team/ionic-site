@@ -53539,7 +53539,7 @@
 	    *     iconMode: 'ios',
 	    *     modalEnter: 'modal-slide-in',
 	    *     modalLeave: 'modal-slide-out',
-	    *     tabBarPlacement: 'bottom',
+	    *     tabbarPlacement: 'bottom',
 	    *     viewTransition: 'ios',
 	    *   }
 	    * })
@@ -55044,13 +55044,12 @@
 	                    if (!instance) {
 	                        return reject();
 	                    }
-	                    ref._z = ROOT_Z_INDEX;
+	                    instance._zIndex = ROOT_Z_INDEX;
 	                    for (var i = 0; i < _this.refs.length; i++) {
-	                        if (_this.refs[i]._z >= ref._z) {
-	                            ref._z = _this.refs[i]._z + 1;
+	                        if (_this.refs[i].instance._zIndex >= ref.instance._zIndex) {
+	                            ref.instance._zIndex = _this.refs[i].instance._zIndex + 1;
 	                        }
 	                    }
-	                    _this.renderer.setElementStyle(ref.location, 'zIndex', ref._z);
 	                    _this.renderer.setElementAttribute(ref.location, 'role', 'dialog');
 	                    util.extend(instance, opts);
 	                    ref._type = overlayType;
@@ -56495,6 +56494,9 @@
 	ActionSheetCmp = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-action-sheet',
 	    template: '<backdrop (click)="_cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(i)" *ng-for="#b of buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()" class=" disable-hover">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
+	    host: {
+	        '[style.zIndex]': '_zIndex'
+	    },
 	    directives: [_angular2Angular2.NgFor, _angular2Angular2.NgIf, _iconIcon.Icon]
 	}), __metadata('design:paramtypes', [])], ActionSheetCmp);
 	var ActionSheet = (function () {
@@ -57312,6 +57314,9 @@
 	PopupCmp = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-popup',
 	    template: '<backdrop (click)="_cancel($event)" tappable disable-activated></backdrop>' + '<popup-wrapper [ng-class]="cssClass">' + '<div class="popup-head">' + '<h2 class="popup-title" [inner-html]="title" *ng-if="title"></h2>' + '<h3 class="popup-sub-title" [inner-html]="subTitle" *ng-if="subTitle"></h3>' + '</div>' + '<div class="popup-body">' + '<div [inner-html]="template" *ng-if="template"></div>' + '<input type="{{inputType || \'text\'}}" placeholder="{{inputPlaceholder}}" *ng-if="showPrompt" class="prompt-input">' + '</div>' + '<div class="popup-buttons" *ng-if="buttons.length">' + '<button *ng-for="#button of buttons" (click)="buttonTapped(button, $event)" [inner-html]="button.text"></button>' + '</div>' + '</popup-wrapper>',
+	    host: {
+	        '[style.zIndex]': '_zIndex'
+	    },
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgClass, _angular2Angular2.NgIf, _angular2Angular2.NgFor, _buttonButton.Button]
 	}), __metadata('design:paramtypes', [typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object])], PopupCmp);
 
@@ -57871,6 +57876,7 @@
 	    value: true
 	});
 	exports.initTapClick = initTapClick;
+	exports.isActivatable = isActivatable;
 
 	var _utilDom = __webpack_require__(425);
 
@@ -58015,18 +58021,20 @@
 	    }
 	    return null;
 	}
+
 	function isActivatable(ele) {
-	    if (/^(A|BUTTON)$/.test(ele.tagName)) {
+	    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
 	        return true;
 	    }
 	    var attributes = ele.attributes;
 	    for (var i = 0, l = attributes.length; i < l; i++) {
-	        if (/click|tappable/.test(attributes[i].name)) {
+	        if (ACTIVATABLE_ATTRIBUTES.test(attributes[i].name)) {
 	            return true;
 	        }
 	    }
 	    return false;
 	}
+
 	function touchAction() {
 	    lastTouch = Date.now();
 	}
@@ -58036,6 +58044,8 @@
 	function removeListener(type, listener) {
 	    doc.removeEventListener(type, listener);
 	}
+	var ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
+	var ACTIVATABLE_ATTRIBUTES = /tappable/;
 
 /***/ },
 /* 441 */
@@ -58316,7 +58326,7 @@
 	    iconMode: 'ios',
 	    modalEnter: 'modal-slide-in',
 	    modalLeave: 'modal-slide-out',
-	    tabBarPlacement: 'bottom',
+	    tabbarPlacement: 'bottom',
 	    viewTransition: 'ios',
 	    popupPopIn: 'popup-pop-in',
 	    popupPopOut: 'popup-pop-out'
@@ -58332,7 +58342,7 @@
 	    iconMode: 'md',
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
-	    tabBarPlacement: 'top',
+	    tabbarPlacement: 'top',
 	    viewTransition: 'md',
 	    popupPopIn: 'popup-md-pop-in',
 	    popupPopOut: 'popup-md-pop-out',
@@ -58434,6 +58444,7 @@
 	        config.host = config.host || {};
 	        config.host['[hidden]'] = '_hidden';
 	        config.host['[class.tab-subpage]'] = '_tabSubPage';
+	        config.host['[style.zIndex]'] = '_zIndex';
 	        var annotations = Reflect.getMetadata('annotations', cls) || [];
 	        annotations.push(new _angular2Angular2.Component(config));
 	        Reflect.defineMetadata('annotations', annotations, cls);
@@ -58551,7 +58562,7 @@
 
 	var _componentsRadioRadio = __webpack_require__(483);
 
-	var _componentsSearchBarSearchBar = __webpack_require__(484);
+	var _componentsSearchbarSearchbar = __webpack_require__(484);
 
 	var _componentsNavNav = __webpack_require__(485);
 
@@ -58559,7 +58570,7 @@
 
 	var _componentsNavNavRouter = __webpack_require__(487);
 
-	var _componentsNavBarNavBar = __webpack_require__(460);
+	var _componentsNavbarNavbar = __webpack_require__(460);
 
 	var _componentsAppId = __webpack_require__(488);
 
@@ -58575,7 +58586,7 @@
 	// Content
 	_componentsOverlayOverlay.OverlayAnchor, _componentsMenuMenu.Menu, _componentsMenuMenuToggle.MenuToggle, _componentsMenuMenuClose.MenuClose, _componentsButtonButton.Button, _componentsBlurBlur.Blur, _componentsContentContent.Content, _componentsScrollScroll.Scroll, _componentsScrollPullToRefresh.Refresher,
 	// Lists
-	_componentsListList.List, _componentsListList.ListHeader, _componentsItemItem.Item, _componentsItemItemGroup.ItemGroup, _componentsItemItemGroup.ItemGroupTitle, _componentsItemItemSliding.ItemSliding,
+	_componentsListList.List, _componentsListList.ListHeader, _componentsItemItem.Item, _componentsItemItemGroup.ItemGroup, _componentsItemItemGroup.ItemGroupTitle, _componentsItemItemSliding.ItemSliding, _componentsItemItemSliding.ItemSlidingOptionButton,
 	// Slides
 	_componentsSlidesSlides.Slides, _componentsSlidesSlides.Slide, _componentsSlidesSlides.SlideLazy,
 	// Tabs
@@ -58585,9 +58596,9 @@
 	// Media
 	_componentsIconIcon.Icon,
 	// Forms
-	_componentsSearchBarSearchBar.SearchBar, _componentsSegmentSegment.Segment, _componentsSegmentSegment.SegmentButton, _componentsSegmentSegment.SegmentControlValueAccessor, _componentsCheckboxCheckbox.Checkbox, _componentsRadioRadio.RadioGroup, _componentsRadioRadio.RadioButton, _componentsSwitchSwitch.Switch, _componentsTextInputTextInput.TextInput, _componentsTextInputTextInput.TextInputElement, _componentsTextInputLabel.Label,
+	_componentsSearchbarSearchbar.SearchBar, _componentsSegmentSegment.Segment, _componentsSegmentSegment.SegmentButton, _componentsSegmentSegment.SegmentControlValueAccessor, _componentsCheckboxCheckbox.Checkbox, _componentsRadioRadio.RadioGroup, _componentsRadioRadio.RadioButton, _componentsSwitchSwitch.Switch, _componentsTextInputTextInput.TextInput, _componentsTextInputTextInput.TextInputElement, _componentsTextInputLabel.Label,
 	// Nav
-	_componentsNavNav.Nav, _componentsNavBarNavBar.NavbarTemplate, _componentsNavBarNavBar.Navbar, _componentsNavNavPush.NavPush, _componentsNavNavPush.NavPop, _componentsNavNavRouter.NavRouter, _componentsAppId.IdRef, _componentsShowHideWhenShowHideWhen.ShowWhen, _componentsShowHideWhenShowHideWhen.HideWhen];
+	_componentsNavNav.Nav, _componentsNavbarNavbar.NavbarTemplate, _componentsNavbarNavbar.Navbar, _componentsNavNavPush.NavPush, _componentsNavNavPush.NavPop, _componentsNavNavRouter.NavRouter, _componentsAppId.IdRef, _componentsShowHideWhenShowHideWhen.ShowWhen, _componentsShowHideWhenShowHideWhen.HideWhen];
 	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
 
 /***/ },
@@ -58768,7 +58779,8 @@
 	        this.keyboard = keyboard;
 	        this.opening = new _angular2Angular2.EventEmitter('opening');
 	        this.isOpen = false;
-	        this._disableTime = 0;
+	        this._preventTime = 0;
+	        this.isEnabled = true;
 	    }
 
 	    /**
@@ -58795,9 +58807,11 @@
 	            this._cntEle.classList.add('menu-content-' + this.type);
 	            var self = this;
 	            this.onContentClick = function (ev) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                self.close();
+	                if (self.isEnabled) {
+	                    ev.preventDefault();
+	                    ev.stopPropagation();
+	                    self.close();
+	                }
 	            };
 	        }
 	    }, {
@@ -58840,9 +58854,9 @@
 	        value: function setOpen(shouldOpen) {
 	            var _this = this;
 
-	            // _isDisabled is used to prevent unwanted opening/closing after swiping open/close
+	            // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
 	            // or swiping open the menu while pressing down on the menu-toggle button
-	            if (shouldOpen === this.isOpen || this._isDisabled()) {
+	            if (shouldOpen === this.isOpen || this._isPrevented()) {
 	                return Promise.resolve();
 	            }
 	            this._before();
@@ -58854,7 +58868,7 @@
 	        key: "setProgressStart",
 	        value: function setProgressStart() {
 	            // user started swiping the menu open/close
-	            if (this._isDisabled()) return;
+	            if (this._isPrevented() || !this.isEnabled) return;
 	            this._before();
 	            this._type.setProgressStart(this.isOpen);
 	        }
@@ -58862,9 +58876,11 @@
 	        key: "setProgess",
 	        value: function setProgess(value) {
 	            // user actively dragging the menu
-	            this._disable();
-	            this.app.setTransitioning(true);
-	            this._type.setProgess(value);
+	            if (this.isEnabled) {
+	                this._prevent();
+	                this.app.setTransitioning(true);
+	                this._type.setProgess(value);
+	            }
 	        }
 	    }, {
 	        key: "setProgressEnd",
@@ -58872,50 +58888,56 @@
 	            var _this2 = this;
 
 	            // user has finished dragging the menu
-	            this._disable();
-	            this.app.setTransitioning(true);
-	            this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
-	                _this2._after(isOpen);
-	            });
+	            if (this.isEnabled) {
+	                this._prevent();
+	                this.app.setTransitioning(true);
+	                this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
+	                    _this2._after(isOpen);
+	                });
+	            }
 	        }
 	    }, {
 	        key: "_before",
 	        value: function _before() {
 	            // this places the menu into the correct location before it animates in
 	            // this css class doesn't actually kick off any animations
-	            this.getNativeElement().classList.add('show-menu');
-	            this.getBackdropElement().classList.add('show-backdrop');
-	            this._disable();
-	            this.app.setTransitioning(true);
-	            this.keyboard.close();
+	            if (this.isEnabled) {
+	                this.getNativeElement().classList.add('show-menu');
+	                this.getBackdropElement().classList.add('show-backdrop');
+	                this._prevent();
+	                this.app.setTransitioning(true);
+	                this.keyboard.close();
+	            }
 	        }
 	    }, {
 	        key: "_after",
 	        value: function _after(isOpen) {
 	            // keep opening/closing the menu disabled for a touch more yet
-	            this._disable();
-	            this.app.setTransitioning(false);
-	            this.isOpen = isOpen;
-	            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-	            this._cntEle.removeEventListener('click', this.onContentClick);
-	            if (isOpen) {
-	                this._cntEle.addEventListener('click', this.onContentClick);
-	            } else {
-	                this.getNativeElement().classList.remove('show-menu');
-	                this.getBackdropElement().classList.remove('show-backdrop');
+	            if (this.isEnabled) {
+	                this._prevent();
+	                this.app.setTransitioning(false);
+	                this.isOpen = isOpen;
+	                this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
+	                this._cntEle.removeEventListener('click', this.onContentClick);
+	                if (isOpen) {
+	                    this._cntEle.addEventListener('click', this.onContentClick);
+	                } else {
+	                    this.getNativeElement().classList.remove('show-menu');
+	                    this.getBackdropElement().classList.remove('show-backdrop');
+	                }
 	            }
 	        }
 	    }, {
-	        key: "_disable",
-	        value: function _disable() {
+	        key: "_prevent",
+	        value: function _prevent() {
 	            // used to prevent unwanted opening/closing after swiping open/close
 	            // or swiping open the menu while pressing down on the menu-toggle
-	            this._disableTime = Date.now() + 20;
+	            this._preventTime = Date.now() + 20;
 	        }
 	    }, {
-	        key: "_isDisabled",
-	        value: function _isDisabled() {
-	            return this._disableTime > Date.now();
+	        key: "_isPrevented",
+	        value: function _isPrevented() {
+	            return this._preventTime > Date.now();
 	        }
 
 	        /**
@@ -58946,6 +58968,11 @@
 	        key: "toggle",
 	        value: function toggle() {
 	            return this.setOpen(!this.isOpen);
+	        }
+	    }, {
+	        key: "enable",
+	        value: function enable(shouldEnable) {
+	            this.isEnabled = shouldEnable;
 	        }
 
 	        /**
@@ -59202,7 +59229,7 @@
 	    _createClass(MenuContentGesture, [{
 	        key: 'canStart',
 	        value: function canStart(ev) {
-	            return this.menu.isOpen ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
+	            return this.menu.isOpen && this.menu.isEnabled ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
 	        }
 
 	        // Set CSS, then wait one frame for it to apply before sliding starts
@@ -61851,7 +61878,7 @@
 
 	var _navViewController = __webpack_require__(456);
 
-	var _navBarNavBar = __webpack_require__(460);
+	var _navbarNavbar = __webpack_require__(460);
 
 	/**
 	* TODO
@@ -61922,9 +61949,10 @@
 	    inputs: ['menuToggle'],
 	    host: {
 	        '(click)': 'toggle()',
-	        '[hidden]': 'isHidden'
+	        '[hidden]': 'isHidden',
+	        'menu-toggle': '' //ensures the attr is there for css when using [menu-toggle]
 	    }
-	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _c || Object, typeof (_d = typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar) === 'function' && _d || Object])], MenuToggle);
+	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _c || Object, typeof (_d = typeof _navbarNavbar.Navbar !== 'undefined' && _navbarNavbar.Navbar) === 'function' && _d || Object])], MenuToggle);
 	var _a, _b, _c, _d;
 
 /***/ },
@@ -61962,37 +61990,11 @@
 	    }
 
 	    /**
-	     * @private
+	     * TODO
+	     * @returns {boolean} TODO
 	     */
 
 	    _createClass(ViewController, [{
-	        key: 'stage',
-	        value: function stage(done) {
-	            var _this = this;
-
-	            var navCtrl = this.navCtrl;
-	            if (this.instance || !navCtrl || this.shouldDestroy) {
-	                // already compiled this view
-	                return done();
-	            }
-	            // get the pane the NavController wants to use
-	            // the pane is where all this content will be placed into
-	            navCtrl.loadPage(this, null, function () {
-	                // this ViewController instance has finished loading
-	                try {
-	                    _this.loaded();
-	                } catch (e) {
-	                    console.error(e);
-	                }
-	                done();
-	            });
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {boolean} TODO
-	         */
-	    }, {
 	        key: 'enableBack',
 	        value: function enableBack() {
 	            // update if it's possible to go back from this nav item
@@ -62286,7 +62288,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x9, _x10, _x11) { var _again = true; _function: while (_again) { var object = _x9, property = _x10, receiver = _x11; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x9 = parent; _x10 = property; _x11 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -62471,17 +62473,17 @@
 	            enteringView.shouldCache = false;
 	            // add the view to the stack
 	            this._add(enteringView);
-	            (0, _utilDom.raf)(function () {
-	                _this._cleanup(enteringView);
-	            });
+	            if (opts.preCleanup !== false) {
+	                (0, _utilDom.raf)(function () {
+	                    _this._cleanup(enteringView);
+	                });
+	            }
 	            if (this.router) {
 	                // notify router of the state change
 	                this.router.stateChange('push', enteringView, params);
 	            }
 	            // start the transition
-	            this.transition(enteringView, leavingView, opts, function () {
-	                resolve();
-	            });
+	            this._transition(enteringView, leavingView, opts, resolve);
 	            return promise;
 	        }
 
@@ -62522,10 +62524,7 @@
 	                    this.router.stateChange('pop', enteringView);
 	                }
 	                // start the transition
-	                this.transition(enteringView, leavingView, opts, function () {
-	                    // transition completed, destroy the leaving view
-	                    resolve();
-	                });
+	                this._transition(enteringView, leavingView, opts, resolve);
 	            } else {
 	                this._transComplete();
 	                resolve();
@@ -62541,22 +62540,21 @@
 	         * @param opts {object} pop options
 	         */
 	    }, {
-	        key: '_popTo',
-	        value: function _popTo(view) {
+	        key: 'popTo',
+	        value: function popTo(viewCtrl) {
 	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
 	            // Get the target index of the view to pop to
-	            var viewIndex = this._views.indexOf(view);
+	            var viewIndex = this._views.indexOf(viewCtrl);
 	            var targetIndex = viewIndex + 1;
+	            // Don't pop to the view if it wasn't found, or the target is beyond the view list
+	            if (viewIndex < 0 || targetIndex > this._views.length - 1) {
+	                return Promise.resolve();
+	            }
 	            var resolve = undefined;
 	            var promise = new Promise(function (res) {
 	                resolve = res;
 	            });
-	            // Don't pop to the view if it wasn't found, or the target is beyond the view list
-	            if (viewIndex < 0 || targetIndex > this._views.length - 1) {
-	                resolve();
-	                return;
-	            }
 	            opts.direction = opts.direction || 'back';
 	            // get the views to auto remove without having to do a transiton for each
 	            // the last view (the currently active one) will do a normal transition out
@@ -62568,14 +62566,11 @@
 	                    autoRemoveItems[i].willUnload();
 	                }
 	            }
-	            var leavingView = this._views[this._views.length - 1];
-	            var enteringView = view;
+	            var leavingView = this.getPrevious(viewCtrl);
 	            if (this.router) {
-	                this.router.stateChange('pop', enteringView);
+	                this.router.stateChange('pop', viewCtrl);
 	            }
-	            this.transition(enteringView, leavingView, opts, function () {
-	                resolve();
-	            });
+	            this._transition(viewCtrl, leavingView, opts, resolve);
 	            return promise;
 	        }
 
@@ -62588,7 +62583,7 @@
 	        value: function popToRoot() {
 	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-	            this._popTo(this.first());
+	            return this._popTo(this.first(), opts);
 	        }
 
 	        /**
@@ -62600,12 +62595,15 @@
 	    }, {
 	        key: 'insert',
 	        value: function insert(componentType, index) {
+	            var params = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+	            var opts = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
+
 	            if (!componentType || index < 0) {
 	                return Promise.reject();
 	            }
 	            // push it onto the end
 	            if (index >= this._views.length) {
-	                return this.push(componentType);
+	                return this.push(componentType, params, opts);
 	            }
 	            // create new ViewController, but don't render yet
 	            var viewCtrl = new _viewController.ViewController(this, componentType);
@@ -62625,12 +62623,14 @@
 	    }, {
 	        key: 'remove',
 	        value: function remove(index) {
+	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
 	            if (index < 0 || index >= this._views.length) {
 	                return Promise.reject("Index out of range");
 	            }
 	            var viewToRemove = this._views[index];
 	            if (this.isActive(viewToRemove)) {
-	                return this.pop();
+	                return this.pop(opts);
 	            }
 	            viewToRemove.shouldDestroy = true;
 	            this._cleanup();
@@ -62653,6 +62653,7 @@
 	            }
 	            // if animate has not been set then default to false
 	            opts.animate = opts.animate || false;
+	            opts.preCleanup = false;
 	            // ensure leaving views are not cached, and should be destroyed
 	            opts.cacheLeavingView = false;
 	            // get the views to auto remove without having to do a transiton for each
@@ -62718,16 +62719,16 @@
 	         * @param {TODO} enteringView  TODO
 	         * @param {TODO} leavingView  TODO
 	         * @param {TODO} opts  TODO
-	         * @param {Function} callback  TODO
+	         * @param {Function} done  TODO
 	         * @returns {any} TODO
 	         */
 	    }, {
-	        key: 'transition',
-	        value: function transition(enteringView, leavingView, opts, callback) {
+	        key: '_transition',
+	        value: function _transition(enteringView, leavingView, opts, done) {
 	            var _this2 = this;
 
 	            if (!enteringView || enteringView === leavingView) {
-	                return callback();
+	                return done();
 	            }
 	            if (!opts.animation) {
 	                opts.animation = this.config.get('viewTransition');
@@ -62736,11 +62737,12 @@
 	                opts.animate = false;
 	            }
 	            // wait for the new view to complete setup
-	            enteringView.stage(function () {
+	            this._stage(enteringView, function () {
 	                if (enteringView.shouldDestroy) {
 	                    // already marked as a view that will be destroyed, don't continue
-	                    return callback();
+	                    return done();
 	                }
+	                _this2._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
 	                _this2._zone.runOutsideAngular(function () {
 	                    enteringView.shouldDestroy = false;
 	                    enteringView.shouldCache = false;
@@ -62776,10 +62778,33 @@
 	                        // all done!
 	                        _this2._zone.run(function () {
 	                            _this2._transComplete();
-	                            callback();
+	                            done();
 	                        });
 	                    });
 	                });
+	            });
+	        }
+
+	        /**
+	         * @private
+	         */
+	    }, {
+	        key: '_stage',
+	        value: function _stage(viewCtrl, done) {
+	            if (viewCtrl.instance || viewCtrl.shouldDestroy) {
+	                // already compiled this view
+	                return done();
+	            }
+	            // get the pane the NavController wants to use
+	            // the pane is where all this content will be placed into
+	            this.loadPage(viewCtrl, null, function () {
+	                // this ViewController instance has finished loading
+	                try {
+	                    viewCtrl.loaded();
+	                } catch (e) {
+	                    console.error(e);
+	                }
+	                done();
 	            });
 	        }
 	    }, {
@@ -62822,6 +62847,19 @@
 	                done(viewCtrl);
 	            });
 	        }
+	    }, {
+	        key: '_setZIndex',
+	        value: function _setZIndex(enteringInstance, leavingInstance, direction) {
+	            if (!leavingInstance) {
+	                enteringInstance._zIndex = 10;
+	            } else if (direction === 'back') {
+	                // moving back
+	                enteringInstance._zIndex = leavingInstance._zIndex - 1;
+	            } else {
+	                // moving forward
+	                enteringInstance._zIndex = leavingInstance._zIndex + 1;
+	            }
+	        }
 
 	        /**
 	         * @private
@@ -62856,7 +62894,7 @@
 	            enteringView.shouldCache = false;
 	            enteringView.willEnter();
 	            // wait for the new view to complete setup
-	            enteringView.stage(function () {
+	            enteringView._stage(function () {
 	                _this4._zone.runOutsideAngular(function () {
 	                    // set that the new view pushed on the stack is staged to be entering/leaving
 	                    // staged state is important for the transition to find the correct view
@@ -63702,7 +63740,7 @@
 
 	var _configConfig = __webpack_require__(422);
 
-	var _navBarNavBar = __webpack_require__(460);
+	var _navbarNavbar = __webpack_require__(460);
 
 	/**
 	 * TODO
@@ -63805,7 +63843,7 @@
 	exports.Toolbar = Toolbar;
 	exports.Toolbar = Toolbar = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-toolbar',
-	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
+	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title,ion-searchbar,ion-segment"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Toolbar);
 	var ToolbarTitle = (function (_Ion2) {
 	    _inherits(ToolbarTitle, _Ion2);
@@ -63832,8 +63870,8 @@
 	    selector: 'ion-title',
 	    template: '<div class="toolbar-title">' + '<ng-content></ng-content>' + '</div>'
 	}), __param(1, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _navBarNavBar.Navbar;
-	}))), __metadata('design:paramtypes', [typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, Toolbar, typeof (_e = typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar) === 'function' && _e || Object])], ToolbarTitle);
+	    return _navbarNavbar.Navbar;
+	}))), __metadata('design:paramtypes', [typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, Toolbar, typeof (_e = typeof _navbarNavbar.Navbar !== 'undefined' && _navbarNavbar.Navbar) === 'function' && _e || Object])], ToolbarTitle);
 	var ToolbarItem = (function (_Ion3) {
 	    _inherits(ToolbarItem, _Ion3);
 
@@ -63851,8 +63889,8 @@
 	exports.ToolbarItem = ToolbarItem = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'ion-nav-items,[menu-toggle]'
 	}), __param(1, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _navBarNavBar.Navbar;
-	}))), __metadata('design:paramtypes', [typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, Toolbar, typeof (_g = typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar) === 'function' && _g || Object])], ToolbarItem);
+	    return _navbarNavbar.Navbar;
+	}))), __metadata('design:paramtypes', [typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, Toolbar, typeof (_g = typeof _navbarNavbar.Navbar !== 'undefined' && _navbarNavbar.Navbar) === 'function' && _g || Object])], ToolbarItem);
 	var _a, _b, _c, _d, _e, _f, _g;
 
 /***/ },
@@ -66145,18 +66183,18 @@
 	 * [properties you set on each Tab](../Tab/#tab_properties).
 	 *
 	 * To override the platform specific TabBar placement, use the
-	 * `tab-bar-placement` property:
+	 * `tabbar-placement` property:
 	 *
 	 * ```ts
-	 * <ion-tabs tab-bar-placement="top">
+	 * <ion-tabs tabbar-placement="top">
 	 *   <ion-tab [root]="tabRoot"></ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *
-	 * To change the location of the icons in the TabBar, use the `tab-bar-icons`
+	 * To change the location of the icons in the TabBar, use the `tabbar-icons`
 	 * property:
 	 * ```ts
-	 * <ion-tabs tab-bar-icons="bottom">
+	 * <ion-tabs tabbar-icons="bottom">
 	 *   <ion-tab [root]="tabRoot"></ion-tab>
 	 * </ion-tabs>
 	 * ```
@@ -66339,11 +66377,11 @@
 	exports.Tabs = Tabs = __decorate([(0, _configDecorators.ConfigComponent)({
 	    selector: 'ion-tabs',
 	    defaultInputs: {
-	        'tabBarPlacement': 'bottom',
-	        'tabBarIcons': 'top',
+	        'tabbarPlacement': 'bottom',
+	        'tabbarIcons': 'top',
 	        'preloadTabs': true
 	    },
-	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tab-bar-section>' + '<tab-bar role="tablist">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tab-bar>' + '</ion-tab-bar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
+	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
 	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, _angular2Angular2.NgIf, (0, _angular2Angular2.forwardRef)(function () {
 	        return TabButton;
 	    }), (0, _angular2Angular2.forwardRef)(function () {
@@ -66972,17 +67010,19 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var Item = function Item(elementRef, renderer) {
+	var Item = function Item() {
 	    _classCallCheck(this, Item);
 
-	    renderer.setElementClass(elementRef, 'item', true);
+	    this.isItem = true;
 	};
 	exports.Item = Item;
 	exports.Item = Item = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-item,[ion-item]',
-	    template: '<ng-content select="[item-left]"></ng-content>' + '<ng-content select="[item-right]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _b || Object])], Item);
-	var _a, _b;
+	    template: '<ng-content select="[item-left]"></ng-content>' + '<ng-content select="[item-right]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>',
+	    host: {
+	        '[class.item]': 'isItem'
+	    }
+	}), __metadata('design:paramtypes', [])], Item);
 
 /***/ },
 /* 476 */
@@ -67115,24 +67155,6 @@
 
 	var _ionicUtilDom = __webpack_require__(425);
 
-	/**
-	 * @name ionItem
-	 * @description
-	 * Creates a list-item that can easily be swiped,
-	 * deleted, reordered, edited, and more.
-	 *
-	 * @usage
-	 * ```html
-	 * <ion-list>
-	 *   <ion-item-sliding *ng-for="#item of items" (click)="itemTapped($event, item)">
-	 *     {{item.title}}
-	 *     <div class="item-note" item-right>
-	 *       {{item.note}}
-	 *     </div>
-	 *   </ion-item>
-	 * </ion-list>
-	 *  ```
-	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -67158,6 +67180,47 @@
 	        decorator(target, key, paramIndex);
 	    };
 	};
+	var ItemSlidingOptionButton = (function () {
+	    function ItemSlidingOptionButton(elementRef) {
+	        _classCallCheck(this, ItemSlidingOptionButton);
+	    }
+
+	    _createClass(ItemSlidingOptionButton, [{
+	        key: "clicked",
+	        value: function clicked(event) {
+	            // Don't allow the click to propagate
+	            event.preventDefault();
+	            event.stopPropagation();
+	        }
+	    }]);
+
+	    return ItemSlidingOptionButton;
+	})();
+	exports.ItemSlidingOptionButton = ItemSlidingOptionButton;
+	exports.ItemSlidingOptionButton = ItemSlidingOptionButton = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'ion-item-options > button,ion-item-options > [button]',
+	    host: {
+	        '(click)': 'clicked($event)'
+	    }
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object])], ItemSlidingOptionButton);
+	/**
+	 * @name ionItem
+	 * @description
+	 * Creates a list-item that can easily be swiped,
+	 * deleted, reordered, edited, and more.
+	 *
+	 * @usage
+	 * ```html
+	 * <ion-list>
+	 *   <ion-item-sliding *ng-for="#item of items" (click)="itemTapped($event, item)">
+	 *     {{item.title}}
+	 *     <div class="item-note" item-right>
+	 *       {{item.note}}
+	 *     </div>
+	 *   </ion-item>
+	 * </ion-list>
+	 *  ```
+	 */
 	var ItemSliding = (function () {
 	    /**
 	     * TODO
@@ -67169,6 +67232,7 @@
 
 	        this._zone = zone;
 	        renderer.setElementClass(elementRef, 'item', true);
+	        renderer.setElementAttribute(elementRef, 'tappable', '');
 	        this._isOpen = false;
 	        this._isSlideActive = false;
 	        this._isTransitioning = false;
@@ -67273,11 +67337,10 @@
 	})();
 	exports.ItemSliding = ItemSliding;
 	exports.ItemSliding = ItemSliding = __decorate([(0, _angular2Angular2.Component)({
-	    selector: 'ion-item-sliding,[ion-item-sliding]',
+	    selector: 'ion-item-sliding',
 	    inputs: ['sliding'],
-	    template: '<ng-content select="ion-item-options"></ng-content>' + '<ion-item-sliding-content>' + '<ng-content select="[item-left]"></ng-content>' + '<ng-content select="[item-right]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '</ion-item-sliding-content>',
-	    directives: [_angular2Angular2.NgIf]
-	}), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _b || Object, typeof (_c = typeof _ionicComponentsListList.List !== 'undefined' && _ionicComponentsListList.List) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _d || Object])], ItemSliding);
+	    template: '<ng-content select="ion-item-options"></ng-content>' + '<ion-item-sliding-content>' + '<ng-content select="[item-left]"></ng-content>' + '<ng-content select="[item-right]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '</ion-item-sliding-content>'
+	}), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object, typeof (_d = typeof _ionicComponentsListList.List !== 'undefined' && _ionicComponentsListList.List) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _e || Object])], ItemSliding);
 
 	var ItemSlideGesture = (function (_DragGesture) {
 	    _inherits(ItemSlideGesture, _DragGesture);
@@ -67304,6 +67367,11 @@
 	            el.addEventListener('touchstart', touchStart);
 	            el.addEventListener('mousedown', touchStart);
 	            var touchEnd = function touchEnd(e) {
+	                // If we have a touch end and the item is closing,
+	                // prevent default to stop a click from triggering
+	                if (_this3.item.didClose) {
+	                    e.preventDefault();
+	                }
 	                _this3.item.didClose = false;
 	            };
 	            el.addEventListener('touchend', touchEnd);
@@ -67386,7 +67454,7 @@
 	    return ItemSlideGesture;
 	})(_ionicGesturesDragGesture.DragGesture);
 
-	var _a, _b, _c, _d;
+	var _a, _b, _c, _d, _e;
 
 /***/ },
 /* 478 */
@@ -68535,7 +68603,7 @@
 	exports.Segment = Segment = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-segment',
 	    inputs: ['value'],
-	    template: '<div class="ion-segment"><ng-content></ng-content></div>',
+	    template: '<ng-content></ng-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return SegmentButton;
 	    })]
@@ -69003,7 +69071,7 @@
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-search-bar ng-control="searchQuery"></ion-search-bar>
+	 * <ion-searchbar ng-control="searchQuery"></ion-searchbar>
 	 * ```
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -69054,7 +69122,7 @@
 	    _createClass(SearchBar, [{
 	        key: "afterViewInit",
 	        value: function afterViewInit() {
-	            this.cancelButton = this.elementRef.nativeElement.querySelector('.search-bar-cancel');
+	            this.cancelButton = this.elementRef.nativeElement.querySelector('.searchbar-cancel');
 	            if (this.cancelButton) {
 	                this.cancelWidth = this.cancelButton.offsetWidth;
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
@@ -69119,17 +69187,17 @@
 	})(_ion.Ion);
 	exports.SearchBar = SearchBar;
 	exports.SearchBar = SearchBar = __decorate([(0, _configDecorators.ConfigComponent)({
-	    selector: 'ion-search-bar',
+	    selector: 'ion-searchbar',
 	    defaultInputs: {
 	        'showCancel': false,
 	        'cancelText': 'Cancel',
 	        'placeholder': 'Search',
-	        'cancelAction': function cancelAction(event, model) {
+	        'cancelAction': function cancelAction(event, query) {
 	            // The cancel button now works on its own to blur the input
 	            console.log('Default Cancel');
 	        }
 	    },
-	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="search-bar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, model)" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
+	    template: '<div class="searchbar-input-container" [class.left-align]="shouldLeftAlign">' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="searchbar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, query)" class="searchbar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], SearchBar);
 	var _a, _b, _c, _d;
@@ -69182,6 +69250,8 @@
 	var _configDecorators = __webpack_require__(444);
 
 	var _navController = __webpack_require__(457);
+
+	var _viewController = __webpack_require__(456);
 
 	/**
 	 * _For a quick walkthrough of navigation in Ionic, check out the
@@ -69237,25 +69307,23 @@
 	 *                           &lt;ion-nav&gt;
 	 *                               |
 	 *                               |
-	 *             Pane 3  +--------------------+                     LoginPage
-	 *           Pane 2  +--------------------+ |          Has header, animates into pane 1
-	 *         Pane 1  +--------------------+ | |              +--------------------+
-	 *                 | | Header (Pane 1)  |&lt;-----------------|       Login        |
+	 *             Page 3  +--------------------+                     LoginPage
+	 *           Page 2  +--------------------+ |
+	 *         Page 1  +--------------------+ | |              +--------------------+
+	 *                 | | Header           |&lt;-----------------|       Login        |
 	 *                 +--------------------+ | |              +--------------------+
 	 *                 | | |                | | |              | Username:          |
 	 *                 | | |                | | |              | Password:          |
-	 *                 | | |  Pane 3 is     | | |              |                    |
+	 *                 | | |  Page 3 is     | | |              |                    |
 	 *                 | | |  only content  | | |              |                    |
 	 *                 | | |                |&lt;-----------------|                    |
 	 *                 | | |                | | |              |                    |
 	 *                 | | |                | | |              |                    |
 	 *                 | +------------------|-+ |              |                    |
-	 *                 | | Footer (Pane 2)--|-|-+              |                    |
+	 *                 | | Footer           |-|-+              |                    |
 	 *                 | +------------------|-+                |                    |
 	 *                 +--------------------+                  +--------------------+
-	 *                       &lt;ion-pane&gt;                              &lt;ion-view&gt;
 	 *
-	 *                   Pane 1                    Pane 2                    Pane 3
 	 *           +--------------------+    +--------------------+    +--------------------+
 	 *           | Header             |    | Content            |    | Content            |
 	 *           +--------------------+    |                    |    |                    |
@@ -69273,31 +69341,6 @@
 	 *
 	 *   </pre>
 	 * </div>
-	 *
-	 * ### Panes
-	 *
-	 * NOTE: You don't have to do anything with panes because Ionic takes care of
-	 * animated transitions for you. This is an explanation of how Nav works to
-	 * accompany the diagram above.
-	 *
-	 * When you push a new page onto the navigation stack using [NavController.push()](../NavController/#push)
-	 * or the [NavPush directive](../NavPush/), Nav animates the new page into the
-	 * appropriate pane.
-	 *
-	 * Panes are the containers Nav creates to animate views into. They do not have
-	 * any content of their own, as they are just a structural reference for where
-	 * the various parts of a page (header, footer, content) should animate into.
-	 *
-	 * The easiest scenario is animating between pages with the same structure. If
-	 * you have a page with a header and content, and navigate to another page that
-	 * also has a header and content, Nav can smoothly animate the incoming page
-	 * into the pane the exiting page is leaving. This allows for things like
-	 * seamless header animations between pages that both have headers.
-	 *
-	 * But suppose you have a page with a header and content and want to navigate to
-	 * a page with no header. Nav creates a new pane with no header that is directly
-	 * behind the current pane. It then animates the exiting page out of the current
-	 * pane and the new page into the new content-only pane.
 	 *
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -69328,15 +69371,17 @@
 	var Nav = (function (_NavController) {
 	    _inherits(Nav, _NavController);
 
-	    function Nav(hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+	    function Nav(hostNavCtrl, viewCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, Nav);
 
 	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+	        if (viewCtrl) {
+	            // an ion-nav can also act as an ion-page within a parent ion-nav
+	            // this would happen when an ion-nav nests a child ion-nav.
+	            viewCtrl.setContent(this);
+	            viewCtrl.setContentRef(elementRef);
+	        }
 	    }
-
-	    /**
-	     * @private
-	     */
 
 	    _createClass(Nav, [{
 	        key: "onInit",
@@ -69363,8 +69408,8 @@
 	        'swipeBackEnabled': true
 	    },
 	    template: '<template #contents></template>'
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], Nav);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _viewController.ViewController !== 'undefined' && _viewController.ViewController) === 'function' && _b || Object, typeof (_c = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object])], Nav);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
 /* 486 */
@@ -70065,9 +70110,9 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavRouter, _defaults));
 
-	var _ionicComponentsNavBarNavBar = __webpack_require__(460);
+	var _ionicComponentsNavbarNavbar = __webpack_require__(460);
 
-	_defaults(exports, _interopExportWildcard(_ionicComponentsNavBarNavBar, _defaults));
+	_defaults(exports, _interopExportWildcard(_ionicComponentsNavbarNavbar, _defaults));
 
 	var _ionicComponentsOverlayOverlay = __webpack_require__(446);
 
@@ -70093,9 +70138,9 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
-	var _ionicComponentsSearchBarSearchBar = __webpack_require__(484);
+	var _ionicComponentsSearchbarSearchbar = __webpack_require__(484);
 
-	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchBarSearchBar, _defaults));
+	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchbarSearchbar, _defaults));
 
 	var _ionicComponentsSegmentSegment = __webpack_require__(482);
 
@@ -70112,6 +70157,10 @@
 	var _ionicComponentsTabsTab = __webpack_require__(472);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTab, _defaults));
+
+	var _ionicComponentsTapClickTapClick = __webpack_require__(440);
+
+	_defaults(exports, _interopExportWildcard(_ionicComponentsTapClickTapClick, _defaults));
 
 	var _ionicComponentsToolbarToolbar = __webpack_require__(461);
 
@@ -72417,7 +72466,7 @@
 	        key: "setHexColor",
 	        value: function setHexColor(hex) {
 	            this.ifPlugin(function () {
-	                window.StatusBar.backgroundColorByHexName(hex);
+	                window.StatusBar.backgroundColorByHexString(hex);
 	            });
 	        }
 
@@ -72827,7 +72876,7 @@
 	            existingDatabase: false
 	        }, options);
 	        if (window.sqlitePlugin) {
-	            var _location = this._getBackupLocation(dbOptions);
+	            var _location = this._getBackupLocation(dbOptions.backupFlag);
 	            this._db = window.sqlitePlugin.openDatabase(util.extend({
 	                name: dbOptions.name,
 	                location: _location,
@@ -73171,6 +73220,8 @@
 	                    var enteringBackBtnText = new _animationsAnimation.Animation(enteringView.backBtnTextRef());
 	                    enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
 	                    enteringNavBar.add(enteringBackBtnText);
+	                } else {
+	                    enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
 	                }
 	            }
 	        }
@@ -73274,11 +73325,14 @@
 	            this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
 	            enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
 	        }
-	        // entering navbar
-	        if (enteringHasNavbar && enteringView.enableBack()) {
+	        if (enteringHasNavbar) {
 	            var enteringBackButton = new _animationsAnimation.Animation(enteringView.backBtnRef());
-	            enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
 	            this.add(enteringBackButton);
+	            if (enteringView.enableBack()) {
+	                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+	            } else {
+	                enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
+	            }
 	        }
 	        // setup leaving view
 	        if (leavingView && backDirection) {

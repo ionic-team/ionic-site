@@ -14,7 +14,7 @@ header_sub_title: Ionic 2 Developer Preview
 </a>
 
 ```bash
-$ ionic plugin install phonegap-plugin-push
+$ ionic plugin add phonegap-plugin-push
 ```
 
 Every app needs to receive push notifications.

@@ -15,7 +15,7 @@ header_sub_title: Save and load data
 </a>
 
 ```bash
-$ ionic plugin install cordova-sqlite-storage
+$ ionic plugin add cordova-sqlite-storage
 ```
 
 The `Storage` service makes it easy to persist and load data on the device. The `Storage` service is an abstraction

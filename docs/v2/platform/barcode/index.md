@@ -19,7 +19,7 @@ Use the `Barcode` class to create and scan barcodes and QR codes.
 ### Install the plugin
 
 ```bash
-$ ionic plugin install phonegap-plugin-barcodescanner
+$ ionic plugin add phonegap-plugin-barcodescanner
 ```
 
 ```javascript

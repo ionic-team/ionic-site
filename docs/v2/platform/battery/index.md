@@ -19,7 +19,7 @@ Get information about the battery status of the device.
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-battery-status
+$ ionic plugin add cordova-plugin-battery-status
 ```
 
 

@@ -18,7 +18,7 @@ Show native loading and progress indicators
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-progressindicator
+$ ionic plugin add cordova-plugin-progressindicator
 ```
 
 ```javascript

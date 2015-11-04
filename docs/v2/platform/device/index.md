@@ -18,7 +18,7 @@ Get information about the underlying device and platform.
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-device
+$ ionic plugin add cordova-plugin-device
 ```
 
 ```javascript

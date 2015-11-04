@@ -16,7 +16,7 @@ header_sub_title: Ionic 2 Developer Preview
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-geolocation
+$ ionic plugin add cordova-plugin-geolocation
 ```
 
 

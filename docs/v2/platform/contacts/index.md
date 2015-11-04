@@ -14,7 +14,7 @@ header_sub_title: Access and create contacts on the device
 </a>
 
 ```bash
-$ ionic plugin install cordova-plugin-contacts
+$ ionic plugin add cordova-plugin-contacts
 ```
 
 Use the `Contacts` class to access contacts from the user's address book, or to create and modify contacts.

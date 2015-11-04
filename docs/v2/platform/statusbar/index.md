@@ -14,7 +14,7 @@ header_sub_title: Modify the status bar
 </a>
 
 ```bash
-$ ionic plugin install cordova-plugin-statusbar
+$ ionic plugin add cordova-plugin-statusbar
 ```
 
 ```javascript

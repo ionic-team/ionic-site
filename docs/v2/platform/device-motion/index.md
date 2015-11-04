@@ -18,7 +18,7 @@ React to device motion changes.
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-device-motion
+$ ionic plugin add cordova-plugin-device-motion
 ```
 
 ```javascript

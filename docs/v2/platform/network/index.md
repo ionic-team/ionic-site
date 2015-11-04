@@ -17,7 +17,7 @@ header_sub_title: Access network information
 ### Install the plugin
 
 ```bash
-$ ionic plugin install cordova-plugin-network-information
+$ ionic plugin add cordova-plugin-network-information
 ```
 
 ```javascript

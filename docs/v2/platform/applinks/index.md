@@ -16,7 +16,7 @@ header_sub_title: Check for and launch installed apps
 ### Install the plugin
 
 ```bash
-$ ionic plugin install com.lampa.startapp
+$ ionic plugin add com.lampa.startapp
 ```
 
 `AppLinks` makes it easy to check for installed apps on the user's device, and open those apps. Due to the way Android and iOS register apps, both platforms require different launch methods.

@@ -19,7 +19,7 @@ Show native loading and progress indicators
 ### Install the plugin
 
 ```bash
-$ ionic plugin install ionic-plugin-keyboard
+$ ionic plugin add ionic-plugin-keyboard
 ```
 
 Control the device keyboard

@@ -10,7 +10,9 @@ var _ionicIonic = require('ionic/ionic');
 
 var _menusMenus = require('./menus/menus');
 
-var _actionSheetActionSheet = require('./actionSheet/actionSheet');
+var _actionSheetsActionSheets = require('./action-sheets/action-sheets');
+
+var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
 
 var _helpers = require('./helpers');
 
@@ -55,10 +57,10 @@ var DemoApp = (function () {
                         if (data.hash) {
                             _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
                         } else {
-                            _this.nextPage = _actionSheetActionSheet.ActionSheetPage;
+                            _this.nextPage = actionSheets.BasicPage;
                         }
                         var nav = _this.app.getComponent('nav');
-                        helpers.debounce(nav.setRoot(_this.nextPage), 500, true);
+                        nav.setRoot(_this.nextPage);
                     }
                 });
             });

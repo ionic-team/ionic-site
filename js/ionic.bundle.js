@@ -21,6 +21,7 @@ System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -40919,6 +40920,1053 @@ System.register('ionic/util', ['ionic/util/dom', 'ionic/util/util'], function (_
     }
   };
 });
+System.register('ionic/animations/animation', ['../util/dom', '../util/util'], function (_export) {
+    /**
+      Animation Steps/Process
+      -----------------------
+      1) Construct animation (doesn't start)
+      2) Client play()'s animation, returns promise
+      3) Add before classes to elements
+      4) Remove before classes from elements
+      5) Elements staged in "from" effect w/ inline styles
+      6) Call onReady()
+      7) Wait for RENDER_DELAY milliseconds (give browser time to render)
+      8) Call onPlay()
+      8) Run from/to animation on elements
+      9) Animations finish async
+     10) Set inline styles w/ the "to" effects on elements
+     11) Add after classes to elements
+     12) Remove after classes from elements
+     13) Call onFinish()
+     14) Resolve play()'s promise
+    **/
+    'use strict';
+
+    var CSS, extend, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN, AnimationRegistry;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function insertEffects(effects, fromEffect, toEffect, easingConfig) {
+        easingConfig.opts = easingConfig.opts || {};
+        var increment = easingConfig.opts.increment || 0.04;
+        var easingFn = EASING_FN[easingConfig.name];
+        var pos = undefined,
+            tweenEffect = undefined,
+            addEffect = undefined,
+            property = undefined,
+            toProperty = undefined,
+            fromValue = undefined,
+            diffValue = undefined;
+        for (pos = increment; pos <= 1 - increment; pos += increment) {
+            tweenEffect = {};
+            addEffect = false;
+            for (property in toEffect) {
+                toProperty = toEffect[property];
+                if (toProperty.tween) {
+                    fromValue = fromEffect[property].num;
+                    diffValue = toProperty.num - fromValue;
+                    tweenEffect[property] = {
+                        value: roundValue(easingFn(pos, easingConfig.opts) * diffValue + fromValue) + toProperty.unit
+                    };
+                    addEffect = true;
+                }
+            }
+            if (addEffect) {
+                effects.push(convertProperties(tweenEffect));
+            }
+        }
+    }
+    function parseEffect(inputEffect) {
+        var val = undefined,
+            r = undefined,
+            num = undefined,
+            property = undefined;
+        var outputEffect = {};
+        for (property in inputEffect) {
+            val = inputEffect[property];
+            r = val.toString().match(/(^-?\d*\.?\d*)(.*)/);
+            num = parseFloat(r[1]);
+            outputEffect[property] = {
+                value: val,
+                num: num,
+                unit: r[0] != r[2] ? r[2] : '',
+                tween: !isNaN(num) && ANIMATE_PROPERTIES.indexOf(property) > -1
+            };
+        }
+        return outputEffect;
+    }
+    function convertProperties(inputEffect) {
+        var outputEffect = {};
+        var transforms = [];
+        var value = undefined,
+            property = undefined;
+        for (property in inputEffect) {
+            value = inputEffect[property].value;
+            if (TRANSFORMS.indexOf(property) > -1) {
+                transforms.push(property + '(' + value + ')');
+            } else {
+                outputEffect[property] = value;
+            }
+        }
+        if (transforms.length) {
+            transforms.push('translateZ(0px)');
+            outputEffect.transform = transforms.join(' ');
+        }
+        return outputEffect;
+    }
+    function inlineStyle(ele, effect) {
+        if (ele && effect) {
+            var transforms = [];
+            var value = undefined,
+                property = undefined;
+            for (property in effect) {
+                value = effect[property].value;
+                if (TRANSFORMS.indexOf(property) > -1) {
+                    transforms.push(property + '(' + value + ')');
+                } else {
+                    ele.style[property] = value;
+                }
+            }
+            if (transforms.length) {
+                transforms.push('translateZ(0px)');
+                ele.style[CSS.transform] = transforms.join(' ');
+            }
+        }
+    }
+    function roundValue(val) {
+        return Math.round(val * 10000) / 10000;
+    }
+    return {
+        setters: [function (_utilDom) {
+            CSS = _utilDom.CSS;
+        }, function (_utilUtil) {
+            extend = _utilUtil.extend;
+        }],
+        execute: function () {
+            Animation = (function () {
+                function Animation(ele) {
+                    var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+                    _classCallCheck(this, Animation);
+
+                    this.reset();
+                    this._opts = extend({
+                        renderDelay: 36
+                    }, opts);
+                    this.elements(ele);
+                    if (!document.documentElement.animate) {
+                        console.error('Web Animations polyfill missing');
+                    }
+                }
+
+                _createClass(Animation, [{
+                    key: 'reset',
+                    value: function reset() {
+                        this._el = [];
+                        this._chld = [];
+                        this._ani = [];
+                        this._bfAdd = [];
+                        this._bfSty = {};
+                        this._bfRmv = [];
+                        this._afAdd = [];
+                        this._afRmv = [];
+                        this._readys = [];
+                        this._plays = [];
+                        this._finishes = [];
+                    }
+                }, {
+                    key: 'elements',
+                    value: function elements(ele) {
+                        if (ele) {
+                            if (typeof ele === 'string') {
+                                // string query selector
+                                ele = document.querySelectorAll(ele);
+                            }
+                            if (ele.length) {
+                                // array of elements
+                                for (var i = 0; i < ele.length; i++) {
+                                    this.addElement(ele[i]);
+                                }
+                            } else {
+                                // single element
+                                this.addElement(ele);
+                            }
+                        }
+                        return this;
+                    }
+                }, {
+                    key: 'addElement',
+                    value: function addElement(ele) {
+                        // ensure only HTML Element nodes
+                        if (ele) {
+                            if (ele.nativeElement) {
+                                // angular ElementRef
+                                ele = ele.nativeElement;
+                            }
+                            if (ele.nodeType === 1) {
+                                this._el.push(ele);
+                            }
+                        }
+                    }
+                }, {
+                    key: 'parent',
+                    value: function parent(parentAnimation) {
+                        this._parent = parentAnimation;
+                        return this;
+                    }
+                }, {
+                    key: 'add',
+                    value: function add(childAnimations) {
+                        childAnimations = Array.isArray(childAnimations) ? childAnimations : arguments;
+                        for (var i = 0; i < childAnimations.length; i++) {
+                            childAnimations[i].parent(this);
+                            this._chld.push(childAnimations[i]);
+                        }
+                        return this;
+                    }
+                }, {
+                    key: 'duration',
+                    value: function duration(value) {
+                        if (arguments.length) {
+                            this._duration = value;
+                            return this;
+                        }
+                        return this._duration || this._parent && this._parent.duration() || 0;
+                    }
+                }, {
+                    key: 'clearDuration',
+                    value: function clearDuration() {
+                        this._duration = null;
+                        for (var i = 0, l = this._chld.length; i < l; i++) {
+                            this._chld[i].clearDuration();
+                        }
+                    }
+                }, {
+                    key: 'easing',
+                    value: function easing(name, opts) {
+                        if (arguments.length) {
+                            this._easing = {
+                                name: name,
+                                opts: opts
+                            };
+                            return this;
+                        }
+                        return this._easing || this._parent && this._parent.easing();
+                    }
+                }, {
+                    key: 'playbackRate',
+                    value: function playbackRate(value) {
+                        if (arguments.length) {
+                            this._rate = value;
+                            var i = undefined;
+                            for (i = 0; i < this._chld.length; i++) {
+                                this._chld[i].playbackRate(value);
+                            }
+                            for (i = 0; i < this._ani.length; i++) {
+                                this._ani[i].playbackRate(value);
+                            }
+                            return this;
+                        }
+                        return typeof this._rate !== 'undefined' ? this._rate : this._parent && this._parent.playbackRate();
+                    }
+                }, {
+                    key: 'reverse',
+                    value: function reverse() {
+                        return this.playbackRate(-1);
+                    }
+                }, {
+                    key: 'forward',
+                    value: function forward() {
+                        return this.playbackRate(1);
+                    }
+                }, {
+                    key: 'from',
+                    value: function from(property, value) {
+                        if (!this._from) {
+                            this._from = {};
+                        }
+                        this._from[property] = value;
+                        return this;
+                    }
+                }, {
+                    key: 'to',
+                    value: function to(property, value) {
+                        if (!this._to) {
+                            this._to = {};
+                        }
+                        this._to[property] = value;
+                        return this;
+                    }
+                }, {
+                    key: 'fromTo',
+                    value: function fromTo(property, from, to) {
+                        return this.from(property, from).to(property, to);
+                    }
+                }, {
+                    key: 'fadeIn',
+                    value: function fadeIn() {
+                        return this.fromTo('opacity', 0.01, 1);
+                    }
+                }, {
+                    key: 'fadeOut',
+                    value: function fadeOut() {
+                        return this.fromTo('opacity', 1, 0);
+                    }
+                }, {
+                    key: 'play',
+                    value: function play() {
+                        var _this = this;
+
+                        var self = this;
+                        // the actual play() method which may or may not start async
+                        function beginPlay() {
+                            var promises = [];
+                            for (var i = 0, l = self._chld.length; i < l; i++) {
+                                promises.push(self._chld[i].play());
+                            }
+                            self._ani.forEach(function (animation) {
+                                promises.push(new Promise(function (resolve) {
+                                    animation.play(resolve);
+                                }));
+                            });
+                            return Promise.all(promises);
+                        }
+                        if (!self._parent) {
+                            var _ret = (function () {
+                                var kickoff = function kickoff() {
+                                    // synchronously call all onPlay()'s before play()
+                                    self._onPlay();
+                                    beginPlay().then(function () {
+                                        self._onFinish();
+                                        resolve();
+                                    });
+                                };
+
+                                // this is the top level animation and is in full control
+                                // of when the async play() should actually kick off
+                                // stage all animations and child animations at their starting point
+                                self.stage();
+                                var resolve = undefined;
+                                var promise = new Promise(function (res) {
+                                    resolve = res;
+                                });
+
+                                if (self._duration > 32) {
+                                    // begin each animation when everything is rendered in their starting point
+                                    // give the browser some time to render everything in place before starting
+                                    setTimeout(kickoff, _this._opts.renderDelay);
+                                } else {
+                                    // no need to render everything in there place before animating in
+                                    // just kick it off immediately to render them in their "to" locations
+                                    kickoff();
+                                }
+                                return {
+                                    v: promise
+                                };
+                            })();
+
+                            if (typeof _ret === 'object') return _ret.v;
+                        }
+                        // this is a child animation, it is told exactly when to
+                        // start by the top level animation
+                        return beginPlay();
+                    }
+                }, {
+                    key: 'stage',
+                    value: function stage() {
+                        // before the RENDER_DELAY
+                        // before the animations have started
+                        if (!this._isStaged) {
+                            this._isStaged = true;
+                            var i = undefined,
+                                p = undefined,
+                                l = undefined,
+                                j = undefined,
+                                ele = undefined,
+                                animation = undefined;
+                            for (i = 0, l = this._chld.length; i < l; i++) {
+                                this._chld[i].stage();
+                            }
+                            for (i = 0; i < this._el.length; i++) {
+                                ele = this._el[i];
+                                for (j = 0; j < this._bfAdd.length; j++) {
+                                    ele.classList.add(this._bfAdd[j]);
+                                }
+                                for (p in this._bfSty) {
+                                    ele.style[p] = this._bfSty[p];
+                                }
+                                for (j = 0; j < this._bfRmv.length; j++) {
+                                    ele.classList.remove(this._bfRmv[j]);
+                                }
+                            }
+                            if (this._to) {
+                                // only animate the elements if there are defined "to" effects
+                                for (i = 0; i < this._el.length; i++) {
+                                    animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate());
+                                    if (animation.shouldAnimate) {
+                                        this._ani.push(animation);
+                                    }
+                                }
+                            }
+                            for (i = 0; i < this._readys.length; i++) {
+                                this._readys[i](this);
+                            }
+                        }
+                    }
+                }, {
+                    key: '_onPlay',
+                    value: function _onPlay() {
+                        // after the RENDER_DELAY
+                        // before the animations have started
+                        var i = undefined;
+                        this._isFinished = false;
+                        for (i = 0; i < this._chld.length; i++) {
+                            this._chld[i]._onPlay();
+                        }
+                        for (i = 0; i < this._plays.length; i++) {
+                            this._plays[i](this);
+                        }
+                    }
+                }, {
+                    key: '_onFinish',
+                    value: function _onFinish() {
+                        // after the animations have finished
+                        if (!this._isFinished && !this.isProgress) {
+                            this._isFinished = true;
+                            var i = undefined,
+                                j = undefined,
+                                ele = undefined;
+                            for (i = 0; i < this._chld.length; i++) {
+                                this._chld[i]._onFinish();
+                            }
+                            if (this.playbackRate() < 0) {
+                                // reverse direction
+                                for (i = 0; i < this._el.length; i++) {
+                                    ele = this._el[i];
+                                    for (j = 0; j < this._bfAdd.length; j++) {
+                                        ele.classList.remove(this._bfAdd[j]);
+                                    }
+                                    for (j = 0; j < this._bfRmv.length; j++) {
+                                        ele.classList.add(this._bfRmv[j]);
+                                    }
+                                }
+                            } else {
+                                // normal direction
+                                for (i = 0; i < this._el.length; i++) {
+                                    ele = this._el[i];
+                                    for (j = 0; j < this._afAdd.length; j++) {
+                                        ele.classList.add(this._afAdd[j]);
+                                    }
+                                    for (j = 0; j < this._afRmv.length; j++) {
+                                        ele.classList.remove(this._afRmv[j]);
+                                    }
+                                }
+                            }
+                            for (i = 0; i < this._finishes.length; i++) {
+                                this._finishes[i](this);
+                            }
+                        }
+                    }
+                }, {
+                    key: 'pause',
+                    value: function pause() {
+                        var i = undefined;
+                        for (i = 0; i < this._chld.length; i++) {
+                            this._chld[i].pause();
+                        }
+                        for (i = 0; i < this._ani.length; i++) {
+                            this._ani[i].pause();
+                        }
+                    }
+                }, {
+                    key: 'progressStart',
+                    value: function progressStart() {
+                        this.isProgress = true;
+                        for (var i = 0; i < this._chld.length; i++) {
+                            this._chld[i].progressStart();
+                        }
+                        this.duration(1000);
+                        this.play();
+                        this.pause();
+                    }
+                }, {
+                    key: 'progress',
+                    value: function progress(value) {
+                        value = Math.min(1, Math.max(0, value));
+                        this.isProgress = true;
+                        var i = undefined;
+                        for (i = 0; i < this._chld.length; i++) {
+                            this._chld[i].progress(value);
+                        }
+                        for (i = 0; i < this._ani.length; i++) {
+                            this._ani[i].progress(value);
+                        }
+                    }
+
+                    /**
+                     * Get the current time of the first animation
+                     * in the list. To get a specific time of an animation, call
+                     * subAnimationInstance.getCurrentTime()
+                     */
+                }, {
+                    key: 'getCurrentTime',
+                    value: function getCurrentTime() {
+                        if (this._chld.length > 0) {
+                            return this._chld[0].getCurrentTime();
+                        }
+                        if (this._ani.length > 0) {
+                            return this._ani[0].getCurrentTime();
+                        }
+                        return 0;
+                    }
+                }, {
+                    key: 'progressEnd',
+                    value: function progressEnd(shouldComplete) {
+                        var rate = arguments.length <= 1 || arguments[1] === undefined ? 3 : arguments[1];
+
+                        var promises = [];
+                        this.isProgress = false;
+                        for (var i = 0; i < this._chld.length; i++) {
+                            promises.push(this._chld[i].progressEnd(shouldComplete));
+                        }
+                        this._ani.forEach(function (animation) {
+                            if (shouldComplete) {
+                                animation.playbackRate(rate);
+                            } else {
+                                animation.playbackRate(rate * -1);
+                            }
+                            promises.push(new Promise(function (resolve) {
+                                animation.play(resolve);
+                            }));
+                        });
+                        return Promise.all(promises);
+                    }
+                }, {
+                    key: 'onReady',
+                    value: function onReady(fn, clear) {
+                        if (clear) {
+                            this._readys = [];
+                        }
+                        this._readys.push(fn);
+                        return this;
+                    }
+                }, {
+                    key: 'onPlay',
+                    value: function onPlay(fn, clear) {
+                        if (clear) {
+                            this._plays = [];
+                        }
+                        this._plays.push(fn);
+                        return this;
+                    }
+                }, {
+                    key: 'onFinish',
+                    value: function onFinish(fn, clear) {
+                        if (clear) {
+                            this._finishes = [];
+                        }
+                        this._finishes.push(fn);
+                        return this;
+                    }
+                }, {
+                    key: 'clone',
+                    value: function clone() {
+                        function copy(dest, src) {
+                            // undo what stage() may have already done
+                            extend(dest, src);
+                            dest._isFinished = dest._isStaged = dest.isProgress = false;
+                            dest._chld = [];
+                            dest._ani = [];
+                            for (var i = 0; i < src._chld.length; i++) {
+                                dest.add(copy(new Animation(), src._chld[i]));
+                            }
+                            return dest;
+                        }
+                        return copy(new Animation(), this);
+                    }
+                }, {
+                    key: 'dispose',
+                    value: function dispose() {
+                        var i = undefined;
+                        for (i = 0; i < this._chld.length; i++) {
+                            this._chld[i].dispose();
+                        }
+                        for (i = 0; i < this._ani.length; i++) {
+                            this._ani[i].dispose();
+                        }
+                        this.reset();
+                    }
+
+                    /*
+                     STATIC CLASSES
+                     */
+                }, {
+                    key: 'before',
+                    get: function get() {
+                        var _this2 = this;
+
+                        return {
+                            addClass: function addClass(className) {
+                                _this2._bfAdd.push(className);
+                                return _this2;
+                            },
+                            removeClass: function removeClass(className) {
+                                _this2._bfRmv.push(className);
+                                return _this2;
+                            },
+                            setStyles: function setStyles(styles) {
+                                _this2._bfSty = styles;
+                                return _this2;
+                            }
+                        };
+                    }
+                }, {
+                    key: 'after',
+                    get: function get() {
+                        var _this3 = this;
+
+                        return {
+                            addClass: function addClass(className) {
+                                _this3._afAdd.push(className);
+                                return _this3;
+                            },
+                            removeClass: function removeClass(className) {
+                                _this3._afRmv.push(className);
+                                return _this3;
+                            }
+                        };
+                    }
+                }], [{
+                    key: 'create',
+                    value: function create(element, name) {
+                        var AnimationClass = AnimationRegistry[name];
+                        if (!AnimationClass) {
+                            // couldn't find an animation by the given name
+                            // fallback to just the base Animation class
+                            AnimationClass = Animation;
+                        }
+                        return new AnimationClass(element);
+                    }
+                }, {
+                    key: 'register',
+                    value: function register(name, AnimationClass) {
+                        AnimationRegistry[name] = AnimationClass;
+                    }
+                }]);
+
+                return Animation;
+            })();
+
+            _export('Animation', Animation);
+
+            Animate = (function () {
+                function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate) {
+                    _classCallCheck(this, Animate);
+
+                    // https://w3c.github.io/web-animations/
+                    // not using the direct API methods because they're still in flux
+                    // however, element.animate() seems locked in and uses the latest
+                    // and correct API methods under the hood, so really doesn't matter
+                    if (!fromEffect) {
+                        return console.error(ele.tagName, 'animation fromEffect required, toEffect:', toEffect);
+                    }
+                    this.toEffect = parseEffect(toEffect);
+                    this.shouldAnimate = duration > 32;
+                    if (!this.shouldAnimate) {
+                        return inlineStyle(ele, this.toEffect);
+                    }
+                    this.ele = ele;
+                    // stage where the element will start from
+                    this.fromEffect = parseEffect(fromEffect);
+                    inlineStyle(ele, this.fromEffect);
+                    this.duration = duration;
+                    this.rate = typeof playbackRate !== 'undefined' ? playbackRate : 1;
+                    this.easing = easingConfig && easingConfig.name || 'linear';
+                    this.effects = [convertProperties(this.fromEffect)];
+                    if (this.easing in EASING_FN) {
+                        insertEffects(this.effects, this.fromEffect, this.toEffect, easingConfig);
+                    } else if (this.easing in CUBIC_BEZIERS) {
+                        this.easing = 'cubic-bezier(' + CUBIC_BEZIERS[this.easing] + ')';
+                    }
+                    this.effects.push(convertProperties(this.toEffect));
+                }
+
+                _createClass(Animate, [{
+                    key: 'play',
+                    value: function play(callback) {
+                        var self = this;
+                        if (self.ani) {
+                            self.ani.play();
+                        } else {
+                            // https://developers.google.com/web/updates/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36
+                            // https://w3c.github.io/web-animations/
+                            // Future versions will use "new window.Animation" rather than "element.animate()"
+                            self.ani = self.ele.animate(self.effects, {
+                                duration: self.duration || 0,
+                                easing: self.easing,
+                                playbackRate: self.rate // old way of setting playbackRate, but still necessary
+                            });
+                            self.ani.playbackRate = self.rate;
+                        }
+                        self.ani.onfinish = function () {
+                            // lock in where the element will stop at
+                            // if the playbackRate is negative then it needs to return
+                            // to its "from" effects
+                            inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
+                            self.ani = null;
+                            callback && callback();
+                        };
+                    }
+                }, {
+                    key: 'pause',
+                    value: function pause() {
+                        this.ani && this.ani.pause();
+                    }
+                }, {
+                    key: 'progress',
+                    value: function progress(value) {
+                        if (this.ani) {
+                            // passed a number between 0 and 1
+                            if (this.ani.playState !== 'paused') {
+                                this.ani.pause();
+                            }
+                            // don't let the progress finish the animation
+                            // leave it off JUST before it's finished
+                            value = Math.min(0.999, Math.max(0.001, value));
+                            this.ani.currentTime = this.duration * value;
+                        }
+                    }
+                }, {
+                    key: 'getCurrentTime',
+                    value: function getCurrentTime() {
+                        return this.ani && this.ani.currentTime || 0;
+                    }
+                }, {
+                    key: 'playbackRate',
+                    value: function playbackRate(value) {
+                        this.rate = value;
+                        if (this.ani) {
+                            this.ani.playbackRate = value;
+                        }
+                    }
+                }, {
+                    key: 'dispose',
+                    value: function dispose() {
+                        this.ele = this.ani = this.effects = this.toEffect = null;
+                    }
+                }]);
+
+                return Animate;
+            })();
+
+            TRANSFORMS = ['translateX', 'translateY', 'translateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'skewX', 'skewY', 'perspective'];
+            ANIMATE_PROPERTIES = TRANSFORMS.concat('opacity');
+
+            // Robert Penner's Easing Functions
+            // http://robertpenner.com/easing/
+            CUBIC_BEZIERS = {
+                // default browser suppored easing
+                // ease
+                // ease-in
+                // ease-out
+                // ease-in-out
+                // Cubic
+                'ease-in-cubic': '0.55,0.055,0.675,0.19',
+                'ease-out-cubic': '0.215,0.61,0.355,1',
+                'ease-in-Out-cubic': '0.645,0.045,0.355,1',
+                // Circ
+                'ease-in-circ': '0.6,0.04,0.98,0.335',
+                'ease-out-circ': '0.075,0.82,0.165,1',
+                'ease-in-out-circ': '0.785,0.135,0.15,0.86',
+                // Expo
+                'ease-in-expo': '0.95,0.05,0.795,0.035',
+                'ease-out-expo': '0.19,1,0.22,1',
+                'ease-in-out-expo': '1,0,0,1',
+                // Quad
+                'ease-in-quad': '0.55,0.085,0.68,0.53',
+                'ease-out-quad': '0.25,0.46,0.45,0.94',
+                'ease-in-out-quad': '0.455,0.03,0.515,0.955',
+                // Quart
+                'ease-in-quart': '0.895,0.03,0.685,0.22',
+                'ease-out-quart': '0.165,0.84,0.44,1',
+                'ease-in-out-quart': '0.77,0,0.175,1',
+                // Quint
+                'ease-in-quint': '0.755,0.05,0.855,0.06',
+                'ease-out-quint': '0.23,1,0.32,1',
+                'ease-in-out-quint': '0.86,0,0.07,1',
+                // Sine
+                'ease-in-sine': '0.47,0,0.745,0.715',
+                'ease-out-sine': '0.39,0.575,0.565,1',
+                'ease-in-out-sine': '0.445,0.05,0.55,0.95',
+                // Back
+                'ease-in-back': '0.6,-0.28,0.735,0.045',
+                'ease-out-back': '0.175,0.885,0.32,1.275',
+                'ease-in-out-back': '0.68,-0.55,0.265,1.55'
+            };
+            EASING_FN = {
+                'elastic': function elastic(pos) {
+                    return -1 * Math.pow(4, -8 * pos) * Math.sin((pos * 6 - 1) * (2 * Math.PI) / 2) + 1;
+                },
+                'swing-from-to': function swingFromTo(pos, opts) {
+                    var s = opts.s || 1.70158;
+                    return (pos /= 0.5) < 1 ? 0.5 * (pos * pos * (((s *= 1.525) + 1) * pos - s)) : 0.5 * ((pos -= 2) * pos * (((s *= 1.525) + 1) * pos + s) + 2);
+                },
+                'swing-from': function swingFrom(pos, opts) {
+                    var s = opts.s || 1.70158;
+                    return pos * pos * ((s + 1) * pos - s);
+                },
+                'swing-to': function swingTo(pos, opts) {
+                    var s = opts.s || 1.70158;
+                    return (pos -= 1) * pos * ((s + 1) * pos + s) + 1;
+                },
+                'bounce': function bounce(pos) {
+                    if (pos < 1 / 2.75) {
+                        return 7.5625 * pos * pos;
+                    } else if (pos < 2 / 2.75) {
+                        return 7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75;
+                    } else if (pos < 2.5 / 2.75) {
+                        return 7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375;
+                    }
+                    return 7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375;
+                },
+                'bounce-past': function bouncePast(pos) {
+                    if (pos < 1 / 2.75) {
+                        return 7.5625 * pos * pos;
+                    } else if (pos < 2 / 2.75) {
+                        return 2 - (7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75);
+                    } else if (pos < 2.5 / 2.75) {
+                        return 2 - (7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375);
+                    }
+                    return 2 - (7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375);
+                },
+                'ease-out-bounce': function easeOutBounce(pos) {
+                    if (pos < 1 / 2.75) {
+                        return 7.5625 * pos * pos;
+                    } else if (pos < 2 / 2.75) {
+                        return 7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75;
+                    } else if (pos < 2.5 / 2.75) {
+                        return 7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375;
+                    }
+                    return 7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375;
+                },
+                'ease-from-to': function easeFromTo(pos) {
+                    if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 4);
+                    return -0.5 * ((pos -= 2) * Math.pow(pos, 3) - 2);
+                },
+                'ease-from': function easeFrom(pos, opts) {
+                    return Math.pow(pos, opts.s || 4);
+                },
+                'ease-to': function easeTo(pos, opts) {
+                    return Math.pow(pos, opts.s || 0.25);
+                },
+                /*
+                 * scripty2, Thomas Fuchs (MIT Licence)
+                 * https://raw.github.com/madrobby/scripty2/master/src/effects/transitions/transitions.js
+                 */
+                'spring': function spring(pos, opts) {
+                    var damping = opts.damping || 4.5;
+                    var elasticity = opts.elasticity || 6;
+                    return 1 - Math.cos(pos * damping * Math.PI) * Math.exp(-pos * elasticity);
+                },
+                'sinusoidal': function sinusoidal(pos) {
+                    return -Math.cos(pos * Math.PI) / 2 + 0.5;
+                }
+            };
+            AnimationRegistry = {};
+        }
+    };
+});
+System.register('ionic/animations/builtins', ['./animation'], function (_export) {
+    'use strict';
+
+    var Animation, SlideIn, SlideOut, FadeIn, FadeOut;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_animation) {
+            Animation = _animation.Animation;
+        }],
+        execute: function () {
+            SlideIn = (function (_Animation) {
+                _inherits(SlideIn, _Animation);
+
+                function SlideIn(element) {
+                    _classCallCheck(this, SlideIn);
+
+                    _get(Object.getPrototypeOf(SlideIn.prototype), 'constructor', this).call(this, element);
+                    this.easing('cubic-bezier(0.1,0.7,0.1,1)').duration(400).fromTo('translateY', '100%', '0%');
+                }
+
+                return SlideIn;
+            })(Animation);
+
+            Animation.register('slide-in', SlideIn);
+
+            SlideOut = (function (_Animation2) {
+                _inherits(SlideOut, _Animation2);
+
+                function SlideOut(element) {
+                    _classCallCheck(this, SlideOut);
+
+                    _get(Object.getPrototypeOf(SlideOut.prototype), 'constructor', this).call(this, element);
+                    this.easing('ease-out').duration(250).fromTo('translateY', '0%', '100%');
+                }
+
+                return SlideOut;
+            })(Animation);
+
+            Animation.register('slide-out', SlideOut);
+
+            FadeIn = (function (_Animation3) {
+                _inherits(FadeIn, _Animation3);
+
+                function FadeIn(element) {
+                    _classCallCheck(this, FadeIn);
+
+                    _get(Object.getPrototypeOf(FadeIn.prototype), 'constructor', this).call(this, element);
+                    this.easing('ease-in').duration(400).fadeIn();
+                }
+
+                return FadeIn;
+            })(Animation);
+
+            Animation.register('fade-in', FadeIn);
+
+            FadeOut = (function (_Animation4) {
+                _inherits(FadeOut, _Animation4);
+
+                function FadeOut(element) {
+                    _classCallCheck(this, FadeOut);
+
+                    _get(Object.getPrototypeOf(FadeOut.prototype), 'constructor', this).call(this, element);
+                    this.easing('ease-out').duration(250).fadeOut();
+                }
+
+                return FadeOut;
+            })(Animation);
+
+            Animation.register('fade-out', FadeOut);
+        }
+    };
+});
+System.register('ionic/animations/scroll-to', ['../util/dom'], function (_export) {
+    'use strict';
+
+    var raf, ScrollTo;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_utilDom) {
+            raf = _utilDom.raf;
+        }],
+        execute: function () {
+            ScrollTo = (function () {
+                function ScrollTo(ele, x, y, duration) {
+                    _classCallCheck(this, ScrollTo);
+
+                    if (typeof ele === 'string') {
+                        // string query selector
+                        ele = document.querySelector(ele);
+                    }
+                    if (ele) {
+                        if (ele.nativeElement) {
+                            // angular ElementRef
+                            ele = ele.nativeElement;
+                        }
+                        if (ele.nodeType === 1) {
+                            this._el = ele;
+                        }
+                    }
+                }
+
+                _createClass(ScrollTo, [{
+                    key: 'start',
+                    value: function start(x, y, duration, tolerance) {
+                        // scroll animation loop w/ easing
+                        // credit https://gist.github.com/dezinezync/5487119
+                        var self = this;
+                        if (!self._el) {
+                            // invalid element
+                            return Promise.resolve();
+                        }
+                        x = x || 0;
+                        y = y || 0;
+                        tolerance = tolerance || 0;
+                        var ele = self._el;
+                        var fromY = ele.scrollTop;
+                        var fromX = ele.scrollLeft;
+                        var xDistance = Math.abs(x - fromX);
+                        var yDistance = Math.abs(y - fromY);
+                        if (yDistance <= tolerance && xDistance <= tolerance) {
+                            // prevent scrolling if already close to there
+                            this._el = ele = null;
+                            return Promise.resolve();
+                        }
+                        return new Promise(function (resolve, reject) {
+                            var start = Date.now();
+                            // start scroll loop
+                            self.isPlaying = true;
+                            raf(step);
+                            // decelerating to zero velocity
+                            function easeOutCubic(t) {
+                                return --t * t * t + 1;
+                            }
+                            // scroll loop
+                            function step() {
+                                var time = Math.min(1, (Date.now() - start) / duration);
+                                // where .5 would be 50% of time on a linear scale easedT gives a
+                                // fraction based on the easing method
+                                var easedT = easeOutCubic(time);
+                                if (fromY != y) {
+                                    ele.scrollTop = parseInt(easedT * (y - fromY) + fromY, 10);
+                                }
+                                if (fromX != x) {
+                                    ele.scrollLeft = parseInt(easedT * (x - fromX) + fromX, 10);
+                                }
+                                if (time < 1 && self.isPlaying) {
+                                    raf(step);
+                                } else if (!self.isPlaying) {
+                                    // stopped
+                                    this._el = ele = null;
+                                    reject();
+                                } else {
+                                    // done
+                                    this._el = ele = null;
+                                    resolve();
+                                }
+                            }
+                        });
+                    }
+                }, {
+                    key: 'stop',
+                    value: function stop() {
+                        this.isPlaying = false;
+                    }
+                }, {
+                    key: 'dispose',
+                    value: function dispose() {
+                        this.stop();
+                        this._el = null;
+                    }
+                }]);
+
+                return ScrollTo;
+            })();
+
+            _export('ScrollTo', ScrollTo);
+        }
+    };
+});
 System.register('ionic/components/ion', ['ionic/util/dom'], function (_export) {
     /**
      * Base class for all Ionic components. Exposes some common functionality
@@ -41530,7 +42578,7 @@ System.register('ionic/config/directives', ['angular2/angular2', '../components/
      */
     'use strict';
 
-    var CORE_DIRECTIVES, FORM_DIRECTIVES, OverlayAnchor, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher, Slides, Slide, SlideLazy, Tabs, Tab, List, ListHeader, Item, ItemGroup, ItemGroupTitle, ItemSliding, ItemSlidingOptionButton, Toolbar, ToolbarTitle, ToolbarItem, Icon, Checkbox, Switch, TextInput, TextInputElement, Label, Segment, SegmentButton, SegmentControlValueAccessor, RadioGroup, RadioButton, SearchBar, Nav, NavPush, NavPop, NavRouter, NavbarTemplate, Navbar, IdRef, ShowWhen, HideWhen, IONIC_DIRECTIVES;
+    var CORE_DIRECTIVES, FORM_DIRECTIVES, OverlayAnchor, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher, Slides, Slide, SlideLazy, Tabs, Tab, List, ListHeader, Item, ItemGroup, ItemGroupTitle, ItemSliding, ItemSlidingOptionButton, Toolbar, ToolbarTitle, ToolbarItem, Icon, Checkbox, Switch, TextInput, TextInputElement, Label, Segment, SegmentButton, RadioGroup, RadioButton, SearchBar, Nav, NavPush, NavPop, NavRouter, NavbarTemplate, Navbar, IdRef, ShowWhen, HideWhen, IONIC_DIRECTIVES;
     return {
         setters: [function (_angular2Angular2) {
             CORE_DIRECTIVES = _angular2Angular2.CORE_DIRECTIVES;
@@ -41590,7 +42638,6 @@ System.register('ionic/config/directives', ['angular2/angular2', '../components/
         }, function (_componentsSegmentSegment) {
             Segment = _componentsSegmentSegment.Segment;
             SegmentButton = _componentsSegmentSegment.SegmentButton;
-            SegmentControlValueAccessor = _componentsSegmentSegment.SegmentControlValueAccessor;
         }, function (_componentsRadioRadio) {
             RadioGroup = _componentsRadioRadio.RadioGroup;
             RadioButton = _componentsRadioRadio.RadioButton;
@@ -41629,7 +42676,7 @@ System.register('ionic/config/directives', ['angular2/angular2', '../components/
             // Media
             Icon,
             // Forms
-            SearchBar, Segment, SegmentButton, SegmentControlValueAccessor, Checkbox, RadioGroup, RadioButton, Switch, TextInput, TextInputElement, Label,
+            SearchBar, Segment, SegmentButton, Checkbox, RadioGroup, RadioButton, Switch, TextInput, TextInputElement, Label,
             // Nav
             Nav, NavbarTemplate, Navbar, NavPush, NavPop, NavRouter, IdRef, ShowWhen, HideWhen];
 
@@ -44206,1053 +45253,6 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
-System.register('ionic/animations/animation', ['../util/dom', '../util/util'], function (_export) {
-    /**
-      Animation Steps/Process
-      -----------------------
-      1) Construct animation (doesn't start)
-      2) Client play()'s animation, returns promise
-      3) Add before classes to elements
-      4) Remove before classes from elements
-      5) Elements staged in "from" effect w/ inline styles
-      6) Call onReady()
-      7) Wait for RENDER_DELAY milliseconds (give browser time to render)
-      8) Call onPlay()
-      8) Run from/to animation on elements
-      9) Animations finish async
-     10) Set inline styles w/ the "to" effects on elements
-     11) Add after classes to elements
-     12) Remove after classes from elements
-     13) Call onFinish()
-     14) Resolve play()'s promise
-    **/
-    'use strict';
-
-    var CSS, extend, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN, AnimationRegistry;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function insertEffects(effects, fromEffect, toEffect, easingConfig) {
-        easingConfig.opts = easingConfig.opts || {};
-        var increment = easingConfig.opts.increment || 0.04;
-        var easingFn = EASING_FN[easingConfig.name];
-        var pos = undefined,
-            tweenEffect = undefined,
-            addEffect = undefined,
-            property = undefined,
-            toProperty = undefined,
-            fromValue = undefined,
-            diffValue = undefined;
-        for (pos = increment; pos <= 1 - increment; pos += increment) {
-            tweenEffect = {};
-            addEffect = false;
-            for (property in toEffect) {
-                toProperty = toEffect[property];
-                if (toProperty.tween) {
-                    fromValue = fromEffect[property].num;
-                    diffValue = toProperty.num - fromValue;
-                    tweenEffect[property] = {
-                        value: roundValue(easingFn(pos, easingConfig.opts) * diffValue + fromValue) + toProperty.unit
-                    };
-                    addEffect = true;
-                }
-            }
-            if (addEffect) {
-                effects.push(convertProperties(tweenEffect));
-            }
-        }
-    }
-    function parseEffect(inputEffect) {
-        var val = undefined,
-            r = undefined,
-            num = undefined,
-            property = undefined;
-        var outputEffect = {};
-        for (property in inputEffect) {
-            val = inputEffect[property];
-            r = val.toString().match(/(^-?\d*\.?\d*)(.*)/);
-            num = parseFloat(r[1]);
-            outputEffect[property] = {
-                value: val,
-                num: num,
-                unit: r[0] != r[2] ? r[2] : '',
-                tween: !isNaN(num) && ANIMATE_PROPERTIES.indexOf(property) > -1
-            };
-        }
-        return outputEffect;
-    }
-    function convertProperties(inputEffect) {
-        var outputEffect = {};
-        var transforms = [];
-        var value = undefined,
-            property = undefined;
-        for (property in inputEffect) {
-            value = inputEffect[property].value;
-            if (TRANSFORMS.indexOf(property) > -1) {
-                transforms.push(property + '(' + value + ')');
-            } else {
-                outputEffect[property] = value;
-            }
-        }
-        if (transforms.length) {
-            transforms.push('translateZ(0px)');
-            outputEffect.transform = transforms.join(' ');
-        }
-        return outputEffect;
-    }
-    function inlineStyle(ele, effect) {
-        if (ele && effect) {
-            var transforms = [];
-            var value = undefined,
-                property = undefined;
-            for (property in effect) {
-                value = effect[property].value;
-                if (TRANSFORMS.indexOf(property) > -1) {
-                    transforms.push(property + '(' + value + ')');
-                } else {
-                    ele.style[property] = value;
-                }
-            }
-            if (transforms.length) {
-                transforms.push('translateZ(0px)');
-                ele.style[CSS.transform] = transforms.join(' ');
-            }
-        }
-    }
-    function roundValue(val) {
-        return Math.round(val * 10000) / 10000;
-    }
-    return {
-        setters: [function (_utilDom) {
-            CSS = _utilDom.CSS;
-        }, function (_utilUtil) {
-            extend = _utilUtil.extend;
-        }],
-        execute: function () {
-            Animation = (function () {
-                function Animation(ele) {
-                    var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-                    _classCallCheck(this, Animation);
-
-                    this.reset();
-                    this._opts = extend({
-                        renderDelay: 36
-                    }, opts);
-                    this.elements(ele);
-                    if (!document.documentElement.animate) {
-                        console.error('Web Animations polyfill missing');
-                    }
-                }
-
-                _createClass(Animation, [{
-                    key: 'reset',
-                    value: function reset() {
-                        this._el = [];
-                        this._chld = [];
-                        this._ani = [];
-                        this._bfAdd = [];
-                        this._bfSty = {};
-                        this._bfRmv = [];
-                        this._afAdd = [];
-                        this._afRmv = [];
-                        this._readys = [];
-                        this._plays = [];
-                        this._finishes = [];
-                    }
-                }, {
-                    key: 'elements',
-                    value: function elements(ele) {
-                        if (ele) {
-                            if (typeof ele === 'string') {
-                                // string query selector
-                                ele = document.querySelectorAll(ele);
-                            }
-                            if (ele.length) {
-                                // array of elements
-                                for (var i = 0; i < ele.length; i++) {
-                                    this.addElement(ele[i]);
-                                }
-                            } else {
-                                // single element
-                                this.addElement(ele);
-                            }
-                        }
-                        return this;
-                    }
-                }, {
-                    key: 'addElement',
-                    value: function addElement(ele) {
-                        // ensure only HTML Element nodes
-                        if (ele) {
-                            if (ele.nativeElement) {
-                                // angular ElementRef
-                                ele = ele.nativeElement;
-                            }
-                            if (ele.nodeType === 1) {
-                                this._el.push(ele);
-                            }
-                        }
-                    }
-                }, {
-                    key: 'parent',
-                    value: function parent(parentAnimation) {
-                        this._parent = parentAnimation;
-                        return this;
-                    }
-                }, {
-                    key: 'add',
-                    value: function add(childAnimations) {
-                        childAnimations = Array.isArray(childAnimations) ? childAnimations : arguments;
-                        for (var i = 0; i < childAnimations.length; i++) {
-                            childAnimations[i].parent(this);
-                            this._chld.push(childAnimations[i]);
-                        }
-                        return this;
-                    }
-                }, {
-                    key: 'duration',
-                    value: function duration(value) {
-                        if (arguments.length) {
-                            this._duration = value;
-                            return this;
-                        }
-                        return this._duration || this._parent && this._parent.duration() || 0;
-                    }
-                }, {
-                    key: 'clearDuration',
-                    value: function clearDuration() {
-                        this._duration = null;
-                        for (var i = 0, l = this._chld.length; i < l; i++) {
-                            this._chld[i].clearDuration();
-                        }
-                    }
-                }, {
-                    key: 'easing',
-                    value: function easing(name, opts) {
-                        if (arguments.length) {
-                            this._easing = {
-                                name: name,
-                                opts: opts
-                            };
-                            return this;
-                        }
-                        return this._easing || this._parent && this._parent.easing();
-                    }
-                }, {
-                    key: 'playbackRate',
-                    value: function playbackRate(value) {
-                        if (arguments.length) {
-                            this._rate = value;
-                            var i = undefined;
-                            for (i = 0; i < this._chld.length; i++) {
-                                this._chld[i].playbackRate(value);
-                            }
-                            for (i = 0; i < this._ani.length; i++) {
-                                this._ani[i].playbackRate(value);
-                            }
-                            return this;
-                        }
-                        return typeof this._rate !== 'undefined' ? this._rate : this._parent && this._parent.playbackRate();
-                    }
-                }, {
-                    key: 'reverse',
-                    value: function reverse() {
-                        return this.playbackRate(-1);
-                    }
-                }, {
-                    key: 'forward',
-                    value: function forward() {
-                        return this.playbackRate(1);
-                    }
-                }, {
-                    key: 'from',
-                    value: function from(property, value) {
-                        if (!this._from) {
-                            this._from = {};
-                        }
-                        this._from[property] = value;
-                        return this;
-                    }
-                }, {
-                    key: 'to',
-                    value: function to(property, value) {
-                        if (!this._to) {
-                            this._to = {};
-                        }
-                        this._to[property] = value;
-                        return this;
-                    }
-                }, {
-                    key: 'fromTo',
-                    value: function fromTo(property, from, to) {
-                        return this.from(property, from).to(property, to);
-                    }
-                }, {
-                    key: 'fadeIn',
-                    value: function fadeIn() {
-                        return this.fromTo('opacity', 0.01, 1);
-                    }
-                }, {
-                    key: 'fadeOut',
-                    value: function fadeOut() {
-                        return this.fromTo('opacity', 1, 0);
-                    }
-                }, {
-                    key: 'play',
-                    value: function play() {
-                        var _this = this;
-
-                        var self = this;
-                        // the actual play() method which may or may not start async
-                        function beginPlay() {
-                            var promises = [];
-                            for (var i = 0, l = self._chld.length; i < l; i++) {
-                                promises.push(self._chld[i].play());
-                            }
-                            self._ani.forEach(function (animation) {
-                                promises.push(new Promise(function (resolve) {
-                                    animation.play(resolve);
-                                }));
-                            });
-                            return Promise.all(promises);
-                        }
-                        if (!self._parent) {
-                            var _ret = (function () {
-                                var kickoff = function kickoff() {
-                                    // synchronously call all onPlay()'s before play()
-                                    self._onPlay();
-                                    beginPlay().then(function () {
-                                        self._onFinish();
-                                        resolve();
-                                    });
-                                };
-
-                                // this is the top level animation and is in full control
-                                // of when the async play() should actually kick off
-                                // stage all animations and child animations at their starting point
-                                self.stage();
-                                var resolve = undefined;
-                                var promise = new Promise(function (res) {
-                                    resolve = res;
-                                });
-
-                                if (self._duration > 32) {
-                                    // begin each animation when everything is rendered in their starting point
-                                    // give the browser some time to render everything in place before starting
-                                    setTimeout(kickoff, _this._opts.renderDelay);
-                                } else {
-                                    // no need to render everything in there place before animating in
-                                    // just kick it off immediately to render them in their "to" locations
-                                    kickoff();
-                                }
-                                return {
-                                    v: promise
-                                };
-                            })();
-
-                            if (typeof _ret === 'object') return _ret.v;
-                        }
-                        // this is a child animation, it is told exactly when to
-                        // start by the top level animation
-                        return beginPlay();
-                    }
-                }, {
-                    key: 'stage',
-                    value: function stage() {
-                        // before the RENDER_DELAY
-                        // before the animations have started
-                        if (!this._isStaged) {
-                            this._isStaged = true;
-                            var i = undefined,
-                                p = undefined,
-                                l = undefined,
-                                j = undefined,
-                                ele = undefined,
-                                animation = undefined;
-                            for (i = 0, l = this._chld.length; i < l; i++) {
-                                this._chld[i].stage();
-                            }
-                            for (i = 0; i < this._el.length; i++) {
-                                ele = this._el[i];
-                                for (j = 0; j < this._bfAdd.length; j++) {
-                                    ele.classList.add(this._bfAdd[j]);
-                                }
-                                for (p in this._bfSty) {
-                                    ele.style[p] = this._bfSty[p];
-                                }
-                                for (j = 0; j < this._bfRmv.length; j++) {
-                                    ele.classList.remove(this._bfRmv[j]);
-                                }
-                            }
-                            if (this._to) {
-                                // only animate the elements if there are defined "to" effects
-                                for (i = 0; i < this._el.length; i++) {
-                                    animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate());
-                                    if (animation.shouldAnimate) {
-                                        this._ani.push(animation);
-                                    }
-                                }
-                            }
-                            for (i = 0; i < this._readys.length; i++) {
-                                this._readys[i](this);
-                            }
-                        }
-                    }
-                }, {
-                    key: '_onPlay',
-                    value: function _onPlay() {
-                        // after the RENDER_DELAY
-                        // before the animations have started
-                        var i = undefined;
-                        this._isFinished = false;
-                        for (i = 0; i < this._chld.length; i++) {
-                            this._chld[i]._onPlay();
-                        }
-                        for (i = 0; i < this._plays.length; i++) {
-                            this._plays[i](this);
-                        }
-                    }
-                }, {
-                    key: '_onFinish',
-                    value: function _onFinish() {
-                        // after the animations have finished
-                        if (!this._isFinished && !this.isProgress) {
-                            this._isFinished = true;
-                            var i = undefined,
-                                j = undefined,
-                                ele = undefined;
-                            for (i = 0; i < this._chld.length; i++) {
-                                this._chld[i]._onFinish();
-                            }
-                            if (this.playbackRate() < 0) {
-                                // reverse direction
-                                for (i = 0; i < this._el.length; i++) {
-                                    ele = this._el[i];
-                                    for (j = 0; j < this._bfAdd.length; j++) {
-                                        ele.classList.remove(this._bfAdd[j]);
-                                    }
-                                    for (j = 0; j < this._bfRmv.length; j++) {
-                                        ele.classList.add(this._bfRmv[j]);
-                                    }
-                                }
-                            } else {
-                                // normal direction
-                                for (i = 0; i < this._el.length; i++) {
-                                    ele = this._el[i];
-                                    for (j = 0; j < this._afAdd.length; j++) {
-                                        ele.classList.add(this._afAdd[j]);
-                                    }
-                                    for (j = 0; j < this._afRmv.length; j++) {
-                                        ele.classList.remove(this._afRmv[j]);
-                                    }
-                                }
-                            }
-                            for (i = 0; i < this._finishes.length; i++) {
-                                this._finishes[i](this);
-                            }
-                        }
-                    }
-                }, {
-                    key: 'pause',
-                    value: function pause() {
-                        var i = undefined;
-                        for (i = 0; i < this._chld.length; i++) {
-                            this._chld[i].pause();
-                        }
-                        for (i = 0; i < this._ani.length; i++) {
-                            this._ani[i].pause();
-                        }
-                    }
-                }, {
-                    key: 'progressStart',
-                    value: function progressStart() {
-                        this.isProgress = true;
-                        for (var i = 0; i < this._chld.length; i++) {
-                            this._chld[i].progressStart();
-                        }
-                        this.duration(1000);
-                        this.play();
-                        this.pause();
-                    }
-                }, {
-                    key: 'progress',
-                    value: function progress(value) {
-                        value = Math.min(1, Math.max(0, value));
-                        this.isProgress = true;
-                        var i = undefined;
-                        for (i = 0; i < this._chld.length; i++) {
-                            this._chld[i].progress(value);
-                        }
-                        for (i = 0; i < this._ani.length; i++) {
-                            this._ani[i].progress(value);
-                        }
-                    }
-
-                    /**
-                     * Get the current time of the first animation
-                     * in the list. To get a specific time of an animation, call
-                     * subAnimationInstance.getCurrentTime()
-                     */
-                }, {
-                    key: 'getCurrentTime',
-                    value: function getCurrentTime() {
-                        if (this._chld.length > 0) {
-                            return this._chld[0].getCurrentTime();
-                        }
-                        if (this._ani.length > 0) {
-                            return this._ani[0].getCurrentTime();
-                        }
-                        return 0;
-                    }
-                }, {
-                    key: 'progressEnd',
-                    value: function progressEnd(shouldComplete) {
-                        var rate = arguments.length <= 1 || arguments[1] === undefined ? 3 : arguments[1];
-
-                        var promises = [];
-                        this.isProgress = false;
-                        for (var i = 0; i < this._chld.length; i++) {
-                            promises.push(this._chld[i].progressEnd(shouldComplete));
-                        }
-                        this._ani.forEach(function (animation) {
-                            if (shouldComplete) {
-                                animation.playbackRate(rate);
-                            } else {
-                                animation.playbackRate(rate * -1);
-                            }
-                            promises.push(new Promise(function (resolve) {
-                                animation.play(resolve);
-                            }));
-                        });
-                        return Promise.all(promises);
-                    }
-                }, {
-                    key: 'onReady',
-                    value: function onReady(fn, clear) {
-                        if (clear) {
-                            this._readys = [];
-                        }
-                        this._readys.push(fn);
-                        return this;
-                    }
-                }, {
-                    key: 'onPlay',
-                    value: function onPlay(fn, clear) {
-                        if (clear) {
-                            this._plays = [];
-                        }
-                        this._plays.push(fn);
-                        return this;
-                    }
-                }, {
-                    key: 'onFinish',
-                    value: function onFinish(fn, clear) {
-                        if (clear) {
-                            this._finishes = [];
-                        }
-                        this._finishes.push(fn);
-                        return this;
-                    }
-                }, {
-                    key: 'clone',
-                    value: function clone() {
-                        function copy(dest, src) {
-                            // undo what stage() may have already done
-                            extend(dest, src);
-                            dest._isFinished = dest._isStaged = dest.isProgress = false;
-                            dest._chld = [];
-                            dest._ani = [];
-                            for (var i = 0; i < src._chld.length; i++) {
-                                dest.add(copy(new Animation(), src._chld[i]));
-                            }
-                            return dest;
-                        }
-                        return copy(new Animation(), this);
-                    }
-                }, {
-                    key: 'dispose',
-                    value: function dispose() {
-                        var i = undefined;
-                        for (i = 0; i < this._chld.length; i++) {
-                            this._chld[i].dispose();
-                        }
-                        for (i = 0; i < this._ani.length; i++) {
-                            this._ani[i].dispose();
-                        }
-                        this.reset();
-                    }
-
-                    /*
-                     STATIC CLASSES
-                     */
-                }, {
-                    key: 'before',
-                    get: function get() {
-                        var _this2 = this;
-
-                        return {
-                            addClass: function addClass(className) {
-                                _this2._bfAdd.push(className);
-                                return _this2;
-                            },
-                            removeClass: function removeClass(className) {
-                                _this2._bfRmv.push(className);
-                                return _this2;
-                            },
-                            setStyles: function setStyles(styles) {
-                                _this2._bfSty = styles;
-                                return _this2;
-                            }
-                        };
-                    }
-                }, {
-                    key: 'after',
-                    get: function get() {
-                        var _this3 = this;
-
-                        return {
-                            addClass: function addClass(className) {
-                                _this3._afAdd.push(className);
-                                return _this3;
-                            },
-                            removeClass: function removeClass(className) {
-                                _this3._afRmv.push(className);
-                                return _this3;
-                            }
-                        };
-                    }
-                }], [{
-                    key: 'create',
-                    value: function create(element, name) {
-                        var AnimationClass = AnimationRegistry[name];
-                        if (!AnimationClass) {
-                            // couldn't find an animation by the given name
-                            // fallback to just the base Animation class
-                            AnimationClass = Animation;
-                        }
-                        return new AnimationClass(element);
-                    }
-                }, {
-                    key: 'register',
-                    value: function register(name, AnimationClass) {
-                        AnimationRegistry[name] = AnimationClass;
-                    }
-                }]);
-
-                return Animation;
-            })();
-
-            _export('Animation', Animation);
-
-            Animate = (function () {
-                function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate) {
-                    _classCallCheck(this, Animate);
-
-                    // https://w3c.github.io/web-animations/
-                    // not using the direct API methods because they're still in flux
-                    // however, element.animate() seems locked in and uses the latest
-                    // and correct API methods under the hood, so really doesn't matter
-                    if (!fromEffect) {
-                        return console.error(ele.tagName, 'animation fromEffect required, toEffect:', toEffect);
-                    }
-                    this.toEffect = parseEffect(toEffect);
-                    this.shouldAnimate = duration > 32;
-                    if (!this.shouldAnimate) {
-                        return inlineStyle(ele, this.toEffect);
-                    }
-                    this.ele = ele;
-                    // stage where the element will start from
-                    this.fromEffect = parseEffect(fromEffect);
-                    inlineStyle(ele, this.fromEffect);
-                    this.duration = duration;
-                    this.rate = typeof playbackRate !== 'undefined' ? playbackRate : 1;
-                    this.easing = easingConfig && easingConfig.name || 'linear';
-                    this.effects = [convertProperties(this.fromEffect)];
-                    if (this.easing in EASING_FN) {
-                        insertEffects(this.effects, this.fromEffect, this.toEffect, easingConfig);
-                    } else if (this.easing in CUBIC_BEZIERS) {
-                        this.easing = 'cubic-bezier(' + CUBIC_BEZIERS[this.easing] + ')';
-                    }
-                    this.effects.push(convertProperties(this.toEffect));
-                }
-
-                _createClass(Animate, [{
-                    key: 'play',
-                    value: function play(callback) {
-                        var self = this;
-                        if (self.ani) {
-                            self.ani.play();
-                        } else {
-                            // https://developers.google.com/web/updates/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36
-                            // https://w3c.github.io/web-animations/
-                            // Future versions will use "new window.Animation" rather than "element.animate()"
-                            self.ani = self.ele.animate(self.effects, {
-                                duration: self.duration || 0,
-                                easing: self.easing,
-                                playbackRate: self.rate // old way of setting playbackRate, but still necessary
-                            });
-                            self.ani.playbackRate = self.rate;
-                        }
-                        self.ani.onfinish = function () {
-                            // lock in where the element will stop at
-                            // if the playbackRate is negative then it needs to return
-                            // to its "from" effects
-                            inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
-                            self.ani = null;
-                            callback && callback();
-                        };
-                    }
-                }, {
-                    key: 'pause',
-                    value: function pause() {
-                        this.ani && this.ani.pause();
-                    }
-                }, {
-                    key: 'progress',
-                    value: function progress(value) {
-                        if (this.ani) {
-                            // passed a number between 0 and 1
-                            if (this.ani.playState !== 'paused') {
-                                this.ani.pause();
-                            }
-                            // don't let the progress finish the animation
-                            // leave it off JUST before it's finished
-                            value = Math.min(0.999, Math.max(0.001, value));
-                            this.ani.currentTime = this.duration * value;
-                        }
-                    }
-                }, {
-                    key: 'getCurrentTime',
-                    value: function getCurrentTime() {
-                        return this.ani && this.ani.currentTime || 0;
-                    }
-                }, {
-                    key: 'playbackRate',
-                    value: function playbackRate(value) {
-                        this.rate = value;
-                        if (this.ani) {
-                            this.ani.playbackRate = value;
-                        }
-                    }
-                }, {
-                    key: 'dispose',
-                    value: function dispose() {
-                        this.ele = this.ani = this.effects = this.toEffect = null;
-                    }
-                }]);
-
-                return Animate;
-            })();
-
-            TRANSFORMS = ['translateX', 'translateY', 'translateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'skewX', 'skewY', 'perspective'];
-            ANIMATE_PROPERTIES = TRANSFORMS.concat('opacity');
-
-            // Robert Penner's Easing Functions
-            // http://robertpenner.com/easing/
-            CUBIC_BEZIERS = {
-                // default browser suppored easing
-                // ease
-                // ease-in
-                // ease-out
-                // ease-in-out
-                // Cubic
-                'ease-in-cubic': '0.55,0.055,0.675,0.19',
-                'ease-out-cubic': '0.215,0.61,0.355,1',
-                'ease-in-Out-cubic': '0.645,0.045,0.355,1',
-                // Circ
-                'ease-in-circ': '0.6,0.04,0.98,0.335',
-                'ease-out-circ': '0.075,0.82,0.165,1',
-                'ease-in-out-circ': '0.785,0.135,0.15,0.86',
-                // Expo
-                'ease-in-expo': '0.95,0.05,0.795,0.035',
-                'ease-out-expo': '0.19,1,0.22,1',
-                'ease-in-out-expo': '1,0,0,1',
-                // Quad
-                'ease-in-quad': '0.55,0.085,0.68,0.53',
-                'ease-out-quad': '0.25,0.46,0.45,0.94',
-                'ease-in-out-quad': '0.455,0.03,0.515,0.955',
-                // Quart
-                'ease-in-quart': '0.895,0.03,0.685,0.22',
-                'ease-out-quart': '0.165,0.84,0.44,1',
-                'ease-in-out-quart': '0.77,0,0.175,1',
-                // Quint
-                'ease-in-quint': '0.755,0.05,0.855,0.06',
-                'ease-out-quint': '0.23,1,0.32,1',
-                'ease-in-out-quint': '0.86,0,0.07,1',
-                // Sine
-                'ease-in-sine': '0.47,0,0.745,0.715',
-                'ease-out-sine': '0.39,0.575,0.565,1',
-                'ease-in-out-sine': '0.445,0.05,0.55,0.95',
-                // Back
-                'ease-in-back': '0.6,-0.28,0.735,0.045',
-                'ease-out-back': '0.175,0.885,0.32,1.275',
-                'ease-in-out-back': '0.68,-0.55,0.265,1.55'
-            };
-            EASING_FN = {
-                'elastic': function elastic(pos) {
-                    return -1 * Math.pow(4, -8 * pos) * Math.sin((pos * 6 - 1) * (2 * Math.PI) / 2) + 1;
-                },
-                'swing-from-to': function swingFromTo(pos, opts) {
-                    var s = opts.s || 1.70158;
-                    return (pos /= 0.5) < 1 ? 0.5 * (pos * pos * (((s *= 1.525) + 1) * pos - s)) : 0.5 * ((pos -= 2) * pos * (((s *= 1.525) + 1) * pos + s) + 2);
-                },
-                'swing-from': function swingFrom(pos, opts) {
-                    var s = opts.s || 1.70158;
-                    return pos * pos * ((s + 1) * pos - s);
-                },
-                'swing-to': function swingTo(pos, opts) {
-                    var s = opts.s || 1.70158;
-                    return (pos -= 1) * pos * ((s + 1) * pos + s) + 1;
-                },
-                'bounce': function bounce(pos) {
-                    if (pos < 1 / 2.75) {
-                        return 7.5625 * pos * pos;
-                    } else if (pos < 2 / 2.75) {
-                        return 7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75;
-                    } else if (pos < 2.5 / 2.75) {
-                        return 7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375;
-                    }
-                    return 7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375;
-                },
-                'bounce-past': function bouncePast(pos) {
-                    if (pos < 1 / 2.75) {
-                        return 7.5625 * pos * pos;
-                    } else if (pos < 2 / 2.75) {
-                        return 2 - (7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75);
-                    } else if (pos < 2.5 / 2.75) {
-                        return 2 - (7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375);
-                    }
-                    return 2 - (7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375);
-                },
-                'ease-out-bounce': function easeOutBounce(pos) {
-                    if (pos < 1 / 2.75) {
-                        return 7.5625 * pos * pos;
-                    } else if (pos < 2 / 2.75) {
-                        return 7.5625 * (pos -= 1.5 / 2.75) * pos + 0.75;
-                    } else if (pos < 2.5 / 2.75) {
-                        return 7.5625 * (pos -= 2.25 / 2.75) * pos + 0.9375;
-                    }
-                    return 7.5625 * (pos -= 2.625 / 2.75) * pos + 0.984375;
-                },
-                'ease-from-to': function easeFromTo(pos) {
-                    if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 4);
-                    return -0.5 * ((pos -= 2) * Math.pow(pos, 3) - 2);
-                },
-                'ease-from': function easeFrom(pos, opts) {
-                    return Math.pow(pos, opts.s || 4);
-                },
-                'ease-to': function easeTo(pos, opts) {
-                    return Math.pow(pos, opts.s || 0.25);
-                },
-                /*
-                 * scripty2, Thomas Fuchs (MIT Licence)
-                 * https://raw.github.com/madrobby/scripty2/master/src/effects/transitions/transitions.js
-                 */
-                'spring': function spring(pos, opts) {
-                    var damping = opts.damping || 4.5;
-                    var elasticity = opts.elasticity || 6;
-                    return 1 - Math.cos(pos * damping * Math.PI) * Math.exp(-pos * elasticity);
-                },
-                'sinusoidal': function sinusoidal(pos) {
-                    return -Math.cos(pos * Math.PI) / 2 + 0.5;
-                }
-            };
-            AnimationRegistry = {};
-        }
-    };
-});
-System.register('ionic/animations/builtins', ['./animation'], function (_export) {
-    'use strict';
-
-    var Animation, SlideIn, SlideOut, FadeIn, FadeOut;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_animation) {
-            Animation = _animation.Animation;
-        }],
-        execute: function () {
-            SlideIn = (function (_Animation) {
-                _inherits(SlideIn, _Animation);
-
-                function SlideIn(element) {
-                    _classCallCheck(this, SlideIn);
-
-                    _get(Object.getPrototypeOf(SlideIn.prototype), 'constructor', this).call(this, element);
-                    this.easing('cubic-bezier(0.1,0.7,0.1,1)').duration(400).fromTo('translateY', '100%', '0%');
-                }
-
-                return SlideIn;
-            })(Animation);
-
-            Animation.register('slide-in', SlideIn);
-
-            SlideOut = (function (_Animation2) {
-                _inherits(SlideOut, _Animation2);
-
-                function SlideOut(element) {
-                    _classCallCheck(this, SlideOut);
-
-                    _get(Object.getPrototypeOf(SlideOut.prototype), 'constructor', this).call(this, element);
-                    this.easing('ease-out').duration(250).fromTo('translateY', '0%', '100%');
-                }
-
-                return SlideOut;
-            })(Animation);
-
-            Animation.register('slide-out', SlideOut);
-
-            FadeIn = (function (_Animation3) {
-                _inherits(FadeIn, _Animation3);
-
-                function FadeIn(element) {
-                    _classCallCheck(this, FadeIn);
-
-                    _get(Object.getPrototypeOf(FadeIn.prototype), 'constructor', this).call(this, element);
-                    this.easing('ease-in').duration(400).fadeIn();
-                }
-
-                return FadeIn;
-            })(Animation);
-
-            Animation.register('fade-in', FadeIn);
-
-            FadeOut = (function (_Animation4) {
-                _inherits(FadeOut, _Animation4);
-
-                function FadeOut(element) {
-                    _classCallCheck(this, FadeOut);
-
-                    _get(Object.getPrototypeOf(FadeOut.prototype), 'constructor', this).call(this, element);
-                    this.easing('ease-out').duration(250).fadeOut();
-                }
-
-                return FadeOut;
-            })(Animation);
-
-            Animation.register('fade-out', FadeOut);
-        }
-    };
-});
-System.register('ionic/animations/scroll-to', ['../util/dom'], function (_export) {
-    'use strict';
-
-    var raf, ScrollTo;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_utilDom) {
-            raf = _utilDom.raf;
-        }],
-        execute: function () {
-            ScrollTo = (function () {
-                function ScrollTo(ele, x, y, duration) {
-                    _classCallCheck(this, ScrollTo);
-
-                    if (typeof ele === 'string') {
-                        // string query selector
-                        ele = document.querySelector(ele);
-                    }
-                    if (ele) {
-                        if (ele.nativeElement) {
-                            // angular ElementRef
-                            ele = ele.nativeElement;
-                        }
-                        if (ele.nodeType === 1) {
-                            this._el = ele;
-                        }
-                    }
-                }
-
-                _createClass(ScrollTo, [{
-                    key: 'start',
-                    value: function start(x, y, duration, tolerance) {
-                        // scroll animation loop w/ easing
-                        // credit https://gist.github.com/dezinezync/5487119
-                        var self = this;
-                        if (!self._el) {
-                            // invalid element
-                            return Promise.resolve();
-                        }
-                        x = x || 0;
-                        y = y || 0;
-                        tolerance = tolerance || 0;
-                        var ele = self._el;
-                        var fromY = ele.scrollTop;
-                        var fromX = ele.scrollLeft;
-                        var xDistance = Math.abs(x - fromX);
-                        var yDistance = Math.abs(y - fromY);
-                        if (yDistance <= tolerance && xDistance <= tolerance) {
-                            // prevent scrolling if already close to there
-                            this._el = ele = null;
-                            return Promise.resolve();
-                        }
-                        return new Promise(function (resolve, reject) {
-                            var start = Date.now();
-                            // start scroll loop
-                            self.isPlaying = true;
-                            raf(step);
-                            // decelerating to zero velocity
-                            function easeOutCubic(t) {
-                                return --t * t * t + 1;
-                            }
-                            // scroll loop
-                            function step() {
-                                var time = Math.min(1, (Date.now() - start) / duration);
-                                // where .5 would be 50% of time on a linear scale easedT gives a
-                                // fraction based on the easing method
-                                var easedT = easeOutCubic(time);
-                                if (fromY != y) {
-                                    ele.scrollTop = parseInt(easedT * (y - fromY) + fromY, 10);
-                                }
-                                if (fromX != x) {
-                                    ele.scrollLeft = parseInt(easedT * (x - fromX) + fromX, 10);
-                                }
-                                if (time < 1 && self.isPlaying) {
-                                    raf(step);
-                                } else if (!self.isPlaying) {
-                                    // stopped
-                                    this._el = ele = null;
-                                    reject();
-                                } else {
-                                    // done
-                                    this._el = ele = null;
-                                    resolve();
-                                }
-                            }
-                        });
-                    }
-                }, {
-                    key: 'stop',
-                    value: function stop() {
-                        this.isPlaying = false;
-                    }
-                }, {
-                    key: 'dispose',
-                    value: function dispose() {
-                        this.stop();
-                        this._el = null;
-                    }
-                }]);
-
-                return ScrollTo;
-            })();
-
-            _export('ScrollTo', ScrollTo);
-        }
-    };
-});
 System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
     /**
     +* @ngdoc service
@@ -46188,6 +46188,9 @@ System.register('ionic/transitions/ios-transition', ['./transition', '../animati
                     // do they have navbars?
                     var enteringHasNavbar = enteringView.hasNavbar();
                     var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+                    var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
+                    this.add(enteringPage);
                     // entering content
                     var enteringContent = new Animation(enteringView.contentRef());
                     this.add(enteringContent);
@@ -46336,6 +46339,7 @@ System.register('ionic/transitions/md-transition', ['./transition', '../animatio
                     var leavingHasNavbar = leavingView && leavingView.hasNavbar();
                     // entering content item moves in bottom to center
                     var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
                     this.add(enteringPage);
                     if (backDirection) {
                         this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
@@ -48508,177 +48512,6 @@ System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_
         }
     };
 });
-System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../../util/form"], function (_export) {
-    /**
-     * The checkbox is no different than the HTML checkbox input, except it's styled differently
-     *
-     * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
-     *
-     * @usage
-     * ```html
-     * <ion-checkbox checked="true" value="isChecked" ng-control="htmlCtrl">
-     *   HTML5
-     * </ion-checkbox>
-     * ```
-     */
-    "use strict";
-
-    var Component, Optional, NgControl, ElementRef, Renderer, Form, __decorate, __metadata, __param, Checkbox, _a, _b, _c, _d;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            Optional = _angular2Angular2.Optional;
-            NgControl = _angular2Angular2.NgControl;
-            ElementRef = _angular2Angular2.ElementRef;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_utilForm) {
-            Form = _utilForm.Form;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Checkbox = (function () {
-                function Checkbox(form, ngControl, elementRef, renderer) {
-                    _classCallCheck(this, Checkbox);
-
-                    renderer.setElementClass(elementRef, 'item', true);
-                    this.form = form;
-                    form.register(this);
-                    this.onChange = function (_) {};
-                    this.onTouched = function (_) {};
-                    this.ngControl = ngControl;
-                    if (ngControl) ngControl.valueAccessor = this;
-                }
-
-                /**
-                 * TODO
-                 */
-
-                _createClass(Checkbox, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        this.labelId = 'label-' + this.inputId;
-                    }
-
-                    /**
-                     * Toggle the checked state of the checkbox. Calls onChange to pass the
-                     * updated checked state to the model (Control).
-                     */
-                }, {
-                    key: "toggle",
-                    value: function toggle() {
-                        this.checked = !this.checked;
-                        this.onChange(this.checked);
-                    }
-
-                    /**
-                     * Click event handler to toggle the checkbox checked state.
-                     * @param {MouseEvent} ev  The click event.
-                     */
-                }, {
-                    key: "click",
-                    value: function click(ev) {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        this.toggle();
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the model (Control) on change to update
-                     * the checked value.
-                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
-                     */
-                }, {
-                    key: "writeValue",
-                    value: function writeValue(value) {
-                        this.checked = value;
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the view (NgControl) to register the
-                     * onChange event handler that updates the model (Control).
-                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-                     * @param {Function} fn  the onChange event handler.
-                     */
-                }, {
-                    key: "registerOnChange",
-                    value: function registerOnChange(fn) {
-                        this.onChange = fn;
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the the view (NgControl) to register
-                     * the onTouched event handler that marks model (Control) as touched.
-                     * @param {Function} fn  onTouched event handler.
-                     */
-                }, {
-                    key: "registerOnTouched",
-                    value: function registerOnTouched(fn) {
-                        this.onTouched = fn;
-                    }
-                }, {
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        this.form.deregister(this);
-                    }
-                }]);
-
-                return Checkbox;
-            })();
-
-            _export("Checkbox", Checkbox);
-
-            _export("Checkbox", Checkbox = __decorate([Component({
-                selector: 'ion-checkbox',
-                inputs: ['value', 'checked', 'disabled', 'id'],
-                host: {
-                    'role': 'checkbox',
-                    'tappable': 'true',
-                    '[attr.tab-index]': 'tabIndex',
-                    '[attr.aria-checked]': 'checked',
-                    '[attr.aria-disabled]': 'disabled',
-                    '[attr.aria-labelledby]': 'labelId',
-                    '(click)': 'click($event)'
-                },
-                template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
-            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof Form !== 'undefined' && Form) === 'function' && _a || Object, typeof (_b = typeof NgControl !== 'undefined' && NgControl) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], Checkbox));
-        }
-    };
-});
 System.register("ionic/components/button/button", ["angular2/angular2", "../../config/config"], function (_export) {
     /**
      * TODO
@@ -48783,7 +48616,7 @@ System.register("ionic/components/button/button", ["angular2/angular2", "../../c
         }
     };
 });
-System.register("ionic/components/content/content", ["angular2/angular2", "../ion", "../../config/config", "../../util/keyboard", "../nav/view-controller", "../../animations/animation", "../../animations/scroll-to", "../../util/feature-detect", "./sticky-poly"], function (_export) {
+System.register("ionic/components/content/content", ["angular2/angular2", "../ion", "../../config/config", "../../util/keyboard", "../nav/view-controller", "../../animations/animation", "../../animations/scroll-to"], function (_export) {
     /**
      * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
      *
@@ -48801,7 +48634,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
      */
     "use strict";
 
-    var Component, ElementRef, Optional, NgZone, Ion, Config, Keyboard, ViewController, Animation, ScrollTo, FeatureDetect, StickyPoly, __decorate, __metadata, __param, Content, _a, _b, _c, _d, _e, _f;
+    var Component, ElementRef, Optional, NgZone, Ion, Config, Keyboard, ViewController, Animation, ScrollTo, __decorate, __metadata, __param, Content, _a, _b, _c, _d, _e;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -48829,10 +48662,6 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
             Animation = _animationsAnimation.Animation;
         }, function (_animationsScrollTo) {
             ScrollTo = _animationsScrollTo.ScrollTo;
-        }, function (_utilFeatureDetect) {
-            FeatureDetect = _utilFeatureDetect.FeatureDetect;
-        }, function (_stickyPoly) {
-            StickyPoly = _stickyPoly.StickyPoly;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -48871,11 +48700,10 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                  * @param {Config} config  The config object to change content's default settings.
                  */
 
-                function Content(elementRef, config, keyboard, viewCtrl, featureDetect, _zone) {
+                function Content(elementRef, config, keyboard, viewCtrl, _zone) {
                     _classCallCheck(this, Content);
 
                     _get(Object.getPrototypeOf(Content.prototype), "constructor", this).call(this, elementRef, config);
-                    this.featureDetect = featureDetect;
                     this._zone = _zone;
                     this.scrollPadding = 0;
                     this.keyboard = keyboard;
@@ -48885,30 +48713,16 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                     }
                 }
 
-                _createClass(Content, [{
-                    key: "getStickyPolyfill",
-                    value: function getStickyPolyfill() {
-                        return this._sticky;
-                    }
+                /**
+                 * TODO
+                 * @private
+                 */
 
-                    /**
-                     * TODO
-                     * @private
-                     */
-                }, {
+                _createClass(Content, [{
                     key: "onInit",
                     value: function onInit() {
-                        var _this = this;
-
                         _get(Object.getPrototypeOf(Content.prototype), "onInit", this).call(this);
                         this.scrollElement = this.getNativeElement().children[0];
-                        if (!this.featureDetect.has('sticky')) {
-                            this._zone.runOutsideAngular(function () {
-                                setTimeout(function () {
-                                    _this._sticky = StickyPoly(_this.scrollElement);
-                                });
-                            });
-                        }
                     }
 
                     /**
@@ -48919,7 +48733,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                 }, {
                     key: "addScrollEventListener",
                     value: function addScrollEventListener(handler) {
-                        var _this2 = this;
+                        var _this = this;
 
                         if (!this.scrollElement) {
                             return;
@@ -48928,7 +48742,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                         this.scrollElement.removeEventListener('scroll', handler);
                         this.scrollElement.addEventListener('scroll', handler);
                         return function () {
-                            _this2.scrollElement.removeEventListener('scroll', handler);
+                            _this.scrollElement.removeEventListener('scroll', handler);
                         };
                     }
 
@@ -48940,7 +48754,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                 }, {
                     key: "addTouchMoveListener",
                     value: function addTouchMoveListener(handler) {
-                        var _this3 = this;
+                        var _this2 = this;
 
                         if (!this.scrollElement) {
                             return;
@@ -48949,7 +48763,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                         this.scrollElement.removeEventListener('touchmove', handler);
                         this.scrollElement.addEventListener('touchmove', handler);
                         return function () {
-                            _this3.scrollElement.removeEventListener('touchmove', handler);
+                            _this2.scrollElement.removeEventListener('touchmove', handler);
                         };
                     }
 
@@ -49026,7 +48840,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                 }, {
                     key: "addScrollPadding",
                     value: function addScrollPadding(newScrollPadding) {
-                        var _this4 = this;
+                        var _this3 = this;
 
                         if (newScrollPadding > this.scrollPadding) {
                             console.debug('addScrollPadding', newScrollPadding);
@@ -49036,13 +48850,13 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                                 console.debug('add scroll keyboard close callback', newScrollPadding);
                                 this.keyboardPromise = this.keyboard.onClose(function () {
                                     console.debug('scroll keyboard closed', newScrollPadding);
-                                    if (_this4) {
-                                        if (_this4.scrollPadding && _this4.scrollElement) {
-                                            var _close = new Animation(_this4.scrollElement);
-                                            _close.duration(150).fromTo('paddingBottom', _this4.scrollPadding + 'px', '0px').play();
+                                    if (_this3) {
+                                        if (_this3.scrollPadding && _this3.scrollElement) {
+                                            var _close = new Animation(_this3.scrollElement);
+                                            _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
                                         }
-                                        _this4.scrollPadding = 0;
-                                        _this4.keyboardPromise = null;
+                                        _this3.scrollPadding = 0;
+                                        _this3.keyboardPromise = null;
                                     }
                                 });
                             }
@@ -49058,7 +48872,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
             _export("Content", Content = __decorate([Component({
                 selector: 'ion-content',
                 template: '<scroll-content>' + '<ng-content></ng-content>' + '</scroll-content>'
-            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof FeatureDetect !== 'undefined' && FeatureDetect) === 'function' && _e || Object, typeof (_f = typeof NgZone !== 'undefined' && NgZone) === 'function' && _f || Object])], Content));
+            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof NgZone !== 'undefined' && NgZone) === 'function' && _e || Object])], Content));
         }
     };
 });
@@ -49587,13 +49401,22 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
         }
     };
 });
-System.register("ionic/components/item/item-group", ["angular2/angular2", "../content/content", "../../config/config"], function (_export) {
+System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../../util/form"], function (_export) {
     /**
-     * TODO
+     * The checkbox is no different than the HTML checkbox input, except it's styled differently
+     *
+     * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
+     *
+     * @usage
+     * ```html
+     * <ion-checkbox checked="true" value="isChecked" ng-control="htmlCtrl">
+     *   HTML5
+     * </ion-checkbox>
+     * ```
      */
     "use strict";
 
-    var Directive, ElementRef, Content, Config, __decorate, __metadata, ItemGroup, ItemGroupTitle, _a, _b, _c, _d;
+    var Component, Optional, NgControl, ElementRef, Renderer, Form, __decorate, __metadata, __param, Checkbox, _a, _b, _c, _d;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -49601,8 +49424,453 @@ System.register("ionic/components/item/item-group", ["angular2/angular2", "../co
 
     return {
         setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            Optional = _angular2Angular2.Optional;
+            NgControl = _angular2Angular2.NgControl;
+            ElementRef = _angular2Angular2.ElementRef;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_utilForm) {
+            Form = _utilForm.Form;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Checkbox = (function () {
+                function Checkbox(form, ngControl, elementRef, renderer) {
+                    _classCallCheck(this, Checkbox);
+
+                    renderer.setElementClass(elementRef, 'item', true);
+                    this.form = form;
+                    form.register(this);
+                    this.onChange = function (_) {};
+                    this.onTouched = function (_) {};
+                    this.ngControl = ngControl;
+                    if (ngControl) ngControl.valueAccessor = this;
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(Checkbox, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        this.labelId = 'label-' + this.inputId;
+                    }
+
+                    /**
+                     * Toggle the checked state of the checkbox. Calls onChange to pass the
+                     * updated checked state to the model (Control).
+                     */
+                }, {
+                    key: "toggle",
+                    value: function toggle() {
+                        this.checked = !this.checked;
+                        this.onChange(this.checked);
+                    }
+
+                    /**
+                     * Click event handler to toggle the checkbox checked state.
+                     * @param {MouseEvent} ev  The click event.
+                     */
+                }, {
+                    key: "click",
+                    value: function click(ev) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        this.toggle();
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the model (Control) on change to update
+                     * the checked value.
+                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
+                     */
+                }, {
+                    key: "writeValue",
+                    value: function writeValue(value) {
+                        this.checked = value;
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the view (NgControl) to register the
+                     * onChange event handler that updates the model (Control).
+                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
+                     * @param {Function} fn  the onChange event handler.
+                     */
+                }, {
+                    key: "registerOnChange",
+                    value: function registerOnChange(fn) {
+                        this.onChange = fn;
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the the view (NgControl) to register
+                     * the onTouched event handler that marks model (Control) as touched.
+                     * @param {Function} fn  onTouched event handler.
+                     */
+                }, {
+                    key: "registerOnTouched",
+                    value: function registerOnTouched(fn) {
+                        this.onTouched = fn;
+                    }
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.form.deregister(this);
+                    }
+                }]);
+
+                return Checkbox;
+            })();
+
+            _export("Checkbox", Checkbox);
+
+            _export("Checkbox", Checkbox = __decorate([Component({
+                selector: 'ion-checkbox',
+                inputs: ['value', 'checked', 'disabled', 'id'],
+                host: {
+                    'role': 'checkbox',
+                    'tappable': 'true',
+                    '[attr.tab-index]': 'tabIndex',
+                    '[attr.aria-checked]': 'checked',
+                    '[attr.aria-disabled]': 'disabled',
+                    '[attr.aria-labelledby]': 'labelId',
+                    '(click)': 'click($event)'
+                },
+                template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
+            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof Form !== 'undefined' && Form) === 'function' && _a || Object, typeof (_b = typeof NgControl !== 'undefined' && NgControl) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], Checkbox));
+        }
+    };
+});
+System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
+    /**
+     * The List is a widely used interface element in almost any mobile app, and can include
+     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+     *
+     * Both the list, which contains items, and the list items themselves can be any HTML
+     * element.
+     *
+     * Using the List and Item components make it easy to support various
+     * interaction modes such as swipe to edit, drag to reorder, and removing items.
+     *
+     */
+    "use strict";
+
+    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
             Directive = _angular2Angular2.Directive;
             ElementRef = _angular2Angular2.ElementRef;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_virtual) {
+            ListVirtualScroll = _virtual.ListVirtualScroll;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            List = (function (_Ion) {
+                _inherits(List, _Ion);
+
+                /**
+                 * TODO
+                 * @param {ElementRef} elementRef  TODO
+                 * @param {Config} config  TODO
+                 */
+
+                function List(elementRef, config, renderer) {
+                    _classCallCheck(this, List);
+
+                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
+                    renderer.setElementClass(elementRef, 'list', true);
+                    this.ele = elementRef.nativeElement;
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(List, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
+                        if (util.isDefined(this.virtual)) {
+                            console.log('Content', this.content);
+                            console.log('Virtual?', this.virtual);
+                            console.log('Items?', this.items.length, 'of \'em');
+                            this._initVirtualScrolling();
+                        }
+                    }
+
+                    /**
+                     * @private
+                     * TODO
+                     */
+                }, {
+                    key: "_initVirtualScrolling",
+                    value: function _initVirtualScrolling() {
+                        if (!this.content) {
+                            return;
+                        }
+                        this._virtualScrollingManager = new ListVirtualScroll(this);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} item  TODO
+                     */
+                }, {
+                    key: "setItemTemplate",
+                    value: function setItemTemplate(item) {
+                        this.itemTemplate = item;
+                    }
+
+                    /**
+                     * Keeps track of any open item (a sliding item, for example), to close it later
+                     */
+                }, {
+                    key: "setOpenItem",
+                    value: function setOpenItem(item) {
+                        this.openItem = item;
+                    }
+                }, {
+                    key: "closeOpenItem",
+                    value: function closeOpenItem() {
+                        if (this.openItem) {
+                            this.openItem.close(true);
+                            this.openItem = null;
+                        }
+                    }
+                }, {
+                    key: "getOpenItem",
+                    value: function getOpenItem() {
+                        return this.openItem;
+                    }
+                }]);
+
+                return List;
+            })(Ion);
+
+            _export("List", List);
+
+            _export("List", List = __decorate([Directive({
+                selector: 'ion-list',
+                inputs: ['items', 'virtual', 'content']
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
+            /**
+             * TODO
+             */
+
+            ListHeader = function ListHeader() {
+                _classCallCheck(this, ListHeader);
+            };
+
+            _export("ListHeader", ListHeader);
+
+            _export("ListHeader", ListHeader = __decorate([Directive({
+                selector: 'ion-header',
+                inputs: ['id'],
+                host: {
+                    '[attr.id]': 'id'
+                }
+            }), __metadata('design:paramtypes', [])], ListHeader));
+        }
+    };
+});
+System.register('ionic/components/list/virtual', [], function (_export) {
+    'use strict';
+
+    var ListVirtualScroll, VirtualItemRef;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [],
+        execute: function () {
+            ListVirtualScroll = (function () {
+                function ListVirtualScroll(list) {
+                    var _this = this;
+
+                    _classCallCheck(this, ListVirtualScroll);
+
+                    this.list = list;
+                    this.content = this.list.content;
+                    this.viewportHeight = this.content.height();
+                    this.viewContainer = this.list.itemTemplate.viewContainer;
+                    this.itemHeight = 60;
+                    this.shownItems = {};
+                    this.enteringItems = [];
+                    this.leavingItems = [];
+                    // Compute the initial sizes
+                    setTimeout(function () {
+                        _this.resize();
+                        // Simulate the first event to start layout
+                        _this._handleVirtualScroll({
+                            target: _this.content.scrollElement
+                        });
+                    });
+                    this.content.addScrollEventListener(function (event) {
+                        _this._handleVirtualScroll(event);
+                    });
+                }
+
+                _createClass(ListVirtualScroll, [{
+                    key: 'resize',
+                    value: function resize() {
+                        this.viewportHeight = this.content.height();
+                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
+                        this.virtualHeight = this.list.items.length * this.itemHeight;
+                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
+                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+                    }
+                }, {
+                    key: '_handleVirtualScroll',
+                    value: function _handleVirtualScroll(event) {
+                        var item = undefined;
+                        var shownItemRef = undefined;
+                        var st = event.target.scrollTop;
+                        var sh = event.target.scrollHeight;
+                        var topIndex = Math.floor(st / this.itemHeight);
+                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
+                        var items = this.list.items;
+                        // Key iterate the shown items map
+                        // and compare the index to our index range,
+                        // pushing the items to remove to our leaving
+                        // list if they're ouside this range.
+                        for (var i in this.shownItems) {
+                            if (i < topIndex || i > bottomIndex) {
+                                this.leavingItems.push(this.shownItems[i]);
+                                delete this.shownItems[i];
+                            }
+                        }
+                        var realIndex = 0;
+                        // Iterate the set of items that will be rendered, using the
+                        // index from the actual items list as the map for the
+                        // virtual items we draw
+                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
+                            item = items[i];
+                            console.log('Drawing item', i, item.title);
+                            shownItemRef = this.shownItems[i];
+                            // Is this a new item?
+                            if (!shownItemRef) {
+                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
+                                itemView.setLocal('\$implicit', item);
+                                itemView.setLocal('\$item', item);
+                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
+                                this.shownItems[i] = shownItemRef;
+                                this.enteringItems.push(shownItemRef);
+                            }
+                        }
+                        while (this.leavingItems.length) {
+                            var itemRef = this.leavingItems.pop();
+                            console.log('Removing item', itemRef.item, itemRef.realIndex);
+                            this.viewContainer.remove(itemRef.realIndex);
+                        }
+                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+                    }
+                }, {
+                    key: 'cellAtIndex',
+                    value: function cellAtIndex(index) {}
+                }]);
+
+                return ListVirtualScroll;
+            })();
+
+            _export('ListVirtualScroll', ListVirtualScroll);
+
+            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
+                _classCallCheck(this, VirtualItemRef);
+
+                this.item = item;
+                this.index = index;
+                this.realIndex = realIndex;
+                this.view = view;
+            };
+        }
+    };
+});
+System.register("ionic/components/item/item-group", ["angular2/angular2", "../content/content", "../../config/config"], function (_export) {
+    /**
+     * TODO
+     */
+    "use strict";
+
+    var Directive, ElementRef, NgZone, Content, Config, __decorate, __metadata, ItemGroup, ItemGroupTitle, _a, _b, _c, _d, _e;
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            NgZone = _angular2Angular2.NgZone;
         }, function (_contentContent) {
             Content = _contentContent.Content;
         }, function (_configConfig) {
@@ -49654,36 +49922,20 @@ System.register("ionic/components/item/item-group", ["angular2/angular2", "../co
              * TODO
              */
 
-            ItemGroupTitle = (function () {
-                /**
-                 * TODO
-                 * @param {ElementRef} elementRef  TODO
-                 */
+            ItemGroupTitle =
+            /**
+             * TODO
+             * @param {ElementRef} elementRef  TODO
+             */
+            function ItemGroupTitle(elementRef, zone, config, content) {
+                _classCallCheck(this, ItemGroupTitle);
 
-                function ItemGroupTitle(elementRef, config, content) {
-                    _classCallCheck(this, ItemGroupTitle);
-
-                    this.elementRef = elementRef;
-                    this.content = content;
-                    // make sure the sticky class gets set on the title
-                    this.isSticky = true;
-                }
-
-                _createClass(ItemGroupTitle, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        var _this = this;
-
-                        setTimeout(function () {
-                            if (_this.content.getStickyPolyfill()) {
-                                _this.content.getStickyPolyfill().add(_this.elementRef.nativeElement);
-                            }
-                        });
-                    }
-                }]);
-
-                return ItemGroupTitle;
-            })();
+                this.elementRef = elementRef;
+                this.zone = zone;
+                this.content = content;
+                // make sure the sticky class gets set on the title
+                this.isSticky = true;
+            };
 
             _export("ItemGroupTitle", ItemGroupTitle);
 
@@ -49693,7 +49945,7 @@ System.register("ionic/components/item/item-group", ["angular2/angular2", "../co
                     'class': 'item-group-title',
                     '[class.sticky]': 'isSticky'
                 }
-            }), __metadata('design:paramtypes', [typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Content !== 'undefined' && Content) === 'function' && _d || Object])], ItemGroupTitle));
+            }), __metadata('design:paramtypes', [typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof NgZone !== 'undefined' && NgZone) === 'function' && _c || Object, typeof (_d = typeof Config !== 'undefined' && Config) === 'function' && _d || Object, typeof (_e = typeof Content !== 'undefined' && Content) === 'function' && _e || Object])], ItemGroupTitle));
         }
     };
 });
@@ -50107,21 +50359,13 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
         }
     };
 });
-System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
+System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
     /**
-     * The List is a widely used interface element in almost any mobile app, and can include
-     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
-     *
-     * Both the list, which contains items, and the list items themselves can be any HTML
-     * element.
-     *
-     * Using the List and Item components make it easy to support various
-     * interaction modes such as swipe to edit, drag to reorder, and removing items.
-     *
-     */
+    * TODO
+    */
     "use strict";
 
-    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
+    var Directive, ElementRef, Ion, IonicApp, __decorate, __metadata, MenuClose, _a, _b;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -50135,15 +50379,10 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
         setters: [function (_angular2Angular2) {
             Directive = _angular2Angular2.Directive;
             ElementRef = _angular2Angular2.ElementRef;
-            Renderer = _angular2Angular2.Renderer;
         }, function (_ion) {
             Ion = _ion.Ion;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_virtual) {
-            ListVirtualScroll = _virtual.ListVirtualScroll;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -50168,226 +50407,951 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            List = (function (_Ion) {
-                _inherits(List, _Ion);
+            MenuClose = (function (_Ion) {
+                _inherits(MenuClose, _Ion);
 
-                /**
-                 * TODO
-                 * @param {ElementRef} elementRef  TODO
-                 * @param {Config} config  TODO
-                 */
+                function MenuClose(app, elementRef) {
+                    _classCallCheck(this, MenuClose);
 
-                function List(elementRef, config, renderer) {
-                    _classCallCheck(this, List);
-
-                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
-                    renderer.setElementClass(elementRef, 'list', true);
-                    this.ele = elementRef.nativeElement;
+                    _get(Object.getPrototypeOf(MenuClose.prototype), "constructor", this).call(this, elementRef, null);
+                    this.app = app;
                 }
 
-                /**
-                 * TODO
-                 */
-
-                _createClass(List, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
-                        if (util.isDefined(this.virtual)) {
-                            console.log('Content', this.content);
-                            console.log('Virtual?', this.virtual);
-                            console.log('Items?', this.items.length, 'of \'em');
-                            this._initVirtualScrolling();
-                        }
-                    }
-
-                    /**
-                     * @private
-                     * TODO
-                     */
-                }, {
-                    key: "_initVirtualScrolling",
-                    value: function _initVirtualScrolling() {
-                        if (!this.content) {
-                            return;
-                        }
-                        this._virtualScrollingManager = new ListVirtualScroll(this);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} item  TODO
-                     */
-                }, {
-                    key: "setItemTemplate",
-                    value: function setItemTemplate(item) {
-                        this.itemTemplate = item;
-                    }
-
-                    /**
-                     * Keeps track of any open item (a sliding item, for example), to close it later
-                     */
-                }, {
-                    key: "setOpenItem",
-                    value: function setOpenItem(item) {
-                        this.openItem = item;
-                    }
-                }, {
-                    key: "closeOpenItem",
-                    value: function closeOpenItem() {
-                        if (this.openItem) {
-                            this.openItem.close(true);
-                            this.openItem = null;
-                        }
-                    }
-                }, {
-                    key: "getOpenItem",
-                    value: function getOpenItem() {
-                        return this.openItem;
+                _createClass(MenuClose, [{
+                    key: "close",
+                    value: function close() {
+                        var menu = this.app.getComponent(this.menuClose || 'menu');
+                        menu && menu.close();
                     }
                 }]);
 
-                return List;
+                return MenuClose;
             })(Ion);
 
-            _export("List", List);
+            _export("MenuClose", MenuClose);
 
-            _export("List", List = __decorate([Directive({
-                selector: 'ion-list',
-                inputs: ['items', 'virtual', 'content']
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
-            /**
-             * TODO
-             */
-
-            ListHeader = function ListHeader() {
-                _classCallCheck(this, ListHeader);
-            };
-
-            _export("ListHeader", ListHeader);
-
-            _export("ListHeader", ListHeader = __decorate([Directive({
-                selector: 'ion-header',
-                inputs: ['id'],
+            _export("MenuClose", MenuClose = __decorate([Directive({
+                selector: '[menu-close]',
+                inputs: ['menuClose'],
                 host: {
-                    '[attr.id]': 'id'
+                    '(click)': 'close()'
                 }
-            }), __metadata('design:paramtypes', [])], ListHeader));
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object])], MenuClose));
         }
     };
 });
-System.register('ionic/components/list/virtual', [], function (_export) {
+System.register('ionic/components/menu/menu-gestures', ['ionic/gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
     'use strict';
 
-    var ListVirtualScroll, VirtualItemRef;
+    var SlideEdgeGesture, util, MenuContentGesture, TargetGesture, LeftMenuGesture, RightMenuGesture;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_ionicGesturesSlideEdgeGesture) {
+            SlideEdgeGesture = _ionicGesturesSlideEdgeGesture.SlideEdgeGesture;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            MenuContentGesture = (function (_SlideEdgeGesture) {
+                _inherits(MenuContentGesture, _SlideEdgeGesture);
+
+                function MenuContentGesture(menu, targetEl) {
+                    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+                    _classCallCheck(this, MenuContentGesture);
+
+                    _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, targetEl, util.extend({
+                        direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
+                        edge: menu.side,
+                        threshold: 75
+                    }, options));
+                    this.menu = menu;
+                    this.listen();
+                }
+
+                /**
+                 * Support dragging the target menu as well as the content.
+                 */
+
+                _createClass(MenuContentGesture, [{
+                    key: 'canStart',
+                    value: function canStart(ev) {
+                        return this.menu.isOpen && this.menu.isEnabled ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
+                    }
+
+                    // Set CSS, then wait one frame for it to apply before sliding starts
+                }, {
+                    key: 'onSlideBeforeStart',
+                    value: function onSlideBeforeStart(slide, ev) {
+                        this.menu.setProgressStart();
+                    }
+                }, {
+                    key: 'onSlide',
+                    value: function onSlide(slide, ev) {
+                        this.menu.setProgess(slide.distance / slide.max);
+                    }
+                }, {
+                    key: 'onSlideEnd',
+                    value: function onSlideEnd(slide, ev) {
+                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
+                        this.menu.setProgressEnd(shouldComplete);
+                    }
+                }, {
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.menu.isOpen ? slide.max : slide.min;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: 0,
+                            max: this.menu.width()
+                        };
+                    }
+                }]);
+
+                return MenuContentGesture;
+            })(SlideEdgeGesture);
+
+            TargetGesture = (function (_MenuContentGesture) {
+                _inherits(TargetGesture, _MenuContentGesture);
+
+                function TargetGesture(menu) {
+                    _classCallCheck(this, TargetGesture);
+
+                    _get(Object.getPrototypeOf(TargetGesture.prototype), 'constructor', this).call(this, menu, menu.getNativeElement(), {
+                        threshold: 0
+                    });
+                }
+
+                return TargetGesture;
+            })(MenuContentGesture);
+
+            _export('TargetGesture', TargetGesture);
+
+            LeftMenuGesture = (function (_MenuContentGesture2) {
+                _inherits(LeftMenuGesture, _MenuContentGesture2);
+
+                function LeftMenuGesture(menu) {
+                    _classCallCheck(this, LeftMenuGesture);
+
+                    _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
+                }
+
+                return LeftMenuGesture;
+            })(MenuContentGesture);
+
+            _export('LeftMenuGesture', LeftMenuGesture);
+
+            RightMenuGesture = (function (_MenuContentGesture3) {
+                _inherits(RightMenuGesture, _MenuContentGesture3);
+
+                function RightMenuGesture(menu) {
+                    _classCallCheck(this, RightMenuGesture);
+
+                    _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
+                }
+
+                _createClass(RightMenuGesture, [{
+                    key: 'onSlide',
+                    value: function onSlide(slide, ev) {
+                        this.menu.setProgess(slide.distance / slide.min);
+                    }
+                }, {
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.menu.isOpen ? slide.min : slide.max;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: -this.menu.width(),
+                            max: 0
+                        };
+                    }
+                }]);
+
+                return RightMenuGesture;
+            })(MenuContentGesture);
+
+            _export('RightMenuGesture', RightMenuGesture);
+        }
+    };
+});
+System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../ion", "../app/app", "../nav/view-controller", "../navbar/navbar"], function (_export) {
+    /**
+    * TODO
+    */
+    "use strict";
+
+    var Directive, ElementRef, Optional, Ion, IonicApp, ViewController, Navbar, __decorate, __metadata, __param, MenuToggle, _a, _b, _c, _d;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            Optional = _angular2Angular2.Optional;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_navViewController) {
+            ViewController = _navViewController.ViewController;
+        }, function (_navbarNavbar) {
+            Navbar = _navbarNavbar.Navbar;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            MenuToggle = (function (_Ion) {
+                _inherits(MenuToggle, _Ion);
+
+                function MenuToggle(app, elementRef, viewCtrl, navbar) {
+                    _classCallCheck(this, MenuToggle);
+
+                    _get(Object.getPrototypeOf(MenuToggle.prototype), "constructor", this).call(this, elementRef, null);
+                    this.app = app;
+                    this.viewCtrl = viewCtrl;
+                    this.withinNavbar = !!navbar;
+                }
+
+                /**
+                * TODO
+                * @param {TODO} event  TODO
+                */
+
+                _createClass(MenuToggle, [{
+                    key: "toggle",
+                    value: function toggle() {
+                        var menu = this.app.getComponent(this.menuToggle || 'menu');
+                        menu && menu.toggle();
+                    }
+                }, {
+                    key: "isHidden",
+                    get: function get() {
+                        if (this.withinNavbar && this.viewCtrl) {
+                            return !this.viewCtrl.isRoot();
+                        }
+                        return false;
+                    }
+                }]);
+
+                return MenuToggle;
+            })(Ion);
+
+            _export("MenuToggle", MenuToggle);
+
+            _export("MenuToggle", MenuToggle = __decorate([Directive({
+                selector: '[menu-toggle]',
+                inputs: ['menuToggle'],
+                host: {
+                    '(click)': 'toggle()',
+                    '[hidden]': 'isHidden',
+                    'menu-toggle': '' //ensures the attr is there for css when using [menu-toggle]
+                }
+            }), __param(2, Optional()), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof ViewController !== 'undefined' && ViewController) === 'function' && _c || Object, typeof (_d = typeof Navbar !== 'undefined' && Navbar) === 'function' && _d || Object])], MenuToggle));
+        }
+    };
+});
+System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations/animation'], function (_export) {
+    /**
+     * Menu Type
+     * Base class which is extended by the various types. Each
+     * type will provide their own animations for open and close
+     * and registers itself with Menu.
+     */
+    'use strict';
+
+    var Menu, Animation, MenuType, MenuRevealType, MenuPushType, MenuOverlayType, OPACITY, TRANSLATE_X;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [],
+        setters: [function (_menu) {
+            Menu = _menu.Menu;
+        }, function (_ionicAnimationsAnimation) {
+            Animation = _ionicAnimationsAnimation.Animation;
+        }],
         execute: function () {
-            ListVirtualScroll = (function () {
-                function ListVirtualScroll(list) {
-                    var _this = this;
+            MenuType = (function () {
+                function MenuType() {
+                    _classCallCheck(this, MenuType);
 
-                    _classCallCheck(this, ListVirtualScroll);
-
-                    this.list = list;
-                    this.content = this.list.content;
-                    this.viewportHeight = this.content.height();
-                    this.viewContainer = this.list.itemTemplate.viewContainer;
-                    this.itemHeight = 60;
-                    this.shownItems = {};
-                    this.enteringItems = [];
-                    this.leavingItems = [];
-                    // Compute the initial sizes
-                    setTimeout(function () {
-                        _this.resize();
-                        // Simulate the first event to start layout
-                        _this._handleVirtualScroll({
-                            target: _this.content.scrollElement
-                        });
-                    });
-                    this.content.addScrollEventListener(function (event) {
-                        _this._handleVirtualScroll(event);
-                    });
+                    this.open = new Animation();
+                    this.close = new Animation();
                 }
 
-                _createClass(ListVirtualScroll, [{
-                    key: 'resize',
-                    value: function resize() {
-                        this.viewportHeight = this.content.height();
-                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
-                        this.virtualHeight = this.list.items.length * this.itemHeight;
-                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+                /**
+                 * Menu Reveal Type
+                 * The content slides over to reveal the menu underneath.
+                 * The menu itself, which is under the content, does not move.
+                 */
+
+                _createClass(MenuType, [{
+                    key: 'setOpen',
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        return new Promise(function (resolve) {
+                            if (shouldOpen) {
+                                _this.open.playbackRate(1).onFinish(resolve, true).play();
+                            } else {
+                                _this.close.playbackRate(1).onFinish(resolve, true).play();
+                            }
+                        });
                     }
                 }, {
-                    key: '_handleVirtualScroll',
-                    value: function _handleVirtualScroll(event) {
-                        var item = undefined;
-                        var shownItemRef = undefined;
-                        var st = event.target.scrollTop;
-                        var sh = event.target.scrollHeight;
-                        var topIndex = Math.floor(st / this.itemHeight);
-                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
-                        var items = this.list.items;
-                        // Key iterate the shown items map
-                        // and compare the index to our index range,
-                        // pushing the items to remove to our leaving
-                        // list if they're ouside this range.
-                        for (var i in this.shownItems) {
-                            if (i < topIndex || i > bottomIndex) {
-                                this.leavingItems.push(this.shownItems[i]);
-                                delete this.shownItems[i];
-                            }
+                    key: 'setProgressStart',
+                    value: function setProgressStart(isOpen) {
+                        this.isOpening = !isOpen;
+                        this.seek && this.seek.dispose();
+                        // clone the correct animation depending on open/close
+                        if (this.isOpening) {
+                            this.seek = this.open.clone();
+                        } else {
+                            this.seek = this.close.clone();
                         }
-                        var realIndex = 0;
-                        // Iterate the set of items that will be rendered, using the
-                        // index from the actual items list as the map for the
-                        // virtual items we draw
-                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
-                            item = items[i];
-                            console.log('Drawing item', i, item.title);
-                            shownItemRef = this.shownItems[i];
-                            // Is this a new item?
-                            if (!shownItemRef) {
-                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
-                                itemView.setLocal('\$implicit', item);
-                                itemView.setLocal('\$item', item);
-                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
-                                this.shownItems[i] = shownItemRef;
-                                this.enteringItems.push(shownItemRef);
-                            }
-                        }
-                        while (this.leavingItems.length) {
-                            var itemRef = this.leavingItems.pop();
-                            console.log('Removing item', itemRef.item, itemRef.realIndex);
-                            this.viewContainer.remove(itemRef.realIndex);
-                        }
-                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+                        // the cloned animation should not use an easing curve during seek
+                        this.seek.easing('linear').progressStart();
                     }
                 }, {
-                    key: 'cellAtIndex',
-                    value: function cellAtIndex(index) {}
+                    key: 'setProgess',
+                    value: function setProgess(value) {
+                        // adjust progress value depending if it opening or closing
+                        if (!this.isOpening) {
+                            value = 1 - value;
+                        }
+                        this.seek.progress(value);
+                    }
+                }, {
+                    key: 'setProgressEnd',
+                    value: function setProgressEnd(shouldComplete) {
+                        var _this2 = this;
+
+                        var resolve = undefined;
+                        var promise = new Promise(function (res) {
+                            resolve = res;
+                        });
+                        var isOpen = this.isOpening && shouldComplete;
+                        if (!this.isOpening && !shouldComplete) {
+                            isOpen = true;
+                        }
+                        this.seek.progressEnd(shouldComplete).then(function () {
+                            _this2.isOpening = false;
+                            resolve(isOpen);
+                        });
+                        return promise;
+                    }
+                }, {
+                    key: 'onDestroy',
+                    value: function onDestroy() {
+                        this.open && this.open.dispose();
+                        this.close && this.close.dispose();
+                        this.seek && this.seek.dispose();
+                    }
                 }]);
 
-                return ListVirtualScroll;
+                return MenuType;
             })();
 
-            _export('ListVirtualScroll', ListVirtualScroll);
+            _export('MenuType', MenuType);
 
-            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
-                _classCallCheck(this, VirtualItemRef);
+            MenuRevealType = (function (_MenuType) {
+                _inherits(MenuRevealType, _MenuType);
 
-                this.item = item;
-                this.index = index;
-                this.realIndex = realIndex;
-                this.view = view;
+                function MenuRevealType(menu) {
+                    _classCallCheck(this, MenuRevealType);
+
+                    _get(Object.getPrototypeOf(MenuRevealType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var openedX = menu.width() * (menu.side == 'right' ? -1 : 1) + 'px';
+                    var closedX = '0px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var contentOpen = new Animation(menu.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
+                    this.open.add(contentOpen);
+                    var contentClose = new Animation(menu.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, openedX, closedX);
+                    this.close.add(contentClose);
+                }
+
+                return MenuRevealType;
+            })(MenuType);
+
+            Menu.register('reveal', MenuRevealType);
+            /**
+             * Menu Push Type
+             * The content slides over to reveal the menu underneath.
+             * The menu itself also slides over to reveal its bad self.
+             */
+
+            MenuPushType = (function (_MenuType2) {
+                _inherits(MenuPushType, _MenuType2);
+
+                function MenuPushType(menu) {
+                    _classCallCheck(this, MenuPushType);
+
+                    _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var contentClosedX = undefined,
+                        contentOpenedX = undefined,
+                        menuClosedX = undefined,
+                        menuOpenedX = undefined;
+                    if (menu.side == 'right') {
+                        contentOpenedX = -menu.width() + 'px';
+                        contentClosedX = '0px';
+                        menuOpenedX = menu.platform.width() - menu.width() + 'px';
+                        menuClosedX = menu.platform.width() + 'px';
+                    } else {
+                        contentOpenedX = menu.width() + 'px';
+                        contentClosedX = '0px';
+                        menuOpenedX = '0px';
+                        menuClosedX = -menu.width() + 'px';
+                    }
+                    // left side
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var menuOpen = new Animation(menu.getMenuElement());
+                    menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
+                    this.open.add(menuOpen);
+                    var contentOpen = new Animation(menu.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, contentClosedX, contentOpenedX);
+                    this.open.add(contentOpen);
+                    var menuClose = new Animation(menu.getMenuElement());
+                    menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
+                    this.close.add(menuClose);
+                    var contentClose = new Animation(menu.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, contentClosedX);
+                    this.close.add(contentClose);
+                }
+
+                return MenuPushType;
+            })(MenuType);
+
+            Menu.register('push', MenuPushType);
+            /**
+             * Menu Overlay Type
+             * The menu slides over the content. The content
+             * itself, which is under the menu, does not move.
+             */
+
+            MenuOverlayType = (function (_MenuType3) {
+                _inherits(MenuOverlayType, _MenuType3);
+
+                function MenuOverlayType(menu) {
+                    _classCallCheck(this, MenuOverlayType);
+
+                    _get(Object.getPrototypeOf(MenuOverlayType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var backdropOpacity = 0.35;
+                    var closedX = undefined,
+                        openedX = undefined;
+                    if (menu.side == 'right') {
+                        // right side
+                        closedX = menu.platform.width() + 'px';
+                        openedX = menu.platform.width() - menu.width() - 8 + 'px';
+                    } else {
+                        // left side
+                        closedX = -menu.width() + 'px';
+                        openedX = '8px';
+                    }
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var menuOpen = new Animation(menu.getMenuElement());
+                    menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
+                    this.open.add(menuOpen);
+                    var backdropOpen = new Animation(menu.getBackdropElement());
+                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
+                    this.open.add(backdropOpen);
+                    var menuClose = new Animation(menu.getMenuElement());
+                    menuClose.fromTo(TRANSLATE_X, openedX, closedX);
+                    this.close.add(menuClose);
+                    var backdropClose = new Animation(menu.getBackdropElement());
+                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
+                    this.close.add(backdropClose);
+                }
+
+                return MenuOverlayType;
+            })(MenuType);
+
+            Menu.register('overlay', MenuOverlayType);
+            OPACITY = 'opacity';
+            TRANSLATE_X = 'translateX';
+        }
+    };
+});
+System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/decorators", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
+    /**
+     * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
+     * of the Component docs._
+     *
+     * Menu is a side-menu navigation that can be dragged out or toggled to show.
+     *
+     * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+     * to the content element that Menu should listen on for drag events, using the
+     * `content` property:
+     * ```html
+     * <ion-menu [content]="contentRef">
+     *   <ion-content>
+     *     <ion-list>
+     *     ...
+     *     </ion-list>
+     *   </ion-content>
+     * </ion-menu>
+     *
+     * <ion-nav #content-ref [root]="rootPage"></ion-nav>
+     * ```
+     *
+     * By default, Menus are on the left, but this can be overriden with the `side`
+     * property:
+     * ```html
+     * <ion-menu [content]="contentRef" side="right"></ion-menu>
+     * ```
+     *
+     * Menu supports two display styles: overlay, and reveal. Overlay
+     * is the traditional Android drawer style, and Reveal is the traditional iOS
+     * style. By default, Menu will adjust to the correct style for the platform,
+     * but this can be overriden using the `type` property:
+     * ```html
+     * <ion-menu [content]="contentRef" type="overlay"></ion-menu>
+     * ```
+     */
+    "use strict";
+
+    var forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, ConfigComponent, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, FALLBACK_MENU_TYPE, MenuBackdrop, _a, _b, _c, _d, _e, _f;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            forwardRef = _angular2Angular2.forwardRef;
+            Directive = _angular2Angular2.Directive;
+            Host = _angular2Angular2.Host;
+            EventEmitter = _angular2Angular2.EventEmitter;
+            ElementRef = _angular2Angular2.ElementRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_configDecorators) {
+            ConfigComponent = _configDecorators.ConfigComponent;
+        }, function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
+        }, function (_utilKeyboard) {
+            Keyboard = _utilKeyboard.Keyboard;
+        }, function (_menuGestures) {
+            gestures = _menuGestures;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
             };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Menu = (function (_Ion) {
+                _inherits(Menu, _Ion);
+
+                function Menu(app, elementRef, config, platform, keyboard) {
+                    _classCallCheck(this, Menu);
+
+                    _get(Object.getPrototypeOf(Menu.prototype), "constructor", this).call(this, elementRef, config);
+                    this.app = app;
+                    this.platform = platform;
+                    this.keyboard = keyboard;
+                    this.opening = new EventEmitter('opening');
+                    this.isOpen = false;
+                    this._preventTime = 0;
+                    this.isEnabled = true;
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(Menu, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
+                        var content = this.content;
+                        this._cntEle = content instanceof Node ? content : content && content.getNativeElement && content.getNativeElement();
+                        if (!this._cntEle) {
+                            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
+                        }
+                        if (!this.id) {
+                            // Auto register
+                            this.id = 'menu';
+                            this.app.register(this.id, this);
+                        }
+                        this._initGesture();
+                        this._initType(this.type);
+                        this._cntEle.classList.add('menu-content');
+                        this._cntEle.classList.add('menu-content-' + this.type);
+                        var self = this;
+                        this.onContentClick = function (ev) {
+                            if (self.isEnabled) {
+                                ev.preventDefault();
+                                ev.stopPropagation();
+                                self.close();
+                            }
+                        };
+                    }
+                }, {
+                    key: "_initGesture",
+                    value: function _initGesture() {
+                        switch (this.side) {
+                            case 'right':
+                                this._gesture = new gestures.RightMenuGesture(this);
+                                break;
+                            case 'left':
+                                this._gesture = new gestures.LeftMenuGesture(this);
+                                break;
+                        }
+                        this._targetGesture = new gestures.TargetGesture(this);
+                    }
+                }, {
+                    key: "_initType",
+                    value: function _initType(type) {
+                        type = type && type.trim().toLowerCase() || FALLBACK_MENU_TYPE;
+                        var menuTypeCls = menuTypes[type];
+                        if (!menuTypeCls) {
+                            type = FALLBACK_MENU_TYPE;
+                            menuTypeCls = menuTypes[type];
+                        }
+                        this._type = new menuTypeCls(this);
+                        this.type = type;
+                        if (this.config.get('animate') === false) {
+                            this._type.open.duration(33);
+                            this._type.close.duration(33);
+                        }
+                    }
+
+                    /**
+                     * Sets the state of the Menu to open or not.
+                     * @param {boolean} isOpen  If the Menu is open or not.
+                     * @return {Promise} TODO
+                     */
+                }, {
+                    key: "setOpen",
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the menu-toggle button
+                        if (shouldOpen === this.isOpen || this._isPrevented()) {
+                            return Promise.resolve();
+                        }
+                        this._before();
+                        return this._type.setOpen(shouldOpen).then(function () {
+                            _this._after(shouldOpen);
+                        });
+                    }
+                }, {
+                    key: "setProgressStart",
+                    value: function setProgressStart() {
+                        // user started swiping the menu open/close
+                        if (this._isPrevented() || !this.isEnabled) return;
+                        this._before();
+                        this._type.setProgressStart(this.isOpen);
+                    }
+                }, {
+                    key: "setProgess",
+                    value: function setProgess(value) {
+                        // user actively dragging the menu
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this.app.setTransitioning(true);
+                            this._type.setProgess(value);
+                        }
+                    }
+                }, {
+                    key: "setProgressEnd",
+                    value: function setProgressEnd(shouldComplete) {
+                        var _this2 = this;
+
+                        // user has finished dragging the menu
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this.app.setTransitioning(true);
+                            this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
+                                _this2._after(isOpen);
+                            });
+                        }
+                    }
+                }, {
+                    key: "_before",
+                    value: function _before() {
+                        // this places the menu into the correct location before it animates in
+                        // this css class doesn't actually kick off any animations
+                        if (this.isEnabled) {
+                            this.getNativeElement().classList.add('show-menu');
+                            this.getBackdropElement().classList.add('show-backdrop');
+                            this._prevent();
+                            this.app.setTransitioning(true);
+                            this.keyboard.close();
+                        }
+                    }
+                }, {
+                    key: "_after",
+                    value: function _after(isOpen) {
+                        // keep opening/closing the menu disabled for a touch more yet
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this.app.setTransitioning(false);
+                            this.isOpen = isOpen;
+                            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
+                            this._cntEle.removeEventListener('click', this.onContentClick);
+                            if (isOpen) {
+                                this._cntEle.addEventListener('click', this.onContentClick);
+                            } else {
+                                this.getNativeElement().classList.remove('show-menu');
+                                this.getBackdropElement().classList.remove('show-backdrop');
+                            }
+                        }
+                    }
+                }, {
+                    key: "_prevent",
+                    value: function _prevent() {
+                        // used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the menu-toggle
+                        this._preventTime = Date.now() + 20;
+                    }
+                }, {
+                    key: "_isPrevented",
+                    value: function _isPrevented() {
+                        return this._preventTime > Date.now();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "open",
+                    value: function open() {
+                        return this.setOpen(true);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "close",
+                    value: function close() {
+                        return this.setOpen(false);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "toggle",
+                    value: function toggle() {
+                        return this.setOpen(!this.isOpen);
+                    }
+                }, {
+                    key: "enable",
+                    value: function enable(shouldEnable) {
+                        this.isEnabled = shouldEnable;
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Menu element.
+                     */
+                }, {
+                    key: "getMenuElement",
+                    value: function getMenuElement() {
+                        return this.getNativeElement();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Menu's associated content element.
+                     */
+                }, {
+                    key: "getContentElement",
+                    value: function getContentElement() {
+                        return this._cntEle;
+                    }
+
+                    /**
+                     * TODO
+                     * @return {Element} The Menu's backdrop element.
+                     */
+                }, {
+                    key: "getBackdropElement",
+                    value: function getBackdropElement() {
+                        return this.backdrop.elementRef.nativeElement;
+                    }
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.app.unregister(this.id);
+                        this._gesture && this._gesture.destroy();
+                        this._targetGesture && this._targetGesture.destroy();
+                        this._type && this._type.onDestroy();
+                        this._cntEle = null;
+                    }
+                }], [{
+                    key: "register",
+                    value: function register(name, cls) {
+                        menuTypes[name] = cls;
+                    }
+                }]);
+
+                return Menu;
+            })(Ion);
+
+            _export("Menu", Menu);
+
+            _export("Menu", Menu = __decorate([ConfigComponent({
+                selector: 'ion-menu',
+                inputs: ['content', 'dragThreshold', 'id'],
+                defaultInputs: {
+                    'side': 'left',
+                    'type': 'reveal'
+                },
+                outputs: ['opening'],
+                host: {
+                    'role': 'navigation'
+                },
+                template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
+                directives: [forwardRef(function () {
+                    return MenuBackdrop;
+                })]
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Platform !== 'undefined' && Platform) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object])], Menu));
+            menuTypes = {};
+            FALLBACK_MENU_TYPE = 'reveal';
+
+            /**
+             * TODO
+             */
+
+            MenuBackdrop = (function () {
+                /**
+                 * TODO
+                 * @param {Menu} menu  TODO
+                 */
+
+                function MenuBackdrop(menu, elementRef) {
+                    _classCallCheck(this, MenuBackdrop);
+
+                    this.menu = menu;
+                    this.elementRef = elementRef;
+                    menu.backdrop = this;
+                }
+
+                /**
+                 * TODO
+                 * @param {TODO} event  TODO
+                 */
+
+                _createClass(MenuBackdrop, [{
+                    key: "clicked",
+                    value: function clicked(ev) {
+                        console.debug('backdrop clicked');
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        this.menu.close();
+                    }
+                }]);
+
+                return MenuBackdrop;
+            })();
+
+            MenuBackdrop = __decorate([Directive({
+                selector: 'backdrop',
+                host: {
+                    '(click)': 'clicked($event)'
+                }
+            }), __param(0, Host()), __metadata('design:paramtypes', [Menu, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object])], MenuBackdrop);
         }
     };
 });
@@ -52679,1274 +53643,6 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
         }
     };
 });
-System.register("ionic/components/overlay/overlay-controller", ["angular2/angular2", "../app/app", "../../config/config", "../../animations/animation", "ionic/util"], function (_export) {
-    "use strict";
-
-    var NgZone, Injectable, Renderer, IonicApp, Config, Animation, util, __decorate, __metadata, OverlayController, ROOT_Z_INDEX, _a, _b, _c, _d;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            NgZone = _angular2Angular2.NgZone;
-            Injectable = _angular2Angular2.Injectable;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            OverlayController = (function () {
-                function OverlayController(app, config, zone, renderer) {
-                    _classCallCheck(this, OverlayController);
-
-                    this.app = app;
-                    this.config = config;
-                    this.zone = zone;
-                    this.renderer = renderer;
-                    this.refs = [];
-                }
-
-                _createClass(OverlayController, [{
-                    key: "open",
-                    value: function open(overlayType, componentType) {
-                        var _this = this;
-
-                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-                        if (!this.anchor) {
-                            console.error('<ion-overlay></ion-overlay> required in root component template to use: ' + overlayType);
-                            return Promise.reject();
-                        }
-                        var resolve = undefined,
-                            reject = undefined;
-                        var promise = new Promise(function (res, rej) {
-                            resolve = res;reject = rej;
-                        });
-                        try {
-                            this.anchor.append(componentType).then(function (ref) {
-                                var instance = ref && ref.instance;
-                                if (!instance) {
-                                    return reject();
-                                }
-                                instance._zIndex = ROOT_Z_INDEX;
-                                for (var i = 0; i < _this.refs.length; i++) {
-                                    if (_this.refs[i].instance._zIndex >= ref.instance._zIndex) {
-                                        ref.instance._zIndex = _this.refs[i].instance._zIndex + 1;
-                                    }
-                                }
-                                _this.renderer.setElementAttribute(ref.location, 'role', 'dialog');
-                                util.extend(instance, opts);
-                                ref._type = overlayType;
-                                ref._handle = opts.handle || overlayType + ref._z;
-                                _this.add(ref);
-                                instance.close = function () {
-                                    var closeOpts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                                    _this.close(ref, util.extend(opts, closeOpts));
-                                };
-                                instance.onPageLoaded && instance.onPageLoaded();
-                                instance.onPageWillEnter && instance.onPageWillEnter();
-                                var animation = Animation.create(ref.location.nativeElement, opts.enterAnimation);
-                                if (_this.config.get('animate') === false) {
-                                    animation.duration(0);
-                                }
-                                animation.before.addClass(overlayType);
-                                _this.app.setEnabled(false, animation.duration());
-                                _this.app.setTransitioning(true, animation.duration());
-                                _this.zone.runOutsideAngular(function () {
-                                    animation.play().then(function () {
-                                        animation.dispose();
-                                        _this.zone.run(function () {
-                                            _this.app.setEnabled(true);
-                                            _this.app.setTransitioning(false);
-                                            instance.onPageDidEnter && instance.onPageDidEnter();
-                                            resolve();
-                                        });
-                                    });
-                                });
-                            })["catch"](function (err) {
-                                console.error(err);
-                            });
-                        } catch (e) {
-                            console.error(e);
-                        }
-                        return promise;
-                    }
-                }, {
-                    key: "close",
-                    value: function close(ref, opts) {
-                        var _this2 = this;
-
-                        var resolve = undefined;
-                        var promise = new Promise(function (res) {
-                            resolve = res;
-                        });
-                        var instance = ref.instance;
-                        instance.onPageWillLeave && instance.onPageWillLeave();
-                        instance.onPageWillUnload && instance.onPageWillUnload();
-                        var animation = Animation.create(ref.location.nativeElement, opts.leaveAnimation);
-                        if (this.config.get('animate') === false) {
-                            animation.duration(0);
-                        }
-                        this.app.setEnabled(false, animation.duration());
-                        this.app.setTransitioning(true, animation.duration());
-                        this.zone.runOutsideAngular(function () {
-                            animation.play().then(function () {
-                                animation.dispose();
-                                _this2.zone.run(function () {
-                                    instance.onPageDidLeave && instance.onPageDidLeave();
-                                    instance.onPageDidUnload && instance.onPageDidUnload();
-                                    _this2.app.setEnabled(true);
-                                    _this2.app.setTransitioning(false);
-                                    _this2.remove(ref);
-                                    resolve();
-                                });
-                            });
-                        });
-                        return promise;
-                    }
-                }, {
-                    key: "add",
-                    value: function add(ref) {
-                        this.refs.push(ref);
-                    }
-                }, {
-                    key: "remove",
-                    value: function remove(ref) {
-                        util.array.remove(this.refs, ref);
-                        ref.dispose && ref.dispose();
-                    }
-                }, {
-                    key: "getByType",
-                    value: function getByType(overlayType) {
-                        for (var i = this.refs.length - 1; i >= 0; i--) {
-                            if (overlayType === this.refs[i]._type) {
-                                return this.refs[i].instance;
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: "getByHandle",
-                    value: function getByHandle(handle, overlayType) {
-                        for (var i = this.refs.length - 1; i >= 0; i--) {
-                            if (handle === this.refs[i]._handle && overlayType === this.refs[i]._type) {
-                                return this.refs[i].instance;
-                            }
-                        }
-                        return null;
-                    }
-                }]);
-
-                return OverlayController;
-            })();
-
-            _export("OverlayController", OverlayController);
-
-            _export("OverlayController", OverlayController = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgZone !== 'undefined' && NgZone) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], OverlayController));
-            ROOT_Z_INDEX = 1000;
-        }
-    };
-});
-System.register("ionic/components/overlay/overlay", ["angular2/angular2", "./overlay-controller"], function (_export) {
-    "use strict";
-
-    var Component, ElementRef, DynamicComponentLoader, OverlayController, __decorate, __metadata, OverlayAnchor, _a, _b, _c;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            ElementRef = _angular2Angular2.ElementRef;
-            DynamicComponentLoader = _angular2Angular2.DynamicComponentLoader;
-        }, function (_overlayController) {
-            OverlayController = _overlayController.OverlayController;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            OverlayAnchor = (function () {
-                function OverlayAnchor(overlayCtrl, elementRef, loader) {
-                    _classCallCheck(this, OverlayAnchor);
-
-                    if (overlayCtrl.anchor) {
-                        throw 'An app should only have one <ion-overlay></ion-overlay>';
-                    }
-                    this.elementRef = elementRef;
-                    this.loader = loader;
-                    overlayCtrl.anchor = this;
-                }
-
-                _createClass(OverlayAnchor, [{
-                    key: "append",
-                    value: function append(componentType) {
-                        return this.loader.loadIntoLocation(componentType, this.elementRef, 'contents')["catch"](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }]);
-
-                return OverlayAnchor;
-            })();
-
-            _export("OverlayAnchor", OverlayAnchor);
-
-            _export("OverlayAnchor", OverlayAnchor = __decorate([Component({
-                selector: 'ion-overlay',
-                template: '<template #contents></template>'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _c || Object])], OverlayAnchor));
-        }
-    };
-});
-System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
-    /**
-    * TODO
-    */
-    "use strict";
-
-    var Directive, ElementRef, Ion, IonicApp, __decorate, __metadata, MenuClose, _a, _b;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            MenuClose = (function (_Ion) {
-                _inherits(MenuClose, _Ion);
-
-                function MenuClose(app, elementRef) {
-                    _classCallCheck(this, MenuClose);
-
-                    _get(Object.getPrototypeOf(MenuClose.prototype), "constructor", this).call(this, elementRef, null);
-                    this.app = app;
-                }
-
-                _createClass(MenuClose, [{
-                    key: "close",
-                    value: function close() {
-                        var menu = this.app.getComponent(this.menuClose || 'menu');
-                        menu && menu.close();
-                    }
-                }]);
-
-                return MenuClose;
-            })(Ion);
-
-            _export("MenuClose", MenuClose);
-
-            _export("MenuClose", MenuClose = __decorate([Directive({
-                selector: '[menu-close]',
-                inputs: ['menuClose'],
-                host: {
-                    '(click)': 'close()'
-                }
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object])], MenuClose));
-        }
-    };
-});
-System.register('ionic/components/menu/menu-gestures', ['ionic/gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
-    'use strict';
-
-    var SlideEdgeGesture, util, MenuContentGesture, TargetGesture, LeftMenuGesture, RightMenuGesture;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_ionicGesturesSlideEdgeGesture) {
-            SlideEdgeGesture = _ionicGesturesSlideEdgeGesture.SlideEdgeGesture;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            MenuContentGesture = (function (_SlideEdgeGesture) {
-                _inherits(MenuContentGesture, _SlideEdgeGesture);
-
-                function MenuContentGesture(menu, targetEl) {
-                    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-                    _classCallCheck(this, MenuContentGesture);
-
-                    _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, targetEl, util.extend({
-                        direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
-                        edge: menu.side,
-                        threshold: 75
-                    }, options));
-                    this.menu = menu;
-                    this.listen();
-                }
-
-                /**
-                 * Support dragging the target menu as well as the content.
-                 */
-
-                _createClass(MenuContentGesture, [{
-                    key: 'canStart',
-                    value: function canStart(ev) {
-                        return this.menu.isOpen && this.menu.isEnabled ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
-                    }
-
-                    // Set CSS, then wait one frame for it to apply before sliding starts
-                }, {
-                    key: 'onSlideBeforeStart',
-                    value: function onSlideBeforeStart(slide, ev) {
-                        this.menu.setProgressStart();
-                    }
-                }, {
-                    key: 'onSlide',
-                    value: function onSlide(slide, ev) {
-                        this.menu.setProgess(slide.distance / slide.max);
-                    }
-                }, {
-                    key: 'onSlideEnd',
-                    value: function onSlideEnd(slide, ev) {
-                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
-                        this.menu.setProgressEnd(shouldComplete);
-                    }
-                }, {
-                    key: 'getElementStartPos',
-                    value: function getElementStartPos(slide, ev) {
-                        return this.menu.isOpen ? slide.max : slide.min;
-                    }
-                }, {
-                    key: 'getSlideBoundaries',
-                    value: function getSlideBoundaries() {
-                        return {
-                            min: 0,
-                            max: this.menu.width()
-                        };
-                    }
-                }]);
-
-                return MenuContentGesture;
-            })(SlideEdgeGesture);
-
-            TargetGesture = (function (_MenuContentGesture) {
-                _inherits(TargetGesture, _MenuContentGesture);
-
-                function TargetGesture(menu) {
-                    _classCallCheck(this, TargetGesture);
-
-                    _get(Object.getPrototypeOf(TargetGesture.prototype), 'constructor', this).call(this, menu, menu.getNativeElement(), {
-                        threshold: 0
-                    });
-                }
-
-                return TargetGesture;
-            })(MenuContentGesture);
-
-            _export('TargetGesture', TargetGesture);
-
-            LeftMenuGesture = (function (_MenuContentGesture2) {
-                _inherits(LeftMenuGesture, _MenuContentGesture2);
-
-                function LeftMenuGesture(menu) {
-                    _classCallCheck(this, LeftMenuGesture);
-
-                    _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
-                }
-
-                return LeftMenuGesture;
-            })(MenuContentGesture);
-
-            _export('LeftMenuGesture', LeftMenuGesture);
-
-            RightMenuGesture = (function (_MenuContentGesture3) {
-                _inherits(RightMenuGesture, _MenuContentGesture3);
-
-                function RightMenuGesture(menu) {
-                    _classCallCheck(this, RightMenuGesture);
-
-                    _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
-                }
-
-                _createClass(RightMenuGesture, [{
-                    key: 'onSlide',
-                    value: function onSlide(slide, ev) {
-                        this.menu.setProgess(slide.distance / slide.min);
-                    }
-                }, {
-                    key: 'getElementStartPos',
-                    value: function getElementStartPos(slide, ev) {
-                        return this.menu.isOpen ? slide.min : slide.max;
-                    }
-                }, {
-                    key: 'getSlideBoundaries',
-                    value: function getSlideBoundaries() {
-                        return {
-                            min: -this.menu.width(),
-                            max: 0
-                        };
-                    }
-                }]);
-
-                return RightMenuGesture;
-            })(MenuContentGesture);
-
-            _export('RightMenuGesture', RightMenuGesture);
-        }
-    };
-});
-System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../ion", "../app/app", "../nav/view-controller", "../navbar/navbar"], function (_export) {
-    /**
-    * TODO
-    */
-    "use strict";
-
-    var Directive, ElementRef, Optional, Ion, IonicApp, ViewController, Navbar, __decorate, __metadata, __param, MenuToggle, _a, _b, _c, _d;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-            Optional = _angular2Angular2.Optional;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_navViewController) {
-            ViewController = _navViewController.ViewController;
-        }, function (_navbarNavbar) {
-            Navbar = _navbarNavbar.Navbar;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            MenuToggle = (function (_Ion) {
-                _inherits(MenuToggle, _Ion);
-
-                function MenuToggle(app, elementRef, viewCtrl, navbar) {
-                    _classCallCheck(this, MenuToggle);
-
-                    _get(Object.getPrototypeOf(MenuToggle.prototype), "constructor", this).call(this, elementRef, null);
-                    this.app = app;
-                    this.viewCtrl = viewCtrl;
-                    this.withinNavbar = !!navbar;
-                }
-
-                /**
-                * TODO
-                * @param {TODO} event  TODO
-                */
-
-                _createClass(MenuToggle, [{
-                    key: "toggle",
-                    value: function toggle() {
-                        var menu = this.app.getComponent(this.menuToggle || 'menu');
-                        menu && menu.toggle();
-                    }
-                }, {
-                    key: "isHidden",
-                    get: function get() {
-                        if (this.withinNavbar && this.viewCtrl) {
-                            return !this.viewCtrl.isRoot();
-                        }
-                        return false;
-                    }
-                }]);
-
-                return MenuToggle;
-            })(Ion);
-
-            _export("MenuToggle", MenuToggle);
-
-            _export("MenuToggle", MenuToggle = __decorate([Directive({
-                selector: '[menu-toggle]',
-                inputs: ['menuToggle'],
-                host: {
-                    '(click)': 'toggle()',
-                    '[hidden]': 'isHidden',
-                    'menu-toggle': '' //ensures the attr is there for css when using [menu-toggle]
-                }
-            }), __param(2, Optional()), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof ViewController !== 'undefined' && ViewController) === 'function' && _c || Object, typeof (_d = typeof Navbar !== 'undefined' && Navbar) === 'function' && _d || Object])], MenuToggle));
-        }
-    };
-});
-System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations/animation'], function (_export) {
-    /**
-     * Menu Type
-     * Base class which is extended by the various types. Each
-     * type will provide their own animations for open and close
-     * and registers itself with Menu.
-     */
-    'use strict';
-
-    var Menu, Animation, MenuType, MenuRevealType, MenuPushType, MenuOverlayType, OPACITY, TRANSLATE_X;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_menu) {
-            Menu = _menu.Menu;
-        }, function (_ionicAnimationsAnimation) {
-            Animation = _ionicAnimationsAnimation.Animation;
-        }],
-        execute: function () {
-            MenuType = (function () {
-                function MenuType() {
-                    _classCallCheck(this, MenuType);
-
-                    this.open = new Animation();
-                    this.close = new Animation();
-                }
-
-                /**
-                 * Menu Reveal Type
-                 * The content slides over to reveal the menu underneath.
-                 * The menu itself, which is under the content, does not move.
-                 */
-
-                _createClass(MenuType, [{
-                    key: 'setOpen',
-                    value: function setOpen(shouldOpen) {
-                        var _this = this;
-
-                        return new Promise(function (resolve) {
-                            if (shouldOpen) {
-                                _this.open.playbackRate(1).onFinish(resolve, true).play();
-                            } else {
-                                _this.close.playbackRate(1).onFinish(resolve, true).play();
-                            }
-                        });
-                    }
-                }, {
-                    key: 'setProgressStart',
-                    value: function setProgressStart(isOpen) {
-                        this.isOpening = !isOpen;
-                        this.seek && this.seek.dispose();
-                        // clone the correct animation depending on open/close
-                        if (this.isOpening) {
-                            this.seek = this.open.clone();
-                        } else {
-                            this.seek = this.close.clone();
-                        }
-                        // the cloned animation should not use an easing curve during seek
-                        this.seek.easing('linear').progressStart();
-                    }
-                }, {
-                    key: 'setProgess',
-                    value: function setProgess(value) {
-                        // adjust progress value depending if it opening or closing
-                        if (!this.isOpening) {
-                            value = 1 - value;
-                        }
-                        this.seek.progress(value);
-                    }
-                }, {
-                    key: 'setProgressEnd',
-                    value: function setProgressEnd(shouldComplete) {
-                        var _this2 = this;
-
-                        var resolve = undefined;
-                        var promise = new Promise(function (res) {
-                            resolve = res;
-                        });
-                        var isOpen = this.isOpening && shouldComplete;
-                        if (!this.isOpening && !shouldComplete) {
-                            isOpen = true;
-                        }
-                        this.seek.progressEnd(shouldComplete).then(function () {
-                            _this2.isOpening = false;
-                            resolve(isOpen);
-                        });
-                        return promise;
-                    }
-                }, {
-                    key: 'onDestroy',
-                    value: function onDestroy() {
-                        this.open && this.open.dispose();
-                        this.close && this.close.dispose();
-                        this.seek && this.seek.dispose();
-                    }
-                }]);
-
-                return MenuType;
-            })();
-
-            _export('MenuType', MenuType);
-
-            MenuRevealType = (function (_MenuType) {
-                _inherits(MenuRevealType, _MenuType);
-
-                function MenuRevealType(menu) {
-                    _classCallCheck(this, MenuRevealType);
-
-                    _get(Object.getPrototypeOf(MenuRevealType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var openedX = menu.width() * (menu.side == 'right' ? -1 : 1) + 'px';
-                    var closedX = '0px';
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var contentOpen = new Animation(menu.getContentElement());
-                    contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
-                    this.open.add(contentOpen);
-                    var contentClose = new Animation(menu.getContentElement());
-                    contentClose.fromTo(TRANSLATE_X, openedX, closedX);
-                    this.close.add(contentClose);
-                }
-
-                return MenuRevealType;
-            })(MenuType);
-
-            Menu.register('reveal', MenuRevealType);
-            /**
-             * Menu Push Type
-             * The content slides over to reveal the menu underneath.
-             * The menu itself also slides over to reveal its bad self.
-             */
-
-            MenuPushType = (function (_MenuType2) {
-                _inherits(MenuPushType, _MenuType2);
-
-                function MenuPushType(menu) {
-                    _classCallCheck(this, MenuPushType);
-
-                    _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var contentClosedX = undefined,
-                        contentOpenedX = undefined,
-                        menuClosedX = undefined,
-                        menuOpenedX = undefined;
-                    if (menu.side == 'right') {
-                        contentOpenedX = -menu.width() + 'px';
-                        contentClosedX = '0px';
-                        menuOpenedX = menu.platform.width() - menu.width() + 'px';
-                        menuClosedX = menu.platform.width() + 'px';
-                    } else {
-                        contentOpenedX = menu.width() + 'px';
-                        contentClosedX = '0px';
-                        menuOpenedX = '0px';
-                        menuClosedX = -menu.width() + 'px';
-                    }
-                    // left side
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var menuOpen = new Animation(menu.getMenuElement());
-                    menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
-                    this.open.add(menuOpen);
-                    var contentOpen = new Animation(menu.getContentElement());
-                    contentOpen.fromTo(TRANSLATE_X, contentClosedX, contentOpenedX);
-                    this.open.add(contentOpen);
-                    var menuClose = new Animation(menu.getMenuElement());
-                    menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
-                    this.close.add(menuClose);
-                    var contentClose = new Animation(menu.getContentElement());
-                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, contentClosedX);
-                    this.close.add(contentClose);
-                }
-
-                return MenuPushType;
-            })(MenuType);
-
-            Menu.register('push', MenuPushType);
-            /**
-             * Menu Overlay Type
-             * The menu slides over the content. The content
-             * itself, which is under the menu, does not move.
-             */
-
-            MenuOverlayType = (function (_MenuType3) {
-                _inherits(MenuOverlayType, _MenuType3);
-
-                function MenuOverlayType(menu) {
-                    _classCallCheck(this, MenuOverlayType);
-
-                    _get(Object.getPrototypeOf(MenuOverlayType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var backdropOpacity = 0.35;
-                    var closedX = undefined,
-                        openedX = undefined;
-                    if (menu.side == 'right') {
-                        // right side
-                        closedX = menu.platform.width() + 'px';
-                        openedX = menu.platform.width() - menu.width() - 8 + 'px';
-                    } else {
-                        // left side
-                        closedX = -menu.width() + 'px';
-                        openedX = '8px';
-                    }
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var menuOpen = new Animation(menu.getMenuElement());
-                    menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
-                    this.open.add(menuOpen);
-                    var backdropOpen = new Animation(menu.getBackdropElement());
-                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
-                    this.open.add(backdropOpen);
-                    var menuClose = new Animation(menu.getMenuElement());
-                    menuClose.fromTo(TRANSLATE_X, openedX, closedX);
-                    this.close.add(menuClose);
-                    var backdropClose = new Animation(menu.getBackdropElement());
-                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
-                    this.close.add(backdropClose);
-                }
-
-                return MenuOverlayType;
-            })(MenuType);
-
-            Menu.register('overlay', MenuOverlayType);
-            OPACITY = 'opacity';
-            TRANSLATE_X = 'translateX';
-        }
-    };
-});
-System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/decorators", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
-    /**
-     * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
-     * of the Component docs._
-     *
-     * Menu is a side-menu navigation that can be dragged out or toggled to show.
-     *
-     * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-     * to the content element that Menu should listen on for drag events, using the
-     * `content` property:
-     * ```html
-     * <ion-menu [content]="contentRef">
-     *   <ion-content>
-     *     <ion-list>
-     *     ...
-     *     </ion-list>
-     *   </ion-content>
-     * </ion-menu>
-     *
-     * <ion-nav #content-ref [root]="rootPage"></ion-nav>
-     * ```
-     *
-     * By default, Menus are on the left, but this can be overriden with the `side`
-     * property:
-     * ```html
-     * <ion-menu [content]="contentRef" side="right"></ion-menu>
-     * ```
-     *
-     * Menu supports two display styles: overlay, and reveal. Overlay
-     * is the traditional Android drawer style, and Reveal is the traditional iOS
-     * style. By default, Menu will adjust to the correct style for the platform,
-     * but this can be overriden using the `type` property:
-     * ```html
-     * <ion-menu [content]="contentRef" type="overlay"></ion-menu>
-     * ```
-     */
-    "use strict";
-
-    var forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, ConfigComponent, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, FALLBACK_MENU_TYPE, MenuBackdrop, _a, _b, _c, _d, _e, _f;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            forwardRef = _angular2Angular2.forwardRef;
-            Directive = _angular2Angular2.Directive;
-            Host = _angular2Angular2.Host;
-            EventEmitter = _angular2Angular2.EventEmitter;
-            ElementRef = _angular2Angular2.ElementRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_configDecorators) {
-            ConfigComponent = _configDecorators.ConfigComponent;
-        }, function (_platformPlatform) {
-            Platform = _platformPlatform.Platform;
-        }, function (_utilKeyboard) {
-            Keyboard = _utilKeyboard.Keyboard;
-        }, function (_menuGestures) {
-            gestures = _menuGestures;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Menu = (function (_Ion) {
-                _inherits(Menu, _Ion);
-
-                function Menu(app, elementRef, config, platform, keyboard) {
-                    _classCallCheck(this, Menu);
-
-                    _get(Object.getPrototypeOf(Menu.prototype), "constructor", this).call(this, elementRef, config);
-                    this.app = app;
-                    this.platform = platform;
-                    this.keyboard = keyboard;
-                    this.opening = new EventEmitter('opening');
-                    this.isOpen = false;
-                    this._preventTime = 0;
-                    this.isEnabled = true;
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(Menu, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
-                        var content = this.content;
-                        this._cntEle = content instanceof Node ? content : content && content.getNativeElement && content.getNativeElement();
-                        if (!this._cntEle) {
-                            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
-                        }
-                        if (!this.id) {
-                            // Auto register
-                            this.id = 'menu';
-                            this.app.register(this.id, this);
-                        }
-                        this._initGesture();
-                        this._initType(this.type);
-                        this._cntEle.classList.add('menu-content');
-                        this._cntEle.classList.add('menu-content-' + this.type);
-                        var self = this;
-                        this.onContentClick = function (ev) {
-                            if (self.isEnabled) {
-                                ev.preventDefault();
-                                ev.stopPropagation();
-                                self.close();
-                            }
-                        };
-                    }
-                }, {
-                    key: "_initGesture",
-                    value: function _initGesture() {
-                        switch (this.side) {
-                            case 'right':
-                                this._gesture = new gestures.RightMenuGesture(this);
-                                break;
-                            case 'left':
-                                this._gesture = new gestures.LeftMenuGesture(this);
-                                break;
-                        }
-                        this._targetGesture = new gestures.TargetGesture(this);
-                    }
-                }, {
-                    key: "_initType",
-                    value: function _initType(type) {
-                        type = type && type.trim().toLowerCase() || FALLBACK_MENU_TYPE;
-                        var menuTypeCls = menuTypes[type];
-                        if (!menuTypeCls) {
-                            type = FALLBACK_MENU_TYPE;
-                            menuTypeCls = menuTypes[type];
-                        }
-                        this._type = new menuTypeCls(this);
-                        this.type = type;
-                        if (this.config.get('animate') === false) {
-                            this._type.open.duration(33);
-                            this._type.close.duration(33);
-                        }
-                    }
-
-                    /**
-                     * Sets the state of the Menu to open or not.
-                     * @param {boolean} isOpen  If the Menu is open or not.
-                     * @return {Promise} TODO
-                     */
-                }, {
-                    key: "setOpen",
-                    value: function setOpen(shouldOpen) {
-                        var _this = this;
-
-                        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
-                        // or swiping open the menu while pressing down on the menu-toggle button
-                        if (shouldOpen === this.isOpen || this._isPrevented()) {
-                            return Promise.resolve();
-                        }
-                        this._before();
-                        return this._type.setOpen(shouldOpen).then(function () {
-                            _this._after(shouldOpen);
-                        });
-                    }
-                }, {
-                    key: "setProgressStart",
-                    value: function setProgressStart() {
-                        // user started swiping the menu open/close
-                        if (this._isPrevented() || !this.isEnabled) return;
-                        this._before();
-                        this._type.setProgressStart(this.isOpen);
-                    }
-                }, {
-                    key: "setProgess",
-                    value: function setProgess(value) {
-                        // user actively dragging the menu
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this.app.setTransitioning(true);
-                            this._type.setProgess(value);
-                        }
-                    }
-                }, {
-                    key: "setProgressEnd",
-                    value: function setProgressEnd(shouldComplete) {
-                        var _this2 = this;
-
-                        // user has finished dragging the menu
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this.app.setTransitioning(true);
-                            this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
-                                _this2._after(isOpen);
-                            });
-                        }
-                    }
-                }, {
-                    key: "_before",
-                    value: function _before() {
-                        // this places the menu into the correct location before it animates in
-                        // this css class doesn't actually kick off any animations
-                        if (this.isEnabled) {
-                            this.getNativeElement().classList.add('show-menu');
-                            this.getBackdropElement().classList.add('show-backdrop');
-                            this._prevent();
-                            this.app.setTransitioning(true);
-                            this.keyboard.close();
-                        }
-                    }
-                }, {
-                    key: "_after",
-                    value: function _after(isOpen) {
-                        // keep opening/closing the menu disabled for a touch more yet
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this.app.setTransitioning(false);
-                            this.isOpen = isOpen;
-                            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-                            this._cntEle.removeEventListener('click', this.onContentClick);
-                            if (isOpen) {
-                                this._cntEle.addEventListener('click', this.onContentClick);
-                            } else {
-                                this.getNativeElement().classList.remove('show-menu');
-                                this.getBackdropElement().classList.remove('show-backdrop');
-                            }
-                        }
-                    }
-                }, {
-                    key: "_prevent",
-                    value: function _prevent() {
-                        // used to prevent unwanted opening/closing after swiping open/close
-                        // or swiping open the menu while pressing down on the menu-toggle
-                        this._preventTime = Date.now() + 20;
-                    }
-                }, {
-                    key: "_isPrevented",
-                    value: function _isPrevented() {
-                        return this._preventTime > Date.now();
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "open",
-                    value: function open() {
-                        return this.setOpen(true);
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "close",
-                    value: function close() {
-                        return this.setOpen(false);
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "toggle",
-                    value: function toggle() {
-                        return this.setOpen(!this.isOpen);
-                    }
-                }, {
-                    key: "enable",
-                    value: function enable(shouldEnable) {
-                        this.isEnabled = shouldEnable;
-                    }
-
-                    /**
-                     * TODO
-                     * @return {Element} The Menu element.
-                     */
-                }, {
-                    key: "getMenuElement",
-                    value: function getMenuElement() {
-                        return this.getNativeElement();
-                    }
-
-                    /**
-                     * TODO
-                     * @return {Element} The Menu's associated content element.
-                     */
-                }, {
-                    key: "getContentElement",
-                    value: function getContentElement() {
-                        return this._cntEle;
-                    }
-
-                    /**
-                     * TODO
-                     * @return {Element} The Menu's backdrop element.
-                     */
-                }, {
-                    key: "getBackdropElement",
-                    value: function getBackdropElement() {
-                        return this.backdrop.elementRef.nativeElement;
-                    }
-                }, {
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        this.app.unregister(this.id);
-                        this._gesture && this._gesture.destroy();
-                        this._targetGesture && this._targetGesture.destroy();
-                        this._type && this._type.onDestroy();
-                        this._cntEle = null;
-                    }
-                }], [{
-                    key: "register",
-                    value: function register(name, cls) {
-                        menuTypes[name] = cls;
-                    }
-                }]);
-
-                return Menu;
-            })(Ion);
-
-            _export("Menu", Menu);
-
-            _export("Menu", Menu = __decorate([ConfigComponent({
-                selector: 'ion-menu',
-                inputs: ['content', 'dragThreshold', 'id'],
-                defaultInputs: {
-                    'side': 'left',
-                    'type': 'reveal'
-                },
-                outputs: ['opening'],
-                host: {
-                    'role': 'navigation'
-                },
-                template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
-                directives: [forwardRef(function () {
-                    return MenuBackdrop;
-                })]
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Platform !== 'undefined' && Platform) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object])], Menu));
-            menuTypes = {};
-            FALLBACK_MENU_TYPE = 'reveal';
-
-            /**
-             * TODO
-             */
-
-            MenuBackdrop = (function () {
-                /**
-                 * TODO
-                 * @param {Menu} menu  TODO
-                 */
-
-                function MenuBackdrop(menu, elementRef) {
-                    _classCallCheck(this, MenuBackdrop);
-
-                    this.menu = menu;
-                    this.elementRef = elementRef;
-                    menu.backdrop = this;
-                }
-
-                /**
-                 * TODO
-                 * @param {TODO} event  TODO
-                 */
-
-                _createClass(MenuBackdrop, [{
-                    key: "clicked",
-                    value: function clicked(ev) {
-                        console.debug('backdrop clicked');
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        this.menu.close();
-                    }
-                }]);
-
-                return MenuBackdrop;
-            })();
-
-            MenuBackdrop = __decorate([Directive({
-                selector: 'backdrop',
-                host: {
-                    '(click)': 'clicked($event)'
-                }
-            }), __param(0, Host()), __metadata('design:paramtypes', [Menu, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object])], MenuBackdrop);
-        }
-    };
-});
 System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion", "../icon/icon", "../toolbar/toolbar", "../../config/config", "../app/app", "../nav/view-controller", "../nav/nav-controller"], function (_export) {
     "use strict";
 
@@ -54154,6 +53850,281 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
             _export("NavbarTemplate", NavbarTemplate = __decorate([Directive({
                 selector: 'template[navbar]'
             }), __param(2, Optional()), __metadata('design:paramtypes', [typeof (_j = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _j || Object, typeof (_k = typeof TemplateRef !== 'undefined' && TemplateRef) === 'function' && _k || Object, typeof (_l = typeof ViewController !== 'undefined' && ViewController) === 'function' && _l || Object])], NavbarTemplate));
+        }
+    };
+});
+System.register("ionic/components/overlay/overlay-controller", ["angular2/angular2", "../app/app", "../../config/config", "../../animations/animation", "ionic/util"], function (_export) {
+    "use strict";
+
+    var NgZone, Injectable, Renderer, IonicApp, Config, Animation, util, __decorate, __metadata, OverlayController, ROOT_Z_INDEX, _a, _b, _c, _d;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            NgZone = _angular2Angular2.NgZone;
+            Injectable = _angular2Angular2.Injectable;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            OverlayController = (function () {
+                function OverlayController(app, config, zone, renderer) {
+                    _classCallCheck(this, OverlayController);
+
+                    this.app = app;
+                    this.config = config;
+                    this.zone = zone;
+                    this.renderer = renderer;
+                    this.refs = [];
+                }
+
+                _createClass(OverlayController, [{
+                    key: "open",
+                    value: function open(overlayType, componentType) {
+                        var _this = this;
+
+                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+                        if (!this.anchor) {
+                            console.error('<ion-overlay></ion-overlay> required in root component template to use: ' + overlayType);
+                            return Promise.reject();
+                        }
+                        var resolve = undefined,
+                            reject = undefined;
+                        var promise = new Promise(function (res, rej) {
+                            resolve = res;reject = rej;
+                        });
+                        try {
+                            this.anchor.append(componentType).then(function (ref) {
+                                var instance = ref && ref.instance;
+                                if (!instance) {
+                                    return reject();
+                                }
+                                instance._zIndex = ROOT_Z_INDEX;
+                                for (var i = 0; i < _this.refs.length; i++) {
+                                    if (_this.refs[i].instance._zIndex >= ref.instance._zIndex) {
+                                        ref.instance._zIndex = _this.refs[i].instance._zIndex + 1;
+                                    }
+                                }
+                                _this.renderer.setElementAttribute(ref.location, 'role', 'dialog');
+                                util.extend(instance, opts);
+                                ref._type = overlayType;
+                                ref._handle = opts.handle || overlayType + ref._z;
+                                _this.add(ref);
+                                instance.close = function () {
+                                    var closeOpts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                                    _this.close(ref, util.extend(opts, closeOpts));
+                                };
+                                instance.onPageLoaded && instance.onPageLoaded();
+                                instance.onPageWillEnter && instance.onPageWillEnter();
+                                var animation = Animation.create(ref.location.nativeElement, opts.enterAnimation);
+                                if (_this.config.get('animate') === false) {
+                                    animation.duration(0);
+                                }
+                                animation.before.addClass(overlayType);
+                                if (overlayType == 'modal') {
+                                    animation.before.addClass('show-page');
+                                }
+                                _this.app.setEnabled(false, animation.duration());
+                                _this.app.setTransitioning(true, animation.duration());
+                                _this.zone.runOutsideAngular(function () {
+                                    animation.play().then(function () {
+                                        animation.dispose();
+                                        _this.zone.run(function () {
+                                            _this.app.setEnabled(true);
+                                            _this.app.setTransitioning(false);
+                                            instance.onPageDidEnter && instance.onPageDidEnter();
+                                            resolve();
+                                        });
+                                    });
+                                });
+                            })["catch"](function (err) {
+                                console.error(err);
+                            });
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        return promise;
+                    }
+                }, {
+                    key: "close",
+                    value: function close(ref, opts) {
+                        var _this2 = this;
+
+                        var resolve = undefined;
+                        var promise = new Promise(function (res) {
+                            resolve = res;
+                        });
+                        var instance = ref.instance;
+                        instance.onPageWillLeave && instance.onPageWillLeave();
+                        instance.onPageWillUnload && instance.onPageWillUnload();
+                        var animation = Animation.create(ref.location.nativeElement, opts.leaveAnimation);
+                        if (this.config.get('animate') === false) {
+                            animation.duration(0);
+                        }
+                        this.app.setEnabled(false, animation.duration());
+                        this.app.setTransitioning(true, animation.duration());
+                        this.zone.runOutsideAngular(function () {
+                            animation.play().then(function () {
+                                animation.dispose();
+                                _this2.zone.run(function () {
+                                    instance.onPageDidLeave && instance.onPageDidLeave();
+                                    instance.onPageDidUnload && instance.onPageDidUnload();
+                                    _this2.app.setEnabled(true);
+                                    _this2.app.setTransitioning(false);
+                                    _this2.remove(ref);
+                                    resolve();
+                                });
+                            });
+                        });
+                        return promise;
+                    }
+                }, {
+                    key: "add",
+                    value: function add(ref) {
+                        this.refs.push(ref);
+                    }
+                }, {
+                    key: "remove",
+                    value: function remove(ref) {
+                        util.array.remove(this.refs, ref);
+                        ref.dispose && ref.dispose();
+                    }
+                }, {
+                    key: "getByType",
+                    value: function getByType(overlayType) {
+                        for (var i = this.refs.length - 1; i >= 0; i--) {
+                            if (overlayType === this.refs[i]._type) {
+                                return this.refs[i].instance;
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: "getByHandle",
+                    value: function getByHandle(handle, overlayType) {
+                        for (var i = this.refs.length - 1; i >= 0; i--) {
+                            if (handle === this.refs[i]._handle && overlayType === this.refs[i]._type) {
+                                return this.refs[i].instance;
+                            }
+                        }
+                        return null;
+                    }
+                }]);
+
+                return OverlayController;
+            })();
+
+            _export("OverlayController", OverlayController);
+
+            _export("OverlayController", OverlayController = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgZone !== 'undefined' && NgZone) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], OverlayController));
+            ROOT_Z_INDEX = 1000;
+        }
+    };
+});
+System.register("ionic/components/overlay/overlay", ["angular2/angular2", "./overlay-controller"], function (_export) {
+    "use strict";
+
+    var Component, ElementRef, DynamicComponentLoader, OverlayController, __decorate, __metadata, OverlayAnchor, _a, _b, _c;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            ElementRef = _angular2Angular2.ElementRef;
+            DynamicComponentLoader = _angular2Angular2.DynamicComponentLoader;
+        }, function (_overlayController) {
+            OverlayController = _overlayController.OverlayController;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            OverlayAnchor = (function () {
+                function OverlayAnchor(overlayCtrl, elementRef, loader) {
+                    _classCallCheck(this, OverlayAnchor);
+
+                    if (overlayCtrl.anchor) {
+                        throw 'An app should only have one <ion-overlay></ion-overlay>';
+                    }
+                    this.elementRef = elementRef;
+                    this.loader = loader;
+                    overlayCtrl.anchor = this;
+                }
+
+                _createClass(OverlayAnchor, [{
+                    key: "append",
+                    value: function append(componentType) {
+                        return this.loader.loadIntoLocation(componentType, this.elementRef, 'contents')["catch"](function (err) {
+                            console.error(err);
+                        });
+                    }
+                }]);
+
+                return OverlayAnchor;
+            })();
+
+            _export("OverlayAnchor", OverlayAnchor);
+
+            _export("OverlayAnchor", OverlayAnchor = __decorate([Component({
+                selector: 'ion-overlay',
+                template: '<template #contents></template>'
+            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _c || Object])], OverlayAnchor));
         }
     };
 });
@@ -55548,7 +55519,7 @@ System.register("ionic/components/scroll/scroll", ["angular2/angular2", "../ion"
         }
     };
 });
-System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", "../ion", "../../config/config", "../../config/decorators"], function (_export) {
+System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", "../ion", "../../config/config", "../../config/decorators", "../icon/icon"], function (_export) {
     /**
      * @name Search Bar
      * @description
@@ -55561,7 +55532,7 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
      */
     "use strict";
 
-    var ElementRef, NgControl, Renderer, FORM_DIRECTIVES, NgIf, NgClass, Ion, Config, ConfigComponent, __decorate, __metadata, SearchBar, _a, _b, _c, _d;
+    var ElementRef, NgControl, Renderer, FORM_DIRECTIVES, NgIf, NgClass, Ion, Config, ConfigComponent, Icon, __decorate, __metadata, SearchBar, _a, _b, _c, _d;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -55585,6 +55556,8 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
             Config = _configConfig.Config;
         }, function (_configDecorators) {
             ConfigComponent = _configDecorators.ConfigComponent;
+        }, function (_iconIcon) {
+            Icon = _iconIcon.Icon;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -55710,12 +55683,17 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                     'cancelText': 'Cancel',
                     'placeholder': 'Search',
                     'cancelAction': function cancelAction(event, query) {
-                        // The cancel button now works on its own to blur the input
-                        console.log('Default Cancel');
+                        this.element = this.elementRef.nativeElement.querySelector('input');
+                        this.element.blur();
+                        this.clearInput();
                     }
                 },
-                template: '<div class="searchbar-input-container" [class.left-align]="shouldLeftAlign">' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="searchbar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, query)" class="searchbar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
-                directives: [FORM_DIRECTIVES, NgIf, NgClass]
+                host: {
+                    '[class.left-align]': 'shouldLeftAlign',
+                    '[class.focused]': 'isFocused'
+                },
+                template: '<div class="searchbar-input-container">' + '<button (click)="cancelAction($event, query)" clear dark class="searchbar-cancel-icon"><icon arrow-back></icon></button>' + '<div class="searchbar-search-icon"></div>' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="searchbar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, query)" class="searchbar-cancel">{{cancelText}}</button>',
+                directives: [FORM_DIRECTIVES, NgIf, NgClass, Icon]
             }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgControl !== 'undefined' && NgControl) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], SearchBar));
         }
     };
@@ -55760,11 +55738,26 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
      *     Enemies
      *   </ion-segment-button>
      * </ion-segment>
+     *
+     *
+     * <form [ng-form-model]="myForm">
+     *   <ion-segment ng-control="mapStyle" danger>
+     *     <ion-segment-button value="standard">
+     *       Standard
+     *     </ion-segment-button>
+     *     <ion-segment-button value="hybrid">
+     *       Hybrid
+     *     </ion-segment-button>
+     *     <ion-segment-button value="sat">
+     *       Satellite
+     *     </ion-segment-button>
+     *   </ion-segment>
+     * </form>
      * ```
      */
     "use strict";
 
-    var Component, Directive, Renderer, ElementRef, EventEmitter, Host, forwardRef, Optional, NgControl, Ion, Config, __decorate, __metadata, __param, Segment, SegmentControlValueAccessor, SegmentButton, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var Directive, Renderer, ElementRef, Host, Optional, NgControl, Ion, Config, __decorate, __metadata, __param, Segment, SegmentButton, _a, _b, _c, _d, _e;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -55776,13 +55769,10 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
 
     return {
         setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
             Directive = _angular2Angular2.Directive;
             Renderer = _angular2Angular2.Renderer;
             ElementRef = _angular2Angular2.ElementRef;
-            EventEmitter = _angular2Angular2.EventEmitter;
             Host = _angular2Angular2.Host;
-            forwardRef = _angular2Angular2.forwardRef;
             Optional = _angular2Angular2.Optional;
             NgControl = _angular2Angular2.NgControl;
         }, function (_ion) {
@@ -55827,26 +55817,32 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
                  * @param {NgControl} ngControl  TODO
                  * @param {ElementRef} elementRef  TODO
                  * @param {Config} config  TODO
-                 * @param {Renderer} renderer  TODO
                  */
 
-                function Segment(ngControl, elementRef, config, renderer) {
+                function Segment(ngControl, elementRef, config) {
                     _classCallCheck(this, Segment);
 
                     _get(Object.getPrototypeOf(Segment.prototype), "constructor", this).call(this, elementRef, config);
-                    this.ele = elementRef.nativeElement;
-                    this.elementRef = elementRef;
-                    this.renderer = renderer;
-                    this.change = new EventEmitter('change');
-                    this.input = new EventEmitter('input');
-                    this.ngControl = ngControl;
                     this.buttons = [];
+                    this.onChange = function (_) {};
+                    this.onTouched = function (_) {};
+                    if (ngControl) ngControl.valueAccessor = this;
                 }
 
                 _createClass(Segment, [{
                     key: "writeValue",
                     value: function writeValue(value) {
-                        this.value = value;
+                        this.value = !value ? '' : value;
+                    }
+                }, {
+                    key: "registerOnChange",
+                    value: function registerOnChange(fn) {
+                        this.onChange = fn;
+                    }
+                }, {
+                    key: "registerOnTouched",
+                    value: function registerOnTouched(fn) {
+                        this.onTouched = fn;
                     }
 
                     /**
@@ -55889,21 +55885,12 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
                 }, {
                     key: "selected",
                     value: function selected(segmentButton) {
-                        var _this = this;
-
                         this.buttons.forEach(function (button) {
                             button.isActive = false;
                         });
                         segmentButton.isActive = true;
-                        if (!this.ngControl) {
-                            return;
-                        }
-                        setTimeout(function () {
-                            _this.writeValue(segmentButton.value);
-                            _this.ngControl.control.updateValue(segmentButton.value);
-                            // Trigger on change
-                            _this.change.next();
-                        });
+                        this.value = segmentButton.value;
+                        this.onChange(segmentButton.value);
                     }
                 }]);
 
@@ -55912,73 +55899,9 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
 
             _export("Segment", Segment);
 
-            _export("Segment", Segment = __decorate([Component({
-                selector: 'ion-segment',
-                inputs: ['value'],
-                template: '<ng-content></ng-content>',
-                directives: [forwardRef(function () {
-                    return SegmentButton;
-                })]
-            }), __param(0, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NgControl !== 'undefined' && NgControl) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], Segment));
-            /**
-             * TODO
-             */
-
-            SegmentControlValueAccessor = (function () {
-                /**
-                 * TODO
-                 * @param {NgControl} ngControl  TODO
-                 * @param {Renderer} renderer  TODO
-                 * @param {ElementRef} elementRef  TODO
-                 * @param {Segment} segment  TODO
-                 */
-
-                function SegmentControlValueAccessor(ngControl, renderer, elementRef, segment) {
-                    _classCallCheck(this, SegmentControlValueAccessor);
-
-                    this.onChange = function (_) {};
-                    this.onTouched = function (_) {};
-                    if (!ngControl) {
-                        return;
-                    }
-                    this.ngControl = ngControl;
-                    this.renderer = renderer;
-                    this.elementRef = elementRef;
-                    this.segment = segment;
-                    this.ngControl.valueAccessor = this;
-                }
-
-                _createClass(SegmentControlValueAccessor, [{
-                    key: "writeValue",
-                    value: function writeValue(value) {
-                        this.value = !value ? '' : value;
-                        this.segment.value = this.value;
-                    }
-                }, {
-                    key: "registerOnChange",
-                    value: function registerOnChange(fn) {
-                        this.onChange = fn;
-                    }
-                }, {
-                    key: "registerOnTouched",
-                    value: function registerOnTouched(fn) {
-                        this.onTouched = fn;
-                    }
-                }]);
-
-                return SegmentControlValueAccessor;
-            })();
-
-            _export("SegmentControlValueAccessor", SegmentControlValueAccessor);
-
-            _export("SegmentControlValueAccessor", SegmentControlValueAccessor = __decorate([Directive({
-                selector: 'ion-segment',
-                host: {
-                    '(change)': 'onChange($event.target.value)',
-                    '(input)': 'onChange($event.target.value)',
-                    '(blur)': 'onTouched()'
-                }
-            }), __param(0, Optional()), __metadata('design:paramtypes', [typeof (_e = typeof NgControl !== 'undefined' && NgControl) === 'function' && _e || Object, typeof (_f = typeof Renderer !== 'undefined' && Renderer) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object, Segment])], SegmentControlValueAccessor));
+            _export("Segment", Segment = __decorate([Directive({
+                selector: 'ion-segment'
+            }), __param(0, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NgControl !== 'undefined' && NgControl) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object])], Segment));
             /**
              * TODO
              */
@@ -56022,7 +55945,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
                     '(click)': 'click($event)',
                     '[class.activated]': 'isActive'
                 }
-            }), __param(0, Host()), __metadata('design:paramtypes', [Segment, typeof (_h = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], SegmentButton));
+            }), __param(0, Host()), __metadata('design:paramtypes', [Segment, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Renderer !== 'undefined' && Renderer) === 'function' && _e || Object])], SegmentButton));
         }
     };
 });
@@ -59668,121 +59591,6 @@ System.register("ionic/platform/barcode/barcode", ["../plugin"], function (_expo
         }
     };
 });
-System.register("ionic/platform/battery/battery", ["ionic/util", "../plugin"], function (_export) {
-    /**
-     * Track battery status. Uses the HTMl5 Battery API if available or
-     * the `cordova-plugin-battery-status` plugin.
-     *
-     * @usage
-     *
-     * ```js
-     * Battery.getStatus().then((data) => {
-     *   console.log(data.charging, data.level, data.chargingTime, data.dischargingTime)
-     * });
-     * ```
-     */
-    "use strict";
-
-    var util, NativePlugin, __decorate, __metadata, _Battery;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }, function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _Battery = (function () {
-                function Battery() {
-                    _classCallCheck(this, Battery);
-                }
-
-                _createClass(Battery, null, [{
-                    key: "getStatus",
-
-                    /**
-                     * Get the status of the battery. Data is of the format:
-                     * { charging, level, chargingTime, dischargingTime }
-                     *
-                     * Note: certain fields might not be available depending on the platform.
-                     *
-                     * @return {object} battery status
-                     */
-                    value: function getStatus() {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (navigator.getBattery) {
-                                navigator.getBattery().then(function (battery) {
-                                    _this.battery = battery;
-                                    resolve(_Battery._format(battery));
-                                });
-                            } else {
-                                var fnCb = function fnCb(battery) {
-                                    resolve(battery);
-                                    window.removeEventListener('batterystatus', fnCb);
-                                };
-                                window.addEventListener('batterystatus', fnCb);
-                            }
-                        });
-                    }
-                }, {
-                    key: "_format",
-                    value: function _format(batteryObj) {
-                        if (typeof batteryObj.isPlugged !== 'undefined') {
-                            // This is the old format, map it to the new format
-                            util.extend(batteryObj, {
-                                charging: batteryObj.isPlugged,
-                                level: batteryObj.level / 100,
-                                chargingTime: 0,
-                                dischargingTime: 0 //not provided
-                            });
-                        }
-                        return batteryObj;
-                    }
-                }]);
-
-                return Battery;
-            })();
-
-            _export("Battery", _Battery);
-
-            _Battery = __decorate([NativePlugin({
-                name: 'Battery',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-battery-status'
-                }
-            }), __metadata('design:paramtypes', [])], _Battery);
-        }
-    };
-});
 System.register("ionic/platform/camera/camera", ["ionic/util", "../plugin"], function (_export) {
     /**
      * Take a photo or capture video.
@@ -59980,6 +59788,121 @@ System.register("ionic/platform/camera/camera", ["ionic/util", "../plugin"], fun
                     return !!navigator.camera;
                 }
             }), __metadata('design:paramtypes', [])], Camera));
+        }
+    };
+});
+System.register("ionic/platform/battery/battery", ["ionic/util", "../plugin"], function (_export) {
+    /**
+     * Track battery status. Uses the HTMl5 Battery API if available or
+     * the `cordova-plugin-battery-status` plugin.
+     *
+     * @usage
+     *
+     * ```js
+     * Battery.getStatus().then((data) => {
+     *   console.log(data.charging, data.level, data.chargingTime, data.dischargingTime)
+     * });
+     * ```
+     */
+    "use strict";
+
+    var util, NativePlugin, __decorate, __metadata, _Battery;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_ionicUtil) {
+            util = _ionicUtil;
+        }, function (_plugin) {
+            NativePlugin = _plugin.NativePlugin;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            _Battery = (function () {
+                function Battery() {
+                    _classCallCheck(this, Battery);
+                }
+
+                _createClass(Battery, null, [{
+                    key: "getStatus",
+
+                    /**
+                     * Get the status of the battery. Data is of the format:
+                     * { charging, level, chargingTime, dischargingTime }
+                     *
+                     * Note: certain fields might not be available depending on the platform.
+                     *
+                     * @return {object} battery status
+                     */
+                    value: function getStatus() {
+                        var _this = this;
+
+                        return new Promise(function (resolve, reject) {
+                            if (navigator.getBattery) {
+                                navigator.getBattery().then(function (battery) {
+                                    _this.battery = battery;
+                                    resolve(_Battery._format(battery));
+                                });
+                            } else {
+                                var fnCb = function fnCb(battery) {
+                                    resolve(battery);
+                                    window.removeEventListener('batterystatus', fnCb);
+                                };
+                                window.addEventListener('batterystatus', fnCb);
+                            }
+                        });
+                    }
+                }, {
+                    key: "_format",
+                    value: function _format(batteryObj) {
+                        if (typeof batteryObj.isPlugged !== 'undefined') {
+                            // This is the old format, map it to the new format
+                            util.extend(batteryObj, {
+                                charging: batteryObj.isPlugged,
+                                level: batteryObj.level / 100,
+                                chargingTime: 0,
+                                dischargingTime: 0 //not provided
+                            });
+                        }
+                        return batteryObj;
+                    }
+                }]);
+
+                return Battery;
+            })();
+
+            _export("Battery", _Battery);
+
+            _Battery = __decorate([NativePlugin({
+                name: 'Battery',
+                platforms: ['ios', 'android', 'web'],
+                engines: {
+                    cordova: 'cordova-plugin-battery-status'
+                }
+            }), __metadata('design:paramtypes', [])], _Battery);
         }
     };
 });

@@ -8,23 +8,37 @@ exports.hasScrollbar = hasScrollbar;
 exports.getPageFor = getPageFor;
 exports.debounce = debounce;
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _angular2Angular2 = require('angular2/angular2');
 
 var _ionicIonic = require('ionic/ionic');
 
-var _actionSheetActionSheet = require('./actionSheet/actionSheet');
+var _actionSheetsActionSheets = require('./action-sheets/action-sheets');
+
+var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
 
 var _buttonsButtons = require('./buttons/buttons');
 
+var buttons = _interopRequireWildcard(_buttonsButtons);
+
 var _cardsCards = require('./cards/cards');
 
-var _formsForms = require('./forms/forms');
+var cards = _interopRequireWildcard(_cardsCards);
+
+var _labelsLabels = require('./labels/labels');
+
+var labels = _interopRequireWildcard(_labelsLabels);
 
 var _iconsIcons = require('./icons/icons');
 
+var icons = _interopRequireWildcard(_iconsIcons);
+
 var _inputsInputs = require('./inputs/inputs');
+
+var inputs = _interopRequireWildcard(_inputsInputs);
 
 var _listsLists = require('./lists/lists');
 
@@ -107,39 +121,39 @@ function hasScrollbar() {
 
 function getPageFor(hash) {
     return ({
-        'action-sheets': _actionSheetActionSheet.ActionSheetPage,
-        'buttons': _buttonsButtons.ButtonsPage,
-        'block-buttons': _buttonsButtons.BlockButtonsPage,
-        'clear-buttons': _buttonsButtons.ClearButtonsPage,
-        'full-buttons': _buttonsButtons.FullButtonsPage,
-        'outline-buttons': _buttonsButtons.OutlineButtonsPage,
-        'round-buttons': _buttonsButtons.RoundButtonsPage,
-        'floating-action-buttons': _buttonsButtons.FabPage,
-        'buttons-in-components': _buttonsButtons.ButtonsInComponentsPage,
-        'button-sizes': _buttonsButtons.ButtonSizesPage,
-        'icon-buttons': _buttonsButtons.IconButtonsPage,
-        'cards': _cardsCards.CardsBasicPage,
-        'card-header': _cardsCards.CardsHeaderPage,
-        'card-list': _cardsCards.CardsListPage,
-        'card-image': _cardsCards.CardsImagePage,
-        'card-background': _cardsCards.CardsBackgroundPage,
-        'advanced-cards': _cardsCards.CardsAdvancedSocialPage,
-        'card-advanced-map': _cardsCards.CardsAdvancedMapPage,
-        'card-advanced-social': _cardsCards.CardsAdvancedSocialPage,
-        'card-advanced-weather': _cardsCards.CardsAdvancedWeatherPage,
-        'checkbox': _inputsInputs.CheckboxPage,
-        'radio': _inputsInputs.RadioPage,
-        'range': _inputsInputs.RangePage,
-        'select': _inputsInputs.SelectPage,
-        'switch': _inputsInputs.SwitchPage,
-        'inputs': _formsForms.FormsPage,
-        'fixed-inline-labels': _formsForms.FixedInlinePage,
-        'floating-labels': _formsForms.FloatingPage,
-        'inline-labels': _formsForms.InlinePage,
-        'inset-labels': _formsForms.InsetPage,
-        'placeholder-labels': _formsForms.PlaceholderPage,
-        'stacked-labels': _formsForms.StackedPage,
-        'icons': _iconsIcons.IconsPage,
+        'action-sheets': actionSheets.BasicPage,
+        'buttons': buttons.BasicPage,
+        'block-buttons': buttons.BlockPage,
+        'clear-buttons': buttons.ClearPage,
+        'full-buttons': buttons.FullPage,
+        'outline-buttons': buttons.OutlinePage,
+        'round-buttons': buttons.RoundPage,
+        'floating-action-buttons': buttons.FabPage,
+        'buttons-in-components': buttons.ComponentsPage,
+        'button-sizes': buttons.SizesPage,
+        'icon-buttons': buttons.IconsPage,
+        'cards': cards.BasicPage,
+        'card-header': cards.HeaderPage,
+        'card-list': cards.ListPage,
+        'card-image': cards.ImagePage,
+        'card-background': cards.BackgroundPage,
+        'advanced-cards': cards.AdvancedSocialPage,
+        'card-advanced-map': cards.AdvancedMapPage,
+        'card-advanced-social': cards.AdvancedSocialPage,
+        'card-advanced-weather': cards.AdvancedWeatherPage,
+        'checkbox': inputs.CheckboxPage,
+        'radio': inputs.RadioPage,
+        'range': inputs.RangePage,
+        'select': inputs.SelectPage,
+        'switch': inputs.SwitchPage,
+        'inputs': labels.BasicPage,
+        'fixed-inline-labels': labels.FixedInlinePage,
+        'floating-labels': labels.FloatingPage,
+        'inline-labels': labels.InlinePage,
+        'inset-labels': labels.InsetPage,
+        'placeholder-labels': labels.PlaceholderPage,
+        'stacked-labels': labels.StackedPage,
+        'icons': icons.BasicPage,
         'lists': _listsLists.BasicListsPage,
         'avatar-list': _listsLists.AvatarListsPage,
         'icon-list': _listsLists.IconListsPage,

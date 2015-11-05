@@ -7697,6 +7697,9 @@ ion-card .icon-avatar {
   font-size: 2em;
   text-align: center; }
 
+body.md ion-menu#leftMenu {
+  width: 304px; }
+
 .preview-slides .slide-contents {
   display: block;
   height: 100%;

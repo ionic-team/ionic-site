@@ -37,7 +37,7 @@ var BasicPage = function BasicPage() {
 };
 exports.BasicPage = BasicPage;
 exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'slides/basic/slides.html',
+    templateUrl: 'slides/basic/template.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

@@ -42,21 +42,31 @@ var inputs = _interopRequireWildcard(_inputsInputs);
 
 var _listsLists = require('./lists/lists');
 
+var lists = _interopRequireWildcard(_listsLists);
+
 var _menusMenus = require('./menus/menus');
+
+var menus = _interopRequireWildcard(_menusMenus);
 
 var _modalsModals = require('./modals/modals');
 
+var modals = _interopRequireWildcard(_modalsModals);
+
 var _navigationNavigation = require('./navigation/navigation');
+
+var navigation = _interopRequireWildcard(_navigationNavigation);
 
 var _popupsPopups = require('./popups/popups');
 
+var popups = _interopRequireWildcard(_popupsPopups);
+
 var _slidesSlides = require('./slides/slides');
+
+var slides = _interopRequireWildcard(_slidesSlides);
 
 var _tabsTabs = require('./tabs/tabs');
 
-var _tabsTabsIcon = require('./tabs/tabs-icon');
-
-var _tabsTabsIconText = require('./tabs/tabs-icon-text');
+var tabs = _interopRequireWildcard(_tabsTabs);
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -154,22 +164,22 @@ function getPageFor(hash) {
         'placeholder-labels': labels.PlaceholderPage,
         'stacked-labels': labels.StackedPage,
         'icons': icons.BasicPage,
-        'lists': _listsLists.BasicListsPage,
-        'avatar-list': _listsLists.AvatarListsPage,
-        'icon-list': _listsLists.IconListsPage,
-        'list-dividers': _listsLists.BasicDividersPage,
-        'inset-list': _listsLists.BasicInsetListsPage,
-        'list-headers': _listsLists.ListHeadersPage,
-        'multiline-list': _listsLists.MultilineListsPage,
-        'thumbnail-list': _listsLists.ThumbnailListsPage,
-        'menus': _menusMenus.MenusPage,
-        'modals': _modalsModals.ModalsPage,
-        'navigation': _navigationNavigation.NavigationPage,
-        'popups': _popupsPopups.PopupsPage,
-        'slides': _slidesSlides.SlidesPage,
-        'tabs': _tabsTabs.TabsPage,
-        'tabs-icon': _tabsTabsIcon.TabsIconPage,
-        'tabs-icon-text': _tabsTabsIconText.TabsIconTextPage
+        'lists': lists.BasicPage,
+        'avatar-list': lists.AvatarPage,
+        'icon-list': lists.IconPage,
+        'list-dividers': lists.LinesPage,
+        'inset-list': lists.InsetPage,
+        'list-headers': lists.HeadersPage,
+        'multiline-list': lists.MultilinePage,
+        'thumbnail-list': lists.ThumbnailPage,
+        'menus': menus.BasicPage,
+        'modals': modals.BasicPage,
+        'navigation': navigation.BasicPage,
+        'popups': popups.BasicPage,
+        'slides': slides.BasicPage,
+        'tabs': tabs.BasicPage,
+        'tabs-icon': tabs.IconPage,
+        'tabs-icon-text': tabs.IconTextPage
     })[hash];
 }
 

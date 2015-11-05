@@ -6125,7 +6125,7 @@ icon,
   .ios .searchbar-search-icon {
     width: 14px;
     height: 14px;
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2013%2013'><path%20fill='#767676'%20d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1%20M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0%20L5,0z'/><line%20stroke='#767676'%20stroke-miterlimit='10'%20x1='12.6'%20y1='12.6'%20x2='8.2'%20y2='8.2'/></svg>");
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2013%2013'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1%20M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0%20L5,0z'/><line%20stroke='rgba(0,%200,%200,%200.5)'%20stroke-miterlimit='10'%20x1='12.6'%20y1='12.6'%20x2='8.2'%20y2='8.2'/></svg>");
     background-size: 13px;
     background-repeat: no-repeat;
     position: absolute;
@@ -6147,16 +6147,16 @@ icon,
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
     .ios .searchbar-input::-moz-placeholder {
-      color: #9D9D9D; }
+      color: rgba(0, 0, 0, 0.5); }
     .ios .searchbar-input:-ms-input-placeholder {
-      color: #9D9D9D; }
+      color: rgba(0, 0, 0, 0.5); }
     .ios .searchbar-input::-webkit-input-placeholder {
-      color: #9D9D9D;
+      color: rgba(0, 0, 0, 0.5);
       text-indent: 0; }
   .ios .searchbar-close-icon {
     width: 30px;
     height: 100%;
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#8F8E94'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
     background-size: 18px;
     background-repeat: no-repeat;
     background-position: center;
@@ -6181,7 +6181,7 @@ icon,
     background: transparent;
     border-bottom-width: 0; }
     .ios .toolbar ion-searchbar .searchbar-input {
-      background-color: #E5E5E5; }
+      background-color: rgba(0, 0, 0, 0.08); }
     .ios .toolbar ion-searchbar .searchbar-cancel {
       padding-left: 8px;
       right: -10px; }
@@ -7433,7 +7433,9 @@ icon,
     left: 0;
     background: #387ef5;
     -webkit-transform-origin: 0 0;
-    transform-origin: 0 0; }
+    transform-origin: 0 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0); }
     .md tab-highlight.animate {
       -webkit-transition-duration: 300ms;
       transition-duration: 300ms; }

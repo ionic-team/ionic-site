@@ -545,17 +545,17 @@
 <p>A card can contain a list of items. To create a card list, add elements with the <code>ion-item</code> attribute inside of your card:</p>
 
 <pre><code class="language-html">&lt;ion-card&gt;
-    &lt;ion-card-header&gt;
-      Explore Nearby
-    &lt;/ion-card-header&gt;
-    &lt;a href="#" ion-item&gt;
-      &lt;icon cart item-left&gt;&lt;/icon&gt;
-      Shopping
-    &lt;/a&gt;
-    &lt;a href="#" ion-item&gt;
-      &lt;icon medical item-left&gt;&lt;/icon&gt;
-      Hospital
-    &lt;/a&gt;
+  &lt;ion-card-header&gt;
+    Explore Nearby
+  &lt;/ion-card-header&gt;
+  &lt;a href="#" ion-item&gt;
+    &lt;icon cart item-left&gt;&lt;/icon&gt;
+    Shopping
+  &lt;/a&gt;
+  &lt;a href="#" ion-item&gt;
+    &lt;icon medical item-left&gt;&lt;/icon&gt;
+    Hospital
+  &lt;/a&gt;
 &lt;/ion-card&gt;
 </code></pre>
 
@@ -866,7 +866,7 @@ You can also add a placeholder so that users have a hint of what type of text th
         Enemies
       &lt;/ion-segment-button&gt;
     &lt;/ion-segment&gt;
-  &lt;button type="submit" button primary&gt;Submit&lt;/button&gt;
+  &lt;button type="submit" button&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
 
@@ -990,14 +990,14 @@ class MyApp {
 
 <pre><code class="language-html">&lt;ion-list&gt;
 
-&lt;ion-item&gt;
-  &lt;ion-thumbnail item-left&gt;
-    &lt;img src="img/thumbnail-totoro.png"&gt;
-  &lt;/ion-thumbnail&gt;
-  &lt;h2&gt;My Neighbor Totoro&lt;/h2&gt;
-  &lt;p&gt;Hayao Miyazaki • 1988&lt;/p&gt;
-  &lt;button clear item-right&gt;View&lt;/button&gt;
-&lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-thumbnail item-left&gt;
+      &lt;img src="img/thumbnail-totoro.png"&gt;
+    &lt;/ion-thumbnail&gt;
+    &lt;h2&gt;My Neighbor Totoro&lt;/h2&gt;
+    &lt;p&gt;Hayao Miyazaki • 1988&lt;/p&gt;
+    &lt;button clear item-right&gt;View&lt;/button&gt;
+  &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
 </code></pre>
@@ -1051,9 +1051,9 @@ import {SignupPage} from 'signup';
 ...
 })
 class MyApp {
+
   constructor(ionicApp: IonicApp) {
     this.app = ionicApp;
-
     this.loginPage = LoginPage;
     this.signupPage = SignupPage;
   }
@@ -1150,7 +1150,7 @@ class MyModal extends Modal {
     &lt;ion-content&gt;Hello World&lt;/ion-content&gt;`
 })
 export class StartPage {
-  constructor(navCtrl: NavController){ //&lt;-- Well hello there
+  constructor(navCtrl: NavController){
     this.nav = navCtrl;
   }
 }

@@ -263,17 +263,17 @@ A card can contain a list of items. To create a card list, add elements with the
 
 ```html
 <ion-card>
-    <ion-card-header>
-      Explore Nearby
-    </ion-card-header>
-    <a href="#" ion-item>
-      <icon cart item-left></icon>
-      Shopping
-    </a>
-    <a href="#" ion-item>
-      <icon medical item-left></icon>
-      Hospital
-    </a>
+  <ion-card-header>
+    Explore Nearby
+  </ion-card-header>
+  <a href="#" ion-item>
+    <icon cart item-left></icon>
+    Shopping
+  </a>
+  <a href="#" ion-item>
+    <icon medical item-left></icon>
+    Hospital
+  </a>
 </ion-card>
 ```
 
@@ -618,7 +618,7 @@ Use the segment to control to use radio selections.
         Enemies
       </ion-segment-button>
     </ion-segment>
-  <button type="submit" button primary>Submit</button>
+  <button type="submit" button>Submit</button>
 </form>
 ```
 
@@ -754,14 +754,14 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
 ```html
 <ion-list>
 
-<ion-item>
-  <ion-thumbnail item-left>
-    <img src="img/thumbnail-totoro.png">
-  </ion-thumbnail>
-  <h2>My Neighbor Totoro</h2>
-  <p>Hayao Miyazaki • 1988</p>
-  <button clear item-right>View</button>
-</ion-item>
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>
+    <h2>My Neighbor Totoro</h2>
+    <p>Hayao Miyazaki • 1988</p>
+    <button clear item-right>View</button>
+  </ion-item>
 
 </ion-list>
 ```
@@ -818,9 +818,9 @@ import {SignupPage} from 'signup';
 ...
 })
 class MyApp {
+
   constructor(ionicApp: IonicApp) {
     this.app = ionicApp;
-
     this.loginPage = LoginPage;
     this.signupPage = SignupPage;
   }
@@ -924,7 +924,7 @@ You can access the navigation controller you create by injecting it into any of 
     <ion-content>Hello World</ion-content>`
 })
 export class StartPage {
-  constructor(navCtrl: NavController){ //<-- Well hello there
+  constructor(navCtrl: NavController){
     this.nav = navCtrl;
   }
 }
@@ -968,7 +968,7 @@ export class StartPage {
 class OtherPage {}
 ```
 
-If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.  
+If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.
 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
 

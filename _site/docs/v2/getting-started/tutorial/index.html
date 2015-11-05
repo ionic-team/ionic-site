@@ -311,10 +311,18 @@
 
 <p>If you don’t already have an app started from the <a href="../installation">previous section</a>, let’s create a new app! Use the <code>start</code> command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the <code>--v2</code> option.</p>
 
-<pre><code class="language-bash">$ ionic start MyIonic2Project https://github.com/driftyco/ionic2-starter-tutorial --v2
+<pre><code class="language-bash">$ ionic start MyIonic2Project tutorial --v2
 </code></pre>
 
 <p>This will pull Ionic 2 down, install <a href="../../resources/what-is/#npm">npm modules</a> for the application, and get <a href="../../resources/what-is/#cordova">Cordova</a> set up and ready to go.</p>
+
+<p><button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#starter-templates">
+  Ionic starter templates
+</button></p>
+
+<div id="starter-templates" class="collapse well">
+You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start</code> command. This tells Ionic to bootstrap your application using the <a href="https://github.com/driftyco/ionic2-starter-tutorial">tutorial template</a>. If you do not specify a template by running <code>ionic start MyIonic2Project --v2</code>, the <a href="https://github.com/driftyco/ionic2-starter-tabs">tabs starter</a> will be used.
+</div>
 
 <h2 id="viewing-the-app-in-a-browser">Viewing the app in a browser</h2>
 <p>Let’s <code>cd</code> in to the folder that was created. To get a quick preview of your app in the browser, use the <code>serve</code> command.</p>

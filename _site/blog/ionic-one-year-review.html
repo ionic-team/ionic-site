@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic: Year One in Review</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-one-year-review/">Ionic: Year One in Review</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Ionic: Year One in Review" data-url="http://ionicframework.com/blog/ionic-one-year-review" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-one-year-review"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-one-year-review" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on December 15, 2014</time>
+  </div>
+
+<p><img class="showcase-image" src="/img/blog/ionic-1year-header.jpg" style="margin-top:-20px;" /></p>
+
+<p>2014 is coming to a close, and what a year it has been!</p>
+
+<p>It’s hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue how voracious developers’ appetites for building hybrid apps would be. We thought we’d have some early adopters trying out the framework, but we certainly did not expect the massive adoption of Ionic that we’ve seen in just one year!</p>
+
+<p>Our conclusion from 2014 is that hybrid is not only here to stay, but has become a <em>much better</em> solution than native for many app developers.</p>
+
+<h3 id="by-the-numbers">By the Numbers</h3>
+
+<p>In 2014 alone, Ionic became one of the <strong>top 50</strong> most popular open source projects in the world, with over <a href="https://github.com/driftyco/ionic">12,000 stars</a> on GitHub.</p>
+
+<p>Over <strong>320,000</strong> apps have been created this year, and some <a href="http://ionicframework.com/blog/built-with-ionic-sworkit/">particularly impressive</a> ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.</p>
+
+<p><img src="/img/blog/by-the-numbers-map.jpg" alt="Ionic numbers" /></p>
+
+<p>Every month, over 50,000 new apps are created, and over half a million unique developers visit the Ionic website for documentation and to read our blog posts about hybrid apps and the broader mobile dev ecosystem.</p>
+
+<p>Our <a href="http://forum.ionicframework.com/">forum</a> has seen over 45,000 posts this year, reaching over 100,000 unique developers a month. It’s turning into a great place to get help and collaborate with the Ionic community, and even to find interesting work available to Ionic developers around the world!</p>
+
+<p>Last but not least, the <a href="http://webchat.freenode.net/?channels=ionic">#ionic</a> IRC room on Freenode has nearly 100 active users at any given time! Having an official single-hash room on Freenode has been a personal dream of mine ever since I started using IRC 15 years ago, so I am thrilled to see our IRC room being so widely utilized.</p>
+
+<h3 id="partnerships">Partnerships</h3>
+
+<p>We are also proud that Ionic has been integrated into such great tools as <a href="https://www.jetbrains.com/webstorm/whatsnew/">Web Storm</a> and <a href="http://tools.jboss.org/documentation/whatsnew/jbosstools/4.2.0.CR1.html#ionic">JBoss</a>. There are a few bigger tools integrating Ionic that we can’t talk about just yet!</p>
+
+<p>The Heroku team has also been good to Ionic, creating a <a href="http://engineering.heroku.com/blogs/2014-10-02-heroku-mobile-app-template">Mobile Template</a> that can be deployed to Heroku with one click and a <a href="http://heroku.github.io/nibs/">full demo</a> app using Ionic, Heroku, and the Salesforce1 platform.</p>
+
+<p>There are several <a href="https://github.com/firebase/firebase-angular-starter-pack">Ionic starter templates</a> from the Firebase team, and Firebase is quickly becoming the preferred real-time backend solution for Ionic apps.</p>
+
+<p>We are also incredibly thankful for the support from the AngularJS team and community. We look forward to talking more about and incorporating<br />
+<a href="https://github.com/angular/material">ngMaterial</a>, our collaboration with the AngularJS team to implement material design in Angular (and eventually the core Android look and feel for Ionic apps)!</p>
+
+<h3 id="bloggers">Bloggers</h3>
+
+<p>Ionic wouldn’t be where it is today without the amazing content written by hybrid, AngularJS, and mobile dev bloggers.</p>
+
+<p>We’re grateful to have had some great bloggers like <a href="http://devgirl.org/">Holly Schinsky</a>, <a href="http://www.raymondcamden.com/">Raymond Camden</a>, <a href="http://coenraets.org/blog/2014/10/ionic-tutorial-and-sample-application/">Christophe Coenrates</a>, <a href="http://www.nraboy.com/">Nic Raboy</a> and <a href="http://mcgivery.com/">Andrew McGivery</a> write incredible and educational posts on Ionic that the Ionic community loves reading.</p>
+
+<p>In addition, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is <a href="http://www.manning.com/wilken/">Ionic in Action</a> from Manning Publications. The book is <a href="http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&amp;aid=2sPCIgmMgxs">on sale</a> today, along with Raymond’s wonderful <a href="http://www.manning.com/camden/">Cordova in Action</a>.</p>
+
+<p>Finally, <a href="https://twitter.com/smichelotti">Steve Michelotti</a> created a wonderful <a href="http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs">Pluralsight Course</a> on Ionic, with over three hours of video content. It’s very popular course on the site and a great resource for learning more about Ionic!</p>
+
+<p>Thanks to everyone who has written about Ionic; please get in touch if you’d like to help create more content to post on the Ionic blog!</p>
+
+<h3 id="taking-over-the-world">Taking over the world</h3>
+
+<p>Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. On top of that, we’re starting to see a multi-national band of Ionic user groups forming around the world.</p>
+
+<p><img src="/img/blog/ionic-community-logos.jpg" alt="Ionic Logos" /></p>
+
+<p>These are official Ionic meetup groups started by Ionic community members that we help to get up and running. If you’d like to start your own official Ionic meetup group, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#116;&#105;&#101;&#064;&#100;&#114;&#105;&#102;&#116;&#121;&#046;&#099;&#111;&#109;">let us know!</a></p>
+
+<h3 id="startups">Startups</h3>
+
+<p>Many startups are using Ionic to build their apps and reach the growing hybrid developer community. <a href="https://www.linkedin.com/in/itsmayho">Mehul</a> and <a href="https://github.com/gdi2290">Patrick</a> from <a href="https://keychainlogistics.com/">Keychain Logistics</a> were our earliest fans, switching from native iOS and Android apps to a single Ionic app for both platforms. <a href="http://sworkit.com/">Sworkit</a> is a top health and fitness app with millions of users that has been able to rapidly iterate with Ionic. <a href="https://mallzee.com/">Mallzee</a>, a top shopping app, started in the UK and recently launched in the U.S. <a href="http://habitrpg.com/">HabitRPG</a> is an incredibly popular game built with Ionic that makes building healthy habits fun.</p>
+
+<p><a href="http://apppresser.com/">Appresser</a> generates Ionic apps from WordPress sites. <a href="http://www.femtoduino.com/">Femtoduino</a> is creating tiny Arduino clones with companion apps built on Ionic.</p>
+
+<p>Auth0 wrote a great post on <a href="http://ionicframework.com/blog/authentication-in-ionic/">using their auth system with Ionic</a>, and the <a href="http://rethinkdb.com/">RethinkDB</a> team built <a href="http://rethinkdb.com/blog/beerthink/">BeerThink</a>, an infinite scrolling app with Ionic, Node.js, and RethinkDB.</p>
+
+<p>We are also happy to have many <a href="http://ycombinator.com/">Y Combinator</a> and <a href="http://techstars.com/">TechStars</a> startups using Ionic. Startups are clearly recognizing the major economic benefits of going hybrid, and we know this is only going to grow.</p>
+
+<h3 id="ions">Ions</h3>
+
+<p>We quietly released a very early preview of what we are calling <a href="http://ions.ionic.io/">Ionic Ions</a>, a set of add-ons and widgets that give your Ionic apps special powers.</p>
+
+<p><img src="/img/blog/ions-logo.jpg" alt="Ions" /></p>
+
+<p>As we’ve grown Ionic, we’ve created add-ons like <a href="https://github.com/driftyco/ionic-ion-header-shrink">Shrinking Headers</a>, <a href="https://github.com/driftyco/ionic-ion-frost">Frosted Glass</a>, and <a href="https://github.com/driftyco/ionic-ion-tinder-cards">Tinder-Style Swipe Cards</a>. We realized early on that these add-ons don’t make sense as part of the core Ionic project, but they’re an integral part of the larger Ionic ecosystem.</p>
+
+<p>We want to encourage Ionic developers to create reusable widgets, and we’ll make it easy to submit them to the official Ions repository soon.</p>
+
+<p>You can test out Ions today by using the <code>$ ionic add ION</code> command, and we will have a lot more info about this in the near future!</p>
+
+<h3 id="ionicons">Ionicons</h3>
+
+<p>This project started in late 2013 but is worth mentioning here: Our official <a href="http://ionicons.com/">icon pack</a>, including over 700 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the <a href="http://ionicons.com/1.5.2/">older docs</a> until we upgrade).</p>
+
+<p><img src="/img/blog/year-ionicons1.png" alt="Ionicons" /></p>
+
+<h3 id="ngcordova">ngCordova</h3>
+
+<p><a href="http://ngcordova.com/">ngCordova</a>, our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs, was launched mid-2014.</p>
+
+<p><img src="/img/blog/year-ngcordova.png" alt="ngCordova" /></p>
+
+<p>The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We’ve had the incredible fortune of <a href="https://twitter.com/paolobernasconi">Paolo Bernasconi</a>’s great leadership on the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.</p>
+
+<p>Much to our surprise, the project took off, with over 1,300 stars, 57 contributors, and 250 pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forward.</p>
+
+<h3 id="ionic-lab">Ionic Lab</h3>
+
+<p>Just last week, <a href="/blog/ionic-lab/">we released</a> the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally to help you test and develop your Ionic apps.</p>
+
+<p><img src="/img/blog/year-lab.png" alt="Ionic Lab" /></p>
+
+<p>One useful feature is built-in support for our platform-specific styles and features. Develop the iOS and Android versions of your app side-by-side, without having to fire up an emulator or test on the device:</p>
+
+<p>Ionic Lab appears to have struck a chord with the developer community, and our minds are racing about its massive potential. We can’t talk about our specific plans just yet, but expect Ionic Lab to expand greatly in 2015.</p>
+
+<h3 id="ionic-creator-and-theme-tool">Ionic Creator and Theme Tool</h3>
+
+<p>We announced the beta for <a href="https://creator.ionic.io/">Ionic Creator</a> earlier this year, with the goal of making it easier and faster to build and export Ionic prototypes. The reception was incredible, with over 25,000 developers signing up for the beta in the month or so after our announcement.</p>
+
+<p><img src="http://ionicframework.com/creator/creator-preview.png" alt="Ionic Creator" /></p>
+
+<p>We are proud to announce that the <a href="https://creator.ionic.io/">Creator</a> is now publicly available, though this is just the first iteration of the tool. We hope you’ll give it a try and let us know what you think about it!</p>
+
+<p>Finally, <a href="https://twitter.com/paolobernasconi">Paolo</a> created and released the first version of the <a href="http://ionic-theme-editor.herokuapp.com/">Ionic Tailor</a>, a simple theme generator tool for Ionic styles. It’s a great way to customize the default look and feel of Ionic to fit your brand! Expect a lot more out of this tool in the future.</p>
+
+<h3 id="ionic-10">Ionic 1.0</h3>
+
+<p>The next big release of Ionic is slated for early 2015, and we’re going for 1.0! </p>
+
+<p>With <a href="/blog/the-final-beta/">Beta 14</a> this week, we’ve made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from building native apps, we’ve added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.</p>
+
+<p>This will be our last beta release. After the holidays, we will be releasing rc0 and moving toward 1.0 in early 2015.</p>
+
+<h3 id="ionicio">Ionic.io</h3>
+
+<p>Our Ionic developers often lament the lack of hybrid app services available to them. Unfortunately, most mobile development services target native developers, and often <em>only</em> native iOS developers. Mobile service providers have been oblivious to hybrid development, and we want to change that.</p>
+
+<p>Launching in 2015, <a href="https://ionic.io/">Ionic.io</a> will offer powerful mobile services and tools focused on Ionic apps and hybrid apps in general. Track usage and analytics, understand the impact of UI decisions, send intelligent push notifications, and update your app without resubmitting to the App Store. Ionic.io will help you do all of this and more.</p>
+
+<p>This will be our first commercial offering. Make sure to <a href="http://ionic.io/">sign up for the beta</a> to get updates on the release!</p>
+
+<h3 id="the-road-ahead">The road ahead</h3>
+
+<p>We owe our biggest debt of gratitude to you, the Ionic community. Thank you for everything you do to contribute to and support Ionic. You have helped build a fantastic product and have made it successful beyond anyone’s wildest dreams.</p>
+
+<p>In 2015, we will need you more than ever, as we move beyond our humble beginnings as an AngularJS framework into a full-fledged mobile development platform. We want Ionic to be <em>the</em> way mobile apps are built in the future, and we can’t do that without you!</p>
+
+<p>So stay tuned for many more Ionic updates in 2015 as the project matures and moves up the mobile dev stack.</p>
+
+<p>From all of us on the Ionic Team, we wish you a very happy holidays and a wonderful new year! Go kick some apps!</p>
+
+<p><em>Adam, Tim, Katie, Ben, Andrew, Joel, Mike, Peter, Jamie, Perry, Melissa, Brody, Max, Drew, and Josh</em></p>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Ionic: Year One in Review" data-url="http://ionicframework.com/blog/ionic-one-year-review" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-one-year-review"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

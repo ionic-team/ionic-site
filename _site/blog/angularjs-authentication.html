@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Cookie-based Authentication in AngularJS</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/angularjs-authentication/">Cookie-based Authentication in AngularJS</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Cookie-based Authentication in AngularJS" data-url="http://ionicframework.com/blog/angularjs-authentication" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/angularjs-authentication"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/angularjs-authentication" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on September 15, 2014</time>
+  </div>
+
+<p>Single Page Apps are ruling the world and AngularJS is leading the charge. But many of the lessons we learned in the Web 2.0 era no longer apply, and few are as drastically different as authentication.</p>
+
+<p>Depending on where you build and release your AngularJS app, there are different ways to handle authentication and I hope this post clears some of that up.</p>
+
+<h3 id="cors">CORS</h3>
+
+<p>CORS is an oft-misunderstood feature of new browsers that is configured by a remote server. CORS stands for Cross-Origin-Resource-Sharing, and was designed to make it possible to access services outside of the current origin (or domain) of the current page.</p>
+
+<!-- more -->
+
+<p>Like many browser features, CORS works because we all agree that it works. So all major browsers like Chrome, Firefox, and IE support and enforce it. By using these browsers, you benefit from the security of CORS.</p>
+
+<p>That means certain browsers do not enforce it, so it is not relevant there. One large example is a native Web View for things like Cordova and Phonegap (and hence, Ionic apps). However, these tools often have configuration options for whitelisting domains so you can add some security that way.</p>
+
+<h3 id="configuring-cors-on-the-server">Configuring CORS on the Server</h3>
+
+<p>The way CORS works is the server decides which domains it will accept as clients. This means an open API like Twitter might allow any clients, or a closed API might decide to only allow access from the domain of the running client app.</p>
+
+<p>I won’t get into the details of configuring CORS on the server side, but it’s really just setting some headers. Here’s how you might do it <a href="https://gist.github.com/michiel/1064640">in nginx</a>.</p>
+
+<p>There is one header in particular you must have if you want to do session based authentication in a single page app: <code>Access-Control-Allow-Credentials: true</code> which we show next.</p>
+
+<h3 id="angularjs-auth">AngularJS Auth</h3>
+
+<p>If you use the standard <code>$http</code> service to access remote APIs, it will Just Work as long as the server is configured to allow requests from your domain and you don’t need to store cookies.</p>
+
+<p>But for many applications, we also need to set and store cookie information for things like logins. By default this is not allowed in most browsers and you’ll be smashing your head wondering why the cookie information isn’t being saved!</p>
+
+<p>Enter: <code>withCredentials</code>. <code>withCredentials</code> is a flag set on a low-level <code>XMLHttpRequest</code> (AJAX) object, but in Angular we can configure our <code>$http</code> requests to set this flag for everything by doing:</p>
+
+<pre><code class="language-javascript">angular.module('myApp')
+
+.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.defaults.withCredentials = true;
+}])
+</code></pre>
+
+<h3 id="csrf">CSRF</h3>
+
+<p>Many servers use CSRF as a security feature and you can certainly keep this feature in a hybrid app if you wish. CSRF is a way to ensure the client making a request is the same one that the server expects to make the request. This keeps someone from sniffing your cookie session data and making requests pretending to be you (and changing your password, for example).</p>
+
+<p>To make for CSRF, we can tell <code>$http</code> to set the correct header for CSRF (might depend on your server framework, this one is for Django) using the specific cookie name:</p>
+
+<pre><code class="language-javascript">angular.module('myApp', ['ngCookies'])
+
+.run(['$http', '$cookies', function($http, $cookies) {
+  $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+}]);
+</code></pre>
+
+<p>While I’ve found this to work pretty well, if the CSRF token changes mid-session (for example if a new user signs up) the token won’t update. To fix this, we can use an HTTP Interceptor to always set the correct CSRF header value before each request:</p>
+
+<pre><code class="language-javascript">angular.module('myApp')
+
+.provider('myCSRF',[function(){
+  var headerName = 'X-CSRFToken';
+  var cookieName = 'csrftoken';
+  var allowedMethods = ['GET'];
+
+  this.setHeaderName = function(n) {
+    headerName = n;
+  }
+  this.setCookieName = function(n) {
+    cookieName = n;
+  }
+  this.setAllowedMethods = function(n) {
+    allowedMethods = n;
+  }
+  this.$get = ['$cookies', function($cookies){
+    return {
+      'request': function(config) {
+        if(allowedMethods.indexOf(config.method) === -1) {
+          // do something on success
+          config.headers[headerName] = $cookies[cookieName];
+        }
+        return config;
+      }
+    }
+  }];
+}]).config(function($httpProvider) {
+  $httpProvider.interceptors.push('myCSRF');
+});
+</code></pre>
+
+<p>This will set the CSRF request header to the current value of the CSRF cookie for any request type not in <code>allowedMethods</code>. </p>
+
+<h3 id="credentials-and-cors">Credentials and CORS</h3>
+
+<p>One thing to note when using <code>withCredentials: true</code> in your app and configuring the server for CORS is that you may not have your <code>Access-Control-Allow-Origin</code> header set to <code>'*'</code>. It must be configured to a few select origins. If you absolutely must have this set to <code>*</code>, then I suggest doing something beyond cookie based authentication, such as token-based authentication.</p>
+
+<h3 id="token-auth">Token Auth</h3>
+
+<p>The methods described above work for cookie-based authentication that is common in most server-side setups. However, some APIs expect HTTP Basic Authentication or use a token-based system.</p>
+
+<p>While the correct use of CORS will avoid cross-domain pitfalls of cookie-based authentication, those methods may be a better fit for your use case. In that case, take a look at <a href="https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/">this great post</a> on token authentication with AngularJS.</p>
+
+<p>We may revisit this topic in the future to add our thoughts on Token-based authentication.</p>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Cookie-based Authentication in AngularJS" data-url="http://ionicframework.com/blog/angularjs-authentication" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/angularjs-authentication"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

@@ -1139,14 +1139,14 @@ To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a chi
 @App({
   template: `
     <ion-tabs>
-      <ion-tab tab-icon="heart" [root]="tab1Root"></ion-tab>
-      <ion-tab tab-icon="star" [root]="tab2Root"></ion-tab>
+      <ion-tab tab-icon="heart" [root]="tab1"></ion-tab>
+      <ion-tab tab-icon="star" [root]="tab2"></ion-tab>
     </ion-tabs>`
 })
 class MyApp {
   constructor() {
-    this.tab1Root = Tab1;
-    this.tab1Root = Tab2;
+    this.tab1 = Tab1;
+    this.tab1 = Tab2;
   }
 }
 ```
@@ -1220,17 +1220,17 @@ class TabContentPage {
 @Page({
   template:
   '<ion-tabs>' +
-  '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' +
-  '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' +
-  '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' +
-  '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' +
+  '<ion-tab tab-icon="contact" [root]="tab1"></ion-tab>' +
+  '<ion-tab tab-icon="compass" [root]="tab2"></ion-tab>' +
+  '<ion-tab tab-icon="analytics" [root]="tab3"></ion-tab>' +
+  '<ion-tab tab-icon="settings" [root]="tab4"></ion-tab>' +
   '</ion-tabs>',
 })
 export class TabsIconPage {
   constructor(nav: NavController) {
     this.nav = nav;
-    this.tabOne = TabContentPage;
-    this.tabTwo = TabContentPage;
+    this.tab1 = TabContentPage;
+    this.tab2 = TabContentPage;
     ...
   }
 }
@@ -1259,17 +1259,17 @@ class TabsTextContentPage {
 @Page({
   template:
   '<ion-tabs>' +
-  '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' +
-  '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' +
-  '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' +
-  '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' +
+  '<ion-tab tab-icon="water" tab-title="Water" [root]="tab1"></ion-tab>' +
+  '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"></ion-tab>' +
+  '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab>' +
+  '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab>' +
   '</ion-tabs>',
 })
 export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {
     this.nav = nav;
-    this.tabOne = TabsTextContentPage;
-    this.tabTwo = TabsTextContentPage;
+    this.tab1 = TabsTextContentPage;
+    this.tab2 = TabsTextContentPage;
     ...
   }
 }

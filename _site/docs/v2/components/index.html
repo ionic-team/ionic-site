@@ -1354,14 +1354,14 @@ design specification, but can be configured with <a href="../api/config/IonicCon
 <pre><code class="language-typescript">@App({
   template: `
     &lt;ion-tabs&gt;
-      &lt;ion-tab tab-icon="heart" [root]="tab1Root"&gt;&lt;/ion-tab&gt;
-      &lt;ion-tab tab-icon="star" [root]="tab2Root"&gt;&lt;/ion-tab&gt;
+      &lt;ion-tab tab-icon="heart" [root]="tab1"&gt;&lt;/ion-tab&gt;
+      &lt;ion-tab tab-icon="star" [root]="tab2"&gt;&lt;/ion-tab&gt;
     &lt;/ion-tabs&gt;`
 })
 class MyApp {
   constructor() {
-    this.tab1Root = Tab1;
-    this.tab1Root = Tab2;
+    this.tab1 = Tab1;
+    this.tab1 = Tab2;
   }
 }
 </code></pre>
@@ -1432,17 +1432,17 @@ class TabContentPage {
 @Page({
   template:
   '&lt;ion-tabs&gt;' +
-  '&lt;ion-tab tab-icon="contact" [root]="tabOne"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="compass" [root]="tabTwo"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="analytics" [root]="tabThree"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="settings" [root]="tabFour"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="contact" [root]="tab1"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="compass" [root]="tab2"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="analytics" [root]="tab3"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="settings" [root]="tab4"&gt;&lt;/ion-tab&gt;' +
   '&lt;/ion-tabs&gt;',
 })
 export class TabsIconPage {
   constructor(nav: NavController) {
     this.nav = nav;
-    this.tabOne = TabContentPage;
-    this.tabTwo = TabContentPage;
+    this.tab1 = TabContentPage;
+    this.tab2 = TabContentPage;
     ...
   }
 }
@@ -1470,17 +1470,17 @@ class TabsTextContentPage {
 @Page({
   template:
   '&lt;ion-tabs&gt;' +
-  '&lt;ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="water" tab-title="Water" [root]="tab1"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"&gt;&lt;/ion-tab&gt;' +
+  '&lt;ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"&gt;&lt;/ion-tab&gt;' +
   '&lt;/ion-tabs&gt;',
 })
 export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {
     this.nav = nav;
-    this.tabOne = TabsTextContentPage;
-    this.tabTwo = TabsTextContentPage;
+    this.tab1 = TabsTextContentPage;
+    this.tab2 = TabsTextContentPage;
     ...
   }
 }

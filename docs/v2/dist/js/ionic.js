@@ -11,6 +11,273 @@
 C(h.fulfillReactions,v);C(h.rejectReactions,y)}else if(h.state===f){g=h.result;i(function(){p(v,g)})}else if(h.state===l){g=h.result;i(function(){p(y,g)})}else{throw new TypeError("unexpected Promise state")}return c.promise}});return O}();if(S.Promise){delete S.Promise.accept;delete S.Promise.defer;delete S.Promise.prototype.chain}if(typeof Rt==="function"){b(S,{Promise:Rt});var Ft=m(S.Promise,function(e){return e.resolve(42).then(function(){})instanceof e});var Dt=!o(function(){S.Promise.reject(42).then(null,5).then(null,W)});var zt=o(function(){S.Promise.call(3,W)});var Lt=function(e){var t=e.resolve(5);t.constructor={};var r=e.resolve(t);return t===r}(S.Promise);if(!Ft||!Dt||!zt||Lt){Promise=Rt;Q(S,"Promise",Rt)}U(Promise)}var qt=function(e){var t=Object.keys(l(e,function(e,t){e[t]=true;return e},{}));return e.join(":")===t.join(":")};var Gt=qt(["z","a","bb"]);var Wt=qt(["z",1,"a","3",2]);if(s){var Ht=function fastkey(e){if(!Gt){return null}var t=typeof e;if(t==="undefined"||e===null){return"^"+String(e)}else if(t==="string"){return"$"+e}else if(t==="number"){if(!Wt){return"n"+e}return e}else if(t==="boolean"){return"b"+e}return null};var Bt=function emptyObject(){return Object.create?Object.create(null):{}};var Vt=function addIterableToMap(e,n,o){if(r(o)||K.string(o)){c(o,function(e){n.set(e[0],e[1])})}else if(o instanceof e){t(e.prototype.forEach,o,function(e,t){n.set(t,e)})}else{var i,a;if(o!==null&&typeof o!=="undefined"){a=n.set;if(!oe.IsCallable(a)){throw new TypeError("bad map")}i=oe.GetIterator(o)}if(typeof i!=="undefined"){while(true){var u=oe.IteratorStep(i);if(u===false){break}var s=u.value;try{if(!oe.TypeIsObject(s)){throw new TypeError("expected iterable of pairs")}t(a,n,s[0],s[1])}catch(f){oe.IteratorClose(i,true);throw f}}}}};var $t=function addIterableToSet(e,n,o){if(r(o)||K.string(o)){c(o,function(e){n.add(e)})}else if(o instanceof e){t(e.prototype.forEach,o,function(e){n.add(e)})}else{var i,a;if(o!==null&&typeof o!=="undefined"){a=n.add;if(!oe.IsCallable(a)){throw new TypeError("bad set")}i=oe.GetIterator(o)}if(typeof i!=="undefined"){while(true){var u=oe.IteratorStep(i);if(u===false){break}var s=u.value;try{t(a,n,s)}catch(f){oe.IteratorClose(i,true);throw f}}}}};var Jt={Map:function(){var e={};var r=function MapEntry(e,t){this.key=e;this.value=t;this.next=null;this.prev=null};r.prototype.isRemoved=function isRemoved(){return this.key===e};var n=function isMap(e){return!!e._es6map};var o=function requireMapSlot(e,t){if(!oe.TypeIsObject(e)||!n(e)){throw new TypeError("Method Map.prototype."+t+" called on incompatible receiver "+String(e))}};var i=function MapIterator(e,t){o(e,"[[MapIterator]]");this.head=e._head;this.i=this.head;this.kind=t};i.prototype={next:function next(){var e=this.i,t=this.kind,r=this.head,n;if(typeof this.i==="undefined"){return{value:void 0,done:true}}while(e.isRemoved()&&e!==r){e=e.prev}while(e.next!==r){e=e.next;if(!e.isRemoved()){if(t==="key"){n=e.key}else if(t==="value"){n=e.value}else{n=[e.key,e.value]}this.i=e;return{value:n,done:false}}}this.i=void 0;return{value:void 0,done:true}}};ee(i.prototype);var a=function Map(){if(!(this instanceof Map)){throw new TypeError('Constructor Map requires "new"')}if(this&&this._es6map){throw new TypeError("Bad construction")}var e=ie(this,Map,u,{_es6map:true,_head:null,_storage:Bt(),_size:0});var t=new r(null,null);t.next=t.prev=t;e._head=t;if(arguments.length>0){Vt(Map,e,arguments[0])}return e};var u=a.prototype;V.getter(u,"size",function(){if(typeof this._size==="undefined"){throw new TypeError("size method called on incompatible Map")}return this._size});b(u,{get:function get(e){o(this,"get");var t=Ht(e);if(t!==null){var r=this._storage[t];if(r){return r.value}else{return}}var n=this._head,i=n;while((i=i.next)!==n){if(oe.SameValueZero(i.key,e)){return i.value}}},has:function has(e){o(this,"has");var t=Ht(e);if(t!==null){return typeof this._storage[t]!=="undefined"}var r=this._head,n=r;while((n=n.next)!==r){if(oe.SameValueZero(n.key,e)){return true}}return false},set:function set(e,t){o(this,"set");var n=this._head,i=n,a;var u=Ht(e);if(u!==null){if(typeof this._storage[u]!=="undefined"){this._storage[u].value=t;return this}else{a=this._storage[u]=new r(e,t);i=n.prev}}while((i=i.next)!==n){if(oe.SameValueZero(i.key,e)){i.value=t;return this}}a=a||new r(e,t);if(oe.SameValue(-0,e)){a.key=+0}a.next=this._head;a.prev=this._head.prev;a.prev.next=a;a.next.prev=a;this._size+=1;return this},"delete":function(t){o(this,"delete");var r=this._head,n=r;var i=Ht(t);if(i!==null){if(typeof this._storage[i]==="undefined"){return false}n=this._storage[i].prev;delete this._storage[i]}while((n=n.next)!==r){if(oe.SameValueZero(n.key,t)){n.key=n.value=e;n.prev.next=n.next;n.next.prev=n.prev;this._size-=1;return true}}return false},clear:function clear(){o(this,"clear");this._size=0;this._storage=Bt();var t=this._head,r=t,n=r.next;while((r=n)!==t){r.key=r.value=e;n=r.next;r.next=r.prev=t}t.next=t.prev=t},keys:function keys(){o(this,"keys");return new i(this,"key")},values:function values(){o(this,"values");return new i(this,"value")},entries:function entries(){o(this,"entries");return new i(this,"key+value")},forEach:function forEach(e){o(this,"forEach");var r=arguments.length>1?arguments[1]:null;var n=this.entries();for(var i=n.next();!i.done;i=n.next()){if(r){t(e,r,i.value[1],i.value[0],this)}else{e(i.value[1],i.value[0],this)}}}});ee(u,u.entries);return a}(),Set:function(){var e=function isSet(e){return e._es6set&&typeof e._storage!=="undefined"};var r=function requireSetSlot(t,r){if(!oe.TypeIsObject(t)||!e(t)){throw new TypeError("Set.prototype."+r+" called on incompatible receiver "+String(t))}};var n=function Set(){if(!(this instanceof Set)){throw new TypeError('Constructor Set requires "new"')}if(this&&this._es6set){throw new TypeError("Bad construction")}var e=ie(this,Set,o,{_es6set:true,"[[SetData]]":null,_storage:Bt()});if(!e._es6set){throw new TypeError("bad set")}if(arguments.length>0){$t(Set,e,arguments[0])}return e};var o=n.prototype;var i=function ensureMap(e){if(!e["[[SetData]]"]){var t=e["[[SetData]]"]=new Jt.Map;c(Object.keys(e._storage),function(e){if(e==="^null"){e=null}else if(e==="^undefined"){e=void 0}else{var r=e.charAt(0);if(r==="$"){e=N(e,1)}else if(r==="n"){e=+N(e,1)}else if(r==="b"){e=e==="btrue"}else{e=+e}}t.set(e,e)});e._storage=null}};V.getter(n.prototype,"size",function(){r(this,"size");i(this);return this["[[SetData]]"].size});b(n.prototype,{has:function has(e){r(this,"has");var t;if(this._storage&&(t=Ht(e))!==null){return!!this._storage[t]}i(this);return this["[[SetData]]"].has(e)},add:function add(e){r(this,"add");var t;if(this._storage&&(t=Ht(e))!==null){this._storage[t]=true;return this}i(this);this["[[SetData]]"].set(e,e);return this},"delete":function(e){r(this,"delete");var t;if(this._storage&&(t=Ht(e))!==null){var n=q(this._storage,t);return delete this._storage[t]&&n}i(this);return this["[[SetData]]"]["delete"](e)},clear:function clear(){r(this,"clear");if(this._storage){this._storage=Bt()}else{this["[[SetData]]"].clear()}},values:function values(){r(this,"values");i(this);return this["[[SetData]]"].values()},entries:function entries(){r(this,"entries");i(this);return this["[[SetData]]"].entries()},forEach:function forEach(e){r(this,"forEach");var n=arguments.length>1?arguments[1]:null;var o=this;i(o);this["[[SetData]]"].forEach(function(r,i){if(n){t(e,n,i,i,o)}else{e(i,i,o)}})}});g(n.prototype,"keys",n.prototype.values,true);ee(n.prototype,n.prototype.values);return n}()};if(S.Map||S.Set){var Ut=i(function(){return new Map([[1,2]]).get(1)===2});if(!Ut){var Kt=S.Map;S.Map=function Map(){if(!(this instanceof Map)){throw new TypeError('Constructor Map requires "new"')}var e=new Kt;if(arguments.length>0){Vt(Map,e,arguments[0])}Object.setPrototypeOf(e,S.Map.prototype);g(e,"constructor",Map,true);return e};S.Map.prototype=d(Kt.prototype);V.preserveToString(S.Map,Kt)}var Xt=new Map;var Zt=function(e){e["delete"](0);e["delete"](-0);e.set(0,3);e.get(-0,4);return e.get(0)===3&&e.get(-0)===4}(Xt);var Qt=Xt.set(1,2)===Xt;if(!Zt||!Qt){var Yt=Map.prototype.set;Q(Map.prototype,"set",function set(e,r){t(Yt,this,e===0?0:e,r);return this})}if(!Zt){var er=Map.prototype.get;var tr=Map.prototype.has;b(Map.prototype,{get:function get(e){return t(er,this,e===0?0:e)},has:function has(e){return t(tr,this,e===0?0:e)}},true);V.preserveToString(Map.prototype.get,er);V.preserveToString(Map.prototype.has,tr)}var rr=new Set;var nr=function(e){e["delete"](0);e.add(-0);return!e.has(0)}(rr);var or=rr.add(1)===rr;if(!nr||!or){var ir=Set.prototype.add;Set.prototype.add=function add(e){t(ir,this,e===0?0:e);return this};V.preserveToString(Set.prototype.add,ir)}if(!nr){var ar=Set.prototype.has;Set.prototype.has=function has(e){return t(ar,this,e===0?0:e)};V.preserveToString(Set.prototype.has,ar);var ur=Set.prototype["delete"];Set.prototype["delete"]=function SetDelete(e){return t(ur,this,e===0?0:e)};V.preserveToString(Set.prototype["delete"],ur)}var sr=m(S.Map,function(e){var t=new e([]);t.set(42,42);return t instanceof e});var fr=Object.setPrototypeOf&&!sr;var cr=function(){try{return!(S.Map()instanceof S.Map)}catch(e){return e instanceof TypeError}}();if(S.Map.length!==0||fr||!cr){var lr=S.Map;S.Map=function Map(){if(!(this instanceof Map)){throw new TypeError('Constructor Map requires "new"')}var e=new lr;if(arguments.length>0){Vt(Map,e,arguments[0])}Object.setPrototypeOf(e,Map.prototype);g(e,"constructor",Map,true);return e};S.Map.prototype=lr.prototype;V.preserveToString(S.Map,lr)}var pr=m(S.Set,function(e){var t=new e([]);t.add(42,42);return t instanceof e});var vr=Object.setPrototypeOf&&!pr;var yr=function(){try{return!(S.Set()instanceof S.Set)}catch(e){return e instanceof TypeError}}();if(S.Set.length!==0||vr||!yr){var hr=S.Set;S.Set=function Set(){if(!(this instanceof Set)){throw new TypeError('Constructor Set requires "new"')}var e=new hr;if(arguments.length>0){$t(Set,e,arguments[0])}Object.setPrototypeOf(e,Set.prototype);g(e,"constructor",Set,true);return e};S.Set.prototype=hr.prototype;V.preserveToString(S.Set,hr)}var gr=!i(function(){return(new Map).keys().next().done});if(typeof S.Map.prototype.clear!=="function"||(new S.Set).size!==0||(new S.Map).size!==0||typeof S.Map.prototype.keys!=="function"||typeof S.Set.prototype.keys!=="function"||typeof S.Map.prototype.forEach!=="function"||typeof S.Set.prototype.forEach!=="function"||a(S.Map)||a(S.Set)||typeof(new S.Map).keys().next!=="function"||gr||!sr){delete S.Map;delete S.Set;b(S,{Map:Jt.Map,Set:Jt.Set},true)}if(S.Set.prototype.keys!==S.Set.prototype.values){g(S.Set.prototype,"keys",S.Set.prototype.values,true)}ee(Object.getPrototypeOf((new S.Map).keys()));ee(Object.getPrototypeOf((new S.Set).keys()));if(f&&S.Set.prototype.has.name!=="has"){var br=S.Set.prototype.has;Q(S.Set.prototype,"has",function has(e){return t(br,this,e)})}}b(S,Jt);U(S.Map);U(S.Set)}if(!S.Reflect){g(S,"Reflect",{})}var dr=S.Reflect;var mr=function throwUnlessTargetIsObject(e){if(!oe.TypeIsObject(e)){throw new TypeError("target must be an object")}};var Or={apply:function apply(){return e(oe.Call,null,arguments)},construct:function construct(e,t){if(!oe.IsConstructor(e)){throw new TypeError("First argument must be a constructor.")}var r=arguments.length<3?e:arguments[2];if(!oe.IsConstructor(r)){throw new TypeError("new.target must be a constructor.")}return oe.Construct(e,t,r,"internal")},deleteProperty:function deleteProperty(e,t){mr(e);if(s){var r=Object.getOwnPropertyDescriptor(e,t);if(r&&!r.configurable){return false}}return delete e[t]},enumerate:function enumerate(e){mr(e);return new be(e,"key")},has:function has(e,t){mr(e);return t in e}};if(Object.getOwnPropertyNames){Object.assign(Or,{ownKeys:function ownKeys(e){mr(e);var t=Object.getOwnPropertyNames(e);if(oe.IsCallable(Object.getOwnPropertySymbols)){A(t,Object.getOwnPropertySymbols(e))}return t}})}var wr=function ConvertExceptionToBoolean(e){return!o(e)};if(Object.preventExtensions){Object.assign(Or,{isExtensible:function isExtensible(e){mr(e);return Object.isExtensible(e)},preventExtensions:function preventExtensions(e){mr(e);return wr(function(){Object.preventExtensions(e)})}})}if(s){var jr=function get(e,r,n){var o=Object.getOwnPropertyDescriptor(e,r);if(!o){var i=Object.getPrototypeOf(e);if(i===null){return undefined}return jr(i,r,n)}if("value"in o){return o.value}if(o.get){return t(o.get,n)}return undefined};var Sr=function set(e,r,n,o){var i=Object.getOwnPropertyDescriptor(e,r);if(!i){var a=Object.getPrototypeOf(e);if(a!==null){return Sr(a,r,n,o)}i={value:void 0,writable:true,enumerable:true,configurable:true}}if("value"in i){if(!i.writable){return false}if(!oe.TypeIsObject(o)){return false}var u=Object.getOwnPropertyDescriptor(o,r);if(u){return dr.defineProperty(o,r,{value:n})}else{return dr.defineProperty(o,r,{value:n,writable:true,enumerable:true,configurable:true})}}if(i.set){t(i.set,o,n);return true}return false};Object.assign(Or,{defineProperty:function defineProperty(e,t,r){mr(e);return wr(function(){Object.defineProperty(e,t,r)})},getOwnPropertyDescriptor:function getOwnPropertyDescriptor(e,t){mr(e);return Object.getOwnPropertyDescriptor(e,t)},get:function get(e,t){mr(e);var r=arguments.length>2?arguments[2]:e;return jr(e,t,r)},set:function set(e,t,r){mr(e);var n=arguments.length>3?arguments[3]:e;return Sr(e,t,r,n)}})}if(Object.getPrototypeOf){var Tr=Object.getPrototypeOf;Or.getPrototypeOf=function getPrototypeOf(e){mr(e);return Tr(e)}}if(Object.setPrototypeOf&&Or.getPrototypeOf){var Ir=function(e,t){while(t){if(e===t){return true}t=Or.getPrototypeOf(t)}return false};Object.assign(Or,{setPrototypeOf:function setPrototypeOf(e,t){mr(e);if(t!==null&&!oe.TypeIsObject(t)){throw new TypeError("proto must be an object or null")}if(t===dr.getPrototypeOf(e)){return true}if(dr.isExtensible&&!dr.isExtensible(e)){return false}if(Ir(e,t)){return false}Object.setPrototypeOf(e,t);return true}})}var Er=function(e,t){if(!oe.IsCallable(S.Reflect[e])){g(S.Reflect,e,t)}else{var r=i(function(){S.Reflect[e](1);S.Reflect[e](NaN);S.Reflect[e](true);return true});if(r){Q(S.Reflect,e,t)}}};Object.keys(Or).forEach(function(e){Er(e,Or[e])});if(f&&S.Reflect.getPrototypeOf.name!=="getPrototypeOf"){var Mr=S.Reflect.getPrototypeOf;Q(S.Reflect,"getPrototypeOf",function getPrototypeOf(e){return t(Mr,S.Reflect,e)})}if(S.Reflect.setPrototypeOf){if(i(function(){S.Reflect.setPrototypeOf(1,{});return true})){Q(S.Reflect,"setPrototypeOf",Or.setPrototypeOf)}}if(S.Reflect.defineProperty){if(!i(function(){var e=!S.Reflect.defineProperty(1,"test",{value:1});var t=typeof Object.preventExtensions!=="function"||!S.Reflect.defineProperty(Object.preventExtensions({}),"test",{});return e&&t})){Q(S.Reflect,"defineProperty",Or.defineProperty)}}if(S.Reflect.construct){if(!i(function(){var e=function F(){};return S.Reflect.construct(function(){},[],e)instanceof e})){Q(S.Reflect,"construct",Or.construct)}}if(String(new Date(NaN))!=="Invalid Date"){var Pr=Date.prototype.toString;var xr=function toString(){var e=+this;if(e!==e){return"Invalid Date"}return t(Pr,this)};Q(Date.prototype,"toString",xr)}var Nr={anchor:function anchor(e){return oe.CreateHTML(this,"a","name",e)},big:function big(){return oe.CreateHTML(this,"big","","")},blink:function blink(){return oe.CreateHTML(this,"blink","","")},bold:function bold(){return oe.CreateHTML(this,"b","","")},fixed:function fixed(){return oe.CreateHTML(this,"tt","","")},fontcolor:function fontcolor(e){return oe.CreateHTML(this,"font","color",e)},fontsize:function fontsize(e){return oe.CreateHTML(this,"font","size",e)},italics:function italics(){return oe.CreateHTML(this,"i","","")},link:function link(e){return oe.CreateHTML(this,"a","href",e)},small:function small(){return oe.CreateHTML(this,"small","","")},strike:function strike(){return oe.CreateHTML(this,"strike","","")},sub:function sub(){return oe.CreateHTML(this,"sub","","")},sup:function sub(){return oe.CreateHTML(this,"sup","","")}};c(Object.keys(Nr),function(e){var r=String.prototype[e];var n=false;if(oe.IsCallable(r)){var o=t(r,"",' " ');var i=x([],o.match(/"/g)).length;n=o!==o.toLowerCase()||i>2}else{n=true}if(n){Q(String.prototype,e,Nr[e])}});var Cr=function(){if(!K.symbol(H.iterator)){return false}var e=typeof JSON==="object"&&typeof JSON.stringify==="function"?JSON.stringify:null;if(!e){return false}if(typeof e(H())!=="undefined"){return true}if(e([H()])!=="[null]"){return true}var t={a:H()};t[H()]=true;if(e(t)!=="{}"){return true}return false}();var Ar=i(function(){if(!K.symbol(H.iterator)){return true}return JSON.stringify(Object(H()))==="{}"&&JSON.stringify([Object(H())])==="[{}]"});if(Cr||!Ar){var _r=JSON.stringify;Q(JSON,"stringify",function stringify(e){if(typeof e==="symbol"){return}var n;if(arguments.length>1){n=arguments[1]}var o=[e];if(!r(n)){var i=oe.IsCallable(n)?n:null;var a=function(e,r){var o=n?t(n,this,e,r):r;if(typeof o!=="symbol"){if(K.symbol(o)){return Be({})(o)}else{return o}}};o.push(a)}else{o.push(n)}if(arguments.length>2){o.push(arguments[2])}return _r.apply(this,o)})}return S});
 //# sourceMappingURL=es6-shim.map
 
+System.register('ionic/components', ['ionic/components/app/app', 'ionic/components/app/id', 'ionic/components/action-sheet/action-sheet', 'ionic/components/blur/blur', 'ionic/components/button/button', 'ionic/components/checkbox/checkbox', 'ionic/components/content/content', 'ionic/components/icon/icon', 'ionic/components/item/item', 'ionic/components/item/item-group', 'ionic/components/item/item-sliding', 'ionic/components/menu/menu', 'ionic/components/menu/menu-types', 'ionic/components/menu/menu-toggle', 'ionic/components/menu/menu-close', 'ionic/components/text-input/text-input', 'ionic/components/text-input/label', 'ionic/components/list/list', 'ionic/components/show-hide-when/show-hide-when', 'ionic/components/modal/modal', 'ionic/components/nav/nav', 'ionic/components/nav/nav-controller', 'ionic/components/nav/view-controller', 'ionic/components/nav/nav-push', 'ionic/components/nav/nav-router', 'ionic/components/navbar/navbar', 'ionic/components/overlay/overlay', 'ionic/components/popup/popup', 'ionic/components/slides/slides', 'ionic/components/radio/radio', 'ionic/components/scroll/scroll', 'ionic/components/scroll/pull-to-refresh', 'ionic/components/searchbar/searchbar', 'ionic/components/segment/segment', 'ionic/components/switch/switch', 'ionic/components/tabs/tabs', 'ionic/components/tabs/tab', 'ionic/components/tap-click/tap-click', 'ionic/components/toolbar/toolbar'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_ionicComponentsAppApp) {
+      for (var _key in _ionicComponentsAppApp) {
+        if (_key !== 'default') _export(_key, _ionicComponentsAppApp[_key]);
+      }
+    }, function (_ionicComponentsAppId) {
+      for (var _key2 in _ionicComponentsAppId) {
+        if (_key2 !== 'default') _export(_key2, _ionicComponentsAppId[_key2]);
+      }
+    }, function (_ionicComponentsActionSheetActionSheet) {
+      for (var _key3 in _ionicComponentsActionSheetActionSheet) {
+        if (_key3 !== 'default') _export(_key3, _ionicComponentsActionSheetActionSheet[_key3]);
+      }
+    }, function (_ionicComponentsBlurBlur) {
+      for (var _key4 in _ionicComponentsBlurBlur) {
+        if (_key4 !== 'default') _export(_key4, _ionicComponentsBlurBlur[_key4]);
+      }
+    }, function (_ionicComponentsButtonButton) {
+      for (var _key5 in _ionicComponentsButtonButton) {
+        if (_key5 !== 'default') _export(_key5, _ionicComponentsButtonButton[_key5]);
+      }
+    }, function (_ionicComponentsCheckboxCheckbox) {
+      for (var _key6 in _ionicComponentsCheckboxCheckbox) {
+        if (_key6 !== 'default') _export(_key6, _ionicComponentsCheckboxCheckbox[_key6]);
+      }
+    }, function (_ionicComponentsContentContent) {
+      for (var _key7 in _ionicComponentsContentContent) {
+        if (_key7 !== 'default') _export(_key7, _ionicComponentsContentContent[_key7]);
+      }
+    }, function (_ionicComponentsIconIcon) {
+      for (var _key8 in _ionicComponentsIconIcon) {
+        if (_key8 !== 'default') _export(_key8, _ionicComponentsIconIcon[_key8]);
+      }
+    }, function (_ionicComponentsItemItem) {
+      for (var _key9 in _ionicComponentsItemItem) {
+        if (_key9 !== 'default') _export(_key9, _ionicComponentsItemItem[_key9]);
+      }
+    }, function (_ionicComponentsItemItemGroup) {
+      for (var _key10 in _ionicComponentsItemItemGroup) {
+        if (_key10 !== 'default') _export(_key10, _ionicComponentsItemItemGroup[_key10]);
+      }
+    }, function (_ionicComponentsItemItemSliding) {
+      for (var _key11 in _ionicComponentsItemItemSliding) {
+        if (_key11 !== 'default') _export(_key11, _ionicComponentsItemItemSliding[_key11]);
+      }
+    }, function (_ionicComponentsMenuMenu) {
+      for (var _key12 in _ionicComponentsMenuMenu) {
+        if (_key12 !== 'default') _export(_key12, _ionicComponentsMenuMenu[_key12]);
+      }
+    }, function (_ionicComponentsMenuMenuTypes) {
+      for (var _key13 in _ionicComponentsMenuMenuTypes) {
+        if (_key13 !== 'default') _export(_key13, _ionicComponentsMenuMenuTypes[_key13]);
+      }
+    }, function (_ionicComponentsMenuMenuToggle) {
+      for (var _key14 in _ionicComponentsMenuMenuToggle) {
+        if (_key14 !== 'default') _export(_key14, _ionicComponentsMenuMenuToggle[_key14]);
+      }
+    }, function (_ionicComponentsMenuMenuClose) {
+      for (var _key15 in _ionicComponentsMenuMenuClose) {
+        if (_key15 !== 'default') _export(_key15, _ionicComponentsMenuMenuClose[_key15]);
+      }
+    }, function (_ionicComponentsTextInputTextInput) {
+      for (var _key16 in _ionicComponentsTextInputTextInput) {
+        if (_key16 !== 'default') _export(_key16, _ionicComponentsTextInputTextInput[_key16]);
+      }
+    }, function (_ionicComponentsTextInputLabel) {
+      for (var _key17 in _ionicComponentsTextInputLabel) {
+        if (_key17 !== 'default') _export(_key17, _ionicComponentsTextInputLabel[_key17]);
+      }
+    }, function (_ionicComponentsListList) {
+      for (var _key18 in _ionicComponentsListList) {
+        if (_key18 !== 'default') _export(_key18, _ionicComponentsListList[_key18]);
+      }
+    }, function (_ionicComponentsShowHideWhenShowHideWhen) {
+      for (var _key19 in _ionicComponentsShowHideWhenShowHideWhen) {
+        if (_key19 !== 'default') _export(_key19, _ionicComponentsShowHideWhenShowHideWhen[_key19]);
+      }
+    }, function (_ionicComponentsModalModal) {
+      for (var _key20 in _ionicComponentsModalModal) {
+        if (_key20 !== 'default') _export(_key20, _ionicComponentsModalModal[_key20]);
+      }
+    }, function (_ionicComponentsNavNav) {
+      for (var _key21 in _ionicComponentsNavNav) {
+        if (_key21 !== 'default') _export(_key21, _ionicComponentsNavNav[_key21]);
+      }
+    }, function (_ionicComponentsNavNavController) {
+      for (var _key22 in _ionicComponentsNavNavController) {
+        if (_key22 !== 'default') _export(_key22, _ionicComponentsNavNavController[_key22]);
+      }
+    }, function (_ionicComponentsNavViewController) {
+      for (var _key23 in _ionicComponentsNavViewController) {
+        if (_key23 !== 'default') _export(_key23, _ionicComponentsNavViewController[_key23]);
+      }
+    }, function (_ionicComponentsNavNavPush) {
+      for (var _key24 in _ionicComponentsNavNavPush) {
+        if (_key24 !== 'default') _export(_key24, _ionicComponentsNavNavPush[_key24]);
+      }
+    }, function (_ionicComponentsNavNavRouter) {
+      for (var _key25 in _ionicComponentsNavNavRouter) {
+        if (_key25 !== 'default') _export(_key25, _ionicComponentsNavNavRouter[_key25]);
+      }
+    }, function (_ionicComponentsNavbarNavbar) {
+      for (var _key26 in _ionicComponentsNavbarNavbar) {
+        if (_key26 !== 'default') _export(_key26, _ionicComponentsNavbarNavbar[_key26]);
+      }
+    }, function (_ionicComponentsOverlayOverlay) {
+      for (var _key27 in _ionicComponentsOverlayOverlay) {
+        if (_key27 !== 'default') _export(_key27, _ionicComponentsOverlayOverlay[_key27]);
+      }
+    }, function (_ionicComponentsPopupPopup) {
+      for (var _key28 in _ionicComponentsPopupPopup) {
+        if (_key28 !== 'default') _export(_key28, _ionicComponentsPopupPopup[_key28]);
+      }
+    }, function (_ionicComponentsSlidesSlides) {
+      for (var _key29 in _ionicComponentsSlidesSlides) {
+        if (_key29 !== 'default') _export(_key29, _ionicComponentsSlidesSlides[_key29]);
+      }
+    }, function (_ionicComponentsRadioRadio) {
+      for (var _key30 in _ionicComponentsRadioRadio) {
+        if (_key30 !== 'default') _export(_key30, _ionicComponentsRadioRadio[_key30]);
+      }
+    }, function (_ionicComponentsScrollScroll) {
+      for (var _key31 in _ionicComponentsScrollScroll) {
+        if (_key31 !== 'default') _export(_key31, _ionicComponentsScrollScroll[_key31]);
+      }
+    }, function (_ionicComponentsScrollPullToRefresh) {
+      for (var _key32 in _ionicComponentsScrollPullToRefresh) {
+        if (_key32 !== 'default') _export(_key32, _ionicComponentsScrollPullToRefresh[_key32]);
+      }
+    }, function (_ionicComponentsSearchbarSearchbar) {
+      for (var _key33 in _ionicComponentsSearchbarSearchbar) {
+        if (_key33 !== 'default') _export(_key33, _ionicComponentsSearchbarSearchbar[_key33]);
+      }
+    }, function (_ionicComponentsSegmentSegment) {
+      for (var _key34 in _ionicComponentsSegmentSegment) {
+        if (_key34 !== 'default') _export(_key34, _ionicComponentsSegmentSegment[_key34]);
+      }
+    }, function (_ionicComponentsSwitchSwitch) {
+      for (var _key35 in _ionicComponentsSwitchSwitch) {
+        if (_key35 !== 'default') _export(_key35, _ionicComponentsSwitchSwitch[_key35]);
+      }
+    }, function (_ionicComponentsTabsTabs) {
+      for (var _key36 in _ionicComponentsTabsTabs) {
+        if (_key36 !== 'default') _export(_key36, _ionicComponentsTabsTabs[_key36]);
+      }
+    }, function (_ionicComponentsTabsTab) {
+      for (var _key37 in _ionicComponentsTabsTab) {
+        if (_key37 !== 'default') _export(_key37, _ionicComponentsTabsTab[_key37]);
+      }
+    }, function (_ionicComponentsTapClickTapClick) {
+      for (var _key38 in _ionicComponentsTapClickTapClick) {
+        if (_key38 !== 'default') _export(_key38, _ionicComponentsTapClickTapClick[_key38]);
+      }
+    }, function (_ionicComponentsToolbarToolbar) {
+      for (var _key39 in _ionicComponentsToolbarToolbar) {
+        if (_key39 !== 'default') _export(_key39, _ionicComponentsToolbarToolbar[_key39]);
+      }
+    }],
+    execute: function () {}
+  };
+});
+System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './components', './platform/platform', './platform/registry', './platform/plugins', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_configBootstrap) {
+      for (var _key in _configBootstrap) {
+        if (_key !== 'default') _export(_key, _configBootstrap[_key]);
+      }
+    }, function (_configConfig) {
+      for (var _key2 in _configConfig) {
+        if (_key2 !== 'default') _export(_key2, _configConfig[_key2]);
+      }
+    }, function (_configModes) {
+      for (var _key3 in _configModes) {
+        if (_key3 !== 'default') _export(_key3, _configModes[_key3]);
+      }
+    }, function (_configDecorators) {
+      for (var _key4 in _configDecorators) {
+        if (_key4 !== 'default') _export(_key4, _configDecorators[_key4]);
+      }
+    }, function (_components) {
+      for (var _key5 in _components) {
+        if (_key5 !== 'default') _export(_key5, _components[_key5]);
+      }
+    }, function (_platformPlatform) {
+      for (var _key6 in _platformPlatform) {
+        if (_key6 !== 'default') _export(_key6, _platformPlatform[_key6]);
+      }
+    }, function (_platformRegistry) {
+      for (var _key7 in _platformRegistry) {
+        if (_key7 !== 'default') _export(_key7, _platformRegistry[_key7]);
+      }
+    }, function (_platformPlugins) {
+      for (var _key8 in _platformPlugins) {
+        if (_key8 !== 'default') _export(_key8, _platformPlugins[_key8]);
+      }
+
+      for (var _key17 in _platformPlugins) {
+        if (_key17 !== 'default') _export(_key17, _platformPlugins[_key17]);
+      }
+    }, function (_platformStorage) {
+      for (var _key9 in _platformStorage) {
+        if (_key9 !== 'default') _export(_key9, _platformStorage[_key9]);
+      }
+    }, function (_utilClickBlock) {
+      for (var _key10 in _utilClickBlock) {
+        if (_key10 !== 'default') _export(_key10, _utilClickBlock[_key10]);
+      }
+    }, function (_utilEvents) {
+      for (var _key11 in _utilEvents) {
+        if (_key11 !== 'default') _export(_key11, _utilEvents[_key11]);
+      }
+    }, function (_animationsAnimation) {
+      for (var _key12 in _animationsAnimation) {
+        if (_key12 !== 'default') _export(_key12, _animationsAnimation[_key12]);
+      }
+    }, function (_animationsBuiltins) {
+      for (var _key13 in _animationsBuiltins) {
+        if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
+      }
+    }, function (_transitionsTransition) {
+      for (var _key14 in _transitionsTransition) {
+        if (_key14 !== 'default') _export(_key14, _transitionsTransition[_key14]);
+      }
+    }, function (_transitionsIosTransition) {
+      for (var _key15 in _transitionsIosTransition) {
+        if (_key15 !== 'default') _export(_key15, _transitionsIosTransition[_key15]);
+      }
+    }, function (_transitionsMdTransition) {
+      for (var _key16 in _transitionsMdTransition) {
+        if (_key16 !== 'default') _export(_key16, _transitionsMdTransition[_key16]);
+      }
+    }, function (_translationTranslate) {
+      for (var _key18 in _translationTranslate) {
+        if (_key18 !== 'default') _export(_key18, _translationTranslate[_key18]);
+      }
+    }, function (_translationTranslate_pipe) {
+      for (var _key19 in _translationTranslate_pipe) {
+        if (_key19 !== 'default') _export(_key19, _translationTranslate_pipe[_key19]);
+      }
+    }],
+    execute: function () {}
+  };
+});
+System.register('ionic/util', ['ionic/util/dom', 'ionic/util/util'], function (_export) {
+  'use strict';
+
+  var domUtil, dom;
+  return {
+    setters: [function (_ionicUtilDom) {
+      domUtil = _ionicUtilDom;
+    }, function (_ionicUtilUtil) {
+      for (var _key in _ionicUtilUtil) {
+        if (_key !== 'default') _export(_key, _ionicUtilUtil[_key]);
+      }
+    }],
+    execute: function () {
+      dom = domUtil;
+
+      _export('dom', dom);
+    }
+  };
+});
 System.register('ionic/animations/animation', ['../util/dom', '../util/util'], function (_export) {
     /**
       Animation Steps/Process
@@ -4324,281 +4591,6 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
-System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
-    'use strict';
-
-    var Transition, Animation, DURATION, EASING, OPACITY, TRANSLATEX, OFF_RIGHT, OFF_LEFT, CENTER, OFF_OPACITY, SHOW_BACK_BTN_CSS, IOSTransition;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_transition) {
-            Transition = _transition.Transition;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }],
-        execute: function () {
-            DURATION = 550;
-            EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
-            OPACITY = 'opacity';
-            TRANSLATEX = 'translateX';
-            OFF_RIGHT = '99.5%';
-            OFF_LEFT = '-33%';
-            CENTER = '0%';
-            OFF_OPACITY = 0.8;
-            SHOW_BACK_BTN_CSS = 'show-back-button';
-
-            IOSTransition = (function (_Animation) {
-                _inherits(IOSTransition, _Animation);
-
-                function IOSTransition(navCtrl, opts) {
-                    _classCallCheck(this, IOSTransition);
-
-                    _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, null, opts);
-                    this.duration(DURATION);
-                    this.easing(EASING);
-                    // what direction is the transition going
-                    var backDirection = opts.direction === 'back';
-                    // get entering/leaving views
-                    var enteringView = navCtrl.getStagedEnteringView();
-                    var leavingView = navCtrl.getStagedLeavingView();
-                    // do they have navbars?
-                    var enteringHasNavbar = enteringView.hasNavbar();
-                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-                    var enteringPage = new Animation(enteringView.pageRef());
-                    enteringPage.before.addClass('show-page');
-                    this.add(enteringPage);
-                    // entering content
-                    var enteringContent = new Animation(enteringView.contentRef());
-                    this.add(enteringContent);
-                    if (backDirection) {
-                        // entering content, back direction
-                        enteringContent.fromTo(TRANSLATEX, OFF_LEFT, CENTER).fromTo(OPACITY, OFF_OPACITY, 1);
-                    } else {
-                        // entering content, forward direction
-                        enteringContent.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
-                    }
-                    if (enteringHasNavbar) {
-                        // entering page has a navbar
-                        var enteringNavBar = new Animation(enteringView.navbarRef());
-                        this.add(enteringNavBar);
-                        var enteringTitle = new Animation(enteringView.titleRef());
-                        var enteringNavbarItems = new Animation(enteringView.navbarItemRefs());
-                        var enteringNavbarBg = new Animation(enteringView.navbarBgRef());
-                        var enteringBackButton = new Animation(enteringView.backBtnRef());
-                        enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
-                        enteringTitle.fadeIn();
-                        enteringNavbarItems.fadeIn();
-                        // set properties depending on direction
-                        if (backDirection) {
-                            // entering navbar, back direction
-                            enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
-                            if (enteringView.enableBack()) {
-                                // back direction, entering page has a back button
-                                enteringBackButton.fadeIn();
-                            }
-                        } else {
-                            // entering navbar, forward direction
-                            enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
-                            if (leavingHasNavbar) {
-                                // entering navbar, forward direction, and there's a leaving navbar
-                                // should just fade in, no sliding
-                                enteringNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeIn();
-                            } else {
-                                // entering navbar, forward direction, and there's no leaving navbar
-                                // should just slide in, no fading in
-                                enteringNavbarBg.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
-                            }
-                            if (enteringView.enableBack()) {
-                                // forward direction, entering page has a back button
-                                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS).fadeIn();
-                                var enteringBackBtnText = new Animation(enteringView.backBtnTextRef());
-                                enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
-                                enteringNavBar.add(enteringBackBtnText);
-                            } else {
-                                enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
-                            }
-                        }
-                    }
-                    // setup leaving view
-                    if (leavingView) {
-                        // leaving content
-                        var leavingContent = new Animation(leavingView.contentRef());
-                        this.add(leavingContent);
-                        if (backDirection) {
-                            // leaving content, back direction
-                            leavingContent.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
-                        } else {
-                            // leaving content, forward direction
-                            leavingContent.fromTo(TRANSLATEX, CENTER, OFF_LEFT).fromTo(OPACITY, 1, OFF_OPACITY);
-                        }
-                        if (leavingHasNavbar) {
-                            // leaving page has a navbar
-                            var leavingNavBar = new Animation(leavingView.navbarRef());
-                            var leavingBackButton = new Animation(leavingView.backBtnRef());
-                            var leavingTitle = new Animation(leavingView.titleRef());
-                            var leavingNavbarItems = new Animation(leavingView.navbarItemRefs());
-                            var leavingNavbarBg = new Animation(leavingView.navbarBgRef());
-                            leavingNavBar.add(leavingBackButton).add(leavingTitle).add(leavingNavbarItems).add(leavingNavbarBg);
-                            this.add(leavingNavBar);
-                            // fade out leaving navbar items
-                            leavingBackButton.fadeOut();
-                            leavingTitle.fadeOut();
-                            leavingNavbarItems.fadeOut();
-                            if (backDirection) {
-                                // leaving navbar, back direction
-                                leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
-                                if (enteringHasNavbar) {
-                                    // leaving navbar, back direction, and there's an entering navbar
-                                    // should just fade out, no sliding
-                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeOut();
-                                } else {
-                                    // leaving navbar, back direction, and there's no entering navbar
-                                    // should just slide out, no fading out
-                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
-                                }
-                                var leavingBackBtnText = new Animation(leavingView.backBtnTextRef());
-                                leavingBackBtnText.fromTo(TRANSLATEX, CENTER, 300 + 'px');
-                                leavingNavBar.add(leavingBackBtnText);
-                            } else {
-                                // leaving navbar, forward direction
-                                leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
-                            }
-                        }
-                    }
-                }
-
-                return IOSTransition;
-            })(Animation);
-
-            Transition.register('ios', IOSTransition);
-        }
-    };
-});
-System.register('ionic/transitions/md-transition', ['./transition', '../animations/animation'], function (_export) {
-    'use strict';
-
-    var Transition, Animation, TRANSLATEY, OFF_BOTTOM, CENTER, SHOW_BACK_BTN_CSS, MDTransition;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_transition) {
-            Transition = _transition.Transition;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }],
-        execute: function () {
-            TRANSLATEY = 'translateY';
-            OFF_BOTTOM = '40px';
-            CENTER = '0px';
-            SHOW_BACK_BTN_CSS = 'show-back-button';
-
-            MDTransition = (function (_Animation) {
-                _inherits(MDTransition, _Animation);
-
-                function MDTransition(navCtrl, opts) {
-                    _classCallCheck(this, MDTransition);
-
-                    //opts.renderDelay = 80;
-                    _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
-                    // what direction is the transition going
-                    var backDirection = opts.direction === 'back';
-                    // get entering/leaving views
-                    var enteringView = navCtrl.getStagedEnteringView();
-                    var leavingView = navCtrl.getStagedLeavingView();
-                    // do they have navbars?
-                    var enteringHasNavbar = enteringView.hasNavbar();
-                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-                    // entering content item moves in bottom to center
-                    var enteringPage = new Animation(enteringView.pageRef());
-                    enteringPage.before.addClass('show-page');
-                    this.add(enteringPage);
-                    if (backDirection) {
-                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                        enteringPage.fromTo(TRANSLATEY, CENTER, CENTER);
-                    } else {
-                        this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
-                        enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
-                    }
-                    if (enteringHasNavbar) {
-                        var enteringBackButton = new Animation(enteringView.backBtnRef());
-                        this.add(enteringBackButton);
-                        if (enteringView.enableBack()) {
-                            enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
-                        } else {
-                            enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
-                        }
-                    }
-                    // setup leaving view
-                    if (leavingView && backDirection) {
-                        // leaving content
-                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                        var leavingPage = new Animation(leavingView.pageRef());
-                        this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut());
-                    }
-                }
-
-                return MDTransition;
-            })(Animation);
-
-            Transition.register('md', MDTransition);
-        }
-    };
-});
-System.register('ionic/transitions/transition', [], function (_export) {
-    'use strict';
-
-    var Transition, transitionRegistry;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [],
-        execute: function () {
-            Transition = (function () {
-                function Transition() {
-                    _classCallCheck(this, Transition);
-                }
-
-                _createClass(Transition, null, [{
-                    key: 'create',
-                    value: function create(navCtrl) {
-                        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-                        var name = opts.animation || 'ios';
-                        var TransitionClass = transitionRegistry[name];
-                        if (!TransitionClass) {
-                            TransitionClass = transitionRegistry.ios;
-                        }
-                        return new TransitionClass(navCtrl, opts);
-                    }
-                }, {
-                    key: 'register',
-                    value: function register(name, TransitionClass) {
-                        transitionRegistry[name] = TransitionClass;
-                    }
-                }]);
-
-                return Transition;
-            })();
-
-            _export('Transition', Transition);
-
-            transitionRegistry = {};
-        }
-    };
-});
 System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
     /**
     +* @ngdoc service
@@ -5680,6 +5672,281 @@ System.register("ionic/translation/translate_pipe", ["angular2/angular2", "./tra
             _export("TranslatePipe", TranslatePipe);
 
             _export("TranslatePipe", TranslatePipe = __decorate([Pipe({ name: 'translate' }), Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof Translate !== 'undefined' && Translate) === 'function' && _a || Object])], TranslatePipe));
+        }
+    };
+});
+System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
+    'use strict';
+
+    var Transition, Animation, DURATION, EASING, OPACITY, TRANSLATEX, OFF_RIGHT, OFF_LEFT, CENTER, OFF_OPACITY, SHOW_BACK_BTN_CSS, IOSTransition;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_transition) {
+            Transition = _transition.Transition;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }],
+        execute: function () {
+            DURATION = 550;
+            EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
+            OPACITY = 'opacity';
+            TRANSLATEX = 'translateX';
+            OFF_RIGHT = '99.5%';
+            OFF_LEFT = '-33%';
+            CENTER = '0%';
+            OFF_OPACITY = 0.8;
+            SHOW_BACK_BTN_CSS = 'show-back-button';
+
+            IOSTransition = (function (_Animation) {
+                _inherits(IOSTransition, _Animation);
+
+                function IOSTransition(navCtrl, opts) {
+                    _classCallCheck(this, IOSTransition);
+
+                    _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, null, opts);
+                    this.duration(DURATION);
+                    this.easing(EASING);
+                    // what direction is the transition going
+                    var backDirection = opts.direction === 'back';
+                    // get entering/leaving views
+                    var enteringView = navCtrl.getStagedEnteringView();
+                    var leavingView = navCtrl.getStagedLeavingView();
+                    // do they have navbars?
+                    var enteringHasNavbar = enteringView.hasNavbar();
+                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+                    var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
+                    this.add(enteringPage);
+                    // entering content
+                    var enteringContent = new Animation(enteringView.contentRef());
+                    this.add(enteringContent);
+                    if (backDirection) {
+                        // entering content, back direction
+                        enteringContent.fromTo(TRANSLATEX, OFF_LEFT, CENTER).fromTo(OPACITY, OFF_OPACITY, 1);
+                    } else {
+                        // entering content, forward direction
+                        enteringContent.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
+                    }
+                    if (enteringHasNavbar) {
+                        // entering page has a navbar
+                        var enteringNavBar = new Animation(enteringView.navbarRef());
+                        this.add(enteringNavBar);
+                        var enteringTitle = new Animation(enteringView.titleRef());
+                        var enteringNavbarItems = new Animation(enteringView.navbarItemRefs());
+                        var enteringNavbarBg = new Animation(enteringView.navbarBgRef());
+                        var enteringBackButton = new Animation(enteringView.backBtnRef());
+                        enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
+                        enteringTitle.fadeIn();
+                        enteringNavbarItems.fadeIn();
+                        // set properties depending on direction
+                        if (backDirection) {
+                            // entering navbar, back direction
+                            enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+                            if (enteringView.enableBack()) {
+                                // back direction, entering page has a back button
+                                enteringBackButton.fadeIn();
+                            }
+                        } else {
+                            // entering navbar, forward direction
+                            enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
+                            if (leavingHasNavbar) {
+                                // entering navbar, forward direction, and there's a leaving navbar
+                                // should just fade in, no sliding
+                                enteringNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeIn();
+                            } else {
+                                // entering navbar, forward direction, and there's no leaving navbar
+                                // should just slide in, no fading in
+                                enteringNavbarBg.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
+                            }
+                            if (enteringView.enableBack()) {
+                                // forward direction, entering page has a back button
+                                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS).fadeIn();
+                                var enteringBackBtnText = new Animation(enteringView.backBtnTextRef());
+                                enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
+                                enteringNavBar.add(enteringBackBtnText);
+                            } else {
+                                enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
+                            }
+                        }
+                    }
+                    // setup leaving view
+                    if (leavingView) {
+                        // leaving content
+                        var leavingContent = new Animation(leavingView.contentRef());
+                        this.add(leavingContent);
+                        if (backDirection) {
+                            // leaving content, back direction
+                            leavingContent.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
+                        } else {
+                            // leaving content, forward direction
+                            leavingContent.fromTo(TRANSLATEX, CENTER, OFF_LEFT).fromTo(OPACITY, 1, OFF_OPACITY);
+                        }
+                        if (leavingHasNavbar) {
+                            // leaving page has a navbar
+                            var leavingNavBar = new Animation(leavingView.navbarRef());
+                            var leavingBackButton = new Animation(leavingView.backBtnRef());
+                            var leavingTitle = new Animation(leavingView.titleRef());
+                            var leavingNavbarItems = new Animation(leavingView.navbarItemRefs());
+                            var leavingNavbarBg = new Animation(leavingView.navbarBgRef());
+                            leavingNavBar.add(leavingBackButton).add(leavingTitle).add(leavingNavbarItems).add(leavingNavbarBg);
+                            this.add(leavingNavBar);
+                            // fade out leaving navbar items
+                            leavingBackButton.fadeOut();
+                            leavingTitle.fadeOut();
+                            leavingNavbarItems.fadeOut();
+                            if (backDirection) {
+                                // leaving navbar, back direction
+                                leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
+                                if (enteringHasNavbar) {
+                                    // leaving navbar, back direction, and there's an entering navbar
+                                    // should just fade out, no sliding
+                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeOut();
+                                } else {
+                                    // leaving navbar, back direction, and there's no entering navbar
+                                    // should just slide out, no fading out
+                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
+                                }
+                                var leavingBackBtnText = new Animation(leavingView.backBtnTextRef());
+                                leavingBackBtnText.fromTo(TRANSLATEX, CENTER, 300 + 'px');
+                                leavingNavBar.add(leavingBackBtnText);
+                            } else {
+                                // leaving navbar, forward direction
+                                leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
+                            }
+                        }
+                    }
+                }
+
+                return IOSTransition;
+            })(Animation);
+
+            Transition.register('ios', IOSTransition);
+        }
+    };
+});
+System.register('ionic/transitions/md-transition', ['./transition', '../animations/animation'], function (_export) {
+    'use strict';
+
+    var Transition, Animation, TRANSLATEY, OFF_BOTTOM, CENTER, SHOW_BACK_BTN_CSS, MDTransition;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_transition) {
+            Transition = _transition.Transition;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }],
+        execute: function () {
+            TRANSLATEY = 'translateY';
+            OFF_BOTTOM = '40px';
+            CENTER = '0px';
+            SHOW_BACK_BTN_CSS = 'show-back-button';
+
+            MDTransition = (function (_Animation) {
+                _inherits(MDTransition, _Animation);
+
+                function MDTransition(navCtrl, opts) {
+                    _classCallCheck(this, MDTransition);
+
+                    //opts.renderDelay = 80;
+                    _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
+                    // what direction is the transition going
+                    var backDirection = opts.direction === 'back';
+                    // get entering/leaving views
+                    var enteringView = navCtrl.getStagedEnteringView();
+                    var leavingView = navCtrl.getStagedLeavingView();
+                    // do they have navbars?
+                    var enteringHasNavbar = enteringView.hasNavbar();
+                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+                    // entering content item moves in bottom to center
+                    var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
+                    this.add(enteringPage);
+                    if (backDirection) {
+                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
+                        enteringPage.fromTo(TRANSLATEY, CENTER, CENTER);
+                    } else {
+                        this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
+                        enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
+                    }
+                    if (enteringHasNavbar) {
+                        var enteringBackButton = new Animation(enteringView.backBtnRef());
+                        this.add(enteringBackButton);
+                        if (enteringView.enableBack()) {
+                            enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+                        } else {
+                            enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
+                        }
+                    }
+                    // setup leaving view
+                    if (leavingView && backDirection) {
+                        // leaving content
+                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
+                        var leavingPage = new Animation(leavingView.pageRef());
+                        this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut());
+                    }
+                }
+
+                return MDTransition;
+            })(Animation);
+
+            Transition.register('md', MDTransition);
+        }
+    };
+});
+System.register('ionic/transitions/transition', [], function (_export) {
+    'use strict';
+
+    var Transition, transitionRegistry;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [],
+        execute: function () {
+            Transition = (function () {
+                function Transition() {
+                    _classCallCheck(this, Transition);
+                }
+
+                _createClass(Transition, null, [{
+                    key: 'create',
+                    value: function create(navCtrl) {
+                        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+                        var name = opts.animation || 'ios';
+                        var TransitionClass = transitionRegistry[name];
+                        if (!TransitionClass) {
+                            TransitionClass = transitionRegistry.ios;
+                        }
+                        return new TransitionClass(navCtrl, opts);
+                    }
+                }, {
+                    key: 'register',
+                    value: function register(name, TransitionClass) {
+                        transitionRegistry[name] = TransitionClass;
+                    }
+                }]);
+
+                return Transition;
+            })();
+
+            _export('Transition', Transition);
+
+            transitionRegistry = {};
         }
     };
 });
@@ -6988,6 +7255,285 @@ System.register('ionic/util/util', [], function (_export) {
         }
     };
 });
+System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../icon/icon", "../../animations/animation", "ionic/util"], function (_export) {
+    /**
+    * @ngdoc service
+    * @name ActionSheet
+    * @module ionic
+    * @description
+    * The ActionSheet is a modal menu with options to select based on an action.
+    */
+
+    /**
+     * @name ActionSheet
+     * @description
+     * The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
+     *
+     * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
+     *
+     * @usage
+     * ```ts
+     * openMenu() {
+     *
+     *   this.actionSheet.open({
+     *     buttons: [
+     *       { text: 'Share This' },
+     *       { text: 'Move' }
+     *     ],
+     *     destructiveText: 'Delete',
+     *     titleText: 'Modify your album',
+     *     cancelText: 'Cancel',
+     *     cancel: function() {
+     *       console.log('Canceled');
+     *     },
+     *     destructiveButtonClicked: () => {
+     *       console.log('Destructive clicked');
+     *     },
+     *     buttonClicked: function(index) {
+     *       console.log('Button clicked', index);
+     *       if(index == 1) { return false; }
+     *       return true;
+     *     }
+     *
+     *   }).then(actionSheetRef => {
+     *     this.actionSheetRef = actionSheetRef;
+     *   });
+     *
+     * }
+     * ```
+     */
+    "use strict";
+
+    var Component, Injectable, NgFor, NgIf, OverlayController, Config, Icon, Animation, util, __decorate, __metadata, ActionSheetCmp, ActionSheet, OVERLAY_TYPE, ActionSheetAnimation, ActionSheetSlideIn, ActionSheetSlideOut, ActionSheetMdSlideIn, ActionSheetMdSlideOut, _a, _b;
+
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            Injectable = _angular2Angular2.Injectable;
+            NgFor = _angular2Angular2.NgFor;
+            NgIf = _angular2Angular2.NgIf;
+        }, function (_overlayOverlayController) {
+            OverlayController = _overlayOverlayController.OverlayController;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_iconIcon) {
+            Icon = _iconIcon.Icon;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            ActionSheetCmp = (function () {
+                function ActionSheetCmp() {
+                    _classCallCheck(this, ActionSheetCmp);
+                }
+
+                _createClass(ActionSheetCmp, [{
+                    key: "_cancel",
+                    value: function _cancel() {
+                        this.cancel && this.cancel();
+                        return this.close();
+                    }
+                }, {
+                    key: "_destructive",
+                    value: function _destructive() {
+                        var shouldClose = this.destructiveButtonClicked();
+                        if (shouldClose === true) {
+                            return this.close();
+                        }
+                    }
+                }, {
+                    key: "_buttonClicked",
+                    value: function _buttonClicked(index) {
+                        var shouldClose = this.buttonClicked(index);
+                        if (shouldClose === true) {
+                            return this.close();
+                        }
+                    }
+                }]);
+
+                return ActionSheetCmp;
+            })();
+
+            ActionSheetCmp = __decorate([Component({
+                selector: 'ion-action-sheet',
+                template: '<backdrop (click)="_cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(i)" *ng-for="#b of buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()" class=" disable-hover">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
+                host: {
+                    '[style.zIndex]': '_zIndex'
+                },
+                directives: [NgFor, NgIf, Icon]
+            }), __metadata('design:paramtypes', [])], ActionSheetCmp);
+
+            ActionSheet = (function () {
+                function ActionSheet(ctrl, config) {
+                    _classCallCheck(this, ActionSheet);
+
+                    this.ctrl = ctrl;
+                    this._defaults = {
+                        enterAnimation: config.get('actionSheetEnter'),
+                        leaveAnimation: config.get('actionSheetLeave'),
+                        cancelIcon: config.get('actionSheetCancelIcon'),
+                        destructiveIcon: config.get('actionSheetDestructiveIcon')
+                    };
+                }
+
+                /**
+                 * Create and open a new Action Sheet. This is the
+                 * public API, and most often you will only use ActionSheet.open()
+                 *
+                 * @param {Object} [opts={}]  TODO
+                 * @return {Promise} Promise that resolves when the action sheet is open.
+                 */
+
+                _createClass(ActionSheet, [{
+                    key: "open",
+                    value: function open() {
+                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                        return this.ctrl.open(OVERLAY_TYPE, ActionSheetCmp, util.extend(this._defaults, opts));
+                    }
+
+                    /**
+                     * TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: "get",
+                    value: function get(handle) {
+                        if (handle) {
+                            return this.ctrl.getByHandle(handle, OVERLAY_TYPE);
+                        }
+                        return this.ctrl.getByType(OVERLAY_TYPE);
+                    }
+                }]);
+
+                return ActionSheet;
+            })();
+
+            _export("ActionSheet", ActionSheet);
+
+            _export("ActionSheet", ActionSheet = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object])], ActionSheet));
+            OVERLAY_TYPE = 'action-sheet';
+
+            /**
+             * Animations for action sheet
+             */
+
+            ActionSheetAnimation = (function (_Animation) {
+                _inherits(ActionSheetAnimation, _Animation);
+
+                function ActionSheetAnimation(element) {
+                    _classCallCheck(this, ActionSheetAnimation);
+
+                    _get(Object.getPrototypeOf(ActionSheetAnimation.prototype), "constructor", this).call(this, element);
+                    this.easing('cubic-bezier(.36, .66, .04, 1)');
+                    this.backdrop = new Animation(element.querySelector('backdrop'));
+                    this.wrapper = new Animation(element.querySelector('action-sheet-wrapper'));
+                    this.add(this.backdrop, this.wrapper);
+                }
+
+                return ActionSheetAnimation;
+            })(Animation);
+
+            ActionSheetSlideIn = (function (_ActionSheetAnimation) {
+                _inherits(ActionSheetSlideIn, _ActionSheetAnimation);
+
+                function ActionSheetSlideIn(element) {
+                    _classCallCheck(this, ActionSheetSlideIn);
+
+                    _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, element);
+                    this.duration(400);
+                    this.backdrop.fromTo('opacity', 0.01, 0.4);
+                    this.wrapper.fromTo('translateY', '100%', '0%');
+                }
+
+                return ActionSheetSlideIn;
+            })(ActionSheetAnimation);
+
+            Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
+
+            ActionSheetSlideOut = (function (_ActionSheetAnimation2) {
+                _inherits(ActionSheetSlideOut, _ActionSheetAnimation2);
+
+                function ActionSheetSlideOut(element) {
+                    _classCallCheck(this, ActionSheetSlideOut);
+
+                    _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, element);
+                    this.duration(300);
+                    this.backdrop.fromTo('opacity', 0.4, 0.01);
+                    this.wrapper.fromTo('translateY', '0%', '100%');
+                }
+
+                return ActionSheetSlideOut;
+            })(ActionSheetAnimation);
+
+            Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
+
+            ActionSheetMdSlideIn = (function (_ActionSheetSlideIn) {
+                _inherits(ActionSheetMdSlideIn, _ActionSheetSlideIn);
+
+                function ActionSheetMdSlideIn(element) {
+                    _classCallCheck(this, ActionSheetMdSlideIn);
+
+                    _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, element);
+                    this.duration(450);
+                    this.backdrop.fromTo('opacity', 0.01, 0.26);
+                }
+
+                return ActionSheetMdSlideIn;
+            })(ActionSheetSlideIn);
+
+            Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+
+            ActionSheetMdSlideOut = (function (_ActionSheetSlideOut) {
+                _inherits(ActionSheetMdSlideOut, _ActionSheetSlideOut);
+
+                function ActionSheetMdSlideOut(element) {
+                    _classCallCheck(this, ActionSheetMdSlideOut);
+
+                    _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, element);
+                    this.duration(450);
+                    this.backdrop.fromTo('opacity', 0.26, 0.01);
+                }
+
+                return ActionSheetMdSlideOut;
+            })(ActionSheetSlideOut);
+
+            Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+        }
+    };
+});
 System.register('ionic/components/app/app', ['angular2/angular2', '../../util/click-block'], function (_export) {
     /**
      * Component registry service.  For more information on registering
@@ -7290,81 +7836,18 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
         }
     };
 });
-System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../icon/icon", "../../animations/animation", "ionic/util"], function (_export) {
-    /**
-    * @ngdoc service
-    * @name ActionSheet
-    * @module ionic
-    * @description
-    * The ActionSheet is a modal menu with options to select based on an action.
-    */
-
-    /**
-     * @name ActionSheet
-     * @description
-     * The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
-     *
-     * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
-     *
-     * @usage
-     * ```ts
-     * openMenu() {
-     *
-     *   this.actionSheet.open({
-     *     buttons: [
-     *       { text: 'Share This' },
-     *       { text: 'Move' }
-     *     ],
-     *     destructiveText: 'Delete',
-     *     titleText: 'Modify your album',
-     *     cancelText: 'Cancel',
-     *     cancel: function() {
-     *       console.log('Canceled');
-     *     },
-     *     destructiveButtonClicked: () => {
-     *       console.log('Destructive clicked');
-     *     },
-     *     buttonClicked: function(index) {
-     *       console.log('Button clicked', index);
-     *       if(index == 1) { return false; }
-     *       return true;
-     *     }
-     *
-     *   }).then(actionSheetRef => {
-     *     this.actionSheetRef = actionSheetRef;
-     *   });
-     *
-     * }
-     * ```
-     */
+System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
     "use strict";
 
-    var Component, Injectable, NgFor, NgIf, OverlayController, Config, Icon, Animation, util, __decorate, __metadata, ActionSheetCmp, ActionSheet, OVERLAY_TYPE, ActionSheetAnimation, ActionSheetSlideIn, ActionSheetSlideOut, ActionSheetMdSlideIn, ActionSheetMdSlideOut, _a, _b;
-
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
     return {
         setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            Injectable = _angular2Angular2.Injectable;
-            NgFor = _angular2Angular2.NgFor;
-            NgIf = _angular2Angular2.NgIf;
-        }, function (_overlayOverlayController) {
-            OverlayController = _overlayOverlayController.OverlayController;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_iconIcon) {
-            Icon = _iconIcon.Icon;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
+            Directive = _angular2Angular2.Directive;
+            Renderer = _angular2Angular2.Renderer;
+            ElementRef = _angular2Angular2.ElementRef;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -7389,183 +7872,19 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            ActionSheetCmp = (function () {
-                function ActionSheetCmp() {
-                    _classCallCheck(this, ActionSheetCmp);
-                }
+            Blur = function Blur(elementRef, renderer) {
+                _classCallCheck(this, Blur);
 
-                _createClass(ActionSheetCmp, [{
-                    key: "_cancel",
-                    value: function _cancel() {
-                        this.cancel && this.cancel();
-                        return this.close();
-                    }
-                }, {
-                    key: "_destructive",
-                    value: function _destructive() {
-                        var shouldClose = this.destructiveButtonClicked();
-                        if (shouldClose === true) {
-                            return this.close();
-                        }
-                    }
-                }, {
-                    key: "_buttonClicked",
-                    value: function _buttonClicked(index) {
-                        var shouldClose = this.buttonClicked(index);
-                        if (shouldClose === true) {
-                            return this.close();
-                        }
-                    }
-                }]);
+                this.elementRef = elementRef;
+                this.renderer = renderer;
+                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
+            };
 
-                return ActionSheetCmp;
-            })();
+            _export("Blur", Blur);
 
-            ActionSheetCmp = __decorate([Component({
-                selector: 'ion-action-sheet',
-                template: '<backdrop (click)="_cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(i)" *ng-for="#b of buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()" class=" disable-hover">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
-                host: {
-                    '[style.zIndex]': '_zIndex'
-                },
-                directives: [NgFor, NgIf, Icon]
-            }), __metadata('design:paramtypes', [])], ActionSheetCmp);
-
-            ActionSheet = (function () {
-                function ActionSheet(ctrl, config) {
-                    _classCallCheck(this, ActionSheet);
-
-                    this.ctrl = ctrl;
-                    this._defaults = {
-                        enterAnimation: config.get('actionSheetEnter'),
-                        leaveAnimation: config.get('actionSheetLeave'),
-                        cancelIcon: config.get('actionSheetCancelIcon'),
-                        destructiveIcon: config.get('actionSheetDestructiveIcon')
-                    };
-                }
-
-                /**
-                 * Create and open a new Action Sheet. This is the
-                 * public API, and most often you will only use ActionSheet.open()
-                 *
-                 * @param {Object} [opts={}]  TODO
-                 * @return {Promise} Promise that resolves when the action sheet is open.
-                 */
-
-                _createClass(ActionSheet, [{
-                    key: "open",
-                    value: function open() {
-                        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        return this.ctrl.open(OVERLAY_TYPE, ActionSheetCmp, util.extend(this._defaults, opts));
-                    }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: "get",
-                    value: function get(handle) {
-                        if (handle) {
-                            return this.ctrl.getByHandle(handle, OVERLAY_TYPE);
-                        }
-                        return this.ctrl.getByType(OVERLAY_TYPE);
-                    }
-                }]);
-
-                return ActionSheet;
-            })();
-
-            _export("ActionSheet", ActionSheet);
-
-            _export("ActionSheet", ActionSheet = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object])], ActionSheet));
-            OVERLAY_TYPE = 'action-sheet';
-
-            /**
-             * Animations for action sheet
-             */
-
-            ActionSheetAnimation = (function (_Animation) {
-                _inherits(ActionSheetAnimation, _Animation);
-
-                function ActionSheetAnimation(element) {
-                    _classCallCheck(this, ActionSheetAnimation);
-
-                    _get(Object.getPrototypeOf(ActionSheetAnimation.prototype), "constructor", this).call(this, element);
-                    this.easing('cubic-bezier(.36, .66, .04, 1)');
-                    this.backdrop = new Animation(element.querySelector('backdrop'));
-                    this.wrapper = new Animation(element.querySelector('action-sheet-wrapper'));
-                    this.add(this.backdrop, this.wrapper);
-                }
-
-                return ActionSheetAnimation;
-            })(Animation);
-
-            ActionSheetSlideIn = (function (_ActionSheetAnimation) {
-                _inherits(ActionSheetSlideIn, _ActionSheetAnimation);
-
-                function ActionSheetSlideIn(element) {
-                    _classCallCheck(this, ActionSheetSlideIn);
-
-                    _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, element);
-                    this.duration(400);
-                    this.backdrop.fromTo('opacity', 0.01, 0.4);
-                    this.wrapper.fromTo('translateY', '100%', '0%');
-                }
-
-                return ActionSheetSlideIn;
-            })(ActionSheetAnimation);
-
-            Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
-
-            ActionSheetSlideOut = (function (_ActionSheetAnimation2) {
-                _inherits(ActionSheetSlideOut, _ActionSheetAnimation2);
-
-                function ActionSheetSlideOut(element) {
-                    _classCallCheck(this, ActionSheetSlideOut);
-
-                    _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, element);
-                    this.duration(300);
-                    this.backdrop.fromTo('opacity', 0.4, 0.01);
-                    this.wrapper.fromTo('translateY', '0%', '100%');
-                }
-
-                return ActionSheetSlideOut;
-            })(ActionSheetAnimation);
-
-            Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
-
-            ActionSheetMdSlideIn = (function (_ActionSheetSlideIn) {
-                _inherits(ActionSheetMdSlideIn, _ActionSheetSlideIn);
-
-                function ActionSheetMdSlideIn(element) {
-                    _classCallCheck(this, ActionSheetMdSlideIn);
-
-                    _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, element);
-                    this.duration(450);
-                    this.backdrop.fromTo('opacity', 0.01, 0.26);
-                }
-
-                return ActionSheetMdSlideIn;
-            })(ActionSheetSlideIn);
-
-            Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
-
-            ActionSheetMdSlideOut = (function (_ActionSheetSlideOut) {
-                _inherits(ActionSheetMdSlideOut, _ActionSheetSlideOut);
-
-                function ActionSheetMdSlideOut(element) {
-                    _classCallCheck(this, ActionSheetMdSlideOut);
-
-                    _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, element);
-                    this.duration(450);
-                    this.backdrop.fromTo('opacity', 0.26, 0.01);
-                }
-
-                return ActionSheetMdSlideOut;
-            })(ActionSheetSlideOut);
-
-            Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+            _export("Blur", Blur = __decorate([Directive({
+                selector: '[ion-blur]'
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
         }
     };
 });
@@ -7670,58 +7989,6 @@ System.register("ionic/components/button/button", ["angular2/angular2", "../../c
             }), __param(3, Attribute('type')), __metadata('design:paramtypes', [typeof (_a = typeof Config !== 'undefined' && Config) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object, String])], Button));
             TEXT = 1;
             ICON = 2;
-        }
-    };
-});
-System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
-    "use strict";
-
-    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            Renderer = _angular2Angular2.Renderer;
-            ElementRef = _angular2Angular2.ElementRef;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Blur = function Blur(elementRef, renderer) {
-                _classCallCheck(this, Blur);
-
-                this.elementRef = elementRef;
-                this.renderer = renderer;
-                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
-            };
-
-            _export("Blur", Blur);
-
-            _export("Blur", Blur = __decorate([Directive({
-                selector: '[ion-blur]'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
         }
     };
 });
@@ -8681,6 +8948,290 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
         }
     };
 });
+System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
+    /**
+     * The List is a widely used interface element in almost any mobile app, and can include
+     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+     *
+     * Both the list, which contains items, and the list items themselves can be any HTML
+     * element.
+     *
+     * Using the List and Item components make it easy to support various
+     * interaction modes such as swipe to edit, drag to reorder, and removing items.
+     *
+     */
+    "use strict";
+
+    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_virtual) {
+            ListVirtualScroll = _virtual.ListVirtualScroll;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            List = (function (_Ion) {
+                _inherits(List, _Ion);
+
+                /**
+                 * TODO
+                 * @param {ElementRef} elementRef  TODO
+                 * @param {Config} config  TODO
+                 */
+
+                function List(elementRef, config, renderer) {
+                    _classCallCheck(this, List);
+
+                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
+                    renderer.setElementClass(elementRef, 'list', true);
+                    this.ele = elementRef.nativeElement;
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(List, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
+                        if (util.isDefined(this.virtual)) {
+                            console.log('Content', this.content);
+                            console.log('Virtual?', this.virtual);
+                            console.log('Items?', this.items.length, 'of \'em');
+                            this._initVirtualScrolling();
+                        }
+                    }
+
+                    /**
+                     * @private
+                     * TODO
+                     */
+                }, {
+                    key: "_initVirtualScrolling",
+                    value: function _initVirtualScrolling() {
+                        if (!this.content) {
+                            return;
+                        }
+                        this._virtualScrollingManager = new ListVirtualScroll(this);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} item  TODO
+                     */
+                }, {
+                    key: "setItemTemplate",
+                    value: function setItemTemplate(item) {
+                        this.itemTemplate = item;
+                    }
+
+                    /**
+                     * Keeps track of any open item (a sliding item, for example), to close it later
+                     */
+                }, {
+                    key: "setOpenItem",
+                    value: function setOpenItem(item) {
+                        this.openItem = item;
+                    }
+                }, {
+                    key: "closeOpenItem",
+                    value: function closeOpenItem() {
+                        if (this.openItem) {
+                            this.openItem.close(true);
+                            this.openItem = null;
+                        }
+                    }
+                }, {
+                    key: "getOpenItem",
+                    value: function getOpenItem() {
+                        return this.openItem;
+                    }
+                }]);
+
+                return List;
+            })(Ion);
+
+            _export("List", List);
+
+            _export("List", List = __decorate([Directive({
+                selector: 'ion-list',
+                inputs: ['items', 'virtual', 'content']
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
+            /**
+             * TODO
+             */
+
+            ListHeader = function ListHeader() {
+                _classCallCheck(this, ListHeader);
+            };
+
+            _export("ListHeader", ListHeader);
+
+            _export("ListHeader", ListHeader = __decorate([Directive({
+                selector: 'ion-header',
+                inputs: ['id'],
+                host: {
+                    '[attr.id]': 'id'
+                }
+            }), __metadata('design:paramtypes', [])], ListHeader));
+        }
+    };
+});
+System.register('ionic/components/list/virtual', [], function (_export) {
+    'use strict';
+
+    var ListVirtualScroll, VirtualItemRef;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [],
+        execute: function () {
+            ListVirtualScroll = (function () {
+                function ListVirtualScroll(list) {
+                    var _this = this;
+
+                    _classCallCheck(this, ListVirtualScroll);
+
+                    this.list = list;
+                    this.content = this.list.content;
+                    this.viewportHeight = this.content.height();
+                    this.viewContainer = this.list.itemTemplate.viewContainer;
+                    this.itemHeight = 60;
+                    this.shownItems = {};
+                    this.enteringItems = [];
+                    this.leavingItems = [];
+                    // Compute the initial sizes
+                    setTimeout(function () {
+                        _this.resize();
+                        // Simulate the first event to start layout
+                        _this._handleVirtualScroll({
+                            target: _this.content.scrollElement
+                        });
+                    });
+                    this.content.addScrollEventListener(function (event) {
+                        _this._handleVirtualScroll(event);
+                    });
+                }
+
+                _createClass(ListVirtualScroll, [{
+                    key: 'resize',
+                    value: function resize() {
+                        this.viewportHeight = this.content.height();
+                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
+                        this.virtualHeight = this.list.items.length * this.itemHeight;
+                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
+                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+                    }
+                }, {
+                    key: '_handleVirtualScroll',
+                    value: function _handleVirtualScroll(event) {
+                        var item = undefined;
+                        var shownItemRef = undefined;
+                        var st = event.target.scrollTop;
+                        var sh = event.target.scrollHeight;
+                        var topIndex = Math.floor(st / this.itemHeight);
+                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
+                        var items = this.list.items;
+                        // Key iterate the shown items map
+                        // and compare the index to our index range,
+                        // pushing the items to remove to our leaving
+                        // list if they're ouside this range.
+                        for (var i in this.shownItems) {
+                            if (i < topIndex || i > bottomIndex) {
+                                this.leavingItems.push(this.shownItems[i]);
+                                delete this.shownItems[i];
+                            }
+                        }
+                        var realIndex = 0;
+                        // Iterate the set of items that will be rendered, using the
+                        // index from the actual items list as the map for the
+                        // virtual items we draw
+                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
+                            item = items[i];
+                            console.log('Drawing item', i, item.title);
+                            shownItemRef = this.shownItems[i];
+                            // Is this a new item?
+                            if (!shownItemRef) {
+                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
+                                itemView.setLocal('\$implicit', item);
+                                itemView.setLocal('\$item', item);
+                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
+                                this.shownItems[i] = shownItemRef;
+                                this.enteringItems.push(shownItemRef);
+                            }
+                        }
+                        while (this.leavingItems.length) {
+                            var itemRef = this.leavingItems.pop();
+                            console.log('Removing item', itemRef.item, itemRef.realIndex);
+                            this.viewContainer.remove(itemRef.realIndex);
+                        }
+                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+                    }
+                }, {
+                    key: 'cellAtIndex',
+                    value: function cellAtIndex(index) {}
+                }]);
+
+                return ListVirtualScroll;
+            })();
+
+            _export('ListVirtualScroll', ListVirtualScroll);
+
+            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
+                _classCallCheck(this, VirtualItemRef);
+
+                this.item = item;
+                this.index = index;
+                this.realIndex = realIndex;
+                this.view = view;
+            };
+        }
+    };
+});
 System.register("ionic/components/item/item-group", ["angular2/angular2", "../content/content", "../../config/config"], function (_export) {
     /**
      * TODO
@@ -9181,290 +9732,6 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
                     '[class.item]': 'isItem'
                 }
             }), __metadata('design:paramtypes', [])], Item));
-        }
-    };
-});
-System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
-    /**
-     * The List is a widely used interface element in almost any mobile app, and can include
-     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
-     *
-     * Both the list, which contains items, and the list items themselves can be any HTML
-     * element.
-     *
-     * Using the List and Item components make it easy to support various
-     * interaction modes such as swipe to edit, drag to reorder, and removing items.
-     *
-     */
-    "use strict";
-
-    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_virtual) {
-            ListVirtualScroll = _virtual.ListVirtualScroll;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            List = (function (_Ion) {
-                _inherits(List, _Ion);
-
-                /**
-                 * TODO
-                 * @param {ElementRef} elementRef  TODO
-                 * @param {Config} config  TODO
-                 */
-
-                function List(elementRef, config, renderer) {
-                    _classCallCheck(this, List);
-
-                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
-                    renderer.setElementClass(elementRef, 'list', true);
-                    this.ele = elementRef.nativeElement;
-                }
-
-                /**
-                 * TODO
-                 */
-
-                _createClass(List, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
-                        if (util.isDefined(this.virtual)) {
-                            console.log('Content', this.content);
-                            console.log('Virtual?', this.virtual);
-                            console.log('Items?', this.items.length, 'of \'em');
-                            this._initVirtualScrolling();
-                        }
-                    }
-
-                    /**
-                     * @private
-                     * TODO
-                     */
-                }, {
-                    key: "_initVirtualScrolling",
-                    value: function _initVirtualScrolling() {
-                        if (!this.content) {
-                            return;
-                        }
-                        this._virtualScrollingManager = new ListVirtualScroll(this);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} item  TODO
-                     */
-                }, {
-                    key: "setItemTemplate",
-                    value: function setItemTemplate(item) {
-                        this.itemTemplate = item;
-                    }
-
-                    /**
-                     * Keeps track of any open item (a sliding item, for example), to close it later
-                     */
-                }, {
-                    key: "setOpenItem",
-                    value: function setOpenItem(item) {
-                        this.openItem = item;
-                    }
-                }, {
-                    key: "closeOpenItem",
-                    value: function closeOpenItem() {
-                        if (this.openItem) {
-                            this.openItem.close(true);
-                            this.openItem = null;
-                        }
-                    }
-                }, {
-                    key: "getOpenItem",
-                    value: function getOpenItem() {
-                        return this.openItem;
-                    }
-                }]);
-
-                return List;
-            })(Ion);
-
-            _export("List", List);
-
-            _export("List", List = __decorate([Directive({
-                selector: 'ion-list',
-                inputs: ['items', 'virtual', 'content']
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
-            /**
-             * TODO
-             */
-
-            ListHeader = function ListHeader() {
-                _classCallCheck(this, ListHeader);
-            };
-
-            _export("ListHeader", ListHeader);
-
-            _export("ListHeader", ListHeader = __decorate([Directive({
-                selector: 'ion-header',
-                inputs: ['id'],
-                host: {
-                    '[attr.id]': 'id'
-                }
-            }), __metadata('design:paramtypes', [])], ListHeader));
-        }
-    };
-});
-System.register('ionic/components/list/virtual', [], function (_export) {
-    'use strict';
-
-    var ListVirtualScroll, VirtualItemRef;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [],
-        execute: function () {
-            ListVirtualScroll = (function () {
-                function ListVirtualScroll(list) {
-                    var _this = this;
-
-                    _classCallCheck(this, ListVirtualScroll);
-
-                    this.list = list;
-                    this.content = this.list.content;
-                    this.viewportHeight = this.content.height();
-                    this.viewContainer = this.list.itemTemplate.viewContainer;
-                    this.itemHeight = 60;
-                    this.shownItems = {};
-                    this.enteringItems = [];
-                    this.leavingItems = [];
-                    // Compute the initial sizes
-                    setTimeout(function () {
-                        _this.resize();
-                        // Simulate the first event to start layout
-                        _this._handleVirtualScroll({
-                            target: _this.content.scrollElement
-                        });
-                    });
-                    this.content.addScrollEventListener(function (event) {
-                        _this._handleVirtualScroll(event);
-                    });
-                }
-
-                _createClass(ListVirtualScroll, [{
-                    key: 'resize',
-                    value: function resize() {
-                        this.viewportHeight = this.content.height();
-                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
-                        this.virtualHeight = this.list.items.length * this.itemHeight;
-                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
-                    }
-                }, {
-                    key: '_handleVirtualScroll',
-                    value: function _handleVirtualScroll(event) {
-                        var item = undefined;
-                        var shownItemRef = undefined;
-                        var st = event.target.scrollTop;
-                        var sh = event.target.scrollHeight;
-                        var topIndex = Math.floor(st / this.itemHeight);
-                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
-                        var items = this.list.items;
-                        // Key iterate the shown items map
-                        // and compare the index to our index range,
-                        // pushing the items to remove to our leaving
-                        // list if they're ouside this range.
-                        for (var i in this.shownItems) {
-                            if (i < topIndex || i > bottomIndex) {
-                                this.leavingItems.push(this.shownItems[i]);
-                                delete this.shownItems[i];
-                            }
-                        }
-                        var realIndex = 0;
-                        // Iterate the set of items that will be rendered, using the
-                        // index from the actual items list as the map for the
-                        // virtual items we draw
-                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
-                            item = items[i];
-                            console.log('Drawing item', i, item.title);
-                            shownItemRef = this.shownItems[i];
-                            // Is this a new item?
-                            if (!shownItemRef) {
-                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
-                                itemView.setLocal('\$implicit', item);
-                                itemView.setLocal('\$item', item);
-                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
-                                this.shownItems[i] = shownItemRef;
-                                this.enteringItems.push(shownItemRef);
-                            }
-                        }
-                        while (this.leavingItems.length) {
-                            var itemRef = this.leavingItems.pop();
-                            console.log('Removing item', itemRef.item, itemRef.realIndex);
-                            this.viewContainer.remove(itemRef.realIndex);
-                        }
-                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
-                    }
-                }, {
-                    key: 'cellAtIndex',
-                    value: function cellAtIndex(index) {}
-                }]);
-
-                return ListVirtualScroll;
-            })();
-
-            _export('ListVirtualScroll', ListVirtualScroll);
-
-            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
-                _classCallCheck(this, VirtualItemRef);
-
-                this.item = item;
-                this.index = index;
-                this.realIndex = realIndex;
-                this.view = view;
-            };
         }
     };
 });
@@ -15075,6 +15342,181 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
         }
     };
 });
+System.register("ionic/components/show-hide-when/show-hide-when", ["angular2/angular2", "../../platform/platform"], function (_export) {
+    "use strict";
+
+    var Directive, Attribute, NgZone, Platform, __decorate, __metadata, __param, DisplayWhen, ShowWhen, HideWhen, _a, _b, _c, _d;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            Attribute = _angular2Angular2.Attribute;
+            NgZone = _angular2Angular2.NgZone;
+        }, function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return (d && d(target, key), void 0);
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            DisplayWhen = (function () {
+                function DisplayWhen(conditions, platform, ngZone) {
+                    var _this = this;
+
+                    _classCallCheck(this, DisplayWhen);
+
+                    this.isMatch = false;
+                    this.platform = platform;
+                    if (!conditions) return;
+                    this.conditions = conditions.split(',');
+                    // check if its one of the matching platforms first
+                    // a platform does not change during the life of an app
+                    for (var i = 0; i < this.conditions.length; i++) {
+                        if (this.conditions[i] && platform.is(this.conditions[i])) {
+                            this.isMatch = true;
+                            return;
+                        }
+                    }
+                    if (this.orientation()) {
+                        // add window resize listener
+                        platform.onResize(function () {
+                            ngZone.run(function () {
+                                _this.orientation();
+                            });
+                        });
+                        return;
+                    }
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(DisplayWhen, [{
+                    key: "orientation",
+                    value: function orientation() {
+                        for (var i = 0; i < this.conditions.length; i++) {
+                            if (this.conditions[i] == 'portrait') {
+                                this.isMatch = this.platform.isPortrait();
+                                return true;
+                            }
+                            if (this.conditions[i] == 'landscape') {
+                                this.isMatch = this.platform.isLandscape();
+                                return true;
+                            }
+                        }
+                    }
+                }]);
+
+                return DisplayWhen;
+            })();
+
+            ShowWhen = (function (_DisplayWhen) {
+                _inherits(ShowWhen, _DisplayWhen);
+
+                /**
+                 * TODO
+                 * @param {string} showWhen  The value of the element's 'show-when' attribute
+                 * @param {NgZone} ngZone  TODO
+                 */
+
+                function ShowWhen(showWhen, platform, ngZone) {
+                    _classCallCheck(this, ShowWhen);
+
+                    _get(Object.getPrototypeOf(ShowWhen.prototype), "constructor", this).call(this, showWhen, platform, ngZone);
+                }
+
+                _createClass(ShowWhen, [{
+                    key: "hidden",
+                    get: function get() {
+                        return !this.isMatch;
+                    }
+                }]);
+
+                return ShowWhen;
+            })(DisplayWhen);
+
+            _export("ShowWhen", ShowWhen);
+
+            _export("ShowWhen", ShowWhen = __decorate([Directive({
+                selector: '[show-when]',
+                host: {
+                    '[hidden]': 'hidden'
+                }
+            }), __param(0, Attribute('show-when')), __metadata('design:paramtypes', [String, typeof (_a = typeof Platform !== 'undefined' && Platform) === 'function' && _a || Object, typeof (_b = typeof NgZone !== 'undefined' && NgZone) === 'function' && _b || Object])], ShowWhen));
+            /**
+             * TODO
+             */
+
+            HideWhen = (function (_DisplayWhen2) {
+                _inherits(HideWhen, _DisplayWhen2);
+
+                /**
+                 * TODO
+                 * @param {string} showWhen  The value of the element's 'hide-when' attribute
+                 * @param {NgZone} ngZone  TODO
+                 */
+
+                function HideWhen(hideWhen, platform, ngZone) {
+                    _classCallCheck(this, HideWhen);
+
+                    _get(Object.getPrototypeOf(HideWhen.prototype), "constructor", this).call(this, hideWhen, platform, ngZone);
+                }
+
+                _createClass(HideWhen, [{
+                    key: "hidden",
+                    get: function get() {
+                        return this.isMatch;
+                    }
+                }]);
+
+                return HideWhen;
+            })(DisplayWhen);
+
+            _export("HideWhen", HideWhen);
+
+            _export("HideWhen", HideWhen = __decorate([Directive({
+                selector: '[hide-when]',
+                host: {
+                    '[hidden]': 'hidden'
+                }
+            }), __param(0, Attribute('hide-when')), __metadata('design:paramtypes', [String, typeof (_c = typeof Platform !== 'undefined' && Platform) === 'function' && _c || Object, typeof (_d = typeof NgZone !== 'undefined' && NgZone) === 'function' && _d || Object])], HideWhen));
+        }
+    };
+});
 System.register("ionic/components/slides/slides", ["angular2/angular2", "../ion", "ionic/animations/animation", "ionic/gestures/gesture", "../../config/config", "ionic/util", "../../util/dom", "./swiper-widget"], function (_export) {
     /**
      * Slides is a slide box implementation based on Swiper.js
@@ -15855,181 +16297,6 @@ each:function each(callback){for(var i=0;i < this.length;i++) {callback.call(thi
  Get Dom libraries
  ===========================*/swiperDomPlugins = ['jQuery','Zepto','Dom7'];for(i = 0;i < swiperDomPlugins.length;i++) {if(window[swiperDomPlugins[i]]){addLibraryPlugin(window[swiperDomPlugins[i]]);}} // Required DOM Plugins
 if(typeof Dom7 === 'undefined'){domLib = window.Dom7 || window.Zepto || window.jQuery;}else {domLib = Dom7;}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}}};});
-System.register("ionic/components/show-hide-when/show-hide-when", ["angular2/angular2", "../../platform/platform"], function (_export) {
-    "use strict";
-
-    var Directive, Attribute, NgZone, Platform, __decorate, __metadata, __param, DisplayWhen, ShowWhen, HideWhen, _a, _b, _c, _d;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            Attribute = _angular2Angular2.Attribute;
-            NgZone = _angular2Angular2.NgZone;
-        }, function (_platformPlatform) {
-            Platform = _platformPlatform.Platform;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            DisplayWhen = (function () {
-                function DisplayWhen(conditions, platform, ngZone) {
-                    var _this = this;
-
-                    _classCallCheck(this, DisplayWhen);
-
-                    this.isMatch = false;
-                    this.platform = platform;
-                    if (!conditions) return;
-                    this.conditions = conditions.split(',');
-                    // check if its one of the matching platforms first
-                    // a platform does not change during the life of an app
-                    for (var i = 0; i < this.conditions.length; i++) {
-                        if (this.conditions[i] && platform.is(this.conditions[i])) {
-                            this.isMatch = true;
-                            return;
-                        }
-                    }
-                    if (this.orientation()) {
-                        // add window resize listener
-                        platform.onResize(function () {
-                            ngZone.run(function () {
-                                _this.orientation();
-                            });
-                        });
-                        return;
-                    }
-                }
-
-                /**
-                 * TODO
-                 */
-
-                _createClass(DisplayWhen, [{
-                    key: "orientation",
-                    value: function orientation() {
-                        for (var i = 0; i < this.conditions.length; i++) {
-                            if (this.conditions[i] == 'portrait') {
-                                this.isMatch = this.platform.isPortrait();
-                                return true;
-                            }
-                            if (this.conditions[i] == 'landscape') {
-                                this.isMatch = this.platform.isLandscape();
-                                return true;
-                            }
-                        }
-                    }
-                }]);
-
-                return DisplayWhen;
-            })();
-
-            ShowWhen = (function (_DisplayWhen) {
-                _inherits(ShowWhen, _DisplayWhen);
-
-                /**
-                 * TODO
-                 * @param {string} showWhen  The value of the element's 'show-when' attribute
-                 * @param {NgZone} ngZone  TODO
-                 */
-
-                function ShowWhen(showWhen, platform, ngZone) {
-                    _classCallCheck(this, ShowWhen);
-
-                    _get(Object.getPrototypeOf(ShowWhen.prototype), "constructor", this).call(this, showWhen, platform, ngZone);
-                }
-
-                _createClass(ShowWhen, [{
-                    key: "hidden",
-                    get: function get() {
-                        return !this.isMatch;
-                    }
-                }]);
-
-                return ShowWhen;
-            })(DisplayWhen);
-
-            _export("ShowWhen", ShowWhen);
-
-            _export("ShowWhen", ShowWhen = __decorate([Directive({
-                selector: '[show-when]',
-                host: {
-                    '[hidden]': 'hidden'
-                }
-            }), __param(0, Attribute('show-when')), __metadata('design:paramtypes', [String, typeof (_a = typeof Platform !== 'undefined' && Platform) === 'function' && _a || Object, typeof (_b = typeof NgZone !== 'undefined' && NgZone) === 'function' && _b || Object])], ShowWhen));
-            /**
-             * TODO
-             */
-
-            HideWhen = (function (_DisplayWhen2) {
-                _inherits(HideWhen, _DisplayWhen2);
-
-                /**
-                 * TODO
-                 * @param {string} showWhen  The value of the element's 'hide-when' attribute
-                 * @param {NgZone} ngZone  TODO
-                 */
-
-                function HideWhen(hideWhen, platform, ngZone) {
-                    _classCallCheck(this, HideWhen);
-
-                    _get(Object.getPrototypeOf(HideWhen.prototype), "constructor", this).call(this, hideWhen, platform, ngZone);
-                }
-
-                _createClass(HideWhen, [{
-                    key: "hidden",
-                    get: function get() {
-                        return this.isMatch;
-                    }
-                }]);
-
-                return HideWhen;
-            })(DisplayWhen);
-
-            _export("HideWhen", HideWhen);
-
-            _export("HideWhen", HideWhen = __decorate([Directive({
-                selector: '[hide-when]',
-                host: {
-                    '[hidden]': 'hidden'
-                }
-            }), __param(0, Attribute('hide-when')), __metadata('design:paramtypes', [String, typeof (_c = typeof Platform !== 'undefined' && Platform) === 'function' && _c || Object, typeof (_d = typeof NgZone !== 'undefined' && NgZone) === 'function' && _d || Object])], HideWhen));
-        }
-    };
-});
 System.register("ionic/components/switch/switch", ["angular2/angular2", "../../util/form", "../../config/config", "../../util/dom"], function (_export) {
     /**
      * @name mediaSwitch
@@ -21388,271 +21655,4 @@ System.register("ionic/platform/vibration/vibration", ["../plugin"], function (_
             }), __metadata('design:paramtypes', [])], Vibration));
         }
     };
-});
-System.register('ionic/components', ['ionic/components/app/app', 'ionic/components/app/id', 'ionic/components/action-sheet/action-sheet', 'ionic/components/blur/blur', 'ionic/components/button/button', 'ionic/components/checkbox/checkbox', 'ionic/components/content/content', 'ionic/components/icon/icon', 'ionic/components/item/item', 'ionic/components/item/item-group', 'ionic/components/item/item-sliding', 'ionic/components/menu/menu', 'ionic/components/menu/menu-types', 'ionic/components/menu/menu-toggle', 'ionic/components/menu/menu-close', 'ionic/components/text-input/text-input', 'ionic/components/text-input/label', 'ionic/components/list/list', 'ionic/components/show-hide-when/show-hide-when', 'ionic/components/modal/modal', 'ionic/components/nav/nav', 'ionic/components/nav/nav-controller', 'ionic/components/nav/view-controller', 'ionic/components/nav/nav-push', 'ionic/components/nav/nav-router', 'ionic/components/navbar/navbar', 'ionic/components/overlay/overlay', 'ionic/components/popup/popup', 'ionic/components/slides/slides', 'ionic/components/radio/radio', 'ionic/components/scroll/scroll', 'ionic/components/scroll/pull-to-refresh', 'ionic/components/searchbar/searchbar', 'ionic/components/segment/segment', 'ionic/components/switch/switch', 'ionic/components/tabs/tabs', 'ionic/components/tabs/tab', 'ionic/components/tap-click/tap-click', 'ionic/components/toolbar/toolbar'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_ionicComponentsAppApp) {
-      for (var _key in _ionicComponentsAppApp) {
-        if (_key !== 'default') _export(_key, _ionicComponentsAppApp[_key]);
-      }
-    }, function (_ionicComponentsAppId) {
-      for (var _key2 in _ionicComponentsAppId) {
-        if (_key2 !== 'default') _export(_key2, _ionicComponentsAppId[_key2]);
-      }
-    }, function (_ionicComponentsActionSheetActionSheet) {
-      for (var _key3 in _ionicComponentsActionSheetActionSheet) {
-        if (_key3 !== 'default') _export(_key3, _ionicComponentsActionSheetActionSheet[_key3]);
-      }
-    }, function (_ionicComponentsBlurBlur) {
-      for (var _key4 in _ionicComponentsBlurBlur) {
-        if (_key4 !== 'default') _export(_key4, _ionicComponentsBlurBlur[_key4]);
-      }
-    }, function (_ionicComponentsButtonButton) {
-      for (var _key5 in _ionicComponentsButtonButton) {
-        if (_key5 !== 'default') _export(_key5, _ionicComponentsButtonButton[_key5]);
-      }
-    }, function (_ionicComponentsCheckboxCheckbox) {
-      for (var _key6 in _ionicComponentsCheckboxCheckbox) {
-        if (_key6 !== 'default') _export(_key6, _ionicComponentsCheckboxCheckbox[_key6]);
-      }
-    }, function (_ionicComponentsContentContent) {
-      for (var _key7 in _ionicComponentsContentContent) {
-        if (_key7 !== 'default') _export(_key7, _ionicComponentsContentContent[_key7]);
-      }
-    }, function (_ionicComponentsIconIcon) {
-      for (var _key8 in _ionicComponentsIconIcon) {
-        if (_key8 !== 'default') _export(_key8, _ionicComponentsIconIcon[_key8]);
-      }
-    }, function (_ionicComponentsItemItem) {
-      for (var _key9 in _ionicComponentsItemItem) {
-        if (_key9 !== 'default') _export(_key9, _ionicComponentsItemItem[_key9]);
-      }
-    }, function (_ionicComponentsItemItemGroup) {
-      for (var _key10 in _ionicComponentsItemItemGroup) {
-        if (_key10 !== 'default') _export(_key10, _ionicComponentsItemItemGroup[_key10]);
-      }
-    }, function (_ionicComponentsItemItemSliding) {
-      for (var _key11 in _ionicComponentsItemItemSliding) {
-        if (_key11 !== 'default') _export(_key11, _ionicComponentsItemItemSliding[_key11]);
-      }
-    }, function (_ionicComponentsMenuMenu) {
-      for (var _key12 in _ionicComponentsMenuMenu) {
-        if (_key12 !== 'default') _export(_key12, _ionicComponentsMenuMenu[_key12]);
-      }
-    }, function (_ionicComponentsMenuMenuTypes) {
-      for (var _key13 in _ionicComponentsMenuMenuTypes) {
-        if (_key13 !== 'default') _export(_key13, _ionicComponentsMenuMenuTypes[_key13]);
-      }
-    }, function (_ionicComponentsMenuMenuToggle) {
-      for (var _key14 in _ionicComponentsMenuMenuToggle) {
-        if (_key14 !== 'default') _export(_key14, _ionicComponentsMenuMenuToggle[_key14]);
-      }
-    }, function (_ionicComponentsMenuMenuClose) {
-      for (var _key15 in _ionicComponentsMenuMenuClose) {
-        if (_key15 !== 'default') _export(_key15, _ionicComponentsMenuMenuClose[_key15]);
-      }
-    }, function (_ionicComponentsTextInputTextInput) {
-      for (var _key16 in _ionicComponentsTextInputTextInput) {
-        if (_key16 !== 'default') _export(_key16, _ionicComponentsTextInputTextInput[_key16]);
-      }
-    }, function (_ionicComponentsTextInputLabel) {
-      for (var _key17 in _ionicComponentsTextInputLabel) {
-        if (_key17 !== 'default') _export(_key17, _ionicComponentsTextInputLabel[_key17]);
-      }
-    }, function (_ionicComponentsListList) {
-      for (var _key18 in _ionicComponentsListList) {
-        if (_key18 !== 'default') _export(_key18, _ionicComponentsListList[_key18]);
-      }
-    }, function (_ionicComponentsShowHideWhenShowHideWhen) {
-      for (var _key19 in _ionicComponentsShowHideWhenShowHideWhen) {
-        if (_key19 !== 'default') _export(_key19, _ionicComponentsShowHideWhenShowHideWhen[_key19]);
-      }
-    }, function (_ionicComponentsModalModal) {
-      for (var _key20 in _ionicComponentsModalModal) {
-        if (_key20 !== 'default') _export(_key20, _ionicComponentsModalModal[_key20]);
-      }
-    }, function (_ionicComponentsNavNav) {
-      for (var _key21 in _ionicComponentsNavNav) {
-        if (_key21 !== 'default') _export(_key21, _ionicComponentsNavNav[_key21]);
-      }
-    }, function (_ionicComponentsNavNavController) {
-      for (var _key22 in _ionicComponentsNavNavController) {
-        if (_key22 !== 'default') _export(_key22, _ionicComponentsNavNavController[_key22]);
-      }
-    }, function (_ionicComponentsNavViewController) {
-      for (var _key23 in _ionicComponentsNavViewController) {
-        if (_key23 !== 'default') _export(_key23, _ionicComponentsNavViewController[_key23]);
-      }
-    }, function (_ionicComponentsNavNavPush) {
-      for (var _key24 in _ionicComponentsNavNavPush) {
-        if (_key24 !== 'default') _export(_key24, _ionicComponentsNavNavPush[_key24]);
-      }
-    }, function (_ionicComponentsNavNavRouter) {
-      for (var _key25 in _ionicComponentsNavNavRouter) {
-        if (_key25 !== 'default') _export(_key25, _ionicComponentsNavNavRouter[_key25]);
-      }
-    }, function (_ionicComponentsNavbarNavbar) {
-      for (var _key26 in _ionicComponentsNavbarNavbar) {
-        if (_key26 !== 'default') _export(_key26, _ionicComponentsNavbarNavbar[_key26]);
-      }
-    }, function (_ionicComponentsOverlayOverlay) {
-      for (var _key27 in _ionicComponentsOverlayOverlay) {
-        if (_key27 !== 'default') _export(_key27, _ionicComponentsOverlayOverlay[_key27]);
-      }
-    }, function (_ionicComponentsPopupPopup) {
-      for (var _key28 in _ionicComponentsPopupPopup) {
-        if (_key28 !== 'default') _export(_key28, _ionicComponentsPopupPopup[_key28]);
-      }
-    }, function (_ionicComponentsSlidesSlides) {
-      for (var _key29 in _ionicComponentsSlidesSlides) {
-        if (_key29 !== 'default') _export(_key29, _ionicComponentsSlidesSlides[_key29]);
-      }
-    }, function (_ionicComponentsRadioRadio) {
-      for (var _key30 in _ionicComponentsRadioRadio) {
-        if (_key30 !== 'default') _export(_key30, _ionicComponentsRadioRadio[_key30]);
-      }
-    }, function (_ionicComponentsScrollScroll) {
-      for (var _key31 in _ionicComponentsScrollScroll) {
-        if (_key31 !== 'default') _export(_key31, _ionicComponentsScrollScroll[_key31]);
-      }
-    }, function (_ionicComponentsScrollPullToRefresh) {
-      for (var _key32 in _ionicComponentsScrollPullToRefresh) {
-        if (_key32 !== 'default') _export(_key32, _ionicComponentsScrollPullToRefresh[_key32]);
-      }
-    }, function (_ionicComponentsSearchbarSearchbar) {
-      for (var _key33 in _ionicComponentsSearchbarSearchbar) {
-        if (_key33 !== 'default') _export(_key33, _ionicComponentsSearchbarSearchbar[_key33]);
-      }
-    }, function (_ionicComponentsSegmentSegment) {
-      for (var _key34 in _ionicComponentsSegmentSegment) {
-        if (_key34 !== 'default') _export(_key34, _ionicComponentsSegmentSegment[_key34]);
-      }
-    }, function (_ionicComponentsSwitchSwitch) {
-      for (var _key35 in _ionicComponentsSwitchSwitch) {
-        if (_key35 !== 'default') _export(_key35, _ionicComponentsSwitchSwitch[_key35]);
-      }
-    }, function (_ionicComponentsTabsTabs) {
-      for (var _key36 in _ionicComponentsTabsTabs) {
-        if (_key36 !== 'default') _export(_key36, _ionicComponentsTabsTabs[_key36]);
-      }
-    }, function (_ionicComponentsTabsTab) {
-      for (var _key37 in _ionicComponentsTabsTab) {
-        if (_key37 !== 'default') _export(_key37, _ionicComponentsTabsTab[_key37]);
-      }
-    }, function (_ionicComponentsTapClickTapClick) {
-      for (var _key38 in _ionicComponentsTapClickTapClick) {
-        if (_key38 !== 'default') _export(_key38, _ionicComponentsTapClickTapClick[_key38]);
-      }
-    }, function (_ionicComponentsToolbarToolbar) {
-      for (var _key39 in _ionicComponentsToolbarToolbar) {
-        if (_key39 !== 'default') _export(_key39, _ionicComponentsToolbarToolbar[_key39]);
-      }
-    }],
-    execute: function () {}
-  };
-});
-System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './components', './platform/platform', './platform/registry', './platform/plugins', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_configBootstrap) {
-      for (var _key in _configBootstrap) {
-        if (_key !== 'default') _export(_key, _configBootstrap[_key]);
-      }
-    }, function (_configConfig) {
-      for (var _key2 in _configConfig) {
-        if (_key2 !== 'default') _export(_key2, _configConfig[_key2]);
-      }
-    }, function (_configModes) {
-      for (var _key3 in _configModes) {
-        if (_key3 !== 'default') _export(_key3, _configModes[_key3]);
-      }
-    }, function (_configDecorators) {
-      for (var _key4 in _configDecorators) {
-        if (_key4 !== 'default') _export(_key4, _configDecorators[_key4]);
-      }
-    }, function (_components) {
-      for (var _key5 in _components) {
-        if (_key5 !== 'default') _export(_key5, _components[_key5]);
-      }
-    }, function (_platformPlatform) {
-      for (var _key6 in _platformPlatform) {
-        if (_key6 !== 'default') _export(_key6, _platformPlatform[_key6]);
-      }
-    }, function (_platformRegistry) {
-      for (var _key7 in _platformRegistry) {
-        if (_key7 !== 'default') _export(_key7, _platformRegistry[_key7]);
-      }
-    }, function (_platformPlugins) {
-      for (var _key8 in _platformPlugins) {
-        if (_key8 !== 'default') _export(_key8, _platformPlugins[_key8]);
-      }
-
-      for (var _key17 in _platformPlugins) {
-        if (_key17 !== 'default') _export(_key17, _platformPlugins[_key17]);
-      }
-    }, function (_platformStorage) {
-      for (var _key9 in _platformStorage) {
-        if (_key9 !== 'default') _export(_key9, _platformStorage[_key9]);
-      }
-    }, function (_utilClickBlock) {
-      for (var _key10 in _utilClickBlock) {
-        if (_key10 !== 'default') _export(_key10, _utilClickBlock[_key10]);
-      }
-    }, function (_utilEvents) {
-      for (var _key11 in _utilEvents) {
-        if (_key11 !== 'default') _export(_key11, _utilEvents[_key11]);
-      }
-    }, function (_animationsAnimation) {
-      for (var _key12 in _animationsAnimation) {
-        if (_key12 !== 'default') _export(_key12, _animationsAnimation[_key12]);
-      }
-    }, function (_animationsBuiltins) {
-      for (var _key13 in _animationsBuiltins) {
-        if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
-      }
-    }, function (_transitionsTransition) {
-      for (var _key14 in _transitionsTransition) {
-        if (_key14 !== 'default') _export(_key14, _transitionsTransition[_key14]);
-      }
-    }, function (_transitionsIosTransition) {
-      for (var _key15 in _transitionsIosTransition) {
-        if (_key15 !== 'default') _export(_key15, _transitionsIosTransition[_key15]);
-      }
-    }, function (_transitionsMdTransition) {
-      for (var _key16 in _transitionsMdTransition) {
-        if (_key16 !== 'default') _export(_key16, _transitionsMdTransition[_key16]);
-      }
-    }, function (_translationTranslate) {
-      for (var _key18 in _translationTranslate) {
-        if (_key18 !== 'default') _export(_key18, _translationTranslate[_key18]);
-      }
-    }, function (_translationTranslate_pipe) {
-      for (var _key19 in _translationTranslate_pipe) {
-        if (_key19 !== 'default') _export(_key19, _translationTranslate_pipe[_key19]);
-      }
-    }],
-    execute: function () {}
-  };
-});
-System.register('ionic/util', ['ionic/util/dom', 'ionic/util/util'], function (_export) {
-  'use strict';
-
-  var domUtil, dom;
-  return {
-    setters: [function (_ionicUtilDom) {
-      domUtil = _ionicUtilDom;
-    }, function (_ionicUtilUtil) {
-      for (var _key in _ionicUtilUtil) {
-        if (_key !== 'default') _export(_key, _ionicUtilUtil[_key]);
-      }
-    }],
-    execute: function () {
-      dom = domUtil;
-
-      _export('dom', dom);
-    }
-  };
 });

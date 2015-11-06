@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L9'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L27'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L9'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L27'>
     Improve this doc
   </a>
 </div>
@@ -43,10 +43,10 @@ deleted, reordered, edited, and more.</p>
 
 <h1 class="class export">ionItem <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L10-L145">ionic/components/item/item-sliding.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L28-L162">ionic/components/item/item-sliding.ts (line 28)</a>
 </p>
 <h2>Component</h2>
-  <span>selector: ion-item-sliding, [ion-item-sliding]</span>
+  <span>selector: ion-item-sliding</span>
 
   <span>inputs: sliding</span>
 

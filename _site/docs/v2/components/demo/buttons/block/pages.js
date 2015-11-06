@@ -37,7 +37,7 @@ var BlockPage = function BlockPage() {
 };
 exports.BlockPage = BlockPage;
 exports.BlockPage = BlockPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/block.html',
+    templateUrl: 'buttons/block/block.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

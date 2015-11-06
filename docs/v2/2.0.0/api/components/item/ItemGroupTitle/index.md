@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">ItemGroupTitle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-group.ts#L24-L52">ionic/components/item/item-group.ts (line 24)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-group.ts#L24-L50">ionic/components/item/item-group.ts (line 24)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: ion-item-group-title</span>
@@ -67,9 +67,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
-<div id="content"></div>
+<div id="zone"></div>
 <h2>
-  <code>content()</code>
+  <code>zone()</code>
 
 </h2>
 
@@ -84,9 +84,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
-<div id="onInit"></div>
+<div id="content"></div>
 <h2>
-  <code>onInit()</code>
+  <code>content()</code>
 
 </h2>
 

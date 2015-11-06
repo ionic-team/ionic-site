@@ -177,7 +177,7 @@ To add icons to a button, add an icon component inside of it:
 
 <h3 class="section-nav" id="floating-action-buttons">Floating Action Buttons</h3>
 
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../../api/components/button/Button) for a full list of attributes.
+Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [button API spec](../api/components/button/Button) for a full list of attributes.
 
 ```html
 <button fab>FAB</button>
@@ -402,7 +402,7 @@ Inputs are essential for collecting and handling user input in a secure way. The
 
 Each input field in a form has a **Control**, a function that binds to the value in the field, and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
 
-A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Inputs API docs](../api/inputs).
+A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Inputs API docs](../api/components/text-input/TextInput/).
 
 
 <ul class="docs-content">
@@ -828,7 +828,7 @@ class MyApp {
 }
 ```
 
-We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can use Ionic's [id system](link_to_id_system) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
+We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can use Ionic's [id system](../api/components/app/IdRef) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
 
 Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open [Modals](#modals) over the main map content area and toggle settings on and off.
 
@@ -995,7 +995,7 @@ The **confirm** popup displays a message, and gives the user the option to eithe
 
 The **prompt** popup displays a message, and requires to user to input some data. This popup is useful when you need important information from the user in order to continue (eg: *"Please re-enter your password to continue."*).
 
-Popups are quite flexible, and can easily be customized. Check out the [API docs](../api/popup/ionPopup) for more information.
+Popups are quite flexible, and can easily be customized. Check out the [API docs](../api/components/popup/Popup) for more information.
 
 
 <h2 id="radio" class="section-header">Radio</h2>

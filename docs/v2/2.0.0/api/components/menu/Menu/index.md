@@ -67,7 +67,7 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L9-L292">ionic/components/menu/menu.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L9-L307">ionic/components/menu/menu.ts (line 9)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-menu</span>
@@ -234,6 +234,23 @@ TODO
 
 * Returns: 
   <code>TODO</code> TODO
+
+
+
+
+<div id="enable"></div>
+<h2>
+  <code>enable()</code>
+
+</h2>
+
+
+
+
+
+
+
+
 
 
 

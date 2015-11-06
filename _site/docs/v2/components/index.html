@@ -468,7 +468,7 @@
 
 <h3 class="section-nav" id="floating-action-buttons">Floating Action Buttons</h3>
 
-<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
+<p>Adding <code>fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code>fab-top</code> and <code>fab-left</code>. See the <a href="../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
 
 <pre><code class="language-html">&lt;button fab&gt;FAB&lt;/button&gt;
 </code></pre>
@@ -663,7 +663,7 @@
 
 <p>Each input field in a form has a <strong>Control</strong>, a function that binds to the value in the field, and performs validation. A <strong>Control Group</strong> is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.</p>
 
-<p>A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the <a href="../api/inputs">Inputs API docs</a>.</p>
+<p>A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the <a href="../api/components/text-input/TextInput/">Inputs API docs</a>.</p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -1061,7 +1061,7 @@ class MyApp {
 }
 </code></pre>
 
-<p>We inject the <a href="../api/components/app/IonicApp/"><code>IonicApp</code></a> service so we can use Ionic’s <a href="link_to_id_system">id system</a> to get references to the menu and the nav controller.  We then use the NavController’s <a href="../api/components/nav/NavController/#setRoot"><code>setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
+<p>We inject the <a href="../api/components/app/IonicApp/"><code>IonicApp</code></a> service so we can use Ionic’s <a href="../api/components/app/IdRef">id system</a> to get references to the menu and the nav controller.  We then use the NavController’s <a href="../api/components/nav/NavController/#setRoot"><code>setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
 
 <p>Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open <a href="#modals">Modals</a> over the main map content area and toggle settings on and off.</p>
 
@@ -1218,7 +1218,7 @@ class OtherPage {
 
 <p>The <strong>prompt</strong> popup displays a message, and requires to user to input some data. This popup is useful when you need important information from the user in order to continue (eg: <em>“Please re-enter your password to continue.”</em>).</p>
 
-<p>Popups are quite flexible, and can easily be customized. Check out the <a href="../api/popup/ionPopup">API docs</a> for more information.</p>
+<p>Popups are quite flexible, and can easily be customized. Check out the <a href="../api/components/popup/Popup">API docs</a> for more information.</p>
 
 <h2 id="radio" class="section-header">Radio</h2>
 

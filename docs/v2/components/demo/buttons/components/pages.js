@@ -37,7 +37,7 @@ var ComponentsPage = function ComponentsPage() {
 };
 exports.ComponentsPage = ComponentsPage;
 exports.ComponentsPage = ComponentsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/components.html',
+    templateUrl: 'buttons/components/components.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

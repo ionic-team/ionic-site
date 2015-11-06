@@ -1203,12 +1203,12 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
 
 ```typescript
 @Page({
-  template: '' +
-  '<ion-navbar *navbar>' +
-  '<ion-title>Tabs</ion-title>' +
-  '</ion-navbar>' +
-  '<ion-content>' +
-  '</ion-content>',
+  template: `
+  <ion-navbar *navbar>
+  <ion-title>Tabs</ion-title>
+  </ion-navbar>
+  <ion-content>
+  </ion-content>`,
 })
 class TabContentPage {
   constructor(nav: NavController, view: ViewController) {
@@ -1218,13 +1218,13 @@ class TabContentPage {
 }
 
 @Page({
-  template:
-  '<ion-tabs>' +
-  '<ion-tab tab-icon="contact" [root]="tab1"></ion-tab>' +
-  '<ion-tab tab-icon="compass" [root]="tab2"></ion-tab>' +
-  '<ion-tab tab-icon="analytics" [root]="tab3"></ion-tab>' +
-  '<ion-tab tab-icon="settings" [root]="tab4"></ion-tab>' +
-  '</ion-tabs>',
+  template: `
+  <ion-tabs>
+    <ion-tab tab-icon="contact" [root]="tab1"></ion-tab>
+    <ion-tab tab-icon="compass" [root]="tab2"></ion-tab>
+    <ion-tab tab-icon="analytics" [root]="tab3"></ion-tab>
+    <ion-tab tab-icon="settings" [root]="tab4"></ion-tab>
+  </ion-tabs>`
 })
 export class TabsIconPage {
   constructor(nav: NavController) {
@@ -1242,12 +1242,12 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
 
 ```typescript
 @Page({
-  template: '' +
-  '<ion-navbar *navbar>' +
-  '<ion-title>Tabs</ion-title>' +
-  '</ion-navbar>' +
-  '<ion-content>' +
-  '</ion-content>',
+  template: `
+  <ion-navbar *navbar>
+    <ion-title>Tabs</ion-title>
+  </ion-navbar> 
+  <ion-content>
+  </ion-content>`
 })
 class TabsTextContentPage {
   constructor(nav: NavController, view: ViewController) {
@@ -1257,13 +1257,13 @@ class TabsTextContentPage {
 }
 
 @Page({
-  template:
-  '<ion-tabs>' +
-  '<ion-tab tab-icon="water" tab-title="Water" [root]="tab1"></ion-tab>' +
-  '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"></ion-tab>' +
-  '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab>' +
-  '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab>' +
-  '</ion-tabs>',
+  template: `
+  <ion-tabs>
+    <ion-tab tab-icon="water" tab-title="Water" [root]="tab1"></ion-tab>
+    <ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"></ion-tab>
+    <ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab> 
+    <ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab> 
+  </ion-tabs>`
 })
 export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {

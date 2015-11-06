@@ -1415,12 +1415,12 @@ class Tab2 {
 <p>To add an icon inside of a tab, use the <code>tab-icon</code> attribute. This attribute can be passed the name of any <a href="#icon">icon</a>:</p>
 
 <pre><code class="language-typescript">@Page({
-  template: '' +
-  '&lt;ion-navbar *navbar&gt;' +
-  '&lt;ion-title&gt;Tabs&lt;/ion-title&gt;' +
-  '&lt;/ion-navbar&gt;' +
-  '&lt;ion-content&gt;' +
-  '&lt;/ion-content&gt;',
+  template: `
+  &lt;ion-navbar *navbar&gt;
+  &lt;ion-title&gt;Tabs&lt;/ion-title&gt;
+  &lt;/ion-navbar&gt;
+  &lt;ion-content&gt;
+  &lt;/ion-content&gt;`,
 })
 class TabContentPage {
   constructor(nav: NavController, view: ViewController) {
@@ -1430,13 +1430,13 @@ class TabContentPage {
 }
 
 @Page({
-  template:
-  '&lt;ion-tabs&gt;' +
-  '&lt;ion-tab tab-icon="contact" [root]="tab1"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="compass" [root]="tab2"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="analytics" [root]="tab3"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="settings" [root]="tab4"&gt;&lt;/ion-tab&gt;' +
-  '&lt;/ion-tabs&gt;',
+  template: `
+  &lt;ion-tabs&gt;
+    &lt;ion-tab tab-icon="contact" [root]="tab1"&gt;&lt;/ion-tab&gt;
+    &lt;ion-tab tab-icon="compass" [root]="tab2"&gt;&lt;/ion-tab&gt;
+    &lt;ion-tab tab-icon="analytics" [root]="tab3"&gt;&lt;/ion-tab&gt;
+    &lt;ion-tab tab-icon="settings" [root]="tab4"&gt;&lt;/ion-tab&gt;
+  &lt;/ion-tabs&gt;`
 })
 export class TabsIconPage {
   constructor(nav: NavController) {
@@ -1453,12 +1453,12 @@ export class TabsIconPage {
 <p>To add text and an icon inside of a tab, use the <code>tab-icon</code> and <code>tab-title</code> attributes:</p>
 
 <pre><code class="language-typescript">@Page({
-  template: '' +
-  '&lt;ion-navbar *navbar&gt;' +
-  '&lt;ion-title&gt;Tabs&lt;/ion-title&gt;' +
-  '&lt;/ion-navbar&gt;' +
-  '&lt;ion-content&gt;' +
-  '&lt;/ion-content&gt;',
+  template: `
+  &lt;ion-navbar *navbar&gt;
+    &lt;ion-title&gt;Tabs&lt;/ion-title&gt;
+  &lt;/ion-navbar&gt; 
+  &lt;ion-content&gt;
+  &lt;/ion-content&gt;`
 })
 class TabsTextContentPage {
   constructor(nav: NavController, view: ViewController) {
@@ -1468,13 +1468,13 @@ class TabsTextContentPage {
 }
 
 @Page({
-  template:
-  '&lt;ion-tabs&gt;' +
-  '&lt;ion-tab tab-icon="water" tab-title="Water" [root]="tab1"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"&gt;&lt;/ion-tab&gt;' +
-  '&lt;ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"&gt;&lt;/ion-tab&gt;' +
-  '&lt;/ion-tabs&gt;',
+  template: `
+  &lt;ion-tabs&gt;
+    &lt;ion-tab tab-icon="water" tab-title="Water" [root]="tab1"&gt;&lt;/ion-tab&gt;
+    &lt;ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"&gt;&lt;/ion-tab&gt;
+    &lt;ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"&gt;&lt;/ion-tab&gt; 
+    &lt;ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"&gt;&lt;/ion-tab&gt; 
+  &lt;/ion-tabs&gt;`
 })
 export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {

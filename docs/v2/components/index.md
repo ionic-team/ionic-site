@@ -616,7 +616,7 @@ Use the segment to control to use radio selections.
 ```typescript
 @App({
   templateUrl: 'main.html',
-  bindings: [FormBuilder]
+  providers: [FormBuilder]
 })
 class MyApp {
   constructor(fb: FormBuilder) {

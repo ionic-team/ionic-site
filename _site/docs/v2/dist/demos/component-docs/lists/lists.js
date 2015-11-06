@@ -1,114 +1,41 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true
 });
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj); delete newObj['default']; return newObj; }
 
-var _ionicIonic = require('ionic/ionic');
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-var _angular2Angular2 = require('angular2/angular2');
+var _avatarPages = require('./avatar/pages');
 
-var _helpers = require('../helpers');
+_defaults(exports, _interopExportWildcard(_avatarPages, _defaults));
 
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(o) || o;
-            }, target);
-        case 3:
-            return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
-            }, void 0);
-        case 4:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(target, key, o) || o;
-            }, desc);
-    }
-};
-var __metadata = undefined && undefined.__metadata || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var BasicListsPage = function BasicListsPage() {
-    _classCallCheck(this, BasicListsPage);
-};
-exports.BasicListsPage = BasicListsPage;
-exports.BasicListsPage = BasicListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/basic-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], BasicListsPage);
-var BasicDividersPage = function BasicDividersPage() {
-    _classCallCheck(this, BasicDividersPage);
-};
-exports.BasicDividersPage = BasicDividersPage;
-exports.BasicDividersPage = BasicDividersPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/dividers.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], BasicDividersPage);
-var BasicInsetListsPage = function BasicInsetListsPage() {
-    _classCallCheck(this, BasicInsetListsPage);
-};
-exports.BasicInsetListsPage = BasicInsetListsPage;
-exports.BasicInsetListsPage = BasicInsetListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/inset-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], BasicInsetListsPage);
-var ListHeadersPage = function ListHeadersPage() {
-    _classCallCheck(this, ListHeadersPage);
-};
-exports.ListHeadersPage = ListHeadersPage;
-exports.ListHeadersPage = ListHeadersPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/list-headers.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], ListHeadersPage);
-var IconListsPage = function IconListsPage() {
-    _classCallCheck(this, IconListsPage);
-};
-exports.IconListsPage = IconListsPage;
-exports.IconListsPage = IconListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/icon-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], IconListsPage);
-var AvatarListsPage = function AvatarListsPage() {
-    _classCallCheck(this, AvatarListsPage);
-};
-exports.AvatarListsPage = AvatarListsPage;
-exports.AvatarListsPage = AvatarListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/avatar-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], AvatarListsPage);
-var ThreeLineListsPage = function ThreeLineListsPage() {
-    _classCallCheck(this, ThreeLineListsPage);
-};
-exports.ThreeLineListsPage = ThreeLineListsPage;
-exports.ThreeLineListsPage = ThreeLineListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/three-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], ThreeLineListsPage);
-var ThumbnailListsPage = function ThumbnailListsPage() {
-    _classCallCheck(this, ThumbnailListsPage);
-};
-exports.ThumbnailListsPage = ThumbnailListsPage;
-exports.ThumbnailListsPage = ThumbnailListsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'lists/thumbnail-lists.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], ThumbnailListsPage);
+var _basicPages = require('./basic/pages');
+
+_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
+
+var _headersPages = require('./headers/pages');
+
+_defaults(exports, _interopExportWildcard(_headersPages, _defaults));
+
+var _iconPages = require('./icon/pages');
+
+_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
+
+var _insetPages = require('./inset/pages');
+
+_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
+
+var _linesPages = require('./lines/pages');
+
+_defaults(exports, _interopExportWildcard(_linesPages, _defaults));
+
+var _multilinePages = require('./multiline/pages');
+
+_defaults(exports, _interopExportWildcard(_multilinePages, _defaults));
+
+var _thumbnailPages = require('./thumbnail/pages');
+
+_defaults(exports, _interopExportWildcard(_thumbnailPages, _defaults));

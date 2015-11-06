@@ -56,6 +56,10 @@ var DemoApp = (function () {
                         var data = JSON.parse(e.data);
                         if (data.hash) {
                             _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
+                            _this.app.getComponent('leftMenu').enable(false);
+                            if (data.hash === 'menus') {
+                                _this.app.getComponent('leftMenu').enable(true);
+                            }
                         } else {
                             _this.nextPage = actionSheets.BasicPage;
                         }

@@ -48,7 +48,6 @@
 	__webpack_require__(3);
 	__webpack_require__(18);
 	__webpack_require__(41);
-	__webpack_require__(42);
 	module.exports = __webpack_require__(42);
 
 
@@ -9467,6 +9466,10 @@
 	                        var data = JSON.parse(e.data);
 	                        if (data.hash) {
 	                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
+	                            _this.app.getComponent('leftMenu').enable(false);
+	                            if (data.hash === 'menus') {
+	                                _this.app.getComponent('leftMenu').enable(true);
+	                            }
 	                        } else {
 	                            _this.nextPage = actionSheets.BasicPage;
 	                        }

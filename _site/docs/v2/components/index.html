@@ -339,21 +339,12 @@
   destructiveText: 'Delete',
   titleText: 'Modify your album',
   cancelText: 'Cancel',
-  cancel: function() {
-    // add cancel code..
-    console.log('Canceled');
-  },
-  destructiveButtonClicked: () =&gt; {
-    console.log('Destructive clicked');
-  },
-  buttonClicked: function(index) {
-    console.log('Button clicked', index);
-    if(index == 1) { return false; }
-    return true;
-  }
-}).then(actionSheet =&gt; {
+  cancel: () =&gt; {...},
+  destructiveButtonClicked: () =&gt; {...},
+  buttonClicked: (index) =&gt; {...}
+}).then(actionSheetRef =&gt; {
   // Action sheet was created and opened
-  this.actionSheetRef = actionSheet;
+  this.actionSheetRef = actionSheetRef;
   // this.actionSheetRef.close() to close it
 })
 </code></pre>

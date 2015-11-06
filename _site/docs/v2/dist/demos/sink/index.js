@@ -22,7 +22,7 @@ var _pagesForm = require('./pages/form');
 
 var _pagesSegment = require('./pages/segment');
 
-var _pagesSearchBar = require('./pages/search-bar');
+var _pagesSearchbar = require('./pages/searchbar');
 
 var _pagesTableSearch = require('./pages/table-search');
 
@@ -66,7 +66,7 @@ var MyApp = (function () {
         _classCallCheck(this, MyApp);
 
         this.app = app;
-        this.components = [{ title: 'Navigation', component: _pagesNav.NavPage }, { title: 'Tabs', component: _pagesTabs.TabsPage }, { title: 'Buttons', component: _pagesButton.ButtonPage }, { title: 'Lists', component: _pagesList.ListPage }, { title: 'List Groups', component: _pagesListGroup.ListGroupPage }, { title: 'Modal', component: _pagesModal.ModalPage }, { title: 'Pull to Refresh', component: _pagesPullToRefresh.PullToRefreshPage }, { title: 'Cards', component: _pagesCard.CardPage }, { title: 'Forms', component: _pagesForm.FormPage }, { title: 'Segments', component: _pagesSegment.SegmentPage }, { title: 'Search Bar', component: _pagesSearchBar.SearchBarPage }, { title: 'Table Search', component: _pagesTableSearch.TableSearchPage }, { title: 'Icons', component: _pagesIonicons.IconsPage }, { title: 'Menu', component: _pagesMenu.MenuPage }, { title: 'Animation', component: _pagesAnimation.AnimationPage }, { title: 'Slides', component: _pagesSlides.SlidePage }, { title: 'Action Sheet', component: _pagesActionSheet.ActionSheetPage }];
+        this.components = [{ title: 'Navigation', component: _pagesNav.NavPage }, { title: 'Tabs', component: _pagesTabs.TabsPage }, { title: 'Buttons', component: _pagesButton.ButtonPage }, { title: 'Lists', component: _pagesList.ListPage }, { title: 'List Groups', component: _pagesListGroup.ListGroupPage }, { title: 'Modal', component: _pagesModal.ModalPage }, { title: 'Pull to Refresh', component: _pagesPullToRefresh.PullToRefreshPage }, { title: 'Cards', component: _pagesCard.CardPage }, { title: 'Forms', component: _pagesForm.FormPage }, { title: 'Segments', component: _pagesSegment.SegmentPage }, { title: 'Search Bar', component: _pagesSearchbar.SearchBarPage }, { title: 'Table Search', component: _pagesTableSearch.TableSearchPage }, { title: 'Icons', component: _pagesIonicons.IconsPage }, { title: 'Menu', component: _pagesMenu.MenuPage }, { title: 'Animation', component: _pagesAnimation.AnimationPage }, { title: 'Slides', component: _pagesSlides.SlidePage }, { title: 'Action Sheet', component: _pagesActionSheet.ActionSheetPage }];
     }
 
     _createClass(MyApp, [{

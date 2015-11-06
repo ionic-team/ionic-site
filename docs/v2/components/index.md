@@ -38,21 +38,12 @@ ActionSheet.open({
   destructiveText: 'Delete',
   titleText: 'Modify your album',
   cancelText: 'Cancel',
-  cancel: function() {
-    // add cancel code..
-    console.log('Canceled');
-  },
-  destructiveButtonClicked: () => {
-    console.log('Destructive clicked');
-  },
-  buttonClicked: function(index) {
-    console.log('Button clicked', index);
-    if(index == 1) { return false; }
-    return true;
-  }
-}).then(actionSheet => {
+  cancel: () => {...},
+  destructiveButtonClicked: () => {...},
+  buttonClicked: (index) => {...}
+}).then(actionSheetRef => {
   // Action sheet was created and opened
-  this.actionSheetRef = actionSheet;
+  this.actionSheetRef = actionSheetRef;
   // this.actionSheetRef.close() to close it
 })
 ```

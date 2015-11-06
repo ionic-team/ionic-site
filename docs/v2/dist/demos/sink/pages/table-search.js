@@ -77,6 +77,6 @@ exports.TableSearchPage = TableSearchPage = __decorate([(0, _angular2Angular2.Co
     selector: 'ion-view',
     appInjector: [_angular2Angular2.FormBuilder]
 }), (0, _ionicIonic.IonicView)({
-    template: "\n  <ion-navbar *navbar><ion-title>Table Search</ion-title></ion-navbar>\n\n  <ion-content>\n    <form (submit)=\"doSearch($event)\" [control-group]=\"form\">\n\n      <ion-search-bar control=\"searchQuery\"></ion-search-bar>\n\n      <ion-list #list>\n\n        <ion-item *ng-for=\"#item of getItems()\"><!--items | search:form.controls.searchControl.value-->\n          {{item.title}}\n        </ion-item>\n      </ion-list>\n    </form>\n  </ion-content>\n  "
+    template: "\n  <ion-navbar *navbar><ion-title>Table Search</ion-title></ion-navbar>\n\n  <ion-content>\n    <form (submit)=\"doSearch($event)\" [control-group]=\"form\">\n\n      <ion-searchbar control=\"searchQuery\"></ion-searchbar>\n\n      <ion-list #list>\n\n        <ion-item *ng-for=\"#item of getItems()\"><!--items | search:form.controls.searchControl.value-->\n          {{item.title}}\n        </ion-item>\n      </ion-list>\n    </form>\n  </ion-content>\n  "
 }), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.FormBuilder !== 'undefined' && _angular2Angular2.FormBuilder) === 'function' && _a || Object])], TableSearchPage);
 var _a;

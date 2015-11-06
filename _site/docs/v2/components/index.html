@@ -1141,8 +1141,8 @@ class MyModal extends Modal {
     &lt;ion-content&gt;Hello World&lt;/ion-content&gt;`
 })
 export class StartPage {
-  constructor(navCtrl: NavController){
-    this.nav = navCtrl;
+  constructor(nav: NavController){
+    this.nav = nav;
   }
 }
 </code></pre>
@@ -1162,8 +1162,8 @@ export class StartPage {
     &lt;/ion-content&gt;`
 })
 export class StartPage {
-  constructor(navCtrl: NavController) {
-    this.nav = navCtrl;
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
 
   goToOtherPage(){
@@ -1197,8 +1197,8 @@ class OtherPage {}
     &lt;/ion-content&gt;`
 })
 class OtherPage {
-  constructor(navCtrl: NavController) {
-    this.nav = navCtrl;
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
   goBack() {
     this.nav.pop();
@@ -1422,7 +1422,7 @@ class Tab2 {
   '&lt;ion-content&gt;' +
   '&lt;/ion-content&gt;',
 })
-class TabIconCtrl {
+class TabContentPage {
   constructor(nav: NavController, view: ViewController) {
     this.nav = nav;
     this.view = view;
@@ -1441,10 +1441,9 @@ class TabIconCtrl {
 export class TabsIconPage {
   constructor(nav: NavController) {
     this.nav = nav;
-    this.tabOne = TabIconCtrl;
-    this.tabTwo = TabIconCtrl;
-    this.tabThree = TabIconCtrl;
-    this.tabFour = TabIconCtrl;
+    this.tabOne = TabContentPage;
+    this.tabTwo = TabContentPage;
+    ...
   }
 }
 </code></pre>
@@ -1461,7 +1460,7 @@ export class TabsIconPage {
   '&lt;ion-content&gt;' +
   '&lt;/ion-content&gt;',
 })
-class TabIconTextCtrl {
+class TabsTextContentPage {
   constructor(nav: NavController, view: ViewController) {
     this.nav = nav;
     this.view = view;
@@ -1477,13 +1476,12 @@ class TabIconTextCtrl {
   '&lt;ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"&gt;&lt;/ion-tab&gt;' +
   '&lt;/ion-tabs&gt;',
 })
-export class TabsIconTextPage {
+export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {
     this.nav = nav;
-    this.tabOne = TabIconTextCtrl;
-    this.tabTwo = TabIconTextCtrl;
-    this.tabThree = TabIconTextCtrl;
-    this.tabFour = TabIconTextCtrl;
+    this.tabOne = TabsTextContentPage;
+    this.tabTwo = TabsTextContentPage;
+    ...
   }
 }
 </code></pre>

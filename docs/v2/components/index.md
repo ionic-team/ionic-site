@@ -915,8 +915,8 @@ You can access the navigation controller you create by injecting it into any of 
     <ion-content>Hello World</ion-content>`
 })
 export class StartPage {
-  constructor(navCtrl: NavController){
-    this.nav = navCtrl;
+  constructor(nav: NavController){
+    this.nav = nav;
   }
 }
 ```
@@ -937,8 +937,8 @@ To navigate from one page to another simply push or pop a new page onto the stac
     </ion-content>`
 })
 export class StartPage {
-  constructor(navCtrl: NavController) {
-    this.nav = navCtrl;
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
 
   goToOtherPage(){
@@ -973,8 +973,8 @@ Alternatively, if you want to go back, but don't have a NavBar, you can pop the 
     </ion-content>`
 })
 class OtherPage {
-  constructor(navCtrl: NavController) {
-    this.nav = navCtrl;
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
   goBack() {
     this.nav.pop();
@@ -1210,7 +1210,7 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
   '<ion-content>' +
   '</ion-content>',
 })
-class TabIconCtrl {
+class TabContentPage {
   constructor(nav: NavController, view: ViewController) {
     this.nav = nav;
     this.view = view;
@@ -1229,10 +1229,9 @@ class TabIconCtrl {
 export class TabsIconPage {
   constructor(nav: NavController) {
     this.nav = nav;
-    this.tabOne = TabIconCtrl;
-    this.tabTwo = TabIconCtrl;
-    this.tabThree = TabIconCtrl;
-    this.tabFour = TabIconCtrl;
+    this.tabOne = TabContentPage;
+    this.tabTwo = TabContentPage;
+    ...
   }
 }
 ```
@@ -1250,7 +1249,7 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   '<ion-content>' +
   '</ion-content>',
 })
-class TabIconTextCtrl {
+class TabsTextContentPage {
   constructor(nav: NavController, view: ViewController) {
     this.nav = nav;
     this.view = view;
@@ -1266,13 +1265,12 @@ class TabIconTextCtrl {
   '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' +
   '</ion-tabs>',
 })
-export class TabsIconTextPage {
+export class TabsTextPage {
   constructor(nav: NavController, params: NavParams) {
     this.nav = nav;
-    this.tabOne = TabIconTextCtrl;
-    this.tabTwo = TabIconTextCtrl;
-    this.tabThree = TabIconTextCtrl;
-    this.tabFour = TabIconTextCtrl;
+    this.tabOne = TabsTextContentPage;
+    this.tabTwo = TabsTextContentPage;
+    ...
   }
 }
 ```

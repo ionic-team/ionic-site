@@ -377,13 +377,13 @@
 
 <h3 class="no-para">Basic Usage:</h3>
 
-<pre><code class="language-html">&lt;button primary&gt;Button&lt;/button&gt;
+<pre><code class="language-html">&lt;button&gt;Button&lt;/button&gt;
 </code></pre>
 
 <p>The <code>primary</code> property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:</p>
 
 <pre><code class="language-html">&lt;button light&gt;Light&lt;/button&gt;
-&lt;button primary&gt;Primary&lt;/button&gt;
+&lt;button&gt;Primary&lt;/button&gt;
 &lt;button secondary&gt;Secondary&lt;/button&gt;
 &lt;button danger&gt;Danger&lt;/button&gt;
 &lt;button dark&gt;Dark&lt;/button&gt;
@@ -394,7 +394,7 @@
 <p>To use the outline style for a button, just add the <code>outline</code> property:</p>
 
 <pre><code class="language-html">&lt;button light outline&gt;Light Outline&lt;/button&gt;
-&lt;button primary outline&gt;Primary Outline&lt;/button&gt;
+&lt;button outline&gt;Primary Outline&lt;/button&gt;
 &lt;button secondary outline&gt;Secondary Outline&lt;/button&gt;
 &lt;button danger outline&gt;Danger Outline&lt;/button&gt;
 &lt;button dark outline&gt;Dark Outline&lt;/button&gt;
@@ -405,7 +405,7 @@
 <p>To use the clear style for a button, just add the <code>clear</code> property:</p>
 
 <pre><code class="language-html">&lt;button light clear&gt;Light Clear&lt;/button&gt;
-&lt;button primary clear&gt;Primary Clear&lt;/button&gt;
+&lt;button clear&gt;Primary Clear&lt;/button&gt;
 &lt;button secondary clear&gt;Secondary Clear&lt;/button&gt;
 &lt;button danger clear&gt;Danger Clear&lt;/button&gt;
 &lt;button dark clear&gt;Dark Clear&lt;/button&gt;
@@ -416,7 +416,7 @@
 <p>To create a button with rounded corners, just add the <code>round</code> property:</p>
 
 <pre><code class="language-html">&lt;button light round&gt;Light Round&lt;/button&gt;
-&lt;button primary rount&gt;Primary Round&lt;/button&gt;
+&lt;button rount&gt;Primary Round&lt;/button&gt;
 &lt;button secondary rount&gt;Secondary Round&lt;/button&gt;
 &lt;button danger round&gt;Danger Round&lt;/button&gt;
 &lt;button dark round&gt;Dark Round&lt;/button&gt;
@@ -734,7 +734,7 @@
 &lt;/ion-list&gt;
 
 &lt;div padding&gt;
-  &lt;button primary block&gt;Sign In&lt;/button&gt;
+  &lt;button block&gt;Sign In&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
 <h3 class="section-header" id="inset-labels">Inset Labels</h3>
@@ -1083,7 +1083,7 @@ message composition, and option selection.</p>
   template: `
   &lt;ion-content padding&gt;
     &lt;h2&gt;I'm a modal!&lt;/h2&gt;
-    &lt;button primary (click)="close()"&gt;Close&lt;/button&gt;
+    &lt;button (click)="close()"&gt;Close&lt;/button&gt;
   &lt;/ion-content&gt;`
 })
 class MyModal extends Modal {

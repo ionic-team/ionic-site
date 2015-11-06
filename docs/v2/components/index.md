@@ -78,14 +78,14 @@ Buttons are an essential way to interact with and navigate through an app, and s
 <h3 class="no-para">Basic Usage:</h3>
 
 ```html
-<button primary>Button</button>
+<button>Button</button>
 ```
 
 The `primary` property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:
 
 ```html
 <button light>Light</button>
-<button primary>Primary</button>
+<button>Primary</button>
 <button secondary>Secondary</button>
 <button danger>Danger</button>
 <button dark>Dark</button>
@@ -97,7 +97,7 @@ To use the outline style for a button, just add the `outline` property:
 
 ```html
 <button light outline>Light Outline</button>
-<button primary outline>Primary Outline</button>
+<button outline>Primary Outline</button>
 <button secondary outline>Secondary Outline</button>
 <button danger outline>Danger Outline</button>
 <button dark outline>Dark Outline</button>
@@ -109,7 +109,7 @@ To use the clear style for a button, just add the `clear` property:
 
 ```html
 <button light clear>Light Clear</button>
-<button primary clear>Primary Clear</button>
+<button clear>Primary Clear</button>
 <button secondary clear>Secondary Clear</button>
 <button danger clear>Danger Clear</button>
 <button dark clear>Dark Clear</button>
@@ -121,7 +121,7 @@ To create a button with rounded corners, just add the `round` property:
 
 ```html
 <button light round>Light Round</button>
-<button primary rount>Primary Round</button>
+<button rount>Primary Round</button>
 <button secondary rount>Secondary Round</button>
 <button danger round>Danger Round</button>
 <button dark round>Dark Round</button>
@@ -479,7 +479,7 @@ If a label attribute is not provided, an `<ion-input>` component will default to
 </ion-list>
 
 <div padding>
-  <button primary block>Sign In</button>
+  <button block>Sign In</button>
 </div>
 ```
 <h3 class="section-nav" id="inset-labels" class="section-header">Inset Labels</h3>
@@ -853,7 +853,7 @@ Next, let's create our modal and define add its template:
   template: `
   <ion-content padding>
     <h2>I'm a modal!</h2>
-    <button primary (click)="close()">Close</button>
+    <button (click)="close()">Close</button>
   </ion-content>`
 })
 class MyModal extends Modal {

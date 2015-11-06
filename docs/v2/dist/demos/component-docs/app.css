@@ -2787,8 +2787,10 @@ tabbar {
   border: 0;
   border-radius: 0;
   background: none; }
-  .tab-button:hover:not(.disable-hover) {
-    color: #387ef5; }
+
+.tab-button:hover:not(.disable-hover),
+.tab-button[aria-selected=true] {
+  color: #387ef5; }
 
 .tab-button-text {
   margin-top: 3px;
@@ -2812,9 +2814,6 @@ tabbar {
 
 .has-title-only .tab-button-text {
   white-space: normal; }
-
-.tab-button[aria-selected=true] {
-  color: #387ef5; }
 
 tab-highlight {
   display: none; }
@@ -2851,6 +2850,62 @@ tab-highlight {
 
 [tabbar-icons=hide] .tab-button-icon {
   display: none; }
+
+tabbar[primary] {
+  background-color: #387ef5; }
+  tabbar[primary] .tab-button {
+    color: #fff; }
+  tabbar[primary] .tab-button:hover:not(.disable-hover),
+  tabbar[primary] .tab-button[aria-selected=true] {
+    color: #fff; }
+
+tabbar[secondary] {
+  background-color: #32db64; }
+  tabbar[secondary] .tab-button {
+    color: #fff; }
+  tabbar[secondary] .tab-button:hover:not(.disable-hover),
+  tabbar[secondary] .tab-button[aria-selected=true] {
+    color: #fff; }
+
+tabbar[danger] {
+  background-color: #f53d3d; }
+  tabbar[danger] .tab-button {
+    color: #fff; }
+  tabbar[danger] .tab-button:hover:not(.disable-hover),
+  tabbar[danger] .tab-button[aria-selected=true] {
+    color: #fff; }
+
+tabbar[light] {
+  background-color: #f4f4f4; }
+  tabbar[light] .tab-button {
+    color: #000; }
+  tabbar[light] .tab-button:hover:not(.disable-hover),
+  tabbar[light] .tab-button[aria-selected=true] {
+    color: #000; }
+
+tabbar[dark] {
+  background-color: #222; }
+  tabbar[dark] .tab-button {
+    color: #fff; }
+  tabbar[dark] .tab-button:hover:not(.disable-hover),
+  tabbar[dark] .tab-button[aria-selected=true] {
+    color: #fff; }
+
+tabbar[energized] {
+  background-color: #ffc527; }
+  tabbar[energized] .tab-button {
+    color: #fff; }
+  tabbar[energized] .tab-button:hover:not(.disable-hover),
+  tabbar[energized] .tab-button[aria-selected=true] {
+    color: #fff; }
+
+tabbar[royal] {
+  background-color: #7e60ff; }
+  tabbar[royal] .tab-button {
+    color: #fff; }
+  tabbar[royal] .tab-button:hover:not(.disable-hover),
+  tabbar[royal] .tab-button[aria-selected=true] {
+    color: #fff; }
 
 @font-face {
   font-family: "Ionicons";
@@ -6451,6 +6506,20 @@ icon,
     border-top-width: 0.55px; }
   .ios.hairlines ion-tabs[tabbar-placement="top"] tabbar {
     border-bottom-width: 0.55px; }
+  .ios tabbar[primary] {
+    border-color: #0c60ee; }
+  .ios tabbar[secondary] {
+    border-color: #21b94e; }
+  .ios tabbar[danger] {
+    border-color: #f30c0c; }
+  .ios tabbar[light] {
+    border-color: #dbdbdb; }
+  .ios tabbar[dark] {
+    border-color: #090909; }
+  .ios tabbar[energized] {
+    border-color: #f3b200; }
+  .ios tabbar[royal] {
+    border-color: #552dff; }
 
 .md {
   /*! Ionic: Material Design */ }
@@ -7719,7 +7788,7 @@ body.md ion-menu#leftMenu {
   background-color: #f53d3d; }
 
 body, body:hover, body a, body button, body media-switch {
-  cursor: url("http://ionicframework.com/img/finger.png"), auto; }
+  cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto; }
 
 body ion-app {
   overflow: visible; }

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L100'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L103'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L100'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L103'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">ActionSheet <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L101-L139">ionic/components/action-sheet/action-sheet.ts (line 101)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L104-L142">ionic/components/action-sheet/action-sheet.ts (line 104)</a>
 </p>
 ## Members
 

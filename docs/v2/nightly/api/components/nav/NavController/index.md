@@ -112,7 +112,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L10-L1029">ionic/components/nav/nav-controller.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L10-L1073">ionic/components/nav/nav-controller.ts (line 10)</a>
 </p>
 ## Members
 
@@ -568,108 +568,6 @@ TODO
 
 * Returns: 
   <code>Promise</code> TODO
-
-
-
-
-<div id="transition"></div>
-<h2>
-  <code>transition(enteringView, leavingView, opts, callback)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        enteringView
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        leavingView
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        callback
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>any</code> TODO
 
 
 

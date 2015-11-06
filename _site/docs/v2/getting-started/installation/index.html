@@ -321,15 +321,16 @@
 <pre><code class="language-bash">$ ionic start cutePuppyPics --v2
 </code></pre>
 
-<p>To run our app, just run</p>
+<p>To run our app, let’s <code>cd</code> in to the directory that was created, and then run the <code>ionic serve</code> command:</p>
 
-<pre><code class="language-bash">$ ionic serve
+<pre><code class="language-bash">$ cd cutePuppyPics
+$ ionic serve
 </code></pre>
 
 <p>And we can play with it right in the browser!</p>
 
 <h2 id="building-to-a-devicebuilding-to-a-device"><a href="#building-to-a-device">Building to a Device</a></h2>
-<p>After you have Ionic installed, we can build our app to a physical device. If you don’t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
+<p>After you have Ionic installed, we can build our app to a physical device. If you don’t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../../resources/developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../../resources/developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../../resources/what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
 
 <pre><code class="language-bash">$ sudo npm install -g cordova
 </code></pre>
@@ -341,7 +342,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ionic platform add ios</code></pre></figure>
 
-<p>Next, we will need to install <a href="../what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../what-is/#npm">npm</a>:</p>
+<p>Next, we will need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../../resources/what-is/#npm">npm</a>:</p>
 
 <pre><code class="language-bash">$ npm install ios-sim
 </code></pre>
@@ -357,7 +358,7 @@
 <pre><code class="language-bash">$ ionic platform add android
 </code></pre>
 
-<p>Next, we will need to install the <a href="../what-is/#android-sdk">Android SDK</a>. The Android SDK allows us to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../what-is/#genymotion">Genymotion</a> is recommended since is is much faster. Once installed, we can run an Android image and run:</p>
+<p>Next, we will need to install the <a href="../../resources/what-is/#android-sdk">Android SDK</a>. The Android SDK allows us to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../../resources/what-is/#genymotion">Genymotion</a> is recommended since is is much faster. Once installed, we can run an Android image and run:</p>
 
 <pre><code class="language-bash">$ ionic run android
 </code></pre>

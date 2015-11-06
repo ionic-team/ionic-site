@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L3'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L3'>
     Improve this doc
   </a>
 </div>
@@ -43,19 +43,68 @@ docType: "class"
 
 <h1 class="class export">Segment <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L6-L118">ionic/components/segment/segment.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L4-L116">ionic/components/segment/segment.ts (line 4)</a>
 </p>
-<h2>Component</h2>
+<h2>Directive</h2>
   <span>selector: ion-segment</span>
-
-  <span>inputs: value</span>
 
 
 ## Members
 
+<div id="buttons"></div>
+<h2>
+  <code>buttons()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="writeValue"></div>
 <h2>
   <code>writeValue()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerOnChange"></div>
+<h2>
+  <code>registerOnChange()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerOnTouched"></div>
+<h2>
+  <code>registerOnTouched()</code>
 
 </h2>
 

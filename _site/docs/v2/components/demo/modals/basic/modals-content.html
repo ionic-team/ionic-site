@@ -1,10 +1,52 @@
-
-<ion-content padding>
-    <button block danger (click)="closeModal()">
-      <icon close></icon>
-      Close Modal
+<ion-toolbar class="android-attr">
+  <ion-title>
+    Description
+  </ion-title>
+  <ion-nav-items primary>
+    <button (click)="close()" *ng-if=" currentPlatform === 'ios' ">
+      Cancel
     </button>
-</ion-content>
+    <button (click)="close()" *ng-if=" currentPlatform === 'android' ">
+      <icon close></icon>
+    </button>
+  </ion-nav-items>
+</ion-toolbar>
+
+
+  <ion-content class="has-header">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="img/avatar-gollum.jpg">
+        </ion-avatar>
+        <h2>Gollum</h2>
+        <p>Sneaky little hobbitses!</p>
+      </ion-item>
+
+      <ion-item (click)="openModal()">
+        Race
+        <ion-note item-right>
+          Hobbit
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openModal()">
+        Culture
+        <ion-note item-right>
+          River Folk
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openModal()">
+        Alter Ego
+        <ion-note item-right>
+          Smeagol
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
 
 
 

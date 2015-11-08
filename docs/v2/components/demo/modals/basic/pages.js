@@ -39,34 +39,56 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ModalsFirstPage = (function () {
-    function ModalsFirstPage(nav, modal, events) {
-        _classCallCheck(this, ModalsFirstPage);
+var ModalsInitialPage = (function () {
+    function ModalsInitialPage(nav, modal) {
+        _classCallCheck(this, ModalsInitialPage);
 
         this.nav = nav;
         this.modal = modal;
     }
 
-    _createClass(ModalsFirstPage, [{
+    _createClass(ModalsInitialPage, [{
         key: "openModal",
-        value: function openModal() {
-            this.modal.open(ModalsContentPage);
+        value: function openModal(characterNum) {
+            this.modal.open(ModalsContentPage, characterNum);
         }
     }]);
 
-    return ModalsFirstPage;
+    return ModalsInitialPage;
 })();
-ModalsFirstPage = __decorate([(0, _ionicIonic.Page)({
+ModalsInitialPage = __decorate([(0, _ionicIonic.Page)({
     templateUrl: 'modals/basic/template.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], ModalsFirstPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object])], ModalsInitialPage);
 var ModalsContentPage = (function () {
-    function ModalsContentPage(modal, events) {
+    function ModalsContentPage(modal, platform) {
         _classCallCheck(this, ModalsContentPage);
 
         this.modal = modal;
+        if (platform.is('android')) {
+            this.currentPlatform = 'android';
+        } else {
+            this.currentPlatform = 'ios';
+        }
+        var characters = [{
+            name: 'Gollum',
+            quote: 'Sneaky little hobbitses!',
+            image: 'img/avatar-gollum.jpg',
+            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'River Folk' }, { title: 'Alter Ego', note: 'Smeagol' }]
+        }, {
+            name: 'Frodo',
+            quote: 'Go back, Sam! I\'m going to Mordor alone!',
+            image: 'img/avatar-gollum.jpg',
+            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Weapon', note: 'Sting' }]
+        }, {
+            name: 'Sam',
+            quote: 'What we need is a few good taters.',
+            image: 'img/avatar-gollum.jpg',
+            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Alter Ego', note: 'Smeagol' }]
+        }];
+        this.character = characters[this.modal._defaults.charNum];
     }
 
     _createClass(ModalsContentPage, [{
@@ -82,16 +104,16 @@ var ModalsContentPage = (function () {
     return ModalsContentPage;
 })();
 ModalsContentPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'modals/basic/modals-content.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
+    templateUrl: 'modals/basic/modal-content.html',
+    directives: [_angular2Angular2.NgFor, (0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _e || Object])], ModalsContentPage);
+}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _d || Object])], ModalsContentPage);
 var BasicPage = (function () {
     function BasicPage(modal) {
         _classCallCheck(this, BasicPage);
 
-        this.rootView = ModalsFirstPage;
+        this.rootView = ModalsInitialPage;
         this.modal = modal;
     }
 
@@ -110,5 +132,5 @@ var BasicPage = (function () {
 exports.BasicPage = BasicPage;
 exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-nav [root]="rootView"></ion-nav>'
-}), __metadata('design:paramtypes', [typeof (_f = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _f || Object])], BasicPage);
-var _a, _b, _c, _d, _e, _f;
+}), __metadata('design:paramtypes', [typeof (_e = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _e || Object])], BasicPage);
+var _a, _b, _c, _d, _e;

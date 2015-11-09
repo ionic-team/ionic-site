@@ -76,12 +76,12 @@
     <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a> on January 07, 2015</time>
   </div>
   
-    Before releasing Beta 14, we took some time to gather feedback from the Ionic community about how navigation UI should
-behave: not just how it should be animated, but how
-everything comes together in an app. In Beta 14, we made some major changes to the navigation structure and elements
-that follow some already well-established patterns
-that can be found in apps across all platforms. We feel these updates will smooth the process of building UI navigation
-for your app.
+    <p>Before releasing Beta 14, we took some time to gather feedback from the Ionic community about how navigation UI should<br />
+behave: not just how it should be animated, but how<br />
+everything comes together in an app. In Beta 14, we made some major changes to the navigation structure and elements<br />
+that follow some already well-established patterns<br />
+that can be found in apps across all platforms. We feel these updates will smooth the process of building UI navigation<br />
+for your app.</p>
 
 
     <a href="/blog/navigating-the-changes">Read more...</a>
@@ -119,18 +119,16 @@ for your app.
     <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/495587171332403200/tO9oMmCn.png" class="author-icon"><a href="https://twitter.com/mhartington">Mike</a> on January 05, 2015</time>
   </div>
   
-    <img class="showcase-image" src="/img/blog/splash-header.jpg" style="margin-top:-20px;">
+    <p><img class="showcase-image" src="/img/blog/splash-header.jpg" style="margin-top:-20px;" /></p>
 
+<p>What’s the first thing users see when they download your app? What about after they install it and start the app?</p>
 
-What’s the first thing users see when they download your app? What about after they install it and start the app?
+<p>An app icon and splash screen (launch image) are important parts of any app, yet making them used to be incredibly<br />
+tedious. You needed numerous icons for iOS and Android, and then you had to deal with splash screens and all their<br />
+different sizes.</p>
 
-An app icon and splash screen (launch image) are important parts of any app, yet making them used to be incredibly
-tedious. You needed numerous icons for iOS and Android, and then you had to deal with splash screens and all their
-different sizes.
-
-
-To save you the stress of dealing with all that, we’ve made it possible for you to generate app icons and splash screens
-via the Ionic CLI.
+<p>To save you the stress of dealing with all that, we’ve made it possible for you to generate app icons and splash screens<br />
+via the Ionic CLI.</p>
 
 
     <a href="/blog/automating-icons-and-splash-screens">Read more...</a>
@@ -168,65 +166,66 @@ via the Ionic CLI.
     <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/2645882152/2d0a800126f9913e3df81c47add9d17a.jpeg" class="author-icon"><a href="http://twitter.com/tweakbox" target="_blank">Joel Weirauch</a> on December 22, 2014</time>
   </div>
   
-    We are huge fans of [Docker](https://www.docker.com/) here at Ionic. Docker keeps our code and its dependencies together and lets us more fully utilize our computing resources for products like [Ionic Creator](https://creator.ionic.io/) and the upcoming [Ionic.io](https://ionic.io/) services. 
+    <p>We are huge fans of <a href="https://www.docker.com/">Docker</a> here at Ionic. Docker keeps our code and its dependencies together and lets us more fully utilize our computing resources for products like <a href="https://creator.ionic.io/">Ionic Creator</a> and the upcoming <a href="https://ionic.io/">Ionic.io</a> services.</p>
 
-One challenge we faced with Docker, though, was that any time we made even the smallest change to our code, we had to go through the process of building a new container, pulling it down to our servers, and replacing the running version.  
+<p>One challenge we faced with Docker, though, was that any time we made even the smallest change to our code, we had to go through the process of building a new container, pulling it down to our servers, and replacing the running version.</p>
 
-We store all of our code in GitHub, use the [Docker Registry](https://hub.docker.com/) to automatically build and store our containers, and use [Ansible](http://www.ansible.com/) to script the management and deployment of our containers to our servers. Even with a fully automated process, deploying that one small change could take us 20 minutes or more. After some brainstorming, we realized there is a better way for us to utilize Docker.
+<p>We store all of our code in GitHub, use the <a href="https://hub.docker.com/">Docker Registry</a> to automatically build and store our containers, and use <a href="http://www.ansible.com/">Ansible</a> to script the management and deployment of our containers to our servers. Even with a fully automated process, deploying that one small change could take us 20 minutes or more. After some brainstorming, we realized there is a better way for us to utilize Docker.</p>
 
-After the initial container build, 99% of our changes are purely code. We aren't adding any new dependencies or changing any of the requirements for running the code. Docker is really just a way to encapsulate the infrastructure required to run our code in a self-contained package. Because 99% of our changes are to code, not infrastructure, we realized we didn’t need to go through the effort to rebuild the infrastructure on every change.
+<p>After the initial container build, 99% of our changes are purely code. We aren’t adding any new dependencies or changing any of the requirements for running the code. Docker is really just a way to encapsulate the infrastructure required to run our code in a self-contained package. Because 99% of our changes are to code, not infrastructure, we realized we didn’t need to go through the effort to rebuild the infrastructure on every change.</p>
 
-The killer Docker feature that lets us solve this problem is [volumes](https://docs.docker.com/userguide/dockervolumes/). In the first iterations of our Docker files, our code was pulled from GitHub and built directly into the container. Now, we deliberately leave the code out of the container and instead load it through a host volume on container start. When we want to do a new deploy, Ansible pulls down our master branch from GitHub into an app directory on our servers. Then it checks to make sure that the associated container is running, and if it's not, it will start the container and map the app code into the container.
+<p>The killer Docker feature that lets us solve this problem is <a href="https://docs.docker.com/userguide/dockervolumes/">volumes</a>. In the first iterations of our Docker files, our code was pulled from GitHub and built directly into the container. Now, we deliberately leave the code out of the container and instead load it through a host volume on container start. When we want to do a new deploy, Ansible pulls down our master branch from GitHub into an app directory on our servers. Then it checks to make sure that the associated container is running, and if it’s not, it will start the container and map the app code into the container.</p>
 
-The other component that makes this work for us is that most of our apps are Python (Django), and we serve them with uWSGI inside the Docker container. uWSGI has a [touch reload](http://uwsgi-docs.readthedocs.org/en/latest/Options.html#touch-reload) feature that watches a specified file and reloads the uWSGI server when the file is touched. After Ansible has pulled our changes from GitHub, we have Ansible touch the uwsgi.ini file, which triggers uWSGI to reload inside the running container. Just like that, we’re running the updated version of our code!
+<p>The other component that makes this work for us is that most of our apps are Python (Django), and we serve them with uWSGI inside the Docker container. uWSGI has a <a href="http://uwsgi-docs.readthedocs.org/en/latest/Options.html#touch-reload">touch reload</a> feature that watches a specified file and reloads the uWSGI server when the file is touched. After Ansible has pulled our changes from GitHub, we have Ansible touch the uwsgi.ini file, which triggers uWSGI to reload inside the running container. Just like that, we’re running the updated version of our code!</p>
 
-What this means, in brief, is that we took our deployments from a 20+ minute process that looked like this:
+<p>What this means, in brief, is that we took our deployments from a 20+ minute process that looked like this:</p>
 
-1. Commit and push to GitHub.
-2. Docker Registry pulls the changes and builds a new container.
-3. Ansible connects to our servers and pulls the new container.
-4. Ansible finds any running instances of the old container and stops them.
-5. Ansible starts new instances of the container.
+<ol>
+  <li>Commit and push to GitHub.</li>
+  <li>Docker Registry pulls the changes and builds a new container.</li>
+  <li>Ansible connects to our servers and pulls the new container.</li>
+  <li>Ansible finds any running instances of the old container and stops them.</li>
+  <li>Ansible starts new instances of the container.</li>
+</ol>
 
-to this approximately 10 second process:
+<p>to this approximately 10 second process:</p>
 
-1. Commit and push to GitHub.
-2. Ansible connects to our servers, pulls latest master from GitHub.
-3. Ansible touches the app's uwsgi.ini file to trigger UWSGI to reload.
+<ol>
+  <li>Commit and push to GitHub.</li>
+  <li>Ansible connects to our servers, pulls latest master from GitHub.</li>
+  <li>Ansible touches the app’s uwsgi.ini file to trigger UWSGI to reload.</li>
+</ol>
 
-### Breaking it down
+<h3 id="breaking-it-down">Breaking it down</h3>
 
-#### Supervisor / uWSGI
-We are using [Supervisor](http://supervisord.org/) inside the Docker container to start the processes run by the container. Our supervisord.conf looks like the following:
+<h4 id="supervisor--uwsgi">Supervisor / uWSGI</h4>
+<p>We are using <a href="http://supervisord.org/">Supervisor</a> inside the Docker container to start the processes run by the container. Our supervisord.conf looks like the following:</p>
 
-```ini
-{% raw %}
+<pre><code class="language-ini">
 [supervisord]
 nodaemon=true
 
 [program:uwsgi]
 command = /usr/local/bin/uwsgi --touch-reload=/path/to/code/in/container/uwsgi.ini --ini /path/to/code/in/container/uwsgi.ini
-{% endraw %}
-```
 
-We are using the uwsgi.ini file as the trigger file via the [--touch-reload](http://uwsgi-docs.readthedocs.org/en/latest/Options.html#touch-reload) flag.
+</code></pre>
 
-#### Docker
-When we start our container, we add a host volume that contains the code for our app. That host volume is mapped to an app path in the container from which uWSGI will load the app.
+<p>We are using the uwsgi.ini file as the trigger file via the <a href="http://uwsgi-docs.readthedocs.org/en/latest/Options.html#touch-reload">–touch-reload</a> flag.</p>
 
-```bash
-{% raw %}
+<h4 id="docker">Docker</h4>
+<p>When we start our container, we add a host volume that contains the code for our app. That host volume is mapped to an app path in the container from which uWSGI will load the app.</p>
+
+<pre><code class="language-bash">
 docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name=container_name driftyco/testapp
-{% endraw %}
-```
 
-#### Ansible
-Ansible is in charge of cloning the application code from GitHub into our host's app directory, ensuring that the Docker container is running and touching the uWSGI touch-reload trigger file. We have created playbooks to direct the deployment of each of our services, so deploying is just a matter of running the right one.
+</code></pre>
 
-For a quick code deploy, we run a playbook that contains these tasks and takes only a few seconds to run:
+<h4 id="ansible">Ansible</h4>
+<p>Ansible is in charge of cloning the application code from GitHub into our host’s app directory, ensuring that the Docker container is running and touching the uWSGI touch-reload trigger file. We have created playbooks to direct the deployment of each of our services, so deploying is just a matter of running the right one.</p>
 
-```yaml
-{% raw %}
+<p>For a quick code deploy, we run a playbook that contains these tasks and takes only a few seconds to run:</p>
+
+<pre><code class="language-yaml">
 - set_fact: host_volume="/path/to/code/on/host"
 - name: Git pull the latest code
   git: repo=git@github.com:{{ org }}/{{ container }}.git
@@ -236,13 +235,12 @@ For a quick code deploy, we run a playbook that contains these tasks and takes o
 
 - name: Gracefully reload uwsgi
   file: path={{ touch_file }} state=touch
-{% endraw %}
-```
 
-If we need to restart the entire container or update system packages, we can do a container deploy, which takes a few minutes, with these tasks:
+</code></pre>
 
-```yaml
-{% raw %}
+<p>If we need to restart the entire container or update system packages, we can do a container deploy, which takes a few minutes, with these tasks:</p>
+
+<pre><code class="language-yaml">
 - name: Add app dir if it doesn't yet exist
   file: path={{ host_volume }} owner=nobody group=docker recurse=yes state=directory
   sudo: yes
@@ -255,13 +253,13 @@ If we need to restart the entire container or update system packages, we can do 
     - docker rm {{ container }}
 - name: Run Docker image with app volumes
   command:  docker run -d -P -v {{ host_volume }}:{{ container_volume }} --name={{ container }} {{ extra_params }} {{ org }}/{{ container }}
-{% endraw %}
-```
 
-For a full deploy, we run both playbooks together in sequence; it’s that simple. ;)
+</code></pre>
 
-### Conclusion
-Because Docker is primarily a way to encapsulate infrastructure into a self-contained, deployable package, there is often no need to rebuild the entire container just to deploy a couple code changes. By utilizing volumes in Docker, we remove the code from the container, enabling code to be updated independently of the container that runs it. Finally, we can use the UWSGI touch reload feature to restart UWSGI in the container and load the updated code from the volume. 
+<p>For a full deploy, we run both playbooks together in sequence; it’s that simple. ;)</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Because Docker is primarily a way to encapsulate infrastructure into a self-contained, deployable package, there is often no need to rebuild the entire container just to deploy a couple code changes. By utilizing volumes in Docker, we remove the code from the container, enabling code to be updated independently of the container that runs it. Finally, we can use the UWSGI touch reload feature to restart UWSGI in the container and load the updated code from the volume.</p>
 
 
   
@@ -298,146 +296,144 @@ Because Docker is primarily a way to encapsulate infrastructure into a self-cont
     <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on December 15, 2014</time>
   </div>
   
-    <img class="showcase-image" src="/img/blog/ionic-1year-header.jpg" style="margin-top:-20px;">
+    <p><img class="showcase-image" src="/img/blog/ionic-1year-header.jpg" style="margin-top:-20px;" /></p>
 
-2014 is coming to a close, and what a year it has been!
+<p>2014 is coming to a close, and what a year it has been!</p>
 
-It's hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue how voracious developers' appetites for building hybrid apps would be. We thought we'd have some early adopters trying out the framework, but we certainly did not expect the massive adoption of Ionic that we've seen in just one year!
+<p>It’s hard to believe, but Ionic is only one year old. When we launched at the end of 2013, we had no clue how voracious developers’ appetites for building hybrid apps would be. We thought we’d have some early adopters trying out the framework, but we certainly did not expect the massive adoption of Ionic that we’ve seen in just one year!</p>
 
-Our conclusion from 2014 is that hybrid is not only here to stay, but has become a *much better* solution than native for many app developers.
+<p>Our conclusion from 2014 is that hybrid is not only here to stay, but has become a <em>much better</em> solution than native for many app developers.</p>
 
-### By the Numbers
+<h3 id="by-the-numbers">By the Numbers</h3>
 
-In 2014 alone, Ionic became one of the __top 50__ most popular open source projects in the world, with over [12,000 stars](https://github.com/driftyco/ionic) on GitHub.
+<p>In 2014 alone, Ionic became one of the <strong>top 50</strong> most popular open source projects in the world, with over <a href="https://github.com/driftyco/ionic">12,000 stars</a> on GitHub.</p>
 
-Over __320,000__ apps have been created this year, and some [particularly impressive](http://ionicframework.com/blog/built-with-ionic-sworkit/) ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.
+<p>Over <strong>320,000</strong> apps have been created this year, and some <a href="http://ionicframework.com/blog/built-with-ionic-sworkit/">particularly impressive</a> ones were featured by both Apple and Google in their respective app stores. Ionic is being used by freelancers, startups, and Fortune 50 companies alike, and in more countries than we can even count.</p>
 
-![Ionic numbers](/img/blog/by-the-numbers-map.jpg)
+<p><img src="/img/blog/by-the-numbers-map.jpg" alt="Ionic numbers" /></p>
 
-Every month, over 50,000 new apps are created, and over half a million unique developers visit the Ionic website for documentation and to read our blog posts about hybrid apps and the broader mobile dev ecosystem.
+<p>Every month, over 50,000 new apps are created, and over half a million unique developers visit the Ionic website for documentation and to read our blog posts about hybrid apps and the broader mobile dev ecosystem.</p>
 
-Our [forum](http://forum.ionicframework.com/) has seen over 45,000 posts this year, reaching over 100,000 unique developers a month. It's turning into a great place to get help and collaborate with the Ionic community, and even to find interesting work available to Ionic developers around the world!
+<p>Our <a href="http://forum.ionicframework.com/">forum</a> has seen over 45,000 posts this year, reaching over 100,000 unique developers a month. It’s turning into a great place to get help and collaborate with the Ionic community, and even to find interesting work available to Ionic developers around the world!</p>
 
-Last but not least, the [#ionic](http://webchat.freenode.net/?channels=ionic) IRC room on Freenode has nearly 100 active users at any given time! Having an official single-hash room on Freenode has been a personal dream of mine ever since I started using IRC 15 years ago, so I am thrilled to see our IRC room being so widely utilized.
+<p>Last but not least, the <a href="http://webchat.freenode.net/?channels=ionic">#ionic</a> IRC room on Freenode has nearly 100 active users at any given time! Having an official single-hash room on Freenode has been a personal dream of mine ever since I started using IRC 15 years ago, so I am thrilled to see our IRC room being so widely utilized.</p>
 
-### Partnerships
+<h3 id="partnerships">Partnerships</h3>
 
-We are also proud that Ionic has been integrated into such great tools as [Web Storm](https://www.jetbrains.com/webstorm/whatsnew/) and [JBoss](http://tools.jboss.org/documentation/whatsnew/jbosstools/4.2.0.CR1.html#ionic). There are a few bigger tools integrating Ionic that we can't talk about just yet!
+<p>We are also proud that Ionic has been integrated into such great tools as <a href="https://www.jetbrains.com/webstorm/whatsnew/">Web Storm</a> and <a href="http://tools.jboss.org/documentation/whatsnew/jbosstools/4.2.0.CR1.html#ionic">JBoss</a>. There are a few bigger tools integrating Ionic that we can’t talk about just yet!</p>
 
-The Heroku team has also been good to Ionic, creating a [Mobile Template](http://engineering.heroku.com/blogs/2014-10-02-heroku-mobile-app-template) that can be deployed to Heroku with one click and a [full demo](http://heroku.github.io/nibs/) app using Ionic, Heroku, and the Salesforce1 platform.
+<p>The Heroku team has also been good to Ionic, creating a <a href="http://engineering.heroku.com/blogs/2014-10-02-heroku-mobile-app-template">Mobile Template</a> that can be deployed to Heroku with one click and a <a href="http://heroku.github.io/nibs/">full demo</a> app using Ionic, Heroku, and the Salesforce1 platform.</p>
 
-There are several [Ionic starter templates](https://github.com/firebase/firebase-angular-starter-pack) from the Firebase team, and Firebase is quickly becoming the preferred real-time backend solution for Ionic apps.
+<p>There are several <a href="https://github.com/firebase/firebase-angular-starter-pack">Ionic starter templates</a> from the Firebase team, and Firebase is quickly becoming the preferred real-time backend solution for Ionic apps.</p>
 
-We are also incredibly thankful for the support from the AngularJS team and community. We look forward to talking more about and incorporating
-[ngMaterial](https://github.com/angular/material), our collaboration with the AngularJS team to implement material design in Angular (and eventually the core Android look and feel for Ionic apps)!
+<p>We are also incredibly thankful for the support from the AngularJS team and community. We look forward to talking more about and incorporating<br />
+<a href="https://github.com/angular/material">ngMaterial</a>, our collaboration with the AngularJS team to implement material design in Angular (and eventually the core Android look and feel for Ionic apps)!</p>
 
-### Bloggers
+<h3 id="bloggers">Bloggers</h3>
 
-Ionic wouldn't be where it is today without the amazing content written by hybrid, AngularJS, and mobile dev bloggers.
+<p>Ionic wouldn’t be where it is today without the amazing content written by hybrid, AngularJS, and mobile dev bloggers.</p>
 
-We're grateful to have had some great bloggers like [Holly Schinsky](http://devgirl.org/), [Raymond Camden](http://www.raymondcamden.com/), [Christophe Coenrates](http://coenraets.org/blog/2014/10/ionic-tutorial-and-sample-application/), [Nic Raboy](http://www.nraboy.com/) and [Andrew McGivery](http://mcgivery.com/) write incredible and educational posts on Ionic that the Ionic community loves reading.
+<p>We’re grateful to have had some great bloggers like <a href="http://devgirl.org/">Holly Schinsky</a>, <a href="http://www.raymondcamden.com/">Raymond Camden</a>, <a href="http://coenraets.org/blog/2014/10/ionic-tutorial-and-sample-application/">Christophe Coenrates</a>, <a href="http://www.nraboy.com/">Nic Raboy</a> and <a href="http://mcgivery.com/">Andrew McGivery</a> write incredible and educational posts on Ionic that the Ionic community loves reading.</p>
 
-In addition, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is [Ionic in Action](http://www.manning.com/wilken/) from Manning Publications. The book is [on sale](http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&aid=2sPCIgmMgxs) today, along with Raymond's wonderful [Cordova in Action](http://www.manning.com/camden/).
+<p>In addition, there are several books being written about Ionic right now from major tech publishers. One that we can talk about now is <a href="http://www.manning.com/wilken/">Ionic in Action</a> from Manning Publications. The book is <a href="http://myemail.constantcontact.com/Dec-17--Apache-Cordova-in-Action.html?soid=1101335703814&amp;aid=2sPCIgmMgxs">on sale</a> today, along with Raymond’s wonderful <a href="http://www.manning.com/camden/">Cordova in Action</a>.</p>
 
-Finally, [Steve Michelotti](https://twitter.com/smichelotti) created a wonderful [Pluralsight Course](http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs) on Ionic, with over three hours of video content. It's very popular course on the site and a great resource for learning more about Ionic!
+<p>Finally, <a href="https://twitter.com/smichelotti">Steve Michelotti</a> created a wonderful <a href="http://www.pluralsight.com/courses/description/building-mobile-apps-ionic-framework-angularjs">Pluralsight Course</a> on Ionic, with over three hours of video content. It’s very popular course on the site and a great resource for learning more about Ionic!</p>
 
-Thanks to everyone who has written about Ionic; please get in touch if you'd like to help create more content to post on the Ionic blog!
+<p>Thanks to everyone who has written about Ionic; please get in touch if you’d like to help create more content to post on the Ionic blog!</p>
 
-### Taking over the world
+<h3 id="taking-over-the-world">Taking over the world</h3>
 
-Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. On top of that, we're starting to see a multi-national band of Ionic user groups forming around the world.
+<p>Ionic developers have given hundreds of talks at meetups and conferences this year and have written blog posts, demos, and tutorials. On top of that, we’re starting to see a multi-national band of Ionic user groups forming around the world.</p>
 
-![Ionic Logos](/img/blog/ionic-community-logos.jpg)
+<p><img src="/img/blog/ionic-community-logos.jpg" alt="Ionic Logos" /></p>
 
-These are official Ionic meetup groups started by Ionic community members that we help to get up and running. If you'd like to start your own official Ionic meetup group, [let us know!](mailto:katie@drifty.com)
+<p>These are official Ionic meetup groups started by Ionic community members that we help to get up and running. If you’d like to start your own official Ionic meetup group, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#116;&#105;&#101;&#064;&#100;&#114;&#105;&#102;&#116;&#121;&#046;&#099;&#111;&#109;">let us know!</a></p>
 
-### Startups
+<h3 id="startups">Startups</h3>
 
-Many startups are using Ionic to build their apps and reach the growing hybrid developer community. [Mehul](https://www.linkedin.com/in/itsmayho) and [Patrick](https://github.com/gdi2290) from [Keychain Logistics](https://keychainlogistics.com/) were our earliest fans, switching from native iOS and Android apps to a single Ionic app for both platforms. [Sworkit](http://sworkit.com/) is a top health and fitness app with millions of users that has been able to rapidly iterate with Ionic. [Mallzee](https://mallzee.com/), a top shopping app, started in the UK and recently launched in the U.S. [HabitRPG](http://habitrpg.com/) is an incredibly popular game built with Ionic that makes building healthy habits fun.
+<p>Many startups are using Ionic to build their apps and reach the growing hybrid developer community. <a href="https://www.linkedin.com/in/itsmayho">Mehul</a> and <a href="https://github.com/gdi2290">Patrick</a> from <a href="https://keychainlogistics.com/">Keychain Logistics</a> were our earliest fans, switching from native iOS and Android apps to a single Ionic app for both platforms. <a href="http://sworkit.com/">Sworkit</a> is a top health and fitness app with millions of users that has been able to rapidly iterate with Ionic. <a href="https://mallzee.com/">Mallzee</a>, a top shopping app, started in the UK and recently launched in the U.S. <a href="http://habitrpg.com/">HabitRPG</a> is an incredibly popular game built with Ionic that makes building healthy habits fun.</p>
 
-[Appresser](http://apppresser.com/) generates Ionic apps from WordPress sites. [Femtoduino](http://www.femtoduino.com/) is creating tiny Arduino clones with companion apps built on Ionic.
+<p><a href="http://apppresser.com/">Appresser</a> generates Ionic apps from WordPress sites. <a href="http://www.femtoduino.com/">Femtoduino</a> is creating tiny Arduino clones with companion apps built on Ionic.</p>
 
-Auth0 wrote a great post on [using their auth system with Ionic](http://ionicframework.com/blog/authentication-in-ionic/), and the [RethinkDB](http://rethinkdb.com/) team built [BeerThink](http://rethinkdb.com/blog/beerthink/), an infinite scrolling app with Ionic, Node.js, and RethinkDB.
+<p>Auth0 wrote a great post on <a href="http://ionicframework.com/blog/authentication-in-ionic/">using their auth system with Ionic</a>, and the <a href="http://rethinkdb.com/">RethinkDB</a> team built <a href="http://rethinkdb.com/blog/beerthink/">BeerThink</a>, an infinite scrolling app with Ionic, Node.js, and RethinkDB.</p>
 
-We are also happy to have many [Y Combinator](http://ycombinator.com/) and [TechStars](http://techstars.com/) startups using Ionic. Startups are clearly recognizing the major economic benefits of going hybrid, and we know this is only going to grow.
+<p>We are also happy to have many <a href="http://ycombinator.com/">Y Combinator</a> and <a href="http://techstars.com/">TechStars</a> startups using Ionic. Startups are clearly recognizing the major economic benefits of going hybrid, and we know this is only going to grow.</p>
 
-### Ions
+<h3 id="ions">Ions</h3>
 
-We quietly released a very early preview of what we are calling [Ionic Ions](http://ions.ionic.io/), a set of add-ons and widgets that give your Ionic apps special powers.
+<p>We quietly released a very early preview of what we are calling <a href="http://ions.ionic.io/">Ionic Ions</a>, a set of add-ons and widgets that give your Ionic apps special powers.</p>
 
-![Ions](/img/blog/ions-logo.jpg)
+<p><img src="/img/blog/ions-logo.jpg" alt="Ions" /></p>
 
-As we've grown Ionic, we've created add-ons like [Shrinking Headers](https://github.com/driftyco/ionic-ion-header-shrink), [Frosted Glass](https://github.com/driftyco/ionic-ion-frost), and [Tinder-Style Swipe Cards](https://github.com/driftyco/ionic-ion-tinder-cards). We realized early on that these add-ons don't make sense as part of the core Ionic project, but they're an integral part of the larger Ionic ecosystem.
+<p>As we’ve grown Ionic, we’ve created add-ons like <a href="https://github.com/driftyco/ionic-ion-header-shrink">Shrinking Headers</a>, <a href="https://github.com/driftyco/ionic-ion-frost">Frosted Glass</a>, and <a href="https://github.com/driftyco/ionic-ion-tinder-cards">Tinder-Style Swipe Cards</a>. We realized early on that these add-ons don’t make sense as part of the core Ionic project, but they’re an integral part of the larger Ionic ecosystem.</p>
 
-We want to encourage Ionic developers to create reusable widgets, and we'll make it easy to submit them to the official Ions repository soon.
+<p>We want to encourage Ionic developers to create reusable widgets, and we’ll make it easy to submit them to the official Ions repository soon.</p>
 
-You can test out Ions today by using the `$ ionic add ION` command, and we will have a lot more info about this in the near future!
+<p>You can test out Ions today by using the <code>$ ionic add ION</code> command, and we will have a lot more info about this in the near future!</p>
 
-### Ionicons
+<h3 id="ionicons">Ionicons</h3>
 
-This project started in late 2013 but is worth mentioning here: Our official [icon pack](http://ionicons.com/), including over 700 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the [older docs](http://ionicons.com/1.5.2/) until we upgrade).
+<p>This project started in late 2013 but is worth mentioning here: Our official <a href="http://ionicons.com/">icon pack</a>, including over 700 totally free and open source icons, was released last year. The project has over 5,000 stars on GitHub and has quickly become one of the most popular icon packs on the web! Version 2.0 was released last week and has lots of new icons (Note: Ionic uses 1.5.2 right now, so make sure to use the <a href="http://ionicons.com/1.5.2/">older docs</a> until we upgrade).</p>
 
-![Ionicons](/img/blog/year-ionicons1.png)
+<p><img src="/img/blog/year-ionicons1.png" alt="Ionicons" /></p>
 
-### ngCordova
+<h3 id="ngcordova">ngCordova</h3>
 
-[ngCordova](http://ngcordova.com/), our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs, was launched mid-2014.
+<p><a href="http://ngcordova.com/">ngCordova</a>, our project to wrap the myriad Cordova plugins with clean and consistent AngularJS APIs, was launched mid-2014.</p>
 
-![ngCordova](/img/blog/year-ngcordova.png)
- 
-The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We've had the incredible fortune of [Paolo Bernasconi](https://twitter.com/paolobernasconi)'s great leadership on the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.
+<p><img src="/img/blog/year-ngcordova.png" alt="ngCordova" /></p>
 
-Much to our surprise, the project took off, with over 1,300 stars, 57 contributors, and 250 pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forward.
+<p>The idea for ngCordova was proposed by a community member, and the first version was built over a weekend. We’ve had the incredible fortune of <a href="https://twitter.com/paolobernasconi">Paolo Bernasconi</a>’s great leadership on the project, taking it from a humble 13 plugins to over 55 plugins today! Paolo is one of our biggest heroes, and we are so thankful to have him.</p>
 
-### Ionic Lab
+<p>Much to our surprise, the project took off, with over 1,300 stars, 57 contributors, and 250 pull requests submitted in the last several months. Expect ngCordova to be an increasingly large part of Ionic going forward.</p>
 
-Just last week, [we released](/blog/ionic-lab/) the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally to help you test and develop your Ionic apps.
+<h3 id="ionic-lab">Ionic Lab</h3>
 
-![Ionic Lab](/img/blog/year-lab.png)
+<p>Just last week, <a href="/blog/ionic-lab/">we released</a> the first version of Ionic Lab, an extension to our command line utilities that makes the development and debugging process easier, faster, and more fun. Ionic Lab is an AngularJS app that runs locally to help you test and develop your Ionic apps.</p>
 
-One useful feature is built-in support for our platform-specific styles and features. Develop the iOS and Android versions of your app side-by-side, without having to fire up an emulator or test on the device:
+<p><img src="/img/blog/year-lab.png" alt="Ionic Lab" /></p>
 
+<p>One useful feature is built-in support for our platform-specific styles and features. Develop the iOS and Android versions of your app side-by-side, without having to fire up an emulator or test on the device:</p>
 
-Ionic Lab appears to have struck a chord with the developer community, and our minds are racing about its massive potential. We can't talk about our specific plans just yet, but expect Ionic Lab to expand greatly in 2015.
+<p>Ionic Lab appears to have struck a chord with the developer community, and our minds are racing about its massive potential. We can’t talk about our specific plans just yet, but expect Ionic Lab to expand greatly in 2015.</p>
 
-### Ionic Creator and Theme Tool
+<h3 id="ionic-creator-and-theme-tool">Ionic Creator and Theme Tool</h3>
 
-We announced the beta for [Ionic Creator](https://creator.ionic.io/) earlier this year, with the goal of making it easier and faster to build and export Ionic prototypes. The reception was incredible, with over 25,000 developers signing up for the beta in the month or so after our announcement.
+<p>We announced the beta for <a href="https://creator.ionic.io/">Ionic Creator</a> earlier this year, with the goal of making it easier and faster to build and export Ionic prototypes. The reception was incredible, with over 25,000 developers signing up for the beta in the month or so after our announcement.</p>
 
-![Ionic Creator](http://ionicframework.com/creator/creator-preview.png)
+<p><img src="http://ionicframework.com/creator/creator-preview.png" alt="Ionic Creator" /></p>
 
-We are proud to announce that the [Creator](https://creator.ionic.io/) is now publicly available, though this is just the first iteration of the tool. We hope you'll give it a try and let us know what you think about it!
+<p>We are proud to announce that the <a href="https://creator.ionic.io/">Creator</a> is now publicly available, though this is just the first iteration of the tool. We hope you’ll give it a try and let us know what you think about it!</p>
 
-Finally, [Paolo](https://twitter.com/paolobernasconi) created and released the first version of the [Ionic Tailor](http://ionic-theme-editor.herokuapp.com/), a simple theme generator tool for Ionic styles. It's a great way to customize the default look and feel of Ionic to fit your brand! Expect a lot more out of this tool in the future.
+<p>Finally, <a href="https://twitter.com/paolobernasconi">Paolo</a> created and released the first version of the <a href="http://ionic-theme-editor.herokuapp.com/">Ionic Tailor</a>, a simple theme generator tool for Ionic styles. It’s a great way to customize the default look and feel of Ionic to fit your brand! Expect a lot more out of this tool in the future.</p>
 
-### Ionic 1.0
+<h3 id="ionic-10">Ionic 1.0</h3>
 
-The next big release of Ionic is slated for early 2015, and we're going for 1.0! 
+<p>The next big release of Ionic is slated for early 2015, and we’re going for 1.0!</p>
 
-With [Beta 14](/blog/the-final-beta/) this week, we've made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from building native apps, we've added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.
+<p>With <a href="/blog/the-final-beta/">Beta 14</a> this week, we’ve made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from building native apps, we’ve added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.</p>
 
-This will be our last beta release. After the holidays, we will be releasing rc0 and moving toward 1.0 in early 2015.
+<p>This will be our last beta release. After the holidays, we will be releasing rc0 and moving toward 1.0 in early 2015.</p>
 
+<h3 id="ionicio">Ionic.io</h3>
 
-### Ionic.io
+<p>Our Ionic developers often lament the lack of hybrid app services available to them. Unfortunately, most mobile development services target native developers, and often <em>only</em> native iOS developers. Mobile service providers have been oblivious to hybrid development, and we want to change that.</p>
 
-Our Ionic developers often lament the lack of hybrid app services available to them. Unfortunately, most mobile development services target native developers, and often *only* native iOS developers. Mobile service providers have been oblivious to hybrid development, and we want to change that.
+<p>Launching in 2015, <a href="https://ionic.io/">Ionic.io</a> will offer powerful mobile services and tools focused on Ionic apps and hybrid apps in general. Track usage and analytics, understand the impact of UI decisions, send intelligent push notifications, and update your app without resubmitting to the App Store. Ionic.io will help you do all of this and more.</p>
 
-Launching in 2015, [Ionic.io](https://ionic.io/) will offer powerful mobile services and tools focused on Ionic apps and hybrid apps in general. Track usage and analytics, understand the impact of UI decisions, send intelligent push notifications, and update your app without resubmitting to the App Store. Ionic.io will help you do all of this and more.
+<p>This will be our first commercial offering. Make sure to <a href="http://ionic.io/">sign up for the beta</a> to get updates on the release!</p>
 
-This will be our first commercial offering. Make sure to [sign up for the beta](http://ionic.io/) to get updates on the release!
+<h3 id="the-road-ahead">The road ahead</h3>
 
-### The road ahead
+<p>We owe our biggest debt of gratitude to you, the Ionic community. Thank you for everything you do to contribute to and support Ionic. You have helped build a fantastic product and have made it successful beyond anyone’s wildest dreams.</p>
 
-We owe our biggest debt of gratitude to you, the Ionic community. Thank you for everything you do to contribute to and support Ionic. You have helped build a fantastic product and have made it successful beyond anyone's wildest dreams.
+<p>In 2015, we will need you more than ever, as we move beyond our humble beginnings as an AngularJS framework into a full-fledged mobile development platform. We want Ionic to be <em>the</em> way mobile apps are built in the future, and we can’t do that without you!</p>
 
-In 2015, we will need you more than ever, as we move beyond our humble beginnings as an AngularJS framework into a full-fledged mobile development platform. We want Ionic to be *the* way mobile apps are built in the future, and we can't do that without you!
+<p>So stay tuned for many more Ionic updates in 2015 as the project matures and moves up the mobile dev stack.</p>
 
-So stay tuned for many more Ionic updates in 2015 as the project matures and moves up the mobile dev stack.
+<p>From all of us on the Ionic Team, we wish you a very happy holidays and a wonderful new year! Go kick some apps!</p>
 
-From all of us on the Ionic Team, we wish you a very happy holidays and a wonderful new year! Go kick some apps!
-
-*Adam, Tim, Katie, Ben, Andrew, Joel, Mike, Peter, Jamie, Perry, Melissa, Brody, Max, Drew, and Josh*
+<p><em>Adam, Tim, Katie, Ben, Andrew, Joel, Mike, Peter, Jamie, Perry, Melissa, Brody, Max, Drew, and Josh</em></p>
 
   
   <hr>
@@ -473,10 +469,9 @@ From all of us on the Ionic Team, we wish you a very happy holidays and a wonder
     <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/459365829348302849/lJ1X8rU9.png" class="author-icon"><a href="https://twitter.com/Ionicframework">Ionic Team</a> on December 15, 2014</time>
   </div>
   
-    <img class="showcase-image" src="/img/blog/b14-header.jpg" style="margin-top:-20px;">
+    <p><img class="showcase-image" src="/img/blog/b14-header.jpg" style="margin-top:-20px;" /></p>
 
-
-Today, we're thrilled to announce Ionic 1.0 Beta 14, The Last of the Betas! Beta 14 takes Ionic beyond its birth as a [framework](http://ionicframework.com/blog/beyond-framework/) to its current state as a complete suite of solutions for hybrid mobile app development. After we released Beta 13, our team examined our tools and services and analyzed areas where we could make improvements for hybrid app development. The desire to meet the needs of our developers in the best way possible is the driving force behind every decision we make about Ionic. For this release, we focused on performance boosts, caching, view transitions, and platform-specific changes.
+<p>Today, we’re thrilled to announce Ionic 1.0 Beta 14, The Last of the Betas! Beta 14 takes Ionic beyond its birth as a <a href="http://ionicframework.com/blog/beyond-framework/">framework</a> to its current state as a complete suite of solutions for hybrid mobile app development. After we released Beta 13, our team examined our tools and services and analyzed areas where we could make improvements for hybrid app development. The desire to meet the needs of our developers in the best way possible is the driving force behind every decision we make about Ionic. For this release, we focused on performance boosts, caching, view transitions, and platform-specific changes.</p>
 
 
     <a href="/blog/the-final-beta">Read more...</a>

@@ -200,54 +200,54 @@ python -m SimpleHTTPServer 4000
 
 <h3 id="appjs">app.js</h3>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'todo'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ionic'</span><span class="p">,</span><span class="s1">'firebase'</span><span class="p">])</span>
-<span class="cm">/**
- * The Projects factory handles saving and loading projects
- * from local storage, and also lets us save and load the
- * last active project index.
- */</span>
-<span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'Projects'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ionic&#39;</span><span class="p">,</span><span class="s1">&#39;firebase&#39;</span><span class="p">])</span>
+<span class="cm">/**</span>
+<span class="cm"> * The Projects factory handles saving and loading projects</span>
+<span class="cm"> * from local storage, and also lets us save and load the</span>
+<span class="cm"> * last active project index.</span>
+<span class="cm"> */</span>
+<span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
-    <span class="na">all</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">projectString</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'projects'</span><span class="p">];</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">projectString</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;projects&#39;</span><span class="p">];</span>
       <span class="k">if</span><span class="p">(</span><span class="nx">projectString</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nx">projectString</span><span class="p">);</span>
       <span class="p">}</span>
       <span class="k">return</span> <span class="p">[];</span>
     <span class="p">},</span>
-    <span class="na">save</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projects</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'projects'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">toJson</span><span class="p">(</span><span class="nx">projects</span><span class="p">);</span>
+    <span class="nx">save</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projects</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;projects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">toJson</span><span class="p">(</span><span class="nx">projects</span><span class="p">);</span>
     <span class="p">},</span>
-    <span class="na">newProject</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">newProject</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// Add a new project</span>
       <span class="k">return</span> <span class="p">{</span>
-        <span class="na">title</span><span class="p">:</span> <span class="nx">projectTitle</span><span class="p">,</span>
-        <span class="na">tasks</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="nx">projectTitle</span><span class="p">,</span>
+        <span class="nx">tasks</span><span class="o">:</span> <span class="p">[]</span>
       <span class="p">};</span>
     <span class="p">},</span>
-    <span class="na">getLastActiveIndex</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'lastActiveProject'</span><span class="p">])</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">getLastActiveIndex</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;lastActiveProject&#39;</span><span class="p">])</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">},</span>
-    <span class="na">setLastActiveIndex</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'lastActiveProject'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+    <span class="nx">setLastActiveIndex</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;lastActiveProject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">})</span>
 
-<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'TodoCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$firebase</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">Modal</span><span class="p">,</span> <span class="nx">Projects</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;TodoCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$firebase</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">Modal</span><span class="p">,</span> <span class="nx">Projects</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span> <span class="o">=</span> <span class="p">{};</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{};</span>
   <span class="c1">// Load or initialize projects</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span> <span class="o">=</span> <span class="nx">$firebase</span><span class="p">(</span><span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://YOUR_FIREBASE_NAME.firebaseio.com/projects"</span><span class="p">));</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">$firebase</span><span class="p">(</span><span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://YOUR_FIREBASE_NAME.firebaseio.com/Users/John"</span><span class="p">));</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span> <span class="o">=</span> <span class="nx">$firebase</span><span class="p">(</span><span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://YOUR_FIREBASE_NAME.firebaseio.com/projects&quot;</span><span class="p">));</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">$firebase</span><span class="p">(</span><span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://YOUR_FIREBASE_NAME.firebaseio.com/Users/John&quot;</span><span class="p">));</span>
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s2">"loaded"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s2">&quot;loaded&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">);</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">projectsList</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">;</span>
   <span class="p">});</span>
 
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s2">"loaded"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s2">&quot;loaded&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
   <span class="p">});</span>
@@ -262,7 +262,7 @@ python -m SimpleHTTPServer 4000
 
   <span class="c1">// Called to create a new project</span>
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">newProject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">projectTitle</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'Project name'</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">projectTitle</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Project name&#39;</span><span class="p">);</span>
       <span class="k">if</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">createProject</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">);</span>
       <span class="p">}</span>
@@ -275,10 +275,10 @@ python -m SimpleHTTPServer 4000
   <span class="p">};</span>
 
   <span class="c1">// Create our modal</span>
-  <span class="nx">Modal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">'new-task.html'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Modal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">&#39;new-task.html&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">;</span>
   <span class="p">},</span> <span class="p">{</span>
-      <span class="na">scope</span><span class="p">:</span> <span class="nx">$scope</span>
+      <span class="nx">scope</span><span class="o">:</span> <span class="nx">$scope</span>
   <span class="p">});</span>
 
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">createTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
@@ -291,7 +291,7 @@ python -m SimpleHTTPServer 4000
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">projectsList</span><span class="p">.</span><span class="nx">$save</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
 
-      <span class="nx">task</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+      <span class="nx">task</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
   <span class="p">};</span>
 
   <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -306,49 +306,49 @@ python -m SimpleHTTPServer 4000
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">sideMenuController</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
   <span class="p">};</span>
 
-<span class="p">});</span></code></pre></figure>
+<span class="p">});</span></code></pre></div>
 
 <h3 id="indexhtml">index.html</h3>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;title&gt;</span>Todo<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"initial-scale=1, maximum-scale=1, user-scalable=no"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1, maximum-scale=1, user-scalable=no&quot;</span><span class="nt">&gt;</span>
 
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/ionic.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/ionic.css&quot;</span><span class="nt">&gt;</span>
 
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/ionic.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/ionic-angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/ionic.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/ionic-angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
     <span class="c">&lt;!-- AngularFire Extensions --&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'https://cdn.firebase.com/v0/firebase.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.firebase.com/libs/angularfire/0.5.0-rc1/angularfire.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;https://cdn.firebase.com/v0/firebase.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdn.firebase.com/libs/angularfire/0.5.0-rc1/angularfire.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
     <span class="c">&lt;!-- Needed for Cordova/PhoneGap --&gt;</span>
-    <span class="c">&lt;!--&lt;script type="text/javascript" src="cordova.js"&gt;&lt;/script&gt;--&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="c">&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&gt;&lt;/script&gt;--&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/app.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
   <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">"todo"</span> <span class="na">ng-controller=</span><span class="s">"TodoCtrl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span> <span class="na">ng-controller=</span><span class="s">&quot;TodoCtrl&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;side-menus&gt;</span>
 
     <span class="c">&lt;!-- Center content --&gt;</span>
     <span class="nt">&lt;pane</span> <span class="na">side-menu-content</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"bar bar-header bar-dark"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon"</span> <span class="na">ng-click=</span><span class="s">"toggleProjects()"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon ion-navicon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;bar bar-header bar-dark&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button button-icon&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;toggleProjects()&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;icon ion-navicon&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
             <span class="nt">&lt;/button&gt;</span>
-            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;&lt;/h1&gt;</span>
             <span class="c">&lt;!-- New Task button--&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-clear"</span> <span class="na">ng-click=</span><span class="s">"newTask()"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button button-clear&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;newTask()&quot;</span><span class="nt">&gt;</span>
                 New
             <span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/header&gt;</span>
-        <span class="nt">&lt;content</span> <span class="na">has-header=</span><span class="s">"true"</span> <span class="na">scroll=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;content</span> <span class="na">has-header=</span><span class="s">&quot;true&quot;</span> <span class="na">scroll=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;list&gt;</span>
-                <span class="nt">&lt;item</span> <span class="na">ng-repeat=</span><span class="s">"task in projectsList[user.lastproject]"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;item</span> <span class="na">ng-repeat=</span><span class="s">&quot;task in projectsList[user.lastproject]&quot;</span><span class="nt">&gt;</span>
                     
                 <span class="nt">&lt;/item&gt;</span>
             <span class="nt">&lt;/list&gt;</span>
@@ -356,16 +356,16 @@ python -m SimpleHTTPServer 4000
     <span class="nt">&lt;/pane&gt;</span>
 
     <span class="c">&lt;!-- Left menu --&gt;</span>
-    <span class="nt">&lt;side-menu</span> <span class="na">side=</span><span class="s">"left"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"bar bar-header bar-dark"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Projects<span class="nt">&lt;/h1&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon"</span> <span class="na">ng-click=</span><span class="s">"newProject()"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ion ion-plus"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;side-menu</span> <span class="na">side=</span><span class="s">&quot;left&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">&quot;bar bar-header bar-dark&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Projects<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;button button-icon&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;newProject()&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;ion ion-plus&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
             <span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/header&gt;</span>
-        <span class="nt">&lt;content</span> <span class="na">has-header=</span><span class="s">"true"</span> <span class="na">scroll=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;content</span> <span class="na">has-header=</span><span class="s">&quot;true&quot;</span> <span class="na">scroll=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;list&gt;</span>
-            <span class="nt">&lt;item</span> <span class="na">ng-repeat=</span><span class="s">"(name, project) in projectsList"</span> <span class="na">ng-click=</span><span class="s">"selectProject(name)"</span> <span class="na">ng-class=</span><span class="s">"{active: user.    lastproject == project}"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;item</span> <span class="na">ng-repeat=</span><span class="s">&quot;(name, project) in projectsList&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;selectProject(name)&quot;</span> <span class="na">ng-class=</span><span class="s">&quot;{active: user.    lastproject == project}&quot;</span><span class="nt">&gt;</span>
                     
                 <span class="nt">&lt;/item&gt;</span>
             <span class="nt">&lt;/list&gt;</span>
@@ -373,39 +373,39 @@ python -m SimpleHTTPServer 4000
     <span class="nt">&lt;/side-menu&gt;</span>
 
 
-    <span class="nt">&lt;script </span><span class="na">id=</span><span class="s">"new-task.html"</span> <span class="na">type=</span><span class="s">"text/ng-template"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;new-task.html&quot;</span> <span class="na">type=</span><span class="s">&quot;text/ng-template&quot;</span><span class="nt">&gt;</span>
 
-        <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"modal"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;modal&quot;</span><span class="o">&gt;</span>
 
             <span class="c">&lt;!--</span> <span class="nx">Modal</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="o">--&gt;</span>
-            <span class="o">&lt;</span><span class="nx">header</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"bar bar-header bar-secondary"</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"title"</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">button</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"button button-clear button-primary"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">"closeNewTask()"</span><span class="o">&gt;</span><span class="nx">Cancel</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>            <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
-</span>
-            <span class="c">&lt;!--</span> <span class="nx">Modal</span> <span class="nx">content</span> <span class="nx">area</span> <span class="o">--&gt;</span>
-            <span class="o">&lt;</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">"true"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">header</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;bar bar-header bar-secondary&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;button button-clear button-primary&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;closeNewTask()&quot;</span><span class="o">&gt;</span><span class="nx">Cancel</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+            <span class="o">&lt;</span><span class="err">/header&gt;</span>
 
-                <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">submit</span><span class="o">=</span><span class="s2">"createTask(task)"</span><span class="o">&gt;</span>
-                    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
-                        <span class="o">&lt;</span><span class="nx">label</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"item item-input"</span><span class="o">&gt;</span>
-                            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"What do you need to do?"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">"task.title"</span><span class="o">&gt;</span>
-                        <span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
-</span>                    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"padding"</span><span class="o">&gt;</span>
-                        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"button button-full button-primary"</span><span class="o">&gt;</span><span class="nx">Create</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>                    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
-</span>
-            <span class="o">&lt;</span><span class="sr">/content</span><span class="err">&gt;
-</span>
-        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>
+            <span class="c">&lt;!--</span> <span class="nx">Modal</span> <span class="nx">content</span> <span class="nx">area</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;</span><span class="nx">content</span> <span class="nx">has</span><span class="o">-</span><span class="nx">header</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">submit</span><span class="o">=</span><span class="s2">&quot;createTask(task)&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">label</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;item item-input&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;What do you need to do?&quot;</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">&quot;task.title&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="err">/label&gt;</span>
+                    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;padding&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;button button-full button-primary&quot;</span><span class="o">&gt;</span><span class="nx">Create</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+                    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+                <span class="o">&lt;</span><span class="err">/form&gt;</span>
+
+            <span class="o">&lt;</span><span class="err">/content&gt;</span>
+
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+
     <span class="nt">&lt;/script&gt;</span>
 
 <span class="nt">&lt;/side-menus&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>(note: if using the most recent version of Ionic, you’ll need to also include the AngularJS dependencies seen in the <a href="https://github.com/driftyco/ionic-angular-cordova-seed/blob/master/www/index.html">seed project</a>)</p>
 

@@ -1205,15 +1205,13 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
 @Page({
   template: `
   <ion-navbar *navbar>
-  <ion-title>Tabs</ion-title>
+    <ion-title>Tabs</ion-title>
   </ion-navbar>
   <ion-content>
   </ion-content>`,
 })
 class TabContentPage {
-  constructor(nav: NavController, view: ViewController) {
-    this.nav = nav;
-    this.view = view;
+  constructor() {
   }
 }
 
@@ -1227,8 +1225,7 @@ class TabContentPage {
   </ion-tabs>`
 })
 export class TabsIconPage {
-  constructor(nav: NavController) {
-    this.nav = nav;
+  constructor() {
     this.tab1 = TabContentPage;
     this.tab2 = TabContentPage;
     ...
@@ -1250,9 +1247,7 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   </ion-content>`
 })
 class TabsTextContentPage {
-  constructor(nav: NavController, view: ViewController) {
-    this.nav = nav;
-    this.view = view;
+  constructor() {
   }
 }
 
@@ -1266,8 +1261,7 @@ class TabsTextContentPage {
   </ion-tabs>`
 })
 export class TabsTextPage {
-  constructor(nav: NavController, params: NavParams) {
-    this.nav = nav;
+  constructor() {
     this.tab1 = TabsTextContentPage;
     this.tab2 = TabsTextContentPage;
     ...

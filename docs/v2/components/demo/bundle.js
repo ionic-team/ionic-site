@@ -76751,7 +76751,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var NavigationDetailsPage = function NavigationDetailsPage(nav, params, events) {
+	var NavigationDetailsPage = function NavigationDetailsPage(nav, params) {
 	    _classCallCheck(this, NavigationDetailsPage);
 
 	    this.nav = nav;
@@ -76776,7 +76776,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], NavigationDetailsPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _b || Object])], NavigationDetailsPage);
 	var BasicPage = (function () {
 	    function BasicPage(nav) {
 	        _classCallCheck(this, BasicPage);
@@ -76799,8 +76799,8 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _d || Object])], BasicPage);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object])], BasicPage);
+	var _a, _b, _c;
 
 /***/ },
 /* 572 */
@@ -77054,22 +77054,18 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabTextCtrl = function TabTextCtrl(nav, view) {
+	var TabTextCtrl = function TabTextCtrl() {
 	    _classCallCheck(this, TabTextCtrl);
-
-	    this.nav = nav;
-	    this.view = view;
 	};
 	TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabTextCtrl);
-	var BasicPage = function BasicPage(nav, params) {
+	}), __metadata('design:paramtypes', [])], TabTextCtrl);
+	var BasicPage = function BasicPage() {
 	    _classCallCheck(this, BasicPage);
 
-	    this.nav = nav;
 	    this.tabOne = TabTextCtrl;
 	    this.tabTwo = TabTextCtrl;
 	    this.tabThree = TabTextCtrl;
@@ -77077,8 +77073,7 @@
 	exports.BasicPage = BasicPage;
 	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-tabs>' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
-	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], BasicPage);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
 /* 578 */
@@ -77123,22 +77118,18 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconCtrl = function TabIconCtrl(nav, view) {
+	var TabIconCtrl = function TabIconCtrl() {
 	    _classCallCheck(this, TabIconCtrl);
-
-	    this.nav = nav;
-	    this.view = view;
 	};
 	TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconCtrl);
-	var IconPage = function IconPage(nav, params) {
+	}), __metadata('design:paramtypes', [])], TabIconCtrl);
+	var IconPage = function IconPage() {
 	    _classCallCheck(this, IconPage);
 
-	    this.nav = nav;
 	    this.tabOne = TabIconCtrl;
 	    this.tabTwo = TabIconCtrl;
 	    this.tabThree = TabIconCtrl;
@@ -77147,8 +77138,7 @@
 	exports.IconPage = IconPage;
 	exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-tabs>' + '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
-	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], IconPage);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [])], IconPage);
 
 /***/ },
 /* 579 */
@@ -77193,22 +77183,18 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconTextCtrl = function TabIconTextCtrl(nav, view) {
+	var TabIconTextCtrl = function TabIconTextCtrl() {
 	    _classCallCheck(this, TabIconTextCtrl);
-
-	    this.nav = nav;
-	    this.view = view;
 	};
 	TabIconTextCtrl = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconTextCtrl);
-	var IconTextPage = function IconTextPage(nav, params) {
+	}), __metadata('design:paramtypes', [])], TabIconTextCtrl);
+	var IconTextPage = function IconTextPage() {
 	    _classCallCheck(this, IconTextPage);
 
-	    this.nav = nav;
 	    this.tabOne = TabIconTextCtrl;
 	    this.tabTwo = TabIconTextCtrl;
 	    this.tabThree = TabIconTextCtrl;
@@ -77217,8 +77203,7 @@
 	exports.IconTextPage = IconTextPage;
 	exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-tabs>' + '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
-	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], IconTextPage);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [])], IconTextPage);
 
 /***/ }
 /******/ ]);

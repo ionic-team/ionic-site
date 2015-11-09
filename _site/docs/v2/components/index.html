@@ -1418,15 +1418,13 @@ class Tab2 {
 <pre><code class="language-typescript">@Page({
   template: `
   &lt;ion-navbar *navbar&gt;
-  &lt;ion-title&gt;Tabs&lt;/ion-title&gt;
+    &lt;ion-title&gt;Tabs&lt;/ion-title&gt;
   &lt;/ion-navbar&gt;
   &lt;ion-content&gt;
   &lt;/ion-content&gt;`,
 })
 class TabContentPage {
-  constructor(nav: NavController, view: ViewController) {
-    this.nav = nav;
-    this.view = view;
+  constructor() {
   }
 }
 
@@ -1440,8 +1438,7 @@ class TabContentPage {
   &lt;/ion-tabs&gt;`
 })
 export class TabsIconPage {
-  constructor(nav: NavController) {
-    this.nav = nav;
+  constructor() {
     this.tab1 = TabContentPage;
     this.tab2 = TabContentPage;
     ...
@@ -1462,9 +1459,7 @@ export class TabsIconPage {
   &lt;/ion-content&gt;`
 })
 class TabsTextContentPage {
-  constructor(nav: NavController, view: ViewController) {
-    this.nav = nav;
-    this.view = view;
+  constructor() {
   }
 }
 
@@ -1478,8 +1473,7 @@ class TabsTextContentPage {
   &lt;/ion-tabs&gt;`
 })
 export class TabsTextPage {
-  constructor(nav: NavController, params: NavParams) {
-    this.nav = nav;
+  constructor() {
     this.tab1 = TabsTextContentPage;
     this.tab2 = TabsTextContentPage;
     ...

@@ -74180,9 +74180,10 @@
 	        'stacked-labels': labels.StackedPage,
 	        'icons': icons.BasicPage,
 	        'lists': lists.BasicPage,
+	        'list-lines': lists.BasicPage,
+	        'list-no-lines': lists.NoLinesPage,
 	        'avatar-list': lists.AvatarPage,
 	        'icon-list': lists.IconPage,
-	        'list-dividers': lists.LinesPage,
 	        'inset-list': lists.InsetPage,
 	        'list-headers': lists.HeadersPage,
 	        'multiline-list': lists.MultilinePage,
@@ -76124,9 +76125,9 @@
 
 	_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
 
-	var _linesPages = __webpack_require__(565);
+	var _noLinesPages = __webpack_require__(565);
 
-	_defaults(exports, _interopExportWildcard(_linesPages, _defaults));
+	_defaults(exports, _interopExportWildcard(_noLinesPages, _defaults));
 
 	var _multilinePages = __webpack_require__(566);
 
@@ -76419,16 +76420,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var LinesPage = function LinesPage() {
-	    _classCallCheck(this, LinesPage);
+	var NoLinesPage = function NoLinesPage() {
+	    _classCallCheck(this, NoLinesPage);
 	};
-	exports.LinesPage = LinesPage;
-	exports.LinesPage = LinesPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/lines/template.html',
+	exports.NoLinesPage = NoLinesPage;
+	exports.NoLinesPage = NoLinesPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/no-lines/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], LinesPage);
+	}), __metadata('design:paramtypes', [])], NoLinesPage);
 
 /***/ },
 /* 566 */

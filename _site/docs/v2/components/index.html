@@ -183,7 +183,8 @@
 
       <li id="components-lists"><a href="#lists">Lists</a></li>
         <ul class="nav">
-          <li class="nav-item-hidden"><a href="#list-dividers"></a></li>
+          <li class="nav-item-hidden"><a href="#list-lines"></a></li>
+          <li class="nav-item-hidden"><a href="#list-no-lines"></a></li>
           <li class="nav-item-hidden"><a href="#inset-list"></a></li>
           <li class="nav-item-hidden"><a href="#list-headers"></a></li>
           <li class="nav-item-hidden"><a href="#icon-list"></a></li>
@@ -896,22 +897,22 @@ class MyApp {
   <li class="docs-content-item"><a href="#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
-<h3 class="no-para">Basic Usage (No Lines)</h3>
+<h3 class="section-nav" id="list-lines">Basic Usage (Default)</h3>
 
-<p>Adding the <code>no-lines</code> attribute will hide the dividers between list items:</p>
+<p>By default, all lists will be styled with divider lines:</p>
 
-<pre><code class="language-html">&lt;ion-list no-lines&gt;
+<pre><code class="language-html">&lt;ion-list&gt;
   &lt;ion-item *ng-for="#item of items" (click)="itemSelected(item)"&gt;
     
   &lt;/ion-item&gt;
 &lt;/ion-list&gt;
 </code></pre>
 
-<h3 class="section-nav" id="list-dividers">Basic Usage (Default)</h3>
+<h3 class="no-para" id="list-no-lines">Basic Usage (No Lines)</h3>
 
-<p>By default, all lists will be styled with divider lines:</p>
+<p>Adding the <code>no-lines</code> attribute will hide the dividers between list items:</p>
 
-<pre><code class="language-html">&lt;ion-list&gt;
+<pre><code class="language-html">&lt;ion-list no-lines&gt;
   &lt;ion-item *ng-for="#item of items" (click)="itemSelected(item)"&gt;
     
   &lt;/ion-item&gt;

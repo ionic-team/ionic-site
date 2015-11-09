@@ -650,25 +650,25 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
+<h3 class="section-nav" id="list-lines">Basic Usage (Default)</h3>
 
-<h3 class="no-para">Basic Usage (No Lines)</h3>
-
-Adding the `no-lines` attribute will hide the dividers between list items:
+By default, all lists will be styled with divider lines:
 
 ```html
-<ion-list no-lines>
+<ion-list>
   <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
     {{item.title}}
   </ion-item>
 </ion-list>
 ```
 
-<h3 class="section-nav" id="list-dividers">Basic Usage (Default)</h3>
 
-By default, all lists will be styled with divider lines:
+<h3 class="no-para" id="list-no-lines">Basic Usage (No Lines)</h3>
+
+Adding the `no-lines` attribute will hide the dividers between list items:
 
 ```html
-<ion-list>
+<ion-list no-lines>
   <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
     {{item.title}}
   </ion-item>

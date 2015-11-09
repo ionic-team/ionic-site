@@ -856,7 +856,7 @@ Next, let's create our modal and define add its template:
     <button (click)="close()">Close</button>
   </ion-content>`
 })
-class MyModal extends Modal {
+class MyModal Modal {
   constructor() {
   }
 }

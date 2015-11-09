@@ -80,13 +80,13 @@ var ModalsContentPage = (function () {
         }, {
             name: 'Frodo',
             quote: 'Go back, Sam! I\'m going to Mordor alone!',
-            image: 'img/avatar-gollum.jpg',
+            image: 'img/avatar-frodo.jpg',
             items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Weapon', note: 'Sting' }]
         }, {
-            name: 'Sam',
+            name: 'Samwise Gamgee',
             quote: 'What we need is a few good taters.',
-            image: 'img/avatar-gollum.jpg',
-            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Alter Ego', note: 'Smeagol' }]
+            image: 'img/avatar-samwise.jpg',
+            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Nickname', note: 'Sam' }]
         }];
         this.character = characters[this.modal._defaults.charNum];
     }

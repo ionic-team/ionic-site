@@ -219,9 +219,6 @@
   <a href="/docs/v2/nightly/api/config/ionicProviders">ionicProviders</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/config/IONIC_DIRECTIVES">IONIC_DIRECTIVES</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/components/item/ionItem">ionItem</a>
 </li>
 <li class="">
@@ -436,7 +433,7 @@
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href="undefined">ionic/ionic</a><br />
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L436">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L432">ionic/platform/platform.ts (line 11)</a>
 </p>
 <p>## Members</p>
 
@@ -446,16 +443,94 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 </h2>
 
-<p>Depending on the platform name, isPlatform will return true or flase</p>
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        platformName
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>bool</code> <code>
+import {Platform} 'ionic/ionic';
+export MyClass {
+ constructor(platform: Platform){
+   this.platform = platform;
+   if(this.platform.is('ios'){
+     // what ever you need to do for
+     // if the platfomr is ios
+   }
+ }
+}
+</code></li>
+</ul>
+
+<div id="platforms"></div>
+<h2>
+  <code>platforms()</code>
+
+</h2>
+
+<p>Depending on what device you are on, <code>platforms</code> can return multiple values.<br />
+Each possible value is a hierarchy of platforms. For example, on an iPhone,<br />
+it would return mobile, ios, and iphone.</p>
 
 <pre><code>import {Platform} 'ionic/ionic';
 export MyClass {
    constructor(platform: Platform){
      this.platform = platform;
-     if(this.platform.is('ios'){
-       // what ever you need to do for
-       // if the platfomr is ios
-     }
+     console.log(this.platform.platforms());
+     // This will return an array of all the availble platforms
+     // From if your on mobile, to mobile os, and device name
+   }
+}
+</code></pre>
+
+<ul>
+  <li>Returns: <br />
+<code>array</code> the array of platforms</li>
+</ul>
+
+<div id="versions"></div>
+<h2>
+  <code>versions(platformName)</code>
+
+</h2>
+
+<p>TODO<br />
+Returns an object containing the os version</p>
+
+<pre><code>import {Platform} 'ionic/ionic';
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+     console.log(this.platform.versions('android'));
+     // Returns an object with the os version as a string,
+     // The Major version as a string
+     // The Minor version as a string
    }
 }
 </code></pre>
@@ -491,91 +566,7 @@ export MyClass {
 
 <ul>
   <li>Returns: <br />
-<code>bool</code> returns true/false based on platform you place</li>
-</ul>
-
-<div id="platforms"></div>
-<h2>
-  <code>platforms()</code>
-
-</h2>
-
-<p>Depending on what device you are on, <code>platforms</code> can return multiple values.<br />
-Each possible value is a hierarchy of platforms. For example, on an iPhone,<br />
-it would return mobile, ios, and iphone.</p>
-
-<pre><code>import {Platform} 'ionic/ionic';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     console.log(this.platform.platforms());
-     // This will return an array of all the availble platforms
-     // From if your on mobile, to mobile os, and device name
-   }
-}
-</code></pre>
-
-<ul>
-  <li>Returns: <br />
-<code>array</code> the array of platforms</li>
-</ul>
-
-<div id="versions"></div>
-<h2>
-  <code>versions(optional)</code>
-
-</h2>
-
-<p>Returns an object conta</p>
-
-<pre><code>import {Platform} 'ionic/ionic';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     console.log(this.platform.versions());
-     // or pass in a platform name
-     console.log(this.platform.versions('ios'));
-   }
-}
-</code></pre>
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        optional
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>platformName</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-<ul>
-  <li>Returns: <br />
-<code>object</code> An object with various platform info</li>
-  <li><code>{object=} </code>cordova`</li>
-  <li><code>{object=}</code> <code>platformOS</code> {str: “9.1”, num: 9.1, major: 9, minor: 1}</li>
-  <li><code>{object=} </code>deviceName` Returns the name of the device</li>
-  <li><code>{object=}</code> <code>device platform</code> R</li>
+<code>object</code></li>
 </ul>
 
 <div id="ready"></div>
@@ -584,7 +575,8 @@ export MyClass {
 
 </h2>
 
-<p>Returns a promise when the platform is ready and native functionality can be called</p>
+<p>TODO<br />
+Returns a promise when the platform is ready and native functionality can be called</p>
 
 <pre><code>import {Platform} 'ionic/ionic';
 export MyClass {

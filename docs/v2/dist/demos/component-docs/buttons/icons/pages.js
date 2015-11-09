@@ -37,7 +37,7 @@ var IconsPage = function IconsPage() {
 };
 exports.IconsPage = IconsPage;
 exports.IconsPage = IconsPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/icons/icons.html',
+    templateUrl: 'buttons/icons.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

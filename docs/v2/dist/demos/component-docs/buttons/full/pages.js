@@ -37,7 +37,7 @@ var FullPage = function FullPage() {
 };
 exports.FullPage = FullPage;
 exports.FullPage = FullPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/full/full.html',
+    templateUrl: 'buttons/full.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

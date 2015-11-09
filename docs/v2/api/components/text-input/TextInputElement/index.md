@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L10'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L338'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L10'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L338'>
     Improve this doc
   </a>
 </div>
@@ -37,14 +37,70 @@ docType: "class"
 
 
 
-<p>TODO</p>
 
 
 <h1 class="class export">TextInputElement <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L11-L67">ionic/components/text-input/text-input.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L339-L396">ionic/components/text-input/text-input.ts (line 339)</a>
 </p>
+<h2>Directive</h2>
+  <span>selector: textarea, input[type=text], input[type=password], input[type=number], input[type=search], input[type=email], input[type=url], input[type=tel]</span>
+
+  <span>inputs: value</span>
+
+
 ## Members
+
+<div id="onKeyup"></div>
+<h2>
+  <code>onKeyup()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onInit"></div>
+<h2>
+  <code>onInit()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="labelledBy"></div>
+<h2>
+  <code>labelledBy()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="setFocus"></div>
 <h2>
@@ -52,7 +108,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 </h2>
 
-Focus the input.
 
 
 
@@ -70,34 +125,30 @@ Focus the input.
 
 </h2>
 
-Whether the input has focus or not.
 
 
 
 
 
 
-* Returns: 
-  <code>boolean</code> true if the input has focus, otherwise false.
 
 
 
 
-<div id="hasValue"></div>
+
+<div id="getNativeElement"></div>
 <h2>
-  <code>hasValue()</code>
+  <code>getNativeElement()</code>
 
 </h2>
 
-Whether the input has a value.
 
 
 
 
 
 
-* Returns: 
-  <code>boolean</code> true if the input has a value, otherwise false.
+
 
 
 

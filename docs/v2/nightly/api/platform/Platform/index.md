@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L436">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L432">ionic/platform/platform.ts (line 11)</a>
 </p>
 ## Members
 
@@ -52,9 +52,46 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 </h2>
 
-Depending on the platform name, isPlatform will return true or flase
 
-```
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        platformName
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>bool</code> ```
 import {Platform} 'ionic/ionic';
 export MyClass {
    constructor(platform: Platform){
@@ -63,6 +100,64 @@ export MyClass {
        // what ever you need to do for
        // if the platfomr is ios
      }
+   }
+}
+```
+
+
+
+
+<div id="platforms"></div>
+<h2>
+  <code>platforms()</code>
+
+</h2>
+
+Depending on what device you are on, `platforms` can return multiple values.
+Each possible value is a hierarchy of platforms. For example, on an iPhone,
+it would return mobile, ios, and iphone.
+
+```
+import {Platform} 'ionic/ionic';
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+     console.log(this.platform.platforms());
+     // This will return an array of all the availble platforms
+     // From if your on mobile, to mobile os, and device name
+   }
+}
+```
+
+
+
+
+
+
+* Returns: 
+  <code>array</code> the array of platforms
+
+
+
+
+<div id="versions"></div>
+<h2>
+  <code>versions(platformName)</code>
+
+</h2>
+
+TODO
+Returns an object containing the os version
+
+```
+import {Platform} 'ionic/ionic';
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+     console.log(this.platform.versions('android'));
+     // Returns an object with the os version as a string,
+     // The Major version as a string
+     // The Minor version as a string
    }
 }
 ```
@@ -104,107 +199,7 @@ export MyClass {
 
 
 * Returns: 
-  <code>bool</code> returns true/false based on platform you place
-
-
-
-
-<div id="platforms"></div>
-<h2>
-  <code>platforms()</code>
-
-</h2>
-
-Depending on what device you are on, `platforms` can return multiple values.
-Each possible value is a hierarchy of platforms. For example, on an iPhone,
-it would return mobile, ios, and iphone.
-
-```
-import {Platform} 'ionic/ionic';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     console.log(this.platform.platforms());
-     // This will return an array of all the availble platforms
-     // From if your on mobile, to mobile os, and device name
-   }
-}
-```
-
-
-
-
-
-
-* Returns: 
-  <code>array</code> the array of platforms
-
-
-
-
-<div id="versions"></div>
-<h2>
-  <code>versions(optional)</code>
-
-</h2>
-
-Returns an object conta
-
-```
-import {Platform} 'ionic/ionic';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     console.log(this.platform.versions());
-     // or pass in a platform name
-     console.log(this.platform.versions('ios'));
-   }
-}
-```
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        optional
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>platformName</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>object</code> An object with various platform info
-- `{object=} `cordova`
-- `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
-- `{object=} `deviceName` Returns the name of the device
-- `{object=}` `device platform` R
+  <code>object</code> 
 
 
 
@@ -215,6 +210,7 @@ export MyClass {
 
 </h2>
 
+TODO
 Returns a promise when the platform is ready and native functionality can be called
 
 ```

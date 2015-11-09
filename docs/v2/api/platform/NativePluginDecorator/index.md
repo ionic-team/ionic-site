@@ -43,5 +43,4 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/plugin.ts#L1-L48">ionic/platform/plugin.ts (line 1)</a>
 </p>
-## Members
 

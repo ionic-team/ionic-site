@@ -28,9 +28,9 @@ var _insetPages = require('./inset/pages');
 
 _defaults(exports, _interopExportWildcard(_insetPages, _defaults));
 
-var _noLinesPages = require('./no-lines/pages');
+var _linesPages = require('./lines/pages');
 
-_defaults(exports, _interopExportWildcard(_noLinesPages, _defaults));
+_defaults(exports, _interopExportWildcard(_linesPages, _defaults));
 
 var _multilinePages = require('./multiline/pages');
 

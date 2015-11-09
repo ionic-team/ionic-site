@@ -37,7 +37,7 @@ var FabPage = function FabPage() {
 };
 exports.FabPage = FabPage;
 exports.FabPage = FabPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/fab/fab.html',
+    templateUrl: 'buttons/fab.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

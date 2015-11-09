@@ -37,22 +37,18 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabIconCtrl = function TabIconCtrl(nav, view) {
+var TabIconCtrl = function TabIconCtrl() {
     _classCallCheck(this, TabIconCtrl);
-
-    this.nav = nav;
-    this.view = view;
 };
 TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
     template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconCtrl);
-var IconPage = function IconPage(nav, params) {
+}), __metadata('design:paramtypes', [])], TabIconCtrl);
+var IconPage = function IconPage() {
     _classCallCheck(this, IconPage);
 
-    this.nav = nav;
     this.tabOne = TabIconCtrl;
     this.tabTwo = TabIconCtrl;
     this.tabThree = TabIconCtrl;
@@ -61,5 +57,4 @@ var IconPage = function IconPage(nav, params) {
 exports.IconPage = IconPage;
 exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-tabs>' + '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
-}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], IconPage);
-var _a, _b, _c, _d;
+}), __metadata('design:paramtypes', [])], IconPage);

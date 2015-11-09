@@ -9,11 +9,11 @@ header_sub_title: Ionic 2 Developer Preview
 
 
 # Whats New in Ionic 2
-Ionic 2 is built on top of Angular 2, which is complete rewrite of the original framework. All the parts of Angualr you know are still there, but there are new syntax and structural changes that developers need to be aware of. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
+Ionic 2 is built on top of Angular 2, which is complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes that developers need to be aware of. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
 
-For Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2 they have been merged into on instance.
+For Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2 they have been merged into one instance.
 
-Take this V1 on example.
+Take this V1 example.
 
 
 V1
@@ -46,7 +46,7 @@ export class MainCmp {
 }
 ```
 
-Other changes, such as our navigation chagnes, are much more different, but all for the best. Now we can treat components as arbitrary views, and navigate to them how every we want. This makes navigation much more flexible and allows for much more native-styled navigation stacks.
+Other changes, such as our navigation changes, are much more different, but all for the best. Now we can treat components as arbitrary views, and navigate to them however we want. This makes navigation much more flexible and allows for much more native-styled navigation stacks.
 
 # Migrating from Angular 1
 
@@ -57,7 +57,7 @@ While Angular 2 requires apps to be update for the syntax change, developers can
 
 ### ControllerAs Syntax
 
-ControllerAs Syntax is a feature in Angular 1x where instead of binding data to `$scope`, you can bind to the direct instance of the controller instead. This makes migrating a Angular 1x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
+ControllerAs Syntax is a feature in Angular 1.x where instead of binding data to `$scope`, you can bind to the direct instance of the controller instead. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
 
 _index.html_
 
@@ -133,7 +133,7 @@ _app.ts_
 
 ### Project Structure
 
-With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project who's directory could look like this:
+With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory could look like this:
 
 ```
     |-www/

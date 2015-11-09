@@ -52,9 +52,9 @@ add and remove CSS classes from the document's body element.
   
 ## Methods
 
-<div id="add"></div>
+<div id="addClass"></div>
 <h2>
-  <code>add(class)</code>
+  <code>addClass(class)</code>
 
 </h2>
 

@@ -406,11 +406,11 @@
       
       <main>
         <div class="improve-docs">
-  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L6">
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L5">
     View Source
   </a>
   &nbsp;
-  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L6">
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L5">
     Improve this doc
   </a>
 </div>
@@ -466,23 +466,25 @@ swipe to go back:</p>
                           &lt;ion-nav&gt;
                               |
                               |
-            Page 3  +--------------------+                     LoginPage
-          Page 2  +--------------------+ |
-        Page 1  +--------------------+ | |              +--------------------+
-                | | Header           |&lt;-----------------|       Login        |
+            Pane 3  +--------------------+                     LoginPage
+          Pane 2  +--------------------+ |          Has header, animates into pane 1
+        Pane 1  +--------------------+ | |              +--------------------+
+                | | Header (Pane 1)  |&lt;-----------------|       Login        |
                 +--------------------+ | |              +--------------------+
                 | | |                | | |              | Username:          |
                 | | |                | | |              | Password:          |
-                | | |  Page 3 is     | | |              |                    |
+                | | |  Pane 3 is     | | |              |                    |
                 | | |  only content  | | |              |                    |
                 | | |                |&lt;-----------------|                    |
                 | | |                | | |              |                    |
                 | | |                | | |              |                    |
                 | +------------------|-+ |              |                    |
-                | | Footer           |-|-+              |                    |
+                | | Footer (Pane 2)--|-|-+              |                    |
                 | +------------------|-+                |                    |
                 +--------------------+                  +--------------------+
+                      &lt;ion-pane&gt;                              &lt;ion-view&gt;
 
+                  Pane 1                    Pane 2                    Pane 3
           +--------------------+    +--------------------+    +--------------------+
           | Header             |    | Content            |    | Content            |
           +--------------------+    |                    |    |                    |
@@ -501,22 +503,34 @@ swipe to go back:</p>
   </pre>
 </div>
 
+<h3 id="panes">Panes</h3>
+<p>NOTE: You don&#39;t have to do anything with panes because Ionic takes care of
+animated transitions for you. This is an explanation of how Nav works to
+accompany the diagram above.</p>
+<p>When you push a new page onto the navigation stack using <a href="../NavController/#push">NavController.push()</a>
+or the <a href="../NavPush/">NavPush directive</a>, Nav animates the new page into the
+appropriate pane.</p>
+<p>Panes are the containers Nav creates to animate views into. They do not have
+any content of their own, as they are just a structural reference for where
+the various parts of a page (header, footer, content) should animate into.</p>
+<p>The easiest scenario is animating between pages with the same structure. If
+you have a page with a header and content, and navigate to another page that
+also has a header and content, Nav can smoothly animate the incoming page
+into the pane the exiting page is leaving. This allows for things like
+seamless header animations between pages that both have headers.</p>
+<p>But suppose you have a page with a header and content and want to navigate to
+a page with no header. Nav creates a new pane with no header that is directly
+behind the current pane. It then animates the exiting page out of the current
+pane and the new page into the new content-only pane.</p>
+
 <h1 class="class export">Nav <span class="type">class</span></h1>
 <p class="module">exported from <a href="undefined">ionic/ionic</a><br />
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L7-L147">ionic/components/nav/nav.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L6-L168">ionic/components/nav/nav.ts (line 6)</a>
 </p>
 <h2>Component</h2>
 <p><span>selector: ion-nav</span></p>
 
 <p><span>inputs: root</span></p>
-
-<h2 id="members">Members</h2>
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
 
 
       </main>

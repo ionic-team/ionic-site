@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.1.1"
+version: "1.1.0"
 versionHref: "/docs"
 path: "api/service/$ionicScrollDelegate/"
 
@@ -693,7 +693,7 @@ Does not allow this scroll view to scroll either x or y.
 
 
 * Returns: 
-  <code>boolean</code> If the scroll view is being prevented from scrolling or not.
+  <code>object</code> If the scroll view is being prevented from scrolling or not.
 
 
 

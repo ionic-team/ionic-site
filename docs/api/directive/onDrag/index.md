@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.1.1"
+version: "1.1.0"
 versionHref: "/docs"
 path: "api/directive/onDrag/"
 

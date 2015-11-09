@@ -1,6 +1,6 @@
 ---
 layout: "docs_api"
-version: "1.1.1"
+version: "1.1.0"
 versionHref: "/docs"
 path: "api/directive/ionOptionButton/"
 
@@ -42,7 +42,7 @@ docType: "directive"
 
 Creates an option button inside a list item, that is visible when the item is swiped
 to the left by the user.  Swiped open option buttons can be hidden with
-<a href="/docs/api/service/$ionicListDelegate/#closeOptionButtons">$ionicListDelegate.closeOptionButtons</a>.
+<a href="/docs/api/service/$ionicListDelegate/#closeOptionButtons">$ionicListDelegate#closeOptionButtons</a>.
 
 Can be assigned any button class.
 

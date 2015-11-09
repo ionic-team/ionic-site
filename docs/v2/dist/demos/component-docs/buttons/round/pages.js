@@ -37,7 +37,7 @@ var RoundPage = function RoundPage() {
 };
 exports.RoundPage = RoundPage;
 exports.RoundPage = RoundPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/round.html',
+    templateUrl: 'buttons/round/round.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

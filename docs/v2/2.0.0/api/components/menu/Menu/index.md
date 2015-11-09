@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -37,47 +37,34 @@ docType: "class"
 
 
 
-<p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
-of the Component docs.</em></p>
-<p>Menu is a side-menu navigation that can be dragged out or toggled to show.</p>
-<p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
-to the content element that Menu should listen on for drag events, using the
-<code>content</code> property:</p>
-<pre><code class="lang-html">&lt;ion-menu [content]=&quot;contentRef&quot;&gt;
-  &lt;ion-content&gt;
-    &lt;ion-list&gt;
-    ...
-    &lt;/ion-list&gt;
-  &lt;/ion-content&gt;
-&lt;/ion-menu&gt;
-
-&lt;ion-nav #content-ref [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
-</code></pre>
-<p>By default, Menus are on the left, but this can be overriden with the <code>side</code>
-property:</p>
-<pre><code class="lang-html">&lt;ion-menu [content]=&quot;contentRef&quot; side=&quot;right&quot;&gt;&lt;/ion-menu&gt;
-</code></pre>
-<p>Menu supports two display styles: overlay, and reveal. Overlay
-is the traditional Android drawer style, and Reveal is the traditional iOS
-style. By default, Menu will adjust to the correct style for the platform,
-but this can be overriden using the <code>type</code> property:</p>
-<pre><code class="lang-html">&lt;ion-menu [content]=&quot;contentRef&quot; type=&quot;overlay&quot;&gt;&lt;/ion-menu&gt;
-</code></pre>
+<p>Menu is a side-menu navigation that can be dragged out or toggled to show.
+Menu supports two display styles currently: overlay, and reveal. Overlay
+is the tradtional Android drawer style, and Reveal is the traditional iOS
+style. By default, Menu will adjust to the correct style for the platform.</p>
 
 
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L9-L307">ionic/components/menu/menu.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L250">ionic/components/menu/menu.ts (line 8)</a>
 </p>
-<h2>Component</h2>
-  <span>selector: ion-menu</span>
-
-  <span>inputs: content, dragThreshold, id</span>
-
-  <span>outputs: opening</span>
-
-
 ## Members
+
+<div id="onInit"></div>
+<h2>
+  <code>onInit()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="setOpen"></div>
 <h2>
@@ -234,23 +221,6 @@ TODO
 
 * Returns: 
   <code>TODO</code> TODO
-
-
-
-
-<div id="enable"></div>
-<h2>
-  <code>enable()</code>
-
-</h2>
-
-
-
-
-
-
-
-
 
 
 

@@ -37,7 +37,7 @@ var OutlinePage = function OutlinePage() {
 };
 exports.OutlinePage = OutlinePage;
 exports.OutlinePage = OutlinePage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/outline.html',
+    templateUrl: 'buttons/outline/outline.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

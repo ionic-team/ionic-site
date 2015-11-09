@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L85'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L71'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L85'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L71'>
     Improve this doc
   </a>
 </div>
@@ -42,12 +42,7 @@ docType: "class"
 
 <h1 class="class export">ListHeader <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L86-L102">ionic/components/list/list.ts (line 86)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L72-L88">ionic/components/list/list.ts (line 72)</a>
 </p>
-<h2>Directive</h2>
-  <span>selector: ion-header</span>
-
-  <span>inputs: id</span>
-
-
+## Members
 

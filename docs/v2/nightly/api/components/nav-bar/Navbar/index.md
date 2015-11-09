@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav-bar/nav-bar.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav-bar/nav-bar.ts#L47'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav-bar/nav-bar.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav-bar/nav-bar.ts#L47'>
     Improve this doc
   </a>
 </div>
@@ -41,32 +41,9 @@ docType: "class"
 
 <h1 class="class export">Navbar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav-bar/nav-bar.ts#L49-L125">ionic/components/nav-bar/nav-bar.ts (line 49)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav-bar/nav-bar.ts#L48-L110">ionic/components/nav-bar/nav-bar.ts (line 48)</a>
 </p>
-<h2>Component</h2>
-  <span>selector: ion-navbar</span>
-
-  <span>inputs: hideBackButton</span>
-
-
 ## Members
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="getBackButtonRef"></div>
 <h2>
@@ -139,23 +116,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="didEnter"></div>
 <h2>
   <code>didEnter()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setHidden"></div>
-<h2>
-  <code>setHidden()</code>
 
 </h2>
 

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L17'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L17'>
     Improve this doc
   </a>
 </div>
@@ -37,19 +37,135 @@ docType: "class"
 
 
 
-<p>Component registry service.  For more information on registering
-components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
+<p>Service exposing the Ionic app level API.</p>
 
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5-L116">ionic/components/app/app.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L18-L253">ionic/components/app/app.ts (line 18)</a>
 </p>
 ## Members
 
-<div id="setTitle"></div>
+<div id="bindEvents"></div>
 <h2>
-  <code>setTitle(val)</code>
+  <code>bindEvents()</code>
+
+</h2>
+
+Bind some global events and publish on the 'app' channel
+
+
+
+
+
+
+
+
+
+
+
+<div id="load"></div>
+<h2>
+  <code>load(appRef)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        appRef
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="focusHolder"></div>
+<h2>
+  <code>focusHolder([val])</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        val
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>TODO</code> TODO
+
+
+
+
+<div id="title"></div>
+<h2>
+  <code>title(val)</code>
 
 </h2>
 
@@ -86,23 +202,6 @@ Sets the document title.
     
   </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-<div id="getTitle"></div>
-<h2>
-  <code>getTitle()</code>
-
-</h2>
-
-
-
 
 
 
@@ -233,6 +332,176 @@ Boolean if the app is actively transitioning or not.
 
 * Returns: 
   <code>bool</code> 
+
+
+
+
+<div id="ref"></div>
+<h2>
+  <code>ref([val])</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        val
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+   TODO
+
+
+
+
+
+
+<div id="injector"></div>
+<h2>
+  <code>injector()</code>
+
+</h2>
+
+TODO
+
+
+
+
+
+
+* Returns: 
+   TODO
+
+
+
+
+
+
+<div id="zoneRun"></div>
+<h2>
+  <code>zoneRun(fn)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        fn
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="zoneRunOutside"></div>
+<h2>
+  <code>zoneRunOutside(fn)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        fn
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
 
 
 
@@ -450,6 +719,112 @@ Get the component for the given key.
 
 * Returns: 
   <code>TODO</code> TODO
+
+
+
+
+<div id="appendComponent"></div>
+<h2>
+  <code>appendComponent(componentType)</code>
+
+</h2>
+
+Create and append the given component into the root
+element of the app.
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        componentType
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>the component to create and insert</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>Promise</code> Promise that resolves with the ContainerRef created
+
+
+
+
+<div id="isRTL"></div>
+<h2>
+  <code>isRTL([val])</code>
+
+</h2>
+
+If val is defined, specifies whether app text is RTL.  If val is undefined
+returns whether app text is RTL.
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        val
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Boolean specifying whether text is RTL or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> true if app text is RTL, false if otherwise.
 
 
 

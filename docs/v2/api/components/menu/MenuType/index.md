@@ -117,9 +117,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
-<div id="onDestroy"></div>
+<div id="onDestory"></div>
 <h2>
-  <code>onDestroy()</code>
+  <code>onDestory()</code>
 
 </h2>
 

@@ -57,7 +57,7 @@ docType: "class"
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L521">ionic/animations/animation.ts (line 2)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L530">ionic/animations/animation.ts (line 2)</a>
 </p>
 ## Members
 
@@ -149,23 +149,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 <div id="duration"></div>
 <h2>
   <code>duration()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="clearDuration"></div>
-<h2>
-  <code>clearDuration()</code>
 
 </h2>
 

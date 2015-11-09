@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L14'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L14'>
     Improve this doc
   </a>
 </div>
@@ -49,14 +49,8 @@ The iDangero.us
 
 <h1 class="class export">Slides <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L13-L443">ionic/components/slides/slides.ts (line 13)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L15-L445">ionic/components/slides/slides.ts (line 15)</a>
 </p>
-<h2>Component</h2>
-  <span>selector: ion-slides</span>
-
-  <span>inputs: loop, index, bounce, pager, options, zoom, zoomDuration, zoomMax</span>
-
-
 ## Members
 
 <div id="onInit"></div>

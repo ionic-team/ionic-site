@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -37,87 +37,14 @@ docType: "class"
 
 
 
-<p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.</p>
-<p>Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.</p>
+<p>TODO</p>
 
 
 <h1 class="class export">Segment <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L4-L116">ionic/components/segment/segment.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L8-L121">ionic/components/segment/segment.ts (line 8)</a>
 </p>
-<h2>Directive</h2>
-  <span>selector: ion-segment</span>
-
-
 ## Members
-
-<div id="buttons"></div>
-<h2>
-  <code>buttons()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="writeValue"></div>
-<h2>
-  <code>writeValue()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerOnChange"></div>
-<h2>
-  <code>registerOnChange()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerOnTouched"></div>
-<h2>
-  <code>registerOnTouched()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="register"></div>
 <h2>

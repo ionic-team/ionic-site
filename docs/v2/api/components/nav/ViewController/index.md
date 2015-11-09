@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L0'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L3'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L0'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L3'>
     Improve this doc
   </a>
 </div>
@@ -42,9 +42,320 @@ docType: "class"
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L247">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L4-L416">ionic/components/nav/view-controller.ts (line 4)</a>
 </p>
 ## Members
+
+<div id="setContent"></div>
+<h2>
+  <code>setContent()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getContent"></div>
+<h2>
+  <code>getContent()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="addProtoViewRef"></div>
+<h2>
+  <code>addProtoViewRef(name, protoViewRef)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        name
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        protoViewRef
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="addTemplateRef"></div>
+<h2>
+  <code>addTemplateRef(name, templateRef)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        name
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        templateRef
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="stage"></div>
+<h2>
+  <code>stage(callback)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>TODO</code> TODO
+
+
+
+
+<div id="addPromise"></div>
+<h2>
+  <code>addPromise(childPromise)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        childPromise
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="inspectStructure"></div>
+<h2>
+  <code>inspectStructure(componentProtoViewRef)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        componentProtoViewRef
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
 
 <div id="enableBack"></div>
 <h2>
@@ -147,23 +458,6 @@ TODO
 
 
 
-<div id="addDestroy"></div>
-<h2>
-  <code>addDestroy()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="destroy"></div>
 <h2>
   <code>destroy()</code>
@@ -182,213 +476,60 @@ TODO
 
 
 
-<div id="setNavbarTemplateRef"></div>
+<div id="viewElementRef"></div>
 <h2>
-  <code>setNavbarTemplateRef()</code>
+  <code>viewElementRef(val)</code>
 
 </h2>
 
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        val
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
 
 
 
+* Returns: 
+  <code>TODO</code> TODO
 
 
 
 
-
-<div id="getNavbarTemplateRef"></div>
+<div id="navbarView"></div>
 <h2>
-  <code>getNavbarTemplateRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavbarViewRef"></div>
-<h2>
-  <code>getNavbarViewRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setNavbarViewRef"></div>
-<h2>
-  <code>setNavbarViewRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setPageRef"></div>
-<h2>
-  <code>setPageRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pageRef"></div>
-<h2>
-  <code>pageRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setContentRef"></div>
-<h2>
-  <code>setContentRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="contentRef"></div>
-<h2>
-  <code>contentRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setContent"></div>
-<h2>
-  <code>setContent()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getContent"></div>
-<h2>
-  <code>getContent()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setNavbar"></div>
-<h2>
-  <code>setNavbar()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavbar"></div>
-<h2>
-  <code>getNavbar()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="hasNavbar"></div>
-<h2>
-  <code>hasNavbar()</code>
+  <code>navbarView()</code>
 
 </h2>
 
@@ -500,9 +641,9 @@ TODO
 
 
 
-<div id="navbarBgRef"></div>
+<div id="navbarBackgroundRef"></div>
 <h2>
-  <code>navbarBgRef()</code>
+  <code>navbarBackgroundRef()</code>
 
 </h2>
 
@@ -519,19 +660,21 @@ TODO
 
 
 
-<div id="hideBackButton"></div>
+<div id="postRender"></div>
 <h2>
-  <code>hideBackButton()</code>
+  <code>postRender()</code>
 
 </h2>
 
+TODO
 
 
 
 
 
 
-
+* Returns: 
+  <code>TODO</code> TODO
 
 
 
@@ -657,23 +800,6 @@ The view is about to be destroyed and have its elements removed.
 </h2>
 
 The view has been destroyed and its elements have been removed.
-
-
-
-
-
-
-
-
-
-
-
-<div id="domCache"></div>
-<h2>
-  <code>domCache()</code>
-
-</h2>
-
 
 
 

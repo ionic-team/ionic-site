@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>An Interview with Jeremy Wilken, Author of Ionic in Action</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        <div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-in-action-book/">An Interview with Jeremy Wilken, Author of Ionic in Action</a></h3>
+
+    <div class="post-social">
+    
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="An Interview with Jeremy Wilken, Author of Ionic in Action" data-url="http://ionicframework.com/blog/ionic-in-action-book" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-in-action-book"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-in-action-book" data-type="button_count"></div>-->
+    </div>
+    <time class="post-time">By <img src="https://s3.amazonaws.com/ionicframework.com/blog/katie-md.jpg" class="author-icon">Katie on February 17, 2015</time>
+  </div>
+
+<p><img src="/img/blog/ionic-in-action-header.jpg" alt="Ionic in Action" /></p>
+
+<p><a href="https://twitter.com/gnomeontherun">Jeremy Wilken</a>’s book <i><a href="http://ionicinaction.com">Ionic in Action</a></i> is being published by <a href="http://manning.com/wilken">Manning</a> and will be released late this spring.</p>
+
+<p>Even though the book is not yet in print, you can <a href="http://ionicinaction.com">get the early access version today</a> (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum, where he will respond to your posts himself.</p>
+
+<p>We talked with Jeremy about his background, his use of Ionic, and the process of writing the book.</p>
+
+<!-- more -->
+<p><b>Can you tell us a little about yourself as a developer and writer?</b></p>
+
+<p>Like many developers, I have always had an interest in tinkering and understanding the moving parts. I’ve been building websites since I was in junior high, and I gradually grew my skills to the point where I spent many years freelancing. More recently, I’ve joined larger scale projects and now work primarily as a front end engineer. I love working on usability and user experience. Becoming a developer and writer wasn’t my plan during my formal education (I’ve got a degree in the arts), but that is pretty common in our field.</p>
+
+<p>As far as being a writer, that part is somewhat new to me. Most of my writing was done in college, and while I did write quite a few papers then, the style is very different from the writing done for a technical book. I’ve worked pretty hard to improve my skills, and I am fairly proud of what I have written so far.</p>
+
+<p><b>When did you start using Ionic, and what about it was compelling enough to you to write a book about it?</b></p>
+
+<p>I started with Ionic in early 2014, after it had been available for only a few months. My position at the time was investigating the feasibility of building a mobile app for internal employee use only, and, because our toolkit was primarily Node/AngularJS apps, Ionic fit into our skill set very well. I was able to build a prototype in a few hours and deploy it to a mobile device, which surprised me, compared to working with native development tools. (Granted, native development can be rapid, too, but you need to learn different skills.)</p>
+
+<p>I have always had a passion for helping others learn, whether by speaking at events or teaching in my work role, so writing a book was a natural interest of mine. The benefits and power of Ionic opened doors for me to build mobile apps with my current skill set, and I wanted to empower others the do the same.</p>
+
+<p><b>Can you talk about the process of writing this book?</b></p>
+
+<p>Writing a book is like a marathon. There’s a lot of ground to cover, and it takes a good cadence to reach the goal. The good thing is that while I’m the author, I have several editors who are able to help me articulate ideas, plan out concepts and examples, and review my work.</p>
+
+<p>The general process starts with nailing an outline and working with a publisher to get the details ironed out. Then it’s a matter of meeting deadlines for chapters, getting them reviewed by editors, revising, getting more feedback, and so forth. The hardest part is getting the inspiration to write when I have the time blocked off. Writing is a form of art, and it takes the right mindset to get quality work done.</p>
+
+<p>Manning is the publisher for <i>Ionic in Action</i>, and I have to say everyone I have worked with there has been extremely helpful and professional. They have helped to make the book a high-quality work.</p>
+
+<p><b>You built three Ionic apps during the writing process! Which UI elements did you use, and can you tell us more about the development process?</b></p>
+
+<p>I used nearly every Ionic component in the three apps I built for the book, so the book provides a good reference for using the components in an integrated manner.<br />
+The first is an app that a resort might use to provide value for their guests. It has the slide box, lists, cards, content containers, basic navigation, and other smaller elements.<br /> <br />
+Demo: <a href="http://ionic-in-action-chapter4.herokuapp.com/">http://ionic-in-action-chapter4.herokuapp.com/</a><br /><br />
+Source: <a href="https://github.com/ionic-in-action/chapter4">https://github.com/ionic-in-action/chapter4</a></p>
+
+<p>The second is a bitcoin market app, which provides real-time currency rates for bitcoin. Some of the components it uses are pull to refresh, popovers, tabs, charts, advanced lists, and nested views.<br /> <br />
+Demo: <a href="http://ionic-in-action-chapter5.herokuapp.com/">http://ionic-in-action-chapter5.herokuapp.com/</a><br /><br />
+Source: <a href="https://github.com/ionic-in-action/chapter5">https://github.com/ionic-in-action/chapter5</a></p>
+
+<p>The third is a weather app, with the ability to find locations and see the weather forecast. It leverages modals, custom scroll area (paginated scrolling), loading external data, side menus, a search view, and some other smaller elements.<br /> <br />
+Demo: <a href="http://ionic-in-action-chapter6.herokuapp.com">http://ionic-in-action-chapter6.herokuapp.com</a><br /><br />
+Source: <a href="https://github.com/ionic-in-action/chapter6">https://github.com/ionic-in-action/chapter6</a></p>
+
+<p>The demos were developed very carefully and actually took more time than writing the text did. I almost wish I could also have written about the process of building these apps, because while they look very straightforward to develop, for the book, it was a journey of writing and refactoring. I wanted to make sure the examples were not contrived or boring, but also not too complex. They needed to illustrate the key features I wanted to teach, so I would make the first prototype and then remove half of the code to simplify. I really hope they resonate with readers, and even if you don’t buy the book, you can still tinker with the samples.</p>
+
+<p><b>Can you talk more about the functionality and technical aspects of the apps that you feel are unique, interesting, important, etc.?</b></p>
+
+<p>I think each app is unique and very quite robust. I’d say they are 80% ready to be deployed to an App Store, with some of the obvious missing pieces listed at the end of the chapter, as a challenge for readers to implement themselves. Considering the actual amount of code and the number of features, it should be pretty clear how much Ionic bolsters app development.</p>
+
+<p>AngularJS is a primary part of Ionic apps, and I’ve gone to great strides to provide an Angular primer, tips about Angular, and to structure the examples in a way that scales. There are too many bad and outdated examples of Angular code out there, and while it might be helpful for learning, it is a disservice to readers.</p>
+
+<p><b>Could you talk about how you went about differentiating the app for different platforms? What did you do to align with the iOS platform, for example, vs. Android?</b></p>
+
+<p>Since the examples leverage Ionic’s components almost exclusively, there isn’t much that I needed to do to support each platform in the examples. The beauty of Ionic components, such as the tabs component, is that Ionic will identify the platform and adapt the style appropriately.</p>
+
+<p>That said, this topic is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.</p>
+
+<p><b>What will Ionic users learn from this book?</b></p>
+
+<p>People already using Ionic will be able to learn more about the entire ecosystem that surrounds Ionic, such as how to leverage Cordova and plugins; some of Ionic’s platform services, such as Ionic View; and how to level up Ionic development with advanced techniques and testing. I can’t stress enough how important tests are, but it is probably the most overlooked skill in software development. The book provides examples and insight into how to setup and write your own tests.</p>
+
+<p><a href="http://ionicinaction.com">Buy the early access version today</a> (Save 42% with code ionic42)!</p>
+
+
+  <div class="share-bottom">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="An Interview with Jeremy Wilken, Author of Ionic in Action" data-url="http://ionicframework.com/blog/ionic-in-action-book" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-in-action-book"></div>
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <a href="http://bufferapp.com/add" class="buffer-add-button" data-count="horizontal" data-via="ionicframework" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1490315864556760&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+  </div>
+
+  <div class="join-bottom">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="form">
+      <div class="form-inline">
+        <!--<label for="fieldEmail">Join our list to get news and updates on Ionic!</label><br />-->
+        <div class="input-group">
+          <input id="fieldEmail" class="form-control" name="cm-jytylh-jytylh" type="email" placeholder="Join our list to get Ionic news and updates just like this one!" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Subscribe!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <div>
+      <iframe src="http://ghbtns.com/github-btn.html?user=driftyco&repo=ionic&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe>
+      <a href="https://twitter.com/ionicframework" class="twitter-follow-button">Follow @ionicframework</a>
+    </div>
+
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ionic'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

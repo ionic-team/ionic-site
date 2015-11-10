@@ -37,7 +37,7 @@ var ClearPage = function ClearPage() {
 };
 exports.ClearPage = ClearPage;
 exports.ClearPage = ClearPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/clear/clear.html',
+    templateUrl: 'buttons/clear.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

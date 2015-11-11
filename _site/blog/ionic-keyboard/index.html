@@ -78,7 +78,7 @@
 
 <p><img class="showcase-image" src="/img/blog/keyboard-land.gif" /></p>
 
-<p>Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.  But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments.</p>
+<p>Hybrid development is great because you get to spend most of your time in the idyllic pastures of web technologies, and with the help of Cordova, reap many of the benefits of native with little extra effort. HTML5, CSS and JavaScript are your friends, and with all the time and money they save you, finding the time to go outside, have a few beers and enjoy life is easy.  But sometimes you have to realize every mobile web developer’s nightmare and actually venture out into the complex world of the various native environments. </p>
 
 <!-- more -->
 
@@ -86,7 +86,7 @@
 
 <h3 id="issues">Issues</h3>
 
-<p>Getting the keyboard to play nicely with the web layer was challenging for several reasons.  Probably the biggest issue is the variation in behavior across devices and platforms when the keyboard is shown.</p>
+<p>Getting the keyboard to play nicely with the web layer was challenging for several reasons.  Probably the biggest issue is the variation in behavior across devices and platforms when the keyboard is shown.  </p>
 
 <p>In iOS, not only does the web view resize differently when the keyboard shows in versions 6.1, 7.0, and 7.1, but it is affected differently, and sometimes completely oppositely, by including or excluding the <a href="https://developer.apple.com/library/iOs/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html">viewport meta tag</a>.  Throw support for tablets and landscape orientation into the mix and trying to make every scenario on every device work nicely can have you quickly creating three new issues for every one you fix.</p>
 
@@ -98,7 +98,7 @@
 
 <h3 id="solution">Solution</h3>
 
-<p>Our approach to resolving all these issues was twofold: try to keep the problems with the native layer out of the way, and let Ionic do as much as possible to resolve the rest.  One of the biggest barriers to Ionic being able to accommodate the presence of the keyboard on the screen was knowing with absolute certainty when the keyboard was on the screen, and how big it was.</p>
+<p>Our approach to resolving all these issues was twofold: try to keep the problems with the native layer out of the way, and let Ionic do as much as possible to resolve the rest.  One of the biggest barriers to Ionic being able to accommodate the presence of the keyboard on the screen was knowing with absolute certainty when the keyboard was on the screen, and how big it was.  </p>
 
 <p>To do this, we developed the <a href="https://github.com/driftyco/ionic-plugins-keyboard">Ionic Keyboard Plugin</a>, which on both iOS and Android fires events indicating when the keyboard will show or hide, and if it is going to appear, how big it is.  This allows Ionic to adjust the scrollable content area as quickly and as accurately as possible, which in turn allows it to scroll any obscured inputs into view.  On iOS, it actively prevents the native scroll, and to give your app a more native feel, gives you the option of removing the accessory bar that appears by default on top of the keyboard in a web form.  The plugin is not Ionic specific however, and can be used in any Cordova app to expose information about the keyboard to the web layer.</p>
 

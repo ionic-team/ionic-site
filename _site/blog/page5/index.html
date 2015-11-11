@@ -166,9 +166,9 @@ via the Ionic CLI.</p>
     <time class="post-time">By <img src="https://pbs.twimg.com/profile_images/2645882152/2d0a800126f9913e3df81c47add9d17a.jpeg" class="author-icon"><a href="http://twitter.com/tweakbox" target="_blank">Joel Weirauch</a> on December 22, 2014</time>
   </div>
   
-    <p>We are huge fans of <a href="https://www.docker.com/">Docker</a> here at Ionic. Docker keeps our code and its dependencies together and lets us more fully utilize our computing resources for products like <a href="https://creator.ionic.io/">Ionic Creator</a> and the upcoming <a href="https://ionic.io/">Ionic.io</a> services.</p>
+    <p>We are huge fans of <a href="https://www.docker.com/">Docker</a> here at Ionic. Docker keeps our code and its dependencies together and lets us more fully utilize our computing resources for products like <a href="https://creator.ionic.io/">Ionic Creator</a> and the upcoming <a href="https://ionic.io/">Ionic.io</a> services. </p>
 
-<p>One challenge we faced with Docker, though, was that any time we made even the smallest change to our code, we had to go through the process of building a new container, pulling it down to our servers, and replacing the running version.</p>
+<p>One challenge we faced with Docker, though, was that any time we made even the smallest change to our code, we had to go through the process of building a new container, pulling it down to our servers, and replacing the running version.  </p>
 
 <p>We store all of our code in GitHub, use the <a href="https://hub.docker.com/">Docker Registry</a> to automatically build and store our containers, and use <a href="http://www.ansible.com/">Ansible</a> to script the management and deployment of our containers to our servers. Even with a fully automated process, deploying that one small change could take us 20 minutes or more. After some brainstorming, we realized there is a better way for us to utilize Docker.</p>
 
@@ -259,7 +259,7 @@ docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name=cont
 <p>For a full deploy, we run both playbooks together in sequence; it’s that simple. ;)</p>
 
 <h3 id="conclusion">Conclusion</h3>
-<p>Because Docker is primarily a way to encapsulate infrastructure into a self-contained, deployable package, there is often no need to rebuild the entire container just to deploy a couple code changes. By utilizing volumes in Docker, we remove the code from the container, enabling code to be updated independently of the container that runs it. Finally, we can use the UWSGI touch reload feature to restart UWSGI in the container and load the updated code from the volume.</p>
+<p>Because Docker is primarily a way to encapsulate infrastructure into a self-contained, deployable package, there is often no need to rebuild the entire container just to deploy a couple code changes. By utilizing volumes in Docker, we remove the code from the container, enabling code to be updated independently of the container that runs it. Finally, we can use the UWSGI touch reload feature to restart UWSGI in the container and load the updated code from the volume. </p>
 
 
   
@@ -409,7 +409,7 @@ docker run -d -P -v /path/to/code/on/host:/path/to/code/in/container --name=cont
 
 <h3 id="ionic-10">Ionic 1.0</h3>
 
-<p>The next big release of Ionic is slated for early 2015, and we’re going for 1.0!</p>
+<p>The next big release of Ionic is slated for early 2015, and we’re going for 1.0! </p>
 
 <p>With <a href="/blog/the-final-beta/">Beta 14</a> this week, we’ve made Ionic the fastest and most feature-complete hybrid development framework around. Drawing on lessons learned from building native apps, we’ve added features like view caching, dynamic platform transitions, and UI adaptation, along with hundreds of bug fixes and improvements.</p>
 

@@ -841,23 +841,24 @@ Use the <a href="/docs/api/service/$ionicListDelegate/#$getByHandle">$getByHandl
 method to control specific ionList instances.</p>
 
 <h2 id="usage">Usage</h2>
-<p>````html</p>
+<p>````html<br />
 <ion-content ng-controller="MyCtrl">
-  <button class="button" ng-click="showDeleteButtons()"></button>
-  <ion-list>
+  <button class="button" ng-click="showDeleteButtons()"></button></ion-content></p>
+<ion-list>
     <ion-item ng-repeat="i in items">
       Hello, {{i}}!
       <ion-delete-button class="ion-minus-circled"></ion-delete-button>
     </ion-item>
   </ion-list>
-</ion-content>
-<pre><code>```js
-function MyCtrl($scope, $ionicListDelegate) {
-  $scope.showDeleteButtons = function() {
-    $ionicListDelegate.showDelete(true);
-  };
-}
-</code></pre>
+<p>&lt;/ion-content&gt;<br />
+<code>
+</code>js<br />
+function MyCtrl($scope, $ionicListDelegate) {<br />
+  $scope.showDeleteButtons = function() {<br />
+    $ionicListDelegate.showDelete(true);<br />
+  };<br />
+}<br />
+```</p>
 
 <h2 id="methods">Methods</h2>
 

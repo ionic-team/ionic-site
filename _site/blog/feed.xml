@@ -31,7 +31,7 @@
 
 &lt;h3 id=&quot;why-svgs&quot;&gt;Why SVGs?&lt;/h3&gt;
 
-&lt;p&gt;Why would we need new spinners? After all, Ionicons already come with animated font icons that get the job done. Well, the older animated font icons were subjected to the browser’s font rendering, which differs between iOS and Android and among all the different versions of Android. Normally, this wouldn’t make a difference, since all fonts get rendered out as static content, but the animated font icons weren’t static. Depending on which browser you were using, they would rotate, and users would see the icon wobble. We had to face the facts: Animated Font Icons Were Not An Ideal Solution.&lt;/p&gt;
+&lt;p&gt;Why would we need new spinners? After all, Ionicons already come with animated font icons that get the job done. Well, the older animated font icons were subjected to the browser’s font rendering, which differs between iOS and Android and among all the different versions of Android. Normally, this wouldn’t make a difference, since all fonts get rendered out as static content, but the animated font icons weren’t static. Depending on which browser you were using, they would rotate, and users would see the icon wobble. We had to face the facts: Animated Font Icons Were Not An Ideal Solution. &lt;/p&gt;
 
 &lt;div style=&quot;float: right; margin-right: -160px&quot;&gt;
 
@@ -44,11 +44,11 @@
 
 &lt;h3 id=&quot;enter-animated-svgs&quot;&gt;Enter Animated SVGs&lt;/h3&gt;
 
-&lt;p&gt;Since animated icons were not a perfect solution, we decided to move to full SVG icons, in order to create icons that weren’t subjected to the browser’s font rendering. An added benefit was that since we use Angular, we could encapsulate a bunch of different icons inside a &lt;a href=&quot;https://github.com/driftyco/ionic/blob/master/js/angular/controller/spinnerController.js&quot;&gt;directive&lt;/a&gt;, and developers wouldn’t have to deal with the SVG markup.&lt;/p&gt;
+&lt;p&gt;Since animated icons were not a perfect solution, we decided to move to full SVG icons, in order to create icons that weren’t subjected to the browser’s font rendering. An added benefit was that since we use Angular, we could encapsulate a bunch of different icons inside a &lt;a href=&quot;https://github.com/driftyco/ionic/blob/master/js/angular/controller/spinnerController.js&quot;&gt;directive&lt;/a&gt;, and developers wouldn’t have to deal with the SVG markup. &lt;/p&gt;
 
-&lt;p&gt;Did we lose the ability to style the icons? Nope; you’ll still get to customize the icons to the colors of your choice and even use the built-in Ionic colors. To top it off, since the icons are a directive, we can switch them out at run time for Platform Continuity, and iOS and Android will each get the correct icons. This is also configurable, so you have the option of passing in one icon for both platforms.&lt;/p&gt;
+&lt;p&gt;Did we lose the ability to style the icons? Nope; you’ll still get to customize the icons to the colors of your choice and even use the built-in Ionic colors. To top it off, since the icons are a directive, we can switch them out at run time for Platform Continuity, and iOS and Android will each get the correct icons. This is also configurable, so you have the option of passing in one icon for both platforms. &lt;/p&gt;
 
-&lt;p&gt;Be sure to check out the &lt;a href=&quot;http://ionicframework.com/docs/nightly/api/directive/ionSpinner/&quot;&gt;documentation for the spinners&lt;/a&gt; and try them out in your own app!&lt;/p&gt;
+&lt;p&gt;Be sure to check out the &lt;a href=&quot;http://ionicframework.com/docs/nightly/api/directive/ionSpinner/&quot;&gt;documentation for the spinners&lt;/a&gt; and try them out in your own app! &lt;/p&gt;
 
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
@@ -61,7 +61,7 @@
         <title>Platform Continuity</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/blog/platform-continuity-ionicframework.png&quot; style=&quot;min-width:100%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Think about how it feels when you open up a particularly well designed iOS or Android app. The entire experience is predictable and clear; everything functions according to your expectations.&lt;/p&gt;
+&lt;p&gt;Think about how it feels when you open up a particularly well designed iOS or Android app. The entire experience is predictable and clear; everything functions according to your expectations. &lt;/p&gt;
 
 &lt;p&gt;To achieve a user experience this seamless and comfortable, you’ll need to design your app according to the style guidelines of each major mobile platform. Users expect apps to look familiar on their mobile platform of choice: a centered header on iOS, a left-aligned header on Android; tabs on the bottom on iOS, and on the top on Android; rounded icons in iOS, etc. Until now, accomplishing this was time-consuming, expensive, and downright difficult.&lt;/p&gt;
 
@@ -69,7 +69,7 @@
 
 &lt;p&gt;From a functionality standpoint, the “write once and run anywhere” mantra still applies, but from a design standpoint, it’s more akin to “write once; check the platform style guidelines; write some more; check again; deploy anywhere.” That’s pretty overwhelming when you’re trying to write an app for two or more platforms.&lt;/p&gt;
 
-&lt;p&gt;Ionic helps to solve this problem out of the box. Design is a critically important part of an app; it’s what makes an app attractive and enjoyable to use. Ionic helps developers build beautiful apps more quickly, and by incorporating &lt;a href=&quot;http://adamdbradley.github.io/ionic-present/#/15&quot;&gt;Platform Continuity&lt;/a&gt; into Ionic, we provide developers with the tools to create clearly structured apps whose design elements and functionality meet users’ expectations, no matter which platform they’re using.&lt;/p&gt;
+&lt;p&gt;Ionic helps to solve this problem out of the box. Design is a critically important part of an app; it’s what makes an app attractive and enjoyable to use. Ionic helps developers build beautiful apps more quickly, and by incorporating &lt;a href=&quot;http://adamdbradley.github.io/ionic-present/#/15&quot;&gt;Platform Continuity&lt;/a&gt; into Ionic, we provide developers with the tools to create clearly structured apps whose design elements and functionality meet users’ expectations, no matter which platform they’re using. &lt;/p&gt;
 
 &lt;p&gt;Ionic allows you to customize settings, such as headers, tabs, transitions, toggles, action sheets, back-buttons, checkboxes, nav-buttons, and fonts, for each major platform. For example, now Ionic checkboxes automatically look like iOS checkboxes on iOS and Android checkboxes on Android. Our action sheet below looks significantly different on iOS than on Android. All of this happens automatically and is customizable.&lt;/p&gt;
 
@@ -77,8 +77,8 @@
 
 &lt;p&gt;Going forward, our criteria for acceptance into the &lt;a href=&quot;http://showcase.ionicframework.com/&quot;&gt;Ionic Showcase&lt;/a&gt; will emphasize platform continuity, in addition to beautiful design and unique functionality. We look forward to seeing what you build!&lt;/p&gt;
 
-&lt;p&gt;Hear more about platform continuity in &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=4m41s&quot;&gt;Adam’s talk at ng-conf&lt;/a&gt;:&lt;/p&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=4m41s&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Hear more about platform continuity in &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=4m41s&quot;&gt;Adam’s talk at ng-conf&lt;/a&gt;:&lt;br /&gt;
+&amp;lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=4m41s&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 17 Mar 2015 13:00:00 -0500</pubDate>
@@ -121,8 +121,8 @@ $ ionic share EMAIL
 
 &lt;p&gt;This feature, which is common in native iOS apps, is only offered for iOS, because Android doesn’t do this. It’s only in Cordova, because standard mobile browsers provide their own swipe to go back capabilities. The URL still changes and is no different than any other navigation with the same lifecycle events.&lt;/p&gt;
 
-&lt;p&gt;Watch the video of my presentation &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=9m1s&quot;&gt;where I talk about Swipe to Go Back&lt;/a&gt;:&lt;/p&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=9m1s&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Watch the video of my presentation &lt;a href=&quot;https://youtu.be/wvr11fvCeu4?t=9m1s&quot;&gt;where I talk about Swipe to Go Back&lt;/a&gt;:&lt;br /&gt;
+&amp;lt;iframe width=&quot;100%&quot; height=&quot;510&quot; src=&quot;//www.youtube.com/embed/wvr11fvCeu4?t=9m1s&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;For more on the Ionic community’s response to Swipe to Go Back and RCO, check out &lt;a href=&quot;https://medium.com/@saniyusuf/first-look-at-ionic-1-0-rc-release-candidate-40f6f18308f4&quot;&gt;Sani Yusuf’s post on Medium.com&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -518,14 +518,14 @@ gulp.task(&#39;remove-proxy&#39;, function() {
         <title>An Interview with Jeremy Wilken, Author of Ionic in Action</title>
         <description>&lt;p&gt;&lt;img src=&quot;/img/blog/ionic-in-action-header.jpg&quot; alt=&quot;Ionic in Action&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/gnomeontherun&quot;&gt;Jeremy Wilken&lt;/a&gt;’s book &lt;i&gt;&lt;a href=&quot;http://ionicinaction.com&quot;&gt;Ionic in Action&lt;/a&gt;&lt;/i&gt; is being published by &lt;a href=&quot;http://manning.com/wilken&quot;&gt;Manning&lt;/a&gt; and will be released late this spring.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/gnomeontherun&quot;&gt;Jeremy Wilken&lt;/a&gt;’s book &lt;i&gt;&lt;a href=&quot;http://ionicinaction.com&quot;&gt;Ionic in Action&lt;/a&gt;&lt;/i&gt; is being published by &lt;a href=&quot;http://manning.com/wilken&quot;&gt;Manning&lt;/a&gt; and will be released late this spring. &lt;/p&gt;
 
-&lt;p&gt;Even though the book is not yet in print, you can &lt;a href=&quot;http://ionicinaction.com&quot;&gt;get the early access version today&lt;/a&gt; (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum, where he will respond to your posts himself.&lt;/p&gt;
+&lt;p&gt;Even though the book is not yet in print, you can &lt;a href=&quot;http://ionicinaction.com&quot;&gt;get the early access version today&lt;/a&gt; (Save 42% with code ionic42) and give Jeremy direct feedback in the author forum, where he will respond to your posts himself. &lt;/p&gt;
 
-&lt;p&gt;We talked with Jeremy about his background, his use of Ionic, and the process of writing the book.&lt;/p&gt;
+&lt;p&gt;We talked with Jeremy about his background, his use of Ionic, and the process of writing the book. &lt;/p&gt;
 
 &lt;!-- more --&gt;
-&lt;p&gt;&lt;b&gt;Can you tell us a little about yourself as a developer and writer?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Can you tell us a little about yourself as a developer and writer?&lt;/b&gt; &lt;/p&gt;
 
 &lt;p&gt;Like many developers, I have always had an interest in tinkering and understanding the moving parts. I’ve been building websites since I was in junior high, and I gradually grew my skills to the point where I spent many years freelancing. More recently, I’ve joined larger scale projects and now work primarily as a front end engineer. I love working on usability and user experience. Becoming a developer and writer wasn’t my plan during my formal education (I’ve got a degree in the arts), but that is pretty common in our field.&lt;/p&gt;
 
@@ -537,9 +537,9 @@ gulp.task(&#39;remove-proxy&#39;, function() {
 
 &lt;p&gt;I have always had a passion for helping others learn, whether by speaking at events or teaching in my work role, so writing a book was a natural interest of mine. The benefits and power of Ionic opened doors for me to build mobile apps with my current skill set, and I wanted to empower others the do the same.&lt;/p&gt;
 
-&lt;p&gt;&lt;b&gt;Can you talk about the process of writing this book?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Can you talk about the process of writing this book?&lt;/b&gt; &lt;/p&gt;
 
-&lt;p&gt;Writing a book is like a marathon. There’s a lot of ground to cover, and it takes a good cadence to reach the goal. The good thing is that while I’m the author, I have several editors who are able to help me articulate ideas, plan out concepts and examples, and review my work.&lt;/p&gt;
+&lt;p&gt;Writing a book is like a marathon. There’s a lot of ground to cover, and it takes a good cadence to reach the goal. The good thing is that while I’m the author, I have several editors who are able to help me articulate ideas, plan out concepts and examples, and review my work. &lt;/p&gt;
 
 &lt;p&gt;The general process starts with nailing an outline and working with a publisher to get the details ironed out. Then it’s a matter of meeting deadlines for chapters, getting them reviewed by editors, revising, getting more feedback, and so forth. The hardest part is getting the inspiration to write when I have the time blocked off. Writing is a form of art, and it takes the right mindset to get quality work done.&lt;/p&gt;
 
@@ -550,27 +550,27 @@ gulp.task(&#39;remove-proxy&#39;, function() {
 &lt;p&gt;I used nearly every Ionic component in the three apps I built for the book, so the book provides a good reference for using the components in an integrated manner.&lt;br /&gt;
 The first is an app that a resort might use to provide value for their guests. It has the slide box, lists, cards, content containers, basic navigation, and other smaller elements.&lt;br /&gt; &lt;br /&gt;
 Demo: &lt;a href=&quot;http://ionic-in-action-chapter4.herokuapp.com/&quot;&gt;http://ionic-in-action-chapter4.herokuapp.com/&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;
-Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter4&quot;&gt;https://github.com/ionic-in-action/chapter4&lt;/a&gt;&lt;/p&gt;
+Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter4&quot;&gt;https://github.com/ionic-in-action/chapter4&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;The second is a bitcoin market app, which provides real-time currency rates for bitcoin. Some of the components it uses are pull to refresh, popovers, tabs, charts, advanced lists, and nested views.&lt;br /&gt; &lt;br /&gt;
 Demo: &lt;a href=&quot;http://ionic-in-action-chapter5.herokuapp.com/&quot;&gt;http://ionic-in-action-chapter5.herokuapp.com/&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;
-Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter5&quot;&gt;https://github.com/ionic-in-action/chapter5&lt;/a&gt;&lt;/p&gt;
+Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter5&quot;&gt;https://github.com/ionic-in-action/chapter5&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;The third is a weather app, with the ability to find locations and see the weather forecast. It leverages modals, custom scroll area (paginated scrolling), loading external data, side menus, a search view, and some other smaller elements.&lt;br /&gt; &lt;br /&gt;
 Demo: &lt;a href=&quot;http://ionic-in-action-chapter6.herokuapp.com&quot;&gt;http://ionic-in-action-chapter6.herokuapp.com&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;
-Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;https://github.com/ionic-in-action/chapter6&lt;/a&gt;&lt;/p&gt;
+Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;https://github.com/ionic-in-action/chapter6&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;The demos were developed very carefully and actually took more time than writing the text did. I almost wish I could also have written about the process of building these apps, because while they look very straightforward to develop, for the book, it was a journey of writing and refactoring. I wanted to make sure the examples were not contrived or boring, but also not too complex. They needed to illustrate the key features I wanted to teach, so I would make the first prototype and then remove half of the code to simplify. I really hope they resonate with readers, and even if you don’t buy the book, you can still tinker with the samples.&lt;/p&gt;
 
-&lt;p&gt;&lt;b&gt;Can you talk more about the functionality and technical aspects of the apps that you feel are unique, interesting, important, etc.?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Can you talk more about the functionality and technical aspects of the apps that you feel are unique, interesting, important, etc.?&lt;/b&gt; &lt;/p&gt;
 
 &lt;p&gt;I think each app is unique and very quite robust. I’d say they are 80% ready to be deployed to an App Store, with some of the obvious missing pieces listed at the end of the chapter, as a challenge for readers to implement themselves. Considering the actual amount of code and the number of features, it should be pretty clear how much Ionic bolsters app development.&lt;/p&gt;
 
-&lt;p&gt;AngularJS is a primary part of Ionic apps, and I’ve gone to great strides to provide an Angular primer, tips about Angular, and to structure the examples in a way that scales. There are too many bad and outdated examples of Angular code out there, and while it might be helpful for learning, it is a disservice to readers.&lt;/p&gt;
+&lt;p&gt;AngularJS is a primary part of Ionic apps, and I’ve gone to great strides to provide an Angular primer, tips about Angular, and to structure the examples in a way that scales. There are too many bad and outdated examples of Angular code out there, and while it might be helpful for learning, it is a disservice to readers. &lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;Could you talk about how you went about differentiating the app for different platforms? What did you do to align with the iOS platform, for example, vs. Android?&lt;/b&gt;&lt;/p&gt;
 
-&lt;p&gt;Since the examples leverage Ionic’s components almost exclusively, there isn’t much that I needed to do to support each platform in the examples. The beauty of Ionic components, such as the tabs component, is that Ionic will identify the platform and adapt the style appropriately.&lt;/p&gt;
+&lt;p&gt;Since the examples leverage Ionic’s components almost exclusively, there isn’t much that I needed to do to support each platform in the examples. The beauty of Ionic components, such as the tabs component, is that Ionic will identify the platform and adapt the style appropriately. &lt;/p&gt;
 
 &lt;p&gt;That said, this topic is extremely important and is covered in the advanced topics chapter. When you start to design your own interface elements or modify the default ones, it is critical to preview your app in multiple platforms. The book covers techniques to allow you to target a platform, such as you want to use the action sheet in iOS and the popover in Android. Developers should spend time familiarizing themselves with the interface guidelines for both platforms and make decisions about what to use, because it ultimately helps users.&lt;/p&gt;
 
@@ -607,7 +607,7 @@ Source: &lt;a href=&quot;https://github.com/ionic-in-action/chapter6&quot;&gt;ht
 
 &lt;p&gt;Widawski, a frontend developer who also has experience with PHP and the Laravel framework, adds, “There is an Ionic way of doing things. You don’t get lost; it is very well documented and up-to-date; and if you have any questions, the forum has one of the most active and helpful communities I’ve seen.”&lt;/p&gt;
 
-&lt;p&gt;Mary found Ionic to be straightforward and well-integrated with AngularJS. “There’s really little to no room for hesitation when coding,” he says. “That’s what we love about Angular, and that’s what we love about Ionic.”&lt;/p&gt;
+&lt;p&gt;Mary found Ionic to be straightforward and well-integrated with AngularJS. “There’s really little to no room for hesitation when coding,” he says. “That’s what we love about Angular, and that’s what we love about Ionic.” &lt;/p&gt;
 
 &lt;p&gt;Get the &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.viceversa.Viceversa&amp;amp;hl=en&quot;&gt;Android version of Viceversa&lt;/a&gt; (built with Ionic).&lt;/p&gt;
 
@@ -855,7 +855,7 @@ Additionally, you could parse the feed data a bit more through a filter to make 
         <title>The Fifth Ionic Show is Live!</title>
         <description>&lt;iframe width=&quot;730&quot; height=&quot;411&quot; src=&quot;https://www.youtube.com/embed/sy9Rdt5XwdU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;We took a small break after our last show, but we’ve all been working really hard for the last couple months and have a lot of exciting things to share. Most importantly, we want to give our community a huge shout-out for all your amazing support, hard work, and beautiful apps that have surpassed all of our expectations.&lt;/p&gt;
+&lt;p&gt;We took a small break after our last show, but we’ve all been working really hard for the last couple months and have a lot of exciting things to share. Most importantly, we want to give our community a huge shout-out for all your amazing support, hard work, and beautiful apps that have surpassed all of our expectations. &lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -906,7 +906,7 @@ hybrid apps. Read more on &lt;a href=&quot;http://mcgivery.com/&quot;&gt;Andrew�
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;ion-refresher on-refresh=&quot;doRefresh()&quot;&amp;gt;&amp;lt;/ion-refresher&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;on-refresh&lt;/code&gt; should point to a &lt;code&gt;$scope&lt;/code&gt; function that gets the new data, updates a list, and then lets the refresher know it is done. This refresher should be above some kind of list.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;on-refresh&lt;/code&gt; should point to a &lt;code&gt;$scope&lt;/code&gt; function that gets the new data, updates a list, and then lets the refresher know it is done. This refresher should be above some kind of list. &lt;/p&gt;
 
 &lt;h3 id=&quot;view&quot;&gt;View&lt;/h3&gt;
 &lt;p&gt;For our example, we’ll be using the following view markup:&lt;/p&gt;
@@ -1042,7 +1042,7 @@ hybrid apps. Read more on &lt;a href=&quot;http://mcgivery.com/&quot;&gt;Andrew�
 
 &lt;p&gt;Developer &lt;a href=&quot;https://twitter.com/beermann&quot;&gt;Dale Beermann&lt;/a&gt; and designer &lt;a href=&quot;https://twitter.com/chrisgoettel&quot;&gt;Chris Goettel&lt;/a&gt; based the application on the well-known technique of Cognitive Behavioral Therapy (CBT), in which therapists and their clients discuss emotions and tools with which to manage and overcome challenging feelings of stress, anxiety, and depression. Beermann and Goettel wanted to find a way for individuals to practice these techniques between therapy appointments or, in many cases, on their own, using their mobile devices.&lt;/p&gt;
 
-&lt;p&gt;“We found that the current implementations are simple mappings from typical workbook-based pen and paper exercises to a mobile device,” says Beermann. “However, workbooks themselves don’t fit into our normal routines. We knew we could do better.”&lt;/p&gt;
+&lt;p&gt;“We found that the current implementations are simple mappings from typical workbook-based pen and paper exercises to a mobile device,” says Beermann. “However, workbooks themselves don’t fit into our normal routines. We knew we could do better.” &lt;/p&gt;
 
 &lt;!-- more --&gt;
 &lt;div style=&quot;float: right; margin-right: -160px; margin-bottom: 80px; width: 50%;&quot;&gt;
@@ -1065,7 +1065,7 @@ hybrid apps. Read more on &lt;a href=&quot;http://mcgivery.com/&quot;&gt;Andrew�
 
 &lt;p&gt;“We believe that tools like Ionic or Bootstrap are incredibly important in the prototyping process,” adds Goettel. “They allow rapid proof-of-concept implementations that can be adapted for production quite easily. While these tools provide CSS layers over a broader framework, the CSS can be customized to your liking, giving you the benefit of a robust framework with the customizability a designer needs.”&lt;/p&gt;
 
-&lt;p&gt;Goettel chose a style that would work across platforms and wasn’t tied to the native UI of any single one, while incorporating design elements that fit correctly where appropriate.&lt;/p&gt;
+&lt;p&gt;Goettel chose a style that would work across platforms and wasn’t tied to the native UI of any single one, while incorporating design elements that fit correctly where appropriate. &lt;/p&gt;
 
 &lt;p&gt;“There are a couple things that we had to handle on the technology side to make a truly cross-platform application (Android sorely needs the HTML5 AudioContext), but we really wanted to stick with the same general look and feel everywhere,” says Beerman.&lt;/p&gt;
 
@@ -1125,7 +1125,7 @@ ionic platform update ios
 
 &lt;!-- more --&gt;
 
-&lt;p&gt;We provide official support to Ionic Meetup groups, starting with cool logos and icons designed by Drifty co-founder and designer extraordinaire Ben Sperry. Groups usually then create Twitter accounts and additional social media accounts as they see fit.&lt;/p&gt;
+&lt;p&gt;We provide official support to Ionic Meetup groups, starting with cool logos and icons designed by Drifty co-founder and designer extraordinaire Ben Sperry. Groups usually then create Twitter accounts and additional social media accounts as they see fit. &lt;/p&gt;
 
 &lt;p&gt;We help them gain a following by retweeting (and posting on &lt;a href=&quot;https://www.facebook.com/ionicframework&quot;&gt;FB&lt;/a&gt; and &lt;a href=&quot;https://plus.google.com/u/1/b/112280728135675018538/+Ionicframework/posts&quot;&gt;G+&lt;/a&gt;) event news, slides, videos, photos, and articles from the &lt;a href=&quot;https://www.twitter.com/ionicframework&quot;&gt;@ionicframework&lt;/a&gt; Twitter account.&lt;/p&gt;
 
@@ -1204,9 +1204,9 @@ Ionic South Africa&lt;br /&gt;&lt;br /&gt;
         <title>The Ionic View App is Alive!</title>
         <description>&lt;p&gt;&lt;img class=&quot;showcase-image&quot; src=&quot;/img/blog/ionic-view-app-header.gif&quot; style=&quot;margin-top:-20px;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Today, we’re excited to announce that &lt;a href=&quot;https://itunes.apple.com/us/app/ionic-view/id849930087?mt=8&quot;&gt;Ionic View for iOS&lt;/a&gt; is now in public beta!&lt;/p&gt;
+&lt;p&gt;Today, we’re excited to announce that &lt;a href=&quot;https://itunes.apple.com/us/app/ionic-view/id849930087?mt=8&quot;&gt;Ionic View for iOS&lt;/a&gt; is now in public beta! &lt;/p&gt;
 
-&lt;p&gt;The alpha version has been live in the App Store for a while now, and after much updating and testing, we are confident it is ready to become a useful part of your Ionic development toolchain. We want to get View out to people as soon as possible, so it may feel somewhat spare at first, but there are still many exciting features in the pipeline!&lt;/p&gt;
+&lt;p&gt;The alpha version has been live in the App Store for a while now, and after much updating and testing, we are confident it is ready to become a useful part of your Ionic development toolchain. We want to get View out to people as soon as possible, so it may feel somewhat spare at first, but there are still many exciting features in the pipeline! &lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1235,13 +1235,13 @@ $ ionic upload
   &lt;a href=&quot;http://ionicframework.com/img/blog/songhop-preview-right.jpg&quot;&gt;&lt;img src=&quot;/img/blog/ionic-view-preview-right.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;p&gt;View uses the Cordova &lt;a href=&quot;https://github.com/apache/cordova-plugin-inappbrowser&quot;&gt;inAppBrowser plugin&lt;/a&gt; to launch your apps in their own separate WebView, so you can preview and test them. Normally, inAppBrowser only displays web content, but we might have hacked it a little to give apps access to the Cordova API and plugins. Ionic apps are hybrid apps for a reason, and a preview is not the same without plugin support! At the moment, plugin access is restricted to a specific subset of plugins, including GeoLocation, Keyboard, StatusBar, and BarcodeScanner, and we will be testing and adding many more in the coming weeks and months.&lt;/p&gt;
+&lt;p&gt;View uses the Cordova &lt;a href=&quot;https://github.com/apache/cordova-plugin-inappbrowser&quot;&gt;inAppBrowser plugin&lt;/a&gt; to launch your apps in their own separate WebView, so you can preview and test them. Normally, inAppBrowser only displays web content, but we might have hacked it a little to give apps access to the Cordova API and plugins. Ionic apps are hybrid apps for a reason, and a preview is not the same without plugin support! At the moment, plugin access is restricted to a specific subset of plugins, including GeoLocation, Keyboard, StatusBar, and BarcodeScanner, and we will be testing and adding many more in the coming weeks and months.  &lt;/p&gt;
 
 &lt;p&gt;Best of all, View is an Ionic app! We hope it sets a good example of the native-quality mobile apps that are possible with Ionic.&lt;/p&gt;
 
 &lt;h3 id=&quot;looking-forward&quot;&gt;Looking Forward&lt;/h3&gt;
 
-&lt;p&gt;We’ll continue to add support for new plugins as we review and test them. We’ll also be fixing some known “quirks” (you mean you didn’t want your app links to expire after five minutes of having the app open?) in the next few weeks, and we’re looking forward to adding features like auto updating and the ability to sync with a livereload server in the near future as well.&lt;/p&gt;
+&lt;p&gt;We’ll continue to add support for new plugins as we review and test them. We’ll also be fixing some known “quirks” (you mean you didn’t want your app links to expire after five minutes of having the app open?) in the next few weeks, and we’re looking forward to adding features like auto updating and the ability to sync with a livereload server in the near future as well. &lt;/p&gt;
 
 &lt;p&gt;Since View is an Ionic app, you may be wondering (or yelling), “Where’s the Android version?”. Have no fear, the Android version is on its way! We have been using Ionic View as a test for some of &lt;a href=&quot;https://ionic.io&quot;&gt;ionic.io’s&lt;/a&gt; services that require custom plugins, and we started with iOS first. Instead of waiting for both versions, we decided to get View out to you as quickly as possible, so you can start using and enjoying it :)&lt;/p&gt;
 

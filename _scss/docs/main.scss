@@ -1,8 +1,6 @@
 body {
   font-family: $font-family-default;
   position: relative;
-  // TODO: mobile styles
-   min-width: 920px;
   background: linear-gradient(
     90deg,
     $whiteish,
@@ -10,6 +8,10 @@ body {
     white $sidenav-width + 5,
     white 100%
 	);
+  @media screen and (max-width: $screen-xs-max) {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 #components-index ul.nav > li > a {
   background-color: #F9FAFB;
@@ -28,6 +30,16 @@ a.improve-docs {
     width: $platform-preview-width;
     + main {
       margin-right: $platform-preview-width;
+    }
+  }
+  @media screen and (max-width: $screen-xs-max) {
+    background-color: #fff;
+    aside + main {
+      margin-right: 0;
+    }
+    main {
+      margin-left: 0;
+      padding: 30px 20px;
     }
   }
 }
@@ -367,7 +379,7 @@ a.improve-docs {
   background: center top no-repeat url(/img/device-preview-ios.jpg);
   background-size: $platform-preview-width;
   margin: 0 auto;
-  iframe{ 
+  iframe{
     margin-top: 85px;
     width: 320px;
     height: 568px;
@@ -418,6 +430,11 @@ ul.docs-example {
     width: 32%;
     margin: 0;
     padding: 8% 0;
+    @media screen and (max-width: $screen-xs-max) {
+      display: block;
+      width: 100%;
+      margin-bottom: 1em;
+    }
     &:not(:first-child) {
       margin-left: 1%;
     }

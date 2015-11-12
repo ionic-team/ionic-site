@@ -1,6 +1,6 @@
 
 .docs-ionicons {
-  
+
   .download {
     margin-top: 60px;
     margin-bottom: 10px;
@@ -178,34 +178,6 @@
     font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-  /* @license
-   * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
-   *
-   * The fonts listed in this notice are subject to the End User License
-   * Agreement(s) entered into by the website owner. All other parties are
-   * explicitly restricted from using the Licensed Webfonts(s).
-   *
-   * You may obtain a valid license at the URLs below.
-   *
-   * Webfont: Avenir Next Pro Regular by Linotype
-   * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
-   *
-   * Webfont: Avenir Next Pro Medium by Linotype
-   * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
-   *
-   *
-   * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
-   * Licensed pageviews: 250,000
-   * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
-   *
-   * © 2013 MyFonts Inc
-  */
-
-
-  /* @import must be at top of file, otherwise CSS will not work
-  @import url("//hello.myfonts.net/count/28882f");*/
-
-
   .modal {
     all: initial;
   }
@@ -250,15 +222,7 @@
     margin: 0 auto;
     background: #fff;
     padding: 15px 30px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -o-border-radius: 8px;
-    -ms-border-radius: 8px;
     border-radius: 8px;
-    -webkit-box-shadow: 0 0 10px #000;
-    -moz-box-shadow: 0 0 10px #000;
-    -o-box-shadow: 0 0 10px #000;
-    -ms-box-shadow: 0 0 10px #000;
     box-shadow: 0 0 10px #000;
   }
 
@@ -290,10 +254,6 @@
     margin-right: -32px;
     margin-top: -32px;
     background: url(spinner.gif) #111 no-repeat center center;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -o-border-radius: 8px;
-    -ms-border-radius: 8px;
     border-radius: 8px;
   }
 

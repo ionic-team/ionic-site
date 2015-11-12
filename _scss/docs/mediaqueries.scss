@@ -1,20 +1,5 @@
-@media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .docs-container {
-    background-color: #fff;
-    aside + main {
-      margin-right: 0;
-    }
-    main {
-      margin-left: 0;
-      padding: 30px 20px;
-    }
-  }
-  div.improve-docs, 
+@media screen and (max-width: $screen-xs-max) {
+  div.improve-docs,
   #platform-preview,
   nav.side-nav {
     display: none;
@@ -25,10 +10,5 @@
   button.navbar-toggle {
     margin-right: 20px;
     margin-top: 16px;
-  }
-  ul.docs-example li {
-    display: block;
-    width: 100%;
-    margin-bottom: 1em;
   }
 }

@@ -134,8 +134,6 @@
         ng-show="showComponents"
        >
       
-        
-      
       <li><a href="/docs/v2/components/#">Overview</a></li>
       <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
 
@@ -198,6 +196,7 @@
       <li><a href="/docs/v2/components/#popups">Popups</a></li>
       <li><a href="/docs/v2/components/#radio">Radio</a></li>
       <li><a href="/docs/v2/components/#range">Range</a></li>
+      <li><a href="/docs/v2/components/#segment">Segment</a></li>
       <li><a href="/docs/v2/components/#select">Select</a></li>
       <li><a href="/docs/v2/components/#slides">Slides</a></li>
       <li><a href="/docs/v2/components/#switch">Switch</a></li>
@@ -317,10 +316,11 @@
     <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
 
     
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">myBrokenFunction</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js">    <span class="kd">function</span> <span class="nx">myBrokenFunction</span><span class="p">()</span> <span class="p">{</span>
       <span class="kr">debugger</span><span class="p">;</span>
       <span class="c1">// do other stuff</span>
-    <span class="p">}</span></code></pre></div>
+    <span class="p">}</span>
+    </code></pre></figure>
 
 
     <p>When your application runs, it will pause at this function. From there, you can use your browser's developer tools to only execute Javascript step-by-step. This allows you to see exactly which line or function call is causing your function to break.</p>
@@ -339,7 +339,8 @@
     <p>The iOS simulator allows you to test and debug your app before running it on an actual device. Before it can be used, we need to install <a href="https://developer.apple.com/xcode/download/">Xcode</a>, Apple's IDE. The Ionic <a href="../resources/what-is/#cli">CLI</a> can then be used to run the app in the current directory on the simulator:</p>
 
     
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic emulate ios -lc</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">$ </span>ionic emulate ios -lc
+    </code></pre></figure>
 
     <p>Passing in the <code>-lc</code> flag will log console output to your terminal.</p>
     <p>You can also use Xcode to launch the emulator and debug your app. Open up Xcode and open <code>../path-to-app/platforms/ios/myApp.xcodeproj</code>. After your app loads, you will be able to run it and see all console output inside of Xcode's output window.</p>
@@ -363,7 +364,8 @@
     <p><a href="https://developers.google.com/web/tools/setup/workspace/setup-devtools">Chrome DevTools</a> are a very powerful set of tools for debugging your application. When you use <code>ionic serve</code> to run your in the browser, DevTools can be used to inspect elements, view console logs, profile your application, and much more.</p>
     <p>In addition to using DevTools to debug your app in the browser, DevTools can be used to debug a remote physical Android device, or even a Genymotion emulator running your app. First off, we will need to have <a href="http://developer.android.com/tools/help/adb.html">adb</a> installed. Once installed, if your device is connected, or an Android emulator is running, you should be able to see your device listed when you run the following command:</p>
     
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>adb devices</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">$ </span>adb devices
+    </code></pre></figure>
 
     <p>Next, go to <code>chrome://inspect/#devices</code> in Chrome and inspect your Android device. Note: you may need to change the settings on your device to allow USB debugging. From there, you can use Chrome to debug your application just like it is in the browser!</p>
   </section>

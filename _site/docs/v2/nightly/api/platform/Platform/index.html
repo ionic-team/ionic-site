@@ -144,25 +144,13 @@
   <a href="/docs/v2/nightly/api/config/App">App</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/platform/applinks/AppLinks">AppLinks</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/components/app/Attr">Attr</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/barcode/Barcode">Barcode</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/battery/Battery">Battery</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/blur/Blur">Blur</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/button/Button">Button</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/camera/Camera">Camera</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/checkbox/Checkbox">Checkbox</a>
@@ -177,28 +165,10 @@
   <a href="/docs/v2/nightly/api/config/ConfigComponent">ConfigComponent</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/platform/contacts/Contacts">Contacts</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/components/content/Content">Content</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/platform/device/Device">Device</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/device-motion/DeviceMotion">DeviceMotion</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/device-orientation/DeviceOrientation">DeviceOrientation</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/dialogs/Dialogs">Dialogs</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/util/Events">Events</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/geolocation/Geolocation">Geolocation</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/show-hide-when/HideWhen">HideWhen</a>
@@ -217,6 +187,9 @@
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/config/ionicProviders">ionicProviders</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/IONIC_DIRECTIVES">IONIC_DIRECTIVES</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/item/ionItem">ionItem</a>
@@ -238,9 +211,6 @@
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/item/ItemSlidingOptionButton">ItemSlidingOptionButton</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/keyboard/Keyboard">Keyboard</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/text-input/Label">Label</a>
@@ -268,12 +238,6 @@
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/modal/Modal">Modal</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/NativePlugin">NativePlugin</a>
-</li>
-<li class="">
-  <a href="/docs/v2/nightly/api/platform/NativePluginDecorator">NativePluginDecorator</a>
 </li>
 <li class="">
   <a href="/docs/v2/nightly/api/components/nav/Nav">Nav</a>
@@ -345,9 +309,6 @@
   <a href="/docs/v2/nightly/api/platform/storage/SqlStorage">SqlStorage</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/platform/statusbar/StatusBar">StatusBar</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/platform/storage/Storage">Storage</a>
 </li>
 <li class="">
@@ -390,9 +351,6 @@
   <a href="/docs/v2/nightly/api/translation/TranslatePipe">TranslatePipe</a>
 </li>
 <li class="">
-  <a href="/docs/v2/nightly/api/platform/vibration/Vibration">Vibration</a>
-</li>
-<li class="">
   <a href="/docs/v2/nightly/api/components/nav/ViewController">ViewController</a>
 </li>
 
@@ -433,7 +391,7 @@
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href="undefined">ionic/ionic</a><br />
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L432">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L436">ionic/platform/platform.ts (line 11)</a>
 </p>
 <p>## Members</p>
 
@@ -442,6 +400,20 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
   <code>is(platformName)</code>
 
 </h2>
+
+<p>Depending on the platform name, isPlatform will return true or flase</p>
+
+<pre><code>import {Platform} 'ionic/ionic';
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+     if(this.platform.is('ios'){
+       // what ever you need to do for
+       // if the platfomr is ios
+     }
+   }
+}
+</code></pre>
 
 <table class="table" style="margin:0;">
   <thead>
@@ -474,18 +446,7 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 <ul>
   <li>Returns: <br />
-<code>bool</code> <code>
-import {Platform} 'ionic/ionic';
-export MyClass {
- constructor(platform: Platform){
-   this.platform = platform;
-   if(this.platform.is('ios'){
-     // what ever you need to do for
-     // if the platfomr is ios
-   }
- }
-}
-</code></li>
+<code>bool</code> returns true/false based on platform you place</li>
 </ul>
 
 <div id="platforms"></div>
@@ -516,21 +477,19 @@ export MyClass {
 
 <div id="versions"></div>
 <h2>
-  <code>versions(platformName)</code>
+  <code>versions(optional)</code>
 
 </h2>
 
-<p>TODO<br />
-Returns an object containing the os version</p>
+<p>Returns an object conta</p>
 
 <pre><code>import {Platform} 'ionic/ionic';
 export MyClass {
    constructor(platform: Platform){
      this.platform = platform;
-     console.log(this.platform.versions('android'));
-     // Returns an object with the os version as a string,
-     // The Major version as a string
-     // The Minor version as a string
+     console.log(this.platform.versions());
+     // or pass in a platform name
+     console.log(this.platform.versions('ios'));
    }
 }
 </code></pre>
@@ -547,7 +506,7 @@ export MyClass {
     
     <tr>
       <td>
-        platformName
+        optional
         
         
       </td>
@@ -556,7 +515,8 @@ export MyClass {
   <code>string</code>
       </td>
       <td>
-        
+        <p>platformName</p>
+
         
       </td>
     </tr>
@@ -566,7 +526,11 @@ export MyClass {
 
 <ul>
   <li>Returns: <br />
-<code>object</code> </li>
+<code>object</code> An object with various platform info</li>
+  <li><code>{object=} </code>cordova`</li>
+  <li><code>{object=}</code> <code>platformOS</code> {str: “9.1”, num: 9.1, major: 9, minor: 1}</li>
+  <li><code>{object=} </code>deviceName` Returns the name of the device</li>
+  <li><code>{object=}</code> <code>device platform</code> R</li>
 </ul>
 
 <div id="ready"></div>
@@ -575,8 +539,7 @@ export MyClass {
 
 </h2>
 
-<p>TODO<br />
-Returns a promise when the platform is ready and native functionality can be called</p>
+<p>Returns a promise when the platform is ready and native functionality can be called</p>
 
 <pre><code>import {Platform} 'ionic/ionic';
 export MyClass {
@@ -592,7 +555,7 @@ export MyClass {
 
 <ul>
   <li>Returns: <br />
-<code>promise</code> </li>
+<code>promise</code></li>
 </ul>
 
 <div id="on"></div>

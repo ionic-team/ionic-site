@@ -931,6 +931,7 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 <h2 id="range" class="section-header">Range</h2>
 *Coming soon.*
 
+
 <h2 id="search" class="section-header">Search</h2>
 
 A search bar binds to a model, and calls a function to update the page when the model is changed:
@@ -973,7 +974,8 @@ class SearchPage{
 }
 ```
 
-<h2 class="section-nav section-header" id="segment">Segment</h2>
+<h2 class="section-header" id="segment">Segment</h2>
+
 
 Use the segment to control to use radio selections.
 
@@ -1025,6 +1027,7 @@ class MyApp {
 
 <h2 id="select" class="section-header">Select</h2>
 *Coming soon.*
+
 
 <h2 id="slides" class="section-header">Slides</h2>
 

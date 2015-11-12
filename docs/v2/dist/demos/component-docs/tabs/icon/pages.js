@@ -37,22 +37,22 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabIconCtrl = function TabIconCtrl() {
-    _classCallCheck(this, TabIconCtrl);
+var TabIconPage = function TabIconPage() {
+    _classCallCheck(this, TabIconPage);
 };
-TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
+TabIconPage = __decorate([(0, _ionicIonic.Page)({
     template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], TabIconCtrl);
+}), __metadata('design:paramtypes', [])], TabIconPage);
 var IconPage = function IconPage() {
     _classCallCheck(this, IconPage);
 
-    this.tabOne = TabIconCtrl;
-    this.tabTwo = TabIconCtrl;
-    this.tabThree = TabIconCtrl;
-    this.tabFour = TabIconCtrl;
+    this.tabOne = TabIconPage;
+    this.tabTwo = TabIconPage;
+    this.tabThree = TabIconPage;
+    this.tabFour = TabIconPage;
 };
 exports.IconPage = IconPage;
 exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({

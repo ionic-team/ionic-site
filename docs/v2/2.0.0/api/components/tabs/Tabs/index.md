@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L9'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L9'>
     Improve this doc
   </a>
 </div>
@@ -78,13 +78,47 @@ of that Tabs component.</p>
 
 <h1 class="class export">Tabs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L9-L256">ionic/components/tabs/tabs.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L10-L267">ionic/components/tabs/tabs.ts (line 10)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tabs</span>
 
 
 ## Members
+
+<div id="platform"></div>
+<h2>
+  <code>platform()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onInit"></div>
+<h2>
+  <code>onInit()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="select"></div>
 <h2>

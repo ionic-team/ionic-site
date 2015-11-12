@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -67,12 +67,12 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L9-L307">ionic/components/menu/menu.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L310">ionic/components/menu/menu.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-menu</span>
 
-  <span>inputs: content, dragThreshold, id</span>
+  <span>inputs: content, dragThreshold, id, side, type</span>
 
   <span>outputs: opening</span>
 

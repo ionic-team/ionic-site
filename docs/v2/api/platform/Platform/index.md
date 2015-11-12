@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L432">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L436">ionic/platform/platform.ts (line 11)</a>
 </p>
 ## Members
 
@@ -52,7 +52,20 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 </h2>
 
+Depending on the platform name, isPlatform will return true or flase
 
+```
+import {Platform} 'ionic/ionic';
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+     if(this.platform.is('ios'){
+       // what ever you need to do for
+       // if the platfomr is ios
+     }
+   }
+}
+```
 
 
 
@@ -91,18 +104,7 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 
 * Returns: 
-  <code>bool</code> ```
-import {Platform} 'ionic/ionic';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     if(this.platform.is('ios'){
-       // what ever you need to do for
-       // if the platfomr is ios
-     }
-   }
-}
-```
+  <code>bool</code> returns true/false based on platform you place
 
 
 
@@ -142,22 +144,20 @@ export MyClass {
 
 <div id="versions"></div>
 <h2>
-  <code>versions(platformName)</code>
+  <code>versions(optional)</code>
 
 </h2>
 
-TODO
-Returns an object containing the os version
+Returns an object conta
 
 ```
 import {Platform} 'ionic/ionic';
 export MyClass {
    constructor(platform: Platform){
      this.platform = platform;
-     console.log(this.platform.versions('android'));
-     // Returns an object with the os version as a string,
-     // The Major version as a string
-     // The Minor version as a string
+     console.log(this.platform.versions());
+     // or pass in a platform name
+     console.log(this.platform.versions('ios'));
    }
 }
 ```
@@ -176,7 +176,7 @@ export MyClass {
     
     <tr>
       <td>
-        platformName
+        optional
         
         
       </td>
@@ -185,7 +185,8 @@ export MyClass {
   <code>string</code>
       </td>
       <td>
-        
+        <p>platformName</p>
+
         
       </td>
     </tr>
@@ -199,7 +200,11 @@ export MyClass {
 
 
 * Returns: 
-  <code>object</code> 
+  <code>object</code> An object with various platform info
+- `{object=} `cordova`
+- `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
+- `{object=} `deviceName` Returns the name of the device
+- `{object=}` `device platform` R
 
 
 
@@ -210,7 +215,6 @@ export MyClass {
 
 </h2>
 
-TODO
 Returns a promise when the platform is ready and native functionality can be called
 
 ```

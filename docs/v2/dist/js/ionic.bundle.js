@@ -14,6 +14,7 @@ d("onScriptLoad",function(e){return function(t){e.call(this,t);var n=this.get("@
 //# sourceMappingURL=system.js.map
 
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -41100,7 +41101,7 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
     execute: function () {}
   };
 });
-System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/plugins', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
+System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
   'use strict';
 
   return {
@@ -41136,53 +41137,45 @@ System.register('ionic/ionic', ['./config/bootstrap', './config/config', './conf
       for (var _key8 in _platformRegistry) {
         if (_key8 !== 'default') _export(_key8, _platformRegistry[_key8]);
       }
-    }, function (_platformPlugins) {
-      for (var _key9 in _platformPlugins) {
-        if (_key9 !== 'default') _export(_key9, _platformPlugins[_key9]);
-      }
-
-      for (var _key18 in _platformPlugins) {
-        if (_key18 !== 'default') _export(_key18, _platformPlugins[_key18]);
-      }
     }, function (_platformStorage) {
-      for (var _key10 in _platformStorage) {
-        if (_key10 !== 'default') _export(_key10, _platformStorage[_key10]);
+      for (var _key9 in _platformStorage) {
+        if (_key9 !== 'default') _export(_key9, _platformStorage[_key9]);
       }
     }, function (_utilClickBlock) {
-      for (var _key11 in _utilClickBlock) {
-        if (_key11 !== 'default') _export(_key11, _utilClickBlock[_key11]);
+      for (var _key10 in _utilClickBlock) {
+        if (_key10 !== 'default') _export(_key10, _utilClickBlock[_key10]);
       }
     }, function (_utilEvents) {
-      for (var _key12 in _utilEvents) {
-        if (_key12 !== 'default') _export(_key12, _utilEvents[_key12]);
+      for (var _key11 in _utilEvents) {
+        if (_key11 !== 'default') _export(_key11, _utilEvents[_key11]);
       }
     }, function (_animationsAnimation) {
-      for (var _key13 in _animationsAnimation) {
-        if (_key13 !== 'default') _export(_key13, _animationsAnimation[_key13]);
+      for (var _key12 in _animationsAnimation) {
+        if (_key12 !== 'default') _export(_key12, _animationsAnimation[_key12]);
       }
     }, function (_animationsBuiltins) {
-      for (var _key14 in _animationsBuiltins) {
-        if (_key14 !== 'default') _export(_key14, _animationsBuiltins[_key14]);
+      for (var _key13 in _animationsBuiltins) {
+        if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
       }
     }, function (_transitionsTransition) {
-      for (var _key15 in _transitionsTransition) {
-        if (_key15 !== 'default') _export(_key15, _transitionsTransition[_key15]);
+      for (var _key14 in _transitionsTransition) {
+        if (_key14 !== 'default') _export(_key14, _transitionsTransition[_key14]);
       }
     }, function (_transitionsIosTransition) {
-      for (var _key16 in _transitionsIosTransition) {
-        if (_key16 !== 'default') _export(_key16, _transitionsIosTransition[_key16]);
+      for (var _key15 in _transitionsIosTransition) {
+        if (_key15 !== 'default') _export(_key15, _transitionsIosTransition[_key15]);
       }
     }, function (_transitionsMdTransition) {
-      for (var _key17 in _transitionsMdTransition) {
-        if (_key17 !== 'default') _export(_key17, _transitionsMdTransition[_key17]);
+      for (var _key16 in _transitionsMdTransition) {
+        if (_key16 !== 'default') _export(_key16, _transitionsMdTransition[_key16]);
       }
     }, function (_translationTranslate) {
-      for (var _key19 in _translationTranslate) {
-        if (_key19 !== 'default') _export(_key19, _translationTranslate[_key19]);
+      for (var _key17 in _translationTranslate) {
+        if (_key17 !== 'default') _export(_key17, _translationTranslate[_key17]);
       }
     }, function (_translationTranslate_pipe) {
-      for (var _key20 in _translationTranslate_pipe) {
-        if (_key20 !== 'default') _export(_key20, _translationTranslate_pipe[_key20]);
+      for (var _key18 in _translationTranslate_pipe) {
+        if (_key18 !== 'default') _export(_key18, _translationTranslate_pipe[_key18]);
       }
     }],
     execute: function () {}
@@ -43074,7 +43067,7 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 modalEnter: 'modal-md-slide-in',
                 modalLeave: 'modal-md-slide-out',
                 pageTransition: 'md',
-                pageTransitionDelay: 80,
+                pageTransitionDelay: 120,
                 popupEnter: 'popup-md-pop-in',
                 popupLeave: 'popup-md-pop-out',
                 tabbarHighlight: true,
@@ -46213,143 +46206,19 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
         }
     };
 });
-System.register('ionic/platform/plugin', [], function (_export) {
-    'use strict';
-
-    var NativePluginDecorator;
-
-    _export('NativePlugin', NativePlugin);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function NativePlugin(config) {
-        return function (cls) {
-            var annotations = Reflect.getMetadata('annotations', cls) || [];
-            annotations.push(new NativePluginDecorator(cls, config));
-            Reflect.defineMetadata('annotations', annotations, cls);
-            return cls;
-        };
-    }
-
-    return {
-        setters: [],
-        execute: function () {
-            NativePluginDecorator = function NativePluginDecorator(cls, config) {
-                var _this = this;
-
-                _classCallCheck(this, NativePluginDecorator);
-
-                this.cls = cls;
-                this.config = config;
-                cls.ifPlugin = function (cb) {
-                    var returnType = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-                    // Convert to boolean the plugin param
-                    var exists;
-                    if (typeof _this.config.pluginCheck === 'function') {
-                        exists = _this.config.pluginCheck();
-                    } else {
-                        console.error('Plugin "' + _this.config.name + '" is missing a pluginCheck() function for plugin verification. Please add one."');
-                        return false;
-                    }
-                    if (exists) {
-                        return cb();
-                    }
-                    // We don't have the plugin, so print a warning message
-                    cls.pluginWarn();
-                    // If the user supplied a default return value, return it here.
-                    if (returnType) {
-                        return typeof returnType === 'function' ? returnType() : returnType;
-                    }
-                    return false;
-                };
-                cls.pluginWarn = function () {
-                    if (cls._pluginWarned) {
-                        // Only warn once
-                        return;
-                    }
-                    var platformString = [];
-                    for (var k in _this.config.engines) {
-                        platformString.push('\t' + k + ': ' + _this.config.engines[k]);
-                    }
-                    console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-                    // Set a flag so we don't warn again
-                    cls._pluginWarned = true;
-                };
-            };
-
-            _export('NativePluginDecorator', NativePluginDecorator);
-        }
-    };
-});
-System.register('ionic/platform/plugins', ['./plugin', './applinks/applinks', './barcode/barcode', './battery/battery', './camera/camera', './contacts/contacts', './dialogs/dialogs', './device/device', './device-motion/device-motion', './device-orientation/device-orientation', './geolocation/geolocation', './keyboard/keyboard', './statusbar/statusbar', './vibration/vibration'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_plugin) {
-      for (var _key in _plugin) {
-        if (_key !== 'default') _export(_key, _plugin[_key]);
-      }
-    }, function (_applinksApplinks) {
-      for (var _key2 in _applinksApplinks) {
-        if (_key2 !== 'default') _export(_key2, _applinksApplinks[_key2]);
-      }
-    }, function (_barcodeBarcode) {
-      for (var _key3 in _barcodeBarcode) {
-        if (_key3 !== 'default') _export(_key3, _barcodeBarcode[_key3]);
-      }
-    }, function (_batteryBattery) {
-      for (var _key4 in _batteryBattery) {
-        if (_key4 !== 'default') _export(_key4, _batteryBattery[_key4]);
-      }
-    }, function (_cameraCamera) {
-      for (var _key5 in _cameraCamera) {
-        if (_key5 !== 'default') _export(_key5, _cameraCamera[_key5]);
-      }
-    }, function (_contactsContacts) {
-      for (var _key6 in _contactsContacts) {
-        if (_key6 !== 'default') _export(_key6, _contactsContacts[_key6]);
-      }
-    }, function (_dialogsDialogs) {
-      for (var _key7 in _dialogsDialogs) {
-        if (_key7 !== 'default') _export(_key7, _dialogsDialogs[_key7]);
-      }
-    }, function (_deviceDevice) {
-      for (var _key8 in _deviceDevice) {
-        if (_key8 !== 'default') _export(_key8, _deviceDevice[_key8]);
-      }
-    }, function (_deviceMotionDeviceMotion) {
-      for (var _key9 in _deviceMotionDeviceMotion) {
-        if (_key9 !== 'default') _export(_key9, _deviceMotionDeviceMotion[_key9]);
-      }
-    }, function (_deviceOrientationDeviceOrientation) {
-      for (var _key10 in _deviceOrientationDeviceOrientation) {
-        if (_key10 !== 'default') _export(_key10, _deviceOrientationDeviceOrientation[_key10]);
-      }
-    }, function (_geolocationGeolocation) {
-      for (var _key11 in _geolocationGeolocation) {
-        if (_key11 !== 'default') _export(_key11, _geolocationGeolocation[_key11]);
-      }
-    }, function (_keyboardKeyboard) {
-      for (var _key12 in _keyboardKeyboard) {
-        if (_key12 !== 'default') _export(_key12, _keyboardKeyboard[_key12]);
-      }
-    }, function (_statusbarStatusbar) {
-      for (var _key13 in _statusbarStatusbar) {
-        if (_key13 !== 'default') _export(_key13, _statusbarStatusbar[_key13]);
-      }
-    }, function (_vibrationVibration) {
-      for (var _key14 in _vibrationVibration) {
-        if (_key14 !== 'default') _export(_key14, _vibrationVibration[_key14]);
-      }
-    }],
-    execute: function () {}
-  };
-});
 System.register('ionic/platform/registry', ['./platform', '../util/dom'], function (_export) {
     'use strict';
 
     var Platform, windowLoad;
+
+    function isIOSDevice(p) {
+        // shortcut function to be reused internally
+        // checks navigator.platform to see if it's an actual iOS device
+        // this does not use the user-agent string because it is often spoofed
+        // an actual iPad will return true, a chrome dev tools iPad will return false
+        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+        );
+    }
     return {
         setters: [function (_platform) {
             Platform = _platform.Platform;
@@ -46389,10 +46258,10 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 superset: 'mobile',
                 subsets: ['phablet', 'tablet'],
                 settings: {
-                    mode: 'md',
+                    hoverCSS: false,
                     keyboardHeight: 290,
-                    scrollAssist: true,
-                    hoverCSS: false
+                    mode: 'md',
+                    scrollAssist: true
                 },
                 isMatch: function isMatch(p) {
                     return p.isPlatform('android', 'android|silk');
@@ -46406,22 +46275,13 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 superset: 'mobile',
                 subsets: ['ipad', 'iphone'],
                 settings: {
-                    mode: 'ios',
-                    scrollAssist: function scrollAssist(p) {
-                        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-                        );
-                    },
-                    tapPolyfill: function tapPolyfill(p) {
-                        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-                        );
-                    },
-                    keyboardHeight: 290,
                     hoverCSS: false,
-                    swipeBackEnabled: function swipeBackEnabled(p) {
-                        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-                        );
-                    },
-                    swipeBackThreshold: 40
+                    keyboardHeight: 290,
+                    mode: 'ios',
+                    scrollAssist: isIOSDevice,
+                    swipeBackEnabled: isIOSDevice,
+                    swipeBackThreshold: 40,
+                    tapPolyfill: isIOSDevice
                 },
                 isMatch: function isMatch(p) {
                     return p.isPlatform('ios', 'iphone|ipad|ipod');
@@ -48904,6 +48764,58 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
         }
     };
 });
+System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
+    "use strict";
+
+    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            Renderer = _angular2Angular2.Renderer;
+            ElementRef = _angular2Angular2.ElementRef;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Blur = function Blur(elementRef, renderer) {
+                _classCallCheck(this, Blur);
+
+                this.elementRef = elementRef;
+                this.renderer = renderer;
+                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
+            };
+
+            _export("Blur", Blur);
+
+            _export("Blur", Blur = __decorate([Directive({
+                selector: '[ion-blur]'
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
+        }
+    };
+});
 System.register('ionic/components/app/app', ['angular2/angular2', '../../util/click-block'], function (_export) {
     /**
      * Component registry service.  For more information on registering
@@ -49206,58 +49118,6 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
         }
     };
 });
-System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
-    "use strict";
-
-    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            Renderer = _angular2Angular2.Renderer;
-            ElementRef = _angular2Angular2.ElementRef;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Blur = function Blur(elementRef, renderer) {
-                _classCallCheck(this, Blur);
-
-                this.elementRef = elementRef;
-                this.renderer = renderer;
-                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
-            };
-
-            _export("Blur", Blur);
-
-            _export("Blur", Blur = __decorate([Directive({
-                selector: '[ion-blur]'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
-        }
-    };
-});
 System.register("ionic/components/button/button", ["angular2/angular2", "../../config/config"], function (_export) {
     /**
      * TODO
@@ -49359,177 +49219,6 @@ System.register("ionic/components/button/button", ["angular2/angular2", "../../c
             }), __param(3, Attribute('type')), __metadata('design:paramtypes', [typeof (_a = typeof Config !== 'undefined' && Config) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object, String])], Button));
             TEXT = 1;
             ICON = 2;
-        }
-    };
-});
-System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../../util/form"], function (_export) {
-    /**
-     * The checkbox is no different than the HTML checkbox input, except it's styled differently
-     *
-     * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
-     *
-     * @usage
-     * ```html
-     * <ion-checkbox checked="true" value="isChecked" ng-control="htmlCtrl">
-     *   HTML5
-     * </ion-checkbox>
-     * ```
-     */
-    "use strict";
-
-    var Component, Optional, NgControl, ElementRef, Renderer, Form, __decorate, __metadata, __param, Checkbox, _a, _b, _c, _d;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            Optional = _angular2Angular2.Optional;
-            NgControl = _angular2Angular2.NgControl;
-            ElementRef = _angular2Angular2.ElementRef;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_utilForm) {
-            Form = _utilForm.Form;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Checkbox = (function () {
-                function Checkbox(form, ngControl, elementRef, renderer) {
-                    _classCallCheck(this, Checkbox);
-
-                    renderer.setElementClass(elementRef, 'item', true);
-                    this.form = form;
-                    form.register(this);
-                    this.onChange = function (_) {};
-                    this.onTouched = function (_) {};
-                    this.ngControl = ngControl;
-                    if (ngControl) ngControl.valueAccessor = this;
-                }
-
-                /**
-                 * TODO
-                 */
-
-                _createClass(Checkbox, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        this.labelId = 'label-' + this.inputId;
-                    }
-
-                    /**
-                     * Toggle the checked state of the checkbox. Calls onChange to pass the
-                     * updated checked state to the model (Control).
-                     */
-                }, {
-                    key: "toggle",
-                    value: function toggle() {
-                        this.checked = !this.checked;
-                        this.onChange(this.checked);
-                    }
-
-                    /**
-                     * Click event handler to toggle the checkbox checked state.
-                     * @param {MouseEvent} ev  The click event.
-                     */
-                }, {
-                    key: "click",
-                    value: function click(ev) {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        this.toggle();
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the model (Control) on change to update
-                     * the checked value.
-                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
-                     */
-                }, {
-                    key: "writeValue",
-                    value: function writeValue(value) {
-                        this.checked = value;
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the view (NgControl) to register the
-                     * onChange event handler that updates the model (Control).
-                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-                     * @param {Function} fn  the onChange event handler.
-                     */
-                }, {
-                    key: "registerOnChange",
-                    value: function registerOnChange(fn) {
-                        this.onChange = fn;
-                    }
-
-                    /**
-                     * @private
-                     * Angular2 Forms API method called by the the view (NgControl) to register
-                     * the onTouched event handler that marks model (Control) as touched.
-                     * @param {Function} fn  onTouched event handler.
-                     */
-                }, {
-                    key: "registerOnTouched",
-                    value: function registerOnTouched(fn) {
-                        this.onTouched = fn;
-                    }
-                }, {
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        this.form.deregister(this);
-                    }
-                }]);
-
-                return Checkbox;
-            })();
-
-            _export("Checkbox", Checkbox);
-
-            _export("Checkbox", Checkbox = __decorate([Component({
-                selector: 'ion-checkbox',
-                inputs: ['value', 'checked', 'disabled', 'id'],
-                host: {
-                    'role': 'checkbox',
-                    'tappable': 'true',
-                    '[attr.tab-index]': 'tabIndex',
-                    '[attr.aria-checked]': 'checked',
-                    '[attr.aria-disabled]': 'disabled',
-                    '[attr.aria-labelledby]': 'labelId',
-                    '(click)': 'click($event)'
-                },
-                template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
-            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof Form !== 'undefined' && Form) === 'function' && _a || Object, typeof (_b = typeof NgControl !== 'undefined' && NgControl) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], Checkbox));
         }
     };
 });
@@ -49914,6 +49603,177 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
                     'role': 'img'
                 }
             }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], Icon));
+        }
+    };
+});
+System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../../util/form"], function (_export) {
+    /**
+     * The checkbox is no different than the HTML checkbox input, except it's styled differently
+     *
+     * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
+     *
+     * @usage
+     * ```html
+     * <ion-checkbox checked="true" value="isChecked" ng-control="htmlCtrl">
+     *   HTML5
+     * </ion-checkbox>
+     * ```
+     */
+    "use strict";
+
+    var Component, Optional, NgControl, ElementRef, Renderer, Form, __decorate, __metadata, __param, Checkbox, _a, _b, _c, _d;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            Optional = _angular2Angular2.Optional;
+            NgControl = _angular2Angular2.NgControl;
+            ElementRef = _angular2Angular2.ElementRef;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_utilForm) {
+            Form = _utilForm.Form;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Checkbox = (function () {
+                function Checkbox(form, ngControl, elementRef, renderer) {
+                    _classCallCheck(this, Checkbox);
+
+                    renderer.setElementClass(elementRef, 'item', true);
+                    this.form = form;
+                    form.register(this);
+                    this.onChange = function (_) {};
+                    this.onTouched = function (_) {};
+                    this.ngControl = ngControl;
+                    if (ngControl) ngControl.valueAccessor = this;
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(Checkbox, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        this.labelId = 'label-' + this.inputId;
+                    }
+
+                    /**
+                     * Toggle the checked state of the checkbox. Calls onChange to pass the
+                     * updated checked state to the model (Control).
+                     */
+                }, {
+                    key: "toggle",
+                    value: function toggle() {
+                        this.checked = !this.checked;
+                        this.onChange(this.checked);
+                    }
+
+                    /**
+                     * Click event handler to toggle the checkbox checked state.
+                     * @param {MouseEvent} ev  The click event.
+                     */
+                }, {
+                    key: "click",
+                    value: function click(ev) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        this.toggle();
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the model (Control) on change to update
+                     * the checked value.
+                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
+                     */
+                }, {
+                    key: "writeValue",
+                    value: function writeValue(value) {
+                        this.checked = value;
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the view (NgControl) to register the
+                     * onChange event handler that updates the model (Control).
+                     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
+                     * @param {Function} fn  the onChange event handler.
+                     */
+                }, {
+                    key: "registerOnChange",
+                    value: function registerOnChange(fn) {
+                        this.onChange = fn;
+                    }
+
+                    /**
+                     * @private
+                     * Angular2 Forms API method called by the the view (NgControl) to register
+                     * the onTouched event handler that marks model (Control) as touched.
+                     * @param {Function} fn  onTouched event handler.
+                     */
+                }, {
+                    key: "registerOnTouched",
+                    value: function registerOnTouched(fn) {
+                        this.onTouched = fn;
+                    }
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.form.deregister(this);
+                    }
+                }]);
+
+                return Checkbox;
+            })();
+
+            _export("Checkbox", Checkbox);
+
+            _export("Checkbox", Checkbox = __decorate([Component({
+                selector: 'ion-checkbox',
+                inputs: ['value', 'checked', 'disabled', 'id'],
+                host: {
+                    'role': 'checkbox',
+                    'tappable': 'true',
+                    '[attr.tab-index]': 'tabIndex',
+                    '[attr.aria-checked]': 'checked',
+                    '[attr.aria-disabled]': 'disabled',
+                    '[attr.aria-labelledby]': 'labelId',
+                    '(click)': 'click($event)'
+                },
+                template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
+            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof Form !== 'undefined' && Form) === 'function' && _a || Object, typeof (_b = typeof NgControl !== 'undefined' && NgControl) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], Checkbox));
         }
     };
 });
@@ -50357,6 +50217,11 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
      * Creates a list-item that can easily be swiped,
      * deleted, reordered, edited, and more.
      *
+     * There are three common ways to use an item:
+     * - Use `<ion-item>` for something that is only non-clickable text.
+     * - Use `<button ion-item>` for something that can be clicked/tapped. Typically this element will also have a `(click)` handler.
+     * - Use `<a ion-item>` for when the item needs to contain a `href`.
+     *
      * @usage
      * ```html
      * <ion-list>
@@ -50368,6 +50233,7 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
      *   </ion-item>
      * </ion-list>
      *  ```
+     *
      */
     "use strict";
 
@@ -53726,11 +53592,6 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                         }
                         return false;
                     }
-
-                    /**
-                     * TODO
-                     * @param {TODO} instance  TODO
-                     */
                 }, {
                     key: 'setInstance',
                     value: function setInstance(instance) {
@@ -53746,10 +53607,6 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                     value: function addDestroy(destroyFn) {
                         this._destroys.push(destroyFn);
                     }
-
-                    /**
-                     * TODO
-                     */
                 }, {
                     key: 'destroy',
                     value: function destroy() {
@@ -53818,81 +53675,46 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                     value: function getNavbar() {
                         return this._nbDir;
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'hasNavbar',
                     value: function hasNavbar() {
                         return !!this.getNavbar();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'navbarRef',
                     value: function navbarRef() {
                         var navbar = this.getNavbar();
                         return navbar && navbar.getElementRef();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'titleRef',
                     value: function titleRef() {
                         var navbar = this.getNavbar();
                         return navbar && navbar.getTitleRef();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'navbarItemRefs',
                     value: function navbarItemRefs() {
                         var navbar = this.getNavbar();
                         return navbar && navbar.getItemRefs();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'backBtnRef',
                     value: function backBtnRef() {
                         var navbar = this.getNavbar();
                         return navbar && navbar.getBackButtonRef();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'backBtnTextRef',
                     value: function backBtnTextRef() {
                         var navbar = this.getNavbar();
                         return navbar && navbar.getBackButtonTextRef();
                     }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
                 }, {
                     key: 'navbarBgRef',
                     value: function navbarBgRef() {
                         var navbar = this.getNavbar();
-                        return navbar && navbar.getNativeElement().querySelector('.toolbar-background');
+                        return navbar && navbar.getBackgroundRef();
                     }
                 }, {
                     key: 'hideBackButton',
@@ -54001,7 +53823,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
 System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion", "../icon/icon", "../toolbar/toolbar", "../../config/config", "../app/app", "../nav/view-controller", "../nav/nav-controller"], function (_export) {
     "use strict";
 
-    var Component, Directive, Optional, ElementRef, Renderer, TemplateRef, forwardRef, Inject, ViewContainerRef, Ion, Icon, ToolbarBase, Config, IonicApp, ViewController, NavController, __decorate, __metadata, __param, BackButton, BackButtonText, Navbar, NavbarTemplate, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var Component, Directive, Optional, ElementRef, Renderer, TemplateRef, forwardRef, Inject, ViewContainerRef, Ion, Icon, ToolbarBase, Config, IonicApp, ViewController, NavController, __decorate, __metadata, __param, BackButton, BackButtonText, ToolbarBackground, Navbar, NavbarTemplate, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -54098,24 +53920,29 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
                 return Navbar;
             }))), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, Navbar])], BackButton);
 
-            BackButtonText = (function (_Ion2) {
-                _inherits(BackButtonText, _Ion2);
+            BackButtonText = function BackButtonText(elementRef, navbar) {
+                _classCallCheck(this, BackButtonText);
 
-                function BackButtonText(elementRef, navbar) {
-                    _classCallCheck(this, BackButtonText);
-
-                    _get(Object.getPrototypeOf(BackButtonText.prototype), "constructor", this).call(this, elementRef, null);
-                    navbar && navbar.setBackButtonTextRef(elementRef);
-                }
-
-                return BackButtonText;
-            })(Ion);
+                navbar.setBackButtonTextRef(elementRef);
+            };
 
             BackButtonText = __decorate([Directive({
                 selector: '.back-button-text'
-            }), __param(1, Optional()), __param(1, Inject(forwardRef(function () {
+            }), __param(1, Inject(forwardRef(function () {
                 return Navbar;
             }))), __metadata('design:paramtypes', [typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, Navbar])], BackButtonText);
+
+            ToolbarBackground = function ToolbarBackground(elementRef, navbar) {
+                _classCallCheck(this, ToolbarBackground);
+
+                navbar.setBackgroundRef(elementRef);
+            };
+
+            ToolbarBackground = __decorate([Directive({
+                selector: 'toolbar-background'
+            }), __param(1, Inject(forwardRef(function () {
+                return Navbar;
+            }))), __metadata('design:paramtypes', [typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, Navbar])], ToolbarBackground);
 
             Navbar = (function (_ToolbarBase) {
                 _inherits(Navbar, _ToolbarBase);
@@ -54169,6 +53996,16 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
                         this.bbtRef = backButtonTextElementRef;
                     }
                 }, {
+                    key: "setBackgroundRef",
+                    value: function setBackgroundRef(backgrouneElementRef) {
+                        this.bgRef = backgrouneElementRef;
+                    }
+                }, {
+                    key: "getBackgroundRef",
+                    value: function getBackgroundRef() {
+                        return this.bgRef;
+                    }
+                }, {
                     key: "didEnter",
                     value: function didEnter() {
                         this.app.setTitle(this.getTitleText());
@@ -54187,13 +54024,13 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
 
             _export("Navbar", Navbar = __decorate([Component({
                 selector: 'ion-navbar',
-                template: '<div class="toolbar-inner">' + '<button class="back-button" [hidden]="hideBackButton">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
+                template: '<toolbar-background></toolbar-background>' + '<button class="back-button" [hidden]="hideBackButton">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '<toolbar-content>' + '<ng-content></ng-content>' + '</toolbar-content>',
                 host: {
                     '[hidden]': '_hidden'
                 },
                 inputs: ['hideBackButton', 'navbarStyle'],
-                directives: [BackButton, BackButtonText, Icon]
-            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_d = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _d || Object, typeof (_e = typeof ViewController !== 'undefined' && ViewController) === 'function' && _e || Object, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object, typeof (_g = typeof Config !== 'undefined' && Config) === 'function' && _g || Object, typeof (_h = typeof Renderer !== 'undefined' && Renderer) === 'function' && _h || Object])], Navbar));
+                directives: [BackButton, BackButtonText, Icon, ToolbarBackground]
+            }), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_e = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _e || Object, typeof (_f = typeof ViewController !== 'undefined' && ViewController) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object, typeof (_h = typeof Config !== 'undefined' && Config) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], Navbar));
             /*
               Used to find and register headers in a view, and this directive's
               content will be moved up to the common navbar location, and created
@@ -54213,7 +54050,7 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
 
             _export("NavbarTemplate", NavbarTemplate = __decorate([Directive({
                 selector: 'template[navbar]'
-            }), __param(2, Optional()), __metadata('design:paramtypes', [typeof (_j = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _j || Object, typeof (_k = typeof TemplateRef !== 'undefined' && TemplateRef) === 'function' && _k || Object, typeof (_l = typeof ViewController !== 'undefined' && ViewController) === 'function' && _l || Object])], NavbarTemplate));
+            }), __param(2, Optional()), __metadata('design:paramtypes', [typeof (_k = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _k || Object, typeof (_l = typeof TemplateRef !== 'undefined' && TemplateRef) === 'function' && _l || Object, typeof (_m = typeof ViewController !== 'undefined' && ViewController) === 'function' && _m || Object])], NavbarTemplate));
         }
     };
 });
@@ -58430,7 +58267,6 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
             activator = new RippleActivator(app, config, fastdom);
         } else if (config.get('activator') == 'highlight') {
             activator = new Activator(app, config, fastdom);
-            ;
         }
         isTapPolyfill = config.get('tapPolyfill') === true;
         addListener('click', click, true);
@@ -59322,7 +59158,7 @@ System.register("ionic/components/toolbar/toolbar", ["angular2/angular2", "../io
 
             _export("Toolbar", Toolbar = __decorate([Component({
                 selector: 'ion-toolbar',
-                template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title,ion-searchbar,ion-segment"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
+                template: '<toolbar-background></toolbar-background>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '<toolbar-content>' + '<ng-content></ng-content>' + '</toolbar-content>'
             }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], Toolbar));
 
             ToolbarTitle = (function (_Ion2) {
@@ -59731,2283 +59567,6 @@ System.register('ionic/config/config.spec', ['ionic/ionic'], function (_export) 
             ionicProviders = _ionicIonic.ionicProviders;
         }],
         execute: function () {}
-    };
-});
-System.register("ionic/platform/applinks/applinks", ["../plugin"], function (_export) {
-    /**
-     * Open installed apps on the device. Note: Android and iOS have different ways of
-     * opening and specifying launch params, so they have separate launch functions.
-     *
-     * @usage
-     *
-     * ```js
-     * if(platform.is('ios') {
-     *   AppLinks.check('twitter://').then((installed) => {
-     *     AppLinks.openIOS('twitter://user?screen_name=ionicframework')
-     *   }, (err) => {
-     *
-     *   })
-     * } else if(platform.is('android') {
-     *   AppLinks.check('com.twitter.android').then((installed) => {
-     *     AppLinks.openAndroid([["action", "VIEW"], ['twitter://user?screen_name=ionicframework']])
-     *   })
-     * }
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, AppLinks;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            AppLinks = (function () {
-                function AppLinks() {
-                    _classCallCheck(this, AppLinks);
-                }
-
-                _createClass(AppLinks, null, [{
-                    key: "openIOS",
-
-                    /**
-                     * Open app on iOS with a given URL (iOS), or scheme (Android)
-                     */
-                    value: function openIOS(url) {
-                        this.ifPlugin(function () {
-                            navigator.startApp.start(url);
-                        });
-                    }
-
-                    /**
-                     * Open app on Android with a given scheme and params.
-                     */
-                }, {
-                    key: "openAndroid",
-                    value: function openAndroid(args) {
-                        this.ifPlugin(function () {
-                            var _navigator$startApp;
-
-                            (_navigator$startApp = navigator.startApp).start.apply(_navigator$startApp, _toConsumableArray(args));
-                        });
-                    }
-
-                    /**
-                     * Check if an installed app can be opened from the given URL.
-                     */
-                }, {
-                    key: "canOpen",
-                    value: function canOpen(urlOrScheme) {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            var hasPlugin = _this.ifPlugin(function () {
-                                navigator.startApp.check(urlOrScheme, function (message) {
-                                    resolve(message);
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            });
-                            if (!hasPlugin) {
-                                reject('Plugin not installed');
-                            }
-                        });
-                    }
-                }]);
-
-                return AppLinks;
-            })();
-
-            _export("AppLinks", AppLinks);
-
-            _export("AppLinks", AppLinks = __decorate([NativePlugin({
-                name: 'AppLinks',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'com.lampa.startapp'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!navigator.startApp;
-                }
-            }), __metadata('design:paramtypes', [])], AppLinks));
-        }
-    };
-});
-System.register("ionic/platform/barcode/barcode", ["../plugin"], function (_export) {
-    /**
-     * Scan barcodes and QR codes.
-     *
-     * @usage
-     *
-     * ## Scanning a code
-     *
-     * ```js
-     * Barcode.scan().then((data) => {
-     *   console.log("Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
-     * }, (err) => {
-     * })
-     * ```
-     *
-     * ## Encoding data
-     *
-     * ```js
-     * Barcode.encode(Barcode.TEXT_TYPE).then((data) => {}, (fail) => {});
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Barcode;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Barcode = (function () {
-                function Barcode() {
-                    _classCallCheck(this, Barcode);
-                }
-
-                _createClass(Barcode, null, [{
-                    key: "scan",
-
-                    /**
-                     * Scan a barcode.
-                     *
-                     * @return Promise that resolves with an object of the format: {
-                     *   text: text that was scanned,
-                     *   format: format of barcode,
-                     *   cancelled: was it canceled?
-                     * }
-                     */
-                    value: function scan() {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            var hasPlugin = _this.ifPlugin(function () {
-                                window.cordova.plugins.barcodeScanner.scan(function (result) {
-                                    resolve(result);
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            });
-                            if (!hasPlugin) {
-                                reject('No scanner available');
-                            }
-                        });
-                    }
-
-                    /**
-                     * Encode the given data in a barcode.
-                     *
-                     * @param type the type to use for encoding (if in doubt, use TYPE_TEXT).
-                     * @param data the data to encode
-                     * @return Promise
-                     */
-                }, {
-                    key: "encode",
-                    value: function encode(type, data) {
-                        var _this2 = this;
-
-                        return new Promise(function (resolve, reject) {
-                            var hasPlugin = _this2.ifPlugin(function () {
-                                window.cordova.plugins.barcodeScanner.encode(type, data, function (result) {
-                                    resolve(result);
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            });
-                            if (!hasPlugin) {
-                                reject('No scanner available');
-                            }
-                        });
-                    }
-                }]);
-
-                return Barcode;
-            })();
-
-            _export("Barcode", Barcode);
-
-            Barcode.TEXT_TYPE = "TEXT_TYPE";
-            Barcode.EMAIL_TYPE = "EMAIL_TYPE";
-            Barcode.PHONE_TYPE = "PHONE_TYPE";
-            Barcode.SMS_TYPE = "SMS_TYPE";
-            _export("Barcode", Barcode = __decorate([NativePlugin({
-                name: 'Barcode',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'phonegap-plugin-barcodescanner'
-                },
-                pluginCheck: function pluginCheck() {
-                    return window.cordova && window.cordova.plugins && window.cordova.plugins.barcodeScanner;
-                }
-            }), __metadata('design:paramtypes', [])], Barcode));
-        }
-    };
-});
-System.register("ionic/platform/battery/battery", ["ionic/util", "../plugin"], function (_export) {
-    /**
-     * Track battery status. Uses the HTMl5 Battery API if available or
-     * the `cordova-plugin-battery-status` plugin.
-     *
-     * @usage
-     *
-     * ```js
-     * Battery.getStatus().then((data) => {
-     *   console.log(data.charging, data.level, data.chargingTime, data.dischargingTime)
-     * });
-     * ```
-     */
-    "use strict";
-
-    var util, NativePlugin, __decorate, __metadata, _Battery;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }, function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _Battery = (function () {
-                function Battery() {
-                    _classCallCheck(this, Battery);
-                }
-
-                _createClass(Battery, null, [{
-                    key: "getStatus",
-
-                    /**
-                     * Get the status of the battery. Data is of the format:
-                     * { charging, level, chargingTime, dischargingTime }
-                     *
-                     * Note: certain fields might not be available depending on the platform.
-                     *
-                     * @return {object} battery status
-                     */
-                    value: function getStatus() {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (navigator.getBattery) {
-                                navigator.getBattery().then(function (battery) {
-                                    _this.battery = battery;
-                                    resolve(_Battery._format(battery));
-                                });
-                            } else {
-                                var fnCb = function fnCb(battery) {
-                                    resolve(battery);
-                                    window.removeEventListener('batterystatus', fnCb);
-                                };
-                                window.addEventListener('batterystatus', fnCb);
-                            }
-                        });
-                    }
-                }, {
-                    key: "_format",
-                    value: function _format(batteryObj) {
-                        if (typeof batteryObj.isPlugged !== 'undefined') {
-                            // This is the old format, map it to the new format
-                            util.extend(batteryObj, {
-                                charging: batteryObj.isPlugged,
-                                level: batteryObj.level / 100,
-                                chargingTime: 0,
-                                dischargingTime: 0 //not provided
-                            });
-                        }
-                        return batteryObj;
-                    }
-                }]);
-
-                return Battery;
-            })();
-
-            _export("Battery", _Battery);
-
-            _Battery = __decorate([NativePlugin({
-                name: 'Battery',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-battery-status'
-                }
-            }), __metadata('design:paramtypes', [])], _Battery);
-        }
-    };
-});
-System.register("ionic/platform/camera/camera", ["ionic/util", "../plugin"], function (_export) {
-    /**
-     * Take a photo or capture video.
-     *
-     * Requires Cordova plugin: `cordova-plugin-camera`. For more info, please see the [Cordova Camera Plugin Docs](https://github.com/apache/cordova-plugin-camera).
-     *
-     * @usage
-     * ```js
-     * Camera.getPicture(options).then((imageData) => {
-     *  // imageData is either a base64 encoded string or a file URI
-     *  // If it's base64:
-     *  let base64Image = "data:image/jpeg;base64," + imageData;
-     * }, (err) => {
-     * });
-     * ```
-     */
-    "use strict";
-
-    var util, NativePlugin, __decorate, __metadata, Camera;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }, function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Camera = (function () {
-                function Camera() {
-                    _classCallCheck(this, Camera);
-                }
-
-                _createClass(Camera, null, [{
-                    key: "getPicture",
-
-                    /**
-                     * Let the user take a photo or capture video.
-                     *
-                     * @param options {object} options for the photo. Of the form (with defaults):
-                     * {
-                     *  quality: 80,
-                     *  destinationType: window.Camera.DestinationType.DATA_URL,
-                     *  sourceType: window.Camera.PictureSourceType.CAMERA (VIDEO or ALLMEDIA for both),
-                     *  allowEdit: true,
-                     *  encodingType: window.Camera.EncodingType.JPEG,
-                     *  popoverOptions: window.CameraPopoverOptions,
-                     *  saveToPhotoAlbum: false
-                     * }
-                     * @return {Promise} resolving with data or rejecting on error
-                     */
-                    value: function getPicture(options) {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (!navigator.camera) {
-                                _this.pluginWarn();
-                                resolve(null);
-                                return;
-                            }
-                            var options = util.defaults({
-                                quality: 80,
-                                destinationType: window.Camera.DestinationType.DATA_URL,
-                                sourceType: window.Camera.PictureSourceType.CAMERA,
-                                allowEdit: true,
-                                encodingType: window.Camera.EncodingType.JPEG,
-                                popoverOptions: window.CameraPopoverOptions,
-                                saveToPhotoAlbum: false
-                            }, options);
-                            navigator.camera.getPicture(function (imageData) {
-                                resolve(imageData);
-                            }, function (err) {
-                                reject(err);
-                            }, options);
-                        });
-                    }
-
-                    /**
-                     * If using FILE_URI and taking photos, photos will be stored temporarily. To
-                     * remove them, call cleanup when the camera session is finished.
-                     * @return {Promise}
-                     */
-                }, {
-                    key: "cleanup",
-                    value: function cleanup() {
-                        return new Promise(function (resolve, reject) {
-                            navigator.camera.cleanup(function () {
-                                resolve();
-                            }, function (err) {
-                                reject(err);
-                            });
-                        });
-                    }
-                }]);
-
-                return Camera;
-            })();
-
-            _export("Camera", Camera);
-
-            /**
-             * @enum {number}
-             */
-            Camera.DestinationType = {
-                /** Return base64 encoded string */
-                DATA_URL: 0,
-                /** Return file uri (content://media/external/images/media/2 for Android) */
-                FILE_URI: 1,
-                /** Return native uri (eg. asset-library://... for iOS) */
-                NATIVE_URI: 2
-            };
-            /**
-             * @enum {number}
-             */
-            Camera.EncodingType = {
-                /** Return JPEG encoded image */
-                JPEG: 0,
-                /** Return PNG encoded image */
-                PNG: 1
-            };
-            /**
-             * @enum {number}
-             */
-            Camera.MediaType = {
-                /** Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType */
-                PICTURE: 0,
-                /** Allow selection of video only, ONLY RETURNS URL */
-                VIDEO: 1,
-                /** Allow selection from all media types */
-                ALLMEDIA: 2
-            };
-            /**
-             * @enum {number}
-             */
-            Camera.PictureSourceType = {
-                /** Choose image from picture library (same as SAVEDPHOTOALBUM for Android) */
-                PHOTOLIBRARY: 0,
-                /** Take picture from camera */
-                CAMERA: 1,
-                /** Choose image from picture library (same as PHOTOLIBRARY for Android) */
-                SAVEDPHOTOALBUM: 2
-            };
-            /**
-             * Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
-             * @enum {number}
-             */
-            Camera.PopoverArrowDirection = {
-                ARROW_UP: 1,
-                ARROW_DOWN: 2,
-                ARROW_LEFT: 4,
-                ARROW_RIGHT: 8,
-                ARROW_ANY: 15
-            };
-            /**
-             * @enum {number}
-             */
-            Camera.Direction = {
-                /** Use the back-facing camera */
-                BACK: 0,
-                /** Use the front-facing camera */
-                FRONT: 1
-            };
-            _export("Camera", Camera = __decorate([NativePlugin({
-                name: 'Camera',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'cordova-plugin-camera'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!navigator.camera;
-                }
-            }), __metadata('design:paramtypes', [])], Camera));
-        }
-    };
-});
-System.register("ionic/platform/camera-roll/camera-roll", ["../plugin"], function (_export) {
-    /**
-     * Save and load photos from the Camera Roll (currently iOS only).
-     *
-     * Requires the Cordiva plugin `cordova-plugin-camera-roll`
-     *
-     * @usage
-     * ```js
-     * CameraRoll.save(base64EncodedImage).then(() => {
-     *   // success
-     * }, (err) => {})
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, CameraRoll;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            CameraRoll = (function () {
-                function CameraRoll() {
-                    _classCallCheck(this, CameraRoll);
-                }
-
-                _createClass(CameraRoll, null, [{
-                    key: "save",
-
-                    /**
-                     * Save the base64 encoded image to the camera roll.
-                     *
-                     * @param base64String {String} base-64 encoded image
-                     * @return {Promise}
-                     */
-                    value: function save(base64String) {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            _this.ifPlugin(function () {
-                                window.CameraRoll.saveToCameraRoll(base64String, function () {
-                                    resolve();
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            });
-                        });
-                    }
-
-                    /**
-                     * Get photos from the camera roll.
-                     */
-                }, {
-                    key: "getPhotos",
-                    value: function getPhotos(options) {
-                        var _this2 = this;
-
-                        return new Promise(function (resolve, reject) {
-                            _this2.ifPlugin(function () {
-                                window.CameraRoll.getPhotos(function (photos) {
-                                    resolve(photos);
-                                });
-                            });
-                        });
-                    }
-                }]);
-
-                return CameraRoll;
-            })();
-
-            _export("CameraRoll", CameraRoll);
-
-            _export("CameraRoll", CameraRoll = __decorate([NativePlugin({
-                name: 'CameraRoll',
-                platforms: ['ios'],
-                engines: {
-                    cordova: 'cordova-plugin-camera-roll'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!window.CameraRoll;
-                }
-            }), __metadata('design:paramtypes', [])], CameraRoll));
-        }
-    };
-});
-System.register("ionic/platform/contacts/contacts", ["../plugin"], function (_export) {
-    /**
-     * Access and manage Contacts on the device.
-     *
-     * Requires plugin: `cordova-plugin-contacts`
-     * For full info, please see the [Cordova Contacts Docs](https://github.com/apache/cordova-plugin-contacts)
-     *
-     * @usage
-     *
-     * ```js
-     * Contacts.save({
-     *   displayName: "Mr. Ionitron"
-     * }).then((contact) => {}, (err) => {})
-     * ```
-     *
-     * See the `save()` docs for a full list of fields.
-     *
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Contacts;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Contacts = (function () {
-                function Contacts() {
-                    _classCallCheck(this, Contacts);
-                }
-
-                _createClass(Contacts, null, [{
-                    key: "save",
-
-                    /**
-                     * Save a contact into the contacts database.
-                     *
-                     * Valid fields:
-                     * {
-                     * id: A globally unique identifier. (DOMString)
-                     * displayName: The name of this Contact, suitable for display to end-users. (DOMString)
-                     * name: An object containing all components of a persons name. (ContactName)
-                     * nickname: A casual name by which to address the contact. (DOMString)
-                     * phoneNumbers: An array of all the contact's phone numbers. (ContactField[])
-                     * emails: An array of all the contact's email addresses. (ContactField[])
-                     * addresses: An array of all the contact's addresses. (ContactAddress[])
-                     * ims: An array of all the contact's IM addresses. (ContactField[])
-                     * organizations: An array of all the contact's organizations. (ContactOrganization[])
-                     * birthday: The birthday of the contact. (Date)
-                     * note: A note about the contact. (DOMString)
-                     * photos: An array of the contact's photos. (ContactField[])
-                     * categories: An array of all the user-defined categories associated with the contact. (ContactField[])
-                     * urls: An array of web pages associated with the contact. (ContactField[])
-                     * }
-                     *
-                     * @param contact {object} the contact to save.
-                     * @return {Promise} that resolves with the created and saved contact
-                     */
-                    value: function save(contact) {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (!navigator.contacts) {
-                                _this.pluginWarn();
-                                reject('Contacts plugin not installed');
-                            }
-                            var deviceContact = navigator.contacts.create(contact);
-                            deviceContact.save(function (result) {
-                                resolve(deviceContact);
-                            }, function (err) {
-                                reject(err);
-                            });
-                        });
-                    }
-
-                    /*
-                    static remove(contact) {
-                      return new Promise((resolve, reject) => {
-                        if(!navigator.contacts) {
-                          this.pluginWarn();
-                          reject('Contacts plugin not installed');
-                        }
-                        var deviceContact = navigator.contacts.create(contact);
-                           deviceContact.remove(function (result) {
-                          resolve(result);
-                        }, function (err) {
-                          reject(err);
-                        });
-                      })
-                    }
-                       static clone(contact) {
-                      if(!navigator.contacts) {
-                        this.pluginWarn();
-                        return null;
-                      }
-                      var deviceContact = navigator.contacts.create(contact);
-                      return deviceContact.clone(contact);
-                    }
-                    */
-                    /**
-                     * Search for contacts in the Contacts list.
-                     *
-                     * Example: Contacts.find({ filter: 'Max' }) // will search for a displayName of 'Max'
-                     *
-                     * @param options the options to query with
-                     *
-                     * filter: The search string used to find navigator.contacts. (DOMString) (Default: "")
-                     * multiple: Determines if the find operation returns multiple navigator.contacts. (Boolean) (Default: false)
-                     * desiredFields: Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields. (DOMString[]) [Optional]
-                     * hasPhoneNumber(Android only): Filters the search to only return contacts with a phone number informed. (Boolean) (Default: false)
-                     *
-                     * @return {Promise} that resolves with the search results
-                     */
-                }, {
-                    key: "find",
-                    value: function find(options) {
-                        return new Promise(function (resolve, reject) {
-                            var fields = options.fields || ['id', 'displayName'];
-                            delete options.fields;
-                            navigator.contacts.find(fields, function (results) {
-                                resolve(results);
-                            }, function (err) {
-                                reject(err);
-                            }, options || undefined);
-                        });
-                    }
-
-                    /**
-                     * Show a native contact picker control.
-                     *
-                     * @return {Promise} resolves with the picked contact.
-                     */
-                }, {
-                    key: "pickContact",
-                    value: function pickContact() {
-                        return new Promise(function (resolve, reject) {
-                            navigator.contacts.pickContact(function (contact) {
-                                resolve(contact);
-                            }, function (err) {
-                                reject(err);
-                            });
-                        });
-                    }
-                }]);
-
-                return Contacts;
-            })();
-
-            _export("Contacts", Contacts);
-
-            _export("Contacts", Contacts = __decorate([NativePlugin({
-                name: 'Contacts',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'cordova-plugin-contacts'
-                }
-            }), __metadata('design:paramtypes', [])], Contacts));
-        }
-    };
-});
-System.register("ionic/platform/device/device", ["../plugin"], function (_export) {
-    /**
-     * Access information about the underlying device and platform.
-     *
-     * @usage
-     * ```js
-     * let info = Device.getDevice();
-     * // Device sits below
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, _Device;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _Device = (function () {
-                function Device() {
-                    _classCallCheck(this, Device);
-                }
-
-                _createClass(Device, null, [{
-                    key: "getDevice",
-
-                    /**
-                     * Returns the whole device object.
-                     * @see https://github.com/apache/cordova-plugin-device
-                     * @returns {Object} The device object.
-                     */
-                    value: function getDevice() {
-                        return this.ifPlugin(function () {
-                            return device;
-                        }, function () {
-                            return {
-                                name: _Device.getName(),
-                                model: _Device.getModel(),
-                                platform: _Device.getPlatform(),
-                                uuid: _Device.getUUID(),
-                                version: _Device.getVersion()
-                            };
-                        });
-                    }
-
-                    /**
-                     * Returns the Cordova version.
-                     * @see https://github.com/apache/cordova-plugin-device#devicecordova
-                     * @returns {String} The Cordova version.
-                     */
-                }, {
-                    key: "getCordova",
-                    value: function getCordova() {
-                        this.ifPlugin(function () {
-                            return device.cordova;
-                        });
-                    }
-
-                    /**
-                     * Returns the name of the device's model or product.
-                     * @see https://github.com/apache/cordova-plugin-device#devicemodel
-                     * @returns {String} The name of the device's model or product.
-                     */
-                }, {
-                    key: "getModel",
-                    value: function getModel() {
-                        this.ifPlugin(function () {
-                            return device.model;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-
-                    /**
-                     * @deprecated device.name is deprecated as of version 2.3.0. Use device.model instead.
-                     * @returns {String}
-                     */
-                }, {
-                    key: "getName",
-                    value: function getName() {
-                        this.ifPlugin(function () {
-                            return device.name;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-
-                    /**
-                     * Returns the device's operating system name.
-                     * @see https://github.com/apache/cordova-plugin-device#deviceplatform
-                     * @returns {String} The device's operating system name.
-                     */
-                }, {
-                    key: "getPlatform",
-                    value: function getPlatform() {
-                        this.ifPlugin(function () {
-                            return device.name;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-
-                    /**
-                     * Returns the device's Universally Unique Identifier.
-                     * @see https://github.com/apache/cordova-plugin-device#deviceuuid
-                     * @returns {String} The device's Universally Unique Identifier
-                     */
-                }, {
-                    key: "getUUID",
-                    value: function getUUID() {
-                        this.ifPlugin(function () {
-                            return device.uuid;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-
-                    /**
-                     * Returns the operating system version.
-                     * @see https://github.com/apache/cordova-plugin-device#deviceversion
-                     * @returns {String}
-                     */
-                }, {
-                    key: "getVersion",
-                    value: function getVersion() {
-                        this.ifPlugin(function () {
-                            return device.version;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-
-                    /**
-                     * Returns the device manufacturer.
-                     * @returns {String}
-                     */
-                }, {
-                    key: "getManufacturer",
-                    value: function getManufacturer() {
-                        this.ifPlugin(function () {
-                            return device.manufacturer;
-                        }, function () {
-                            return 'unknown';
-                        });
-                    }
-                }]);
-
-                return Device;
-            })();
-
-            _export("Device", _Device);
-
-            _Device = __decorate([NativePlugin({
-                name: 'Device',
-                plugins: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-device'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!window.device;
-                }
-            }), __metadata('design:paramtypes', [])], _Device);
-        }
-    };
-});
-System.register("ionic/platform/device-motion/device-motion", ["ionic/util", "../plugin"], function (_export) {
-    // TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-    // var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-    // var {Observable} = Rx;
-
-    /**
-     * Respond to device movement in the x/y/z axes.
-     *
-     * @usage
-     * ```js
-     * let watch = DeviceMotion.watchAcceleration();
-     * watch.source.subscribe((data) => {
-     *  // data.acceleration.x
-     *  // data.acceleration.y
-     *  // data.acceleration.z
-     * })
-     *
-     * watch.clear() // to stop watching
-     * ```
-     */
-    "use strict";
-
-    var util, NativePlugin, __decorate, __metadata, _DeviceMotion;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }, function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _DeviceMotion = (function () {
-                function DeviceMotion() {
-                    _classCallCheck(this, DeviceMotion);
-                }
-
-                _createClass(DeviceMotion, null, [{
-                    key: "_wrap",
-                    value: function _wrap(result) {
-                        // Mimic the DeviceMotionEvent
-                        return util.extend({
-                            acceleration: result,
-                            accelerationIncludingGravity: result,
-                            rotationRate: 0,
-                            interval: 0,
-                            native: true
-                        }, result);
-                    }
-
-                    /**
-                     * Get the current acceleration from the device. Generally, watchAcceleration
-                     * is more commonly used.
-                     *
-                     * @return {Promise} that resolves with current motion data.
-                     */
-                }, {
-                    key: "getCurrentAcceleration",
-                    value: function getCurrentAcceleration() {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-                                var fnCb = function fnCb(eventData) {
-                                    resolve(_DeviceMotion._wrap(eventData));
-                                    window.removeEventListener('devicemotion', fnCb);
-                                };
-                                window.addEventListener('devicemotion', fnCb);
-                            } else if (navigator.accelerometer) {
-                                navigator.accelerometer.getCurrentAcceleration(function (result) {
-                                    resolve(_DeviceMotion._wrap(result));
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            } else {
-                                _this.pluginWarn();
-                                reject('The Device does not support device motion events.');
-                                return;
-                            }
-                        });
-                    }
-
-                    /**
-                     * Watch for device motion.
-                     */
-                }, {
-                    key: "watchAcceleration",
-                    value: function watchAcceleration(options) {
-                        if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-                            var watchID = undefined;
-                            var source = Rx.Observable.create(function (observer) {
-                                var fnCb = function fnCb(eventData) {
-                                    observer.onNext(_DeviceMotion._wrap(eventData));
-                                };
-                                window.addEventListener('devicemotion', fnCb);
-                            });
-                            return {
-                                source: source,
-                                watchID: watchID,
-                                clear: function clear() {
-                                    window.removeEventListener('devicemotion', fnCb);
-                                }
-                            };
-                        } else if (navigator.accelerometer) {
-                            var _ret = (function () {
-                                var watchID = undefined;
-                                var source = Rx.Observable.create(function (observer) {
-                                    watchID = navigator.accelerometer.watchAcceleration(function (result) {
-                                        observer.onNext(_DeviceMotion._wrap(result));
-                                    }, function (err) {
-                                        observer.onError(err, observer);
-                                    }, options);
-                                });
-                                return {
-                                    v: {
-                                        source: source,
-                                        watchID: watchID,
-                                        clear: function clear() {
-                                            navigator.accelerometer.clearWatch(watchID);
-                                        }
-                                    }
-                                };
-                            })();
-
-                            if (typeof _ret === "object") return _ret.v;
-                        }
-                    }
-                }]);
-
-                return DeviceMotion;
-            })();
-
-            _export("DeviceMotion", _DeviceMotion);
-
-            _DeviceMotion = __decorate([NativePlugin({
-                name: 'Device Motion',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-device-motion'
-                }
-            }), __metadata('design:paramtypes', [])], _DeviceMotion);
-        }
-    };
-});
-System.register("ionic/platform/device-orientation/device-orientation", ["ionic/util", "../plugin"], function (_export) {
-    // TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-    // var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-    // var {Observable} = Rx;
-
-    /**
-     * Respond to device orientation changes (compass).
-     *
-     * @usage
-     * ```js
-     * let watch = DeviceOrientation.watchHeading();
-     * watch.source.subscribe((data) => {
-     *  // data.alpha is the compass heading
-     * })
-     *
-     * watch.clear() // to stop watching
-     * ```
-     */
-    "use strict";
-
-    var util, NativePlugin, __decorate, __metadata, _DeviceOrientation;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_ionicUtil) {
-            util = _ionicUtil;
-        }, function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _DeviceOrientation = (function () {
-                function DeviceOrientation() {
-                    _classCallCheck(this, DeviceOrientation);
-                }
-
-                _createClass(DeviceOrientation, null, [{
-                    key: "_wrap",
-                    value: function _wrap(result) {
-                        return util.extend({
-                            alpha: result.magneticHeading,
-                            magneticHeading: result.webkitCompassHeading || result.alpha
-                        }, result);
-                    }
-                }, {
-                    key: "getCurrentHeading",
-                    value: function getCurrentHeading() {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (window.DeviceOrientationEvent) {
-                                var fnCb = function fnCb(eventData) {
-                                    resolve(_DeviceOrientation._wrap(eventData));
-                                    window.removeEventListener('deviceorientation', fnCb);
-                                };
-                                window.addEventListener('deviceorientation', fnCb);
-                            } else if (navigator.compass) {
-                                navigator.compass.getCurrentHeading(function (result) {
-                                    resolve(_DeviceOrientation._wrap(result));
-                                }, function (err) {
-                                    reject(err);
-                                });
-                            } else {
-                                _this.pluginWarn();
-                                reject('The Device does not support device orientation events.');
-                                return;
-                            }
-                        });
-                    }
-                }, {
-                    key: "watchHeading",
-                    value: function watchHeading(options) {
-                        if (window.DeviceOrientationEvent) {
-                            var watchID = undefined;
-                            var source = Rx.Observable.create(function (observer) {
-                                var fnCb = function fnCb(eventData) {
-                                    observer.onNext(_DeviceOrientation._wrap(eventData));
-                                };
-                                window.addEventListener('deviceorientation', fnCb);
-                            });
-                            return {
-                                source: source,
-                                watchID: watchID,
-                                clear: function clear() {
-                                    window.removeEventListener('deviceorientation', fnCb);
-                                }
-                            };
-                        } else if (navigator.accelerometer) {
-                            var _ret = (function () {
-                                var watchID = undefined;
-                                var source = Rx.Observable.create(function (observer) {
-                                    watchID = navigator.compass.watchHeading(function (result) {
-                                        observer.onNext(_DeviceOrientation._wrap(result));
-                                    }, function (err) {
-                                        observer.onError(err, observer);
-                                    }, options);
-                                });
-                                return {
-                                    v: {
-                                        source: source,
-                                        watchID: watchID,
-                                        clear: function clear() {
-                                            navigator.compass.clearWatch(watchID);
-                                        }
-                                    }
-                                };
-                            })();
-
-                            if (typeof _ret === "object") return _ret.v;
-                        }
-                    }
-                }]);
-
-                return DeviceOrientation;
-            })();
-
-            _export("DeviceOrientation", _DeviceOrientation);
-
-            _DeviceOrientation = __decorate([NativePlugin({
-                name: 'Device Orientation',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-device-orientation'
-                }
-            }), __metadata('design:paramtypes', [])], _DeviceOrientation);
-        }
-    };
-});
-System.register("ionic/platform/dialogs/dialogs", ["../plugin"], function (_export) {
-    /**
-     * A native dialogs system. Native dialogs can give you a bit more
-     * control over the UI than the browser built-ins, though the Dialogs
-     * plugin will fall back to the built-ins when necessary.
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Dialogs;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Dialogs = (function () {
-                function Dialogs() {
-                    _classCallCheck(this, Dialogs);
-                }
-
-                _createClass(Dialogs, null, [{
-                    key: "alert",
-
-                    /**
-                     * Trigger an alert prompt.
-                     *
-                     * @param message the message to show
-                     * @param title the title to show
-                     * @param buttonName the button label to use (not available on browser fallback)
-                     * @return Promise
-                     */
-                    value: (function (_alert) {
-                        function alert(_x, _x2, _x3) {
-                            return _alert.apply(this, arguments);
-                        }
-
-                        alert.toString = function () {
-                            return _alert.toString();
-                        };
-
-                        return alert;
-                    })(function (message, title, buttonName) {
-                        var _this = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (!navigator.notification) {
-                                _this.pluginWarn();
-                                alert(message);
-                                resolve();
-                            } else {
-                                navigator.notification.alert(message, function () {
-                                    resolve();
-                                }, title, buttonName);
-                            }
-                        });
-                    })
-
-                    /**
-                     * Trigger a confirm prompt.
-                     *
-                     * @param message the message to show
-                     * @param title the title to show
-                     * @param buttonLabels the button labels to use (not available on browser fallback)
-                     * @return Promise that resolves with the index of the button selected (zero indexed). 1 is OK on browser fallback
-                     */
-                }, {
-                    key: "confirm",
-                    value: (function (_confirm) {
-                        function confirm(_x4, _x5, _x6) {
-                            return _confirm.apply(this, arguments);
-                        }
-
-                        confirm.toString = function () {
-                            return _confirm.toString();
-                        };
-
-                        return confirm;
-                    })(function (message, title, buttonLabels) {
-                        var _this2 = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (!navigator.notification) {
-                                _this2.pluginWarn();
-                                var ok = confirm(message);
-                                // Use 2 as OK
-                                resolve(ok ? 2 : 0);
-                            } else {
-                                navigator.notification.confirm(message, function (buttonIndex) {
-                                    resolve(buttonIndex - 1);
-                                }, title, buttonLabels);
-                            }
-                        });
-                    })
-                }, {
-                    key: "prompt",
-                    value: (function (_prompt) {
-                        function prompt(_x7, _x8, _x9, _x10) {
-                            return _prompt.apply(this, arguments);
-                        }
-
-                        prompt.toString = function () {
-                            return _prompt.toString();
-                        };
-
-                        return prompt;
-                    })(function (message, title, buttonLabels, defaultText) {
-                        var _this3 = this;
-
-                        return new Promise(function (resolve, reject) {
-                            if (!navigator.notification) {
-                                _this3.pluginWarn();
-                                var response = prompt(message);
-                                // Use 1 as OK
-                                resolve(response);
-                            } else {
-                                navigator.notification.prompt(message, function (results) {
-                                    resolve(results.input1, buttonIndex - 1);
-                                }, title, buttonLabels, defaultText);
-                            }
-                        });
-                    })
-
-                    /**
-                     * Beep n times. Not available on browser.
-                     * @param times the number of times to beep
-                     */
-                }, {
-                    key: "beep",
-                    value: function beep(times) {
-                        navigator.notification && navigator.notification.beep(times);
-                    }
-                }]);
-
-                return Dialogs;
-            })();
-
-            _export("Dialogs", Dialogs);
-
-            _export("Dialogs", Dialogs = __decorate([NativePlugin({
-                name: 'Dialogs',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-dialogs'
-                }
-            }), __metadata('design:paramtypes', [])], Dialogs));
-        }
-    };
-});
-System.register("ionic/platform/geolocation/geolocation", ["../plugin"], function (_export) {
-    // TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-    // var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-    // var {Observable} = Rx;
-
-    /**
-     * Get geolocation data.
-     *
-     * @usage
-     * ```js
-     * Geolocation.getCurrentPosition().then((resp) => {
-     *  //resp.coords.latitude
-     *  //resp.coords.longitude
-     * })
-     *
-     * let watch = Geolocation.watchPosition();
-     * watch.source.subscribe((data) => {
-     *  //data.coords.latitude
-     *  //data.coords.longitude
-     * })
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Geolocation;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Geolocation = (function () {
-                function Geolocation() {
-                    _classCallCheck(this, Geolocation);
-                }
-
-                _createClass(Geolocation, null, [{
-                    key: "getCurrentPosition",
-
-                    /**
-                     * Get the current GPS location.
-                     */
-                    value: function getCurrentPosition(options) {
-                        return new Promise(function (resolve, reject) {
-                            navigator.geolocation.getCurrentPosition(function (result) {
-                                resolve(result);
-                            }, function (err) {
-                                reject(err);
-                            }, options);
-                        });
-                    }
-
-                    /**
-                     * Watch for location changes.
-                     */
-                }, {
-                    key: "watchPosition",
-                    value: function watchPosition(options) {
-                        var watchID = undefined;
-                        var source = Rx.Observable.create(function (observer) {
-                            watchID = navigator.geolocation.watchPosition(function (result) {
-                                observer.onNext(result);
-                            }, function (err) {
-                                observer.onError(err, observer);
-                            }, options);
-                        });
-                        return {
-                            source: source,
-                            watchID: watchID,
-                            clear: function clear() {
-                                navigator.geolocation.clearWatch(watchID);
-                            }
-                        };
-                    }
-
-                    /**
-                     * Clear a specific watch by watch ID. Generally, you'll call
-                     * clear() on the returned watch from `getCurrentPosition` or `watchPosition` above.
-                     */
-                }, {
-                    key: "clearWatch",
-                    value: function clearWatch(watchID) {
-                        return navigator.geolocation.clearWatch(watchID);
-                    }
-                }]);
-
-                return Geolocation;
-            })();
-
-            _export("Geolocation", Geolocation);
-
-            _export("Geolocation", Geolocation = __decorate([NativePlugin({
-                name: 'Geolocation',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-geolocation'
-                }
-            }), __metadata('design:paramtypes', [])], Geolocation));
-        }
-    };
-});
-System.register("ionic/platform/keyboard/keyboard", ["../plugin"], function (_export) {
-    /**
-     * Manage the native keyboard. Note: this plugin performs mainly in the native
-     * app context. Most operations are non-functional in a normal web browser as
-     * keyboard control is limited.
-     *
-     * @usage
-     * ```js
-     * // Hide the accessory bar
-     * Keyboard.setAccessoryBarVisible(false)
-     *
-     * Keyboard.close()
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Keyboard;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Keyboard = (function () {
-                function Keyboard() {
-                    _classCallCheck(this, Keyboard);
-                }
-
-                _createClass(Keyboard, null, [{
-                    key: "setAccessoryBarVisible",
-
-                    /**
-                     * Set whether the accessory bar is visible.
-                     *
-                     * Note: this only works while running natively (accessory bar cannot be removed
-                     * in most web browsers), and by default the bar is hidden when running natively.
-                     *
-                     * @param isVisible whether the accessory bar is visible
-                     */
-                    value: function setAccessoryBarVisible(isVisible) {
-                        this.ifPlugin(function () {
-                            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(!isVisible);
-                        });
-                    }
-
-                    /**
-                     * Close the keyboard.
-                     */
-                }, {
-                    key: "close",
-                    value: function close() {
-                        this.ifPlugin(function () {
-                            cordova.plugins.Keyboard.close();
-                        });
-                    }
-
-                    /**
-                     * Show the keyboard. Does nothing on iOS (has to be triggered from an input)
-                     */
-                }, {
-                    key: "show",
-                    value: function show() {
-                        this.ifPlugin(function () {
-                            cordova.plugins.Keyboard.show();
-                        });
-                    }
-
-                    /**
-                     * @return the visibility of the keyboard.
-                     */
-                }, {
-                    key: "isVisible",
-                    value: function isVisible() {
-                        return this.ifPlugin(function () {
-                            return cordova.plugins.Keyboard.isVisible;
-                        });
-                    }
-                }]);
-
-                return Keyboard;
-            })();
-
-            _export("Keyboard", Keyboard);
-
-            _export("Keyboard", Keyboard = __decorate([NativePlugin({
-                name: 'Keyboard',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'ionic-plugin-keyboard'
-                },
-                pluginCheck: function pluginCheck() {
-                    return window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard;
-                }
-            }), __metadata('design:paramtypes', [])], Keyboard));
-        }
-    };
-});
-System.register("ionic/platform/loading/loading", ["../plugin"], function (_export) {
-    /**
-     * Simple loading popup indicators.
-     *
-     * Uses the `cordova-plugin-progressindicator` Cordova plugin. See the [plugin docs](http://paolobernasconi.com/cordova-progressIndicator/)
-     * for more information.
-     *
-     * @usage
-     *
-     * ```js
-     * Loading.show(true, 'Waiting...') // Dim the background and show label
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Loading;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Loading = (function () {
-                function Loading() {
-                    _classCallCheck(this, Loading);
-                }
-
-                _createClass(Loading, null, [{
-                    key: "simple",
-
-                    /**
-                     * Show a simple loading box.
-                     *
-                     * @param dim {Boolean} whether the dim the background
-                     * @param label {String} the custom label
-                     * @param detail {String} any detail text
-                     */
-                    value: function simple(dim, label, detail) {
-                        this.ifPlugin(function () {
-                            if (typeof label === 'undefined') {
-                                window.ProgressIndicator.showSimple(dim);
-                                return;
-                            }
-                            if (typeof detail === 'undefined') {
-                                window.ProgressIndicator.showSimpleWithLabel(dim, label);
-                                return;
-                            }
-                            window.ProgressIndicator.showSimpleWithLabelDetail(dim, label, detail);
-                        });
-                    }
-
-                    /**
-                     * Show a deteriminate loading box with progress bar
-                     * that completes after a certain amount of time
-                     *
-                     * @param dim {Boolean} whether the dim the background
-                     * @param timeout {Integer} the timeout for the loading box
-                     * @param label {String} the custom label
-                     */
-                }, {
-                    key: "determinate",
-                    value: function determinate(dim, timeout, label) {
-                        this.ifPlugin(function () {
-                            if (typeof label === 'undefined') {
-                                window.ProgressIndicator.showDeterminate(dim, timeout);
-                                return;
-                            }
-                            if (typeof detail === 'undefined') {
-                                window.ProgressIndicator.showSimpleWithLabel(dim, timeout, label);
-                                return;
-                            }
-                        });
-                    }
-
-                    /**
-                     * Show a spinning circle
-                     *
-                     * @param dim {Boolean} whether the dim the background
-                     * @param timeout {Integer} the timeout for the loading box
-                     * @param label {String} the custom label
-                     */
-                }, {
-                    key: "annular",
-                    value: function annular(dim, timeout, label) {
-                        this.ifPlugin(function () {
-                            if (typeof label === 'undefined') {
-                                window.ProgressIndicator.showAnnular(dim, timeout);
-                                return;
-                            }
-                            if (typeof detail === 'undefined') {
-                                window.ProgressIndicator.showAnnularWithLabel(dim, timeout, label);
-                                return;
-                            }
-                        });
-                    }
-
-                    /**
-                     * Show a bar
-                     *
-                     * @param dim {Boolean} whether the dim the background
-                     * @param timeout {Integer} the timeout for the loading box
-                     * @param label {String} the custom label
-                     */
-                }, {
-                    key: "bar",
-                    value: function bar(dim, timeout, label) {
-                        this.ifPlugin(function () {
-                            if (typeof label === 'undefined') {
-                                window.ProgressIndicator.showBar(dim, timeout);
-                                return;
-                            }
-                            if (typeof detail === 'undefined') {
-                                window.ProgressIndicator.showBarWithLabel(dim, timeout, label);
-                                return;
-                            }
-                        });
-                    }
-
-                    /**
-                     * Show a success checkmark
-                     *
-                     * @param dim {Boolean} whether the dim the background
-                     * @param label {String} the custom label
-                     */
-                }, {
-                    key: "success",
-                    value: function success(dim, label) {
-                        this.ifPlugin(function () {
-                            window.ProgressIndicator.showSuccess(dim, label);
-                        });
-                    }
-
-                    /**
-                     * Hide a loading box
-                     */
-                }, {
-                    key: "hide",
-                    value: function hide() {
-                        this.ifPlugin(function () {
-                            window.ProgressIndicator.hide();
-                        });
-                    }
-                }]);
-
-                return Loading;
-            })();
-
-            _export("Loading", Loading);
-
-            _export("Loading", Loading = __decorate([NativePlugin({
-                name: 'Loading',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-progressindicator'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!window.ProgressIndicator;
-                }
-            }), __metadata('design:paramtypes', [])], Loading));
-        }
-    };
-});
-System.register("ionic/platform/network/network", ["../plugin"], function (_export) {
-    /**
-     * Access Network information and respond to changes in network state.
-     *
-     * @usage
-     * ```js
-     * let networkInfo = Network.getNetwork()
-     * let isOnline = Network.isOnline()
-     * let isOffline = Network.isOffline()
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Network;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Network = (function () {
-                function Network() {
-                    _classCallCheck(this, Network);
-                }
-
-                _createClass(Network, null, [{
-                    key: "info",
-
-                    /**
-                     * Return network info.
-                     */
-                    value: function info() {
-                        this.ifPlugin(function () {
-                            return navigator.connection.type;
-                        });
-                    }
-
-                    /**
-                     * @return whether the device is online
-                     */
-                }, {
-                    key: "isOnline",
-                    value: function isOnline() {
-                        this.ifPlugin(function () {
-                            var networkState = navigator.connection.type;
-                            return networkState !== window.Connection.UNKNOWN && networkState !== window.Connection.NONE;
-                        }, function () {
-                            return navigator.onLine;
-                        });
-                    }
-                }]);
-
-                return Network;
-            })();
-
-            _export("Network", Network);
-
-            _export("Network", Network = __decorate([NativePlugin({
-                name: 'Network',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'cordova-plugin-network-information'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!navigator.connection;
-                }
-            }), Injectable(), __metadata('design:paramtypes', [])], Network));
-        }
-    };
-});
-System.register("ionic/platform/statusbar/statusbar", ["../plugin"], function (_export) {
-    /**
-     * Manage the appearance of the native status bar.
-     *
-     * @usage
-     * ```js
-     * StatusBar.hide(); // Hide the bar
-     *
-     * StatusBar.setStyle(StatusBar.LIGHT_CONTENT) // Good for dark backgrounds
-     * ```
-     */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, _StatusBar;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            _StatusBar = (function () {
-                function StatusBar() {
-                    _classCallCheck(this, StatusBar);
-                }
-
-                _createClass(StatusBar, null, [{
-                    key: "show",
-
-                    /**
-                     * Show the StatusBar
-                     */
-                    value: function show() {
-                        this.ifPlugin(function () {
-                            window.StatusBar.show();
-                        });
-                    }
-
-                    /**
-                     * Hide the StatusBar
-                     */
-                }, {
-                    key: "hide",
-                    value: function hide() {
-                        this.ifPlugin(function () {
-                            window.StatusBar.hide();
-                        });
-                    }
-
-                    /**
-                     * Hide the StatusBar
-                     *
-                     * Options:
-                     *
-                     * StatusBar.DEFAULT
-                     * StatusBar.LIGHT_CONTENT
-                     * StatusBar.BLACK_TRANSLUCENT
-                     * StatusBar.BLACK_OPAQUE
-                     *
-                     * @param style the style from above
-                     */
-                }, {
-                    key: "setStyle",
-                    value: function setStyle(style) {
-                        this.ifPlugin(function () {
-                            switch (style) {
-                                case _StatusBar.DEFAULT:
-                                    window.StatusBar.styleDefault();
-                                    break;
-                                case _StatusBar.LIGHT_CONTENT:
-                                    window.StatusBar.styleLightContent();
-                                    break;
-                                case _StatusBar.BLACK_TRANSLUCENT:
-                                    window.StatusBar.styleBlackTranslucent();
-                                    break;
-                                case _StatusBar.BLACK_OPAQUE:
-                                    window.StatusBar.styleBlackOpaque();
-                                    break;
-                            }
-                        });
-                    }
-
-                    /**
-                     * Set the status bar to a specific hex color (CSS shorthand supported!).
-                     *
-                     * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-                     *
-                     * @param hex the hex value of the color.
-                     */
-                }, {
-                    key: "setHexColor",
-                    value: function setHexColor(hex) {
-                        this.ifPlugin(function () {
-                            window.StatusBar.backgroundColorByHexString(hex);
-                        });
-                    }
-
-                    /**
-                     * Set the status bar to a specific named color. Valid options:
-                     * black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
-                     *
-                     * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-                     *
-                     * @param name the name of the color (from above)
-                     */
-                }, {
-                    key: "setNamedColor",
-                    value: function setNamedColor(name) {
-                        this.ifPlugin(function () {
-                            window.StatusBar.backgroundColorByName(name);
-                        });
-                    }
-
-                    /**
-                     * Set whether the status bar overlays the main app view. The default
-                     * is true.
-                     *
-                     * @param doesOverlay whether the status bar overlays the main app view.
-                     */
-                }, {
-                    key: "setOverlays",
-                    value: function setOverlays(doesOverlay) {
-                        this.ifPlugin(function () {
-                            window.StatusBar.overlaysWebView(doesOverlay);
-                        });
-                    }
-                }]);
-
-                return StatusBar;
-            })();
-
-            _export("StatusBar", _StatusBar);
-
-            _StatusBar.DEFAULT = 0;
-            _StatusBar.LIGHT_CONTENT = 1;
-            _StatusBar.BLACK_TRANSLUCENT = 2;
-            _StatusBar.BLACK_OPAQUE = 3;
-            _StatusBar = __decorate([NativePlugin({
-                name: 'StatusBar',
-                platforms: ['ios', 'android'],
-                engines: {
-                    cordova: 'cordova-plugin-statusbar'
-                },
-                pluginCheck: function pluginCheck() {
-                    return !!window.StatusBar;
-                }
-            }), __metadata('design:paramtypes', [])], _StatusBar);
-        }
     };
 });
 System.register('ionic/platform/storage/local-storage', ['./storage'], function (_export) {
@@ -62561,88 +60120,6 @@ System.register('ionic/platform/platform.spec', ['ionic/ionic'], function (_expo
             ANDROID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36';
             IPHONE_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4';
             IPAD_UA = 'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53';
-        }
-    };
-});
-System.register("ionic/platform/vibration/vibration", ["../plugin"], function (_export) {
-    /**
-    * Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
-    *
-    * @usage
-    * ```js
-    * Vibration.vibrate();
-    * ```
-    */
-    "use strict";
-
-    var NativePlugin, __decorate, __metadata, Vibration;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_plugin) {
-            NativePlugin = _plugin.NativePlugin;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Vibration = (function () {
-                function Vibration() {
-                    _classCallCheck(this, Vibration);
-                }
-
-                _createClass(Vibration, null, [{
-                    key: "vibrate",
-
-                    /**
-                     * Vibrate the device. Note: iOS does not support the pattern parameter.
-                     *
-                     * @param pattern the vibration pattern in ms to use [1000,1000,1000] (vibrate three times, one second each)
-                     */
-                    value: function vibrate(pattern) {
-                        if (!navigator.vibrate) {
-                            this.pluginWarn();
-                            console.log('Vibrate (dev): ', pattern);
-                        } else {
-                            navigator.vibrate(pattern);
-                        }
-                    }
-                }]);
-
-                return Vibration;
-            })();
-
-            _export("Vibration", Vibration);
-
-            _export("Vibration", Vibration = __decorate([NativePlugin({
-                name: 'Vibration',
-                platforms: ['ios', 'android', 'web'],
-                engines: {
-                    cordova: 'cordova-plugin-vibration'
-                }
-            }), __metadata('design:paramtypes', [])], Vibration));
         }
     };
 });

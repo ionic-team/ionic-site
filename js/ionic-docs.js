@@ -128,7 +128,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);
-  var $body = $('body');
 
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {

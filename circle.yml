@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 4.1.0
+  ruby:
+    version: 2.2.3
+dependencies:
+  post:
+    - gem install jekyll --pre
+test:
+  override:
+    - ./scripts/circle.sh --index=$CIRCLE_NODE_INDEX --total=$CIRCLE_NODE_TOTAL

@@ -1166,35 +1166,36 @@ class OtherPage {
 
 <h2 id="search" class="section-header">Search</h2>
 
-<p>A search bar takes a value and binds it to a control in your form.</p>
+<p>A search bar binds to a model, and calls a function to update the page when the model is changed:</p>
 
-<pre><code class="language-html">&lt;form [ng-form-model]="form"&gt;
-  &lt;ion-search-bar ng-control="searchQuery"&gt;&lt;/ion-search-bar&gt;
-  &lt;ion-list inset #list&gt;
-    &lt;ion-item *ng-for="#item of getItems()"&gt;
-      
-    &lt;/ion-item&gt;
-  &lt;/ion-list&gt;
-&lt;/form&gt;
+<pre><code class="language-html">&lt;ion-searchbar [(ng-model)]="searchQuery"&gt;&lt;/ion-searchbar&gt;
+&lt;ion-list #list&gt;
+  &lt;ion-item *ng-for="#item of getItems()"&gt;
+    
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
 </code></pre>
 
-<p>Note the <code>[ng-form-model]="form"</code> binds to the components instance of <code>this.form</code>, and the <code>ng-control</code> binds to the forms <code>searchQuery</code> property. You’ll also see that the component interacts with the <code>searchQuery</code> property using the <code>form.controls</code> array <code>this.form.controls.searchQuery.value</code>.</p>
+<p>Note that in this example, the search bar binds to the <code>searchQuery</code> variable. The <code>getItems()</code> function is called when this variable changes, which updates the cities that are displayed. Although this example filters the list based on the search input, search bar can be used in many different scenarios:</p>
 
-<pre><code class="language-typescript">class IonicApp {
+<pre><code class="language-typescript">@Page({
+  templateUrl: 'search/template.html',
+})
+class SearchPage{
   constructor() {
-    var fb = new FormBuilder();
-    this.form = fb.group({
-      searchQuery: ['', Validators.required]
-    });
-    this.items ['Soylent', 'BBQ', 'Salad'];
+    this.searchQuery = '';
+    this.items = [
+      'Amsterdam',
+      'Bogota',
+      ...
+    ];
   }
+
   getItems() {
-    var q = this.form.controls.searchQuery.value;
-    if(q.trim() == '') {
-      return this.items;
-    }
+    var q = this.searchQuery;
+    if(q.trim() == '') { return this.items; }
     return this.items.filter((v) =&gt; {
-      if(v.title.toLowerCase().indexOf(q.toLowerCase()) &gt;= 0) {
+      if(v.toLowerCase().indexOf(q.toLowerCase()) &gt;= 0) {
         return true;
       }
       return false;

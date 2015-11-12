@@ -981,7 +981,7 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 <h2 id="range" class="section-header">Range</h2>
 *Coming soon.*
 
-<h2 id="search">Search</h2>
+<h2 id="search" class="section-header">Search</h2>
 
 A search bar takes a value and binds it to a control in your form.
 

@@ -21,7 +21,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -37,7 +37,7 @@ var ClearPage = function ClearPage() {
 };
 exports.ClearPage = ClearPage;
 exports.ClearPage = ClearPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/clear.html',
+    templateUrl: 'buttons/clear/clear.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

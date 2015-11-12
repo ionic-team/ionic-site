@@ -27,7 +27,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -39,7 +39,7 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var NavigationDetailsPage = function NavigationDetailsPage(nav, params, events) {
+var NavigationDetailsPage = function NavigationDetailsPage(nav, params) {
     _classCallCheck(this, NavigationDetailsPage);
 
     this.nav = nav;
@@ -64,7 +64,7 @@ NavigationDetailsPage = __decorate([(0, _ionicIonic.Page)({
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Events !== 'undefined' && _ionicIonic.Events) === 'function' && _c || Object])], NavigationDetailsPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _b || Object])], NavigationDetailsPage);
 var BasicPage = (function () {
     function BasicPage(nav) {
         _classCallCheck(this, BasicPage);
@@ -87,5 +87,5 @@ exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _d || Object])], BasicPage);
-var _a, _b, _c, _d;
+}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object])], BasicPage);
+var _a, _b, _c;

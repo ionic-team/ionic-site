@@ -584,7 +584,7 @@ class IonicApp {
 }
 ```
 
-<h3 id="segment">Segment</h3>
+<h3 class="section-nav" id="segment">Segment</h3>
 
 Use the segment to control to use radio selections.
 

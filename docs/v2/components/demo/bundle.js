@@ -49,7 +49,7 @@
 	__webpack_require__(18);
 	__webpack_require__(41);
 	__webpack_require__(42);
-	module.exports = __webpack_require__(42);
+	module.exports = __webpack_require__(517);
 
 
 /***/ },
@@ -9413,21 +9413,9 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(43);
-
-	var _menusMenus = __webpack_require__(518);
-
-	var _actionSheetsActionSheets = __webpack_require__(521);
-
-	var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
-
-	var _helpers = __webpack_require__(520);
-
-	var helpers = _interopRequireWildcard(_helpers);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -9438,7 +9426,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -9450,63 +9438,48 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var DemoApp = (function () {
-	    function DemoApp(app, platform) {
-	        var _this = this;
+	var IonicApp = (function () {
+	    function IonicApp(actionSheet) {
+	        _classCallCheck(this, IonicApp);
 
-	        _classCallCheck(this, DemoApp);
-
-	        this.app = app;
-	        this.platform = platform;
-	        this.androidAttribute = helpers.AndroidAttribute;
-	        this.pages = [{ title: 'Home', component: _menusMenus.PageOne }, { title: 'Friends', component: _menusMenus.PageTwo }, { title: 'Events', component: _menusMenus.PageThree }];
-	        this.platform.ready().then(function () {
-	            window.addEventListener('message', function (e) {
-	                zone.run(function () {
-	                    if (e.data) {
-	                        var data = JSON.parse(e.data);
-	                        if (data.hash) {
-	                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
-	                            _this.app.getComponent('leftMenu').enable(false);
-	                            if (data.hash === 'menus') {
-	                                _this.app.getComponent('leftMenu').enable(true);
-	                            }
-	                        } else {
-	                            _this.nextPage = actionSheets.BasicPage;
-	                        }
-	                        var nav = _this.app.getComponent('nav');
-	                        nav.setRoot(_this.nextPage);
-	                    }
-	                });
-	            });
-	            window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
-	            if (helpers.hasScrollbar() === true) {
-	                setTimeout(function () {
-	                    var body = document.getElementsByTagName('body')[0];
-	                    body.className = body.className + ' has-scrollbar';
-	                }, 500);
-	            }
-	        });
+	        this.actionSheet = actionSheet;
 	    }
 
-	    _createClass(DemoApp, [{
-	        key: "openPage",
-	        value: function openPage(page) {
-	            // close the menu when clicking a link from the menu
-	            this.app.getComponent('leftMenu').close();
-	            // Reset the content nav to have just this page
-	            // we wouldn't want the back button to show in this scenario
-	            var nav = this.app.getComponent('nav');
-	            nav.setRoot(page.component);
+	    _createClass(IonicApp, [{
+	        key: "openMenu",
+	        value: function openMenu() {
+	            var _this = this;
+
+	            this.actionSheet.open({
+	                buttons: [{ text: 'Share This' }, { text: 'Move' }],
+	                destructiveText: 'Delete',
+	                titleText: 'Modify your album',
+	                cancelText: 'Cancel',
+	                cancel: function cancel() {
+	                    console.log('Canceled');
+	                },
+	                destructiveButtonClicked: function destructiveButtonClicked() {
+	                    console.log('Destructive clicked');
+	                },
+	                buttonClicked: function buttonClicked(index) {
+	                    console.log('Button clicked', index);
+	                    if (index == 1) {
+	                        return false;
+	                    }
+	                    return true;
+	                }
+	            }).then(function (actionSheetRef) {
+	                _this.actionSheetRef = actionSheetRef;
+	            });
 	        }
 	    }]);
 
-	    return DemoApp;
+	    return IonicApp;
 	})();
-	DemoApp = __decorate([(0, _ionicIonic.App)({
-	    templateUrl: 'app.html'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
-	var _a, _b;
+	IonicApp = __decorate([(0, _ionicIonic.App)({
+	    templateUrl: 'main.html'
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object])], IonicApp);
+	var _a;
 
 /***/ },
 /* 43 */
@@ -9538,7 +9511,11 @@
 
 	_defaults(exports, _interopExportWildcard(_configDecorators, _defaults));
 
-	var _components = __webpack_require__(492);
+	var _configDirectives = __webpack_require__(447);
+
+	_defaults(exports, _interopExportWildcard(_configDirectives, _defaults));
+
+	var _components = __webpack_require__(491);
 
 	_defaults(exports, _interopExportWildcard(_components, _defaults));
 
@@ -9546,15 +9523,15 @@
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
-	var _platformRegistry = __webpack_require__(494);
+	var _platformRegistry = __webpack_require__(493);
 
 	_defaults(exports, _interopExportWildcard(_platformRegistry, _defaults));
 
-	var _platformPlugins = __webpack_require__(495);
+	var _platformPlugins = __webpack_require__(494);
 
 	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
 
-	var _platformStorage = __webpack_require__(510);
+	var _platformStorage = __webpack_require__(509);
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
@@ -9570,7 +9547,7 @@
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
-	var _animationsBuiltins = __webpack_require__(514);
+	var _animationsBuiltins = __webpack_require__(513);
 
 	_defaults(exports, _interopExportWildcard(_animationsBuiltins, _defaults));
 
@@ -9578,11 +9555,11 @@
 
 	_defaults(exports, _interopExportWildcard(_transitionsTransition, _defaults));
 
-	var _transitionsIosTransition = __webpack_require__(515);
+	var _transitionsIosTransition = __webpack_require__(514);
 
 	_defaults(exports, _interopExportWildcard(_transitionsIosTransition, _defaults));
 
-	var _transitionsMdTransition = __webpack_require__(516);
+	var _transitionsMdTransition = __webpack_require__(515);
 
 	_defaults(exports, _interopExportWildcard(_transitionsMdTransition, _defaults));
 
@@ -9592,7 +9569,7 @@
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
-	var _translationTranslate_pipe = __webpack_require__(517);
+	var _translationTranslate_pipe = __webpack_require__(516);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate_pipe, _defaults));
 
@@ -9647,9 +9624,11 @@
 
 	var dom = _interopRequireWildcard(_utilDom);
 
-	function ionicProviders(config) {
+	function ionicProviders(args) {
 	    var app = new _componentsAppApp.IonicApp();
 	    var platform = new _platformPlatform.Platform();
+	    var navRegistry = new _componentsNavNavRegistry.NavRegistry(args.pages);
+	    var config = args.config;
 	    if (!(config instanceof _config.Config)) {
 	        config = new _config.Config(config);
 	    }
@@ -9665,7 +9644,7 @@
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
-	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _componentsNavNavRegistry.NavRegistry, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
+	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), (0, _angular2Angular2.provide)(_componentsNavNavRegistry.NavRegistry, { useValue: navRegistry }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
 	}
 
 	function setupDom(window, document, config, platform, featureDetect) {
@@ -53987,8 +53966,56 @@
 	var _utilUtil = __webpack_require__(426);
 
 	/**
-	* TODO
-	*/
+	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	 *
+	 * ```ts
+	 * import {Config} from 'ionic/ionic';
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     backButtonText: 'Go Back',
+	 *     iconMode: 'ios',
+	 *     modalEnter: 'modal-slide-in',
+	 *     modalLeave: 'modal-slide-out',
+	 *     tabbarPlacement: 'bottom',
+	 *     viewTransition: 'ios',
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
+	 * ```ts
+	 * import {Config} from 'ionic/ionic';
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     'tabbarPlacement': 'bottom',
+	 *     platform: {
+	 *      ios: {
+	 *        'tabbarPlacement': 'top',
+	 *      }
+	 *     }
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
+	 *
+	 * ```html
+	 * <ion-tabs tabbar-placement="top">
+	 *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="DashRoot"></ion-tab>
+	 *  </ion-tabs>
+	 * ```
+	 *
+	 * The property will override anything else set in the apps.
+	 *
+	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
+	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
+	 *
+	 * ```
+	 * http://localhost:8100/?IonictabbarPlacement=bottom
+	 * ```
+	**/
 
 	var Config = (function () {
 	    /**
@@ -54007,27 +54034,10 @@
 	     * For setting and getting multiple config values
 	     */
 	    /**
-	    * @name settings()
-	    * @description
-	    * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
-	    *
-	    *
-	    * @usage
-	    * ```ts
-	    * import {Config} from 'ionic/ionic';
-	    * @App({
-	    *   template: `<ion-nav [root]="root"></ion-nav>`
-	    *   config: {
-	    *     backButtonText: 'Go Back',
-	    *     iconMode: 'ios',
-	    *     modalEnter: 'modal-slide-in',
-	    *     modalLeave: 'modal-slide-out',
-	    *     tabbarPlacement: 'bottom',
-	    *     viewTransition: 'ios',
-	    *   }
-	    * })
-	    * ```
-	    */
+	     * @private
+	     * @name settings()
+	     * @description
+	     */
 
 	    _createClass(Config, [{
 	        key: 'settings',
@@ -54052,7 +54062,12 @@
 	        }
 
 	        /**
-	         * For setting a single config values
+	        * For setting a single config values
+	        */
+	        /**
+	         * @private
+	         * @name set()
+	         * @description
 	         */
 	    }, {
 	        key: 'set',
@@ -54083,6 +54098,11 @@
 
 	        /**
 	         * For getting a single config values
+	         */
+	        /**
+	         * @private
+	         * @name get()
+	         * @description
 	         */
 	    }, {
 	        key: 'get',
@@ -54240,7 +54260,9 @@
 	    // **********************************************
 	    /**
 	     * @param {string} platformName
-	     * @returns {bool}
+	     * @returns {bool} returns true/false based on platform you place
+	     * @description
+	     * Depending on the platform name, isPlatform will return true or flase
 	     *
 	     * ```
 	     * import {Platform} 'ionic/ionic';
@@ -54290,21 +54312,23 @@
 	        }
 
 	        /**
-	         * TODO
-	         * @param {string} platformName
-	         * @returns {object}
+	         * @param {string} optional platformName
+	         * @returns {object} An object with various platform info
+	         * - `{object=} `cordova`
+	         * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
+	         * - `{object=} `deviceName` Returns the name of the device
+	         * - `{object=}` `device platform` R
 	         * @description
-	         * Returns an object containing the os version
+	         * Returns an object conta
 	         *
 	         * ```
 	         * import {Platform} 'ionic/ionic';
 	         * export MyClass {
 	         *    constructor(platform: Platform){
 	         *      this.platform = platform;
-	         *      console.log(this.platform.versions('android'));
-	         *      // Returns an object with the os version as a string,
-	         *      // The Major version as a string
-	         *      // The Minor version as a string
+	         *      console.log(this.platform.versions());
+	         *      // or pass in a platform name
+	         *      console.log(this.platform.versions('ios'));
 	         *    }
 	         * }
 	         * ```
@@ -54322,7 +54346,6 @@
 	        }
 
 	        /**
-	         * TODO
 	         * @returns {promise}
 	         * @description
 	         * Returns a promise when the platform is ready and native functionality can be called
@@ -55361,22 +55384,34 @@
 	    var dimensions = dimensionCache[ion._dimId];
 	    if (!dimensions) {
 	        var ele = ion.getNativeElement();
-	        dimensions = dimensionCache[ion._dimId] = {
-	            width: ele.offsetWidth,
-	            height: ele.offsetHeight,
-	            left: ele.offsetLeft,
-	            top: ele.offsetTop
-	        };
+	        // make sure we got good values before caching
+	        if (ele.offsetWidth && ele.offsetHeight) {
+	            dimensions = dimensionCache[ion._dimId] = {
+	                width: ele.offsetWidth,
+	                height: ele.offsetHeight,
+	                left: ele.offsetLeft,
+	                top: ele.offsetTop
+	            };
+	        } else {
+	            // do not cache bad values
+	            return { width: 0, height: 0, left: 0, top: 0 };
+	        }
 	    }
 	    return dimensions;
 	}
 
 	function windowDimensions() {
 	    if (!dimensionCache.win) {
-	        dimensionCache.win = {
-	            width: window.innerWidth,
-	            height: window.innerHeight
-	        };
+	        // make sure we got good values before caching
+	        if (window.innerWidth && window.innerHeight) {
+	            dimensionCache.win = {
+	                width: window.innerWidth,
+	                height: window.innerHeight
+	            };
+	        } else {
+	            // do not cache bad values
+	            return { width: 0, height: 0 };
+	        }
 	    }
 	    return dimensionCache.win;
 	}
@@ -55483,7 +55518,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -55550,6 +55585,9 @@
 	                        animation.duration(0);
 	                    }
 	                    animation.before.addClass(overlayType);
+	                    if (overlayType == 'modal') {
+	                        animation.before.addClass('show-page');
+	                    }
 	                    _this.app.setEnabled(false, animation.duration());
 	                    _this.app.setTransitioning(true, animation.duration());
 	                    _this.zone.runOutsideAngular(function () {
@@ -55690,7 +55728,7 @@
 
 	        this.reset();
 	        this._opts = (0, _utilUtil.extend)({
-	            renderDelay: 36
+	            renderDelay: 16
 	        }, opts);
 	        this.elements(ele);
 	        if (!document.documentElement.animate) {
@@ -55756,10 +55794,10 @@
 	    }, {
 	        key: 'add',
 	        value: function add(childAnimations) {
-	            childAnimations = Array.isArray(childAnimations) ? childAnimations : arguments;
-	            for (var i = 0; i < childAnimations.length; i++) {
-	                childAnimations[i].parent(this);
-	                this._chld.push(childAnimations[i]);
+	            var _childAnimations = Array.isArray(childAnimations) ? childAnimations : arguments;
+	            for (var i = 0; i < _childAnimations.length; i++) {
+	                _childAnimations[i].parent(this);
+	                this._chld.push(_childAnimations[i]);
 	            }
 	            return this;
 	        }
@@ -55844,12 +55882,12 @@
 	    }, {
 	        key: 'fadeIn',
 	        value: function fadeIn() {
-	            return this.fromTo('opacity', 0.01, 1);
+	            return this.fromTo('opacity', 0.001, 1);
 	        }
 	    }, {
 	        key: 'fadeOut',
 	        value: function fadeOut() {
-	            return this.fromTo('opacity', 1, 0);
+	            return this.fromTo('opacity', 0.999, 0);
 	        }
 	    }, {
 	        key: 'play',
@@ -55890,7 +55928,7 @@
 	                        resolve = res;
 	                    });
 
-	                    if (self._duration > 32) {
+	                    if (self._duration > 16) {
 	                        // begin each animation when everything is rendered in their starting point
 	                        // give the browser some time to render everything in place before starting
 	                        setTimeout(kickoff, _this._opts.renderDelay);
@@ -56232,7 +56270,7 @@
 
 	    _createClass(Animate, [{
 	        key: 'play',
-	        value: function play(callback) {
+	        value: function play(done) {
 	            var self = this;
 	            if (self.ani) {
 	                self.ani.play();
@@ -56251,9 +56289,11 @@
 	                // lock in where the element will stop at
 	                // if the playbackRate is negative then it needs to return
 	                // to its "from" effects
-	                inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
-	                self.ani = null;
-	                callback && callback();
+	                if (self.ani) {
+	                    inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
+	                    self.ani = self.ani.onfinish = null;
+	                    done && done();
+	                }
 	            };
 	        }
 	    }, {
@@ -56567,7 +56607,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -56718,7 +56758,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -56861,7 +56901,7 @@
 	    value: true
 	});
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -56932,7 +56972,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -57144,7 +57184,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -57246,7 +57286,7 @@
 	    value: true
 	});
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -57299,7 +57339,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -57431,7 +57471,7 @@
 	    value: true
 	});
 
-	var _get = function get(_x4, _x5, _x6) { var _again = true; _function: while (_again) { var object = _x4, property = _x5, receiver = _x6; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x4 = parent; _x5 = property; _x6 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x4, _x5, _x6) { var _again = true; _function: while (_again) { var object = _x4, property = _x5, receiver = _x6; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x4 = parent; _x5 = property; _x6 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -57517,7 +57557,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -57915,7 +57955,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -58013,7 +58053,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -58218,7 +58258,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -58374,7 +58414,7 @@
 	var disableNativeClickTime = 0;
 	var disableNativeClickLimit = 1000;
 	var activator = null;
-	var isEnabled = false;
+	var isTapPolyfill = false;
 	var app = null;
 	var config = null;
 	var win = null;
@@ -58386,11 +58426,13 @@
 	    app = appInstance;
 	    config = configInstance;
 	    activator = config.get('mdRipple') ? new _ripple.RippleActivator(app, config) : new _activator.Activator(app, config);
-	    isEnabled = config.get('tapPolyfill') !== false;
+	    isTapPolyfill = config.get('tapPolyfill') === true;
 	    addListener('click', click, true);
-	    addListener('touchstart', touchStart);
-	    addListener('touchend', touchEnd);
-	    addListener('touchcancel', touchCancel);
+	    if (isTapPolyfill) {
+	        addListener('touchstart', touchStart);
+	        addListener('touchend', touchEnd);
+	        addListener('touchcancel', touchCancel);
+	    }
 	    addListener('mousedown', mouseDown, true);
 	    addListener('mouseup', mouseUp, true);
 	}
@@ -58401,7 +58443,7 @@
 	}
 	function touchEnd(ev) {
 	    touchAction();
-	    if (isEnabled && startCoord && app.isEnabled()) {
+	    if (startCoord && app.isEnabled()) {
 	        var endCoord = (0, _utilDom.pointerCoord)(ev);
 	        if (!(0, _utilDom.hasPointerMoved)(pointerTolerance, startCoord, endCoord)) {
 	            console.debug('create click from touch');
@@ -58453,8 +58495,8 @@
 	    }
 	}
 	function pointerEnd(ev) {
-	    activator.upAction();
 	    moveListeners(false);
+	    activator.upAction();
 	}
 	function pointerMove(ev) {
 	    var moveCoord = (0, _utilDom.pointerCoord)(ev);
@@ -58469,15 +58511,21 @@
 	    setDisableNativeClick();
 	}
 	function moveListeners(shouldAdd) {
-	    removeListener('touchmove', pointerMove);
+	    if (isTapPolyfill) {
+	        removeListener('touchmove', pointerMove);
+	    }
 	    removeListener('mousemove', pointerMove);
 	    if (shouldAdd) {
-	        addListener('touchmove', pointerMove);
+	        if (isTapPolyfill) {
+	            addListener('touchmove', pointerMove);
+	        }
 	        addListener('mousemove', pointerMove);
 	    }
 	}
 	function setDisableNativeClick() {
-	    disableNativeClickTime = Date.now() + disableNativeClickLimit;
+	    if (isTapPolyfill) {
+	        disableNativeClickTime = Date.now() + disableNativeClickLimit;
+	    }
 	}
 	function isDisabledNativeClick() {
 	    return disableNativeClickTime > Date.now();
@@ -58493,6 +58541,8 @@
 	        console.debug('click prevent', preventReason);
 	        ev.preventDefault();
 	        ev.stopPropagation();
+	    } else {
+	        activator.upAction();
 	    }
 	}
 	function getActivatableTarget(ele) {
@@ -58650,7 +58700,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -58718,13 +58768,15 @@
 	            var _this2 = this;
 
 	            this.deactivate();
-	            var ripple = undefined;
-	            for (var rippleId in this.ripples) {
+	            var rippleId = undefined,
+	                ripple = undefined;
+	            for (rippleId in this.ripples) {
 	                ripple = this.ripples[rippleId];
 	                if (!ripple.fade || forceFadeOut) {
 	                    // ripple has not been let up yet
-	                    // speed up the rate if the animation is still going
-	                    setTimeout(function () {
+	                    clearTimeout(ripple.fadeStart);
+	                    ripple.fadeStart = setTimeout(function () {
+	                        // speed up the rate if the animation is still going
 	                        ripple.expand && ripple.expand.playbackRate(EXPAND_OUT_PLAYBACK_RATE);
 	                        ripple.fade = new _animationsAnimation.Animation(ripple.ele);
 	                        ripple.fade.fadeOut().duration(OPACITY_OUT_DURATION).playbackRate(1).onFinish(function () {
@@ -58733,7 +58785,7 @@
 	                            ripple.faded = true;
 	                            _this2.next();
 	                        }).play();
-	                    }, 16);
+	                    });
 	                }
 	            }
 	            this.next();
@@ -58743,21 +58795,17 @@
 	        value: function next(forceComplete) {
 	            var _this3 = this;
 
-	            var ripple = undefined,
-	                rippleEle = undefined;
-
-	            var _loop = function (rippleId) {
-	                ripple = _this3.ripples[rippleId];
-	                if (ripple.expanded && ripple.faded && ripple.ele || forceComplete || parseInt(rippleId) + 5000 < Date.now()) {
+	            var rippleId = undefined,
+	                ripple = undefined;
+	            for (rippleId in this.ripples) {
+	                ripple = this.ripples[rippleId];
+	                if (ripple.expanded && ripple.faded && ripple.ele || forceComplete) {
 	                    // finished expanding and the user has lifted the pointer
+	                    ripple.remove = true;
 	                    (0, _utilDom.raf)(function () {
-	                        _this3.remove(rippleId);
+	                        _this3.remove();
 	                    });
 	                }
-	            };
-
-	            for (var rippleId in this.ripples) {
-	                _loop(rippleId);
 	            }
 	        }
 	    }, {
@@ -58768,14 +58816,18 @@
 	        }
 	    }, {
 	        key: 'remove',
-	        value: function remove(rippleId) {
-	            var ripple = this.ripples[rippleId];
-	            if (ripple) {
-	                ripple.expand && ripple.expand.dispose();
-	                ripple.fade && ripple.fade.dispose();
-	                (0, _utilDom.removeElement)(ripple.ele);
-	                ripple.ele = ripple.expand = ripple.fade = null;
-	                delete this.ripples[rippleId];
+	        value: function remove() {
+	            var rippleId = undefined,
+	                ripple = undefined;
+	            for (rippleId in this.ripples) {
+	                ripple = this.ripples[rippleId];
+	                if (ripple.remove || parseInt(rippleId, 10) + 4000 < Date.now()) {
+	                    ripple.expand && ripple.expand.dispose();
+	                    ripple.fade && ripple.fade.dispose();
+	                    (0, _utilDom.removeElement)(ripple.ele);
+	                    ripple.ele = ripple.expand = ripple.fade = null;
+	                    delete this.ripples[rippleId];
+	                }
 	            }
 	        }
 	    }]);
@@ -58968,8 +59020,7 @@
 	    return function (cls) {
 	        // get current annotations
 	        var annotations = Reflect.getMetadata('annotations', cls) || [];
-	        // default to select <ion-app>
-	        args.selector = args.selector || 'ion-app';
+	        args.selector = 'ion-app';
 	        // auto add Ionic directives
 	        args.directives = args.directives ? args.directives.concat(_directives.IONIC_DIRECTIVES) : _directives.IONIC_DIRECTIVES;
 	        // if no template was provided, default so it has a root <ion-nav>
@@ -58980,7 +59031,10 @@
 	        annotations.push(new _angular2Angular2.Component(args));
 	        // redefine with added annotations
 	        Reflect.defineMetadata('annotations', annotations, cls);
-	        (0, _angular2Angular2.bootstrap)(cls, (0, _bootstrap.ionicProviders)(args.config));
+	        console.time('bootstrap');
+	        (0, _angular2Angular2.bootstrap)(cls, (0, _bootstrap.ionicProviders)(args)).then(function () {
+	            console.timeEnd('bootstrap');
+	        });
 	        return cls;
 	    };
 	}
@@ -59011,13 +59065,13 @@
 
 	var _componentsContentContent = __webpack_require__(466);
 
-	var _componentsScrollScroll = __webpack_require__(469);
+	var _componentsScrollScroll = __webpack_require__(468);
 
-	var _componentsScrollPullToRefresh = __webpack_require__(470);
+	var _componentsScrollPullToRefresh = __webpack_require__(469);
 
-	var _componentsSlidesSlides = __webpack_require__(471);
+	var _componentsSlidesSlides = __webpack_require__(470);
 
-	var _componentsTabsTabs = __webpack_require__(473);
+	var _componentsTabsTabs = __webpack_require__(472);
 
 	var _componentsTabsTab = __webpack_require__(474);
 
@@ -59055,9 +59109,9 @@
 
 	var _componentsNavbarNavbar = __webpack_require__(462);
 
-	var _componentsAppId = __webpack_require__(490);
+	var _componentsAppId = __webpack_require__(473);
 
-	var _componentsShowHideWhenShowHideWhen = __webpack_require__(491);
+	var _componentsShowHideWhenShowHideWhen = __webpack_require__(490);
 
 	/**
 	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
@@ -59079,7 +59133,7 @@
 	// Media
 	_componentsIconIcon.Icon,
 	// Forms
-	_componentsSearchbarSearchbar.SearchBar, _componentsSegmentSegment.Segment, _componentsSegmentSegment.SegmentButton, _componentsSegmentSegment.SegmentControlValueAccessor, _componentsCheckboxCheckbox.Checkbox, _componentsRadioRadio.RadioGroup, _componentsRadioRadio.RadioButton, _componentsSwitchSwitch.Switch, _componentsTextInputTextInput.TextInput, _componentsTextInputTextInput.TextInputElement, _componentsTextInputLabel.Label,
+	_componentsSearchbarSearchbar.SearchBar, _componentsSegmentSegment.Segment, _componentsSegmentSegment.SegmentButton, _componentsCheckboxCheckbox.Checkbox, _componentsRadioRadio.RadioGroup, _componentsRadioRadio.RadioButton, _componentsSwitchSwitch.Switch, _componentsTextInputTextInput.TextInput, _componentsTextInputTextInput.TextInputElement, _componentsTextInputLabel.Label,
 	// Nav
 	_componentsNavNav.Nav, _componentsNavbarNavbar.NavbarTemplate, _componentsNavbarNavbar.Navbar, _componentsNavNavPush.NavPush, _componentsNavNavPush.NavPop, _componentsNavNavRouter.NavRouter, _componentsAppId.IdRef, _componentsShowHideWhenShowHideWhen.ShowWhen, _componentsShowHideWhenShowHideWhen.HideWhen];
 	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
@@ -59111,7 +59165,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -59164,7 +59218,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
@@ -59234,7 +59288,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -59674,7 +59728,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -59826,7 +59880,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -59909,7 +59963,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -60035,7 +60089,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -62347,7 +62401,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -62375,7 +62429,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -62771,7 +62825,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -63229,8 +63283,10 @@
 	                _this2._zone.runOutsideAngular(function () {
 	                    enteringView.shouldDestroy = false;
 	                    enteringView.shouldCache = false;
-	                    enteringView.willEnter();
-	                    leavingView.willLeave();
+	                    if (!opts.preload) {
+	                        enteringView.willEnter();
+	                        leavingView.willLeave();
+	                    }
 	                    // set that the new view pushed on the stack is staged to be entering/leaving
 	                    // staged state is important for the transition to find the correct view
 	                    enteringView.state = STAGED_ENTERING_STATE;
@@ -63256,8 +63312,10 @@
 	                        leavingView.state = CACHED_STATE;
 	                        // dispose any views that shouldn't stay around
 	                        transAnimation.dispose();
-	                        enteringView.didEnter();
-	                        leavingView.didLeave();
+	                        if (!opts.preload) {
+	                            enteringView.didEnter();
+	                            leavingView.didLeave();
+	                        }
 	                        // all done!
 	                        _this2._zone.run(function () {
 	                            _this2._transComplete();
@@ -63296,7 +63354,9 @@
 	            var _this3 = this;
 
 	            var providers = this.providers.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.provide)(_viewController.ViewController, { useValue: viewCtrl }), (0, _angular2Angular2.provide)(NavParams, { useValue: viewCtrl.params })]));
+	            console.time('loadPage ' + viewCtrl.componentType.name + ': loadIntoLocation');
 	            this._loader.loadIntoLocation(viewCtrl.componentType, this.elementRef, 'contents', providers).then(function (componentRef) {
+	                console.timeEnd('loadPage ' + viewCtrl.componentType.name + ': loadIntoLocation');
 	                viewCtrl.addDestroy(function () {
 	                    componentRef.dispose();
 	                });
@@ -63311,7 +63371,9 @@
 	                var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
 	                if (navbarContainerRef && navbarTemplateRef) {
 	                    (function () {
+	                        console.time('loadPage ' + viewCtrl.componentType.name + ': createEmbeddedView');
 	                        var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
+	                        console.timeEnd('loadPage ' + viewCtrl.componentType.name + ': createEmbeddedView');
 	                        viewCtrl.addDestroy(function () {
 	                            var index = navbarContainerRef.indexOf(navbarView);
 	                            if (index > -1) {
@@ -63960,7 +64022,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -64019,7 +64081,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -64050,7 +64112,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -64121,8 +64183,13 @@
 	        _classCallCheck(this, Navbar);
 
 	        _get(Object.getPrototypeOf(Navbar.prototype), "constructor", this).call(this, elementRef, config);
-	        renderer.setElementClass(elementRef, 'toolbar', true);
 	        this.app = app;
+	        this.renderer = renderer;
+	        renderer.setElementClass(elementRef, 'toolbar', true);
+	        var navbarStyle = config.get('navbarStyle');
+	        if (navbarStyle) {
+	            renderer.setElementAttribute(elementRef, navbarStyle, '');
+	        }
 	        viewCtrl && viewCtrl.setNavbar(this);
 	        this.bbIcon = config.get('backButtonIcon');
 	        this.bbDefault = config.get('backButtonText');
@@ -64131,9 +64198,13 @@
 	    _createClass(Navbar, [{
 	        key: "onInit",
 	        value: function onInit() {
+	            _get(Object.getPrototypeOf(Navbar.prototype), "onInit", this).call(this);
 	            var hideBackButton = this.hideBackButton;
 	            if (typeof hideBackButton === 'string') {
 	                this.hideBackButton = hideBackButton === '' || hideBackButton === 'true';
+	            }
+	            if (this.navbarStyle) {
+	                this.renderer.setElementAttribute(this.elementRef, this.navbarStyle, '');
 	            }
 	        }
 	    }, {
@@ -64177,7 +64248,7 @@
 	    host: {
 	        '[hidden]': '_hidden'
 	    },
-	    inputs: ['hideBackButton'],
+	    inputs: ['hideBackButton', 'navbarStyle'],
 	    directives: [BackButton, BackButtonText, _iconIcon.Icon]
 	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_d = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _d || Object, typeof (_e = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], Navbar);
 	/*
@@ -64211,7 +64282,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -64237,7 +64308,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -64388,7 +64459,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -64412,7 +64483,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -64476,7 +64547,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -64512,7 +64583,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -64531,10 +64602,6 @@
 	var _animationsAnimation = __webpack_require__(429);
 
 	var _animationsScrollTo = __webpack_require__(467);
-
-	var _utilFeatureDetect = __webpack_require__(441);
-
-	var _stickyPoly = __webpack_require__(468);
 
 	/**
 	 * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
@@ -64560,7 +64627,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -64584,11 +64651,10 @@
 	     * @param {Config} config  The config object to change content's default settings.
 	     */
 
-	    function Content(elementRef, config, keyboard, viewCtrl, featureDetect, _zone) {
+	    function Content(elementRef, config, keyboard, viewCtrl, _zone) {
 	        _classCallCheck(this, Content);
 
 	        _get(Object.getPrototypeOf(Content.prototype), "constructor", this).call(this, elementRef, config);
-	        this.featureDetect = featureDetect;
 	        this._zone = _zone;
 	        this.scrollPadding = 0;
 	        this.keyboard = keyboard;
@@ -64598,30 +64664,16 @@
 	        }
 	    }
 
-	    _createClass(Content, [{
-	        key: "getStickyPolyfill",
-	        value: function getStickyPolyfill() {
-	            return this._sticky;
-	        }
+	    /**
+	     * TODO
+	     * @private
+	     */
 
-	        /**
-	         * TODO
-	         * @private
-	         */
-	    }, {
+	    _createClass(Content, [{
 	        key: "onInit",
 	        value: function onInit() {
-	            var _this = this;
-
 	            _get(Object.getPrototypeOf(Content.prototype), "onInit", this).call(this);
 	            this.scrollElement = this.getNativeElement().children[0];
-	            if (!this.featureDetect.has('sticky')) {
-	                this._zone.runOutsideAngular(function () {
-	                    setTimeout(function () {
-	                        _this._sticky = (0, _stickyPoly.StickyPoly)(_this.scrollElement);
-	                    });
-	                });
-	            }
 	        }
 
 	        /**
@@ -64632,7 +64684,7 @@
 	    }, {
 	        key: "addScrollEventListener",
 	        value: function addScrollEventListener(handler) {
-	            var _this2 = this;
+	            var _this = this;
 
 	            if (!this.scrollElement) {
 	                return;
@@ -64641,7 +64693,7 @@
 	            this.scrollElement.removeEventListener('scroll', handler);
 	            this.scrollElement.addEventListener('scroll', handler);
 	            return function () {
-	                _this2.scrollElement.removeEventListener('scroll', handler);
+	                _this.scrollElement.removeEventListener('scroll', handler);
 	            };
 	        }
 
@@ -64653,7 +64705,7 @@
 	    }, {
 	        key: "addTouchMoveListener",
 	        value: function addTouchMoveListener(handler) {
-	            var _this3 = this;
+	            var _this2 = this;
 
 	            if (!this.scrollElement) {
 	                return;
@@ -64662,7 +64714,7 @@
 	            this.scrollElement.removeEventListener('touchmove', handler);
 	            this.scrollElement.addEventListener('touchmove', handler);
 	            return function () {
-	                _this3.scrollElement.removeEventListener('touchmove', handler);
+	                _this2.scrollElement.removeEventListener('touchmove', handler);
 	            };
 	        }
 
@@ -64739,7 +64791,7 @@
 	    }, {
 	        key: "addScrollPadding",
 	        value: function addScrollPadding(newScrollPadding) {
-	            var _this4 = this;
+	            var _this3 = this;
 
 	            if (newScrollPadding > this.scrollPadding) {
 	                console.debug('addScrollPadding', newScrollPadding);
@@ -64749,13 +64801,13 @@
 	                    console.debug('add scroll keyboard close callback', newScrollPadding);
 	                    this.keyboardPromise = this.keyboard.onClose(function () {
 	                        console.debug('scroll keyboard closed', newScrollPadding);
-	                        if (_this4) {
-	                            if (_this4.scrollPadding && _this4.scrollElement) {
-	                                var _close = new _animationsAnimation.Animation(_this4.scrollElement);
-	                                _close.duration(150).fromTo('paddingBottom', _this4.scrollPadding + 'px', '0px').play();
+	                        if (_this3) {
+	                            if (_this3.scrollPadding && _this3.scrollElement) {
+	                                var _close = new _animationsAnimation.Animation(_this3.scrollElement);
+	                                _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
 	                            }
-	                            _this4.scrollPadding = 0;
-	                            _this4.keyboardPromise = null;
+	                            _this3.scrollPadding = 0;
+	                            _this3.keyboardPromise = null;
 	                        }
 	                    });
 	                }
@@ -64769,8 +64821,8 @@
 	exports.Content = Content = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-content',
 	    template: '<scroll-content>' + '<ng-content></ng-content>' + '</scroll-content>'
-	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object, typeof (_e = typeof _utilFeatureDetect.FeatureDetect !== 'undefined' && _utilFeatureDetect.FeatureDetect) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _f || Object])], Content);
-	var _a, _b, _c, _d, _e, _f;
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _e || Object])], Content);
+	var _a, _b, _c, _d, _e;
 
 /***/ },
 /* 467 */
@@ -64885,408 +64937,6 @@
 
 /***/ },
 /* 468 */
-/***/ function(module, exports) {
-
-	/*!
-	 * Stickyfill -- `position: sticky` polyfill
-	 * v. 1.1.3 | https://github.com/wilddeer/stickyfill
-	 * Copyright Oleg Korsunsky | http://wd.dizaina.net/
-	 *
-	 * MIT License
-	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	exports.StickyPoly = StickyPoly;
-
-	function StickyPoly(target) {
-	    var watchArray = [],
-	        scroll,
-	        initialized = false,
-	        html = document.documentElement,
-	        noop = function noop() {},
-	        checkTimer,
-
-	    //visibility API strings
-	    hiddenPropertyName = 'hidden',
-	        visibilityChangeEventName = 'visibilitychange';
-	    //fallback to prefixed names in old webkit browsers
-	    if (document.webkitHidden !== undefined) {
-	        hiddenPropertyName = 'webkitHidden';
-	        visibilityChangeEventName = 'webkitvisibilitychange';
-	    }
-	    //test getComputedStyle
-	    if (!window.getComputedStyle) {
-	        seppuku();
-	    }
-	    //test for native support
-	    var prefixes = ['', '-webkit-', '-moz-', '-ms-'],
-	        block = document.createElement('div');
-	    for (var i = prefixes.length - 1; i >= 0; i--) {
-	        try {
-	            block.style.position = prefixes[i] + 'sticky';
-	        } catch (e) {}
-	        if (block.style.position != '') {
-	            seppuku();
-	        }
-	    }
-	    updateScrollPos();
-	    //commit seppuku!
-	    function seppuku() {
-	        init = add = rebuild = pause = stop = kill = noop;
-	    }
-	    function mergeObjects(targetObj, sourceObject) {
-	        for (var key in sourceObject) {
-	            if (sourceObject.hasOwnProperty(key)) {
-	                targetObj[key] = sourceObject[key];
-	            }
-	        }
-	    }
-	    function parseNumeric(val) {
-	        return parseFloat(val) || 0;
-	    }
-	    function updateScrollPos() {
-	        scroll = {
-	            top: target.scrollTop,
-	            left: target.scrollLeft };
-	    }
-	    function onScroll() {
-	        /*
-	        console.log(scroll.top);
-	          if (target.scrollLeft != scroll.left) {
-	              updateScrollPos();
-	              rebuild();
-	              return;
-	          }
-	               if (target.scrollTop != scroll.top) {
-	              updateScrollPos();
-	              recalcAllPos();
-	          }
-	          */
-	        updateScrollPos();
-	        recalcAllPos();
-	    }
-	    //fixes flickering
-	    function onWheel(event) {
-	        setTimeout(function () {
-	            if (target.scrollTop != scroll.top) {
-	                scroll.top = target.scrollTop;
-	                recalcAllPos();
-	            }
-	        }, 0);
-	    }
-	    function recalcAllPos() {
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            recalcElementPos(watchArray[i]);
-	        }
-	    }
-	    function recalcElementPos(el) {
-	        if (!el.inited) return;
-	        var currentMode = scroll.top <= el.limit.start ? 0 : scroll.top >= el.limit.end ? 2 : 1;
-	        if (el.mode != currentMode) {
-	            switchElementMode(el, currentMode);
-	        }
-	    }
-	    //checks whether stickies start or stop positions have changed
-	    function fastCheck() {
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            if (!watchArray[i].inited) continue;
-	            var deltaTop = Math.abs(getDocOffsetTop(watchArray[i].clone) - watchArray[i].docOffsetTop),
-	                deltaHeight = Math.abs(watchArray[i].parent.node.offsetHeight - watchArray[i].parent.height);
-	            if (deltaTop >= 2 || deltaHeight >= 2) return false;
-	        }
-	        return true;
-	    }
-	    function initElement(el) {
-	        if (isNaN(parseFloat(el.computed.top)) || el.isCell || el.computed.display == 'none') return;
-	        el.inited = true;
-	        if (!el.clone) clone(el);
-	        if (el.parent.computed.position != 'absolute' && el.parent.computed.position != 'relative') el.parent.node.style.position = 'relative';
-	        recalcElementPos(el);
-	        el.parent.height = el.parent.node.offsetHeight;
-	        el.docOffsetTop = getDocOffsetTop(el.clone);
-	    }
-	    function deinitElement(el) {
-	        var deinitParent = true;
-	        el.clone && killClone(el);
-	        mergeObjects(el.node.style, el.css);
-	        //check whether element's parent is used by other stickies
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            if (watchArray[i].node !== el.node && watchArray[i].parent.node === el.parent.node) {
-	                deinitParent = false;
-	                break;
-	            }
-	        }
-	        ;
-	        if (deinitParent) el.parent.node.style.position = el.parent.css.position;
-	        el.mode = -1;
-	    }
-	    function initAll() {
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            initElement(watchArray[i]);
-	        }
-	    }
-	    function deinitAll() {
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            deinitElement(watchArray[i]);
-	        }
-	    }
-	    function switchElementMode(el, mode) {
-	        var nodeStyle = el.node.style;
-	        switch (mode) {
-	            case 0:
-	                nodeStyle.position = 'absolute';
-	                nodeStyle.left = el.offset.left + 'px';
-	                nodeStyle.right = el.offset.right + 'px';
-	                nodeStyle.top = el.offset.top + 'px';
-	                nodeStyle.bottom = 'auto';
-	                nodeStyle.width = 'auto';
-	                nodeStyle.marginLeft = 0;
-	                nodeStyle.marginRight = 0;
-	                nodeStyle.marginTop = 0;
-	                break;
-	            case 1:
-	                nodeStyle.position = 'fixed';
-	                nodeStyle.left = el.box.left + 'px';
-	                nodeStyle.right = el.box.right + 'px';
-	                nodeStyle.top = el.css.top;
-	                nodeStyle.bottom = 'auto';
-	                nodeStyle.width = 'auto';
-	                nodeStyle.marginLeft = 0;
-	                nodeStyle.marginRight = 0;
-	                nodeStyle.marginTop = 0;
-	                break;
-	            case 2:
-	                nodeStyle.position = 'absolute';
-	                nodeStyle.left = el.offset.left + 'px';
-	                nodeStyle.right = el.offset.right + 'px';
-	                nodeStyle.top = 'auto';
-	                nodeStyle.bottom = 0;
-	                nodeStyle.width = 'auto';
-	                nodeStyle.marginLeft = 0;
-	                nodeStyle.marginRight = 0;
-	                break;
-	        }
-	        el.mode = mode;
-	    }
-	    function clone(el) {
-	        el.clone = document.createElement('div');
-	        var refElement = el.node.nextSibling || el.node,
-	            cloneStyle = el.clone.style;
-	        cloneStyle.height = el.height + 'px';
-	        cloneStyle.width = el.width + 'px';
-	        cloneStyle.marginTop = el.computed.marginTop;
-	        cloneStyle.marginBottom = el.computed.marginBottom;
-	        cloneStyle.marginLeft = el.computed.marginLeft;
-	        cloneStyle.marginRight = el.computed.marginRight;
-	        cloneStyle.padding = cloneStyle.border = cloneStyle.borderSpacing = 0;
-	        cloneStyle.fontSize = '1em';
-	        cloneStyle.position = 'static';
-	        cloneStyle.cssFloat = el.computed.cssFloat;
-	        el.node.parentNode.insertBefore(el.clone, refElement);
-	    }
-	    function killClone(el) {
-	        el.clone.parentNode.removeChild(el.clone);
-	        el.clone = undefined;
-	    }
-	    function getElementParams(node) {
-	        var computedStyle = getComputedStyle(node),
-	            parentNode = node.parentNode,
-	            parentComputedStyle = getComputedStyle(parentNode),
-	            cachedPosition = node.style.position;
-	        node.style.position = 'relative';
-	        var computed = {
-	            top: computedStyle.top,
-	            marginTop: computedStyle.marginTop,
-	            marginBottom: computedStyle.marginBottom,
-	            marginLeft: computedStyle.marginLeft,
-	            marginRight: computedStyle.marginRight,
-	            cssFloat: computedStyle.cssFloat,
-	            display: computedStyle.display
-	        },
-	            numeric = {
-	            top: parseNumeric(computedStyle.top),
-	            marginBottom: parseNumeric(computedStyle.marginBottom),
-	            paddingLeft: parseNumeric(computedStyle.paddingLeft),
-	            paddingRight: parseNumeric(computedStyle.paddingRight),
-	            borderLeftWidth: parseNumeric(computedStyle.borderLeftWidth),
-	            borderRightWidth: parseNumeric(computedStyle.borderRightWidth)
-	        };
-	        node.style.position = cachedPosition;
-	        var css = {
-	            position: node.style.position,
-	            top: node.style.top,
-	            bottom: node.style.bottom,
-	            left: node.style.left,
-	            right: node.style.right,
-	            width: node.style.width,
-	            marginTop: node.style.marginTop,
-	            marginLeft: node.style.marginLeft,
-	            marginRight: node.style.marginRight
-	        },
-	            nodeOffset = getElementOffset(node),
-	            parentOffset = getElementOffset(parentNode),
-	            parent = {
-	            node: parentNode,
-	            css: {
-	                position: parentNode.style.position
-	            },
-	            computed: {
-	                position: parentComputedStyle.position
-	            },
-	            numeric: {
-	                borderLeftWidth: parseNumeric(parentComputedStyle.borderLeftWidth),
-	                borderRightWidth: parseNumeric(parentComputedStyle.borderRightWidth),
-	                borderTopWidth: parseNumeric(parentComputedStyle.borderTopWidth),
-	                borderBottomWidth: parseNumeric(parentComputedStyle.borderBottomWidth)
-	            }
-	        },
-	            el = {
-	            node: node,
-	            box: {
-	                left: nodeOffset.win.left,
-	                right: html.clientWidth - nodeOffset.win.right
-	            },
-	            offset: {
-	                top: nodeOffset.win.top - parentOffset.win.top - parent.numeric.borderTopWidth,
-	                left: nodeOffset.win.left - parentOffset.win.left - parent.numeric.borderLeftWidth,
-	                right: -nodeOffset.win.right + parentOffset.win.right - parent.numeric.borderRightWidth
-	            },
-	            css: css,
-	            isCell: computedStyle.display == 'table-cell',
-	            computed: computed,
-	            numeric: numeric,
-	            width: nodeOffset.win.right - nodeOffset.win.left,
-	            height: nodeOffset.win.bottom - nodeOffset.win.top,
-	            mode: -1,
-	            inited: false,
-	            parent: parent,
-	            limit: {
-	                start: nodeOffset.doc.top - numeric.top,
-	                end: parentOffset.doc.top + parentNode.offsetHeight - parent.numeric.borderBottomWidth - node.offsetHeight - numeric.top - numeric.marginBottom
-	            }
-	        };
-	        return el;
-	    }
-	    function getDocOffsetTop(node) {
-	        var docOffsetTop = 0;
-	        while (node) {
-	            docOffsetTop += node.offsetTop;
-	            node = node.offsetParent;
-	        }
-	        return docOffsetTop;
-	    }
-	    function getElementOffset(node) {
-	        var box = node.getBoundingClientRect();
-	        return {
-	            doc: {
-	                top: box.top + target.scrollTop,
-	                left: box.left + target.scrollLeft },
-	            win: box
-	        };
-	    }
-	    function startFastCheckTimer() {
-	        checkTimer = setInterval(function () {
-	            !fastCheck() && rebuild();
-	        }, 500);
-	    }
-	    function stopFastCheckTimer() {
-	        clearInterval(checkTimer);
-	    }
-	    function handlePageVisibilityChange() {
-	        if (!initialized) return;
-	        if (document[hiddenPropertyName]) {
-	            stopFastCheckTimer();
-	        } else {
-	            startFastCheckTimer();
-	        }
-	    }
-	    function init() {
-	        if (initialized) return;
-	        // Store the left/top scroll positions
-	        updateScrollPos();
-	        // Initialize all elements added
-	        initAll();
-	        target.addEventListener('scroll', onScroll);
-	        target.addEventListener('wheel', onWheel);
-	        //watch for width changes
-	        target.addEventListener('resize', rebuild);
-	        target.addEventListener('orientationchange', rebuild);
-	        //watch for page visibility
-	        document.addEventListener(visibilityChangeEventName, handlePageVisibilityChange);
-	        // Start a timer to respond to changes in the layout/size
-	        startFastCheckTimer();
-	        initialized = true;
-	    }
-	    function rebuild() {
-	        if (!initialized) return;
-	        deinitAll();
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            watchArray[i] = getElementParams(watchArray[i].node);
-	        }
-	        initAll();
-	    }
-	    function pause() {
-	        target.removeEventListener('scroll', onScroll);
-	        target.removeEventListener('wheel', onWheel);
-	        target.removeEventListener('resize', rebuild);
-	        target.removeEventListener('orientationchange', rebuild);
-	        document.removeEventListener(visibilityChangeEventName, handlePageVisibilityChange);
-	        stopFastCheckTimer();
-	        initialized = false;
-	    }
-	    function stop() {
-	        pause();
-	        deinitAll();
-	    }
-	    function kill() {
-	        stop();
-	        //empty the array without loosing the references,
-	        //the most performant method according to http://jsperf.com/empty-javascript-array
-	        while (watchArray.length) {
-	            watchArray.pop();
-	        }
-	    }
-	    function add(node) {
-	        //check if Stickyfill is already applied to the node
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            if (watchArray[i].node === node) return;
-	        }
-	        ;
-	        var el = getElementParams(node);
-	        watchArray.push(el);
-	        if (!initialized) {
-	            init();
-	        } else {
-	            initElement(el);
-	        }
-	    }
-	    function remove(node) {
-	        for (var i = watchArray.length - 1; i >= 0; i--) {
-	            if (watchArray[i].node === node) {
-	                deinitElement(watchArray[i]);
-	                watchArray.splice(i, 1);
-	            }
-	        }
-	        ;
-	    }
-	    //expose Stickyfill
-	    return {
-	        stickies: watchArray,
-	        add: add,
-	        remove: remove,
-	        init: init,
-	        rebuild: rebuild,
-	        pause: pause,
-	        stop: stop,
-	        kill: kill
-	    };
-	}
-
-/***/ },
-/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65297,7 +64947,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -65322,7 +64972,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -65392,7 +65042,7 @@
 	var _a, _b;
 
 /***/ },
-/* 470 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65456,7 +65106,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -65847,7 +65497,7 @@
 	var _a, _b;
 
 /***/ },
-/* 471 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65858,7 +65508,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
@@ -65882,7 +65532,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(472);
+	var _swiperWidget = __webpack_require__(471);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -65908,7 +65558,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -66329,7 +65979,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 472 */
+/* 471 */
 /***/ function(module, exports) {
 
 	/**
@@ -66621,7 +66271,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 473 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66632,7 +66282,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -66643,6 +66293,8 @@
 	var _ion = __webpack_require__(450);
 
 	var _appApp = __webpack_require__(422);
+
+	var _appId = __webpack_require__(473);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -66711,7 +66363,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -66794,18 +66446,31 @@
 	            if (!selectedTab) {
 	                return Promise.reject();
 	            }
-	            console.debug('select tab', selectedTab.id);
+	            console.time('select tab ' + selectedTab.id);
 	            var deselectedTab = this.getSelected();
 	            if (selectedTab === deselectedTab) {
 	                // no change
 	                return this.touchActive(selectedTab);
 	            }
-	            selectedTab.load(function () {
-	                _this2.isReady && _this2.isReady();
+	            var opts = {
+	                animate: false
+	            };
+	            var deselectedPage = undefined;
+	            if (deselectedTab) {
+	                deselectedPage = deselectedTab.getActive();
+	                deselectedPage && deselectedPage.willLeave();
+	            }
+	            var selectedPage = selectedTab.getActive();
+	            selectedPage && selectedPage.willEnter();
+	            selectedTab.load(opts, function () {
 	                _this2.tabs.forEach(function (tab) {
 	                    tab.setSelected(tab === selectedTab);
 	                });
 	                _this2.highlight && _this2.highlight.select(selectedTab);
+	                selectedPage && selectedPage.didEnter();
+	                deselectedPage && deselectedPage.didLeave();
+	                _this2.isReady && _this2.isReady();
+	                console.timeEnd('select tab ' + selectedTab.id);
 	            });
 	        }
 
@@ -66840,16 +66505,32 @@
 
 	        /**
 	         * @private
-	         * "Touch" the active tab, either going back to the root view of the tab
-	         * or scrolling the tab to the top
+	         * "Touch" the active tab, going back to the root view of the tab
+	         * or optionally letting the tab handle the event
 	         */
 	    }, {
 	        key: "touchActive",
 	        value: function touchActive(tab) {
+	            var active = tab.getActive();
+	            if (!active) {
+	                return Promise.resolve();
+	            }
+	            var instance = active.instance;
+	            // If they have a custom tab selected handler, call it
+	            if (instance.tabSelected) {
+	                return instance.tabSelected();
+	            }
+	            // If we're a few pages deep, pop to root
 	            if (tab.length() > 1) {
 	                // Pop to the root view
 	                return tab.popToRoot();
 	            }
+	            // Otherwise, if the page we're on is not our real root, reset it to our
+	            // default root type
+	            if (tab.root != active.componentType) {
+	                return tab.setRoot(tab.root);
+	            }
+	            // And failing all of that, we do something safe and secure
 	            return Promise.resolve();
 	        }
 	    }]);
@@ -66862,10 +66543,11 @@
 	    defaultInputs: {
 	        'tabbarPlacement': 'bottom',
 	        'tabbarIcons': 'top',
+	        'tabbarStyle': 'default',
 	        'preloadTabs': true
 	    },
-	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
-	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, _angular2Angular2.NgIf, (0, _angular2Angular2.forwardRef)(function () {
+	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
+	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, _angular2Angular2.NgIf, _appId.Attr, (0, _angular2Angular2.forwardRef)(function () {
 	        return TabButton;
 	    }), (0, _angular2Angular2.forwardRef)(function () {
 	        return TabHighlight;
@@ -66937,19 +66619,15 @@
 	    _createClass(TabHighlight, [{
 	        key: "select",
 	        value: function select(tab) {
-	            var _this3 = this;
-
-	            setTimeout(function () {
-	                var d = tab.btn.getDimensions();
-	                var ele = _this3.elementRef.nativeElement;
-	                ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-	                if (!_this3.init) {
-	                    _this3.init = true;
-	                    setTimeout(function () {
-	                        ele.classList.add('animate');
-	                    }, 64);
-	                }
-	            }, 32);
+	            var d = tab.btn.getDimensions();
+	            var ele = this.elementRef.nativeElement;
+	            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+	            if (!this.init) {
+	                this.init = true;
+	                setTimeout(function () {
+	                    ele.classList.add('animate');
+	                }, 64);
+	            }
 	        }
 	    }]);
 
@@ -66970,6 +66648,124 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
+/* 473 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(45);
+
+	var _app = __webpack_require__(422);
+
+	/**
+	 * IdRef is an easy way to identify unique components in an app and access them
+	 * no matter where in the UI heirarchy you are. For example, this makes toggling
+	 * a global side menu feasible from any place in the application.
+	 *
+	 * See the [Menu section](http://localhost:4000/docs/v2/components/#menus) of
+	 * the Component docs for an example of how Menus rely on ID's.
+	 *
+	 * To give any component an ID, simply set its `id` property:
+	 * ```html
+	 * <ion-checkbox id="myCheckbox"></ion-checkbox>
+	 * ```
+	 *
+	 * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
+	 * service:
+	 * ```ts
+	 * constructor(app: IonicApp) {
+	 *   var checkbox = app.getComponent("myCheckbox");
+	 *   if (checkbox.checked) console.log('checkbox is checked');
+	 * }
+	 * ```
+	 *
+	 * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
+	 * guarantee that the registered component has not been destroyed if its Page
+	 * has been navigated away from.
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key), void 0;
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var IdRef = (function () {
+	    function IdRef(app, elementRef, appViewManager) {
+	        _classCallCheck(this, IdRef);
+
+	        this.app = app;
+	        this.elementRef = elementRef;
+	        this.appViewManager = appViewManager;
+	        // Grab the component this directive is attached to
+	        this.component = appViewManager.getComponent(elementRef);
+	    }
+
+	    _createClass(IdRef, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            this.app.register(this.id, this.component);
+	        }
+	    }, {
+	        key: "onDestroy",
+	        value: function onDestroy() {
+	            this.app.unregister(this.id);
+	        }
+	    }]);
+
+	    return IdRef;
+	})();
+	exports.IdRef = IdRef;
+	exports.IdRef = IdRef = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: '[id]',
+	    inputs: ['id']
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _app.IonicApp !== 'undefined' && _app.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _c || Object])], IdRef);
+	var Attr = (function () {
+	    function Attr(renderer, elementRef) {
+	        _classCallCheck(this, Attr);
+
+	        this.renderer = renderer;
+	        this.elementRef = elementRef;
+	    }
+
+	    _createClass(Attr, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            this.renderer.setElementAttribute(this.elementRef, this.attr, '');
+	        }
+	    }]);
+
+	    return Attr;
+	})();
+	exports.Attr = Attr;
+	exports.Attr = Attr = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: '[attr]',
+	    inputs: ['attr']
+	}), __metadata('design:paramtypes', [typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object])], Attr);
+	var _a, _b, _c, _d, _e;
+
+/***/ },
 /* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -66981,7 +66777,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -66995,7 +66791,7 @@
 
 	var _navNavController = __webpack_require__(459);
 
-	var _tabs = __webpack_require__(473);
+	var _tabs = __webpack_require__(472);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -67050,7 +66846,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -67083,25 +66879,26 @@
 	        value: function onInit() {
 	            var _this = this;
 
-	            console.debug('Tab onInit', this.index);
 	            if (this._isInitial) {
 	                this.tabs.select(this);
 	            } else if (this.tabs.preloadTabs) {
 	                setTimeout(function () {
-	                    _this.load(function () {
-	                        console.debug('preloaded tab', _this.index);
-	                        _this.hideNavbars(true);
-	                    });
-	                }, 500 * this.index);
+	                    if (!_this._loaded) {
+	                        var opts = {
+	                            animate: false,
+	                            preload: true
+	                        };
+	                        _this.load(opts, function () {
+	                            _this.hideNavbars(true);
+	                        });
+	                    }
+	                }, 1000 * this.index);
 	            }
 	        }
 	    }, {
 	        key: "load",
-	        value: function load(done) {
+	        value: function load(opts, done) {
 	            if (!this._loaded && this.root) {
-	                var opts = {
-	                    animate: false
-	                };
 	                this.push(this.root, null, opts).then(done);
 	                this._loaded = true;
 	            } else {
@@ -67175,7 +66972,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
@@ -67215,7 +67012,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -67482,7 +67279,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -67517,8 +67314,6 @@
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _angular2Angular2 = __webpack_require__(45);
@@ -67539,7 +67334,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -67570,36 +67365,20 @@
 	/**
 	 * TODO
 	 */
-	var ItemGroupTitle = (function () {
-	    /**
-	     * TODO
-	     * @param {ElementRef} elementRef  TODO
-	     */
+	var ItemGroupTitle =
+	/**
+	 * TODO
+	 * @param {ElementRef} elementRef  TODO
+	 */
+	function ItemGroupTitle(elementRef, zone, config, content) {
+	    _classCallCheck(this, ItemGroupTitle);
 
-	    function ItemGroupTitle(elementRef, config, content) {
-	        _classCallCheck(this, ItemGroupTitle);
-
-	        this.elementRef = elementRef;
-	        this.content = content;
-	        // make sure the sticky class gets set on the title
-	        this.isSticky = true;
-	    }
-
-	    _createClass(ItemGroupTitle, [{
-	        key: "onInit",
-	        value: function onInit() {
-	            var _this = this;
-
-	            setTimeout(function () {
-	                if (_this.content.getStickyPolyfill()) {
-	                    _this.content.getStickyPolyfill().add(_this.elementRef.nativeElement);
-	                }
-	            });
-	        }
-	    }]);
-
-	    return ItemGroupTitle;
-	})();
+	    this.elementRef = elementRef;
+	    this.zone = zone;
+	    this.content = content;
+	    // make sure the sticky class gets set on the title
+	    this.isSticky = true;
+	};
 	exports.ItemGroupTitle = ItemGroupTitle;
 	exports.ItemGroupTitle = ItemGroupTitle = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'ion-item-group-title',
@@ -67607,8 +67386,8 @@
 	        'class': 'item-group-title',
 	        '[class.sticky]': 'isSticky'
 	    }
-	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _d || Object])], ItemGroupTitle);
-	var _a, _b, _c, _d;
+	}), __metadata('design:paramtypes', [typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _contentContent.Content !== 'undefined' && _contentContent.Content) === 'function' && _e || Object])], ItemGroupTitle);
+	var _a, _b, _c, _d, _e;
 
 /***/ },
 /* 479 */
@@ -67620,7 +67399,7 @@
 	    value: true
 	});
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -67647,7 +67426,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -67978,7 +67757,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -68137,7 +67916,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -68408,7 +68187,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -68839,7 +68618,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -68936,7 +68715,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -68965,6 +68744,21 @@
 	 *     Enemies
 	 *   </ion-segment-button>
 	 * </ion-segment>
+	 *
+	 *
+	 * <form [ng-form-model]="myForm">
+	 *   <ion-segment ng-control="mapStyle" danger>
+	 *     <ion-segment-button value="standard">
+	 *       Standard
+	 *     </ion-segment-button>
+	 *     <ion-segment-button value="hybrid">
+	 *       Hybrid
+	 *     </ion-segment-button>
+	 *     <ion-segment-button value="sat">
+	 *       Satellite
+	 *     </ion-segment-button>
+	 *   </ion-segment>
+	 * </form>
 	 * ```
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -68976,7 +68770,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -69000,26 +68794,32 @@
 	     * @param {NgControl} ngControl  TODO
 	     * @param {ElementRef} elementRef  TODO
 	     * @param {Config} config  TODO
-	     * @param {Renderer} renderer  TODO
 	     */
 
-	    function Segment(ngControl, elementRef, config, renderer) {
+	    function Segment(ngControl, elementRef, config) {
 	        _classCallCheck(this, Segment);
 
 	        _get(Object.getPrototypeOf(Segment.prototype), "constructor", this).call(this, elementRef, config);
-	        this.ele = elementRef.nativeElement;
-	        this.elementRef = elementRef;
-	        this.renderer = renderer;
-	        this.change = new _angular2Angular2.EventEmitter('change');
-	        this.input = new _angular2Angular2.EventEmitter('input');
-	        this.ngControl = ngControl;
 	        this.buttons = [];
+	        this.onChange = function (_) {};
+	        this.onTouched = function (_) {};
+	        if (ngControl) ngControl.valueAccessor = this;
 	    }
 
 	    _createClass(Segment, [{
 	        key: "writeValue",
 	        value: function writeValue(value) {
-	            this.value = value;
+	            this.value = !value ? '' : value;
+	        }
+	    }, {
+	        key: "registerOnChange",
+	        value: function registerOnChange(fn) {
+	            this.onChange = fn;
+	        }
+	    }, {
+	        key: "registerOnTouched",
+	        value: function registerOnTouched(fn) {
+	            this.onTouched = fn;
 	        }
 
 	        /**
@@ -69062,91 +68862,21 @@
 	    }, {
 	        key: "selected",
 	        value: function selected(segmentButton) {
-	            var _this = this;
-
 	            this.buttons.forEach(function (button) {
 	                button.isActive = false;
 	            });
 	            segmentButton.isActive = true;
-	            if (!this.ngControl) {
-	                return;
-	            }
-	            setTimeout(function () {
-	                _this.writeValue(segmentButton.value);
-	                _this.ngControl.control.updateValue(segmentButton.value);
-	                // Trigger on change
-	                _this.change.next();
-	            });
+	            this.value = segmentButton.value;
+	            this.onChange(segmentButton.value);
 	        }
 	    }]);
 
 	    return Segment;
 	})(_ion.Ion);
 	exports.Segment = Segment;
-	exports.Segment = Segment = __decorate([(0, _angular2Angular2.Component)({
-	    selector: 'ion-segment',
-	    inputs: ['value'],
-	    template: '<ng-content></ng-content>',
-	    directives: [(0, _angular2Angular2.forwardRef)(function () {
-	        return SegmentButton;
-	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], Segment);
-	/**
-	 * TODO
-	 */
-	var SegmentControlValueAccessor = (function () {
-	    /**
-	     * TODO
-	     * @param {NgControl} ngControl  TODO
-	     * @param {Renderer} renderer  TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {Segment} segment  TODO
-	     */
-
-	    function SegmentControlValueAccessor(ngControl, renderer, elementRef, segment) {
-	        _classCallCheck(this, SegmentControlValueAccessor);
-
-	        this.onChange = function (_) {};
-	        this.onTouched = function (_) {};
-	        if (!ngControl) {
-	            return;
-	        }
-	        this.ngControl = ngControl;
-	        this.renderer = renderer;
-	        this.elementRef = elementRef;
-	        this.segment = segment;
-	        this.ngControl.valueAccessor = this;
-	    }
-
-	    _createClass(SegmentControlValueAccessor, [{
-	        key: "writeValue",
-	        value: function writeValue(value) {
-	            this.value = !value ? '' : value;
-	            this.segment.value = this.value;
-	        }
-	    }, {
-	        key: "registerOnChange",
-	        value: function registerOnChange(fn) {
-	            this.onChange = fn;
-	        }
-	    }, {
-	        key: "registerOnTouched",
-	        value: function registerOnTouched(fn) {
-	            this.onTouched = fn;
-	        }
-	    }]);
-
-	    return SegmentControlValueAccessor;
-	})();
-	exports.SegmentControlValueAccessor = SegmentControlValueAccessor;
-	exports.SegmentControlValueAccessor = SegmentControlValueAccessor = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'ion-segment',
-	    host: {
-	        '(change)': 'onChange($event.target.value)',
-	        '(input)': 'onChange($event.target.value)',
-	        '(blur)': 'onTouched()'
-	    }
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_e = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _g || Object, Segment])], SegmentControlValueAccessor);
+	exports.Segment = Segment = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'ion-segment'
+	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object])], Segment);
 	/**
 	 * TODO
 	 */
@@ -69187,8 +68917,8 @@
 	        '(click)': 'click($event)',
 	        '[class.activated]': 'isActive'
 	    }
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Segment, typeof (_h = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], SegmentButton);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Segment, typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _e || Object])], SegmentButton);
+	var _a, _b, _c, _d, _e;
 
 /***/ },
 /* 485 */
@@ -69202,7 +68932,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -69261,7 +68991,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -69533,7 +69263,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -69546,6 +69276,8 @@
 	var _configConfig = __webpack_require__(424);
 
 	var _configDecorators = __webpack_require__(446);
+
+	var _iconIcon = __webpack_require__(434);
 
 	/**
 	 * @name Search Bar
@@ -69566,7 +69298,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -69676,12 +69408,17 @@
 	        'cancelText': 'Cancel',
 	        'placeholder': 'Search',
 	        'cancelAction': function cancelAction(event, query) {
-	            // The cancel button now works on its own to blur the input
-	            console.log('Default Cancel');
+	            this.element = this.elementRef.nativeElement.querySelector('input');
+	            this.element.blur();
+	            this.clearInput();
 	        }
 	    },
-	    template: '<div class="searchbar-input-container" [class.left-align]="shouldLeftAlign">' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="searchbar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, query)" class="searchbar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
-	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass]
+	    host: {
+	        '[class.left-align]': 'shouldLeftAlign',
+	        '[class.focused]': 'isFocused'
+	    },
+	    template: '<div class="searchbar-input-container">' + '<button (click)="cancelAction($event, query)" clear dark class="searchbar-cancel-icon"><icon arrow-back></icon></button>' + '<div class="searchbar-search-icon"></div>' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="searchbar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, query)" class="searchbar-cancel">{{cancelText}}</button>',
+	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass, _iconIcon.Icon]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _d || Object])], SearchBar);
 	var _a, _b, _c, _d;
 	/*
@@ -69718,7 +69455,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -69835,7 +69572,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -69958,7 +69695,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -70072,7 +69809,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -70096,7 +69833,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -70226,103 +69963,7 @@
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(45);
-
-	var _app = __webpack_require__(422);
-
-	/**
-	 * IdRef is an easy way to identify unique components in an app and access them
-	 * no matter where in the UI heirarchy you are. For example, this makes toggling
-	 * a global side menu feasible from any place in the application.
-	 *
-	 * See the [Menu section](http://localhost:4000/docs/v2/components/#menus) of
-	 * the Component docs for an example of how Menus rely on ID's.
-	 *
-	 * To give any component an ID, simply set its `id` property:
-	 * ```html
-	 * <ion-checkbox id="myCheckbox"></ion-checkbox>
-	 * ```
-	 *
-	 * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
-	 * service:
-	 * ```ts
-	 * constructor(app: IonicApp) {
-	 *   var checkbox = app.getComponent("myCheckbox");
-	 *   if (checkbox.checked) console.log('checkbox is checked');
-	 * }
-	 * ```
-	 *
-	 * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
-	 * guarantee that the registered component has not been destroyed if its Page
-	 * has been navigated away from.
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var IdRef = (function () {
-	    function IdRef(app, elementRef, appViewManager) {
-	        _classCallCheck(this, IdRef);
-
-	        this.app = app;
-	        this.elementRef = elementRef;
-	        this.appViewManager = appViewManager;
-	        // Grab the component this directive is attached to
-	        this.component = appViewManager.getComponent(elementRef);
-	    }
-
-	    _createClass(IdRef, [{
-	        key: "onInit",
-	        value: function onInit() {
-	            this.app.register(this.id, this.component);
-	        }
-	    }, {
-	        key: "onDestroy",
-	        value: function onDestroy() {
-	            this.app.unregister(this.id);
-	        }
-	    }]);
-
-	    return IdRef;
-	})();
-	exports.IdRef = IdRef;
-	exports.IdRef = IdRef = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: '[id]',
-	    inputs: ['id']
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _app.IonicApp !== 'undefined' && _app.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _c || Object])], IdRef);
-	var _a, _b, _c;
-
-/***/ },
-/* 491 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -70343,7 +69984,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -70480,7 +70121,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 492 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70497,7 +70138,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppApp, _defaults));
 
-	var _ionicComponentsAppId = __webpack_require__(490);
+	var _ionicComponentsAppId = __webpack_require__(473);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppId, _defaults));
 
@@ -70541,7 +70182,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenu, _defaults));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(493);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(492);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuTypes, _defaults));
 
@@ -70565,7 +70206,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsListList, _defaults));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(491);
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(490);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
@@ -70605,7 +70246,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsPopupPopup, _defaults));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(471);
+	var _ionicComponentsSlidesSlides = __webpack_require__(470);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSlidesSlides, _defaults));
 
@@ -70613,11 +70254,11 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsRadioRadio, _defaults));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(469);
+	var _ionicComponentsScrollScroll = __webpack_require__(468);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollScroll, _defaults));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(470);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(469);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
@@ -70633,7 +70274,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSwitchSwitch, _defaults));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(473);
+	var _ionicComponentsTabsTabs = __webpack_require__(472);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTabs, _defaults));
 
@@ -70650,7 +70291,7 @@
 	_defaults(exports, _interopExportWildcard(_ionicComponentsToolbarToolbar, _defaults));
 
 /***/ },
-/* 493 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70659,7 +70300,7 @@
 	    value: true
 	});
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -70888,7 +70529,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 494 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70913,7 +70554,7 @@
 	    isMatch: function isMatch(p) {
 	        var smallest = Math.min(p.width(), p.height());
 	        var largest = Math.max(p.width(), p.height());
-	        return smallest > 390 && smallest < 520 && (largest > 620 && largest < 800);
+	        return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
 	    }
 	});
 	_platform.Platform.register({
@@ -70921,7 +70562,7 @@
 	    isMatch: function isMatch(p) {
 	        var smallest = Math.min(p.width(), p.height());
 	        var largest = Math.max(p.width(), p.height());
-	        return smallest > 460 && smallest < 820 && (largest > 780 && largest < 1400);
+	        return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
 	    }
 	});
 	_platform.Platform.register({
@@ -70951,10 +70592,13 @@
 	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
 	            );
 	        },
+	        tapPolyfill: function tapPolyfill(p) {
+	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+	            );
+	        },
 	        keyboardHeight: 290,
 	        hoverCSS: false,
 	        swipeBackEnabled: function swipeBackEnabled(p) {
-	            return true; // TODO: remove me! Force it to always work for iOS mode for now
 	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
 	            );
 	        },
@@ -71018,7 +70662,7 @@
 	});
 
 /***/ },
-/* 495 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71031,64 +70675,64 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	_defaults(exports, _interopExportWildcard(_plugin, _defaults));
 
-	var _applinksApplinks = __webpack_require__(497);
+	var _applinksApplinks = __webpack_require__(496);
 
 	_defaults(exports, _interopExportWildcard(_applinksApplinks, _defaults));
 
-	var _barcodeBarcode = __webpack_require__(498);
+	var _barcodeBarcode = __webpack_require__(497);
 
 	_defaults(exports, _interopExportWildcard(_barcodeBarcode, _defaults));
 
-	var _batteryBattery = __webpack_require__(499);
+	var _batteryBattery = __webpack_require__(498);
 
 	_defaults(exports, _interopExportWildcard(_batteryBattery, _defaults));
 
-	var _cameraCamera = __webpack_require__(500);
+	var _cameraCamera = __webpack_require__(499);
 
 	_defaults(exports, _interopExportWildcard(_cameraCamera, _defaults));
 
-	var _contactsContacts = __webpack_require__(501);
+	var _contactsContacts = __webpack_require__(500);
 
 	_defaults(exports, _interopExportWildcard(_contactsContacts, _defaults));
 
-	var _dialogsDialogs = __webpack_require__(502);
+	var _dialogsDialogs = __webpack_require__(501);
 
 	_defaults(exports, _interopExportWildcard(_dialogsDialogs, _defaults));
 
-	var _deviceDevice = __webpack_require__(503);
+	var _deviceDevice = __webpack_require__(502);
 
 	_defaults(exports, _interopExportWildcard(_deviceDevice, _defaults));
 
-	var _deviceMotionDeviceMotion = __webpack_require__(504);
+	var _deviceMotionDeviceMotion = __webpack_require__(503);
 
 	_defaults(exports, _interopExportWildcard(_deviceMotionDeviceMotion, _defaults));
 
-	var _deviceOrientationDeviceOrientation = __webpack_require__(505);
+	var _deviceOrientationDeviceOrientation = __webpack_require__(504);
 
 	_defaults(exports, _interopExportWildcard(_deviceOrientationDeviceOrientation, _defaults));
 
-	var _geolocationGeolocation = __webpack_require__(506);
+	var _geolocationGeolocation = __webpack_require__(505);
 
 	_defaults(exports, _interopExportWildcard(_geolocationGeolocation, _defaults));
 
-	var _keyboardKeyboard = __webpack_require__(507);
+	var _keyboardKeyboard = __webpack_require__(506);
 
 	_defaults(exports, _interopExportWildcard(_keyboardKeyboard, _defaults));
 
-	var _statusbarStatusbar = __webpack_require__(508);
+	var _statusbarStatusbar = __webpack_require__(507);
 
 	_defaults(exports, _interopExportWildcard(_statusbarStatusbar, _defaults));
 
-	var _vibrationVibration = __webpack_require__(509);
+	var _vibrationVibration = __webpack_require__(508);
 
 	_defaults(exports, _interopExportWildcard(_vibrationVibration, _defaults));
 
 /***/ },
-/* 496 */
+/* 495 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -71156,7 +70800,7 @@
 	}
 
 /***/ },
-/* 497 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71171,7 +70815,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Open installed apps on the device. Note: Android and iOS have different ways of
@@ -71202,7 +70846,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -71281,7 +70925,7 @@
 	}), __metadata('design:paramtypes', [])], AppLinks);
 
 /***/ },
-/* 498 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71294,7 +70938,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Scan barcodes and QR codes.
@@ -71325,7 +70969,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -71416,7 +71060,7 @@
 	}), __metadata('design:paramtypes', [])], Barcode);
 
 /***/ },
-/* 499 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71435,7 +71079,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Track battery status. Uses the HTMl5 Battery API if available or
@@ -71458,7 +71102,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -71531,7 +71175,7 @@
 	}), __metadata('design:paramtypes', [])], _Battery);
 
 /***/ },
-/* 500 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71550,7 +71194,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Take a photo or capture video.
@@ -71576,7 +71220,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -71731,7 +71375,7 @@
 	}), __metadata('design:paramtypes', [])], Camera);
 
 /***/ },
-/* 501 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71744,7 +71388,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Access and manage Contacts on the device.
@@ -71772,7 +71416,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -71914,7 +71558,7 @@
 	}), __metadata('design:paramtypes', [])], Contacts);
 
 /***/ },
-/* 502 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71927,7 +71571,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * A native dialogs system. Native dialogs can give you a bit more
@@ -71943,7 +71587,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72084,7 +71728,7 @@
 	}), __metadata('design:paramtypes', [])], Dialogs);
 
 /***/ },
-/* 503 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72097,7 +71741,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Access information about the underlying device and platform.
@@ -72117,7 +71761,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72272,7 +71916,7 @@
 	}), __metadata('design:paramtypes', [])], _Device);
 
 /***/ },
-/* 504 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -72294,7 +71938,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Respond to device movement in the x/y/z axes.
@@ -72320,7 +71964,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72440,7 +72084,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceMotion);
 
 /***/ },
-/* 505 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -72462,7 +72106,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Respond to device orientation changes (compass).
@@ -72486,7 +72130,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72591,7 +72235,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
 
 /***/ },
-/* 506 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
@@ -72607,7 +72251,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Get geolocation data.
@@ -72635,7 +72279,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72713,7 +72357,7 @@
 	}), __metadata('design:paramtypes', [])], Geolocation);
 
 /***/ },
-/* 507 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72726,7 +72370,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Manage the native keyboard. Note: this plugin performs mainly in the native
@@ -72750,7 +72394,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -72832,7 +72476,7 @@
 	}), __metadata('design:paramtypes', [])], Keyboard);
 
 /***/ },
-/* 508 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72845,7 +72489,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	 * Manage the appearance of the native status bar.
@@ -72866,7 +72510,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -73003,7 +72647,7 @@
 	}), __metadata('design:paramtypes', [])], _StatusBar);
 
 /***/ },
-/* 509 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73016,7 +72660,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(496);
+	var _plugin = __webpack_require__(495);
 
 	/**
 	* Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
@@ -73035,7 +72679,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -73081,7 +72725,7 @@
 	}), __metadata('design:paramtypes', [])], Vibration);
 
 /***/ },
-/* 510 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73094,20 +72738,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _storageStorage = __webpack_require__(511);
+	var _storageStorage = __webpack_require__(510);
 
 	_defaults(exports, _interopExportWildcard(_storageStorage, _defaults));
 
-	var _storageLocalStorage = __webpack_require__(512);
+	var _storageLocalStorage = __webpack_require__(511);
 
 	_defaults(exports, _interopExportWildcard(_storageLocalStorage, _defaults));
 
-	var _storageSql = __webpack_require__(513);
+	var _storageSql = __webpack_require__(512);
 
 	_defaults(exports, _interopExportWildcard(_storageSql, _defaults));
 
 /***/ },
-/* 511 */
+/* 510 */
 /***/ function(module, exports) {
 
 	/**
@@ -73206,7 +72850,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 512 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73217,13 +72861,13 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(511);
+	var _storage = __webpack_require__(510);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -73289,7 +72933,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 513 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73300,7 +72944,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -73308,7 +72952,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(511);
+	var _storage = __webpack_require__(510);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -73540,12 +73184,12 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 514 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -73614,12 +73258,12 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 515 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -73656,6 +73300,9 @@
 	        // do they have navbars?
 	        var enteringHasNavbar = enteringView.hasNavbar();
 	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+	        var enteringPage = new _animationsAnimation.Animation(enteringView.pageRef());
+	        enteringPage.before.addClass('show-page');
+	        this.add(enteringPage);
 	        // entering content
 	        var enteringContent = new _animationsAnimation.Animation(enteringView.contentRef());
 	        this.add(enteringContent);
@@ -73762,12 +73409,12 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 516 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -73800,6 +73447,7 @@
 	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
 	        // entering content item moves in bottom to center
 	        var enteringPage = new _animationsAnimation.Animation(enteringView.pageRef());
+	        enteringPage.before.addClass('show-page');
 	        this.add(enteringPage);
 	        if (backDirection) {
 	            this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
@@ -73832,7 +73480,7 @@
 	_transition.Transition.register('md', MDTransition);
 
 /***/ },
-/* 517 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73868,7 +73516,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -73907,6 +73555,109 @@
 	exports.TranslatePipe = TranslatePipe;
 	exports.TranslatePipe = TranslatePipe = __decorate([(0, _angular2Angular2.Pipe)({ name: 'translate' }), (0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof (_a = typeof _translate.Translate !== 'undefined' && _translate.Translate) === 'function' && _a || Object])], TranslatePipe);
 	var _a;
+
+/***/ },
+/* 517 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(43);
+
+	var _menusMenus = __webpack_require__(518);
+
+	var _actionSheetsActionSheets = __webpack_require__(521);
+
+	var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
+
+	var _helpers = __webpack_require__(520);
+
+	var helpers = _interopRequireWildcard(_helpers);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key), void 0;
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+
+	var DemoApp = (function () {
+	    function DemoApp(app, platform) {
+	        var _this = this;
+
+	        _classCallCheck(this, DemoApp);
+
+	        this.app = app;
+	        this.platform = platform;
+	        this.androidAttribute = helpers.AndroidAttribute;
+	        this.pages = [{ title: 'Home', component: _menusMenus.PageOne }, { title: 'Friends', component: _menusMenus.PageTwo }, { title: 'Events', component: _menusMenus.PageThree }];
+	        this.platform.ready().then(function () {
+	            window.addEventListener('message', function (e) {
+	                zone.run(function () {
+	                    if (e.data) {
+	                        var data = JSON.parse(e.data);
+	                        if (data.hash) {
+	                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
+	                            _this.app.getComponent('leftMenu').enable(false);
+	                            if (data.hash === 'menus') {
+	                                _this.app.getComponent('leftMenu').enable(true);
+	                            }
+	                        } else {
+	                            _this.nextPage = actionSheets.BasicPage;
+	                        }
+	                        var nav = _this.app.getComponent('nav');
+	                        nav.setRoot(_this.nextPage);
+	                    }
+	                });
+	            });
+	            window.parent.postMessage(_this.platform.is('ios') ? "ios" : "android", "*");
+	            if (helpers.hasScrollbar() === true) {
+	                setTimeout(function () {
+	                    var body = document.getElementsByTagName('body')[0];
+	                    body.className = body.className + ' has-scrollbar';
+	                }, 500);
+	            }
+	        });
+	    }
+
+	    _createClass(DemoApp, [{
+	        key: "openPage",
+	        value: function openPage(page) {
+	            // close the menu when clicking a link from the menu
+	            this.app.getComponent('leftMenu').close();
+	            // Reset the content nav to have just this page
+	            // we wouldn't want the back button to show in this scenario
+	            var nav = this.app.getComponent('nav');
+	            nav.setRoot(page.component);
+	        }
+	    }]);
+
+	    return DemoApp;
+	})();
+	DemoApp = __decorate([(0, _ionicIonic.App)({
+	    templateUrl: 'app.html'
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
+	var _a, _b;
 
 /***/ },
 /* 518 */
@@ -73957,7 +73708,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74055,7 +73806,7 @@
 
 	var inputs = _interopRequireWildcard(_inputsInputs);
 
-	var _listsLists = __webpack_require__(559);
+	var _listsLists = __webpack_require__(560);
 
 	var lists = _interopRequireWildcard(_listsLists);
 
@@ -74063,23 +73814,23 @@
 
 	var menus = _interopRequireWildcard(_menusMenus);
 
-	var _modalsModals = __webpack_require__(568);
+	var _modalsModals = __webpack_require__(569);
 
 	var modals = _interopRequireWildcard(_modalsModals);
 
-	var _navigationNavigation = __webpack_require__(570);
+	var _navigationNavigation = __webpack_require__(571);
 
 	var navigation = _interopRequireWildcard(_navigationNavigation);
 
-	var _popupsPopups = __webpack_require__(572);
+	var _popupsPopups = __webpack_require__(573);
 
 	var popups = _interopRequireWildcard(_popupsPopups);
 
-	var _slidesSlides = __webpack_require__(574);
+	var _slidesSlides = __webpack_require__(575);
 
 	var slides = _interopRequireWildcard(_slidesSlides);
 
-	var _tabsTabs = __webpack_require__(576);
+	var _tabsTabs = __webpack_require__(577);
 
 	var tabs = _interopRequireWildcard(_tabsTabs);
 
@@ -74092,7 +73843,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74169,6 +73920,7 @@
 	        'checkbox': inputs.CheckboxPage,
 	        'radio': inputs.RadioPage,
 	        'range': inputs.RangePage,
+	        'segment': inputs.SegmentPage,
 	        'select': inputs.SelectPage,
 	        'switch': inputs.SwitchPage,
 	        'inputs': labels.BasicPage,
@@ -74265,7 +74017,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74435,7 +74187,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74484,7 +74236,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74533,7 +74285,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74582,7 +74334,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74631,7 +74383,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74680,7 +74432,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74729,7 +74481,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74778,7 +74530,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74827,7 +74579,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74876,7 +74628,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -74971,7 +74723,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75020,7 +74772,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75069,7 +74821,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75118,7 +74870,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75167,7 +74919,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75216,7 +74968,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75265,7 +75017,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75314,7 +75066,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75407,7 +75159,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75474,7 +75226,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75523,7 +75275,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75572,7 +75324,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75621,7 +75373,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75670,7 +75422,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75719,7 +75471,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75786,7 +75538,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75834,11 +75586,15 @@
 
 	_defaults(exports, _interopExportWildcard(_rangePages, _defaults));
 
-	var _selectPages = __webpack_require__(557);
+	var _segmentPages = __webpack_require__(557);
+
+	_defaults(exports, _interopExportWildcard(_segmentPages, _defaults));
+
+	var _selectPages = __webpack_require__(558);
 
 	_defaults(exports, _interopExportWildcard(_selectPages, _defaults));
 
-	var _switchPages = __webpack_require__(558);
+	var _switchPages = __webpack_require__(559);
 
 	_defaults(exports, _interopExportWildcard(_switchPages, _defaults));
 
@@ -75869,7 +75625,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75922,7 +75678,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -75971,7 +75727,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76020,7 +75776,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76031,16 +75787,18 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var SelectPage = function SelectPage() {
-	    _classCallCheck(this, SelectPage);
+	var SegmentPage = function SegmentPage() {
+	    _classCallCheck(this, SegmentPage);
+
+	    this.pet = "puppies";
 	};
-	exports.SelectPage = SelectPage;
-	exports.SelectPage = SelectPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'inputs/select/template.html',
+	exports.SegmentPage = SegmentPage;
+	exports.SegmentPage = SegmentPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'inputs/segment/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], SelectPage);
+	}), __metadata('design:paramtypes', [])], SegmentPage);
 
 /***/ },
 /* 558 */
@@ -76069,7 +75827,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76080,65 +75838,19 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var SwitchPage = function SwitchPage() {
-	    _classCallCheck(this, SwitchPage);
+	var SelectPage = function SelectPage() {
+	    _classCallCheck(this, SelectPage);
 	};
-	exports.SwitchPage = SwitchPage;
-	exports.SwitchPage = SwitchPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'inputs/switch/template.html',
+	exports.SelectPage = SelectPage;
+	exports.SelectPage = SelectPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'inputs/select/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], SwitchPage);
+	}), __metadata('design:paramtypes', [])], SelectPage);
 
 /***/ },
 /* 559 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj); delete newObj['default']; return newObj; }
-
-	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-	var _avatarPages = __webpack_require__(560);
-
-	_defaults(exports, _interopExportWildcard(_avatarPages, _defaults));
-
-	var _basicPages = __webpack_require__(561);
-
-	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
-
-	var _headersPages = __webpack_require__(562);
-
-	_defaults(exports, _interopExportWildcard(_headersPages, _defaults));
-
-	var _iconPages = __webpack_require__(563);
-
-	_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
-
-	var _insetPages = __webpack_require__(564);
-
-	_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
-
-	var _noLinesPages = __webpack_require__(565);
-
-	_defaults(exports, _interopExportWildcard(_noLinesPages, _defaults));
-
-	var _multilinePages = __webpack_require__(566);
-
-	_defaults(exports, _interopExportWildcard(_multilinePages, _defaults));
-
-	var _thumbnailPages = __webpack_require__(567);
-
-	_defaults(exports, _interopExportWildcard(_thumbnailPages, _defaults));
-
-/***/ },
-/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76164,7 +75876,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76175,16 +75887,62 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var AvatarPage = function AvatarPage() {
-	    _classCallCheck(this, AvatarPage);
+	var SwitchPage = function SwitchPage() {
+	    _classCallCheck(this, SwitchPage);
 	};
-	exports.AvatarPage = AvatarPage;
-	exports.AvatarPage = AvatarPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/avatar/template.html',
+	exports.SwitchPage = SwitchPage;
+	exports.SwitchPage = SwitchPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'inputs/switch/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], AvatarPage);
+	}), __metadata('design:paramtypes', [])], SwitchPage);
+
+/***/ },
+/* 560 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj); delete newObj['default']; return newObj; }
+
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+	var _avatarPages = __webpack_require__(561);
+
+	_defaults(exports, _interopExportWildcard(_avatarPages, _defaults));
+
+	var _basicPages = __webpack_require__(562);
+
+	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
+
+	var _headersPages = __webpack_require__(563);
+
+	_defaults(exports, _interopExportWildcard(_headersPages, _defaults));
+
+	var _iconPages = __webpack_require__(564);
+
+	_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
+
+	var _insetPages = __webpack_require__(565);
+
+	_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
+
+	var _noLinesPages = __webpack_require__(566);
+
+	_defaults(exports, _interopExportWildcard(_noLinesPages, _defaults));
+
+	var _multilinePages = __webpack_require__(567);
+
+	_defaults(exports, _interopExportWildcard(_multilinePages, _defaults));
+
+	var _thumbnailPages = __webpack_require__(568);
+
+	_defaults(exports, _interopExportWildcard(_thumbnailPages, _defaults));
 
 /***/ },
 /* 561 */
@@ -76213,7 +75971,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76224,16 +75982,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var BasicPage = function BasicPage() {
-	    _classCallCheck(this, BasicPage);
+	var AvatarPage = function AvatarPage() {
+	    _classCallCheck(this, AvatarPage);
 	};
-	exports.BasicPage = BasicPage;
-	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/basic/template.html',
+	exports.AvatarPage = AvatarPage;
+	exports.AvatarPage = AvatarPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/avatar/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], BasicPage);
+	}), __metadata('design:paramtypes', [])], AvatarPage);
 
 /***/ },
 /* 562 */
@@ -76262,7 +76020,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76273,16 +76031,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var HeadersPage = function HeadersPage() {
-	    _classCallCheck(this, HeadersPage);
+	var BasicPage = function BasicPage() {
+	    _classCallCheck(this, BasicPage);
 	};
-	exports.HeadersPage = HeadersPage;
-	exports.HeadersPage = HeadersPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/headers/template.html',
+	exports.BasicPage = BasicPage;
+	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/basic/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], HeadersPage);
+	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
 /* 563 */
@@ -76311,7 +76069,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76322,16 +76080,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var IconPage = function IconPage() {
-	    _classCallCheck(this, IconPage);
+	var HeadersPage = function HeadersPage() {
+	    _classCallCheck(this, HeadersPage);
 	};
-	exports.IconPage = IconPage;
-	exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/icon/template.html',
+	exports.HeadersPage = HeadersPage;
+	exports.HeadersPage = HeadersPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/headers/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], IconPage);
+	}), __metadata('design:paramtypes', [])], HeadersPage);
 
 /***/ },
 /* 564 */
@@ -76360,7 +76118,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76371,16 +76129,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var InsetPage = function InsetPage() {
-	    _classCallCheck(this, InsetPage);
+	var IconPage = function IconPage() {
+	    _classCallCheck(this, IconPage);
 	};
-	exports.InsetPage = InsetPage;
-	exports.InsetPage = InsetPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/inset/template.html',
+	exports.IconPage = IconPage;
+	exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/icon/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], InsetPage);
+	}), __metadata('design:paramtypes', [])], IconPage);
 
 /***/ },
 /* 565 */
@@ -76409,7 +76167,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76420,16 +76178,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var NoLinesPage = function NoLinesPage() {
-	    _classCallCheck(this, NoLinesPage);
+	var InsetPage = function InsetPage() {
+	    _classCallCheck(this, InsetPage);
 	};
-	exports.NoLinesPage = NoLinesPage;
-	exports.NoLinesPage = NoLinesPage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/no-lines/template.html',
+	exports.InsetPage = InsetPage;
+	exports.InsetPage = InsetPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/inset/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], NoLinesPage);
+	}), __metadata('design:paramtypes', [])], InsetPage);
 
 /***/ },
 /* 566 */
@@ -76458,7 +76216,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76469,16 +76227,16 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var MultilinePage = function MultilinePage() {
-	    _classCallCheck(this, MultilinePage);
+	var NoLinesPage = function NoLinesPage() {
+	    _classCallCheck(this, NoLinesPage);
 	};
-	exports.MultilinePage = MultilinePage;
-	exports.MultilinePage = MultilinePage = __decorate([(0, _ionicIonic.Page)({
-	    templateUrl: 'lists/multiline/template.html',
+	exports.NoLinesPage = NoLinesPage;
+	exports.NoLinesPage = NoLinesPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/no-lines/template.html',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], MultilinePage);
+	}), __metadata('design:paramtypes', [])], NoLinesPage);
 
 /***/ },
 /* 567 */
@@ -76507,7 +76265,56 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var MultilinePage = function MultilinePage() {
+	    _classCallCheck(this, MultilinePage);
+	};
+	exports.MultilinePage = MultilinePage;
+	exports.MultilinePage = MultilinePage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'lists/multiline/template.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], MultilinePage);
+
+/***/ },
+/* 568 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(43);
+
+	var _angular2Angular2 = __webpack_require__(45);
+
+	var _helpers = __webpack_require__(520);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76530,7 +76337,7 @@
 	}), __metadata('design:paramtypes', [])], ThumbnailPage);
 
 /***/ },
-/* 568 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76543,12 +76350,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(569);
+	var _basicPages = __webpack_require__(570);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 569 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76580,7 +76387,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76689,7 +76496,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 570 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76702,12 +76509,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(571);
+	var _basicPages = __webpack_require__(572);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 571 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76739,7 +76546,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76803,7 +76610,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 572 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76816,12 +76623,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(573);
+	var _basicPages = __webpack_require__(574);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 573 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76849,7 +76656,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76919,7 +76726,7 @@
 	var _a;
 
 /***/ },
-/* 574 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76932,12 +76739,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(575);
+	var _basicPages = __webpack_require__(576);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 575 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76963,7 +76770,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -76986,7 +76793,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 576 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76999,20 +76806,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(577);
+	var _basicPages = __webpack_require__(578);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _iconPages = __webpack_require__(578);
+	var _iconPages = __webpack_require__(579);
 
 	_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
 
-	var _iconTextPages = __webpack_require__(579);
+	var _iconTextPages = __webpack_require__(580);
 
 	_defaults(exports, _interopExportWildcard(_iconTextPages, _defaults));
 
 /***/ },
-/* 577 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77042,7 +76849,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -77076,7 +76883,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 578 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77106,7 +76913,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {
@@ -77141,7 +76948,7 @@
 	}), __metadata('design:paramtypes', [])], IconPage);
 
 /***/ },
-/* 579 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77171,7 +76978,7 @@
 	            }, target);
 	        case 3:
 	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
+	                return d && d(target, key), void 0;
 	            }, void 0);
 	        case 4:
 	            return decorators.reduceRight(function (o, d) {

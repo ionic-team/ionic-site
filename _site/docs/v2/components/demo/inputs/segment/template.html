@@ -10,23 +10,71 @@
 <ion-content>
 
   <div padding>
-    <ion-segment>
-      <ion-segment-button>
-        Kitties
+    <ion-segment [(ng-model)]="pet">
+      <ion-segment-button value="kittens">
+        Kittens
       </ion-segment-button>
-      <ion-segment-button>
+      <ion-segment-button value="puppies">
         Puppies
       </ion-segment-button>
-    </ion-segment>
+    </ion-segment> 
+  </div> 
+
+  <div [ng-switch]="pet">
+    <ion-list *ng-switch-when="'puppies'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-puppy-1.jpg">
+        </ion-thumbnail>
+        <h2>Ruby</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-puppy-2.jpg">
+        </ion-thumbnail>
+        <h2>Oscar</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-puppy-4.jpg">
+        </ion-thumbnail>
+        <h2>Zoey</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-puppy-3.jpg">
+        </ion-thumbnail>
+        <h2>Otto</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ng-switch-when="'kittens'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-3.jpg">
+        </ion-thumbnail>
+        <h2>Milo</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-4.jpg">
+        </ion-thumbnail>
+        <h2>Bandit</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-2.jpg">
+        </ion-thumbnail>
+        <h2>Nala</h2>
+      </ion-item>
+    </ion-list>
   </div>
 
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="img/thumbnail-totoro.png">
-      </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-    </ion-item>
-  </ion-list>
-
+  
 </ion-content> 

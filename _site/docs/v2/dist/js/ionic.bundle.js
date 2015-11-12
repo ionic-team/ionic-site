@@ -1,10 +1,19 @@
 /*
+ *  es6-module-loader v0.17.8
+ *  https://github.com/ModuleLoader/es6-module-loader
+ *  Copyright (c) 2015 Guy Bedford, Luke Hoban, Addy Osmani; Licensed MIT
+ */
+
+!function(a){function b(a,c){if("string"!=typeof a)throw new TypeError("URL must be a string");var d=String(a).replace(/^\s+|\s+$/g,"").match(/^([^:\/?#]+:)?(?:\/\/(?:([^:@\/?#]*)(?::([^:@\/?#]*))?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);if(!d)throw new RangeError;var e=d[1]||"",f=d[2]||"",g=d[3]||"",h=d[4]||"",i=d[5]||"",j=d[6]||"",k=d[7]||"",l=d[8]||"",m=d[9]||"";if(void 0!==c){var n=c instanceof b?c:new b(c),o=""===e&&""===h&&""===f;o&&""===k&&""===l&&(l=n.search),o&&"/"!==k.charAt(0)&&(k=""!==k?(""===n.host&&""===n.username||""!==n.pathname?"":"/")+n.pathname.slice(0,n.pathname.lastIndexOf("/")+1)+k:n.pathname);var p=[];k.replace(/^(\.\.?(\/|$))+/,"").replace(/\/(\.(\/|$))+/g,"/").replace(/\/\.\.$/,"/../").replace(/\/?[^\/]*/g,function(a){"/.."===a?p.pop():p.push(a)}),k=p.join("").replace(/^\//,"/"===k.charAt(0)?"/":""),o&&(j=n.port,i=n.hostname,h=n.host,g=n.password,f=n.username),""===e&&(e=n.protocol)}"file:"==e&&(k=k.replace(/\\/g,"/")),this.origin=e+(""!==e||""!==h?"//":"")+h,this.href=e+(""!==e||""!==h?"//":"")+(""!==f?f+(""!==g?":"+g:"")+"@":"")+h+k+l+m,this.protocol=e,this.username=f,this.password=g,this.host=h,this.hostname=i,this.port=j,this.pathname=k,this.search=l,this.hash=m}a.URLPolyfill=b}("undefined"!=typeof self?self:global),function(a){function b(a,b){var c;if(a instanceof Error){var c=new Error(a.message,a.fileName,a.lineNumber);i?(c.message=a.message+"\n	"+b,c.stack=a.stack):(c.message=a.message,c.stack=a.stack+"\n	"+b)}else c=a+"\n	"+b;return c}function c(a,c,d){try{new Function(a).call(d)}catch(e){throw b(e,"Evaluating "+c)}}function d(){}function e(){this._loader={loaderObj:this,loads:[],modules:{},importPromises:{},moduleRecords:{}},k(this,"global",{get:function(){return a}})}function f(){e.call(this),this.paths={}}function g(a,b){var c,d="",e=0;for(var f in a){var g=f.split("*");if(g.length>2)throw new TypeError("Only one wildcard in a path is permitted");if(1==g.length){if(b==f){d=f;break}}else{var h=f.split("/").length;h>=e&&b.substr(0,g[0].length)==g[0]&&b.substr(b.length-g[1].length)==g[1]&&(e=h,d=f,c=b.substr(g[0].length,b.length-g[1].length-g[0].length))}}var i=a[d]||b;return"string"==typeof c&&(i=i.replace("*",c)),i}function h(){}var i=("undefined"==typeof window&&"undefined"!=typeof self&&"undefined"!=typeof importScripts,"undefined"!=typeof window&&"undefined"!=typeof document),j="undefined"!=typeof process&&!!process.platform.match(/^win/);a.console||(a.console={assert:function(){}});var k,l=Array.prototype.indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(this[b]===a)return b;return-1};!function(){try{Object.defineProperty({},"a",{})&&(k=Object.defineProperty)}catch(a){k=function(a,b,c){try{a[b]=c.value||c.get.call(a)}catch(d){}}}}();var m;if("undefined"!=typeof document&&document.getElementsByTagName){if(m=document.baseURI,!m){var n=document.getElementsByTagName("base");m=n[0]&&n[0].href||window.location.href}m=m.split("#")[0].split("?")[0],m=m.substr(0,m.lastIndexOf("/")+1)}else if("undefined"!=typeof process&&process.cwd)m="file://"+(j?"/":"")+process.cwd()+"/",j&&(m=m.replace(/\\/g,"/"));else{if("undefined"==typeof location)throw new TypeError("No environment baseURI");m=a.location.href}var o=a.URLPolyfill||a.URL;k(d.prototype,"toString",{value:function(){return"Module"}}),function(){function f(a){return{status:"loading",name:a,linkSets:[],dependencies:[],metadata:{}}}function g(a,b,c){return new Promise(n({step:c.address?"fetch":"locate",loader:a,moduleName:b,moduleMetadata:c&&c.metadata||{},moduleSource:c.source,moduleAddress:c.address}))}function h(a,b,c,d){return new Promise(function(e){e(a.loaderObj.normalize(b,c,d))}).then(function(b){var c;if(a.modules[b])return c=f(b),c.status="linked",c.module=a.modules[b],c;for(var d=0,e=a.loads.length;e>d;d++)if(c=a.loads[d],c.name==b)return c;return c=f(b),a.loads.push(c),i(a,c),c})}function i(a,b){j(a,b,Promise.resolve().then(function(){return a.loaderObj.locate({name:b.name,metadata:b.metadata})}))}function j(a,b,c){m(a,b,c.then(function(c){return"loading"==b.status?(b.address=c,a.loaderObj.fetch({name:b.name,metadata:b.metadata,address:c})):void 0}))}function m(b,d,e){e.then(function(e){return"loading"==d.status?Promise.resolve(b.loaderObj.translate({name:d.name,metadata:d.metadata,address:d.address,source:e})).then(function(a){return d.source=a,b.loaderObj.instantiate({name:d.name,metadata:d.metadata,address:d.address,source:a})}).then(function(e){if(void 0===e)return d.address=d.address||"<Anonymous Module "+ ++A+">",d.isDeclarative=!0,z.call(b.loaderObj,d).then(function(b){var e=a.System,f=e.register;e.register=function(a,b,c){"string"!=typeof a&&(c=b,b=a),d.declare=c,d.depsList=b},c(b,d.address,{}),e.register=f});if("object"!=typeof e)throw TypeError("Invalid instantiate return value");d.depsList=e.deps||[],d.execute=e.execute,d.isDeclarative=!1}).then(function(){d.dependencies=[];for(var a=d.depsList,c=[],e=0,f=a.length;f>e;e++)(function(a,e){c.push(h(b,a,d.name,d.address).then(function(b){if(d.dependencies[e]={key:a,value:b.name},"linked"!=b.status)for(var c=d.linkSets.concat([]),f=0,g=c.length;g>f;f++)p(c[f],b)}))})(a[e],e);return Promise.all(c)}).then(function(){d.status="loaded";for(var a=d.linkSets.concat([]),b=0,c=a.length;c>b;b++)r(a[b],d)}):void 0})["catch"](function(a){d.status="failed",d.exception=a;for(var b=d.linkSets.concat([]),c=0,e=b.length;e>c;c++)s(b[c],d,a)})}function n(a){return function(b){var c=a.loader,d=a.moduleName,e=a.step;if(c.modules[d])throw new TypeError('"'+d+'" already exists in the module table');for(var g,h=0,k=c.loads.length;k>h;h++)if(c.loads[h].name==d&&(g=c.loads[h],"translate"!=e||g.source||(g.address=a.moduleAddress,m(c,g,Promise.resolve(a.moduleSource))),g.linkSets.length))return g.linkSets[0].done.then(function(){b(g)});var l=g||f(d);l.metadata=a.moduleMetadata;var n=o(c,l);c.loads.push(l),b(n.done),"locate"==e?i(c,l):"fetch"==e?j(c,l,Promise.resolve(a.moduleAddress)):(l.address=a.moduleAddress,m(c,l,Promise.resolve(a.moduleSource)))}}function o(a,b){var c={loader:a,loads:[],startingLoad:b,loadingCount:0};return c.done=new Promise(function(a,b){c.resolve=a,c.reject=b}),p(c,b),c}function p(a,b){if("failed"!=b.status){for(var c=0,d=a.loads.length;d>c;c++)if(a.loads[c]==b)return;a.loads.push(b),b.linkSets.push(a),"loaded"!=b.status&&a.loadingCount++;for(var e=a.loader,c=0,d=b.dependencies.length;d>c;c++)if(b.dependencies[c]){var f=b.dependencies[c].value;if(!e.modules[f])for(var g=0,h=e.loads.length;h>g;g++)if(e.loads[g].name==f){p(a,e.loads[g]);break}}}}function q(a){var b=!1;try{w(a,function(c,d){s(a,c,d),b=!0})}catch(c){s(a,null,c),b=!0}return b}function r(a,b){if(a.loadingCount--,!(a.loadingCount>0)){var c=a.startingLoad;if(a.loader.loaderObj.execute===!1){for(var d=[].concat(a.loads),e=0,f=d.length;f>e;e++){var b=d[e];b.module=b.isDeclarative?{name:b.name,module:B({}),evaluated:!0}:{module:B({})},b.status="linked",t(a.loader,b)}return a.resolve(c)}var g=q(a);g||a.resolve(c)}}function s(a,c,d){var e=a.loader;a:if(c)if(a.loads[0].name==c.name)d=b(d,"Error loading "+c.name);else{for(var f=0;f<a.loads.length;f++)for(var g=a.loads[f],h=0;h<g.dependencies.length;h++){var i=g.dependencies[h];if(i.value==c.name){d=b(d,"Error loading "+c.name+' as "'+i.key+'" from '+g.name);break a}}d=b(d,"Error loading "+c.name+" from "+a.loads[0].name)}else d=b(d,"Error linking "+a.loads[0].name);for(var j=a.loads.concat([]),f=0,k=j.length;k>f;f++){var c=j[f];e.loaderObj.failed=e.loaderObj.failed||[],-1==l.call(e.loaderObj.failed,c)&&e.loaderObj.failed.push(c);var m=l.call(c.linkSets,a);if(c.linkSets.splice(m,1),0==c.linkSets.length){var n=l.call(a.loader.loads,c);-1!=n&&a.loader.loads.splice(n,1)}}a.reject(d)}function t(a,b){if(a.loaderObj.trace){a.loaderObj.loads||(a.loaderObj.loads={});var c={};b.dependencies.forEach(function(a){c[a.key]=a.value}),a.loaderObj.loads[b.name]={name:b.name,deps:b.dependencies.map(function(a){return a.key}),depMap:c,address:b.address,metadata:b.metadata,source:b.source,kind:b.isDeclarative?"declarative":"dynamic"}}b.name&&(a.modules[b.name]=b.module);var d=l.call(a.loads,b);-1!=d&&a.loads.splice(d,1);for(var e=0,f=b.linkSets.length;f>e;e++)d=l.call(b.linkSets[e].loads,b),-1!=d&&b.linkSets[e].loads.splice(d,1);b.linkSets.splice(0,b.linkSets.length)}function u(a,b,c){try{var e=b.execute()}catch(f){return void c(b,f)}return e&&e instanceof d?e:void c(b,new TypeError("Execution must define a Module instance"))}function v(a,b,c){var d=a._loader.importPromises;return d[b]=c.then(function(a){return d[b]=void 0,a},function(a){throw d[b]=void 0,a})}function w(a,b){var c=a.loader;if(a.loads.length)for(var d=a.loads.concat([]),e=0;e<d.length;e++){var f=d[e],g=u(a,f,b);if(!g)return;f.module={name:f.name,module:g},f.status="linked",t(c,f)}}function x(a,b){return b.module.module}function y(){}function z(){throw new TypeError("ES6 transpilation is only provided in the dev module loader build.")}var A=0;e.prototype={constructor:e,define:function(a,b,c){if(this._loader.importPromises[a])throw new TypeError("Module is already loading.");return v(this,a,new Promise(n({step:"translate",loader:this._loader,moduleName:a,moduleMetadata:c&&c.metadata||{},moduleSource:b,moduleAddress:c&&c.address})))},"delete":function(a){var b=this._loader;return delete b.importPromises[a],delete b.moduleRecords[a],b.modules[a]?delete b.modules[a]:!1},get:function(a){return this._loader.modules[a]?(y(this._loader.modules[a],[],this),this._loader.modules[a].module):void 0},has:function(a){return!!this._loader.modules[a]},"import":function(a,b){"object"==typeof b&&(b=b.name);var c=this;return Promise.resolve(c.normalize(a,b)).then(function(a){var b=c._loader;return b.modules[a]?(y(b.modules[a],[],b._loader),b.modules[a].module):b.importPromises[a]||v(c,a,g(b,a,{}).then(function(c){return delete b.importPromises[a],x(b,c)}))})},load:function(a){var b=this._loader;return b.modules[a]?(y(b.modules[a],[],b),Promise.resolve(b.modules[a].module)):b.importPromises[a]||v(this,a,g(b,a,{}).then(function(c){return delete b.importPromises[a],x(b,c)}))},module:function(a,b){var c=f();c.address=b&&b.address;var d=o(this._loader,c),e=Promise.resolve(a),g=this._loader,h=d.done.then(function(){return x(g,c)});return m(g,c,e),h},newModule:function(a){if("object"!=typeof a)throw new TypeError("Expected object");var b,c=new d;if(Object.getOwnPropertyNames&&null!=a)b=Object.getOwnPropertyNames(a);else{b=[];for(var e in a)b.push(e)}for(var f=0;f<b.length;f++)(function(b){k(c,b,{configurable:!1,enumerable:!0,get:function(){return a[b]}})})(b[f]);return Object.preventExtensions&&Object.preventExtensions(c),c},set:function(a,b){if(!(b instanceof d))throw new TypeError("Loader.set("+a+", module) must be a module");this._loader.modules[a]={module:b}},normalize:function(a){return a},locate:function(a){return a.name},fetch:function(){},translate:function(a){return a.source},instantiate:function(){}};var B=e.prototype.newModule}();var p;h.prototype=e.prototype,f.prototype=new h;var q=/^([^\/]+:\/\/|\/)/;f.prototype.normalize=function(a,b){return a=a.match(q)||"."==a[0]?new o(a,b||m).href:new o(g(this.paths,a),m).href},f.prototype.locate=function(a){return a.name},f.prototype.instantiate=function(b){var d=this;return Promise.resolve(d.normalize(d.transpiler)).then(function(e){return b.address===e?{deps:[],execute:function(){var e=a.System,f=a.Reflect.Loader;return c("(function(require,exports,module){"+b.source+"})();",b.address,a),a.System=e,a.Reflect.Loader=f,d.newModule({"default":a[d.transpiler],__useDefault:!0})}}:void 0})};var r;if("undefined"!=typeof XMLHttpRequest)r=function(a,b,c,d){function e(){c(g.responseText)}function f(){d(new Error("XHR error"+(g.status?" ("+g.status+(g.statusText?" "+g.statusText:"")+")":"")+" loading "+a))}var g=new XMLHttpRequest,h=!0,i=!1;if(!("withCredentials"in g)){var j=/^(\w+:)?\/\/([^\/]+)/.exec(a);j&&(h=j[2]===window.location.host,j[1]&&(h&=j[1]===window.location.protocol))}h||"undefined"==typeof XDomainRequest||(g=new XDomainRequest,g.onload=e,g.onerror=f,g.ontimeout=f,g.onprogress=function(){},g.timeout=0,i=!0),g.onreadystatechange=function(){4===g.readyState&&(200===g.status||0==g.status&&g.responseText?e():f())},g.open("GET",a,!0),g.setRequestHeader&&(g.setRequestHeader("Accept","application/x-es-module, */*"),b&&("string"==typeof b&&g.setRequestHeader("Authorization",b),g.withCredentials=!0)),i?setTimeout(function(){g.send()},0):g.send(null)};else{if("undefined"==typeof require)throw new TypeError("No environment fetch API available.");var s;r=function(a,b,c,d){if("file:///"!=a.substr(0,8))throw new Error('Unable to fetch "'+a+'". Only file URLs of the form file:/// allowed running in Node.');return s=s||require("fs"),a=j?a.replace(/\//g,"\\").substr(8):a.substr(7),s.readFile(a,function(a,b){if(a)return d(a);var e=b+"";"\ufeff"===e[0]&&(e=e.substr(1)),c(e)})}}f.prototype.fetch=function(a){return new Promise(function(b,c){r(a.address,void 0,b,c)})},"object"==typeof exports&&(module.exports=e),a.Reflect=a.Reflect||{},a.Reflect.Loader=a.Reflect.Loader||e,a.Reflect.global=a.Reflect.global||a,a.LoaderPolyfill=e,p||(p=new f,p.constructor=f),"object"==typeof exports&&(module.exports=p),a.System=p}("undefined"!=typeof self?self:global);
+//# sourceMappingURL=es6-module-loader.js.map
+/*
  * SystemJS v0.18.10
  */
 !function(){function e(){!function(e){function t(e,t){var n;if(e instanceof Error){var n=new Error(e.message,e.fileName,e.lineNumber);b?(n.message=e.message+"\n	"+t,n.stack=e.stack):(n.message=e.message,n.stack=e.stack+"\n	"+t)}else n=e+"\n	"+t;return n}function n(e,n,a){try{new Function(e).call(a)}catch(r){throw t(r,"Evaluating "+n)}}function a(){}function r(t){this._loader={loaderObj:this,loads:[],modules:{},importPromises:{},moduleRecords:{}},x(this,"global",{get:function(){return e}})}function o(){r.call(this),this.paths={}}function s(e,t){var n,a="",r=0;for(var o in e){var s=o.split("*");if(s.length>2)throw new TypeError("Only one wildcard in a path is permitted");if(1==s.length){if(t==o){a=o;break}}else{var i=o.split("/").length;i>=r&&t.substr(0,s[0].length)==s[0]&&t.substr(t.length-s[1].length)==s[1]&&(r=i,a=o,n=t.substr(s[0].length,t.length-s[1].length-s[0].length))}}var l=e[a]||t;return n&&(l=l.replace("*",n)),l}function i(){}function l(){o.call(this),O.call(this)}function u(){}function d(e,t){l.prototype[e]=t(l.prototype[e])}function c(e){O=e(O||function(){})}function f(e){for(var t=[],n=[],a=0,r=e.length;r>a;a++){var o=w.call(t,e[a]);-1===o?(t.push(e[a]),n.push([a])):n[o].push(a)}return{names:t,indices:n}}function m(e,t,n){for(var a in t)n&&a in e||(e[a]=t[a]);return e}function p(e,t,n){for(var a in t){var r=t[a];a in e?r instanceof Array&&e[a]instanceof Array?e[a]=[].concat(n?r:e[a]).concat(n?e[a]:r):"object"==typeof r&&"object"==typeof e[a]?e[a]=m(m({},e[a]),r,n):n||(e[a]=r):e[a]=r}}function h(e,t){for(var n=e.split(".");n.length;)t=t[n.shift()];return t}function v(){if(T[this.baseURL])return T[this.baseURL];"/"!=this.baseURL[this.baseURL.length-1]&&(this.baseURL+="/");var e=new _(this.baseURL,S);return this.baseURL=e.href,T[this.baseURL]=e}var g="undefined"==typeof window&&"undefined"!=typeof self&&"undefined"!=typeof importScripts,b="undefined"!=typeof window&&"undefined"!=typeof document,y="undefined"!=typeof process&&!!process.platform.match(/^win/);e.console||(e.console={assert:function(){}});var x,w=Array.prototype.indexOf||function(e){for(var t=0,n=this.length;n>t;t++)if(this[t]===e)return t;return-1};!function(){try{Object.defineProperty({},"a",{})&&(x=Object.defineProperty)}catch(e){x=function(e,t,n){try{e[t]=n.value||n.get.call(e)}catch(a){}}}}();var S;if("undefined"!=typeof document&&document.getElementsByTagName){if(S=document.baseURI,!S){var E=document.getElementsByTagName("base");S=E[0]&&E[0].href||window.location.href}S=S.split("#")[0].split("?")[0],S=S.substr(0,S.lastIndexOf("/")+1)}else if("undefined"!=typeof process&&process.cwd)S="file://"+(y?"/":"")+process.cwd()+"/",y&&(S=S.replace(/\\/g,"/"));else{if("undefined"==typeof location)throw new TypeError("No environment baseURI");S=e.location.href}var _=e.URLPolyfill||e.URL;x(a.prototype,"toString",{value:function(){return"Module"}}),function(){function o(e){return{status:"loading",name:e,linkSets:[],dependencies:[],metadata:{}}}function s(e,t,n){return new Promise(c({step:n.address?"fetch":"locate",loader:e,moduleName:t,moduleMetadata:n&&n.metadata||{},moduleSource:n.source,moduleAddress:n.address}))}function i(e,t,n,a){return new Promise(function(r,o){r(e.loaderObj.normalize(t,n,a))}).then(function(t){var n;if(e.modules[t])return n=o(t),n.status="linked",n.module=e.modules[t],n;for(var a=0,r=e.loads.length;r>a;a++)if(n=e.loads[a],n.name==t)return n;return n=o(t),e.loads.push(n),l(e,n),n})}function l(e,t){u(e,t,Promise.resolve().then(function(){return e.loaderObj.locate({name:t.name,metadata:t.metadata})}))}function u(e,t,n){d(e,t,n.then(function(n){return"loading"==t.status?(t.address=n,e.loaderObj.fetch({name:t.name,metadata:t.metadata,address:n})):void 0}))}function d(t,a,r){r.then(function(r){return"loading"==a.status?Promise.resolve(t.loaderObj.translate({name:a.name,metadata:a.metadata,address:a.address,source:r})).then(function(e){return a.source=e,t.loaderObj.instantiate({name:a.name,metadata:a.metadata,address:a.address,source:e})}).then(function(r){if(void 0===r)return a.address=a.address||"<Anonymous Module "+ ++M+">",a.isDeclarative=!0,j.call(t.loaderObj,a).then(function(t){var r=e.System,o=r.register;r.register=function(e,t,n){"string"!=typeof e&&(n=t,t=e),a.declare=n,a.depsList=t},n(t,a.address,{}),r.register=o});if("object"!=typeof r)throw TypeError("Invalid instantiate return value");a.depsList=r.deps||[],a.execute=r.execute,a.isDeclarative=!1}).then(function(){a.dependencies=[];for(var e=a.depsList,n=[],r=0,o=e.length;o>r;r++)(function(e,r){n.push(i(t,e,a.name,a.address).then(function(t){if(a.dependencies[r]={key:e,value:t.name},"linked"!=t.status)for(var n=a.linkSets.concat([]),o=0,s=n.length;s>o;o++)m(n[o],t)}))})(e[r],r);return Promise.all(n)}).then(function(){a.status="loaded";for(var e=a.linkSets.concat([]),t=0,n=e.length;n>t;t++)h(e[t],a)}):void 0})["catch"](function(e){a.status="failed",a.exception=e;for(var t=a.linkSets.concat([]),n=0,r=t.length;r>n;n++)v(t[n],a,e)})}function c(e){return function(t,n){var a=e.loader,r=e.moduleName,s=e.step;if(a.modules[r])throw new TypeError('"'+r+'" already exists in the module table');for(var i,c=0,m=a.loads.length;m>c;c++)if(a.loads[c].name==r&&(i=a.loads[c],"translate"!=s||i.source||(i.address=e.moduleAddress,d(a,i,Promise.resolve(e.moduleSource))),i.linkSets.length))return i.linkSets[0].done.then(function(){t(i)});var p=i||o(r);p.metadata=e.moduleMetadata;var h=f(a,p);a.loads.push(p),t(h.done),"locate"==s?l(a,p):"fetch"==s?u(a,p,Promise.resolve(e.moduleAddress)):(p.address=e.moduleAddress,d(a,p,Promise.resolve(e.moduleSource)))}}function f(e,t){var n={loader:e,loads:[],startingLoad:t,loadingCount:0};return n.done=new Promise(function(e,t){n.resolve=e,n.reject=t}),m(n,t),n}function m(e,t){if("failed"!=t.status){for(var n=0,a=e.loads.length;a>n;n++)if(e.loads[n]==t)return;e.loads.push(t),t.linkSets.push(e),"loaded"!=t.status&&e.loadingCount++;for(var r=e.loader,n=0,a=t.dependencies.length;a>n;n++)if(t.dependencies[n]){var o=t.dependencies[n].value;if(!r.modules[o])for(var s=0,i=r.loads.length;i>s;s++)if(r.loads[s].name==o){m(e,r.loads[s]);break}}}}function p(e){var t=!1;try{S(e,function(n,a){v(e,n,a),t=!0})}catch(n){v(e,null,n),t=!0}return t}function h(e,t){if(e.loadingCount--,!(e.loadingCount>0)){var n=e.startingLoad;if(e.loader.loaderObj.execute===!1){for(var a=[].concat(e.loads),r=0,o=a.length;o>r;r++){var t=a[r];t.module=t.isDeclarative?{name:t.name,module:D({}),evaluated:!0}:{module:D({})},t.status="linked",g(e.loader,t)}return e.resolve(n)}var s=p(e);s||e.resolve(n)}}function v(e,n,a){var r=e.loader;e:if(n)if(e.loads[0].name==n.name)a=t(a,"Error loading "+n.name);else{for(var o=0;o<e.loads.length;o++)for(var s=e.loads[o],i=0;i<s.dependencies.length;i++){var l=s.dependencies[i];if(l.value==n.name){a=t(a,"Error loading "+n.name+' as "'+l.key+'" from '+s.name);break e}}a=t(a,"Error loading "+n.name+" from "+e.loads[0].name)}else a=t(a,"Error linking "+e.loads[0].name);for(var u=e.loads.concat([]),o=0,d=u.length;d>o;o++){var n=u[o];r.loaderObj.failed=r.loaderObj.failed||[],-1==w.call(r.loaderObj.failed,n)&&r.loaderObj.failed.push(n);var c=w.call(n.linkSets,e);if(n.linkSets.splice(c,1),0==n.linkSets.length){var f=w.call(e.loader.loads,n);-1!=f&&e.loader.loads.splice(f,1)}}e.reject(a)}function g(e,t){if(e.loaderObj.trace){e.loaderObj.loads||(e.loaderObj.loads={});var n={};t.dependencies.forEach(function(e){n[e.key]=e.value}),e.loaderObj.loads[t.name]={name:t.name,deps:t.dependencies.map(function(e){return e.key}),depMap:n,address:t.address,metadata:t.metadata,source:t.source,kind:t.isDeclarative?"declarative":"dynamic"}}t.name&&(e.modules[t.name]=t.module);var a=w.call(e.loads,t);-1!=a&&e.loads.splice(a,1);for(var r=0,o=t.linkSets.length;o>r;r++)a=w.call(t.linkSets[r].loads,t),-1!=a&&t.linkSets[r].loads.splice(a,1);t.linkSets.splice(0,t.linkSets.length)}function b(e,t,n){try{var r=t.execute()}catch(o){return void n(t,o)}return r&&r instanceof a?r:void n(t,new TypeError("Execution must define a Module instance"))}function y(e,t,n){var a=e._loader.importPromises;return a[t]=n.then(function(e){return a[t]=void 0,e},function(e){throw a[t]=void 0,e})}function S(e,t){var n=e.loader;if(e.loads.length)for(var a=e.loads.concat([]),r=0;r<a.length;r++){var o=a[r],s=b(e,o,t);if(!s)return;o.module={name:o.name,module:s},o.status="linked",g(n,o)}}function E(e,t){return t.module.module}function _(){}function j(){throw new TypeError("ES6 transpilation is only provided in the dev module loader build.")}var M=0;r.prototype={constructor:r,define:function(e,t,n){if(this._loader.importPromises[e])throw new TypeError("Module is already loading.");return y(this,e,new Promise(c({step:"translate",loader:this._loader,moduleName:e,moduleMetadata:n&&n.metadata||{},moduleSource:t,moduleAddress:n&&n.address})))},"delete":function(e){var t=this._loader;return delete t.importPromises[e],delete t.moduleRecords[e],t.modules[e]?delete t.modules[e]:!1},get:function(e){return this._loader.modules[e]?(_(this._loader.modules[e],[],this),this._loader.modules[e].module):void 0},has:function(e){return!!this._loader.modules[e]},"import":function(e,t,n){"object"==typeof t&&(t=t.name);var a=this;return Promise.resolve(a.normalize(e,t)).then(function(e){var t=a._loader;return t.modules[e]?(_(t.modules[e],[],t._loader),t.modules[e].module):t.importPromises[e]||y(a,e,s(t,e,{}).then(function(n){return delete t.importPromises[e],E(t,n)}))})},load:function(e,t){var n=this._loader;return n.modules[e]?(_(n.modules[e],[],n),Promise.resolve(n.modules[e].module)):n.importPromises[e]||y(this,e,s(n,e,{}).then(function(t){return delete n.importPromises[e],E(n,t)}))},module:function(e,t){var n=o();n.address=t&&t.address;var a=f(this._loader,n),r=Promise.resolve(e),s=this._loader,i=a.done.then(function(){return E(s,n)});return d(s,n,r),i},newModule:function(e){if("object"!=typeof e)throw new TypeError("Expected object");var t,n=new a;if(Object.getOwnPropertyNames&&null!=e)t=Object.getOwnPropertyNames(e);else{t=[];for(var r in e)t.push(r)}for(var o=0;o<t.length;o++)(function(t){x(n,t,{configurable:!1,enumerable:!0,get:function(){return e[t]}})})(t[o]);return Object.preventExtensions&&Object.preventExtensions(n),n},set:function(e,t){if(!(t instanceof a))throw new TypeError("Loader.set("+e+", module) must be a module");this._loader.modules[e]={module:t}},normalize:function(e,t,n){return e},locate:function(e){return e.name},fetch:function(e){},translate:function(e){return e.source},instantiate:function(e){}};var D=r.prototype.newModule}();var j;i.prototype=r.prototype,o.prototype=new i;var M;if("undefined"!=typeof XMLHttpRequest)M=function(e,t,n){function a(){t(o.responseText)}function r(){n(new Error("XHR error"+(o.status?" ("+o.status+(o.statusText?" "+o.statusText:"")+")":"")+" loading "+e))}var o=new XMLHttpRequest,s=!0,i=!1;if(!("withCredentials"in o)){var l=/^(\w+:)?\/\/([^\/]+)/.exec(e);l&&(s=l[2]===window.location.host,l[1]&&(s&=l[1]===window.location.protocol))}s||"undefined"==typeof XDomainRequest||(o=new XDomainRequest,o.onload=a,o.onerror=r,o.ontimeout=r,o.onprogress=function(){},o.timeout=0,i=!0),o.onreadystatechange=function(){4===o.readyState&&(200===o.status||0==o.status&&o.responseText?a():r())},o.open("GET",e,!0),o.setRequestHeader&&o.setRequestHeader("Accept","application/x-es-module */*"),i&&setTimeout(function(){o.send()},0),o.send(null)};else{if("undefined"==typeof require)throw new TypeError("No environment fetch API available.");var D;M=function(e,t,n){if("file:///"!=e.substr(0,8))throw new Error('Unable to fetch "'+e+'". Only file URLs of the form file:/// allowed running in Node.');return D=D||require("fs"),e=y?e.replace(/\//g,"\\").substr(8):e.substr(7),D.readFile(e,function(e,a){if(e)return n(e);var r=a+"";"\ufeff"===r[0]&&(r=r.substr(1)),t(r)})}}o.prototype.fetch=function(e){return new Promise(function(t,n){M(e.address,t,n)})};var R,k=function(){function t(t){var a=this;return Promise.resolve(e["typescript"==a.transpiler?"ts":a.transpiler]||(a.pluginLoader||a)["import"](a.transpiler)).then(function(e){e.__useDefault&&(e=e["default"]);var r;return r=e.Compiler?n:e.createLanguageService?s:o,"(function(__moduleName){"+r.call(a,t,e)+'\n})("'+t.name+'");\n//# sourceURL='+t.address+"!transpiled"})}function n(e,t){var n=this.traceurOptions||{};n.modules="instantiate",n.script=!1,void 0===n.sourceMaps&&(n.sourceMaps="inline"),n.filename=e.address,n.inputSourceMap=e.metadata.sourceMap,n.moduleName=!1;var r=new t.Compiler(n);return a(e.source,r,n.filename)}function a(e,t,n){try{return t.compile(e,n)}catch(a){throw a[0]}}function o(e,t){var n=this.babelOptions||{};return n.modules="system",void 0===n.sourceMap&&(n.sourceMap="inline"),n.inputSourceMap=e.metadata.sourceMap,n.filename=e.address,n.code=!0,n.ast=!1,t.transform(e.source,n).code}function s(e,t){var n=this.typescriptOptions||{};return n.target=n.target||t.ScriptTarget.ES5,void 0===n.sourceMap&&(n.sourceMap=!0),n.sourceMap&&(n.inlineSourceMap=!0),n.module=t.ModuleKind.System,t.transpile(e.source,n,e.address)}return r.prototype.transpiler="traceur",t}();!function(){function n(t){o=e.System,e.System=t}function a(){e.System=o}function r(e){var t=e.source.lastIndexOf("\n");return e.source+("\n//# sourceURL="!=e.source.substr(t,15)?"\n//# sourceURL="+e.address+(e.metadata.sourceMap?"!transpiled":""):"")+(e.metadata.sourceMap&&s&&"\n//# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(e.metadata.sourceMap)))||"")}var o,s="undefined"!=typeof btoa;if(g||b&&window.chrome&&window.chrome.extension)R=function(o){try{n(this),new Function(r(o)).call(e),a()}catch(s){throw t(s,"Evaluating "+o.address)}};else if("undefined"!=typeof document){var i,l=document.getElementsByTagName("script");$__curScript=l[l.length-1],R=function(e){i||(i=document.head||document.body||document.documentElement);var o=document.createElement("script");o.text=r(e);var s,l=window.onerror;if(window.onerror=function(n){s=t(n,"Evaluating "+e.address)},n(this),i.appendChild(o),i.removeChild(o),a(),window.onerror=l,s)throw s}}else{var u="vm",d=require(u);R=function(e){try{n(this),d.runInThisContext(r(e)),a()}catch(o){throw t(o.toString(),"Evaluating "+e.address)}}}}(),u.prototype=o.prototype,l.prototype=new u;var O,L=/^[^\/]+:\/\//,T={},F=new _(S);!function(){c(function(e){return function(){e.call(this),this.baseURL=S.substr(0,S.lastIndexOf("/")+1),this.set("@empty",this.newModule({}))}}),d("normalize",function(){return function(e,t){return"."==e[0]||"/"==e[0]?new _(e,t||F).href:e}}),d("import",function(e){return function(t,n,a){return e.call(this,t,n,a).then(function(e){return e.__useDefault?e["default"]:e})}});var e=["main","format","defaultExtension","meta","map"];l.prototype.config=function(t){function n(e){for(var t in e)return!0}if(t.baseURL){if(n(this.packages)||n(this.meta)||n(this.depCache)||n(this.bundles))throw new TypeError("baseURL should only be configured once and must be configured first.");this.baseURL=t.baseURL,v.call(this)}if(t.defaultJSExtensions&&(this.defaultJSExtensions=t.defaultJSExtensions),t.pluginFirst&&(this.pluginFirst=t.pluginFirst),t.paths)for(var a in t.paths)this.paths[a]=t.paths[a];if(t.map)for(var a in t.map){var r=t.map[a];if("string"!=typeof r){var o=this.normalizeSync(a);this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(o=o.substr(0,o.length-3));var s="";for(var i in this.packages)o.substr(0,i.length)==i&&(!o[i.length]||"/"==o[i.length])&&s.split("/").length<i.split("/").length&&(s=i);s&&this.packages[s].main&&(o=o.substr(0,o.length-this.packages[s].main.length-1));var i=this.packages[o]=this.packages[o]||{};i.map=r}else this.map[a]=r}if(t.packages)for(var a in t.packages){var l=this.normalizeSync(a);this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(l=l.substr(0,l.length-3)),this.packages[l]=this.packages[l]||{};for(var u in t.packages[a])-1==w.call(e,u)&&"undefined"!=typeof console&&console.warn,this.packages[l][u]=t.packages[a][u]}if(t.bundles)for(var a in t.bundles){for(var d=[],c=0;c<t.bundles[a].length;c++)d.push(this.normalizeSync(t.bundles[a][c]));this.bundles[a]=d}for(var f in t){var r=t[f],m=!1;if("baseURL"!=f&&"map"!=f&&"packages"!=f&&"bundles"!=f&&"paths"!=f)if("object"!=typeof r||r instanceof Array)this[f]=r;else{this[f]=this[f]||{},("meta"==f||"depCache"==f)&&(m=!0);for(var a in r)"meta"==f&&"*"==a[0]?this[f][a]=r[a]:m?this[f][this.normalizeSync(a)]=r[a]:this[f][a]=r[a]}}}}(),function(){function t(e,t){return new Promise(function(n,a){try{importScripts(t.address)}catch(r){a(r)}e.onScriptLoad(t),t.metadata.registered||a(t.address+" did not call System.register or AMD define"),n("")})}if("undefined"!=typeof document)var n=document.getElementsByTagName("head")[0];var a;l.prototype.onScriptLoad=function(){e.System=a},d("fetch",function(r){return function(o){var s=this;return o.metadata.scriptLoad&&(b||g)?g?t(s,o):new Promise(function(t,r){function i(e){d.readyState&&"loaded"!=d.readyState&&"complete"!=d.readyState||(u(),s.onScriptLoad(o),o.metadata.registered||r(o.address+" did not call System.register or AMD define"),t(""))}function l(e){u(),r(new Error("Unable to load script "+o.address))}function u(){d.detachEvent?d.detachEvent("onreadystatechange",i):(d.removeEventListener("load",i,!1),d.removeEventListener("error",l,!1)),n.removeChild(d)}var d=document.createElement("script");d.async=!0,d.attachEvent?d.attachEvent("onreadystatechange",i):(d.addEventListener("load",i,!1),d.addEventListener("error",l,!1)),a=e.System,e.System=s,d.src=o.address,n.appendChild(d)}):r.call(this,o)}})}(),function(){function t(e,t,n){if(g=!0,t)t=(e.normalizeSync||e.normalize).call(e,t),n.name=t,t in e.defined||(e.defined[t]=n);else{if(v)throw new TypeError("Invalid anonymous System.register module load. If loading a single module, ensure anonymous System.register is loaded via System.import. If loading a bundle, ensure all the System.register calls are named.");v=n}}function n(e,t,a){if(a[e.groupIndex]=a[e.groupIndex]||[],-1==w.call(a[e.groupIndex],e)){a[e.groupIndex].push(e);for(var r=0,o=e.normalizedDeps.length;o>r;r++){var s=e.normalizedDeps[r],i=t.defined[s];if(i&&!i.evaluated){var l=e.groupIndex+(i.declarative!=e.declarative);if(void 0===i.groupIndex||i.groupIndex<l){if(void 0!==i.groupIndex&&(a[i.groupIndex].splice(w.call(a[i.groupIndex],i),1),0==a[i.groupIndex].length))throw new TypeError("Mixed dependency cycle detected");i.groupIndex=l}n(i,t,a)}}}}function a(e,t){var a=t.defined[e];if(!a.module){a.groupIndex=0;var r=[];n(a,t,r);for(var o=!!a.declarative==r.length%2,i=r.length-1;i>=0;i--){for(var l=r[i],d=0;d<l.length;d++){var c=l[d];o?s(c,t):u(c,t)}o=!o}}}function r(){}function o(e,t){return t[e]||(t[e]={name:e,dependencies:[],exports:new r,importers:[]})}function s(t,n){if(!t.module){var a=n._loader.moduleRecords,r=t.module=o(t.name,a),i=t.module.exports,l=t.declare.call(e,function(e,t){if(r.locked=!0,"object"==typeof e)for(var n in e)i[n]=e[n];else i[e]=t;for(var a=0,o=r.importers.length;o>a;a++){var s=r.importers[a];if(!s.locked){var l=w.call(s.dependencies,r);s.setters[l](i)}}return r.locked=!1,t});if(r.setters=l.setters,r.execute=l.execute,!r.setters||!r.execute)throw new TypeError("Invalid System.register form for "+t.name);for(var u=0,d=t.normalizedDeps.length;d>u;u++){var c,f=t.normalizedDeps[u],m=n.defined[f],p=a[f];p?c=p.exports:m&&!m.declarative?c=m.esModule:m?(s(m,n),p=m.module,c=p.exports):c=n.get(f),p&&p.importers?(p.importers.push(r),r.dependencies.push(p)):r.dependencies.push(null);for(var h=t.originalIndices[u],v=0,g=h.length;g>v;++v){var b=h[v];r.setters[b]&&r.setters[b](c)}}}}function i(e,t){var n,a=t.defined[e];if(a)a.declarative?m(e,[],t):a.evaluated||u(a,t),n=a.module.exports;else if(n=t.get(e),!n)throw new Error("Unable to load dependency "+e+".");return(!a||a.declarative)&&n&&n.__useDefault?n["default"]:n}function u(t,n){if(!t.module){var a={},r=t.module={exports:a,id:t.name};if(!t.executingRequire)for(var o=0,s=t.normalizedDeps.length;s>o;o++){var l=t.normalizedDeps[o],d=n.defined[l];d&&u(d,n)}t.evaluated=!0;var c=t.execute.call(e,function(e){for(var a=0,r=t.deps.length;r>a;a++)if(t.deps[a]==e)return i(t.normalizedDeps[a],n);throw new TypeError("Module "+e+" not declared as a dependency.")},a,r);if(c&&(r.exports=c),a=r.exports,a&&a.__esModule)t.esModule=a;else{if(t.esModule={},"object"==typeof a||"function"==typeof a)if(p){var f;for(var m in a)(f=Object.getOwnPropertyDescriptor(a,m))&&x(t.esModule,m,f)}else{var h=a&&a.hasOwnProperty;for(var m in a)(!h||a.hasOwnProperty(m))&&(t.esModule[m]=a[m])}t.esModule["default"]=a,x(t.esModule,"__useDefault",{value:!0})}}}function m(t,n,a){var r=a.defined[t];if(r&&!r.evaluated&&r.declarative){n.push(t);for(var o=0,s=r.normalizedDeps.length;s>o;o++){var i=r.normalizedDeps[o];-1==w.call(n,i)&&(a.defined[i]?m(i,n,a):a.get(i))}r.evaluated||(r.evaluated=!0,r.module.execute.call(e))}}var p=!0;try{Object.getOwnPropertyDescriptor({a:0},"a")}catch(h){p=!1}var v,g=!1;l.prototype.register=function(e,n,a){return"string"!=typeof e&&(a=n,n=e,e=null),"boolean"==typeof a?this.registerDynamic.apply(this,arguments):void t(this,e,{declarative:!0,deps:n,declare:a})},l.prototype.registerDynamic=function(e,n,a,r){"string"!=typeof e&&(r=a,a=n,n=e,e=null),t(this,e,{declarative:!1,deps:n,execute:r,executingRequire:a})},c(function(e){return function(){e.call(this),this.defined={},this._loader.moduleRecords={}}}),d("onScriptLoad",function(e){return function(t){e.call(this,t),g&&(v&&(t.metadata.entry=v),t.metadata.format=t.metadata.format||"defined",t.metadata.registered=!0,g=!1,v=null)}}),x(r,"toString",{value:function(){return"Module"}}),d("delete",function(e){return function(t){return delete this._loader.moduleRecords[t],delete this.defined[t],e.call(this,t)}});var b=/^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*|\s*"[^"]+"\s*;?|\s*'[^']+'\s*;?)*\s*System\.register(Dynamic)?\s*\(/;d("fetch",function(e){return function(t){return this.defined[t.name]?(t.metadata.format="defined",""):(v=null,g=!1,"register"==t.metadata.format&&(t.metadata.scriptLoad=!0),t.metadata.deps=t.metadata.deps||[],e.call(this,t))}}),d("translate",function(e){return function(t){return Promise.resolve(e.call(this,t)).then(function(e){return"string"==typeof t.metadata.deps&&(t.metadata.deps=t.metadata.deps.split(",")),t.metadata.deps=t.metadata.deps||[],("register"==t.metadata.format||!t.metadata.format&&t.source.match(b))&&(t.metadata.format="register"),e})}}),d("instantiate",function(e){return function(e){var t,n=this;if(n.defined[e.name])t=n.defined[e.name],t.deps=t.deps.concat(e.metadata.deps);else if(e.metadata.entry)t=e.metadata.entry;else if(e.metadata.execute)t={declarative:!1,deps:e.metadata.deps||[],execute:e.metadata.execute,executingRequire:e.metadata.executingRequire};else if("register"==e.metadata.format||"esm"==e.metadata.format||"es6"==e.metadata.format){if(v=null,g=!1,R.call(n,e),!g&&!e.metadata.registered)throw new TypeError(e.name+" detected as System.register but didn't execute.");v?t=v:e.metadata.bundle=!0,!t&&n.defined[e.name]&&(t=n.defined[e.name]),v=null,g=!1}t||(t={declarative:!1,deps:e.metadata.deps,execute:function(){return n.newModule({})}}),n.defined[e.name]=t;var r=f(t.deps);t.deps=r.names,t.originalIndices=r.indices,t.name=e.name;for(var o=[],s=0,i=t.deps.length;i>s;s++)o.push(Promise.resolve(n.normalize(t.deps[s],e.name)));return Promise.all(o).then(function(r){return t.normalizedDeps=r,{deps:t.deps,execute:function(){return a(e.name,n),m(e.name,[],n),n.defined[e.name]=void 0,n.newModule(t.declarative?t.module.exports:t.esModule)}}})}})}(),function(){var t=/(^\s*|[}\);\n]\s*)(import\s+(['"]|(\*\s+as\s+)?[^"'\(\)\n;]+\s+from\s+['"]|\{)|export\s+\*\s+from\s+["']|export\s+(\{|default|function|class|var|const|let|async\s+function))/,n=/\$traceurRuntime\s*\./,a=/babelHelpers\s*\./;d("translate",function(r){return function(o){var s=this;return r.call(s,o).then(function(r){if("esm"==o.metadata.format||"es6"==o.metadata.format||!o.metadata.format&&r.match(t))return o.metadata.format="esm",s._loadedTranspiler=s._loadedTranspiler||!1,s.pluginLoader&&(s.pluginLoader._loadedTranspiler=s._loadedTranspiler||!1),s.builder&&(o.metadata.originalSource=o.source),k.call(s,o).then(function(e){return o.metadata.sourceMap=void 0,e});if(s._loadedTranspiler===!1&&o.name==s.normalizeSync(s.transpiler)&&(r.length>100&&(o.metadata.format=o.metadata.format||"global","traceur"===s.transpiler&&(o.metadata.exports="traceur"),"typescript"===s.transpiler&&(o.metadata.exports="ts")),s._loadedTranspiler=!0),s._loadedTranspilerRuntime===!1&&(o.name==s.normalizeSync("traceur-runtime")||o.name==s.normalizeSync("babel/external-helpers*"))&&(r.length>100&&(o.metadata.format=o.metadata.format||"global"),s._loadedTranspilerRuntime=!0),"register"==o.metadata.format&&s._loadedTranspilerRuntime!==!0){if(!e.$traceurRuntime&&o.source.match(n))return s._loadedTranspilerRuntime=s._loadedTranspilerRuntime||!1,s["import"]("traceur-runtime").then(function(){return r});if(!e.babelHelpers&&o.source.match(a))return s._loadedTranspilerRuntime=s._loadedTranspilerRuntime||!1,s["import"]("babel/external-helpers").then(function(){return r})}return r})}})}();var P="undefined"!=typeof self?"self":"global";d("onScriptLoad",function(t){return function(n){if("global"==n.metadata.format){n.metadata.registered=!0;var a=h(n.metadata.exports,e);n.metadata.execute=function(){return a}}return t.call(this,n)}}),d("fetch",function(e){return function(t){return t.metadata.exports&&(t.metadata.format="global"),"global"!=t.metadata.format||!t.metadata.exports||t.metadata.globals||t.metadata.deps&&0!=t.metadata.deps.length||(t.metadata.scriptLoad=!0),e.call(this,t)}}),d("instantiate",function(e){return function(t){var n=this;if(t.metadata.format||(t.metadata.format="global"),t.metadata.globals&&t.metadata.globals instanceof Array){for(var a={},r=0;r<t.metadata.globals.length;r++)a[t.metadata.globals[r]]=t.metadata.globals[r];t.metadata.globals=a}if("global"==t.metadata.format&&!t.metadata.registered){for(var o in t.metadata.globals)t.metadata.deps.push(t.metadata.globals[o]);t.metadata.execute=function(e,a,r){var o;if(t.metadata.globals){o={};for(var s in t.metadata.globals)o[s]=e(t.metadata.globals[s])}var i=t.metadata.exports;i&&(t.source+="\n"+P+'["'+i+'"] = '+i+";");var l=n.get("@@global-helpers").prepareGlobal(r.id,i,o);return R.call(n,t),l()}}return e.call(this,t)}}),c(function(t){return function(){function n(t){if(Object.keys)Object.keys(e).forEach(t);else for(var n in e)s.call(e,n)&&t(n)}function a(t){n(function(n){if(-1==w.call(i,n)){try{var a=e[n]}catch(r){i.push(n)}t(n,a)}})}var r=this;t.call(r);var o,s=Object.prototype.hasOwnProperty,i=["_g","sessionStorage","localStorage","clipboardData","frames","external","mozAnimationStartTime","webkitStorageInfo","webkitIndexedDB"];r.set("@@global-helpers",r.newModule({prepareGlobal:function(t,n,r){var s=e.define;e.define=void 0,e.exports=void 0,e.module&&e.module.exports&&(e.module=void 0);var i;if(r){i={};for(var l in r)i[l]=r[l],e[l]=r[l]}return n||(o={},a(function(e,t){o[e]=t})),function(){var t;if(n)t=h(n,e);else{var r,l,u={};a(function(e,t){o[e]!==t&&"undefined"!=typeof t&&(u[e]=t,"undefined"!=typeof r?l||r===t||(l=!0):r=t)}),t=l?u:r}if(i)for(var d in i)e[d]=i[d];return e.define=s,t}}}))}}),function(){function t(e){a.lastIndex=0;var t=[];e.length/e.split("\n").length<200&&(e=e.replace(r,""));for(var n;n=a.exec(e);)t.push(n[1].substr(1,n[1].length-2));return t}var n=/(?:^\uFEFF?|[^$_a-zA-Z\xA0-\uFFFF.]|module\.)exports\s*(\[['"]|\.)|(?:^\uFEFF?|[^$_a-zA-Z\xA0-\uFFFF.])module\.exports\s*[=,]/,a=/(?:^\uFEFF?|[^$_a-zA-Z\xA0-\uFFFF."'])require\s*\(\s*("[^"\\]*(?:\\.[^"\\]*)*"|'[^'\\]*(?:\\.[^'\\]*)*')\s*\)/g,r=/(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/gm;if("undefined"!=typeof window&&"undefined"!=typeof document&&window.location)var o=location.protocol+"//"+location.hostname+(location.port?":"+location.port:"");c(function(e){return function(){e.call(this),"undefined"!=typeof require&&require.resolve&&"undefined"!=typeof process&&(this._nodeRequire=require)}}),d("instantiate",function(r){return function(s){var i=this;if(s.metadata.format||(n.lastIndex=0,a.lastIndex=0,(a.exec(s.source)||n.exec(s.source))&&(s.metadata.format="cjs")),"cjs"==s.metadata.format){var l=s.metadata.deps||[];s.metadata.deps=l.concat(t(s.source));for(var u in s.metadata.globals)s.metadata.deps.push(s.metadata.globals[u]);s.metadata.executingRequire=!0,s.metadata.execute=function(t,n,a){for(var r=0;r<l.length;r++)t(l[r]);var u=s.address||"",d=u.split("/");d.pop(),d=d.join("/"),o&&u.substr(0,o.length)===o?(u=u.substr(o.length),d=d.substr(o.length)):"file:///"==u.substr(0,8)&&(u=u.substr(7),d=d.substr(7),y&&(u=u.substr(1),d=d.substr(1)));var c=e.define;e.define=void 0,e.__cjsWrapper={exports:n,args:[t,n,a,u,d,e]};var f="";if(s.metadata.globals)for(var m in s.metadata.globals)f+="var "+m+' = require("'+s.metadata.globals[m]+'");';s.source="(function(require, exports, module, __filename, __dirname, global) {"+f+s.source+"\n}).apply(__cjsWrapper.exports, __cjsWrapper.args);",R.call(i,s),e.__cjsWrapper=void 0,e.define=c}}return r.call(i,s)}})}(),c(function(t){return function(){function n(e,t){e=e.replace(i,"");var n=e.match(d),a=(n[1].split(",")[t]||"require").replace(c,""),r=f[a]||(f[a]=new RegExp(l+a+u,"g"));r.lastIndex=0;for(var o,s=[];o=r.exec(e);)s.push(o[2]||o[3]);return s}function a(e,t,n,r){if("object"==typeof e&&!(e instanceof Array))return a.apply(null,Array.prototype.splice.call(arguments,1,arguments.length-1));if("string"==typeof e&&"function"==typeof t&&(e=[e]),!(e instanceof Array)){if("string"==typeof e){var o=s.get(s.normalizeSync(e,r));if(!o)throw new Error('Module not already loaded loading "'+e+'" from "'+r+'".');return o.__useDefault?o["default"]:o}throw new TypeError("Invalid require")}for(var i=[],l=0;l<e.length;l++)i.push(s["import"](e[l],r));Promise.all(i).then(function(e){t&&t.apply(null,e)},n)}function r(t,r,o){"string"!=typeof t&&(o=r,r=t,t=null),r instanceof Array||(o=r,r=["require","exports","module"].splice(0,o.length)),"function"!=typeof o&&(o=function(e){return function(){return e}}(o)),void 0===r[r.length-1]&&r.pop();var i,l,u;-1!=(i=w.call(r,"require"))&&(r.splice(i,1),t||(r=r.concat(n(o.toString(),i)))),-1!=(l=w.call(r,"exports"))&&r.splice(l,1),-1!=(u=w.call(r,"module"))&&r.splice(u,1);var d={name:t,deps:r,execute:function(t,n,d){function c(e,n,r){return"string"==typeof e&&"function"!=typeof n?t(e):a.call(s,e,n,r,d.id)}for(var f=[],m=0;m<r.length;m++)f.push(t(r[m]));d.uri=d.id,d.config=function(){},-1!=u&&f.splice(u,0,d),-1!=l&&f.splice(l,0,n),-1!=i&&(c.toUrl=function(e){var t=s.defaultJSExtensions&&".js"!=e.substr(e.length-3,3),n=s.normalizeSync(e,d.id);return t&&".js"==n.substr(n.length-3,3)&&(n=n.substr(0,n.length-3)),n},f.splice(i,0,c));var p=e.require;e.require=a;var h=o.apply(-1==l?e:n,f);return e.require=p,"undefined"==typeof h&&d&&(h=d.exports),"undefined"!=typeof h?h:void 0}};if(t)m.anonDefine||m.isBundle?(m.anonDefine&&m.anonDefine.name&&s.registerDynamic(m.anonDefine.name,m.anonDefine.deps,!1,m.anonDefine.execute),m.anonDefine=null):m.anonDefine=d,m.isBundle=!0,s.registerDynamic(t,d.deps,!1,d.execute);else{if(m.anonDefine)throw new TypeError("Multiple defines for anonymous module");m.anonDefine=d}}function o(t){m.anonDefine=null,m.isBundle=!1;var n=e.module,a=e.exports,o=e.define;return e.module=void 0,e.exports=void 0,e.define=r,function(){e.define=o,e.module=n,e.exports=a}}var s=this;t.call(this);var i=/(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/gm,l="(?:^|[^$_a-zA-Z\\xA0-\\uFFFF.])",u="\\s*\\(\\s*(\"([^\"]+)\"|'([^']+)')\\s*\\)",d=/\(([^\)]*)\)/,c=/^\s+|\s+$/g,f={};r.amd={};var m={isBundle:!1,anonDefine:null};s.set("@@amd-helpers",s.newModule({createDefine:o,require:a,define:r,lastModule:m})),s.amdDefine=r,s.amdRequire=a}}),function(){var e=/(?:^\uFEFF?|[^$_a-zA-Z\xA0-\uFFFF.])define\s*\(\s*("[^"]+"\s*,\s*|'[^']+'\s*,\s*)?\s*(\[(\s*(("[^"]+"|'[^']+')\s*,|\/\/.*\r?\n|\/\*(.|\s)*?\*\/))*(\s*("[^"]+"|'[^']+')\s*,?)?(\s*(\/\/.*\r?\n|\/\*(.|\s)*?\*\/))*\s*\]|function\s*|{|[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*\))/;
 d("onScriptLoad",function(e){return function(t){e.call(this,t);var n=this.get("@@amd-helpers").lastModule;(n.anonDefine||n.isBundle)&&(t.metadata.format="defined",t.metadata.registered=!0,n.isBundle=!1),n.anonDefine&&(t.metadata.deps=t.metadata.deps?t.metadata.deps.concat(n.anonDefine.deps):n.anonDefine.deps,t.metadata.execute=n.anonDefine.execute,n.anonDefine=null)}}),d("fetch",function(e){return function(t){return"amd"===t.metadata.format&&(t.metadata.scriptLoad=!0),t.metadata.scriptLoad&&this.get("@@amd-helpers").createDefine(this),e.call(this,t)}}),d("instantiate",function(t){return function(n){var a=this;if("amd"==n.metadata.format||!n.metadata.format&&n.source.match(e)){if(n.metadata.format="amd",a.builder||a.execute===!1)n.metadata.execute=function(){return n.metadata.builderExecute()};else{var r=this.get("@@amd-helpers").createDefine(a);R.call(a,n),r(a);var o=this.get("@@amd-helpers").lastModule;if(!o.anonDefine&&!o.isBundle)throw new TypeError("AMD module "+n.name+" did not define");o.anonDefine&&(n.metadata.deps=n.metadata.deps?n.metadata.deps.concat(o.anonDefine.deps):o.anonDefine.deps,n.metadata.execute=o.anonDefine.execute),o.isBundle=!1,o.anonDefine=null}return t.call(a,n)}return t.call(a,n)}})}(),c(function(e){return function(){e.call(this),this.map={}}}),d("normalize",function(e){return function(t,n,a){if("."!=t.substr(0,1)&&"/"!=t.substr(0,1)&&!t.match(L)){var r,o=0;for(var s in this.map)if(t.substr(0,s.length)==s&&(t.length==s.length||"/"==t[s.length])){var i=s.split("/").length;if(o>=i)continue;r=s,o=i}r&&(t=this.map[r]+t.substr(r.length))}return e.call(this,t,n,a)}}),d("normalize",function(e){return function(t,n){var a=e.call(this,t,n);return this.has(a)?a:(b&&(a=a.replace(/#/g,"%23")),a.match(L)?(this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(a+=".js"),a):(a=s(this.paths,a)||a,this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(a+=".js"),"."==a[0]||"/"==a[0]?new _(a,F).href:new _(a,v.call(this)).href))}}),function(){function e(e){for(var t in this.packages)if(e.substr(0,t.length)===t&&(e.length===t.length||"/"===e[t.length]))return t}function t(e,t){var n,a=0;for(var r in e)if(t.substr(0,r.length)==r&&(t.length==r.length||"/"==t[r.length])){var o=r.split("/").length;if(a>=o)continue;n=r,a=o}return n}function n(e,n,a,r){var o=t(a,r),s=a[o];return s?"object"==typeof s?e["import"](a["@env"]||"@system-env",n).then(function(e){for(var t in s){var n="~"==t[0],a=h(n?t.substr(1):t,e);if(!n&&a||n&&!a)return s[t]+r.substr(o.length)}}):s+r.substr(o.length):void 0}function a(a,r){return function(o,s){if(s)var i=e.call(this,s)||this.defaultJSExtensions&&".js"==s.substr(s.length-3,3)&&e.call(this,s.substr(0,s.length-3));if(i&&"."!==o[0]){var l=this.packages[i].map;if(l){var u=t(l,o);u&&(o=l[u]+o.substr(u.length),"."===o[0]&&(s=i+"/"))}}var d=this.defaultJSExtensions&&".js"!=o.substr(o.length-3,3),c=a.call(this,o,s);".js"!=c.substr(c.length-3,3)&&(d=!1),d&&(c=c.substr(0,c.length-3));var f=e.call(this,c),m=this;if(f){var p=m.packages[f];if(f===c&&p.main&&(c+="/"+("./"==p.main.substr(0,2)?p.main.substr(2):p.main)),"/"==c.substr(f.length))return c;var h="";if(p.meta&&(p.meta[c.substr(f.length+1)]||p.meta["./"+c.substr(f.length+1)])||("defaultExtension"in p?p.defaultExtension!==!1&&-1==c.split("/").pop().lastIndexOf(".")&&(h="."+p.defaultExtension):d&&(h=".js")),r||!p.map)return c+h;var v="."+c.substr(f.length);return Promise.resolve(n(m,f,p.map,v)).then(function(e){return e?e:h?n(m,f,p.map,v+h):void 0}).then(function(e){return e?c="./"==e.substr(0,2)?f+e.substr(1):a.call(m,e):c+=h,c})}return d&&(c+=".js"),c}}c(function(e){return function(){e.call(this),this.packages={}}}),l.prototype.normalizeSync=l.prototype.normalize,d("normalizeSync",function(e){return a(e,!0)}),d("normalize",function(e){return a(e,!1)}),d("locate",function(t){return function(n){var a=this;return Promise.resolve(t.call(this,n)).then(function(t){var r=e.call(a,n.name);if(r){var o=a.packages[r];if(o.format&&(n.metadata.format=n.metadata.format||o.format),o.loader&&(n.metadata.loader=n.metadata.loader||o.loader),o.meta){var s,i={},l=0;for(var u in o.meta){var d="./"==u.substr(0,2)?"./":"";if(d&&(u=u.substr(2)),s=u.indexOf("*"),-1!==s&&u.substr(0,s)===n.name.substr(0,s)&&u.substr(s+1)===n.name.substr(n.name.length-u.length+s+1)){var c=u.split("/").length;c>l&&(bestDetph=c),p(i,o.meta[d+u],l!=c)}}var f=n.name.substr(r.length+1),m=o.meta[f]||o.meta["./"+f];m&&p(i,m),i.alias&&"./"==i.alias.substr(0,2)&&(i.alias=r+i.alias.substr(1)),i.loader&&"./"==i.loader.substr(0,2)&&(i.loader=r+i.loader.substr(1)),p(n.metadata,i)}}return t})}})}(),function(){function e(e,t,n,a){function r(e,t){return d&&".js"==e.substr(e.length-3,3)&&(e=e.substr(0,e.length-3)),o.pluginFirst?t+"!"+e:e+"!"+t}var o=this;if(n){var s;o.pluginFirst?-1!=(s=n.lastIndexOf("!"))&&(n=n.substr(s+1)):-1!=(s=n.indexOf("!"))&&(n=n.substr(0,s))}var i=t.lastIndexOf("!");if(-1!=i){var l,u;o.pluginFirst?(l=t.substr(i+1),u=t.substr(0,i)):(l=t.substr(0,i),u=t.substr(i+1)||l.substr(l.lastIndexOf(".")+1));var d=o.defaultJSExtensions&&".js"!=l.substr(l.length-3,3);return a?(l=o.normalizeSync(l,n),u=o.normalizeSync(u,n),r(l,u)):Promise.all([o.normalize(l,n),o.normalize(u,n)]).then(function(e){return r(e[0],e[1])})}return e.call(o,t,n)}d("normalize",function(t){return function(n,a){return e.call(this,t,n,a,!1)}}),d("normalizeSync",function(t){return function(n,a){return e.call(this,t,n,a,!0)}}),d("locate",function(e){return function(t){var n,a=this,r=t.name;return a.pluginFirst?-1!=(n=r.indexOf("!"))&&(t.metadata.loader=r.substr(0,n),t.name=r.substr(n+1)):-1!=(n=r.lastIndexOf("!"))&&(t.metadata.loader=r.substr(n+1),t.name=r.substr(0,n)),e.call(a,t).then(function(e){var n=t.metadata.loader;if(!n)return e;if(a.defined&&a.defined[r])return e;var o=a.pluginLoader||a;return o["import"](n).then(function(n){return t.metadata.loaderModule=n,t.metadata.loaderArgument=r,t.address=e,n.locate?n.locate.call(a,t):e})})}}),d("fetch",function(e){return function(t){var n=this;return t.metadata.loaderModule&&t.metadata.loaderModule.fetch?(t.metadata.scriptLoad=!1,t.metadata.loaderModule.fetch.call(n,t,function(t){return e.call(n,t)})):e.call(n,t)}}),d("translate",function(e){return function(t){var n=this;return t.metadata.loaderModule&&t.metadata.loaderModule.translate?Promise.resolve(t.metadata.loaderModule.translate.call(n,t)).then(function(a){return"string"==typeof a&&(t.source=a),e.call(n,t)}):e.call(n,t)}}),d("instantiate",function(e){return function(t){var n=this,a=t.metadata.sourceMap;if(a&&"object"==typeof a){var r=t.name.split("!")[0];a.file=r+"!transpiled",a.sources&&1!=a.sources.length||(a.sources=[r]),t.metadata.sourceMap=JSON.stringify(a)}return t.metadata.loaderModule&&t.metadata.loaderModule.instantiate?Promise.resolve(t.metadata.loaderModule.instantiate.call(n,t)).then(function(a){return t.metadata.format="defined",t.metadata.execute=function(){return a},e.call(n,t)}):e.call(n,t)}})}(),function(){d("fetch",function(e){return function(t){var n=t.metadata.alias,a=t.metadata.deps||[];return n?(t.metadata.format="defined",this.defined[t.name]={declarative:!0,deps:a.concat([n]),declare:function(e){return{setters:[function(t){for(var n in t)e(n,t[n])}],execute:function(){}}}},""):e.call(this,t)}})}(),function(){function e(e,t,n){for(var a,r=t.split(".");r.length>1;)a=r.shift(),e=e[a]=e[a]||{};a=r.shift(),a in e||(e[a]=n)}c(function(e){return function(){this.meta={},e.call(this)}}),d("locate",function(e){return function(t){var n,a=this.meta,r=t.name,o=0;for(var s in a)if(n=s.indexOf("*"),-1!==n&&s.substr(0,n)===r.substr(0,n)&&s.substr(n+1)===r.substr(r.length-s.length+n+1)){var i=s.split("/").length;i>o&&(bestDetph=i),p(t.metadata,a[s],o!=i)}return a[r]&&p(t.metadata,a[r]),e.call(this,t)}});var t=/^(\s*\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*|\s*"[^"]+"\s*;?|\s*'[^']+'\s*;?)+/,n=/\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\/\/[^\n]*|"[^"]+"\s*;?|'[^']+'\s*;?/g;d("translate",function(a){return function(r){var o=r.source.match(t);if(o)for(var s=o[0].match(n),i=0;i<s.length;i++){var l=s[i],u=l.length,d=l.substr(0,1);if(";"==l.substr(u-1,1)&&u--,'"'==d||"'"==d){var c=l.substr(1,l.length-3),f=c.substr(0,c.indexOf(" "));if(f){var m=c.substr(f.length+1,c.length-f.length-1);"[]"==f.substr(f.length-2,2)&&(f=f.substr(0,f.length-2),r.metadata[f]=r.metadata[f]||[]),r.metadata[f]instanceof Array?r.metadata[f].push(m):e(r.metadata,f,m)}else r.metadata[c]=!0}}return a.call(this,r)}})}(),function(){function e(e,t){return Promise.resolve(e.normalize(t)).then(function(n){return e.loadedBundles_[n]=!0,e.bundles[n]=e.bundles[n]||e.bundles[t],e.load(n)}).then(function(){return""})}c(function(e){return function(){e.call(this),this.bundles={},this.loadedBundles_={}}}),d("locate",function(e){return function(t){return(t.name in this.loadedBundles_||t.name in this.bundles)&&(t.metadata.bundle=!0),e.call(this,t)}}),d("fetch",function(t){return function(n){var a=this;if(a.trace)return t.call(a,n);if(n.name in a.defined)return"";for(var r in a.loadedBundles_)if(-1!=w.call(a.bundles[r],n.name))return e(a,r);for(var r in a.bundles)if(-1!=w.call(a.bundles[r],n.name))return e(a,r);return t.call(a,n)}})}(),function(){c(function(e){return function(){e.call(this),this.depCache={}}}),d("locate",function(e){return function(t){var n=this,a=n.depCache[t.name];if(a)for(var r=0;r<a.length;r++)n["import"](a[r]);return e.call(n,t)}})}(),function(){var e=/#\{[^\}]+\}|#\?.+$/;c(function(e){return function(){e.call(this),this.set("@system-env",this.newModule({browser:b}))}}),d("normalize",function(t){return function(n,a,r){var o=this,s=n.match(e);if(s){var i="?"!=s[0][1],l=i?s[0].substr(2,s[0].length-3):s[0].substr(2);if("."==l[0]||-1!=l.indexOf("/"))throw new TypeError("Invalid condition "+s[0]+"\n	Condition modules cannot contain . or / in the name.");var u,d=l.indexOf(".");-1!=d&&(u=l.substr(d+1),l=l.substr(0,d));var c=!i&&"~"==l[0];c&&(l=l.substr(1));var f=o.pluginLoader||o;return f["import"](l,a,r).then(function(e){return void 0===u?"string"==typeof e?e:e["default"]:h(u,e)}).then(function(s){if(i){if("string"!=typeof s)throw new TypeError("The condition value for "+l+" doesn't resolve to a string.");n=n.replace(e,s)}else{if("boolean"!=typeof s)throw new TypeError("The condition value for "+l+" isn't resolving to a boolean.");c&&(s=!s),n=s?n.replace(e,""):"@empty"}return t.call(o,n,a,r)})}return Promise.resolve(t.call(o,n,a,r))}})}(),j=new l,j.constructor=l,"object"==typeof exports&&(module.exports=r),e.Reflect=e.Reflect||{},e.Reflect.Loader=e.Reflect.Loader||r,e.Reflect.global=e.Reflect.global||e,e.LoaderPolyfill=r,j||(j=new o,j.constructor=o),"object"==typeof exports&&(module.exports=j),e.System=j}("undefined"!=typeof self?self:global)}try{var t="undefined"!=typeof URLPolyfill||"test:"==new URL("test:///").protocol}catch(n){}if("undefined"!=typeof Promise&&t)e();else if("undefined"!=typeof document){var a=document.getElementsByTagName("script");$__curScript=a[a.length-1];var r=$__curScript.src,o=r.substr(0,r.lastIndexOf("/")+1);window.systemJSBootstrap=e,document.write('<script type="text/javascript" src="'+o+'system-polyfills.js"></script>')}else if("undefined"!=typeof importScripts){var o="";try{throw new Error("_")}catch(n){n.stack.replace(/(?:at|@).*(http.+):[\d]+:[\d]+/,function(e,t){o=t.replace(/\/[^\/]*$/,"/")})}importScripts(o+"system-polyfills.js"),e()}else e()}();
 //# sourceMappingURL=system.js.map
 
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -41091,7 +41100,7 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
     execute: function () {}
   };
 });
-System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './components', './platform/platform', './platform/registry', './platform/plugins', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
+System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/plugins', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
   'use strict';
 
   return {
@@ -41111,65 +41120,69 @@ System.register('ionic/ionic', ['./config/bootstrap', './config/config', './conf
       for (var _key4 in _configDecorators) {
         if (_key4 !== 'default') _export(_key4, _configDecorators[_key4]);
       }
+    }, function (_configDirectives) {
+      for (var _key5 in _configDirectives) {
+        if (_key5 !== 'default') _export(_key5, _configDirectives[_key5]);
+      }
     }, function (_components) {
-      for (var _key5 in _components) {
-        if (_key5 !== 'default') _export(_key5, _components[_key5]);
+      for (var _key6 in _components) {
+        if (_key6 !== 'default') _export(_key6, _components[_key6]);
       }
     }, function (_platformPlatform) {
-      for (var _key6 in _platformPlatform) {
-        if (_key6 !== 'default') _export(_key6, _platformPlatform[_key6]);
+      for (var _key7 in _platformPlatform) {
+        if (_key7 !== 'default') _export(_key7, _platformPlatform[_key7]);
       }
     }, function (_platformRegistry) {
-      for (var _key7 in _platformRegistry) {
-        if (_key7 !== 'default') _export(_key7, _platformRegistry[_key7]);
+      for (var _key8 in _platformRegistry) {
+        if (_key8 !== 'default') _export(_key8, _platformRegistry[_key8]);
       }
     }, function (_platformPlugins) {
-      for (var _key8 in _platformPlugins) {
-        if (_key8 !== 'default') _export(_key8, _platformPlugins[_key8]);
+      for (var _key9 in _platformPlugins) {
+        if (_key9 !== 'default') _export(_key9, _platformPlugins[_key9]);
       }
 
-      for (var _key17 in _platformPlugins) {
-        if (_key17 !== 'default') _export(_key17, _platformPlugins[_key17]);
+      for (var _key18 in _platformPlugins) {
+        if (_key18 !== 'default') _export(_key18, _platformPlugins[_key18]);
       }
     }, function (_platformStorage) {
-      for (var _key9 in _platformStorage) {
-        if (_key9 !== 'default') _export(_key9, _platformStorage[_key9]);
+      for (var _key10 in _platformStorage) {
+        if (_key10 !== 'default') _export(_key10, _platformStorage[_key10]);
       }
     }, function (_utilClickBlock) {
-      for (var _key10 in _utilClickBlock) {
-        if (_key10 !== 'default') _export(_key10, _utilClickBlock[_key10]);
+      for (var _key11 in _utilClickBlock) {
+        if (_key11 !== 'default') _export(_key11, _utilClickBlock[_key11]);
       }
     }, function (_utilEvents) {
-      for (var _key11 in _utilEvents) {
-        if (_key11 !== 'default') _export(_key11, _utilEvents[_key11]);
+      for (var _key12 in _utilEvents) {
+        if (_key12 !== 'default') _export(_key12, _utilEvents[_key12]);
       }
     }, function (_animationsAnimation) {
-      for (var _key12 in _animationsAnimation) {
-        if (_key12 !== 'default') _export(_key12, _animationsAnimation[_key12]);
+      for (var _key13 in _animationsAnimation) {
+        if (_key13 !== 'default') _export(_key13, _animationsAnimation[_key13]);
       }
     }, function (_animationsBuiltins) {
-      for (var _key13 in _animationsBuiltins) {
-        if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
+      for (var _key14 in _animationsBuiltins) {
+        if (_key14 !== 'default') _export(_key14, _animationsBuiltins[_key14]);
       }
     }, function (_transitionsTransition) {
-      for (var _key14 in _transitionsTransition) {
-        if (_key14 !== 'default') _export(_key14, _transitionsTransition[_key14]);
+      for (var _key15 in _transitionsTransition) {
+        if (_key15 !== 'default') _export(_key15, _transitionsTransition[_key15]);
       }
     }, function (_transitionsIosTransition) {
-      for (var _key15 in _transitionsIosTransition) {
-        if (_key15 !== 'default') _export(_key15, _transitionsIosTransition[_key15]);
+      for (var _key16 in _transitionsIosTransition) {
+        if (_key16 !== 'default') _export(_key16, _transitionsIosTransition[_key16]);
       }
     }, function (_transitionsMdTransition) {
-      for (var _key16 in _transitionsMdTransition) {
-        if (_key16 !== 'default') _export(_key16, _transitionsMdTransition[_key16]);
+      for (var _key17 in _transitionsMdTransition) {
+        if (_key17 !== 'default') _export(_key17, _transitionsMdTransition[_key17]);
       }
     }, function (_translationTranslate) {
-      for (var _key18 in _translationTranslate) {
-        if (_key18 !== 'default') _export(_key18, _translationTranslate[_key18]);
+      for (var _key19 in _translationTranslate) {
+        if (_key19 !== 'default') _export(_key19, _translationTranslate[_key19]);
       }
     }, function (_translationTranslate_pipe) {
-      for (var _key19 in _translationTranslate_pipe) {
-        if (_key19 !== 'default') _export(_key19, _translationTranslate_pipe[_key19]);
+      for (var _key20 in _translationTranslate_pipe) {
+        if (_key20 !== 'default') _export(_key20, _translationTranslate_pipe[_key20]);
       }
     }],
     execute: function () {}
@@ -41322,12 +41335,14 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
             Animation = (function () {
                 function Animation(ele) {
                     var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+                    var fastdom = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
                     _classCallCheck(this, Animation);
 
                     this.reset();
+                    this._fastdom = fastdom;
                     this._opts = extend({
-                        renderDelay: 36
+                        renderDelay: 16
                     }, opts);
                     this.elements(ele);
                     if (!document.documentElement.animate) {
@@ -41491,6 +41506,8 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                 }, {
                     key: 'play',
                     value: function play() {
+                        var _this = this;
+
                         var self = this;
                         // the actual play() method which may or may not start async
                         function beginPlay() {
@@ -41506,18 +41523,44 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                             return Promise.all(promises);
                         }
                         if (!self._parent) {
-                            // this is the top level animation and is in full control
-                            // of when the async play() should actually kick off
-                            // stage all animations and child animations at their starting point
-                            self.stage();
-                            // synchronously call all onPlay()'s before play()
-                            self._onPlay();
-                            return new Promise(function (resolve) {
-                                beginPlay().then(function () {
-                                    self._onFinish();
-                                    resolve();
+                            var _ret = (function () {
+                                var kickoff = function kickoff() {
+                                    // synchronously call all onPlay()'s before play()
+                                    self._onPlay();
+                                    beginPlay().then(function () {
+                                        self._onFinish();
+                                        resolve();
+                                    });
+                                };
+
+                                // this is the top level animation and is in full control
+                                // of when the async play() should actually kick off
+                                // stage all animations and child animations at their starting point
+                                self.stage();
+                                var resolve = undefined;
+                                var promise = new Promise(function (res) {
+                                    resolve = res;
                                 });
-                            });
+
+                                if (self._duration > 16 && _this._opts.renderDelay > 0) {
+                                    // begin each animation when everything is rendered in their starting point
+                                    // give the browser some time to render everything in place before starting
+                                    if (_this._fastdom) {
+                                        _this._fastdom.write(kickoff);
+                                    } else {
+                                        setTimeout(kickoff, _this._opts.renderDelay);
+                                    }
+                                } else {
+                                    // no need to render everything in there place before animating in
+                                    // just kick it off immediately to render them in their "to" locations
+                                    kickoff();
+                                }
+                                return {
+                                    v: promise
+                                };
+                            })();
+
+                            if (typeof _ret === 'object') return _ret.v;
                         }
                         // this is a child animation, it is told exactly when to
                         // start by the top level animation
@@ -41738,13 +41781,18 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                     }
                 }, {
                     key: 'dispose',
-                    value: function dispose() {
+                    value: function dispose(removeElement) {
                         var i = undefined;
                         for (i = 0; i < this._chld.length; i++) {
-                            this._chld[i].dispose();
+                            this._chld[i].dispose(removeElement);
                         }
                         for (i = 0; i < this._ani.length; i++) {
-                            this._ani[i].dispose();
+                            this._ani[i].dispose(removeElement);
+                        }
+                        if (removeElement) {
+                            for (i = 0; i < this._el.length; i++) {
+                                this._el[i].parentNode && this._el[i].parentNode.removeChild(this._el[i]);
+                            }
                         }
                         this.reset();
                     }
@@ -41755,36 +41803,36 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                 }, {
                     key: 'before',
                     get: function get() {
-                        var _this = this;
+                        var _this2 = this;
 
                         return {
                             addClass: function addClass(className) {
-                                _this._bfAdd.push(className);
-                                return _this;
+                                _this2._bfAdd.push(className);
+                                return _this2;
                             },
                             removeClass: function removeClass(className) {
-                                _this._bfRmv.push(className);
-                                return _this;
+                                _this2._bfRmv.push(className);
+                                return _this2;
                             },
                             setStyles: function setStyles(styles) {
-                                _this._bfSty = styles;
-                                return _this;
+                                _this2._bfSty = styles;
+                                return _this2;
                             }
                         };
                     }
                 }, {
                     key: 'after',
                     get: function get() {
-                        var _this2 = this;
+                        var _this3 = this;
 
                         return {
                             addClass: function addClass(className) {
-                                _this2._afAdd.push(className);
-                                return _this2;
+                                _this3._afAdd.push(className);
+                                return _this3;
                             },
                             removeClass: function removeClass(className) {
-                                _this2._afRmv.push(className);
-                                return _this2;
+                                _this3._afRmv.push(className);
+                                return _this3;
                             }
                         };
                     }
@@ -41864,9 +41912,11 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                             // lock in where the element will stop at
                             // if the playbackRate is negative then it needs to return
                             // to its "from" effects
-                            inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
-                            self.ani = null;
-                            done && done();
+                            if (self.ani) {
+                                inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
+                                self.ani = self.ani.onfinish = null;
+                                done && done();
+                            }
                         };
                     }
                 }, {
@@ -42033,7 +42083,7 @@ System.register('ionic/animations/builtins', ['./animation'], function (_export)
 
     var Animation, SlideIn, SlideOut, FadeIn, FadeOut;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -42308,15 +42358,16 @@ System.register('ionic/components/ion', ['ionic/util/dom'], function (_export) {
         }
     };
 });
-System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
+System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/fastdom', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
     'use strict';
 
-    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, FeatureDetect, initTapClick, dom;
+    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, FastDom, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, FeatureDetect, initTapClick, dom;
 
     _export('ionicProviders', ionicProviders);
 
     function ionicProviders(args) {
-        var app = new IonicApp();
+        var fastdom = new FastDom();
+        var app = new IonicApp(fastdom);
         var platform = new Platform();
         var navRegistry = new NavRegistry(args.pages);
         var config = args.config;
@@ -42329,13 +42380,13 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         platform.load();
         config.setPlatform(platform);
         var events = new Events();
-        initTapClick(window, document, app, config);
+        initTapClick(window, document, app, config, fastdom);
         var featureDetect = new FeatureDetect();
         setupDom(window, document, config, platform, featureDetect);
         bindEvents(window, document, platform, events);
         // prepare the ready promise to fire....when ready
         platform.prepareReady(config);
-        return [provide(IonicApp, { useValue: app }), provide(Config, { useValue: config }), provide(Platform, { useValue: platform }), provide(FeatureDetect, { useValue: featureDetect }), provide(Events, { useValue: events }), provide(NavRegistry, { useValue: navRegistry }), Form, Keyboard, OverlayController, ActionSheet, Modal, Popup, Translate, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), HTTP_PROVIDERS];
+        return [provide(FastDom, { useValue: fastdom }), provide(IonicApp, { useValue: app }), provide(Config, { useValue: config }), provide(Platform, { useValue: platform }), provide(FeatureDetect, { useValue: featureDetect }), provide(Events, { useValue: events }), provide(NavRegistry, { useValue: navRegistry }), Form, Keyboard, OverlayController, ActionSheet, Modal, Popup, Translate, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), HTTP_PROVIDERS];
     }
 
     function setupDom(window, document, config, platform, featureDetect) {
@@ -42420,6 +42471,8 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
             Platform = _platformPlatform.Platform;
         }, function (_componentsOverlayOverlayController) {
             OverlayController = _componentsOverlayOverlayController.OverlayController;
+        }, function (_utilFastdom) {
+            FastDom = _utilFastdom.FastDom;
         }, function (_utilForm) {
             Form = _utilForm.Form;
         }, function (_utilKeyboard) {
@@ -42456,8 +42509,56 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
     */
 
     /**
-    * TODO
-    */
+     * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+     *
+     * ```ts
+     * import {Config} from 'ionic/ionic';
+     * @App({
+     *   template: `<ion-nav [root]="root"></ion-nav>`
+     *   config: {
+     *     backButtonText: 'Go Back',
+     *     iconMode: 'ios',
+     *     modalEnter: 'modal-slide-in',
+     *     modalLeave: 'modal-slide-out',
+     *     tabbarPlacement: 'bottom',
+     *     pageTransition: 'ios',
+     *   }
+     * })
+     * ```
+     *
+     * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
+     * ```ts
+     * import {Config} from 'ionic/ionic';
+     * @App({
+     *   template: `<ion-nav [root]="root"></ion-nav>`
+     *   config: {
+     *     'tabbarPlacement': 'bottom',
+     *     platform: {
+     *      ios: {
+     *        'tabbarPlacement': 'top',
+     *      }
+     *     }
+     *   }
+     * })
+     * ```
+     *
+     * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
+     *
+     * ```html
+     * <ion-tabs tabbar-placement="top">
+     *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="DashRoot"></ion-tab>
+     *  </ion-tabs>
+     * ```
+     *
+     * The property will override anything else set in the apps.
+     *
+     * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
+     * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
+     *
+     * ```
+     * http://localhost:8100/?IonictabbarPlacement=bottom
+     * ```
+    **/
     'use strict';
 
     var Platform, isObject, isDefined, isFunction, isArray, Config, modeConfigs;
@@ -42493,27 +42594,10 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
                  * For setting and getting multiple config values
                  */
                 /**
-                * @name settings()
-                * @description
-                * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
-                *
-                *
-                * @usage
-                * ```ts
-                * import {Config} from 'ionic/ionic';
-                * @App({
-                *   template: `<ion-nav [root]="root"></ion-nav>`
-                *   config: {
-                *     backButtonText: 'Go Back',
-                *     iconMode: 'ios',
-                *     modalEnter: 'modal-slide-in',
-                *     modalLeave: 'modal-slide-out',
-                *     tabbarPlacement: 'bottom',
-                *     viewTransition: 'ios',
-                *   }
-                * })
-                * ```
-                */
+                 * @private
+                 * @name settings()
+                 * @description
+                 */
 
                 _createClass(Config, [{
                     key: 'settings',
@@ -42538,7 +42622,12 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
                     }
 
                     /**
-                     * For setting a single config values
+                    * For setting a single config values
+                    */
+                    /**
+                     * @private
+                     * @name set()
+                     * @description
                      */
                 }, {
                     key: 'set',
@@ -42569,6 +42658,11 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
 
                     /**
                      * For getting a single config values
+                     */
+                    /**
+                     * @private
+                     * @name get()
+                     * @description
                      */
                 }, {
                     key: 'get',
@@ -42949,6 +43043,7 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
         }],
         execute: function () {
             Config.setModeConfig('ios', {
+                activator: 'highlight',
                 actionSheetEnter: 'action-sheet-slide-in',
                 actionSheetLeave: 'action-sheet-slide-out',
                 actionSheetCancelIcon: '',
@@ -42956,15 +43051,18 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 backButtonText: 'Back',
                 backButtonIcon: 'ion-ios-arrow-back',
                 iconMode: 'ios',
+                menuType: 'reveal',
                 modalEnter: 'modal-slide-in',
                 modalLeave: 'modal-slide-out',
-                tabbarPlacement: 'bottom',
-                viewTransition: 'ios',
-                popupPopIn: 'popup-pop-in',
-                popupPopOut: 'popup-pop-out'
+                pageTransition: 'ios',
+                pageTransitionDelay: 16,
+                popupEnter: 'popup-pop-in',
+                popupLeave: 'popup-pop-out',
+                tabbarPlacement: 'bottom'
             });
             // Material Design Mode Settings
             Config.setModeConfig('md', {
+                activator: 'ripple',
                 actionSheetEnter: 'action-sheet-md-slide-in',
                 actionSheetLeave: 'action-sheet-md-slide-out',
                 actionSheetCancelIcon: 'ion-md-close',
@@ -42972,15 +43070,16 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 backButtonText: '',
                 backButtonIcon: 'ion-md-arrow-back',
                 iconMode: 'md',
+                menuType: 'overlay',
                 modalEnter: 'modal-md-slide-in',
                 modalLeave: 'modal-md-slide-out',
+                pageTransition: 'md',
+                pageTransitionDelay: 80,
+                popupEnter: 'popup-md-pop-in',
+                popupLeave: 'popup-md-pop-out',
+                tabbarHighlight: true,
                 tabbarPlacement: 'top',
-                viewTransition: 'md',
-                popupPopIn: 'popup-md-pop-in',
-                popupPopOut: 'popup-md-pop-out',
-                tabSubPages: true,
-                type: 'overlay',
-                mdRipple: true
+                tabSubPages: true
             });
         }
     };
@@ -42992,7 +43091,7 @@ System.register('ionic/gestures/drag-gesture', ['ionic/gestures/gesture', 'ionic
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -45309,7 +45408,7 @@ System.register('ionic/gestures/slide-edge-gesture', ['ionic/gestures/slide-gest
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -45392,7 +45491,7 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -45568,7 +45667,9 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                 // **********************************************
                 /**
                  * @param {string} platformName
-                 * @returns {bool}
+                 * @returns {bool} returns true/false based on platform you place
+                 * @description
+                 * Depending on the platform name, isPlatform will return true or flase
                  *
                  * ```
                  * import {Platform} 'ionic/ionic';
@@ -45618,21 +45719,23 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                     }
 
                     /**
-                     * TODO
-                     * @param {string} platformName
-                     * @returns {object}
+                     * @param {string} optional platformName
+                     * @returns {object} An object with various platform info
+                     * - `{object=} `cordova`
+                     * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
+                     * - `{object=} `deviceName` Returns the name of the device
+                     * - `{object=}` `device platform` R
                      * @description
-                     * Returns an object containing the os version
+                     * Returns an object conta
                      *
                      * ```
                      * import {Platform} 'ionic/ionic';
                      * export MyClass {
                      *    constructor(platform: Platform){
                      *      this.platform = platform;
-                     *      console.log(this.platform.versions('android'));
-                     *      // Returns an object with the os version as a string,
-                     *      // The Major version as a string
-                     *      // The Minor version as a string
+                     *      console.log(this.platform.versions());
+                     *      // or pass in a platform name
+                     *      console.log(this.platform.versions('ios'));
                      *    }
                      * }
                      * ```
@@ -45650,7 +45753,6 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                     }
 
                     /**
-                     * TODO
                      * @returns {promise}
                      * @description
                      * Returns a promise when the platform is ready and native functionality can be called
@@ -46271,7 +46373,7 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 isMatch: function isMatch(p) {
                     var smallest = Math.min(p.width(), p.height());
                     var largest = Math.max(p.width(), p.height());
-                    return smallest > 390 && smallest < 520 && (largest > 620 && largest < 800);
+                    return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
                 }
             });
             Platform.register({
@@ -46279,7 +46381,7 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 isMatch: function isMatch(p) {
                     var smallest = Math.min(p.width(), p.height());
                     var largest = Math.max(p.width(), p.height());
-                    return smallest > 460 && smallest < 820 && (largest > 780 && largest < 1400);
+                    return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
                 }
             });
             Platform.register({
@@ -46309,10 +46411,13 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                         return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
                         );
                     },
+                    tapPolyfill: function tapPolyfill(p) {
+                        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+                        );
+                    },
                     keyboardHeight: 290,
                     hoverCSS: false,
                     swipeBackEnabled: function swipeBackEnabled(p) {
-                        return true; // TODO: remove me! Force it to always work for iOS mode for now
                         return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
                         );
                     },
@@ -46397,206 +46502,12 @@ System.register('ionic/platform/storage', ['./storage/storage', './storage/local
     execute: function () {}
   };
 });
-System.register("ionic/translation/translate", ["angular2/angular2"], function (_export) {
-    /**
-     * Provide multi-language and i18n support in your app. Translate works by
-     * mapping full strings to language translated ones. That means that you don't need
-     * to provide strings for your default language, just new languages.
-     *
-     * @usage
-     * ```js
-     * Translate.translations({
-     *   'de': {
-     *     'Welcome to MyApp': 'Willkommen auf'
-     *   }
-     * })
-     *
-     * Changing the default language:
-     *
-     * Translate.setLanguage('de');
-     * ```
-     *
-     * Usage in a template:
-     *
-     * ```js
-     * <span>{{ 'Welcome to MyApp' | translate }}
-     * ```
-     */
-    "use strict";
-
-    var Injectable, __decorate, __metadata, Translate;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Injectable = _angular2Angular2.Injectable;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Translate = (function () {
-                function Translate() {
-                    _classCallCheck(this, Translate);
-
-                    this._transMap = {};
-                }
-
-                _createClass(Translate, [{
-                    key: "translations",
-                    value: function translations(lang, map) {
-                        this._transMap[lang] = map;
-                    }
-                }, {
-                    key: "setLanguage",
-                    value: function setLanguage(lang) {
-                        this._language = lang;
-                    }
-                }, {
-                    key: "getTranslations",
-                    value: function getTranslations(lang) {
-                        return this._transMap[lang];
-                    }
-                }, {
-                    key: "translate",
-                    value: function translate(key, lang) {
-                        // If the language isn't specified and we have no overridden one, return the string passed.
-                        if (!lang && !this._language) {
-                            return key;
-                        }
-                        var setLanguage = lang || this._language;
-                        var map = this.getTranslations(setLanguage);
-                        if (!map) {
-                            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
-                            return '';
-                        }
-                        return this._getTranslation(map, key);
-                    }
-                }, {
-                    key: "_getTranslation",
-                    value: function _getTranslation(map, key) {
-                        return map && map[key] || '';
-                    }
-                }]);
-
-                return Translate;
-            })();
-
-            _export("Translate", Translate);
-
-            _export("Translate", Translate = __decorate([Injectable(), __metadata('design:paramtypes', [])], Translate));
-        }
-    };
-});
-System.register("ionic/translation/translate_pipe", ["angular2/angular2", "./translate"], function (_export) {
-    /**
-     * The Translate pipe makes it easy to translate strings.
-     *
-     * @usage
-     * Translate using the current language or language set through Translate.setLanguage
-     * {{ 'Please enter your location' | translate }}
-     *
-     * Translate using a specific language
-     * {{ 'Please enter your location' | translate:"de" }}
-     */
-    "use strict";
-
-    var Injectable, Pipe, Translate, __decorate, __metadata, TranslatePipe, _a;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Injectable = _angular2Angular2.Injectable;
-            Pipe = _angular2Angular2.Pipe;
-        }, function (_translate) {
-            Translate = _translate.Translate;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            TranslatePipe = (function () {
-                function TranslatePipe(translate) {
-                    _classCallCheck(this, TranslatePipe);
-
-                    this.translate = translate;
-                }
-
-                _createClass(TranslatePipe, [{
-                    key: "transform",
-                    value: function transform(value, args) {
-                        var lang = undefined;
-                        if (args.length > 0) {
-                            lang = args[0];
-                        }
-                        return this.translate.translate(value, lang);
-                    }
-                }, {
-                    key: "supports",
-                    value: function supports(obj) {
-                        return true;
-                    }
-                }]);
-
-                return TranslatePipe;
-            })();
-
-            _export("TranslatePipe", TranslatePipe);
-
-            _export("TranslatePipe", TranslatePipe = __decorate([Pipe({ name: 'translate' }), Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof Translate !== 'undefined' && Translate) === 'function' && _a || Object])], TranslatePipe));
-        }
-    };
-});
 System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
     'use strict';
 
     var Transition, Animation, DURATION, EASING, OPACITY, TRANSLATEX, OFF_RIGHT, OFF_LEFT, CENTER, OFF_OPACITY, SHOW_BACK_BTN_CSS, IOSTransition;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -46751,7 +46662,7 @@ System.register('ionic/transitions/md-transition', ['./transition', '../animatio
 
     var Transition, Animation, TRANSLATEY, OFF_BOTTOM, CENTER, SHOW_BACK_BTN_CSS, MDTransition;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -46775,7 +46686,6 @@ System.register('ionic/transitions/md-transition', ['./transition', '../animatio
                 function MDTransition(navCtrl, opts) {
                     _classCallCheck(this, MDTransition);
 
-                    //opts.renderDelay = 80;
                     _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
                     // what direction is the transition going
                     var backDirection = opts.direction === 'back';
@@ -46863,6 +46773,200 @@ System.register('ionic/transitions/transition', [], function (_export) {
             _export('Transition', Transition);
 
             transitionRegistry = {};
+        }
+    };
+});
+System.register("ionic/translation/translate", ["angular2/angular2"], function (_export) {
+    /**
+     * Provide multi-language and i18n support in your app. Translate works by
+     * mapping full strings to language translated ones. That means that you don't need
+     * to provide strings for your default language, just new languages.
+     *
+     * @usage
+     * ```js
+     * Translate.translations({
+     *   'de': {
+     *     'Welcome to MyApp': 'Willkommen auf'
+     *   }
+     * })
+     *
+     * Changing the default language:
+     *
+     * Translate.setLanguage('de');
+     * ```
+     *
+     * Usage in a template:
+     *
+     * ```js
+     * <span>{{ 'Welcome to MyApp' | translate }}
+     * ```
+     */
+    "use strict";
+
+    var Injectable, __decorate, __metadata, Translate;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Injectable = _angular2Angular2.Injectable;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Translate = (function () {
+                function Translate() {
+                    _classCallCheck(this, Translate);
+
+                    this._transMap = {};
+                }
+
+                _createClass(Translate, [{
+                    key: "translations",
+                    value: function translations(lang, map) {
+                        this._transMap[lang] = map;
+                    }
+                }, {
+                    key: "setLanguage",
+                    value: function setLanguage(lang) {
+                        this._language = lang;
+                    }
+                }, {
+                    key: "getTranslations",
+                    value: function getTranslations(lang) {
+                        return this._transMap[lang];
+                    }
+                }, {
+                    key: "translate",
+                    value: function translate(key, lang) {
+                        // If the language isn't specified and we have no overridden one, return the string passed.
+                        if (!lang && !this._language) {
+                            return key;
+                        }
+                        var setLanguage = lang || this._language;
+                        var map = this.getTranslations(setLanguage);
+                        if (!map) {
+                            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
+                            return '';
+                        }
+                        return this._getTranslation(map, key);
+                    }
+                }, {
+                    key: "_getTranslation",
+                    value: function _getTranslation(map, key) {
+                        return map && map[key] || '';
+                    }
+                }]);
+
+                return Translate;
+            })();
+
+            _export("Translate", Translate);
+
+            _export("Translate", Translate = __decorate([Injectable(), __metadata('design:paramtypes', [])], Translate));
+        }
+    };
+});
+System.register("ionic/translation/translate_pipe", ["angular2/angular2", "./translate"], function (_export) {
+    /**
+     * The Translate pipe makes it easy to translate strings.
+     *
+     * @usage
+     * Translate using the current language or language set through Translate.setLanguage
+     * {{ 'Please enter your location' | translate }}
+     *
+     * Translate using a specific language
+     * {{ 'Please enter your location' | translate:"de" }}
+     */
+    "use strict";
+
+    var Injectable, Pipe, Translate, __decorate, __metadata, TranslatePipe, _a;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Injectable = _angular2Angular2.Injectable;
+            Pipe = _angular2Angular2.Pipe;
+        }, function (_translate) {
+            Translate = _translate.Translate;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            TranslatePipe = (function () {
+                function TranslatePipe(translate) {
+                    _classCallCheck(this, TranslatePipe);
+
+                    this.translate = translate;
+                }
+
+                _createClass(TranslatePipe, [{
+                    key: "transform",
+                    value: function transform(value, args) {
+                        var lang = undefined;
+                        if (args.length > 0) {
+                            lang = args[0];
+                        }
+                        return this.translate.translate(value, lang);
+                    }
+                }, {
+                    key: "supports",
+                    value: function supports(obj) {
+                        return true;
+                    }
+                }]);
+
+                return TranslatePipe;
+            })();
+
+            _export("TranslatePipe", TranslatePipe);
+
+            _export("TranslatePipe", TranslatePipe = __decorate([Pipe({ name: 'translate' }), Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof Translate !== 'undefined' && Translate) === 'function' && _a || Object])], TranslatePipe));
         }
     };
 });
@@ -47326,7 +47430,7 @@ System.register("ionic/util/events", ["angular2/angular2"], function (_export) {
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -47442,6 +47546,356 @@ System.register("ionic/util/events", ["angular2/angular2"], function (_export) {
         }
     };
 });
+System.register('ionic/util/fastdom', ['./dom'], function (_export) {
+    /**
+     * FastDom
+     *
+     * Eliminates layout thrashing
+     * by batching DOM read/write
+     * interactions.
+     *
+     * @author Wilson Page <wilsonpage@me.com>
+     */
+    /**
+     * Creates a fresh
+     * FastDom instance.
+     *
+     * @constructor
+     */
+    'use strict';
+
+    var raf;
+
+    /**
+     * Adds a job to the
+     * read batch and schedules
+     * a new frame if need be.
+     *
+     * @param  {Function} fn
+     * @public
+     */
+
+    _export('FastDom', FastDom);
+
+    function FastDom() {
+        this.frames = [];
+        this.lastId = 0;
+        // Placing the rAF method
+        // on the instance allows
+        // us to replace it with
+        // a stub for testing.
+        this.raf = raf;
+        this.batch = {
+            hash: {},
+            read: [],
+            write: [],
+            mode: null
+        };
+    }
+
+    return {
+        setters: [function (_dom) {
+            raf = _dom.raf;
+        }],
+        execute: function () {
+            FastDom.prototype.read = function (fn, ctx) {
+                var job = this.add('read', fn, ctx);
+                var id = job.id;
+                // Add this job to the read queue
+                this.batch.read.push(job.id);
+                // We should *not* schedule a new frame if:
+                // 1. We're 'reading'
+                // 2. A frame is already scheduled
+                var doesntNeedFrame = this.batch.mode === 'reading' || this.batch.scheduled;
+                // If a frame isn't needed, return
+                if (doesntNeedFrame) return id;
+                // Schedule a new
+                // frame, then return
+                this.scheduleBatch();
+                return id;
+            };
+            /**
+             * Adds a job to the
+             * write batch and schedules
+             * a new frame if need be.
+             *
+             * @param  {Function} fn
+             * @public
+             */
+            FastDom.prototype.write = function (fn, ctx) {
+                var job = this.add('write', fn, ctx);
+                var mode = this.batch.mode;
+                var id = job.id;
+                // Push the job id into the queue
+                this.batch.write.push(job.id);
+                // We should *not* schedule a new frame if:
+                // 1. We are 'writing'
+                // 2. We are 'reading'
+                // 3. A frame is already scheduled.
+                var doesntNeedFrame = mode === 'writing' || mode === 'reading' || this.batch.scheduled;
+                // If a frame isn't needed, return
+                if (doesntNeedFrame) return id;
+                // Schedule a new
+                // frame, then return
+                this.scheduleBatch();
+                return id;
+            };
+            /**
+             * Defers the given job
+             * by the number of frames
+             * specified.
+             *
+             * If no frames are given
+             * then the job is run in
+             * the next free frame.
+             *
+             * @param  {Number}   frame
+             * @param  {Function} fn
+             * @public
+             */
+            FastDom.prototype.defer = function (frame, fn, ctx) {
+                // Accepts two arguments
+                if (typeof frame === 'function') {
+                    ctx = fn;
+                    fn = frame;
+                    frame = 1;
+                }
+                var self = this;
+                var index = frame - 1;
+                return this.schedule(index, function () {
+                    self.run({
+                        fn: fn,
+                        ctx: ctx
+                    });
+                });
+            };
+            /**
+             * Clears a scheduled 'read',
+             * 'write' or 'defer' job.
+             *
+             * @param  {Number|String} id
+             * @public
+             */
+            FastDom.prototype.clear = function (id) {
+                // Defer jobs are cleared differently
+                if (typeof id === 'function') {
+                    return this.clearFrame(id);
+                }
+                // Allow ids to be passed as strings
+                id = Number(id);
+                var job = this.batch.hash[id];
+                if (!job) return;
+                var list = this.batch[job.type];
+                var index = list.indexOf(id);
+                // Clear references
+                delete this.batch.hash[id];
+                if (~index) list.splice(index, 1);
+            };
+            /**
+             * Clears a scheduled frame.
+             *
+             * @param  {Function} frame
+             * @private
+             */
+            FastDom.prototype.clearFrame = function (frame) {
+                var index = this.frames.indexOf(frame);
+                if (~index) this.frames.splice(index, 1);
+            };
+            /**
+             * Schedules a new read/write
+             * batch if one isn't pending.
+             *
+             * @private
+             */
+            FastDom.prototype.scheduleBatch = function () {
+                var self = this;
+                // Schedule batch for next frame
+                this.schedule(0, function () {
+                    self.batch.scheduled = false;
+                    self.runBatch();
+                });
+                // Set flag to indicate
+                // a frame has been scheduled
+                this.batch.scheduled = true;
+            };
+            /**
+             * Generates a unique
+             * id for a job.
+             *
+             * @return {Number}
+             * @private
+             */
+            FastDom.prototype.uniqueId = function () {
+                return ++this.lastId;
+            };
+            /**
+             * Calls each job in
+             * the list passed.
+             *
+             * If a context has been
+             * stored on the function
+             * then it is used, else the
+             * current `this` is used.
+             *
+             * @param  {Array} list
+             * @private
+             */
+            FastDom.prototype.flush = function (list) {
+                var id;
+                while (id = list.shift()) {
+                    this.run(this.batch.hash[id]);
+                }
+            };
+            /**
+             * Runs any 'read' jobs followed
+             * by any 'write' jobs.
+             *
+             * We run this inside a try catch
+             * so that if any jobs error, we
+             * are able to recover and continue
+             * to flush the batch until it's empty.
+             *
+             * @private
+             */
+            FastDom.prototype.runBatch = function () {
+                try {
+                    // Set the mode to 'reading',
+                    // then empty all read jobs
+                    this.batch.mode = 'reading';
+                    this.flush(this.batch.read);
+                    // Set the mode to 'writing'
+                    // then empty all write jobs
+                    this.batch.mode = 'writing';
+                    this.flush(this.batch.write);
+                    this.batch.mode = null;
+                } catch (e) {
+                    this.runBatch();
+                    throw e;
+                }
+            };
+            /**
+             * Adds a new job to
+             * the given batch.
+             *
+             * @param {Array}   list
+             * @param {Function} fn
+             * @param {Object}   ctx
+             * @returns {Number} id
+             * @private
+             */
+            FastDom.prototype.add = function (type, fn, ctx) {
+                var id = this.uniqueId();
+                return this.batch.hash[id] = {
+                    id: id,
+                    fn: fn,
+                    ctx: ctx,
+                    type: type
+                };
+            };
+            /**
+             * Runs a given job.
+             *
+             * Applications using FastDom
+             * have the options of setting
+             * `fastdom.onError`.
+             *
+             * This will catch any
+             * errors that may throw
+             * inside callbacks, which
+             * is useful as often DOM
+             * nodes have been removed
+             * since a job was scheduled.
+             *
+             * Example:
+             *
+             *   fastdom.onError = function(e) {
+             *     // Runs when jobs error
+             *   };
+             *
+             * @param  {Object} job
+             * @private
+             */
+            FastDom.prototype.run = function (job) {
+                var ctx = job.ctx || this;
+                var fn = job.fn;
+                // Clear reference to the job
+                delete this.batch.hash[job.id];
+                // If no `onError` handler
+                // has been registered, just
+                // run the job normally.
+                if (!this.onError) {
+                    return fn.call(ctx);
+                }
+                // If an `onError` handler
+                // has been registered, catch
+                // errors that throw inside
+                // callbacks, and run the
+                // handler instead.
+                try {
+                    fn.call(ctx);
+                } catch (e) {
+                    this.onError(e);
+                }
+            };
+            /**
+             * Starts a rAF loop
+             * to empty the frame queue.
+             *
+             * @private
+             */
+            FastDom.prototype.loop = function () {
+                var self = this;
+                var raf = this.raf;
+                // Don't start more than one loop
+                if (this.looping) return;
+                raf(function frame() {
+                    var fn = self.frames.shift();
+                    // If no more frames,
+                    // stop looping
+                    if (!self.frames.length) {
+                        self.looping = false;
+                    } else {
+                        raf(frame);
+                    }
+                    // Run the frame.  Note that
+                    // this may throw an error
+                    // in user code, but all
+                    // fastdom tasks are dealt
+                    // with already so the code
+                    // will continue to iterate
+                    if (fn) fn();
+                });
+                this.looping = true;
+            };
+            /**
+             * Adds a function to
+             * a specified index
+             * of the frame queue.
+             *
+             * @param  {Number}   index
+             * @param  {Function} fn
+             * @return {Function}
+             * @private
+             */
+            FastDom.prototype.schedule = function (index, fn) {
+                // Make sure this slot
+                // hasn't already been
+                // taken. If it has, try
+                // re-scheduling for the next slot
+                if (this.frames[index]) {
+                    return this.schedule(index + 1, fn);
+                }
+                // Start the rAF
+                // loop to empty
+                // the frame queue
+                this.loop();
+                // Insert this function into
+                // the frames queue and return
+                return this.frames[index] = fn;
+            };
+        }
+    };
+});
 System.register('ionic/util/feature-detect', [], function (_export) {
     'use strict';
 
@@ -47551,7 +48005,7 @@ System.register("ionic/util/form", ["angular2/angular2", "../config/config"], fu
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -47702,7 +48156,7 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -48222,7 +48676,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
 
     var Component, Injectable, NgFor, NgIf, OverlayController, Config, Icon, Animation, util, __decorate, __metadata, ActionSheetCmp, ActionSheet, OVERLAY_TYPE, ActionSheetAnimation, ActionSheetSlideIn, ActionSheetSlideOut, ActionSheetMdSlideIn, ActionSheetMdSlideOut, _a, _b;
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -48257,7 +48711,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -48471,14 +48925,12 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
         }],
         execute: function () {
             IonicApp = (function () {
-                /**
-                 * TODO
-                 */
-
-                function IonicApp() {
+                function IonicApp(fastdom) {
                     _classCallCheck(this, IonicApp);
 
-                    this._title = new Title();
+                    this._fastdom = fastdom;
+                    this._titleSrv = new Title();
+                    this._title = '';
                     this._disTime = 0;
                     this._trnsTime = 0;
                     // Our component registry map
@@ -48493,12 +48945,14 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
                 _createClass(IonicApp, [{
                     key: 'setTitle',
                     value: function setTitle(val) {
-                        this._title.setTitle(val);
-                    }
-                }, {
-                    key: 'getTitle',
-                    value: function getTitle() {
-                        return this._title.getTitle(val);
+                        var _this = this;
+
+                        if (val !== this._title) {
+                            this._title = val;
+                            this._fastdom.defer(4, function () {
+                                _this._titleSrv.setTitle(_this._title);
+                            });
+                        }
                     }
 
                     /**
@@ -48679,7 +49133,7 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -48775,7 +49229,7 @@ System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -48833,7 +49287,7 @@ System.register("ionic/components/button/button", ["angular2/angular2", "../../c
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -48949,7 +49403,7 @@ System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -49101,7 +49555,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -49136,7 +49590,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -49339,407 +49793,6 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
         }
     };
 });
-System.register('ionic/components/content/sticky-poly', [], function (_export) {
-    /*!
-     * Stickyfill -- `position: sticky` polyfill
-     * v. 1.1.3 | https://github.com/wilddeer/stickyfill
-     * Copyright Oleg Korsunsky | http://wd.dizaina.net/
-     *
-     * MIT License
-     */
-    'use strict';
-
-    _export('StickyPoly', StickyPoly);
-
-    function StickyPoly(target) {
-        var watchArray = [],
-            scroll,
-            initialized = false,
-            html = document.documentElement,
-            noop = function noop() {},
-            checkTimer,
-
-        //visibility API strings
-        hiddenPropertyName = 'hidden',
-            visibilityChangeEventName = 'visibilitychange';
-        //fallback to prefixed names in old webkit browsers
-        if (document.webkitHidden !== undefined) {
-            hiddenPropertyName = 'webkitHidden';
-            visibilityChangeEventName = 'webkitvisibilitychange';
-        }
-        //test getComputedStyle
-        if (!window.getComputedStyle) {
-            seppuku();
-        }
-        //test for native support
-        var prefixes = ['', '-webkit-', '-moz-', '-ms-'],
-            block = document.createElement('div');
-        for (var i = prefixes.length - 1; i >= 0; i--) {
-            try {
-                block.style.position = prefixes[i] + 'sticky';
-            } catch (e) {}
-            if (block.style.position != '') {
-                seppuku();
-            }
-        }
-        updateScrollPos();
-        //commit seppuku!
-        function seppuku() {
-            init = add = rebuild = pause = stop = kill = noop;
-        }
-        function mergeObjects(targetObj, sourceObject) {
-            for (var key in sourceObject) {
-                if (sourceObject.hasOwnProperty(key)) {
-                    targetObj[key] = sourceObject[key];
-                }
-            }
-        }
-        function parseNumeric(val) {
-            return parseFloat(val) || 0;
-        }
-        function updateScrollPos() {
-            scroll = {
-                top: target.scrollTop,
-                left: target.scrollLeft };
-        }
-        function onScroll() {
-            /*
-            console.log(scroll.top);
-              if (target.scrollLeft != scroll.left) {
-                  updateScrollPos();
-                  rebuild();
-                  return;
-              }
-                   if (target.scrollTop != scroll.top) {
-                  updateScrollPos();
-                  recalcAllPos();
-              }
-              */
-            updateScrollPos();
-            recalcAllPos();
-        }
-        //fixes flickering
-        function onWheel(event) {
-            setTimeout(function () {
-                if (target.scrollTop != scroll.top) {
-                    scroll.top = target.scrollTop;
-                    recalcAllPos();
-                }
-            }, 0);
-        }
-        function recalcAllPos() {
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                recalcElementPos(watchArray[i]);
-            }
-        }
-        function recalcElementPos(el) {
-            if (!el.inited) return;
-            var currentMode = scroll.top <= el.limit.start ? 0 : scroll.top >= el.limit.end ? 2 : 1;
-            if (el.mode != currentMode) {
-                switchElementMode(el, currentMode);
-            }
-        }
-        //checks whether stickies start or stop positions have changed
-        function fastCheck() {
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                if (!watchArray[i].inited) continue;
-                var deltaTop = Math.abs(getDocOffsetTop(watchArray[i].clone) - watchArray[i].docOffsetTop),
-                    deltaHeight = Math.abs(watchArray[i].parent.node.offsetHeight - watchArray[i].parent.height);
-                if (deltaTop >= 2 || deltaHeight >= 2) return false;
-            }
-            return true;
-        }
-        function initElement(el) {
-            if (isNaN(parseFloat(el.computed.top)) || el.isCell || el.computed.display == 'none') return;
-            el.inited = true;
-            if (!el.clone) clone(el);
-            if (el.parent.computed.position != 'absolute' && el.parent.computed.position != 'relative') el.parent.node.style.position = 'relative';
-            recalcElementPos(el);
-            el.parent.height = el.parent.node.offsetHeight;
-            el.docOffsetTop = getDocOffsetTop(el.clone);
-        }
-        function deinitElement(el) {
-            var deinitParent = true;
-            el.clone && killClone(el);
-            mergeObjects(el.node.style, el.css);
-            //check whether element's parent is used by other stickies
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                if (watchArray[i].node !== el.node && watchArray[i].parent.node === el.parent.node) {
-                    deinitParent = false;
-                    break;
-                }
-            }
-            ;
-            if (deinitParent) el.parent.node.style.position = el.parent.css.position;
-            el.mode = -1;
-        }
-        function initAll() {
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                initElement(watchArray[i]);
-            }
-        }
-        function deinitAll() {
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                deinitElement(watchArray[i]);
-            }
-        }
-        function switchElementMode(el, mode) {
-            var nodeStyle = el.node.style;
-            switch (mode) {
-                case 0:
-                    nodeStyle.position = 'absolute';
-                    nodeStyle.left = el.offset.left + 'px';
-                    nodeStyle.right = el.offset.right + 'px';
-                    nodeStyle.top = el.offset.top + 'px';
-                    nodeStyle.bottom = 'auto';
-                    nodeStyle.width = 'auto';
-                    nodeStyle.marginLeft = 0;
-                    nodeStyle.marginRight = 0;
-                    nodeStyle.marginTop = 0;
-                    break;
-                case 1:
-                    nodeStyle.position = 'fixed';
-                    nodeStyle.left = el.box.left + 'px';
-                    nodeStyle.right = el.box.right + 'px';
-                    nodeStyle.top = el.css.top;
-                    nodeStyle.bottom = 'auto';
-                    nodeStyle.width = 'auto';
-                    nodeStyle.marginLeft = 0;
-                    nodeStyle.marginRight = 0;
-                    nodeStyle.marginTop = 0;
-                    break;
-                case 2:
-                    nodeStyle.position = 'absolute';
-                    nodeStyle.left = el.offset.left + 'px';
-                    nodeStyle.right = el.offset.right + 'px';
-                    nodeStyle.top = 'auto';
-                    nodeStyle.bottom = 0;
-                    nodeStyle.width = 'auto';
-                    nodeStyle.marginLeft = 0;
-                    nodeStyle.marginRight = 0;
-                    break;
-            }
-            el.mode = mode;
-        }
-        function clone(el) {
-            el.clone = document.createElement('div');
-            var refElement = el.node.nextSibling || el.node,
-                cloneStyle = el.clone.style;
-            cloneStyle.height = el.height + 'px';
-            cloneStyle.width = el.width + 'px';
-            cloneStyle.marginTop = el.computed.marginTop;
-            cloneStyle.marginBottom = el.computed.marginBottom;
-            cloneStyle.marginLeft = el.computed.marginLeft;
-            cloneStyle.marginRight = el.computed.marginRight;
-            cloneStyle.padding = cloneStyle.border = cloneStyle.borderSpacing = 0;
-            cloneStyle.fontSize = '1em';
-            cloneStyle.position = 'static';
-            cloneStyle.cssFloat = el.computed.cssFloat;
-            el.node.parentNode.insertBefore(el.clone, refElement);
-        }
-        function killClone(el) {
-            el.clone.parentNode.removeChild(el.clone);
-            el.clone = undefined;
-        }
-        function getElementParams(node) {
-            var computedStyle = getComputedStyle(node),
-                parentNode = node.parentNode,
-                parentComputedStyle = getComputedStyle(parentNode),
-                cachedPosition = node.style.position;
-            node.style.position = 'relative';
-            var computed = {
-                top: computedStyle.top,
-                marginTop: computedStyle.marginTop,
-                marginBottom: computedStyle.marginBottom,
-                marginLeft: computedStyle.marginLeft,
-                marginRight: computedStyle.marginRight,
-                cssFloat: computedStyle.cssFloat,
-                display: computedStyle.display
-            },
-                numeric = {
-                top: parseNumeric(computedStyle.top),
-                marginBottom: parseNumeric(computedStyle.marginBottom),
-                paddingLeft: parseNumeric(computedStyle.paddingLeft),
-                paddingRight: parseNumeric(computedStyle.paddingRight),
-                borderLeftWidth: parseNumeric(computedStyle.borderLeftWidth),
-                borderRightWidth: parseNumeric(computedStyle.borderRightWidth)
-            };
-            node.style.position = cachedPosition;
-            var css = {
-                position: node.style.position,
-                top: node.style.top,
-                bottom: node.style.bottom,
-                left: node.style.left,
-                right: node.style.right,
-                width: node.style.width,
-                marginTop: node.style.marginTop,
-                marginLeft: node.style.marginLeft,
-                marginRight: node.style.marginRight
-            },
-                nodeOffset = getElementOffset(node),
-                parentOffset = getElementOffset(parentNode),
-                parent = {
-                node: parentNode,
-                css: {
-                    position: parentNode.style.position
-                },
-                computed: {
-                    position: parentComputedStyle.position
-                },
-                numeric: {
-                    borderLeftWidth: parseNumeric(parentComputedStyle.borderLeftWidth),
-                    borderRightWidth: parseNumeric(parentComputedStyle.borderRightWidth),
-                    borderTopWidth: parseNumeric(parentComputedStyle.borderTopWidth),
-                    borderBottomWidth: parseNumeric(parentComputedStyle.borderBottomWidth)
-                }
-            },
-                el = {
-                node: node,
-                box: {
-                    left: nodeOffset.win.left,
-                    right: html.clientWidth - nodeOffset.win.right
-                },
-                offset: {
-                    top: nodeOffset.win.top - parentOffset.win.top - parent.numeric.borderTopWidth,
-                    left: nodeOffset.win.left - parentOffset.win.left - parent.numeric.borderLeftWidth,
-                    right: -nodeOffset.win.right + parentOffset.win.right - parent.numeric.borderRightWidth
-                },
-                css: css,
-                isCell: computedStyle.display == 'table-cell',
-                computed: computed,
-                numeric: numeric,
-                width: nodeOffset.win.right - nodeOffset.win.left,
-                height: nodeOffset.win.bottom - nodeOffset.win.top,
-                mode: -1,
-                inited: false,
-                parent: parent,
-                limit: {
-                    start: nodeOffset.doc.top - numeric.top,
-                    end: parentOffset.doc.top + parentNode.offsetHeight - parent.numeric.borderBottomWidth - node.offsetHeight - numeric.top - numeric.marginBottom
-                }
-            };
-            return el;
-        }
-        function getDocOffsetTop(node) {
-            var docOffsetTop = 0;
-            while (node) {
-                docOffsetTop += node.offsetTop;
-                node = node.offsetParent;
-            }
-            return docOffsetTop;
-        }
-        function getElementOffset(node) {
-            var box = node.getBoundingClientRect();
-            return {
-                doc: {
-                    top: box.top + target.scrollTop,
-                    left: box.left + target.scrollLeft },
-                win: box
-            };
-        }
-        function startFastCheckTimer() {
-            checkTimer = setInterval(function () {
-                !fastCheck() && rebuild();
-            }, 500);
-        }
-        function stopFastCheckTimer() {
-            clearInterval(checkTimer);
-        }
-        function handlePageVisibilityChange() {
-            if (!initialized) return;
-            if (document[hiddenPropertyName]) {
-                stopFastCheckTimer();
-            } else {
-                startFastCheckTimer();
-            }
-        }
-        function init() {
-            if (initialized) return;
-            // Store the left/top scroll positions
-            updateScrollPos();
-            // Initialize all elements added
-            initAll();
-            target.addEventListener('scroll', onScroll);
-            target.addEventListener('wheel', onWheel);
-            //watch for width changes
-            target.addEventListener('resize', rebuild);
-            target.addEventListener('orientationchange', rebuild);
-            //watch for page visibility
-            document.addEventListener(visibilityChangeEventName, handlePageVisibilityChange);
-            // Start a timer to respond to changes in the layout/size
-            startFastCheckTimer();
-            initialized = true;
-        }
-        function rebuild() {
-            if (!initialized) return;
-            deinitAll();
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                watchArray[i] = getElementParams(watchArray[i].node);
-            }
-            initAll();
-        }
-        function pause() {
-            target.removeEventListener('scroll', onScroll);
-            target.removeEventListener('wheel', onWheel);
-            target.removeEventListener('resize', rebuild);
-            target.removeEventListener('orientationchange', rebuild);
-            document.removeEventListener(visibilityChangeEventName, handlePageVisibilityChange);
-            stopFastCheckTimer();
-            initialized = false;
-        }
-        function stop() {
-            pause();
-            deinitAll();
-        }
-        function kill() {
-            stop();
-            //empty the array without loosing the references,
-            //the most performant method according to http://jsperf.com/empty-javascript-array
-            while (watchArray.length) {
-                watchArray.pop();
-            }
-        }
-        function add(node) {
-            //check if Stickyfill is already applied to the node
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                if (watchArray[i].node === node) return;
-            }
-            ;
-            var el = getElementParams(node);
-            watchArray.push(el);
-            if (!initialized) {
-                init();
-            } else {
-                initElement(el);
-            }
-        }
-        function remove(node) {
-            for (var i = watchArray.length - 1; i >= 0; i--) {
-                if (watchArray[i].node === node) {
-                    deinitElement(watchArray[i]);
-                    watchArray.splice(i, 1);
-                }
-            }
-            ;
-        }
-        //expose Stickyfill
-        return {
-            stickies: watchArray,
-            add: add,
-            remove: remove,
-            init: init,
-            rebuild: rebuild,
-            pause: pause,
-            stop: stop,
-            kill: kill
-        };
-    }
-
-    return {
-        setters: [],
-        execute: function () {}
-    };
-});
 System.register("ionic/components/icon/icon", ["angular2/angular2", "../../config/config"], function (_export) {
     "use strict";
 
@@ -49767,7 +49820,7 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -49864,290 +49917,6 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
         }
     };
 });
-System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
-    /**
-     * The List is a widely used interface element in almost any mobile app, and can include
-     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
-     *
-     * Both the list, which contains items, and the list items themselves can be any HTML
-     * element.
-     *
-     * Using the List and Item components make it easy to support various
-     * interaction modes such as swipe to edit, drag to reorder, and removing items.
-     *
-     */
-    "use strict";
-
-    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_virtual) {
-            ListVirtualScroll = _virtual.ListVirtualScroll;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            List = (function (_Ion) {
-                _inherits(List, _Ion);
-
-                /**
-                 * TODO
-                 * @param {ElementRef} elementRef  TODO
-                 * @param {Config} config  TODO
-                 */
-
-                function List(elementRef, config, renderer) {
-                    _classCallCheck(this, List);
-
-                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
-                    renderer.setElementClass(elementRef, 'list', true);
-                    this.ele = elementRef.nativeElement;
-                }
-
-                /**
-                 * TODO
-                 */
-
-                _createClass(List, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
-                        if (util.isDefined(this.virtual)) {
-                            console.log('Content', this.content);
-                            console.log('Virtual?', this.virtual);
-                            console.log('Items?', this.items.length, 'of \'em');
-                            this._initVirtualScrolling();
-                        }
-                    }
-
-                    /**
-                     * @private
-                     * TODO
-                     */
-                }, {
-                    key: "_initVirtualScrolling",
-                    value: function _initVirtualScrolling() {
-                        if (!this.content) {
-                            return;
-                        }
-                        this._virtualScrollingManager = new ListVirtualScroll(this);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} item  TODO
-                     */
-                }, {
-                    key: "setItemTemplate",
-                    value: function setItemTemplate(item) {
-                        this.itemTemplate = item;
-                    }
-
-                    /**
-                     * Keeps track of any open item (a sliding item, for example), to close it later
-                     */
-                }, {
-                    key: "setOpenItem",
-                    value: function setOpenItem(item) {
-                        this.openItem = item;
-                    }
-                }, {
-                    key: "closeOpenItem",
-                    value: function closeOpenItem() {
-                        if (this.openItem) {
-                            this.openItem.close(true);
-                            this.openItem = null;
-                        }
-                    }
-                }, {
-                    key: "getOpenItem",
-                    value: function getOpenItem() {
-                        return this.openItem;
-                    }
-                }]);
-
-                return List;
-            })(Ion);
-
-            _export("List", List);
-
-            _export("List", List = __decorate([Directive({
-                selector: 'ion-list',
-                inputs: ['items', 'virtual', 'content']
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
-            /**
-             * TODO
-             */
-
-            ListHeader = function ListHeader() {
-                _classCallCheck(this, ListHeader);
-            };
-
-            _export("ListHeader", ListHeader);
-
-            _export("ListHeader", ListHeader = __decorate([Directive({
-                selector: 'ion-header',
-                inputs: ['id'],
-                host: {
-                    '[attr.id]': 'id'
-                }
-            }), __metadata('design:paramtypes', [])], ListHeader));
-        }
-    };
-});
-System.register('ionic/components/list/virtual', [], function (_export) {
-    'use strict';
-
-    var ListVirtualScroll, VirtualItemRef;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [],
-        execute: function () {
-            ListVirtualScroll = (function () {
-                function ListVirtualScroll(list) {
-                    var _this = this;
-
-                    _classCallCheck(this, ListVirtualScroll);
-
-                    this.list = list;
-                    this.content = this.list.content;
-                    this.viewportHeight = this.content.height();
-                    this.viewContainer = this.list.itemTemplate.viewContainer;
-                    this.itemHeight = 60;
-                    this.shownItems = {};
-                    this.enteringItems = [];
-                    this.leavingItems = [];
-                    // Compute the initial sizes
-                    setTimeout(function () {
-                        _this.resize();
-                        // Simulate the first event to start layout
-                        _this._handleVirtualScroll({
-                            target: _this.content.scrollElement
-                        });
-                    });
-                    this.content.addScrollEventListener(function (event) {
-                        _this._handleVirtualScroll(event);
-                    });
-                }
-
-                _createClass(ListVirtualScroll, [{
-                    key: 'resize',
-                    value: function resize() {
-                        this.viewportHeight = this.content.height();
-                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
-                        this.virtualHeight = this.list.items.length * this.itemHeight;
-                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
-                    }
-                }, {
-                    key: '_handleVirtualScroll',
-                    value: function _handleVirtualScroll(event) {
-                        var item = undefined;
-                        var shownItemRef = undefined;
-                        var st = event.target.scrollTop;
-                        var sh = event.target.scrollHeight;
-                        var topIndex = Math.floor(st / this.itemHeight);
-                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
-                        var items = this.list.items;
-                        // Key iterate the shown items map
-                        // and compare the index to our index range,
-                        // pushing the items to remove to our leaving
-                        // list if they're ouside this range.
-                        for (var i in this.shownItems) {
-                            if (i < topIndex || i > bottomIndex) {
-                                this.leavingItems.push(this.shownItems[i]);
-                                delete this.shownItems[i];
-                            }
-                        }
-                        var realIndex = 0;
-                        // Iterate the set of items that will be rendered, using the
-                        // index from the actual items list as the map for the
-                        // virtual items we draw
-                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
-                            item = items[i];
-                            console.log('Drawing item', i, item.title);
-                            shownItemRef = this.shownItems[i];
-                            // Is this a new item?
-                            if (!shownItemRef) {
-                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
-                                itemView.setLocal('\$implicit', item);
-                                itemView.setLocal('\$item', item);
-                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
-                                this.shownItems[i] = shownItemRef;
-                                this.enteringItems.push(shownItemRef);
-                            }
-                        }
-                        while (this.leavingItems.length) {
-                            var itemRef = this.leavingItems.pop();
-                            console.log('Removing item', itemRef.item, itemRef.realIndex);
-                            this.viewContainer.remove(itemRef.realIndex);
-                        }
-                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
-                    }
-                }, {
-                    key: 'cellAtIndex',
-                    value: function cellAtIndex(index) {}
-                }]);
-
-                return ListVirtualScroll;
-            })();
-
-            _export('ListVirtualScroll', ListVirtualScroll);
-
-            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
-                _classCallCheck(this, VirtualItemRef);
-
-                this.item = item;
-                this.index = index;
-                this.realIndex = realIndex;
-                this.view = view;
-            };
-        }
-    };
-});
 System.register("ionic/components/item/item-group", ["angular2/angular2", "../content/content", "../../config/config"], function (_export) {
     /**
      * TODO
@@ -50178,7 +49947,7 @@ System.register("ionic/components/item/item-group", ["angular2/angular2", "../co
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -50246,7 +50015,7 @@ System.register("ionic/components/item/item-sliding", ["angular2/angular2", "ion
 
     var Component, Directive, ElementRef, Host, Optional, Renderer, NgZone, DragGesture, Hammer, List, CSS, raf, __decorate, __metadata, __param, ItemSlidingOptionButton, ItemSliding, ItemSlideGesture, _a, _b, _c, _d, _e;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -50283,7 +50052,7 @@ System.register("ionic/components/item/item-sliding", ["angular2/angular2", "ion
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -50620,7 +50389,7 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -50651,6 +50420,290 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
         }
     };
 });
+System.register("ionic/components/list/list", ["angular2/angular2", "../ion", "../../config/config", "./virtual", "ionic/util"], function (_export) {
+    /**
+     * The List is a widely used interface element in almost any mobile app, and can include
+     * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+     *
+     * Both the list, which contains items, and the list items themselves can be any HTML
+     * element.
+     *
+     * Using the List and Item components make it easy to support various
+     * interaction modes such as swipe to edit, drag to reorder, and removing items.
+     *
+     */
+    "use strict";
+
+    var Directive, ElementRef, Renderer, Ion, Config, ListVirtualScroll, util, __decorate, __metadata, List, ListHeader, _a, _b, _c;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_virtual) {
+            ListVirtualScroll = _virtual.ListVirtualScroll;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            List = (function (_Ion) {
+                _inherits(List, _Ion);
+
+                /**
+                 * TODO
+                 * @param {ElementRef} elementRef  TODO
+                 * @param {Config} config  TODO
+                 */
+
+                function List(elementRef, config, renderer) {
+                    _classCallCheck(this, List);
+
+                    _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
+                    renderer.setElementClass(elementRef, 'list', true);
+                    this.ele = elementRef.nativeElement;
+                }
+
+                /**
+                 * TODO
+                 */
+
+                _createClass(List, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
+                        if (util.isDefined(this.virtual)) {
+                            console.log('Content', this.content);
+                            console.log('Virtual?', this.virtual);
+                            console.log('Items?', this.items.length, 'of \'em');
+                            this._initVirtualScrolling();
+                        }
+                    }
+
+                    /**
+                     * @private
+                     * TODO
+                     */
+                }, {
+                    key: "_initVirtualScrolling",
+                    value: function _initVirtualScrolling() {
+                        if (!this.content) {
+                            return;
+                        }
+                        this._virtualScrollingManager = new ListVirtualScroll(this);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} item  TODO
+                     */
+                }, {
+                    key: "setItemTemplate",
+                    value: function setItemTemplate(item) {
+                        this.itemTemplate = item;
+                    }
+
+                    /**
+                     * Keeps track of any open item (a sliding item, for example), to close it later
+                     */
+                }, {
+                    key: "setOpenItem",
+                    value: function setOpenItem(item) {
+                        this.openItem = item;
+                    }
+                }, {
+                    key: "closeOpenItem",
+                    value: function closeOpenItem() {
+                        if (this.openItem) {
+                            this.openItem.close(true);
+                            this.openItem = null;
+                        }
+                    }
+                }, {
+                    key: "getOpenItem",
+                    value: function getOpenItem() {
+                        return this.openItem;
+                    }
+                }]);
+
+                return List;
+            })(Ion);
+
+            _export("List", List);
+
+            _export("List", List = __decorate([Directive({
+                selector: 'ion-list',
+                inputs: ['items', 'virtual', 'content']
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], List));
+            /**
+             * TODO
+             */
+
+            ListHeader = function ListHeader() {
+                _classCallCheck(this, ListHeader);
+            };
+
+            _export("ListHeader", ListHeader);
+
+            _export("ListHeader", ListHeader = __decorate([Directive({
+                selector: 'ion-header',
+                inputs: ['id'],
+                host: {
+                    '[attr.id]': 'id'
+                }
+            }), __metadata('design:paramtypes', [])], ListHeader));
+        }
+    };
+});
+System.register('ionic/components/list/virtual', [], function (_export) {
+    'use strict';
+
+    var ListVirtualScroll, VirtualItemRef;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [],
+        execute: function () {
+            ListVirtualScroll = (function () {
+                function ListVirtualScroll(list) {
+                    var _this = this;
+
+                    _classCallCheck(this, ListVirtualScroll);
+
+                    this.list = list;
+                    this.content = this.list.content;
+                    this.viewportHeight = this.content.height();
+                    this.viewContainer = this.list.itemTemplate.viewContainer;
+                    this.itemHeight = 60;
+                    this.shownItems = {};
+                    this.enteringItems = [];
+                    this.leavingItems = [];
+                    // Compute the initial sizes
+                    setTimeout(function () {
+                        _this.resize();
+                        // Simulate the first event to start layout
+                        _this._handleVirtualScroll({
+                            target: _this.content.scrollElement
+                        });
+                    });
+                    this.content.addScrollEventListener(function (event) {
+                        _this._handleVirtualScroll(event);
+                    });
+                }
+
+                _createClass(ListVirtualScroll, [{
+                    key: 'resize',
+                    value: function resize() {
+                        this.viewportHeight = this.content.height();
+                        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
+                        this.virtualHeight = this.list.items.length * this.itemHeight;
+                        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
+                        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+                    }
+                }, {
+                    key: '_handleVirtualScroll',
+                    value: function _handleVirtualScroll(event) {
+                        var item = undefined;
+                        var shownItemRef = undefined;
+                        var st = event.target.scrollTop;
+                        var sh = event.target.scrollHeight;
+                        var topIndex = Math.floor(st / this.itemHeight);
+                        var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
+                        var items = this.list.items;
+                        // Key iterate the shown items map
+                        // and compare the index to our index range,
+                        // pushing the items to remove to our leaving
+                        // list if they're ouside this range.
+                        for (var i in this.shownItems) {
+                            if (i < topIndex || i > bottomIndex) {
+                                this.leavingItems.push(this.shownItems[i]);
+                                delete this.shownItems[i];
+                            }
+                        }
+                        var realIndex = 0;
+                        // Iterate the set of items that will be rendered, using the
+                        // index from the actual items list as the map for the
+                        // virtual items we draw
+                        for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
+                            item = items[i];
+                            console.log('Drawing item', i, item.title);
+                            shownItemRef = this.shownItems[i];
+                            // Is this a new item?
+                            if (!shownItemRef) {
+                                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
+                                itemView.setLocal('\$implicit', item);
+                                itemView.setLocal('\$item', item);
+                                shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
+                                this.shownItems[i] = shownItemRef;
+                                this.enteringItems.push(shownItemRef);
+                            }
+                        }
+                        while (this.leavingItems.length) {
+                            var itemRef = this.leavingItems.pop();
+                            console.log('Removing item', itemRef.item, itemRef.realIndex);
+                            this.viewContainer.remove(itemRef.realIndex);
+                        }
+                        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+                        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+                    }
+                }, {
+                    key: 'cellAtIndex',
+                    value: function cellAtIndex(index) {}
+                }]);
+
+                return ListVirtualScroll;
+            })();
+
+            _export('ListVirtualScroll', ListVirtualScroll);
+
+            VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
+                _classCallCheck(this, VirtualItemRef);
+
+                this.item = item;
+                this.index = index;
+                this.realIndex = realIndex;
+                this.view = view;
+            };
+        }
+    };
+});
 System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
     /**
     * TODO
@@ -50661,7 +50714,7 @@ System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../io
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -50686,7 +50739,7 @@ System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../io
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -50739,7 +50792,7 @@ System.register('ionic/components/menu/menu-gestures', ['ionic/gestures/slide-ed
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -50890,7 +50943,7 @@ System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../i
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -50920,7 +50973,7 @@ System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../i
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -51000,7 +51053,7 @@ System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations
 
     var Menu, Animation, MenuType, MenuRevealType, MenuPushType, MenuOverlayType, OPACITY, TRANSLATE_X;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -51226,7 +51279,7 @@ System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations
         }
     };
 });
-System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../config/decorators", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
+System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
     /**
      * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
      * of the Component docs._
@@ -51264,11 +51317,11 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
      */
     "use strict";
 
-    var forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, ConfigComponent, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, FALLBACK_MENU_TYPE, MenuBackdrop, _a, _b, _c, _d, _e, _f;
+    var Component, forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, MenuBackdrop, _a, _b, _c, _d, _e, _f;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -51276,6 +51329,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
 
     return {
         setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
             forwardRef = _angular2Angular2.forwardRef;
             Directive = _angular2Angular2.Directive;
             Host = _angular2Angular2.Host;
@@ -51287,8 +51341,6 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
             IonicApp = _appApp.IonicApp;
         }, function (_configConfig) {
             Config = _configConfig.Config;
-        }, function (_configDecorators) {
-            ConfigComponent = _configDecorators.ConfigComponent;
         }, function (_platformPlatform) {
             Platform = _platformPlatform.Platform;
         }, function (_utilKeyboard) {
@@ -51306,7 +51358,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -51354,6 +51406,9 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         if (!this._cntEle) {
                             return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
                         }
+                        if (this.side !== 'left' && this.side !== 'right') {
+                            this.side = 'left';
+                        }
                         if (!this.id) {
                             // Auto register
                             this.id = 'menu';
@@ -51388,13 +51443,11 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                 }, {
                     key: "_initType",
                     value: function _initType(type) {
-                        type = type && type.trim().toLowerCase() || FALLBACK_MENU_TYPE;
-                        var menuTypeCls = menuTypes[type];
-                        if (!menuTypeCls) {
-                            type = FALLBACK_MENU_TYPE;
-                            menuTypeCls = menuTypes[type];
+                        type = type && type.trim().toLowerCase();
+                        if (!type) {
+                            type = this.config.get('menuType');
                         }
-                        this._type = new menuTypeCls(this);
+                        this._type = new menuTypes[type](this);
                         this.type = type;
                         if (this.config.get('animate') === false) {
                             this._type.open.duration(33);
@@ -51583,16 +51636,18 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
 
             _export("Menu", Menu);
 
-            _export("Menu", Menu = __decorate([ConfigComponent({
+            _export("Menu", Menu = __decorate([Component({
                 selector: 'ion-menu',
-                inputs: ['content', 'dragThreshold', 'id'],
+                inputs: ['content', 'dragThreshold', 'id', 'side', 'type'],
                 defaultInputs: {
                     'side': 'left',
-                    'type': 'reveal'
+                    'menuType': 'reveal'
                 },
                 outputs: ['opening'],
                 host: {
-                    'role': 'navigation'
+                    'role': 'navigation',
+                    '[attr.side]': 'side',
+                    '[attr.type]': 'type'
                 },
                 template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
                 directives: [forwardRef(function () {
@@ -51600,7 +51655,6 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                 })]
             }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Platform !== 'undefined' && Platform) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object])], Menu));
             menuTypes = {};
-            FALLBACK_MENU_TYPE = 'reveal';
 
             /**
              * TODO
@@ -51674,7 +51728,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
 
     var Injectable, OverlayController, Config, Animation, util, __decorate, __metadata, Modal, OVERLAY_TYPE, ModalSlideIn, ModalSlideOut, ModalMDSlideIn, ModalMDSlideOut, _a, _b;
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -51704,7 +51758,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -51929,7 +51983,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -52281,7 +52335,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             return done();
                         }
                         if (!opts.animation) {
-                            opts.animation = this.config.get('viewTransition');
+                            opts.animation = this.config.get('pageTransition');
                         }
                         if (this.config.get('animate') === false) {
                             opts.animate = false;
@@ -52305,6 +52359,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the transition animation
+                                opts.renderDelay = _this2.config.get('pageTransitionDelay');
                                 var transAnimation = Transition.create(_this2, opts);
                                 if (opts.animate === false) {
                                     // force it to not animate the elements, just apply the "to" styles
@@ -53044,7 +53099,7 @@ System.register("ionic/components/nav/nav-push", ["angular2/angular2", "./nav-co
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -53211,7 +53266,7 @@ System.register("ionic/components/nav/nav-router", ["angular2/angular2", "angula
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -53240,7 +53295,7 @@ System.register("ionic/components/nav/nav-router", ["angular2/angular2", "angula
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -53463,7 +53518,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -53499,7 +53554,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -53571,7 +53626,7 @@ System.register('ionic/components/nav/swipe-back', ['ionic/gestures/slide-edge-g
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -53950,7 +54005,7 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -53992,7 +54047,7 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -54195,7 +54250,7 @@ System.register("ionic/components/overlay/overlay-controller", ["angular2/angula
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -54391,7 +54446,7 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "./ove
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -54495,7 +54550,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
 
     var FORM_DIRECTIVES, Component, ElementRef, Injectable, NgClass, NgIf, NgFor, OverlayController, Config, Animation, Button, util, __decorate, __metadata, Popup, OVERLAY_TYPE, PopupCmp, PopupAnimation, PopupPopIn, PopupPopOut, PopupMdPopIn, PopupMdPopOut, _a, _b, _c;
 
-    var _get = function get(_x4, _x5, _x6) { var _again = true; _function: while (_again) { var object = _x4, property = _x5, receiver = _x6; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x4 = parent; _x5 = property; _x6 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x4, _x5, _x6) { var _again = true; _function: while (_again) { var object = _x4, property = _x5, receiver = _x6; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x4 = parent; _x5 = property; _x6 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -54533,7 +54588,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -54552,8 +54607,8 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
 
                     this.ctrl = ctrl;
                     this._defaults = {
-                        enterAnimation: config.get('popupPopIn'),
-                        leaveAnimation: config.get('popupPopOut')
+                        enterAnimation: config.get('popupEnter'),
+                        leaveAnimation: config.get('popupLeave')
                     };
                 }
 
@@ -54954,7 +55009,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -54988,7 +55043,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -55322,7 +55377,7 @@ System.register("ionic/components/scroll/pull-to-refresh", ["angular2/angular2",
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -55729,7 +55784,7 @@ System.register("ionic/components/scroll/scroll", ["angular2/angular2", "../ion"
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -55754,7 +55809,7 @@ System.register("ionic/components/scroll/scroll", ["angular2/angular2", "../ion"
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -55845,7 +55900,7 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -55878,7 +55933,7 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -56070,7 +56125,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -56099,7 +56154,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -56263,7 +56318,7 @@ System.register("ionic/components/show-hide-when/show-hide-when", ["angular2/ang
 
     var Directive, Attribute, NgZone, Platform, __decorate, __metadata, __param, DisplayWhen, ShowWhen, HideWhen, _a, _b, _c, _d;
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -56289,7 +56344,7 @@ System.register("ionic/components/show-hide-when/show-hide-when", ["angular2/ang
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -56455,7 +56510,7 @@ System.register("ionic/components/slides/slides", ["angular2/angular2", "../ion"
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -56494,7 +56549,7 @@ System.register("ionic/components/slides/slides", ["angular2/angular2", "../ion"
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -57254,7 +57309,7 @@ System.register("ionic/components/switch/switch", ["angular2/angular2", "../../u
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -57540,7 +57595,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -57575,7 +57630,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -57615,13 +57670,15 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                             this.tabs.select(this);
                         } else if (this.tabs.preloadTabs) {
                             setTimeout(function () {
-                                var opts = {
-                                    animate: false,
-                                    preload: true
-                                };
-                                _this.load(opts, function () {
-                                    _this.hideNavbars(true);
-                                });
+                                if (!_this._loaded) {
+                                    var opts = {
+                                        animate: false,
+                                        preload: true
+                                    };
+                                    _this.load(opts, function () {
+                                        _this.hideNavbars(true);
+                                    });
+                                }
                             }, 1000 * this.index);
                         }
                     }
@@ -57693,7 +57750,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
         }
     };
 });
-System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/app", "../app/id", "../../config/config", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
+System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/app", "../app/id", "../../config/config", "../../platform/platform", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
     /**
      * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
      * of the Component docs._
@@ -57746,11 +57803,11 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
      */
     "use strict";
 
-    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, IonicApp, Attr, Config, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, IonicApp, Attr, Config, Platform, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -57774,6 +57831,8 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
             Attr = _appId.Attr;
         }, function (_configConfig) {
             Config = _configConfig.Config;
+        }, function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
         }, function (_navViewController) {
             ViewController = _navViewController.ViewController;
         }, function (_configDecorators) {
@@ -57791,7 +57850,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -57822,12 +57881,13 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                  * point that "Tabs" is itself is just a page with its own instance of ViewController.
                  */
 
-                function Tabs(app, config, elementRef, viewCtrl) {
+                function Tabs(app, config, elementRef, viewCtrl, platform) {
                     var _this = this;
 
                     _classCallCheck(this, Tabs);
 
                     _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
+                    this.platform = platform;
                     this.app = app;
                     this.preload = config.get('preloadTabs');
                     this.subPages = config.get('tabSubPages');
@@ -57849,11 +57909,23 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     }
                 }
 
-                /**
-                 * @private
-                 */
-
                 _createClass(Tabs, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        var _this2 = this;
+
+                        _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
+                        if (this.highlight) {
+                            this.platform.onResize(function () {
+                                _this2.highlight.select(_this2.getSelected());
+                            });
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
                     key: "add",
                     value: function add(tab) {
                         tab.id = ++_tabIds;
@@ -57871,7 +57943,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }, {
                     key: "select",
                     value: function select(tabOrIndex) {
-                        var _this2 = this;
+                        var _this3 = this;
 
                         var selectedTab = typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex;
                         if (!selectedTab) {
@@ -57894,13 +57966,13 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                         var selectedPage = selectedTab.getActive();
                         selectedPage && selectedPage.willEnter();
                         selectedTab.load(opts, function () {
-                            _this2.tabs.forEach(function (tab) {
+                            _this3.tabs.forEach(function (tab) {
                                 tab.setSelected(tab === selectedTab);
                             });
-                            _this2.highlight && _this2.highlight.select(selectedTab);
+                            _this3.highlight && _this3.highlight.select(selectedTab);
                             selectedPage && selectedPage.didEnter();
                             deselectedPage && deselectedPage.didLeave();
-                            _this2.isReady && _this2.isReady();
+                            _this3.isReady && _this3.isReady();
                             console.timeEnd('select tab ' + selectedTab.id);
                         });
                     }
@@ -57987,7 +58059,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }), forwardRef(function () {
                     return TabNavBarAnchor;
                 })]
-            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object])], Tabs));
+            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof Platform !== 'undefined' && Platform) === 'function' && _e || Object])], Tabs));
             _tabIds = -1;
 
             /**
@@ -58038,7 +58110,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     '[class.disable-hover]': 'disHover',
                     '(click)': 'onClick()'
                 }
-            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_e = typeof Config !== 'undefined' && Config) === 'function' && _e || Object, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object])], TabButton);
+            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_f = typeof Config !== 'undefined' && Config) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object])], TabButton);
             /**
              * @private
              */
@@ -58047,7 +58119,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 function TabHighlight(tabs, config, elementRef) {
                     _classCallCheck(this, TabHighlight);
 
-                    if (config.get('mode') === 'md') {
+                    if (config.get('tabbarHighlight')) {
                         tabs.highlight = this;
                         this.elementRef = elementRef;
                     }
@@ -58073,7 +58145,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
 
             TabHighlight = __decorate([Directive({
                 selector: 'tab-highlight'
-            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_g = typeof Config !== 'undefined' && Config) === 'function' && _g || Object, typeof (_h = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _h || Object])], TabHighlight);
+            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_h = typeof Config !== 'undefined' && Config) === 'function' && _h || Object, typeof (_j = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _j || Object])], TabHighlight);
             /**
              * @private
              */
@@ -58084,32 +58156,31 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 tabs.navbarContainerRef = viewContainerRef;
             };
 
-            TabNavBarAnchor = __decorate([Directive({ selector: 'template[navbar-anchor]' }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_j = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _j || Object])], TabNavBarAnchor);
+            TabNavBarAnchor = __decorate([Directive({ selector: 'template[navbar-anchor]' }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_k = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _k || Object])], TabNavBarAnchor);
         }
     };
 });
-System.register('ionic/components/tap-click/activator', ['../../util/dom'], function (_export) {
+System.register('ionic/components/tap-click/activator', [], function (_export) {
     'use strict';
 
-    var raf, Activator;
+    var Activator;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [function (_utilDom) {
-            raf = _utilDom.raf;
-        }],
+        setters: [],
         execute: function () {
             Activator = (function () {
-                function Activator(app, config) {
+                function Activator(app, config, fastdom) {
                     _classCallCheck(this, Activator);
 
                     this.app = app;
+                    this.fastdom = fastdom;
                     this.queue = [];
                     this.active = [];
-                    this.clearStateTimeout = 80;
+                    this.clearStateDefers = 5;
                     this.clearAttempt = 0;
                     this.activatedClass = config.get('activatedClass') || 'activated';
                     this.x = 0;
@@ -58122,13 +58193,13 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                         var _this = this;
 
                         // the user just pressed down
-                        if (this.disableActivated(ev)) return;
+                        if (this.disableActivated(ev)) return false;
                         // remember where they pressed
                         this.x = pointerX;
                         this.y = pointerY;
                         // queue to have this element activated
                         this.queue.push(activatableEle);
-                        raf(function () {
+                        this.fastdom.write(function () {
                             var activatableEle = undefined;
                             for (var i = 0; i < _this.queue.length; i++) {
                                 activatableEle = _this.queue[i];
@@ -58139,6 +58210,7 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                             }
                             _this.queue = [];
                         });
+                        return true;
                     }
                 }, {
                     key: 'upAction',
@@ -58146,9 +58218,9 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                         var _this2 = this;
 
                         // the user was pressing down, then just let up
-                        setTimeout(function () {
+                        this.fastdom.defer(this.clearStateDefers, function () {
                             _this2.clearState();
-                        }, this.clearStateTimeout);
+                        });
                     }
                 }, {
                     key: 'clearState',
@@ -58169,12 +58241,16 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                 }, {
                     key: 'deactivate',
                     value: function deactivate() {
+                        var _this3 = this;
+
                         // remove the active class from all active elements
-                        for (var i = 0; i < this.active.length; i++) {
-                            this.active[i].classList.remove(this.activatedClass);
-                        }
                         this.queue = [];
-                        this.active = [];
+                        this.fastdom.write(function () {
+                            for (var i = 0; i < _this3.active.length; i++) {
+                                _this3.active[i].classList.remove(_this3.activatedClass);
+                            }
+                            _this3.active = [];
+                        });
                     }
                 }, {
                     key: 'disableActivated',
@@ -58196,14 +58272,14 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
         }
     };
 });
-System.register('ionic/components/tap-click/ripple', ['./activator', '../../util/dom', '../../animations/animation'], function (_export) {
+System.register('ionic/components/tap-click/ripple', ['./activator', '../../animations/animation'], function (_export) {
     'use strict';
 
-    var Activator, removeElement, raf, Animation, RippleActivator, TOUCH_DOWN_ACCEL, EXPAND_DOWN_PLAYBACK_RATE, EXPAND_OUT_PLAYBACK_RATE, OPACITY_OUT_DURATION;
+    var Activator, Animation, RippleActivator, TOUCH_DOWN_ACCEL, EXPAND_DOWN_PLAYBACK_RATE, EXPAND_OUT_PLAYBACK_RATE, FADE_OUT_DURATION;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -58212,9 +58288,6 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../util
     return {
         setters: [function (_activator) {
             Activator = _activator.Activator;
-        }, function (_utilDom) {
-            removeElement = _utilDom.removeElement;
-            raf = _utilDom.raf;
         }, function (_animationsAnimation) {
             Animation = _animationsAnimation.Animation;
         }],
@@ -58222,11 +58295,13 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../util
             RippleActivator = (function (_Activator) {
                 _inherits(RippleActivator, _Activator);
 
-                function RippleActivator(app, config) {
+                function RippleActivator(app, config, fastdom) {
                     _classCallCheck(this, RippleActivator);
 
-                    _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config);
-                    this.ripples = {};
+                    _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config, fastdom);
+                    this.expands = {};
+                    this.fades = {};
+                    this.expandSpeed = null;
                 }
 
                 _createClass(RippleActivator, [{
@@ -58234,10 +58309,24 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../util
                     value: function downAction(ev, activatableEle, pointerX, pointerY) {
                         var _this = this;
 
-                        if (this.disableActivated(ev)) return;
-                        _get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY);
-                        // create a new ripple element
-                        var clientRect = activatableEle.getBoundingClientRect();
+                        if (_get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY)) {
+                            // create a new ripple element
+                            this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
+                            this.fastdom.defer(2, function () {
+                                _this.fastdom.read(function () {
+                                    var clientRect = activatableEle.getBoundingClientRect();
+                                    _this.fastdom.write(function () {
+                                        _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
+                                    });
+                                });
+                            });
+                        }
+                    }
+                }, {
+                    key: 'createRipple',
+                    value: function createRipple(activatableEle, pointerX, pointerY, clientRect) {
+                        var _this2 = this;
+
                         var clientPointerX = pointerX - clientRect.left;
                         var clientPointerY = pointerY - clientRect.top;
                         var x = Math.max(Math.abs(clientRect.width - clientPointerX), clientPointerX) * 2;
@@ -58246,94 +58335,69 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../util
                         var radius = Math.sqrt(clientRect.width + clientRect.height);
                         var duration = 1000 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5;
                         var rippleEle = document.createElement('md-ripple');
+                        var rippleId = Date.now();
                         var eleStyle = rippleEle.style;
                         eleStyle.width = eleStyle.height = diameter + 'px';
                         eleStyle.marginTop = eleStyle.marginLeft = -(diameter / 2) + 'px';
                         eleStyle.left = clientPointerX + 'px';
                         eleStyle.top = clientPointerY + 'px';
                         activatableEle.appendChild(rippleEle);
-                        var ripple = this.ripples[Date.now()] = {
-                            ele: rippleEle,
-                            radius: radius,
-                            duration: duration
-                        };
+                        // create the animation for the fade out, but don't start it yet
+                        this.fades[rippleId] = new Animation(rippleEle, { renderDelay: 0 });
+                        this.fades[rippleId].fadeOut().duration(FADE_OUT_DURATION).playbackRate(1).onFinish(function () {
+                            _this2.fastdom.write(function () {
+                                _this2.fades[rippleId].dispose(true);
+                                delete _this2.fades[rippleId];
+                            });
+                        });
                         // expand the circle from the users starting point
                         // start slow, and when they let up, then speed up the animation
-                        ripple.expand = new Animation(rippleEle, { renderDelay: 0 });
-                        ripple.expand.fromTo('scale', '0.001', '1').duration(duration).playbackRate(EXPAND_DOWN_PLAYBACK_RATE).onFinish(function () {
-                            // finished expanding
-                            ripple.expand && ripple.expand.dispose();
-                            ripple.expand = null;
-                            ripple.expanded = true;
-                            _this.next();
+                        this.expands[rippleId] = new Animation(rippleEle, { renderDelay: 0 });
+                        this.expands[rippleId].fromTo('scale', '0.001', '1').duration(duration).playbackRate(this.expandSpeed).onFinish(function () {
+                            _this2.expands[rippleId].dispose();
+                            delete _this2.expands[rippleId];
+                            _this2.next();
                         }).play();
-                        this.next();
                     }
                 }, {
                     key: 'upAction',
-                    value: function upAction(forceFadeOut) {
-                        var _this2 = this;
+                    value: function upAction() {
+                        var _this3 = this;
 
                         this.deactivate();
-                        var ripple = undefined;
-                        for (var rippleId in this.ripples) {
-                            ripple = this.ripples[rippleId];
-                            if (!ripple.fade || forceFadeOut) {
-                                // ripple has not been let up yet
-                                // speed up the rate if the animation is still going
-                                setTimeout(function () {
-                                    ripple.expand && ripple.expand.playbackRate(EXPAND_OUT_PLAYBACK_RATE);
-                                    ripple.fade = new Animation(ripple.ele);
-                                    ripple.fade.fadeOut().duration(OPACITY_OUT_DURATION).playbackRate(1).onFinish(function () {
-                                        ripple.fade && ripple.fade.dispose();
-                                        ripple.fade = null;
-                                        ripple.faded = true;
-                                        _this2.next();
-                                    }).play();
-                                }, 16);
-                            }
-                        }
-                        this.next();
+                        this.expandSpeed = 1;
+                        this.fastdom.defer(4, function () {
+                            _this3.next();
+                        });
                     }
                 }, {
                     key: 'next',
-                    value: function next(forceComplete) {
-                        var _this3 = this;
-
-                        var ripple = undefined,
-                            rippleEle = undefined;
-
-                        var _loop = function (rippleId) {
-                            ripple = _this3.ripples[rippleId];
-                            if (ripple.expanded && ripple.faded && ripple.ele || forceComplete || parseInt(rippleId) + 5000 < Date.now()) {
-                                // finished expanding and the user has lifted the pointer
-                                raf(function () {
-                                    _this3.remove(rippleId);
-                                });
+                    value: function next() {
+                        var now = Date.now();
+                        var rippleId = undefined;
+                        for (rippleId in this.expands) {
+                            if (parseInt(rippleId, 10) + 4000 < now) {
+                                this.expands[rippleId].dispose(true);
+                                delete this.expands[rippleId];
+                            } else if (this.expands[rippleId].playbackRate() === EXPAND_DOWN_PLAYBACK_RATE) {
+                                this.expands[rippleId].playbackRate(EXPAND_OUT_PLAYBACK_RATE);
                             }
-                        };
-
-                        for (var rippleId in this.ripples) {
-                            _loop(rippleId);
+                        }
+                        for (rippleId in this.fades) {
+                            if (parseInt(rippleId, 10) + 4000 < now) {
+                                this.fades[rippleId].dispose(true);
+                                delete this.fades[rippleId];
+                            } else if (!this.fades[rippleId].isPlaying) {
+                                this.fades[rippleId].isPlaying = true;
+                                this.fades[rippleId].play();
+                            }
                         }
                     }
                 }, {
                     key: 'clearState',
                     value: function clearState() {
                         this.deactivate();
-                        this.next(true);
-                    }
-                }, {
-                    key: 'remove',
-                    value: function remove(rippleId) {
-                        var ripple = this.ripples[rippleId];
-                        if (ripple) {
-                            ripple.expand && ripple.expand.dispose();
-                            ripple.fade && ripple.fade.dispose();
-                            removeElement(ripple.ele);
-                            ripple.ele = ripple.expand = ripple.fade = null;
-                            delete this.ripples[rippleId];
-                        }
+                        this.next();
                     }
                 }]);
 
@@ -58345,26 +58409,30 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../util
             TOUCH_DOWN_ACCEL = 512;
             EXPAND_DOWN_PLAYBACK_RATE = 0.35;
             EXPAND_OUT_PLAYBACK_RATE = 3;
-            OPACITY_OUT_DURATION = 750;
+            FADE_OUT_DURATION = 700;
         }
     };
 });
 System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './activator', './ripple'], function (_export) {
     'use strict';
 
-    var pointerCoord, hasPointerMoved, Activator, RippleActivator, startCoord, pointerTolerance, lastTouch, lastActivated, disableNativeClickTime, disableNativeClickLimit, activator, isEnabled, app, config, win, doc, ACTIVATABLE_ELEMENTS, ACTIVATABLE_ATTRIBUTES;
+    var pointerCoord, hasPointerMoved, Activator, RippleActivator, startCoord, pointerTolerance, lastTouch, lastActivated, disableNativeClickTime, disableNativeClickLimit, activator, isTapPolyfill, app, win, doc, ACTIVATABLE_ELEMENTS, ACTIVATABLE_ATTRIBUTES;
 
     _export('initTapClick', initTapClick);
 
     _export('isActivatable', isActivatable);
 
-    function initTapClick(windowInstance, documentInstance, appInstance, configInstance) {
+    function initTapClick(windowInstance, documentInstance, appInstance, config, fastdom) {
         win = windowInstance;
         doc = documentInstance;
         app = appInstance;
-        config = configInstance;
-        activator = config.get('mdRipple') ? new RippleActivator(app, config) : new Activator(app, config);
-        isEnabled = config.get('tapPolyfill') !== false;
+        if (config.get('activator') == 'ripple') {
+            activator = new RippleActivator(app, config, fastdom);
+        } else if (config.get('activator') == 'highlight') {
+            activator = new Activator(app, config, fastdom);
+            ;
+        }
+        isTapPolyfill = config.get('tapPolyfill') === true;
         addListener('click', click, true);
         addListener('touchstart', touchStart);
         addListener('touchend', touchEnd);
@@ -58379,7 +58447,7 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
     }
     function touchEnd(ev) {
         touchAction();
-        if (isEnabled && startCoord && app.isEnabled()) {
+        if (isTapPolyfill && startCoord && app.isEnabled()) {
             var endCoord = pointerCoord(ev);
             if (!hasPointerMoved(pointerTolerance, startCoord, endCoord)) {
                 console.debug('create click from touch');
@@ -58421,8 +58489,8 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
         if (activatableEle) {
             startCoord = pointerCoord(ev);
             var now = Date.now();
-            if (lastActivated + 100 < now) {
-                activator.downAction(ev, activatableEle, startCoord.x, startCoord.y);
+            if (lastActivated + 150 < now) {
+                activator && activator.downAction(ev, activatableEle, startCoord.x, startCoord.y);
                 lastActivated = now;
             }
             moveListeners(true);
@@ -58431,8 +58499,8 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
         }
     }
     function pointerEnd(ev) {
-        activator.upAction();
         moveListeners(false);
+        activator && activator.upAction();
     }
     function pointerMove(ev) {
         var moveCoord = pointerCoord(ev);
@@ -58442,20 +58510,27 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
     }
     function pointerCancel(ev) {
         console.debug('pointerCancel from', ev.type);
-        activator.clearState();
+        activator && activator.clearState();
         moveListeners(false);
         setDisableNativeClick();
     }
     function moveListeners(shouldAdd) {
-        removeListener('touchmove', pointerMove);
-        removeListener('mousemove', pointerMove);
         if (shouldAdd) {
-            addListener('touchmove', pointerMove);
+            if (isTapPolyfill) {
+                addListener('touchmove', pointerMove);
+            }
             addListener('mousemove', pointerMove);
+        } else {
+            if (isTapPolyfill) {
+                removeListener('touchmove', pointerMove);
+            }
+            removeListener('mousemove', pointerMove);
         }
     }
     function setDisableNativeClick() {
-        disableNativeClickTime = Date.now() + disableNativeClickLimit;
+        if (isTapPolyfill) {
+            disableNativeClickTime = Date.now() + disableNativeClickLimit;
+        }
     }
     function isDisabledNativeClick() {
         return disableNativeClickTime > Date.now();
@@ -58522,9 +58597,8 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
             disableNativeClickTime = 0;
             disableNativeClickLimit = 1000;
             activator = null;
-            isEnabled = false;
+            isTapPolyfill = false;
             app = null;
-            config = null;
             win = null;
             doc = null;
             ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
@@ -58566,7 +58640,7 @@ System.register("ionic/components/text-input/label", ["angular2/angular2", "../.
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -58704,7 +58778,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -59122,7 +59196,7 @@ System.register("ionic/components/toolbar/toolbar", ["angular2/angular2", "../io
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -59154,7 +59228,7 @@ System.register("ionic/components/toolbar/toolbar", ["angular2/angular2", "../io
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -59704,7 +59778,7 @@ System.register("ionic/platform/applinks/applinks", ["../plugin"], function (_ex
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -59831,7 +59905,7 @@ System.register("ionic/platform/barcode/barcode", ["../plugin"], function (_expo
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -59964,7 +60038,7 @@ System.register("ionic/platform/battery/battery", ["ionic/util", "../plugin"], f
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60082,7 +60156,7 @@ System.register("ionic/platform/camera/camera", ["ionic/util", "../plugin"], fun
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60276,7 +60350,7 @@ System.register("ionic/platform/camera-roll/camera-roll", ["../plugin"], functio
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60393,7 +60467,7 @@ System.register("ionic/platform/contacts/contacts", ["../plugin"], function (_ex
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60572,7 +60646,7 @@ System.register("ionic/platform/device/device", ["../plugin"], function (_export
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60776,7 +60850,7 @@ System.register("ionic/platform/device-motion/device-motion", ["ionic/util", "..
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -60943,7 +61017,7 @@ System.register("ionic/platform/device-orientation/device-orientation", ["ionic/
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61081,7 +61155,7 @@ System.register("ionic/platform/dialogs/dialogs", ["../plugin"], function (_expo
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61271,7 +61345,7 @@ System.register("ionic/platform/geolocation/geolocation", ["../plugin"], functio
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61390,7 +61464,7 @@ System.register("ionic/platform/keyboard/keyboard", ["../plugin"], function (_ex
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61512,7 +61586,7 @@ System.register("ionic/platform/loading/loading", ["../plugin"], function (_expo
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61698,7 +61772,7 @@ System.register("ionic/platform/network/network", ["../plugin"], function (_expo
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61794,7 +61868,7 @@ System.register("ionic/platform/statusbar/statusbar", ["../plugin"], function (_
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {
@@ -61953,7 +62027,7 @@ System.register('ionic/platform/storage/local-storage', ['./storage'], function 
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -62025,7 +62099,7 @@ System.register('ionic/platform/storage/sql', ['./storage', 'ionic/util'], funct
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -62521,7 +62595,7 @@ System.register("ionic/platform/vibration/vibration", ["../plugin"], function (_
                         }, target);
                     case 3:
                         return decorators.reduceRight(function (o, d) {
-                            return (d && d(target, key), void 0);
+                            return d && d(target, key), void 0;
                         }, void 0);
                     case 4:
                         return decorators.reduceRight(function (o, d) {

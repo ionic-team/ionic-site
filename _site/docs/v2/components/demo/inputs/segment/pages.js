@@ -21,7 +21,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -34,6 +34,8 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 };
 var SegmentPage = function SegmentPage() {
     _classCallCheck(this, SegmentPage);
+
+    this.pet = "puppies";
 };
 exports.SegmentPage = SegmentPage;
 exports.SegmentPage = SegmentPage = __decorate([(0, _ionicIonic.Page)({

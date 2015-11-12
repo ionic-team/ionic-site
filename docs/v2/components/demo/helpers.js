@@ -77,7 +77,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -154,6 +154,7 @@ function getPageFor(hash) {
         'checkbox': inputs.CheckboxPage,
         'radio': inputs.RadioPage,
         'range': inputs.RangePage,
+        'segment': inputs.SegmentPage,
         'select': inputs.SelectPage,
         'switch': inputs.SwitchPage,
         'inputs': labels.BasicPage,

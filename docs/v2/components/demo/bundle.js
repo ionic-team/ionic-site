@@ -75136,21 +75136,21 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabTextCtrl = function TabTextCtrl() {
-	    _classCallCheck(this, TabTextCtrl);
+	var TabTextPage = function TabTextPage() {
+	    _classCallCheck(this, TabTextPage);
 	};
-	TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabTextPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabTextCtrl);
+	}), __metadata('design:paramtypes', [])], TabTextPage);
 	var BasicPage = function BasicPage() {
 	    _classCallCheck(this, BasicPage);
 
-	    this.tabOne = TabTextCtrl;
-	    this.tabTwo = TabTextCtrl;
-	    this.tabThree = TabTextCtrl;
+	    this.tabOne = TabTextPage;
+	    this.tabTwo = TabTextPage;
+	    this.tabThree = TabTextPage;
 	};
 	exports.BasicPage = BasicPage;
 	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
@@ -75200,22 +75200,22 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconCtrl = function TabIconCtrl() {
-	    _classCallCheck(this, TabIconCtrl);
+	var TabIconPage = function TabIconPage() {
+	    _classCallCheck(this, TabIconPage);
 	};
-	TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabIconPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabIconCtrl);
+	}), __metadata('design:paramtypes', [])], TabIconPage);
 	var IconPage = function IconPage() {
 	    _classCallCheck(this, IconPage);
 
-	    this.tabOne = TabIconCtrl;
-	    this.tabTwo = TabIconCtrl;
-	    this.tabThree = TabIconCtrl;
-	    this.tabFour = TabIconCtrl;
+	    this.tabOne = TabIconPage;
+	    this.tabTwo = TabIconPage;
+	    this.tabThree = TabIconPage;
+	    this.tabFour = TabIconPage;
 	};
 	exports.IconPage = IconPage;
 	exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
@@ -75265,22 +75265,22 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconTextCtrl = function TabIconTextCtrl() {
-	    _classCallCheck(this, TabIconTextCtrl);
+	var TabIconTextPage = function TabIconTextPage() {
+	    _classCallCheck(this, TabIconTextPage);
 	};
-	TabIconTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabIconTextPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabIconTextCtrl);
+	}), __metadata('design:paramtypes', [])], TabIconTextPage);
 	var IconTextPage = function IconTextPage() {
 	    _classCallCheck(this, IconTextPage);
 
-	    this.tabOne = TabIconTextCtrl;
-	    this.tabTwo = TabIconTextCtrl;
-	    this.tabThree = TabIconTextCtrl;
-	    this.tabFour = TabIconTextCtrl;
+	    this.tabOne = TabIconTextPage;
+	    this.tabTwo = TabIconTextPage;
+	    this.tabThree = TabIconTextPage;
+	    this.tabFour = TabIconTextPage;
 	};
 	exports.IconTextPage = IconTextPage;
 	exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({

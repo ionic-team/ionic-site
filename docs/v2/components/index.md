@@ -542,56 +542,6 @@ You can also add a placeholder so that users have a hint of what type of text th
 </ion-list>
 ```
 
-<h3 class="section-nav" id="segment">Segment</h3>
-
-Use the segment to control to use radio selections.
-
-```html
-<form (submit)="doSubmit($event)" [ng-form-model]="myForm">
-    <ion-segment ng-control="mapStyle" danger>
-      <ion-segment-button value="standard">
-        Standard
-      </ion-segment-button>
-      <ion-segment-button value="hybrid">
-        Hybrid
-      </ion-segment-button>
-      <ion-segment-button value="sat">
-        Satellite
-      </ion-segment-button>
-    </ion-segment>
-    <ion-segment>
-      <ion-segment-button>
-        Friends
-      </ion-segment-button>
-      <ion-segment-button>
-        Enemies
-      </ion-segment-button>
-    </ion-segment>
-  <button type="submit" button>Submit</button>
-</form>
-```
-
-```typescript
-@App({
-  templateUrl: 'main.html',
-  providers: [FormBuilder]
-})
-class MyApp {
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({
-      mapStyle: ['hybrid', Validators.required]
-    });
-  }
-
-  doSubmit(event) {
-    console.log('Submitting form', this.myForm.value);
-    event.preventDefault();
-  }
-}
-
-```
-
-
 <h2 id="lists" class="section-header">Lists</h2>
 
 Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
@@ -1020,6 +970,55 @@ class IonicApp {
     })
   }
 }
+```
+
+<h2 class="section-nav section-header" id="segment">Segment</h2>
+
+Use the segment to control to use radio selections.
+
+```html
+<form (submit)="doSubmit($event)" [ng-form-model]="myForm">
+    <ion-segment ng-control="mapStyle" danger>
+      <ion-segment-button value="standard">
+        Standard
+      </ion-segment-button>
+      <ion-segment-button value="hybrid">
+        Hybrid
+      </ion-segment-button>
+      <ion-segment-button value="sat">
+        Satellite
+      </ion-segment-button>
+    </ion-segment>
+    <ion-segment>
+      <ion-segment-button>
+        Friends
+      </ion-segment-button>
+      <ion-segment-button>
+        Enemies
+      </ion-segment-button>
+    </ion-segment>
+  <button type="submit" button>Submit</button>
+</form>
+```
+
+```typescript
+@App({
+  templateUrl: 'main.html',
+  providers: [FormBuilder]
+})
+class MyApp {
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      mapStyle: ['hybrid', Validators.required]
+    });
+  }
+
+  doSubmit(event) {
+    console.log('Submitting form', this.myForm.value);
+    event.preventDefault();
+  }
+}
+
 ```
 
 

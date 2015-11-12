@@ -8,4 +8,4 @@ dependencies:
     - gem install jekyll --pre
 test:
   override:
-    - ./scripts/circle.sh --index=$CIRCLE_NODE_INDEX --total=$CIRCLE_NODE_TOTAL
+    - ./_scripts/circle.sh --index=$CIRCLE_NODE_INDEX --total=$CIRCLE_NODE_TOTAL

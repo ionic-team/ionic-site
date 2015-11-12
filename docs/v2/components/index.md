@@ -542,48 +542,6 @@ You can also add a placeholder so that users have a hint of what type of text th
 </ion-list>
 ```
 
-
-<h3 id="search_bar">Search Bar</h3>
-
-A search bar takes a value and binds it to a control in your form.
-
-```html
-<form [ng-form-model]="form">
-  <ion-search-bar ng-control="searchQuery"></ion-search-bar>
-  <ion-list inset #list>
-    <ion-item *ng-for="#item of getItems()">
-      {{item.title}}
-    </ion-item>
-  </ion-list>
-</form>
-```
-
-Note the `[ng-form-model]="form"` binds to the components instance of `this.form`, and the `ng-control` binds to the forms `searchQuery` property. You'll also see that the component interacts with the `searchQuery` property using the `form.controls` array `this.form.controls.searchQuery.value`.
-
-```typescript
-class IonicApp {
-  constructor() {
-    var fb = new FormBuilder();
-    this.form = fb.group({
-      searchQuery: ['', Validators.required]
-    });
-    this.items ['Soylent', 'BBQ', 'Salad'];
-  }
-  getItems() {
-    var q = this.form.controls.searchQuery.value;
-    if(q.trim() == '') {
-      return this.items;
-    }
-    return this.items.filter((v) => {
-      if(v.title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
-        return true;
-      }
-      return false;
-    })
-  }
-}
-```
-
 <h3 class="section-nav" id="segment">Segment</h3>
 
 Use the segment to control to use radio selections.
@@ -1022,6 +980,47 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 
 <h2 id="range" class="section-header">Range</h2>
 *Coming soon.*
+
+<h2 id="search">Search</h2>
+
+A search bar takes a value and binds it to a control in your form.
+
+```html
+<form [ng-form-model]="form">
+  <ion-search-bar ng-control="searchQuery"></ion-search-bar>
+  <ion-list inset #list>
+    <ion-item *ng-for="#item of getItems()">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+</form>
+```
+
+Note the `[ng-form-model]="form"` binds to the components instance of `this.form`, and the `ng-control` binds to the forms `searchQuery` property. You'll also see that the component interacts with the `searchQuery` property using the `form.controls` array `this.form.controls.searchQuery.value`.
+
+```typescript
+class IonicApp {
+  constructor() {
+    var fb = new FormBuilder();
+    this.form = fb.group({
+      searchQuery: ['', Validators.required]
+    });
+    this.items ['Soylent', 'BBQ', 'Salad'];
+  }
+  getItems() {
+    var q = this.form.controls.searchQuery.value;
+    if(q.trim() == '') {
+      return this.items;
+    }
+    return this.items.filter((v) => {
+      if(v.title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    })
+  }
+}
+```
 
 
 <h2 id="select" class="section-header">Select</h2>

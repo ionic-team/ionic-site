@@ -157,6 +157,7 @@ function getPageFor(hash) {
         'segment': inputs.SegmentPage,
         'select': inputs.SelectPage,
         'switch': inputs.SwitchPage,
+        'search': inputs.SearchPage,
         'inputs': labels.BasicPage,
         'fixed-inline-labels': labels.FixedInlinePage,
         'floating-labels': labels.FloatingPage,

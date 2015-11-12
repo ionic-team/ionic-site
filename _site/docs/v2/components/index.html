@@ -200,6 +200,7 @@
       <li><a href="#popups">Popups</a></li>
       <li><a href="#radio">Radio</a></li>
       <li><a href="#range">Range</a></li>
+      <li><a href="#search">Search</a></li>
       <li><a href="#segment">Segment</a></li>
       <li><a href="#select">Select</a></li>
       <li><a href="#slides">Slides</a></li>
@@ -799,45 +800,6 @@ You can also add a placeholder so that users have a hint of what type of text th
 &lt;/ion-list&gt;
 </code></pre>
 
-<h3 id="search_bar">Search Bar</h3>
-
-<p>A search bar takes a value and binds it to a control in your form.</p>
-
-<pre><code class="language-html">&lt;form [ng-form-model]="form"&gt;
-  &lt;ion-search-bar ng-control="searchQuery"&gt;&lt;/ion-search-bar&gt;
-  &lt;ion-list inset #list&gt;
-    &lt;ion-item *ng-for="#item of getItems()"&gt;
-      
-    &lt;/ion-item&gt;
-  &lt;/ion-list&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p>Note the <code>[ng-form-model]="form"</code> binds to the components instance of <code>this.form</code>, and the <code>ng-control</code> binds to the forms <code>searchQuery</code> property. You’ll also see that the component interacts with the <code>searchQuery</code> property using the <code>form.controls</code> array <code>this.form.controls.searchQuery.value</code>.</p>
-
-<pre><code class="language-typescript">class IonicApp {
-  constructor() {
-    var fb = new FormBuilder();
-    this.form = fb.group({
-      searchQuery: ['', Validators.required]
-    });
-    this.items ['Soylent', 'BBQ', 'Salad'];
-  }
-  getItems() {
-    var q = this.form.controls.searchQuery.value;
-    if(q.trim() == '') {
-      return this.items;
-    }
-    return this.items.filter((v) =&gt; {
-      if(v.title.toLowerCase().indexOf(q.toLowerCase()) &gt;= 0) {
-        return true;
-      }
-      return false;
-    })
-  }
-}
-</code></pre>
-
 <h3 class="section-nav" id="segment">Segment</h3>
 
 <p>Use the segment to control to use radio selections.</p>
@@ -1248,6 +1210,45 @@ class OtherPage {
 
 <h2 id="range" class="section-header">Range</h2>
 <p><em>Coming soon.</em></p>
+
+<h2 id="search">Search</h2>
+
+<p>A search bar takes a value and binds it to a control in your form.</p>
+
+<pre><code class="language-html">&lt;form [ng-form-model]="form"&gt;
+  &lt;ion-search-bar ng-control="searchQuery"&gt;&lt;/ion-search-bar&gt;
+  &lt;ion-list inset #list&gt;
+    &lt;ion-item *ng-for="#item of getItems()"&gt;
+      
+    &lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Note the <code>[ng-form-model]="form"</code> binds to the components instance of <code>this.form</code>, and the <code>ng-control</code> binds to the forms <code>searchQuery</code> property. You’ll also see that the component interacts with the <code>searchQuery</code> property using the <code>form.controls</code> array <code>this.form.controls.searchQuery.value</code>.</p>
+
+<pre><code class="language-typescript">class IonicApp {
+  constructor() {
+    var fb = new FormBuilder();
+    this.form = fb.group({
+      searchQuery: ['', Validators.required]
+    });
+    this.items ['Soylent', 'BBQ', 'Salad'];
+  }
+  getItems() {
+    var q = this.form.controls.searchQuery.value;
+    if(q.trim() == '') {
+      return this.items;
+    }
+    return this.items.filter((v) =&gt; {
+      if(v.title.toLowerCase().indexOf(q.toLowerCase()) &gt;= 0) {
+        return true;
+      }
+      return false;
+    })
+  }
+}
+</code></pre>
 
 <h2 id="select" class="section-header">Select</h2>
 <p><em>Coming soon.</em></p>

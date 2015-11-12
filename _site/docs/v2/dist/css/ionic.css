@@ -52,7 +52,8 @@ select {
   font: inherit;
   margin: 0; }
 
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer; }
@@ -871,86 +872,53 @@ button[dark],
   [button][dark].activated {
     background-color: #4b4b4b; }
 
-button[clear],
-.ios .popup-buttons button,
-.ios .searchbar-cancel,
-.md .popup-buttons button,
+button[clear], .ios .popup-buttons button, .ios .searchbar-cancel, .md .popup-buttons button,
 [button][clear] {
   border-color: transparent;
   background: transparent;
   color: #1165f3; }
-  button[clear].activated,
-  .ios .popup-buttons button.activated,
-  .ios .activated.searchbar-cancel,
-  .md .popup-buttons button.activated,
+  button[clear].activated, .ios .popup-buttons button.activated, .ios .activated.searchbar-cancel, .md .popup-buttons button.activated,
   [button][clear].activated {
     opacity: 0.4;
     background: transparent; }
-  button[clear]:hover:not(.disable-hover),
-  .ios .popup-buttons button:hover:not(.disable-hover),
-  .ios .searchbar-cancel:hover:not(.disable-hover),
-  .md .popup-buttons button:hover:not(.disable-hover),
+  button[clear]:hover:not(.disable-hover), .ios .popup-buttons button:hover:not(.disable-hover), .ios .searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button:hover:not(.disable-hover),
   [button][clear]:hover:not(.disable-hover) {
     opacity: 0.6;
     color: #1165f3; }
 
-button[clear][secondary],
-.ios .popup-buttons button[secondary],
-.ios [secondary].searchbar-cancel,
-.md .popup-buttons button[secondary],
+button[clear][secondary], .ios .popup-buttons button[secondary], .ios [secondary].searchbar-cancel, .md .popup-buttons button[secondary],
 [button][clear][secondary] {
   border-color: transparent;
   background: transparent;
   color: #22c251; }
-  button[clear][secondary]:hover:not(.disable-hover),
-  .ios .popup-buttons button[secondary]:hover:not(.disable-hover),
-  .ios [secondary].searchbar-cancel:hover:not(.disable-hover),
-  .md .popup-buttons button[secondary]:hover:not(.disable-hover),
+  button[clear][secondary]:hover:not(.disable-hover), .ios .popup-buttons button[secondary]:hover:not(.disable-hover), .ios [secondary].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[secondary]:hover:not(.disable-hover),
   [button][clear][secondary]:hover:not(.disable-hover) {
     color: #1c9f43; }
 
-button[clear][danger],
-.ios .popup-buttons button[danger],
-.ios [danger].searchbar-cancel,
-.md .popup-buttons button[danger],
+button[clear][danger], .ios .popup-buttons button[danger], .ios [danger].searchbar-cancel, .md .popup-buttons button[danger],
 [button][clear][danger] {
   border-color: transparent;
   background: transparent;
   color: #f31616; }
-  button[clear][danger]:hover:not(.disable-hover),
-  .ios .popup-buttons button[danger]:hover:not(.disable-hover),
-  .ios [danger].searchbar-cancel:hover:not(.disable-hover),
-  .md .popup-buttons button[danger]:hover:not(.disable-hover),
+  button[clear][danger]:hover:not(.disable-hover), .ios .popup-buttons button[danger]:hover:not(.disable-hover), .ios [danger].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[danger]:hover:not(.disable-hover),
   [button][clear][danger]:hover:not(.disable-hover) {
     color: #d50b0b; }
 
-button[clear][light],
-.ios .popup-buttons button[light],
-.ios [light].searchbar-cancel,
-.md .popup-buttons button[light],
+button[clear][light], .ios .popup-buttons button[light], .ios [light].searchbar-cancel, .md .popup-buttons button[light],
 [button][clear][light] {
   border-color: transparent;
   background: transparent;
   color: #cbcbcb; }
-  button[clear][light]:hover:not(.disable-hover),
-  .ios .popup-buttons button[light]:hover:not(.disable-hover),
-  .ios [light].searchbar-cancel:hover:not(.disable-hover),
-  .md .popup-buttons button[light]:hover:not(.disable-hover),
+  button[clear][light]:hover:not(.disable-hover), .ios .popup-buttons button[light]:hover:not(.disable-hover), .ios [light].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[light]:hover:not(.disable-hover),
   [button][clear][light]:hover:not(.disable-hover) {
     color: #b7b7b7; }
 
-button[clear][dark],
-.ios .popup-buttons button[dark],
-.ios [dark].searchbar-cancel,
-.md .popup-buttons button[dark],
+button[clear][dark], .ios .popup-buttons button[dark], .ios [dark].searchbar-cancel, .md .popup-buttons button[dark],
 [button][clear][dark] {
   border-color: transparent;
   background: transparent;
   color: #4b4b4b; }
-  button[clear][dark]:hover:not(.disable-hover),
-  .ios .popup-buttons button[dark]:hover:not(.disable-hover),
-  .ios [dark].searchbar-cancel:hover:not(.disable-hover),
-  .md .popup-buttons button[dark]:hover:not(.disable-hover),
+  button[clear][dark]:hover:not(.disable-hover), .ios .popup-buttons button[dark]:hover:not(.disable-hover), .ios [dark].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[dark]:hover:not(.disable-hover),
   [button][clear][dark]:hover:not(.disable-hover) {
     color: #747474; }
 
@@ -2411,9 +2379,9 @@ ion-refresher {
     -webkit-transform: translate3d(0, 0, 0) rotate(-180deg);
     transform: translate3d(0, 0, 0) rotate(-180deg); }
   ion-refresher.active.refreshing {
-    -webkit-transition: -webkit-transform 0.2s;
-    transition: -webkit-transform 0.2s;
-    transition: transform 0.2s;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); }
     ion-refresher.active.refreshing .icon-pulling,
@@ -5448,13 +5416,11 @@ icon,
       border-top: 1px solid #c8c7cc;
       content: '';
       pointer-events: none; }
-    .ios .list .item:first-child:before,
-    .ios .list .item:last-child:after {
+    .ios .list .item:first-child:before, .ios .list .item:last-child:after {
       left: 0; }
   .ios .list ion-header + .item:first-of-type:before {
     left: 0; }
-  .ios .list[inset] .item:before,
-  .ios .list[inset] .item:after {
+  .ios .list[inset] .item:before, .ios .list[inset] .item:after {
     left: 0; }
   .ios .list ion-item-content {
     margin: 13px 8px 14px 8px; }
@@ -5580,11 +5546,9 @@ icon,
     margin-top: -0.55px; }
     .ios.hairlines .list .item:last-child {
       margin-bottom: -0.55px; }
-    .ios.hairlines .list .item:before,
-    .ios.hairlines .list .item:after {
+    .ios.hairlines .list .item:before, .ios.hairlines .list .item:after {
       border-top-width: 0.55px; }
-  .ios .item[no-lines]:before,
-  .ios .item[no-lines]:after {
+  .ios .item[no-lines]:before, .ios .item[no-lines]:after {
     border-width: 0; }
   .ios .item[no-lines] + .item:before {
     border-width: 0; }
@@ -6501,14 +6465,12 @@ icon,
       .md button[outline] md-ripple,
       .md [button][outline] md-ripple {
         background: rgba(56, 126, 245, 0.1); }
-    .md button[clear],
-    .ios .popup-buttons .md button, .md .ios .searchbar-cancel,
-    .ios .md .searchbar-cancel, .md .popup-buttons button, .md [button][clear] {
+    .md button[clear], .ios .popup-buttons .md button, .md .ios .searchbar-cancel, .ios .md .searchbar-cancel, .md .popup-buttons button,
+    .md [button][clear] {
       opacity: 1;
       box-shadow: none; }
-      .md button[clear].activated,
-      .ios .popup-buttons .md button.activated, .md .ios .activated.searchbar-cancel,
-      .ios .md .activated.searchbar-cancel, .md .popup-buttons button.activated, .md [button][clear].activated {
+      .md button[clear].activated, .ios .popup-buttons .md button.activated, .md .ios .activated.searchbar-cancel, .ios .md .activated.searchbar-cancel, .md .popup-buttons button.activated,
+      .md [button][clear].activated {
         background-color: rgba(158, 158, 158, 0.2); }
   .md button[secondary].activated,
   .md [button][secondary].activated {
@@ -6607,8 +6569,7 @@ icon,
       border-top: 1px solid #dedede;
       content: '';
       pointer-events: none; }
-    .md .list .item:first-child:before,
-    .md .list .item:last-child:after {
+    .md .list .item:first-child:before, .md .list .item:last-child:after {
       left: 0; }
   .md .list ion-header + .item:before {
     left: 0; }
@@ -6738,8 +6699,7 @@ icon,
   .md .item.activated ion-item-sliding-content {
     background-color: #f1f1f1;
     box-shadow: none; }
-  .md .item[no-lines]:before,
-  .md .item[no-lines]:after {
+  .md .item[no-lines]:before, .md .item[no-lines]:after {
     border-width: 0; }
   .md .item[no-lines] + .item:before {
     border-width: 0; }

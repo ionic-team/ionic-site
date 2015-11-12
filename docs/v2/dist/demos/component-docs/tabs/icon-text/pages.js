@@ -25,7 +25,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -37,22 +37,18 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabIconTextCtrl = function TabIconTextCtrl(nav, view) {
+var TabIconTextCtrl = function TabIconTextCtrl() {
     _classCallCheck(this, TabIconTextCtrl);
-
-    this.nav = nav;
-    this.view = view;
 };
 TabIconTextCtrl = __decorate([(0, _ionicIonic.Page)({
     template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.ViewController !== 'undefined' && _ionicIonic.ViewController) === 'function' && _b || Object])], TabIconTextCtrl);
-var IconTextPage = function IconTextPage(nav, params) {
+}), __metadata('design:paramtypes', [])], TabIconTextCtrl);
+var IconTextPage = function IconTextPage() {
     _classCallCheck(this, IconTextPage);
 
-    this.nav = nav;
     this.tabOne = TabIconTextCtrl;
     this.tabTwo = TabIconTextCtrl;
     this.tabThree = TabIconTextCtrl;
@@ -61,5 +57,4 @@ var IconTextPage = function IconTextPage(nav, params) {
 exports.IconTextPage = IconTextPage;
 exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-tabs>' + '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' + '</ion-tabs>'
-}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _d || Object])], IconTextPage);
-var _a, _b, _c, _d;
+}), __metadata('design:paramtypes', [])], IconTextPage);

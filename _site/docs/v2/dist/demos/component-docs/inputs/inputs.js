@@ -20,6 +20,10 @@ var _rangePages = require('./range/pages');
 
 _defaults(exports, _interopExportWildcard(_rangePages, _defaults));
 
+var _segmentPages = require('./segment/pages');
+
+_defaults(exports, _interopExportWildcard(_segmentPages, _defaults));
+
 var _selectPages = require('./select/pages');
 
 _defaults(exports, _interopExportWildcard(_selectPages, _defaults));

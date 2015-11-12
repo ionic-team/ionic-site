@@ -77,7 +77,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -154,6 +154,7 @@ function getPageFor(hash) {
         'checkbox': inputs.CheckboxPage,
         'radio': inputs.RadioPage,
         'range': inputs.RangePage,
+        'segment': inputs.SegmentPage,
         'select': inputs.SelectPage,
         'switch': inputs.SwitchPage,
         'inputs': labels.BasicPage,
@@ -165,9 +166,10 @@ function getPageFor(hash) {
         'stacked-labels': labels.StackedPage,
         'icons': icons.BasicPage,
         'lists': lists.BasicPage,
+        'list-lines': lists.BasicPage,
+        'list-no-lines': lists.NoLinesPage,
         'avatar-list': lists.AvatarPage,
         'icon-list': lists.IconPage,
-        'list-dividers': lists.LinesPage,
         'inset-list': lists.InsetPage,
         'list-headers': lists.HeadersPage,
         'multiline-list': lists.MultilinePage,

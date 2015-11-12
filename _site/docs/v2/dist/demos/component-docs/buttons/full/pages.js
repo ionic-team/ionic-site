@@ -21,7 +21,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
             }, target);
         case 3:
             return decorators.reduceRight(function (o, d) {
-                return (d && d(target, key), void 0);
+                return d && d(target, key), void 0;
             }, void 0);
         case 4:
             return decorators.reduceRight(function (o, d) {
@@ -37,7 +37,7 @@ var FullPage = function FullPage() {
 };
 exports.FullPage = FullPage;
 exports.FullPage = FullPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'buttons/full.html',
+    templateUrl: 'buttons/full/full.html',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]

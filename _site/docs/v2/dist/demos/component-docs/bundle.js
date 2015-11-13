@@ -49,7 +49,7 @@
 	__webpack_require__(18);
 	__webpack_require__(41);
 	__webpack_require__(42);
-	module.exports = __webpack_require__(517);
+	module.exports = __webpack_require__(503);
 
 
 /***/ },
@@ -9503,19 +9503,19 @@
 
 	_defaults(exports, _interopExportWildcard(_configConfig, _defaults));
 
-	var _configModes = __webpack_require__(445);
+	var _configModes = __webpack_require__(446);
 
 	_defaults(exports, _interopExportWildcard(_configModes, _defaults));
 
-	var _configDecorators = __webpack_require__(446);
+	var _configDecorators = __webpack_require__(447);
 
 	_defaults(exports, _interopExportWildcard(_configDecorators, _defaults));
 
-	var _configDirectives = __webpack_require__(447);
+	var _configDirectives = __webpack_require__(448);
 
 	_defaults(exports, _interopExportWildcard(_configDirectives, _defaults));
 
-	var _components = __webpack_require__(491);
+	var _components = __webpack_require__(492);
 
 	_defaults(exports, _interopExportWildcard(_components, _defaults));
 
@@ -9523,15 +9523,11 @@
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
-	var _platformRegistry = __webpack_require__(493);
+	var _platformRegistry = __webpack_require__(494);
 
 	_defaults(exports, _interopExportWildcard(_platformRegistry, _defaults));
 
-	var _platformPlugins = __webpack_require__(494);
-
-	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
-
-	var _platformStorage = __webpack_require__(509);
+	var _platformStorage = __webpack_require__(495);
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
@@ -9539,7 +9535,7 @@
 
 	_defaults(exports, _interopExportWildcard(_utilClickBlock, _defaults));
 
-	var _utilEvents = __webpack_require__(438);
+	var _utilEvents = __webpack_require__(439);
 
 	_defaults(exports, _interopExportWildcard(_utilEvents, _defaults));
 
@@ -9547,29 +9543,27 @@
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
-	var _animationsBuiltins = __webpack_require__(513);
+	var _animationsBuiltins = __webpack_require__(499);
 
 	_defaults(exports, _interopExportWildcard(_animationsBuiltins, _defaults));
 
-	var _transitionsTransition = __webpack_require__(460);
+	var _transitionsTransition = __webpack_require__(461);
 
 	_defaults(exports, _interopExportWildcard(_transitionsTransition, _defaults));
 
-	var _transitionsIosTransition = __webpack_require__(514);
+	var _transitionsIosTransition = __webpack_require__(500);
 
 	_defaults(exports, _interopExportWildcard(_transitionsIosTransition, _defaults));
 
-	var _transitionsMdTransition = __webpack_require__(515);
+	var _transitionsMdTransition = __webpack_require__(501);
 
 	_defaults(exports, _interopExportWildcard(_transitionsMdTransition, _defaults));
 
-	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
-
-	var _translationTranslate = __webpack_require__(440);
+	var _translationTranslate = __webpack_require__(441);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
-	var _translationTranslate_pipe = __webpack_require__(516);
+	var _translationTranslate_pipe = __webpack_require__(502);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate_pipe, _defaults));
 
@@ -9600,32 +9594,35 @@
 
 	var _componentsOverlayOverlayController = __webpack_require__(428);
 
-	var _utilForm = __webpack_require__(431);
+	var _utilFastdom = __webpack_require__(431);
 
-	var _utilKeyboard = __webpack_require__(432);
+	var _utilForm = __webpack_require__(432);
 
-	var _componentsActionSheetActionSheet = __webpack_require__(433);
+	var _utilKeyboard = __webpack_require__(433);
 
-	var _componentsModalModal = __webpack_require__(435);
+	var _componentsActionSheetActionSheet = __webpack_require__(434);
 
-	var _componentsPopupPopup = __webpack_require__(436);
+	var _componentsModalModal = __webpack_require__(436);
 
-	var _utilEvents = __webpack_require__(438);
+	var _componentsPopupPopup = __webpack_require__(437);
 
-	var _componentsNavNavRegistry = __webpack_require__(439);
+	var _utilEvents = __webpack_require__(439);
 
-	var _translationTranslate = __webpack_require__(440);
+	var _componentsNavNavRegistry = __webpack_require__(440);
 
-	var _utilFeatureDetect = __webpack_require__(441);
+	var _translationTranslate = __webpack_require__(441);
 
-	var _componentsTapClickTapClick = __webpack_require__(442);
+	var _utilFeatureDetect = __webpack_require__(442);
+
+	var _componentsTapClickTapClick = __webpack_require__(443);
 
 	var _utilDom = __webpack_require__(427);
 
 	var dom = _interopRequireWildcard(_utilDom);
 
 	function ionicProviders(args) {
-	    var app = new _componentsAppApp.IonicApp();
+	    var fastdom = new _utilFastdom.FastDom();
+	    var app = new _componentsAppApp.IonicApp(fastdom);
 	    var platform = new _platformPlatform.Platform();
 	    var navRegistry = new _componentsNavNavRegistry.NavRegistry(args.pages);
 	    var config = args.config;
@@ -9638,13 +9635,13 @@
 	    platform.load();
 	    config.setPlatform(platform);
 	    var events = new _utilEvents.Events();
-	    (0, _componentsTapClickTapClick.initTapClick)(window, document, app, config);
+	    (0, _componentsTapClickTapClick.initTapClick)(window, document, app, config, fastdom);
 	    var featureDetect = new _utilFeatureDetect.FeatureDetect();
 	    setupDom(window, document, config, platform, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
-	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), (0, _angular2Angular2.provide)(_componentsNavNavRegistry.NavRegistry, { useValue: navRegistry }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
+	    return [(0, _angular2Angular2.provide)(_utilFastdom.FastDom, { useValue: fastdom }), (0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), (0, _angular2Angular2.provide)(_componentsNavNavRegistry.NavRegistry, { useValue: navRegistry }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
 	}
 
 	function setupDom(window, document, config, platform, featureDetect) {
@@ -53742,14 +53739,12 @@
 	 */
 
 	var IonicApp = (function () {
-	    /**
-	     * TODO
-	     */
-
-	    function IonicApp() {
+	    function IonicApp(fastdom) {
 	        _classCallCheck(this, IonicApp);
 
-	        this._title = new _angular2Angular2.Title();
+	        this._fastdom = fastdom;
+	        this._titleSrv = new _angular2Angular2.Title();
+	        this._title = '';
 	        this._disTime = 0;
 	        this._trnsTime = 0;
 	        // Our component registry map
@@ -53764,12 +53759,14 @@
 	    _createClass(IonicApp, [{
 	        key: 'setTitle',
 	        value: function setTitle(val) {
-	            this._title.setTitle(val);
-	        }
-	    }, {
-	        key: 'getTitle',
-	        value: function getTitle() {
-	            return this._title.getTitle(val);
+	            var _this = this;
+
+	            if (val !== this._title) {
+	                this._title = val;
+	                this._fastdom.defer(4, function () {
+	                    _this._titleSrv.setTitle(_this._title);
+	                });
+	            }
 	        }
 
 	        /**
@@ -53978,7 +53975,7 @@
 	 *     modalEnter: 'modal-slide-in',
 	 *     modalLeave: 'modal-slide-out',
 	 *     tabbarPlacement: 'bottom',
-	 *     viewTransition: 'ios',
+	 *     pageTransition: 'ios',
 	 *   }
 	 * })
 	 * ```
@@ -55723,10 +55720,12 @@
 	var Animation = (function () {
 	    function Animation(ele) {
 	        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	        var fastdom = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 	        _classCallCheck(this, Animation);
 
 	        this.reset();
+	        this._fastdom = fastdom;
 	        this._opts = (0, _utilUtil.extend)({
 	            renderDelay: 16
 	        }, opts);
@@ -55928,10 +55927,14 @@
 	                        resolve = res;
 	                    });
 
-	                    if (self._duration > 16) {
+	                    if (self._duration > 16 && _this._opts.renderDelay > 0) {
 	                        // begin each animation when everything is rendered in their starting point
 	                        // give the browser some time to render everything in place before starting
-	                        setTimeout(kickoff, _this._opts.renderDelay);
+	                        if (_this._fastdom) {
+	                            _this._fastdom.write(kickoff);
+	                        } else {
+	                            setTimeout(kickoff, _this._opts.renderDelay);
+	                        }
 	                    } else {
 	                        // no need to render everything in there place before animating in
 	                        // just kick it off immediately to render them in their "to" locations
@@ -56163,13 +56166,18 @@
 	        }
 	    }, {
 	        key: 'dispose',
-	        value: function dispose() {
+	        value: function dispose(removeElement) {
 	            var i = undefined;
 	            for (i = 0; i < this._chld.length; i++) {
-	                this._chld[i].dispose();
+	                this._chld[i].dispose(removeElement);
 	            }
 	            for (i = 0; i < this._ani.length; i++) {
-	                this._ani[i].dispose();
+	                this._ani[i].dispose(removeElement);
+	            }
+	            if (removeElement) {
+	                for (i = 0; i < this._el.length; i++) {
+	                    this._el[i].parentNode && this._el[i].parentNode.removeChild(this._el[i]);
+	                }
 	            }
 	            this.reset();
 	        }
@@ -56573,6 +56581,355 @@
 /* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	exports.FastDom = FastDom;
+
+	var _dom = __webpack_require__(427);
+
+	/**
+	 * FastDom
+	 *
+	 * Eliminates layout thrashing
+	 * by batching DOM read/write
+	 * interactions.
+	 *
+	 * @author Wilson Page <wilsonpage@me.com>
+	 */
+	/**
+	 * Creates a fresh
+	 * FastDom instance.
+	 *
+	 * @constructor
+	 */
+
+	function FastDom() {
+	    this.frames = [];
+	    this.lastId = 0;
+	    // Placing the rAF method
+	    // on the instance allows
+	    // us to replace it with
+	    // a stub for testing.
+	    this.raf = _dom.raf;
+	    this.batch = {
+	        hash: {},
+	        read: [],
+	        write: [],
+	        mode: null
+	    };
+	}
+
+	/**
+	 * Adds a job to the
+	 * read batch and schedules
+	 * a new frame if need be.
+	 *
+	 * @param  {Function} fn
+	 * @public
+	 */
+	FastDom.prototype.read = function (fn, ctx) {
+	    var job = this.add('read', fn, ctx);
+	    var id = job.id;
+	    // Add this job to the read queue
+	    this.batch.read.push(job.id);
+	    // We should *not* schedule a new frame if:
+	    // 1. We're 'reading'
+	    // 2. A frame is already scheduled
+	    var doesntNeedFrame = this.batch.mode === 'reading' || this.batch.scheduled;
+	    // If a frame isn't needed, return
+	    if (doesntNeedFrame) return id;
+	    // Schedule a new
+	    // frame, then return
+	    this.scheduleBatch();
+	    return id;
+	};
+	/**
+	 * Adds a job to the
+	 * write batch and schedules
+	 * a new frame if need be.
+	 *
+	 * @param  {Function} fn
+	 * @public
+	 */
+	FastDom.prototype.write = function (fn, ctx) {
+	    var job = this.add('write', fn, ctx);
+	    var mode = this.batch.mode;
+	    var id = job.id;
+	    // Push the job id into the queue
+	    this.batch.write.push(job.id);
+	    // We should *not* schedule a new frame if:
+	    // 1. We are 'writing'
+	    // 2. We are 'reading'
+	    // 3. A frame is already scheduled.
+	    var doesntNeedFrame = mode === 'writing' || mode === 'reading' || this.batch.scheduled;
+	    // If a frame isn't needed, return
+	    if (doesntNeedFrame) return id;
+	    // Schedule a new
+	    // frame, then return
+	    this.scheduleBatch();
+	    return id;
+	};
+	/**
+	 * Defers the given job
+	 * by the number of frames
+	 * specified.
+	 *
+	 * If no frames are given
+	 * then the job is run in
+	 * the next free frame.
+	 *
+	 * @param  {Number}   frame
+	 * @param  {Function} fn
+	 * @public
+	 */
+	FastDom.prototype.defer = function (frame, fn, ctx) {
+	    // Accepts two arguments
+	    if (typeof frame === 'function') {
+	        ctx = fn;
+	        fn = frame;
+	        frame = 1;
+	    }
+	    var self = this;
+	    var index = frame - 1;
+	    return this.schedule(index, function () {
+	        self.run({
+	            fn: fn,
+	            ctx: ctx
+	        });
+	    });
+	};
+	/**
+	 * Clears a scheduled 'read',
+	 * 'write' or 'defer' job.
+	 *
+	 * @param  {Number|String} id
+	 * @public
+	 */
+	FastDom.prototype.clear = function (id) {
+	    // Defer jobs are cleared differently
+	    if (typeof id === 'function') {
+	        return this.clearFrame(id);
+	    }
+	    // Allow ids to be passed as strings
+	    id = Number(id);
+	    var job = this.batch.hash[id];
+	    if (!job) return;
+	    var list = this.batch[job.type];
+	    var index = list.indexOf(id);
+	    // Clear references
+	    delete this.batch.hash[id];
+	    if (~index) list.splice(index, 1);
+	};
+	/**
+	 * Clears a scheduled frame.
+	 *
+	 * @param  {Function} frame
+	 * @private
+	 */
+	FastDom.prototype.clearFrame = function (frame) {
+	    var index = this.frames.indexOf(frame);
+	    if (~index) this.frames.splice(index, 1);
+	};
+	/**
+	 * Schedules a new read/write
+	 * batch if one isn't pending.
+	 *
+	 * @private
+	 */
+	FastDom.prototype.scheduleBatch = function () {
+	    var self = this;
+	    // Schedule batch for next frame
+	    this.schedule(0, function () {
+	        self.batch.scheduled = false;
+	        self.runBatch();
+	    });
+	    // Set flag to indicate
+	    // a frame has been scheduled
+	    this.batch.scheduled = true;
+	};
+	/**
+	 * Generates a unique
+	 * id for a job.
+	 *
+	 * @return {Number}
+	 * @private
+	 */
+	FastDom.prototype.uniqueId = function () {
+	    return ++this.lastId;
+	};
+	/**
+	 * Calls each job in
+	 * the list passed.
+	 *
+	 * If a context has been
+	 * stored on the function
+	 * then it is used, else the
+	 * current `this` is used.
+	 *
+	 * @param  {Array} list
+	 * @private
+	 */
+	FastDom.prototype.flush = function (list) {
+	    var id;
+	    while (id = list.shift()) {
+	        this.run(this.batch.hash[id]);
+	    }
+	};
+	/**
+	 * Runs any 'read' jobs followed
+	 * by any 'write' jobs.
+	 *
+	 * We run this inside a try catch
+	 * so that if any jobs error, we
+	 * are able to recover and continue
+	 * to flush the batch until it's empty.
+	 *
+	 * @private
+	 */
+	FastDom.prototype.runBatch = function () {
+	    try {
+	        // Set the mode to 'reading',
+	        // then empty all read jobs
+	        this.batch.mode = 'reading';
+	        this.flush(this.batch.read);
+	        // Set the mode to 'writing'
+	        // then empty all write jobs
+	        this.batch.mode = 'writing';
+	        this.flush(this.batch.write);
+	        this.batch.mode = null;
+	    } catch (e) {
+	        this.runBatch();
+	        throw e;
+	    }
+	};
+	/**
+	 * Adds a new job to
+	 * the given batch.
+	 *
+	 * @param {Array}   list
+	 * @param {Function} fn
+	 * @param {Object}   ctx
+	 * @returns {Number} id
+	 * @private
+	 */
+	FastDom.prototype.add = function (type, fn, ctx) {
+	    var id = this.uniqueId();
+	    return this.batch.hash[id] = {
+	        id: id,
+	        fn: fn,
+	        ctx: ctx,
+	        type: type
+	    };
+	};
+	/**
+	 * Runs a given job.
+	 *
+	 * Applications using FastDom
+	 * have the options of setting
+	 * `fastdom.onError`.
+	 *
+	 * This will catch any
+	 * errors that may throw
+	 * inside callbacks, which
+	 * is useful as often DOM
+	 * nodes have been removed
+	 * since a job was scheduled.
+	 *
+	 * Example:
+	 *
+	 *   fastdom.onError = function(e) {
+	 *     // Runs when jobs error
+	 *   };
+	 *
+	 * @param  {Object} job
+	 * @private
+	 */
+	FastDom.prototype.run = function (job) {
+	    var ctx = job.ctx || this;
+	    var fn = job.fn;
+	    // Clear reference to the job
+	    delete this.batch.hash[job.id];
+	    // If no `onError` handler
+	    // has been registered, just
+	    // run the job normally.
+	    if (!this.onError) {
+	        return fn.call(ctx);
+	    }
+	    // If an `onError` handler
+	    // has been registered, catch
+	    // errors that throw inside
+	    // callbacks, and run the
+	    // handler instead.
+	    try {
+	        fn.call(ctx);
+	    } catch (e) {
+	        this.onError(e);
+	    }
+	};
+	/**
+	 * Starts a rAF loop
+	 * to empty the frame queue.
+	 *
+	 * @private
+	 */
+	FastDom.prototype.loop = function () {
+	    var self = this;
+	    var raf = this.raf;
+	    // Don't start more than one loop
+	    if (this.looping) return;
+	    raf(function frame() {
+	        var fn = self.frames.shift();
+	        // If no more frames,
+	        // stop looping
+	        if (!self.frames.length) {
+	            self.looping = false;
+	        } else {
+	            raf(frame);
+	        }
+	        // Run the frame.  Note that
+	        // this may throw an error
+	        // in user code, but all
+	        // fastdom tasks are dealt
+	        // with already so the code
+	        // will continue to iterate
+	        if (fn) fn();
+	    });
+	    this.looping = true;
+	};
+	/**
+	 * Adds a function to
+	 * a specified index
+	 * of the frame queue.
+	 *
+	 * @param  {Number}   index
+	 * @param  {Function} fn
+	 * @return {Function}
+	 * @private
+	 */
+	FastDom.prototype.schedule = function (index, fn) {
+	    // Make sure this slot
+	    // hasn't already been
+	    // taken. If it has, try
+	    // re-scheduling for the next slot
+	    if (this.frames[index]) {
+	        return this.schedule(index + 1, fn);
+	    }
+	    // Start the rAF
+	    // loop to empty
+	    // the frame queue
+	    this.loop();
+	    // Insert this function into
+	    // the frames queue and return
+	    return this.frames[index] = fn;
+	};
+
+/***/ },
+/* 432 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -56724,7 +57081,7 @@
 	var _a, _b;
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56743,7 +57100,7 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _form = __webpack_require__(431);
+	var _form = __webpack_require__(432);
 
 	var _dom = __webpack_require__(427);
 
@@ -56885,7 +57242,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -56917,7 +57274,7 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _iconIcon = __webpack_require__(434);
+	var _iconIcon = __webpack_require__(435);
 
 	var _animationsAnimation = __webpack_require__(429);
 
@@ -57158,7 +57515,7 @@
 	var _a, _b;
 
 /***/ },
-/* 434 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57277,7 +57634,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 435 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57462,7 +57819,7 @@
 	var _a, _b;
 
 /***/ },
-/* 436 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57489,7 +57846,7 @@
 
 	var _animationsAnimation = __webpack_require__(429);
 
-	var _buttonButton = __webpack_require__(437);
+	var _buttonButton = __webpack_require__(438);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -57574,8 +57931,8 @@
 
 	        this.ctrl = ctrl;
 	        this._defaults = {
-	            enterAnimation: config.get('popupPopIn'),
-	            leaveAnimation: config.get('popupPopOut')
+	            enterAnimation: config.get('popupEnter'),
+	            leaveAnimation: config.get('popupLeave')
 	        };
 	    }
 
@@ -57928,7 +58285,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 437 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58025,7 +58382,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 438 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58164,7 +58521,7 @@
 	exports.Events = Events = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Events);
 
 /***/ },
-/* 439 */
+/* 440 */
 /***/ function(module, exports) {
 
 	/**
@@ -58210,7 +58567,7 @@
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
-/* 440 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58319,7 +58676,7 @@
 	exports.Translate = Translate = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Translate);
 
 /***/ },
-/* 441 */
+/* 442 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -58390,7 +58747,7 @@
 	});
 
 /***/ },
-/* 442 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58403,9 +58760,9 @@
 
 	var _utilDom = __webpack_require__(427);
 
-	var _activator = __webpack_require__(443);
+	var _activator = __webpack_require__(444);
 
-	var _ripple = __webpack_require__(444);
+	var _ripple = __webpack_require__(445);
 
 	var startCoord = null;
 	var pointerTolerance = 4;
@@ -58416,23 +58773,23 @@
 	var activator = null;
 	var isTapPolyfill = false;
 	var app = null;
-	var config = null;
 	var win = null;
 	var doc = null;
 
-	function initTapClick(windowInstance, documentInstance, appInstance, configInstance) {
+	function initTapClick(windowInstance, documentInstance, appInstance, config, fastdom) {
 	    win = windowInstance;
 	    doc = documentInstance;
 	    app = appInstance;
-	    config = configInstance;
-	    activator = config.get('mdRipple') ? new _ripple.RippleActivator(app, config) : new _activator.Activator(app, config);
+	    if (config.get('activator') == 'ripple') {
+	        activator = new _ripple.RippleActivator(app, config, fastdom);
+	    } else if (config.get('activator') == 'highlight') {
+	        activator = new _activator.Activator(app, config, fastdom);
+	    }
 	    isTapPolyfill = config.get('tapPolyfill') === true;
 	    addListener('click', click, true);
-	    if (isTapPolyfill) {
-	        addListener('touchstart', touchStart);
-	        addListener('touchend', touchEnd);
-	        addListener('touchcancel', touchCancel);
-	    }
+	    addListener('touchstart', touchStart);
+	    addListener('touchend', touchEnd);
+	    addListener('touchcancel', touchCancel);
 	    addListener('mousedown', mouseDown, true);
 	    addListener('mouseup', mouseUp, true);
 	}
@@ -58443,7 +58800,7 @@
 	}
 	function touchEnd(ev) {
 	    touchAction();
-	    if (startCoord && app.isEnabled()) {
+	    if (isTapPolyfill && startCoord && app.isEnabled()) {
 	        var endCoord = (0, _utilDom.pointerCoord)(ev);
 	        if (!(0, _utilDom.hasPointerMoved)(pointerTolerance, startCoord, endCoord)) {
 	            console.debug('create click from touch');
@@ -58485,8 +58842,8 @@
 	    if (activatableEle) {
 	        startCoord = (0, _utilDom.pointerCoord)(ev);
 	        var now = Date.now();
-	        if (lastActivated + 100 < now) {
-	            activator.downAction(ev, activatableEle, startCoord.x, startCoord.y);
+	        if (lastActivated + 150 < now) {
+	            activator && activator.downAction(ev, activatableEle, startCoord.x, startCoord.y);
 	            lastActivated = now;
 	        }
 	        moveListeners(true);
@@ -58496,7 +58853,7 @@
 	}
 	function pointerEnd(ev) {
 	    moveListeners(false);
-	    activator.upAction();
+	    activator && activator.upAction();
 	}
 	function pointerMove(ev) {
 	    var moveCoord = (0, _utilDom.pointerCoord)(ev);
@@ -58506,20 +58863,21 @@
 	}
 	function pointerCancel(ev) {
 	    console.debug('pointerCancel from', ev.type);
-	    activator.clearState();
+	    activator && activator.clearState();
 	    moveListeners(false);
 	    setDisableNativeClick();
 	}
 	function moveListeners(shouldAdd) {
-	    if (isTapPolyfill) {
-	        removeListener('touchmove', pointerMove);
-	    }
-	    removeListener('mousemove', pointerMove);
 	    if (shouldAdd) {
 	        if (isTapPolyfill) {
 	            addListener('touchmove', pointerMove);
 	        }
 	        addListener('mousemove', pointerMove);
+	    } else {
+	        if (isTapPolyfill) {
+	            removeListener('touchmove', pointerMove);
+	        }
+	        removeListener('mousemove', pointerMove);
 	    }
 	}
 	function setDisableNativeClick() {
@@ -58541,8 +58899,6 @@
 	        console.debug('click prevent', preventReason);
 	        ev.preventDefault();
 	        ev.stopPropagation();
-	    } else {
-	        activator.upAction();
 	    }
 	}
 	function getActivatableTarget(ele) {
@@ -58581,8 +58937,8 @@
 	var ACTIVATABLE_ATTRIBUTES = /tappable/;
 
 /***/ },
-/* 443 */
-/***/ function(module, exports, __webpack_require__) {
+/* 444 */
+/***/ function(module, exports) {
 
 	'use strict';
 
@@ -58594,16 +58950,15 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilDom = __webpack_require__(427);
-
 	var Activator = (function () {
-	    function Activator(app, config) {
+	    function Activator(app, config, fastdom) {
 	        _classCallCheck(this, Activator);
 
 	        this.app = app;
+	        this.fastdom = fastdom;
 	        this.queue = [];
 	        this.active = [];
-	        this.clearStateTimeout = 80;
+	        this.clearStateDefers = 5;
 	        this.clearAttempt = 0;
 	        this.activatedClass = config.get('activatedClass') || 'activated';
 	        this.x = 0;
@@ -58616,13 +58971,13 @@
 	            var _this = this;
 
 	            // the user just pressed down
-	            if (this.disableActivated(ev)) return;
+	            if (this.disableActivated(ev)) return false;
 	            // remember where they pressed
 	            this.x = pointerX;
 	            this.y = pointerY;
 	            // queue to have this element activated
 	            this.queue.push(activatableEle);
-	            (0, _utilDom.raf)(function () {
+	            this.fastdom.write(function () {
 	                var activatableEle = undefined;
 	                for (var i = 0; i < _this.queue.length; i++) {
 	                    activatableEle = _this.queue[i];
@@ -58633,6 +58988,7 @@
 	                }
 	                _this.queue = [];
 	            });
+	            return true;
 	        }
 	    }, {
 	        key: 'upAction',
@@ -58640,9 +58996,9 @@
 	            var _this2 = this;
 
 	            // the user was pressing down, then just let up
-	            setTimeout(function () {
+	            this.fastdom.defer(this.clearStateDefers, function () {
 	                _this2.clearState();
-	            }, this.clearStateTimeout);
+	            });
 	        }
 	    }, {
 	        key: 'clearState',
@@ -58663,12 +59019,16 @@
 	    }, {
 	        key: 'deactivate',
 	        value: function deactivate() {
+	            var _this3 = this;
+
 	            // remove the active class from all active elements
-	            for (var i = 0; i < this.active.length; i++) {
-	                this.active[i].classList.remove(this.activatedClass);
-	            }
 	            this.queue = [];
-	            this.active = [];
+	            this.fastdom.write(function () {
+	                for (var i = 0; i < _this3.active.length; i++) {
+	                    _this3.active[i].classList.remove(_this3.activatedClass);
+	                }
+	                _this3.active = [];
+	            });
 	        }
 	    }, {
 	        key: 'disableActivated',
@@ -58689,7 +59049,7 @@
 	exports.Activator = Activator;
 
 /***/ },
-/* 444 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58706,20 +59066,20 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _activator = __webpack_require__(443);
-
-	var _utilDom = __webpack_require__(427);
+	var _activator = __webpack_require__(444);
 
 	var _animationsAnimation = __webpack_require__(429);
 
 	var RippleActivator = (function (_Activator) {
 	    _inherits(RippleActivator, _Activator);
 
-	    function RippleActivator(app, config) {
+	    function RippleActivator(app, config, fastdom) {
 	        _classCallCheck(this, RippleActivator);
 
-	        _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config);
-	        this.ripples = {};
+	        _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config, fastdom);
+	        this.expands = {};
+	        this.fades = {};
+	        this.expandSpeed = null;
 	    }
 
 	    _createClass(RippleActivator, [{
@@ -58727,10 +59087,24 @@
 	        value: function downAction(ev, activatableEle, pointerX, pointerY) {
 	            var _this = this;
 
-	            if (this.disableActivated(ev)) return;
-	            _get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY);
-	            // create a new ripple element
-	            var clientRect = activatableEle.getBoundingClientRect();
+	            if (_get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY)) {
+	                // create a new ripple element
+	                this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
+	                this.fastdom.defer(2, function () {
+	                    _this.fastdom.read(function () {
+	                        var clientRect = activatableEle.getBoundingClientRect();
+	                        _this.fastdom.write(function () {
+	                            _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
+	                        });
+	                    });
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'createRipple',
+	        value: function createRipple(activatableEle, pointerX, pointerY, clientRect) {
+	            var _this2 = this;
+
 	            var clientPointerX = pointerX - clientRect.left;
 	            var clientPointerY = pointerY - clientRect.top;
 	            var x = Math.max(Math.abs(clientRect.width - clientPointerX), clientPointerX) * 2;
@@ -58739,72 +59113,61 @@
 	            var radius = Math.sqrt(clientRect.width + clientRect.height);
 	            var duration = 1000 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5;
 	            var rippleEle = document.createElement('md-ripple');
+	            var rippleId = Date.now();
 	            var eleStyle = rippleEle.style;
 	            eleStyle.width = eleStyle.height = diameter + 'px';
 	            eleStyle.marginTop = eleStyle.marginLeft = -(diameter / 2) + 'px';
 	            eleStyle.left = clientPointerX + 'px';
 	            eleStyle.top = clientPointerY + 'px';
 	            activatableEle.appendChild(rippleEle);
-	            var ripple = this.ripples[Date.now()] = {
-	                ele: rippleEle,
-	                radius: radius,
-	                duration: duration
-	            };
+	            // create the animation for the fade out, but don't start it yet
+	            this.fades[rippleId] = new _animationsAnimation.Animation(rippleEle, { renderDelay: 0 });
+	            this.fades[rippleId].fadeOut().duration(FADE_OUT_DURATION).playbackRate(1).onFinish(function () {
+	                _this2.fastdom.write(function () {
+	                    _this2.fades[rippleId].dispose(true);
+	                    delete _this2.fades[rippleId];
+	                });
+	            });
 	            // expand the circle from the users starting point
 	            // start slow, and when they let up, then speed up the animation
-	            ripple.expand = new _animationsAnimation.Animation(rippleEle, { renderDelay: 0 });
-	            ripple.expand.fromTo('scale', '0.001', '1').duration(duration).playbackRate(EXPAND_DOWN_PLAYBACK_RATE).onFinish(function () {
-	                // finished expanding
-	                ripple.expand && ripple.expand.dispose();
-	                ripple.expand = null;
-	                ripple.expanded = true;
-	                _this.next();
+	            this.expands[rippleId] = new _animationsAnimation.Animation(rippleEle, { renderDelay: 0 });
+	            this.expands[rippleId].fromTo('scale', '0.001', '1').duration(duration).playbackRate(this.expandSpeed).onFinish(function () {
+	                _this2.expands[rippleId].dispose();
+	                delete _this2.expands[rippleId];
+	                _this2.next();
 	            }).play();
-	            this.next();
 	        }
 	    }, {
 	        key: 'upAction',
-	        value: function upAction(forceFadeOut) {
-	            var _this2 = this;
+	        value: function upAction() {
+	            var _this3 = this;
 
 	            this.deactivate();
-	            var rippleId = undefined,
-	                ripple = undefined;
-	            for (rippleId in this.ripples) {
-	                ripple = this.ripples[rippleId];
-	                if (!ripple.fade || forceFadeOut) {
-	                    // ripple has not been let up yet
-	                    clearTimeout(ripple.fadeStart);
-	                    ripple.fadeStart = setTimeout(function () {
-	                        // speed up the rate if the animation is still going
-	                        ripple.expand && ripple.expand.playbackRate(EXPAND_OUT_PLAYBACK_RATE);
-	                        ripple.fade = new _animationsAnimation.Animation(ripple.ele);
-	                        ripple.fade.fadeOut().duration(OPACITY_OUT_DURATION).playbackRate(1).onFinish(function () {
-	                            ripple.fade && ripple.fade.dispose();
-	                            ripple.fade = null;
-	                            ripple.faded = true;
-	                            _this2.next();
-	                        }).play();
-	                    });
-	                }
-	            }
-	            this.next();
+	            this.expandSpeed = 1;
+	            this.fastdom.defer(4, function () {
+	                _this3.next();
+	            });
 	        }
 	    }, {
 	        key: 'next',
-	        value: function next(forceComplete) {
-	            var _this3 = this;
-
-	            var rippleId = undefined,
-	                ripple = undefined;
-	            for (rippleId in this.ripples) {
-	                ripple = this.ripples[rippleId];
-	                if (ripple.expanded && ripple.faded && ripple.ele || forceComplete) {
-	                    // finished expanding and the user has lifted the pointer
-	                    ripple.remove = true;
-	                    (0, _utilDom.raf)(function () {
-	                        _this3.remove();
-	                    });
+	        value: function next() {
+	            var now = Date.now();
+	            var rippleId = undefined;
+	            for (rippleId in this.expands) {
+	                if (parseInt(rippleId, 10) + 4000 < now) {
+	                    this.expands[rippleId].dispose(true);
+	                    delete this.expands[rippleId];
+	                } else if (this.expands[rippleId].playbackRate() === EXPAND_DOWN_PLAYBACK_RATE) {
+	                    this.expands[rippleId].playbackRate(EXPAND_OUT_PLAYBACK_RATE);
+	                }
+	            }
+	            for (rippleId in this.fades) {
+	                if (parseInt(rippleId, 10) + 4000 < now) {
+	                    this.fades[rippleId].dispose(true);
+	                    delete this.fades[rippleId];
+	                } else if (!this.fades[rippleId].isPlaying) {
+	                    this.fades[rippleId].isPlaying = true;
+	                    this.fades[rippleId].play();
 	                }
 	            }
 	        }
@@ -58812,23 +59175,7 @@
 	        key: 'clearState',
 	        value: function clearState() {
 	            this.deactivate();
-	            this.next(true);
-	        }
-	    }, {
-	        key: 'remove',
-	        value: function remove() {
-	            var rippleId = undefined,
-	                ripple = undefined;
-	            for (rippleId in this.ripples) {
-	                ripple = this.ripples[rippleId];
-	                if (ripple.remove || parseInt(rippleId, 10) + 4000 < Date.now()) {
-	                    ripple.expand && ripple.expand.dispose();
-	                    ripple.fade && ripple.fade.dispose();
-	                    (0, _utilDom.removeElement)(ripple.ele);
-	                    ripple.ele = ripple.expand = ripple.fade = null;
-	                    delete this.ripples[rippleId];
-	                }
-	            }
+	            this.next();
 	        }
 	    }]);
 
@@ -58840,10 +59187,10 @@
 	var TOUCH_DOWN_ACCEL = 512;
 	var EXPAND_DOWN_PLAYBACK_RATE = 0.35;
 	var EXPAND_OUT_PLAYBACK_RATE = 3;
-	var OPACITY_OUT_DURATION = 750;
+	var FADE_OUT_DURATION = 700;
 
 /***/ },
-/* 445 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58852,6 +59199,7 @@
 
 	// iOS Mode Settings
 	_config.Config.setModeConfig('ios', {
+	    activator: 'highlight',
 	    actionSheetEnter: 'action-sheet-slide-in',
 	    actionSheetLeave: 'action-sheet-slide-out',
 	    actionSheetCancelIcon: '',
@@ -58859,15 +59207,18 @@
 	    backButtonText: 'Back',
 	    backButtonIcon: 'ion-ios-arrow-back',
 	    iconMode: 'ios',
+	    menuType: 'reveal',
 	    modalEnter: 'modal-slide-in',
 	    modalLeave: 'modal-slide-out',
-	    tabbarPlacement: 'bottom',
-	    viewTransition: 'ios',
-	    popupPopIn: 'popup-pop-in',
-	    popupPopOut: 'popup-pop-out'
+	    pageTransition: 'ios',
+	    pageTransitionDelay: 16,
+	    popupEnter: 'popup-pop-in',
+	    popupLeave: 'popup-pop-out',
+	    tabbarPlacement: 'bottom'
 	});
 	// Material Design Mode Settings
 	_config.Config.setModeConfig('md', {
+	    activator: 'ripple',
 	    actionSheetEnter: 'action-sheet-md-slide-in',
 	    actionSheetLeave: 'action-sheet-md-slide-out',
 	    actionSheetCancelIcon: 'ion-md-close',
@@ -58875,19 +59226,20 @@
 	    backButtonText: '',
 	    backButtonIcon: 'ion-md-arrow-back',
 	    iconMode: 'md',
+	    menuType: 'overlay',
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
+	    pageTransition: 'md',
+	    pageTransitionDelay: 120,
+	    popupEnter: 'popup-md-pop-in',
+	    popupLeave: 'popup-md-pop-out',
+	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
-	    viewTransition: 'md',
-	    popupPopIn: 'popup-md-pop-in',
-	    popupPopOut: 'popup-md-pop-out',
-	    tabSubPages: true,
-	    type: 'overlay',
-	    mdRipple: true
+	    tabSubPages: true
 	});
 
 /***/ },
-/* 446 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58909,7 +59261,7 @@
 
 	var _bootstrap = __webpack_require__(44);
 
-	var _directives = __webpack_require__(447);
+	var _directives = __webpack_require__(448);
 
 	/**
 	 * _For more information on how pages are created, see the [NavController API
@@ -59040,7 +59392,7 @@
 	}
 
 /***/ },
-/* 447 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59051,67 +59403,67 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _componentsOverlayOverlay = __webpack_require__(448);
+	var _componentsOverlayOverlay = __webpack_require__(449);
 
-	var _componentsMenuMenu = __webpack_require__(449);
+	var _componentsMenuMenu = __webpack_require__(450);
 
-	var _componentsMenuMenuToggle = __webpack_require__(457);
+	var _componentsMenuMenuToggle = __webpack_require__(458);
 
-	var _componentsMenuMenuClose = __webpack_require__(464);
+	var _componentsMenuMenuClose = __webpack_require__(465);
 
-	var _componentsButtonButton = __webpack_require__(437);
+	var _componentsButtonButton = __webpack_require__(438);
 
-	var _componentsBlurBlur = __webpack_require__(465);
+	var _componentsBlurBlur = __webpack_require__(466);
 
-	var _componentsContentContent = __webpack_require__(466);
+	var _componentsContentContent = __webpack_require__(467);
 
-	var _componentsScrollScroll = __webpack_require__(468);
+	var _componentsScrollScroll = __webpack_require__(469);
 
-	var _componentsScrollPullToRefresh = __webpack_require__(469);
+	var _componentsScrollPullToRefresh = __webpack_require__(470);
 
-	var _componentsSlidesSlides = __webpack_require__(470);
+	var _componentsSlidesSlides = __webpack_require__(471);
 
-	var _componentsTabsTabs = __webpack_require__(472);
+	var _componentsTabsTabs = __webpack_require__(473);
 
-	var _componentsTabsTab = __webpack_require__(474);
+	var _componentsTabsTab = __webpack_require__(475);
 
-	var _componentsListList = __webpack_require__(475);
+	var _componentsListList = __webpack_require__(476);
 
-	var _componentsItemItem = __webpack_require__(477);
+	var _componentsItemItem = __webpack_require__(478);
 
-	var _componentsItemItemGroup = __webpack_require__(478);
+	var _componentsItemItemGroup = __webpack_require__(479);
 
-	var _componentsItemItemSliding = __webpack_require__(479);
+	var _componentsItemItemSliding = __webpack_require__(480);
 
-	var _componentsToolbarToolbar = __webpack_require__(463);
+	var _componentsToolbarToolbar = __webpack_require__(464);
 
-	var _componentsIconIcon = __webpack_require__(434);
+	var _componentsIconIcon = __webpack_require__(435);
 
-	var _componentsCheckboxCheckbox = __webpack_require__(480);
+	var _componentsCheckboxCheckbox = __webpack_require__(481);
 
-	var _componentsSwitchSwitch = __webpack_require__(481);
+	var _componentsSwitchSwitch = __webpack_require__(482);
 
-	var _componentsTextInputTextInput = __webpack_require__(482);
+	var _componentsTextInputTextInput = __webpack_require__(483);
 
-	var _componentsTextInputLabel = __webpack_require__(483);
+	var _componentsTextInputLabel = __webpack_require__(484);
 
-	var _componentsSegmentSegment = __webpack_require__(484);
+	var _componentsSegmentSegment = __webpack_require__(485);
 
-	var _componentsRadioRadio = __webpack_require__(485);
+	var _componentsRadioRadio = __webpack_require__(486);
 
-	var _componentsSearchbarSearchbar = __webpack_require__(486);
+	var _componentsSearchbarSearchbar = __webpack_require__(487);
 
-	var _componentsNavNav = __webpack_require__(487);
+	var _componentsNavNav = __webpack_require__(488);
 
-	var _componentsNavNavPush = __webpack_require__(488);
+	var _componentsNavNavPush = __webpack_require__(489);
 
-	var _componentsNavNavRouter = __webpack_require__(489);
+	var _componentsNavNavRouter = __webpack_require__(490);
 
-	var _componentsNavbarNavbar = __webpack_require__(462);
+	var _componentsNavbarNavbar = __webpack_require__(463);
 
-	var _componentsAppId = __webpack_require__(473);
+	var _componentsAppId = __webpack_require__(474);
 
-	var _componentsShowHideWhenShowHideWhen = __webpack_require__(490);
+	var _componentsShowHideWhenShowHideWhen = __webpack_require__(491);
 
 	/**
 	 * The core Ionic directives as well as Angular's CORE_DIRECTIVES and
@@ -59139,7 +59491,7 @@
 	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
 
 /***/ },
-/* 448 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59207,7 +59559,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 449 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59228,19 +59580,17 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _appApp = __webpack_require__(422);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _configDecorators = __webpack_require__(446);
-
 	var _platformPlatform = __webpack_require__(425);
 
-	var _utilKeyboard = __webpack_require__(432);
+	var _utilKeyboard = __webpack_require__(433);
 
-	var _menuGestures = __webpack_require__(451);
+	var _menuGestures = __webpack_require__(452);
 
 	var gestures = _interopRequireWildcard(_menuGestures);
 
@@ -59333,6 +59683,9 @@
 	            if (!this._cntEle) {
 	                return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
 	            }
+	            if (this.side !== 'left' && this.side !== 'right') {
+	                this.side = 'left';
+	            }
 	            if (!this.id) {
 	                // Auto register
 	                this.id = 'menu';
@@ -59367,13 +59720,11 @@
 	    }, {
 	        key: "_initType",
 	        value: function _initType(type) {
-	            type = type && type.trim().toLowerCase() || FALLBACK_MENU_TYPE;
-	            var menuTypeCls = menuTypes[type];
-	            if (!menuTypeCls) {
-	                type = FALLBACK_MENU_TYPE;
-	                menuTypeCls = menuTypes[type];
+	            type = type && type.trim().toLowerCase();
+	            if (!type) {
+	                type = this.config.get('menuType');
 	            }
-	            this._type = new menuTypeCls(this);
+	            this._type = new menuTypes[type](this);
 	            this.type = type;
 	            if (this.config.get('animate') === false) {
 	                this._type.open.duration(33);
@@ -59560,16 +59911,18 @@
 	    return Menu;
 	})(_ion.Ion);
 	exports.Menu = Menu;
-	exports.Menu = Menu = __decorate([(0, _configDecorators.ConfigComponent)({
+	exports.Menu = Menu = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-menu',
-	    inputs: ['content', 'dragThreshold', 'id'],
+	    inputs: ['content', 'dragThreshold', 'id', 'side', 'type'],
 	    defaultInputs: {
 	        'side': 'left',
-	        'type': 'reveal'
+	        'menuType': 'reveal'
 	    },
 	    outputs: ['opening'],
 	    host: {
-	        'role': 'navigation'
+	        'role': 'navigation',
+	        '[attr.side]': 'side',
+	        '[attr.type]': 'type'
 	    },
 	    template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
@@ -59577,7 +59930,6 @@
 	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object])], Menu);
 	var menuTypes = {};
-	var FALLBACK_MENU_TYPE = 'reveal';
 	/**
 	 * TODO
 	 */
@@ -59621,7 +59973,7 @@
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 450 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59717,7 +60069,7 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 451 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59736,7 +60088,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(452);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(453);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -59869,7 +60221,7 @@
 	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 452 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59886,7 +60238,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideGesture = __webpack_require__(453);
+	var _ionicGesturesSlideGesture = __webpack_require__(454);
 
 	var _utilUtil = __webpack_require__(426);
 
@@ -59952,7 +60304,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 453 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59971,7 +60323,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesDragGesture = __webpack_require__(454);
+	var _ionicGesturesDragGesture = __webpack_require__(455);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -60078,7 +60430,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 454 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60097,7 +60449,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesGesture = __webpack_require__(455);
+	var _ionicGesturesGesture = __webpack_require__(456);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -60158,7 +60510,7 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60177,7 +60529,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _ionicGesturesHammer = __webpack_require__(456);
+	var _ionicGesturesHammer = __webpack_require__(457);
 
 	/**
 	 * A gesture recognizer class.
@@ -60252,7 +60604,7 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports) {
 
 	/*! Hammer.JS - v2.0.4 - 2014-09-28
@@ -62390,7 +62742,7 @@
 	//})(window, document, 'Hammer');
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62409,13 +62761,13 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _appApp = __webpack_require__(422);
 
-	var _navViewController = __webpack_require__(458);
+	var _navViewController = __webpack_require__(459);
 
-	var _navbarNavbar = __webpack_require__(462);
+	var _navbarNavbar = __webpack_require__(463);
 
 	/**
 	* TODO
@@ -62493,7 +62845,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 458 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62506,7 +62858,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _navController = __webpack_require__(459);
+	var _navController = __webpack_require__(460);
 
 	/**
 	 * TODO
@@ -62543,11 +62895,6 @@
 	            }
 	            return false;
 	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} instance  TODO
-	         */
 	    }, {
 	        key: 'setInstance',
 	        value: function setInstance(instance) {
@@ -62563,10 +62910,6 @@
 	        value: function addDestroy(destroyFn) {
 	            this._destroys.push(destroyFn);
 	        }
-
-	        /**
-	         * TODO
-	         */
 	    }, {
 	        key: 'destroy',
 	        value: function destroy() {
@@ -62635,81 +62978,46 @@
 	        value: function getNavbar() {
 	            return this._nbDir;
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'hasNavbar',
 	        value: function hasNavbar() {
 	            return !!this.getNavbar();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'navbarRef',
 	        value: function navbarRef() {
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getElementRef();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'titleRef',
 	        value: function titleRef() {
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getTitleRef();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'navbarItemRefs',
 	        value: function navbarItemRefs() {
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getItemRefs();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'backBtnRef',
 	        value: function backBtnRef() {
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getBackButtonRef();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'backBtnTextRef',
 	        value: function backBtnTextRef() {
 	            var navbar = this.getNavbar();
 	            return navbar && navbar.getBackButtonTextRef();
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: 'navbarBgRef',
 	        value: function navbarBgRef() {
 	            var navbar = this.getNavbar();
-	            return navbar && navbar.getNativeElement().querySelector('.toolbar-background');
+	            return navbar && navbar.getBackgroundRef();
 	        }
 	    }, {
 	        key: 'hideBackButton',
@@ -62814,7 +63122,7 @@
 	exports.ViewController = ViewController;
 
 /***/ },
-/* 459 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62835,13 +63143,13 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
-	var _viewController = __webpack_require__(458);
+	var _viewController = __webpack_require__(459);
 
-	var _transitionsTransition = __webpack_require__(460);
+	var _transitionsTransition = __webpack_require__(461);
 
-	var _swipeBack = __webpack_require__(461);
+	var _swipeBack = __webpack_require__(462);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -63268,7 +63576,7 @@
 	                return done();
 	            }
 	            if (!opts.animation) {
-	                opts.animation = this.config.get('viewTransition');
+	                opts.animation = this.config.get('pageTransition');
 	            }
 	            if (this.config.get('animate') === false) {
 	                opts.animate = false;
@@ -63292,6 +63600,7 @@
 	                    enteringView.state = STAGED_ENTERING_STATE;
 	                    leavingView.state = STAGED_LEAVING_STATE;
 	                    // init the transition animation
+	                    opts.renderDelay = _this2.config.get('pageTransitionDelay');
 	                    var transAnimation = _transitionsTransition.Transition.create(_this2, opts);
 	                    if (opts.animate === false) {
 	                        // force it to not animate the elements, just apply the "to" styles
@@ -63966,7 +64275,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -64011,7 +64320,7 @@
 	var transitionRegistry = {};
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64028,7 +64337,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(452);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(453);
 
 	var SwipeBackGesture = (function (_SlideEdgeGesture) {
 	    _inherits(SwipeBackGesture, _SlideEdgeGesture);
@@ -64070,7 +64379,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64089,19 +64398,19 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
-	var _iconIcon = __webpack_require__(434);
+	var _iconIcon = __webpack_require__(435);
 
-	var _toolbarToolbar = __webpack_require__(463);
+	var _toolbarToolbar = __webpack_require__(464);
 
 	var _configConfig = __webpack_require__(424);
 
 	var _appApp = __webpack_require__(422);
 
-	var _navViewController = __webpack_require__(458);
+	var _navViewController = __webpack_require__(459);
 
-	var _navNavController = __webpack_require__(459);
+	var _navNavController = __webpack_require__(460);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -64159,23 +64468,26 @@
 	}), __param(0, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Navbar;
 	}))), __metadata('design:paramtypes', [typeof (_a = typeof _navNavController.NavController !== 'undefined' && _navNavController.NavController) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, Navbar])], BackButton);
-	var BackButtonText = (function (_Ion2) {
-	    _inherits(BackButtonText, _Ion2);
+	var BackButtonText = function BackButtonText(elementRef, navbar) {
+	    _classCallCheck(this, BackButtonText);
 
-	    function BackButtonText(elementRef, navbar) {
-	        _classCallCheck(this, BackButtonText);
-
-	        _get(Object.getPrototypeOf(BackButtonText.prototype), "constructor", this).call(this, elementRef, null);
-	        navbar && navbar.setBackButtonTextRef(elementRef);
-	    }
-
-	    return BackButtonText;
-	})(_ion.Ion);
+	    navbar.setBackButtonTextRef(elementRef);
+	};
 	BackButtonText = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: '.back-button-text'
-	}), __param(1, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	}), __param(1, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Navbar;
 	}))), __metadata('design:paramtypes', [typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, Navbar])], BackButtonText);
+	var ToolbarBackground = function ToolbarBackground(elementRef, navbar) {
+	    _classCallCheck(this, ToolbarBackground);
+
+	    navbar.setBackgroundRef(elementRef);
+	};
+	ToolbarBackground = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'toolbar-background'
+	}), __param(1, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	    return Navbar;
+	}))), __metadata('design:paramtypes', [typeof (_d = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _d || Object, Navbar])], ToolbarBackground);
 	var Navbar = (function (_ToolbarBase) {
 	    _inherits(Navbar, _ToolbarBase);
 
@@ -64228,6 +64540,16 @@
 	            this.bbtRef = backButtonTextElementRef;
 	        }
 	    }, {
+	        key: "setBackgroundRef",
+	        value: function setBackgroundRef(backgrouneElementRef) {
+	            this.bgRef = backgrouneElementRef;
+	        }
+	    }, {
+	        key: "getBackgroundRef",
+	        value: function getBackgroundRef() {
+	            return this.bgRef;
+	        }
+	    }, {
 	        key: "didEnter",
 	        value: function didEnter() {
 	            this.app.setTitle(this.getTitleText());
@@ -64244,13 +64566,13 @@
 	exports.Navbar = Navbar;
 	exports.Navbar = Navbar = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-navbar',
-	    template: '<div class="toolbar-inner">' + '<button class="back-button" [hidden]="hideBackButton">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
+	    template: '<toolbar-background></toolbar-background>' + '<button class="back-button" [hidden]="hideBackButton">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '<toolbar-content>' + '<ng-content></ng-content>' + '</toolbar-content>',
 	    host: {
 	        '[hidden]': '_hidden'
 	    },
 	    inputs: ['hideBackButton', 'navbarStyle'],
-	    directives: [BackButton, BackButtonText, _iconIcon.Icon]
-	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_d = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _d || Object, typeof (_e = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _h || Object])], Navbar);
+	    directives: [BackButton, BackButtonText, _iconIcon.Icon, ToolbarBackground]
+	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_e = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _e || Object, typeof (_f = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _g || Object, typeof (_h = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object])], Navbar);
 	/*
 	  Used to find and register headers in a view, and this directive's
 	  content will be moved up to the common navbar location, and created
@@ -64267,11 +64589,11 @@
 	exports.NavbarTemplate = NavbarTemplate;
 	exports.NavbarTemplate = NavbarTemplate = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'template[navbar]'
-	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_j = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.TemplateRef !== 'undefined' && _angular2Angular2.TemplateRef) === 'function' && _k || Object, typeof (_l = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _l || Object])], NavbarTemplate);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_k = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.TemplateRef !== 'undefined' && _angular2Angular2.TemplateRef) === 'function' && _l || Object, typeof (_m = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _m || Object])], NavbarTemplate);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64290,11 +64612,11 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _navbarNavbar = __webpack_require__(462);
+	var _navbarNavbar = __webpack_require__(463);
 
 	/**
 	 * TODO
@@ -64397,7 +64719,7 @@
 	exports.Toolbar = Toolbar;
 	exports.Toolbar = Toolbar = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-toolbar',
-	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title,ion-searchbar,ion-segment"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
+	    template: '<toolbar-background></toolbar-background>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '<toolbar-content>' + '<ng-content></ng-content>' + '</toolbar-content>'
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], Toolbar);
 	var ToolbarTitle = (function (_Ion2) {
 	    _inherits(ToolbarTitle, _Ion2);
@@ -64448,7 +64770,7 @@
 	var _a, _b, _c, _d, _e, _f, _g;
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64467,7 +64789,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _appApp = __webpack_require__(422);
 
@@ -64525,7 +64847,7 @@
 	var _a, _b;
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64572,7 +64894,7 @@
 	var _a, _b;
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64591,17 +64913,17 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _utilKeyboard = __webpack_require__(432);
+	var _utilKeyboard = __webpack_require__(433);
 
-	var _navViewController = __webpack_require__(458);
+	var _navViewController = __webpack_require__(459);
 
 	var _animationsAnimation = __webpack_require__(429);
 
-	var _animationsScrollTo = __webpack_require__(467);
+	var _animationsScrollTo = __webpack_require__(468);
 
 	/**
 	 * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
@@ -64825,7 +65147,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64936,7 +65258,7 @@
 	exports.ScrollTo = ScrollTo;
 
 /***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64955,7 +65277,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -65042,7 +65364,7 @@
 	var _a, _b;
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65059,7 +65381,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _contentContent = __webpack_require__(466);
+	var _contentContent = __webpack_require__(467);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -65497,7 +65819,7 @@
 	var _a, _b;
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65518,11 +65840,11 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _ionicAnimationsAnimation = __webpack_require__(429);
 
-	var _ionicGesturesGesture = __webpack_require__(455);
+	var _ionicGesturesGesture = __webpack_require__(456);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -65532,7 +65854,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(471);
+	var _swiperWidget = __webpack_require__(472);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -65979,7 +66301,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports) {
 
 	/**
@@ -66271,7 +66593,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66290,19 +66612,21 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _appApp = __webpack_require__(422);
 
-	var _appId = __webpack_require__(473);
+	var _appId = __webpack_require__(474);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _navViewController = __webpack_require__(458);
+	var _platformPlatform = __webpack_require__(425);
 
-	var _configDecorators = __webpack_require__(446);
+	var _navViewController = __webpack_require__(459);
 
-	var _iconIcon = __webpack_require__(434);
+	var _configDecorators = __webpack_require__(447);
+
+	var _iconIcon = __webpack_require__(435);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -66391,12 +66715,13 @@
 	     * point that "Tabs" is itself is just a page with its own instance of ViewController.
 	     */
 
-	    function Tabs(app, config, elementRef, viewCtrl) {
+	    function Tabs(app, config, elementRef, viewCtrl, platform) {
 	        var _this = this;
 
 	        _classCallCheck(this, Tabs);
 
 	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
+	        this.platform = platform;
 	        this.app = app;
 	        this.preload = config.get('preloadTabs');
 	        this.subPages = config.get('tabSubPages');
@@ -66418,11 +66743,23 @@
 	        }
 	    }
 
-	    /**
-	     * @private
-	     */
-
 	    _createClass(Tabs, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            var _this2 = this;
+
+	            _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
+	            if (this.highlight) {
+	                this.platform.onResize(function () {
+	                    _this2.highlight.select(_this2.getSelected());
+	                });
+	            }
+	        }
+
+	        /**
+	         * @private
+	         */
+	    }, {
 	        key: "add",
 	        value: function add(tab) {
 	            tab.id = ++_tabIds;
@@ -66440,7 +66777,7 @@
 	    }, {
 	        key: "select",
 	        value: function select(tabOrIndex) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            var selectedTab = typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex;
 	            if (!selectedTab) {
@@ -66463,13 +66800,13 @@
 	            var selectedPage = selectedTab.getActive();
 	            selectedPage && selectedPage.willEnter();
 	            selectedTab.load(opts, function () {
-	                _this2.tabs.forEach(function (tab) {
+	                _this3.tabs.forEach(function (tab) {
 	                    tab.setSelected(tab === selectedTab);
 	                });
-	                _this2.highlight && _this2.highlight.select(selectedTab);
+	                _this3.highlight && _this3.highlight.select(selectedTab);
 	                selectedPage && selectedPage.didEnter();
 	                deselectedPage && deselectedPage.didLeave();
-	                _this2.isReady && _this2.isReady();
+	                _this3.isReady && _this3.isReady();
 	                console.timeEnd('select tab ' + selectedTab.id);
 	            });
 	        }
@@ -66554,7 +66891,7 @@
 	    }), (0, _angular2Angular2.forwardRef)(function () {
 	        return TabNavBarAnchor;
 	    })]
-	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object])], Tabs);
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _c || Object, typeof (_d = typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController) === 'function' && _d || Object, typeof (_e = typeof _platformPlatform.Platform !== 'undefined' && _platformPlatform.Platform) === 'function' && _e || Object])], Tabs);
 	var _tabIds = -1;
 	/**
 	 * @private
@@ -66602,7 +66939,7 @@
 	        '[class.disable-hover]': 'disHover',
 	        '(click)': 'onClick()'
 	    }
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_e = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object])], TabButton);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_f = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _g || Object])], TabButton);
 	/**
 	 * @private
 	 */
@@ -66610,7 +66947,7 @@
 	    function TabHighlight(tabs, config, elementRef) {
 	        _classCallCheck(this, TabHighlight);
 
-	        if (config.get('mode') === 'md') {
+	        if (config.get('tabbarHighlight')) {
 	            tabs.highlight = this;
 	            this.elementRef = elementRef;
 	        }
@@ -66635,7 +66972,7 @@
 	})();
 	TabHighlight = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'tab-highlight'
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_g = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _h || Object])], TabHighlight);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_h = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _j || Object])], TabHighlight);
 	/**
 	 * @private
 	 */
@@ -66644,11 +66981,11 @@
 
 	    tabs.navbarContainerRef = viewContainerRef;
 	};
-	TabNavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[navbar-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_j = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _j || Object])], TabNavBarAnchor);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	TabNavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[navbar-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof (_k = typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef) === 'function' && _k || Object])], TabNavBarAnchor);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66766,7 +67103,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66789,9 +67126,9 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _navNavController = __webpack_require__(459);
+	var _navNavController = __webpack_require__(460);
 
-	var _tabs = __webpack_require__(472);
+	var _tabs = __webpack_require__(473);
 
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
@@ -66961,7 +67298,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66982,11 +67319,11 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _virtual = __webpack_require__(476);
+	var _virtual = __webpack_require__(477);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -67126,7 +67463,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67241,7 +67578,7 @@
 	};
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67305,7 +67642,7 @@
 	}), __metadata('design:paramtypes', [])], Item);
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67318,7 +67655,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _contentContent = __webpack_require__(466);
+	var _contentContent = __webpack_require__(467);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -67390,7 +67727,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67409,11 +67746,11 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ionicGesturesDragGesture = __webpack_require__(454);
+	var _ionicGesturesDragGesture = __webpack_require__(455);
 
-	var _ionicGesturesHammer = __webpack_require__(456);
+	var _ionicGesturesHammer = __webpack_require__(457);
 
-	var _ionicComponentsListList = __webpack_require__(475);
+	var _ionicComponentsListList = __webpack_require__(476);
 
 	var _ionicUtilDom = __webpack_require__(427);
 
@@ -67719,7 +68056,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67734,7 +68071,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _utilForm = __webpack_require__(431);
+	var _utilForm = __webpack_require__(432);
 
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except it's styled differently
@@ -67882,7 +68219,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67897,7 +68234,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _utilForm = __webpack_require__(431);
+	var _utilForm = __webpack_require__(432);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -68144,7 +68481,7 @@
 	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68163,11 +68500,11 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _utilForm = __webpack_require__(431);
+	var _utilForm = __webpack_require__(432);
 
 	var _appApp = __webpack_require__(422);
 
-	var _contentContent = __webpack_require__(466);
+	var _contentContent = __webpack_require__(467);
 
 	var _utilDom = __webpack_require__(427);
 
@@ -68585,7 +68922,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68602,7 +68939,7 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _textInput = __webpack_require__(482);
+	var _textInput = __webpack_require__(483);
 
 	var _utilDom = __webpack_require__(427);
 
@@ -68704,7 +69041,7 @@
 	var _a, _b;
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68723,7 +69060,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
@@ -68921,7 +69258,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68942,9 +69279,9 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
-	var _listList = __webpack_require__(475);
+	var _listList = __webpack_require__(476);
 
 	/**
 	 * A radio group is a group of radio components.
@@ -69252,7 +69589,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69271,13 +69608,13 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(450);
+	var _ion = __webpack_require__(451);
 
 	var _configConfig = __webpack_require__(424);
 
-	var _configDecorators = __webpack_require__(446);
+	var _configDecorators = __webpack_require__(447);
 
-	var _iconIcon = __webpack_require__(434);
+	var _iconIcon = __webpack_require__(435);
 
 	/**
 	 * @name Search Bar
@@ -69444,7 +69781,7 @@
 	*/
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69467,11 +69804,11 @@
 
 	var _configConfig = __webpack_require__(424);
 
-	var _configDecorators = __webpack_require__(446);
+	var _configDecorators = __webpack_require__(447);
 
-	var _navController = __webpack_require__(459);
+	var _navController = __webpack_require__(460);
 
-	var _viewController = __webpack_require__(458);
+	var _viewController = __webpack_require__(459);
 
 	/**
 	 * _For a quick walkthrough of navigation in Ionic, check out the
@@ -69632,7 +69969,7 @@
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69647,9 +69984,9 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _navController = __webpack_require__(459);
+	var _navController = __webpack_require__(460);
 
-	var _navRegistry = __webpack_require__(439);
+	var _navRegistry = __webpack_require__(440);
 
 	/**
 	 * Directive for declaratively linking to a new page instead of using
@@ -69798,7 +70135,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69819,7 +70156,7 @@
 
 	var _angular2Router = __webpack_require__(255);
 
-	var _nav = __webpack_require__(487);
+	var _nav = __webpack_require__(488);
 
 	/**
 	 * TODO
@@ -69954,7 +70291,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70121,7 +70458,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70138,160 +70475,160 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppApp, _defaults));
 
-	var _ionicComponentsAppId = __webpack_require__(473);
+	var _ionicComponentsAppId = __webpack_require__(474);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppId, _defaults));
 
-	var _ionicComponentsActionSheetActionSheet = __webpack_require__(433);
+	var _ionicComponentsActionSheetActionSheet = __webpack_require__(434);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsActionSheetActionSheet, _defaults));
 
-	var _ionicComponentsBlurBlur = __webpack_require__(465);
+	var _ionicComponentsBlurBlur = __webpack_require__(466);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsBlurBlur, _defaults));
 
-	var _ionicComponentsButtonButton = __webpack_require__(437);
+	var _ionicComponentsButtonButton = __webpack_require__(438);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsButtonButton, _defaults));
 
-	var _ionicComponentsCheckboxCheckbox = __webpack_require__(480);
+	var _ionicComponentsCheckboxCheckbox = __webpack_require__(481);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsCheckboxCheckbox, _defaults));
 
-	var _ionicComponentsContentContent = __webpack_require__(466);
+	var _ionicComponentsContentContent = __webpack_require__(467);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsContentContent, _defaults));
 
-	var _ionicComponentsIconIcon = __webpack_require__(434);
+	var _ionicComponentsIconIcon = __webpack_require__(435);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsIconIcon, _defaults));
 
-	var _ionicComponentsItemItem = __webpack_require__(477);
+	var _ionicComponentsItemItem = __webpack_require__(478);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItem, _defaults));
 
-	var _ionicComponentsItemItemGroup = __webpack_require__(478);
+	var _ionicComponentsItemItemGroup = __webpack_require__(479);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemGroup, _defaults));
 
-	var _ionicComponentsItemItemSliding = __webpack_require__(479);
+	var _ionicComponentsItemItemSliding = __webpack_require__(480);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemSliding, _defaults));
 
-	var _ionicComponentsMenuMenu = __webpack_require__(449);
+	var _ionicComponentsMenuMenu = __webpack_require__(450);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenu, _defaults));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(492);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(493);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuTypes, _defaults));
 
-	var _ionicComponentsMenuMenuToggle = __webpack_require__(457);
+	var _ionicComponentsMenuMenuToggle = __webpack_require__(458);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuToggle, _defaults));
 
-	var _ionicComponentsMenuMenuClose = __webpack_require__(464);
+	var _ionicComponentsMenuMenuClose = __webpack_require__(465);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuClose, _defaults));
 
-	var _ionicComponentsTextInputTextInput = __webpack_require__(482);
+	var _ionicComponentsTextInputTextInput = __webpack_require__(483);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputTextInput, _defaults));
 
-	var _ionicComponentsTextInputLabel = __webpack_require__(483);
+	var _ionicComponentsTextInputLabel = __webpack_require__(484);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputLabel, _defaults));
 
-	var _ionicComponentsListList = __webpack_require__(475);
+	var _ionicComponentsListList = __webpack_require__(476);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsListList, _defaults));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(490);
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(491);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
-	var _ionicComponentsModalModal = __webpack_require__(435);
+	var _ionicComponentsModalModal = __webpack_require__(436);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsModalModal, _defaults));
 
-	var _ionicComponentsNavNav = __webpack_require__(487);
+	var _ionicComponentsNavNav = __webpack_require__(488);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNav, _defaults));
 
-	var _ionicComponentsNavNavController = __webpack_require__(459);
+	var _ionicComponentsNavNavController = __webpack_require__(460);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavController, _defaults));
 
-	var _ionicComponentsNavViewController = __webpack_require__(458);
+	var _ionicComponentsNavViewController = __webpack_require__(459);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavViewController, _defaults));
 
-	var _ionicComponentsNavNavPush = __webpack_require__(488);
+	var _ionicComponentsNavNavPush = __webpack_require__(489);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavPush, _defaults));
 
-	var _ionicComponentsNavNavRouter = __webpack_require__(489);
+	var _ionicComponentsNavNavRouter = __webpack_require__(490);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavRouter, _defaults));
 
-	var _ionicComponentsNavbarNavbar = __webpack_require__(462);
+	var _ionicComponentsNavbarNavbar = __webpack_require__(463);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavbarNavbar, _defaults));
 
-	var _ionicComponentsOverlayOverlay = __webpack_require__(448);
+	var _ionicComponentsOverlayOverlay = __webpack_require__(449);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsOverlayOverlay, _defaults));
 
-	var _ionicComponentsPopupPopup = __webpack_require__(436);
+	var _ionicComponentsPopupPopup = __webpack_require__(437);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsPopupPopup, _defaults));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(470);
+	var _ionicComponentsSlidesSlides = __webpack_require__(471);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSlidesSlides, _defaults));
 
-	var _ionicComponentsRadioRadio = __webpack_require__(485);
+	var _ionicComponentsRadioRadio = __webpack_require__(486);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsRadioRadio, _defaults));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(468);
+	var _ionicComponentsScrollScroll = __webpack_require__(469);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollScroll, _defaults));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(469);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(470);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
-	var _ionicComponentsSearchbarSearchbar = __webpack_require__(486);
+	var _ionicComponentsSearchbarSearchbar = __webpack_require__(487);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchbarSearchbar, _defaults));
 
-	var _ionicComponentsSegmentSegment = __webpack_require__(484);
+	var _ionicComponentsSegmentSegment = __webpack_require__(485);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSegmentSegment, _defaults));
 
-	var _ionicComponentsSwitchSwitch = __webpack_require__(481);
+	var _ionicComponentsSwitchSwitch = __webpack_require__(482);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSwitchSwitch, _defaults));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(472);
+	var _ionicComponentsTabsTabs = __webpack_require__(473);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTabs, _defaults));
 
-	var _ionicComponentsTabsTab = __webpack_require__(474);
+	var _ionicComponentsTabsTab = __webpack_require__(475);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTab, _defaults));
 
-	var _ionicComponentsTapClickTapClick = __webpack_require__(442);
+	var _ionicComponentsTapClickTapClick = __webpack_require__(443);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTapClickTapClick, _defaults));
 
-	var _ionicComponentsToolbarToolbar = __webpack_require__(463);
+	var _ionicComponentsToolbarToolbar = __webpack_require__(464);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsToolbarToolbar, _defaults));
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70308,7 +70645,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _menu = __webpack_require__(449);
+	var _menu = __webpack_require__(450);
 
 	var _ionicAnimationsAnimation = __webpack_require__(429);
 
@@ -70529,7 +70866,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70570,10 +70907,10 @@
 	    superset: 'mobile',
 	    subsets: ['phablet', 'tablet'],
 	    settings: {
-	        mode: 'md',
+	        hoverCSS: false,
 	        keyboardHeight: 290,
-	        scrollAssist: true,
-	        hoverCSS: false
+	        mode: 'md',
+	        scrollAssist: true
 	    },
 	    isMatch: function isMatch(p) {
 	        return p.isPlatform('android', 'android|silk');
@@ -70587,22 +70924,13 @@
 	    superset: 'mobile',
 	    subsets: ['ipad', 'iphone'],
 	    settings: {
-	        mode: 'ios',
-	        scrollAssist: function scrollAssist(p) {
-	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-	            );
-	        },
-	        tapPolyfill: function tapPolyfill(p) {
-	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-	            );
-	        },
-	        keyboardHeight: 290,
 	        hoverCSS: false,
-	        swipeBackEnabled: function swipeBackEnabled(p) {
-	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-	            );
-	        },
-	        swipeBackThreshold: 40
+	        keyboardHeight: 290,
+	        mode: 'ios',
+	        scrollAssist: isIOSDevice,
+	        swipeBackEnabled: isIOSDevice,
+	        swipeBackThreshold: 40,
+	        tapPolyfill: isIOSDevice
 	    },
 	    isMatch: function isMatch(p) {
 	        return p.isPlatform('ios', 'iphone|ipad|ipod');
@@ -70660,2072 +70988,17 @@
 	        return !!(window.cordova || window.PhoneGap || window.phonegap);
 	    }
 	});
-
-/***/ },
-/* 494 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj); delete newObj['default']; return newObj; }
-
-	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-	var _plugin = __webpack_require__(495);
-
-	_defaults(exports, _interopExportWildcard(_plugin, _defaults));
-
-	var _applinksApplinks = __webpack_require__(496);
-
-	_defaults(exports, _interopExportWildcard(_applinksApplinks, _defaults));
-
-	var _barcodeBarcode = __webpack_require__(497);
-
-	_defaults(exports, _interopExportWildcard(_barcodeBarcode, _defaults));
-
-	var _batteryBattery = __webpack_require__(498);
-
-	_defaults(exports, _interopExportWildcard(_batteryBattery, _defaults));
-
-	var _cameraCamera = __webpack_require__(499);
-
-	_defaults(exports, _interopExportWildcard(_cameraCamera, _defaults));
-
-	var _contactsContacts = __webpack_require__(500);
-
-	_defaults(exports, _interopExportWildcard(_contactsContacts, _defaults));
-
-	var _dialogsDialogs = __webpack_require__(501);
-
-	_defaults(exports, _interopExportWildcard(_dialogsDialogs, _defaults));
-
-	var _deviceDevice = __webpack_require__(502);
-
-	_defaults(exports, _interopExportWildcard(_deviceDevice, _defaults));
-
-	var _deviceMotionDeviceMotion = __webpack_require__(503);
-
-	_defaults(exports, _interopExportWildcard(_deviceMotionDeviceMotion, _defaults));
-
-	var _deviceOrientationDeviceOrientation = __webpack_require__(504);
-
-	_defaults(exports, _interopExportWildcard(_deviceOrientationDeviceOrientation, _defaults));
-
-	var _geolocationGeolocation = __webpack_require__(505);
-
-	_defaults(exports, _interopExportWildcard(_geolocationGeolocation, _defaults));
-
-	var _keyboardKeyboard = __webpack_require__(506);
-
-	_defaults(exports, _interopExportWildcard(_keyboardKeyboard, _defaults));
-
-	var _statusbarStatusbar = __webpack_require__(507);
-
-	_defaults(exports, _interopExportWildcard(_statusbarStatusbar, _defaults));
-
-	var _vibrationVibration = __webpack_require__(508);
-
-	_defaults(exports, _interopExportWildcard(_vibrationVibration, _defaults));
-
-/***/ },
-/* 495 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	exports.NativePlugin = NativePlugin;
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var NativePluginDecorator = function NativePluginDecorator(cls, config) {
-	    var _this = this;
-
-	    _classCallCheck(this, NativePluginDecorator);
-
-	    this.cls = cls;
-	    this.config = config;
-	    cls.ifPlugin = function (cb) {
-	        var returnType = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-	        // Convert to boolean the plugin param
-	        var exists;
-	        if (typeof _this.config.pluginCheck === 'function') {
-	            exists = _this.config.pluginCheck();
-	        } else {
-	            console.error('Plugin "' + _this.config.name + '" is missing a pluginCheck() function for plugin verification. Please add one."');
-	            return false;
-	        }
-	        if (exists) {
-	            return cb();
-	        }
-	        // We don't have the plugin, so print a warning message
-	        cls.pluginWarn();
-	        // If the user supplied a default return value, return it here.
-	        if (returnType) {
-	            return typeof returnType === 'function' ? returnType() : returnType;
-	        }
-	        return false;
-	    };
-	    cls.pluginWarn = function () {
-	        if (cls._pluginWarned) {
-	            // Only warn once
-	            return;
-	        }
-	        var platformString = [];
-	        for (var k in _this.config.engines) {
-	            platformString.push('\t' + k + ': ' + _this.config.engines[k]);
-	        }
-	        console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-	        // Set a flag so we don't warn again
-	        cls._pluginWarned = true;
-	    };
-	};
-
-	exports.NativePluginDecorator = NativePluginDecorator;
-
-	function NativePlugin(config) {
-	    return function (cls) {
-	        var annotations = Reflect.getMetadata('annotations', cls) || [];
-	        annotations.push(new NativePluginDecorator(cls, config));
-	        Reflect.defineMetadata('annotations', annotations, cls);
-	        return cls;
-	    };
+	function isIOSDevice(p) {
+	    // shortcut function to be reused internally
+	    // checks navigator.platform to see if it's an actual iOS device
+	    // this does not use the user-agent string because it is often spoofed
+	    // an actual iPad will return true, a chrome dev tools iPad will return false
+	    return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+	    );
 	}
 
 /***/ },
-/* 496 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Open installed apps on the device. Note: Android and iOS have different ways of
-	 * opening and specifying launch params, so they have separate launch functions.
-	 *
-	 * @usage
-	 *
-	 * ```js
-	 * if(platform.is('ios') {
-	 *   AppLinks.check('twitter://').then((installed) => {
-	 *     AppLinks.openIOS('twitter://user?screen_name=ionicframework')
-	 *   }, (err) => {
-	 *
-	 *   })
-	 * } else if(platform.is('android') {
-	 *   AppLinks.check('com.twitter.android').then((installed) => {
-	 *     AppLinks.openAndroid([["action", "VIEW"], ['twitter://user?screen_name=ionicframework']])
-	 *   })
-	 * }
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var AppLinks = (function () {
-	    function AppLinks() {
-	        _classCallCheck(this, AppLinks);
-	    }
-
-	    _createClass(AppLinks, null, [{
-	        key: "openIOS",
-
-	        /**
-	         * Open app on iOS with a given URL (iOS), or scheme (Android)
-	         */
-	        value: function openIOS(url) {
-	            this.ifPlugin(function () {
-	                navigator.startApp.start(url);
-	            });
-	        }
-
-	        /**
-	         * Open app on Android with a given scheme and params.
-	         */
-	    }, {
-	        key: "openAndroid",
-	        value: function openAndroid(args) {
-	            this.ifPlugin(function () {
-	                var _navigator$startApp;
-
-	                (_navigator$startApp = navigator.startApp).start.apply(_navigator$startApp, _toConsumableArray(args));
-	            });
-	        }
-
-	        /**
-	         * Check if an installed app can be opened from the given URL.
-	         */
-	    }, {
-	        key: "canOpen",
-	        value: function canOpen(urlOrScheme) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this.ifPlugin(function () {
-	                    navigator.startApp.check(urlOrScheme, function (message) {
-	                        resolve(message);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('Plugin not installed');
-	                }
-	            });
-	        }
-	    }]);
-
-	    return AppLinks;
-	})();
-	exports.AppLinks = AppLinks;
-	exports.AppLinks = AppLinks = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'AppLinks',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'com.lampa.startapp'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!navigator.startApp;
-	    }
-	}), __metadata('design:paramtypes', [])], AppLinks);
-
-/***/ },
-/* 497 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Scan barcodes and QR codes.
-	 *
-	 * @usage
-	 *
-	 * ## Scanning a code
-	 *
-	 * ```js
-	 * Barcode.scan().then((data) => {
-	 *   console.log("Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
-	 * }, (err) => {
-	 * })
-	 * ```
-	 *
-	 * ## Encoding data
-	 *
-	 * ```js
-	 * Barcode.encode(Barcode.TEXT_TYPE).then((data) => {}, (fail) => {});
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Barcode = (function () {
-	    function Barcode() {
-	        _classCallCheck(this, Barcode);
-	    }
-
-	    _createClass(Barcode, null, [{
-	        key: "scan",
-
-	        /**
-	         * Scan a barcode.
-	         *
-	         * @return Promise that resolves with an object of the format: {
-	         *   text: text that was scanned,
-	         *   format: format of barcode,
-	         *   cancelled: was it canceled?
-	         * }
-	         */
-	        value: function scan() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this.ifPlugin(function () {
-	                    window.cordova.plugins.barcodeScanner.scan(function (result) {
-	                        resolve(result);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('No scanner available');
-	                }
-	            });
-	        }
-
-	        /**
-	         * Encode the given data in a barcode.
-	         *
-	         * @param type the type to use for encoding (if in doubt, use TYPE_TEXT).
-	         * @param data the data to encode
-	         * @return Promise
-	         */
-	    }, {
-	        key: "encode",
-	        value: function encode(type, data) {
-	            var _this2 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this2.ifPlugin(function () {
-	                    window.cordova.plugins.barcodeScanner.encode(type, data, function (result) {
-	                        resolve(result);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('No scanner available');
-	                }
-	            });
-	        }
-	    }]);
-
-	    return Barcode;
-	})();
-	exports.Barcode = Barcode;
-	Barcode.TEXT_TYPE = "TEXT_TYPE";
-	Barcode.EMAIL_TYPE = "EMAIL_TYPE";
-	Barcode.PHONE_TYPE = "PHONE_TYPE";
-	Barcode.SMS_TYPE = "SMS_TYPE";
-	exports.Barcode = Barcode = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Barcode',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'phonegap-plugin-barcodescanner'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return window.cordova && window.cordova.plugins && window.cordova.plugins.barcodeScanner;
-	    }
-	}), __metadata('design:paramtypes', [])], Barcode);
-
-/***/ },
-/* 498 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(430);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Track battery status. Uses the HTMl5 Battery API if available or
-	 * the `cordova-plugin-battery-status` plugin.
-	 *
-	 * @usage
-	 *
-	 * ```js
-	 * Battery.getStatus().then((data) => {
-	 *   console.log(data.charging, data.level, data.chargingTime, data.dischargingTime)
-	 * });
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _Battery = (function () {
-	    function Battery() {
-	        _classCallCheck(this, Battery);
-	    }
-
-	    _createClass(Battery, null, [{
-	        key: "getStatus",
-
-	        /**
-	         * Get the status of the battery. Data is of the format:
-	         * { charging, level, chargingTime, dischargingTime }
-	         *
-	         * Note: certain fields might not be available depending on the platform.
-	         *
-	         * @return {object} battery status
-	         */
-	        value: function getStatus() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (navigator.getBattery) {
-	                    navigator.getBattery().then(function (battery) {
-	                        _this.battery = battery;
-	                        resolve(_Battery._format(battery));
-	                    });
-	                } else {
-	                    var fnCb = function fnCb(battery) {
-	                        resolve(battery);
-	                        window.removeEventListener('batterystatus', fnCb);
-	                    };
-	                    window.addEventListener('batterystatus', fnCb);
-	                }
-	            });
-	        }
-	    }, {
-	        key: "_format",
-	        value: function _format(batteryObj) {
-	            if (typeof batteryObj.isPlugged !== 'undefined') {
-	                // This is the old format, map it to the new format
-	                util.extend(batteryObj, {
-	                    charging: batteryObj.isPlugged,
-	                    level: batteryObj.level / 100,
-	                    chargingTime: 0,
-	                    dischargingTime: 0 //not provided
-	                });
-	            }
-	            return batteryObj;
-	        }
-	    }]);
-
-	    return Battery;
-	})();
-	exports.Battery = _Battery;
-	_Battery = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Battery',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-battery-status'
-	    }
-	}), __metadata('design:paramtypes', [])], _Battery);
-
-/***/ },
-/* 499 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(430);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Take a photo or capture video.
-	 *
-	 * Requires Cordova plugin: `cordova-plugin-camera`. For more info, please see the [Cordova Camera Plugin Docs](https://github.com/apache/cordova-plugin-camera).
-	 *
-	 * @usage
-	 * ```js
-	 * Camera.getPicture(options).then((imageData) => {
-	 *  // imageData is either a base64 encoded string or a file URI
-	 *  // If it's base64:
-	 *  let base64Image = "data:image/jpeg;base64," + imageData;
-	 * }, (err) => {
-	 * });
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Camera = (function () {
-	    function Camera() {
-	        _classCallCheck(this, Camera);
-	    }
-
-	    _createClass(Camera, null, [{
-	        key: "getPicture",
-
-	        /**
-	         * Let the user take a photo or capture video.
-	         *
-	         * @param options {object} options for the photo. Of the form (with defaults):
-	         * {
-	         *  quality: 80,
-	         *  destinationType: window.Camera.DestinationType.DATA_URL,
-	         *  sourceType: window.Camera.PictureSourceType.CAMERA (VIDEO or ALLMEDIA for both),
-	         *  allowEdit: true,
-	         *  encodingType: window.Camera.EncodingType.JPEG,
-	         *  popoverOptions: window.CameraPopoverOptions,
-	         *  saveToPhotoAlbum: false
-	         * }
-	         * @return {Promise} resolving with data or rejecting on error
-	         */
-	        value: function getPicture(options) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.camera) {
-	                    _this.pluginWarn();
-	                    resolve(null);
-	                    return;
-	                }
-	                var options = util.defaults({
-	                    quality: 80,
-	                    destinationType: window.Camera.DestinationType.DATA_URL,
-	                    sourceType: window.Camera.PictureSourceType.CAMERA,
-	                    allowEdit: true,
-	                    encodingType: window.Camera.EncodingType.JPEG,
-	                    popoverOptions: window.CameraPopoverOptions,
-	                    saveToPhotoAlbum: false
-	                }, options);
-	                navigator.camera.getPicture(function (imageData) {
-	                    resolve(imageData);
-	                }, function (err) {
-	                    reject(err);
-	                }, options);
-	            });
-	        }
-
-	        /**
-	         * If using FILE_URI and taking photos, photos will be stored temporarily. To
-	         * remove them, call cleanup when the camera session is finished.
-	         * @return {Promise}
-	         */
-	    }, {
-	        key: "cleanup",
-	        value: function cleanup() {
-	            return new Promise(function (resolve, reject) {
-	                navigator.camera.cleanup(function () {
-	                    resolve();
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }]);
-
-	    return Camera;
-	})();
-	exports.Camera = Camera;
-	/**
-	 * @enum {number}
-	 */
-	Camera.DestinationType = {
-	    /** Return base64 encoded string */
-	    DATA_URL: 0,
-	    /** Return file uri (content://media/external/images/media/2 for Android) */
-	    FILE_URI: 1,
-	    /** Return native uri (eg. asset-library://... for iOS) */
-	    NATIVE_URI: 2
-	};
-	/**
-	 * @enum {number}
-	 */
-	Camera.EncodingType = {
-	    /** Return JPEG encoded image */
-	    JPEG: 0,
-	    /** Return PNG encoded image */
-	    PNG: 1
-	};
-	/**
-	 * @enum {number}
-	 */
-	Camera.MediaType = {
-	    /** Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType */
-	    PICTURE: 0,
-	    /** Allow selection of video only, ONLY RETURNS URL */
-	    VIDEO: 1,
-	    /** Allow selection from all media types */
-	    ALLMEDIA: 2
-	};
-	/**
-	 * @enum {number}
-	 */
-	Camera.PictureSourceType = {
-	    /** Choose image from picture library (same as SAVEDPHOTOALBUM for Android) */
-	    PHOTOLIBRARY: 0,
-	    /** Take picture from camera */
-	    CAMERA: 1,
-	    /** Choose image from picture library (same as PHOTOLIBRARY for Android) */
-	    SAVEDPHOTOALBUM: 2
-	};
-	/**
-	 * Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
-	 * @enum {number}
-	 */
-	Camera.PopoverArrowDirection = {
-	    ARROW_UP: 1,
-	    ARROW_DOWN: 2,
-	    ARROW_LEFT: 4,
-	    ARROW_RIGHT: 8,
-	    ARROW_ANY: 15
-	};
-	/**
-	 * @enum {number}
-	 */
-	Camera.Direction = {
-	    /** Use the back-facing camera */
-	    BACK: 0,
-	    /** Use the front-facing camera */
-	    FRONT: 1
-	};
-	exports.Camera = Camera = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Camera',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-camera'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!navigator.camera;
-	    }
-	}), __metadata('design:paramtypes', [])], Camera);
-
-/***/ },
-/* 500 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Access and manage Contacts on the device.
-	 *
-	 * Requires plugin: `cordova-plugin-contacts`
-	 * For full info, please see the [Cordova Contacts Docs](https://github.com/apache/cordova-plugin-contacts)
-	 *
-	 * @usage
-	 *
-	 * ```js
-	 * Contacts.save({
-	 *   displayName: "Mr. Ionitron"
-	 * }).then((contact) => {}, (err) => {})
-	 * ```
-	 *
-	 * See the `save()` docs for a full list of fields.
-	 *
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Contacts = (function () {
-	    function Contacts() {
-	        _classCallCheck(this, Contacts);
-	    }
-
-	    _createClass(Contacts, null, [{
-	        key: "save",
-
-	        /**
-	         * Save a contact into the contacts database.
-	         *
-	         * Valid fields:
-	         * {
-	         * id: A globally unique identifier. (DOMString)
-	         * displayName: The name of this Contact, suitable for display to end-users. (DOMString)
-	         * name: An object containing all components of a persons name. (ContactName)
-	         * nickname: A casual name by which to address the contact. (DOMString)
-	         * phoneNumbers: An array of all the contact's phone numbers. (ContactField[])
-	         * emails: An array of all the contact's email addresses. (ContactField[])
-	         * addresses: An array of all the contact's addresses. (ContactAddress[])
-	         * ims: An array of all the contact's IM addresses. (ContactField[])
-	         * organizations: An array of all the contact's organizations. (ContactOrganization[])
-	         * birthday: The birthday of the contact. (Date)
-	         * note: A note about the contact. (DOMString)
-	         * photos: An array of the contact's photos. (ContactField[])
-	         * categories: An array of all the user-defined categories associated with the contact. (ContactField[])
-	         * urls: An array of web pages associated with the contact. (ContactField[])
-	         * }
-	         *
-	         * @param contact {object} the contact to save.
-	         * @return {Promise} that resolves with the created and saved contact
-	         */
-	        value: function save(contact) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.contacts) {
-	                    _this.pluginWarn();
-	                    reject('Contacts plugin not installed');
-	                }
-	                var deviceContact = navigator.contacts.create(contact);
-	                deviceContact.save(function (result) {
-	                    resolve(deviceContact);
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-
-	        /*
-	        static remove(contact) {
-	          return new Promise((resolve, reject) => {
-	            if(!navigator.contacts) {
-	              this.pluginWarn();
-	              reject('Contacts plugin not installed');
-	            }
-	            var deviceContact = navigator.contacts.create(contact);
-	               deviceContact.remove(function (result) {
-	              resolve(result);
-	            }, function (err) {
-	              reject(err);
-	            });
-	          })
-	        }
-	           static clone(contact) {
-	          if(!navigator.contacts) {
-	            this.pluginWarn();
-	            return null;
-	          }
-	          var deviceContact = navigator.contacts.create(contact);
-	          return deviceContact.clone(contact);
-	        }
-	        */
-	        /**
-	         * Search for contacts in the Contacts list.
-	         *
-	         * Example: Contacts.find({ filter: 'Max' }) // will search for a displayName of 'Max'
-	         *
-	         * @param options the options to query with
-	         *
-	         * filter: The search string used to find navigator.contacts. (DOMString) (Default: "")
-	         * multiple: Determines if the find operation returns multiple navigator.contacts. (Boolean) (Default: false)
-	         * desiredFields: Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields. (DOMString[]) [Optional]
-	         * hasPhoneNumber(Android only): Filters the search to only return contacts with a phone number informed. (Boolean) (Default: false)
-	         *
-	         * @return {Promise} that resolves with the search results
-	         */
-	    }, {
-	        key: "find",
-	        value: function find(options) {
-	            return new Promise(function (resolve, reject) {
-	                var fields = options.fields || ['id', 'displayName'];
-	                delete options.fields;
-	                navigator.contacts.find(fields, function (results) {
-	                    resolve(results);
-	                }, function (err) {
-	                    reject(err);
-	                }, options || undefined);
-	            });
-	        }
-
-	        /**
-	         * Show a native contact picker control.
-	         *
-	         * @return {Promise} resolves with the picked contact.
-	         */
-	    }, {
-	        key: "pickContact",
-	        value: function pickContact() {
-	            return new Promise(function (resolve, reject) {
-	                navigator.contacts.pickContact(function (contact) {
-	                    resolve(contact);
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }]);
-
-	    return Contacts;
-	})();
-	exports.Contacts = Contacts;
-	exports.Contacts = Contacts = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Contacts',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-contacts'
-	    }
-	}), __metadata('design:paramtypes', [])], Contacts);
-
-/***/ },
-/* 501 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * A native dialogs system. Native dialogs can give you a bit more
-	 * control over the UI than the browser built-ins, though the Dialogs
-	 * plugin will fall back to the built-ins when necessary.
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Dialogs = (function () {
-	    function Dialogs() {
-	        _classCallCheck(this, Dialogs);
-	    }
-
-	    _createClass(Dialogs, null, [{
-	        key: "alert",
-
-	        /**
-	         * Trigger an alert prompt.
-	         *
-	         * @param message the message to show
-	         * @param title the title to show
-	         * @param buttonName the button label to use (not available on browser fallback)
-	         * @return Promise
-	         */
-	        value: (function (_alert) {
-	            function alert(_x, _x2, _x3) {
-	                return _alert.apply(this, arguments);
-	            }
-
-	            alert.toString = function () {
-	                return _alert.toString();
-	            };
-
-	            return alert;
-	        })(function (message, title, buttonName) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this.pluginWarn();
-	                    alert(message);
-	                    resolve();
-	                } else {
-	                    navigator.notification.alert(message, function () {
-	                        resolve();
-	                    }, title, buttonName);
-	                }
-	            });
-	        })
-
-	        /**
-	         * Trigger a confirm prompt.
-	         *
-	         * @param message the message to show
-	         * @param title the title to show
-	         * @param buttonLabels the button labels to use (not available on browser fallback)
-	         * @return Promise that resolves with the index of the button selected (zero indexed). 1 is OK on browser fallback
-	         */
-	    }, {
-	        key: "confirm",
-	        value: (function (_confirm) {
-	            function confirm(_x4, _x5, _x6) {
-	                return _confirm.apply(this, arguments);
-	            }
-
-	            confirm.toString = function () {
-	                return _confirm.toString();
-	            };
-
-	            return confirm;
-	        })(function (message, title, buttonLabels) {
-	            var _this2 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this2.pluginWarn();
-	                    var ok = confirm(message);
-	                    // Use 2 as OK
-	                    resolve(ok ? 2 : 0);
-	                } else {
-	                    navigator.notification.confirm(message, function (buttonIndex) {
-	                        resolve(buttonIndex - 1);
-	                    }, title, buttonLabels);
-	                }
-	            });
-	        })
-	    }, {
-	        key: "prompt",
-	        value: (function (_prompt) {
-	            function prompt(_x7, _x8, _x9, _x10) {
-	                return _prompt.apply(this, arguments);
-	            }
-
-	            prompt.toString = function () {
-	                return _prompt.toString();
-	            };
-
-	            return prompt;
-	        })(function (message, title, buttonLabels, defaultText) {
-	            var _this3 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this3.pluginWarn();
-	                    var response = prompt(message);
-	                    // Use 1 as OK
-	                    resolve(response);
-	                } else {
-	                    navigator.notification.prompt(message, function (results) {
-	                        resolve(results.input1, buttonIndex - 1);
-	                    }, title, buttonLabels, defaultText);
-	                }
-	            });
-	        })
-
-	        /**
-	         * Beep n times. Not available on browser.
-	         * @param times the number of times to beep
-	         */
-	    }, {
-	        key: "beep",
-	        value: function beep(times) {
-	            navigator.notification && navigator.notification.beep(times);
-	        }
-	    }]);
-
-	    return Dialogs;
-	})();
-	exports.Dialogs = Dialogs;
-	exports.Dialogs = Dialogs = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Dialogs',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-dialogs'
-	    }
-	}), __metadata('design:paramtypes', [])], Dialogs);
-
-/***/ },
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Access information about the underlying device and platform.
-	 *
-	 * @usage
-	 * ```js
-	 * let info = Device.getDevice();
-	 * // Device sits below
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _Device = (function () {
-	    function Device() {
-	        _classCallCheck(this, Device);
-	    }
-
-	    _createClass(Device, null, [{
-	        key: "getDevice",
-
-	        /**
-	         * Returns the whole device object.
-	         * @see https://github.com/apache/cordova-plugin-device
-	         * @returns {Object} The device object.
-	         */
-	        value: function getDevice() {
-	            return this.ifPlugin(function () {
-	                return device;
-	            }, function () {
-	                return {
-	                    name: _Device.getName(),
-	                    model: _Device.getModel(),
-	                    platform: _Device.getPlatform(),
-	                    uuid: _Device.getUUID(),
-	                    version: _Device.getVersion()
-	                };
-	            });
-	        }
-
-	        /**
-	         * Returns the Cordova version.
-	         * @see https://github.com/apache/cordova-plugin-device#devicecordova
-	         * @returns {String} The Cordova version.
-	         */
-	    }, {
-	        key: "getCordova",
-	        value: function getCordova() {
-	            this.ifPlugin(function () {
-	                return device.cordova;
-	            });
-	        }
-
-	        /**
-	         * Returns the name of the device's model or product.
-	         * @see https://github.com/apache/cordova-plugin-device#devicemodel
-	         * @returns {String} The name of the device's model or product.
-	         */
-	    }, {
-	        key: "getModel",
-	        value: function getModel() {
-	            this.ifPlugin(function () {
-	                return device.model;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * @deprecated device.name is deprecated as of version 2.3.0. Use device.model instead.
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getName",
-	        value: function getName() {
-	            this.ifPlugin(function () {
-	                return device.name;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device's operating system name.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceplatform
-	         * @returns {String} The device's operating system name.
-	         */
-	    }, {
-	        key: "getPlatform",
-	        value: function getPlatform() {
-	            this.ifPlugin(function () {
-	                return device.name;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device's Universally Unique Identifier.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceuuid
-	         * @returns {String} The device's Universally Unique Identifier
-	         */
-	    }, {
-	        key: "getUUID",
-	        value: function getUUID() {
-	            this.ifPlugin(function () {
-	                return device.uuid;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the operating system version.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceversion
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getVersion",
-	        value: function getVersion() {
-	            this.ifPlugin(function () {
-	                return device.version;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device manufacturer.
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getManufacturer",
-	        value: function getManufacturer() {
-	            this.ifPlugin(function () {
-	                return device.manufacturer;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-	    }]);
-
-	    return Device;
-	})();
-	exports.Device = _Device;
-	_Device = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device',
-	    plugins: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!window.device;
-	    }
-	}), __metadata('design:paramtypes', [])], _Device);
-
-/***/ },
-/* 503 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-	// var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-	// var {Observable} = Rx;
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(430);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Respond to device movement in the x/y/z axes.
-	 *
-	 * @usage
-	 * ```js
-	 * let watch = DeviceMotion.watchAcceleration();
-	 * watch.source.subscribe((data) => {
-	 *  // data.acceleration.x
-	 *  // data.acceleration.y
-	 *  // data.acceleration.z
-	 * })
-	 *
-	 * watch.clear() // to stop watching
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _DeviceMotion = (function () {
-	    function DeviceMotion() {
-	        _classCallCheck(this, DeviceMotion);
-	    }
-
-	    _createClass(DeviceMotion, null, [{
-	        key: "_wrap",
-	        value: function _wrap(result) {
-	            // Mimic the DeviceMotionEvent
-	            return util.extend({
-	                acceleration: result,
-	                accelerationIncludingGravity: result,
-	                rotationRate: 0,
-	                interval: 0,
-	                native: true
-	            }, result);
-	        }
-
-	        /**
-	         * Get the current acceleration from the device. Generally, watchAcceleration
-	         * is more commonly used.
-	         *
-	         * @return {Promise} that resolves with current motion data.
-	         */
-	    }, {
-	        key: "getCurrentAcceleration",
-	        value: function getCurrentAcceleration() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-	                    var fnCb = function fnCb(eventData) {
-	                        resolve(_DeviceMotion._wrap(eventData));
-	                        window.removeEventListener('devicemotion', fnCb);
-	                    };
-	                    window.addEventListener('devicemotion', fnCb);
-	                } else if (navigator.accelerometer) {
-	                    navigator.accelerometer.getCurrentAcceleration(function (result) {
-	                        resolve(_DeviceMotion._wrap(result));
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                } else {
-	                    _this.pluginWarn();
-	                    reject('The Device does not support device motion events.');
-	                    return;
-	                }
-	            });
-	        }
-
-	        /**
-	         * Watch for device motion.
-	         */
-	    }, {
-	        key: "watchAcceleration",
-	        value: function watchAcceleration(options) {
-	            if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-	                var watchID = undefined;
-	                var source = Rx.Observable.create(function (observer) {
-	                    var fnCb = function fnCb(eventData) {
-	                        observer.onNext(_DeviceMotion._wrap(eventData));
-	                    };
-	                    window.addEventListener('devicemotion', fnCb);
-	                });
-	                return {
-	                    source: source,
-	                    watchID: watchID,
-	                    clear: function clear() {
-	                        window.removeEventListener('devicemotion', fnCb);
-	                    }
-	                };
-	            } else if (navigator.accelerometer) {
-	                var _ret = (function () {
-	                    var watchID = undefined;
-	                    var source = Rx.Observable.create(function (observer) {
-	                        watchID = navigator.accelerometer.watchAcceleration(function (result) {
-	                            observer.onNext(_DeviceMotion._wrap(result));
-	                        }, function (err) {
-	                            observer.onError(err, observer);
-	                        }, options);
-	                    });
-	                    return {
-	                        v: {
-	                            source: source,
-	                            watchID: watchID,
-	                            clear: function clear() {
-	                                navigator.accelerometer.clearWatch(watchID);
-	                            }
-	                        }
-	                    };
-	                })();
-
-	                if (typeof _ret === "object") return _ret.v;
-	            }
-	        }
-	    }]);
-
-	    return DeviceMotion;
-	})();
-	exports.DeviceMotion = _DeviceMotion;
-	_DeviceMotion = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device Motion',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device-motion'
-	    }
-	}), __metadata('design:paramtypes', [])], _DeviceMotion);
-
-/***/ },
-/* 504 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-	// var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-	// var {Observable} = Rx;
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(430);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Respond to device orientation changes (compass).
-	 *
-	 * @usage
-	 * ```js
-	 * let watch = DeviceOrientation.watchHeading();
-	 * watch.source.subscribe((data) => {
-	 *  // data.alpha is the compass heading
-	 * })
-	 *
-	 * watch.clear() // to stop watching
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _DeviceOrientation = (function () {
-	    function DeviceOrientation() {
-	        _classCallCheck(this, DeviceOrientation);
-	    }
-
-	    _createClass(DeviceOrientation, null, [{
-	        key: "_wrap",
-	        value: function _wrap(result) {
-	            return util.extend({
-	                alpha: result.magneticHeading,
-	                magneticHeading: result.webkitCompassHeading || result.alpha
-	            }, result);
-	        }
-	    }, {
-	        key: "getCurrentHeading",
-	        value: function getCurrentHeading() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (window.DeviceOrientationEvent) {
-	                    var fnCb = function fnCb(eventData) {
-	                        resolve(_DeviceOrientation._wrap(eventData));
-	                        window.removeEventListener('deviceorientation', fnCb);
-	                    };
-	                    window.addEventListener('deviceorientation', fnCb);
-	                } else if (navigator.compass) {
-	                    navigator.compass.getCurrentHeading(function (result) {
-	                        resolve(_DeviceOrientation._wrap(result));
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                } else {
-	                    _this.pluginWarn();
-	                    reject('The Device does not support device orientation events.');
-	                    return;
-	                }
-	            });
-	        }
-	    }, {
-	        key: "watchHeading",
-	        value: function watchHeading(options) {
-	            if (window.DeviceOrientationEvent) {
-	                var watchID = undefined;
-	                var source = Rx.Observable.create(function (observer) {
-	                    var fnCb = function fnCb(eventData) {
-	                        observer.onNext(_DeviceOrientation._wrap(eventData));
-	                    };
-	                    window.addEventListener('deviceorientation', fnCb);
-	                });
-	                return {
-	                    source: source,
-	                    watchID: watchID,
-	                    clear: function clear() {
-	                        window.removeEventListener('deviceorientation', fnCb);
-	                    }
-	                };
-	            } else if (navigator.accelerometer) {
-	                var _ret = (function () {
-	                    var watchID = undefined;
-	                    var source = Rx.Observable.create(function (observer) {
-	                        watchID = navigator.compass.watchHeading(function (result) {
-	                            observer.onNext(_DeviceOrientation._wrap(result));
-	                        }, function (err) {
-	                            observer.onError(err, observer);
-	                        }, options);
-	                    });
-	                    return {
-	                        v: {
-	                            source: source,
-	                            watchID: watchID,
-	                            clear: function clear() {
-	                                navigator.compass.clearWatch(watchID);
-	                            }
-	                        }
-	                    };
-	                })();
-
-	                if (typeof _ret === "object") return _ret.v;
-	            }
-	        }
-	    }]);
-
-	    return DeviceOrientation;
-	})();
-	exports.DeviceOrientation = _DeviceOrientation;
-	_DeviceOrientation = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device Orientation',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device-orientation'
-	    }
-	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
-
-/***/ },
-/* 505 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// TODO: temporary until https://github.com/angular/angular/issues/4390 decided
-	// var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
-	// var {Observable} = Rx;
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Get geolocation data.
-	 *
-	 * @usage
-	 * ```js
-	 * Geolocation.getCurrentPosition().then((resp) => {
-	 *  //resp.coords.latitude
-	 *  //resp.coords.longitude
-	 * })
-	 *
-	 * let watch = Geolocation.watchPosition();
-	 * watch.source.subscribe((data) => {
-	 *  //data.coords.latitude
-	 *  //data.coords.longitude
-	 * })
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Geolocation = (function () {
-	    function Geolocation() {
-	        _classCallCheck(this, Geolocation);
-	    }
-
-	    _createClass(Geolocation, null, [{
-	        key: "getCurrentPosition",
-
-	        /**
-	         * Get the current GPS location.
-	         */
-	        value: function getCurrentPosition(options) {
-	            return new Promise(function (resolve, reject) {
-	                navigator.geolocation.getCurrentPosition(function (result) {
-	                    resolve(result);
-	                }, function (err) {
-	                    reject(err);
-	                }, options);
-	            });
-	        }
-
-	        /**
-	         * Watch for location changes.
-	         */
-	    }, {
-	        key: "watchPosition",
-	        value: function watchPosition(options) {
-	            var watchID = undefined;
-	            var source = Rx.Observable.create(function (observer) {
-	                watchID = navigator.geolocation.watchPosition(function (result) {
-	                    observer.onNext(result);
-	                }, function (err) {
-	                    observer.onError(err, observer);
-	                }, options);
-	            });
-	            return {
-	                source: source,
-	                watchID: watchID,
-	                clear: function clear() {
-	                    navigator.geolocation.clearWatch(watchID);
-	                }
-	            };
-	        }
-
-	        /**
-	         * Clear a specific watch by watch ID. Generally, you'll call
-	         * clear() on the returned watch from `getCurrentPosition` or `watchPosition` above.
-	         */
-	    }, {
-	        key: "clearWatch",
-	        value: function clearWatch(watchID) {
-	            return navigator.geolocation.clearWatch(watchID);
-	        }
-	    }]);
-
-	    return Geolocation;
-	})();
-	exports.Geolocation = Geolocation;
-	exports.Geolocation = Geolocation = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Geolocation',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-geolocation'
-	    }
-	}), __metadata('design:paramtypes', [])], Geolocation);
-
-/***/ },
-/* 506 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Manage the native keyboard. Note: this plugin performs mainly in the native
-	 * app context. Most operations are non-functional in a normal web browser as
-	 * keyboard control is limited.
-	 *
-	 * @usage
-	 * ```js
-	 * // Hide the accessory bar
-	 * Keyboard.setAccessoryBarVisible(false)
-	 *
-	 * Keyboard.close()
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Keyboard = (function () {
-	    function Keyboard() {
-	        _classCallCheck(this, Keyboard);
-	    }
-
-	    _createClass(Keyboard, null, [{
-	        key: "setAccessoryBarVisible",
-
-	        /**
-	         * Set whether the accessory bar is visible.
-	         *
-	         * Note: this only works while running natively (accessory bar cannot be removed
-	         * in most web browsers), and by default the bar is hidden when running natively.
-	         *
-	         * @param isVisible whether the accessory bar is visible
-	         */
-	        value: function setAccessoryBarVisible(isVisible) {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(!isVisible);
-	            });
-	        }
-
-	        /**
-	         * Close the keyboard.
-	         */
-	    }, {
-	        key: "close",
-	        value: function close() {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.close();
-	            });
-	        }
-
-	        /**
-	         * Show the keyboard. Does nothing on iOS (has to be triggered from an input)
-	         */
-	    }, {
-	        key: "show",
-	        value: function show() {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.show();
-	            });
-	        }
-
-	        /**
-	         * @return the visibility of the keyboard.
-	         */
-	    }, {
-	        key: "isVisible",
-	        value: function isVisible() {
-	            return this.ifPlugin(function () {
-	                return cordova.plugins.Keyboard.isVisible;
-	            });
-	        }
-	    }]);
-
-	    return Keyboard;
-	})();
-	exports.Keyboard = Keyboard;
-	exports.Keyboard = Keyboard = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Keyboard',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'ionic-plugin-keyboard'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard;
-	    }
-	}), __metadata('design:paramtypes', [])], Keyboard);
-
-/***/ },
-/* 507 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	 * Manage the appearance of the native status bar.
-	 *
-	 * @usage
-	 * ```js
-	 * StatusBar.hide(); // Hide the bar
-	 *
-	 * StatusBar.setStyle(StatusBar.LIGHT_CONTENT) // Good for dark backgrounds
-	 * ```
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _StatusBar = (function () {
-	    function StatusBar() {
-	        _classCallCheck(this, StatusBar);
-	    }
-
-	    _createClass(StatusBar, null, [{
-	        key: "show",
-
-	        /**
-	         * Show the StatusBar
-	         */
-	        value: function show() {
-	            this.ifPlugin(function () {
-	                window.StatusBar.show();
-	            });
-	        }
-
-	        /**
-	         * Hide the StatusBar
-	         */
-	    }, {
-	        key: "hide",
-	        value: function hide() {
-	            this.ifPlugin(function () {
-	                window.StatusBar.hide();
-	            });
-	        }
-
-	        /**
-	         * Hide the StatusBar
-	         *
-	         * Options:
-	         *
-	         * StatusBar.DEFAULT
-	         * StatusBar.LIGHT_CONTENT
-	         * StatusBar.BLACK_TRANSLUCENT
-	         * StatusBar.BLACK_OPAQUE
-	         *
-	         * @param style the style from above
-	         */
-	    }, {
-	        key: "setStyle",
-	        value: function setStyle(style) {
-	            this.ifPlugin(function () {
-	                switch (style) {
-	                    case _StatusBar.DEFAULT:
-	                        window.StatusBar.styleDefault();
-	                        break;
-	                    case _StatusBar.LIGHT_CONTENT:
-	                        window.StatusBar.styleLightContent();
-	                        break;
-	                    case _StatusBar.BLACK_TRANSLUCENT:
-	                        window.StatusBar.styleBlackTranslucent();
-	                        break;
-	                    case _StatusBar.BLACK_OPAQUE:
-	                        window.StatusBar.styleBlackOpaque();
-	                        break;
-	                }
-	            });
-	        }
-
-	        /**
-	         * Set the status bar to a specific hex color (CSS shorthand supported!).
-	         *
-	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-	         *
-	         * @param hex the hex value of the color.
-	         */
-	    }, {
-	        key: "setHexColor",
-	        value: function setHexColor(hex) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.backgroundColorByHexString(hex);
-	            });
-	        }
-
-	        /**
-	         * Set the status bar to a specific named color. Valid options:
-	         * black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
-	         *
-	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-	         *
-	         * @param name the name of the color (from above)
-	         */
-	    }, {
-	        key: "setNamedColor",
-	        value: function setNamedColor(name) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.backgroundColorByName(name);
-	            });
-	        }
-
-	        /**
-	         * Set whether the status bar overlays the main app view. The default
-	         * is true.
-	         *
-	         * @param doesOverlay whether the status bar overlays the main app view.
-	         */
-	    }, {
-	        key: "setOverlays",
-	        value: function setOverlays(doesOverlay) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.overlaysWebView(doesOverlay);
-	            });
-	        }
-	    }]);
-
-	    return StatusBar;
-	})();
-	exports.StatusBar = _StatusBar;
-	_StatusBar.DEFAULT = 0;
-	_StatusBar.LIGHT_CONTENT = 1;
-	_StatusBar.BLACK_TRANSLUCENT = 2;
-	_StatusBar.BLACK_OPAQUE = 3;
-	_StatusBar = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'StatusBar',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-statusbar'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!window.StatusBar;
-	    }
-	}), __metadata('design:paramtypes', [])], _StatusBar);
-
-/***/ },
-/* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(495);
-
-	/**
-	* Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
-	*
-	* @usage
-	* ```js
-	* Vibration.vibrate();
-	* ```
-	*/
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key), void 0;
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Vibration = (function () {
-	    function Vibration() {
-	        _classCallCheck(this, Vibration);
-	    }
-
-	    _createClass(Vibration, null, [{
-	        key: "vibrate",
-
-	        /**
-	         * Vibrate the device. Note: iOS does not support the pattern parameter.
-	         *
-	         * @param pattern the vibration pattern in ms to use [1000,1000,1000] (vibrate three times, one second each)
-	         */
-	        value: function vibrate(pattern) {
-	            if (!navigator.vibrate) {
-	                this.pluginWarn();
-	                console.log('Vibrate (dev): ', pattern);
-	            } else {
-	                navigator.vibrate(pattern);
-	            }
-	        }
-	    }]);
-
-	    return Vibration;
-	})();
-	exports.Vibration = Vibration;
-	exports.Vibration = Vibration = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Vibration',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-vibration'
-	    }
-	}), __metadata('design:paramtypes', [])], Vibration);
-
-/***/ },
-/* 509 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72738,20 +71011,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _storageStorage = __webpack_require__(510);
+	var _storageStorage = __webpack_require__(496);
 
 	_defaults(exports, _interopExportWildcard(_storageStorage, _defaults));
 
-	var _storageLocalStorage = __webpack_require__(511);
+	var _storageLocalStorage = __webpack_require__(497);
 
 	_defaults(exports, _interopExportWildcard(_storageLocalStorage, _defaults));
 
-	var _storageSql = __webpack_require__(512);
+	var _storageSql = __webpack_require__(498);
 
 	_defaults(exports, _interopExportWildcard(_storageSql, _defaults));
 
 /***/ },
-/* 510 */
+/* 496 */
 /***/ function(module, exports) {
 
 	/**
@@ -72850,7 +71123,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 511 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72867,7 +71140,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(510);
+	var _storage = __webpack_require__(496);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -72933,7 +71206,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 512 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72952,7 +71225,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(510);
+	var _storage = __webpack_require__(496);
 
 	var _ionicUtil = __webpack_require__(430);
 
@@ -73184,7 +71457,7 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 513 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73258,7 +71531,7 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 514 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73269,7 +71542,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(460);
+	var _transition = __webpack_require__(461);
 
 	var _animationsAnimation = __webpack_require__(429);
 
@@ -73409,7 +71682,7 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 515 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73420,7 +71693,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(460);
+	var _transition = __webpack_require__(461);
 
 	var _animationsAnimation = __webpack_require__(429);
 
@@ -73435,7 +71708,6 @@
 	    function MDTransition(navCtrl, opts) {
 	        _classCallCheck(this, MDTransition);
 
-	        //opts.renderDelay = 80;
 	        _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
 	        // what direction is the transition going
 	        var backDirection = opts.direction === 'back';
@@ -73480,7 +71752,7 @@
 	_transition.Transition.register('md', MDTransition);
 
 /***/ },
-/* 516 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73495,7 +71767,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _translate = __webpack_require__(440);
+	var _translate = __webpack_require__(441);
 
 	/**
 	 * The Translate pipe makes it easy to translate strings.
@@ -73557,7 +71829,7 @@
 	var _a;
 
 /***/ },
-/* 517 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73570,13 +71842,13 @@
 
 	var _ionicIonic = __webpack_require__(43);
 
-	var _menusMenus = __webpack_require__(518);
+	var _menusMenus = __webpack_require__(504);
 
-	var _actionSheetsActionSheets = __webpack_require__(521);
+	var _actionSheetsActionSheets = __webpack_require__(507);
 
 	var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -73660,7 +71932,7 @@
 	var _a, _b;
 
 /***/ },
-/* 518 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73673,12 +71945,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(519);
+	var _basicPages = __webpack_require__(505);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 519 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73695,7 +71967,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -73761,7 +72033,7 @@
 	}), __metadata('design:paramtypes', [])], PageThree);
 
 /***/ },
-/* 520 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73782,55 +72054,55 @@
 
 	var _ionicIonic = __webpack_require__(43);
 
-	var _actionSheetsActionSheets = __webpack_require__(521);
+	var _actionSheetsActionSheets = __webpack_require__(507);
 
 	var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
 
-	var _buttonsButtons = __webpack_require__(523);
+	var _buttonsButtons = __webpack_require__(509);
 
 	var buttons = _interopRequireWildcard(_buttonsButtons);
 
-	var _cardsCards = __webpack_require__(534);
+	var _cardsCards = __webpack_require__(520);
 
 	var cards = _interopRequireWildcard(_cardsCards);
 
-	var _labelsLabels = __webpack_require__(543);
+	var _labelsLabels = __webpack_require__(529);
 
 	var labels = _interopRequireWildcard(_labelsLabels);
 
-	var _iconsIcons = __webpack_require__(551);
+	var _iconsIcons = __webpack_require__(537);
 
 	var icons = _interopRequireWildcard(_iconsIcons);
 
-	var _inputsInputs = __webpack_require__(553);
+	var _inputsInputs = __webpack_require__(539);
 
 	var inputs = _interopRequireWildcard(_inputsInputs);
 
-	var _listsLists = __webpack_require__(560);
+	var _listsLists = __webpack_require__(547);
 
 	var lists = _interopRequireWildcard(_listsLists);
 
-	var _menusMenus = __webpack_require__(518);
+	var _menusMenus = __webpack_require__(504);
 
 	var menus = _interopRequireWildcard(_menusMenus);
 
-	var _modalsModals = __webpack_require__(569);
+	var _modalsModals = __webpack_require__(556);
 
 	var modals = _interopRequireWildcard(_modalsModals);
 
-	var _navigationNavigation = __webpack_require__(571);
+	var _navigationNavigation = __webpack_require__(558);
 
 	var navigation = _interopRequireWildcard(_navigationNavigation);
 
-	var _popupsPopups = __webpack_require__(573);
+	var _popupsPopups = __webpack_require__(560);
 
 	var popups = _interopRequireWildcard(_popupsPopups);
 
-	var _slidesSlides = __webpack_require__(575);
+	var _slidesSlides = __webpack_require__(562);
 
 	var slides = _interopRequireWildcard(_slidesSlides);
 
-	var _tabsTabs = __webpack_require__(577);
+	var _tabsTabs = __webpack_require__(564);
 
 	var tabs = _interopRequireWildcard(_tabsTabs);
 
@@ -73923,6 +72195,7 @@
 	        'segment': inputs.SegmentPage,
 	        'select': inputs.SelectPage,
 	        'switch': inputs.SwitchPage,
+	        'search': inputs.SearchPage,
 	        'inputs': labels.BasicPage,
 	        'fixed-inline-labels': labels.FixedInlinePage,
 	        'floating-labels': labels.FloatingPage,
@@ -73971,7 +72244,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 521 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73984,12 +72257,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(522);
+	var _basicPages = __webpack_require__(508);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 522 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74006,7 +72279,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74107,7 +72380,7 @@
 	var _a, _b;
 
 /***/ },
-/* 523 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74120,48 +72393,48 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(524);
+	var _basicPages = __webpack_require__(510);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _blockPages = __webpack_require__(525);
+	var _blockPages = __webpack_require__(511);
 
 	_defaults(exports, _interopExportWildcard(_blockPages, _defaults));
 
-	var _clearPages = __webpack_require__(526);
+	var _clearPages = __webpack_require__(512);
 
 	_defaults(exports, _interopExportWildcard(_clearPages, _defaults));
 
-	var _componentsPages = __webpack_require__(527);
+	var _componentsPages = __webpack_require__(513);
 
 	_defaults(exports, _interopExportWildcard(_componentsPages, _defaults));
 
-	var _fabPages = __webpack_require__(528);
+	var _fabPages = __webpack_require__(514);
 
 	_defaults(exports, _interopExportWildcard(_fabPages, _defaults));
 
-	var _fullPages = __webpack_require__(529);
+	var _fullPages = __webpack_require__(515);
 
 	_defaults(exports, _interopExportWildcard(_fullPages, _defaults));
 
-	var _iconsPages = __webpack_require__(530);
+	var _iconsPages = __webpack_require__(516);
 
 	_defaults(exports, _interopExportWildcard(_iconsPages, _defaults));
 
-	var _outlinePages = __webpack_require__(531);
+	var _outlinePages = __webpack_require__(517);
 
 	_defaults(exports, _interopExportWildcard(_outlinePages, _defaults));
 
-	var _roundPages = __webpack_require__(532);
+	var _roundPages = __webpack_require__(518);
 
 	_defaults(exports, _interopExportWildcard(_roundPages, _defaults));
 
-	var _sizesPages = __webpack_require__(533);
+	var _sizesPages = __webpack_require__(519);
 
 	_defaults(exports, _interopExportWildcard(_sizesPages, _defaults));
 
 /***/ },
-/* 524 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74176,7 +72449,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74210,7 +72483,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 525 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74225,7 +72498,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74259,7 +72532,7 @@
 	}), __metadata('design:paramtypes', [])], BlockPage);
 
 /***/ },
-/* 526 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74274,7 +72547,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74308,7 +72581,7 @@
 	}), __metadata('design:paramtypes', [])], ClearPage);
 
 /***/ },
-/* 527 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74323,7 +72596,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74357,7 +72630,7 @@
 	}), __metadata('design:paramtypes', [])], ComponentsPage);
 
 /***/ },
-/* 528 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74372,7 +72645,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74406,7 +72679,7 @@
 	}), __metadata('design:paramtypes', [])], FabPage);
 
 /***/ },
-/* 529 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74421,7 +72694,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74455,7 +72728,7 @@
 	}), __metadata('design:paramtypes', [])], FullPage);
 
 /***/ },
-/* 530 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74470,7 +72743,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74504,7 +72777,7 @@
 	}), __metadata('design:paramtypes', [])], IconsPage);
 
 /***/ },
-/* 531 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74519,7 +72792,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74553,7 +72826,7 @@
 	}), __metadata('design:paramtypes', [])], OutlinePage);
 
 /***/ },
-/* 532 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74568,7 +72841,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74602,7 +72875,7 @@
 	}), __metadata('design:paramtypes', [])], RoundPage);
 
 /***/ },
-/* 533 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74617,7 +72890,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74651,7 +72924,7 @@
 	}), __metadata('design:paramtypes', [])], SizesPage);
 
 /***/ },
-/* 534 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74664,40 +72937,40 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _advancedMapPages = __webpack_require__(535);
+	var _advancedMapPages = __webpack_require__(521);
 
 	_defaults(exports, _interopExportWildcard(_advancedMapPages, _defaults));
 
-	var _advancedSocialPages = __webpack_require__(536);
+	var _advancedSocialPages = __webpack_require__(522);
 
 	_defaults(exports, _interopExportWildcard(_advancedSocialPages, _defaults));
 
-	var _advancedWeatherPages = __webpack_require__(537);
+	var _advancedWeatherPages = __webpack_require__(523);
 
 	_defaults(exports, _interopExportWildcard(_advancedWeatherPages, _defaults));
 
-	var _backgroundPages = __webpack_require__(538);
+	var _backgroundPages = __webpack_require__(524);
 
 	_defaults(exports, _interopExportWildcard(_backgroundPages, _defaults));
 
-	var _basicPages = __webpack_require__(539);
+	var _basicPages = __webpack_require__(525);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _headerPages = __webpack_require__(540);
+	var _headerPages = __webpack_require__(526);
 
 	_defaults(exports, _interopExportWildcard(_headerPages, _defaults));
 
-	var _imagePages = __webpack_require__(541);
+	var _imagePages = __webpack_require__(527);
 
 	_defaults(exports, _interopExportWildcard(_imagePages, _defaults));
 
-	var _listPages = __webpack_require__(542);
+	var _listPages = __webpack_require__(528);
 
 	_defaults(exports, _interopExportWildcard(_listPages, _defaults));
 
 /***/ },
-/* 535 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74712,7 +72985,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74746,7 +73019,7 @@
 	}), __metadata('design:paramtypes', [])], AdvancedMapPage);
 
 /***/ },
-/* 536 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74761,7 +73034,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74795,7 +73068,7 @@
 	}), __metadata('design:paramtypes', [])], AdvancedSocialPage);
 
 /***/ },
-/* 537 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74810,7 +73083,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74844,7 +73117,7 @@
 	}), __metadata('design:paramtypes', [])], AdvancedWeatherPage);
 
 /***/ },
-/* 538 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74859,7 +73132,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74893,7 +73166,7 @@
 	}), __metadata('design:paramtypes', [])], BackgroundPage);
 
 /***/ },
-/* 539 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74908,7 +73181,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74942,7 +73215,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 540 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74957,7 +73230,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -74991,7 +73264,7 @@
 	}), __metadata('design:paramtypes', [])], HeaderPage);
 
 /***/ },
-/* 541 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75006,7 +73279,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75040,7 +73313,7 @@
 	}), __metadata('design:paramtypes', [])], ImagePage);
 
 /***/ },
-/* 542 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75055,7 +73328,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75089,7 +73362,7 @@
 	}), __metadata('design:paramtypes', [])], ListPage);
 
 /***/ },
-/* 543 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75102,36 +73375,36 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(544);
+	var _basicPages = __webpack_require__(530);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _fixedInlinePages = __webpack_require__(545);
+	var _fixedInlinePages = __webpack_require__(531);
 
 	_defaults(exports, _interopExportWildcard(_fixedInlinePages, _defaults));
 
-	var _floatingPages = __webpack_require__(546);
+	var _floatingPages = __webpack_require__(532);
 
 	_defaults(exports, _interopExportWildcard(_floatingPages, _defaults));
 
-	var _inlinePages = __webpack_require__(547);
+	var _inlinePages = __webpack_require__(533);
 
 	_defaults(exports, _interopExportWildcard(_inlinePages, _defaults));
 
-	var _insetPages = __webpack_require__(548);
+	var _insetPages = __webpack_require__(534);
 
 	_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
 
-	var _placeholderPages = __webpack_require__(549);
+	var _placeholderPages = __webpack_require__(535);
 
 	_defaults(exports, _interopExportWildcard(_placeholderPages, _defaults));
 
-	var _stackedPages = __webpack_require__(550);
+	var _stackedPages = __webpack_require__(536);
 
 	_defaults(exports, _interopExportWildcard(_stackedPages, _defaults));
 
 /***/ },
-/* 544 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75148,7 +73421,7 @@
 
 	var _ionicIonic = __webpack_require__(43);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75200,7 +73473,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 545 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75215,7 +73488,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75249,7 +73522,7 @@
 	}), __metadata('design:paramtypes', [])], FixedInlinePage);
 
 /***/ },
-/* 546 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75264,7 +73537,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75298,7 +73571,7 @@
 	}), __metadata('design:paramtypes', [])], FloatingPage);
 
 /***/ },
-/* 547 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75313,7 +73586,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75347,7 +73620,7 @@
 	}), __metadata('design:paramtypes', [])], InlinePage);
 
 /***/ },
-/* 548 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75362,7 +73635,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75396,7 +73669,7 @@
 	}), __metadata('design:paramtypes', [])], InsetPage);
 
 /***/ },
-/* 549 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75411,7 +73684,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75445,7 +73718,7 @@
 	}), __metadata('design:paramtypes', [])], PlaceholderPage);
 
 /***/ },
-/* 550 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75460,7 +73733,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75494,7 +73767,7 @@
 	}), __metadata('design:paramtypes', [])], StackedPage);
 
 /***/ },
-/* 551 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75507,12 +73780,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(552);
+	var _basicPages = __webpack_require__(538);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 552 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75527,7 +73800,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75561,7 +73834,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 553 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75574,32 +73847,36 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _checkboxPages = __webpack_require__(554);
+	var _checkboxPages = __webpack_require__(540);
 
 	_defaults(exports, _interopExportWildcard(_checkboxPages, _defaults));
 
-	var _radioPages = __webpack_require__(555);
+	var _radioPages = __webpack_require__(541);
 
 	_defaults(exports, _interopExportWildcard(_radioPages, _defaults));
 
-	var _rangePages = __webpack_require__(556);
+	var _rangePages = __webpack_require__(542);
 
 	_defaults(exports, _interopExportWildcard(_rangePages, _defaults));
 
-	var _segmentPages = __webpack_require__(557);
+	var _searchPages = __webpack_require__(543);
+
+	_defaults(exports, _interopExportWildcard(_searchPages, _defaults));
+
+	var _segmentPages = __webpack_require__(544);
 
 	_defaults(exports, _interopExportWildcard(_segmentPages, _defaults));
 
-	var _selectPages = __webpack_require__(558);
+	var _selectPages = __webpack_require__(545);
 
 	_defaults(exports, _interopExportWildcard(_selectPages, _defaults));
 
-	var _switchPages = __webpack_require__(559);
+	var _switchPages = __webpack_require__(546);
 
 	_defaults(exports, _interopExportWildcard(_switchPages, _defaults));
 
 /***/ },
-/* 554 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75614,7 +73891,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75648,7 +73925,7 @@
 	}), __metadata('design:paramtypes', [])], CheckboxPage);
 
 /***/ },
-/* 555 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75665,7 +73942,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -75701,7 +73978,7 @@
 	}), __metadata('design:paramtypes', [])], RadioPage);
 
 /***/ },
-/* 556 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75716,7 +73993,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75750,7 +74027,81 @@
 	}), __metadata('design:paramtypes', [])], RangePage);
 
 /***/ },
-/* 557 */
+/* 543 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicIonic = __webpack_require__(43);
+
+	var _angular2Angular2 = __webpack_require__(45);
+
+	var _helpers = __webpack_require__(506);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key), void 0;
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var SearchPage = (function () {
+	    function SearchPage() {
+	        _classCallCheck(this, SearchPage);
+
+	        this.searchQuery = '';
+	        this.items = ['Amsterdam', 'Bogota', 'Buenos Aires', 'Cairo', 'Dhaka', 'Edinburgh', 'Geneva', 'Genoa', 'Glasglow', 'Hanoi', 'Hong Kong', 'Islamabad', 'Istanbul', 'Jakarta', 'Kiel', 'Kyoto', 'Le Havre', 'Lebanon', 'Lhasa', 'Lima', 'London', 'Los Angeles', 'Madrid', 'Manila', 'New York', 'Olympia', 'Oslo', 'Panama City', 'Peking', 'Philadelphia', 'San Francisco', 'Seoul', 'Taipeh', 'Tel Aviv', 'Tokio', 'Uelzen', 'Washington'];
+	    }
+
+	    _createClass(SearchPage, [{
+	        key: "getItems",
+	        value: function getItems() {
+	            var q = this.searchQuery;
+	            if (q.trim() == '') {
+	                return this.items;
+	            }
+	            return this.items.filter(function (v) {
+	                if (v.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+	                    return true;
+	                }
+	                return false;
+	            });
+	        }
+	    }]);
+
+	    return SearchPage;
+	})();
+	exports.SearchPage = SearchPage;
+	exports.SearchPage = SearchPage = __decorate([(0, _ionicIonic.Page)({
+	    templateUrl: 'inputs/search/template.html',
+	    directives: [(0, _angular2Angular2.forwardRef)(function () {
+	        return _helpers.AndroidAttribute;
+	    })]
+	}), __metadata('design:paramtypes', [])], SearchPage);
+
+/***/ },
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75765,7 +74116,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75801,7 +74152,7 @@
 	}), __metadata('design:paramtypes', [])], SegmentPage);
 
 /***/ },
-/* 558 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75816,7 +74167,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75850,7 +74201,7 @@
 	}), __metadata('design:paramtypes', [])], SelectPage);
 
 /***/ },
-/* 559 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75865,7 +74216,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75899,7 +74250,7 @@
 	}), __metadata('design:paramtypes', [])], SwitchPage);
 
 /***/ },
-/* 560 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75912,40 +74263,40 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _avatarPages = __webpack_require__(561);
+	var _avatarPages = __webpack_require__(548);
 
 	_defaults(exports, _interopExportWildcard(_avatarPages, _defaults));
 
-	var _basicPages = __webpack_require__(562);
+	var _basicPages = __webpack_require__(549);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _headersPages = __webpack_require__(563);
+	var _headersPages = __webpack_require__(550);
 
 	_defaults(exports, _interopExportWildcard(_headersPages, _defaults));
 
-	var _iconPages = __webpack_require__(564);
+	var _iconPages = __webpack_require__(551);
 
 	_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
 
-	var _insetPages = __webpack_require__(565);
+	var _insetPages = __webpack_require__(552);
 
 	_defaults(exports, _interopExportWildcard(_insetPages, _defaults));
 
-	var _noLinesPages = __webpack_require__(566);
+	var _noLinesPages = __webpack_require__(553);
 
 	_defaults(exports, _interopExportWildcard(_noLinesPages, _defaults));
 
-	var _multilinePages = __webpack_require__(567);
+	var _multilinePages = __webpack_require__(554);
 
 	_defaults(exports, _interopExportWildcard(_multilinePages, _defaults));
 
-	var _thumbnailPages = __webpack_require__(568);
+	var _thumbnailPages = __webpack_require__(555);
 
 	_defaults(exports, _interopExportWildcard(_thumbnailPages, _defaults));
 
 /***/ },
-/* 561 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75960,7 +74311,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -75994,7 +74345,7 @@
 	}), __metadata('design:paramtypes', [])], AvatarPage);
 
 /***/ },
-/* 562 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76009,7 +74360,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76043,7 +74394,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 563 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76058,7 +74409,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76092,7 +74443,7 @@
 	}), __metadata('design:paramtypes', [])], HeadersPage);
 
 /***/ },
-/* 564 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76107,7 +74458,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76141,7 +74492,7 @@
 	}), __metadata('design:paramtypes', [])], IconPage);
 
 /***/ },
-/* 565 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76156,7 +74507,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76190,7 +74541,7 @@
 	}), __metadata('design:paramtypes', [])], InsetPage);
 
 /***/ },
-/* 566 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76205,7 +74556,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76239,7 +74590,7 @@
 	}), __metadata('design:paramtypes', [])], NoLinesPage);
 
 /***/ },
-/* 567 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76254,7 +74605,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76288,7 +74639,7 @@
 	}), __metadata('design:paramtypes', [])], MultilinePage);
 
 /***/ },
-/* 568 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76303,7 +74654,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76337,7 +74688,7 @@
 	}), __metadata('design:paramtypes', [])], ThumbnailPage);
 
 /***/ },
-/* 569 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76350,12 +74701,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(570);
+	var _basicPages = __webpack_require__(557);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 570 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76374,7 +74725,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -76496,7 +74847,7 @@
 	var _a, _b, _c, _d, _e;
 
 /***/ },
-/* 571 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76509,12 +74860,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(572);
+	var _basicPages = __webpack_require__(559);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 572 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76533,7 +74884,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -76610,7 +74961,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 573 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76623,12 +74974,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(574);
+	var _basicPages = __webpack_require__(561);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 574 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76643,7 +74994,7 @@
 
 	var _ionicIonic = __webpack_require__(43);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var _angular2Angular2 = __webpack_require__(45);
 
@@ -76726,7 +75077,7 @@
 	var _a;
 
 /***/ },
-/* 575 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76739,12 +75090,12 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(576);
+	var _basicPages = __webpack_require__(563);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
 /***/ },
-/* 576 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76759,7 +75110,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -76793,7 +75144,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 577 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76806,20 +75157,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _basicPages = __webpack_require__(578);
+	var _basicPages = __webpack_require__(565);
 
 	_defaults(exports, _interopExportWildcard(_basicPages, _defaults));
 
-	var _iconPages = __webpack_require__(579);
+	var _iconPages = __webpack_require__(566);
 
 	_defaults(exports, _interopExportWildcard(_iconPages, _defaults));
 
-	var _iconTextPages = __webpack_require__(580);
+	var _iconTextPages = __webpack_require__(567);
 
 	_defaults(exports, _interopExportWildcard(_iconTextPages, _defaults));
 
 /***/ },
-/* 578 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76836,7 +75187,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -76861,21 +75212,21 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabTextCtrl = function TabTextCtrl() {
-	    _classCallCheck(this, TabTextCtrl);
+	var TabTextPage = function TabTextPage() {
+	    _classCallCheck(this, TabTextPage);
 	};
-	TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabTextPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabTextCtrl);
+	}), __metadata('design:paramtypes', [])], TabTextPage);
 	var BasicPage = function BasicPage() {
 	    _classCallCheck(this, BasicPage);
 
-	    this.tabOne = TabTextCtrl;
-	    this.tabTwo = TabTextCtrl;
-	    this.tabThree = TabTextCtrl;
+	    this.tabOne = TabTextPage;
+	    this.tabTwo = TabTextPage;
+	    this.tabThree = TabTextPage;
 	};
 	exports.BasicPage = BasicPage;
 	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
@@ -76883,7 +75234,7 @@
 	}), __metadata('design:paramtypes', [])], BasicPage);
 
 /***/ },
-/* 579 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76900,7 +75251,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -76925,22 +75276,22 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconCtrl = function TabIconCtrl() {
-	    _classCallCheck(this, TabIconCtrl);
+	var TabIconPage = function TabIconPage() {
+	    _classCallCheck(this, TabIconPage);
 	};
-	TabIconCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabIconPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabIconCtrl);
+	}), __metadata('design:paramtypes', [])], TabIconPage);
 	var IconPage = function IconPage() {
 	    _classCallCheck(this, IconPage);
 
-	    this.tabOne = TabIconCtrl;
-	    this.tabTwo = TabIconCtrl;
-	    this.tabThree = TabIconCtrl;
-	    this.tabFour = TabIconCtrl;
+	    this.tabOne = TabIconPage;
+	    this.tabTwo = TabIconPage;
+	    this.tabThree = TabIconPage;
+	    this.tabFour = TabIconPage;
 	};
 	exports.IconPage = IconPage;
 	exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
@@ -76948,7 +75299,7 @@
 	}), __metadata('design:paramtypes', [])], IconPage);
 
 /***/ },
-/* 580 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76965,7 +75316,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _helpers = __webpack_require__(520);
+	var _helpers = __webpack_require__(506);
 
 	var helpers = _interopRequireWildcard(_helpers);
 
@@ -76990,22 +75341,22 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 
-	var TabIconTextCtrl = function TabIconTextCtrl() {
-	    _classCallCheck(this, TabIconTextCtrl);
+	var TabIconTextPage = function TabIconTextPage() {
+	    _classCallCheck(this, TabIconTextPage);
 	};
-	TabIconTextCtrl = __decorate([(0, _ionicIonic.Page)({
+	TabIconTextPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], TabIconTextCtrl);
+	}), __metadata('design:paramtypes', [])], TabIconTextPage);
 	var IconTextPage = function IconTextPage() {
 	    _classCallCheck(this, IconTextPage);
 
-	    this.tabOne = TabIconTextCtrl;
-	    this.tabTwo = TabIconTextCtrl;
-	    this.tabThree = TabIconTextCtrl;
-	    this.tabFour = TabIconTextCtrl;
+	    this.tabOne = TabIconTextPage;
+	    this.tabTwo = TabIconTextPage;
+	    this.tabThree = TabIconTextPage;
+	    this.tabFour = TabIconTextPage;
 	};
 	exports.IconTextPage = IconTextPage;
 	exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({

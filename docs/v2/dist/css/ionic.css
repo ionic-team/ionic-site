@@ -490,7 +490,7 @@ ion-loading-icon {
     color: #387ef5;
     box-shadow: none; }
 
-.toolbar .toolbar-background {
+.toolbar toolbar-background {
   position: absolute;
   left: 0;
   top: 0;
@@ -501,6 +501,17 @@ ion-loading-icon {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
   pointer-events: none; }
+
+toolbar-content {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-ordinal-group: 31;
+  -webkit-order: 30;
+  -ms-flex-order: 30;
+  order: 30; }
 
 .toolbar button:hover:not(.disable-hover),
 .toolbar [button]:hover:not(.disable-hover),
@@ -515,23 +526,11 @@ ion-loading-icon {
   -ms-flex-order: 10;
   order: 10; }
 
-.toolbar-inner {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%; }
-
 ion-title {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  -webkit-box-ordinal-group: 31;
-  -webkit-order: 30;
-  -ms-flex-order: 30;
-  order: 30;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -599,7 +598,7 @@ ion-nav-items textarea,
 ion-nav-items div {
   pointer-events: auto; }
 
-.toolbar[primary] .toolbar-background {
+.toolbar[primary] toolbar-background {
   background-color: #387ef5;
   border-color: #0c60ee; }
 
@@ -611,7 +610,7 @@ ion-nav-items div {
 .toolbar[primary] a {
   color: #fff; }
 
-.toolbar[secondary] .toolbar-background {
+.toolbar[secondary] toolbar-background {
   background-color: #32db64;
   border-color: #21b94e; }
 
@@ -623,7 +622,7 @@ ion-nav-items div {
 .toolbar[secondary] a {
   color: #fff; }
 
-.toolbar[danger] .toolbar-background {
+.toolbar[danger] toolbar-background {
   background-color: #f53d3d;
   border-color: #f30c0c; }
 
@@ -635,7 +634,7 @@ ion-nav-items div {
 .toolbar[danger] a {
   color: #fff; }
 
-.toolbar[light] .toolbar-background {
+.toolbar[light] toolbar-background {
   background-color: #f4f4f4;
   border-color: #dbdbdb; }
 
@@ -647,7 +646,7 @@ ion-nav-items div {
 .toolbar[light] a {
   color: #000; }
 
-.toolbar[dark] .toolbar-background {
+.toolbar[dark] toolbar-background {
   background-color: #222;
   border-color: #090909; }
 
@@ -5366,15 +5365,6 @@ icon,
 .ion-social-youtube:before {
   content: "\f24d"; }
 
-.platform-cordova.platform-ios ion-navbar-section,
-.platform-cordova.platform-ios ion-navbar,
-.platform-cordova.platform-ios ion-menu > ion-toolbar {
-  min-height: 64px;
-  height: 64px; }
-
-.platform-cordova.platform-ios .toolbar-inner {
-  margin-top: 20px; }
-
 .ios {
   /*! Ionic: iOS */ }
   .ios hr {
@@ -5597,7 +5587,7 @@ icon,
       margin: 0;
       min-width: 18px;
       font-size: 3.2rem; }
-  .ios .toolbar .toolbar-background {
+  .ios .toolbar toolbar-background {
     border-bottom-width: 1px;
     border-bottom-style: solid; }
   .ios ion-title {
@@ -5632,7 +5622,7 @@ icon,
     -webkit-order: 50;
     -ms-flex-order: 50;
     order: 50; }
-  .ios.hairlines .toolbar .toolbar-background {
+  .ios.hairlines .toolbar toolbar-background {
     border-bottom-width: 0.55px; }
   .ios ion-action-sheet {
     text-align: center; }
@@ -6326,6 +6316,15 @@ icon,
     border-color: #dbdbdb; }
   .ios tabbar[dark] {
     border-color: #090909; }
+  .ios.platform-cordova.platform-ios ion-navbar-section,
+  .ios.platform-cordova.platform-ios ion-navbar,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar {
+    min-height: 6.4rem;
+    height: 6.4rem; }
+  .ios.platform-cordova.platform-ios ion-navbar,
+  .ios.platform-cordova.platform-ios ion-navbar ion-title,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar {
+    padding-top: 2rem; }
 
 .md {
   /*! Ionic: Material Design */ }
@@ -7103,7 +7102,6 @@ icon,
       background-color: transparent;
       border-color: #387ef5; }
   .md .toolbar ion-segment {
-    width: 95%;
     margin: 0 auto; }
   .md ion-segment[primary] ion-segment-button[button] {
     background-color: transparent;

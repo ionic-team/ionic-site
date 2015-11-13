@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L60'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L60'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">Navbar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L49-L138">ionic/components/navbar/navbar.ts (line 49)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L61-L158">ionic/components/navbar/navbar.ts (line 61)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-navbar</span>
@@ -122,6 +122,40 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="setBackButtonTextRef"></div>
 <h2>
   <code>setBackButtonTextRef()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setBackgroundRef"></div>
+<h2>
+  <code>setBackgroundRef()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getBackgroundRef"></div>
+<h2>
+  <code>getBackgroundRef()</code>
 
 </h2>
 

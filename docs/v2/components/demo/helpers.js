@@ -131,6 +131,7 @@ function hasScrollbar() {
 
 function getPageFor(hash) {
     return ({
+        'overview': actionSheets.BasicPage,
         'action-sheets': actionSheets.BasicPage,
         'buttons': buttons.BasicPage,
         'block-buttons': buttons.BlockPage,

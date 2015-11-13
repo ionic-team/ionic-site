@@ -37,21 +37,21 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabTextCtrl = function TabTextCtrl() {
-    _classCallCheck(this, TabTextCtrl);
+var TabTextPage = function TabTextPage() {
+    _classCallCheck(this, TabTextPage);
 };
-TabTextCtrl = __decorate([(0, _ionicIonic.Page)({
+TabTextPage = __decorate([(0, _ionicIonic.Page)({
     template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], TabTextCtrl);
+}), __metadata('design:paramtypes', [])], TabTextPage);
 var BasicPage = function BasicPage() {
     _classCallCheck(this, BasicPage);
 
-    this.tabOne = TabTextCtrl;
-    this.tabTwo = TabTextCtrl;
-    this.tabThree = TabTextCtrl;
+    this.tabOne = TabTextPage;
+    this.tabTwo = TabTextPage;
+    this.tabThree = TabTextPage;
 };
 exports.BasicPage = BasicPage;
 exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({

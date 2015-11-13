@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L3'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L4'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L3'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5-L116">ionic/components/app/app.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4-L115">ionic/components/app/app.ts (line 4)</a>
 </p>
 ## Members
 
@@ -86,23 +86,6 @@ Sets the document title.
     
   </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-<div id="getTitle"></div>
-<h2>
-  <code>getTitle()</code>
-
-</h2>
-
-
-
 
 
 

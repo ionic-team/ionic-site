@@ -39,11 +39,20 @@ docType: "class"
 
 <p>Creates a list-item that can easily be swiped,
 deleted, reordered, edited, and more.</p>
+<p>There are three common ways to use an item: </p>
+<ul>
+<li>Use <code>&lt;ion-item&gt;</code> for something that is only non-clickable text.</li>
+<li>Use <code>&lt;button ion-item&gt;</code> for something that can be clicked/tapped. Typically this element will also have a <code>(click)</code> handler.</li>
+<li>Use <code>&lt;a ion-item&gt;</code> for when the item needs to contain a <code>href</code>.</li>
+</ul>
+<p>By default, <code>&lt;button ion-item&gt;</code> and <code>&lt;a ion-item&gt;</code> will receive a right arrow icon on iOS to signal that tapping the item will reveal more information.
+To hide this icon, add the <code>detail-none</code> attribute to the item (eg: <code>&lt;button ion-item detail-none&gt;</code>). To add the icon when it is not displayed by default, 
+add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&gt;</code>).</p>
 
 
 <h1 class="class export">Item <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L1-L36">ionic/components/item/item.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L1-L47">ionic/components/item/item.ts (line 1)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-item, [ion-item]</span>

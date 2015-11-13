@@ -2,7 +2,7 @@
 .sass-cache
 .DS_Store
 node_modules/
-site/
+_site/
 /.idea/
 .jekyll-metadata
 .tmp

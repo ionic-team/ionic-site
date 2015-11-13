@@ -16,7 +16,7 @@ angular_controller: ComponentsCtrl
 </div> -->
 
 
-# Components
+<h1 id="overview">Components</h1>
 
 Ionic apps are made of high-level building blocks called components. Components allow you to quickly construct an interface for your app. Ionic comes with a number of components, including modals, popups, and cards. Although components are primarily HTML and CSS, some components also include Javascript functionality. Check out the examples below to see what each component looks like, and to learn how to use it. Once you're familiar with the basics, head over to the [API docs](../api) for ideas on how to customize each components.
 

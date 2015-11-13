@@ -10,6 +10,8 @@ function buildforjekyll {
   mkdir ./_site
   cd _site
   git clone https://$GH_AUTH_TOKEN@github.com:driftyco/ionic-site.git .
+  git config --global user.email "perry@ionic.io"
+  git config --global user.name "perry"
 
   echo "Checking out production branch"
   git checkout origin/production -b production

@@ -30,4 +30,6 @@ function buildforjekyll {
   rm -R _site
 }
 
-buildforjekyll
+if [ -d "_scripts" ]; then
+  buildforjekyll
+fi

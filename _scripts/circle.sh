@@ -22,6 +22,7 @@ function buildforjekyll {
 
   echo "Committing to production branch"
   cd ./_site
+  git add .
   git commit -a -m "automated build of $CIRCLE_SHA1"
 
   echo "Pushing production branch to origin"

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+<link href="/css/v2.css?1" rel="stylesheet">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+<script src="/js/ionic-docs.min.js"></script>
+
+<link rel="stylesheet" href="/css/ionic-hljs.css">
+<script src="/js/ionic-highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    <title>Content - Class in module  -  Ionic Framework</title>
+
+  </head>
+  <body id="docs-page-{{Content | slugify}}"
+        class="v2 docs page-{{Content | slugify}}"
+        data-spy="scroll"
+        data-target="#components-index">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="/img/ionic-docs-logo.png" id="ionic-docs-logo" />
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="getting-started/">Getting Started</a></li>
+        <li class="active"><a href="/docs/v2/">Docs</a></li>
+        <li><a href="http://blog.ionic.io/">Blog</a></li>
+        <li><a href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">
+            More <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="http://ionic.io/">
+              Ionic Platform</a></li>
+            <li><a target="_blank" href="http://showcase.ionicframework.com/">
+              Showcase</a></li>
+            <li><a target="_blank" href="http://jobs.ionic.io/">
+              Job Board</a></li>
+            <li><a target="_blank" href="http://market.ionic.io/">
+              Market</a></li>
+            <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+              Ionic Worldwide</a></li>
+            <li><a target="_blank" href="http://play.ionic.io/">
+              Playground</a></li>
+            <li><a target="_blank" href="http://creator.ionic.io/">
+              Creator</a></li>
+            <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <div class="docs-container"
+         ng-app="IonicDocs"
+         >
+      <nav class="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text" class="form-control" placeholder="Search">
+        </form>
+        
+          <form class="form-group api-select">
+  <select name="version"
+        id="version-toggle"
+        onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/v2/nightly/api/"
+   selected>
+    nightly 
+  </option>
+
+  <option
+   value="/docs/v2/api/"
+   >
+    2.0.0 (latest)
+  </option>
+
+</select>
+
+</form>
+<ul ng-controller="DocsNavCtrl">
+  <li class="back-to-main">
+    <a href="/docs/v2">Back to Main Docs</a>
+  </li>
+  <li class="active">
+    <a ng-click="showAPI = !showAPI">API</a>
+    <ul ng-show="showAPI" ng-init="showAPI = true">
+      
+  
+    
+
+    
+  
+<li class="">
+  <a href="/docs/v2/nightly/api"></a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/action-sheet/ActionSheet">ActionSheet</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/animations/Animation">Animation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/App">App</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/applinks/AppLinks">AppLinks</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/Attr">Attr</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/barcode/Barcode">Barcode</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/battery/Battery">Battery</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/blur/Blur">Blur</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/button/Button">Button</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/camera/Camera">Camera</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/checkbox/Checkbox">Checkbox</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/util/ClickBlock">ClickBlock</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/Config">Config</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/ConfigComponent">ConfigComponent</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/contacts/Contacts">Contacts</a>
+</li>
+<li class="active">
+  <a href="/docs/v2/nightly/api/components/content/Content">Content</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device/Device">Device</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device-motion/DeviceMotion">DeviceMotion</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/device-orientation/DeviceOrientation">DeviceOrientation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/dialogs/Dialogs">Dialogs</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/util/Events">Events</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/geolocation/Geolocation">Geolocation</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/show-hide-when/HideWhen">HideWhen</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/icon/Icon">Icon</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/IdRef">IdRef</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/tap-click/initTapClick">initTapClick</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/app/IonicApp">IonicApp</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/ionicProviders">ionicProviders</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ionItem">ionItem</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/radio/ionRadio">ionRadio</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/tap-click/isActivatable">isActivatable</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/Item">Item</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ItemGroup">ItemGroup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ItemGroupTitle">ItemGroupTitle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/item/ItemSlidingOptionButton">ItemSlidingOptionButton</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/keyboard/Keyboard">Keyboard</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/Label">Label</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/list/List">List</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/list/ListHeader">ListHeader</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/LocalStorage">LocalStorage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/Menu">Menu</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuClose">MenuClose</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuToggle">MenuToggle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/menu/MenuType">MenuType</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/modal/Modal">Modal</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/NativePlugin">NativePlugin</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/NativePluginDecorator">NativePluginDecorator</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/Nav">Nav</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/navbar/Navbar">Navbar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/navbar/NavbarTemplate">NavbarTemplate</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavController">NavController</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavParams">NavParams</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavPop">NavPop</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavPush">NavPush</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/NavRouter">NavRouter</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/overlay/OverlayAnchor">OverlayAnchor</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/config/Page">Page</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/Platform">Platform</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/popup/Popup">Popup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/radio/RadioGroup">RadioGroup</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/scroll/Refresher">Refresher</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/scroll/Scroll">Scroll</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/searchbar/Search Bar">Search Bar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/segment/Segment">Segment</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/segment/SegmentButton">SegmentButton</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/show-hide-when/ShowWhen">ShowWhen</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/Slide">Slide</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/SlideLazy">SlideLazy</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/slides/Slides">Slides</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/SqlStorage">SqlStorage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/statusbar/StatusBar">StatusBar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/Storage">Storage</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/storage/StorageEngine">StorageEngine</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/switch/Switch">Switch</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/tabs/Tab">Tab</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/tabs/Tabs">Tabs</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/TextInput">TextInput</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/text-input/TextInputElement">TextInputElement</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/Toolbar">Toolbar</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarBase">ToolbarBase</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarItem">ToolbarItem</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/toolbar/ToolbarTitle">ToolbarTitle</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/transitions/Transition">Transition</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/translation/Translate">Translate</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/translation/TranslatePipe">TranslatePipe</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/platform/vibration/Vibration">Vibration</a>
+</li>
+<li class="">
+  <a href="/docs/v2/nightly/api/components/nav/ViewController">ViewController</a>
+</li>
+
+  
+
+  
+
+
+
+
+    </ul>
+  </li>
+</ul>
+
+        
+      </nav>
+      
+      <main>
+        <div class="improve-docs">
+  <a href="http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8">
+    View Source
+  </a>
+  &nbsp;
+  <a href="http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8">
+    Improve this doc
+  </a>
+</div>
+
+<h1 class="api-title">
+
+  Content
+
+
+
+</h1>
+
+<p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
+<p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
+<p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
+
+<h1 class="class export">Content <span class="type">class</span></h1>
+<p class="module">exported from <a href="undefined">ionic/ionic</a><br />
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L198">ionic/components/content/content.ts (line 9)</a>
+</p>
+<h2>Component</h2>
+<p><span>selector: ion-content</span></p>
+
+<h2 id="members">Members</h2>
+
+<div id="addScrollEventListener"></div>
+<h2>
+  <code>addScrollEventListener(handler)</code>
+
+</h2>
+
+<p>Adds the specified scroll handler to the content’ scroll element.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        handler
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>The scroll event handler.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>Function</code> A function that removes the scroll handler.</li>
+</ul>
+
+<div id="addTouchMoveListener"></div>
+<h2>
+  <code>addTouchMoveListener(handler)</code>
+
+</h2>
+
+<p>Adds the specified touchmove handler to the content’s scroll element.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        handler
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>The touchmove handler.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>Function</code> A function that removes the touchmove handler.</li>
+</ul>
+
+<div id="scrollTo"></div>
+<h2>
+  <code>scrollTo(x, y, duration, tolerance)</code>
+
+</h2>
+
+<p>Scroll to the specified position.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        x
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>The x-value to scroll to.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        y
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>The y-value to scroll to.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        duration
+        
+        
+      </td>
+      <td>
+        
+  <code>Number</code>
+      </td>
+      <td>
+        <p>Duration of the scroll animation.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        tolerance
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>TODO</code> TODO</li>
+</ul>
+
+<div id="scrollToTop"></div>
+<h2>
+  <code>scrollToTop()</code>
+
+</h2>
+
+<div id="getDimensions"></div>
+<h2>
+  <code>getDimensions()</code>
+
+</h2>
+
+<p>Returns the content and scroll elements’ dimensions.</p>
+
+<ul>
+  <li>Returns: <br />
+<code>Object</code> dimensions  The content and scroll elements’ dimensions<br />
+{Number} dimensions.contentHeight  content offsetHeight<br />
+{Number} dimensions.contentTop  content offsetTop<br />
+{Number} dimensions.contentBottom  content offsetTop+offsetHeight<br />
+{Number} dimensions.contentWidth  content offsetWidth<br />
+{Number} dimensions.contentLeft  content offsetLeft<br />
+{Number} dimensions.contentRight  content offsetLeft + offsetWidth<br />
+{Number} dimensions.scrollHeight  scroll scrollHeight<br />
+{Number} dimensions.scrollTop  scroll scrollTop<br />
+{Number} dimensions.scrollBottom  scroll scrollTop + scrollHeight<br />
+{Number} dimensions.scrollWidth  scroll scrollWidth<br />
+{Number} dimensions.scrollLeft  scroll scrollLeft<br />
+{Number} dimensions.scrollRight  scroll scrollLeft + scrollWidth<br />
+TODO: figure out how to get this to work</li>
+</ul>
+
+
+      </main>
+    </div>
+
+  </body>
+</html>

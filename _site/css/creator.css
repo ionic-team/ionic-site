@@ -1,0 +1,306 @@
+
+#creator-bg {
+  width: 100%;
+  height: 850px;
+  background: url('/creator/bg-blurred.jpg') no-repeat transparent;
+  background-size: cover;
+  padding-top: 50px;
+  position: relative;
+}
+
+#creator-preview {
+  display: block;
+  margin: auto;
+  width: 1010px;
+  height: 456px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -505px;
+}
+
+#creator-cta {
+  text-align: center;
+
+}
+#creator-cta h1 {
+  color: #F4F8FF;
+  font-size: 44px;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+  font-weight: normal;
+}
+#creator-cta p {
+  color: #c4daff;
+  font-size: 28px;
+  font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.creator-mention {
+  color: #ebf3ff;
+  font-weight: bold;
+}
+
+#creator-logo {
+  background: url('/creator/ionic-creator-logo.png') no-repeat transparent;
+  width: 61px;
+  height: 61px;
+  margin: 0 auto 40px auto;
+  background-size: 100%;
+}
+
+#creator-form {
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+#creator-form input {
+  /* Sets the height */
+  height: 60px;
+  border: none;
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+#creator-form .btn {
+  /* Sets the height */
+  height: 60px;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f74e6e;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 36px;
+  border-radius: 0;
+  background-color: white;
+  background-image: none;
+  letter-spacing: 4px;
+  padding: 0 20px;
+  transition: linear 0.2s;
+  -moz-transition: linear 0.2s;
+  -webkit-transition: linear 0.2s;
+}
+
+#creator-form .btn:hover {
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  transition: linear 0.2s;
+  -moz-transition: linear 0.2s;
+  -webkit-transition: linear 0.2s;
+}
+
+#creator-form .btn:active {
+  box-shadow: none;
+  background-color: #f0f1f5;
+  transition: linear 0.2s;
+  -moz-transition: linear 0.2s;
+  -webkit-transition: linear 0.2s;
+}
+
+#creator-form input::placeholder {
+  color: #fff;
+}
+#creator-form input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+#creator-form input::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+    opacity:  1;
+}
+#creator-form input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+    opacity:  1;
+}
+#creator-form input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}
+
+#creator-form input:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#creator-icon-drag {
+  background: url('/creator/drag-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 43px;
+  background-size: 100%;
+}
+#creator-icon-templates {
+  background: url('/creator/templates-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 43px;
+  background-size: 100%;
+}
+#creator-icon-export {
+  background: url('/creator/export-icon.png') no-repeat transparent;
+  width: 36px;
+  height: 43px;
+  background-size: 100%;
+}
+
+#creator-perks-title {
+  text-align: center;
+  padding: 50px 0 70px 0;
+}
+#creator-perks-title h1 {
+  text-transform: uppercase;
+  color: #333947;
+  font-size: 36px;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 6px;
+  margin-bottom: 0px;
+}
+
+#creator-perks-title p {
+  color: #5c6579;
+  font-size: 16px;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+.perks-strong-text {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.point-text {
+  max-width: 330px;
+  color: #5c6579;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.point-strong-text {
+  color: #333947;
+  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+#creator-footer {
+  margin-top: 80px;
+  padding: 30px 0;
+  background-color: #f0f1f5;
+  text-align: center;
+}
+
+#creator-footer-logo {
+  background: url('/creator/drifty-footer.png') no-repeat transparent;
+  background-size: 100%;
+  width: 150px;
+  height: 40px;
+}
+#creator-footer-logo-link {
+  margin: 0px auto 20px;
+  width: 150px;
+  height: 40px;
+  display: block;
+  opacity: 1;
+}
+
+#creator-footer p {
+  color: #5c6579;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+#creator-form {
+  position: relative;
+}
+#creator-success-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+}
+#creator-success-wrapper .buttons {
+  line-height: 40px;
+}
+#creator-success-wrapper .follow-buttons {
+  margin-top: 15px;
+}
+#creator-success-wrapper #___plus_0 {
+  vertical-align: middle !important;
+  margin-bottom: -2px !important;
+  margin-left: 15px !important;
+}
+#creator-success-wrapper #___plus_0 iframe {
+  visibility: inherit;
+}
+#creator-success-wrapper iframe {
+  vertical-align: middle;
+}
+#creator-success-wrapper h3 {
+  color: #fff;
+  margin-top: -20px;
+}
+
+@media only screen and (max-width : 768px) {
+  #creator-cta h1 {
+    font-size: 25px;
+  }
+  #creator-signup-wrapper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  #creator-cta p {
+    font-size: 18px;
+  }
+  #creator-bg {
+    height: 800px;
+  }
+}
+@media only screen and (max-width : 400px) {
+  #creator-success-wrapper h3 {
+    margin-top: -33px;
+  }
+  #creator-logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  #creator-form input {
+    font-size: 16px;
+  }
+  #creator-form .btn {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  #creator-preview {
+    width: 320px;
+    height: auto;
+    margin-left: -160px;
+  }
+  #creator-bg {
+    height: 515px;
+  }
+  #creator-success-wrapper .buttons {
+    margin-top: -15px;
+  }
+  #creator-success-wrapper .follow-buttons {
+    margin-top: -3px;
+  }
+}

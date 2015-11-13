@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Ionic Framework Blog" href="http://ionicframework.com/blog/feed.xml">
+    <title>Ionic Blog</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="blog-page ">
+    <div id="newsletter-bar" class="top">
+        Get Ionic updates and articles on building great cross-platform mobile apps
+        <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+          <input id="fieldEmail" name="cm-jytylh-jytylh" type="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-default btn-sm">Sign up</button>
+        </form>
+    </div>
+    <div id="blog-wrapper">
+      <div id="blog-top">
+        <a href="/"><img id="spinner" src="/img/ionic-logo-blog.png" height="96" style="margin-bottom: 10px;"></a>
+        <h3>The Official <a href="/">Ionic</a> Blog</h3>
+        <h5>The next generation HTML5 hybrid app development SDK</h5>
+      </div>
+      <div id="posts">
+        
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/popup-support/">Popup Support Just Landed</a></h3>
+
+    <div class="post-social">
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Popup Support Just Landed" data-url="http://ionicframework.com/blog/popup-support" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/popup-support"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/popup-support" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 13, 2014</time>
+  </div>
+  
+    <div style="float: right; margin-right: -160px">
+{% include codepen.html id="zkmhJ" %}
+</div>
+
+One great thing about native SDKs is the control they give developers when it comes to common tasks like
+prompting the user for input, or showing a modal dialog.
+
+Unfortunately, the browser built-ins `alert()`, `confirm()`, and `prompt()`, while convenient, are too limiting for
+those that wish to build a really custom mobile app experience.
+
+Based on all the requests and feedback we've gotten from Ionic developers, we knew more powerful popup support was important to you. You want the ability to do things like
+prompt for a password, or have two inputs in a popup. Things that just aren't possible with the built-in browser prompts.
+
+So today we are releasing the first implementation of popup (or "dialog") support in Ionic. Check out the live demo on the right to get a feel for how it works.
+
+We designed the popup experience off of how they function in iOS, meaning the modals can stack and will "pop" off after the most recent one is dismissed.
+
+Since the native browser popups are the only functions that can block the executing Javascript that opens it, our implementation had to make it easy to asynchronously
+return prompt data to your code. We do this through Angular promises.
+
+
+    <a href="/blog/popup-support">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/beta-next-week/">Ionic in TechCrunch, and Beta Coming Soon!</a></h3>
+
+    <div class="post-social">
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Ionic in TechCrunch, and Beta Coming Soon!" data-url="http://ionicframework.com/blog/beta-next-week" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/beta-next-week"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/beta-next-week" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 10, 2014</time>
+  </div>
+  
+    Today we are super excited to announce we've closed $1M in funding from [Arthur Ventures](http://arthurventures.com/), and were featured in a great [TechCrunch writeup](http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/).
+
+With this funding, we are going to focus on making Ionic the best mobile development framework in town, starting with dramatically improving the stability, documentation, and feature set of the framework, and improving our Android and Windows Phone support.
+
+Since we launched the Ionic alpha at the end of November 2013, we've been blown away by your passion and excitement for the project. Today, over 200 new Ionic apps are started every day, and we are delighted by all of the [high quality apps](/examples/showcase/) the community is making.
+
+
+    <a href="/blog/beta-next-week">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/what-is-cordova-phonegap/">The Last Word on Cordova and PhoneGap</a></h3>
+
+    <div class="post-social">
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="The Last Word on Cordova and PhoneGap" data-url="http://ionicframework.com/blog/what-is-cordova-phonegap" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/what-is-cordova-phonegap"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/what-is-cordova-phonegap" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 06, 2014</time>
+  </div>
+  
+    As we've built out Ionic, we've gotten a ton of questions about [Cordova](http://cordova.apache.org/) and [PhoneGap](http://phonegap.com/). These range from confusion with the naming (are Cordova and PhoneGap the same thing?), to a misunderstanding of the goals and capabilities of these projects.
+
+### A quick history lesson
+
+PhoneGap proper was created around 2009 by a startup called Nitobi as an open source way to access the "native" environment through an embedded Web View in a native app. The goal of the project was to make it possible to build the bulk of a mobile app experience with pure web technologies like HTML5, CSS, and Javascript, but still be able to call into native code when necessary.
+
+In 2011 Adobe purchased Nitobi and with it the rights to the PhoneGap brand, and the open source core was donated to the [Apache Software Foundation](http://apache.org/) under the name Cordova.
+
+
+    <a href="/blog/what-is-cordova-phonegap">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/welcome-justin/">Welcome Justin Noel as Forum Manager</a></h3>
+
+    <div class="post-social">
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Welcome Justin Noel as Forum Manager" data-url="http://ionicframework.com/blog/welcome-justin" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/welcome-justin"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/welcome-justin" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on March 03, 2014</time>
+  </div>
+  
+    Today we are happy to announce that [Justin Noel](http://twitter.com/calendee), also known as ([@calendee](http://forum.ionicframework.com/users/calendee/activity)), is joining the Ionic Team as a Community Manager.
+
+You'll be seeing a lot more of Justin on the Ionic Forums, helping out with any quesitons you might have with Ionic, and also triaging issues for the Ionic core dev team.
+
+
+    <a href="/blog/welcome-justin">Read more...</a>
+  
+  <hr>
+</div>
+
+
+<div class="post">
+  <div class="post-info">
+    <h3 class="post-title"><a href="/blog/ionic-directive-prefixes/">Changes to Ionic Directive Naming</a></h3>
+
+    <div class="post-social">
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Changes to Ionic Directive Naming" data-url="http://ionicframework.com/blog/ionic-directive-prefixes" data-via="ionicframework" data-related="ionicframework">Tweet</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://ionicframework.com/blog/ionic-directive-prefixes"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+      <!--<div class="fb-share-button" data-href="http://ionicframework.com/blog/ionic-directive-prefixes" data-type="button_count"></div>-->
+    </div>
+
+    <time class="post-time">By <img src="http://www.gravatar.com/avatar/e130a4be9fba5eb5d932c813fbe3a58d?s=48&amp;d=mm" class="author-icon"><a href="http://twitter.com/maxlynch" target="_blank">@maxlynch</a> on February 20, 2014</time>
+  </div>
+  
+    A few days ago we released Ionic v0.9.25 "Quokka" ([changelog](https://github.com/driftyco/ionic/blob/master/CHANGELOG.md#0925-quokka-2014-02-19)). In addition to lots of bugs getting fixed and a few new features, one big thing that changed was moving Ionic directives to use the `ion-` prefix.
+
+This means instead of using `<side-menus>`, you'll need to start using `<ion-side-menus>`. This applies to any and all Ionic directives, including attribute and class name directives (though we rarely use those).
+
+We thought long and hard about making this change, and at the end of the day we felt it was more clear which directives were powered by Ionic, and safer in the case that
+you had similiar-named directives in your own application.
+
+
+    <a href="/blog/ionic-directive-prefixes">Read more...</a>
+  
+  <hr>
+</div>
+
+
+
+<!-- Pagination links -->
+<div class="clearfix">
+  <div class="pagination">
+    <div class="pull-left">
+      <!--<span class="page_number ">Page: 14 of 17</span>-->
+      
+        <a href="/blog/page15/" class="next">Older</a>
+      
+    </div>
+    <div class="pull-right">
+      
+        
+          <a href="/blog/page13/" class="previous">Newer</a>
+        
+      
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-bottom: 40px;" class="ionic">
+    <a href="http://ionicframework.com/blog/feed.xml">
+      <i class="ion-social-rss"></i>
+      Ionic Blog RSS Feed
+    </a>
+  </p>
+</div>
+
+      </div>
+    </div>
+	
+    <footer class="footer">
+      <p>
+        A <a href="http://drifty.com/">Drifty</a> product
+        created by <a href="https://twitter.com/maxlynch">@maxlynch</a>, 
+        <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and 
+        <a href="https://twitter.com/benjsperry">@benjsperry</a>. Licensed under 
+        <a href="http://opensource.org/licenses/MIT">MIT</a>.
+        <a href="/blog/feed.xml" style="margin-left:15px;">
+          <span class="ionic">
+            <i class="ion-social-rss"></i>
+          </span>
+          RSS
+        </a>
+      </p>
+    </footer>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

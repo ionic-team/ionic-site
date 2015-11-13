@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+
+    
+      <!-- version /docs/1.0.0-beta.12 should not be indexed -->
+      <meta name="robots" content="noindex">
+    
+
+    <title>ionic.DomUtil - Utility in module ionic -  Ionic Framework</title>
+    <link href="/css/site.css?17" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-1', 'ionicframework.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-api">
+
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="/">
+        
+          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+      <a href="http://blog.ionic.io/announcing-ionic-1-0/" target="_blank">
+      <img src="/img/ionic1-tag.png" alt="Ionic 1.0 is out!" width="28" height="32" style="margin-left: 140px; margin-top:22px; display:block">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
+        <li><a class="nav-link" href="http://ionic.io/support">Support</a></li>
+        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="nav-link" href="http://forum.ionicframework.com/">Forum</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="products-nav nav-link" href="http://ionic.io/">Ionic Platform</a></li>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
+            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
+            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+      <div class="container">
+        <h3>ionic.DomUtil</h3>
+        <h4>Utility in module ionic</h4>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 news-col">
+              <div class="picker">
+                <select name="version"
+        id="version-toggle"
+        onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option
+   value="/docs/v2/nightly/api/utility/ionic.DomUtil/"
+   >
+    nightly 
+  </option>
+
+  <option
+   value="/docs/v2/api/utility/ionic.DomUtil/"
+   >
+    2.0.0 (latest)
+  </option>
+
+</select>
+
+              </div>
+            </div>
+            <div class="col-sm-4 search-col">
+              <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/overview/">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/components/">CSS</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/platform-customization/">Platform Customization</a>
+              </li>
+            </ul>
+
+            <!-- Docs: JavaScript -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="/docs/1.0.0-beta.12/api/">
+                  JavaScript
+                </a>
+              </li>
+              
+
+
+
+
+  
+
+
+  <!-- Action Sheet -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicActionSheet/" class="api-section">
+       Action Sheet
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicActionSheet/">
+          $ionicActionSheet
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Backdrop -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicBackdrop/" class="api-section">
+      Backdrop
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicBackdrop/">
+          $ionicBackdrop
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Content -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionContent/" class="api-section">
+       Content
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionContent/">
+           ion-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionRefresher/">
+           ion-refresher
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionPane/">
+           ion-pane
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Events -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/onHold/" class="api-section">
+      Events
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onHold/">
+          on-hold
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onTap/">
+          on-tap
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onTouch/">
+          on-touch
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onRelease/">
+          on-release
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onDrag/">
+          on-drag
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onDragUp/">
+          on-drag-up
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onDragRight/">
+          on-drag-right
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onDragDown/">
+          on-drag-down
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onDragLeft/">
+          on-drag-left
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onSwipe/">
+          on-swipe
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onSwipeUp/">
+          on-swipe-up
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onSwipeRight/">
+          on-swipe-right
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onSwipeDown/">
+          on-swipe-down
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/onSwipeLeft/">
+          on-swipe-left
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Form Inputs -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionCheckbox/" class="api-section">
+       Form Inputs
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionCheckbox/">
+           ion-checkbox
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionRadio/">
+           ion-radio
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionToggle/">
+           ion-toggle
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+
+  <!-- Gesture -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicGesture/" class="api-section">
+      Gesture
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicGesture/">
+          $ionicGesture
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Headers/Footers -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionHeaderBar/" class="api-section">
+       Headers/Footers
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionHeaderBar/">
+           ion-header-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionFooterBar/">
+           ion-footer-bar
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Keyboard -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/page/keyboard/" class="api-section">
+      Keyboard
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/page/keyboard/">
+          Keyboard
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/keyboardAttach/">
+          keyboard-attach
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Lists -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionList/" class="api-section">
+       Lists
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionList/">
+           ion-list
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionItem/">
+           ion-item
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionDeleteButton/">
+           ion-delete-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionReorderButton/">
+           ion-reorder-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionOptionButton/">
+           ion-option-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/collectionRepeat/">
+          collection-repeat
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicListDelegate/">
+           $ionicListDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Loading -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicLoading/" class="api-section">
+      Loading
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicLoading/">
+          $ionicLoading
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/object/$ionicLoadingConfig/">
+          $ionicLoadingConfig
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Modal -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicModal/" class="api-section">
+       Modal
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicModal/">
+          $ionicModal
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/controller/ionicModal/">
+          ionicModal
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Navigation -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionNavView/" class="api-section">
+       Navigation
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionNavView/">
+           ion-nav-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionView/">
+           ion-view
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionNavBar/">
+           ion-nav-bar
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionNavButtons/">
+           ion-nav-buttons
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionNavBackButton/">
+           ion-nav-back-button
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/navClear/">
+           nav-clear
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicNavBarDelegate/">
+          $ionicNavBarDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Platform -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicPlatform/" class="api-section">
+      Platform
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicPlatform/">
+          $ionicPlatform
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Popover -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicPopover/" class="api-section">
+       Popover
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicPopover/">
+          $ionicPopover
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/controller/ionicPopover/">
+          ionicPopover
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Popup -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/service/$ionicPopup/" class="api-section">
+       Popup
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicPopup/">
+          $ionicPopup
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Scroll -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionScroll/" class="api-section">
+       Scroll
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionScroll/">
+           ion-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionInfiniteScroll/">
+           ion-infinite-scroll
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicScrollDelegate/">
+          $ionicScrollDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Side Menus -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionSideMenus/" class="api-section">
+       Side Menus
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionSideMenus/">
+           ion-side-menus
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionSideMenuContent/">
+           ion-side-menu-content
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionSideMenu/">
+           ion-side-menu
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/exposeAsideWhen/">
+           expose-aside-when
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/menuToggle/">
+           menu-toggle
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/menuClose/">
+           menu-close
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicSideMenuDelegate/">
+          $ionicSideMenuDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Slide Box -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionSlideBox/" class="api-section">
+       Slide Box
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionSlideBox/">
+           ion-slide-box
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicSlideBoxDelegate/">
+          $ionicSlideBoxDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Tabs -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/directive/ionTabs/" class="api-section">
+       Tabs
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionTabs/">
+           ion-tabs
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/directive/ionTab/">
+           ion-tab
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicTabsDelegate/">
+          $ionicTabsDelegate
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- Tap -->
+  <li class="menu-section">
+    <a href="/docs/1.0.0-beta.12/api/page/tap/" class="api-section">
+      Tap &amp; Click
+    </a>
+  </li>
+
+
+  <!-- Utility -->
+  <li class="menu-section">
+    <a href="#" class="api-section">
+      Utility
+    </a>
+    <ul>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/provider/$ionicConfigProvider/">
+          $ionicConfigProvider
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/utility/ionic.Platform/">
+          ionic.Platform
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/utility/ionic.DomUtil/">
+          ionic.DomUtil
+        </a>
+      </li>
+
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/utility/ionic.EventController/">
+          ionic.EventController
+        </a>
+      </li>
+      <li>
+        <a href="/docs/1.0.0-beta.12/api/service/$ionicPosition/">
+          $ionicPosition
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+
+
+
+
+
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/cli/">CLI</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="http://learn.ionicframework.com/">Learn Ionic</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/guide/">Guide</a>
+              </li>
+            </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/ionic-cli-faq/">FAQ</a>
+              </li>
+            </ul>
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/getting-help/">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="/docs/concepts/">Ionic Concepts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <div class="improve-docs">
+  <a href="http://github.com/driftyco/ionic/tree/master/js/utils/dom.js#L34">
+    View Source
+  </a>
+  &nbsp;
+  <a href="http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L34">
+    Improve this doc
+  </a>
+</div>
+
+<h1 class="api-title">
+
+  ionic.DomUtil
+
+
+
+</h1>
+
+<h2 id="methods">Methods</h2>
+
+<div id="requestAnimationFrame"></div>
+<h2>
+  <code>requestAnimationFrame(callback)</code><small>(alias: ionic.requestAnimationFrame)</small>
+
+</h2>
+
+<p>Calls <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame">requestAnimationFrame</a>, or a polyfill if not available.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>function</code>
+      </td>
+      <td>
+        <p>The function to call when the next frame
+happens.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div id="animationFrameThrottle"></div>
+<h2>
+  <code>animationFrameThrottle(callback)</code><small>(alias: ionic.animationFrameThrottle)</small>
+
+</h2>
+
+<p>When given a callback, if that callback is called 100 times between<br />
+animation frames, adding Throttle will make it only run the last of<br />
+the 100 calls.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>function</code>
+      </td>
+      <td>
+        <p>a function which will be throttled to
+requestAnimationFrame</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>function</code> A function which will then call the passed in callback.<br />
+The passed in callback will receive the context the returned function is<br />
+called with.</li>
+</ul>
+
+<div id="getPositionInParent"></div>
+<h2>
+  <code>getPositionInParent(element)</code>
+
+</h2>
+
+<p>Find an element’s scroll offset within its container.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        element
+        
+        
+      </td>
+      <td>
+        
+  <code>DOMElement</code>
+      </td>
+      <td>
+        <p>The element to find the offset of.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>object</code> A position object with the following properties:
+    <ul>
+      <li><code>{number}</code> <code>left</code> The left offset of the element.</li>
+      <li><code>{number}</code> <code>top</code> The top offset of the element.</li>
+    </ul>
+  </li>
+</ul>
+
+<div id="ready"></div>
+<h2>
+  <code>ready(callback)</code>
+
+</h2>
+
+<p>Call a function when the DOM is ready, or if it is already ready<br />
+call the function immediately.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>function</code>
+      </td>
+      <td>
+        <p>The function to be called.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div id="getTextBounds"></div>
+<h2>
+  <code>getTextBounds(textNode)</code>
+
+</h2>
+
+<p>Get a rect representing the bounds of the given textNode.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        textNode
+        
+        
+      </td>
+      <td>
+        
+  <code>DOMElement</code>
+      </td>
+      <td>
+        <p>The textNode to find the bounds of.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>object</code> An object representing the bounds of the node. Properties:
+    <ul>
+      <li><code>{number}</code> <code>left</code> The left position of the textNode.</li>
+      <li><code>{number}</code> <code>right</code> The right position of the textNode.</li>
+      <li><code>{number}</code> <code>top</code> The top position of the textNode.</li>
+      <li><code>{number}</code> <code>bottom</code> The bottom position of the textNode.</li>
+      <li><code>{number}</code> <code>width</code> The width of the textNode.</li>
+      <li><code>{number}</code> <code>height</code> The height of the textNode.</li>
+    </ul>
+  </li>
+</ul>
+
+<div id="getChildIndex"></div>
+<h2>
+  <code>getChildIndex(element, type)</code>
+
+</h2>
+
+<p>Get the first index of a child node within the given element of the<br />
+specified type.</p>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        element
+        
+        
+      </td>
+      <td>
+        
+  <code>DOMElement</code>
+      </td>
+      <td>
+        <p>The element to find the index of.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        type
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>The nodeName to match children of element against.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>number</code> The index, or -1, of a child with nodeName matching type.</li>
+</ul>
+
+<div id="getParentWithClass"></div>
+<h2>
+  <code>getParentWithClass(element, className)</code>
+
+</h2>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        element
+        
+        
+      </td>
+      <td>
+        
+  <code>DOMElement</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        className
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>DOMElement</code> The closest parent of element matching the<br />
+className, or null.</li>
+</ul>
+
+<div id="getParentOrSelfWithClass"></div>
+<h2>
+  <code>getParentOrSelfWithClass(element, className)</code>
+
+</h2>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        element
+        
+        
+      </td>
+      <td>
+        
+  <code>DOMElement</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        className
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>DOMElement</code> The closest parent or self matching the<br />
+className, or null.</li>
+</ul>
+
+<div id="rectContains"></div>
+<h2>
+  <code>rectContains(x, y, x1, y1, x2, y2)</code>
+
+</h2>
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        x
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        y
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        x1
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        y1
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        x2
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        y2
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<ul>
+  <li>Returns: <br />
+<code>boolean</code> Whether {x,y} fits within the rectangle defined by<br />
+{x1,y1,x2,y2}.</li>
+</ul>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
+      <dd><a href="http://ionicframework.com/docs/components/">Components</a></dd>
+      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
+      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://learn.ionicframework.com/">Learn Ionic</a></dd>
+      <dd><a href="http://ngcordova.com/">ngCordova</a></dd>
+      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic IRC</a></dd>
+      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
+      <dd><a href="http://ionic.io">Services</a></dd>
+      <dd><a href="http://drifty.com">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="mailto:hi@ionicframework.com">Contact</a></dd>
+      <dd><a href="http://ionicframework.com/jobs/">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://twitter.com/ionitron">Ionitron</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="newsletter row">
+
+    <div class="newsletter-container">
+
+      <div class="col-sm-7">
+        <div class="newsletter-text">Stay in the loop</div>
+        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
+      </div>
+
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
+        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Subscribe</button>
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="/docs/#license">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2015 <a href="http://drifty.com/">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 54141, domain: 'ionicframework.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="/js/site.js?1"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('2015-03-20 05:00:00 -0500');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

@@ -5,7 +5,7 @@ ARG_DEFS=(
   "--total=(.*)"
 )
 
-function run {
+function buildforjekyll {
   echo "Cloning ionic-site in _site"
   mkdir ./_site
   cd _site
@@ -29,3 +29,5 @@ function run {
   echo "Cleaning up"
   rm -R _site
 }
+
+buildforjekyll

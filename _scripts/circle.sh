@@ -29,8 +29,8 @@ function buildforjekyll {
   git push origin production
   cd ..
 
-  echo "Cleaning up"
-  rm -R _site
+  #echo "Cleaning up"
+  #rm -R _site
 }
 
 if [ -d "_scripts" ]; then

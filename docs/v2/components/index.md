@@ -980,48 +980,38 @@ class SearchPage{
 Use the segment to control to use radio selections.
 
 ```html
-<form (submit)="doSubmit($event)" [ng-form-model]="myForm">
-    <ion-segment ng-control="mapStyle" danger>
-      <ion-segment-button value="standard">
-        Standard
-      </ion-segment-button>
-      <ion-segment-button value="hybrid">
-        Hybrid
-      </ion-segment-button>
-      <ion-segment-button value="sat">
-        Satellite
-      </ion-segment-button>
-    </ion-segment>
-    <ion-segment>
-      <ion-segment-button>
-        Friends
-      </ion-segment-button>
-      <ion-segment-button>
-        Enemies
-      </ion-segment-button>
-    </ion-segment>
-  <button type="submit" button>Submit</button>
-</form>
-```
+<div padding>
+  <ion-segment [(ng-model)]="pet">
+    <ion-segment-button value="kittens">
+      Kittens
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Puppies
+    </ion-segment-button>
+  </ion-segment> 
+</div> 
 
-```typescript
-@App({
-  templateUrl: 'main.html',
-  providers: [FormBuilder]
-})
-class MyApp {
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({
-      mapStyle: ['hybrid', Validators.required]
-    });
-  }
+<div [ng-switch]="pet">
+  <ion-list *ng-switch-when="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-puppy-1.jpg">
+      </ion-thumbnail>
+      <h2>Ruby</h2>
+    </ion-item>
+    ...
+  </ion-list>
 
-  doSubmit(event) {
-    console.log('Submitting form', this.myForm.value);
-    event.preventDefault();
-  }
-}
-
+  <ion-list *ng-switch-when="'kittens'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+    ...
+  </ion-list>
+</div>
 ```
 
 

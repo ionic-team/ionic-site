@@ -44640,769 +44640,6 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
         }
     };
 });
-System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
-    /**
-    +* @ngdoc service
-    +* @name platform
-    +* @module ionic
-    +* @description
-    +* Platform returns the availble information about your current platform
-    +*/
-
-    /**
-     * TODO
-     */
-    'use strict';
-
-    var util, dom, Platform, PlatformNode, platformRegistry, platformDefault;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function insertSuperset(platformNode) {
-        var supersetPlaformName = platformNode.superset();
-        if (supersetPlaformName) {
-            // add a platform in between two exist platforms
-            // so we can build the correct hierarchy of active platforms
-            var supersetPlatform = new PlatformNode(supersetPlaformName);
-            supersetPlatform.parent(platformNode.parent());
-            supersetPlatform.child(platformNode);
-            if (supersetPlatform.parent()) {
-                supersetPlatform.parent().child(supersetPlatform);
-            }
-            platformNode.parent(supersetPlatform);
-        }
-    }
-    return {
-        setters: [function (_utilUtil) {
-            util = _utilUtil;
-        }, function (_utilDom) {
-            dom = _utilDom;
-        }],
-        execute: function () {
-            Platform = (function () {
-                function Platform() {
-                    var _this = this;
-
-                    var platforms = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-
-                    _classCallCheck(this, Platform);
-
-                    this._platforms = platforms;
-                    this._versions = {};
-                    this._onResizes = [];
-                    this._readyPromise = new Promise(function (res) {
-                        _this._readyResolve = res;
-                    });
-                }
-
-                // Methods
-                // **********************************************
-                /**
-                 * @param {string} platformName
-                 * @returns {bool} returns true/false based on platform you place
-                 * @description
-                 * Depending on the platform name, isPlatform will return true or flase
-                 *
-                 * ```
-                 * import {Platform} 'ionic/ionic';
-                 * export MyClass {
-                 *    constructor(platform: Platform){
-                 *      this.platform = platform;
-                 *      if(this.platform.is('ios'){
-                 *        // what ever you need to do for
-                 *        // if the platfomr is ios
-                 *      }
-                 *    }
-                 * }
-                 * ```
-                 */
-
-                _createClass(Platform, [{
-                    key: 'is',
-                    value: function is(platformName) {
-                        return this._platforms.indexOf(platformName) > -1;
-                    }
-
-                    /**
-                     * @returns {array} the array of platforms
-                     * @description
-                     * Depending on what device you are on, `platforms` can return multiple values.
-                     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
-                     * it would return mobile, ios, and iphone.
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      console.log(this.platform.platforms());
-                     *      // This will return an array of all the availble platforms
-                     *      // From if your on mobile, to mobile os, and device name
-                     *    }
-                     * }
-                     * ```
-                     */
-                }, {
-                    key: 'platforms',
-                    value: function platforms() {
-                        // get the array of active platforms, which also knows the hierarchy,
-                        // with the last one the most important
-                        return this._platforms;
-                    }
-
-                    /**
-                     * @param {string} optional platformName
-                     * @returns {object} An object with various platform info
-                     * - `{object=} `cordova`
-                     * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
-                     * - `{object=} `deviceName` Returns the name of the device
-                     * - `{object=}` `device platform` R
-                     * @description
-                     * Returns an object conta
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      console.log(this.platform.versions());
-                     *      // or pass in a platform name
-                     *      console.log(this.platform.versions('ios'));
-                     *    }
-                     * }
-                     * ```
-                     *
-                     */
-                }, {
-                    key: 'versions',
-                    value: function versions(platformName) {
-                        if (arguments.length) {
-                            // get a specific platform's version
-                            return this._versions[platformName];
-                        }
-                        // get all the platforms that have a valid parsed version
-                        return this._versions;
-                    }
-
-                    /**
-                     * @returns {promise}
-                     * @description
-                     * Returns a promise when the platform is ready and native functionality can be called
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      this.platform.ready().then(() => {
-                     *        console.log('Platform ready');
-                     *        // The platform is now ready, execute any native code you want
-                     *       });
-                     *    }
-                     * }
-                     * ```
-                     */
-                }, {
-                    key: 'ready',
-                    value: function ready() {
-                        return this._readyPromise;
-                    }
-
-                    /**
-                     * @private
-                     * TODO
-                     * @param {TODO} config  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'prepareReady',
-                    value: function prepareReady(config) {
-                        var self = this;
-                        function resolve() {
-                            self._readyResolve(config);
-                        }
-                        if (this._engineReady) {
-                            // the engine provide a ready promise, use this instead
-                            this._engineReady(resolve);
-                        } else {
-                            // there is no custom ready method from the engine
-                            // use the default dom ready
-                            dom.ready(resolve);
-                        }
-                    }
-
-                    // Methods meant to be overridden by the engine
-                    // **********************************************
-                    // Provided NOOP methods so they do not error when
-                    // called by engines (the browser) doesn't provide them
-                }, {
-                    key: 'on',
-                    value: function on() {}
-                }, {
-                    key: 'onHardwareBackButton',
-                    value: function onHardwareBackButton() {}
-                }, {
-                    key: 'registerBackButtonAction',
-                    value: function registerBackButtonAction() {}
-                }, {
-                    key: 'exitApp',
-                    value: function exitApp() {}
-                }, {
-                    key: 'fullScreen',
-                    value: function fullScreen() {}
-                }, {
-                    key: 'showStatusBar',
-                    value: function showStatusBar() {}
-
-                    // Getter/Setter Methods
-                    // **********************************************
-                }, {
-                    key: 'url',
-                    value: function url(val) {
-                        if (arguments.length) {
-                            this._url = val;
-                            this._qs = util.getQuerystring(val);
-                        }
-                        return this._url;
-                    }
-                }, {
-                    key: 'query',
-                    value: function query(key) {
-                        return (this._qs || {})[key];
-                    }
-                }, {
-                    key: 'userAgent',
-                    value: function userAgent(val) {
-                        if (arguments.length) {
-                            this._ua = val;
-                        }
-                        return this._ua || '';
-                    }
-                }, {
-                    key: 'navigatorPlatform',
-                    value: function navigatorPlatform(val) {
-                        if (arguments.length) {
-                            this._bPlt = val;
-                        }
-                        return this._bPlt || '';
-                    }
-                }, {
-                    key: 'width',
-                    value: function width() {
-                        return dom.windowDimensions().width;
-                    }
-                }, {
-                    key: 'height',
-                    value: function height() {
-                        return dom.windowDimensions().height;
-                    }
-                }, {
-                    key: 'isPortrait',
-                    value: function isPortrait() {
-                        return this.width() < this.height();
-                    }
-                }, {
-                    key: 'isLandscape',
-                    value: function isLandscape() {
-                        return !this.isPortrait();
-                    }
-                }, {
-                    key: 'windowResize',
-                    value: function windowResize() {
-                        var self = this;
-                        clearTimeout(self._resizeTimer);
-                        self._resizeTimer = setTimeout(function () {
-                            dom.flushDimensionCache();
-                            for (var i = 0; i < self._onResizes.length; i++) {
-                                try {
-                                    self._onResizes[i]();
-                                } catch (e) {
-                                    console.error(e);
-                                }
-                            }
-                        }, 500);
-                    }
-                }, {
-                    key: 'onResize',
-                    value: function onResize(cb) {
-                        this._onResizes.push(cb);
-                    }
-
-                    // Platform Registry
-                    // **********************************************
-                    /**
-                     * TODO
-                     * @param {TODO} platformConfig  TODO
-                     */
-                }, {
-                    key: 'testQuery',
-
-                    /**
-                     * TODO
-                     * @param {TODO} queryValue  TODO
-                     * @returns {boolean} TODO
-                     */
-                    value: function testQuery(queryValue, queryTestValue) {
-                        var valueSplit = queryValue.toLowerCase().split(';');
-                        return valueSplit.indexOf(queryTestValue) > -1;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {boolean} TODO
-                     */
-                }, {
-                    key: 'testUserAgent',
-                    value: function testUserAgent(userAgentExpression) {
-                        var rgx = new RegExp(userAgentExpression, 'i');
-                        return rgx.test(this._ua || '');
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {Object} TODO
-                     */
-                }, {
-                    key: 'matchUserAgentVersion',
-                    value: function matchUserAgentVersion(userAgentExpression) {
-                        if (this._ua && userAgentExpression) {
-                            var val = this._ua.match(userAgentExpression);
-                            if (val) {
-                                return {
-                                    major: val[1],
-                                    minor: val[2]
-                                };
-                            }
-                        }
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} queryValue  TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {boolean} TODO
-                     */
-                }, {
-                    key: 'isPlatform',
-                    value: function isPlatform(queryTestValue, userAgentExpression) {
-                        if (!userAgentExpression) {
-                            userAgentExpression = queryTestValue;
-                        }
-                        var queryValue = this.query('ionicplatform');
-                        if (queryValue) {
-                            return this.testQuery(queryValue, queryTestValue);
-                        }
-                        return this.testUserAgent(userAgentExpression);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} config  TODO
-                     */
-                }, {
-                    key: 'load',
-                    value: function load(platformOverride) {
-                        var rootPlatformNode = null;
-                        var engineNode = null;
-                        var self = this;
-                        this.platformOverride = platformOverride;
-                        // figure out the most specific platform and active engine
-                        var tmpPlatform = null;
-                        for (var platformName in platformRegistry) {
-                            tmpPlatform = this.matchPlatform(platformName);
-                            if (tmpPlatform) {
-                                // we found a platform match!
-                                // check if its more specific than the one we already have
-                                if (tmpPlatform.isEngine) {
-                                    // because it matched then this should be the active engine
-                                    // you cannot have more than one active engine
-                                    engineNode = tmpPlatform;
-                                } else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
-                                    // only find the root node for platforms that are not engines
-                                    // set this node as the root since we either don't already
-                                    // have one, or this one is more specific that the current one
-                                    rootPlatformNode = tmpPlatform;
-                                }
-                            }
-                        }
-                        if (!rootPlatformNode) {
-                            rootPlatformNode = new PlatformNode(platformDefault);
-                        }
-                        // build a Platform instance filled with the
-                        // hierarchy of active platforms and settings
-                        if (rootPlatformNode) {
-                            // check if we found an engine node (cordova/node-webkit/etc)
-                            if (engineNode) {
-                                // add the engine to the first in the platform hierarchy
-                                // the original rootPlatformNode now becomes a child
-                                // of the engineNode, which is not the new root
-                                engineNode.child(rootPlatformNode);
-                                rootPlatformNode.parent(engineNode);
-                                rootPlatformNode = engineNode;
-                                // add any events which the engine would provide
-                                // for example, Cordova provides its own ready event
-                                var engineMethods = engineNode.methods();
-                                engineMethods._engineReady = engineMethods.ready;
-                                delete engineMethods.ready;
-                                util.extend(this, engineMethods);
-                            }
-                            var platformNode = rootPlatformNode;
-                            while (platformNode) {
-                                insertSuperset(platformNode);
-                                platformNode = platformNode.child();
-                            }
-                            // make sure the root noot is actually the root
-                            // incase a node was inserted before the root
-                            platformNode = rootPlatformNode.parent();
-                            while (platformNode) {
-                                rootPlatformNode = platformNode;
-                                platformNode = platformNode.parent();
-                            }
-                            platformNode = rootPlatformNode;
-                            while (platformNode) {
-                                // set the array of active platforms with
-                                // the last one in the array the most important
-                                this._platforms.push(platformNode.name());
-                                // get the platforms version if a version parser was provided
-                                this._versions[platformNode.name()] = platformNode.version(this);
-                                // go to the next platform child
-                                platformNode = platformNode.child();
-                            }
-                        }
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} platformName  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'matchPlatform',
-                    value: function matchPlatform(platformName) {
-                        // build a PlatformNode and assign config data to it
-                        // use it's getRoot method to build up its hierarchy
-                        // depending on which platforms match
-                        var platformNode = new PlatformNode(platformName);
-                        var rootNode = platformNode.getRoot(this, 0);
-                        if (rootNode) {
-                            rootNode.depth = 0;
-                            var childPlatform = rootNode.child();
-                            while (childPlatform) {
-                                rootNode.depth++;
-                                childPlatform = childPlatform.child();
-                            }
-                        }
-                        return rootNode;
-                    }
-                }], [{
-                    key: 'register',
-                    value: function register(platformConfig) {
-                        platformRegistry[platformConfig.name] = platformConfig;
-                    }
-                }, {
-                    key: 'registry',
-                    value: function registry() {
-                        return platformRegistry;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} platformName  TODO
-                     * @returns {string} TODO
-                     */
-                }, {
-                    key: 'get',
-                    value: function get(platformName) {
-                        return platformRegistry[platformName] || {};
-                    }
-                }, {
-                    key: 'setDefault',
-                    value: function setDefault(platformName) {
-                        platformDefault = platformName;
-                    }
-                }]);
-
-                return Platform;
-            })();
-
-            _export('Platform', Platform);
-
-            PlatformNode = (function () {
-                function PlatformNode(platformName) {
-                    _classCallCheck(this, PlatformNode);
-
-                    this.c = Platform.get(platformName);
-                    this.isEngine = this.c.isEngine;
-                }
-
-                _createClass(PlatformNode, [{
-                    key: 'name',
-                    value: function name() {
-                        return this.c.name;
-                    }
-                }, {
-                    key: 'settings',
-                    value: function settings() {
-                        return this.c.settings || {};
-                    }
-                }, {
-                    key: 'superset',
-                    value: function superset() {
-                        return this.c.superset;
-                    }
-                }, {
-                    key: 'methods',
-                    value: function methods() {
-                        return this.c.methods || {};
-                    }
-                }, {
-                    key: 'parent',
-                    value: function parent(val) {
-                        if (arguments.length) {
-                            this._parent = val;
-                        }
-                        return this._parent;
-                    }
-                }, {
-                    key: 'child',
-                    value: function child(val) {
-                        if (arguments.length) {
-                            this._child = val;
-                        }
-                        return this._child;
-                    }
-                }, {
-                    key: 'isMatch',
-                    value: function isMatch(p) {
-                        if (p.platformOverride && !this.isEngine) {
-                            return p.platformOverride === this.c.name;
-                        } else if (!this.c.isMatch) {
-                            return false;
-                        }
-                        return this.c.isMatch(p);
-                    }
-                }, {
-                    key: 'version',
-                    value: function version(p) {
-                        if (this.c.versionParser) {
-                            var v = this.c.versionParser(p);
-                            if (v) {
-                                var str = v.major + '.' + v.minor;
-                                return {
-                                    str: str,
-                                    num: parseFloat(str),
-                                    major: parseInt(v.major, 10),
-                                    minor: parseInt(v.minor, 10)
-                                };
-                            }
-                        }
-                    }
-                }, {
-                    key: 'getRoot',
-                    value: function getRoot(p) {
-                        if (this.isMatch(p)) {
-                            var parents = this.getSubsetParents(this.name());
-                            if (!parents.length) {
-                                return this;
-                            }
-                            var platform = null;
-                            var rootPlatform = null;
-                            for (var i = 0; i < parents.length; i++) {
-                                platform = new PlatformNode(parents[i]);
-                                platform.child(this);
-                                rootPlatform = platform.getRoot(p);
-                                if (rootPlatform) {
-                                    this.parent(platform);
-                                    return rootPlatform;
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: 'getSubsetParents',
-                    value: function getSubsetParents(subsetPlatformName) {
-                        var platformRegistry = Platform.registry();
-                        var parentPlatformNames = [];
-                        var platform = null;
-                        for (var platformName in platformRegistry) {
-                            platform = platformRegistry[platformName];
-                            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
-                                parentPlatformNames.push(platformName);
-                            }
-                        }
-                        return parentPlatformNames;
-                    }
-                }]);
-
-                return PlatformNode;
-            })();
-
-            platformRegistry = {};
-            platformDefault = null;
-        }
-    };
-});
-System.register('ionic/platform/registry', ['./platform', '../util/dom'], function (_export) {
-    'use strict';
-
-    var Platform, windowLoad;
-
-    function isIOSDevice(p) {
-        // shortcut function to be reused internally
-        // checks navigator.platform to see if it's an actual iOS device
-        // this does not use the user-agent string because it is often spoofed
-        // an actual iPad will return true, a chrome dev tools iPad will return false
-        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-        );
-    }
-    return {
-        setters: [function (_platform) {
-            Platform = _platform.Platform;
-        }, function (_utilDom) {
-            windowLoad = _utilDom.windowLoad;
-        }],
-        execute: function () {
-            Platform.register({
-                name: 'core',
-                settings: {
-                    mode: 'ios',
-                    keyboardHeight: 290
-                }
-            });
-            Platform.setDefault('core');
-            Platform.register({
-                name: 'mobile'
-            });
-            Platform.register({
-                name: 'phablet',
-                isMatch: function isMatch(p) {
-                    var smallest = Math.min(p.width(), p.height());
-                    var largest = Math.max(p.width(), p.height());
-                    return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
-                }
-            });
-            Platform.register({
-                name: 'tablet',
-                isMatch: function isMatch(p) {
-                    var smallest = Math.min(p.width(), p.height());
-                    var largest = Math.max(p.width(), p.height());
-                    return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
-                }
-            });
-            Platform.register({
-                name: 'android',
-                superset: 'mobile',
-                subsets: ['phablet', 'tablet'],
-                settings: {
-                    hoverCSS: false,
-                    keyboardHeight: 290,
-                    mode: 'md',
-                    scrollAssist: true
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('android', 'android|silk');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'ios',
-                superset: 'mobile',
-                subsets: ['ipad', 'iphone'],
-                settings: {
-                    hoverCSS: false,
-                    keyboardHeight: 290,
-                    mode: 'ios',
-                    scrollAssist: isIOSDevice,
-                    swipeBackEnabled: isIOSDevice,
-                    swipeBackThreshold: 40,
-                    tapPolyfill: isIOSDevice
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('ios', 'iphone|ipad|ipod');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'ipad',
-                superset: 'tablet',
-                settings: {
-                    keyboardHeight: 500
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('ipad');
-                }
-            });
-            Platform.register({
-                name: 'iphone',
-                subsets: ['phablet'],
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('iphone');
-                }
-            });
-            Platform.register({
-                name: 'windowsphone',
-                superset: 'mobile',
-                subsets: ['phablet', 'tablet'],
-                settings: {
-                    mode: 'md'
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('windowsphone', 'windows phone');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'cordova',
-                isEngine: true,
-                methods: {
-                    ready: function ready(resolve) {
-                        function isReady() {
-                            document.removeEventListener('deviceready', isReady);
-                            resolve();
-                        }
-                        windowLoad(function () {
-                            document.addEventListener('deviceready', isReady);
-                        });
-                    }
-                },
-                isMatch: function isMatch() {
-                    return !!(window.cordova || window.PhoneGap || window.phonegap);
-                }
-            });
-        }
-    };
-});
-System.register('ionic/platform/storage', ['./storage/storage', './storage/local-storage', './storage/sql'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_storageStorage) {
-      for (var _key in _storageStorage) {
-        if (_key !== 'default') _export(_key, _storageStorage[_key]);
-      }
-    }, function (_storageLocalStorage) {
-      for (var _key2 in _storageLocalStorage) {
-        if (_key2 !== 'default') _export(_key2, _storageLocalStorage[_key2]);
-      }
-    }, function (_storageSql) {
-      for (var _key3 in _storageSql) {
-        if (_key3 !== 'default') _export(_key3, _storageSql[_key3]);
-      }
-    }],
-    execute: function () {}
-  };
-});
 System.register('ionic/gestures/drag-gesture', ['ionic/gestures/gesture', 'ionic/util'], function (_export) {
     'use strict';
 
@@ -47923,6 +47160,769 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
         }
     };
 });
+System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
+    /**
+    +* @ngdoc service
+    +* @name platform
+    +* @module ionic
+    +* @description
+    +* Platform returns the availble information about your current platform
+    +*/
+
+    /**
+     * TODO
+     */
+    'use strict';
+
+    var util, dom, Platform, PlatformNode, platformRegistry, platformDefault;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function insertSuperset(platformNode) {
+        var supersetPlaformName = platformNode.superset();
+        if (supersetPlaformName) {
+            // add a platform in between two exist platforms
+            // so we can build the correct hierarchy of active platforms
+            var supersetPlatform = new PlatformNode(supersetPlaformName);
+            supersetPlatform.parent(platformNode.parent());
+            supersetPlatform.child(platformNode);
+            if (supersetPlatform.parent()) {
+                supersetPlatform.parent().child(supersetPlatform);
+            }
+            platformNode.parent(supersetPlatform);
+        }
+    }
+    return {
+        setters: [function (_utilUtil) {
+            util = _utilUtil;
+        }, function (_utilDom) {
+            dom = _utilDom;
+        }],
+        execute: function () {
+            Platform = (function () {
+                function Platform() {
+                    var _this = this;
+
+                    var platforms = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
+                    _classCallCheck(this, Platform);
+
+                    this._platforms = platforms;
+                    this._versions = {};
+                    this._onResizes = [];
+                    this._readyPromise = new Promise(function (res) {
+                        _this._readyResolve = res;
+                    });
+                }
+
+                // Methods
+                // **********************************************
+                /**
+                 * @param {string} platformName
+                 * @returns {bool} returns true/false based on platform you place
+                 * @description
+                 * Depending on the platform name, isPlatform will return true or flase
+                 *
+                 * ```
+                 * import {Platform} 'ionic/ionic';
+                 * export MyClass {
+                 *    constructor(platform: Platform){
+                 *      this.platform = platform;
+                 *      if(this.platform.is('ios'){
+                 *        // what ever you need to do for
+                 *        // if the platfomr is ios
+                 *      }
+                 *    }
+                 * }
+                 * ```
+                 */
+
+                _createClass(Platform, [{
+                    key: 'is',
+                    value: function is(platformName) {
+                        return this._platforms.indexOf(platformName) > -1;
+                    }
+
+                    /**
+                     * @returns {array} the array of platforms
+                     * @description
+                     * Depending on what device you are on, `platforms` can return multiple values.
+                     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
+                     * it would return mobile, ios, and iphone.
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      console.log(this.platform.platforms());
+                     *      // This will return an array of all the availble platforms
+                     *      // From if your on mobile, to mobile os, and device name
+                     *    }
+                     * }
+                     * ```
+                     */
+                }, {
+                    key: 'platforms',
+                    value: function platforms() {
+                        // get the array of active platforms, which also knows the hierarchy,
+                        // with the last one the most important
+                        return this._platforms;
+                    }
+
+                    /**
+                     * @param {string} optional platformName
+                     * @returns {object} An object with various platform info
+                     * - `{object=} `cordova`
+                     * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
+                     * - `{object=} `deviceName` Returns the name of the device
+                     * - `{object=}` `device platform` R
+                     * @description
+                     * Returns an object conta
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      console.log(this.platform.versions());
+                     *      // or pass in a platform name
+                     *      console.log(this.platform.versions('ios'));
+                     *    }
+                     * }
+                     * ```
+                     *
+                     */
+                }, {
+                    key: 'versions',
+                    value: function versions(platformName) {
+                        if (arguments.length) {
+                            // get a specific platform's version
+                            return this._versions[platformName];
+                        }
+                        // get all the platforms that have a valid parsed version
+                        return this._versions;
+                    }
+
+                    /**
+                     * @returns {promise}
+                     * @description
+                     * Returns a promise when the platform is ready and native functionality can be called
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      this.platform.ready().then(() => {
+                     *        console.log('Platform ready');
+                     *        // The platform is now ready, execute any native code you want
+                     *       });
+                     *    }
+                     * }
+                     * ```
+                     */
+                }, {
+                    key: 'ready',
+                    value: function ready() {
+                        return this._readyPromise;
+                    }
+
+                    /**
+                     * @private
+                     * TODO
+                     * @param {TODO} config  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'prepareReady',
+                    value: function prepareReady(config) {
+                        var self = this;
+                        function resolve() {
+                            self._readyResolve(config);
+                        }
+                        if (this._engineReady) {
+                            // the engine provide a ready promise, use this instead
+                            this._engineReady(resolve);
+                        } else {
+                            // there is no custom ready method from the engine
+                            // use the default dom ready
+                            dom.ready(resolve);
+                        }
+                    }
+
+                    // Methods meant to be overridden by the engine
+                    // **********************************************
+                    // Provided NOOP methods so they do not error when
+                    // called by engines (the browser) doesn't provide them
+                }, {
+                    key: 'on',
+                    value: function on() {}
+                }, {
+                    key: 'onHardwareBackButton',
+                    value: function onHardwareBackButton() {}
+                }, {
+                    key: 'registerBackButtonAction',
+                    value: function registerBackButtonAction() {}
+                }, {
+                    key: 'exitApp',
+                    value: function exitApp() {}
+                }, {
+                    key: 'fullScreen',
+                    value: function fullScreen() {}
+                }, {
+                    key: 'showStatusBar',
+                    value: function showStatusBar() {}
+
+                    // Getter/Setter Methods
+                    // **********************************************
+                }, {
+                    key: 'url',
+                    value: function url(val) {
+                        if (arguments.length) {
+                            this._url = val;
+                            this._qs = util.getQuerystring(val);
+                        }
+                        return this._url;
+                    }
+                }, {
+                    key: 'query',
+                    value: function query(key) {
+                        return (this._qs || {})[key];
+                    }
+                }, {
+                    key: 'userAgent',
+                    value: function userAgent(val) {
+                        if (arguments.length) {
+                            this._ua = val;
+                        }
+                        return this._ua || '';
+                    }
+                }, {
+                    key: 'navigatorPlatform',
+                    value: function navigatorPlatform(val) {
+                        if (arguments.length) {
+                            this._bPlt = val;
+                        }
+                        return this._bPlt || '';
+                    }
+                }, {
+                    key: 'width',
+                    value: function width() {
+                        return dom.windowDimensions().width;
+                    }
+                }, {
+                    key: 'height',
+                    value: function height() {
+                        return dom.windowDimensions().height;
+                    }
+                }, {
+                    key: 'isPortrait',
+                    value: function isPortrait() {
+                        return this.width() < this.height();
+                    }
+                }, {
+                    key: 'isLandscape',
+                    value: function isLandscape() {
+                        return !this.isPortrait();
+                    }
+                }, {
+                    key: 'windowResize',
+                    value: function windowResize() {
+                        var self = this;
+                        clearTimeout(self._resizeTimer);
+                        self._resizeTimer = setTimeout(function () {
+                            dom.flushDimensionCache();
+                            for (var i = 0; i < self._onResizes.length; i++) {
+                                try {
+                                    self._onResizes[i]();
+                                } catch (e) {
+                                    console.error(e);
+                                }
+                            }
+                        }, 500);
+                    }
+                }, {
+                    key: 'onResize',
+                    value: function onResize(cb) {
+                        this._onResizes.push(cb);
+                    }
+
+                    // Platform Registry
+                    // **********************************************
+                    /**
+                     * TODO
+                     * @param {TODO} platformConfig  TODO
+                     */
+                }, {
+                    key: 'testQuery',
+
+                    /**
+                     * TODO
+                     * @param {TODO} queryValue  TODO
+                     * @returns {boolean} TODO
+                     */
+                    value: function testQuery(queryValue, queryTestValue) {
+                        var valueSplit = queryValue.toLowerCase().split(';');
+                        return valueSplit.indexOf(queryTestValue) > -1;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {boolean} TODO
+                     */
+                }, {
+                    key: 'testUserAgent',
+                    value: function testUserAgent(userAgentExpression) {
+                        var rgx = new RegExp(userAgentExpression, 'i');
+                        return rgx.test(this._ua || '');
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {Object} TODO
+                     */
+                }, {
+                    key: 'matchUserAgentVersion',
+                    value: function matchUserAgentVersion(userAgentExpression) {
+                        if (this._ua && userAgentExpression) {
+                            var val = this._ua.match(userAgentExpression);
+                            if (val) {
+                                return {
+                                    major: val[1],
+                                    minor: val[2]
+                                };
+                            }
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} queryValue  TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {boolean} TODO
+                     */
+                }, {
+                    key: 'isPlatform',
+                    value: function isPlatform(queryTestValue, userAgentExpression) {
+                        if (!userAgentExpression) {
+                            userAgentExpression = queryTestValue;
+                        }
+                        var queryValue = this.query('ionicplatform');
+                        if (queryValue) {
+                            return this.testQuery(queryValue, queryTestValue);
+                        }
+                        return this.testUserAgent(userAgentExpression);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} config  TODO
+                     */
+                }, {
+                    key: 'load',
+                    value: function load(platformOverride) {
+                        var rootPlatformNode = null;
+                        var engineNode = null;
+                        var self = this;
+                        this.platformOverride = platformOverride;
+                        // figure out the most specific platform and active engine
+                        var tmpPlatform = null;
+                        for (var platformName in platformRegistry) {
+                            tmpPlatform = this.matchPlatform(platformName);
+                            if (tmpPlatform) {
+                                // we found a platform match!
+                                // check if its more specific than the one we already have
+                                if (tmpPlatform.isEngine) {
+                                    // because it matched then this should be the active engine
+                                    // you cannot have more than one active engine
+                                    engineNode = tmpPlatform;
+                                } else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
+                                    // only find the root node for platforms that are not engines
+                                    // set this node as the root since we either don't already
+                                    // have one, or this one is more specific that the current one
+                                    rootPlatformNode = tmpPlatform;
+                                }
+                            }
+                        }
+                        if (!rootPlatformNode) {
+                            rootPlatformNode = new PlatformNode(platformDefault);
+                        }
+                        // build a Platform instance filled with the
+                        // hierarchy of active platforms and settings
+                        if (rootPlatformNode) {
+                            // check if we found an engine node (cordova/node-webkit/etc)
+                            if (engineNode) {
+                                // add the engine to the first in the platform hierarchy
+                                // the original rootPlatformNode now becomes a child
+                                // of the engineNode, which is not the new root
+                                engineNode.child(rootPlatformNode);
+                                rootPlatformNode.parent(engineNode);
+                                rootPlatformNode = engineNode;
+                                // add any events which the engine would provide
+                                // for example, Cordova provides its own ready event
+                                var engineMethods = engineNode.methods();
+                                engineMethods._engineReady = engineMethods.ready;
+                                delete engineMethods.ready;
+                                util.extend(this, engineMethods);
+                            }
+                            var platformNode = rootPlatformNode;
+                            while (platformNode) {
+                                insertSuperset(platformNode);
+                                platformNode = platformNode.child();
+                            }
+                            // make sure the root noot is actually the root
+                            // incase a node was inserted before the root
+                            platformNode = rootPlatformNode.parent();
+                            while (platformNode) {
+                                rootPlatformNode = platformNode;
+                                platformNode = platformNode.parent();
+                            }
+                            platformNode = rootPlatformNode;
+                            while (platformNode) {
+                                // set the array of active platforms with
+                                // the last one in the array the most important
+                                this._platforms.push(platformNode.name());
+                                // get the platforms version if a version parser was provided
+                                this._versions[platformNode.name()] = platformNode.version(this);
+                                // go to the next platform child
+                                platformNode = platformNode.child();
+                            }
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} platformName  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'matchPlatform',
+                    value: function matchPlatform(platformName) {
+                        // build a PlatformNode and assign config data to it
+                        // use it's getRoot method to build up its hierarchy
+                        // depending on which platforms match
+                        var platformNode = new PlatformNode(platformName);
+                        var rootNode = platformNode.getRoot(this, 0);
+                        if (rootNode) {
+                            rootNode.depth = 0;
+                            var childPlatform = rootNode.child();
+                            while (childPlatform) {
+                                rootNode.depth++;
+                                childPlatform = childPlatform.child();
+                            }
+                        }
+                        return rootNode;
+                    }
+                }], [{
+                    key: 'register',
+                    value: function register(platformConfig) {
+                        platformRegistry[platformConfig.name] = platformConfig;
+                    }
+                }, {
+                    key: 'registry',
+                    value: function registry() {
+                        return platformRegistry;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} platformName  TODO
+                     * @returns {string} TODO
+                     */
+                }, {
+                    key: 'get',
+                    value: function get(platformName) {
+                        return platformRegistry[platformName] || {};
+                    }
+                }, {
+                    key: 'setDefault',
+                    value: function setDefault(platformName) {
+                        platformDefault = platformName;
+                    }
+                }]);
+
+                return Platform;
+            })();
+
+            _export('Platform', Platform);
+
+            PlatformNode = (function () {
+                function PlatformNode(platformName) {
+                    _classCallCheck(this, PlatformNode);
+
+                    this.c = Platform.get(platformName);
+                    this.isEngine = this.c.isEngine;
+                }
+
+                _createClass(PlatformNode, [{
+                    key: 'name',
+                    value: function name() {
+                        return this.c.name;
+                    }
+                }, {
+                    key: 'settings',
+                    value: function settings() {
+                        return this.c.settings || {};
+                    }
+                }, {
+                    key: 'superset',
+                    value: function superset() {
+                        return this.c.superset;
+                    }
+                }, {
+                    key: 'methods',
+                    value: function methods() {
+                        return this.c.methods || {};
+                    }
+                }, {
+                    key: 'parent',
+                    value: function parent(val) {
+                        if (arguments.length) {
+                            this._parent = val;
+                        }
+                        return this._parent;
+                    }
+                }, {
+                    key: 'child',
+                    value: function child(val) {
+                        if (arguments.length) {
+                            this._child = val;
+                        }
+                        return this._child;
+                    }
+                }, {
+                    key: 'isMatch',
+                    value: function isMatch(p) {
+                        if (p.platformOverride && !this.isEngine) {
+                            return p.platformOverride === this.c.name;
+                        } else if (!this.c.isMatch) {
+                            return false;
+                        }
+                        return this.c.isMatch(p);
+                    }
+                }, {
+                    key: 'version',
+                    value: function version(p) {
+                        if (this.c.versionParser) {
+                            var v = this.c.versionParser(p);
+                            if (v) {
+                                var str = v.major + '.' + v.minor;
+                                return {
+                                    str: str,
+                                    num: parseFloat(str),
+                                    major: parseInt(v.major, 10),
+                                    minor: parseInt(v.minor, 10)
+                                };
+                            }
+                        }
+                    }
+                }, {
+                    key: 'getRoot',
+                    value: function getRoot(p) {
+                        if (this.isMatch(p)) {
+                            var parents = this.getSubsetParents(this.name());
+                            if (!parents.length) {
+                                return this;
+                            }
+                            var platform = null;
+                            var rootPlatform = null;
+                            for (var i = 0; i < parents.length; i++) {
+                                platform = new PlatformNode(parents[i]);
+                                platform.child(this);
+                                rootPlatform = platform.getRoot(p);
+                                if (rootPlatform) {
+                                    this.parent(platform);
+                                    return rootPlatform;
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: 'getSubsetParents',
+                    value: function getSubsetParents(subsetPlatformName) {
+                        var platformRegistry = Platform.registry();
+                        var parentPlatformNames = [];
+                        var platform = null;
+                        for (var platformName in platformRegistry) {
+                            platform = platformRegistry[platformName];
+                            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
+                                parentPlatformNames.push(platformName);
+                            }
+                        }
+                        return parentPlatformNames;
+                    }
+                }]);
+
+                return PlatformNode;
+            })();
+
+            platformRegistry = {};
+            platformDefault = null;
+        }
+    };
+});
+System.register('ionic/platform/registry', ['./platform', '../util/dom'], function (_export) {
+    'use strict';
+
+    var Platform, windowLoad;
+
+    function isIOSDevice(p) {
+        // shortcut function to be reused internally
+        // checks navigator.platform to see if it's an actual iOS device
+        // this does not use the user-agent string because it is often spoofed
+        // an actual iPad will return true, a chrome dev tools iPad will return false
+        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+        );
+    }
+    return {
+        setters: [function (_platform) {
+            Platform = _platform.Platform;
+        }, function (_utilDom) {
+            windowLoad = _utilDom.windowLoad;
+        }],
+        execute: function () {
+            Platform.register({
+                name: 'core',
+                settings: {
+                    mode: 'ios',
+                    keyboardHeight: 290
+                }
+            });
+            Platform.setDefault('core');
+            Platform.register({
+                name: 'mobile'
+            });
+            Platform.register({
+                name: 'phablet',
+                isMatch: function isMatch(p) {
+                    var smallest = Math.min(p.width(), p.height());
+                    var largest = Math.max(p.width(), p.height());
+                    return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
+                }
+            });
+            Platform.register({
+                name: 'tablet',
+                isMatch: function isMatch(p) {
+                    var smallest = Math.min(p.width(), p.height());
+                    var largest = Math.max(p.width(), p.height());
+                    return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
+                }
+            });
+            Platform.register({
+                name: 'android',
+                superset: 'mobile',
+                subsets: ['phablet', 'tablet'],
+                settings: {
+                    hoverCSS: false,
+                    keyboardHeight: 290,
+                    mode: 'md',
+                    scrollAssist: true
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('android', 'android|silk');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'ios',
+                superset: 'mobile',
+                subsets: ['ipad', 'iphone'],
+                settings: {
+                    hoverCSS: false,
+                    keyboardHeight: 290,
+                    mode: 'ios',
+                    scrollAssist: isIOSDevice,
+                    swipeBackEnabled: isIOSDevice,
+                    swipeBackThreshold: 40,
+                    tapPolyfill: isIOSDevice
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('ios', 'iphone|ipad|ipod');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'ipad',
+                superset: 'tablet',
+                settings: {
+                    keyboardHeight: 500
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('ipad');
+                }
+            });
+            Platform.register({
+                name: 'iphone',
+                subsets: ['phablet'],
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('iphone');
+                }
+            });
+            Platform.register({
+                name: 'windowsphone',
+                superset: 'mobile',
+                subsets: ['phablet', 'tablet'],
+                settings: {
+                    mode: 'md'
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('windowsphone', 'windows phone');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'cordova',
+                isEngine: true,
+                methods: {
+                    ready: function ready(resolve) {
+                        function isReady() {
+                            document.removeEventListener('deviceready', isReady);
+                            resolve();
+                        }
+                        windowLoad(function () {
+                            document.addEventListener('deviceready', isReady);
+                        });
+                    }
+                },
+                isMatch: function isMatch() {
+                    return !!(window.cordova || window.PhoneGap || window.phonegap);
+                }
+            });
+        }
+    };
+});
+System.register('ionic/platform/storage', ['./storage/storage', './storage/local-storage', './storage/sql'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_storageStorage) {
+      for (var _key in _storageStorage) {
+        if (_key !== 'default') _export(_key, _storageStorage[_key]);
+      }
+    }, function (_storageLocalStorage) {
+      for (var _key2 in _storageLocalStorage) {
+        if (_key2 !== 'default') _export(_key2, _storageLocalStorage[_key2]);
+      }
+    }, function (_storageSql) {
+      for (var _key3 in _storageSql) {
+        if (_key3 !== 'default') _export(_key3, _storageSql[_key3]);
+      }
+    }],
+    execute: function () {}
+  };
+});
 System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
     'use strict';
 
@@ -50296,320 +50296,6 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
         }
     };
 });
-System.register('ionic/components/app/app', ['angular2/angular2', '../../util/click-block'], function (_export) {
-    /**
-     * Component registry service.  For more information on registering
-     * components see the [IdRef API reference](../id/IdRef/).
-     */
-    'use strict';
-
-    var Title, ClickBlock, IonicApp;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Title = _angular2Angular2.Title;
-        }, function (_utilClickBlock) {
-            ClickBlock = _utilClickBlock.ClickBlock;
-        }],
-        execute: function () {
-            IonicApp = (function () {
-                function IonicApp(fastdom) {
-                    _classCallCheck(this, IonicApp);
-
-                    this._fastdom = fastdom;
-                    this._titleSrv = new Title();
-                    this._title = '';
-                    this._disTime = 0;
-                    this._trnsTime = 0;
-                    // Our component registry map
-                    this.components = {};
-                }
-
-                /**
-                 * Sets the document title.
-                 * @param {string} val  Value to set the document title to.
-                 */
-
-                _createClass(IonicApp, [{
-                    key: 'setTitle',
-                    value: function setTitle(val) {
-                        var _this = this;
-
-                        if (val !== this._title) {
-                            this._title = val;
-                            this._fastdom.defer(4, function () {
-                                _this._titleSrv.setTitle(_this._title);
-                            });
-                        }
-                    }
-
-                    /**
-                     * Sets if the app is currently enabled or not, meaning if it's
-                     * available to accept new user commands. For example, this is set to `false`
-                     * while views transition, a modal slides up, an action-sheet
-                     * slides up, etc. After the transition completes it is set back to `true`.
-                     * @param {bool} isEnabled
-                     * @param {bool} fallback  When `isEnabled` is set to `false`, this argument
-                     * is used to set the maximum number of milliseconds that app will wait until
-                     * it will automatically enable the app again. It's basically a fallback incase
-                     * something goes wrong during a transition and the app wasn't re-enabled correctly.
-                     */
-                }, {
-                    key: 'setEnabled',
-                    value: function setEnabled(isEnabled) {
-                        var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
-
-                        this._disTime = isEnabled ? 0 : Date.now() + fallback;
-                        ClickBlock(!isEnabled, fallback + 100);
-                    }
-
-                    /**
-                     * Boolean if the app is actively enabled or not.
-                     * @return {bool}
-                     */
-                }, {
-                    key: 'isEnabled',
-                    value: function isEnabled() {
-                        return this._disTime < Date.now();
-                    }
-                }, {
-                    key: 'setTransitioning',
-                    value: function setTransitioning(isTransitioning) {
-                        var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
-
-                        this._trnsTime = isTransitioning ? Date.now() + fallback : 0;
-                    }
-
-                    /**
-                     * Boolean if the app is actively transitioning or not.
-                     * @return {bool}
-                     */
-                }, {
-                    key: 'isTransitioning',
-                    value: function isTransitioning() {
-                        return this._trnsTime > Date.now();
-                    }
-
-                    /**
-                     * Register a known component with a key, for easy lookups later.
-                     * @param {TODO} id  The id to use to register the component
-                     * @param {TODO} component  The component to register
-                     */
-                }, {
-                    key: 'register',
-                    value: function register(id, component) {
-                        if (this.components[id] && this.components[id] !== component) {}
-                        this.components[id] = component;
-                    }
-
-                    /**
-                     * Unregister a known component with a key.
-                     * @param {TODO} id  The id to use to unregister
-                     */
-                }, {
-                    key: 'unregister',
-                    value: function unregister(id) {
-                        delete this.components[id];
-                    }
-
-                    /**
-                     * Get a registered component with the given type (returns the first)
-                     * @param {Object} cls the type to search for
-                     * @return the matching component, or undefined if none was found
-                     */
-                }, {
-                    key: 'getRegisteredComponent',
-                    value: function getRegisteredComponent(cls) {
-                        var _iteratorNormalCompletion = true;
-                        var _didIteratorError = false;
-                        var _iteratorError = undefined;
-
-                        try {
-                            for (var _iterator = this.components[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                                var component = _step.value;
-
-                                if (component instanceof cls) {
-                                    return component;
-                                }
-                            }
-                        } catch (err) {
-                            _didIteratorError = true;
-                            _iteratorError = err;
-                        } finally {
-                            try {
-                                if (!_iteratorNormalCompletion && _iterator['return']) {
-                                    _iterator['return']();
-                                }
-                            } finally {
-                                if (_didIteratorError) {
-                                    throw _iteratorError;
-                                }
-                            }
-                        }
-                    }
-
-                    /**
-                     * Get the component for the given key.
-                     * @param {TODO} key  TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: 'getComponent',
-                    value: function getComponent(id) {
-                        return this.components[id];
-                    }
-                }]);
-
-                return IonicApp;
-            })();
-
-            _export('IonicApp', IonicApp);
-        }
-    };
-});
-System.register("ionic/components/app/id", ["angular2/angular2", "./app"], function (_export) {
-    /**
-     * IdRef is an easy way to identify unique components in an app and access them
-     * no matter where in the UI heirarchy you are. For example, this makes toggling
-     * a global side menu feasible from any place in the application.
-     *
-     * See the [Menu section](http://localhost:4000/docs/v2/components/#menus) of
-     * the Component docs for an example of how Menus rely on ID's.
-     *
-     * To give any component an ID, simply set its `id` property:
-     * ```html
-     * <ion-checkbox id="myCheckbox"></ion-checkbox>
-     * ```
-     *
-     * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
-     * service:
-     * ```ts
-     * constructor(app: IonicApp) {
-     *   var checkbox = app.getComponent("myCheckbox");
-     *   if (checkbox.checked) console.log('checkbox is checked');
-     * }
-     * ```
-     *
-     * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
-     * guarantee that the registered component has not been destroyed if its Page
-     * has been navigated away from.
-     */
-    "use strict";
-
-    var AppViewManager, ElementRef, Directive, Renderer, IonicApp, __decorate, __metadata, IdRef, Attr, _a, _b, _c, _d, _e;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            AppViewManager = _angular2Angular2.AppViewManager;
-            ElementRef = _angular2Angular2.ElementRef;
-            Directive = _angular2Angular2.Directive;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_app) {
-            IonicApp = _app.IonicApp;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            IdRef = (function () {
-                function IdRef(app, elementRef, appViewManager) {
-                    _classCallCheck(this, IdRef);
-
-                    this.app = app;
-                    this.elementRef = elementRef;
-                    this.appViewManager = appViewManager;
-                    // Grab the component this directive is attached to
-                    this.component = appViewManager.getComponent(elementRef);
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(IdRef, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        this.app.register(this.id, this.component);
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "onDestroy",
-                    value: function onDestroy() {
-                        this.app.unregister(this.id);
-                    }
-                }]);
-
-                return IdRef;
-            })();
-
-            _export("IdRef", IdRef);
-
-            _export("IdRef", IdRef = __decorate([Directive({
-                selector: '[id]',
-                inputs: ['id']
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _c || Object])], IdRef));
-
-            Attr = (function () {
-                function Attr(renderer, elementRef) {
-                    _classCallCheck(this, Attr);
-
-                    this.renderer = renderer;
-                    this.elementRef = elementRef;
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(Attr, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        this.renderer.setElementAttribute(this.elementRef, this.attr, '');
-                    }
-                }]);
-
-                return Attr;
-            })();
-
-            _export("Attr", Attr);
-
-            _export("Attr", Attr = __decorate([Directive({
-                selector: '[attr]',
-                inputs: ['attr']
-            }), __metadata('design:paramtypes', [typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object])], Attr));
-        }
-    };
-});
 System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
     "use strict";
 
@@ -51341,6 +51027,320 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
                     'role': 'img'
                 }
             }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof Renderer !== 'undefined' && Renderer) === 'function' && _c || Object])], Icon));
+        }
+    };
+});
+System.register('ionic/components/app/app', ['angular2/angular2', '../../util/click-block'], function (_export) {
+    /**
+     * Component registry service.  For more information on registering
+     * components see the [IdRef API reference](../id/IdRef/).
+     */
+    'use strict';
+
+    var Title, ClickBlock, IonicApp;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Title = _angular2Angular2.Title;
+        }, function (_utilClickBlock) {
+            ClickBlock = _utilClickBlock.ClickBlock;
+        }],
+        execute: function () {
+            IonicApp = (function () {
+                function IonicApp(fastdom) {
+                    _classCallCheck(this, IonicApp);
+
+                    this._fastdom = fastdom;
+                    this._titleSrv = new Title();
+                    this._title = '';
+                    this._disTime = 0;
+                    this._trnsTime = 0;
+                    // Our component registry map
+                    this.components = {};
+                }
+
+                /**
+                 * Sets the document title.
+                 * @param {string} val  Value to set the document title to.
+                 */
+
+                _createClass(IonicApp, [{
+                    key: 'setTitle',
+                    value: function setTitle(val) {
+                        var _this = this;
+
+                        if (val !== this._title) {
+                            this._title = val;
+                            this._fastdom.defer(4, function () {
+                                _this._titleSrv.setTitle(_this._title);
+                            });
+                        }
+                    }
+
+                    /**
+                     * Sets if the app is currently enabled or not, meaning if it's
+                     * available to accept new user commands. For example, this is set to `false`
+                     * while views transition, a modal slides up, an action-sheet
+                     * slides up, etc. After the transition completes it is set back to `true`.
+                     * @param {bool} isEnabled
+                     * @param {bool} fallback  When `isEnabled` is set to `false`, this argument
+                     * is used to set the maximum number of milliseconds that app will wait until
+                     * it will automatically enable the app again. It's basically a fallback incase
+                     * something goes wrong during a transition and the app wasn't re-enabled correctly.
+                     */
+                }, {
+                    key: 'setEnabled',
+                    value: function setEnabled(isEnabled) {
+                        var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
+
+                        this._disTime = isEnabled ? 0 : Date.now() + fallback;
+                        ClickBlock(!isEnabled, fallback + 100);
+                    }
+
+                    /**
+                     * Boolean if the app is actively enabled or not.
+                     * @return {bool}
+                     */
+                }, {
+                    key: 'isEnabled',
+                    value: function isEnabled() {
+                        return this._disTime < Date.now();
+                    }
+                }, {
+                    key: 'setTransitioning',
+                    value: function setTransitioning(isTransitioning) {
+                        var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
+
+                        this._trnsTime = isTransitioning ? Date.now() + fallback : 0;
+                    }
+
+                    /**
+                     * Boolean if the app is actively transitioning or not.
+                     * @return {bool}
+                     */
+                }, {
+                    key: 'isTransitioning',
+                    value: function isTransitioning() {
+                        return this._trnsTime > Date.now();
+                    }
+
+                    /**
+                     * Register a known component with a key, for easy lookups later.
+                     * @param {TODO} id  The id to use to register the component
+                     * @param {TODO} component  The component to register
+                     */
+                }, {
+                    key: 'register',
+                    value: function register(id, component) {
+                        if (this.components[id] && this.components[id] !== component) {}
+                        this.components[id] = component;
+                    }
+
+                    /**
+                     * Unregister a known component with a key.
+                     * @param {TODO} id  The id to use to unregister
+                     */
+                }, {
+                    key: 'unregister',
+                    value: function unregister(id) {
+                        delete this.components[id];
+                    }
+
+                    /**
+                     * Get a registered component with the given type (returns the first)
+                     * @param {Object} cls the type to search for
+                     * @return the matching component, or undefined if none was found
+                     */
+                }, {
+                    key: 'getRegisteredComponent',
+                    value: function getRegisteredComponent(cls) {
+                        var _iteratorNormalCompletion = true;
+                        var _didIteratorError = false;
+                        var _iteratorError = undefined;
+
+                        try {
+                            for (var _iterator = this.components[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                                var component = _step.value;
+
+                                if (component instanceof cls) {
+                                    return component;
+                                }
+                            }
+                        } catch (err) {
+                            _didIteratorError = true;
+                            _iteratorError = err;
+                        } finally {
+                            try {
+                                if (!_iteratorNormalCompletion && _iterator['return']) {
+                                    _iterator['return']();
+                                }
+                            } finally {
+                                if (_didIteratorError) {
+                                    throw _iteratorError;
+                                }
+                            }
+                        }
+                    }
+
+                    /**
+                     * Get the component for the given key.
+                     * @param {TODO} key  TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: 'getComponent',
+                    value: function getComponent(id) {
+                        return this.components[id];
+                    }
+                }]);
+
+                return IonicApp;
+            })();
+
+            _export('IonicApp', IonicApp);
+        }
+    };
+});
+System.register("ionic/components/app/id", ["angular2/angular2", "./app"], function (_export) {
+    /**
+     * IdRef is an easy way to identify unique components in an app and access them
+     * no matter where in the UI heirarchy you are. For example, this makes toggling
+     * a global side menu feasible from any place in the application.
+     *
+     * See the [Menu section](http://localhost:4000/docs/v2/components/#menus) of
+     * the Component docs for an example of how Menus rely on ID's.
+     *
+     * To give any component an ID, simply set its `id` property:
+     * ```html
+     * <ion-checkbox id="myCheckbox"></ion-checkbox>
+     * ```
+     *
+     * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
+     * service:
+     * ```ts
+     * constructor(app: IonicApp) {
+     *   var checkbox = app.getComponent("myCheckbox");
+     *   if (checkbox.checked) console.log('checkbox is checked');
+     * }
+     * ```
+     *
+     * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
+     * guarantee that the registered component has not been destroyed if its Page
+     * has been navigated away from.
+     */
+    "use strict";
+
+    var AppViewManager, ElementRef, Directive, Renderer, IonicApp, __decorate, __metadata, IdRef, Attr, _a, _b, _c, _d, _e;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            AppViewManager = _angular2Angular2.AppViewManager;
+            ElementRef = _angular2Angular2.ElementRef;
+            Directive = _angular2Angular2.Directive;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_app) {
+            IonicApp = _app.IonicApp;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            IdRef = (function () {
+                function IdRef(app, elementRef, appViewManager) {
+                    _classCallCheck(this, IdRef);
+
+                    this.app = app;
+                    this.elementRef = elementRef;
+                    this.appViewManager = appViewManager;
+                    // Grab the component this directive is attached to
+                    this.component = appViewManager.getComponent(elementRef);
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(IdRef, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        this.app.register(this.id, this.component);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        this.app.unregister(this.id);
+                    }
+                }]);
+
+                return IdRef;
+            })();
+
+            _export("IdRef", IdRef);
+
+            _export("IdRef", IdRef = __decorate([Directive({
+                selector: '[id]',
+                inputs: ['id']
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _c || Object])], IdRef));
+
+            Attr = (function () {
+                function Attr(renderer, elementRef) {
+                    _classCallCheck(this, Attr);
+
+                    this.renderer = renderer;
+                    this.elementRef = elementRef;
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(Attr, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        this.renderer.setElementAttribute(this.elementRef, this.attr, '');
+                    }
+                }]);
+
+                return Attr;
+            })();
+
+            _export("Attr", Attr);
+
+            _export("Attr", Attr = __decorate([Directive({
+                selector: '[attr]',
+                inputs: ['attr']
+            }), __metadata('design:paramtypes', [typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object])], Attr));
         }
     };
 });
@@ -54926,7 +54926,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
      *
      * Additionally, specifying the `swipe-back-enabled` property will allow you to
      * swipe to go back:
-     * ```ts
+     * ```html
      * <ion-nav swipe-back-enabled="false" [root]="rootPage"></ion-nav>
      * ```
      *
@@ -59042,642 +59042,6 @@ System.register("ionic/components/switch/switch", ["angular2/angular2", "../../u
         }
     };
 });
-System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app", "../../config/config", "../nav/nav-controller", "./tabs"], function (_export) {
-    /**
-     * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
-     * of the Component docs._
-     *
-     * Tab components are basic navigation controllers used with Tabs.  Much like
-     * Nav, they are a subclass of NavController and can be used to navigate
-     * to pages in and manipulate the navigation stack of a particular tab.
-     *
-     * For more information on using navigation controllers like Tab or [Nav](../../nav/Nav/),
-     * take a look at the [NavController API reference](../NavController/).
-     *
-     * See the [Tabs API reference](../Tabs/) for more details on configuring Tabs
-     * and the TabBar.
-     *
-     * Like Nav, you must set a root page to be loaded initially for each Tab with
-     * the 'root' property:
-     * ```
-     * import {GettingStartedPage} from 'getting-started';
-     * @App({
-     *   template: `<ion-tabs>
-     *                <ion-tab [root]="tabOneRoot"></ion-tab>
-     *                <ion-tab [root]="tabTwoRoot"></ion-tab>
-     *              <ion-tabs>`
-     * })
-     * class MyApp {
-     *   constructor(){
-     *     this.tabOneRoot = GettingStartedPage;
-     *     this.tabTwoRoot = GettingStartedPage;
-     *   }
-     * }
-     * ```
-     * <h3 id="tab_properties">Tab Properties</h3>
-     * The Tabs component automatically creates the TabBar from the properties you
-     * set on each Tab.
-     *
-     * To change the title and icon, use the `tab-title` and `tab-icon`
-     * inputs:
-     * ```html
-     * <ion-tabs>
-     * 	 <ion-tab tab-title="Home" tab-icon="home" [root]="tabOneRoot"></ion-tab>
-     * 	 <ion-tab tab-title="Login" tab-icon="star" [root]="tabTwoRoot"></ion-tab>
-     * <ion-tabs>
-     * ```
-     */
-    "use strict";
-
-    var Component, Host, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, NavController, Tabs, __decorate, __metadata, __param, Tab, _a, _b, _c, _d, _e, _f, _g, _h, _j;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            Host = _angular2Angular2.Host;
-            ElementRef = _angular2Angular2.ElementRef;
-            Compiler = _angular2Angular2.Compiler;
-            DynamicComponentLoader = _angular2Angular2.DynamicComponentLoader;
-            AppViewManager = _angular2Angular2.AppViewManager;
-            NgZone = _angular2Angular2.NgZone;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_navNavController) {
-            NavController = _navNavController.NavController;
-        }, function (_tabs) {
-            Tabs = _tabs.Tabs;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Tab = (function (_NavController) {
-                _inherits(Tab, _NavController);
-
-                function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
-                    _classCallCheck(this, Tab);
-
-                    // A Tab is a NavController for its child pages
-                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
-                    this.tabs = tabs;
-                    this._isInitial = tabs.add(this);
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(Tab, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        var _this = this;
-
-                        if (this._isInitial) {
-                            this.tabs.select(this);
-                        } else if (this.tabs.preloadTabs) {
-                            setTimeout(function () {
-                                if (!_this._loaded) {
-                                    var opts = {
-                                        animate: false,
-                                        preload: true
-                                    };
-                                    _this.load(opts, function () {
-                                        _this.hideNavbars(true);
-                                    });
-                                }
-                            }, 1000 * this.index);
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "load",
-                    value: function load(opts, done) {
-                        if (!this._loaded && this.root) {
-                            this.push(this.root, null, opts).then(done);
-                            this._loaded = true;
-                        } else {
-                            done();
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "loadPage",
-                    value: function loadPage(viewCtrl, navbarContainerRef, done) {
-                        // by default a page's navbar goes into the shared tab's navbar section
-                        navbarContainerRef = this.tabs.navbarContainerRef;
-                        var isTabSubPage = this.tabs.subPages && viewCtrl.index > 0;
-                        if (isTabSubPage) {
-                            // a subpage, that's not the first index
-                            // should not use the shared tabs navbar section, but use it's own
-                            navbarContainerRef = null;
-                        }
-                        _get(Object.getPrototypeOf(Tab.prototype), "loadPage", this).call(this, viewCtrl, navbarContainerRef, function () {
-                            if (viewCtrl.instance) {
-                                viewCtrl.instance._tabSubPage = isTabSubPage;
-                            }
-                            done();
-                        });
-                    }
-                }, {
-                    key: "setSelected",
-                    value: function setSelected(isSelected) {
-                        this.isSelected = isSelected;
-                        this.hideNavbars(!isSelected);
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "hideNavbars",
-                    value: function hideNavbars(shouldHideNavbars) {
-                        this._views.forEach(function (viewCtrl) {
-                            var navbar = viewCtrl.getNavbar();
-                            navbar && navbar.setHidden(shouldHideNavbars);
-                        });
-                    }
-                }, {
-                    key: "index",
-                    get: function get() {
-                        return this.tabs.getIndex(this);
-                    }
-                }]);
-
-                return Tab;
-            })(NavController);
-
-            _export("Tab", Tab);
-
-            _export("Tab", Tab = __decorate([Component({
-                selector: 'ion-tab',
-                inputs: ['root', 'tabTitle', 'tabIcon'],
-                host: {
-                    '[attr.id]': 'panelId',
-                    '[attr.aria-labelledby]': 'btnId',
-                    '[class.show-tab]': 'isSelected',
-                    'role': 'tabpanel'
-                },
-                template: '<template #contents></template>'
-            }), __param(0, Host()), __metadata('design:paramtypes', [typeof (_a = typeof Tabs !== 'undefined' && Tabs) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Compiler !== 'undefined' && Compiler) === 'function' && _e || Object, typeof (_f = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], Tab));
-        }
-    };
-});
-System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/app", "../app/id", "../../config/config", "../../platform/platform", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
-    /**
-     * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
-     * of the Component docs._
-     *
-     * The Tabs component is a container with a TabBar and any number of
-     * individual Tab components. On iOS, the TabBar is placed on the bottom of
-     * the screen, while on Android it is at the top.
-     *
-     * See the [Tab API reference](../Tab/) for more details on individual Tab components.
-     *
-     * The TabBar is automatically created for you using the
-     * [properties you set on each Tab](../Tab/#tab_properties).
-     *
-     * To override the platform specific TabBar placement, use the
-     * `tabbar-placement` property:
-     *
-     * ```ts
-     * <ion-tabs tabbar-placement="top">
-     *   <ion-tab [root]="tabRoot"></ion-tab>
-     * </ion-tabs>
-     * ```
-     *
-     * To change the location of the icons in the TabBar, use the `tabbar-icons`
-     * property:
-     * ```ts
-     * <ion-tabs tabbar-icons="bottom">
-     *   <ion-tab [root]="tabRoot"></ion-tab>
-     * </ion-tabs>
-     * ```
-     *
-     * You can select tabs programatically by injecting Tabs into any child
-     * component, and using the [select()](#select) method:
-     * ```ts
-     * @Page({
-     *   template: `<button (click)="goToTabTwo()">Go to Tab2</button>`
-     * })
-     * class TabOne {
-     *   constructor(tabs: Tabs){
-     *     this.tabs = tabs;
-     *   }
-     *
-     *   goToTabTwo() {
-     *     this.tabs.select(this.tabs.tabs[1]);
-     *   }
-     * }
-     * ```
-     * The [tabs](#tabs) property is an array of all child [Tab](../Tab/) components
-     * of that Tabs component.
-     *
-     */
-    "use strict";
-
-    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, IonicApp, Attr, Config, Platform, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-            Optional = _angular2Angular2.Optional;
-            Host = _angular2Angular2.Host;
-            NgFor = _angular2Angular2.NgFor;
-            NgIf = _angular2Angular2.NgIf;
-            forwardRef = _angular2Angular2.forwardRef;
-            ViewContainerRef = _angular2Angular2.ViewContainerRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_appId) {
-            Attr = _appId.Attr;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_platformPlatform) {
-            Platform = _platformPlatform.Platform;
-        }, function (_navViewController) {
-            ViewController = _navViewController.ViewController;
-        }, function (_configDecorators) {
-            ConfigComponent = _configDecorators.ConfigComponent;
-        }, function (_iconIcon) {
-            Icon = _iconIcon.Icon;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Tabs = (function (_Ion) {
-                _inherits(Tabs, _Ion);
-
-                /**
-                 * Hi, I'm "Tabs". I'm really just another Page, with a few special features.
-                 * "Tabs" can be a sibling to other pages that can be navigated to, which those
-                 * sibling pages may or may not have their own tab bars (doesn't matter). The fact
-                 * that "Tabs" can happen to have children "Tab" classes, and each "Tab" can have
-                 * children pages with their own "ViewController" instance, as nothing to do with the
-                 * point that "Tabs" is itself is just a page with its own instance of ViewController.
-                 */
-
-                function Tabs(app, config, elementRef, viewCtrl, platform) {
-                    var _this = this;
-
-                    _classCallCheck(this, Tabs);
-
-                    _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
-                    this.platform = platform;
-                    this.app = app;
-                    this.preload = config.get('preloadTabs');
-                    this.subPages = config.get('tabSubPages');
-                    // collection of children "Tab" instances, which extends NavController
-                    this.tabs = [];
-                    // Tabs may also be an actual ViewController which was navigated to
-                    // if Tabs is static and not navigated to within a NavController
-                    // then skip this and don't treat it as it's own ViewController
-                    if (viewCtrl) {
-                        viewCtrl.setContent(this);
-                        viewCtrl.setContentRef(elementRef);
-                        // TODO: improve how this works, probably not use promises here
-                        this.readyPromise = new Promise(function (res) {
-                            _this.isReady = res;
-                        });
-                        viewCtrl.onReady = function () {
-                            return _this.readyPromise;
-                        };
-                    }
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(Tabs, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        var _this2 = this;
-
-                        _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
-                        if (this.highlight) {
-                            this.platform.onResize(function () {
-                                _this2.highlight.select(_this2.getSelected());
-                            });
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "add",
-                    value: function add(tab) {
-                        tab.id = ++_tabIds;
-                        tab.btnId = 'tab-' + tab.id;
-                        tab.panelId = 'tabpanel-' + tab.id;
-                        this.tabs.push(tab);
-                        return this.tabs.length === 1;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {Tab} tab  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: "select",
-                    value: function select(tabOrIndex) {
-                        var _this3 = this;
-
-                        var selectedTab = typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex;
-                        if (!selectedTab) {
-                            return Promise.reject();
-                        }
-                        console.time('select tab ' + selectedTab.id);
-                        var deselectedTab = this.getSelected();
-                        if (selectedTab === deselectedTab) {
-                            // no change
-                            return this.touchActive(selectedTab);
-                        }
-                        var opts = {
-                            animate: false
-                        };
-                        var deselectedPage = undefined;
-                        if (deselectedTab) {
-                            deselectedPage = deselectedTab.getActive();
-                            deselectedPage && deselectedPage.willLeave();
-                        }
-                        var selectedPage = selectedTab.getActive();
-                        selectedPage && selectedPage.willEnter();
-                        selectedTab.load(opts, function () {
-                            _this3.tabs.forEach(function (tab) {
-                                tab.setSelected(tab === selectedTab);
-                            });
-                            _this3.highlight && _this3.highlight.select(selectedTab);
-                            selectedPage && selectedPage.didEnter();
-                            deselectedPage && deselectedPage.didLeave();
-                            _this3.isReady && _this3.isReady();
-                            console.timeEnd('select tab ' + selectedTab.id);
-                        });
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} index  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: "getByIndex",
-                    value: function getByIndex(index) {
-                        if (index < this.tabs.length && index > -1) {
-                            return this.tabs[index];
-                        }
-                        return null;
-                    }
-                }, {
-                    key: "getSelected",
-                    value: function getSelected() {
-                        for (var i = 0; i < this.tabs.length; i++) {
-                            if (this.tabs[i].isSelected) {
-                                return this.tabs[i];
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: "getIndex",
-                    value: function getIndex(tab) {
-                        return this.tabs.indexOf(tab);
-                    }
-
-                    /**
-                     * @private
-                     * "Touch" the active tab, going back to the root view of the tab
-                     * or optionally letting the tab handle the event
-                     */
-                }, {
-                    key: "touchActive",
-                    value: function touchActive(tab) {
-                        var active = tab.getActive();
-                        if (!active) {
-                            return Promise.resolve();
-                        }
-                        var instance = active.instance;
-                        // If they have a custom tab selected handler, call it
-                        if (instance.tabSelected) {
-                            return instance.tabSelected();
-                        }
-                        // If we're a few pages deep, pop to root
-                        if (tab.length() > 1) {
-                            // Pop to the root view
-                            return tab.popToRoot();
-                        }
-                        // Otherwise, if the page we're on is not our real root, reset it to our
-                        // default root type
-                        if (tab.root != active.componentType) {
-                            return tab.setRoot(tab.root);
-                        }
-                        // And failing all of that, we do something safe and secure
-                        return Promise.resolve();
-                    }
-                }]);
-
-                return Tabs;
-            })(Ion);
-
-            _export("Tabs", Tabs);
-
-            _export("Tabs", Tabs = __decorate([ConfigComponent({
-                selector: 'ion-tabs',
-                defaultInputs: {
-                    'tabbarPlacement': 'bottom',
-                    'tabbarIcons': 'top',
-                    'tabbarStyle': 'default',
-                    'preloadTabs': true
-                },
-                template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
-                directives: [Icon, NgFor, NgIf, Attr, forwardRef(function () {
-                    return TabButton;
-                }), forwardRef(function () {
-                    return TabHighlight;
-                }), forwardRef(function () {
-                    return TabNavBarAnchor;
-                })]
-            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof Platform !== 'undefined' && Platform) === 'function' && _e || Object])], Tabs));
-            _tabIds = -1;
-
-            /**
-             * @private
-             */
-
-            TabButton = (function (_Ion2) {
-                _inherits(TabButton, _Ion2);
-
-                function TabButton(tabs, config, elementRef) {
-                    _classCallCheck(this, TabButton);
-
-                    _get(Object.getPrototypeOf(TabButton.prototype), "constructor", this).call(this, elementRef, config);
-                    this.tabs = tabs;
-                    this.disHover = config.get('hoverCSS') === false;
-                }
-
-                _createClass(TabButton, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        this.tab.btn = this;
-                        this.hasTitle = !!this.tab.tabTitle;
-                        this.hasIcon = !!this.tab.tabIcon;
-                        this.hasTitleOnly = this.hasTitle && !this.hasIcon;
-                        this.hasIconOnly = this.hasIcon && !this.hasTitle;
-                    }
-                }, {
-                    key: "onClick",
-                    value: function onClick() {
-                        this.tabs.select(this.tab);
-                    }
-                }]);
-
-                return TabButton;
-            })(Ion);
-
-            TabButton = __decorate([Directive({
-                selector: '.tab-button',
-                inputs: ['tab'],
-                host: {
-                    '[attr.id]': 'tab.btnId',
-                    '[attr.aria-controls]': 'tab.panelId',
-                    '[attr.aria-selected]': 'tab.isSelected',
-                    '[class.has-title]': 'hasTitle',
-                    '[class.has-icon]': 'hasIcon',
-                    '[class.has-title-only]': 'hasTitleOnly',
-                    '[class.icon-only]': 'hasIconOnly',
-                    '[class.disable-hover]': 'disHover',
-                    '(click)': 'onClick()'
-                }
-            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_f = typeof Config !== 'undefined' && Config) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object])], TabButton);
-            /**
-             * @private
-             */
-
-            TabHighlight = (function () {
-                function TabHighlight(tabs, config, elementRef) {
-                    _classCallCheck(this, TabHighlight);
-
-                    if (config.get('tabbarHighlight')) {
-                        tabs.highlight = this;
-                        this.elementRef = elementRef;
-                    }
-                }
-
-                _createClass(TabHighlight, [{
-                    key: "select",
-                    value: function select(tab) {
-                        var d = tab.btn.getDimensions();
-                        var ele = this.elementRef.nativeElement;
-                        ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-                        if (!this.init) {
-                            this.init = true;
-                            setTimeout(function () {
-                                ele.classList.add('animate');
-                            }, 64);
-                        }
-                    }
-                }]);
-
-                return TabHighlight;
-            })();
-
-            TabHighlight = __decorate([Directive({
-                selector: 'tab-highlight'
-            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_h = typeof Config !== 'undefined' && Config) === 'function' && _h || Object, typeof (_j = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _j || Object])], TabHighlight);
-            /**
-             * @private
-             */
-
-            TabNavBarAnchor = function TabNavBarAnchor(tabs, viewContainerRef) {
-                _classCallCheck(this, TabNavBarAnchor);
-
-                tabs.navbarContainerRef = viewContainerRef;
-            };
-
-            TabNavBarAnchor = __decorate([Directive({ selector: 'template[navbar-anchor]' }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_k = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _k || Object])], TabNavBarAnchor);
-        }
-    };
-});
 System.register('ionic/components/tap-click/activator', [], function (_export) {
     'use strict';
 
@@ -60126,6 +59490,642 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
             doc = null;
             ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
             ACTIVATABLE_ATTRIBUTES = /tappable/;
+        }
+    };
+});
+System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app", "../../config/config", "../nav/nav-controller", "./tabs"], function (_export) {
+    /**
+     * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
+     * of the Component docs._
+     *
+     * Tab components are basic navigation controllers used with Tabs.  Much like
+     * Nav, they are a subclass of NavController and can be used to navigate
+     * to pages in and manipulate the navigation stack of a particular tab.
+     *
+     * For more information on using navigation controllers like Tab or [Nav](../../nav/Nav/),
+     * take a look at the [NavController API reference](../NavController/).
+     *
+     * See the [Tabs API reference](../Tabs/) for more details on configuring Tabs
+     * and the TabBar.
+     *
+     * Like Nav, you must set a root page to be loaded initially for each Tab with
+     * the 'root' property:
+     * ```
+     * import {GettingStartedPage} from 'getting-started';
+     * @App({
+     *   template: `<ion-tabs>
+     *                <ion-tab [root]="tabOneRoot"></ion-tab>
+     *                <ion-tab [root]="tabTwoRoot"></ion-tab>
+     *              <ion-tabs>`
+     * })
+     * class MyApp {
+     *   constructor(){
+     *     this.tabOneRoot = GettingStartedPage;
+     *     this.tabTwoRoot = GettingStartedPage;
+     *   }
+     * }
+     * ```
+     * <h3 id="tab_properties">Tab Properties</h3>
+     * The Tabs component automatically creates the TabBar from the properties you
+     * set on each Tab.
+     *
+     * To change the title and icon, use the `tab-title` and `tab-icon`
+     * inputs:
+     * ```html
+     * <ion-tabs>
+     * 	 <ion-tab tab-title="Home" tab-icon="home" [root]="tabOneRoot"></ion-tab>
+     * 	 <ion-tab tab-title="Login" tab-icon="star" [root]="tabTwoRoot"></ion-tab>
+     * <ion-tabs>
+     * ```
+     */
+    "use strict";
+
+    var Component, Host, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, NavController, Tabs, __decorate, __metadata, __param, Tab, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            Host = _angular2Angular2.Host;
+            ElementRef = _angular2Angular2.ElementRef;
+            Compiler = _angular2Angular2.Compiler;
+            DynamicComponentLoader = _angular2Angular2.DynamicComponentLoader;
+            AppViewManager = _angular2Angular2.AppViewManager;
+            NgZone = _angular2Angular2.NgZone;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_navNavController) {
+            NavController = _navNavController.NavController;
+        }, function (_tabs) {
+            Tabs = _tabs.Tabs;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Tab = (function (_NavController) {
+                _inherits(Tab, _NavController);
+
+                function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                    _classCallCheck(this, Tab);
+
+                    // A Tab is a NavController for its child pages
+                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+                    this.tabs = tabs;
+                    this._isInitial = tabs.add(this);
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(Tab, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        var _this = this;
+
+                        if (this._isInitial) {
+                            this.tabs.select(this);
+                        } else if (this.tabs.preloadTabs) {
+                            setTimeout(function () {
+                                if (!_this._loaded) {
+                                    var opts = {
+                                        animate: false,
+                                        preload: true
+                                    };
+                                    _this.load(opts, function () {
+                                        _this.hideNavbars(true);
+                                    });
+                                }
+                            }, 1000 * this.index);
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "load",
+                    value: function load(opts, done) {
+                        if (!this._loaded && this.root) {
+                            this.push(this.root, null, opts).then(done);
+                            this._loaded = true;
+                        } else {
+                            done();
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "loadPage",
+                    value: function loadPage(viewCtrl, navbarContainerRef, done) {
+                        // by default a page's navbar goes into the shared tab's navbar section
+                        navbarContainerRef = this.tabs.navbarContainerRef;
+                        var isTabSubPage = this.tabs.subPages && viewCtrl.index > 0;
+                        if (isTabSubPage) {
+                            // a subpage, that's not the first index
+                            // should not use the shared tabs navbar section, but use it's own
+                            navbarContainerRef = null;
+                        }
+                        _get(Object.getPrototypeOf(Tab.prototype), "loadPage", this).call(this, viewCtrl, navbarContainerRef, function () {
+                            if (viewCtrl.instance) {
+                                viewCtrl.instance._tabSubPage = isTabSubPage;
+                            }
+                            done();
+                        });
+                    }
+                }, {
+                    key: "setSelected",
+                    value: function setSelected(isSelected) {
+                        this.isSelected = isSelected;
+                        this.hideNavbars(!isSelected);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "hideNavbars",
+                    value: function hideNavbars(shouldHideNavbars) {
+                        this._views.forEach(function (viewCtrl) {
+                            var navbar = viewCtrl.getNavbar();
+                            navbar && navbar.setHidden(shouldHideNavbars);
+                        });
+                    }
+                }, {
+                    key: "index",
+                    get: function get() {
+                        return this.tabs.getIndex(this);
+                    }
+                }]);
+
+                return Tab;
+            })(NavController);
+
+            _export("Tab", Tab);
+
+            _export("Tab", Tab = __decorate([Component({
+                selector: 'ion-tab',
+                inputs: ['root', 'tabTitle', 'tabIcon'],
+                host: {
+                    '[attr.id]': 'panelId',
+                    '[attr.aria-labelledby]': 'btnId',
+                    '[class.show-tab]': 'isSelected',
+                    'role': 'tabpanel'
+                },
+                template: '<template #contents></template>'
+            }), __param(0, Host()), __metadata('design:paramtypes', [typeof (_a = typeof Tabs !== 'undefined' && Tabs) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Compiler !== 'undefined' && Compiler) === 'function' && _e || Object, typeof (_f = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], Tab));
+        }
+    };
+});
+System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/app", "../app/id", "../../config/config", "../../platform/platform", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
+    /**
+     * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
+     * of the Component docs._
+     *
+     * The Tabs component is a container with a TabBar and any number of
+     * individual Tab components. On iOS, the TabBar is placed on the bottom of
+     * the screen, while on Android it is at the top.
+     *
+     * See the [Tab API reference](../Tab/) for more details on individual Tab components.
+     *
+     * The TabBar is automatically created for you using the
+     * [properties you set on each Tab](../Tab/#tab_properties).
+     *
+     * To override the platform specific TabBar placement, use the
+     * `tabbar-placement` property:
+     *
+     * ```html
+     * <ion-tabs tabbar-placement="top">
+     *   <ion-tab [root]="tabRoot"></ion-tab>
+     * </ion-tabs>
+     * ```
+     *
+     * To change the location of the icons in the TabBar, use the `tabbar-icons`
+     * property:
+     * ```html
+     * <ion-tabs tabbar-icons="bottom">
+     *   <ion-tab [root]="tabRoot"></ion-tab>
+     * </ion-tabs>
+     * ```
+     *
+     * You can select tabs programatically by injecting Tabs into any child
+     * component, and using the [select()](#select) method:
+     * ```ts
+     * @Page({
+     *   template: `<button (click)="goToTabTwo()">Go to Tab2</button>`
+     * })
+     * class TabOne {
+     *   constructor(tabs: Tabs){
+     *     this.tabs = tabs;
+     *   }
+     *
+     *   goToTabTwo() {
+     *     this.tabs.select(this.tabs.tabs[1]);
+     *   }
+     * }
+     * ```
+     * The [tabs](#tabs) property is an array of all child [Tab](../Tab/) components
+     * of that Tabs component.
+     *
+     */
+    "use strict";
+
+    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, IonicApp, Attr, Config, Platform, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            Optional = _angular2Angular2.Optional;
+            Host = _angular2Angular2.Host;
+            NgFor = _angular2Angular2.NgFor;
+            NgIf = _angular2Angular2.NgIf;
+            forwardRef = _angular2Angular2.forwardRef;
+            ViewContainerRef = _angular2Angular2.ViewContainerRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_appId) {
+            Attr = _appId.Attr;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
+        }, function (_navViewController) {
+            ViewController = _navViewController.ViewController;
+        }, function (_configDecorators) {
+            ConfigComponent = _configDecorators.ConfigComponent;
+        }, function (_iconIcon) {
+            Icon = _iconIcon.Icon;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Tabs = (function (_Ion) {
+                _inherits(Tabs, _Ion);
+
+                /**
+                 * Hi, I'm "Tabs". I'm really just another Page, with a few special features.
+                 * "Tabs" can be a sibling to other pages that can be navigated to, which those
+                 * sibling pages may or may not have their own tab bars (doesn't matter). The fact
+                 * that "Tabs" can happen to have children "Tab" classes, and each "Tab" can have
+                 * children pages with their own "ViewController" instance, as nothing to do with the
+                 * point that "Tabs" is itself is just a page with its own instance of ViewController.
+                 */
+
+                function Tabs(app, config, elementRef, viewCtrl, platform) {
+                    var _this = this;
+
+                    _classCallCheck(this, Tabs);
+
+                    _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
+                    this.platform = platform;
+                    this.app = app;
+                    this.preload = config.get('preloadTabs');
+                    this.subPages = config.get('tabSubPages');
+                    // collection of children "Tab" instances, which extends NavController
+                    this.tabs = [];
+                    // Tabs may also be an actual ViewController which was navigated to
+                    // if Tabs is static and not navigated to within a NavController
+                    // then skip this and don't treat it as it's own ViewController
+                    if (viewCtrl) {
+                        viewCtrl.setContent(this);
+                        viewCtrl.setContentRef(elementRef);
+                        // TODO: improve how this works, probably not use promises here
+                        this.readyPromise = new Promise(function (res) {
+                            _this.isReady = res;
+                        });
+                        viewCtrl.onReady = function () {
+                            return _this.readyPromise;
+                        };
+                    }
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(Tabs, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        var _this2 = this;
+
+                        _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
+                        if (this.highlight) {
+                            this.platform.onResize(function () {
+                                _this2.highlight.select(_this2.getSelected());
+                            });
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "add",
+                    value: function add(tab) {
+                        tab.id = ++_tabIds;
+                        tab.btnId = 'tab-' + tab.id;
+                        tab.panelId = 'tabpanel-' + tab.id;
+                        this.tabs.push(tab);
+                        return this.tabs.length === 1;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {Tab} tab  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: "select",
+                    value: function select(tabOrIndex) {
+                        var _this3 = this;
+
+                        var selectedTab = typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex;
+                        if (!selectedTab) {
+                            return Promise.reject();
+                        }
+                        console.time('select tab ' + selectedTab.id);
+                        var deselectedTab = this.getSelected();
+                        if (selectedTab === deselectedTab) {
+                            // no change
+                            return this.touchActive(selectedTab);
+                        }
+                        var opts = {
+                            animate: false
+                        };
+                        var deselectedPage = undefined;
+                        if (deselectedTab) {
+                            deselectedPage = deselectedTab.getActive();
+                            deselectedPage && deselectedPage.willLeave();
+                        }
+                        var selectedPage = selectedTab.getActive();
+                        selectedPage && selectedPage.willEnter();
+                        selectedTab.load(opts, function () {
+                            _this3.tabs.forEach(function (tab) {
+                                tab.setSelected(tab === selectedTab);
+                            });
+                            _this3.highlight && _this3.highlight.select(selectedTab);
+                            selectedPage && selectedPage.didEnter();
+                            deselectedPage && deselectedPage.didLeave();
+                            _this3.isReady && _this3.isReady();
+                            console.timeEnd('select tab ' + selectedTab.id);
+                        });
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} index  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: "getByIndex",
+                    value: function getByIndex(index) {
+                        if (index < this.tabs.length && index > -1) {
+                            return this.tabs[index];
+                        }
+                        return null;
+                    }
+                }, {
+                    key: "getSelected",
+                    value: function getSelected() {
+                        for (var i = 0; i < this.tabs.length; i++) {
+                            if (this.tabs[i].isSelected) {
+                                return this.tabs[i];
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: "getIndex",
+                    value: function getIndex(tab) {
+                        return this.tabs.indexOf(tab);
+                    }
+
+                    /**
+                     * @private
+                     * "Touch" the active tab, going back to the root view of the tab
+                     * or optionally letting the tab handle the event
+                     */
+                }, {
+                    key: "touchActive",
+                    value: function touchActive(tab) {
+                        var active = tab.getActive();
+                        if (!active) {
+                            return Promise.resolve();
+                        }
+                        var instance = active.instance;
+                        // If they have a custom tab selected handler, call it
+                        if (instance.tabSelected) {
+                            return instance.tabSelected();
+                        }
+                        // If we're a few pages deep, pop to root
+                        if (tab.length() > 1) {
+                            // Pop to the root view
+                            return tab.popToRoot();
+                        }
+                        // Otherwise, if the page we're on is not our real root, reset it to our
+                        // default root type
+                        if (tab.root != active.componentType) {
+                            return tab.setRoot(tab.root);
+                        }
+                        // And failing all of that, we do something safe and secure
+                        return Promise.resolve();
+                    }
+                }]);
+
+                return Tabs;
+            })(Ion);
+
+            _export("Tabs", Tabs);
+
+            _export("Tabs", Tabs = __decorate([ConfigComponent({
+                selector: 'ion-tabs',
+                defaultInputs: {
+                    'tabbarPlacement': 'bottom',
+                    'tabbarIcons': 'top',
+                    'tabbarStyle': 'default',
+                    'preloadTabs': true
+                },
+                template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
+                directives: [Icon, NgFor, NgIf, Attr, forwardRef(function () {
+                    return TabButton;
+                }), forwardRef(function () {
+                    return TabHighlight;
+                }), forwardRef(function () {
+                    return TabNavBarAnchor;
+                })]
+            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof Platform !== 'undefined' && Platform) === 'function' && _e || Object])], Tabs));
+            _tabIds = -1;
+
+            /**
+             * @private
+             */
+
+            TabButton = (function (_Ion2) {
+                _inherits(TabButton, _Ion2);
+
+                function TabButton(tabs, config, elementRef) {
+                    _classCallCheck(this, TabButton);
+
+                    _get(Object.getPrototypeOf(TabButton.prototype), "constructor", this).call(this, elementRef, config);
+                    this.tabs = tabs;
+                    this.disHover = config.get('hoverCSS') === false;
+                }
+
+                _createClass(TabButton, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        this.tab.btn = this;
+                        this.hasTitle = !!this.tab.tabTitle;
+                        this.hasIcon = !!this.tab.tabIcon;
+                        this.hasTitleOnly = this.hasTitle && !this.hasIcon;
+                        this.hasIconOnly = this.hasIcon && !this.hasTitle;
+                    }
+                }, {
+                    key: "onClick",
+                    value: function onClick() {
+                        this.tabs.select(this.tab);
+                    }
+                }]);
+
+                return TabButton;
+            })(Ion);
+
+            TabButton = __decorate([Directive({
+                selector: '.tab-button',
+                inputs: ['tab'],
+                host: {
+                    '[attr.id]': 'tab.btnId',
+                    '[attr.aria-controls]': 'tab.panelId',
+                    '[attr.aria-selected]': 'tab.isSelected',
+                    '[class.has-title]': 'hasTitle',
+                    '[class.has-icon]': 'hasIcon',
+                    '[class.has-title-only]': 'hasTitleOnly',
+                    '[class.icon-only]': 'hasIconOnly',
+                    '[class.disable-hover]': 'disHover',
+                    '(click)': 'onClick()'
+                }
+            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_f = typeof Config !== 'undefined' && Config) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object])], TabButton);
+            /**
+             * @private
+             */
+
+            TabHighlight = (function () {
+                function TabHighlight(tabs, config, elementRef) {
+                    _classCallCheck(this, TabHighlight);
+
+                    if (config.get('tabbarHighlight')) {
+                        tabs.highlight = this;
+                        this.elementRef = elementRef;
+                    }
+                }
+
+                _createClass(TabHighlight, [{
+                    key: "select",
+                    value: function select(tab) {
+                        var d = tab.btn.getDimensions();
+                        var ele = this.elementRef.nativeElement;
+                        ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+                        if (!this.init) {
+                            this.init = true;
+                            setTimeout(function () {
+                                ele.classList.add('animate');
+                            }, 64);
+                        }
+                    }
+                }]);
+
+                return TabHighlight;
+            })();
+
+            TabHighlight = __decorate([Directive({
+                selector: 'tab-highlight'
+            }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_h = typeof Config !== 'undefined' && Config) === 'function' && _h || Object, typeof (_j = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _j || Object])], TabHighlight);
+            /**
+             * @private
+             */
+
+            TabNavBarAnchor = function TabNavBarAnchor(tabs, viewContainerRef) {
+                _classCallCheck(this, TabNavBarAnchor);
+
+                tabs.navbarContainerRef = viewContainerRef;
+            };
+
+            TabNavBarAnchor = __decorate([Directive({ selector: 'template[navbar-anchor]' }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_k = typeof ViewContainerRef !== 'undefined' && ViewContainerRef) === 'function' && _k || Object])], TabNavBarAnchor);
         }
     };
 });

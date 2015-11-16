@@ -47,13 +47,13 @@ the screen, while on Android it is at the top.</p>
 <a href="../Tab/#tab_properties">properties you set on each Tab</a>.</p>
 <p>To override the platform specific TabBar placement, use the
 <code>tabbar-placement</code> property:</p>
-<pre><code class="lang-ts">&lt;ion-tabs tabbar-placement=&quot;top&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs tabbar-placement=&quot;top&quot;&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>To change the location of the icons in the TabBar, use the <code>tabbar-icons</code>
 property:</p>
-<pre><code class="lang-ts">&lt;ion-tabs tabbar-icons=&quot;bottom&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs tabbar-icons=&quot;bottom&quot;&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>

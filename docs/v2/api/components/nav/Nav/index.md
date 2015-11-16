@@ -64,7 +64,7 @@ Nav will automatically add a back button to it if there is a page
 before the one you are navigating to in the navigation stack.</p>
 <p>Additionally, specifying the <code>swipe-back-enabled</code> property will allow you to
 swipe to go back:</p>
-<pre><code class="lang-ts">&lt;ion-nav swipe-back-enabled=&quot;false&quot; [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
+<pre><code class="lang-html">&lt;ion-nav swipe-back-enabled=&quot;false&quot; [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <p>Here is a diagram of how Nav animates smoothly between pages:</p>
 <div class="highlight less-margin">

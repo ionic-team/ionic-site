@@ -8,8 +8,6 @@ ARG_DEFS=(
 function buildforjekyll {
   echo "Building site with jekyll"
   jekyll build
-  # don't run circle on production branch
-  rm _site/circle.yml
 }
 
 function runlinkchecker {

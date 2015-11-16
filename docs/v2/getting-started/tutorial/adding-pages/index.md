@@ -10,7 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Adding Pages</h1>
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md'>
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/adding-pages/index.md'>
   Improve this doc
 </a>
 
@@ -29,13 +29,13 @@ first, or "root" page for the `ion-nav` controller. When the navigation controll
 In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
 ```ts
-import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {App, IonicApp, Platform} from 'ionic/ionic';
 import {HelloIonicPage} from './hello-ionic/hello-ionic';
 import {ListPage} from './list/list';
 
 class MyApp {
 
-  constructor(app: IonicApp, platform: IonicPlatform) {
+  constructor(app: IonicApp, platform: Platform) {
 
     // set up our app
     this.app = app;

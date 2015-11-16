@@ -30,7 +30,7 @@ function buildforjekyll {
   cd ..
 
   echo "Cleaning up"
-  #rm -R _site
+  rm -R _site
 }
 
 if [ -d "_scripts" ]; then

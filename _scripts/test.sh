@@ -19,6 +19,9 @@ function runlinkchecker {
   pid=$!
   linkchecker http://localhost:8000 -ohtml --timeout=5 --ignore-url=^mailto > linkchecker.html
   kill $pid
+  sed -i -e 's/localhost:8000/ionic-site-staging.herokuapp.com/g' linkchecker.html
+  rm -r venv
+  cd ..
 }
 
 if [ -d "_scripts" ]; then

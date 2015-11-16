@@ -84,26 +84,6 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <h3><a href="#git">Git</a></h3>
     <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
   </section>
-   
-  <section id="git">
-    <h3><a href="#git">Git</a></h3>
-    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
-  </section>
-   
-  <section id="git">
-    <h3><a href="#git">Git</a></h3>
-    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
-  </section>
-   
-  <section id="git">
-    <h3><a href="#git">Git</a></h3>
-    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
-  </section>
-   
-  <section id="git">
-    <h3><a href="#git">Git</a></h3>
-    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
-  </section>
 
   <section id="gulp">
     <h3><a href="#gulp">Gulp</a></h3>

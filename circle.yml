@@ -1,3 +1,5 @@
+general:
+  build_dir: _site
 machine:
   node:
     version: 4.1.0
@@ -10,9 +12,8 @@ dependencies:
 test:
   override:
     - ./_scripts/test.sh
-
 deployment:
   staging:
-    branch: production
+    branch: master
     commands:
       - ./_scripts/deploy_staging.sh

@@ -5,7 +5,7 @@ machine:
     version: 2.2.3
 dependencies:
   post:
-    - gem install jekyll --pre
+    - gem install jekyll --pre && gem install jekyll-paginate
 test:
   override:
     - ./_scripts/circle.sh --index=$CIRCLE_NODE_INDEX --total=$CIRCLE_NODE_TOTAL

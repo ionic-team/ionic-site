@@ -9,7 +9,7 @@ function buildforjekyll {
   echo "Cloning ionic-site in _site"
   mkdir ./_site
   cd _site
-  git clone https://github.com/driftyco/ionic-site.git .
+  git clone https://$CIRCLE_SHA1@github.com/driftyco/ionic-site.git .
   git config --global user.email "perry@ionic.io"
   git config --global user.name "perry"
 

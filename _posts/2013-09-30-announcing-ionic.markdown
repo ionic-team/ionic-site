@@ -9,7 +9,7 @@ published: false
 
 <img class="showcase-image" src="/img/blog/preview.jpg">
 
-<p>Ever since we launched our first product <a href="http://codiqa.com/">Codiqa</a> to make it incredibly easy to build HTML5 mobile websites and apps, we knew HTML5 had huge potential on mobile.</p>
+<p>Ever since we launched our first product <a href="http://codiqa.com/">Codiqa</a>, to make it incredibly easy to build HTML5 mobile websites and apps, we knew HTML5 had huge potential on mobile.</p>
 
 <p>But until recently, it was just too easy to say that HTML5 would never be a legitimate replacement for native on mobile.</p>
 
@@ -39,4 +39,3 @@ published: false
 
 <p>The Ionic Crew</p>
 <p><a href="http://twitter.com/benjsperry">@bensperry</a>, <a href="http://twitter.com/adamdbradley">@adamdbradley</a> and <a href="http://twitter.com/maxlynch">@maxlynch</a></p>
-

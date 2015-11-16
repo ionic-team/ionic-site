@@ -7,7 +7,7 @@ ARG_DEFS=(
 
 function clone_site {
   echo "Cloning ionic-site in _site"
-  mkdir ./_site
+  mkdir _site
   cd _site
   git clone https://$GH_AUTH_TOKEN@github.com/driftyco/ionic-site.git .
   git config --global user.email "hi@ionicframework.com"

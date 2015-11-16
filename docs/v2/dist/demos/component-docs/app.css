@@ -313,6 +313,104 @@ sup {
 sub {
   bottom: -0.25em; }
 
+h1[primary], h2[primary], h3[primary], h4[primary], h5[primary], h6[primary],
+p[primary],
+span[primary],
+a[primary],
+small[primary],
+b[primary],
+i[primary],
+u[primary],
+strong[primary],
+em[primary],
+sub[primary],
+sup[primary] {
+  color: #387ef5 !important; }
+
+h1[secondary], h2[secondary], h3[secondary], h4[secondary], h5[secondary], h6[secondary],
+p[secondary],
+span[secondary],
+a[secondary],
+small[secondary],
+b[secondary],
+i[secondary],
+u[secondary],
+strong[secondary],
+em[secondary],
+sub[secondary],
+sup[secondary] {
+  color: #32db64 !important; }
+
+h1[danger], h2[danger], h3[danger], h4[danger], h5[danger], h6[danger],
+p[danger],
+span[danger],
+a[danger],
+small[danger],
+b[danger],
+i[danger],
+u[danger],
+strong[danger],
+em[danger],
+sub[danger],
+sup[danger] {
+  color: #f53d3d !important; }
+
+h1[light], h2[light], h3[light], h4[light], h5[light], h6[light],
+p[light],
+span[light],
+a[light],
+small[light],
+b[light],
+i[light],
+u[light],
+strong[light],
+em[light],
+sub[light],
+sup[light] {
+  color: #f4f4f4 !important; }
+
+h1[dark], h2[dark], h3[dark], h4[dark], h5[dark], h6[dark],
+p[dark],
+span[dark],
+a[dark],
+small[dark],
+b[dark],
+i[dark],
+u[dark],
+strong[dark],
+em[dark],
+sub[dark],
+sup[dark] {
+  color: #222 !important; }
+
+h1[energized], h2[energized], h3[energized], h4[energized], h5[energized], h6[energized],
+p[energized],
+span[energized],
+a[energized],
+small[energized],
+b[energized],
+i[energized],
+u[energized],
+strong[energized],
+em[energized],
+sub[energized],
+sup[energized] {
+  color: #ffc527 !important; }
+
+h1[royal], h2[royal], h3[royal], h4[royal], h5[royal], h6[royal],
+p[royal],
+span[royal],
+a[royal],
+small[royal],
+b[royal],
+i[royal],
+u[royal],
+strong[royal],
+em[royal],
+sub[royal],
+sup[royal] {
+  color: #7e60ff !important; }
+
 .align-left {
   text-align: left; }
 
@@ -325,9 +423,6 @@ sub {
 .no-transition {
   -webkit-transition: none !important;
   transition: none !important; }
-
-.no-border:after {
-  background: none !important; }
 
 .hide,
 [hidden],
@@ -390,7 +485,21 @@ focus-ctrl {
     top: 1px;
     width: 9px;
     left: -9999px;
-    z-index: 9999; }
+    z-index: 9999;
+    pointer-events: none; }
+
+.hide-focused-input {
+  -webkit-box-flex: 0 !important;
+  -webkit-flex: 0 0 8px !important;
+  -ms-flex: 0 0 8px !important;
+  flex: 0 0 8px !important;
+  margin: 0 !important;
+  -webkit-transform: translate3d(-9999px, 0, 0);
+  transform: translate3d(-9999px, 0, 0);
+  pointer-events: none; }
+
+.cloned-input {
+  pointer-events: none; }
 
 backdrop {
   position: absolute;
@@ -1133,8 +1242,7 @@ button[fab],
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    font-size: 2.8rem;
-    min-width: 64px; }
+    font-size: 2.8rem; }
 
 ion-checkbox {
   cursor: pointer;
@@ -1143,7 +1251,7 @@ ion-checkbox {
   -ms-user-select: none;
   user-select: none; }
 
-ion-checkbox[aria-disabled=true] {
+ion-checkbox[aria-disabled=true] .item-inner > * {
   pointer-events: none;
   opacity: 0.5;
   color: #666; }
@@ -1156,7 +1264,6 @@ icon[small] {
   font-size: 1.1em; }
 
 .item {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1176,7 +1283,35 @@ icon[small] {
   text-align: initial;
   overflow: hidden;
   background-color: #fff;
-  color: #000; }
+  color: #000;
+  box-sizing: border-box; }
+
+.item-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: inherit;
+  -ms-flex-direction: inherit;
+  flex-direction: inherit;
+  -webkit-box-align: inherit;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch; }
 
 .item-group {
   display: block; }
@@ -1228,9 +1363,6 @@ ion-item-content {
 [text-wrap] ion-item-content {
   white-space: normal; }
 
-.list .item {
-  border-radius: 0; }
-
 .item h1 {
   margin: 0 0 2px;
   font-size: 2.4rem;
@@ -1274,48 +1406,27 @@ ion-input.item {
   -ms-flex-align: start;
   align-items: flex-start; }
 
-/**
- * The hidden right-side buttons that can be exposed under a list item
- * with dragging.
- */
-ion-item-sliding-content {
-  display: block;
-  z-index: 2;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
+ion-item-content + ion-item-content[cnt] {
+  display: none; }
 
-ion-item-options {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  height: 100%; }
+.item > icon[small]:first-child,
+.item-inner > icon[small]:first-child {
+  min-width: 18px; }
 
-[item-right] {
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1; }
-
-.item > icon:first-child {
+.item > icon:first-child,
+.item-inner > icon:first-child {
   min-width: 24px;
   text-align: center; }
 
-.list .item > icon[small]:first-child {
-  min-width: 18px; }
-
-.item > icon {
+.item > icon,
+.item-inner > icon {
   line-height: 1;
   font-size: 2.4rem; }
-  .item > icon[large] {
+  .item > icon[large],
+  .item-inner > icon[large] {
     font-size: 3.2rem; }
-  .item > icon[small] {
+  .item > icon[small],
+  .item-inner > icon[small] {
     font-size: 1.8rem; }
 
 ion-avatar,
@@ -1325,6 +1436,41 @@ ion-thumbnail {
   ion-avatar img,
   ion-thumbnail img {
     display: block; }
+
+/**
+ * The hidden right-side buttons that can be exposed under a list item
+ * with dragging.
+ */
+ion-item-sliding {
+  display: block;
+  position: relative;
+  overflow: hidden; }
+  ion-item-sliding .item {
+    position: static; }
+
+ion-item-options {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  opacity: 0; }
+
+ion-item-sliding.active-slide .item {
+  position: relative;
+  z-index: 2;
+  -webkit-transition: all 200ms;
+  transition: all 200ms; }
+
+ion-item-sliding.active-slide ion-item-options {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+ion-item-sliding.active-slide.active-options ion-item-options {
+  opacity: 1; }
 
 /**
  * Grid
@@ -1574,12 +1720,6 @@ ion-input input[type="color"] {
   background: transparent;
   border: 0;
   width: 100%; }
-
-ion-input.item {
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start; }
 
 ion-input [text-input] {
   -webkit-box-flex: 1;
@@ -2368,7 +2508,7 @@ ion-radio {
   -ms-user-select: none;
   user-select: none; }
 
-ion-radio[aria-disabled=true] {
+ion-radio[aria-disabled=true] .item-inner > * {
   opacity: 0.5;
   color: #666;
   pointer-events: none; }
@@ -2624,7 +2764,7 @@ ion-switch media-switch {
   margin: 0;
   cursor: pointer; }
 
-ion-switch[aria-disabled=true] {
+ion-switch[aria-disabled=true] .item-inner > * {
   pointer-events: none;
   opacity: 0.5;
   color: #666; }
@@ -5460,7 +5600,16 @@ icon,
   content: "\f24d"; }
 
 .ios {
-  /*! Ionic: iOS */ }
+  /*! Ionic: iOS */
+  /****************/
+  /* DEFAULT LIST */
+  /****************/
+  /**************/
+  /* INSET LIST */
+  /**************/
+  /*****************/
+  /* NO LINES LIST */
+  /*****************/ }
   .ios hr {
     border-width: 0;
     height: 1px;
@@ -5470,128 +5619,18 @@ icon,
   .ios button[block] {
     display: block; }
   .ios .item-group-title {
-    padding: 13px 16px 14px 16px;
+    padding: 12px 16px 13px 16px;
     background-color: #f7f7f7;
     color: #222; }
   .ios ion-note {
     color: #aeacb4; }
-  .ios .list .item-group > .item:first-of-type:before {
-    border-top: none !important; }
-  .ios .list .item-group > .item:last-of-type:after {
-    border-top: none !important; }
-  .ios .list .item {
-    margin-top: -1px;
-    padding-right: 8px;
-    padding-left: 8px;
-    font-size: 1.6rem; }
-    .ios .list .item:before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 16px;
-      border-top: 1px solid #c8c7cc;
-      content: '';
-      pointer-events: none; }
-    .ios .list .item:after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 16px;
-      border-top: 1px solid #c8c7cc;
-      content: '';
-      pointer-events: none; }
-    .ios .list .item:first-child:before, .ios .list .item:last-child:after {
-      left: 0; }
-  .ios .list ion-header + .item:first-of-type:before {
-    left: 0; }
-  .ios .list[inset] .item:before, .ios .list[inset] .item:after {
-    left: 0; }
-  .ios .list ion-item-content {
-    margin: 13px 8px 14px 8px; }
-  .ios .list [item-left],
-  .ios .list [item-right] {
-    margin: 10px 8px 10px 8px; }
-  .ios .list icon[item-left],
-  .ios .list icon[item-right] {
-    margin-top: 10px;
-    margin-bottom: 10px; }
-  .ios .list button[item-left],
-  .ios .list button[item-right],
-  .ios .list [button][item-left],
-  .ios .list [button][item-right] {
-    padding: 0 0.5em;
-    font-size: 1.3rem;
-    min-height: 25px; }
-  .ios .list [item-left].icon-only,
-  .ios .list [item-right].icon-only,
-  .ios .list [item-left].icon-only icon,
-  .ios .list [item-right].icon-only icon,
-  .ios .list [item-left][clear],
-  .ios .list [item-right][clear] {
-    padding: 0 1px; }
-  .ios .list [item-left].icon-left icon,
-  .ios .list [item-right].icon-left icon {
-    margin-left: 0;
-    margin-bottom: 1px;
-    padding-right: 0.3em; }
-  .ios .list [item-left].icon-right icon,
-  .ios .list [item-right].icon-right icon {
-    margin-right: 0;
-    margin-bottom: 1px; }
-  .ios .list ion-avatar {
-    min-width: 3.6rem;
-    min-height: 3.6rem; }
-    .ios .list ion-avatar img {
-      max-width: 3.6rem;
-      max-height: 3.6rem;
-      border-radius: 1.8rem; }
-  .ios .list ion-thumbnail {
-    min-width: 5.6rem;
-    min-height: 5.6rem; }
-    .ios .list ion-thumbnail img {
-      max-width: 5.6rem;
-      max-height: 5.6rem; }
-  .ios .list ion-item-sliding.item {
-    padding-left: 0;
-    padding-right: 0; }
-  .ios .list ion-item-sliding-content {
-    background-color: #fff;
-    padding-right: 8px;
-    padding-left: 8px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    min-height: 42px;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: -webkit-transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out;
-    margin-top: 1px;
-    margin-bottom: 1px; }
-  .ios .list ion-item-options button, .ios .list ion-item-options [button] {
-    min-height: calc(100% - 2px);
-    height: calc(100% - 2px);
-    margin: 1px 0 2px 0;
-    border: none;
-    border-radius: 0;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    box-sizing: border-box; }
-    .ios .list ion-item-options button:before, .ios .list ion-item-options [button]:before {
-      margin: 0 auto; }
+  .ios .item-group ion-item-group-title {
+    border-bottom: 1px solid #c8c7cc; }
+  .ios .item-group .item:first-child .item-inner {
+    border-top-width: 0; }
   .ios .item.activated,
   .ios a.item.activated,
-  .ios button.item.activated,
-  .ios .item.activated ion-item-sliding-content {
+  .ios button.item.activated {
     background-color: #d9d9d9;
     -webkit-transition-duration: 0ms;
     transition-duration: 0ms; }
@@ -5600,42 +5639,6 @@ icon,
   .ios button.item {
     -webkit-transition-duration: 200ms;
     transition-duration: 200ms; }
-  .ios .list button[ion-item]:not([detail-none]),
-  .ios .list a[ion-item]:not([detail-none]),
-  .ios .list [detail-push]:not(ion-item-sliding),
-  .ios ion-card button[ion-item]:not([detail-none]),
-  .ios ion-card a[ion-item]:not([detail-none]),
-  .ios ion-card [detail-push]:not(ion-item-sliding) {
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 14px 14px;
-    padding-right: 32px; }
-  .ios .list ion-item-sliding[detail-push] ion-item-sliding-content,
-  .ios ion-card ion-item-sliding[detail-push] ion-item-sliding-content {
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 14px 14px;
-    padding-right: 32px; }
-  .ios.hairlines .list ion-item-options button, .ios.hairlines .list ion-item-options [button] {
-    min-height: calc(100% - 1px);
-    height: calc(100% - 1px);
-    margin-top: 0.55px;
-    margin-bottom: 0.55px; }
-  .ios.hairlines .list ion-item-sliding-content {
-    margin-top: 0.55px;
-    margin-bottom: 0.55px; }
-  .ios.hairlines .list .item {
-    margin-top: -0.55px; }
-    .ios.hairlines .list .item:last-child {
-      margin-bottom: -0.55px; }
-    .ios.hairlines .list .item:before, .ios.hairlines .list .item:after {
-      border-top-width: 0.55px; }
-  .ios .item[no-lines]:before, .ios .item[no-lines]:after {
-    border-width: 0; }
-  .ios .item[no-lines] + .item:before {
-    border-width: 0; }
   .ios .toolbar {
     min-height: 4.4rem; }
     .ios .toolbar [menu-toggle] {
@@ -5782,11 +5785,13 @@ icon,
     overflow: hidden; }
     .ios ion-card .list {
       margin-bottom: 0; }
+      .ios ion-card .list .item {
+        padding-right: 0; }
       .ios ion-card .list ion-item-content {
         padding: 0; }
     .ios ion-card .item {
-      padding-right: 8px;
       padding-left: 8px;
+      padding-right: 8px;
       font-size: 1.6rem; }
     .ios ion-card ion-item-content {
       padding: 13px 8px 14px 8px; }
@@ -5808,18 +5813,18 @@ icon,
         padding: 0; }
       .ios ion-card [actions] button,
       .ios ion-card [actions] [button] {
-        margin: 10px 8px 10px 8px;
+        margin: 10px 8px 9px 8px;
         padding: 2px 6px;
         min-height: 26px;
         font-size: 1.3rem; }
     .ios ion-card [item-left],
     .ios ion-card [item-right] {
-      margin: 10px 8px 10px 8px; }
+      margin: 10px 8px 9px 8px; }
     .ios ion-card button[item-left],
     .ios ion-card button[item-right],
     .ios ion-card [button][item-left],
     .ios ion-card [button][item-right] {
-      margin: 10px 8px 10px 8px;
+      margin: 10px 8px 9px 8px;
       padding: 2px 6px;
       min-height: 26px;
       font-size: 1.3rem; }
@@ -5868,7 +5873,7 @@ icon,
   .ios ion-tab.has-views {
     background: #000; }
   .ios .list {
-    margin: 0 0 32px 0; }
+    margin: -1px 0 32px 0; }
     .ios .list ion-header {
       position: relative;
       padding: 10px 16px 10px 16px;
@@ -5877,58 +5882,179 @@ icon,
       letter-spacing: 0.1rem;
       text-transform: uppercase;
       color: #333; }
-      .ios .list ion-header:after {
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-top: 1px solid #c8c7cc;
-        content: '';
-        pointer-events: none; }
-  .ios.hairlines .list ion-header:after {
-    border-top-width: 0.55px; }
+    .ios .list ion-header,
+    .ios .list ion-item-group-title {
+      border-bottom: 1px solid #c8c7cc; }
+    .ios .list .item {
+      border-radius: 0;
+      padding-left: 16px;
+      font-size: 1.6rem; }
+    .ios .list > .item:first-child {
+      border-top: 1px solid #c8c7cc; }
+    .ios .list > .item:last-child,
+    .ios .list > ion-item-sliding:last-child .item {
+      border-bottom: 1px solid #c8c7cc; }
+      .ios .list > .item:last-child .item-inner,
+      .ios .list > ion-item-sliding:last-child .item .item-inner {
+        border-bottom: none; }
+    .ios .list .item .item-inner {
+      padding-right: 8px;
+      border-bottom: 1px solid #c8c7cc; }
+    .ios .list .item ion-item-content {
+      margin: 12px 8px 13px 0; }
+    .ios .list .item[no-lines],
+    .ios .list .item[no-lines] .item-inner {
+      border-width: 0; }
+    .ios .list [item-left] {
+      margin: 6px 16px 6.5px 0; }
+    .ios .list [item-right] {
+      margin: 6px 8px 6.5px 8px; }
+    .ios .list icon[item-left],
+    .ios .list icon[item-right] {
+      margin-top: 10px;
+      margin-bottom: 9px; }
+    .ios .list ion-avatar[item-left],
+    .ios .list ion-thumbnail[item-left] {
+      margin: 8px 16px 8px 0; }
+    .ios .list ion-avatar[item-right],
+    .ios .list ion-thumbnail[item-right] {
+      margin: 8px; }
+    .ios .list button[item-left],
+    .ios .list button[item-right],
+    .ios .list [button][item-left],
+    .ios .list [button][item-right] {
+      padding: 0 0.5em;
+      font-size: 1.3rem;
+      min-height: 25px;
+      margin-top: 9px; }
+    .ios .list [item-left].icon-only,
+    .ios .list [item-right].icon-only,
+    .ios .list [item-left].icon-only icon,
+    .ios .list [item-right].icon-only icon,
+    .ios .list [item-left][clear],
+    .ios .list [item-right][clear] {
+      padding: 0 1px; }
+    .ios .list [item-left].icon-left icon,
+    .ios .list [item-right].icon-left icon {
+      margin-left: 0;
+      margin-bottom: 1px;
+      padding-right: 0.3em; }
+    .ios .list [item-left].icon-right icon,
+    .ios .list [item-right].icon-right icon {
+      margin-right: 0;
+      margin-bottom: 1px; }
+    .ios .list ion-avatar {
+      min-width: 3.6rem;
+      min-height: 3.6rem; }
+      .ios .list ion-avatar img {
+        max-width: 3.6rem;
+        max-height: 3.6rem;
+        border-radius: 1.8rem; }
+    .ios .list ion-thumbnail {
+      min-width: 5.6rem;
+      min-height: 5.6rem; }
+      .ios .list ion-thumbnail img {
+        max-width: 5.6rem;
+        max-height: 5.6rem; }
+    .ios .list ion-item-options {
+      border-bottom: 1px solid #c8c7cc; }
+      .ios .list ion-item-options button, .ios .list ion-item-options [button] {
+        min-height: 100%;
+        height: 100%;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        box-sizing: border-box; }
+        .ios .list ion-item-options button:before, .ios .list ion-item-options [button]:before {
+          margin: 0 auto; }
+  .ios .list button.item:not([detail-none]) .item-inner,
+  .ios .list a.item:not([detail-none]) .item-inner,
+  .ios .list .item[detail-push] .item-inner,
+  .ios ion-card button.item:not([detail-none]) .item-inner,
+  .ios ion-card a.item:not([detail-none]) .item-inner,
+  .ios ion-card .item[detail-push] .item-inner {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px 14px;
+    padding-right: 32px; }
   .ios .list + .list {
     margin-top: 42px; }
-  .ios .list + .list ion-header {
-    margin-top: -10px;
-    padding-top: 0; }
+    .ios .list + .list ion-header {
+      margin-top: -10px;
+      padding-top: 0; }
+  .ios.hairlines .list ion-item-options {
+    border-width: 0.55px; }
+  .ios.hairlines .list ion-header,
+  .ios.hairlines .list ion-item-group-title {
+    border-bottom-width: 0.55px; }
+  .ios.hairlines .list .item {
+    margin-top: -0.55px; }
+    .ios.hairlines .list .item .item-inner {
+      border-width: 0.55px; }
+  .ios.hairlines .list > .item:first-child {
+    border-top-width: 0.55px; }
+  .ios.hairlines .list > .item:last-child,
+  .ios.hairlines .list > ion-item-sliding:last-child .item {
+    border-bottom-width: 0.55px;
+    margin-bottom: -0.55px; }
   .ios .list[inset] {
     margin: 16px 16px 16px 16px;
     border-radius: 4px; }
-    .ios .list[inset] .item:first-child {
+    .ios .list[inset] .item {
+      margin-top: 0;
+      border-bottom: 1px solid #c8c7cc; }
+      .ios .list[inset] .item .item-inner {
+        border-bottom: none; }
+    .ios .list[inset] > .item:first-child,
+    .ios .list[inset] ion-header {
       margin-top: 0;
       border-top-right-radius: 4px;
       border-top-left-radius: 4px; }
-      .ios .list[inset] .item:first-child:before {
-        border-top: none; }
-    .ios .list[inset] .item:last-child {
+    .ios .list[inset] > .item:first-child {
+      border-top: none; }
+    .ios .list[inset] > .item:last-child,
+    .ios .list[inset] > ion-item-sliding:last-child .item {
       margin-bottom: 0;
       border-bottom-right-radius: 4px;
-      border-bottom-left-radius: 4px; }
-      .ios .list[inset] .item:last-child:after {
-        border-top: none; }
+      border-bottom-left-radius: 4px;
+      border-bottom: none; }
   .ios .list[inset] + .list[inset] {
     margin-top: 0; }
-  .ios.hairlines .list[no-lines] ion-header:after,
-  .ios.hairlines .list[no-lines] .item:before,
-  .ios.hairlines .list[no-lines] .item:after,
-  .ios .list[no-lines] ion-header:after,
-  .ios .list[no-lines] .item:before,
-  .ios .list[no-lines] .item:after {
+  .ios.hairlines .list[inset] .item {
+    border-width: 0.55px; }
+  .ios .list[no-lines] ion-header,
+  .ios .list[no-lines] ion-item-group-title,
+  .ios .list[no-lines] .item,
+  .ios .list[no-lines] .item .item-inner,
+  .ios.hairlines .list[no-lines] ion-header,
+  .ios.hairlines .list[no-lines] ion-item-group-title,
+  .ios.hairlines .list[no-lines] .item,
+  .ios.hairlines .list[no-lines] .item .item-inner {
     border-width: 0; }
   .ios .list [text-input],
   .ios ion-card [text-input] {
-    margin: 13px 8px 14px 8px;
+    margin: 12px 8px 13px 0;
     padding: 0; }
   .ios .list ion-input[inset] [text-input],
   .ios ion-card ion-input[inset] [text-input] {
-    margin: 6.5px 16px 7px 16px;
-    padding: 6.5px 8px 7px 8px; }
+    margin: 6px 16px 6.5px 16px;
+    padding: 6px 8px 6.5px 8px; }
   .ios .list ion-label,
   .ios ion-card ion-label {
-    margin: 13px 8px 14px 8px;
+    margin: 12px 8px 13px 0;
     color: #7f7f7f; }
+  .ios .list ion-label + [text-input],
+  .ios ion-card ion-label + [text-input] {
+    margin-left: 16px; }
   .ios .list [stacked-label] ion-label,
   .ios ion-card [stacked-label] ion-label {
     font-size: 1.2rem;
@@ -5937,6 +6063,7 @@ icon,
   .ios .list [floating-label] [text-input],
   .ios ion-card [stacked-label] [text-input],
   .ios ion-card [floating-label] [text-input] {
+    margin-left: 0;
     margin-top: 8px;
     margin-bottom: 8px; }
   .ios .list [floating-label] ion-label,
@@ -6039,7 +6166,7 @@ icon,
     background-color: #fff; }
   .ios media-checkbox {
     display: block;
-    margin: 10px 8px 10px 8px; }
+    margin: 10px 16px 10px 2px; }
   .ios checkbox-icon {
     position: relative;
     display: block;
@@ -6339,7 +6466,7 @@ icon,
   .ios ion-switch.item.activated {
     background: #fff; }
   .ios ion-switch media-switch {
-    padding: 6px 8px 6px 16px; }
+    padding: 6px 8px 5px 16px; }
   .ios ion-switch switch-icon {
     position: relative;
     display: block;
@@ -6464,16 +6591,31 @@ icon,
     border-color: #552dff; }
   .ios.platform-cordova.platform-ios ion-navbar-section,
   .ios.platform-cordova.platform-ios ion-navbar,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar {
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
     min-height: 6.4rem;
     height: 6.4rem; }
   .ios.platform-cordova.platform-ios ion-navbar,
   .ios.platform-cordova.platform-ios ion-navbar ion-title,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar {
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
     padding-top: 2rem; }
 
 .md {
-  /*! Ionic: Material Design */ }
+  /*! Ionic: Material Design */
+  /****************/
+  /* DEFAULT LIST */
+  /****************/
+  /**************/
+  /* INSET LIST */
+  /**************/
+  /*****************/
+  /* NO LINES LIST */
+  /*****************/ }
   .md hr {
     border-width: 0;
     height: 1px;
@@ -6712,44 +6854,53 @@ icon,
     color: #222; }
   .md ion-note {
     color: #c4c4c4; }
-  .md .list .item-group > .item:first-of-type:before {
-    border-top: none !important; }
-  .md .list .item-group > .item:last-of-type:after {
-    border-top: none !important; }
+  .md .item,
+  .md a.item,
+  .md button.item {
+    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 300ms;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms; }
+  .md .item.activated,
+  .md a.item.activated,
+  .md button.item.activated {
+    background-color: #f1f1f1;
+    box-shadow: none; }
+  .md .item[no-lines] {
+    border-width: 0; }
+  .md .list ion-header,
+  .md .list ion-item-group-title {
+    border-bottom: 1px solid #dedede; }
   .md .list .item {
-    margin-top: -1px;
     padding-right: 8px;
-    padding-left: 8px;
+    padding-left: 16px;
     font-size: 1.6rem;
     text-transform: none; }
-    .md .list .item:before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 16px;
-      border-top: 1px solid #dedede;
-      content: '';
-      pointer-events: none; }
-    .md .list .item:after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 16px;
-      border-top: 1px solid #dedede;
-      content: '';
-      pointer-events: none; }
-    .md .list .item:first-child:before, .md .list .item:last-child:after {
-      left: 0; }
-  .md .list ion-header + .item:before {
-    left: 0; }
+    .md .list .item .item-inner {
+      border-bottom: 1px solid #dedede; }
+  .md .list > .item:first-child {
+    border-top: 1px solid #dedede; }
+  .md .list > .item:last-child,
+  .md .list > ion-item-sliding:last-child .item {
+    border-bottom: 1px solid #dedede; }
+    .md .list > .item:last-child .item-inner,
+    .md .list > ion-item-sliding:last-child .item .item-inner {
+      border-bottom: none; }
+  .md .list .item[no-lines],
+  .md .list .item[no-lines] .item-inner {
+    border-width: 0; }
+  .md .list ion-header,
+  .md .list ion-item-group-title {
+    border-bottom: 1px solid #dedede;
+    margin-left: 0;
+    padding-left: 16px; }
   .md .list ion-item-content {
-    margin: 13px 8px 13px 8px; }
+    margin: 13px 8px 13px 0; }
   .md .list [item-left],
   .md .list [item-right] {
     margin: 9px 8px 9px 8px; }
   .md .list icon[item-left],
   .md .list icon[item-right] {
     margin-top: 11px;
+    margin-left: 0;
     margin-bottom: 10px; }
   .md .list button[item-left],
   .md .list button[item-right],
@@ -6780,7 +6931,7 @@ icon,
     line-height: 1.5; }
   .md .list .item[actions] ion-item-content {
     margin: 4px; }
-  .md .list icon[item-left] + ion-item-content,
+  .md .list icon[item-left] + .item-inner,
   .md .list icon[item-left] + [text-input] {
     margin-left: 24px; }
   .md .list ion-avatar {
@@ -6819,26 +6970,6 @@ icon,
     margin: 0 0 2px; }
   .md .list button.item.activated {
     box-shadow: none; }
-  .md .list ion-item-sliding.item {
-    padding-left: 0;
-    padding-right: 0; }
-  .md .list ion-item-sliding-content {
-    background-color: #fff;
-    padding-right: 8px;
-    padding-left: 8px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    min-height: 42px;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: -webkit-transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out;
-    margin-top: 1px;
-    margin-bottom: 1px; }
   .md .list ion-item-options button, .md .list ion-item-options [button] {
     height: calc(100% - 2px);
     margin: 1px 0 1px 0;
@@ -6856,54 +6987,38 @@ icon,
     box-sizing: border-box; }
     .md .list ion-item-options button:before, .md .list ion-item-options [button]:before {
       margin: 0 auto; }
-  .md .item,
-  .md a.item,
-  .md button.item,
-  .md .item ion-item-sliding-content {
-    -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-  .md .item.activated,
-  .md a.item.activated,
-  .md button.item.activated,
-  .md .item.activated ion-item-sliding-content {
-    background-color: #f1f1f1;
-    box-shadow: none; }
-  .md .item[no-lines]:before, .md .item[no-lines]:after {
-    border-width: 0; }
-  .md .item[no-lines] + .item:before {
-    border-width: 0; }
   .md .list {
     margin: 0 0 16px 0; }
     .md .list ion-header {
       padding: 16px 16px 16px 16px;
       font-size: 1.4rem;
       color: #858585; }
-  .md .list + .list {
-    margin-top: 32px; }
-  .md .list + .list ion-header {
-    margin-top: -16px;
-    padding-top: 0; }
+    .md .list + .list {
+      margin-top: 32px; }
+      .md .list + .list ion-header {
+        margin-top: -16px;
+        padding-top: 0; }
   .md .list[inset] {
     margin: 16px 16px 16px 16px;
     border-radius: 2px; }
     .md .list[inset] .item:first-child {
+      border-top-width: 0;
       margin-top: 0;
       border-top-right-radius: 2px;
       border-top-left-radius: 2px; }
-      .md .list[inset] .item:first-child:before {
-        border-top: none; }
     .md .list[inset] .item:last-child {
+      border-bottom-width: 0;
       margin-bottom: 0;
       border-bottom-right-radius: 2px;
       border-bottom-left-radius: 2px; }
-  .md .list[inset] .item:not(ion-input):last-child:after {
-    border-top: none; }
-  .md .list[inset] + .list[inset] {
-    margin-top: 0; }
-  .md .list[no-lines] ion-header + .item:before {
-    border-width: 1px; }
-  .md .list[no-lines] .item:before,
-  .md .list[no-lines] .item:after {
+    .md .list[inset] .item:not(ion-input):last-child:after {
+      border-bottom: none; }
+    .md .list[inset] + .list[inset] {
+      margin-top: 0; }
+  .md .list[no-lines] ion-header,
+  .md .list[no-lines] ion-item-group-title,
+  .md .list[no-lines] .item,
+  .md .list[no-lines] .item .item-inner {
     border-width: 0; }
   .md ion-card {
     margin: 10px 10px 10px 10px;
@@ -7011,7 +7126,7 @@ icon,
     transform: rotate(45deg); }
   .md media-checkbox {
     display: block;
-    margin: 9px 8px 9px 8px; }
+    margin: 9px 36px 9px 4px; }
   .md checkbox-icon {
     position: relative;
     display: block;
@@ -7466,8 +7581,6 @@ icon,
     pointer-events: none;
     -webkit-transform: scale(0.001) translateZ(0);
     transform: scale(0.001) translateZ(0); }
-  .md ion-item-sliding md-ripple {
-    z-index: 2; }
 
 /**
   Roboto Font

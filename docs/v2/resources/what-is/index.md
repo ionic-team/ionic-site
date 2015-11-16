@@ -141,8 +141,8 @@ header_sub_title: Learn about the Ionic community's favorite tools
     Webpack bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
   </section>
 
-  <section id="webpack">
-    <h3><a href="#webpack">XCode</a></h3><p>
+  <section id="xcode">
+    <h3><a href="#xcode">XCode</a></h3><p>
     XCode is an IDE that allows you to develop iOS apps. XCode includes tools that help with building, testing, and debugging your app. Although many Ionic developers do not use it as their primary editor, it is often used to build and sign the production version of an app.</p>
   </section>
 

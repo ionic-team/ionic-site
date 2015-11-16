@@ -1110,7 +1110,7 @@ that can be tabbed through.
 
 For iOS, tabs will appear at the bottom of the screen. For Android, tabs
 will be at the top of the screen, below the nav-bar. This follows each platform's
-design specification, but can be configured with [IonicConfig](../api/config/IonicConfig/).
+design specification, but can be configured with [Config](../api/config/Config/).
 
 Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menu) may be a better option.
 
@@ -1143,7 +1143,7 @@ class MyApp {
 }
 ```
 
-Individual tabs are just [`@Pages`](../api/config/IonicView/):
+Individual tabs are just [`@Pages`](../api/config/Page/):
 
 ```typescript
 @Page({

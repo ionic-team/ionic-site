@@ -7,12 +7,12 @@ dependencies:
   post:
     - gem install jekyll --pre && gem install jekyll-paginate
     - pip install LinkChecker
-    - [ -d "_scripts" ] && ./_scripts/prepare.sh
+    - ./_scripts/prepare.sh
 test:
   override:
-    - [ -d "_scripts" ] && ./_scripts/test.sh
+    - ./_scripts/test.sh
 deployment:
   staging:
     branch: master
     commands:
-      - [ -d "_scripts" ] && ./_scripts/deploy_staging.sh
+      - ./_scripts/deploy_staging.sh

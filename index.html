@@ -389,18 +389,20 @@ $('#slider').slick({
   slidesToShow: 1,
   adaptiveHeight: false,
   fade: true,
-  cssEase: 'linear',
+  cssEase: 'ease-in-out',
   draggable: false,
   autoplay: true,
   autoplaySpeed: 10000,
   focusOnSelect: false,
   // https://github.com/kenwheeler/slick/issues/1537
   accessibility: false
+}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  $slide = $("#slider .slick-current");
+  $slide.addClass('slick-fade-out');
+  setTimeout(function(){
+    $slide.removeClass('slick-fade-out')
+  }, 300) // match speed in slick config object above
 })
-
-// .on('beforeChange', function(event, slick, currentSlide, nextSlide){
-//   console.log(event, slick, currentSlide, nextSlide);
-// });
 
 /*
   $.fn.snapBar = function(options) {

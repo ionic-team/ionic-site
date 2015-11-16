@@ -5028,6 +5028,8 @@ h1 + h2 + p {
     #slider .slick-next:before {
       background: no-repeat url(/img/slider-arrow-right.png);
       background-size: 19px; }
+  #slider .slick-fade-out {
+    opacity: 1 !important; }
   #slider .slide {
     padding: 125px 0 101px;
     width: 100%;

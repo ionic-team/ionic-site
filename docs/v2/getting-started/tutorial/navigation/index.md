@@ -10,7 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Navigating to Pages</h1>
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/navigating/index.md'>
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/navigation/index.md'>
 Improve this doc
 </a>
 

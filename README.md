@@ -29,23 +29,36 @@ Install [heroku-toolbelt](https://toolbelt.heroku.com/) or with homebrew
 brew install heroku-toolbelt
 ```
 
-Then log into  heroku
+Install [heroku-pipelines](https://devcenter.heroku.com/articles/pipelines)
+
+```bash
+heroku plugins:install heroku-pipelines
+```
+
+Then log into heroku
 
 ```bash
 heroku login
 # enter your email and password when promted
 ```
 
-Then add the heroku remote
+Then add the heroku remotes
 
 ```bash
-git remote add heroku https://git.heroku.com/ionic-site.git
+git remote add production https://git.heroku.com/ionic-site.git
 ```
+
+```bash
+git remote add staging git@heroku.com:ionic-site-staging.git
+```
+
 
 - Make your changes
 - Run `gulp`
-- Run `./deploy.sh`
-- `git push heroku master`
+- `git push origin master`
+- View the staging server at [http://ionic-site-staging.herokuapp.com/](http://ionic-site-staging.herokuapp.com/)
+- Promote the staging server to production
+- `heroku pipelines:promote -r staging`
 
 
 ## Community

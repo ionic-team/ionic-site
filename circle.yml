@@ -15,4 +15,4 @@ deployment:
   staging:
     branch: production
     commands:
-      - ./_scripts/deploy-staging.sh
+      - ./_scripts/deploy_staging.sh

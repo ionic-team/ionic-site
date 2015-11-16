@@ -44,7 +44,7 @@ docType: "class"
 
 <h1 class="class export">Switch <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L32-L231">ionic/components/switch/switch.ts (line 32)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L32-L248">ionic/components/switch/switch.ts (line 32)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-switch</span>
@@ -57,23 +57,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="ngControl"></div>
 <h2>
   <code>ngControl()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
 
 </h2>
 
@@ -143,125 +126,6 @@ Set checked state of this switch.
 </h2>
 
 Toggle the checked state of this switch.
-
-
-
-
-
-
-
-
-
-
-
-<div id="writeValue"></div>
-<h2>
-  <code>writeValue()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pointerDown"></div>
-<h2>
-  <code>pointerDown()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pointerUp"></div>
-<h2>
-  <code>pointerUp()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerOnChange"></div>
-<h2>
-  <code>registerOnChange()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerOnTouched"></div>
-<h2>
-  <code>registerOnTouched()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onDestroy"></div>
-<h2>
-  <code>onDestroy()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isDisabled"></div>
-<h2>
-  <code>isDisabled()</code>
-
-</h2>
-
 
 
 

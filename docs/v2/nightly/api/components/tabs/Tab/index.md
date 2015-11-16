@@ -76,7 +76,7 @@ inputs:</p>
 
 <h1 class="class export">Tab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7-L152">ionic/components/tabs/tab.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7-L164">ionic/components/tabs/tab.ts (line 7)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tab</span>
@@ -86,77 +86,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 ## Members
 
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="load"></div>
-<h2>
-  <code>load()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="loadPage"></div>
-<h2>
-  <code>loadPage()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="setSelected"></div>
 <h2>
   <code>setSelected()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="hideNavbars"></div>
-<h2>
-  <code>hideNavbars()</code>
 
 </h2>
 

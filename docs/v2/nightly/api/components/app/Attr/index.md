@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L48'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L54'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">Attr <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L49-L61">ionic/components/app/id.ts (line 49)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L55-L71">ionic/components/app/id.ts (line 55)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: [attr]</span>
@@ -71,23 +71,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="elementRef"></div>
 <h2>
   <code>elementRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
 
 </h2>
 

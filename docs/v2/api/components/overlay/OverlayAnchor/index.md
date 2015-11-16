@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">OverlayAnchor <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/overlay/overlay.ts#L3-L30">ionic/components/overlay/overlay.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/overlay/overlay.ts#L3-L33">ionic/components/overlay/overlay.ts (line 3)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-overlay</span>

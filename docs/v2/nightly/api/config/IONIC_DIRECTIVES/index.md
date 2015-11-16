@@ -43,6 +43,6 @@ FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> 
 
 <h1 class="class export">IONIC_DIRECTIVES <span class="type">let</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L39-L106">ionic/config/directives.ts (line 39)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L39-L105">ionic/config/directives.ts (line 39)</a>
 </p>
 

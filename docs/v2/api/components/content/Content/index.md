@@ -44,7 +44,7 @@ docType: "class"
 
 <h1 class="class export">Content <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L198">ionic/components/content/content.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L210">ionic/components/content/content.ts (line 9)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-content</span>
@@ -99,6 +99,23 @@ Adds the specified scroll handler to the content' scroll element.
 
 * Returns: 
   <code>Function</code> A function that removes the scroll handler.
+
+
+
+
+<div id="onScrollEnd"></div>
+<h2>
+  <code>onScrollEnd()</code>
+
+</h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -269,38 +286,6 @@ Scroll to the specified position.
 
 
 
-
-
-
-
-<div id="getDimensions"></div>
-<h2>
-  <code>getDimensions()</code>
-
-</h2>
-
-Returns the content and scroll elements' dimensions.
-
-
-
-
-
-
-* Returns: 
-  <code>Object</code> dimensions  The content and scroll elements' dimensions
-{Number} dimensions.contentHeight  content offsetHeight
-{Number} dimensions.contentTop  content offsetTop
-{Number} dimensions.contentBottom  content offsetTop+offsetHeight
-{Number} dimensions.contentWidth  content offsetWidth
-{Number} dimensions.contentLeft  content offsetLeft
-{Number} dimensions.contentRight  content offsetLeft + offsetWidth
-{Number} dimensions.scrollHeight  scroll scrollHeight
-{Number} dimensions.scrollTop  scroll scrollTop
-{Number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
-{Number} dimensions.scrollWidth  scroll scrollWidth
-{Number} dimensions.scrollLeft  scroll scrollLeft
-{Number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
-TODO: figure out how to get this to work
 
 
 

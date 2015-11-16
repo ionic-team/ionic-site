@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
     Improve this doc
   </a>
 </div>
@@ -47,7 +47,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h1 class="class export">List <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6-L86">ionic/components/list/list.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L7-L108">ionic/components/list/list.ts (line 7)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: ion-list</span>
@@ -57,93 +57,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 ## Members
 
-<div id="onInit"></div>
+<div id="zone"></div>
 <h2>
-  <code>onInit()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-
-
-
-
-
-<div id="setItemTemplate"></div>
-<h2>
-  <code>setItemTemplate(item)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        item
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-<div id="setOpenItem"></div>
-<h2>
-  <code>setOpenItem()</code>
-
-</h2>
-
-Keeps track of any open item (a sliding item, for example), to close it later
-
-
-
-
-
-
-
-
-
-
-
-<div id="closeOpenItem"></div>
-<h2>
-  <code>closeOpenItem()</code>
+  <code>zone()</code>
 
 </h2>
 
@@ -158,9 +74,26 @@ Keeps track of any open item (a sliding item, for example), to close it later
 
 
 
-<div id="getOpenItem"></div>
+<div id="enableSlidingItems"></div>
 <h2>
-  <code>getOpenItem()</code>
+  <code>enableSlidingItems()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="closeSlidingItems"></div>
+<h2>
+  <code>closeSlidingItems()</code>
 
 </h2>
 

@@ -67,7 +67,7 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L310">ionic/components/menu/menu.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L340">ionic/components/menu/menu.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-menu</span>
@@ -130,57 +130,6 @@ Sets the state of the Menu to open or not.
 
 
 
-<div id="setProgressStart"></div>
-<h2>
-  <code>setProgressStart()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setProgess"></div>
-<h2>
-  <code>setProgess()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setProgressEnd"></div>
-<h2>
-  <code>setProgressEnd()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="open"></div>
 <h2>
   <code>open()</code>
@@ -234,97 +183,6 @@ TODO
 
 * Returns: 
   <code>TODO</code> TODO
-
-
-
-
-<div id="enable"></div>
-<h2>
-  <code>enable()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getMenuElement"></div>
-<h2>
-  <code>getMenuElement()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>Element</code> The Menu element.
-
-
-
-
-<div id="getContentElement"></div>
-<h2>
-  <code>getContentElement()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>Element</code> The Menu's associated content element.
-
-
-
-
-<div id="getBackdropElement"></div>
-<h2>
-  <code>getBackdropElement()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>Element</code> The Menu's backdrop element.
-
-
-
-
-<div id="onDestroy"></div>
-<h2>
-  <code>onDestroy()</code>
-
-</h2>
-
-
-
-
-
-
-
-
 
 
 

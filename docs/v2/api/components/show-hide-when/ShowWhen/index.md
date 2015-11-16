@@ -42,28 +42,10 @@ docType: "class"
 
 <h1 class="class export">ShowWhen <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L52-L81">ionic/components/show-hide-when/show-hide-when.ts (line 52)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L52-L80">ionic/components/show-hide-when/show-hide-when.ts (line 52)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: [show-when]</span>
-
-
-## Members
-
-<div id="hidden"></div>
-<h2>
-  <code>hidden()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
 
 
 

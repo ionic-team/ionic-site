@@ -13,6 +13,7 @@
 d("onScriptLoad",function(e){return function(t){e.call(this,t);var n=this.get("@@amd-helpers").lastModule;(n.anonDefine||n.isBundle)&&(t.metadata.format="defined",t.metadata.registered=!0,n.isBundle=!1),n.anonDefine&&(t.metadata.deps=t.metadata.deps?t.metadata.deps.concat(n.anonDefine.deps):n.anonDefine.deps,t.metadata.execute=n.anonDefine.execute,n.anonDefine=null)}}),d("fetch",function(e){return function(t){return"amd"===t.metadata.format&&(t.metadata.scriptLoad=!0),t.metadata.scriptLoad&&this.get("@@amd-helpers").createDefine(this),e.call(this,t)}}),d("instantiate",function(t){return function(n){var a=this;if("amd"==n.metadata.format||!n.metadata.format&&n.source.match(e)){if(n.metadata.format="amd",a.builder||a.execute===!1)n.metadata.execute=function(){return n.metadata.builderExecute()};else{var r=this.get("@@amd-helpers").createDefine(a);R.call(a,n),r(a);var o=this.get("@@amd-helpers").lastModule;if(!o.anonDefine&&!o.isBundle)throw new TypeError("AMD module "+n.name+" did not define");o.anonDefine&&(n.metadata.deps=n.metadata.deps?n.metadata.deps.concat(o.anonDefine.deps):o.anonDefine.deps,n.metadata.execute=o.anonDefine.execute),o.isBundle=!1,o.anonDefine=null}return t.call(a,n)}return t.call(a,n)}})}(),c(function(e){return function(){e.call(this),this.map={}}}),d("normalize",function(e){return function(t,n,a){if("."!=t.substr(0,1)&&"/"!=t.substr(0,1)&&!t.match(L)){var r,o=0;for(var s in this.map)if(t.substr(0,s.length)==s&&(t.length==s.length||"/"==t[s.length])){var i=s.split("/").length;if(o>=i)continue;r=s,o=i}r&&(t=this.map[r]+t.substr(r.length))}return e.call(this,t,n,a)}}),d("normalize",function(e){return function(t,n){var a=e.call(this,t,n);return this.has(a)?a:(b&&(a=a.replace(/#/g,"%23")),a.match(L)?(this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(a+=".js"),a):(a=s(this.paths,a)||a,this.defaultJSExtensions&&".js"!=a.substr(a.length-3,3)&&(a+=".js"),"."==a[0]||"/"==a[0]?new _(a,F).href:new _(a,v.call(this)).href))}}),function(){function e(e){for(var t in this.packages)if(e.substr(0,t.length)===t&&(e.length===t.length||"/"===e[t.length]))return t}function t(e,t){var n,a=0;for(var r in e)if(t.substr(0,r.length)==r&&(t.length==r.length||"/"==t[r.length])){var o=r.split("/").length;if(a>=o)continue;n=r,a=o}return n}function n(e,n,a,r){var o=t(a,r),s=a[o];return s?"object"==typeof s?e["import"](a["@env"]||"@system-env",n).then(function(e){for(var t in s){var n="~"==t[0],a=h(n?t.substr(1):t,e);if(!n&&a||n&&!a)return s[t]+r.substr(o.length)}}):s+r.substr(o.length):void 0}function a(a,r){return function(o,s){if(s)var i=e.call(this,s)||this.defaultJSExtensions&&".js"==s.substr(s.length-3,3)&&e.call(this,s.substr(0,s.length-3));if(i&&"."!==o[0]){var l=this.packages[i].map;if(l){var u=t(l,o);u&&(o=l[u]+o.substr(u.length),"."===o[0]&&(s=i+"/"))}}var d=this.defaultJSExtensions&&".js"!=o.substr(o.length-3,3),c=a.call(this,o,s);".js"!=c.substr(c.length-3,3)&&(d=!1),d&&(c=c.substr(0,c.length-3));var f=e.call(this,c),m=this;if(f){var p=m.packages[f];if(f===c&&p.main&&(c+="/"+("./"==p.main.substr(0,2)?p.main.substr(2):p.main)),"/"==c.substr(f.length))return c;var h="";if(p.meta&&(p.meta[c.substr(f.length+1)]||p.meta["./"+c.substr(f.length+1)])||("defaultExtension"in p?p.defaultExtension!==!1&&-1==c.split("/").pop().lastIndexOf(".")&&(h="."+p.defaultExtension):d&&(h=".js")),r||!p.map)return c+h;var v="."+c.substr(f.length);return Promise.resolve(n(m,f,p.map,v)).then(function(e){return e?e:h?n(m,f,p.map,v+h):void 0}).then(function(e){return e?c="./"==e.substr(0,2)?f+e.substr(1):a.call(m,e):c+=h,c})}return d&&(c+=".js"),c}}c(function(e){return function(){e.call(this),this.packages={}}}),l.prototype.normalizeSync=l.prototype.normalize,d("normalizeSync",function(e){return a(e,!0)}),d("normalize",function(e){return a(e,!1)}),d("locate",function(t){return function(n){var a=this;return Promise.resolve(t.call(this,n)).then(function(t){var r=e.call(a,n.name);if(r){var o=a.packages[r];if(o.format&&(n.metadata.format=n.metadata.format||o.format),o.loader&&(n.metadata.loader=n.metadata.loader||o.loader),o.meta){var s,i={},l=0;for(var u in o.meta){var d="./"==u.substr(0,2)?"./":"";if(d&&(u=u.substr(2)),s=u.indexOf("*"),-1!==s&&u.substr(0,s)===n.name.substr(0,s)&&u.substr(s+1)===n.name.substr(n.name.length-u.length+s+1)){var c=u.split("/").length;c>l&&(bestDetph=c),p(i,o.meta[d+u],l!=c)}}var f=n.name.substr(r.length+1),m=o.meta[f]||o.meta["./"+f];m&&p(i,m),i.alias&&"./"==i.alias.substr(0,2)&&(i.alias=r+i.alias.substr(1)),i.loader&&"./"==i.loader.substr(0,2)&&(i.loader=r+i.loader.substr(1)),p(n.metadata,i)}}return t})}})}(),function(){function e(e,t,n,a){function r(e,t){return d&&".js"==e.substr(e.length-3,3)&&(e=e.substr(0,e.length-3)),o.pluginFirst?t+"!"+e:e+"!"+t}var o=this;if(n){var s;o.pluginFirst?-1!=(s=n.lastIndexOf("!"))&&(n=n.substr(s+1)):-1!=(s=n.indexOf("!"))&&(n=n.substr(0,s))}var i=t.lastIndexOf("!");if(-1!=i){var l,u;o.pluginFirst?(l=t.substr(i+1),u=t.substr(0,i)):(l=t.substr(0,i),u=t.substr(i+1)||l.substr(l.lastIndexOf(".")+1));var d=o.defaultJSExtensions&&".js"!=l.substr(l.length-3,3);return a?(l=o.normalizeSync(l,n),u=o.normalizeSync(u,n),r(l,u)):Promise.all([o.normalize(l,n),o.normalize(u,n)]).then(function(e){return r(e[0],e[1])})}return e.call(o,t,n)}d("normalize",function(t){return function(n,a){return e.call(this,t,n,a,!1)}}),d("normalizeSync",function(t){return function(n,a){return e.call(this,t,n,a,!0)}}),d("locate",function(e){return function(t){var n,a=this,r=t.name;return a.pluginFirst?-1!=(n=r.indexOf("!"))&&(t.metadata.loader=r.substr(0,n),t.name=r.substr(n+1)):-1!=(n=r.lastIndexOf("!"))&&(t.metadata.loader=r.substr(n+1),t.name=r.substr(0,n)),e.call(a,t).then(function(e){var n=t.metadata.loader;if(!n)return e;if(a.defined&&a.defined[r])return e;var o=a.pluginLoader||a;return o["import"](n).then(function(n){return t.metadata.loaderModule=n,t.metadata.loaderArgument=r,t.address=e,n.locate?n.locate.call(a,t):e})})}}),d("fetch",function(e){return function(t){var n=this;return t.metadata.loaderModule&&t.metadata.loaderModule.fetch?(t.metadata.scriptLoad=!1,t.metadata.loaderModule.fetch.call(n,t,function(t){return e.call(n,t)})):e.call(n,t)}}),d("translate",function(e){return function(t){var n=this;return t.metadata.loaderModule&&t.metadata.loaderModule.translate?Promise.resolve(t.metadata.loaderModule.translate.call(n,t)).then(function(a){return"string"==typeof a&&(t.source=a),e.call(n,t)}):e.call(n,t)}}),d("instantiate",function(e){return function(t){var n=this,a=t.metadata.sourceMap;if(a&&"object"==typeof a){var r=t.name.split("!")[0];a.file=r+"!transpiled",a.sources&&1!=a.sources.length||(a.sources=[r]),t.metadata.sourceMap=JSON.stringify(a)}return t.metadata.loaderModule&&t.metadata.loaderModule.instantiate?Promise.resolve(t.metadata.loaderModule.instantiate.call(n,t)).then(function(a){return t.metadata.format="defined",t.metadata.execute=function(){return a},e.call(n,t)}):e.call(n,t)}})}(),function(){d("fetch",function(e){return function(t){var n=t.metadata.alias,a=t.metadata.deps||[];return n?(t.metadata.format="defined",this.defined[t.name]={declarative:!0,deps:a.concat([n]),declare:function(e){return{setters:[function(t){for(var n in t)e(n,t[n])}],execute:function(){}}}},""):e.call(this,t)}})}(),function(){function e(e,t,n){for(var a,r=t.split(".");r.length>1;)a=r.shift(),e=e[a]=e[a]||{};a=r.shift(),a in e||(e[a]=n)}c(function(e){return function(){this.meta={},e.call(this)}}),d("locate",function(e){return function(t){var n,a=this.meta,r=t.name,o=0;for(var s in a)if(n=s.indexOf("*"),-1!==n&&s.substr(0,n)===r.substr(0,n)&&s.substr(n+1)===r.substr(r.length-s.length+n+1)){var i=s.split("/").length;i>o&&(bestDetph=i),p(t.metadata,a[s],o!=i)}return a[r]&&p(t.metadata,a[r]),e.call(this,t)}});var t=/^(\s*\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*|\s*"[^"]+"\s*;?|\s*'[^']+'\s*;?)+/,n=/\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\/\/[^\n]*|"[^"]+"\s*;?|'[^']+'\s*;?/g;d("translate",function(a){return function(r){var o=r.source.match(t);if(o)for(var s=o[0].match(n),i=0;i<s.length;i++){var l=s[i],u=l.length,d=l.substr(0,1);if(";"==l.substr(u-1,1)&&u--,'"'==d||"'"==d){var c=l.substr(1,l.length-3),f=c.substr(0,c.indexOf(" "));if(f){var m=c.substr(f.length+1,c.length-f.length-1);"[]"==f.substr(f.length-2,2)&&(f=f.substr(0,f.length-2),r.metadata[f]=r.metadata[f]||[]),r.metadata[f]instanceof Array?r.metadata[f].push(m):e(r.metadata,f,m)}else r.metadata[c]=!0}}return a.call(this,r)}})}(),function(){function e(e,t){return Promise.resolve(e.normalize(t)).then(function(n){return e.loadedBundles_[n]=!0,e.bundles[n]=e.bundles[n]||e.bundles[t],e.load(n)}).then(function(){return""})}c(function(e){return function(){e.call(this),this.bundles={},this.loadedBundles_={}}}),d("locate",function(e){return function(t){return(t.name in this.loadedBundles_||t.name in this.bundles)&&(t.metadata.bundle=!0),e.call(this,t)}}),d("fetch",function(t){return function(n){var a=this;if(a.trace)return t.call(a,n);if(n.name in a.defined)return"";for(var r in a.loadedBundles_)if(-1!=w.call(a.bundles[r],n.name))return e(a,r);for(var r in a.bundles)if(-1!=w.call(a.bundles[r],n.name))return e(a,r);return t.call(a,n)}})}(),function(){c(function(e){return function(){e.call(this),this.depCache={}}}),d("locate",function(e){return function(t){var n=this,a=n.depCache[t.name];if(a)for(var r=0;r<a.length;r++)n["import"](a[r]);return e.call(n,t)}})}(),function(){var e=/#\{[^\}]+\}|#\?.+$/;c(function(e){return function(){e.call(this),this.set("@system-env",this.newModule({browser:b}))}}),d("normalize",function(t){return function(n,a,r){var o=this,s=n.match(e);if(s){var i="?"!=s[0][1],l=i?s[0].substr(2,s[0].length-3):s[0].substr(2);if("."==l[0]||-1!=l.indexOf("/"))throw new TypeError("Invalid condition "+s[0]+"\n	Condition modules cannot contain . or / in the name.");var u,d=l.indexOf(".");-1!=d&&(u=l.substr(d+1),l=l.substr(0,d));var c=!i&&"~"==l[0];c&&(l=l.substr(1));var f=o.pluginLoader||o;return f["import"](l,a,r).then(function(e){return void 0===u?"string"==typeof e?e:e["default"]:h(u,e)}).then(function(s){if(i){if("string"!=typeof s)throw new TypeError("The condition value for "+l+" doesn't resolve to a string.");n=n.replace(e,s)}else{if("boolean"!=typeof s)throw new TypeError("The condition value for "+l+" isn't resolving to a boolean.");c&&(s=!s),n=s?n.replace(e,""):"@empty"}return t.call(o,n,a,r)})}return Promise.resolve(t.call(o,n,a,r))}})}(),j=new l,j.constructor=l,"object"==typeof exports&&(module.exports=r),e.Reflect=e.Reflect||{},e.Reflect.Loader=e.Reflect.Loader||r,e.Reflect.global=e.Reflect.global||e,e.LoaderPolyfill=r,j||(j=new o,j.constructor=o),"object"==typeof exports&&(module.exports=j),e.System=j}("undefined"!=typeof self?self:global)}try{var t="undefined"!=typeof URLPolyfill||"test:"==new URL("test:///").protocol}catch(n){}if("undefined"!=typeof Promise&&t)e();else if("undefined"!=typeof document){var a=document.getElementsByTagName("script");$__curScript=a[a.length-1];var r=$__curScript.src,o=r.substr(0,r.lastIndexOf("/")+1);window.systemJSBootstrap=e,document.write('<script type="text/javascript" src="'+o+'system-polyfills.js"></script>')}else if("undefined"!=typeof importScripts){var o="";try{throw new Error("_")}catch(n){n.stack.replace(/(?:at|@).*(http.+):[\d]+:[\d]+/,function(e,t){o=t.replace(/\/[^\/]*$/,"/")})}importScripts(o+"system-polyfills.js"),e()}else e()}();
 //# sourceMappingURL=system.js.map
 
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -44639,6 +44640,769 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
         }
     };
 });
+System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
+    /**
+    +* @ngdoc service
+    +* @name platform
+    +* @module ionic
+    +* @description
+    +* Platform returns the availble information about your current platform
+    +*/
+
+    /**
+     * TODO
+     */
+    'use strict';
+
+    var util, dom, Platform, PlatformNode, platformRegistry, platformDefault;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function insertSuperset(platformNode) {
+        var supersetPlaformName = platformNode.superset();
+        if (supersetPlaformName) {
+            // add a platform in between two exist platforms
+            // so we can build the correct hierarchy of active platforms
+            var supersetPlatform = new PlatformNode(supersetPlaformName);
+            supersetPlatform.parent(platformNode.parent());
+            supersetPlatform.child(platformNode);
+            if (supersetPlatform.parent()) {
+                supersetPlatform.parent().child(supersetPlatform);
+            }
+            platformNode.parent(supersetPlatform);
+        }
+    }
+    return {
+        setters: [function (_utilUtil) {
+            util = _utilUtil;
+        }, function (_utilDom) {
+            dom = _utilDom;
+        }],
+        execute: function () {
+            Platform = (function () {
+                function Platform() {
+                    var _this = this;
+
+                    var platforms = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
+                    _classCallCheck(this, Platform);
+
+                    this._platforms = platforms;
+                    this._versions = {};
+                    this._onResizes = [];
+                    this._readyPromise = new Promise(function (res) {
+                        _this._readyResolve = res;
+                    });
+                }
+
+                // Methods
+                // **********************************************
+                /**
+                 * @param {string} platformName
+                 * @returns {bool} returns true/false based on platform you place
+                 * @description
+                 * Depending on the platform name, isPlatform will return true or flase
+                 *
+                 * ```
+                 * import {Platform} 'ionic/ionic';
+                 * export MyClass {
+                 *    constructor(platform: Platform){
+                 *      this.platform = platform;
+                 *      if(this.platform.is('ios'){
+                 *        // what ever you need to do for
+                 *        // if the platfomr is ios
+                 *      }
+                 *    }
+                 * }
+                 * ```
+                 */
+
+                _createClass(Platform, [{
+                    key: 'is',
+                    value: function is(platformName) {
+                        return this._platforms.indexOf(platformName) > -1;
+                    }
+
+                    /**
+                     * @returns {array} the array of platforms
+                     * @description
+                     * Depending on what device you are on, `platforms` can return multiple values.
+                     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
+                     * it would return mobile, ios, and iphone.
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      console.log(this.platform.platforms());
+                     *      // This will return an array of all the availble platforms
+                     *      // From if your on mobile, to mobile os, and device name
+                     *    }
+                     * }
+                     * ```
+                     */
+                }, {
+                    key: 'platforms',
+                    value: function platforms() {
+                        // get the array of active platforms, which also knows the hierarchy,
+                        // with the last one the most important
+                        return this._platforms;
+                    }
+
+                    /**
+                     * @param {string} optional platformName
+                     * @returns {object} An object with various platform info
+                     * - `{object=} `cordova`
+                     * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
+                     * - `{object=} `deviceName` Returns the name of the device
+                     * - `{object=}` `device platform` R
+                     * @description
+                     * Returns an object conta
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      console.log(this.platform.versions());
+                     *      // or pass in a platform name
+                     *      console.log(this.platform.versions('ios'));
+                     *    }
+                     * }
+                     * ```
+                     *
+                     */
+                }, {
+                    key: 'versions',
+                    value: function versions(platformName) {
+                        if (arguments.length) {
+                            // get a specific platform's version
+                            return this._versions[platformName];
+                        }
+                        // get all the platforms that have a valid parsed version
+                        return this._versions;
+                    }
+
+                    /**
+                     * @returns {promise}
+                     * @description
+                     * Returns a promise when the platform is ready and native functionality can be called
+                     *
+                     * ```
+                     * import {Platform} 'ionic/ionic';
+                     * export MyClass {
+                     *    constructor(platform: Platform){
+                     *      this.platform = platform;
+                     *      this.platform.ready().then(() => {
+                     *        console.log('Platform ready');
+                     *        // The platform is now ready, execute any native code you want
+                     *       });
+                     *    }
+                     * }
+                     * ```
+                     */
+                }, {
+                    key: 'ready',
+                    value: function ready() {
+                        return this._readyPromise;
+                    }
+
+                    /**
+                     * @private
+                     * TODO
+                     * @param {TODO} config  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'prepareReady',
+                    value: function prepareReady(config) {
+                        var self = this;
+                        function resolve() {
+                            self._readyResolve(config);
+                        }
+                        if (this._engineReady) {
+                            // the engine provide a ready promise, use this instead
+                            this._engineReady(resolve);
+                        } else {
+                            // there is no custom ready method from the engine
+                            // use the default dom ready
+                            dom.ready(resolve);
+                        }
+                    }
+
+                    // Methods meant to be overridden by the engine
+                    // **********************************************
+                    // Provided NOOP methods so they do not error when
+                    // called by engines (the browser) doesn't provide them
+                }, {
+                    key: 'on',
+                    value: function on() {}
+                }, {
+                    key: 'onHardwareBackButton',
+                    value: function onHardwareBackButton() {}
+                }, {
+                    key: 'registerBackButtonAction',
+                    value: function registerBackButtonAction() {}
+                }, {
+                    key: 'exitApp',
+                    value: function exitApp() {}
+                }, {
+                    key: 'fullScreen',
+                    value: function fullScreen() {}
+                }, {
+                    key: 'showStatusBar',
+                    value: function showStatusBar() {}
+
+                    // Getter/Setter Methods
+                    // **********************************************
+                }, {
+                    key: 'url',
+                    value: function url(val) {
+                        if (arguments.length) {
+                            this._url = val;
+                            this._qs = util.getQuerystring(val);
+                        }
+                        return this._url;
+                    }
+                }, {
+                    key: 'query',
+                    value: function query(key) {
+                        return (this._qs || {})[key];
+                    }
+                }, {
+                    key: 'userAgent',
+                    value: function userAgent(val) {
+                        if (arguments.length) {
+                            this._ua = val;
+                        }
+                        return this._ua || '';
+                    }
+                }, {
+                    key: 'navigatorPlatform',
+                    value: function navigatorPlatform(val) {
+                        if (arguments.length) {
+                            this._bPlt = val;
+                        }
+                        return this._bPlt || '';
+                    }
+                }, {
+                    key: 'width',
+                    value: function width() {
+                        return dom.windowDimensions().width;
+                    }
+                }, {
+                    key: 'height',
+                    value: function height() {
+                        return dom.windowDimensions().height;
+                    }
+                }, {
+                    key: 'isPortrait',
+                    value: function isPortrait() {
+                        return this.width() < this.height();
+                    }
+                }, {
+                    key: 'isLandscape',
+                    value: function isLandscape() {
+                        return !this.isPortrait();
+                    }
+                }, {
+                    key: 'windowResize',
+                    value: function windowResize() {
+                        var self = this;
+                        clearTimeout(self._resizeTimer);
+                        self._resizeTimer = setTimeout(function () {
+                            dom.flushDimensionCache();
+                            for (var i = 0; i < self._onResizes.length; i++) {
+                                try {
+                                    self._onResizes[i]();
+                                } catch (e) {
+                                    console.error(e);
+                                }
+                            }
+                        }, 500);
+                    }
+                }, {
+                    key: 'onResize',
+                    value: function onResize(cb) {
+                        this._onResizes.push(cb);
+                    }
+
+                    // Platform Registry
+                    // **********************************************
+                    /**
+                     * TODO
+                     * @param {TODO} platformConfig  TODO
+                     */
+                }, {
+                    key: 'testQuery',
+
+                    /**
+                     * TODO
+                     * @param {TODO} queryValue  TODO
+                     * @returns {boolean} TODO
+                     */
+                    value: function testQuery(queryValue, queryTestValue) {
+                        var valueSplit = queryValue.toLowerCase().split(';');
+                        return valueSplit.indexOf(queryTestValue) > -1;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {boolean} TODO
+                     */
+                }, {
+                    key: 'testUserAgent',
+                    value: function testUserAgent(userAgentExpression) {
+                        var rgx = new RegExp(userAgentExpression, 'i');
+                        return rgx.test(this._ua || '');
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {Object} TODO
+                     */
+                }, {
+                    key: 'matchUserAgentVersion',
+                    value: function matchUserAgentVersion(userAgentExpression) {
+                        if (this._ua && userAgentExpression) {
+                            var val = this._ua.match(userAgentExpression);
+                            if (val) {
+                                return {
+                                    major: val[1],
+                                    minor: val[2]
+                                };
+                            }
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} queryValue  TODO
+                     * @param {TODO} userAgentExpression  TODO
+                     * @returns {boolean} TODO
+                     */
+                }, {
+                    key: 'isPlatform',
+                    value: function isPlatform(queryTestValue, userAgentExpression) {
+                        if (!userAgentExpression) {
+                            userAgentExpression = queryTestValue;
+                        }
+                        var queryValue = this.query('ionicplatform');
+                        if (queryValue) {
+                            return this.testQuery(queryValue, queryTestValue);
+                        }
+                        return this.testUserAgent(userAgentExpression);
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} config  TODO
+                     */
+                }, {
+                    key: 'load',
+                    value: function load(platformOverride) {
+                        var rootPlatformNode = null;
+                        var engineNode = null;
+                        var self = this;
+                        this.platformOverride = platformOverride;
+                        // figure out the most specific platform and active engine
+                        var tmpPlatform = null;
+                        for (var platformName in platformRegistry) {
+                            tmpPlatform = this.matchPlatform(platformName);
+                            if (tmpPlatform) {
+                                // we found a platform match!
+                                // check if its more specific than the one we already have
+                                if (tmpPlatform.isEngine) {
+                                    // because it matched then this should be the active engine
+                                    // you cannot have more than one active engine
+                                    engineNode = tmpPlatform;
+                                } else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
+                                    // only find the root node for platforms that are not engines
+                                    // set this node as the root since we either don't already
+                                    // have one, or this one is more specific that the current one
+                                    rootPlatformNode = tmpPlatform;
+                                }
+                            }
+                        }
+                        if (!rootPlatformNode) {
+                            rootPlatformNode = new PlatformNode(platformDefault);
+                        }
+                        // build a Platform instance filled with the
+                        // hierarchy of active platforms and settings
+                        if (rootPlatformNode) {
+                            // check if we found an engine node (cordova/node-webkit/etc)
+                            if (engineNode) {
+                                // add the engine to the first in the platform hierarchy
+                                // the original rootPlatformNode now becomes a child
+                                // of the engineNode, which is not the new root
+                                engineNode.child(rootPlatformNode);
+                                rootPlatformNode.parent(engineNode);
+                                rootPlatformNode = engineNode;
+                                // add any events which the engine would provide
+                                // for example, Cordova provides its own ready event
+                                var engineMethods = engineNode.methods();
+                                engineMethods._engineReady = engineMethods.ready;
+                                delete engineMethods.ready;
+                                util.extend(this, engineMethods);
+                            }
+                            var platformNode = rootPlatformNode;
+                            while (platformNode) {
+                                insertSuperset(platformNode);
+                                platformNode = platformNode.child();
+                            }
+                            // make sure the root noot is actually the root
+                            // incase a node was inserted before the root
+                            platformNode = rootPlatformNode.parent();
+                            while (platformNode) {
+                                rootPlatformNode = platformNode;
+                                platformNode = platformNode.parent();
+                            }
+                            platformNode = rootPlatformNode;
+                            while (platformNode) {
+                                // set the array of active platforms with
+                                // the last one in the array the most important
+                                this._platforms.push(platformNode.name());
+                                // get the platforms version if a version parser was provided
+                                this._versions[platformNode.name()] = platformNode.version(this);
+                                // go to the next platform child
+                                platformNode = platformNode.child();
+                            }
+                        }
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} platformName  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'matchPlatform',
+                    value: function matchPlatform(platformName) {
+                        // build a PlatformNode and assign config data to it
+                        // use it's getRoot method to build up its hierarchy
+                        // depending on which platforms match
+                        var platformNode = new PlatformNode(platformName);
+                        var rootNode = platformNode.getRoot(this, 0);
+                        if (rootNode) {
+                            rootNode.depth = 0;
+                            var childPlatform = rootNode.child();
+                            while (childPlatform) {
+                                rootNode.depth++;
+                                childPlatform = childPlatform.child();
+                            }
+                        }
+                        return rootNode;
+                    }
+                }], [{
+                    key: 'register',
+                    value: function register(platformConfig) {
+                        platformRegistry[platformConfig.name] = platformConfig;
+                    }
+                }, {
+                    key: 'registry',
+                    value: function registry() {
+                        return platformRegistry;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} platformName  TODO
+                     * @returns {string} TODO
+                     */
+                }, {
+                    key: 'get',
+                    value: function get(platformName) {
+                        return platformRegistry[platformName] || {};
+                    }
+                }, {
+                    key: 'setDefault',
+                    value: function setDefault(platformName) {
+                        platformDefault = platformName;
+                    }
+                }]);
+
+                return Platform;
+            })();
+
+            _export('Platform', Platform);
+
+            PlatformNode = (function () {
+                function PlatformNode(platformName) {
+                    _classCallCheck(this, PlatformNode);
+
+                    this.c = Platform.get(platformName);
+                    this.isEngine = this.c.isEngine;
+                }
+
+                _createClass(PlatformNode, [{
+                    key: 'name',
+                    value: function name() {
+                        return this.c.name;
+                    }
+                }, {
+                    key: 'settings',
+                    value: function settings() {
+                        return this.c.settings || {};
+                    }
+                }, {
+                    key: 'superset',
+                    value: function superset() {
+                        return this.c.superset;
+                    }
+                }, {
+                    key: 'methods',
+                    value: function methods() {
+                        return this.c.methods || {};
+                    }
+                }, {
+                    key: 'parent',
+                    value: function parent(val) {
+                        if (arguments.length) {
+                            this._parent = val;
+                        }
+                        return this._parent;
+                    }
+                }, {
+                    key: 'child',
+                    value: function child(val) {
+                        if (arguments.length) {
+                            this._child = val;
+                        }
+                        return this._child;
+                    }
+                }, {
+                    key: 'isMatch',
+                    value: function isMatch(p) {
+                        if (p.platformOverride && !this.isEngine) {
+                            return p.platformOverride === this.c.name;
+                        } else if (!this.c.isMatch) {
+                            return false;
+                        }
+                        return this.c.isMatch(p);
+                    }
+                }, {
+                    key: 'version',
+                    value: function version(p) {
+                        if (this.c.versionParser) {
+                            var v = this.c.versionParser(p);
+                            if (v) {
+                                var str = v.major + '.' + v.minor;
+                                return {
+                                    str: str,
+                                    num: parseFloat(str),
+                                    major: parseInt(v.major, 10),
+                                    minor: parseInt(v.minor, 10)
+                                };
+                            }
+                        }
+                    }
+                }, {
+                    key: 'getRoot',
+                    value: function getRoot(p) {
+                        if (this.isMatch(p)) {
+                            var parents = this.getSubsetParents(this.name());
+                            if (!parents.length) {
+                                return this;
+                            }
+                            var platform = null;
+                            var rootPlatform = null;
+                            for (var i = 0; i < parents.length; i++) {
+                                platform = new PlatformNode(parents[i]);
+                                platform.child(this);
+                                rootPlatform = platform.getRoot(p);
+                                if (rootPlatform) {
+                                    this.parent(platform);
+                                    return rootPlatform;
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                }, {
+                    key: 'getSubsetParents',
+                    value: function getSubsetParents(subsetPlatformName) {
+                        var platformRegistry = Platform.registry();
+                        var parentPlatformNames = [];
+                        var platform = null;
+                        for (var platformName in platformRegistry) {
+                            platform = platformRegistry[platformName];
+                            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
+                                parentPlatformNames.push(platformName);
+                            }
+                        }
+                        return parentPlatformNames;
+                    }
+                }]);
+
+                return PlatformNode;
+            })();
+
+            platformRegistry = {};
+            platformDefault = null;
+        }
+    };
+});
+System.register('ionic/platform/registry', ['./platform', '../util/dom'], function (_export) {
+    'use strict';
+
+    var Platform, windowLoad;
+
+    function isIOSDevice(p) {
+        // shortcut function to be reused internally
+        // checks navigator.platform to see if it's an actual iOS device
+        // this does not use the user-agent string because it is often spoofed
+        // an actual iPad will return true, a chrome dev tools iPad will return false
+        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
+        );
+    }
+    return {
+        setters: [function (_platform) {
+            Platform = _platform.Platform;
+        }, function (_utilDom) {
+            windowLoad = _utilDom.windowLoad;
+        }],
+        execute: function () {
+            Platform.register({
+                name: 'core',
+                settings: {
+                    mode: 'ios',
+                    keyboardHeight: 290
+                }
+            });
+            Platform.setDefault('core');
+            Platform.register({
+                name: 'mobile'
+            });
+            Platform.register({
+                name: 'phablet',
+                isMatch: function isMatch(p) {
+                    var smallest = Math.min(p.width(), p.height());
+                    var largest = Math.max(p.width(), p.height());
+                    return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
+                }
+            });
+            Platform.register({
+                name: 'tablet',
+                isMatch: function isMatch(p) {
+                    var smallest = Math.min(p.width(), p.height());
+                    var largest = Math.max(p.width(), p.height());
+                    return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
+                }
+            });
+            Platform.register({
+                name: 'android',
+                superset: 'mobile',
+                subsets: ['phablet', 'tablet'],
+                settings: {
+                    hoverCSS: false,
+                    keyboardHeight: 290,
+                    mode: 'md',
+                    scrollAssist: true
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('android', 'android|silk');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'ios',
+                superset: 'mobile',
+                subsets: ['ipad', 'iphone'],
+                settings: {
+                    hoverCSS: false,
+                    keyboardHeight: 290,
+                    mode: 'ios',
+                    scrollAssist: isIOSDevice,
+                    swipeBackEnabled: isIOSDevice,
+                    swipeBackThreshold: 40,
+                    tapPolyfill: isIOSDevice
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('ios', 'iphone|ipad|ipod');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'ipad',
+                superset: 'tablet',
+                settings: {
+                    keyboardHeight: 500
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('ipad');
+                }
+            });
+            Platform.register({
+                name: 'iphone',
+                subsets: ['phablet'],
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('iphone');
+                }
+            });
+            Platform.register({
+                name: 'windowsphone',
+                superset: 'mobile',
+                subsets: ['phablet', 'tablet'],
+                settings: {
+                    mode: 'md'
+                },
+                isMatch: function isMatch(p) {
+                    return p.isPlatform('windowsphone', 'windows phone');
+                },
+                versionParser: function versionParser(p) {
+                    return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);
+                }
+            });
+            Platform.register({
+                name: 'cordova',
+                isEngine: true,
+                methods: {
+                    ready: function ready(resolve) {
+                        function isReady() {
+                            document.removeEventListener('deviceready', isReady);
+                            resolve();
+                        }
+                        windowLoad(function () {
+                            document.addEventListener('deviceready', isReady);
+                        });
+                    }
+                },
+                isMatch: function isMatch() {
+                    return !!(window.cordova || window.PhoneGap || window.phonegap);
+                }
+            });
+        }
+    };
+});
+System.register('ionic/platform/storage', ['./storage/storage', './storage/local-storage', './storage/sql'], function (_export) {
+  'use strict';
+
+  return {
+    setters: [function (_storageStorage) {
+      for (var _key in _storageStorage) {
+        if (_key !== 'default') _export(_key, _storageStorage[_key]);
+      }
+    }, function (_storageLocalStorage) {
+      for (var _key2 in _storageLocalStorage) {
+        if (_key2 !== 'default') _export(_key2, _storageLocalStorage[_key2]);
+      }
+    }, function (_storageSql) {
+      for (var _key3 in _storageSql) {
+        if (_key3 !== 'default') _export(_key3, _storageSql[_key3]);
+      }
+    }],
+    execute: function () {}
+  };
+});
 System.register('ionic/gestures/drag-gesture', ['ionic/gestures/gesture', 'ionic/util'], function (_export) {
     'use strict';
 
@@ -44693,6 +45457,7 @@ System.register('ionic/gestures/drag-gesture', ['ionic/gestures/gesture', 'ionic
                             _this.onDragEnd(ev);
                             _this.dragging = false;
                         });
+                        this.hammertime.get('pan').set(this._options);
                     }
                 }, {
                     key: 'onDrag',
@@ -47157,769 +47922,6 @@ System.register('ionic/gestures/slide-gesture', ['ionic/gestures/drag-gesture', 
             _export('SlideGesture', SlideGesture);
         }
     };
-});
-System.register('ionic/platform/platform', ['../util/util', '../util/dom'], function (_export) {
-    /**
-    +* @ngdoc service
-    +* @name platform
-    +* @module ionic
-    +* @description
-    +* Platform returns the availble information about your current platform
-    +*/
-
-    /**
-     * TODO
-     */
-    'use strict';
-
-    var util, dom, Platform, PlatformNode, platformRegistry, platformDefault;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function insertSuperset(platformNode) {
-        var supersetPlaformName = platformNode.superset();
-        if (supersetPlaformName) {
-            // add a platform in between two exist platforms
-            // so we can build the correct hierarchy of active platforms
-            var supersetPlatform = new PlatformNode(supersetPlaformName);
-            supersetPlatform.parent(platformNode.parent());
-            supersetPlatform.child(platformNode);
-            if (supersetPlatform.parent()) {
-                supersetPlatform.parent().child(supersetPlatform);
-            }
-            platformNode.parent(supersetPlatform);
-        }
-    }
-    return {
-        setters: [function (_utilUtil) {
-            util = _utilUtil;
-        }, function (_utilDom) {
-            dom = _utilDom;
-        }],
-        execute: function () {
-            Platform = (function () {
-                function Platform() {
-                    var _this = this;
-
-                    var platforms = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-
-                    _classCallCheck(this, Platform);
-
-                    this._platforms = platforms;
-                    this._versions = {};
-                    this._onResizes = [];
-                    this._readyPromise = new Promise(function (res) {
-                        _this._readyResolve = res;
-                    });
-                }
-
-                // Methods
-                // **********************************************
-                /**
-                 * @param {string} platformName
-                 * @returns {bool} returns true/false based on platform you place
-                 * @description
-                 * Depending on the platform name, isPlatform will return true or flase
-                 *
-                 * ```
-                 * import {Platform} 'ionic/ionic';
-                 * export MyClass {
-                 *    constructor(platform: Platform){
-                 *      this.platform = platform;
-                 *      if(this.platform.is('ios'){
-                 *        // what ever you need to do for
-                 *        // if the platfomr is ios
-                 *      }
-                 *    }
-                 * }
-                 * ```
-                 */
-
-                _createClass(Platform, [{
-                    key: 'is',
-                    value: function is(platformName) {
-                        return this._platforms.indexOf(platformName) > -1;
-                    }
-
-                    /**
-                     * @returns {array} the array of platforms
-                     * @description
-                     * Depending on what device you are on, `platforms` can return multiple values.
-                     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
-                     * it would return mobile, ios, and iphone.
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      console.log(this.platform.platforms());
-                     *      // This will return an array of all the availble platforms
-                     *      // From if your on mobile, to mobile os, and device name
-                     *    }
-                     * }
-                     * ```
-                     */
-                }, {
-                    key: 'platforms',
-                    value: function platforms() {
-                        // get the array of active platforms, which also knows the hierarchy,
-                        // with the last one the most important
-                        return this._platforms;
-                    }
-
-                    /**
-                     * @param {string} optional platformName
-                     * @returns {object} An object with various platform info
-                     * - `{object=} `cordova`
-                     * - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
-                     * - `{object=} `deviceName` Returns the name of the device
-                     * - `{object=}` `device platform` R
-                     * @description
-                     * Returns an object conta
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      console.log(this.platform.versions());
-                     *      // or pass in a platform name
-                     *      console.log(this.platform.versions('ios'));
-                     *    }
-                     * }
-                     * ```
-                     *
-                     */
-                }, {
-                    key: 'versions',
-                    value: function versions(platformName) {
-                        if (arguments.length) {
-                            // get a specific platform's version
-                            return this._versions[platformName];
-                        }
-                        // get all the platforms that have a valid parsed version
-                        return this._versions;
-                    }
-
-                    /**
-                     * @returns {promise}
-                     * @description
-                     * Returns a promise when the platform is ready and native functionality can be called
-                     *
-                     * ```
-                     * import {Platform} 'ionic/ionic';
-                     * export MyClass {
-                     *    constructor(platform: Platform){
-                     *      this.platform = platform;
-                     *      this.platform.ready().then(() => {
-                     *        console.log('Platform ready');
-                     *        // The platform is now ready, execute any native code you want
-                     *       });
-                     *    }
-                     * }
-                     * ```
-                     */
-                }, {
-                    key: 'ready',
-                    value: function ready() {
-                        return this._readyPromise;
-                    }
-
-                    /**
-                     * @private
-                     * TODO
-                     * @param {TODO} config  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'prepareReady',
-                    value: function prepareReady(config) {
-                        var self = this;
-                        function resolve() {
-                            self._readyResolve(config);
-                        }
-                        if (this._engineReady) {
-                            // the engine provide a ready promise, use this instead
-                            this._engineReady(resolve);
-                        } else {
-                            // there is no custom ready method from the engine
-                            // use the default dom ready
-                            dom.ready(resolve);
-                        }
-                    }
-
-                    // Methods meant to be overridden by the engine
-                    // **********************************************
-                    // Provided NOOP methods so they do not error when
-                    // called by engines (the browser) doesn't provide them
-                }, {
-                    key: 'on',
-                    value: function on() {}
-                }, {
-                    key: 'onHardwareBackButton',
-                    value: function onHardwareBackButton() {}
-                }, {
-                    key: 'registerBackButtonAction',
-                    value: function registerBackButtonAction() {}
-                }, {
-                    key: 'exitApp',
-                    value: function exitApp() {}
-                }, {
-                    key: 'fullScreen',
-                    value: function fullScreen() {}
-                }, {
-                    key: 'showStatusBar',
-                    value: function showStatusBar() {}
-
-                    // Getter/Setter Methods
-                    // **********************************************
-                }, {
-                    key: 'url',
-                    value: function url(val) {
-                        if (arguments.length) {
-                            this._url = val;
-                            this._qs = util.getQuerystring(val);
-                        }
-                        return this._url;
-                    }
-                }, {
-                    key: 'query',
-                    value: function query(key) {
-                        return (this._qs || {})[key];
-                    }
-                }, {
-                    key: 'userAgent',
-                    value: function userAgent(val) {
-                        if (arguments.length) {
-                            this._ua = val;
-                        }
-                        return this._ua || '';
-                    }
-                }, {
-                    key: 'navigatorPlatform',
-                    value: function navigatorPlatform(val) {
-                        if (arguments.length) {
-                            this._bPlt = val;
-                        }
-                        return this._bPlt || '';
-                    }
-                }, {
-                    key: 'width',
-                    value: function width() {
-                        return dom.windowDimensions().width;
-                    }
-                }, {
-                    key: 'height',
-                    value: function height() {
-                        return dom.windowDimensions().height;
-                    }
-                }, {
-                    key: 'isPortrait',
-                    value: function isPortrait() {
-                        return this.width() < this.height();
-                    }
-                }, {
-                    key: 'isLandscape',
-                    value: function isLandscape() {
-                        return !this.isPortrait();
-                    }
-                }, {
-                    key: 'windowResize',
-                    value: function windowResize() {
-                        var self = this;
-                        clearTimeout(self._resizeTimer);
-                        self._resizeTimer = setTimeout(function () {
-                            dom.flushDimensionCache();
-                            for (var i = 0; i < self._onResizes.length; i++) {
-                                try {
-                                    self._onResizes[i]();
-                                } catch (e) {
-                                    console.error(e);
-                                }
-                            }
-                        }, 500);
-                    }
-                }, {
-                    key: 'onResize',
-                    value: function onResize(cb) {
-                        this._onResizes.push(cb);
-                    }
-
-                    // Platform Registry
-                    // **********************************************
-                    /**
-                     * TODO
-                     * @param {TODO} platformConfig  TODO
-                     */
-                }, {
-                    key: 'testQuery',
-
-                    /**
-                     * TODO
-                     * @param {TODO} queryValue  TODO
-                     * @returns {boolean} TODO
-                     */
-                    value: function testQuery(queryValue, queryTestValue) {
-                        var valueSplit = queryValue.toLowerCase().split(';');
-                        return valueSplit.indexOf(queryTestValue) > -1;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {boolean} TODO
-                     */
-                }, {
-                    key: 'testUserAgent',
-                    value: function testUserAgent(userAgentExpression) {
-                        var rgx = new RegExp(userAgentExpression, 'i');
-                        return rgx.test(this._ua || '');
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {Object} TODO
-                     */
-                }, {
-                    key: 'matchUserAgentVersion',
-                    value: function matchUserAgentVersion(userAgentExpression) {
-                        if (this._ua && userAgentExpression) {
-                            var val = this._ua.match(userAgentExpression);
-                            if (val) {
-                                return {
-                                    major: val[1],
-                                    minor: val[2]
-                                };
-                            }
-                        }
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} queryValue  TODO
-                     * @param {TODO} userAgentExpression  TODO
-                     * @returns {boolean} TODO
-                     */
-                }, {
-                    key: 'isPlatform',
-                    value: function isPlatform(queryTestValue, userAgentExpression) {
-                        if (!userAgentExpression) {
-                            userAgentExpression = queryTestValue;
-                        }
-                        var queryValue = this.query('ionicplatform');
-                        if (queryValue) {
-                            return this.testQuery(queryValue, queryTestValue);
-                        }
-                        return this.testUserAgent(userAgentExpression);
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} config  TODO
-                     */
-                }, {
-                    key: 'load',
-                    value: function load(platformOverride) {
-                        var rootPlatformNode = null;
-                        var engineNode = null;
-                        var self = this;
-                        this.platformOverride = platformOverride;
-                        // figure out the most specific platform and active engine
-                        var tmpPlatform = null;
-                        for (var platformName in platformRegistry) {
-                            tmpPlatform = this.matchPlatform(platformName);
-                            if (tmpPlatform) {
-                                // we found a platform match!
-                                // check if its more specific than the one we already have
-                                if (tmpPlatform.isEngine) {
-                                    // because it matched then this should be the active engine
-                                    // you cannot have more than one active engine
-                                    engineNode = tmpPlatform;
-                                } else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
-                                    // only find the root node for platforms that are not engines
-                                    // set this node as the root since we either don't already
-                                    // have one, or this one is more specific that the current one
-                                    rootPlatformNode = tmpPlatform;
-                                }
-                            }
-                        }
-                        if (!rootPlatformNode) {
-                            rootPlatformNode = new PlatformNode(platformDefault);
-                        }
-                        // build a Platform instance filled with the
-                        // hierarchy of active platforms and settings
-                        if (rootPlatformNode) {
-                            // check if we found an engine node (cordova/node-webkit/etc)
-                            if (engineNode) {
-                                // add the engine to the first in the platform hierarchy
-                                // the original rootPlatformNode now becomes a child
-                                // of the engineNode, which is not the new root
-                                engineNode.child(rootPlatformNode);
-                                rootPlatformNode.parent(engineNode);
-                                rootPlatformNode = engineNode;
-                                // add any events which the engine would provide
-                                // for example, Cordova provides its own ready event
-                                var engineMethods = engineNode.methods();
-                                engineMethods._engineReady = engineMethods.ready;
-                                delete engineMethods.ready;
-                                util.extend(this, engineMethods);
-                            }
-                            var platformNode = rootPlatformNode;
-                            while (platformNode) {
-                                insertSuperset(platformNode);
-                                platformNode = platformNode.child();
-                            }
-                            // make sure the root noot is actually the root
-                            // incase a node was inserted before the root
-                            platformNode = rootPlatformNode.parent();
-                            while (platformNode) {
-                                rootPlatformNode = platformNode;
-                                platformNode = platformNode.parent();
-                            }
-                            platformNode = rootPlatformNode;
-                            while (platformNode) {
-                                // set the array of active platforms with
-                                // the last one in the array the most important
-                                this._platforms.push(platformNode.name());
-                                // get the platforms version if a version parser was provided
-                                this._versions[platformNode.name()] = platformNode.version(this);
-                                // go to the next platform child
-                                platformNode = platformNode.child();
-                            }
-                        }
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} platformName  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'matchPlatform',
-                    value: function matchPlatform(platformName) {
-                        // build a PlatformNode and assign config data to it
-                        // use it's getRoot method to build up its hierarchy
-                        // depending on which platforms match
-                        var platformNode = new PlatformNode(platformName);
-                        var rootNode = platformNode.getRoot(this, 0);
-                        if (rootNode) {
-                            rootNode.depth = 0;
-                            var childPlatform = rootNode.child();
-                            while (childPlatform) {
-                                rootNode.depth++;
-                                childPlatform = childPlatform.child();
-                            }
-                        }
-                        return rootNode;
-                    }
-                }], [{
-                    key: 'register',
-                    value: function register(platformConfig) {
-                        platformRegistry[platformConfig.name] = platformConfig;
-                    }
-                }, {
-                    key: 'registry',
-                    value: function registry() {
-                        return platformRegistry;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} platformName  TODO
-                     * @returns {string} TODO
-                     */
-                }, {
-                    key: 'get',
-                    value: function get(platformName) {
-                        return platformRegistry[platformName] || {};
-                    }
-                }, {
-                    key: 'setDefault',
-                    value: function setDefault(platformName) {
-                        platformDefault = platformName;
-                    }
-                }]);
-
-                return Platform;
-            })();
-
-            _export('Platform', Platform);
-
-            PlatformNode = (function () {
-                function PlatformNode(platformName) {
-                    _classCallCheck(this, PlatformNode);
-
-                    this.c = Platform.get(platformName);
-                    this.isEngine = this.c.isEngine;
-                }
-
-                _createClass(PlatformNode, [{
-                    key: 'name',
-                    value: function name() {
-                        return this.c.name;
-                    }
-                }, {
-                    key: 'settings',
-                    value: function settings() {
-                        return this.c.settings || {};
-                    }
-                }, {
-                    key: 'superset',
-                    value: function superset() {
-                        return this.c.superset;
-                    }
-                }, {
-                    key: 'methods',
-                    value: function methods() {
-                        return this.c.methods || {};
-                    }
-                }, {
-                    key: 'parent',
-                    value: function parent(val) {
-                        if (arguments.length) {
-                            this._parent = val;
-                        }
-                        return this._parent;
-                    }
-                }, {
-                    key: 'child',
-                    value: function child(val) {
-                        if (arguments.length) {
-                            this._child = val;
-                        }
-                        return this._child;
-                    }
-                }, {
-                    key: 'isMatch',
-                    value: function isMatch(p) {
-                        if (p.platformOverride && !this.isEngine) {
-                            return p.platformOverride === this.c.name;
-                        } else if (!this.c.isMatch) {
-                            return false;
-                        }
-                        return this.c.isMatch(p);
-                    }
-                }, {
-                    key: 'version',
-                    value: function version(p) {
-                        if (this.c.versionParser) {
-                            var v = this.c.versionParser(p);
-                            if (v) {
-                                var str = v.major + '.' + v.minor;
-                                return {
-                                    str: str,
-                                    num: parseFloat(str),
-                                    major: parseInt(v.major, 10),
-                                    minor: parseInt(v.minor, 10)
-                                };
-                            }
-                        }
-                    }
-                }, {
-                    key: 'getRoot',
-                    value: function getRoot(p) {
-                        if (this.isMatch(p)) {
-                            var parents = this.getSubsetParents(this.name());
-                            if (!parents.length) {
-                                return this;
-                            }
-                            var platform = null;
-                            var rootPlatform = null;
-                            for (var i = 0; i < parents.length; i++) {
-                                platform = new PlatformNode(parents[i]);
-                                platform.child(this);
-                                rootPlatform = platform.getRoot(p);
-                                if (rootPlatform) {
-                                    this.parent(platform);
-                                    return rootPlatform;
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                }, {
-                    key: 'getSubsetParents',
-                    value: function getSubsetParents(subsetPlatformName) {
-                        var platformRegistry = Platform.registry();
-                        var parentPlatformNames = [];
-                        var platform = null;
-                        for (var platformName in platformRegistry) {
-                            platform = platformRegistry[platformName];
-                            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
-                                parentPlatformNames.push(platformName);
-                            }
-                        }
-                        return parentPlatformNames;
-                    }
-                }]);
-
-                return PlatformNode;
-            })();
-
-            platformRegistry = {};
-            platformDefault = null;
-        }
-    };
-});
-System.register('ionic/platform/registry', ['./platform', '../util/dom'], function (_export) {
-    'use strict';
-
-    var Platform, windowLoad;
-
-    function isIOSDevice(p) {
-        // shortcut function to be reused internally
-        // checks navigator.platform to see if it's an actual iOS device
-        // this does not use the user-agent string because it is often spoofed
-        // an actual iPad will return true, a chrome dev tools iPad will return false
-        return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
-        );
-    }
-    return {
-        setters: [function (_platform) {
-            Platform = _platform.Platform;
-        }, function (_utilDom) {
-            windowLoad = _utilDom.windowLoad;
-        }],
-        execute: function () {
-            Platform.register({
-                name: 'core',
-                settings: {
-                    mode: 'ios',
-                    keyboardHeight: 290
-                }
-            });
-            Platform.setDefault('core');
-            Platform.register({
-                name: 'mobile'
-            });
-            Platform.register({
-                name: 'phablet',
-                isMatch: function isMatch(p) {
-                    var smallest = Math.min(p.width(), p.height());
-                    var largest = Math.max(p.width(), p.height());
-                    return smallest > 390 && smallest < 520 && largest > 620 && largest < 800;
-                }
-            });
-            Platform.register({
-                name: 'tablet',
-                isMatch: function isMatch(p) {
-                    var smallest = Math.min(p.width(), p.height());
-                    var largest = Math.max(p.width(), p.height());
-                    return smallest > 460 && smallest < 820 && largest > 780 && largest < 1400;
-                }
-            });
-            Platform.register({
-                name: 'android',
-                superset: 'mobile',
-                subsets: ['phablet', 'tablet'],
-                settings: {
-                    hoverCSS: false,
-                    keyboardHeight: 290,
-                    mode: 'md',
-                    scrollAssist: true
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('android', 'android|silk');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'ios',
-                superset: 'mobile',
-                subsets: ['ipad', 'iphone'],
-                settings: {
-                    hoverCSS: false,
-                    keyboardHeight: 290,
-                    mode: 'ios',
-                    scrollAssist: isIOSDevice,
-                    swipeBackEnabled: isIOSDevice,
-                    swipeBackThreshold: 40,
-                    tapPolyfill: isIOSDevice
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('ios', 'iphone|ipad|ipod');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'ipad',
-                superset: 'tablet',
-                settings: {
-                    keyboardHeight: 500
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('ipad');
-                }
-            });
-            Platform.register({
-                name: 'iphone',
-                subsets: ['phablet'],
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('iphone');
-                }
-            });
-            Platform.register({
-                name: 'windowsphone',
-                superset: 'mobile',
-                subsets: ['phablet', 'tablet'],
-                settings: {
-                    mode: 'md'
-                },
-                isMatch: function isMatch(p) {
-                    return p.isPlatform('windowsphone', 'windows phone');
-                },
-                versionParser: function versionParser(p) {
-                    return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);
-                }
-            });
-            Platform.register({
-                name: 'cordova',
-                isEngine: true,
-                methods: {
-                    ready: function ready(resolve) {
-                        function isReady() {
-                            document.removeEventListener('deviceready', isReady);
-                            resolve();
-                        }
-                        windowLoad(function () {
-                            document.addEventListener('deviceready', isReady);
-                        });
-                    }
-                },
-                isMatch: function isMatch() {
-                    return !!(window.cordova || window.PhoneGap || window.phonegap);
-                }
-            });
-        }
-    };
-});
-System.register('ionic/platform/storage', ['./storage/storage', './storage/local-storage', './storage/sql'], function (_export) {
-  'use strict';
-
-  return {
-    setters: [function (_storageStorage) {
-      for (var _key in _storageStorage) {
-        if (_key !== 'default') _export(_key, _storageStorage[_key]);
-      }
-    }, function (_storageLocalStorage) {
-      for (var _key2 in _storageLocalStorage) {
-        if (_key2 !== 'default') _export(_key2, _storageLocalStorage[_key2]);
-      }
-    }, function (_storageSql) {
-      for (var _key3 in _storageSql) {
-        if (_key3 !== 'default') _export(_key3, _storageSql[_key3]);
-      }
-    }],
-    execute: function () {}
-  };
 });
 System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
     'use strict';
@@ -50608,6 +50610,58 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
         }
     };
 });
+System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
+    "use strict";
+
+    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            Renderer = _angular2Angular2.Renderer;
+            ElementRef = _angular2Angular2.ElementRef;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            Blur = function Blur(elementRef, renderer) {
+                _classCallCheck(this, Blur);
+
+                this.elementRef = elementRef;
+                this.renderer = renderer;
+                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
+            };
+
+            _export("Blur", Blur);
+
+            _export("Blur", Blur = __decorate([Directive({
+                selector: '[ion-blur]'
+            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
+        }
+    };
+});
 System.register("ionic/components/button/button", ["angular2/angular2", "../../config/config"], function (_export) {
     /**
      * TODO
@@ -51014,11 +51068,15 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                 }, {
                     key: "onScrollEnd",
                     value: function onScrollEnd(callback) {
-                        var timerId = undefined;
+                        var timerId = undefined,
+                            deregister = undefined;
                         function debounce() {
-                            timerId = setTimeout(function () {}, 250);
+                            timerId = setTimeout(function () {
+                                deregister();
+                                callback();
+                            }, 250);
                         }
-                        this.addScrollEventListener(debounce);
+                        deregister = this.addScrollEventListener(debounce);
                     }
 
                     /**
@@ -51231,10 +51289,6 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
                         }
                         this.update();
                     }
-
-                    /**
-                     * @private
-                     */
                 }, {
                     key: "update",
 
@@ -51386,7 +51440,7 @@ System.register("ionic/components/item/item-group", ["angular2/angular2", "../co
 System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/hammer', 'ionic/gestures/drag-gesture', 'ionic/util/dom'], function (_export) {
     'use strict';
 
-    var Hammer, DragGesture, CSS, raf, closest, ItemSlidingGesture;
+    var Hammer, DragGesture, CSS, raf, closest, ItemSlidingGesture, DRAG_THRESHOLD;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -51396,6 +51450,9 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
 
     function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+    function preventDefault(ev) {
+        ev.preventDefault();
+    }
     function getItemConatiner(ele) {
         return closest(ele, 'ion-item-sliding', true);
     }
@@ -51432,7 +51489,7 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
 
                     _get(Object.getPrototypeOf(ItemSlidingGesture.prototype), 'constructor', this).call(this, listEle, {
                         direction: 'x',
-                        threshold: 40
+                        threshold: DRAG_THRESHOLD
                     });
                     this.data = {};
                     this.openItems = 0;
@@ -51444,7 +51501,7 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         if (!isFromOptionButtons(ev.target)) {
                             var didClose = _this.closeOpened();
                             if (didClose) {
-                                ev.preventDefault();
+                                preventDefault(ev);
                             }
                         }
                     });
@@ -51461,8 +51518,10 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         this.closeOpened(ev, itemContainerEle);
                         var openAmout = this.getOpenAmount(itemContainerEle);
                         var itemData = this.get(itemContainerEle);
-                        if (openAmout) {
-                            return ev.preventDefault();
+                        this.preventDrag = openAmout > 0;
+                        if (this.preventDrag) {
+                            this.closeOpened(ev);
+                            return preventDefault(ev);
                         }
                         itemContainerEle.classList.add('active-slide');
                         this.set(itemContainerEle, 'offsetX', openAmout);
@@ -51474,8 +51533,12 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                 }, {
                     key: 'onDrag',
                     value: function onDrag(ev) {
+                        if (Math.abs(ev.deltaY) > 30) {
+                            this.preventDrag = true;
+                            return this.closeOpened(ev);
+                        }
                         var itemContainerEle = getItemConatiner(ev.target);
-                        if (!itemContainerEle || !isActive(itemContainerEle)) return;
+                        if (!itemContainerEle || !isActive(itemContainerEle) || this.preventDrag) return;
                         var itemData = this.get(itemContainerEle);
                         if (!itemData.optsWidth) {
                             itemData.optsWidth = getOptionsWidth(itemContainerEle);
@@ -51497,6 +51560,7 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                     value: function onDragEnd(ev) {
                         var _this2 = this;
 
+                        this.preventDrag = false;
                         var itemContainerEle = getItemConatiner(ev.target);
                         if (!itemContainerEle || !isActive(itemContainerEle)) return;
                         // If we are currently dragging, we want to snap back into place
@@ -51537,14 +51601,14 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                     }
                 }, {
                     key: 'open',
-                    value: function open(itemContainerEle, openAmount, animate) {
+                    value: function open(itemContainerEle, openAmount, isFinal) {
                         var _this3 = this;
 
                         var slidingEle = itemContainerEle.querySelector('ion-item,[ion-item]');
                         if (!slidingEle) return;
                         this.set(itemContainerEle, 'openAmount', openAmount);
                         clearTimeout(this.get(itemContainerEle).timerId);
-                        if (openAmount > 0) {
+                        if (openAmount) {
                             this.openItems++;
                         } else {
                             var timerId = setTimeout(function () {
@@ -51556,8 +51620,11 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                             }, 400);
                             this.set(itemContainerEle, 'timerId', timerId);
                         }
-                        slidingEle.style[CSS.transition] = animate ? '' : 'none';
-                        slidingEle.style[CSS.transform] = openAmount === 0 ? '' : 'translate3d(' + -openAmount + 'px,0,0)';
+                        slidingEle.style[CSS.transition] = isFinal ? '' : 'none';
+                        slidingEle.style[CSS.transform] = openAmount ? 'translate3d(' + -openAmount + 'px,0,0)' : '';
+                        if (isFinal) {
+                            this.enableScroll(!openAmount);
+                        }
                     }
                 }, {
                     key: 'getOpenAmount',
@@ -51578,6 +51645,14 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         this.data[itemContainerEle.$ionSlide][key] = value;
                     }
                 }, {
+                    key: 'enableScroll',
+                    value: function enableScroll(shouldEnable) {
+                        var scrollContentEle = closest(this.listEle, 'scroll-content');
+                        if (scrollContentEle) {
+                            scrollContentEle[shouldEnable ? 'removeEventListener' : 'addEventListener']('touchstart', preventDefault);
+                        }
+                    }
+                }, {
                     key: 'unlisten',
                     value: function unlisten() {
                         _get(Object.getPrototypeOf(ItemSlidingGesture.prototype), 'unlisten', this).call(this);
@@ -51589,6 +51664,8 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
             })(DragGesture);
 
             _export('ItemSlidingGesture', ItemSlidingGesture);
+
+            DRAG_THRESHOLD = 20;
         }
     };
 });
@@ -60692,58 +60769,6 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                 }
             }), __metadata('design:paramtypes', [typeof (_k = typeof Form !== 'undefined' && Form) === 'function' && _k || Object, _TextInput])], InputScrollAssist);
             SCROLL_ASSIST_SPEED = 0.5;
-        }
-    };
-});
-System.register("ionic/components/blur/blur", ["angular2/angular2"], function (_export) {
-    "use strict";
-
-    var Directive, Renderer, ElementRef, __decorate, __metadata, Blur, _a, _b;
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            Renderer = _angular2Angular2.Renderer;
-            ElementRef = _angular2Angular2.ElementRef;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            Blur = function Blur(elementRef, renderer) {
-                _classCallCheck(this, Blur);
-
-                this.elementRef = elementRef;
-                this.renderer = renderer;
-                renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
-            };
-
-            _export("Blur", Blur);
-
-            _export("Blur", Blur = __decorate([Directive({
-                selector: '[ion-blur]'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], Blur));
         }
     };
 });

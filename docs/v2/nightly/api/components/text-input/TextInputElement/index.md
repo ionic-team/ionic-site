@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L338'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L368'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L338'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L368'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">TextInputElement <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L339-L396">ionic/components/text-input/text-input.ts (line 339)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L369-L460">ionic/components/text-input/text-input.ts (line 369)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: textarea, input[type=text], input[type=password], input[type=number], input[type=search], input[type=email], input[type=url], input[type=tel]</span>
@@ -105,6 +105,40 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="setFocus"></div>
 <h2>
   <code>setFocus()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="relocate"></div>
+<h2>
+  <code>relocate()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="clone"></div>
+<h2>
+  <code>clone()</code>
 
 </h2>
 

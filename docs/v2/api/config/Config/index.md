@@ -73,61 +73,12 @@ docType: "class"
 <p>The property will override anything else set in the apps.</p>
 <p>The last way we could configure is through URL query strings. This is useful for testing while in the browser.
 Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
-<pre><code>http://localhost:8100/?IonictabbarPlacement=bottom
+<pre><code>http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
 
 
 <h1 class="class export">Config <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L10-L264">ionic/config/config.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L10-L259">ionic/config/config.ts (line 10)</a>
 </p>
-## Members
-
-<div id="setPlatform"></div>
-<h2>
-  <code>setPlatform(platform)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        platform
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>The platform</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
 

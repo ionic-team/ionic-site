@@ -59,7 +59,7 @@ has been navigated away from.</p>
 
 <h1 class="class export">IdRef <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L49">ionic/components/app/id.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L55">ionic/components/app/id.ts (line 3)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: [id]</span>
@@ -106,40 +106,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="appViewManager"></div>
 <h2>
   <code>appViewManager()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onDestroy"></div>
-<h2>
-  <code>onDestroy()</code>
 
 </h2>
 

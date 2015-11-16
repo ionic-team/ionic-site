@@ -5996,16 +5996,13 @@ icon,
   .ios.hairlines .list ion-header,
   .ios.hairlines .list ion-item-group-title {
     border-bottom-width: 0.55px; }
-  .ios.hairlines .list .item {
-    margin-top: -0.55px; }
-    .ios.hairlines .list .item .item-inner {
-      border-width: 0.55px; }
+  .ios.hairlines .list .item .item-inner {
+    border-width: 0.55px; }
   .ios.hairlines .list > .item:first-child {
     border-top-width: 0.55px; }
   .ios.hairlines .list > .item:last-child,
   .ios.hairlines .list > ion-item-sliding:last-child .item {
-    border-bottom-width: 0.55px;
-    margin-bottom: -0.55px; }
+    border-bottom-width: 0.55px; }
   .ios .list[inset] {
     margin: 16px 16px 16px 16px;
     border-radius: 4px; }
@@ -6896,7 +6893,7 @@ icon,
     margin: 13px 8px 13px 0; }
   .md .list [item-left],
   .md .list [item-right] {
-    margin: 9px 8px 9px 8px; }
+    margin: 9px 8px 9px 0; }
   .md .list icon[item-left],
   .md .list icon[item-right] {
     margin-top: 11px;
@@ -7015,8 +7012,6 @@ icon,
       border-bottom: none; }
     .md .list[inset] + .list[inset] {
       margin-top: 0; }
-  .md .list[no-lines] ion-header,
-  .md .list[no-lines] ion-item-group-title,
   .md .list[no-lines] .item,
   .md .list[no-lines] .item .item-inner {
     border-width: 0; }

@@ -53,23 +53,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 ## Members
 
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="addScrollEventListener"></div>
 <h2>
   <code>addScrollEventListener(handler)</code>

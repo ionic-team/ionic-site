@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L115'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L124'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L115'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L124'>
     Improve this doc
   </a>
 </div>
@@ -37,52 +37,16 @@ docType: "class"
 
 
 
-<p>TODO</p>
 
 
 <h1 class="class export">SegmentButton <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L116-L155">ionic/components/segment/segment.ts (line 116)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L125-L164">ionic/components/segment/segment.ts (line 125)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: ion-segment-button</span>
 
   <span>inputs: value</span>
-
-
-## Members
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="click"></div>
-<h2>
-  <code>click()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
 
 
 

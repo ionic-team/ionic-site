@@ -13,11 +13,11 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L186'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L188'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tap-click/tap-click.ts#L186'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tap-click/tap-click.ts#L188'>
     Improve this doc
   </a>
 </div>
@@ -41,6 +41,6 @@ docType: "function"
 
 <h1 class="class export">isActivatable <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L187-L202">ionic/components/tap-click/tap-click.ts (line 187)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L189-L207">ionic/components/tap-click/tap-click.ts (line 189)</a>
 </p>
 

@@ -45,7 +45,7 @@ docType: "class"
 
 <h1 class="class export">RadioGroup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5-L149">ionic/components/radio/radio.ts (line 5)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5-L145">ionic/components/radio/radio.ts (line 5)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: ion-radio-group</span>
@@ -78,119 +78,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
-
-
-
-
-
-
-
-
-
-<div id="onInit"></div>
-<h2>
-  <code>onInit()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerRadio"></div>
-<h2>
-  <code>registerRadio(radio)</code>
-
-</h2>
-
-Register the specified radio button with the radio group.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        radio
-        
-        
-      </td>
-      <td>
-        
-  <code>RadioButton</code>
-      </td>
-      <td>
-        <p>The radio button to register.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-<div id="update"></div>
-<h2>
-  <code>update(checkedRadio)</code>
-
-</h2>
-
-Update which radio button in the group is checked, unchecking all others.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        checkedRadio
-        
-        
-      </td>
-      <td>
-        
-  <code>RadioButton</code>
-      </td>
-      <td>
-        <p>The radio button to check.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

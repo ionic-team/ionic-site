@@ -6,6 +6,13 @@ machine:
 dependencies:
   post:
     - gem install jekyll --pre && gem install jekyll-paginate
+    - ./_scripts/prepare.sh
 test:
   override:
-    - ./_scripts/circle.sh --index=$CIRCLE_NODE_INDEX --total=$CIRCLE_NODE_TOTAL
+    - ./_scripts/test.sh
+
+deployment:
+  staging:
+    branch: production
+    commands:
+      - ./_scripts/deploy-staging.sh

@@ -116,9 +116,9 @@ gulp.task('jekyll-build', function(done) {
 /**
  * Run Generate linkchecker page
  */
-// gulp.task('linkchecker',
-//   shell.task('_scripts/linkchecker.sh',{verbose:true})
-// );
+gulp.task('linkchecker', ['build'],
+  shell.task('_scripts/linkchecker.sh',{verbose:true})
+);
 
 /**
  * Rebuild Jekyll & do page reload

@@ -19,8 +19,8 @@ Take this V1 example.
 V1
 
 ```
-.config(function($statProvider){
-  $statProvider
+.config(function($stateProvider){
+  $stateProvider
   .state('main', {
     url: '/',
     templateUrl: 'templates/main.html',

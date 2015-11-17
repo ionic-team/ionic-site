@@ -328,7 +328,7 @@ A checkbox is an input component that holds a *boolean* value. Checkboxes are no
 
 <h2 id="grid" class="section-header">Grid</h2>
 
-Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns. 
+Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
 
 Use the `offset` attribute on a column to set its percent offset from the left (eg: `offset-25`). To change how columns in a row align vertically, add the `center` or `baseline` attribute to an `<ion-row>`.
 
@@ -680,7 +680,7 @@ Along with [Tabs](#tabs), Menus are a common way to navigate through an app if y
 
 For situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.
 
-Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.  
+Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
 
 However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
 
@@ -789,6 +789,74 @@ class MyPage {
 
 }
 ```
+<h2 id="modes" class="section-header">Modes</h2>
+
+Modes allow you to configure an app's interaction and behavior. Like platform continuity in V1, V2's modes go a step further by allowing for completely different experience based on the current platform.
+Modes can be configured at several levels, app wide, platform specific, or component specific.
+
+
+### App Wide
+
+Say you wanted to have material design enable for both Android and iOS. To do this, you use the `config` object on your `@App` annotation.
+
+```typescript
+import {App, Config} from 'ionic/ionic'
+
+@App({
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  config: {
+    mode: 'md'
+  }
+})
+```
+This will enable material design mode for both iOS and android.
+
+### Platform Level Configurations
+
+While app-wide mode change are easy, you may wanted to only change a few properties. To do this, you could pass the mode you want to target and configure it that way
+
+```typescript
+import {App, Config} from 'ionic/ionic'
+@App({
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  config: {
+    platforms: {
+      ios: {
+        iconMode: 'md',
+        menuType: 'overlay',
+      }
+    }
+  }
+})
+```
+
+Now on iOS, we'll only set the icon mode and menu reveal for material design.
+You could also remove the platform/ios object and just keep `iconMode` and `menuType` to set these across platforms
+
+### Component Level Configurations
+
+You could also configure certain properties based on the markup you use.
+
+```typescript
+import {App, Config} from 'ionic/ionic'
+@App({
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  config: {
+    tabbarPlacement: 'bottom'
+  }
+})
+```
+
+But in our tabs markup, we can override that
+
+```html
+<ion-tabs tabbar-placement="top">
+  ---
+</ion-tabs>
+```
+
+The markup level config will take precedent over the original config object
+
 
 <h2 id="navigation" class="section-header">Navigation</h2>
 _For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
@@ -993,8 +1061,8 @@ Use the segment to control to use radio selections.
     <ion-segment-button value="puppies">
       Puppies
     </ion-segment-button>
-  </ion-segment> 
-</div> 
+  </ion-segment>
+</div>
 
 <div [ng-switch]="pet">
   <ion-list *ng-switch-when="'puppies'">
@@ -1239,7 +1307,7 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   template: `
   <ion-navbar *navbar>
     <ion-title>Tabs</ion-title>
-  </ion-navbar> 
+  </ion-navbar>
   <ion-content>
   </ion-content>`
 })
@@ -1253,8 +1321,8 @@ class TabsTextContentPage {
   <ion-tabs>
     <ion-tab tab-icon="water" tab-title="Water" [root]="tab1"></ion-tab>
     <ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"></ion-tab>
-    <ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab> 
-    <ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab> 
+    <ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab>
+    <ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab>
   </ion-tabs>`
 })
 export class TabsTextPage {
@@ -1267,4 +1335,3 @@ export class TabsTextPage {
 ```
 
 For more information on tabs, check out the [Tabs API reference](../api/components/tabs/Tabs/).
-

@@ -28,6 +28,10 @@ var _cardsCards = require('./cards/cards');
 
 var cards = _interopRequireWildcard(_cardsCards);
 
+var _gridGrid = require('./grid/grid');
+
+var grid = _interopRequireWildcard(_gridGrid);
+
 var _labelsLabels = require('./labels/labels');
 
 var labels = _interopRequireWildcard(_labelsLabels);
@@ -166,6 +170,7 @@ function getPageFor(hash) {
         'placeholder-labels': labels.PlaceholderPage,
         'stacked-labels': labels.StackedPage,
         'icons': icons.BasicPage,
+        'grid': grid.BasicPage,
         'lists': lists.BasicPage,
         'list-lines': lists.BasicPage,
         'list-no-lines': lists.NoLinesPage,

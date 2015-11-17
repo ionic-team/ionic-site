@@ -7,12 +7,9 @@ machine:
     version: 4.1.0
   ruby:
     version: 2.2.3
-  python:
-    version: 2.7.9
 dependencies:
   post:
     - gem install jekyll --pre && gem install jekyll-paginate
-    - pip install LinkChecker
     - ./_scripts/prepare.sh
 test:
   override:

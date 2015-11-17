@@ -12,6 +12,7 @@ var pkg         = require('./package.json');
 var prefix      = require('gulp-autoprefixer');
 var rename      = require('gulp-rename');
 var sass        = require('gulp-sass');
+var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
 
 var messages = {
@@ -112,6 +113,12 @@ gulp.task('jekyll-build', function(done) {
              .on('close', done);
 });
 
+/**
+ * Run Generate linkchecker page
+ */
+// gulp.task('linkchecker',
+//   shell.task('_scripts/linkchecker.sh',{verbose:true})
+// );
 
 /**
  * Rebuild Jekyll & do page reload
@@ -158,4 +165,5 @@ gulp.task('watch', ['server'],function() {
 
 });
 
-gulp.task('default', ['styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);
+gulp.task('build', ['styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);
+gulp.task('default', ['build']);

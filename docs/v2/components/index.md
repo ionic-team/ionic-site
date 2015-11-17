@@ -326,6 +326,11 @@ A checkbox is an input component that holds a *boolean* value. Checkboxes are no
 </ion-checkbox>
 ```
 
+<h2 id="grid" class="section-header">Grid</h2>
+
+Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns. 
+
+Use the `offset` attribute on a column to set its percent offset from the left (eg: `offset-25`). To change how columns in a row align vertically, add the `center` or `baseline` attribute to an `<ion-row>`.
 
 <h2 id="icons" class="section-header">Icons</h2>
 

@@ -59,7 +59,7 @@ git remote add staging git@heroku.com:ionic-site-staging.git
 - View the staging server at [http://ionic-site-staging.herokuapp.com/](http://ionic-site-staging.herokuapp.com/)
 - Promote the staging server to production
 - `heroku pipelines:promote -r staging`
-
+- Watch the build server at [https://circleci.com/gh/driftyco/ionic-site](https://circleci.com/gh/driftyco/ionic-site)
 
 ## Community
 

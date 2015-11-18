@@ -36,8 +36,11 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var BasicPage = function BasicPage() {
+var BasicPage = function BasicPage(app) {
     _classCallCheck(this, BasicPage);
+
+    this.app = app;
+    this.app.getComponent('leftMenu').enable(true);
 };
 exports.BasicPage = BasicPage;
 exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
@@ -45,7 +48,7 @@ exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], BasicPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], BasicPage);
 var PageOne = function PageOne() {
     _classCallCheck(this, PageOne);
 };
@@ -76,3 +79,4 @@ exports.PageThree = PageThree = __decorate([(0, _ionicIonic.Page)({
         return helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [])], PageThree);
+var _a;

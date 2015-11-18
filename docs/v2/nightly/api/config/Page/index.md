@@ -37,7 +37,7 @@ docType: "function"
 
 
 
-<p>_For more information on how pages are created, see the <a href="../../Nav/NavController/#creating_pages">NavController API
+<p>_For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API
 reference</a>._</p>
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Ionic main site",
   "main": "Gulpfile.js",
+  "engines": {
+    "node": "0.12.0"
+  },
   "directories": {
     "doc": "docs",
     "example": "examples"

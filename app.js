@@ -16,7 +16,14 @@ app.use(function(req, res, next) {
   } else {
     next();
   }
+});
 
+// don't index unless production
+app.use(function(req, res, next) {
+  if (req.hostname.indexOf('ionicframework.com') == -1) {
+    res.setHeader('X-Robots-Tag:', 'noindex, nofollow');
+  }
+  return next();
 });
 
 function wwwRedirect(req, res, next) {

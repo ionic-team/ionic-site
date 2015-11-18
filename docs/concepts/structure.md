@@ -5,7 +5,7 @@ header_title: Ionic Concepts
 header_sub_title: The bigger picture of an Ionic App
 ---
 
-###Structure
+### Structure
 Ionic apps are built with Cordova. Cordova is a means of packaging html/css/js into apps that can run on mobile and desktop devices and provides a plugin architecture for accessing native functionality beyond the reach of JS run from a web browser. As such, Ionic apps have the Cordova file structure. 
 
 The `platforms` directory contains your iOS and Android projects. In general, you don’t need to work in these directories unless you're doing custom native hacking or possibly sending your app to production.

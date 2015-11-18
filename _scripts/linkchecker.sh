@@ -7,6 +7,7 @@ ARG_DEFS=(
 
 function runlinkchecker {
   echo "Starting linkchecker"
+  pip install LinkChecker
   cd _site
   python -m SimpleHTTPServer 3000 &> /dev/null &
   pid=$!

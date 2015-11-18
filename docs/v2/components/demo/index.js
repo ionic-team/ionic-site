@@ -56,9 +56,8 @@ var DemoApp = (function () {
                         var data = JSON.parse(e.data);
                         if (data.hash) {
                             _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
-                            _this.app.getComponent('leftMenu').enable(false);
-                            if (data.hash === 'menus') {
-                                _this.app.getComponent('leftMenu').enable(true);
+                            if (data.hash !== 'menus') {
+                                _this.app.getComponent('leftMenu').enable(false);
                             }
                         } else {
                             _this.nextPage = actionSheets.BasicPage;
@@ -82,6 +81,7 @@ var DemoApp = (function () {
         key: "openPage",
         value: function openPage(page) {
             // close the menu when clicking a link from the menu
+            // debugger;
             this.app.getComponent('leftMenu').close();
             // Reset the content nav to have just this page
             // we wouldn't want the back button to show in this scenario

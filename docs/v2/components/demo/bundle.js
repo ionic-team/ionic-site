@@ -9467,9 +9467,8 @@
 	                        var data = JSON.parse(e.data);
 	                        if (data.hash) {
 	                            _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
-	                            _this.app.getComponent('leftMenu').enable(false);
-	                            if (data.hash === 'menus') {
-	                                _this.app.getComponent('leftMenu').enable(true);
+	                            if (data.hash !== 'menus') {
+	                                _this.app.getComponent('leftMenu').enable(false);
 	                            }
 	                        } else {
 	                            _this.nextPage = actionSheets.BasicPage;
@@ -9493,6 +9492,7 @@
 	        key: "openPage",
 	        value: function openPage(page) {
 	            // close the menu when clicking a link from the menu
+	            // debugger;
 	            this.app.getComponent('leftMenu').close();
 	            // Reset the content nav to have just this page
 	            // we wouldn't want the back button to show in this scenario
@@ -60049,10 +60049,6 @@
 	            }
 	            this.update();
 	        }
-
-	        /**
-	         * @private
-	         */
 	    }, {
 	        key: "update",
 
@@ -67488,6 +67484,8 @@
 
 	var _configConfig = __webpack_require__(436);
 
+	var _utilDom = __webpack_require__(439);
+
 	var _utilKeyboard = __webpack_require__(445);
 
 	var _navViewController = __webpack_require__(471);
@@ -67591,15 +67589,27 @@
 	    }, {
 	        key: "onScrollEnd",
 	        value: function onScrollEnd(callback) {
-	            var timerId = undefined,
-	                deregister = undefined;
-	            function debounce() {
-	                timerId = setTimeout(function () {
-	                    deregister();
-	                    callback();
-	                }, 250);
+	            var lastScrollTop = null;
+	            var framesUnchanged = 0;
+	            var scrollElement = this.scrollElement;
+	            function next() {
+	                var currentScrollTop = scrollElement.scrollTop;
+	                if (lastScrollTop !== null) {
+	                    if (Math.round(lastScrollTop) === Math.round(currentScrollTop)) {
+	                        framesUnchanged++;
+	                    } else {
+	                        framesUnchanged = 0;
+	                    }
+	                    if (framesUnchanged > 9) {
+	                        return callback();
+	                    }
+	                }
+	                lastScrollTop = currentScrollTop;
+	                (0, _utilDom.raf)(function () {
+	                    (0, _utilDom.raf)(next);
+	                });
 	            }
-	            deregister = this.addScrollEventListener(debounce);
+	            setTimeout(next, 100);
 	        }
 
 	        /**
@@ -69230,7 +69240,7 @@
 	 * To override the platform specific TabBar placement, use the
 	 * `tabbar-placement` property:
 	 *
-	 * ```ts
+	 * ```html
 	 * <ion-tabs tabbar-placement="top">
 	 *   <ion-tab [root]="tabRoot"></ion-tab>
 	 * </ion-tabs>
@@ -69238,7 +69248,7 @@
 	 *
 	 * To change the location of the icons in the TabBar, use the `tabbar-icons`
 	 * property:
-	 * ```ts
+	 * ```html
 	 * <ion-tabs tabbar-icons="bottom">
 	 *   <ion-tab [root]="tabRoot"></ion-tab>
 	 * </ion-tabs>
@@ -69309,7 +69319,6 @@
 	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
 	        this.platform = platform;
 	        this.app = app;
-	        this.preload = config.get('preloadTabs');
 	        this.subPages = config.get('tabSubPages');
 	        // collection of children "Tab" instances, which extends NavController
 	        this.tabs = [];
@@ -69339,6 +69348,7 @@
 	            var _this2 = this;
 
 	            _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
+	            this.preloadTabs = this.preloadTabs !== "false" && this.preloadTabs !== false;
 	            if (this.highlight) {
 	                this.platform.onResize(function () {
 	                    _this2.highlight.select(_this2.getSelected());
@@ -69471,7 +69481,7 @@
 	        'tabbarPlacement': 'bottom',
 	        'tabbarIcons': 'top',
 	        'tabbarStyle': 'default',
-	        'preloadTabs': true
+	        'preloadTabs': false
 	    },
 	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
 	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, _angular2Angular2.NgIf, _appId.Attr, (0, _angular2Angular2.forwardRef)(function () {
@@ -71239,6 +71249,8 @@
 	    }, {
 	        key: "onInit",
 	        value: function onInit() {
+	            var _this = this;
+
 	            if (this.input && this.label) {
 	                // if there is an input and an label
 	                // then give the label an ID
@@ -71247,9 +71259,18 @@
 	            }
 	            var self = this;
 	            self.scrollMove = function (ev) {
-	                console.debug('content scrollMove');
-	                self.deregListeners();
-	                if (self.hasFocus) {}
+	                if (!self.app.isTransitioning()) {
+	                    self.deregMove();
+	                    if (self.hasFocus) {
+	                        self.input.hideFocus(true);
+	                        _this.scrollView.onScrollEnd(function () {
+	                            self.input.hideFocus(false);
+	                            if (self.hasFocus) {
+	                                self.regMove();
+	                            }
+	                        });
+	                    }
+	                }
 	            };
 	        }
 
@@ -71290,6 +71311,7 @@
 	                ev.preventDefault();
 	                ev.stopPropagation();
 	                this.setFocus();
+	                this.regMove();
 	            }
 	        }
 
@@ -71299,7 +71321,7 @@
 	    }, {
 	        key: "initFocus",
 	        value: function initFocus() {
-	            var _this = this;
+	            var _this2 = this;
 
 	            // begin the process of setting focus to the inner input element
 	            var scrollView = this.scrollView;
@@ -71308,10 +71330,12 @@
 	                // find out if text input should be manually scrolled into view
 	                var ele = this.elementRef.nativeElement;
 	                var scrollData = _TextInput.getScollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this.platform.height());
-	                if (scrollData.noScroll) {
+	                if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
 	                    // the text input is in a safe position that doesn't require
 	                    // it to be scrolled into view, just set focus now
-	                    return this.setFocus();
+	                    this.setFocus();
+	                    this.regMove();
+	                    return;
 	                }
 	                // add padding to the bottom of the scroll view (if needed)
 	                scrollView.addScrollPadding(scrollData.scrollPadding);
@@ -71328,14 +71352,16 @@
 	                scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
 	                    // the scroll view is in the correct position now
 	                    // give the native text input focus
-	                    _this.input.relocate(false);
+	                    _this2.input.relocate(false);
 	                    // all good, allow clicks again
-	                    _this.app.setEnabled(true);
-	                    _this.app.setTransitioning(false);
+	                    _this2.app.setEnabled(true);
+	                    _this2.app.setTransitioning(false);
+	                    _this2.regMove();
 	                });
 	            } else {
 	                // not inside of a scroll view, just focus it
 	                this.setFocus();
+	                this.regMove();
 	            }
 	        }
 
@@ -71355,6 +71381,10 @@
 	         */
 	        value: function focusChange(hasFocus) {
 	            this.renderer.setElementClass(this.elementRef, 'has-focus', hasFocus);
+	            if (!hasFocus) {
+	                this.deregMove();
+	                this.input.hideFocus(false);
+	            }
 	        }
 
 	        /**
@@ -71379,9 +71409,21 @@
 	                // ensure the body hasn't scrolled down
 	                document.body.scrollTop = 0;
 	            }
+	        }
+
+	        /**
+	         * @private
+	         */
+	    }, {
+	        key: "regMove",
+	        value: function regMove() {
+	            var _this3 = this;
+
 	            if (this.scrollAssist && this.scrollView) {
-	                this.deregListeners();
-	                this.deregScroll = this.scrollView.addScrollEventListener(this.scrollMove);
+	                setTimeout(function () {
+	                    _this3.deregMove();
+	                    _this3.deregScroll = _this3.scrollView.addScrollEventListener(_this3.scrollMove);
+	                }, 80);
 	            }
 	        }
 
@@ -71389,8 +71431,8 @@
 	         * @private
 	         */
 	    }, {
-	        key: "deregListeners",
-	        value: function deregListeners() {
+	        key: "deregMove",
+	        value: function deregMove() {
 	            this.deregScroll && this.deregScroll();
 	        }
 
@@ -71404,7 +71446,7 @@
 	         * @private
 	         */
 	        value: function onDestroy() {
-	            this.deregListeners();
+	            this.deregMove();
 	            this.form.deregister(this);
 	        }
 	    }, {
@@ -71439,36 +71481,36 @@
 	            6) Input top within safe area, bottom below safe area, no room to scroll, input larger than safe area
 	            7) Input top below safe area, no room to scroll, input larger than safe area
 	            */
-	            if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
-	                // Input top within safe area, bottom within safe area
-	                // no need to scroll to a position, it's good as-is
-	                return { noScroll: true };
-	            }
-	            // looks like we'll have to do some auto-scrolling
 	            var scrollData = {
 	                scrollAmount: 0,
 	                scrollTo: 0,
 	                scrollPadding: 0,
 	                inputSafeY: 0
 	            };
+	            if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
+	                // Input top within safe area, bottom within safe area
+	                // no need to scroll to a position, it's good as-is
+	                return scrollData;
+	            }
+	            // looks like we'll have to do some auto-scrolling
 	            if (inputTopBelowSafeArea || inputBottomBelowSafeArea) {
 	                // Input top and bottom below safe area
 	                // auto scroll the input up so at least the top of it shows
 	                if (safeAreaHeight > inputOffsetHeight) {
 	                    // safe area height is taller than the input height, so we
 	                    // can bring it up the input just enough to show the input bottom
-	                    scrollData.scrollAmount = safeAreaBottom - inputBottom;
+	                    scrollData.scrollAmount = Math.round(safeAreaBottom - inputBottom);
 	                } else {
 	                    // safe area height is smaller than the input height, so we can
 	                    // only scroll it up so the input top is at the top of the safe area
 	                    // however the input bottom will be below the safe area
-	                    scrollData.scrollAmount = safeAreaTop - inputTop;
+	                    scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
 	                }
 	                scrollData.inputSafeY = -(inputTop - safeAreaTop) + 4;
 	            } else if (inputTopAboveSafeArea) {
 	                // Input top above safe area
 	                // auto scroll the input down so at least the top of it shows
-	                scrollData.scrollAmount = safeAreaTop - inputTop;
+	                scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
 	                scrollData.inputSafeY = safeAreaTop - inputTop + 4;
 	            }
 	            // figure out where it should scroll to for the best position to the input
@@ -71489,7 +71531,7 @@
 	            //   window.safeAreaEle = document.createElement('div');
 	            //   window.safeAreaEle.style.position = 'absolute';
 	            //   window.safeAreaEle.style.background = 'rgba(0, 128, 0, 0.7)';
-	            //   window.safeAreaEle.style.padding = '10px';
+	            //   window.safeAreaEle.style.padding = '2px 5px';
 	            //   window.safeAreaEle.style.textShadow = '1px 1px white';
 	            //   window.safeAreaEle.style.left = '0px';
 	            //   window.safeAreaEle.style.right = '0px';
@@ -71569,27 +71611,45 @@
 	    }, {
 	        key: "relocate",
 	        value: function relocate(shouldRelocate, inputRelativeY) {
-	            this.clone(shouldRelocate, inputRelativeY);
-	            if (shouldRelocate) {
-	                this.wrapper.setFocus();
+	            if (this._relocated !== shouldRelocate) {
+	                var focusedInputEle = this.getNativeElement();
+	                if (shouldRelocate) {
+	                    var clonedInputEle = focusedInputEle.cloneNode(true);
+	                    clonedInputEle.classList.add('cloned-input');
+	                    clonedInputEle.classList.remove('hide-focused-input');
+	                    clonedInputEle.setAttribute('aria-hidden', true);
+	                    clonedInputEle.tabIndex = -1;
+	                    focusedInputEle.classList.add('hide-focused-input');
+	                    focusedInputEle.style[dom.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                    focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	                    this.wrapper.setFocus();
+	                } else {
+	                    focusedInputEle.classList.remove('hide-focused-input');
+	                    focusedInputEle.style[dom.CSS.transform] = '';
+	                    var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
+	                    if (clonedInputEle) {
+	                        clonedInputEle.parentNode.removeChild(clonedInputEle);
+	                    }
+	                }
+	                this._relocated = shouldRelocate;
 	            }
 	        }
 	    }, {
-	        key: "clone",
-	        value: function clone(shouldClone, inputRelativeY) {
+	        key: "hideFocus",
+	        value: function hideFocus(shouldHideFocus) {
 	            var focusedInputEle = this.getNativeElement();
-	            if (shouldRelocate) {
+	            if (shouldHideFocus) {
 	                var clonedInputEle = focusedInputEle.cloneNode(true);
-	                clonedInputEle.classList.add('cloned-input');
+	                clonedInputEle.classList.add('cloned-hidden');
 	                clonedInputEle.setAttribute('aria-hidden', true);
 	                clonedInputEle.tabIndex = -1;
 	                focusedInputEle.classList.add('hide-focused-input');
-	                focusedInputEle.style[dom.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                focusedInputEle.style[dom.CSS.transform] = 'translate3d(-9999px,0,0)';
 	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
 	            } else {
 	                focusedInputEle.classList.remove('hide-focused-input');
 	                focusedInputEle.style[dom.CSS.transform] = '';
-	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
+	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
 	                if (clonedInputEle) {
 	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
 	                }
@@ -72567,7 +72627,7 @@
 	 *
 	 * Additionally, specifying the `swipe-back-enabled` property will allow you to
 	 * swipe to go back:
-	 * ```ts
+	 * ```html
 	 * <ion-nav swipe-back-enabled="false" [root]="rootPage"></ion-nav>
 	 * ```
 	 *
@@ -73630,7 +73690,7 @@
 	    subsets: ['phablet', 'tablet'],
 	    settings: {
 	        hoverCSS: false,
-	        keyboardHeight: 290,
+	        keyboardHeight: 300,
 	        mode: 'md',
 	        scrollAssist: true
 	    },
@@ -73647,7 +73707,7 @@
 	    subsets: ['ipad', 'iphone'],
 	    settings: {
 	        hoverCSS: false,
-	        keyboardHeight: 290,
+	        keyboardHeight: 300,
 	        mode: 'ios',
 	        scrollAssist: isIOSDevice,
 	        swipeBackEnabled: isIOSDevice,
@@ -74610,8 +74670,11 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var BasicPage = function BasicPage() {
+	var BasicPage = function BasicPage(app) {
 	    _classCallCheck(this, BasicPage);
+
+	    this.app = app;
+	    this.app.getComponent('leftMenu').enable(true);
 	};
 	exports.BasicPage = BasicPage;
 	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
@@ -74619,7 +74682,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], BasicPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], BasicPage);
 	var PageOne = function PageOne() {
 	    _classCallCheck(this, PageOne);
 	};
@@ -74650,6 +74713,7 @@
 	        return helpers.AndroidAttribute;
 	    })]
 	}), __metadata('design:paramtypes', [])], PageThree);
+	var _a;
 
 /***/ },
 /* 518 */

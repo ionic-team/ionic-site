@@ -1313,16 +1313,16 @@ icon[small] {
   -ms-flex-item-align: stretch;
   align-self: stretch; }
 
-.item-group {
+ion-item-group {
   display: block; }
 
-.item-group-title {
+ion-item-group-title {
   display: block;
   min-height: 30px;
   font-weight: 500;
   width: 100%;
   z-index: 1000; }
-  .item-group-title.sticky {
+  ion-item-group-title.sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 0px; }
@@ -1457,11 +1457,14 @@ ion-item-options {
   height: 100%;
   opacity: 0; }
 
-ion-item-sliding.active-slide .item {
+ion-item-sliding.active-slide .item,
+ion-item-sliding.active-slide .item.item.activated {
   position: relative;
   z-index: 2;
-  -webkit-transition: all 200ms;
-  transition: all 200ms; }
+  opacity: 1;
+  -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  pointer-events: none; }
 
 ion-item-sliding.active-slide ion-item-options {
   display: -webkit-box;
@@ -1493,8 +1496,6 @@ ion-row {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
   ion-row[flush] {
-    padding: 0; }
-  ion-row > .col {
     padding: 0; }
   ion-row[top] {
     -webkit-box-align: start;
@@ -1546,118 +1547,123 @@ ion-col {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center; }
+  ion-col[stretch] {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch; }
+  ion-col[baseline] {
+    -webkit-align-self: baseline;
+    -ms-flex-item-align: baseline;
+    align-self: baseline; }
 
-/* Vertically Align Columns */
-/* .row-* vertically aligns every .col in the .row */
-/* .col-* vertically aligns an individual .col */
 /* Column Offsets */
-.col-offset-10 {
+ion-col[offset-10] {
   margin-left: 10%; }
 
-.col-offset-20 {
+ion-col[offset-20] {
   margin-left: 20%; }
 
-.col-offset-25 {
+ion-col[offset-25] {
   margin-left: 25%; }
 
-.col-offset-33, .col-offset-34 {
+ion-col[offset-33], ion-col[offset-34] {
   margin-left: 33.3333%; }
 
-.col-offset-50 {
+ion-col[offset-50] {
   margin-left: 50%; }
 
-.col-offset-66, .col-offset-67 {
+ion-col[offset-66], ion-col[offset-67] {
   margin-left: 66.6666%; }
 
-.col-offset-75 {
+ion-col[offset-75] {
   margin-left: 75%; }
 
-.col-offset-80 {
+ion-col[offset-80] {
   margin-left: 80%; }
 
-.col-offset-90 {
+ion-col[offset-90] {
   margin-left: 90%; }
 
 /* Explicit Column Percent Sizes */
 /* By default each grid column will evenly distribute */
 /* across the grid. However, you can specify individual */
 /* columns to take up a certain size of the available area */
-.col-10 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 10%;
-  -ms-flex: 0, 0, 10%;
-  flex: 0, 0, 10%;
+ion-col[width-10] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 10%;
+  -ms-flex: 0 0 10%;
+  flex: 0 0 10%;
   max-width: 10%; }
 
-.col-20 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 20%;
-  -ms-flex: 0, 0, 20%;
-  flex: 0, 0, 20%;
+ion-col[width-20] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
   max-width: 20%; }
 
-.col-25 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 25%;
-  -ms-flex: 0, 0, 25%;
-  flex: 0, 0, 25%;
+ion-col[width-25] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
   max-width: 25%; }
 
-.col-33, .col-34 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 33.3333%;
-  -ms-flex: 0, 0, 33.3333%;
-  flex: 0, 0, 33.3333%;
+ion-col[width-33], ion-col[width-34] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.3333%;
+  -ms-flex: 0 0 33.3333%;
+  flex: 0 0 33.3333%;
   max-width: 33.3333%; }
 
-.col-50 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 50%;
-  -ms-flex: 0, 0, 50%;
-  flex: 0, 0, 50%;
+ion-col[width-50] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
   max-width: 50%; }
 
-.col-66, .col-67 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 66.6666%;
-  -ms-flex: 0, 0, 66.6666%;
-  flex: 0, 0, 66.6666%;
+ion-col[width-66], ion-col[width-67] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 66.6666%;
+  -ms-flex: 0 0 66.6666%;
+  flex: 0 0 66.6666%;
   max-width: 66.6666%; }
 
-.col-75 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 75%;
-  -ms-flex: 0, 0, 75%;
-  flex: 0, 0, 75%;
+ion-col[width-75] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 75%;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
   max-width: 75%; }
 
-.col-80 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 80%;
-  -ms-flex: 0, 0, 80%;
-  flex: 0, 0, 80%;
+ion-col[width-80] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80%;
+  -ms-flex: 0 0 80%;
+  flex: 0 0 80%;
   max-width: 80%; }
 
-.col-90 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 90%;
-  -ms-flex: 0, 0, 90%;
-  flex: 0, 0, 90%;
+ion-col[width-90] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 90%;
+  -ms-flex: 0 0 90%;
+  flex: 0 0 90%;
   max-width: 90%; }
 
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
-/* will trigger the flex-direction to */
+/* will trigger the width-direction to */
 /* change to column and add some margin */
 /* to any columns in the row for clearity */
 @media (max-width: 567px) {
-  .responsive-sm {
+  [responsive-sm] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-sm .col, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90 {
+    [responsive-sm] ion-col[width-10], [responsive-sm] ion-col[width-20], [responsive-sm] ion-col[width-25], [responsive-sm] ion-col[width-33], [responsive-sm] ion-col[width-34], [responsive-sm] ion-col[width-50], [responsive-sm] ion-col[width-66], [responsive-sm] ion-col[width-67], [responsive-sm] ion-col[width-75], [responsive-sm] ion-col[width-80], [responsive-sm] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -1668,13 +1674,13 @@ ion-col {
       width: 100%; } }
 
 @media (max-width: 767px) {
-  .responsive-md {
+  [responsive-md] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-md .col, .responsive-md .col-10, .responsive-md .col-20, .responsive-md .col-25, .responsive-md .col-33, .responsive-md .col-34, .responsive-md .col-50, .responsive-md .col-66, .responsive-md .col-67, .responsive-md .col-75, .responsive-md .col-80, .responsive-md .col-90 {
+    [responsive-md] ion-col[width-10], [responsive-md] ion-col[width-20], [responsive-md] ion-col[width-25], [responsive-md] ion-col[width-33], [responsive-md] ion-col[width-34], [responsive-md] ion-col[width-50], [responsive-md] ion-col[width-66], [responsive-md] ion-col[width-67], [responsive-md] ion-col[width-75], [responsive-md] ion-col[width-80], [responsive-md] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -1685,13 +1691,13 @@ ion-col {
       width: 100%; } }
 
 @media (max-width: 1023px) {
-  .responsive-lg {
+  [responsive-lg] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-lg .col, .responsive-lg .col-10, .responsive-lg .col-20, .responsive-lg .col-25, .responsive-lg .col-33, .responsive-lg .col-34, .responsive-lg .col-50, .responsive-lg .col-66, .responsive-lg .col-67, .responsive-lg .col-75, .responsive-lg .col-80, .responsive-lg .col-90 {
+    [responsive-lg] ion-col[width-10], [responsive-lg] ion-col[width-20], [responsive-lg] ion-col[width-25], [responsive-lg] ion-col[width-33], [responsive-lg] ion-col[width-34], [responsive-lg] ion-col[width-50], [responsive-lg] ion-col[width-66], [responsive-lg] ion-col[width-67], [responsive-lg] ion-col[width-75], [responsive-lg] ion-col[width-80], [responsive-lg] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -5626,12 +5632,12 @@ icon,
     height: 0.55px; }
   .ios button[block] {
     display: block; }
-  .ios .item-group ion-item-group-title {
+  .ios ion-item-group ion-item-group-title {
     padding: 12px 16px 13px 16px;
     background-color: #f7f7f7;
     color: #222;
     border-bottom: 1px solid #c8c7cc; }
-  .ios .item-group .item:first-child .item-inner {
+  .ios ion-item-group .item:first-child .item-inner {
     border-top-width: 0; }
   .ios ion-note {
     color: #aeacb4; }
@@ -5715,7 +5721,7 @@ icon,
     background-size: 14px 14px;
     padding-right: 32px; }
   .ios.hairlines .item-inner,
-  .ios.hairlines .item-group ion-item-group-title {
+  .ios.hairlines ion-item-group ion-item-group-title {
     border-bottom-width: 0.55px; }
   .ios .toolbar {
     min-height: 4.4rem; }
@@ -5870,8 +5876,6 @@ icon,
       .ios ion-card .list > .item:last-child,
       .ios ion-card .list > ion-item-sliding:last-child .item {
         border-bottom: none; }
-    .ios ion-card .item {
-      padding-left: 8px; }
     .ios ion-card .item-inner {
       border: none; }
     .ios ion-card ion-card-content {
@@ -5887,7 +5891,8 @@ icon,
     .ios ion-card .item + ion-card-content {
       padding-top: 0; }
     .ios ion-card [actions] {
-      border-radius: inherit; }
+      border-radius: inherit;
+      padding-right: 8px; }
       .ios ion-card [actions] ion-item-content {
         padding: 0; }
       .ios ion-card [actions] button,
@@ -6568,20 +6573,24 @@ icon,
     border-color: #f3b200; }
   .ios tabbar[royal] {
     border-color: #552dff; }
-  .ios.platform-cordova.platform-ios ion-navbar-section,
-  .ios.platform-cordova.platform-ios ion-navbar,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
+  .ios.platform-cordova.platform-ios ion-navbar-section {
     min-height: 6.4rem;
     height: 6.4rem; }
-  .ios.platform-cordova.platform-ios ion-navbar,
   .ios.platform-cordova.platform-ios ion-navbar ion-title,
+  .ios.platform-cordova.platform-ios ion-navbar ion-segment {
+    padding-top: 2rem; }
+  .ios.platform-cordova.platform-ios ion-navbar,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-segment,
   .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
   .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-segment,
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
+    min-height: 6.4rem;
+    height: 6.4rem;
     padding-top: 2rem; }
 
 .md {
@@ -6689,8 +6698,8 @@ icon,
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-    .md button :hover:not(.disable-hover),
-    .md [button] :hover:not(.disable-hover) {
+    .md button:hover:not(.disable-hover),
+    .md [button]:hover:not(.disable-hover) {
       background-color: rgba(158, 158, 158, 0.1); }
     .md button[full],
     .md [button][full] {
@@ -6827,7 +6836,7 @@ icon,
   .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
-  .md .item-group-title {
+  .md ion-item-group-title {
     padding: 13px 16px 13px 16px;
     background-color: #fff;
     color: #222; }
@@ -6909,6 +6918,12 @@ icon,
   .md icon[item-left] + .item-inner,
   .md icon[item-left] + [text-input] {
     margin-left: 24px; }
+  .md ion-avatar[item-left],
+  .md ion-thumbnail[item-left] {
+    margin: 8px 16px 8px 0; }
+  .md ion-avatar[item-right],
+  .md ion-thumbnail[item-right] {
+    margin: 8px; }
   .md ion-avatar {
     min-width: 4rem;
     min-height: 4rem; }
@@ -7531,6 +7546,20 @@ icon,
       transition-duration: 300ms; }
   .md [tabbar-placement=bottom] tab-highlight {
     top: 0; }
+  .md tabbar[primary] tab-highlight {
+    background: #fff; }
+  .md tabbar[secondary] tab-highlight {
+    background: #fff; }
+  .md tabbar[danger] tab-highlight {
+    background: #fff; }
+  .md tabbar[light] tab-highlight {
+    background: #000; }
+  .md tabbar[dark] tab-highlight {
+    background: #fff; }
+  .md tabbar[energized] tab-highlight {
+    background: #fff; }
+  .md tabbar[royal] tab-highlight {
+    background: #fff; }
   .md md-ripple {
     position: absolute;
     z-index: 0;
@@ -7591,6 +7620,37 @@ icon,
 .md .action-sheet-cancel icon, .md .action-sheet-destructive icon {
   color: #757575; }
 
+#subtle-footer {
+  background-color: #fff;
+  border-image-source: url(footer-wireframe.png);
+  border-image-repeat: repeat;
+  border-image-width: 100%;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  position: absolute;
+  bottom: 0; }
+
+#demo-fab-bottom {
+  padding-top: 3px;
+  z-index: 100; }
+
+#subtle-footer .toolbar-background {
+  background-color: #fff;
+  border-bottom: 0; }
+
+ion-card ion-card-content.buttons-in-components {
+  background-color: #F4F5F8; }
+
+ion-card ion-card-content.buttons-in-components img {
+  width: auto;
+  height: 44px;
+  display: block;
+  margin: 20px auto; }
+
+ion-card.buttons-in-components {
+  margin-bottom: 2em; }
+
 ion-content ion-card ion-item.advanced-trans p {
   color: #fff; }
 
@@ -7639,6 +7699,12 @@ ion-card p.advanced-background-title-large span {
   height: 74px;
   line-height: 1;
   display: inline-block; }
+
+ion-card.cards-list-demo ion-card-header {
+  color: #387df5; }
+
+ion-card.cards-list-demo a > icon {
+  color: #444444; }
 
 body.ios ion-card .advanced-weather-tabs tabbar {
   height: 88px; }
@@ -7746,6 +7812,15 @@ body.ios ion-card p.advanced-background-title-large span {
 
 .preview-weather-cards ion-content ion-card ion-item.advanced-trans p {
   color: #fff; }
+
+ion-card .advanced-weather-tabs {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: transparent; }
+
+ion-card.adv-map p {
+  font-size: 0.7em !important; }
 
 p.time-ago {
   color: #bbbbbb !important;
@@ -7855,57 +7930,11 @@ section.hidden {
   width: 100%;
   margin-bottom: 2.7em; }
 
-#subtle-footer {
-  background-color: #fff;
-  border-image-source: url(footer-wireframe.png);
-  border-image-repeat: repeat;
-  border-image-width: 100%;
-  border-bottom: 0;
-  border-left: 0;
-  border-right: 0;
-  position: absolute;
-  bottom: 0; }
-
-#demo-fab-bottom {
-  padding-top: 3px;
-  z-index: 100; }
-
-#subtle-footer .toolbar-background {
-  background-color: #fff;
-  border-bottom: 0; }
-
 .demo-card {
   height: 0; }
 
 .demo-card button {
   font-size: 1.3rem; }
-
-ion-card ion-card-content.buttons-in-components {
-  background-color: #F4F5F8; }
-
-ion-card ion-card-content.buttons-in-components img {
-  width: auto;
-  height: 44px;
-  display: block;
-  margin: 20px auto; }
-
-ion-card.buttons-in-components {
-  margin-bottom: 2em; }
-
-ion-card.cards-list-demo ion-card-header {
-  color: #387df5; }
-
-ion-card.cards-list-demo a > icon {
-  color: #444444; }
-
-ion-card .advanced-weather-tabs {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: transparent; }
-
-ion-card.adv-map p {
-  font-size: 0.7em !important; }
 
 .ios ion-content.cards-bg {
   background-color: #f4f4f7; }

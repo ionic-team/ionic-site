@@ -53847,7 +53847,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 // already marked as a view that will be destroyed, don't continue
                                 return done();
                             }
-                            _this2._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
+                            _this2._setZIndex(enteringView.instance, leavingView && leavingView.instance, opts.direction);
                             _this2._zone.runOutsideAngular(function () {
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;

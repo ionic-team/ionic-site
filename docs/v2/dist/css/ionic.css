@@ -1349,7 +1349,7 @@ ion-item-options {
   right: 0;
   z-index: 1;
   height: 100%;
-  opacity: 0; }
+  visibility: hidden; }
 
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.item.activated {
@@ -1367,7 +1367,7 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex; }
 
 ion-item-sliding.active-slide.active-options ion-item-options {
-  opacity: 1; }
+  visibility: visible; }
 
 /**
  * Grid

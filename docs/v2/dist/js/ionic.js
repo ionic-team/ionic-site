@@ -2285,7 +2285,11 @@ System.register('ionic/gestures/gesture', ['ionic/util', 'ionic/gestures/hammer'
                         }
                         this.hammertime.on(type, cb);
                         (this._callbacks[type] || (this._callbacks[type] = [])).push(cb);
-                        //this.element.addEventListener(type, cb);
+                    }
+                }, {
+                    key: 'off',
+                    value: function off(type, cb) {
+                        this.hammertime.off(type, this._callbacks[type] ? cb : null);
                     }
                 }, {
                     key: 'listen',
@@ -2298,7 +2302,6 @@ System.register('ionic/gestures/gesture', ['ionic/util', 'ionic/gestures/hammer'
                         if (this.hammertime) {
                             for (var type in this._callbacks) {
                                 for (var i = 0; i < this._callbacks[type].length; i++) {
-                                    //this.element.removeEventListener(type, this._callbacks[type][i]);
                                     this.hammertime.off(type, this._callbacks[type]);
                                 }
                             }
@@ -8982,6 +8985,10 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
 
     function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+    function isItemActive(ele, isActive) {
+        ele.classList[isActive ? 'add' : 'remove']('active-slide');
+        ele.classList[isActive ? 'add' : 'remove']('active-options');
+    }
     function preventDefault(ev) {
         ev.preventDefault();
     }
@@ -9029,14 +9036,14 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                     this.listEle = listEle;
                     this.canDrag = true;
                     this.listen();
-                    this.on('tap', function (ev) {
+                    this.tap = function (ev) {
                         if (!isFromOptionButtons(ev.target)) {
                             var didClose = _this.closeOpened();
                             if (didClose) {
                                 preventDefault(ev);
                             }
                         }
-                    });
+                    };
                     this.mouseOut = function (ev) {
                         _this.onDragEnd(ev);
                     };
@@ -9047,12 +9054,12 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                     value: function onDragStart(ev) {
                         var itemContainerEle = getItemConatiner(ev.target);
                         if (!itemContainerEle) return;
-                        this.closeOpened(ev, itemContainerEle);
+                        this.closeOpened(itemContainerEle);
                         var openAmout = this.getOpenAmount(itemContainerEle);
                         var itemData = this.get(itemContainerEle);
                         this.preventDrag = openAmout > 0;
                         if (this.preventDrag) {
-                            this.closeOpened(ev);
+                            this.closeOpened();
                             return preventDefault(ev);
                         }
                         itemContainerEle.classList.add('active-slide');
@@ -9061,23 +9068,24 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         if (ev.srcEvent.type.indexOf('mouse') > -1) {
                             ev.target.addEventListener('mouseout', this.mouseOut);
                         }
+                        this.dragEnded = false;
                     }
                 }, {
                     key: 'onDrag',
                     value: function onDrag(ev) {
-                        if (Math.abs(ev.deltaY) > 30) {
+                        var _this2 = this;
+
+                        if (this.dragEnded || this.preventDrag || Math.abs(ev.deltaY) > 30) {
                             this.preventDrag = true;
-                            return this.closeOpened(ev);
+                            return;
                         }
                         var itemContainerEle = getItemConatiner(ev.target);
-                        if (!itemContainerEle || !isActive(itemContainerEle) || this.preventDrag) return;
+                        if (!itemContainerEle || !isActive(itemContainerEle)) return;
                         var itemData = this.get(itemContainerEle);
                         if (!itemData.optsWidth) {
                             itemData.optsWidth = getOptionsWidth(itemContainerEle);
                             if (!itemData.optsWidth) return;
                         }
-                        itemContainerEle.classList.add('active-slide');
-                        itemContainerEle.classList.add('active-options');
                         var x = ev.center[this.direction];
                         var delta = x - itemData.startX;
                         var newX = Math.max(0, itemData.offsetX - delta);
@@ -9085,14 +9093,20 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                             // Calculate the new X position, capped at the top of the buttons
                             newX = -Math.min(-itemData.optsWidth, -itemData.optsWidth + (delta + itemData.optsWidth) * 0.4);
                         }
-                        this.open(itemContainerEle, newX, false);
+                        raf(function () {
+                            if (!_this2.dragEnded && !_this2.preventDrag) {
+                                isItemActive(itemContainerEle, true);
+                                _this2.open(itemContainerEle, newX, false);
+                            }
+                        });
                     }
                 }, {
                     key: 'onDragEnd',
                     value: function onDragEnd(ev) {
-                        var _this2 = this;
+                        var _this3 = this;
 
                         this.preventDrag = false;
+                        this.dragEnded = true;
                         var itemContainerEle = getItemConatiner(ev.target);
                         if (!itemContainerEle || !isActive(itemContainerEle)) return;
                         // If we are currently dragging, we want to snap back into place
@@ -9103,22 +9117,18 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         // and we aren't moving fast enough to swipe open
                         if (this.getOpenAmount(itemContainerEle) < restingPoint / 2) {
                             // If we are going left but too slow, or going right, go back to resting
-                            if (ev.direction & Hammer.DIRECTION_RIGHT) {
-                                // Left
-                                restingPoint = 0;
-                            } else if (Math.abs(ev.velocityX) < 0.3) {
-                                // Right
+                            if (ev.direction & Hammer.DIRECTION_RIGHT || Math.abs(ev.velocityX) < 0.3) {
                                 restingPoint = 0;
                             }
                         }
                         ev.target.removeEventListener('mouseout', this.mouseOut);
                         raf(function () {
-                            _this2.open(itemContainerEle, restingPoint, true);
+                            _this3.open(itemContainerEle, restingPoint, true);
                         });
                     }
                 }, {
                     key: 'closeOpened',
-                    value: function closeOpened(ev, doNotCloseEle) {
+                    value: function closeOpened(doNotCloseEle) {
                         var didClose = false;
                         if (this.openItems) {
                             var openItemElements = this.listEle.querySelectorAll('.active-slide');
@@ -9134,7 +9144,7 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                 }, {
                     key: 'open',
                     value: function open(itemContainerEle, openAmount, isFinal) {
-                        var _this3 = this;
+                        var _this4 = this;
 
                         var slidingEle = itemContainerEle.querySelector('ion-item,[ion-item]');
                         if (!slidingEle) return;
@@ -9145,9 +9155,8 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         } else {
                             var timerId = setTimeout(function () {
                                 if (slidingEle.style[CSS.transform] === '') {
-                                    itemContainerEle.classList.remove('active-slide');
-                                    itemContainerEle.classList.remove('active-options');
-                                    _this3.openItems--;
+                                    isItemActive(itemContainerEle, false);
+                                    _this4.openItems--;
                                 }
                             }, 400);
                             this.set(itemContainerEle, 'timerId', timerId);
@@ -9155,6 +9164,12 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         slidingEle.style[CSS.transition] = isFinal ? '' : 'none';
                         slidingEle.style[CSS.transform] = openAmount ? 'translate3d(' + -openAmount + 'px,0,0)' : '';
                         if (isFinal) {
+                            if (openAmount) {
+                                isItemActive(itemContainerEle, true);
+                                this.on('tap', this.tap);
+                            } else {
+                                this.off('tap', this.tap);
+                            }
                             this.enableScroll(!openAmount);
                         }
                     }
@@ -9445,6 +9460,7 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
                     _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
                     this.zone = zone;
                     this.ele = elementRef.nativeElement;
+                    this._enableSliding = false;
                 }
 
                 /**
@@ -9498,16 +9514,19 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
                     value: function enableSlidingItems(shouldEnable) {
                         var _this = this;
 
-                        this._enableSliding = shouldEnable;
                         if (this._init) {
-                            if (shouldEnable) {
-                                this.zone.runOutsideAngular(function () {
-                                    setTimeout(function () {
-                                        _this.slidingGesture = new ItemSlidingGesture(_this, _this.ele);
+                            if (this._enableSliding !== shouldEnable) {
+                                this._enableSliding = shouldEnable;
+                                if (shouldEnable) {
+                                    console.debug('enableSlidingItems');
+                                    this.zone.runOutsideAngular(function () {
+                                        setTimeout(function () {
+                                            _this.slidingGesture = new ItemSlidingGesture(_this, _this.ele);
+                                        });
                                     });
-                                });
-                            } else {
-                                this.slidingGesture && this.slidingGesture.unlisten();
+                                } else {
+                                    this.slidingGesture && this.slidingGesture.unlisten();
+                                }
                             }
                         }
                     }

@@ -13363,7 +13363,7 @@ System.register("ionic/components/overlay/overlay-controller", ["angular2/angula
                                             _this.app.setEnabled(true);
                                             _this.app.setTransitioning(false);
                                             instance.onPageDidEnter && instance.onPageDidEnter();
-                                            resolve();
+                                            resolve(instance);
                                         });
                                     });
                                 });

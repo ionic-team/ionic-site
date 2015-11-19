@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L436">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L446">ionic/platform/platform.ts (line 11)</a>
 </p>
 ## Members
 
@@ -205,6 +205,23 @@ export MyClass {
 - `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
 - `{object=} `deviceName` Returns the name of the device
 - `{object=}` `device platform` R
+
+
+
+
+<div id="version"></div>
+<h2>
+  <code>version()</code>
+
+</h2>
+
+
+
+
+
+
+
+
 
 
 

@@ -4824,6 +4824,16 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                         // get all the platforms that have a valid parsed version
                         return this._versions;
                     }
+                }, {
+                    key: 'version',
+                    value: function version() {
+                        for (var platformName in this._versions) {
+                            if (this._versions[platformName]) {
+                                return this._versions[platformName];
+                            }
+                        }
+                        return {};
+                    }
 
                     /**
                      * @returns {promise}
@@ -5338,6 +5348,9 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 superset: 'mobile',
                 subsets: ['phablet', 'tablet'],
                 settings: {
+                    activator: function activator(p) {
+                        return p.version().major >= 5 ? 'ripple' : 'none';
+                    },
                     hoverCSS: false,
                     keyboardHeight: 300,
                     mode: 'md',

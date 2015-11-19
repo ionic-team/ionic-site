@@ -1440,7 +1440,6 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         var args = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
         var fastdom = new FastDom();
-        var app = new IonicApp(fastdom);
         var platform = new Platform();
         var navRegistry = new NavRegistry(args.pages);
         var config = args.config;
@@ -1452,6 +1451,7 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         platform.navigatorPlatform(window.navigator.platform);
         platform.load();
         config.setPlatform(platform);
+        var app = new IonicApp(config, fastdom);
         var events = new Events();
         initTapClick(window, document, app, config, fastdom);
         var featureDetect = new FeatureDetect();
@@ -5355,6 +5355,7 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 superset: 'mobile',
                 subsets: ['ipad', 'iphone'],
                 settings: {
+                    clickBlock: true,
                     hoverCSS: false,
                     keyboardHeight: 300,
                     mode: 'ios',
@@ -7836,9 +7837,10 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
         }],
         execute: function () {
             IonicApp = (function () {
-                function IonicApp(fastdom) {
+                function IonicApp(config, fastdom) {
                     _classCallCheck(this, IonicApp);
 
+                    this._config = config;
                     this._fastdom = fastdom;
                     this._titleSrv = new Title();
                     this._title = '';
@@ -7883,7 +7885,9 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
                         var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
 
                         this._disTime = isEnabled ? 0 : Date.now() + fallback;
-                        ClickBlock(!isEnabled, fallback + 100);
+                        if (this._config.get('clickBlock')) {
+                            ClickBlock(!isEnabled, fallback + 100);
+                        }
                     }
 
                     /**

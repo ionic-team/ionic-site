@@ -52255,7 +52255,7 @@ System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../io
         }
     };
 });
-System.register('ionic/components/menu/menu-gestures', ['ionic/gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
+System.register('ionic/components/menu/menu-gestures', ['../../gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
     'use strict';
 
     var SlideEdgeGesture, util, MenuContentGesture, TargetGesture, LeftMenuGesture, RightMenuGesture;
@@ -52269,8 +52269,8 @@ System.register('ionic/components/menu/menu-gestures', ['ionic/gestures/slide-ed
     function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
     return {
-        setters: [function (_ionicGesturesSlideEdgeGesture) {
-            SlideEdgeGesture = _ionicGesturesSlideEdgeGesture.SlideEdgeGesture;
+        setters: [function (_gesturesSlideEdgeGesture) {
+            SlideEdgeGesture = _gesturesSlideEdgeGesture.SlideEdgeGesture;
         }, function (_ionicUtil) {
             util = _ionicUtil;
         }],
@@ -52661,18 +52661,15 @@ System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations
                     _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
                     var easing = 'ease';
                     var duration = 250;
-                    var contentClosedX = undefined,
-                        contentOpenedX = undefined,
+                    var contentOpenedX = undefined,
                         menuClosedX = undefined,
                         menuOpenedX = undefined;
                     if (menu.side == 'right') {
                         contentOpenedX = -menu.width() + 'px';
-                        contentClosedX = '0px';
                         menuOpenedX = menu.platform.width() - menu.width() + 'px';
                         menuClosedX = menu.platform.width() + 'px';
                     } else {
                         contentOpenedX = menu.width() + 'px';
-                        contentClosedX = '0px';
                         menuOpenedX = '0px';
                         menuClosedX = -menu.width() + 'px';
                     }
@@ -52683,13 +52680,13 @@ System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations
                     menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
                     this.open.add(menuOpen);
                     var contentOpen = new Animation(menu.getContentElement());
-                    contentOpen.fromTo(TRANSLATE_X, contentClosedX, contentOpenedX);
+                    contentOpen.fromTo(TRANSLATE_X, '0px', contentOpenedX);
                     this.open.add(contentOpen);
                     var menuClose = new Animation(menu.getMenuElement());
                     menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
                     this.close.add(menuClose);
                     var contentClose = new Animation(menu.getContentElement());
-                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, contentClosedX);
+                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, '0px');
                     this.close.add(contentClose);
                 }
 
@@ -52925,12 +52922,19 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         if (!type) {
                             type = this.config.get('menuType');
                         }
-                        this._type = new menuTypes[type](this);
                         this.type = type;
-                        if (this.config.get('animate') === false) {
-                            this._type.open.duration(33);
-                            this._type.close.duration(33);
+                    }
+                }, {
+                    key: "_getType",
+                    value: function _getType() {
+                        if (!this._type) {
+                            this._type = new menuTypes[this.type](this);
+                            if (this.config.get('animate') === false) {
+                                this._type.open.duration(33);
+                                this._type.close.duration(33);
+                            }
                         }
+                        return this._type;
                     }
 
                     /**
@@ -52949,7 +52953,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                             return Promise.resolve();
                         }
                         this._before();
-                        return this._type.setOpen(shouldOpen).then(function () {
+                        return this._getType().setOpen(shouldOpen).then(function () {
                             _this._after(shouldOpen);
                         });
                     }
@@ -52963,7 +52967,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         // user started swiping the menu open/close
                         if (this._isPrevented() || !this.isEnabled) return;
                         this._before();
-                        this._type.setProgressStart(this.isOpen);
+                        this._getType().setProgressStart(this.isOpen);
                     }
 
                     /**
@@ -52976,7 +52980,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         if (this.isEnabled) {
                             this._prevent();
                             this.app.setTransitioning(true);
-                            this._type.setProgess(value);
+                            this._getType().setProgess(value);
                         }
                     }
 
@@ -52992,7 +52996,7 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
                         if (this.isEnabled) {
                             this._prevent();
                             this.app.setTransitioning(true);
-                            this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
+                            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
                                 _this2._after(isOpen);
                             });
                         }

@@ -1605,10 +1605,10 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
      * @App({
      *   template: `<ion-nav [root]="root"></ion-nav>`
      *   config: {
-     *     'tabbarPlacement': 'bottom',
+     *     tabbarPlacement: 'bottom',
      *     platform: {
      *      ios: {
-     *        'tabbarPlacement': 'top',
+     *        tabbarPlacement: 'top',
      *      }
      *     }
      *   }
@@ -1619,7 +1619,7 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
      *
      * ```html
      * <ion-tabs tabbar-placement="top">
-     *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="DashRoot"></ion-tab>
+     *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="tabRoot"></ion-tab>
      *  </ion-tabs>
      * ```
      *

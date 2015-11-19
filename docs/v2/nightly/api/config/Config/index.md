@@ -56,10 +56,10 @@ docType: "class"
 @App({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
   config: {
-    &#39;tabbarPlacement&#39;: &#39;bottom&#39;,
+    tabbarPlacement: &#39;bottom&#39;,
     platform: {
      ios: {
-       &#39;tabbarPlacement&#39;: &#39;top&#39;,
+       tabbarPlacement: &#39;top&#39;,
      }
     }
   }
@@ -67,7 +67,7 @@ docType: "class"
 </code></pre>
 <p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>, we can configure this as a property on our <code>ion-tabs</code>.</p>
 <pre><code class="lang-html">&lt;ion-tabs tabbar-placement=&quot;top&quot;&gt;
-  &lt;ion-tab tab-title=&quot;Dash&quot; tab-icon=&quot;pulse&quot; [root]=&quot;DashRoot&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab tab-title=&quot;Dash&quot; tab-icon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>The property will override anything else set in the apps.</p>

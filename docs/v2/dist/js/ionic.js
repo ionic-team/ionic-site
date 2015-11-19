@@ -1585,7 +1585,6 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
      * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
      *
      * ```ts
-     * import {Config} from 'ionic/ionic';
      * @App({
      *   template: `<ion-nav [root]="root"></ion-nav>`
      *   config: {
@@ -1601,12 +1600,11 @@ System.register('ionic/config/config', ['../platform/platform', '../util/util'],
      *
      * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
      * ```ts
-     * import {Config} from 'ionic/ionic';
      * @App({
      *   template: `<ion-nav [root]="root"></ion-nav>`
      *   config: {
      *     tabbarPlacement: 'bottom',
-     *     platform: {
+     *     platforms: {
      *      ios: {
      *        tabbarPlacement: 'top',
      *      }

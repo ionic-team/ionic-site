@@ -38,8 +38,7 @@ docType: "class"
 
 
 <p>Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.</p>
-<pre><code class="lang-ts">import {Config} from &#39;ionic/ionic&#39;;
-@App({
+<pre><code class="lang-ts">@App({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
   config: {
     backButtonText: &#39;Go Back&#39;,
@@ -52,12 +51,11 @@ docType: "class"
 })
 </code></pre>
 <p>Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.</p>
-<pre><code class="lang-ts">import {Config} from &#39;ionic/ionic&#39;;
-@App({
+<pre><code class="lang-ts">@App({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
   config: {
     tabbarPlacement: &#39;bottom&#39;,
-    platform: {
+    platforms: {
      ios: {
        tabbarPlacement: &#39;top&#39;,
      }
@@ -79,6 +77,6 @@ Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 
 <h1 class="class export">Config <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L10-L259">ionic/config/config.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L10-L257">ionic/config/config.ts (line 10)</a>
 </p>
 

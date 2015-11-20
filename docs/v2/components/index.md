@@ -1174,16 +1174,11 @@ Slides take a number of configuration options on the `<ion-slides>` element:
 
 <h2 id="tabs" class="section-header">Tabs</h2>
 
-_For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/),
-and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the
-individual Tab components it contains._
+_For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/), and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the individual Tab components it contains._
 
-Tabs powers a multi-tabbed interface with a Tab Bar and a set of "pages"
-that can be tabbed through.
+Tabs powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
 
-For iOS, tabs will appear at the bottom of the screen. For Android, tabs
-will be at the top of the screen, below the nav-bar. This follows each platform's
-design specification, but can be configured with [Config](../api/config/Config/).
+For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each platform's design specification, but can be configured with [Config](../api/config/Config/).
 
 Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menu) may be a better option.
 

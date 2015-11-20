@@ -5517,10 +5517,12 @@ icon,
   .ios ion-item-group ion-item-group-title {
     padding: 12px 16px 13px 16px;
     background-color: #f7f7f7;
-    color: #222;
-    border-bottom: 1px solid #c8c7cc; }
+    color: #222; }
   .ios ion-item-group .item:first-child .item-inner {
     border-top-width: 0; }
+  .ios ion-item-group .item:last-child .item-inner,
+  .ios ion-item-group ion-item-sliding:last-child .item .item-inner {
+    border: none; }
   .ios ion-note {
     color: #aeacb4; }
   .ios .item {
@@ -5602,8 +5604,7 @@ icon,
     background-position: right 14px center;
     background-size: 14px 14px;
     padding-right: 32px; }
-  .ios.hairlines .item-inner,
-  .ios.hairlines ion-item-group ion-item-group-title {
+  .ios.hairlines .item-inner {
     border-bottom-width: 0.55px; }
   .ios .toolbar {
     min-height: 4.4rem; }
@@ -5898,11 +5899,9 @@ icon,
   .ios.hairlines .list[inset] .item {
     border-width: 0.55px; }
   .ios .list[no-lines] ion-header,
-  .ios .list[no-lines] ion-item-group-title,
   .ios .list[no-lines] .item,
   .ios .list[no-lines] .item .item-inner,
   .ios.hairlines .list[no-lines] ion-header,
-  .ios.hairlines .list[no-lines] ion-item-group-title,
   .ios.hairlines .list[no-lines] .item,
   .ios.hairlines .list[no-lines] .item .item-inner {
     border-width: 0; }

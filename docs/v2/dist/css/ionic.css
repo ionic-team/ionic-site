@@ -7134,7 +7134,9 @@ icon,
     .md .list > ion-item-sliding:last-child .item {
       border-bottom: 1px solid #dedede; }
       .md .list > .item:last-child .item-inner,
-      .md .list > ion-item-sliding:last-child .item .item-inner {
+      .md .list > .item:last-child ion-item-content,
+      .md .list > ion-item-sliding:last-child .item .item-inner,
+      .md .list > ion-item-sliding:last-child .item ion-item-content {
         border-bottom: none; }
     .md .list ion-item-options button, .md .list ion-item-options [button] {
       height: calc(100% - 2px);
@@ -7244,6 +7246,13 @@ icon,
       color: #222; }
   .md ion-card + ion-card {
     margin-top: 0; }
+  .md ion-checkbox.item .item-inner {
+    border: none;
+    padding-right: 0; }
+  .md ion-checkbox ion-item-content {
+    border-bottom: 1px solid #dedede;
+    margin: 0;
+    padding: 13px 8px 13px 0; }
   .md ion-checkbox[aria-checked=true] checkbox-icon {
     background-color: #387ef5;
     border-color: #387ef5; }

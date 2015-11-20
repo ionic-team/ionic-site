@@ -1455,7 +1455,7 @@ ion-item-options {
   right: 0;
   z-index: 1;
   height: 100%;
-  opacity: 0; }
+  visibility: hidden; }
 
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.item.activated {
@@ -1473,7 +1473,7 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex; }
 
 ion-item-sliding.active-slide.active-options ion-item-options {
-  opacity: 1; }
+  visibility: visible; }
 
 /**
  * Grid
@@ -7888,6 +7888,39 @@ body.md ion-menu#leftMenu {
 .preview-slides #slide-3 {
   background-color: #f53d3d; }
 
+body.md .tabs-basic tabbar {
+  background-color: #387EF5; }
+  body.md .tabs-basic tabbar a {
+    color: #fff !important; }
+
+body.md .tabs-basic tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.md .tabs-icon tabbar {
+  background-color: #f53d3d; }
+  body.md .tabs-icon tabbar a {
+    color: #fff; }
+
+body.md .tabs-icon tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.ios .tabs-icon tabbar a {
+  color: #f53d3d; }
+
+body.md .tabs-icon-text tabbar {
+  background-color: #7e60ff; }
+  body.md .tabs-icon-text tabbar a {
+    color: #fff !important; }
+
+body.md .tabs-icon-text tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.ios .tabs-icon-text tabbar a {
+  color: #7e60ff; }
+
 body, body:hover, body a, body button, body media-switch {
   cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto; }
 
@@ -7957,6 +7990,13 @@ body.md backdrop {
 
 body.md img#md-only {
   display: block !important;
+  position: absolute;
+  top: -24px;
+  width: 100%;
+  height: auto; }
+
+body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
+  display: none;
   position: absolute;
   top: -24px;
   width: 100%;

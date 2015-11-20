@@ -205,7 +205,7 @@ module.exports = {
 if (typeof Symbol !== 'undefined') {
   function create(name) {
     return Symbol(name);
-  } 
+  }
 } else {
   function create(name) {
     return '_zone$' + name;
@@ -2278,7 +2278,7 @@ Apache License
 
 Version 2.0, January 2004
 
-http://www.apache.org/licenses/ 
+http://www.apache.org/licenses/
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -3035,7 +3035,7 @@ var Reflect;
         if (typeof O !== "function" || O === functionPrototype) {
             return proto;
         }
-        // TypeScript doesn't set __proto__ in ES5, as it's non-standard. 
+        // TypeScript doesn't set __proto__ in ES5, as it's non-standard.
         // Try to determine the superclass constructor. Compatible implementations
         // must either set __proto__ on a subclass constructor to the superclass constructor,
         // or ensure each class has a valid `constructor` property on its prototype that
@@ -36642,11 +36642,13 @@ System.register("angular2/src/core/render/dom/dom_renderer", ["angular2/src/core
     return fragmentRef.nodes;
   }
   function moveNodesAfterSibling(sibling, nodes) {
+    var sib = sibling;
+
     if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
       for (var i = 0; i < nodes.length; i++) {
-        dom_adapter_1.DOM.insertBefore(sibling, nodes[i]);
+        dom_adapter_1.DOM.insertAfter(sib, nodes[i]);
+        sib = nodes[i];
       }
-      dom_adapter_1.DOM.insertBefore(nodes[0], sibling);
     }
   }
   function decoratePreventDefault(eventHandler) {

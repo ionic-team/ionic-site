@@ -39191,7 +39191,7 @@
 	    };
 	    DomRenderer_ = __decorate([
 	        di_1.Injectable(),
-	        __param(3, di_1.Inject(dom_tokens_1.DOCUMENT)), 
+	        __param(3, di_1.Inject(dom_tokens_1.DOCUMENT)),
 	        __metadata('design:paramtypes', [event_manager_1.EventManager, shared_styles_host_1.DomSharedStylesHost, animation_builder_1.AnimationBuilder, Object])
 	    ], DomRenderer_);
 	    return DomRenderer_;
@@ -39204,12 +39204,14 @@
 	    return fragmentRef.nodes;
 	}
 	function moveNodesAfterSibling(sibling, nodes) {
-	    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
-	        for (var i = 0; i < nodes.length; i++) {
-	            dom_adapter_1.DOM.insertBefore(sibling, nodes[i]);
-	        }
-	        dom_adapter_1.DOM.insertBefore(nodes[0], sibling);
+	  var sib = sibling;
+
+	  if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+	    for (var i = 0; i < nodes.length; i++) {
+	      dom_adapter_1.DOM.insertAfter(sib, nodes[i]);
+	      sib = nodes[i];
 	    }
+	  }
 	}
 	function decoratePreventDefault(eventHandler) {
 	    return function (event) {

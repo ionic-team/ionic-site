@@ -32,10 +32,12 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var SegmentPage = function SegmentPage() {
+var SegmentPage = function SegmentPage(platform) {
     _classCallCheck(this, SegmentPage);
 
+    this.platform = platform;
     this.pet = "puppies";
+    this.isAndroid = platform.is('android');
 };
 exports.SegmentPage = SegmentPage;
 exports.SegmentPage = SegmentPage = __decorate([(0, _ionicIonic.Page)({
@@ -43,4 +45,5 @@ exports.SegmentPage = SegmentPage = __decorate([(0, _ionicIonic.Page)({
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return _helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], SegmentPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], SegmentPage);
+var _a;

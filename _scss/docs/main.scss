@@ -8,9 +8,11 @@ body {
     white $sidenav-width + 5,
     white 100%
 	);
-  @media screen and (max-width: $screen-xs-max) {
+  @media (max-width: $screen-xs-max) {
     width: 100%;
     min-width: 100%;
+    background: #fff;
+    padding-top:50px;
   }
 }
 #components-index ul.nav > li > a {
@@ -32,14 +34,30 @@ a.improve-docs {
       margin-right: $platform-preview-width;
     }
   }
-  @media screen and (max-width: $screen-xs-max) {
-    background-color: #fff;
-    aside + main {
-      margin-right: 0;
+  @media (max-width: $screen-sm-max) {
+    aside {
+      display: none;
+      &+ main {
+        margin-right: 0;
+      }
     }
+  }
+  @media (max-width: $screen-xs-max) {
+    background-color: #fff;
     main {
       margin-left: 0;
       padding: 30px 20px;
+    }
+    #side-nav{
+      // padding-top: 50px;
+      top: 50px;
+      z-index: 1;
+      transform: translateX(-$sidenav-width);
+      transition: transform .3s ease;
+      &.shown{
+        transform: translateX(0);
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+      }
     }
   }
 }
@@ -51,8 +69,16 @@ a.improve-docs {
   margin-bottom: 0;
   position: relative;
   z-index: 10;
+  @media (max-width: $screen-xs-max) {
+    position: fixed;
+    top: 0;
+    width:100%;
+  }
   .navbar-brand{
     padding: 22px 0 0 20px;
+    @media (max-width: $screen-xs-max) {
+      padding-top:8px;
+    }
     img{
       width:140px;
     }
@@ -62,15 +88,45 @@ a.improve-docs {
       padding:27px 15px;
       transition: .2s color;
       border-top:3px solid transparent;
+      @media (max-width: $screen-sm-max) {
+        padding-left:10px;
+        padding-right:10px;
+      }
+      @media (max-width: $screen-xs-max) {
+        padding:15px;
+        border:none;
+      }
     }
     &.active > a {
       border-top-color: white;
     }
   }
+  .dropdown{
+    .dropdown-menu {
+      display: block;
+      visibility: 0;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .3s ease, opacity .3s;
+    }
+    &.open .dropdown-menu {
+      visibility: 1;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
   .navbar-form {
     margin: 22px 0 0 100px;
-
+    @media (max-width: $screen-sm-max) {
+      margin-left: 25px;
+    }
+    @media (max-width: $screen-xs-max) {
+      margin-left: 0;
+    }
     .form-group {
+      position: relative;
+      padding-left: 15px;
       input {
         background:transparent;
         box-shadow: none;
@@ -89,9 +145,56 @@ a.improve-docs {
         font-size:18px;
         font-weight: 800;
         color: lighten($blue, 15);
-        position: relative;
-        top: 3px;
+        position: absolute;
+        top: 4px;
+        left: 0;
       }
+    }
+  }
+  .navbar-toggle,
+  .sidebar-toggle {
+    border: none;
+    position: relative;
+    background: transparent;
+    i {
+      position: absolute;
+      font-size: 27px;
+      top: -3px;
+      color: $navbar-default-link-color;
+      transition: color .3s, transform .3s, opacity .3s;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+      outline:none;
+      i {
+        color: white;
+        transform: scale(1.05);
+      }
+    }
+    .ion-md-close{
+      opacity: 0;
+    }
+    &.active {
+      i{
+        transform: rotate(90deg);
+      }
+      i:not(.ion-md-close){
+        opacity: 0;
+      }
+      .ion-md-close{
+        transform: rotate(90deg);
+        opacity: 1;
+      }
+    }
+  }
+  .sidebar-toggle{
+    float: left;
+    margin: 8px 10px 0;
+    display: none;
+    @media (max-width: $screen-xs-max) {
+      display: block;
     }
   }
 }
@@ -102,8 +205,13 @@ a.improve-docs {
   overflow-y: scroll;
   top: 0;
   bottom: 0;
+  overflow-y: -moz-scrollbars-none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
   .back-to-main{
     a{
       padding-top: 5px;
@@ -139,6 +247,7 @@ a.improve-docs {
   .form-group {
     position: relative;
     border-bottom: 1px solid $light-grey;
+    min-height: 76px;
     &.search{
       padding:22px 20px 20px;
       margin-bottom: 0;

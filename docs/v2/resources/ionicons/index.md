@@ -12376,5 +12376,6 @@ header_sub_title: Ionic 2 Developer Preview
 
 </div>
 
-
-<script src="app.js"></script>
+<script>
+  window.isIoniconsPage = true;
+</script>

@@ -6,7 +6,7 @@ var cp          = require('child_process');
 var footer      = require('gulp-footer');
 var header      = require('gulp-header');
 var minifyCss   = require('gulp-minify-css');
-var ngmin       = require('gulp-ngmin')
+var ngmin       = require('gulp-ngmin');
 var pagespeed   = require('psi');
 var pkg         = require('./package.json');
 var prefix      = require('gulp-autoprefixer');
@@ -16,7 +16,7 @@ var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
 
 var messages = {
-    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+  jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
 var AUTOPREFIXER_BROWSERS = [
@@ -58,7 +58,7 @@ gulp.task('styles:v2', function() {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'))
     .pipe($.size({title: 'styles'}));
@@ -72,7 +72,7 @@ gulp.task('styles:v1', function(done) {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'));
 });
@@ -98,7 +98,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('js'))
     .pipe(gulp.dest('_site/js'))
     .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
+    .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('js'))
     .pipe(gulp.dest('_site/js'))
     .pipe($.size({title: 'js'}));
@@ -108,23 +108,23 @@ gulp.task('js', function() {
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function(done) {
-    browserSync.notify(messages.jekyllBuild);
-    return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
-             .on('close', done);
+  browserSync.notify(messages.jekyllBuild);
+  return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+           .on('close', done);
 });
 
 /**
  * Run Generate linkchecker page
  */
 gulp.task('linkchecker', ['build'],
-  shell.task('_scripts/linkchecker.sh',{verbose:true})
+  shell.task('_scripts/linkchecker.sh',{verbose: true})
 );
 
 /**
  * Rebuild Jekyll & do page reload
  */
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
-    browserSync.reload();
+  browserSync.reload();
 });
 
 /**
@@ -132,11 +132,11 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
  */
 gulp.task('server', ['server:stylesv1', 'server:stylesv2', 'images',
                      'jekyll-build'], function() {
-    browserSync({
-        server: {
-            baseDir: '_site'
-        }
-    });
+  browserSync({
+    server: {
+      baseDir: '_site'
+    }
+  });
 });
 
 gulp.task('server:stylesv1', ['styles:v1'], function() {
@@ -161,7 +161,8 @@ gulp.task('watch', ['server'],function() {
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
   gulp.watch('_js/**/*.js', ['server:js']);
   gulp.watch(['*.html', '_layouts/*/*', '_posts/*', '_includes/*/*',
-              'docs/v2/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/v2/nightly'], ['server:jekyll']);
+              'docs/v2/**/*.{md,html,js,css}', '!docs/v2/2*',
+              '!docs/v2/nightly'], ['server:jekyll']);
 
 });
 

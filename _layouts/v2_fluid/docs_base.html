@@ -16,10 +16,10 @@
          {% if page.angular_controller %}
            ng-controller="{{ page.angular_controller }}"
          {% endif %}>
-      <nav class="side-nav">
-        <form class="form-group search" role="search">
+      <nav class="side-nav" id="side-nav">
+        <!-- <form class="form-group search" role="search">
           <input type="text" class="form-control" placeholder="Search">
-        </form>
+        </form>-->
         {% if page.category == 'api' %}
           {% include v2_fluid/docs_side_nav_api.html %}
         {% else %}
@@ -46,6 +46,6 @@
         {{ content }}
       </main>
     </div>
-
+    {% include v2_fluid/footer_tags.html %}
   </body>
 </html>

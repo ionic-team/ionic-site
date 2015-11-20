@@ -1,12 +1,10 @@
 var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   $scope.test = function() {
-    console.log($scope)
-  }
+    console.log($scope);
+  };
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-
-
 
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
@@ -21,16 +19,16 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     $scope.androidActive = true;
     $('#demo-device-ios').css('display', 'none');
     $('#demo-device-android').css('display', 'block');
-  }
+  };
 
   var $androidIframe = $('iframe#demo-android');
   var $iosIframe = $('iframe#demo-ios');
-  var $buttons = $("#components-buttons");
+  var $buttons = $('#components-buttons');
   var $cards = $('#components-cards');
   var $forms = $('#components-forms');
   var $lists = $('#components-lists');
 
-  $scope.setPlatform('ios')
+  $scope.setPlatform('ios');
 
   var $scrollspy = $('body').scrollspy({target: '#components-index'});
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
@@ -58,8 +56,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     if (e.target.id === 'components-index') {
       return;
     }
-    var $hash, $node;
-    $hash = $("a[href^='#']", e.target).attr("href").replace(/^#/, '');
+    var $hash;
+    var $node;
+    $hash = $('a[href^="#"]', e.target).attr('href').replace(/^#/, '');
     $node = $('#' + $hash);
 
     setActive($hash);
@@ -105,7 +104,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       ev.preventDefault();
     });
 
-
   })();
 
   function sendCurrentHash(platform) {
@@ -115,10 +113,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       return;
     }
     $androidIframe[0].contentWindow.postMessage(JSON.stringify({hash: window.location.hash}), '*');
-  }
-
-
-
+  };
 
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
@@ -127,9 +122,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {
     if ($window.scrollTop() > 78) {
-      $platformPreview.addClass('fixey')
+      $platformPreview.addClass('fixey');
     } else {
-      $platformPreview.removeClass('fixey')
+      $platformPreview.removeClass('fixey');
     }
   }
 }]);

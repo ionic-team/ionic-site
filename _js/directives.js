@@ -1,1 +1,1 @@
-IonicDocsModule
+IonicDocsModule;

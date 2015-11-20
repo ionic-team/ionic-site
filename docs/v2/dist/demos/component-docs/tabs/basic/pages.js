@@ -37,15 +37,18 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabTextPage = function TabTextPage() {
+var TabTextPage = function TabTextPage(platform) {
     _classCallCheck(this, TabTextPage);
+
+    this.platform = platform;
+    this.isAndroid = platform.is('android');
 };
 TabTextPage = __decorate([(0, _ionicIonic.Page)({
-    template: '' + '<ion-navbar *navbar hide-back-button class="android-attr">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
+    template: '' + '<ion-navbar *navbar hide-back-button [attr.primary]="isAndroid ? \'\' : null">' + '<ion-title>Tabs</ion-title>' + '</ion-navbar>' + '<ion-content>' + '</ion-content>',
     directives: [(0, _angular2Angular2.forwardRef)(function () {
         return helpers.AndroidAttribute;
     })]
-}), __metadata('design:paramtypes', [])], TabTextPage);
+}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], TabTextPage);
 var BasicPage = function BasicPage() {
     _classCallCheck(this, BasicPage);
 
@@ -55,5 +58,6 @@ var BasicPage = function BasicPage() {
 };
 exports.BasicPage = BasicPage;
 exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-    template: '<ion-tabs>' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
+    template: '<ion-tabs class="tabs-basic">' + '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' + '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' + '</ion-tabs>'
 }), __metadata('design:paramtypes', [])], BasicPage);
+var _a;

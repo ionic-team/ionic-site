@@ -29,6 +29,11 @@ $font-path: '../../dist/fonts';
 @import "lists/thumbnail/styles";
 @import "menus/basic/styles";
 @import "slides/basic/styles";
+@import "tabs/basic/styles";
+@import "tabs/icon/styles";
+@import "tabs/icon-text/styles";
+
+
 
 
 //////////////////////////////////
@@ -116,6 +121,14 @@ body.md backdrop {
  
 body.md img#md-only {
   display: block !important;
+  position: absolute;
+  top: -24px;
+  width: 100%;
+  height: auto;
+}
+
+body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
+  display: none;
   position: absolute;
   top: -24px;
   width: 100%;

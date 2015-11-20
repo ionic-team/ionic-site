@@ -6216,9 +6216,80 @@ icon,
     .ios .toolbar ion-segment button,
     .ios .toolbar ion-segment [button] {
       max-width: 100px; }
+  .ios .toolbar[primary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment ion-segment-button[button][outline] {
+      border-color: #fff;
+      background: transparent;
+      color: #fff; }
+      .ios .toolbar[primary] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #387ef5;
+        background-color: #fff; }
+      .ios .toolbar[primary] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
+      .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #32db64; }
+      .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[primary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #222; }
+      .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[primary] ion-segment-button[button][outline] {
       border-color: #387ef5;
       background: transparent;
@@ -6229,9 +6300,80 @@ icon,
         background-color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[secondary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline] {
+      border-color: #fff;
+      background: transparent;
+      color: #fff; }
+      .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #32db64;
+        background-color: #fff; }
+      .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
+      .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #32db64; }
+      .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #222; }
+      .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[secondary] ion-segment-button[button][outline] {
       border-color: #32db64;
       background: transparent;
@@ -6242,9 +6384,80 @@ icon,
         background-color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[danger] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment ion-segment-button[button][outline] {
+      border-color: #fff;
+      background: transparent;
+      color: #fff; }
+      .ios .toolbar[danger] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f53d3d;
+        background-color: #fff; }
+      .ios .toolbar[danger] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
+      .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #32db64; }
+      .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[danger] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #222; }
+      .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[danger] ion-segment-button[button][outline] {
       border-color: #f53d3d;
       background: transparent;
@@ -6255,22 +6468,164 @@ icon,
         background-color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[light] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment ion-segment-button[button][outline] {
+      border-color: #000;
+      background: transparent;
+      color: #000; }
+      .ios .toolbar[light] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f4f4f4;
+        background-color: #000; }
+      .ios .toolbar[light] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(0, 0, 0, 0.16); }
+  .ios .toolbar[light] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
+      .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #32db64; }
+      .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[light] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[light] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[light] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #222; }
+      .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-segment[light] ion-segment-button[button] {
-    background-color: transparent;
-    color: #000; }
+    background-color: transparent; }
     .ios ion-segment[light] ion-segment-button[button][outline] {
       border-color: #f4f4f4;
       background: transparent;
       color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #000;
+        color: #fff;
         background-color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[dark] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment ion-segment-button[button][outline] {
+      border-color: #fff;
+      background: transparent;
+      color: #fff; }
+      .ios .toolbar[dark] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #222;
+        background-color: #fff; }
+      .ios .toolbar[dark] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #387ef5; }
+      .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #32db64; }
+      .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #f53d3d; }
+      .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[dark] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #000;
+        background-color: #f4f4f4; }
+      .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #fff;
+        background-color: #222; }
+      .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
   .ios ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[dark] ion-segment-button[button][outline] {
       border-color: #222;
       background: transparent;
@@ -7165,51 +7520,323 @@ icon,
       border-color: #387ef5; }
   .md .toolbar ion-segment {
     margin: 0 auto; }
+    .md .toolbar ion-segment ion-segment-button[button][outline].activated {
+      background-color: transparent; }
+  .md .toolbar[primary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment ion-segment-button[button][outline] {
+      color: #fff; }
+      .md .toolbar[primary] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[primary] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
   .md ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[primary] ion-segment-button[button][outline] {
       color: #387ef5; }
       .md ion-segment[primary] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #387ef5;
-        border-color: #387ef5; }
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment ion-segment-button[button][outline] {
+      color: #fff; }
+      .md .toolbar[secondary] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
   .md ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[secondary] ion-segment-button[button][outline] {
       color: #32db64; }
       .md ion-segment[secondary] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #32db64;
-        border-color: #32db64; }
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment ion-segment-button[button][outline] {
+      color: #fff; }
+      .md .toolbar[danger] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[danger] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
   .md ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[danger] ion-segment-button[button][outline] {
       color: #f53d3d; }
       .md ion-segment[danger] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #f53d3d;
-        border-color: #f53d3d; }
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment ion-segment-button[button][outline] {
+      color: #000; }
+      .md .toolbar[light] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #000;
+        border-color: #000;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[light] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[light] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[light] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[light] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
   .md ion-segment[light] ion-segment-button[button] {
-    background-color: transparent;
-    color: #000; }
+    background-color: transparent; }
     .md ion-segment[light] ion-segment-button[button][outline] {
       color: #f4f4f4; }
       .md ion-segment[light] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #f4f4f4;
-        border-color: #f4f4f4; }
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment ion-segment-button[button][outline] {
+      color: #fff; }
+      .md .toolbar[dark] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[dark] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
   .md ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[dark] ion-segment-button[button][outline] {
       color: #222; }
       .md ion-segment[dark] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #222;
-        border-color: #222; }
+        border-color: #222;
+        opacity: 1; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
   .md ion-switch switch-icon {

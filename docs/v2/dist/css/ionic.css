@@ -1179,6 +1179,10 @@ icon[small] {
   background-color: #fff;
   color: #000;
   box-sizing: border-box; }
+  .item[no-lines] {
+    border: none; }
+    .item[no-lines] .item-inner {
+      border: none; }
 
 .item-inner {
   display: -webkit-box;

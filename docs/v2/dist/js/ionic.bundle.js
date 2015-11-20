@@ -42777,7 +42777,7 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
     **/
     'use strict';
 
-    var CSS, extend, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN, AnimationRegistry;
+    var CSS, rafFrames, extend, Animation, Animate, TRANSFORMS, ANIMATE_PROPERTIES, CUBIC_BEZIERS, EASING_FN, AnimationRegistry;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -42893,6 +42893,7 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
     return {
         setters: [function (_utilDom) {
             CSS = _utilDom.CSS;
+            rafFrames = _utilDom.rafFrames;
         }, function (_utilUtil) {
             extend = _utilUtil.extend;
         }],
@@ -42900,12 +42901,10 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
             Animation = (function () {
                 function Animation(ele) {
                     var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-                    var fastdom = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
                     _classCallCheck(this, Animation);
 
                     this.reset();
-                    this._fastdom = fastdom;
                     this._opts = extend({
                         renderDelay: 16
                     }, opts);
@@ -43111,11 +43110,7 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                             if (self._duration > 16 && this._opts.renderDelay > 0) {
                                 // begin each animation when everything is rendered in their starting point
                                 // give the browser some time to render everything in place before starting
-                                if (this._fastdom) {
-                                    this._fastdom.write(kickoff);
-                                } else {
-                                    setTimeout(kickoff, this._opts.renderDelay);
-                                }
+                                rafFrames(this._opts.renderDelay / 16, kickoff);
                             } else {
                                 // no need to render everything in there place before animating in
                                 // just kick it off immediately to render them in their "to" locations
@@ -43923,17 +43918,16 @@ System.register('ionic/components/ion', ['ionic/util/dom'], function (_export) {
         }
     };
 });
-System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/fastdom', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
+System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
     'use strict';
 
-    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, FastDom, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, FeatureDetect, initTapClick, dom;
+    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, FeatureDetect, initTapClick, dom;
 
     _export('ionicProviders', ionicProviders);
 
     function ionicProviders() {
         var args = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-        var fastdom = new FastDom();
         var platform = new Platform();
         var navRegistry = new NavRegistry(args.pages);
         var config = args.config;
@@ -43945,15 +43939,15 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         platform.navigatorPlatform(window.navigator.platform);
         platform.load();
         config.setPlatform(platform);
-        var app = new IonicApp(config, fastdom);
+        var app = new IonicApp(config);
         var events = new Events();
-        initTapClick(window, document, app, config, fastdom);
+        initTapClick(window, document, app, config);
         var featureDetect = new FeatureDetect();
         setupDom(window, document, config, platform, featureDetect);
         bindEvents(window, document, platform, events);
         // prepare the ready promise to fire....when ready
         platform.prepareReady(config);
-        return [provide(FastDom, { useValue: fastdom }), provide(IonicApp, { useValue: app }), provide(Config, { useValue: config }), provide(Platform, { useValue: platform }), provide(FeatureDetect, { useValue: featureDetect }), provide(Events, { useValue: events }), provide(NavRegistry, { useValue: navRegistry }), Form, Keyboard, OverlayController, ActionSheet, Modal, Popup, Translate, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), HTTP_PROVIDERS];
+        return [provide(IonicApp, { useValue: app }), provide(Config, { useValue: config }), provide(Platform, { useValue: platform }), provide(FeatureDetect, { useValue: featureDetect }), provide(Events, { useValue: events }), provide(NavRegistry, { useValue: navRegistry }), Form, Keyboard, OverlayController, ActionSheet, Modal, Popup, Translate, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), HTTP_PROVIDERS];
     }
 
     function setupDom(window, document, config, platform, featureDetect) {
@@ -44038,8 +44032,6 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
             Platform = _platformPlatform.Platform;
         }, function (_componentsOverlayOverlayController) {
             OverlayController = _componentsOverlayOverlayController.OverlayController;
-        }, function (_utilFastdom) {
-            FastDom = _utilFastdom.FastDom;
         }, function (_utilForm) {
             Form = _utilForm.Form;
         }, function (_utilKeyboard) {
@@ -48474,6 +48466,8 @@ System.register('ionic/util/dom', [], function (_export) {
 
     _export('rafPromise', rafPromise);
 
+    _export('rafFrames', rafFrames);
+
     _export('transitionEnd', transitionEnd);
 
     _export('animationStart', animationStart);
@@ -48529,6 +48523,17 @@ System.register('ionic/util/dom', [], function (_export) {
         return new Promise(function (resolve) {
             return raf(resolve);
         });
+    }
+
+    function rafFrames(framesToWait, callback) {
+        framesToWait = Math.ceil(framesToWait);
+        if (framesToWait < 2) {
+            raf(callback);
+        } else {
+            setTimeout(function () {
+                raf(callback);
+            }, (framesToWait - 1) * 17);
+        }
     }
 
     function transitionEnd(el) {
@@ -48991,356 +48996,6 @@ System.register("ionic/util/events", ["angular2/angular2"], function (_export) {
             _export("Events", Events);
 
             _export("Events", Events = __decorate([Injectable(), __metadata('design:paramtypes', [])], Events));
-        }
-    };
-});
-System.register('ionic/util/fastdom', ['./dom'], function (_export) {
-    /**
-     * FastDom
-     *
-     * Eliminates layout thrashing
-     * by batching DOM read/write
-     * interactions.
-     *
-     * @author Wilson Page <wilsonpage@me.com>
-     */
-    /**
-     * Creates a fresh
-     * FastDom instance.
-     *
-     * @constructor
-     */
-    'use strict';
-
-    var raf;
-
-    /**
-     * Adds a job to the
-     * read batch and schedules
-     * a new frame if need be.
-     *
-     * @param  {Function} fn
-     * @public
-     */
-
-    _export('FastDom', FastDom);
-
-    function FastDom() {
-        this.frames = [];
-        this.lastId = 0;
-        // Placing the rAF method
-        // on the instance allows
-        // us to replace it with
-        // a stub for testing.
-        this.raf = raf;
-        this.batch = {
-            hash: {},
-            read: [],
-            write: [],
-            mode: null
-        };
-    }
-
-    return {
-        setters: [function (_dom) {
-            raf = _dom.raf;
-        }],
-        execute: function () {
-            FastDom.prototype.read = function (fn, ctx) {
-                var job = this.add('read', fn, ctx);
-                var id = job.id;
-                // Add this job to the read queue
-                this.batch.read.push(job.id);
-                // We should *not* schedule a new frame if:
-                // 1. We're 'reading'
-                // 2. A frame is already scheduled
-                var doesntNeedFrame = this.batch.mode === 'reading' || this.batch.scheduled;
-                // If a frame isn't needed, return
-                if (doesntNeedFrame) return id;
-                // Schedule a new
-                // frame, then return
-                this.scheduleBatch();
-                return id;
-            };
-            /**
-             * Adds a job to the
-             * write batch and schedules
-             * a new frame if need be.
-             *
-             * @param  {Function} fn
-             * @public
-             */
-            FastDom.prototype.write = function (fn, ctx) {
-                var job = this.add('write', fn, ctx);
-                var mode = this.batch.mode;
-                var id = job.id;
-                // Push the job id into the queue
-                this.batch.write.push(job.id);
-                // We should *not* schedule a new frame if:
-                // 1. We are 'writing'
-                // 2. We are 'reading'
-                // 3. A frame is already scheduled.
-                var doesntNeedFrame = mode === 'writing' || mode === 'reading' || this.batch.scheduled;
-                // If a frame isn't needed, return
-                if (doesntNeedFrame) return id;
-                // Schedule a new
-                // frame, then return
-                this.scheduleBatch();
-                return id;
-            };
-            /**
-             * Defers the given job
-             * by the number of frames
-             * specified.
-             *
-             * If no frames are given
-             * then the job is run in
-             * the next free frame.
-             *
-             * @param  {Number}   frame
-             * @param  {Function} fn
-             * @public
-             */
-            FastDom.prototype.defer = function (frame, fn, ctx) {
-                // Accepts two arguments
-                if (typeof frame === 'function') {
-                    ctx = fn;
-                    fn = frame;
-                    frame = 1;
-                }
-                var self = this;
-                var index = frame - 1;
-                return this.schedule(index, function () {
-                    self.run({
-                        fn: fn,
-                        ctx: ctx
-                    });
-                });
-            };
-            /**
-             * Clears a scheduled 'read',
-             * 'write' or 'defer' job.
-             *
-             * @param  {Number|String} id
-             * @public
-             */
-            FastDom.prototype.clear = function (id) {
-                // Defer jobs are cleared differently
-                if (typeof id === 'function') {
-                    return this.clearFrame(id);
-                }
-                // Allow ids to be passed as strings
-                id = Number(id);
-                var job = this.batch.hash[id];
-                if (!job) return;
-                var list = this.batch[job.type];
-                var index = list.indexOf(id);
-                // Clear references
-                delete this.batch.hash[id];
-                if (~index) list.splice(index, 1);
-            };
-            /**
-             * Clears a scheduled frame.
-             *
-             * @param  {Function} frame
-             * @private
-             */
-            FastDom.prototype.clearFrame = function (frame) {
-                var index = this.frames.indexOf(frame);
-                if (~index) this.frames.splice(index, 1);
-            };
-            /**
-             * Schedules a new read/write
-             * batch if one isn't pending.
-             *
-             * @private
-             */
-            FastDom.prototype.scheduleBatch = function () {
-                var self = this;
-                // Schedule batch for next frame
-                this.schedule(0, function () {
-                    self.batch.scheduled = false;
-                    self.runBatch();
-                });
-                // Set flag to indicate
-                // a frame has been scheduled
-                this.batch.scheduled = true;
-            };
-            /**
-             * Generates a unique
-             * id for a job.
-             *
-             * @return {Number}
-             * @private
-             */
-            FastDom.prototype.uniqueId = function () {
-                return ++this.lastId;
-            };
-            /**
-             * Calls each job in
-             * the list passed.
-             *
-             * If a context has been
-             * stored on the function
-             * then it is used, else the
-             * current `this` is used.
-             *
-             * @param  {Array} list
-             * @private
-             */
-            FastDom.prototype.flush = function (list) {
-                var id;
-                while (id = list.shift()) {
-                    this.run(this.batch.hash[id]);
-                }
-            };
-            /**
-             * Runs any 'read' jobs followed
-             * by any 'write' jobs.
-             *
-             * We run this inside a try catch
-             * so that if any jobs error, we
-             * are able to recover and continue
-             * to flush the batch until it's empty.
-             *
-             * @private
-             */
-            FastDom.prototype.runBatch = function () {
-                try {
-                    // Set the mode to 'reading',
-                    // then empty all read jobs
-                    this.batch.mode = 'reading';
-                    this.flush(this.batch.read);
-                    // Set the mode to 'writing'
-                    // then empty all write jobs
-                    this.batch.mode = 'writing';
-                    this.flush(this.batch.write);
-                    this.batch.mode = null;
-                } catch (e) {
-                    this.runBatch();
-                    throw e;
-                }
-            };
-            /**
-             * Adds a new job to
-             * the given batch.
-             *
-             * @param {Array}   list
-             * @param {Function} fn
-             * @param {Object}   ctx
-             * @returns {Number} id
-             * @private
-             */
-            FastDom.prototype.add = function (type, fn, ctx) {
-                var id = this.uniqueId();
-                return this.batch.hash[id] = {
-                    id: id,
-                    fn: fn,
-                    ctx: ctx,
-                    type: type
-                };
-            };
-            /**
-             * Runs a given job.
-             *
-             * Applications using FastDom
-             * have the options of setting
-             * `fastdom.onError`.
-             *
-             * This will catch any
-             * errors that may throw
-             * inside callbacks, which
-             * is useful as often DOM
-             * nodes have been removed
-             * since a job was scheduled.
-             *
-             * Example:
-             *
-             *   fastdom.onError = function(e) {
-             *     // Runs when jobs error
-             *   };
-             *
-             * @param  {Object} job
-             * @private
-             */
-            FastDom.prototype.run = function (job) {
-                var ctx = job.ctx || this;
-                var fn = job.fn;
-                // Clear reference to the job
-                delete this.batch.hash[job.id];
-                // If no `onError` handler
-                // has been registered, just
-                // run the job normally.
-                if (!this.onError) {
-                    return fn.call(ctx);
-                }
-                // If an `onError` handler
-                // has been registered, catch
-                // errors that throw inside
-                // callbacks, and run the
-                // handler instead.
-                try {
-                    fn.call(ctx);
-                } catch (e) {
-                    this.onError(e);
-                }
-            };
-            /**
-             * Starts a rAF loop
-             * to empty the frame queue.
-             *
-             * @private
-             */
-            FastDom.prototype.loop = function () {
-                var self = this;
-                var raf = this.raf;
-                // Don't start more than one loop
-                if (this.looping) return;
-                raf(function frame() {
-                    var fn = self.frames.shift();
-                    // If no more frames,
-                    // stop looping
-                    if (!self.frames.length) {
-                        self.looping = false;
-                    } else {
-                        raf(frame);
-                    }
-                    // Run the frame.  Note that
-                    // this may throw an error
-                    // in user code, but all
-                    // fastdom tasks are dealt
-                    // with already so the code
-                    // will continue to iterate
-                    if (fn) fn();
-                });
-                this.looping = true;
-            };
-            /**
-             * Adds a function to
-             * a specified index
-             * of the frame queue.
-             *
-             * @param  {Number}   index
-             * @param  {Function} fn
-             * @return {Function}
-             * @private
-             */
-            FastDom.prototype.schedule = function (index, fn) {
-                // Make sure this slot
-                // hasn't already been
-                // taken. If it has, try
-                // re-scheduling for the next slot
-                if (this.frames[index]) {
-                    return this.schedule(index + 1, fn);
-                }
-                // Start the rAF
-                // loop to empty
-                // the frame queue
-                this.loop();
-                // Insert this function into
-                // the frames queue and return
-                return this.frames[index] = fn;
-            };
         }
     };
 });
@@ -50323,14 +49978,14 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
         }
     };
 });
-System.register('ionic/components/app/app', ['angular2/angular2', '../../util/click-block'], function (_export) {
+System.register('ionic/components/app/app', ['angular2/angular2', '../../util/dom', '../../util/click-block'], function (_export) {
     /**
      * Component registry service.  For more information on registering
      * components see the [IdRef API reference](../id/IdRef/).
      */
     'use strict';
 
-    var Title, ClickBlock, IonicApp;
+    var Title, rafFrames, ClickBlock, IonicApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -50339,16 +49994,17 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
     return {
         setters: [function (_angular2Angular2) {
             Title = _angular2Angular2.Title;
+        }, function (_utilDom) {
+            rafFrames = _utilDom.rafFrames;
         }, function (_utilClickBlock) {
             ClickBlock = _utilClickBlock.ClickBlock;
         }],
         execute: function () {
             IonicApp = (function () {
-                function IonicApp(config, fastdom) {
+                function IonicApp(config) {
                     _classCallCheck(this, IonicApp);
 
                     this._config = config;
-                    this._fastdom = fastdom;
                     this._titleSrv = new Title();
                     this._title = '';
                     this._disTime = 0;
@@ -50369,7 +50025,7 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/cl
 
                         if (val !== this._title) {
                             this._title = val;
-                            this._fastdom.defer(4, function () {
+                            rafFrames(4, function () {
                                 _this._titleSrv.setTitle(_this._title);
                             });
                         }
@@ -59742,24 +59398,25 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
         }
     };
 });
-System.register('ionic/components/tap-click/activator', [], function (_export) {
+System.register('ionic/components/tap-click/activator', ['../../util/dom'], function (_export) {
     'use strict';
 
-    var Activator;
+    var rafFrames, Activator;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [],
+        setters: [function (_utilDom) {
+            rafFrames = _utilDom.rafFrames;
+        }],
         execute: function () {
             Activator = (function () {
-                function Activator(app, config, fastdom) {
+                function Activator(app, config) {
                     _classCallCheck(this, Activator);
 
                     this.app = app;
-                    this.fastdom = fastdom;
                     this.queue = [];
                     this.active = [];
                     this.clearStateDefers = 5;
@@ -59781,7 +59438,7 @@ System.register('ionic/components/tap-click/activator', [], function (_export) {
                         this.y = pointerY;
                         // queue to have this element activated
                         this.queue.push(activatableEle);
-                        this.fastdom.write(function () {
+                        rafFrames(2, function () {
                             var activatableEle = undefined;
                             for (var i = 0; i < _this.queue.length; i++) {
                                 activatableEle = _this.queue[i];
@@ -59800,38 +59457,40 @@ System.register('ionic/components/tap-click/activator', [], function (_export) {
                         var _this2 = this;
 
                         // the user was pressing down, then just let up
-                        this.fastdom.defer(this.clearStateDefers, function () {
+                        rafFrames(this.clearStateDefers, function () {
                             _this2.clearState();
                         });
                     }
                 }, {
                     key: 'clearState',
                     value: function clearState() {
+                        var _this3 = this;
+
                         // all states should return to normal
-                        if ((!this.app.isEnabled() || this.app.isTransitioning()) && this.clearAttempt < 100) {
+                        if (!this.app.isEnabled() || this.app.isTransitioning()) {
                             // the app is actively disabled, so don't bother deactivating anything.
                             // this makes it easier on the GPU so it doesn't have to redraw any
                             // buttons during a transition. This will retry in XX milliseconds.
-                            ++this.clearAttempt;
-                            this.upAction();
+                            setTimeout(function () {
+                                _this3.clearState();
+                            }, 600);
                         } else {
                             // not actively transitioning, good to deactivate any elements
                             this.deactivate();
-                            this.clearAttempt = 0;
                         }
                     }
                 }, {
                     key: 'deactivate',
                     value: function deactivate() {
-                        var _this3 = this;
+                        var _this4 = this;
 
                         // remove the active class from all active elements
                         this.queue = [];
-                        this.fastdom.write(function () {
-                            for (var i = 0; i < _this3.active.length; i++) {
-                                _this3.active[i].classList.remove(_this3.activatedClass);
+                        rafFrames(2, function () {
+                            for (var i = 0; i < _this4.active.length; i++) {
+                                _this4.active[i].classList.remove(_this4.activatedClass);
                             }
-                            _this3.active = [];
+                            _this4.active = [];
                         });
                     }
                 }, {
@@ -59855,10 +59514,10 @@ System.register('ionic/components/tap-click/activator', [], function (_export) {
         }
     };
 });
-System.register('ionic/components/tap-click/ripple', ['./activator', '../../animations/animation'], function (_export) {
+System.register('ionic/components/tap-click/ripple', ['./activator', '../../animations/animation', '../../util/dom'], function (_export) {
     'use strict';
 
-    var Activator, Animation, RippleActivator, TOUCH_DOWN_ACCEL, EXPAND_DOWN_PLAYBACK_RATE, EXPAND_OUT_PLAYBACK_RATE, FADE_OUT_DURATION;
+    var Activator, Animation, raf, rafFrames, RippleActivator, TOUCH_DOWN_ACCEL, EXPAND_DOWN_PLAYBACK_RATE, EXPAND_OUT_PLAYBACK_RATE, FADE_OUT_DURATION;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -59873,15 +59532,18 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../anim
             Activator = _activator.Activator;
         }, function (_animationsAnimation) {
             Animation = _animationsAnimation.Animation;
+        }, function (_utilDom) {
+            raf = _utilDom.raf;
+            rafFrames = _utilDom.rafFrames;
         }],
         execute: function () {
             RippleActivator = (function (_Activator) {
                 _inherits(RippleActivator, _Activator);
 
-                function RippleActivator(app, config, fastdom) {
+                function RippleActivator(app, config) {
                     _classCallCheck(this, RippleActivator);
 
-                    _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config, fastdom);
+                    _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config);
                     this.expands = {};
                     this.fades = {};
                     this.expandSpeed = null;
@@ -59895,12 +59557,10 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../anim
                         if (_get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY)) {
                             // create a new ripple element
                             this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
-                            this.fastdom.defer(2, function () {
-                                _this.fastdom.read(function () {
-                                    var clientRect = activatableEle.getBoundingClientRect();
-                                    _this.fastdom.write(function () {
-                                        _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
-                                    });
+                            rafFrames(2, function () {
+                                var clientRect = activatableEle.getBoundingClientRect();
+                                raf(function () {
+                                    _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
                                 });
                             });
                         }
@@ -59928,7 +59588,7 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../anim
                         // create the animation for the fade out, but don't start it yet
                         this.fades[rippleId] = new Animation(rippleEle, { renderDelay: 0 });
                         this.fades[rippleId].fadeOut().duration(FADE_OUT_DURATION).playbackRate(1).onFinish(function () {
-                            _this2.fastdom.write(function () {
+                            raf(function () {
                                 _this2.fades[rippleId].dispose(true);
                                 delete _this2.fades[rippleId];
                             });
@@ -59949,7 +59609,7 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../anim
 
                         this.deactivate();
                         this.expandSpeed = 1;
-                        this.fastdom.defer(4, function () {
+                        rafFrames(4, function () {
                             _this3.next();
                         });
                     }
@@ -60009,14 +59669,14 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
      * @private
      */
 
-    function initTapClick(windowInstance, documentInstance, appInstance, config, fastdom) {
+    function initTapClick(windowInstance, documentInstance, appInstance, config) {
         win = windowInstance;
         doc = documentInstance;
         app = appInstance;
         if (config.get('activator') == 'ripple') {
-            activator = new RippleActivator(app, config, fastdom);
+            activator = new RippleActivator(app, config);
         } else if (config.get('activator') == 'highlight') {
-            activator = new Activator(app, config, fastdom);
+            activator = new Activator(app, config);
         }
         isTapPolyfill = config.get('tapPolyfill') === true;
         addListener('click', click, true);

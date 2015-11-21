@@ -5981,7 +5981,9 @@ System.register('ionic/util/click-block', [], function (_export) {
 System.register('ionic/util/dom', [], function (_export) {
     'use strict';
 
-    var nativeRaf, nativeCancelRaf, raf, rafCancel, CSS, matchesFn, dimensionCache, dimensionIds;
+    var nativeRaf, nativeCancelRaf, _raf, rafCancel, CSS, matchesFn, dimensionCache, dimensionIds;
+
+    _export('raf', raf);
 
     _export('rafPromise', rafPromise);
 
@@ -6037,6 +6039,11 @@ System.register('ionic/util/dom', [], function (_export) {
     _export('position', position);
 
     _export('offset', offset);
+
+    function raf(callback) {
+        //console.log('raf', callback.toString().replace(/\s/g, '').replace('function', '').substring(0, 50));
+        _raf(callback);
+    }
 
     function rafPromise() {
         return new Promise(function (resolve) {
@@ -6302,7 +6309,7 @@ System.register('ionic/util/dom', [], function (_export) {
             nativeRaf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
             nativeCancelRaf = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.webkitCancelRequestAnimationFrame;
 
-            raf = nativeRaf || function (callback) {
+            _raf = nativeRaf || function (callback) {
                 var timeCurrent = new Date().getTime(),
                     timeDelta = undefined;
                 /* Dynamically set delay on a per-tick basis to match 60fps. */
@@ -6313,8 +6320,6 @@ System.register('ionic/util/dom', [], function (_export) {
                     callback(timeCurrent + timeDelta);
                 }, timeDelta);
             };
-
-            _export('raf', raf);
 
             rafCancel = nativeRaf ? nativeCancelRaf : function (id) {
                 return window.cancelTimeout(id);
@@ -6562,12 +6567,12 @@ System.register('ionic/util/feature-detect', [], function (_export) {
 
             featureDetects = {};
 
-            FeatureDetect.add('sticky', function (window, document) {
-                // css position sticky
-                var ele = document.createElement('div');
-                ele.style.cssText = 'position:-webkit-sticky;position:sticky';
-                return ele.style.position.indexOf('sticky') > -1;
-            });
+            // FeatureDetect.add('sticky', function(window, document) {
+            //   // css position sticky
+            //   let ele = document.createElement('div');
+            //   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
+            //   return ele.style.position.indexOf('sticky') > -1;
+            // });
             FeatureDetect.add('hairlines', function (window, document, body) {
                 /**
                 * Hairline Shim
@@ -7540,13 +7545,15 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/do
                 _createClass(IonicApp, [{
                     key: 'setTitle',
                     value: function setTitle(val) {
-                        var _this = this;
+                        var self = this;
+                        if (val !== self._title) {
+                            var setAppTitle = function setAppTitle() {
+                                self._titleSrv.setTitle(self._title);
+                            };
 
-                        if (val !== this._title) {
-                            this._title = val;
-                            rafFrames(4, function () {
-                                _this._titleSrv.setTitle(_this._title);
-                            });
+                            self._title = val;
+
+                            rafFrames(4, setAppTitle);
                         }
                     }
 
@@ -10604,7 +10611,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
         }
     };
 });
-System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '../ion', './view-controller', '../../transitions/transition', './swipe-back', 'ionic/util', '../../util/dom'], function (_export) {
+System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '../ion', './view-controller', '../../transitions/transition', './swipe-back', 'ionic/util'], function (_export) {
     /**
      * _For examples on the basic usage of NavController, check out the [Navigation section](../../../../components/#navigation)
      * of the Component docs._
@@ -10697,7 +10704,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
      */
     'use strict';
 
-    var Injector, provide, Ion, ViewController, Transition, SwipeBackGesture, util, raf, NavController, ACTIVE_STATE, CACHED_STATE, STAGED_ENTERING_STATE, STAGED_LEAVING_STATE, ctrlIds, NavParams;
+    var Injector, provide, Ion, ViewController, Transition, SwipeBackGesture, util, NavController, ACTIVE_STATE, CACHED_STATE, STAGED_ENTERING_STATE, STAGED_LEAVING_STATE, ctrlIds, NavParams;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -10721,8 +10728,6 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
             SwipeBackGesture = _swipeBack.SwipeBackGesture;
         }, function (_ionicUtil) {
             util = _ionicUtil;
-        }, function (_utilDom) {
-            raf = _utilDom.raf;
         }],
         execute: function () {
             NavController = (function (_Ion) {
@@ -10761,8 +10766,6 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 _createClass(NavController, [{
                     key: 'push',
                     value: function push(componentType) {
-                        var _this = this;
-
                         var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
                         var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
@@ -10796,9 +10799,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         // add the view to the stack
                         this._add(enteringView);
                         if (opts.preCleanup !== false) {
-                            raf(function () {
-                                _this._cleanup(enteringView);
-                            });
+                            this._cleanup(enteringView);
                         }
                         if (this.router) {
                             // notify router of the state change
@@ -11047,7 +11048,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_transition',
                     value: function _transition(enteringView, leavingView, opts, done) {
-                        var _this2 = this;
+                        var _this = this;
 
                         if (!enteringView || enteringView === leavingView) {
                             return done();
@@ -11064,8 +11065,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 // already marked as a view that will be destroyed, don't continue
                                 return done();
                             }
-                            _this2._setZIndex(enteringView.instance, leavingView && leavingView.instance, opts.direction);
-                            _this2._zone.runOutsideAngular(function () {
+                            _this._setZIndex(enteringView.instance, leavingView && leavingView.instance, opts.direction);
+                            _this._zone.runOutsideAngular(function () {
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;
                                 if (!opts.preload) {
@@ -11077,8 +11078,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the transition animation
-                                opts.renderDelay = _this2.config.get('pageTransitionDelay');
-                                var transAnimation = Transition.create(_this2, opts);
+                                opts.renderDelay = _this.config.get('pageTransitionDelay');
+                                var transAnimation = Transition.create(_this, opts);
                                 if (opts.animate === false) {
                                     // force it to not animate the elements, just apply the "to" styles
                                     transAnimation.clearDuration();
@@ -11088,8 +11089,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 if (duration > 64) {
                                     // block any clicks during the transition and provide a
                                     // fallback to remove the clickblock if something goes wrong
-                                    _this2.app.setEnabled(false, duration);
-                                    _this2.app.setTransitioning(true, duration);
+                                    _this.app.setEnabled(false, duration);
+                                    _this.app.setTransitioning(true, duration);
                                 }
                                 // start the transition
                                 transAnimation.play(function () {
@@ -11103,8 +11104,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                         leavingView.didLeave();
                                     }
                                     // all done!
-                                    _this2._zone.run(function () {
-                                        _this2._transComplete();
+                                    _this._zone.run(function () {
+                                        _this._transComplete();
                                         done();
                                     });
                                 });
@@ -11137,7 +11138,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'loadPage',
                     value: function loadPage(viewCtrl, navbarContainerRef, done) {
-                        var _this3 = this;
+                        var _this2 = this;
 
                         var providers = this.providers.concat(Injector.resolve([provide(ViewController, { useValue: viewCtrl }), provide(NavParams, { useValue: viewCtrl.params })]));
                         console.time('loadPage ' + viewCtrl.componentType.name + ': loadIntoLocation');
@@ -11168,10 +11169,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     });
                                 })();
                             }
-                            if (_this3._views.length === 1) {
-                                _this3._zone.runOutsideAngular(function () {
+                            if (_this2._views.length === 1) {
+                                _this2._zone.runOutsideAngular(function () {
                                     setTimeout(function () {
-                                        _this3.renderer.setElementClass(_this3.elementRef, 'has-views', true);
+                                        _this2.renderer.setElementClass(_this2.elementRef, 'has-views', true);
                                     }, 200);
                                 });
                             }
@@ -11199,7 +11200,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackStart',
                     value: function swipeBackStart() {
-                        var _this4 = this;
+                        var _this3 = this;
 
                         return;
                         if (!this.app.isEnabled() || !this.canSwipeBack()) {
@@ -11226,14 +11227,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         enteringView.willEnter();
                         // wait for the new view to complete setup
                         enteringView._stage(function () {
-                            _this4._zone.runOutsideAngular(function () {
+                            _this3._zone.runOutsideAngular(function () {
                                 // set that the new view pushed on the stack is staged to be entering/leaving
                                 // staged state is important for the transition to find the correct view
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the swipe back transition animation
-                                _this4._sbTrans = Transition.create(_this4, opts);
-                                _this4._sbTrans.easing('linear').progressStart();
+                                _this3._sbTrans = Transition.create(_this3, opts);
+                                _this3._sbTrans.easing('linear').progressStart();
                             });
                         });
                     }
@@ -11264,7 +11265,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackEnd',
                     value: function swipeBackEnd(completeSwipeBack, rate) {
-                        var _this5 = this;
+                        var _this4 = this;
 
                         return;
                         if (!this._sbTrans) return;
@@ -11272,10 +11273,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this.app.setEnabled(false);
                         this.app.setTransitioning(true);
                         this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
-                            _this5._zone.run(function () {
+                            _this4._zone.run(function () {
                                 // find the views that were entering and leaving
-                                var enteringView = _this5.getStagedEnteringView();
-                                var leavingView = _this5.getStagedLeavingView();
+                                var enteringView = _this4.getStagedEnteringView();
+                                var leavingView = _this4.getStagedLeavingView();
                                 if (enteringView && leavingView) {
                                     // finish up the animation
                                     if (completeSwipeBack) {
@@ -11285,9 +11286,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                         leavingView.state = CACHED_STATE;
                                         enteringView.didEnter();
                                         leavingView.didLeave();
-                                        if (_this5.router) {
+                                        if (_this4.router) {
                                             // notify router of the pop state change
-                                            _this5.router.stateChange('pop', enteringView);
+                                            _this4.router.stateChange('pop', enteringView);
                                         }
                                     } else {
                                         // cancelled the swipe back, they didn't end up going back
@@ -11302,10 +11303,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     }
                                 }
                                 // empty out and dispose the swipe back transition animation
-                                _this5._sbTrans && _this5._sbTrans.dispose();
-                                _this5._sbTrans = null;
+                                _this4._sbTrans && _this4._sbTrans.dispose();
+                                _this4._sbTrans = null;
                                 // all done!
-                                _this5._transComplete();
+                                _this4._transComplete();
                             });
                         });
                     }
@@ -11388,8 +11389,6 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_transComplete',
                     value: function _transComplete() {
-                        var _this6 = this;
-
                         this._views.forEach(function (view) {
                             if (view) {
                                 if (view.shouldDestroy) {
@@ -11404,14 +11403,12 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this.app.setEnabled(true);
                         this.app.setTransitioning(false);
                         this._sbComplete();
-                        raf(function () {
-                            _this6._cleanup();
-                        });
+                        this._cleanup();
                     }
                 }, {
                     key: '_cleanup',
                     value: function _cleanup(activeView) {
-                        var _this7 = this;
+                        var _this5 = this;
 
                         // the active view, and the previous view, should be rendered in dom and ready to go
                         // all others, like a cached page 2 back, should be display: none and not rendered
@@ -11432,7 +11429,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         // all views being destroyed should be removed from the list of views
                         // and completely removed from the dom
                         destroys.forEach(function (view) {
-                            _this7._remove(view);
+                            _this5._remove(view);
                             view.destroy();
                         });
                     }
@@ -16958,42 +16955,42 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                 _createClass(Activator, [{
                     key: 'downAction',
                     value: function downAction(ev, activatableEle, pointerX, pointerY, callback) {
-                        var _this = this;
-
                         // the user just pressed down
-                        if (this.disableActivated(ev)) return false;
+                        var self = this;
+                        if (self.disableActivated(ev)) return false;
                         // remember where they pressed
-                        this.x = pointerX;
-                        this.y = pointerY;
+                        self.x = pointerX;
+                        self.y = pointerY;
                         // queue to have this element activated
-                        this.queue.push(activatableEle);
-                        rafFrames(2, function () {
+                        self.queue.push(activatableEle);
+                        function activateCss() {
                             var activatableEle = undefined;
-                            for (var i = 0; i < _this.queue.length; i++) {
-                                activatableEle = _this.queue[i];
+                            for (var i = 0; i < self.queue.length; i++) {
+                                activatableEle = self.queue[i];
                                 if (activatableEle && activatableEle.parentNode) {
-                                    _this.active.push(activatableEle);
-                                    activatableEle.classList.add(_this.activatedClass);
+                                    self.active.push(activatableEle);
+                                    activatableEle.classList.add(self.activatedClass);
                                 }
                             }
-                            _this.queue = [];
-                        });
+                            self.queue = [];
+                        }
+                        rafFrames(2, activateCss);
                         return true;
                     }
                 }, {
                     key: 'upAction',
                     value: function upAction() {
-                        var _this2 = this;
-
                         // the user was pressing down, then just let up
-                        rafFrames(this.clearStateDefers, function () {
-                            _this2.clearState();
-                        });
+                        var self = this;
+                        function activateUp() {
+                            self.clearState();
+                        }
+                        rafFrames(self.clearStateDefers, activateUp);
                     }
                 }, {
                     key: 'clearState',
                     value: function clearState() {
-                        var _this3 = this;
+                        var _this = this;
 
                         // all states should return to normal
                         if (!this.app.isEnabled() || this.app.isTransitioning()) {
@@ -17001,7 +16998,7 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                             // this makes it easier on the GPU so it doesn't have to redraw any
                             // buttons during a transition. This will retry in XX milliseconds.
                             setTimeout(function () {
-                                _this3.clearState();
+                                _this.clearState();
                             }, 600);
                         } else {
                             // not actively transitioning, good to deactivate any elements
@@ -17011,16 +17008,16 @@ System.register('ionic/components/tap-click/activator', ['../../util/dom'], func
                 }, {
                     key: 'deactivate',
                     value: function deactivate() {
-                        var _this4 = this;
-
                         // remove the active class from all active elements
-                        this.queue = [];
-                        rafFrames(2, function () {
-                            for (var i = 0; i < _this4.active.length; i++) {
-                                _this4.active[i].classList.remove(_this4.activatedClass);
+                        var self = this;
+                        self.queue = [];
+                        function deactivate() {
+                            for (var i = 0; i < self.active.length; i++) {
+                                self.active[i].classList.remove(self.activatedClass);
                             }
-                            _this4.active = [];
-                        });
+                            self.active = [];
+                        }
+                        rafFrames(2, deactivate);
                     }
                 }, {
                     key: 'disableActivated',

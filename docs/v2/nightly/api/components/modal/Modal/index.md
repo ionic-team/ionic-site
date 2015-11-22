@@ -41,11 +41,13 @@ docType: "class"
 Usually used for making a choice or editing an item. A modal can be opened
 similar to how NavController#push works, where you pass it a Page component,
 along with optional Page params, and options for presenting the modal.</p>
+<p>The <code>modal.open()</code> function can receive an object as the second argument that will be passed to the modal. For example, <code>modal.open(MyModal, {data: 7})</code> will open and pass a data object to <code>MyModal</code>.
+Inside of <code>MyModal</code>, this data can be accessed through the modal&#39;s <code>_defaults</code> property (eg: <code>this.modal._defaults</code>).</p>
 
 
 <h1 class="class export">Modal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L69">ionic/components/modal/modal.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L74">ionic/components/modal/modal.ts (line 6)</a>
 </p>
 ## Members
 

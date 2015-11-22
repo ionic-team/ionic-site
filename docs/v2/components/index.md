@@ -790,7 +790,7 @@ class MyPage {
 }
 ```
 
-The `modal.open()` function also be receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.
+The `modal.open()` function can also receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.
 
 <h2 id="modes" class="section-header">Modes</h2>
 

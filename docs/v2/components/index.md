@@ -789,6 +789,9 @@ class MyPage {
 
 }
 ```
+
+The `modal.open()` function also be receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.
+
 <h2 id="modes" class="section-header">Modes</h2>
 
 Modes allow you to configure an app's interaction and behavior. Like platform continuity in V1, V2's modes go a step further by allowing for completely different experience based on the current platform.

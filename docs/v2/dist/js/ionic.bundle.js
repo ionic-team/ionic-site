@@ -55352,15 +55352,27 @@ System.register('ionic/components/overlay/overlay-controller', ['ionic/util'], f
                         });
                         opts.animation = opts.enterAnimation;
                         opts.animateFirst = true;
-                        this.nav.push(componentType, params, opts).then(function (enteringView) {
-                            if (enteringView && enteringView.instance) {
-                                enteringView.instance.close = function () {
-                                    var closeOpts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+                        this.nav.push(componentType, params, opts).then(function (viewCtrl) {
+                            if (viewCtrl && viewCtrl.instance) {
+                                (function () {
+                                    var escape = function escape(ev) {
+                                        if (ev.keyCode == 27 && self.nav.last() === viewCtrl) {
+                                            viewCtrl.instance.close();
+                                        }
+                                    };
 
-                                    extend(opts, closeOpts);
-                                    opts.animation = opts.leaveAnimation;
-                                    _this.nav.pop(opts);
-                                };
+                                    var self = _this;
+
+                                    viewCtrl.instance.close = function () {
+                                        var closeOpts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+                                        extend(opts, closeOpts);
+                                        opts.animation = opts.leaveAnimation;
+                                        _this.nav.pop(opts);
+                                        document.removeEventListener('keyup', escape, true);
+                                    };
+                                    document.addEventListener('keyup', escape, true);
+                                })();
                             }
                             resolve();
                         });

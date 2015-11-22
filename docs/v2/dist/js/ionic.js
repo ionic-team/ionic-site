@@ -175,7 +175,7 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
     execute: function () {}
   };
 });
-System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './transitions/transition', './transitions/ios-transition', './transitions/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
+System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './animations/ios-transition', './animations/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
   'use strict';
 
   return {
@@ -231,25 +231,21 @@ System.register('ionic/ionic', ['./config/bootstrap', './config/config', './conf
       for (var _key13 in _animationsBuiltins) {
         if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
       }
-    }, function (_transitionsTransition) {
-      for (var _key14 in _transitionsTransition) {
-        if (_key14 !== 'default') _export(_key14, _transitionsTransition[_key14]);
+    }, function (_animationsIosTransition) {
+      for (var _key14 in _animationsIosTransition) {
+        if (_key14 !== 'default') _export(_key14, _animationsIosTransition[_key14]);
       }
-    }, function (_transitionsIosTransition) {
-      for (var _key15 in _transitionsIosTransition) {
-        if (_key15 !== 'default') _export(_key15, _transitionsIosTransition[_key15]);
-      }
-    }, function (_transitionsMdTransition) {
-      for (var _key16 in _transitionsMdTransition) {
-        if (_key16 !== 'default') _export(_key16, _transitionsMdTransition[_key16]);
+    }, function (_animationsMdTransition) {
+      for (var _key15 in _animationsMdTransition) {
+        if (_key15 !== 'default') _export(_key15, _animationsMdTransition[_key15]);
       }
     }, function (_translationTranslate) {
-      for (var _key17 in _translationTranslate) {
-        if (_key17 !== 'default') _export(_key17, _translationTranslate[_key17]);
+      for (var _key16 in _translationTranslate) {
+        if (_key16 !== 'default') _export(_key16, _translationTranslate[_key16]);
       }
     }, function (_translationTranslate_pipe) {
-      for (var _key18 in _translationTranslate_pipe) {
-        if (_key18 !== 'default') _export(_key18, _translationTranslate_pipe[_key18]);
+      for (var _key17 in _translationTranslate_pipe) {
+        if (_key17 !== 'default') _export(_key17, _translationTranslate_pipe[_key17]);
       }
     }],
     execute: function () {}
@@ -396,13 +392,14 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
     function parallel(tasks, done) {
         var l = tasks.length;
         if (!l) {
-            return done();
+            done && done();
+            return;
         }
         var completed = 0;
         function taskCompleted() {
             completed++;
             if (completed === l) {
-                done();
+                done && done();
             }
         }
         for (var i = 0; i < l; i++) {
@@ -626,10 +623,10 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                                 });
                             }
 
-                            if (self._duration > 16 && this._opts.renderDelay > 0) {
+                            if (self._duration > 16 && self._opts.renderDelay > 0) {
                                 // begin each animation when everything is rendered in their starting point
                                 // give the browser some time to render everything in place before starting
-                                rafFrames(this._opts.renderDelay / 16, kickoff);
+                                rafFrames(self._opts.renderDelay / 16, kickoff);
                             } else {
                                 // no need to render everything in there place before animating in
                                 // just kick it off immediately to render them in their "to" locations
@@ -921,6 +918,18 @@ System.register('ionic/animations/animation', ['../util/dom', '../util/util'], f
                             AnimationClass = Animation;
                         }
                         return new AnimationClass(element);
+                    }
+                }, {
+                    key: 'createTransition',
+                    value: function createTransition(enteringView, leavingView) {
+                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+                        var name = opts.animation || 'ios-transition';
+                        var TransitionClass = AnimationRegistry[name];
+                        if (!TransitionClass) {
+                            TransitionClass = Animation;
+                        }
+                        return new TransitionClass(enteringView, leavingView, opts);
                     }
                 }, {
                     key: 'register',
@@ -1228,6 +1237,225 @@ System.register('ionic/animations/builtins', ['./animation'], function (_export)
             })(Animation);
 
             Animation.register('fade-out', FadeOut);
+        }
+    };
+});
+System.register('ionic/animations/ios-transition', ['./animation'], function (_export) {
+    'use strict';
+
+    var Animation, DURATION, EASING, OPACITY, TRANSLATEX, OFF_RIGHT, OFF_LEFT, CENTER, OFF_OPACITY, SHOW_BACK_BTN_CSS, IOSTransition;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_animation) {
+            Animation = _animation.Animation;
+        }],
+        execute: function () {
+            DURATION = 550;
+            EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
+            OPACITY = 'opacity';
+            TRANSLATEX = 'translateX';
+            OFF_RIGHT = '99.5%';
+            OFF_LEFT = '-33%';
+            CENTER = '0%';
+            OFF_OPACITY = 0.8;
+            SHOW_BACK_BTN_CSS = 'show-back-button';
+
+            IOSTransition = (function (_Animation) {
+                _inherits(IOSTransition, _Animation);
+
+                function IOSTransition(enteringView, leavingView, opts) {
+                    _classCallCheck(this, IOSTransition);
+
+                    _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, null, opts);
+                    this.duration(DURATION);
+                    this.easing(EASING);
+                    // what direction is the transition going
+                    var backDirection = opts.direction === 'back';
+                    // do they have navbars?
+                    var enteringHasNavbar = enteringView.hasNavbar();
+                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+                    var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
+                    this.add(enteringPage);
+                    // entering content
+                    var enteringContent = new Animation(enteringView.contentRef());
+                    this.add(enteringContent);
+                    if (backDirection) {
+                        // entering content, back direction
+                        enteringContent.fromTo(TRANSLATEX, OFF_LEFT, CENTER).fromTo(OPACITY, OFF_OPACITY, 1);
+                    } else {
+                        // entering content, forward direction
+                        enteringContent.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
+                    }
+                    if (enteringHasNavbar) {
+                        // entering page has a navbar
+                        var enteringNavBar = new Animation(enteringView.navbarRef());
+                        this.add(enteringNavBar);
+                        var enteringTitle = new Animation(enteringView.titleRef());
+                        var enteringNavbarItems = new Animation(enteringView.navbarItemRefs());
+                        var enteringNavbarBg = new Animation(enteringView.navbarBgRef());
+                        var enteringBackButton = new Animation(enteringView.backBtnRef());
+                        enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
+                        enteringTitle.fadeIn();
+                        enteringNavbarItems.fadeIn();
+                        // set properties depending on direction
+                        if (backDirection) {
+                            // entering navbar, back direction
+                            enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+                            if (enteringView.enableBack()) {
+                                // back direction, entering page has a back button
+                                enteringBackButton.fadeIn();
+                            }
+                        } else {
+                            // entering navbar, forward direction
+                            enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
+                            if (leavingHasNavbar) {
+                                // entering navbar, forward direction, and there's a leaving navbar
+                                // should just fade in, no sliding
+                                enteringNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeIn();
+                            } else {
+                                // entering navbar, forward direction, and there's no leaving navbar
+                                // should just slide in, no fading in
+                                enteringNavbarBg.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
+                            }
+                            if (enteringView.enableBack()) {
+                                // forward direction, entering page has a back button
+                                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS).fadeIn();
+                                var enteringBackBtnText = new Animation(enteringView.backBtnTextRef());
+                                enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
+                                enteringNavBar.add(enteringBackBtnText);
+                            } else {
+                                enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
+                            }
+                        }
+                    }
+                    // setup leaving view
+                    if (leavingView) {
+                        // leaving content
+                        var leavingContent = new Animation(leavingView.contentRef());
+                        this.add(leavingContent);
+                        if (backDirection) {
+                            // leaving content, back direction
+                            leavingContent.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
+                        } else {
+                            // leaving content, forward direction
+                            leavingContent.fromTo(TRANSLATEX, CENTER, OFF_LEFT).fromTo(OPACITY, 1, OFF_OPACITY);
+                        }
+                        if (leavingHasNavbar) {
+                            // leaving page has a navbar
+                            var leavingNavBar = new Animation(leavingView.navbarRef());
+                            var leavingBackButton = new Animation(leavingView.backBtnRef());
+                            var leavingTitle = new Animation(leavingView.titleRef());
+                            var leavingNavbarItems = new Animation(leavingView.navbarItemRefs());
+                            var leavingNavbarBg = new Animation(leavingView.navbarBgRef());
+                            leavingNavBar.add(leavingBackButton).add(leavingTitle).add(leavingNavbarItems).add(leavingNavbarBg);
+                            this.add(leavingNavBar);
+                            // fade out leaving navbar items
+                            leavingBackButton.fadeOut();
+                            leavingTitle.fadeOut();
+                            leavingNavbarItems.fadeOut();
+                            if (backDirection) {
+                                // leaving navbar, back direction
+                                leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
+                                if (enteringHasNavbar) {
+                                    // leaving navbar, back direction, and there's an entering navbar
+                                    // should just fade out, no sliding
+                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeOut();
+                                } else {
+                                    // leaving navbar, back direction, and there's no entering navbar
+                                    // should just slide out, no fading out
+                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
+                                }
+                                var leavingBackBtnText = new Animation(leavingView.backBtnTextRef());
+                                leavingBackBtnText.fromTo(TRANSLATEX, CENTER, 300 + 'px');
+                                leavingNavBar.add(leavingBackBtnText);
+                            } else {
+                                // leaving navbar, forward direction
+                                leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
+                            }
+                        }
+                    }
+                }
+
+                return IOSTransition;
+            })(Animation);
+
+            Animation.register('ios-transition', IOSTransition);
+        }
+    };
+});
+System.register('ionic/animations/md-transition', ['./animation'], function (_export) {
+    'use strict';
+
+    var Animation, TRANSLATEY, OFF_BOTTOM, CENTER, SHOW_BACK_BTN_CSS, MDTransition;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_animation) {
+            Animation = _animation.Animation;
+        }],
+        execute: function () {
+            TRANSLATEY = 'translateY';
+            OFF_BOTTOM = '40px';
+            CENTER = '0px';
+            SHOW_BACK_BTN_CSS = 'show-back-button';
+
+            MDTransition = (function (_Animation) {
+                _inherits(MDTransition, _Animation);
+
+                function MDTransition(enteringView, leavingView, opts) {
+                    _classCallCheck(this, MDTransition);
+
+                    _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
+                    // what direction is the transition going
+                    var backDirection = opts.direction === 'back';
+                    // do they have navbars?
+                    var enteringHasNavbar = enteringView.hasNavbar();
+                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+                    // entering content item moves in bottom to center
+                    var enteringPage = new Animation(enteringView.pageRef());
+                    enteringPage.before.addClass('show-page');
+                    this.add(enteringPage);
+                    if (backDirection) {
+                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
+                        enteringPage.fromTo(TRANSLATEY, CENTER, CENTER);
+                    } else {
+                        this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
+                        enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
+                    }
+                    if (enteringHasNavbar) {
+                        var enteringBackButton = new Animation(enteringView.backBtnRef());
+                        this.add(enteringBackButton);
+                        if (enteringView.enableBack()) {
+                            enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+                        } else {
+                            enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
+                        }
+                    }
+                    // setup leaving view
+                    if (leavingView && backDirection) {
+                        // leaving content
+                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
+                        var leavingPage = new Animation(leavingView.pageRef());
+                        this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut());
+                    }
+                }
+
+                return MDTransition;
+            })(Animation);
+
+            Animation.register('md-transition', MDTransition);
         }
     };
 });
@@ -2004,13 +2232,13 @@ System.register('ionic/config/directives', ['angular2/angular2', '../components/
      */
     'use strict';
 
-    var CORE_DIRECTIVES, FORM_DIRECTIVES, OverlayAnchor, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher, Slides, Slide, SlideLazy, Tabs, Tab, List, ListHeader, Item, ItemGroup, ItemGroupTitle, ItemSliding, Toolbar, ToolbarTitle, ToolbarItem, Icon, Checkbox, Switch, TextInput, TextInputElement, Label, Segment, SegmentButton, RadioGroup, RadioButton, SearchBar, Nav, NavPush, NavPop, NavRouter, NavbarTemplate, Navbar, IdRef, ShowWhen, HideWhen, IONIC_DIRECTIVES;
+    var CORE_DIRECTIVES, FORM_DIRECTIVES, OverlayNav, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher, Slides, Slide, SlideLazy, Tabs, Tab, List, ListHeader, Item, ItemGroup, ItemGroupTitle, ItemSliding, Toolbar, ToolbarTitle, ToolbarItem, Icon, Checkbox, Switch, TextInput, TextInputElement, Label, Segment, SegmentButton, RadioGroup, RadioButton, SearchBar, Nav, NavPush, NavPop, NavRouter, NavbarTemplate, Navbar, IdRef, ShowWhen, HideWhen, IONIC_DIRECTIVES;
     return {
         setters: [function (_angular2Angular2) {
             CORE_DIRECTIVES = _angular2Angular2.CORE_DIRECTIVES;
             FORM_DIRECTIVES = _angular2Angular2.FORM_DIRECTIVES;
         }, function (_componentsOverlayOverlay) {
-            OverlayAnchor = _componentsOverlayOverlay.OverlayAnchor;
+            OverlayNav = _componentsOverlayOverlay.OverlayNav;
         }, function (_componentsMenuMenu) {
             Menu = _componentsMenuMenu.Menu;
         }, function (_componentsMenuMenuToggle) {
@@ -2089,7 +2317,7 @@ System.register('ionic/config/directives', ['angular2/angular2', '../components/
             // Angular
             CORE_DIRECTIVES, FORM_DIRECTIVES,
             // Content
-            OverlayAnchor, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher,
+            OverlayNav, Menu, MenuToggle, MenuClose, Button, Blur, Content, Scroll, Refresher,
             // Lists
             List, ListHeader, Item, ItemGroup, ItemGroupTitle, ItemSliding,
             // Slides
@@ -2131,7 +2359,7 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 menuType: 'reveal',
                 modalEnter: 'modal-slide-in',
                 modalLeave: 'modal-slide-out',
-                pageTransition: 'ios',
+                pageTransition: 'ios-transition',
                 pageTransitionDelay: 16,
                 popupEnter: 'popup-pop-in',
                 popupLeave: 'popup-pop-out',
@@ -2150,7 +2378,7 @@ System.register('ionic/config/modes', ['./config'], function (_export) {
                 menuType: 'overlay',
                 modalEnter: 'modal-md-slide-in',
                 modalLeave: 'modal-md-slide-out',
-                pageTransition: 'md',
+                pageTransition: 'md-transition',
                 pageTransitionDelay: 120,
                 popupEnter: 'popup-md-pop-in',
                 popupLeave: 'popup-md-pop-out',
@@ -5461,280 +5689,6 @@ System.register('ionic/platform/storage', ['./storage/storage', './storage/local
     execute: function () {}
   };
 });
-System.register('ionic/transitions/ios-transition', ['./transition', '../animations/animation'], function (_export) {
-    'use strict';
-
-    var Transition, Animation, DURATION, EASING, OPACITY, TRANSLATEX, OFF_RIGHT, OFF_LEFT, CENTER, OFF_OPACITY, SHOW_BACK_BTN_CSS, IOSTransition;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_transition) {
-            Transition = _transition.Transition;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }],
-        execute: function () {
-            DURATION = 550;
-            EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
-            OPACITY = 'opacity';
-            TRANSLATEX = 'translateX';
-            OFF_RIGHT = '99.5%';
-            OFF_LEFT = '-33%';
-            CENTER = '0%';
-            OFF_OPACITY = 0.8;
-            SHOW_BACK_BTN_CSS = 'show-back-button';
-
-            IOSTransition = (function (_Animation) {
-                _inherits(IOSTransition, _Animation);
-
-                function IOSTransition(navCtrl, opts) {
-                    _classCallCheck(this, IOSTransition);
-
-                    _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, null, opts);
-                    this.duration(DURATION);
-                    this.easing(EASING);
-                    // what direction is the transition going
-                    var backDirection = opts.direction === 'back';
-                    // get entering/leaving views
-                    var enteringView = navCtrl.getStagedEnteringView();
-                    var leavingView = navCtrl.getStagedLeavingView();
-                    // do they have navbars?
-                    var enteringHasNavbar = enteringView.hasNavbar();
-                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-                    var enteringPage = new Animation(enteringView.pageRef());
-                    enteringPage.before.addClass('show-page');
-                    this.add(enteringPage);
-                    // entering content
-                    var enteringContent = new Animation(enteringView.contentRef());
-                    this.add(enteringContent);
-                    if (backDirection) {
-                        // entering content, back direction
-                        enteringContent.fromTo(TRANSLATEX, OFF_LEFT, CENTER).fromTo(OPACITY, OFF_OPACITY, 1);
-                    } else {
-                        // entering content, forward direction
-                        enteringContent.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
-                    }
-                    if (enteringHasNavbar) {
-                        // entering page has a navbar
-                        var enteringNavBar = new Animation(enteringView.navbarRef());
-                        this.add(enteringNavBar);
-                        var enteringTitle = new Animation(enteringView.titleRef());
-                        var enteringNavbarItems = new Animation(enteringView.navbarItemRefs());
-                        var enteringNavbarBg = new Animation(enteringView.navbarBgRef());
-                        var enteringBackButton = new Animation(enteringView.backBtnRef());
-                        enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
-                        enteringTitle.fadeIn();
-                        enteringNavbarItems.fadeIn();
-                        // set properties depending on direction
-                        if (backDirection) {
-                            // entering navbar, back direction
-                            enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
-                            if (enteringView.enableBack()) {
-                                // back direction, entering page has a back button
-                                enteringBackButton.fadeIn();
-                            }
-                        } else {
-                            // entering navbar, forward direction
-                            enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
-                            if (leavingHasNavbar) {
-                                // entering navbar, forward direction, and there's a leaving navbar
-                                // should just fade in, no sliding
-                                enteringNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeIn();
-                            } else {
-                                // entering navbar, forward direction, and there's no leaving navbar
-                                // should just slide in, no fading in
-                                enteringNavbarBg.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
-                            }
-                            if (enteringView.enableBack()) {
-                                // forward direction, entering page has a back button
-                                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS).fadeIn();
-                                var enteringBackBtnText = new Animation(enteringView.backBtnTextRef());
-                                enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
-                                enteringNavBar.add(enteringBackBtnText);
-                            } else {
-                                enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
-                            }
-                        }
-                    }
-                    // setup leaving view
-                    if (leavingView) {
-                        // leaving content
-                        var leavingContent = new Animation(leavingView.contentRef());
-                        this.add(leavingContent);
-                        if (backDirection) {
-                            // leaving content, back direction
-                            leavingContent.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
-                        } else {
-                            // leaving content, forward direction
-                            leavingContent.fromTo(TRANSLATEX, CENTER, OFF_LEFT).fromTo(OPACITY, 1, OFF_OPACITY);
-                        }
-                        if (leavingHasNavbar) {
-                            // leaving page has a navbar
-                            var leavingNavBar = new Animation(leavingView.navbarRef());
-                            var leavingBackButton = new Animation(leavingView.backBtnRef());
-                            var leavingTitle = new Animation(leavingView.titleRef());
-                            var leavingNavbarItems = new Animation(leavingView.navbarItemRefs());
-                            var leavingNavbarBg = new Animation(leavingView.navbarBgRef());
-                            leavingNavBar.add(leavingBackButton).add(leavingTitle).add(leavingNavbarItems).add(leavingNavbarBg);
-                            this.add(leavingNavBar);
-                            // fade out leaving navbar items
-                            leavingBackButton.fadeOut();
-                            leavingTitle.fadeOut();
-                            leavingNavbarItems.fadeOut();
-                            if (backDirection) {
-                                // leaving navbar, back direction
-                                leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
-                                if (enteringHasNavbar) {
-                                    // leaving navbar, back direction, and there's an entering navbar
-                                    // should just fade out, no sliding
-                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, CENTER).fadeOut();
-                                } else {
-                                    // leaving navbar, back direction, and there's no entering navbar
-                                    // should just slide out, no fading out
-                                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
-                                }
-                                var leavingBackBtnText = new Animation(leavingView.backBtnTextRef());
-                                leavingBackBtnText.fromTo(TRANSLATEX, CENTER, 300 + 'px');
-                                leavingNavBar.add(leavingBackBtnText);
-                            } else {
-                                // leaving navbar, forward direction
-                                leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
-                            }
-                        }
-                    }
-                }
-
-                return IOSTransition;
-            })(Animation);
-
-            Transition.register('ios', IOSTransition);
-        }
-    };
-});
-System.register('ionic/transitions/md-transition', ['./transition', '../animations/animation'], function (_export) {
-    'use strict';
-
-    var Transition, Animation, TRANSLATEY, OFF_BOTTOM, CENTER, SHOW_BACK_BTN_CSS, MDTransition;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_transition) {
-            Transition = _transition.Transition;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }],
-        execute: function () {
-            TRANSLATEY = 'translateY';
-            OFF_BOTTOM = '40px';
-            CENTER = '0px';
-            SHOW_BACK_BTN_CSS = 'show-back-button';
-
-            MDTransition = (function (_Animation) {
-                _inherits(MDTransition, _Animation);
-
-                function MDTransition(navCtrl, opts) {
-                    _classCallCheck(this, MDTransition);
-
-                    _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
-                    // what direction is the transition going
-                    var backDirection = opts.direction === 'back';
-                    // get entering/leaving views
-                    var enteringView = navCtrl.getStagedEnteringView();
-                    var leavingView = navCtrl.getStagedLeavingView();
-                    // do they have navbars?
-                    var enteringHasNavbar = enteringView.hasNavbar();
-                    var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-                    // entering content item moves in bottom to center
-                    var enteringPage = new Animation(enteringView.pageRef());
-                    enteringPage.before.addClass('show-page');
-                    this.add(enteringPage);
-                    if (backDirection) {
-                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                        enteringPage.fromTo(TRANSLATEY, CENTER, CENTER);
-                    } else {
-                        this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
-                        enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
-                    }
-                    if (enteringHasNavbar) {
-                        var enteringBackButton = new Animation(enteringView.backBtnRef());
-                        this.add(enteringBackButton);
-                        if (enteringView.enableBack()) {
-                            enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
-                        } else {
-                            enteringBackButton.before.removeClass(SHOW_BACK_BTN_CSS);
-                        }
-                    }
-                    // setup leaving view
-                    if (leavingView && backDirection) {
-                        // leaving content
-                        this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                        var leavingPage = new Animation(leavingView.pageRef());
-                        this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut());
-                    }
-                }
-
-                return MDTransition;
-            })(Animation);
-
-            Transition.register('md', MDTransition);
-        }
-    };
-});
-System.register('ionic/transitions/transition', [], function (_export) {
-    'use strict';
-
-    var Transition, transitionRegistry;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [],
-        execute: function () {
-            Transition = (function () {
-                function Transition() {
-                    _classCallCheck(this, Transition);
-                }
-
-                _createClass(Transition, null, [{
-                    key: 'create',
-                    value: function create(navCtrl) {
-                        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-                        var name = opts.animation || 'ios';
-                        var TransitionClass = transitionRegistry[name];
-                        if (!TransitionClass) {
-                            TransitionClass = transitionRegistry.ios;
-                        }
-                        return new TransitionClass(navCtrl, opts);
-                    }
-                }, {
-                    key: 'register',
-                    value: function register(name, TransitionClass) {
-                        transitionRegistry[name] = TransitionClass;
-                    }
-                }]);
-
-                return Transition;
-            })();
-
-            _export('Transition', Transition);
-
-            transitionRegistry = {};
-        }
-    };
-});
 System.register("ionic/translation/translate", ["angular2/angular2"], function (_export) {
     /**
      * Provide multi-language and i18n support in your app. Translate works by
@@ -6889,9 +6843,7 @@ System.register('ionic/util/util', [], function (_export) {
     // Simple noop function
     'use strict';
 
-    var isBoolean, isString, isNumber, isFunction, isDefined, isUndefined, isBlank, isObject, isArray, isTrueProperty, uid, Log, array;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+    var isBoolean, isString, isNumber, isFunction, isDefined, isUndefined, isBlank, isObject, isArray, isTrueProperty, uid, array;
 
     _export('noop', noop);
 
@@ -6925,10 +6877,6 @@ System.register('ionic/util/util', [], function (_export) {
 
     _export('pascalCaseToDashCase', pascalCaseToDashCase);
 
-    /**
-     * A simple logger class.
-     */
-
     _export('nextUid', nextUid);
 
     /**
@@ -6939,8 +6887,6 @@ System.register('ionic/util/util', [], function (_export) {
     _export('getQuerystring', getQuerystring);
 
     _export('throttle', throttle);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     function noop() {}
 
@@ -7149,55 +7095,6 @@ System.register('ionic/util/util', [], function (_export) {
             _export('isTrueProperty', isTrueProperty);
 
             uid = 0;
-
-            Log = (function () {
-                function Log() {
-                    _classCallCheck(this, Log);
-                }
-
-                _createClass(Log, null, [{
-                    key: 'log',
-                    value: function log() {
-                        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                            args[_key] = arguments[_key];
-                        }
-
-                        console.log.apply(console, args);
-                    }
-                }, {
-                    key: 'info',
-                    value: function info() {
-                        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                            args[_key2] = arguments[_key2];
-                        }
-
-                        console.info.apply(console, args);
-                    }
-                }, {
-                    key: 'warn',
-                    value: function warn() {
-                        for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-                            args[_key3] = arguments[_key3];
-                        }
-
-                        console.warn.apply(console, args);
-                    }
-                }, {
-                    key: 'error',
-                    value: function error() {
-                        for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-                            args[_key4] = arguments[_key4];
-                        }
-
-                        console.error.apply(console, args);
-                    }
-                }]);
-
-                return Log;
-            })();
-
-            _export('Log', Log);
-
             array = {
                 find: function find(arr, cb) {
                     for (var i = 0, ii = arr.length; i < ii; i++) {
@@ -7223,15 +7120,7 @@ System.register('ionic/util/util', [], function (_export) {
         }
     };
 });
-System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../icon/icon", "../../animations/animation", "ionic/util"], function (_export) {
-    /**
-    * @ngdoc service
-    * @name ActionSheet
-    * @module ionic
-    * @description
-    * The ActionSheet is a modal menu with options to select based on an action.
-    */
-
+System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../icon/icon", "../../animations/animation", "../nav/nav-controller", "../../util/util"], function (_export) {
     /**
      * @name ActionSheet
      * @description
@@ -7272,7 +7161,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
      */
     "use strict";
 
-    var Component, Injectable, NgFor, NgIf, OverlayController, Config, Icon, Animation, util, __decorate, __metadata, ActionSheetCmp, ActionSheet, OVERLAY_TYPE, ActionSheetAnimation, ActionSheetSlideIn, ActionSheetSlideOut, ActionSheetMdSlideIn, ActionSheetMdSlideOut, _a, _b;
+    var Component, Injectable, Renderer, NgFor, NgIf, OverlayController, Config, Icon, Animation, NavParams, extend, __decorate, __metadata, ActionSheetCmp, ActionSheet, OVERLAY_TYPE, ActionSheetSlideIn, ActionSheetSlideOut, ActionSheetMdSlideIn, ActionSheetMdSlideOut, _a, _b, _c, _d;
 
     var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -7286,6 +7175,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
         setters: [function (_angular2Angular2) {
             Component = _angular2Angular2.Component;
             Injectable = _angular2Angular2.Injectable;
+            Renderer = _angular2Angular2.Renderer;
             NgFor = _angular2Angular2.NgFor;
             NgIf = _angular2Angular2.NgIf;
         }, function (_overlayOverlayController) {
@@ -7296,8 +7186,10 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
             Icon = _iconIcon.Icon;
         }, function (_animationsAnimation) {
             Animation = _animationsAnimation.Animation;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
+        }, function (_navNavController) {
+            NavParams = _navNavController.NavParams;
+        }, function (_utilUtil) {
+            extend = _utilUtil.extend;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -7323,29 +7215,32 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
             };
 
             ActionSheetCmp = (function () {
-                function ActionSheetCmp() {
+                function ActionSheetCmp(params, renderer) {
                     _classCallCheck(this, ActionSheetCmp);
+
+                    this.d = params.data;
+                    if (this.d.cssClass) {
+                        renderer.setElementClass(elementRef, this.d.cssClass, true);
+                    }
                 }
 
                 _createClass(ActionSheetCmp, [{
-                    key: "_cancel",
-                    value: function _cancel() {
-                        this.cancel && this.cancel();
+                    key: "cancel",
+                    value: function cancel() {
+                        this.d.cancel && this.d.cancel();
                         return this.close();
                     }
                 }, {
-                    key: "_destructive",
-                    value: function _destructive() {
-                        var shouldClose = this.destructiveButtonClicked();
-                        if (shouldClose === true) {
+                    key: "destructive",
+                    value: function destructive() {
+                        if (this.d.destructiveButtonClicked()) {
                             return this.close();
                         }
                     }
                 }, {
-                    key: "_buttonClicked",
-                    value: function _buttonClicked(index) {
-                        var shouldClose = this.buttonClicked(index);
-                        if (shouldClose === true) {
+                    key: "buttonClicked",
+                    value: function buttonClicked(index) {
+                        if (this.d.buttonClicked(index)) {
                             return this.close();
                         }
                     }
@@ -7356,24 +7251,20 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
 
             ActionSheetCmp = __decorate([Component({
                 selector: 'ion-action-sheet',
-                template: '<backdrop (click)="_cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(i)" *ng-for="#b of buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()" class=" disable-hover">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
+                template: '<backdrop (click)="cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="d.titleText">{{d.titleText}}</div>' + '<button (click)="buttonClicked(i)" *ng-for="#b of d.buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="d.destructiveText" (click)="destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="d.destructiveIcon" *ng-if="d.destructiveIcon"></icon> ' + '{{d.destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="d.cancelText">' + '<button (click)="cancel()" class="disable-hover">' + '<icon [name]="d.cancelIcon" *ng-if="d.cancelIcon"></icon> ' + '{{d.cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
                 host: {
-                    '[style.zIndex]': '_zIndex'
+                    '[style.zIndex]': '_zIndex',
+                    'role': 'dialog'
                 },
                 directives: [NgFor, NgIf, Icon]
-            }), __metadata('design:paramtypes', [])], ActionSheetCmp);
+            }), __metadata('design:paramtypes', [typeof (_a = typeof NavParams !== 'undefined' && NavParams) === 'function' && _a || Object, typeof (_b = typeof Renderer !== 'undefined' && Renderer) === 'function' && _b || Object])], ActionSheetCmp);
 
             ActionSheet = (function () {
                 function ActionSheet(ctrl, config) {
                     _classCallCheck(this, ActionSheet);
 
                     this.ctrl = ctrl;
-                    this._defaults = {
-                        enterAnimation: config.get('actionSheetEnter'),
-                        leaveAnimation: config.get('actionSheetLeave'),
-                        cancelIcon: config.get('actionSheetCancelIcon'),
-                        destructiveIcon: config.get('actionSheetDestructiveIcon')
-                    };
+                    this.config = config;
                 }
 
                 /**
@@ -7389,7 +7280,14 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
                     value: function open() {
                         var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-                        return this.ctrl.open(OVERLAY_TYPE, ActionSheetCmp, util.extend(this._defaults, opts));
+                        opts = extend({
+                            pageType: OVERLAY_TYPE,
+                            enterAnimation: this.config.get('actionSheetEnter'),
+                            leaveAnimation: this.config.get('actionSheetLeave'),
+                            cancelIcon: this.config.get('actionSheetCancelIcon'),
+                            destructiveIcon: this.config.get('actionSheetDestructiveIcon')
+                        }, opts);
+                        return this.ctrl.open(ActionSheetCmp, opts, opts);
                     }
 
                     /**
@@ -7400,7 +7298,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
                     key: "get",
                     value: function get(handle) {
                         if (handle) {
-                            return this.ctrl.getByHandle(handle, OVERLAY_TYPE);
+                            return this.ctrl.getByHandle(handle);
                         }
                         return this.ctrl.getByType(OVERLAY_TYPE);
                     }
@@ -7411,92 +7309,86 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
 
             _export("ActionSheet", ActionSheet);
 
-            _export("ActionSheet", ActionSheet = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object])], ActionSheet));
+            _export("ActionSheet", ActionSheet = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_c = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _c || Object, typeof (_d = typeof Config !== 'undefined' && Config) === 'function' && _d || Object])], ActionSheet));
             OVERLAY_TYPE = 'action-sheet';
 
-            /**
-             * Animations for action sheet
-             */
+            ActionSheetSlideIn = (function (_Animation) {
+                _inherits(ActionSheetSlideIn, _Animation);
 
-            ActionSheetAnimation = (function (_Animation) {
-                _inherits(ActionSheetAnimation, _Animation);
-
-                function ActionSheetAnimation(element) {
-                    _classCallCheck(this, ActionSheetAnimation);
-
-                    _get(Object.getPrototypeOf(ActionSheetAnimation.prototype), "constructor", this).call(this, element);
-                    this.easing('cubic-bezier(.36, .66, .04, 1)');
-                    this.backdrop = new Animation(element.querySelector('backdrop'));
-                    this.wrapper = new Animation(element.querySelector('action-sheet-wrapper'));
-                    this.add(this.backdrop, this.wrapper);
-                }
-
-                return ActionSheetAnimation;
-            })(Animation);
-
-            ActionSheetSlideIn = (function (_ActionSheetAnimation) {
-                _inherits(ActionSheetSlideIn, _ActionSheetAnimation);
-
-                function ActionSheetSlideIn(element) {
+                function ActionSheetSlideIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, ActionSheetSlideIn);
 
-                    _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, element);
-                    this.duration(400);
-                    this.backdrop.fromTo('opacity', 0.01, 0.4);
-                    this.wrapper.fromTo('translateY', '100%', '0%');
+                    _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, null, opts);
+                    var ele = enteringView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('action-sheet-wrapper'));
+                    backdrop.fromTo('opacity', 0.01, 0.4);
+                    wrapper.fromTo('translateY', '100%', '0%');
+                    this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add([backdrop, wrapper]);
                 }
 
                 return ActionSheetSlideIn;
-            })(ActionSheetAnimation);
+            })(Animation);
 
             Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
 
-            ActionSheetSlideOut = (function (_ActionSheetAnimation2) {
-                _inherits(ActionSheetSlideOut, _ActionSheetAnimation2);
+            ActionSheetSlideOut = (function (_Animation2) {
+                _inherits(ActionSheetSlideOut, _Animation2);
 
-                function ActionSheetSlideOut(element) {
+                function ActionSheetSlideOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, ActionSheetSlideOut);
 
-                    _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, element);
-                    this.duration(300);
-                    this.backdrop.fromTo('opacity', 0.4, 0.01);
-                    this.wrapper.fromTo('translateY', '0%', '100%');
+                    _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, null, opts);
+                    var ele = leavingView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('action-sheet-wrapper'));
+                    backdrop.fromTo('opacity', 0.4, 0);
+                    wrapper.fromTo('translateY', '0%', '100%');
+                    this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add([backdrop, wrapper]);
                 }
 
                 return ActionSheetSlideOut;
-            })(ActionSheetAnimation);
+            })(Animation);
 
             Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
 
-            ActionSheetMdSlideIn = (function (_ActionSheetSlideIn) {
-                _inherits(ActionSheetMdSlideIn, _ActionSheetSlideIn);
+            ActionSheetMdSlideIn = (function (_Animation3) {
+                _inherits(ActionSheetMdSlideIn, _Animation3);
 
-                function ActionSheetMdSlideIn(element) {
+                function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, ActionSheetMdSlideIn);
 
-                    _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, element);
-                    this.duration(450);
-                    this.backdrop.fromTo('opacity', 0.01, 0.26);
+                    _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, null, opts);
+                    var ele = enteringView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('action-sheet-wrapper'));
+                    backdrop.fromTo('opacity', 0.01, 0.26);
+                    wrapper.fromTo('translateY', '100%', '0%');
+                    this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
                 }
 
                 return ActionSheetMdSlideIn;
-            })(ActionSheetSlideIn);
+            })(Animation);
 
             Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
 
-            ActionSheetMdSlideOut = (function (_ActionSheetSlideOut) {
-                _inherits(ActionSheetMdSlideOut, _ActionSheetSlideOut);
+            ActionSheetMdSlideOut = (function (_Animation4) {
+                _inherits(ActionSheetMdSlideOut, _Animation4);
 
-                function ActionSheetMdSlideOut(element) {
+                function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, ActionSheetMdSlideOut);
 
-                    _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, element);
-                    this.duration(450);
-                    this.backdrop.fromTo('opacity', 0.26, 0.01);
+                    _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, null, opts);
+                    var ele = leavingView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('action-sheet-wrapper'));
+                    backdrop.fromTo('opacity', 0.26, 0);
+                    wrapper.fromTo('translateY', '0%', '100%');
+                    this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
                 }
 
                 return ActionSheetMdSlideOut;
-            })(ActionSheetSlideOut);
+            })(Animation);
 
             Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
         }
@@ -10428,19 +10320,21 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
 });
 System.register("ionic/components/modal/modal", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../../animations/animation", "ionic/util"], function (_export) {
     /**
-     * The Modal is a content pane that can go over the user's main view temporarily.
-     * Usually used for making a choice or editing an item.
+     * The Modal is a content pane that can go over the user's current page.
+     * Usually used for making a choice or editing an item. A modal can be opened
+     * similar to how NavController#push works, where you pass it a Page component,
+     * along with optional Page params, and options for presenting the modal.
      *
      * @usage
      * ```ts
      * class MyApp {
      *
-     *  constructor(modal: Modal, app: IonicApp, Config: Config) {
+     *  constructor(modal: Modal) {
      *    this.modal = modal;
      *  }
      *
      *  openModal() {
-     *    this.modal.open(ContactModal, {
+     *    this.modal.open(ContactPage, null, {
      *      enterAnimation: 'my-fade-in',
      *      leaveAnimation: 'my-fade-out',
      *      handle: 'my-modal'
@@ -10451,9 +10345,9 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
      */
     "use strict";
 
-    var Injectable, OverlayController, Config, Animation, util, __decorate, __metadata, Modal, OVERLAY_TYPE, ModalSlideIn, ModalSlideOut, ModalMDSlideIn, ModalMDSlideOut, _a, _b;
+    var Injectable, OverlayController, Config, Animation, extend, __decorate, __metadata, Modal, OVERLAY_TYPE, ModalSlideIn, ModalSlideOut, ModalMDSlideIn, ModalMDSlideOut, _a, _b;
 
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x3, _x4, _x5) { var _again = true; _function: while (_again) { var object = _x3, property = _x4, receiver = _x5; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x3 = parent; _x4 = property; _x5 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -10471,7 +10365,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
         }, function (_animationsAnimation) {
             Animation = _animationsAnimation.Animation;
         }, function (_ionicUtil) {
-            util = _ionicUtil;
+            extend = _ionicUtil.extend;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -10501,25 +10395,29 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
                     _classCallCheck(this, Modal);
 
                     this.ctrl = ctrl;
-                    this._defaults = {
-                        enterAnimation: config.get('modalEnter') || 'modal-slide-in',
-                        leaveAnimation: config.get('modalLeave') || 'modal-slide-out'
-                    };
+                    this.config = config;
                 }
 
                 /**
                  * TODO
-                 * @param {Type} componentType  TODO
-                 * @param {Object} [opts={}]  TODO
-                 * @returns {TODO} TODO
+                 * @param {TODO} componentType  TODO
+                 * @param {TODO} [params={}]  TODO
+                 * @param {TODO} [opts={}]  TODO
+                 * @returns {Promise} TODO
                  */
 
                 _createClass(Modal, [{
                     key: "open",
                     value: function open(componentType) {
-                        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+                        var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-                        return this.ctrl.open(OVERLAY_TYPE, componentType, util.extend(this._defaults, opts));
+                        opts = extend({
+                            pageType: OVERLAY_TYPE,
+                            enterAnimation: this.config.get('modalEnter'),
+                            leaveAnimation: this.config.get('modalLeave')
+                        }, opts);
+                        return this.ctrl.open(componentType, params, opts);
                     }
 
                     /**
@@ -10531,7 +10429,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
                     key: "get",
                     value: function get(handle) {
                         if (handle) {
-                            return this.ctrl.getByHandle(handle, OVERLAY_TYPE);
+                            return this.ctrl.getByHandle(handle);
                         }
                         return this.ctrl.getByType(OVERLAY_TYPE);
                     }
@@ -10552,11 +10450,11 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
             ModalSlideIn = (function (_Animation) {
                 _inherits(ModalSlideIn, _Animation);
 
-                function ModalSlideIn(element) {
+                function ModalSlideIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, ModalSlideIn);
 
-                    _get(Object.getPrototypeOf(ModalSlideIn.prototype), "constructor", this).call(this, element);
-                    this.easing('cubic-bezier(0.36,0.66,0.04,1)').duration(400).fromTo('translateY', '100%', '0%');
+                    _get(Object.getPrototypeOf(ModalSlideIn.prototype), "constructor", this).call(this, enteringView.pageRef(), opts);
+                    this.easing('cubic-bezier(0.36,0.66,0.04,1)').duration(400).fromTo('translateY', '100%', '0%').before.addClass('show-page');
                 }
 
                 return ModalSlideIn;
@@ -10567,10 +10465,10 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
             ModalSlideOut = (function (_Animation2) {
                 _inherits(ModalSlideOut, _Animation2);
 
-                function ModalSlideOut(element) {
+                function ModalSlideOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, ModalSlideOut);
 
-                    _get(Object.getPrototypeOf(ModalSlideOut.prototype), "constructor", this).call(this, element);
+                    _get(Object.getPrototypeOf(ModalSlideOut.prototype), "constructor", this).call(this, leavingView.pageRef(), opts);
                     this.easing('ease-out').duration(250).fromTo('translateY', '0%', '100%');
                 }
 
@@ -10582,11 +10480,11 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
             ModalMDSlideIn = (function (_Animation3) {
                 _inherits(ModalMDSlideIn, _Animation3);
 
-                function ModalMDSlideIn(element) {
+                function ModalMDSlideIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, ModalMDSlideIn);
 
-                    _get(Object.getPrototypeOf(ModalMDSlideIn.prototype), "constructor", this).call(this, element);
-                    this.easing('cubic-bezier(0.36,0.66,0.04,1)').duration(280).fromTo('translateY', '40px', '0px').fadeIn();
+                    _get(Object.getPrototypeOf(ModalMDSlideIn.prototype), "constructor", this).call(this, enteringView.pageRef(), opts);
+                    this.easing('cubic-bezier(0.36,0.66,0.04,1)').duration(280).fromTo('translateY', '40px', '0px').fadeIn().before.addClass('show-page');
                 }
 
                 return ModalMDSlideIn;
@@ -10597,10 +10495,10 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
             ModalMDSlideOut = (function (_Animation4) {
                 _inherits(ModalMDSlideOut, _Animation4);
 
-                function ModalMDSlideOut(element) {
+                function ModalMDSlideOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, ModalMDSlideOut);
 
-                    _get(Object.getPrototypeOf(ModalMDSlideOut.prototype), "constructor", this).call(this, element);
+                    _get(Object.getPrototypeOf(ModalMDSlideOut.prototype), "constructor", this).call(this, leavingView.pageRef(), opts);
                     this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)').fromTo('translateY', '0px', '40px').fadeOut();
                 }
 
@@ -10611,7 +10509,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
         }
     };
 });
-System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '../ion', './view-controller', '../../transitions/transition', './swipe-back', 'ionic/util'], function (_export) {
+System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '../ion', './view-controller', '../../animations/animation', './swipe-back', 'ionic/util'], function (_export) {
     /**
      * _For examples on the basic usage of NavController, check out the [Navigation section](../../../../components/#navigation)
      * of the Component docs._
@@ -10704,7 +10602,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
      */
     'use strict';
 
-    var Injector, provide, Ion, ViewController, Transition, SwipeBackGesture, util, NavController, ACTIVE_STATE, CACHED_STATE, STAGED_ENTERING_STATE, STAGED_LEAVING_STATE, ctrlIds, NavParams;
+    var Injector, provide, Ion, ViewController, Animation, SwipeBackGesture, util, NavController, ACTIVE_STATE, CACHED_STATE, STAGED_ENTERING_STATE, STAGED_LEAVING_STATE, ctrlIds, NavParams;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -10722,8 +10620,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
             Ion = _ion.Ion;
         }, function (_viewController) {
             ViewController = _viewController.ViewController;
-        }, function (_transitionsTransition) {
-            Transition = _transitionsTransition.Transition;
+        }, function (_animationsAnimation) {
+            Animation = _animationsAnimation.Animation;
         }, function (_swipeBack) {
             SwipeBackGesture = _swipeBack.SwipeBackGesture;
         }, function (_ionicUtil) {
@@ -10780,7 +10678,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             resolve = res;
                         });
                         // do not animate if this is the first in the stack
-                        if (!this._views.length) {
+                        if (!this._views.length && !opts.animateFirst) {
                             opts.animate = false;
                         }
                         // default the direction to "forward"
@@ -10796,6 +10694,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         var enteringView = new ViewController(this, componentType, params);
                         enteringView.shouldDestroy = false;
                         enteringView.shouldCache = false;
+                        enteringView.pageType = opts.pageType;
+                        enteringView.handle = opts.handle || null;
                         // add the view to the stack
                         this._add(enteringView);
                         if (opts.preCleanup !== false) {
@@ -10820,7 +10720,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     value: function pop() {
                         var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-                        if (!this.canGoBack()) {
+                        if (!opts.animateFirst && !this.canGoBack()) {
                             return Promise.reject();
                         }
                         var resolve = undefined;
@@ -10841,17 +10741,12 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         // Note: we might not have an entering view if this is the
                         // only view on the history stack.
                         var enteringView = this.getPrevious(leavingView);
-                        if (enteringView) {
-                            if (this.router) {
-                                // notify router of the state change
-                                this.router.stateChange('pop', enteringView);
-                            }
-                            // start the transition
-                            this._transition(enteringView, leavingView, opts, resolve);
-                        } else {
-                            this._transComplete();
-                            resolve();
+                        if (this.router) {
+                            // notify router of the state change
+                            this.router.stateChange('pop', enteringView);
                         }
+                        // start the transition
+                        this._transition(enteringView, leavingView, opts, resolve);
                         return promise;
                     }
 
@@ -11050,8 +10945,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     value: function _transition(enteringView, leavingView, opts, done) {
                         var _this = this;
 
-                        if (!enteringView || enteringView === leavingView) {
-                            return done();
+                        if (enteringView === leavingView) {
+                            return done(enteringView);
                         }
                         if (!opts.animation) {
                             opts.animation = this.config.get('pageTransition');
@@ -11059,13 +10954,18 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         if (this.config.get('animate') === false) {
                             opts.animate = false;
                         }
+                        if (!enteringView) {
+                            // if not entering view then create a bogus one
+                            enteringView = new ViewController();
+                            enteringView.loaded();
+                        }
                         // wait for the new view to complete setup
                         this._stage(enteringView, function () {
                             if (enteringView.shouldDestroy) {
                                 // already marked as a view that will be destroyed, don't continue
-                                return done();
+                                return done(enteringView);
                             }
-                            _this._setZIndex(enteringView.instance, leavingView && leavingView.instance, opts.direction);
+                            _this._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
                             _this._zone.runOutsideAngular(function () {
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;
@@ -11078,8 +10978,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the transition animation
-                                opts.renderDelay = _this.config.get('pageTransitionDelay');
-                                var transAnimation = Transition.create(_this, opts);
+                                opts.renderDelay = opts.transitionDelay || _this.config.get('pageTransitionDelay');
+                                var transAnimation = Animation.createTransition(_this._getStagedEntering(), _this._getStagedLeaving(), opts);
                                 if (opts.animate === false) {
                                     // force it to not animate the elements, just apply the "to" styles
                                     transAnimation.clearDuration();
@@ -11091,6 +10991,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     // fallback to remove the clickblock if something goes wrong
                                     _this.app.setEnabled(false, duration);
                                     _this.app.setTransitioning(true, duration);
+                                }
+                                if (opts.pageType) {
+                                    transAnimation.before.addClass(opts.pageType);
                                 }
                                 // start the transition
                                 transAnimation.play(function () {
@@ -11106,7 +11009,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     // all done!
                                     _this._zone.run(function () {
                                         _this._transComplete();
-                                        done();
+                                        done(enteringView);
                                     });
                                 });
                             });
@@ -11119,7 +11022,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_stage',
                     value: function _stage(viewCtrl, done) {
-                        if (viewCtrl.instance || viewCtrl.shouldDestroy) {
+                        if (viewCtrl.isLoaded() || viewCtrl.shouldDestroy) {
                             // already compiled this view
                             return done();
                         }
@@ -11275,8 +11178,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
                             _this4._zone.run(function () {
                                 // find the views that were entering and leaving
-                                var enteringView = _this4.getStagedEnteringView();
-                                var leavingView = _this4.getStagedLeavingView();
+                                var enteringView = _this4._getStagedEntering();
+                                var leavingView = _this4._getStagedLeaving();
                                 if (enteringView && leavingView) {
                                     // finish up the animation
                                     if (completeSwipeBack) {
@@ -11468,32 +11371,58 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
                     /**
                      * @private
-                     * TODO
-                     * @param {TODO} view  TODO
-                     * @returns {TODO} TODO
                      */
                 }, {
                     key: '_add',
-                    value: function _add(view) {
-                        this._incrementId(view);
-                        this._views.push(view);
-                    }
-                }, {
-                    key: '_incrementId',
-                    value: function _incrementId(view) {
-                        view.id = this.id + '-' + ++this._ids;
+                    value: function _add(viewCtrl) {
+                        this._incrementId(viewCtrl);
+                        this._views.push(viewCtrl);
                     }
 
                     /**
                      * @private
-                     * TODO
-                     * @param {TODO} viewOrIndex  TODO
-                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: '_incrementId',
+                    value: function _incrementId(viewCtrl) {
+                        viewCtrl.id = this.id + '-' + ++this._ids;
+                    }
+
+                    /**
+                     * @private
                      */
                 }, {
                     key: '_remove',
                     value: function _remove(viewOrIndex) {
                         util.array.remove(this._views, viewOrIndex);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: '_getStagedEntering',
+                    value: function _getStagedEntering() {
+                        for (var i = 0, ii = this._views.length; i < ii; i++) {
+                            if (this._views[i].state === STAGED_ENTERING_STATE) {
+                                return this._views[i];
+                            }
+                        }
+                        return null;
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: '_getStagedLeaving',
+                    value: function _getStagedLeaving() {
+                        for (var i = 0, ii = this._views.length; i < ii; i++) {
+                            if (this._views[i].state === STAGED_LEAVING_STATE) {
+                                return this._views[i];
+                            }
+                        }
+                        return null;
                     }
 
                     /**
@@ -11527,48 +11456,50 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
                     /**
                      * TODO
+                     * @param {TODO} handle  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'getByHandle',
+                    value: function getByHandle(handle) {
+                        for (var i = 0, ii = this._views.length; i < ii; i++) {
+                            if (this._views[i].handle === handle) {
+                                return this._views[i];
+                            }
+                        }
+                        return null;
+                    }
+
+                    /**
+                     * TODO
+                     * @param {TODO} pageType  TODO
+                     * @returns {TODO} TODO
+                     */
+                }, {
+                    key: 'getByType',
+                    value: function getByType(pageType) {
+                        for (var i = 0, ii = this._views.length; i < ii; i++) {
+                            if (this._views[i].pageType === pageType) {
+                                return this._views[i];
+                            }
+                        }
+                        return null;
+                    }
+
+                    /**
+                     * TODO
                      * @param {TODO} view  TODO
                      * @returns {TODO} TODO
                      */
                 }, {
                     key: 'getPrevious',
-                    value: function getPrevious(view) {
-                        if (view) {
-                            var viewIndex = this._views.indexOf(view);
+                    value: function getPrevious(viewCtrl) {
+                        if (viewCtrl) {
+                            var viewIndex = this._views.indexOf(viewCtrl);
                             for (var i = viewIndex - 1; i >= 0; i--) {
                                 if (!this._views[i].shouldDestroy) {
                                     return this._views[i];
                                 }
-                            }
-                        }
-                        return null;
-                    }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'getStagedEnteringView',
-                    value: function getStagedEnteringView() {
-                        for (var i = 0, ii = this._views.length; i < ii; i++) {
-                            if (this._views[i].state === STAGED_ENTERING_STATE) {
-                                return this._views[i];
-                            }
-                        }
-                        return null;
-                    }
-
-                    /**
-                     * TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'getStagedLeavingView',
-                    value: function getStagedLeavingView() {
-                        for (var i = 0, ii = this._views.length; i < ii; i++) {
-                            if (this._views[i].state === STAGED_LEAVING_STATE) {
-                                return this._views[i];
                             }
                         }
                         return null;
@@ -11613,8 +11544,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                      */
                 }, {
                     key: 'indexOf',
-                    value: function indexOf(view) {
-                        return this._views.indexOf(view);
+                    value: function indexOf(viewCtrl) {
+                        return this._views.indexOf(viewCtrl);
                     }
 
                     /**
@@ -11636,62 +11567,13 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
                     /**
                      * TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'instances',
-                    value: function instances() {
-                        var instances = [];
-                        var _iteratorNormalCompletion = true;
-                        var _didIteratorError = false;
-                        var _iteratorError = undefined;
-
-                        try {
-                            for (var _iterator = this._views[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                                var view = _step.value;
-
-                                if (view.instance) {
-                                    instances.push(view.instance);
-                                }
-                            }
-                        } catch (err) {
-                            _didIteratorError = true;
-                            _iteratorError = err;
-                        } finally {
-                            try {
-                                if (!_iteratorNormalCompletion && _iterator['return']) {
-                                    _iterator['return']();
-                                }
-                            } finally {
-                                if (_didIteratorError) {
-                                    throw _iteratorError;
-                                }
-                            }
-                        }
-
-                        return instances;
-                    }
-
-                    /**
-                     * TODO
                      * @param {TODO} view  TODO
                      * @returns {TODO} TODO
                      */
                 }, {
                     key: 'isActive',
-                    value: function isActive(view) {
-                        return view && view.state === ACTIVE_STATE;
-                    }
-
-                    /**
-                     * TODO
-                     * @param {TODO} view  TODO
-                     * @returns {TODO} TODO
-                     */
-                }, {
-                    key: 'isStagedEntering',
-                    value: function isStagedEntering(view) {
-                        return view && view.state === STAGED_ENTERING_STATE;
+                    value: function isActive(viewCtrl) {
+                        return viewCtrl && viewCtrl.state === ACTIVE_STATE;
                     }
 
                     /**
@@ -12423,9 +12305,10 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                     this.navCtrl = navCtrl;
                     this.componentType = componentType;
                     this.params = new NavParams(params);
-                    this.instance = null;
+                    this.instance = {};
                     this.state = 0;
                     this._destroys = [];
+                    this._loaded = false;
                 }
 
                 /**
@@ -12577,6 +12460,11 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                             navbar.hideBackButton = !!shouldHide;
                         }
                     }
+                }, {
+                    key: 'isLoaded',
+                    value: function isLoaded() {
+                        return this._loaded;
+                    }
 
                     /**
                      * The view has loaded. This event only happens once per view being
@@ -12588,8 +12476,9 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                 }, {
                     key: 'loaded',
                     value: function loaded() {
+                        this._loaded = true;
                         if (!this.shouldDestroy) {
-                            this.instance && this.instance.onPageLoaded && this.instance.onPageLoaded();
+                            this.instance.onPageLoaded && this.instance.onPageLoaded();
                         }
                     }
 
@@ -12600,7 +12489,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                     key: 'willEnter',
                     value: function willEnter() {
                         if (!this.shouldDestroy) {
-                            this.instance && this.instance.onPageWillEnter && this.instance.onPageWillEnter();
+                            this.instance.onPageWillEnter && this.instance.onPageWillEnter();
                         }
                     }
 
@@ -12613,7 +12502,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                     value: function didEnter() {
                         var navbar = this.getNavbar();
                         navbar && navbar.didEnter();
-                        this.instance && this.instance.onPageDidEnter && this.instance.onPageDidEnter();
+                        this.instance.onPageDidEnter && this.instance.onPageDidEnter();
                     }
 
                     /**
@@ -12622,7 +12511,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                 }, {
                     key: 'willLeave',
                     value: function willLeave() {
-                        this.instance && this.instance.onPageWillLeave && this.instance.onPageWillLeave();
+                        this.instance.onPageWillLeave && this.instance.onPageWillLeave();
                     }
 
                     /**
@@ -12632,7 +12521,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                 }, {
                     key: 'didLeave',
                     value: function didLeave() {
-                        this.instance && this.instance.onPageDidLeave && this.instance.onPageDidLeave();
+                        this.instance.onPageDidLeave && this.instance.onPageDidLeave();
                     }
 
                     /**
@@ -12641,7 +12530,7 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                 }, {
                     key: 'willUnload',
                     value: function willUnload() {
-                        this.instance && this.instance.onPageWillUnload && this.instance.onPageWillUnload();
+                        this.instance.onPageWillUnload && this.instance.onPageWillUnload();
                     }
 
                     /**
@@ -12650,14 +12539,12 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                 }, {
                     key: 'didUnload',
                     value: function didUnload() {
-                        this.instance && this.instance.onPageDidUnload && this.instance.onPageDidUnload();
+                        this.instance.onPageDidUnload && this.instance.onPageDidUnload();
                     }
                 }, {
                     key: 'domCache',
                     value: function domCache(isActiveView, isPreviousView) {
-                        if (this.instance) {
-                            this.instance._hidden = !isActiveView && !isPreviousView;
-                        }
+                        this.instance._hidden = !isActiveView && !isPreviousView;
                     }
                 }, {
                     key: 'index',
@@ -12944,72 +12831,35 @@ System.register("ionic/components/navbar/navbar", ["angular2/angular2", "../ion"
         }
     };
 });
-System.register("ionic/components/overlay/overlay-controller", ["angular2/angular2", "../app/app", "../../config/config", "../../animations/animation", "ionic/util"], function (_export) {
-    "use strict";
+System.register('ionic/components/overlay/overlay-controller', ['ionic/util'], function (_export) {
+    'use strict';
 
-    var NgZone, Injectable, Renderer, IonicApp, Config, Animation, util, __decorate, __metadata, OverlayController, ROOT_Z_INDEX, _a, _b, _c, _d;
+    var extend, OverlayController, ROOT_Z_INDEX;
 
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [function (_angular2Angular2) {
-            NgZone = _angular2Angular2.NgZone;
-            Injectable = _angular2Angular2.Injectable;
-            Renderer = _angular2Angular2.Renderer;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
+        setters: [function (_ionicUtil) {
+            extend = _ionicUtil.extend;
         }],
         execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
             OverlayController = (function () {
-                function OverlayController(app, config, zone, renderer) {
+                function OverlayController() {
                     _classCallCheck(this, OverlayController);
-
-                    this.app = app;
-                    this.config = config;
-                    this.zone = zone;
-                    this.renderer = renderer;
-                    this.refs = [];
                 }
 
                 _createClass(OverlayController, [{
-                    key: "open",
-                    value: function open(overlayType, componentType) {
+                    key: 'open',
+                    value: function open(componentType) {
                         var _this = this;
 
+                        var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
                         var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-                        if (!this.anchor) {
-                            console.error('<ion-overlay></ion-overlay> required in root component template to use: ' + overlayType);
+                        if (!this.nav) {
+                            console.error('<ion-overlay></ion-overlay> required in root template (app.html) to use: ' + overlayType);
                             return Promise.reject();
                         }
                         var resolve = undefined,
@@ -13017,154 +12867,73 @@ System.register("ionic/components/overlay/overlay-controller", ["angular2/angula
                         var promise = new Promise(function (res, rej) {
                             resolve = res;reject = rej;
                         });
-                        try {
-                            this.anchor.append(componentType).then(function (ref) {
-                                var instance = ref && ref.instance;
-                                if (!instance) {
-                                    return reject();
-                                }
-                                instance._zIndex = ROOT_Z_INDEX;
-                                for (var i = 0; i < _this.refs.length; i++) {
-                                    if (_this.refs[i].instance._zIndex >= ref.instance._zIndex) {
-                                        ref.instance._zIndex = _this.refs[i].instance._zIndex + 1;
-                                    }
-                                }
-                                _this.renderer.setElementAttribute(ref.location, 'role', 'dialog');
-                                util.extend(instance, opts);
-                                ref._type = overlayType;
-                                ref._handle = opts.handle || overlayType + ref._z;
-                                _this.add(ref);
-                                instance.close = function () {
+                        opts.animation = opts.enterAnimation;
+                        opts.animateFirst = true;
+                        this.nav.push(componentType, params, opts).then(function (enteringView) {
+                            if (enteringView && enteringView.instance) {
+                                enteringView.instance.close = function () {
                                     var closeOpts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-                                    _this.close(ref, util.extend(opts, closeOpts));
+                                    extend(opts, closeOpts);
+                                    opts.animation = opts.leaveAnimation;
+                                    _this.nav.pop(opts);
                                 };
-                                instance.onPageLoaded && instance.onPageLoaded();
-                                instance.onPageWillEnter && instance.onPageWillEnter();
-                                var animation = Animation.create(ref.location.nativeElement, opts.enterAnimation);
-                                if (_this.config.get('animate') === false) {
-                                    animation.duration(0);
-                                }
-                                animation.before.addClass(overlayType);
-                                if (overlayType == 'modal') {
-                                    animation.before.addClass('show-page');
-                                }
-                                _this.app.setEnabled(false, animation.duration());
-                                _this.app.setTransitioning(true, animation.duration());
-                                _this.zone.runOutsideAngular(function () {
-                                    animation.play().then(function () {
-                                        animation.dispose();
-                                        _this.zone.run(function () {
-                                            _this.app.setEnabled(true);
-                                            _this.app.setTransitioning(false);
-                                            instance.onPageDidEnter && instance.onPageDidEnter();
-                                            resolve(instance);
-                                        });
-                                    });
-                                });
-                            })["catch"](function (err) {
-                                console.error(err);
-                            });
-                        } catch (e) {
-                            console.error(e);
-                        }
-                        return promise;
-                    }
-                }, {
-                    key: "close",
-                    value: function close(ref, opts) {
-                        var _this2 = this;
-
-                        var resolve = undefined;
-                        var promise = new Promise(function (res) {
-                            resolve = res;
-                        });
-                        var instance = ref.instance;
-                        instance.onPageWillLeave && instance.onPageWillLeave();
-                        instance.onPageWillUnload && instance.onPageWillUnload();
-                        var animation = Animation.create(ref.location.nativeElement, opts.leaveAnimation);
-                        if (this.config.get('animate') === false) {
-                            animation.duration(0);
-                        }
-                        this.app.setEnabled(false, animation.duration());
-                        this.app.setTransitioning(true, animation.duration());
-                        this.zone.runOutsideAngular(function () {
-                            animation.play().then(function () {
-                                animation.dispose();
-                                _this2.zone.run(function () {
-                                    instance.onPageDidLeave && instance.onPageDidLeave();
-                                    instance.onPageDidUnload && instance.onPageDidUnload();
-                                    _this2.app.setEnabled(true);
-                                    _this2.app.setTransitioning(false);
-                                    _this2.remove(ref);
-                                    resolve();
-                                });
-                            });
+                            }
+                            resolve();
                         });
                         return promise;
                     }
                 }, {
-                    key: "add",
-                    value: function add(ref) {
-                        this.refs.push(ref);
-                    }
-                }, {
-                    key: "remove",
-                    value: function remove(ref) {
-                        util.array.remove(this.refs, ref);
-                        ref.dispose && ref.dispose();
-                    }
-                }, {
-                    key: "getByType",
+                    key: 'getByType',
                     value: function getByType(overlayType) {
-                        for (var i = this.refs.length - 1; i >= 0; i--) {
-                            if (overlayType === this.refs[i]._type) {
-                                return this.refs[i].instance;
-                            }
-                        }
-                        return null;
+                        var overlay = this.nav.getByType(overlayType);
+                        return overlay && overlay.instance;
                     }
                 }, {
-                    key: "getByHandle",
+                    key: 'getByHandle',
                     value: function getByHandle(handle, overlayType) {
-                        for (var i = this.refs.length - 1; i >= 0; i--) {
-                            if (handle === this.refs[i]._handle && overlayType === this.refs[i]._type) {
-                                return this.refs[i].instance;
-                            }
-                        }
-                        return null;
+                        var overlay = this.nav.getByHandle(handle);
+                        return overlay && overlay.instance;
                     }
                 }]);
 
                 return OverlayController;
             })();
 
-            _export("OverlayController", OverlayController);
+            _export('OverlayController', OverlayController);
 
-            _export("OverlayController", OverlayController = __decorate([Injectable(), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgZone !== 'undefined' && NgZone) === 'function' && _c || Object, typeof (_d = typeof Renderer !== 'undefined' && Renderer) === 'function' && _d || Object])], OverlayController));
             ROOT_Z_INDEX = 1000;
         }
     };
 });
-System.register("ionic/components/overlay/overlay", ["angular2/angular2", "./overlay-controller"], function (_export) {
-    /**
-     * @private
-     */
+System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../app/app", "../../config/config", "./overlay-controller", "../nav/nav-controller"], function (_export) {
     "use strict";
 
-    var Component, ElementRef, DynamicComponentLoader, OverlayController, __decorate, __metadata, OverlayAnchor, _a, _b, _c;
+    var Component, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, OverlayController, NavController, __decorate, __metadata, OverlayNav, _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
     return {
         setters: [function (_angular2Angular2) {
             Component = _angular2Angular2.Component;
             ElementRef = _angular2Angular2.ElementRef;
+            Compiler = _angular2Angular2.Compiler;
             DynamicComponentLoader = _angular2Angular2.DynamicComponentLoader;
+            AppViewManager = _angular2Angular2.AppViewManager;
+            NgZone = _angular2Angular2.NgZone;
+            Renderer = _angular2Angular2.Renderer;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
         }, function (_overlayController) {
             OverlayController = _overlayController.OverlayController;
+        }, function (_navNavController) {
+            NavController = _navNavController.NavController;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -13189,40 +12958,32 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "./ove
                 if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
             };
 
-            OverlayAnchor = (function () {
-                function OverlayAnchor(overlayCtrl, elementRef, loader) {
-                    _classCallCheck(this, OverlayAnchor);
+            OverlayNav = (function (_NavController) {
+                _inherits(OverlayNav, _NavController);
 
+                function OverlayNav(overlayCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                    _classCallCheck(this, OverlayNav);
+
+                    _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
                     if (overlayCtrl.anchor) {
                         throw 'An app should only have one <ion-overlay></ion-overlay>';
                     }
-                    this.elementRef = elementRef;
-                    this.loader = loader;
-                    overlayCtrl.anchor = this;
+                    overlayCtrl.nav = this;
                 }
 
-                _createClass(OverlayAnchor, [{
-                    key: "append",
-                    value: function append(componentType) {
-                        return this.loader.loadIntoLocation(componentType, this.elementRef, 'contents')["catch"](function (err) {
-                            console.error(err);
-                        });
-                    }
-                }]);
+                return OverlayNav;
+            })(NavController);
 
-                return OverlayAnchor;
-            })();
+            _export("OverlayNav", OverlayNav);
 
-            _export("OverlayAnchor", OverlayAnchor);
-
-            _export("OverlayAnchor", OverlayAnchor = __decorate([Component({
+            _export("OverlayNav", OverlayNav = __decorate([Component({
                 selector: 'ion-overlay',
                 template: '<template #contents></template>'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _c || Object])], OverlayAnchor));
+            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Compiler !== 'undefined' && Compiler) === 'function' && _e || Object, typeof (_f = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], OverlayNav));
         }
     };
 });
-System.register("ionic/components/popup/popup", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../../animations/animation", "../button/button", "ionic/util"], function (_export) {
+System.register("ionic/components/popup/popup", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../../animations/animation", "../nav/nav-controller", "../button/button", "../../util/util"], function (_export) {
     /**
      * The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.
      *
@@ -13278,7 +13039,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
      */
     "use strict";
 
-    var FORM_DIRECTIVES, Component, ElementRef, Injectable, NgClass, NgIf, NgFor, OverlayController, Config, Animation, Button, util, __decorate, __metadata, Popup, OVERLAY_TYPE, PopupCmp, PopupAnimation, PopupPopIn, PopupPopOut, PopupMdPopIn, PopupMdPopOut, _a, _b, _c;
+    var FORM_DIRECTIVES, Component, ElementRef, Injectable, NgClass, NgIf, NgFor, Renderer, OverlayController, Config, Animation, NavParams, Button, extend, __decorate, __metadata, Popup, OVERLAY_TYPE, PopupCmp, PopupPopIn, PopupPopOut, PopupMdPopIn, PopupMdPopOut, _a, _b, _c, _d, _e;
 
     var _get = function get(_x4, _x5, _x6) { var _again = true; _function: while (_again) { var object = _x4, property = _x5, receiver = _x6; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x4 = parent; _x5 = property; _x6 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -13297,16 +13058,19 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
             NgClass = _angular2Angular2.NgClass;
             NgIf = _angular2Angular2.NgIf;
             NgFor = _angular2Angular2.NgFor;
+            Renderer = _angular2Angular2.Renderer;
         }, function (_overlayOverlayController) {
             OverlayController = _overlayOverlayController.OverlayController;
         }, function (_configConfig) {
             Config = _configConfig.Config;
         }, function (_animationsAnimation) {
             Animation = _animationsAnimation.Animation;
+        }, function (_navNavController) {
+            NavParams = _navNavController.NavParams;
         }, function (_buttonButton) {
             Button = _buttonButton.Button;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
+        }, function (_utilUtil) {
+            extend = _utilUtil.extend;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -13336,10 +13100,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                     _classCallCheck(this, Popup);
 
                     this.ctrl = ctrl;
-                    this._defaults = {
-                        enterAnimation: config.get('popupEnter'),
-                        leaveAnimation: config.get('popupLeave')
-                    };
+                    this.config = config;
                 }
 
                 /**
@@ -13356,8 +13117,12 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                         return new Promise(function (resolve, reject) {
                             opts.promiseResolve = resolve;
                             opts.promiseReject = reject;
-                            var defaults = util.merge({}, _this._defaults);
-                            return _this.ctrl.open(OVERLAY_TYPE, PopupCmp, util.extend(defaults, opts));
+                            opts = extend({
+                                pageType: OVERLAY_TYPE,
+                                enterAnimation: _this.config.get('popupEnter'),
+                                leaveAnimation: _this.config.get('popupLeave')
+                            }, opts);
+                            return _this.ctrl.open(PopupCmp, opts, opts);
                         });
                     }
 
@@ -13399,7 +13164,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                                 //resolve();
                             }
                         };
-                        opts = util.extend({
+                        opts = extend({
                             showPrompt: false,
                             cancel: function cancel() {
                                 //reject();
@@ -13457,7 +13222,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                                 // Allow it to close
                             }
                         };
-                        opts = util.extend({
+                        opts = extend({
                             showPrompt: false,
                             cancel: function cancel() {},
                             buttons: [cancelButton, okButton]
@@ -13515,7 +13280,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                                 // Allow it to close
                             }
                         };
-                        opts = util.extend({
+                        opts = extend({
                             showPrompt: true,
                             promptPlaceholder: '',
                             cancel: function cancel() {},
@@ -13533,7 +13298,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                     key: "get",
                     value: function get(handle) {
                         if (handle) {
-                            return this.ctrl.getByHandle(handle, OVERLAY_TYPE);
+                            return this.ctrl.getByHandle(handle);
                         }
                         return this.ctrl.getByType(OVERLAY_TYPE);
                     }
@@ -13550,10 +13315,14 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
             // TODO add button type to button: [type]="button.type"
 
             PopupCmp = (function () {
-                function PopupCmp(elementRef) {
+                function PopupCmp(elementRef, params, renderer) {
                     _classCallCheck(this, PopupCmp);
 
                     this.elementRef = elementRef;
+                    this.d = params.data;
+                    if (this.d.cssClass) {
+                        renderer.setElementClass(elementRef, this.d.cssClass, true);
+                    }
                 }
 
                 _createClass(PopupCmp, [{
@@ -13571,29 +13340,29 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                     }
                 }, {
                     key: "buttonTapped",
-                    value: function buttonTapped(button, event) {
+                    value: function buttonTapped(button, ev) {
                         var promptValue = this.promptInput && this.promptInput.value;
-                        var retVal = button.onTap && button.onTap(event, this, {
+                        var retVal = button.onTap && button.onTap(ev, this, {
                             promptValue: promptValue
                         });
                         // If the event.preventDefault() wasn't called, close
-                        if (!event.defaultPrevented) {
+                        if (!ev.defaultPrevented) {
                             // If this is a cancel button, reject the promise
                             if (button.isCancel) {
-                                this.promiseReject();
+                                this.d.promiseReject();
                             } else {
                                 // Resolve with the prompt value
-                                this.promiseResolve(promptValue);
+                                this.d.promiseResolve(promptValue);
                             }
                             return this.close();
                         }
                     }
                 }, {
-                    key: "_cancel",
-                    value: function _cancel(event) {
-                        this.cancel && this.cancel(event);
-                        if (!event.defaultPrevented) {
-                            this.promiseReject();
+                    key: "cancel",
+                    value: function cancel(ev) {
+                        this.d.cancel && this.d.cancel(event);
+                        if (!ev.defaultPrevented) {
+                            this.d.promiseReject();
                             return this.close();
                         }
                     }
@@ -13604,93 +13373,94 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
 
             PopupCmp = __decorate([Component({
                 selector: 'ion-popup',
-                template: '<backdrop (click)="_cancel($event)" tappable disable-activated></backdrop>' + '<popup-wrapper [ng-class]="cssClass">' + '<div class="popup-head">' + '<h2 class="popup-title" [inner-html]="title" *ng-if="title"></h2>' + '<h3 class="popup-sub-title" [inner-html]="subTitle" *ng-if="subTitle"></h3>' + '</div>' + '<div class="popup-body">' + '<div [inner-html]="template" *ng-if="template"></div>' + '<input type="{{inputType || \'text\'}}" placeholder="{{inputPlaceholder}}" *ng-if="showPrompt" class="prompt-input">' + '</div>' + '<div class="popup-buttons" *ng-if="buttons.length">' + '<button *ng-for="#button of buttons" (click)="buttonTapped(button, $event)" [inner-html]="button.text"></button>' + '</div>' + '</popup-wrapper>',
+                template: '<backdrop (click)="cancel($event)" tappable disable-activated></backdrop>' + '<popup-wrapper>' + '<div class="popup-head">' + '<h2 class="popup-title" [inner-html]="d.title" *ng-if="d.title"></h2>' + '<h3 class="popup-sub-title" [inner-html]="d.subTitle" *ng-if="d.subTitle"></h3>' + '</div>' + '<div class="popup-body">' + '<div [inner-html]="d.template" *ng-if="d.template"></div>' + '<input type="{{d.inputType || \'text\'}}" placeholder="{{d.inputPlaceholder}}" *ng-if="d.showPrompt" class="prompt-input">' + '</div>' + '<div class="popup-buttons" *ng-if="d.buttons.length">' + '<button *ng-for="#btn of d.buttons" (click)="buttonTapped(btn, $event)" [inner-html]="btn.text"></button>' + '</div>' + '</popup-wrapper>',
                 host: {
-                    '[style.zIndex]': '_zIndex'
+                    '[style.zIndex]': '_zIndex',
+                    'role': 'dialog'
                 },
                 directives: [FORM_DIRECTIVES, NgClass, NgIf, NgFor, Button]
-            }), __metadata('design:paramtypes', [typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object])], PopupCmp);
+            }), __metadata('design:paramtypes', [typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof NavParams !== 'undefined' && NavParams) === 'function' && _d || Object, typeof (_e = typeof Renderer !== 'undefined' && Renderer) === 'function' && _e || Object])], PopupCmp);
+            /**
+             * Animations for popups
+             */
 
-            PopupAnimation = (function (_Animation) {
-                _inherits(PopupAnimation, _Animation);
+            PopupPopIn = (function (_Animation) {
+                _inherits(PopupPopIn, _Animation);
 
-                function PopupAnimation(element) {
-                    _classCallCheck(this, PopupAnimation);
-
-                    _get(Object.getPrototypeOf(PopupAnimation.prototype), "constructor", this).call(this, element);
-                    this.easing('ease-in-out').duration(200);
-                    this.backdrop = new Animation(element.querySelector('backdrop'));
-                    this.wrapper = new Animation(element.querySelector('popup-wrapper'));
-                    this.add(this.backdrop, this.wrapper);
-                }
-
-                /**
-                 * Animations for popups
-                 */
-                return PopupAnimation;
-            })(Animation);
-
-            PopupPopIn = (function (_PopupAnimation) {
-                _inherits(PopupPopIn, _PopupAnimation);
-
-                function PopupPopIn(element) {
+                function PopupPopIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, PopupPopIn);
 
-                    _get(Object.getPrototypeOf(PopupPopIn.prototype), "constructor", this).call(this, element);
-                    this.wrapper.fromTo('opacity', '0.01', '1');
-                    this.wrapper.fromTo('scale', '1.1', '1');
-                    this.backdrop.fromTo('opacity', '0', '0.3');
+                    _get(Object.getPrototypeOf(PopupPopIn.prototype), "constructor", this).call(this, null, opts);
+                    var ele = enteringView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('popup-wrapper'));
+                    wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+                    backdrop.fromTo('opacity', '0.01', '0.3');
+                    this.easing('ease-in-out').duration(200).add(backdrop, wrapper);
                 }
 
                 return PopupPopIn;
-            })(PopupAnimation);
+            })(Animation);
 
             Animation.register('popup-pop-in', PopupPopIn);
 
-            PopupPopOut = (function (_PopupAnimation2) {
-                _inherits(PopupPopOut, _PopupAnimation2);
+            PopupPopOut = (function (_Animation2) {
+                _inherits(PopupPopOut, _Animation2);
 
-                function PopupPopOut(element) {
+                function PopupPopOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, PopupPopOut);
 
-                    _get(Object.getPrototypeOf(PopupPopOut.prototype), "constructor", this).call(this, element);
-                    this.wrapper.fromTo('opacity', '1', '0');
-                    this.wrapper.fromTo('scale', '1', '0.9');
-                    this.backdrop.fromTo('opacity', '0.3', '0');
+                    _get(Object.getPrototypeOf(PopupPopOut.prototype), "constructor", this).call(this, null, opts);
+                    var ele = leavingView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('popup-wrapper'));
+                    wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+                    backdrop.fromTo('opacity', '0.3', '0');
+                    this.easing('ease-in-out').duration(200).add(backdrop, wrapper);
                 }
 
                 return PopupPopOut;
-            })(PopupAnimation);
+            })(Animation);
 
             Animation.register('popup-pop-out', PopupPopOut);
 
-            PopupMdPopIn = (function (_PopupPopIn) {
-                _inherits(PopupMdPopIn, _PopupPopIn);
+            PopupMdPopIn = (function (_Animation3) {
+                _inherits(PopupMdPopIn, _Animation3);
 
-                function PopupMdPopIn(element) {
+                function PopupMdPopIn(enteringView, leavingView, opts) {
                     _classCallCheck(this, PopupMdPopIn);
 
-                    _get(Object.getPrototypeOf(PopupMdPopIn.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', '0.01', '0.5');
+                    _get(Object.getPrototypeOf(PopupMdPopIn.prototype), "constructor", this).call(this, null, opts);
+                    var ele = enteringView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('popup-wrapper'));
+                    wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+                    backdrop.fromTo('opacity', '0.01', '0.5');
+                    this.easing('ease-in-out').duration(200).add(backdrop, wrapper);
                 }
 
                 return PopupMdPopIn;
-            })(PopupPopIn);
+            })(Animation);
 
             Animation.register('popup-md-pop-in', PopupMdPopIn);
 
-            PopupMdPopOut = (function (_PopupPopOut) {
-                _inherits(PopupMdPopOut, _PopupPopOut);
+            PopupMdPopOut = (function (_Animation4) {
+                _inherits(PopupMdPopOut, _Animation4);
 
-                function PopupMdPopOut(element) {
+                function PopupMdPopOut(enteringView, leavingView, opts) {
                     _classCallCheck(this, PopupMdPopOut);
 
-                    _get(Object.getPrototypeOf(PopupMdPopOut.prototype), "constructor", this).call(this, element);
-                    this.backdrop.fromTo('opacity', '0.5', '0');
+                    _get(Object.getPrototypeOf(PopupMdPopOut.prototype), "constructor", this).call(this, null, opts);
+                    var ele = leavingView.pageRef().nativeElement;
+                    var backdrop = new Animation(ele.querySelector('backdrop'));
+                    var wrapper = new Animation(ele.querySelector('popup-wrapper'));
+                    wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+                    backdrop.fromTo('opacity', '0.5', '0');
+                    this.easing('ease-in-out').duration(200).add(backdrop, wrapper);
                 }
 
                 return PopupMdPopOut;
-            })(PopupPopOut);
+            })(Animation);
 
             Animation.register('popup-md-pop-out', PopupMdPopOut);
         }
@@ -16650,7 +16420,6 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     this.platform = platform;
                     this.app = app;
                     this.subPages = config.get('tabSubPages');
-                    // collection of children "Tab" instances, which extends NavController
                     this.tabs = [];
                     // Tabs may also be an actual ViewController which was navigated to
                     // if Tabs is static and not navigated to within a NavController
@@ -17083,7 +16852,7 @@ System.register('ionic/components/tap-click/ripple', ['./activator', '../../anim
                         if (_get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY)) {
                             // create a new ripple element
                             this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
-                            rafFrames(2, function () {
+                            raf(function () {
                                 var clientRect = activatableEle.getBoundingClientRect();
                                 raf(function () {
                                     _this.createRipple(activatableEle, pointerX, pointerY, clientRect);

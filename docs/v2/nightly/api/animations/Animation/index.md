@@ -57,7 +57,7 @@ docType: "class"
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L545">ionic/animations/animation.ts (line 2)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L556">ionic/animations/animation.ts (line 2)</a>
 </p>
 ## Members
 

@@ -37,19 +37,21 @@ docType: "class"
 
 
 
-<p>The Modal is a content pane that can go over the user&#39;s main view temporarily.
-Usually used for making a choice or editing an item.</p>
+<p>The Modal is a content pane that can go over the user&#39;s current page.
+Usually used for making a choice or editing an item. A modal can be opened
+similar to how NavController#push works, where you pass it a Page component,
+along with optional Page params, and options for presenting the modal.</p>
 
 
 <h1 class="class export">Modal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L63">ionic/components/modal/modal.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L69">ionic/components/modal/modal.ts (line 6)</a>
 </p>
 ## Members
 
 <div id="open"></div>
 <h2>
-  <code>open(componentType, opts)</code>
+  <code>open(componentType, params, opts)</code>
 
 </h2>
 
@@ -75,7 +77,24 @@ TODO
       </td>
       <td>
         
-  <code>Type</code>
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        params
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
@@ -92,7 +111,7 @@ TODO
       </td>
       <td>
         
-  <code>Object</code>
+  <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
@@ -110,7 +129,7 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Promise</code> TODO
 
 
 

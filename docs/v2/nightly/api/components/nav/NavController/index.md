@@ -112,7 +112,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L10-L1070">ionic/components/nav/nav-controller.ts (line 10)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L10-L1078">ionic/components/nav/nav-controller.ts (line 10)</a>
 </p>
 ## Members
 
@@ -822,6 +822,108 @@ TODO
 
 
 
+<div id="getByHandle"></div>
+<h2>
+  <code>getByHandle(handle)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        handle
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>TODO</code> TODO
+
+
+
+
+<div id="getByType"></div>
+<h2>
+  <code>getByType(pageType)</code>
+
+</h2>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        pageType
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>TODO</code> TODO
+
+
+
+
 <div id="getPrevious"></div>
 <h2>
   <code>getPrevious(view)</code>
@@ -861,44 +963,6 @@ TODO
     
   </tbody>
 </table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="getStagedEnteringView"></div>
-<h2>
-  <code>getStagedEnteringView()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="getStagedLeavingView"></div>
-<h2>
-  <code>getStagedLeavingView()</code>
-
-</h2>
-
-TODO
 
 
 
@@ -1022,79 +1086,9 @@ not include views which are about to be destroyed.
 
 
 
-<div id="instances"></div>
-<h2>
-  <code>instances()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
 <div id="isActive"></div>
 <h2>
   <code>isActive(view)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="isStagedEntering"></div>
-<h2>
-  <code>isStagedEntering(view)</code>
 
 </h2>
 

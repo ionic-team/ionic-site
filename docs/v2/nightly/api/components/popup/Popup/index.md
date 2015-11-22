@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ docType: "class"
 
 <h1 class="class export">Popup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8-L264">ionic/components/popup/popup.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L266">ionic/components/popup/popup.ts (line 9)</a>
 </p>
 ## Members
 

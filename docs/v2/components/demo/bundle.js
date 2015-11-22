@@ -48,7 +48,6 @@
 	__webpack_require__(3);
 	__webpack_require__(18);
 	__webpack_require__(41);
-	__webpack_require__(42);
 	module.exports = __webpack_require__(42);
 
 
@@ -9651,7 +9650,6 @@
 	    var args = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var fastdom = new _utilFastdom.FastDom();
-	    var app = new _componentsAppApp.IonicApp(fastdom);
 	    var platform = new _platformPlatform.Platform();
 	    var navRegistry = new _componentsNavNavRegistry.NavRegistry(args.pages);
 	    var config = args.config;
@@ -9663,6 +9661,7 @@
 	    platform.navigatorPlatform(window.navigator.platform);
 	    platform.load();
 	    config.setPlatform(platform);
+	    var app = new _componentsAppApp.IonicApp(config, fastdom);
 	    var events = new _utilEvents.Events();
 	    (0, _componentsTapClickTapClick.initTapClick)(window, document, app, config, fastdom);
 	    var featureDetect = new _utilFeatureDetect.FeatureDetect();
@@ -56231,9 +56230,10 @@
 	 */
 
 	var IonicApp = (function () {
-	    function IonicApp(fastdom) {
+	    function IonicApp(config, fastdom) {
 	        _classCallCheck(this, IonicApp);
 
+	        this._config = config;
 	        this._fastdom = fastdom;
 	        this._titleSrv = new _angular2Angular2.Title();
 	        this._title = '';
@@ -56278,7 +56278,9 @@
 	            var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
 
 	            this._disTime = isEnabled ? 0 : Date.now() + fallback;
-	            (0, _utilClickBlock.ClickBlock)(!isEnabled, fallback + 100);
+	            if (this._config.get('clickBlock')) {
+	                (0, _utilClickBlock.ClickBlock)(!isEnabled, fallback + 100);
+	            }
 	        }
 
 	        /**
@@ -56458,7 +56460,6 @@
 	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
 	 *
 	 * ```ts
-	 * import {Config} from 'ionic/ionic';
 	 * @App({
 	 *   template: `<ion-nav [root]="root"></ion-nav>`
 	 *   config: {
@@ -56474,14 +56475,13 @@
 	 *
 	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
 	 * ```ts
-	 * import {Config} from 'ionic/ionic';
 	 * @App({
 	 *   template: `<ion-nav [root]="root"></ion-nav>`
 	 *   config: {
-	 *     'tabbarPlacement': 'bottom',
-	 *     platform: {
+	 *     tabbarPlacement: 'bottom',
+	 *     platforms: {
 	 *      ios: {
-	 *        'tabbarPlacement': 'top',
+	 *        tabbarPlacement: 'top',
 	 *      }
 	 *     }
 	 *   }
@@ -56492,7 +56492,7 @@
 	 *
 	 * ```html
 	 * <ion-tabs tabbar-placement="top">
-	 *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="DashRoot"></ion-tab>
+	 *    <ion-tab tab-title="Dash" tab-icon="pulse" [root]="tabRoot"></ion-tab>
 	 *  </ion-tabs>
 	 * ```
 	 *
@@ -56826,6 +56826,16 @@
 	            }
 	            // get all the platforms that have a valid parsed version
 	            return this._versions;
+	        }
+	    }, {
+	        key: 'version',
+	        value: function version() {
+	            for (var platformName in this._versions) {
+	                if (this._versions[platformName]) {
+	                    return this._versions[platformName];
+	                }
+	            }
+	            return {};
 	        }
 
 	        /**
@@ -58080,7 +58090,7 @@
 	                                _this.app.setEnabled(true);
 	                                _this.app.setTransitioning(false);
 	                                instance.onPageDidEnter && instance.onPageDidEnter();
-	                                resolve();
+	                                resolve(instance);
 	                            });
 	                        });
 	                    });
@@ -61738,7 +61748,7 @@
 
 	/**
 	 * _For more information on how pages are created, see the [NavController API
-	 * reference](../../Nav/NavController/#creating_pages)._
+	 * reference](../../components/nav/NavController/#creating_pages)._
 	 *
 	 * The Page decorator indicates that the decorated class is an Ionic
 	 * navigation component, meaning it can be navigated to using a NavController.
@@ -62215,12 +62225,19 @@
 	            if (!type) {
 	                type = this.config.get('menuType');
 	            }
-	            this._type = new menuTypes[type](this);
 	            this.type = type;
-	            if (this.config.get('animate') === false) {
-	                this._type.open.duration(33);
-	                this._type.close.duration(33);
+	        }
+	    }, {
+	        key: "_getType",
+	        value: function _getType() {
+	            if (!this._type) {
+	                this._type = new menuTypes[this.type](this);
+	                if (this.config.get('animate') === false) {
+	                    this._type.open.duration(33);
+	                    this._type.close.duration(33);
+	                }
 	            }
+	            return this._type;
 	        }
 
 	        /**
@@ -62239,7 +62256,7 @@
 	                return Promise.resolve();
 	            }
 	            this._before();
-	            return this._type.setOpen(shouldOpen).then(function () {
+	            return this._getType().setOpen(shouldOpen).then(function () {
 	                _this._after(shouldOpen);
 	            });
 	        }
@@ -62253,7 +62270,7 @@
 	            // user started swiping the menu open/close
 	            if (this._isPrevented() || !this.isEnabled) return;
 	            this._before();
-	            this._type.setProgressStart(this.isOpen);
+	            this._getType().setProgressStart(this.isOpen);
 	        }
 
 	        /**
@@ -62266,7 +62283,7 @@
 	            if (this.isEnabled) {
 	                this._prevent();
 	                this.app.setTransitioning(true);
-	                this._type.setProgess(value);
+	                this._getType().setProgess(value);
 	            }
 	        }
 
@@ -62282,7 +62299,7 @@
 	            if (this.isEnabled) {
 	                this._prevent();
 	                this.app.setTransitioning(true);
-	                this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
+	                this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
 	                    _this2._after(isOpen);
 	                });
 	            }
@@ -62603,7 +62620,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(465);
+	var _gesturesSlideEdgeGesture = __webpack_require__(465);
 
 	var _ionicUtil = __webpack_require__(442);
 
@@ -62669,7 +62686,7 @@
 	    }]);
 
 	    return MenuContentGesture;
-	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
+	})(_gesturesSlideEdgeGesture.SlideEdgeGesture);
 
 	var TargetGesture = (function (_MenuContentGesture) {
 	    _inherits(TargetGesture, _MenuContentGesture);
@@ -63082,7 +63099,11 @@
 	            }
 	            this.hammertime.on(type, cb);
 	            (this._callbacks[type] || (this._callbacks[type] = [])).push(cb);
-	            //this.element.addEventListener(type, cb);
+	        }
+	    }, {
+	        key: 'off',
+	        value: function off(type, cb) {
+	            this.hammertime.off(type, this._callbacks[type] ? cb : null);
 	        }
 	    }, {
 	        key: 'listen',
@@ -63095,7 +63116,6 @@
 	            if (this.hammertime) {
 	                for (var type in this._callbacks) {
 	                    for (var i = 0; i < this._callbacks[type].length; i++) {
-	                        //this.element.removeEventListener(type, this._callbacks[type][i]);
 	                        this.hammertime.off(type, this._callbacks[type]);
 	                    }
 	                }
@@ -66100,7 +66120,7 @@
 	                    // already marked as a view that will be destroyed, don't continue
 	                    return done();
 	                }
-	                _this2._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
+	                _this2._setZIndex(enteringView.instance, leavingView && leavingView.instance, opts.direction);
 	                _this2._zone.runOutsideAngular(function () {
 	                    enteringView.shouldDestroy = false;
 	                    enteringView.shouldCache = false;
@@ -68090,7 +68110,7 @@
 	            });
 	            this.showSpinner = !util.isDefined(this.refreshingIcon) && this.spinner != 'none';
 	            this.showIcon = util.isDefined(this.refreshingIcon);
-	            this._touchMoveListener = this._handleTouchMov.bind(this);
+	            this._touchMoveListener = this._handleTouchMove.bind(this);
 	            this._touchEndListener = this._handleTouchEnd.bind(this);
 	            this._handleScrollListener = this._handleScroll.bind(this);
 	            sc.addEventListener('touchmove', this._touchMoveListener);
@@ -69999,6 +70019,7 @@
 	        _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
 	        this.zone = zone;
 	        this.ele = elementRef.nativeElement;
+	        this._enableSliding = false;
 	    }
 
 	    /**
@@ -70052,16 +70073,19 @@
 	        value: function enableSlidingItems(shouldEnable) {
 	            var _this = this;
 
-	            this._enableSliding = shouldEnable;
 	            if (this._init) {
-	                if (shouldEnable) {
-	                    this.zone.runOutsideAngular(function () {
-	                        setTimeout(function () {
-	                            _this.slidingGesture = new _itemItemSlidingGesture.ItemSlidingGesture(_this, _this.ele);
+	                if (this._enableSliding !== shouldEnable) {
+	                    this._enableSliding = shouldEnable;
+	                    if (shouldEnable) {
+	                        console.debug('enableSlidingItems');
+	                        this.zone.runOutsideAngular(function () {
+	                            setTimeout(function () {
+	                                _this.slidingGesture = new _itemItemSlidingGesture.ItemSlidingGesture(_this, _this.ele);
+	                            });
 	                        });
-	                    });
-	                } else {
-	                    this.slidingGesture && this.slidingGesture.unlisten();
+	                    } else {
+	                        this.slidingGesture && this.slidingGesture.unlisten();
+	                    }
 	                }
 	            }
 	        }
@@ -70264,14 +70288,14 @@
 	        this.listEle = listEle;
 	        this.canDrag = true;
 	        this.listen();
-	        this.on('tap', function (ev) {
+	        this.tap = function (ev) {
 	            if (!isFromOptionButtons(ev.target)) {
 	                var didClose = _this.closeOpened();
 	                if (didClose) {
 	                    preventDefault(ev);
 	                }
 	            }
-	        });
+	        };
 	        this.mouseOut = function (ev) {
 	            _this.onDragEnd(ev);
 	        };
@@ -70282,12 +70306,12 @@
 	        value: function onDragStart(ev) {
 	            var itemContainerEle = getItemConatiner(ev.target);
 	            if (!itemContainerEle) return;
-	            this.closeOpened(ev, itemContainerEle);
+	            this.closeOpened(itemContainerEle);
 	            var openAmout = this.getOpenAmount(itemContainerEle);
 	            var itemData = this.get(itemContainerEle);
 	            this.preventDrag = openAmout > 0;
 	            if (this.preventDrag) {
-	                this.closeOpened(ev);
+	                this.closeOpened();
 	                return preventDefault(ev);
 	            }
 	            itemContainerEle.classList.add('active-slide');
@@ -70296,23 +70320,24 @@
 	            if (ev.srcEvent.type.indexOf('mouse') > -1) {
 	                ev.target.addEventListener('mouseout', this.mouseOut);
 	            }
+	            this.dragEnded = false;
 	        }
 	    }, {
 	        key: 'onDrag',
 	        value: function onDrag(ev) {
-	            if (Math.abs(ev.deltaY) > 30) {
+	            var _this2 = this;
+
+	            if (this.dragEnded || this.preventDrag || Math.abs(ev.deltaY) > 30) {
 	                this.preventDrag = true;
-	                return this.closeOpened(ev);
+	                return;
 	            }
 	            var itemContainerEle = getItemConatiner(ev.target);
-	            if (!itemContainerEle || !isActive(itemContainerEle) || this.preventDrag) return;
+	            if (!itemContainerEle || !isActive(itemContainerEle)) return;
 	            var itemData = this.get(itemContainerEle);
 	            if (!itemData.optsWidth) {
 	                itemData.optsWidth = getOptionsWidth(itemContainerEle);
 	                if (!itemData.optsWidth) return;
 	            }
-	            itemContainerEle.classList.add('active-slide');
-	            itemContainerEle.classList.add('active-options');
 	            var x = ev.center[this.direction];
 	            var delta = x - itemData.startX;
 	            var newX = Math.max(0, itemData.offsetX - delta);
@@ -70320,14 +70345,20 @@
 	                // Calculate the new X position, capped at the top of the buttons
 	                newX = -Math.min(-itemData.optsWidth, -itemData.optsWidth + (delta + itemData.optsWidth) * 0.4);
 	            }
-	            this.open(itemContainerEle, newX, false);
+	            (0, _ionicUtilDom.raf)(function () {
+	                if (!_this2.dragEnded && !_this2.preventDrag) {
+	                    isItemActive(itemContainerEle, true);
+	                    _this2.open(itemContainerEle, newX, false);
+	                }
+	            });
 	        }
 	    }, {
 	        key: 'onDragEnd',
 	        value: function onDragEnd(ev) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            this.preventDrag = false;
+	            this.dragEnded = true;
 	            var itemContainerEle = getItemConatiner(ev.target);
 	            if (!itemContainerEle || !isActive(itemContainerEle)) return;
 	            // If we are currently dragging, we want to snap back into place
@@ -70338,22 +70369,18 @@
 	            // and we aren't moving fast enough to swipe open
 	            if (this.getOpenAmount(itemContainerEle) < restingPoint / 2) {
 	                // If we are going left but too slow, or going right, go back to resting
-	                if (ev.direction & _ionicGesturesHammer.Hammer.DIRECTION_RIGHT) {
-	                    // Left
-	                    restingPoint = 0;
-	                } else if (Math.abs(ev.velocityX) < 0.3) {
-	                    // Right
+	                if (ev.direction & _ionicGesturesHammer.Hammer.DIRECTION_RIGHT || Math.abs(ev.velocityX) < 0.3) {
 	                    restingPoint = 0;
 	                }
 	            }
 	            ev.target.removeEventListener('mouseout', this.mouseOut);
 	            (0, _ionicUtilDom.raf)(function () {
-	                _this2.open(itemContainerEle, restingPoint, true);
+	                _this3.open(itemContainerEle, restingPoint, true);
 	            });
 	        }
 	    }, {
 	        key: 'closeOpened',
-	        value: function closeOpened(ev, doNotCloseEle) {
+	        value: function closeOpened(doNotCloseEle) {
 	            var didClose = false;
 	            if (this.openItems) {
 	                var openItemElements = this.listEle.querySelectorAll('.active-slide');
@@ -70369,7 +70396,7 @@
 	    }, {
 	        key: 'open',
 	        value: function open(itemContainerEle, openAmount, isFinal) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            var slidingEle = itemContainerEle.querySelector('ion-item,[ion-item]');
 	            if (!slidingEle) return;
@@ -70380,9 +70407,8 @@
 	            } else {
 	                var timerId = setTimeout(function () {
 	                    if (slidingEle.style[_ionicUtilDom.CSS.transform] === '') {
-	                        itemContainerEle.classList.remove('active-slide');
-	                        itemContainerEle.classList.remove('active-options');
-	                        _this3.openItems--;
+	                        isItemActive(itemContainerEle, false);
+	                        _this4.openItems--;
 	                    }
 	                }, 400);
 	                this.set(itemContainerEle, 'timerId', timerId);
@@ -70390,6 +70416,12 @@
 	            slidingEle.style[_ionicUtilDom.CSS.transition] = isFinal ? '' : 'none';
 	            slidingEle.style[_ionicUtilDom.CSS.transform] = openAmount ? 'translate3d(' + -openAmount + 'px,0,0)' : '';
 	            if (isFinal) {
+	                if (openAmount) {
+	                    isItemActive(itemContainerEle, true);
+	                    this.on('tap', this.tap);
+	                } else {
+	                    this.off('tap', this.tap);
+	                }
 	                this.enableScroll(!openAmount);
 	            }
 	        }
@@ -70432,6 +70464,10 @@
 
 	exports.ItemSlidingGesture = ItemSlidingGesture;
 
+	function isItemActive(ele, isActive) {
+	    ele.classList[isActive ? 'add' : 'remove']('active-slide');
+	    ele.classList[isActive ? 'add' : 'remove']('active-options');
+	}
 	function preventDefault(ev) {
 	    ev.preventDefault();
 	}
@@ -73561,18 +73597,15 @@
 	        _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
 	        var easing = 'ease';
 	        var duration = 250;
-	        var contentClosedX = undefined,
-	            contentOpenedX = undefined,
+	        var contentOpenedX = undefined,
 	            menuClosedX = undefined,
 	            menuOpenedX = undefined;
 	        if (menu.side == 'right') {
 	            contentOpenedX = -menu.width() + 'px';
-	            contentClosedX = '0px';
 	            menuOpenedX = menu.platform.width() - menu.width() + 'px';
 	            menuClosedX = menu.platform.width() + 'px';
 	        } else {
 	            contentOpenedX = menu.width() + 'px';
-	            contentClosedX = '0px';
 	            menuOpenedX = '0px';
 	            menuClosedX = -menu.width() + 'px';
 	        }
@@ -73583,13 +73616,13 @@
 	        menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
 	        this.open.add(menuOpen);
 	        var contentOpen = new _ionicAnimationsAnimation.Animation(menu.getContentElement());
-	        contentOpen.fromTo(TRANSLATE_X, contentClosedX, contentOpenedX);
+	        contentOpen.fromTo(TRANSLATE_X, '0px', contentOpenedX);
 	        this.open.add(contentOpen);
 	        var menuClose = new _ionicAnimationsAnimation.Animation(menu.getMenuElement());
 	        menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
 	        this.close.add(menuClose);
 	        var contentClose = new _ionicAnimationsAnimation.Animation(menu.getContentElement());
-	        contentClose.fromTo(TRANSLATE_X, contentOpenedX, contentClosedX);
+	        contentClose.fromTo(TRANSLATE_X, contentOpenedX, '0px');
 	        this.close.add(contentClose);
 	    }
 
@@ -73689,6 +73722,9 @@
 	    superset: 'mobile',
 	    subsets: ['phablet', 'tablet'],
 	    settings: {
+	        activator: function activator(p) {
+	            return p.version().major >= 5 ? 'ripple' : 'none';
+	        },
 	        hoverCSS: false,
 	        keyboardHeight: 300,
 	        mode: 'md',
@@ -73706,6 +73742,7 @@
 	    superset: 'mobile',
 	    subsets: ['ipad', 'iphone'],
 	    settings: {
+	        clickBlock: true,
 	        hoverCSS: false,
 	        keyboardHeight: 300,
 	        mode: 'ios',
@@ -73862,8 +73899,8 @@
 	        }
 	    }, {
 	        key: 'query',
-	        value: function query(_query) {
-	            return this._strategy.query(key);
+	        value: function query(_query, params) {
+	            return this._strategy.query(_query, params);
 	        }
 	    }]);
 
@@ -73894,7 +73931,7 @@
 	        }
 	    }, {
 	        key: 'query',
-	        value: function query(_query2) {
+	        value: function query(_query2, params) {
 	            throw Error("query() not implemented for this storage engine");
 	        }
 	    }]);
@@ -74117,7 +74154,7 @@
 
 	            return new Promise(function (resolve, reject) {
 	                _this._db.transaction(function (tx) {
-	                    ts.executeSql(_query, params, function (tx, res) {
+	                    tx.executeSql(_query, params, function (tx, res) {
 	                        resolve({
 	                            tx: tx,
 	                            res: res
@@ -76894,10 +76931,12 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var SegmentPage = function SegmentPage() {
+	var SegmentPage = function SegmentPage(platform) {
 	    _classCallCheck(this, SegmentPage);
 
+	    this.platform = platform;
 	    this.pet = "puppies";
+	    this.isAndroid = platform.is('android');
 	};
 	exports.SegmentPage = SegmentPage;
 	exports.SegmentPage = SegmentPage = __decorate([(0, _ionicIonic.Page)({
@@ -76905,7 +76944,8 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return _helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [])], SegmentPage);
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], SegmentPage);
+	var _a;
 
 /***/ },
 /* 559 */

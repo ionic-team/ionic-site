@@ -10611,7 +10611,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x10, _x11, _x12) { var _again = true; _function: while (_again) { var object = _x10, property = _x11, receiver = _x12; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x10 = parent; _x11 = property; _x12 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -10668,9 +10668,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
                 _createClass(NavController, [{
                     key: 'push',
-                    value: function push(componentType) {
-                        var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-                        var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+                    value: function push(componentType, params, opts, callback) {
+                        if (params === undefined) params = {};
+                        if (opts === undefined) opts = {};
 
                         if (!componentType) {
                             console.debug('invalid componentType to push');
@@ -10687,9 +10687,12 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         }
                         this._lastPush = now;
                         var resolve = undefined;
-                        var promise = new Promise(function (res) {
-                            resolve = res;
-                        });
+                        var promise = null;
+                        if (!callback) {
+                            promise = new Promise(function (res) {
+                                callback = res;
+                            });
+                        }
                         // do not animate if this is the first in the stack
                         if (!this._views.length && !opts.animateFirst) {
                             opts.animate = false;
@@ -10719,7 +10722,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             this.router.stateChange('push', enteringView, params);
                         }
                         // start the transition
-                        this._transition(enteringView, leavingView, opts, resolve);
+                        this._transition(enteringView, leavingView, opts, callback);
                         return promise;
                     }
 
@@ -11074,9 +11077,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
                             if (navbarContainerRef && navbarTemplateRef) {
                                 (function () {
-                                    console.time('loadPage ' + viewCtrl.componentType.name + ': createEmbeddedView');
+                                    console.time('loadPage ' + viewCtrl.componentType.name + ': create navbar');
                                     var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
-                                    console.timeEnd('loadPage ' + viewCtrl.componentType.name + ': createEmbeddedView');
+                                    console.timeEnd('loadPage ' + viewCtrl.componentType.name + ': create navbar');
                                     viewCtrl.addDestroy(function () {
                                         var index = navbarContainerRef.indexOf(navbarView);
                                         if (index > -1) {
@@ -16234,7 +16237,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                     key: "load",
                     value: function load(opts, done) {
                         if (!this._loaded && this.root) {
-                            this.push(this.root, null, opts).then(done);
+                            this.push(this.root, null, opts, done);
                             this._loaded = true;
                         } else {
                             done();

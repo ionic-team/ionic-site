@@ -76,7 +76,7 @@ inputs:</p>
 
 <h1 class="class export">Tab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7-L164">ionic/components/tabs/tab.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7-L170">ionic/components/tabs/tab.ts (line 7)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tab</span>
@@ -106,6 +106,23 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="index"></div>
 <h2>
   <code>index()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onDestroy"></div>
+<h2>
+  <code>onDestroy()</code>
 
 </h2>
 

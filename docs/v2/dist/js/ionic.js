@@ -10673,11 +10673,19 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
                         if (!componentType) {
+                            console.debug('invalid componentType to push');
                             return Promise.reject();
                         }
                         if (typeof componentType !== 'function') {
                             throw 'Loading component must be a component class, not "' + componentType.toString() + '"';
                         }
+                        var now = Date.now();
+                        var last = this.last();
+                        if (last && last.componentType === componentType && now + 500 > this._lastPush) {
+                            console.debug('same componentType pushed as active');
+                            return Promise.reject();
+                        }
+                        this._lastPush = now;
                         var resolve = undefined;
                         var promise = new Promise(function (res) {
                             resolve = res;
@@ -16183,13 +16191,14 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
             Tab = (function (_NavController) {
                 _inherits(Tab, _NavController);
 
-                function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                function Tab(parentTabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
                     _classCallCheck(this, Tab);
 
                     // A Tab is a NavController for its child pages
-                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
-                    this.tabs = tabs;
-                    this._isInitial = tabs.add(this);
+                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+                    this._isInitial = parentTabs.add(this);
+                    this._panelId = 'tabpanel-' + this.id;
+                    this._btnId = 'tab-' + this.id;
                 }
 
                 /**
@@ -16202,9 +16211,9 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                         var _this = this;
 
                         if (this._isInitial) {
-                            this.tabs.select(this);
-                        } else if (this.tabs.preloadTabs) {
-                            setTimeout(function () {
+                            this.parent.select(this);
+                        } else if (this.parent.preloadTabs) {
+                            this._loadTimer = setTimeout(function () {
                                 if (!_this._loaded) {
                                     var opts = {
                                         animate: false,
@@ -16239,8 +16248,8 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                     key: "loadPage",
                     value: function loadPage(viewCtrl, navbarContainerRef, done) {
                         // by default a page's navbar goes into the shared tab's navbar section
-                        navbarContainerRef = this.tabs.navbarContainerRef;
-                        var isTabSubPage = this.tabs.subPages && viewCtrl.index > 0;
+                        navbarContainerRef = this.parent.navbarContainerRef;
+                        var isTabSubPage = this.parent.subPages && viewCtrl.index > 0;
                         if (isTabSubPage) {
                             // a subpage, that's not the first index
                             // should not use the shared tabs navbar section, but use it's own
@@ -16272,9 +16281,14 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                         });
                     }
                 }, {
+                    key: "onDestroy",
+                    value: function onDestroy() {
+                        clearTimeout(this._loadTimer);
+                    }
+                }, {
                     key: "index",
                     get: function get() {
-                        return this.tabs.getIndex(this);
+                        return this.parent.getIndex(this);
                     }
                 }]);
 
@@ -16287,9 +16301,9 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                 selector: 'ion-tab',
                 inputs: ['root', 'tabTitle', 'tabIcon'],
                 host: {
-                    '[attr.id]': 'panelId',
-                    '[attr.aria-labelledby]': 'btnId',
                     '[class.show-tab]': 'isSelected',
+                    '[attr.id]': '_panelId',
+                    '[attr.aria-labelledby]': '_btnId',
                     'role': 'tabpanel'
                 },
                 template: '<template #contents></template>'
@@ -16297,7 +16311,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
         }
     };
 });
-System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/app", "../app/id", "../../config/config", "../../platform/platform", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
+System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/id", "../../config/config", "../../platform/platform", "../nav/nav-controller", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
     /**
      * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
      * of the Component docs._
@@ -16350,7 +16364,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
      */
     "use strict";
 
-    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, IonicApp, Attr, Config, Platform, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, Attr, Config, Platform, NavController, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, _tabIds, TabButton, tabIds, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -16372,14 +16386,14 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
             ViewContainerRef = _angular2Angular2.ViewContainerRef;
         }, function (_ion) {
             Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
         }, function (_appId) {
             Attr = _appId.Attr;
         }, function (_configConfig) {
             Config = _configConfig.Config;
         }, function (_platformPlatform) {
             Platform = _platformPlatform.Platform;
+        }, function (_navNavController) {
+            NavController = _navNavController.NavController;
         }, function (_navViewController) {
             ViewController = _navViewController.ViewController;
         }, function (_configDecorators) {
@@ -16428,16 +16442,17 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                  * point that "Tabs" is itself is just a page with its own instance of ViewController.
                  */
 
-                function Tabs(app, config, elementRef, viewCtrl, platform) {
+                function Tabs(config, elementRef, viewCtrl, navCtrl, platform) {
                     var _this = this;
 
                     _classCallCheck(this, Tabs);
 
                     _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
                     this.platform = platform;
-                    this.app = app;
+                    this.parent = navCtrl;
                     this.subPages = config.get('tabSubPages');
-                    this.tabs = [];
+                    this._tabs = [];
+                    this._id = ++tabIds;
                     // Tabs may also be an actual ViewController which was navigated to
                     // if Tabs is static and not navigated to within a NavController
                     // then skip this and don't treat it as it's own ViewController
@@ -16445,11 +16460,11 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                         viewCtrl.setContent(this);
                         viewCtrl.setContentRef(elementRef);
                         // TODO: improve how this works, probably not use promises here
-                        this.readyPromise = new Promise(function (res) {
-                            _this.isReady = res;
+                        this._readyPromise = new Promise(function (res) {
+                            _this._isReady = res;
                         });
                         viewCtrl.onReady = function () {
-                            return _this.readyPromise;
+                            return _this._readyPromise;
                         };
                     }
                 }
@@ -16465,9 +16480,9 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
 
                         _get(Object.getPrototypeOf(Tabs.prototype), "onInit", this).call(this);
                         this.preloadTabs = this.preloadTabs !== "false" && this.preloadTabs !== false;
-                        if (this.highlight) {
+                        if (this._highlight) {
                             this.platform.onResize(function () {
-                                _this2.highlight.select(_this2.getSelected());
+                                _this2._highlight.select(_this2.getSelected());
                             });
                         }
                     }
@@ -16478,11 +16493,9 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }, {
                     key: "add",
                     value: function add(tab) {
-                        tab.id = ++_tabIds;
-                        tab.btnId = 'tab-' + tab.id;
-                        tab.panelId = 'tabpanel-' + tab.id;
-                        this.tabs.push(tab);
-                        return this.tabs.length === 1;
+                        tab.id = this._id + '-' + ++_tabIds;
+                        this._tabs.push(tab);
+                        return this._tabs.length === 1;
                     }
 
                     /**
@@ -16503,7 +16516,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                         var deselectedTab = this.getSelected();
                         if (selectedTab === deselectedTab) {
                             // no change
-                            return this.touchActive(selectedTab);
+                            return this._touchActive(selectedTab);
                         }
                         var opts = {
                             animate: false
@@ -16516,13 +16529,13 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                         var selectedPage = selectedTab.getActive();
                         selectedPage && selectedPage.willEnter();
                         selectedTab.load(opts, function () {
-                            _this3.tabs.forEach(function (tab) {
+                            _this3._tabs.forEach(function (tab) {
                                 tab.setSelected(tab === selectedTab);
                             });
-                            _this3.highlight && _this3.highlight.select(selectedTab);
+                            _this3._highlight && _this3._highlight.select(selectedTab);
                             selectedPage && selectedPage.didEnter();
                             deselectedPage && deselectedPage.didLeave();
-                            _this3.isReady && _this3.isReady();
+                            _this3._isReady && _this3._isReady();
                             console.timeEnd('select tab ' + selectedTab.id);
                         });
                     }
@@ -16535,17 +16548,17 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }, {
                     key: "getByIndex",
                     value: function getByIndex(index) {
-                        if (index < this.tabs.length && index > -1) {
-                            return this.tabs[index];
+                        if (index < this._tabs.length && index > -1) {
+                            return this._tabs[index];
                         }
                         return null;
                     }
                 }, {
                     key: "getSelected",
                     value: function getSelected() {
-                        for (var i = 0; i < this.tabs.length; i++) {
-                            if (this.tabs[i].isSelected) {
-                                return this.tabs[i];
+                        for (var i = 0; i < this._tabs.length; i++) {
+                            if (this._tabs[i].isSelected) {
+                                return this._tabs[i];
                             }
                         }
                         return null;
@@ -16553,7 +16566,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }, {
                     key: "getIndex",
                     value: function getIndex(tab) {
-                        return this.tabs.indexOf(tab);
+                        return this._tabs.indexOf(tab);
                     }
 
                     /**
@@ -16562,8 +16575,8 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                      * or optionally letting the tab handle the event
                      */
                 }, {
-                    key: "touchActive",
-                    value: function touchActive(tab) {
+                    key: "_touchActive",
+                    value: function _touchActive(tab) {
                         var active = tab.getActive();
                         if (!active) {
                             return Promise.resolve();
@@ -16601,7 +16614,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     'tabbarStyle': 'default',
                     'preloadTabs': false
                 },
-                template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
+                template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tabbar-section>' + '<tabbar role="tablist" [attr]="tabbarStyle">' + '<a *ng-for="#t of _tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tabbar>' + '</ion-tabbar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
                 directives: [Icon, NgFor, NgIf, Attr, forwardRef(function () {
                     return TabButton;
                 }), forwardRef(function () {
@@ -16609,7 +16622,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 }), forwardRef(function () {
                     return TabNavBarAnchor;
                 })]
-            }), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _c || Object, typeof (_d = typeof ViewController !== 'undefined' && ViewController) === 'function' && _d || Object, typeof (_e = typeof Platform !== 'undefined' && Platform) === 'function' && _e || Object])], Tabs));
+            }), __param(2, Optional()), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof Config !== 'undefined' && Config) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof ViewController !== 'undefined' && ViewController) === 'function' && _c || Object, typeof (_d = typeof NavController !== 'undefined' && NavController) === 'function' && _d || Object, typeof (_e = typeof Platform !== 'undefined' && Platform) === 'function' && _e || Object])], Tabs));
             _tabIds = -1;
 
             /**
@@ -16650,8 +16663,8 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 selector: '.tab-button',
                 inputs: ['tab'],
                 host: {
-                    '[attr.id]': 'tab.btnId',
-                    '[attr.aria-controls]': 'tab.panelId',
+                    '[attr.id]': 'tab._btnId',
+                    '[attr.aria-controls]': 'tab._panelId',
                     '[attr.aria-selected]': 'tab.isSelected',
                     '[class.has-title]': 'hasTitle',
                     '[class.has-icon]': 'hasIcon',
@@ -16661,6 +16674,8 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     '(click)': 'onClick()'
                 }
             }), __param(0, Host()), __metadata('design:paramtypes', [Tabs, typeof (_f = typeof Config !== 'undefined' && Config) === 'function' && _f || Object, typeof (_g = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _g || Object])], TabButton);
+            tabIds = -1;
+
             /**
              * @private
              */
@@ -16670,7 +16685,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                     _classCallCheck(this, TabHighlight);
 
                     if (config.get('tabbarHighlight')) {
-                        tabs.highlight = this;
+                        tabs._highlight = this;
                         this.elementRef = elementRef;
                     }
                 }

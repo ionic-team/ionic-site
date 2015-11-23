@@ -63,7 +63,7 @@ var DemoApp = (function () {
                             _this.nextPage = actionSheets.BasicPage;
                         }
                         var nav = _this.app.getComponent('nav');
-                        nav.setRoot(_this.nextPage);
+                        helpers.debounce(nav.setRoot(_this.nextPage), 60, false);
                     }
                 });
             });

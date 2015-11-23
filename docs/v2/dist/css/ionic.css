@@ -1335,10 +1335,6 @@ ion-thumbnail {
   ion-thumbnail img {
     display: block; }
 
-/**
- * The hidden right-side buttons that can be exposed under a list item
- * with dragging.
- */
 ion-item-sliding {
   display: block;
   position: relative;
@@ -1373,15 +1369,6 @@ ion-item-sliding.active-slide ion-item-options {
 ion-item-sliding.active-slide.active-options ion-item-options {
   visibility: visible; }
 
-/**
- * Grid
- * --------------------------------------------------
- * Using flexbox for the grid, inspired by Philip Walton:
- * http://philipwalton.github.io/solved-by-flexbox/demos/grids/
- * By default each .col within a .row will evenly take up
- * available width, and the height of each .col with take
- * up the height of the tallest .col in the same .row.
- */
 ion-row {
   display: -webkit-box;
   display: -webkit-flex;

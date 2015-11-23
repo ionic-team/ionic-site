@@ -5475,6 +5475,11 @@ h1 + h2 + p {
     max-width: 286px; }
     .home .features p i {
       vertical-align: middle; }
+  @media (max-width: 767px) {
+    .home .features p {
+      max-width: 100%; }
+    .home .features .row {
+      text-align: center; } }
 
 .pre-footer.footer-social {
   padding: 40px 40px 25px;
@@ -5553,9 +5558,10 @@ h1 + h2 + p {
   animation-name: fadeInDown; }
 
 #slider {
-  margin: -78px auto -104px;
+  margin: 0 auto;
   padding: 0;
   position: relative;
+  top: -78px;
   width: 100%;
   overflow-x: hidden; }
   #slider .slick-prev,
@@ -5692,7 +5698,8 @@ h1 + h2 + p {
 
 .home .utility-bar {
   background: rgba(0, 0, 0, 0.2);
-  min-height: 80px; }
+  min-height: 80px;
+  margin-top: -182px; }
   .home .utility-bar .container {
     overflow: visible;
     padding-top: 5px; }
@@ -5734,7 +5741,7 @@ h1 + h2 + p {
 
 @media (max-width: 991px) {
   #slider {
-    margin: -135px auto -179px; }
+    top: -134px; }
     #slider .slide {
       padding: 125px 0 190px; }
     #slider .slick-dots {
@@ -5748,13 +5755,15 @@ h1 + h2 + p {
       font-size: 18px; }
     #slider .slide-creator .creator-preview {
       background-size: 278px;
-      bottom: -28px; } }
+      bottom: -28px; }
+  .home .utility-bar {
+    margin-top: -313px; } }
 
 @media (max-width: 767px) {
   #slider {
-    margin: -442px auto -236px; }
+    top: -392px; }
     #slider .slide {
-      padding: 472px 0 150px; }
+      padding: 472px 0 188px; }
     #slider .slick-dots {
       bottom: 229px; }
     #slider .feature-img {
@@ -5782,7 +5791,7 @@ h1 + h2 + p {
       position: relative; }
     #slider .slide-creator .creator-preview {
       position: absolute;
-      bottom: 53px;
+      bottom: 15px;
       background-size: 200px; }
     #slider .slide-lab .logo {
       margin: 0 auto 15px; }
@@ -5793,7 +5802,9 @@ h1 + h2 + p {
       background-position: center top; }
     #slider .slide-market .feature-img {
       background-size: 240px;
-      background-position: center center; } }
+      background-position: center center; }
+  .home .utility-bar {
+    margin-top: -628px; } }
 
 .slide-creator {
   background: #2090d2;

@@ -6136,14 +6136,28 @@ icon,
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     min-height: 30px;
-    padding-left: 8px;
-    padding-right: 0;
     margin-left: 0;
-    margin-right: -100%; }
+    padding: 0;
+    visibility: hidden;
+    -webkit-transform: translateX(calc(100% + 8px));
+    transform: translateX(calc(100% + 8px));
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 0%;
+    -ms-flex: 0 0 0%;
+    flex: 0 0 0%; }
   .ios ion-searchbar.left-align .searchbar-search-icon {
     margin-left: 0; }
   .ios ion-searchbar.left-align .searchbar-input {
     padding-left: 30px; }
+  .ios ion-searchbar.left-align .searchbar-cancel {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding-left: 8px;
+    visibility: visible; }
   .ios.hairlines ion-searchbar {
     border-bottom-width: 0.55px; }
   .ios .toolbar ion-searchbar {
@@ -6152,10 +6166,9 @@ icon,
     .ios .toolbar ion-searchbar .searchbar-input {
       background-color: rgba(0, 0, 0, 0.08); }
     .ios .toolbar ion-searchbar .searchbar-cancel {
-      padding-left: 8px;
-      right: -10px; }
-  .ios .toolbar .focused .searchbar-cancel {
-    right: 0px; }
+      padding: 0; }
+  .ios .toolbar .left-align .searchbar-cancel {
+    padding-left: 8px; }
   .ios .searchbar-cancel-icon {
     display: none; }
   .ios ion-searchbar[primary] .searchbar-cancel {

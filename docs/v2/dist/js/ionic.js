@@ -14529,11 +14529,6 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                 _createClass(SearchBar, [{
                     key: "afterViewInit",
                     value: function afterViewInit() {
-                        this.cancelButton = this.elementRef.nativeElement.querySelector('.searchbar-cancel');
-                        if (this.cancelButton) {
-                            this.cancelWidth = this.cancelButton.offsetWidth;
-                            this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
-                        }
                         // If the user passes in a value to the model we should left align
                         this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
                         this.query = this.ngControl.value || '';
@@ -14586,9 +14581,6 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                     value: function inputFocused() {
                         this.isFocused = true;
                         this.shouldLeftAlign = true;
-                        if (this.cancelButton) {
-                            this.cancelButton.style.marginRight = "0px";
-                        }
                     }
 
                     /**
@@ -14599,9 +14591,6 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                     value: function inputBlurred() {
                         this.isFocused = false;
                         this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
-                        if (this.cancelButton) {
-                            this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
-                        }
                     }
                 }, {
                     key: "clearInput",

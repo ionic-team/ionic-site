@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L6'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -76,7 +76,7 @@ inputs:</p>
 
 <h1 class="class export">Tab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7-L170">ionic/components/tabs/tab.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L172">ionic/components/tabs/tab.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tab</span>

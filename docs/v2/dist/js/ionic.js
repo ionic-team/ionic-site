@@ -175,7 +175,7 @@ System.register('ionic/components', ['ionic/components/app/app', 'ionic/componen
     execute: function () {}
   };
 });
-System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/storage', './util/click-block', './util/events', './animations/animation', './animations/builtins', './animations/ios-transition', './animations/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
+System.register('ionic/ionic', ['./config/bootstrap', './config/config', './config/modes', './config/decorators', './config/directives', './components', './platform/platform', './platform/registry', './platform/storage', './util/click-block', './util/events', './util/keyboard', './animations/animation', './animations/builtins', './animations/ios-transition', './animations/md-transition', './translation/translate', './translation/translate_pipe'], function (_export) {
   'use strict';
 
   return {
@@ -223,29 +223,33 @@ System.register('ionic/ionic', ['./config/bootstrap', './config/config', './conf
       for (var _key11 in _utilEvents) {
         if (_key11 !== 'default') _export(_key11, _utilEvents[_key11]);
       }
+    }, function (_utilKeyboard) {
+      for (var _key12 in _utilKeyboard) {
+        if (_key12 !== 'default') _export(_key12, _utilKeyboard[_key12]);
+      }
     }, function (_animationsAnimation) {
-      for (var _key12 in _animationsAnimation) {
-        if (_key12 !== 'default') _export(_key12, _animationsAnimation[_key12]);
+      for (var _key13 in _animationsAnimation) {
+        if (_key13 !== 'default') _export(_key13, _animationsAnimation[_key13]);
       }
     }, function (_animationsBuiltins) {
-      for (var _key13 in _animationsBuiltins) {
-        if (_key13 !== 'default') _export(_key13, _animationsBuiltins[_key13]);
+      for (var _key14 in _animationsBuiltins) {
+        if (_key14 !== 'default') _export(_key14, _animationsBuiltins[_key14]);
       }
     }, function (_animationsIosTransition) {
-      for (var _key14 in _animationsIosTransition) {
-        if (_key14 !== 'default') _export(_key14, _animationsIosTransition[_key14]);
+      for (var _key15 in _animationsIosTransition) {
+        if (_key15 !== 'default') _export(_key15, _animationsIosTransition[_key15]);
       }
     }, function (_animationsMdTransition) {
-      for (var _key15 in _animationsMdTransition) {
-        if (_key15 !== 'default') _export(_key15, _animationsMdTransition[_key15]);
+      for (var _key16 in _animationsMdTransition) {
+        if (_key16 !== 'default') _export(_key16, _animationsMdTransition[_key16]);
       }
     }, function (_translationTranslate) {
-      for (var _key16 in _translationTranslate) {
-        if (_key16 !== 'default') _export(_key16, _translationTranslate[_key16]);
+      for (var _key17 in _translationTranslate) {
+        if (_key17 !== 'default') _export(_key17, _translationTranslate[_key17]);
       }
     }, function (_translationTranslate_pipe) {
-      for (var _key17 in _translationTranslate_pipe) {
-        if (_key17 !== 'default') _export(_key17, _translationTranslate_pipe[_key17]);
+      for (var _key18 in _translationTranslate_pipe) {
+        if (_key18 !== 'default') _export(_key18, _translationTranslate_pipe[_key18]);
       }
     }],
     execute: function () {}
@@ -6680,7 +6684,7 @@ System.register("ionic/util/form", ["angular2/angular2"], function (_export) {
 System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config", "./form", "./dom"], function (_export) {
     "use strict";
 
-    var Injectable, NgZone, Config, Form, dom, __decorate, __metadata, Keyboard, KEYBOARD_CLOSE_POLLING, _a, _b, _c;
+    var Injectable, NgZone, Config, Form, hasFocusedTextInput, raf, __decorate, __metadata, Keyboard, KEYBOARD_CLOSE_POLLING, _a, _b, _c;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -6695,7 +6699,8 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
         }, function (_form) {
             Form = _form.Form;
         }, function (_dom) {
-            dom = _dom;
+            hasFocusedTextInput = _dom.hasFocusedTextInput;
+            raf = _dom.raf;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -6736,11 +6741,13 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
                 _createClass(Keyboard, [{
                     key: "isOpen",
                     value: function isOpen() {
-                        return dom.hasFocusedTextInput();
+                        return hasFocusedTextInput();
                     }
                 }, {
                     key: "onClose",
                     value: function onClose(callback) {
+                        var pollingInternval = arguments.length <= 1 || arguments[1] === undefined ? KEYBOARD_CLOSE_POLLING : arguments[1];
+
                         var self = this;
                         var promise = null;
                         if (!callback) {
@@ -6757,10 +6764,10 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
                                         callback();
                                     });
                                 } else {
-                                    setTimeout(checkKeyboard, KEYBOARD_CLOSE_POLLING);
+                                    setTimeout(checkKeyboard, pollingInternval);
                                 }
                             }
-                            setTimeout(checkKeyboard, KEYBOARD_CLOSE_POLLING);
+                            setTimeout(checkKeyboard, pollingInternval);
                         });
                         return promise;
                     }
@@ -6769,8 +6776,8 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
                     value: function close() {
                         var _this2 = this;
 
-                        dom.raf(function () {
-                            if (dom.hasFocusedTextInput()) {
+                        raf(function () {
+                            if (hasFocusedTextInput()) {
                                 // only focus out when a text input has focus
                                 _this2.form.focusOut();
                             }
@@ -6793,7 +6800,7 @@ System.register("ionic/util/keyboard", ["angular2/angular2", "../config/config",
                         var self = this;
                         var isKeyInputEnabled = false;
                         function cssClass() {
-                            dom.raf(function () {
+                            raf(function () {
                                 document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('focus-outline');
                             });
                         }
@@ -10652,13 +10659,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
             NavController = (function (_Ion) {
                 _inherits(NavController, _Ion);
 
-                function NavController(parentnavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
                     _classCallCheck(this, NavController);
 
                     _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
                     this.parent = parentnavCtrl;
                     this.app = app;
                     this.config = config;
+                    this.keyboard = keyboard;
                     this._compiler = compiler;
                     this._loader = loader;
                     this._viewManager = viewManager;
@@ -10975,15 +10983,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_transition',
                     value: function _transition(enteringView, leavingView, opts, done) {
-                        var _this = this;
-
+                        var self = this;
                         if (enteringView === leavingView) {
                             return done(enteringView);
                         }
                         if (!opts.animation) {
-                            opts.animation = this.config.get('pageTransition');
+                            opts.animation = self.config.get('pageTransition');
                         }
-                        if (this.config.get('animate') === false) {
+                        if (self.config.get('animate') === false) {
                             opts.animate = false;
                         }
                         if (!enteringView) {
@@ -10991,14 +10998,13 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             enteringView = new ViewController();
                             enteringView.loaded();
                         }
-                        // wait for the new view to complete setup
-                        this._stage(enteringView, function () {
+                        function beginTransition() {
                             if (enteringView.shouldDestroy) {
                                 // already marked as a view that will be destroyed, don't continue
                                 return done(enteringView);
                             }
-                            _this._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
-                            _this._zone.runOutsideAngular(function () {
+                            self._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
+                            self._zone.runOutsideAngular(function () {
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;
                                 if (!opts.preload) {
@@ -11010,8 +11016,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the transition animation
-                                opts.renderDelay = opts.transitionDelay || _this.config.get('pageTransitionDelay');
-                                var transAnimation = Animation.createTransition(_this._getStagedEntering(), _this._getStagedLeaving(), opts);
+                                opts.renderDelay = opts.transitionDelay || self.config.get('pageTransitionDelay');
+                                var transAnimation = Animation.createTransition(self._getStagedEntering(), self._getStagedLeaving(), opts);
                                 if (opts.animate === false) {
                                     // force it to not animate the elements, just apply the "to" styles
                                     transAnimation.clearDuration();
@@ -11021,8 +11027,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 if (duration > 64) {
                                     // block any clicks during the transition and provide a
                                     // fallback to remove the clickblock if something goes wrong
-                                    _this.app.setEnabled(false, duration);
-                                    _this.app.setTransitioning(true, duration);
+                                    self.app.setEnabled(false, duration);
+                                    self.app.setTransitioning(true, duration);
                                 }
                                 if (opts.pageType) {
                                     transAnimation.before.addClass(opts.pageType);
@@ -11039,13 +11045,21 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                         leavingView.didLeave();
                                     }
                                     // all done!
-                                    _this._zone.run(function () {
-                                        _this._transComplete();
+                                    self._zone.run(function () {
+                                        self._transComplete();
                                         done(enteringView);
                                     });
                                 });
                             });
-                        });
+                        }
+                        // wait for the new view to complete setup
+                        if (self.keyboard.isOpen()) {
+                            self._stage(enteringView, function () {
+                                self.keyboard.onClose(beginTransition, 64);
+                            });
+                        } else {
+                            self._stage(enteringView, beginTransition);
+                        }
                     }
 
                     /**
@@ -11073,7 +11087,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'loadPage',
                     value: function loadPage(viewCtrl, navbarContainerRef, done) {
-                        var _this2 = this;
+                        var _this = this;
 
                         var providers = this.providers.concat(Injector.resolve([provide(ViewController, { useValue: viewCtrl }), provide(NavParams, { useValue: viewCtrl.params })]));
                         console.time('loadPage ' + viewCtrl.componentType.name + ': loadIntoLocation');
@@ -11104,10 +11118,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     });
                                 })();
                             }
-                            if (_this2._views.length === 1) {
-                                _this2._zone.runOutsideAngular(function () {
+                            if (_this._views.length === 1) {
+                                _this._zone.runOutsideAngular(function () {
                                     setTimeout(function () {
-                                        _this2.renderer.setElementClass(_this2.elementRef, 'has-views', true);
+                                        _this.renderer.setElementClass(_this.elementRef, 'has-views', true);
                                     }, 200);
                                 });
                             }
@@ -11135,7 +11149,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackStart',
                     value: function swipeBackStart() {
-                        var _this3 = this;
+                        var _this2 = this;
 
                         return;
                         if (!this.app.isEnabled() || !this.canSwipeBack()) {
@@ -11162,14 +11176,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         enteringView.willEnter();
                         // wait for the new view to complete setup
                         enteringView._stage(function () {
-                            _this3._zone.runOutsideAngular(function () {
+                            _this2._zone.runOutsideAngular(function () {
                                 // set that the new view pushed on the stack is staged to be entering/leaving
                                 // staged state is important for the transition to find the correct view
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the swipe back transition animation
-                                _this3._sbTrans = Transition.create(_this3, opts);
-                                _this3._sbTrans.easing('linear').progressStart();
+                                _this2._sbTrans = Transition.create(_this2, opts);
+                                _this2._sbTrans.easing('linear').progressStart();
                             });
                         });
                     }
@@ -11200,7 +11214,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackEnd',
                     value: function swipeBackEnd(completeSwipeBack, rate) {
-                        var _this4 = this;
+                        var _this3 = this;
 
                         return;
                         if (!this._sbTrans) return;
@@ -11208,10 +11222,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this.app.setEnabled(false);
                         this.app.setTransitioning(true);
                         this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
-                            _this4._zone.run(function () {
+                            _this3._zone.run(function () {
                                 // find the views that were entering and leaving
-                                var enteringView = _this4._getStagedEntering();
-                                var leavingView = _this4._getStagedLeaving();
+                                var enteringView = _this3._getStagedEntering();
+                                var leavingView = _this3._getStagedLeaving();
                                 if (enteringView && leavingView) {
                                     // finish up the animation
                                     if (completeSwipeBack) {
@@ -11221,9 +11235,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                         leavingView.state = CACHED_STATE;
                                         enteringView.didEnter();
                                         leavingView.didLeave();
-                                        if (_this4.router) {
+                                        if (_this3.router) {
                                             // notify router of the pop state change
-                                            _this4.router.stateChange('pop', enteringView);
+                                            _this3.router.stateChange('pop', enteringView);
                                         }
                                     } else {
                                         // cancelled the swipe back, they didn't end up going back
@@ -11238,10 +11252,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     }
                                 }
                                 // empty out and dispose the swipe back transition animation
-                                _this4._sbTrans && _this4._sbTrans.dispose();
-                                _this4._sbTrans = null;
+                                _this3._sbTrans && _this3._sbTrans.dispose();
+                                _this3._sbTrans = null;
                                 // all done!
-                                _this4._transComplete();
+                                _this3._transComplete();
                             });
                         });
                     }
@@ -11343,7 +11357,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_cleanup',
                     value: function _cleanup(activeView) {
-                        var _this5 = this;
+                        var _this4 = this;
 
                         // the active view, and the previous view, should be rendered in dom and ready to go
                         // all others, like a cached page 2 back, should be display: none and not rendered
@@ -11364,7 +11378,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         // all views being destroyed should be removed from the list of views
                         // and completely removed from the dom
                         destroys.forEach(function (view) {
-                            _this5._remove(view);
+                            _this4._remove(view);
                             view.destroy();
                         });
                     }
@@ -12050,7 +12064,7 @@ System.register("ionic/components/nav/nav-router", ["angular2/angular2", "angula
         }
     };
 });
-System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", "../../config/config", "../../config/decorators", "./nav-controller", "./view-controller"], function (_export) {
+System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", "../../config/config", "../../util/keyboard", "../../config/decorators", "./nav-controller", "./view-controller"], function (_export) {
     /**
      * _For a quick walkthrough of navigation in Ionic, check out the
      * [Navigation section](../../../../components/#navigation) of the Component
@@ -12143,7 +12157,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
      */
     "use strict";
 
-    var ElementRef, Optional, NgZone, Compiler, AppViewManager, DynamicComponentLoader, Renderer, IonicApp, Config, ConfigComponent, NavController, ViewController, __decorate, __metadata, __param, Nav, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var ElementRef, Optional, NgZone, Compiler, AppViewManager, DynamicComponentLoader, Renderer, IonicApp, Config, Keyboard, ConfigComponent, NavController, ViewController, __decorate, __metadata, __param, Nav, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -12166,6 +12180,8 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
             IonicApp = _appApp.IonicApp;
         }, function (_configConfig) {
             Config = _configConfig.Config;
+        }, function (_utilKeyboard) {
+            Keyboard = _utilKeyboard.Keyboard;
         }, function (_configDecorators) {
             ConfigComponent = _configDecorators.ConfigComponent;
         }, function (_navController) {
@@ -12205,10 +12221,10 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
             Nav = (function (_NavController) {
                 _inherits(Nav, _NavController);
 
-                function Nav(hostNavCtrl, viewCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
                     _classCallCheck(this, Nav);
 
-                    _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+                    _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
                     if (viewCtrl) {
                         // an ion-nav can also act as an ion-page within a parent ion-nav
                         // this would happen when an ion-nav nests a child ion-nav.
@@ -12248,7 +12264,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
                     'swipeBackEnabled': true
                 },
                 template: '<template #contents></template>'
-            }), __param(0, Optional()), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof ViewController !== 'undefined' && ViewController) === 'function' && _b || Object, typeof (_c = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _c || Object, typeof (_d = typeof Config !== 'undefined' && Config) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object, typeof (_f = typeof Compiler !== 'undefined' && Compiler) === 'function' && _f || Object, typeof (_g = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _h || Object, typeof (_j = typeof NgZone !== 'undefined' && NgZone) === 'function' && _j || Object, typeof (_k = typeof Renderer !== 'undefined' && Renderer) === 'function' && _k || Object])], Nav));
+            }), __param(0, Optional()), __param(1, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof ViewController !== 'undefined' && ViewController) === 'function' && _b || Object, typeof (_c = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _c || Object, typeof (_d = typeof Config !== 'undefined' && Config) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object, typeof (_g = typeof Compiler !== 'undefined' && Compiler) === 'function' && _g || Object, typeof (_h = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _h || Object, typeof (_j = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _j || Object, typeof (_k = typeof NgZone !== 'undefined' && NgZone) === 'function' && _k || Object, typeof (_l = typeof Renderer !== 'undefined' && Renderer) === 'function' && _l || Object])], Nav));
         }
     };
 });
@@ -12953,10 +12969,10 @@ System.register('ionic/components/overlay/overlay-controller', ['ionic/util'], f
         }
     };
 });
-System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../app/app", "../../config/config", "./overlay-controller", "../nav/nav-controller"], function (_export) {
+System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../app/app", "../../config/config", "../../util/keyboard", "./overlay-controller", "../nav/nav-controller"], function (_export) {
     "use strict";
 
-    var Component, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, OverlayController, NavController, __decorate, __metadata, OverlayNav, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var Component, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, Keyboard, OverlayController, NavController, __decorate, __metadata, OverlayNav, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
@@ -12977,6 +12993,8 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../ap
             IonicApp = _appApp.IonicApp;
         }, function (_configConfig) {
             Config = _configConfig.Config;
+        }, function (_utilKeyboard) {
+            Keyboard = _utilKeyboard.Keyboard;
         }, function (_overlayController) {
             OverlayController = _overlayController.OverlayController;
         }, function (_navNavController) {
@@ -13008,10 +13026,10 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../ap
             OverlayNav = (function (_NavController) {
                 _inherits(OverlayNav, _NavController);
 
-                function OverlayNav(overlayCtrl, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
                     _classCallCheck(this, OverlayNav);
 
-                    _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+                    _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
                     if (overlayCtrl.anchor) {
                         throw 'An app should only have one <ion-overlay></ion-overlay>';
                     }
@@ -13026,7 +13044,7 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../ap
             _export("OverlayNav", OverlayNav = __decorate([Component({
                 selector: 'ion-overlay',
                 template: '<template #contents></template>'
-            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Compiler !== 'undefined' && Compiler) === 'function' && _e || Object, typeof (_f = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], OverlayNav));
+            }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object, typeof (_f = typeof Compiler !== 'undefined' && Compiler) === 'function' && _f || Object, typeof (_g = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _h || Object, typeof (_j = typeof NgZone !== 'undefined' && NgZone) === 'function' && _j || Object, typeof (_k = typeof Renderer !== 'undefined' && Renderer) === 'function' && _k || Object])], OverlayNav));
         }
     };
 });
@@ -16105,7 +16123,7 @@ System.register("ionic/components/switch/switch", ["angular2/angular2", "../../u
         }
     };
 });
-System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app", "../../config/config", "../nav/nav-controller", "./tabs"], function (_export) {
+System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app", "../../config/config", "../../util/keyboard", "../nav/nav-controller", "./tabs"], function (_export) {
     /**
      * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
      * of the Component docs._
@@ -16152,7 +16170,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
      */
     "use strict";
 
-    var Component, Host, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, NavController, Tabs, __decorate, __metadata, __param, Tab, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var Component, Host, ElementRef, Compiler, DynamicComponentLoader, AppViewManager, NgZone, Renderer, IonicApp, Config, Keyboard, NavController, Tabs, __decorate, __metadata, __param, Tab, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -16176,6 +16194,8 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
             IonicApp = _appApp.IonicApp;
         }, function (_configConfig) {
             Config = _configConfig.Config;
+        }, function (_utilKeyboard) {
+            Keyboard = _utilKeyboard.Keyboard;
         }, function (_navNavController) {
             NavController = _navNavController.NavController;
         }, function (_tabs) {
@@ -16213,11 +16233,11 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
             Tab = (function (_NavController) {
                 _inherits(Tab, _NavController);
 
-                function Tab(parentTabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer) {
+                function Tab(parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
                     _classCallCheck(this, Tab);
 
                     // A Tab is a NavController for its child pages
-                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, elementRef, compiler, loader, viewManager, zone, renderer);
+                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
                     this._isInitial = parentTabs.add(this);
                     this._panelId = 'tabpanel-' + this.id;
                     this._btnId = 'tab-' + this.id;
@@ -16329,7 +16349,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                     'role': 'tabpanel'
                 },
                 template: '<template #contents></template>'
-            }), __param(0, Host()), __metadata('design:paramtypes', [typeof (_a = typeof Tabs !== 'undefined' && Tabs) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _d || Object, typeof (_e = typeof Compiler !== 'undefined' && Compiler) === 'function' && _e || Object, typeof (_f = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object])], Tab));
+            }), __param(0, Host()), __metadata('design:paramtypes', [typeof (_a = typeof Tabs !== 'undefined' && Tabs) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object, typeof (_f = typeof Compiler !== 'undefined' && Compiler) === 'function' && _f || Object, typeof (_g = typeof DynamicComponentLoader !== 'undefined' && DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _h || Object, typeof (_j = typeof NgZone !== 'undefined' && NgZone) === 'function' && _j || Object, typeof (_k = typeof Renderer !== 'undefined' && Renderer) === 'function' && _k || Object])], Tab));
         }
     };
 });
@@ -17061,8 +17081,9 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
     }
     function mouseDown(ev) {
         if (isDisabledNativeClick()) {
-            console.debug('mouseDown prevent');
-            ev.preventDefault();
+            console.debug('mouseDown prevent', ev.target.tagName);
+            // does not prevent default on purpose
+            // so native blur events from inputs can happen
             ev.stopPropagation();
         } else if (lastTouch + disableNativeClickAmount < Date.now()) {
             pointerStart(ev);
@@ -17070,7 +17091,7 @@ System.register('ionic/components/tap-click/tap-click', ['../../util/dom', './ac
     }
     function mouseUp(ev) {
         if (isDisabledNativeClick()) {
-            console.debug('mouseUp prevent');
+            console.debug('mouseUp prevent', ev.target.tagName);
             ev.preventDefault();
             ev.stopPropagation();
         }
@@ -17333,7 +17354,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
         //return 3000;
         distanceToScroll = Math.abs(distanceToScroll);
         var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
-        return Math.min(380, Math.max(80, duration));
+        return Math.min(400, Math.max(100, duration));
     }
     return {
         setters: [function (_angular2Angular2) {
@@ -17891,7 +17912,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                     '(focus)': 'receivedFocus($event)'
                 }
             }), __metadata('design:paramtypes', [typeof (_k = typeof Form !== 'undefined' && Form) === 'function' && _k || Object, _TextInput])], InputScrollAssist);
-            SCROLL_ASSIST_SPEED = 0.5;
+            SCROLL_ASSIST_SPEED = 0.4;
         }
     };
 });

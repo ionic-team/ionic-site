@@ -753,7 +753,13 @@ For more information on Menus, check out the [Menu API reference](../api/compone
 Modals slide in off screen to display a temporary UI, often used for login or signup pages,
 message composition, and option selection.
 
-First, we need to create the class that will control our modal. Let's import `Modal`:
+First, we need to add the `<ion-overlay>` component to our root `app.html` template. This only needs to be done once, no matter how many modal pages our app contains:
+
+```html
+<ion-overlay></ion-overlay>
+```
+
+Next, we need to create the class that will control our modal. Let's import `Modal`:
 
 ```typescript
 import {Modal} from 'ionic/ionic';
@@ -769,7 +775,7 @@ Next, let's create our modal and define add its template:
     <button (click)="close()">Close</button>
   </ion-content>`
 })
-class MyModal Modal {
+class MyModal {
   constructor() {
   }
 }
@@ -786,7 +792,6 @@ class MyPage {
   showModal() {
     this.modal.open(MyModal);
   }
-
 }
 ```
 

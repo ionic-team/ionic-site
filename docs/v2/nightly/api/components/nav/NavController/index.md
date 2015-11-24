@@ -112,9 +112,45 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1108">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1126">ionic/components/nav/nav-controller.ts (line 11)</a>
 </p>
 ## Members
+
+<div id="isTransitioning"></div>
+<h2>
+  <code>isTransitioning()</code>
+
+</h2>
+
+Boolean if the nav controller is actively transitioning or not.
+
+
+
+
+
+
+* Returns: 
+  <code>bool</code> 
+
+
+
+
+<div id="setTransitioning"></div>
+<h2>
+  <code>setTransitioning()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="NavController#push"></div>
 <h2>

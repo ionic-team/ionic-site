@@ -14,6 +14,15 @@ d("onScriptLoad",function(e){return function(t){e.call(this,t);var n=this.get("@
 //# sourceMappingURL=system.js.map
 
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -36653,6 +36662,96 @@ System.register("angular2/src/core/render/dom/dom_renderer", ["angular2/src/core
     }
   }
   function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
     var sib = sibling;
 
     if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
@@ -51669,1035 +51768,6 @@ System.register('ionic/components/list/virtual', [], function (_export) {
         }
     };
 });
-System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
-    /**
-    * TODO
-    */
-    "use strict";
-
-    var Directive, ElementRef, Ion, IonicApp, __decorate, __metadata, MenuClose, _a, _b;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            MenuClose = (function (_Ion) {
-                _inherits(MenuClose, _Ion);
-
-                function MenuClose(app, elementRef) {
-                    _classCallCheck(this, MenuClose);
-
-                    _get(Object.getPrototypeOf(MenuClose.prototype), "constructor", this).call(this, elementRef, null);
-                    this.app = app;
-                }
-
-                _createClass(MenuClose, [{
-                    key: "close",
-                    value: function close() {
-                        var menu = this.app.getComponent(this.menuClose || 'menu');
-                        menu && menu.close();
-                    }
-                }]);
-
-                return MenuClose;
-            })(Ion);
-
-            _export("MenuClose", MenuClose);
-
-            _export("MenuClose", MenuClose = __decorate([Directive({
-                selector: '[menu-close]',
-                inputs: ['menuClose'],
-                host: {
-                    '(click)': 'close()'
-                }
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object])], MenuClose));
-        }
-    };
-});
-System.register('ionic/components/menu/menu-gestures', ['../../gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
-    'use strict';
-
-    var SlideEdgeGesture, util, MenuContentGesture, TargetGesture, LeftMenuGesture, RightMenuGesture;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_gesturesSlideEdgeGesture) {
-            SlideEdgeGesture = _gesturesSlideEdgeGesture.SlideEdgeGesture;
-        }, function (_ionicUtil) {
-            util = _ionicUtil;
-        }],
-        execute: function () {
-            MenuContentGesture = (function (_SlideEdgeGesture) {
-                _inherits(MenuContentGesture, _SlideEdgeGesture);
-
-                function MenuContentGesture(menu, targetEl) {
-                    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-                    _classCallCheck(this, MenuContentGesture);
-
-                    _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, targetEl, util.extend({
-                        direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
-                        edge: menu.side,
-                        threshold: 75
-                    }, options));
-                    this.menu = menu;
-                    this.listen();
-                }
-
-                /**
-                 * Support dragging the target menu as well as the content.
-                 */
-
-                _createClass(MenuContentGesture, [{
-                    key: 'canStart',
-                    value: function canStart(ev) {
-                        return this.menu.isOpen && this.menu.isEnabled ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
-                    }
-
-                    // Set CSS, then wait one frame for it to apply before sliding starts
-                }, {
-                    key: 'onSlideBeforeStart',
-                    value: function onSlideBeforeStart(slide, ev) {
-                        this.menu.setProgressStart();
-                    }
-                }, {
-                    key: 'onSlide',
-                    value: function onSlide(slide, ev) {
-                        this.menu.setProgess(slide.distance / slide.max);
-                    }
-                }, {
-                    key: 'onSlideEnd',
-                    value: function onSlideEnd(slide, ev) {
-                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
-                        this.menu.setProgressEnd(shouldComplete);
-                    }
-                }, {
-                    key: 'getElementStartPos',
-                    value: function getElementStartPos(slide, ev) {
-                        return this.menu.isOpen ? slide.max : slide.min;
-                    }
-                }, {
-                    key: 'getSlideBoundaries',
-                    value: function getSlideBoundaries() {
-                        return {
-                            min: 0,
-                            max: this.menu.width()
-                        };
-                    }
-                }]);
-
-                return MenuContentGesture;
-            })(SlideEdgeGesture);
-
-            TargetGesture = (function (_MenuContentGesture) {
-                _inherits(TargetGesture, _MenuContentGesture);
-
-                function TargetGesture(menu) {
-                    _classCallCheck(this, TargetGesture);
-
-                    _get(Object.getPrototypeOf(TargetGesture.prototype), 'constructor', this).call(this, menu, menu.getNativeElement(), {
-                        threshold: 0
-                    });
-                }
-
-                return TargetGesture;
-            })(MenuContentGesture);
-
-            _export('TargetGesture', TargetGesture);
-
-            LeftMenuGesture = (function (_MenuContentGesture2) {
-                _inherits(LeftMenuGesture, _MenuContentGesture2);
-
-                function LeftMenuGesture(menu) {
-                    _classCallCheck(this, LeftMenuGesture);
-
-                    _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
-                }
-
-                return LeftMenuGesture;
-            })(MenuContentGesture);
-
-            _export('LeftMenuGesture', LeftMenuGesture);
-
-            RightMenuGesture = (function (_MenuContentGesture3) {
-                _inherits(RightMenuGesture, _MenuContentGesture3);
-
-                function RightMenuGesture(menu) {
-                    _classCallCheck(this, RightMenuGesture);
-
-                    _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
-                }
-
-                _createClass(RightMenuGesture, [{
-                    key: 'onSlide',
-                    value: function onSlide(slide, ev) {
-                        this.menu.setProgess(slide.distance / slide.min);
-                    }
-                }, {
-                    key: 'getElementStartPos',
-                    value: function getElementStartPos(slide, ev) {
-                        return this.menu.isOpen ? slide.min : slide.max;
-                    }
-                }, {
-                    key: 'getSlideBoundaries',
-                    value: function getSlideBoundaries() {
-                        return {
-                            min: -this.menu.width(),
-                            max: 0
-                        };
-                    }
-                }]);
-
-                return RightMenuGesture;
-            })(MenuContentGesture);
-
-            _export('RightMenuGesture', RightMenuGesture);
-        }
-    };
-});
-System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../ion", "../app/app", "../nav/view-controller", "../navbar/navbar"], function (_export) {
-    /**
-    * TODO
-    */
-    "use strict";
-
-    var Directive, ElementRef, Optional, Ion, IonicApp, ViewController, Navbar, __decorate, __metadata, __param, MenuToggle, _a, _b, _c, _d;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Directive = _angular2Angular2.Directive;
-            ElementRef = _angular2Angular2.ElementRef;
-            Optional = _angular2Angular2.Optional;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_navViewController) {
-            ViewController = _navViewController.ViewController;
-        }, function (_navbarNavbar) {
-            Navbar = _navbarNavbar.Navbar;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            MenuToggle = (function (_Ion) {
-                _inherits(MenuToggle, _Ion);
-
-                function MenuToggle(app, elementRef, viewCtrl, navbar) {
-                    _classCallCheck(this, MenuToggle);
-
-                    _get(Object.getPrototypeOf(MenuToggle.prototype), "constructor", this).call(this, elementRef, null);
-                    this.app = app;
-                    this.viewCtrl = viewCtrl;
-                    this.withinNavbar = !!navbar;
-                }
-
-                /**
-                * TODO
-                * @param {TODO} event  TODO
-                */
-
-                _createClass(MenuToggle, [{
-                    key: "toggle",
-                    value: function toggle() {
-                        var menu = this.app.getComponent(this.menuToggle || 'menu');
-                        menu && menu.toggle();
-                    }
-                }, {
-                    key: "isHidden",
-                    get: function get() {
-                        if (this.withinNavbar && this.viewCtrl) {
-                            return !this.viewCtrl.isRoot();
-                        }
-                        return false;
-                    }
-                }]);
-
-                return MenuToggle;
-            })(Ion);
-
-            _export("MenuToggle", MenuToggle);
-
-            _export("MenuToggle", MenuToggle = __decorate([Directive({
-                selector: '[menu-toggle]',
-                inputs: ['menuToggle'],
-                host: {
-                    '(click)': 'toggle()',
-                    '[hidden]': 'isHidden',
-                    'menu-toggle': '' //ensures the attr is there for css when using [menu-toggle]
-                }
-            }), __param(2, Optional()), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof ViewController !== 'undefined' && ViewController) === 'function' && _c || Object, typeof (_d = typeof Navbar !== 'undefined' && Navbar) === 'function' && _d || Object])], MenuToggle));
-        }
-    };
-});
-System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations/animation'], function (_export) {
-    /**
-     * Menu Type
-     * Base class which is extended by the various types. Each
-     * type will provide their own animations for open and close
-     * and registers itself with Menu.
-     */
-    'use strict';
-
-    var Menu, Animation, MenuType, MenuRevealType, MenuPushType, MenuOverlayType, OPACITY, TRANSLATE_X;
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    return {
-        setters: [function (_menu) {
-            Menu = _menu.Menu;
-        }, function (_ionicAnimationsAnimation) {
-            Animation = _ionicAnimationsAnimation.Animation;
-        }],
-        execute: function () {
-            MenuType = (function () {
-                function MenuType() {
-                    _classCallCheck(this, MenuType);
-
-                    this.open = new Animation();
-                    this.close = new Animation();
-                }
-
-                /**
-                 * Menu Reveal Type
-                 * The content slides over to reveal the menu underneath.
-                 * The menu itself, which is under the content, does not move.
-                 */
-
-                _createClass(MenuType, [{
-                    key: 'setOpen',
-                    value: function setOpen(shouldOpen) {
-                        var _this = this;
-
-                        return new Promise(function (resolve) {
-                            if (shouldOpen) {
-                                _this.open.playbackRate(1).onFinish(resolve, true).play();
-                            } else {
-                                _this.close.playbackRate(1).onFinish(resolve, true).play();
-                            }
-                        });
-                    }
-                }, {
-                    key: 'setProgressStart',
-                    value: function setProgressStart(isOpen) {
-                        this.isOpening = !isOpen;
-                        this.seek && this.seek.dispose();
-                        // clone the correct animation depending on open/close
-                        if (this.isOpening) {
-                            this.seek = this.open.clone();
-                        } else {
-                            this.seek = this.close.clone();
-                        }
-                        // the cloned animation should not use an easing curve during seek
-                        this.seek.easing('linear').progressStart();
-                    }
-                }, {
-                    key: 'setProgess',
-                    value: function setProgess(value) {
-                        // adjust progress value depending if it opening or closing
-                        if (!this.isOpening) {
-                            value = 1 - value;
-                        }
-                        this.seek.progress(value);
-                    }
-                }, {
-                    key: 'setProgressEnd',
-                    value: function setProgressEnd(shouldComplete) {
-                        var _this2 = this;
-
-                        var resolve = undefined;
-                        var promise = new Promise(function (res) {
-                            resolve = res;
-                        });
-                        var isOpen = this.isOpening && shouldComplete;
-                        if (!this.isOpening && !shouldComplete) {
-                            isOpen = true;
-                        }
-                        this.seek.progressEnd(shouldComplete).then(function () {
-                            _this2.isOpening = false;
-                            resolve(isOpen);
-                        });
-                        return promise;
-                    }
-                }, {
-                    key: 'onDestroy',
-                    value: function onDestroy() {
-                        this.open && this.open.dispose();
-                        this.close && this.close.dispose();
-                        this.seek && this.seek.dispose();
-                    }
-                }]);
-
-                return MenuType;
-            })();
-
-            _export('MenuType', MenuType);
-
-            MenuRevealType = (function (_MenuType) {
-                _inherits(MenuRevealType, _MenuType);
-
-                function MenuRevealType(menu) {
-                    _classCallCheck(this, MenuRevealType);
-
-                    _get(Object.getPrototypeOf(MenuRevealType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var openedX = menu.width() * (menu.side == 'right' ? -1 : 1) + 'px';
-                    var closedX = '0px';
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var contentOpen = new Animation(menu.getContentElement());
-                    contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
-                    this.open.add(contentOpen);
-                    var contentClose = new Animation(menu.getContentElement());
-                    contentClose.fromTo(TRANSLATE_X, openedX, closedX);
-                    this.close.add(contentClose);
-                }
-
-                return MenuRevealType;
-            })(MenuType);
-
-            Menu.register('reveal', MenuRevealType);
-            /**
-             * Menu Push Type
-             * The content slides over to reveal the menu underneath.
-             * The menu itself also slides over to reveal its bad self.
-             */
-
-            MenuPushType = (function (_MenuType2) {
-                _inherits(MenuPushType, _MenuType2);
-
-                function MenuPushType(menu) {
-                    _classCallCheck(this, MenuPushType);
-
-                    _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var contentOpenedX = undefined,
-                        menuClosedX = undefined,
-                        menuOpenedX = undefined;
-                    if (menu.side == 'right') {
-                        contentOpenedX = -menu.width() + 'px';
-                        menuOpenedX = menu.platform.width() - menu.width() + 'px';
-                        menuClosedX = menu.platform.width() + 'px';
-                    } else {
-                        contentOpenedX = menu.width() + 'px';
-                        menuOpenedX = '0px';
-                        menuClosedX = -menu.width() + 'px';
-                    }
-                    // left side
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var menuOpen = new Animation(menu.getMenuElement());
-                    menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
-                    this.open.add(menuOpen);
-                    var contentOpen = new Animation(menu.getContentElement());
-                    contentOpen.fromTo(TRANSLATE_X, '0px', contentOpenedX);
-                    this.open.add(contentOpen);
-                    var menuClose = new Animation(menu.getMenuElement());
-                    menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
-                    this.close.add(menuClose);
-                    var contentClose = new Animation(menu.getContentElement());
-                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, '0px');
-                    this.close.add(contentClose);
-                }
-
-                return MenuPushType;
-            })(MenuType);
-
-            Menu.register('push', MenuPushType);
-            /**
-             * Menu Overlay Type
-             * The menu slides over the content. The content
-             * itself, which is under the menu, does not move.
-             */
-
-            MenuOverlayType = (function (_MenuType3) {
-                _inherits(MenuOverlayType, _MenuType3);
-
-                function MenuOverlayType(menu) {
-                    _classCallCheck(this, MenuOverlayType);
-
-                    _get(Object.getPrototypeOf(MenuOverlayType.prototype), 'constructor', this).call(this);
-                    var easing = 'ease';
-                    var duration = 250;
-                    var backdropOpacity = 0.35;
-                    var closedX = undefined,
-                        openedX = undefined;
-                    if (menu.side == 'right') {
-                        // right side
-                        closedX = menu.platform.width() + 'px';
-                        openedX = menu.platform.width() - menu.width() - 8 + 'px';
-                    } else {
-                        // left side
-                        closedX = -menu.width() + 'px';
-                        openedX = '8px';
-                    }
-                    this.open.easing(easing).duration(duration);
-                    this.close.easing(easing).duration(duration);
-                    var menuOpen = new Animation(menu.getMenuElement());
-                    menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
-                    this.open.add(menuOpen);
-                    var backdropOpen = new Animation(menu.getBackdropElement());
-                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
-                    this.open.add(backdropOpen);
-                    var menuClose = new Animation(menu.getMenuElement());
-                    menuClose.fromTo(TRANSLATE_X, openedX, closedX);
-                    this.close.add(menuClose);
-                    var backdropClose = new Animation(menu.getBackdropElement());
-                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
-                    this.close.add(backdropClose);
-                }
-
-                return MenuOverlayType;
-            })(MenuType);
-
-            Menu.register('overlay', MenuOverlayType);
-            OPACITY = 'opacity';
-            TRANSLATE_X = 'translateX';
-        }
-    };
-});
-System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
-    /**
-     * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
-     * of the Component docs._
-     *
-     * Menu is a side-menu navigation that can be dragged out or toggled to show.
-     *
-     * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-     * to the content element that Menu should listen on for drag events, using the
-     * `content` property:
-     * ```html
-     * <ion-menu [content]="contentRef">
-     *   <ion-content>
-     *     <ion-list>
-     *     ...
-     *     </ion-list>
-     *   </ion-content>
-     * </ion-menu>
-     *
-     * <ion-nav #content-ref [root]="rootPage"></ion-nav>
-     * ```
-     *
-     * By default, Menus are on the left, but this can be overriden with the `side`
-     * property:
-     * ```html
-     * <ion-menu [content]="contentRef" side="right"></ion-menu>
-     * ```
-     *
-     * Menu supports two display styles: overlay, and reveal. Overlay
-     * is the traditional Android drawer style, and Reveal is the traditional iOS
-     * style. By default, Menu will adjust to the correct style for the platform,
-     * but this can be overriden using the `type` property:
-     * ```html
-     * <ion-menu [content]="contentRef" type="overlay"></ion-menu>
-     * ```
-     */
-    "use strict";
-
-    var Component, forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, MenuBackdrop, _a, _b, _c, _d, _e, _f;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-    return {
-        setters: [function (_angular2Angular2) {
-            Component = _angular2Angular2.Component;
-            forwardRef = _angular2Angular2.forwardRef;
-            Directive = _angular2Angular2.Directive;
-            Host = _angular2Angular2.Host;
-            EventEmitter = _angular2Angular2.EventEmitter;
-            ElementRef = _angular2Angular2.ElementRef;
-        }, function (_ion) {
-            Ion = _ion.Ion;
-        }, function (_appApp) {
-            IonicApp = _appApp.IonicApp;
-        }, function (_configConfig) {
-            Config = _configConfig.Config;
-        }, function (_platformPlatform) {
-            Platform = _platformPlatform.Platform;
-        }, function (_utilKeyboard) {
-            Keyboard = _utilKeyboard.Keyboard;
-        }, function (_menuGestures) {
-            gestures = _menuGestures;
-        }],
-        execute: function () {
-            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-                switch (arguments.length) {
-                    case 2:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(o) || o;
-                        }, target);
-                    case 3:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key), void 0;
-                        }, void 0);
-                    case 4:
-                        return decorators.reduceRight(function (o, d) {
-                            return d && d(target, key, o) || o;
-                        }, desc);
-                }
-            };
-
-            __metadata = undefined && undefined.__metadata || function (k, v) {
-                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-            };
-
-            __param = undefined && undefined.__param || function (paramIndex, decorator) {
-                return function (target, key) {
-                    decorator(target, key, paramIndex);
-                };
-            };
-
-            Menu = (function (_Ion) {
-                _inherits(Menu, _Ion);
-
-                function Menu(app, elementRef, config, platform, keyboard) {
-                    _classCallCheck(this, Menu);
-
-                    _get(Object.getPrototypeOf(Menu.prototype), "constructor", this).call(this, elementRef, config);
-                    this.app = app;
-                    this.platform = platform;
-                    this.keyboard = keyboard;
-                    this.opening = new EventEmitter('opening');
-                    this.isOpen = false;
-                    this._preventTime = 0;
-                    this.isEnabled = true;
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(Menu, [{
-                    key: "onInit",
-                    value: function onInit() {
-                        _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
-                        var content = this.content;
-                        this._cntEle = content instanceof Node ? content : content && content.getNativeElement && content.getNativeElement();
-                        if (!this._cntEle) {
-                            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
-                        }
-                        if (this.side !== 'left' && this.side !== 'right') {
-                            this.side = 'left';
-                        }
-                        if (!this.id) {
-                            // Auto register
-                            this.id = 'menu';
-                            this.app.register(this.id, this);
-                        }
-                        this._initGesture();
-                        this._initType(this.type);
-                        this._cntEle.classList.add('menu-content');
-                        this._cntEle.classList.add('menu-content-' + this.type);
-                        var self = this;
-                        this.onContentClick = function (ev) {
-                            if (self.isEnabled) {
-                                ev.preventDefault();
-                                ev.stopPropagation();
-                                self.close();
-                            }
-                        };
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_initGesture",
-                    value: function _initGesture() {
-                        switch (this.side) {
-                            case 'right':
-                                this._gesture = new gestures.RightMenuGesture(this);
-                                break;
-                            case 'left':
-                                this._gesture = new gestures.LeftMenuGesture(this);
-                                break;
-                        }
-                        this._targetGesture = new gestures.TargetGesture(this);
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_initType",
-                    value: function _initType(type) {
-                        type = type && type.trim().toLowerCase();
-                        if (!type) {
-                            type = this.config.get('menuType');
-                        }
-                        this.type = type;
-                    }
-                }, {
-                    key: "_getType",
-                    value: function _getType() {
-                        if (!this._type) {
-                            this._type = new menuTypes[this.type](this);
-                            if (this.config.get('animate') === false) {
-                                this._type.open.duration(33);
-                                this._type.close.duration(33);
-                            }
-                        }
-                        return this._type;
-                    }
-
-                    /**
-                     * Sets the state of the Menu to open or not.
-                     * @param {boolean} isOpen  If the Menu is open or not.
-                     * @return {Promise} TODO
-                     */
-                }, {
-                    key: "setOpen",
-                    value: function setOpen(shouldOpen) {
-                        var _this = this;
-
-                        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
-                        // or swiping open the menu while pressing down on the menu-toggle button
-                        if (shouldOpen === this.isOpen || this._isPrevented()) {
-                            return Promise.resolve();
-                        }
-                        this._before();
-                        return this._getType().setOpen(shouldOpen).then(function () {
-                            _this._after(shouldOpen);
-                        });
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "setProgressStart",
-                    value: function setProgressStart() {
-                        // user started swiping the menu open/close
-                        if (this._isPrevented() || !this.isEnabled) return;
-                        this._before();
-                        this._getType().setProgressStart(this.isOpen);
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "setProgess",
-                    value: function setProgess(value) {
-                        // user actively dragging the menu
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this._getType().setProgess(value);
-                            this.opening.next(value);
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "setProgressEnd",
-                    value: function setProgressEnd(shouldComplete) {
-                        var _this2 = this;
-
-                        // user has finished dragging the menu
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
-                                _this2._after(isOpen);
-                            });
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_before",
-                    value: function _before() {
-                        // this places the menu into the correct location before it animates in
-                        // this css class doesn't actually kick off any animations
-                        if (this.isEnabled) {
-                            this.getNativeElement().classList.add('show-menu');
-                            this.getBackdropElement().classList.add('show-backdrop');
-                            this._prevent();
-                            this.keyboard.close();
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_after",
-                    value: function _after(isOpen) {
-                        // keep opening/closing the menu disabled for a touch more yet
-                        if (this.isEnabled) {
-                            this._prevent();
-                            this.isOpen = isOpen;
-                            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-                            this._cntEle.removeEventListener('click', this.onContentClick);
-                            if (isOpen) {
-                                this._cntEle.addEventListener('click', this.onContentClick);
-                            } else {
-                                this.getNativeElement().classList.remove('show-menu');
-                                this.getBackdropElement().classList.remove('show-backdrop');
-                            }
-                        }
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_prevent",
-                    value: function _prevent() {
-                        // used to prevent unwanted opening/closing after swiping open/close
-                        // or swiping open the menu while pressing down on the menu-toggle
-                        this._preventTime = Date.now() + 20;
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "_isPrevented",
-                    value: function _isPrevented() {
-                        return this._preventTime > Date.now();
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "open",
-                    value: function open() {
-                        return this.setOpen(true);
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "close",
-                    value: function close() {
-                        return this.setOpen(false);
-                    }
-
-                    /**
-                     * TODO
-                     * @return {TODO} TODO
-                     */
-                }, {
-                    key: "toggle",
-                    value: function toggle() {
-                        return this.setOpen(!this.isOpen);
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "enable",
-                    value: function enable(shouldEnable) {
-                        this.isEnabled = shouldEnable;
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "getMenuElement",
-                    value: function getMenuElement() {
-                        return this.getNativeElement();
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "getContentElement",
-                    value: function getContentElement() {
-                        return this._cntEle;
-                    }
-
-                    /**
-                     * @private
-                     */
-                }, {
-                    key: "getBackdropElement",
-                    value: function getBackdropElement() {
-                        return this.backdrop.elementRef.nativeElement;
-                    }
-                }, {
-                    key: "onDestroy",
-
-                    /**
-                     * @private
-                     */
-                    value: function onDestroy() {
-                        this.app.unregister(this.id);
-                        this._gesture && this._gesture.destroy();
-                        this._targetGesture && this._targetGesture.destroy();
-                        this._type && this._type.onDestroy();
-                        this._cntEle = null;
-                    }
-                }], [{
-                    key: "register",
-                    value: function register(name, cls) {
-                        menuTypes[name] = cls;
-                    }
-                }]);
-
-                return Menu;
-            })(Ion);
-
-            _export("Menu", Menu);
-
-            _export("Menu", Menu = __decorate([Component({
-                selector: 'ion-menu',
-                inputs: ['content', 'dragThreshold', 'id', 'side', 'type'],
-                defaultInputs: {
-                    'side': 'left',
-                    'menuType': 'reveal'
-                },
-                outputs: ['opening'],
-                host: {
-                    'role': 'navigation',
-                    '[attr.side]': 'side',
-                    '[attr.type]': 'type'
-                },
-                template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
-                directives: [forwardRef(function () {
-                    return MenuBackdrop;
-                })]
-            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Platform !== 'undefined' && Platform) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object])], Menu));
-            menuTypes = {};
-
-            MenuBackdrop = (function () {
-                function MenuBackdrop(menu, elementRef) {
-                    _classCallCheck(this, MenuBackdrop);
-
-                    this.menu = menu;
-                    this.elementRef = elementRef;
-                    menu.backdrop = this;
-                }
-
-                /**
-                 * @private
-                 */
-
-                _createClass(MenuBackdrop, [{
-                    key: "clicked",
-                    value: function clicked(ev) {
-                        console.debug('backdrop clicked');
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        this.menu.close();
-                    }
-                }]);
-
-                return MenuBackdrop;
-            })();
-
-            MenuBackdrop = __decorate([Directive({
-                selector: 'backdrop',
-                host: {
-                    '(click)': 'clicked($event)'
-                }
-            }), __param(0, Host()), __metadata('design:paramtypes', [Menu, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object])], MenuBackdrop);
-        }
-    };
-});
 System.register("ionic/components/modal/modal", ["angular2/angular2", "../overlay/overlay-controller", "../../config/config", "../../animations/animation", "ionic/util"], function (_export) {
     /**
      * The Modal is a content pane that can go over the user's current page.
@@ -60871,6 +59941,1035 @@ System.register('ionic/config/config.spec', ['ionic/ionic'], function (_export) 
             ionicProviders = _ionicIonic.ionicProviders;
         }],
         execute: function () {}
+    };
+});
+System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
+    /**
+    * TODO
+    */
+    "use strict";
+
+    var Directive, ElementRef, Ion, IonicApp, __decorate, __metadata, MenuClose, _a, _b;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            MenuClose = (function (_Ion) {
+                _inherits(MenuClose, _Ion);
+
+                function MenuClose(app, elementRef) {
+                    _classCallCheck(this, MenuClose);
+
+                    _get(Object.getPrototypeOf(MenuClose.prototype), "constructor", this).call(this, elementRef, null);
+                    this.app = app;
+                }
+
+                _createClass(MenuClose, [{
+                    key: "close",
+                    value: function close() {
+                        var menu = this.app.getComponent(this.menuClose || 'menu');
+                        menu && menu.close();
+                    }
+                }]);
+
+                return MenuClose;
+            })(Ion);
+
+            _export("MenuClose", MenuClose);
+
+            _export("MenuClose", MenuClose = __decorate([Directive({
+                selector: '[menu-close]',
+                inputs: ['menuClose'],
+                host: {
+                    '(click)': 'close()'
+                }
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object])], MenuClose));
+        }
+    };
+});
+System.register('ionic/components/menu/menu-gestures', ['../../gestures/slide-edge-gesture', 'ionic/util'], function (_export) {
+    'use strict';
+
+    var SlideEdgeGesture, util, MenuContentGesture, TargetGesture, LeftMenuGesture, RightMenuGesture;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_gesturesSlideEdgeGesture) {
+            SlideEdgeGesture = _gesturesSlideEdgeGesture.SlideEdgeGesture;
+        }, function (_ionicUtil) {
+            util = _ionicUtil;
+        }],
+        execute: function () {
+            MenuContentGesture = (function (_SlideEdgeGesture) {
+                _inherits(MenuContentGesture, _SlideEdgeGesture);
+
+                function MenuContentGesture(menu, targetEl) {
+                    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+                    _classCallCheck(this, MenuContentGesture);
+
+                    _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, targetEl, util.extend({
+                        direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
+                        edge: menu.side,
+                        threshold: 75
+                    }, options));
+                    this.menu = menu;
+                    this.listen();
+                }
+
+                /**
+                 * Support dragging the target menu as well as the content.
+                 */
+
+                _createClass(MenuContentGesture, [{
+                    key: 'canStart',
+                    value: function canStart(ev) {
+                        return this.menu.isOpen && this.menu.isEnabled ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
+                    }
+
+                    // Set CSS, then wait one frame for it to apply before sliding starts
+                }, {
+                    key: 'onSlideBeforeStart',
+                    value: function onSlideBeforeStart(slide, ev) {
+                        this.menu.setProgressStart();
+                    }
+                }, {
+                    key: 'onSlide',
+                    value: function onSlide(slide, ev) {
+                        this.menu.setProgess(slide.distance / slide.max);
+                    }
+                }, {
+                    key: 'onSlideEnd',
+                    value: function onSlideEnd(slide, ev) {
+                        var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
+                        this.menu.setProgressEnd(shouldComplete);
+                    }
+                }, {
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.menu.isOpen ? slide.max : slide.min;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: 0,
+                            max: this.menu.width()
+                        };
+                    }
+                }]);
+
+                return MenuContentGesture;
+            })(SlideEdgeGesture);
+
+            TargetGesture = (function (_MenuContentGesture) {
+                _inherits(TargetGesture, _MenuContentGesture);
+
+                function TargetGesture(menu) {
+                    _classCallCheck(this, TargetGesture);
+
+                    _get(Object.getPrototypeOf(TargetGesture.prototype), 'constructor', this).call(this, menu, menu.getNativeElement(), {
+                        threshold: 0
+                    });
+                }
+
+                return TargetGesture;
+            })(MenuContentGesture);
+
+            _export('TargetGesture', TargetGesture);
+
+            LeftMenuGesture = (function (_MenuContentGesture2) {
+                _inherits(LeftMenuGesture, _MenuContentGesture2);
+
+                function LeftMenuGesture(menu) {
+                    _classCallCheck(this, LeftMenuGesture);
+
+                    _get(Object.getPrototypeOf(LeftMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
+                }
+
+                return LeftMenuGesture;
+            })(MenuContentGesture);
+
+            _export('LeftMenuGesture', LeftMenuGesture);
+
+            RightMenuGesture = (function (_MenuContentGesture3) {
+                _inherits(RightMenuGesture, _MenuContentGesture3);
+
+                function RightMenuGesture(menu) {
+                    _classCallCheck(this, RightMenuGesture);
+
+                    _get(Object.getPrototypeOf(RightMenuGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement());
+                }
+
+                _createClass(RightMenuGesture, [{
+                    key: 'onSlide',
+                    value: function onSlide(slide, ev) {
+                        this.menu.setProgess(slide.distance / slide.min);
+                    }
+                }, {
+                    key: 'getElementStartPos',
+                    value: function getElementStartPos(slide, ev) {
+                        return this.menu.isOpen ? slide.min : slide.max;
+                    }
+                }, {
+                    key: 'getSlideBoundaries',
+                    value: function getSlideBoundaries() {
+                        return {
+                            min: -this.menu.width(),
+                            max: 0
+                        };
+                    }
+                }]);
+
+                return RightMenuGesture;
+            })(MenuContentGesture);
+
+            _export('RightMenuGesture', RightMenuGesture);
+        }
+    };
+});
+System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../ion", "../app/app", "../nav/view-controller", "../navbar/navbar"], function (_export) {
+    /**
+    * TODO
+    */
+    "use strict";
+
+    var Directive, ElementRef, Optional, Ion, IonicApp, ViewController, Navbar, __decorate, __metadata, __param, MenuToggle, _a, _b, _c, _d;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Directive = _angular2Angular2.Directive;
+            ElementRef = _angular2Angular2.ElementRef;
+            Optional = _angular2Angular2.Optional;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_navViewController) {
+            ViewController = _navViewController.ViewController;
+        }, function (_navbarNavbar) {
+            Navbar = _navbarNavbar.Navbar;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            MenuToggle = (function (_Ion) {
+                _inherits(MenuToggle, _Ion);
+
+                function MenuToggle(app, elementRef, viewCtrl, navbar) {
+                    _classCallCheck(this, MenuToggle);
+
+                    _get(Object.getPrototypeOf(MenuToggle.prototype), "constructor", this).call(this, elementRef, null);
+                    this.app = app;
+                    this.viewCtrl = viewCtrl;
+                    this.withinNavbar = !!navbar;
+                }
+
+                /**
+                * TODO
+                * @param {TODO} event  TODO
+                */
+
+                _createClass(MenuToggle, [{
+                    key: "toggle",
+                    value: function toggle() {
+                        var menu = this.app.getComponent(this.menuToggle || 'menu');
+                        menu && menu.toggle();
+                    }
+                }, {
+                    key: "isHidden",
+                    get: function get() {
+                        if (this.withinNavbar && this.viewCtrl) {
+                            return !this.viewCtrl.isRoot();
+                        }
+                        return false;
+                    }
+                }]);
+
+                return MenuToggle;
+            })(Ion);
+
+            _export("MenuToggle", MenuToggle);
+
+            _export("MenuToggle", MenuToggle = __decorate([Directive({
+                selector: '[menu-toggle]',
+                inputs: ['menuToggle'],
+                host: {
+                    '(click)': 'toggle()',
+                    '[hidden]': 'isHidden',
+                    'menu-toggle': '' //ensures the attr is there for css when using [menu-toggle]
+                }
+            }), __param(2, Optional()), __param(3, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof ViewController !== 'undefined' && ViewController) === 'function' && _c || Object, typeof (_d = typeof Navbar !== 'undefined' && Navbar) === 'function' && _d || Object])], MenuToggle));
+        }
+    };
+});
+System.register('ionic/components/menu/menu-types', ['./menu', 'ionic/animations/animation'], function (_export) {
+    /**
+     * Menu Type
+     * Base class which is extended by the various types. Each
+     * type will provide their own animations for open and close
+     * and registers itself with Menu.
+     */
+    'use strict';
+
+    var Menu, Animation, MenuType, MenuRevealType, MenuPushType, MenuOverlayType, OPACITY, TRANSLATE_X;
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    return {
+        setters: [function (_menu) {
+            Menu = _menu.Menu;
+        }, function (_ionicAnimationsAnimation) {
+            Animation = _ionicAnimationsAnimation.Animation;
+        }],
+        execute: function () {
+            MenuType = (function () {
+                function MenuType() {
+                    _classCallCheck(this, MenuType);
+
+                    this.open = new Animation();
+                    this.close = new Animation();
+                }
+
+                /**
+                 * Menu Reveal Type
+                 * The content slides over to reveal the menu underneath.
+                 * The menu itself, which is under the content, does not move.
+                 */
+
+                _createClass(MenuType, [{
+                    key: 'setOpen',
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        return new Promise(function (resolve) {
+                            if (shouldOpen) {
+                                _this.open.playbackRate(1).onFinish(resolve, true).play();
+                            } else {
+                                _this.close.playbackRate(1).onFinish(resolve, true).play();
+                            }
+                        });
+                    }
+                }, {
+                    key: 'setProgressStart',
+                    value: function setProgressStart(isOpen) {
+                        this.isOpening = !isOpen;
+                        this.seek && this.seek.dispose();
+                        // clone the correct animation depending on open/close
+                        if (this.isOpening) {
+                            this.seek = this.open.clone();
+                        } else {
+                            this.seek = this.close.clone();
+                        }
+                        // the cloned animation should not use an easing curve during seek
+                        this.seek.easing('linear').progressStart();
+                    }
+                }, {
+                    key: 'setProgess',
+                    value: function setProgess(value) {
+                        // adjust progress value depending if it opening or closing
+                        if (!this.isOpening) {
+                            value = 1 - value;
+                        }
+                        this.seek.progress(value);
+                    }
+                }, {
+                    key: 'setProgressEnd',
+                    value: function setProgressEnd(shouldComplete) {
+                        var _this2 = this;
+
+                        var resolve = undefined;
+                        var promise = new Promise(function (res) {
+                            resolve = res;
+                        });
+                        var isOpen = this.isOpening && shouldComplete;
+                        if (!this.isOpening && !shouldComplete) {
+                            isOpen = true;
+                        }
+                        this.seek.progressEnd(shouldComplete).then(function () {
+                            _this2.isOpening = false;
+                            resolve(isOpen);
+                        });
+                        return promise;
+                    }
+                }, {
+                    key: 'onDestroy',
+                    value: function onDestroy() {
+                        this.open && this.open.dispose();
+                        this.close && this.close.dispose();
+                        this.seek && this.seek.dispose();
+                    }
+                }]);
+
+                return MenuType;
+            })();
+
+            _export('MenuType', MenuType);
+
+            MenuRevealType = (function (_MenuType) {
+                _inherits(MenuRevealType, _MenuType);
+
+                function MenuRevealType(menu) {
+                    _classCallCheck(this, MenuRevealType);
+
+                    _get(Object.getPrototypeOf(MenuRevealType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var openedX = menu.width() * (menu.side == 'right' ? -1 : 1) + 'px';
+                    var closedX = '0px';
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var contentOpen = new Animation(menu.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
+                    this.open.add(contentOpen);
+                    var contentClose = new Animation(menu.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, openedX, closedX);
+                    this.close.add(contentClose);
+                }
+
+                return MenuRevealType;
+            })(MenuType);
+
+            Menu.register('reveal', MenuRevealType);
+            /**
+             * Menu Push Type
+             * The content slides over to reveal the menu underneath.
+             * The menu itself also slides over to reveal its bad self.
+             */
+
+            MenuPushType = (function (_MenuType2) {
+                _inherits(MenuPushType, _MenuType2);
+
+                function MenuPushType(menu) {
+                    _classCallCheck(this, MenuPushType);
+
+                    _get(Object.getPrototypeOf(MenuPushType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var contentOpenedX = undefined,
+                        menuClosedX = undefined,
+                        menuOpenedX = undefined;
+                    if (menu.side == 'right') {
+                        contentOpenedX = -menu.width() + 'px';
+                        menuOpenedX = menu.platform.width() - menu.width() + 'px';
+                        menuClosedX = menu.platform.width() + 'px';
+                    } else {
+                        contentOpenedX = menu.width() + 'px';
+                        menuOpenedX = '0px';
+                        menuClosedX = -menu.width() + 'px';
+                    }
+                    // left side
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var menuOpen = new Animation(menu.getMenuElement());
+                    menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
+                    this.open.add(menuOpen);
+                    var contentOpen = new Animation(menu.getContentElement());
+                    contentOpen.fromTo(TRANSLATE_X, '0px', contentOpenedX);
+                    this.open.add(contentOpen);
+                    var menuClose = new Animation(menu.getMenuElement());
+                    menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
+                    this.close.add(menuClose);
+                    var contentClose = new Animation(menu.getContentElement());
+                    contentClose.fromTo(TRANSLATE_X, contentOpenedX, '0px');
+                    this.close.add(contentClose);
+                }
+
+                return MenuPushType;
+            })(MenuType);
+
+            Menu.register('push', MenuPushType);
+            /**
+             * Menu Overlay Type
+             * The menu slides over the content. The content
+             * itself, which is under the menu, does not move.
+             */
+
+            MenuOverlayType = (function (_MenuType3) {
+                _inherits(MenuOverlayType, _MenuType3);
+
+                function MenuOverlayType(menu) {
+                    _classCallCheck(this, MenuOverlayType);
+
+                    _get(Object.getPrototypeOf(MenuOverlayType.prototype), 'constructor', this).call(this);
+                    var easing = 'ease';
+                    var duration = 250;
+                    var backdropOpacity = 0.35;
+                    var closedX = undefined,
+                        openedX = undefined;
+                    if (menu.side == 'right') {
+                        // right side
+                        closedX = menu.platform.width() + 'px';
+                        openedX = menu.platform.width() - menu.width() - 8 + 'px';
+                    } else {
+                        // left side
+                        closedX = -menu.width() + 'px';
+                        openedX = '8px';
+                    }
+                    this.open.easing(easing).duration(duration);
+                    this.close.easing(easing).duration(duration);
+                    var menuOpen = new Animation(menu.getMenuElement());
+                    menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
+                    this.open.add(menuOpen);
+                    var backdropOpen = new Animation(menu.getBackdropElement());
+                    backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
+                    this.open.add(backdropOpen);
+                    var menuClose = new Animation(menu.getMenuElement());
+                    menuClose.fromTo(TRANSLATE_X, openedX, closedX);
+                    this.close.add(menuClose);
+                    var backdropClose = new Animation(menu.getBackdropElement());
+                    backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
+                    this.close.add(backdropClose);
+                }
+
+                return MenuOverlayType;
+            })(MenuType);
+
+            Menu.register('overlay', MenuOverlayType);
+            OPACITY = 'opacity';
+            TRANSLATE_X = 'translateX';
+        }
+    };
+});
+System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", "../app/app", "../../config/config", "../../platform/platform", "../../util/keyboard", "./menu-gestures"], function (_export) {
+    /**
+     * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
+     * of the Component docs._
+     *
+     * Menu is a side-menu navigation that can be dragged out or toggled to show.
+     *
+     * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+     * to the content element that Menu should listen on for drag events, using the
+     * `content` property:
+     * ```html
+     * <ion-menu [content]="contentRef">
+     *   <ion-content>
+     *     <ion-list>
+     *     ...
+     *     </ion-list>
+     *   </ion-content>
+     * </ion-menu>
+     *
+     * <ion-nav #content-ref [root]="rootPage"></ion-nav>
+     * ```
+     *
+     * By default, Menus are on the left, but this can be overriden with the `side`
+     * property:
+     * ```html
+     * <ion-menu [content]="contentRef" side="right"></ion-menu>
+     * ```
+     *
+     * Menu supports two display styles: overlay, and reveal. Overlay
+     * is the traditional Android drawer style, and Reveal is the traditional iOS
+     * style. By default, Menu will adjust to the correct style for the platform,
+     * but this can be overriden using the `type` property:
+     * ```html
+     * <ion-menu [content]="contentRef" type="overlay"></ion-menu>
+     * ```
+     */
+    "use strict";
+
+    var Component, forwardRef, Directive, Host, EventEmitter, ElementRef, Ion, IonicApp, Config, Platform, Keyboard, gestures, __decorate, __metadata, __param, Menu, menuTypes, MenuBackdrop, _a, _b, _c, _d, _e, _f;
+
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    return {
+        setters: [function (_angular2Angular2) {
+            Component = _angular2Angular2.Component;
+            forwardRef = _angular2Angular2.forwardRef;
+            Directive = _angular2Angular2.Directive;
+            Host = _angular2Angular2.Host;
+            EventEmitter = _angular2Angular2.EventEmitter;
+            ElementRef = _angular2Angular2.ElementRef;
+        }, function (_ion) {
+            Ion = _ion.Ion;
+        }, function (_appApp) {
+            IonicApp = _appApp.IonicApp;
+        }, function (_configConfig) {
+            Config = _configConfig.Config;
+        }, function (_platformPlatform) {
+            Platform = _platformPlatform.Platform;
+        }, function (_utilKeyboard) {
+            Keyboard = _utilKeyboard.Keyboard;
+        }, function (_menuGestures) {
+            gestures = _menuGestures;
+        }],
+        execute: function () {
+            __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+                if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+                switch (arguments.length) {
+                    case 2:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(o) || o;
+                        }, target);
+                    case 3:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key), void 0;
+                        }, void 0);
+                    case 4:
+                        return decorators.reduceRight(function (o, d) {
+                            return d && d(target, key, o) || o;
+                        }, desc);
+                }
+            };
+
+            __metadata = undefined && undefined.__metadata || function (k, v) {
+                if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+            };
+
+            __param = undefined && undefined.__param || function (paramIndex, decorator) {
+                return function (target, key) {
+                    decorator(target, key, paramIndex);
+                };
+            };
+
+            Menu = (function (_Ion) {
+                _inherits(Menu, _Ion);
+
+                function Menu(app, elementRef, config, platform, keyboard) {
+                    _classCallCheck(this, Menu);
+
+                    _get(Object.getPrototypeOf(Menu.prototype), "constructor", this).call(this, elementRef, config);
+                    this.app = app;
+                    this.platform = platform;
+                    this.keyboard = keyboard;
+                    this.opening = new EventEmitter('opening');
+                    this.isOpen = false;
+                    this._preventTime = 0;
+                    this.isEnabled = true;
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(Menu, [{
+                    key: "onInit",
+                    value: function onInit() {
+                        _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
+                        var content = this.content;
+                        this._cntEle = content instanceof Node ? content : content && content.getNativeElement && content.getNativeElement();
+                        if (!this._cntEle) {
+                            return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
+                        }
+                        if (this.side !== 'left' && this.side !== 'right') {
+                            this.side = 'left';
+                        }
+                        if (!this.id) {
+                            // Auto register
+                            this.id = 'menu';
+                            this.app.register(this.id, this);
+                        }
+                        this._initGesture();
+                        this._initType(this.type);
+                        this._cntEle.classList.add('menu-content');
+                        this._cntEle.classList.add('menu-content-' + this.type);
+                        var self = this;
+                        this.onContentClick = function (ev) {
+                            if (self.isEnabled) {
+                                ev.preventDefault();
+                                ev.stopPropagation();
+                                self.close();
+                            }
+                        };
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_initGesture",
+                    value: function _initGesture() {
+                        switch (this.side) {
+                            case 'right':
+                                this._gesture = new gestures.RightMenuGesture(this);
+                                break;
+                            case 'left':
+                                this._gesture = new gestures.LeftMenuGesture(this);
+                                break;
+                        }
+                        this._targetGesture = new gestures.TargetGesture(this);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_initType",
+                    value: function _initType(type) {
+                        type = type && type.trim().toLowerCase();
+                        if (!type) {
+                            type = this.config.get('menuType');
+                        }
+                        this.type = type;
+                    }
+                }, {
+                    key: "_getType",
+                    value: function _getType() {
+                        if (!this._type) {
+                            this._type = new menuTypes[this.type](this);
+                            if (this.config.get('animate') === false) {
+                                this._type.open.duration(33);
+                                this._type.close.duration(33);
+                            }
+                        }
+                        return this._type;
+                    }
+
+                    /**
+                     * Sets the state of the Menu to open or not.
+                     * @param {boolean} isOpen  If the Menu is open or not.
+                     * @return {Promise} TODO
+                     */
+                }, {
+                    key: "setOpen",
+                    value: function setOpen(shouldOpen) {
+                        var _this = this;
+
+                        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the menu-toggle button
+                        if (shouldOpen === this.isOpen || this._isPrevented()) {
+                            return Promise.resolve();
+                        }
+                        this._before();
+                        return this._getType().setOpen(shouldOpen).then(function () {
+                            _this._after(shouldOpen);
+                        });
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "setProgressStart",
+                    value: function setProgressStart() {
+                        // user started swiping the menu open/close
+                        if (this._isPrevented() || !this.isEnabled) return;
+                        this._before();
+                        this._getType().setProgressStart(this.isOpen);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "setProgess",
+                    value: function setProgess(value) {
+                        // user actively dragging the menu
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this._getType().setProgess(value);
+                            this.opening.next(value);
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "setProgressEnd",
+                    value: function setProgressEnd(shouldComplete) {
+                        var _this2 = this;
+
+                        // user has finished dragging the menu
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
+                                _this2._after(isOpen);
+                            });
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_before",
+                    value: function _before() {
+                        // this places the menu into the correct location before it animates in
+                        // this css class doesn't actually kick off any animations
+                        if (this.isEnabled) {
+                            this.getNativeElement().classList.add('show-menu');
+                            this.getBackdropElement().classList.add('show-backdrop');
+                            this._prevent();
+                            this.keyboard.close();
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_after",
+                    value: function _after(isOpen) {
+                        // keep opening/closing the menu disabled for a touch more yet
+                        if (this.isEnabled) {
+                            this._prevent();
+                            this.isOpen = isOpen;
+                            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
+                            this._cntEle.removeEventListener('click', this.onContentClick);
+                            if (isOpen) {
+                                this._cntEle.addEventListener('click', this.onContentClick);
+                            } else {
+                                this.getNativeElement().classList.remove('show-menu');
+                                this.getBackdropElement().classList.remove('show-backdrop');
+                            }
+                        }
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_prevent",
+                    value: function _prevent() {
+                        // used to prevent unwanted opening/closing after swiping open/close
+                        // or swiping open the menu while pressing down on the menu-toggle
+                        this._preventTime = Date.now() + 20;
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "_isPrevented",
+                    value: function _isPrevented() {
+                        return this._preventTime > Date.now();
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "open",
+                    value: function open() {
+                        return this.setOpen(true);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "close",
+                    value: function close() {
+                        return this.setOpen(false);
+                    }
+
+                    /**
+                     * TODO
+                     * @return {TODO} TODO
+                     */
+                }, {
+                    key: "toggle",
+                    value: function toggle() {
+                        return this.setOpen(!this.isOpen);
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "enable",
+                    value: function enable(shouldEnable) {
+                        this.isEnabled = shouldEnable;
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "getMenuElement",
+                    value: function getMenuElement() {
+                        return this.getNativeElement();
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "getContentElement",
+                    value: function getContentElement() {
+                        return this._cntEle;
+                    }
+
+                    /**
+                     * @private
+                     */
+                }, {
+                    key: "getBackdropElement",
+                    value: function getBackdropElement() {
+                        return this.backdrop.elementRef.nativeElement;
+                    }
+                }, {
+                    key: "onDestroy",
+
+                    /**
+                     * @private
+                     */
+                    value: function onDestroy() {
+                        this.app.unregister(this.id);
+                        this._gesture && this._gesture.destroy();
+                        this._targetGesture && this._targetGesture.destroy();
+                        this._type && this._type.onDestroy();
+                        this._cntEle = null;
+                    }
+                }], [{
+                    key: "register",
+                    value: function register(name, cls) {
+                        menuTypes[name] = cls;
+                    }
+                }]);
+
+                return Menu;
+            })(Ion);
+
+            _export("Menu", Menu);
+
+            _export("Menu", Menu = __decorate([Component({
+                selector: 'ion-menu',
+                inputs: ['content', 'dragThreshold', 'id', 'side', 'type'],
+                defaultInputs: {
+                    'side': 'left',
+                    'menuType': 'reveal'
+                },
+                outputs: ['opening'],
+                host: {
+                    'role': 'navigation',
+                    '[attr.side]': 'side',
+                    '[attr.type]': 'type'
+                },
+                template: '<ng-content></ng-content><backdrop tappable disable-activated></backdrop>',
+                directives: [forwardRef(function () {
+                    return MenuBackdrop;
+                })]
+            }), __metadata('design:paramtypes', [typeof (_a = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _a || Object, typeof (_b = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Platform !== 'undefined' && Platform) === 'function' && _d || Object, typeof (_e = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _e || Object])], Menu));
+            menuTypes = {};
+
+            MenuBackdrop = (function () {
+                function MenuBackdrop(menu, elementRef) {
+                    _classCallCheck(this, MenuBackdrop);
+
+                    this.menu = menu;
+                    this.elementRef = elementRef;
+                    menu.backdrop = this;
+                }
+
+                /**
+                 * @private
+                 */
+
+                _createClass(MenuBackdrop, [{
+                    key: "clicked",
+                    value: function clicked(ev) {
+                        console.debug('backdrop clicked');
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        this.menu.close();
+                    }
+                }]);
+
+                return MenuBackdrop;
+            })();
+
+            MenuBackdrop = __decorate([Directive({
+                selector: 'backdrop',
+                host: {
+                    '(click)': 'clicked($event)'
+                }
+            }), __param(0, Host()), __metadata('design:paramtypes', [Menu, typeof (_f = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _f || Object])], MenuBackdrop);
+        }
     };
 });
 System.register('ionic/platform/storage/local-storage', ['./storage'], function (_export) {

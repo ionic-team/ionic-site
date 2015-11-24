@@ -705,7 +705,7 @@ ion-nav-items div {
 
 .toolbar[danger] toolbar-background {
   background-color: #f53d3d;
-  border-color: #f30d0d; }
+  border-color: #f30c0c; }
 
 .toolbar[danger] .toolbar-title,
 .toolbar[danger] button,
@@ -6749,7 +6749,7 @@ icon,
   .ios tabbar[secondary] {
     border-color: #21b94e; }
   .ios tabbar[danger] {
-    border-color: #f30d0d; }
+    border-color: #f30c0c; }
   .ios tabbar[light] {
     border-color: #dbdbdb; }
   .ios tabbar[dark] {

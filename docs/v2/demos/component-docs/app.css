@@ -733,7 +733,7 @@ ion-nav-items div {
 
 .toolbar[danger] toolbar-background {
   background-color: #f53d3d;
-  border-color: #f30d0d; }
+  border-color: #f30c0c; }
 
 .toolbar[danger] .toolbar-title,
 .toolbar[danger] button,
@@ -7235,7 +7235,7 @@ icon,
   .ios tabbar[secondary] {
     border-color: #21b94e; }
   .ios tabbar[danger] {
-    border-color: #f30d0d; }
+    border-color: #f30c0c; }
   .ios tabbar[light] {
     border-color: #dbdbdb; }
   .ios tabbar[dark] {
@@ -8672,7 +8672,7 @@ icon,
   .md ion-switch[dark][aria-checked=true] switch-icon:after {
     background-color: #222; }
   .md ion-switch[energized][aria-checked=true] switch-icon {
-    background-color: #ffe7a7; }
+    background-color: #ffe7a6; }
   .md ion-switch[energized][aria-checked=true] switch-icon:after {
     background-color: #ffc527; }
   .md ion-switch[royal][aria-checked=true] switch-icon {

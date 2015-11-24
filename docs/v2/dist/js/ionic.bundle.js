@@ -57023,6 +57023,7 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
                         this.element = this.elementRef.nativeElement.querySelector('input');
                         this.element.blur();
                         this.clearInput();
+                        this.shouldLeftAlign = false;
                     }
                 },
                 host: {
@@ -59936,7 +59937,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                             // this input is inside of a scroll view
                             // find out if text input should be manually scrolled into view
                             var ele = this.elementRef.nativeElement;
-                            var scrollData = _TextInput.getScollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this.platform.height());
+                            var scrollData = _TextInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this.platform.height());
                             if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
                                 // the text input is in a safe position that doesn't require
                                 // it to be scrolled into view, just set focus now
@@ -60062,8 +60063,8 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                         return !!this.input && this.input.hasFocus;
                     }
                 }], [{
-                    key: "getScollData",
-                    value: function getScollData(inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
+                    key: "getScrollData",
+                    value: function getScrollData(inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
                         // compute input's Y values relative to the body
                         var inputTop = inputOffsetTop + scrollViewDimensions.contentTop - scrollViewDimensions.scrollTop;
                         var inputBottom = inputTop + inputOffsetHeight;

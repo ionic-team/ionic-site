@@ -54150,10 +54150,11 @@
 	    })]
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object])], ModalsInitialPage);
 	var ModalsContentPage = (function () {
-	    function ModalsContentPage(modal, platform) {
+	    function ModalsContentPage(modal, platform, params) {
 	        _classCallCheck(this, ModalsContentPage);
 
 	        this.modal = modal;
+	        this.params = params;
 	        if (platform.is('android')) {
 	            this.currentPlatform = 'android';
 	        } else {
@@ -54175,7 +54176,7 @@
 	            image: 'img/avatar-samwise.jpg',
 	            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Nickname', note: 'Sam' }]
 	        }];
-	        this.character = characters[this.modal._defaults.charNum];
+	        this.character = characters[this.params.get('charNum')];
 	    }
 
 	    _createClass(ModalsContentPage, [{
@@ -54195,7 +54196,7 @@
 	    directives: [_angular2Angular2.NgFor, (0, _angular2Angular2.forwardRef)(function () {
 	        return helpers.AndroidAttribute;
 	    })]
-	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _d || Object])], ModalsContentPage);
+	}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _e || Object])], ModalsContentPage);
 	var BasicPage = (function () {
 	    function BasicPage(modal) {
 	        _classCallCheck(this, BasicPage);
@@ -54219,8 +54220,8 @@
 	exports.BasicPage = BasicPage;
 	exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-nav [root]="rootView"></ion-nav>'
-	}), __metadata('design:paramtypes', [typeof (_e = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _e || Object])], BasicPage);
-	var _a, _b, _c, _d, _e;
+	}), __metadata('design:paramtypes', [typeof (_f = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _f || Object])], BasicPage);
+	var _a, _b, _c, _d, _e, _f;
 
 /***/ },
 /* 450 */

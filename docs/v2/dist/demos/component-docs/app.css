@@ -1829,7 +1829,7 @@ ion-input[floating-label] {
   margin: 0;
   padding: 0;
   list-style-type: none; }
-  .list ion-header {
+  .list ion-list-header {
     display: block;
     overflow: hidden;
     white-space: nowrap;
@@ -1839,7 +1839,7 @@ ion-input[floating-label] {
   overflow: hidden;
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
-  .list[inset] ion-header {
+  .list[inset] ion-list-header {
     background-color: #fff; }
 
 ion-card {
@@ -5936,7 +5936,7 @@ icon,
     background: #000; }
   .ios .list {
     margin: -1px 0 32px 0; }
-    .ios .list ion-header {
+    .ios .list ion-list-header {
       position: relative;
       padding: 10px 16px 10px 16px;
       font-size: 1.2rem;
@@ -5979,12 +5979,12 @@ icon,
           margin: 0 auto; }
   .ios .list + .list {
     margin-top: 42px; }
-    .ios .list + .list ion-header {
+    .ios .list + .list ion-list-header {
       margin-top: -10px;
       padding-top: 0; }
   .ios.hairlines .list ion-item-options {
     border-width: 0.55px; }
-  .ios.hairlines .list ion-header {
+  .ios.hairlines .list ion-list-header {
     border-bottom-width: 0.55px; }
   .ios.hairlines .list .item .item-inner {
     border-width: 0.55px; }
@@ -6010,10 +6010,10 @@ icon,
     margin-top: 0; }
   .ios.hairlines .list[inset] .item {
     border-width: 0.55px; }
-  .ios .list[no-lines] ion-header,
+  .ios .list[no-lines] ion-list-header,
   .ios .list[no-lines] .item,
   .ios .list[no-lines] .item .item-inner,
-  .ios.hairlines .list[no-lines] ion-header,
+  .ios.hairlines .list[no-lines] ion-list-header,
   .ios.hairlines .list[no-lines] .item,
   .ios.hairlines .list[no-lines] .item .item-inner {
     border-width: 0; }
@@ -7620,7 +7620,7 @@ icon,
     border-width: 0; }
   .md .list {
     margin: 0 0 16px 0; }
-    .md .list ion-header,
+    .md .list ion-list-header,
     .md .list ion-item-divider {
       border-bottom: 1px solid #dedede;
       margin-left: 0;
@@ -7662,7 +7662,7 @@ icon,
       border-width: 0; }
     .md .list + .list {
       margin-top: 32px; }
-      .md .list + .list ion-header {
+      .md .list + .list ion-list-header {
         margin-top: -16px;
         padding-top: 0; }
   .md .list[inset] {

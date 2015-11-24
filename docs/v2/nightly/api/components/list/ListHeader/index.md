@@ -44,7 +44,7 @@ docType: "class"
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L113-L125">ionic/components/list/list.ts (line 113)</a>
 </p>
 <h2>Directive</h2>
-  <span>selector: ion-header</span>
+  <span>selector: ion-list-header</span>
 
   <span>inputs: id</span>
 

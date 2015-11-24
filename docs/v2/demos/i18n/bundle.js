@@ -69638,7 +69638,7 @@
 	};
 	exports.ListHeader = ListHeader;
 	exports.ListHeader = ListHeader = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'ion-header',
+	    selector: 'ion-list-header',
 	    inputs: ['id'],
 	    host: {
 	        '[attr.id]': 'id'
@@ -71564,9 +71564,9 @@
 	 * ```html
 	 * <ion-radio-group ng-control="clientside">
 	 *
-	 *   <ion-header>
+	 *   <ion-list-header>
 	 *     Clientside
-	 *   </ion-header>
+	 *   </ion-list-header>
 	 *
 	 *   <ion-radio value="ember">
 	 *     Ember

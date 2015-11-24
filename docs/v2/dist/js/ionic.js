@@ -9051,7 +9051,7 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
             _export("ListHeader", ListHeader);
 
             _export("ListHeader", ListHeader = __decorate([Directive({
-                selector: 'ion-header',
+                selector: 'ion-list-header',
                 inputs: ['id'],
                 host: {
                     '[attr.id]': 'id'
@@ -13459,9 +13459,9 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
      * ```html
      * <ion-radio-group ng-control="clientside">
      *
-     *   <ion-header>
+     *   <ion-list-header>
      *     Clientside
-     *   </ion-header>
+     *   </ion-list-header>
      *
      *   <ion-radio value="ember">
      *     Ember

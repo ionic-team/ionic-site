@@ -316,7 +316,7 @@ sub {
 h1[primary], h2[primary], h3[primary], h4[primary], h5[primary], h6[primary],
 p[primary],
 span[primary],
-a[primary],
+a:not([button])[primary],
 small[primary],
 b[primary],
 i[primary],
@@ -330,7 +330,7 @@ sup[primary] {
 h1[secondary], h2[secondary], h3[secondary], h4[secondary], h5[secondary], h6[secondary],
 p[secondary],
 span[secondary],
-a[secondary],
+a:not([button])[secondary],
 small[secondary],
 b[secondary],
 i[secondary],
@@ -344,7 +344,7 @@ sup[secondary] {
 h1[danger], h2[danger], h3[danger], h4[danger], h5[danger], h6[danger],
 p[danger],
 span[danger],
-a[danger],
+a:not([button])[danger],
 small[danger],
 b[danger],
 i[danger],
@@ -358,7 +358,7 @@ sup[danger] {
 h1[light], h2[light], h3[light], h4[light], h5[light], h6[light],
 p[light],
 span[light],
-a[light],
+a:not([button])[light],
 small[light],
 b[light],
 i[light],
@@ -372,7 +372,7 @@ sup[light] {
 h1[dark], h2[dark], h3[dark], h4[dark], h5[dark], h6[dark],
 p[dark],
 span[dark],
-a[dark],
+a:not([button])[dark],
 small[dark],
 b[dark],
 i[dark],
@@ -386,7 +386,7 @@ sup[dark] {
 h1[energized], h2[energized], h3[energized], h4[energized], h5[energized], h6[energized],
 p[energized],
 span[energized],
-a[energized],
+a:not([button])[energized],
 small[energized],
 b[energized],
 i[energized],
@@ -400,7 +400,7 @@ sup[energized] {
 h1[royal], h2[royal], h3[royal], h4[royal], h5[royal], h6[royal],
 p[royal],
 span[royal],
-a[royal],
+a:not([button])[royal],
 small[royal],
 b[royal],
 i[royal],
@@ -717,7 +717,7 @@ ion-nav-items div {
 .toolbar[primary] button:hover:not(.disable-hover),
 .toolbar[primary] [button]:hover:not(.disable-hover),
 .toolbar[primary] a {
-  color: #fff; }
+  color: white; }
 
 .toolbar[secondary] toolbar-background {
   background-color: #32db64;
@@ -729,7 +729,7 @@ ion-nav-items div {
 .toolbar[secondary] button:hover:not(.disable-hover),
 .toolbar[secondary] [button]:hover:not(.disable-hover),
 .toolbar[secondary] a {
-  color: #fff; }
+  color: white; }
 
 .toolbar[danger] toolbar-background {
   background-color: #f53d3d;
@@ -741,7 +741,7 @@ ion-nav-items div {
 .toolbar[danger] button:hover:not(.disable-hover),
 .toolbar[danger] [button]:hover:not(.disable-hover),
 .toolbar[danger] a {
-  color: #fff; }
+  color: white; }
 
 .toolbar[light] toolbar-background {
   background-color: #f4f4f4;
@@ -753,7 +753,7 @@ ion-nav-items div {
 .toolbar[light] button:hover:not(.disable-hover),
 .toolbar[light] [button]:hover:not(.disable-hover),
 .toolbar[light] a {
-  color: #000; }
+  color: black; }
 
 .toolbar[dark] toolbar-background {
   background-color: #222;
@@ -765,7 +765,7 @@ ion-nav-items div {
 .toolbar[dark] button:hover:not(.disable-hover),
 .toolbar[dark] [button]:hover:not(.disable-hover),
 .toolbar[dark] a {
-  color: #fff; }
+  color: white; }
 
 .toolbar[energized] toolbar-background {
   background-color: #ffc527;
@@ -777,7 +777,7 @@ ion-nav-items div {
 .toolbar[energized] button:hover:not(.disable-hover),
 .toolbar[energized] [button]:hover:not(.disable-hover),
 .toolbar[energized] a {
-  color: #fff; }
+  color: black; }
 
 .toolbar[royal] toolbar-background {
   background-color: #7e60ff;
@@ -789,7 +789,7 @@ ion-nav-items div {
 .toolbar[royal] button:hover:not(.disable-hover),
 .toolbar[royal] [button]:hover:not(.disable-hover),
 .toolbar[royal] a {
-  color: #fff; }
+  color: black; }
 
 ion-action-sheet {
   position: absolute;
@@ -912,7 +912,7 @@ button,
   -webkit-appearance: none;
   -moz-appearance: none;
   background: #387ef5;
-  color: #fff; }
+  color: white; }
   button:hover:not(.disable-hover),
   [button]:hover:not(.disable-hover) {
     opacity: 0.8;
@@ -920,7 +920,7 @@ button,
   button.activated,
   [button].activated {
     opacity: 1;
-    background-color: #1165f3; }
+    background-color: #3474e1; }
   button[block],
   [button][block] {
     display: -webkit-box;
@@ -967,64 +967,64 @@ a[button] {
 button[primary],
 [button][primary] {
   background-color: #387ef5;
-  color: #fff; }
+  color: white; }
   button[primary].activated,
   [button][primary].activated {
-    background-color: #1165f3; }
+    background-color: #3474e1; }
 
 button[secondary],
 [button][secondary] {
   background-color: #32db64;
-  color: #fff; }
+  color: white; }
   button[secondary].activated,
   [button][secondary].activated {
-    background-color: #22c251; }
+    background-color: #2ec95c; }
 
 button[danger],
 [button][danger] {
   background-color: #f53d3d;
-  color: #fff; }
+  color: white; }
   button[danger].activated,
   [button][danger].activated {
-    background-color: #f31616; }
+    background-color: #e13838; }
 
 button[light],
 [button][light] {
   background-color: #f4f4f4;
-  color: #000; }
+  color: black; }
   button[light].activated,
   [button][light].activated {
-    background-color: #cbcbcb; }
+    background-color: #e0e0e0; }
 
 button[dark],
 [button][dark] {
   background-color: #222;
-  color: #fff; }
+  color: white; }
   button[dark].activated,
   [button][dark].activated {
-    background-color: #4b4b4b; }
+    background-color: #343434; }
 
 button[energized],
 [button][energized] {
   background-color: #ffc527;
-  color: #fff; }
+  color: black; }
   button[energized].activated,
   [button][energized].activated {
-    background-color: #fdb900; }
+    background-color: #ebb524; }
 
 button[royal],
 [button][royal] {
   background-color: #7e60ff;
-  color: #fff; }
+  color: black; }
   button[royal].activated,
   [button][royal].activated {
-    background-color: #5d37ff; }
+    background-color: #7458eb; }
 
 button[clear], .ios .popup-buttons button, .ios .searchbar-cancel, .md .popup-buttons button,
 [button][clear] {
   border-color: transparent;
   background: transparent;
-  color: #1165f3; }
+  color: #3474e1; }
   button[clear].activated, .ios .popup-buttons button.activated, .ios .activated.searchbar-cancel, .md .popup-buttons button.activated,
   [button][clear].activated {
     opacity: 0.4;
@@ -1032,61 +1032,61 @@ button[clear], .ios .popup-buttons button, .ios .searchbar-cancel, .md .popup-bu
   button[clear]:hover:not(.disable-hover), .ios .popup-buttons button:hover:not(.disable-hover), .ios .searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button:hover:not(.disable-hover),
   [button][clear]:hover:not(.disable-hover) {
     opacity: 0.6;
-    color: #1165f3; }
+    color: #3474e1; }
 
 button[clear][secondary], .ios .popup-buttons button[secondary], .ios [secondary].searchbar-cancel, .md .popup-buttons button[secondary],
 [button][clear][secondary] {
   border-color: transparent;
   background: transparent;
-  color: #22c251; }
+  color: #2ec95c; }
   button[clear][secondary]:hover:not(.disable-hover), .ios .popup-buttons button[secondary]:hover:not(.disable-hover), .ios [secondary].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[secondary]:hover:not(.disable-hover),
   [button][clear][secondary]:hover:not(.disable-hover) {
-    color: #1c9f43; }
+    color: #3fcd69; }
 
 button[clear][danger], .ios .popup-buttons button[danger], .ios [danger].searchbar-cancel, .md .popup-buttons button[danger],
 [button][clear][danger] {
   border-color: transparent;
   background: transparent;
-  color: #f31616; }
+  color: #e13838; }
   button[clear][danger]:hover:not(.disable-hover), .ios .popup-buttons button[danger]:hover:not(.disable-hover), .ios [danger].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[danger]:hover:not(.disable-hover),
   [button][clear][danger]:hover:not(.disable-hover) {
-    color: #d50b0b; }
+    color: #cf3434; }
 
 button[clear][light], .ios .popup-buttons button[light], .ios [light].searchbar-cancel, .md .popup-buttons button[light],
 [button][clear][light] {
   border-color: transparent;
   background: transparent;
-  color: #cbcbcb; }
+  color: #e0e0e0; }
   button[clear][light]:hover:not(.disable-hover), .ios .popup-buttons button[light]:hover:not(.disable-hover), .ios [light].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[light]:hover:not(.disable-hover),
   [button][clear][light]:hover:not(.disable-hover) {
-    color: #b7b7b7; }
+    color: #cecece; }
 
 button[clear][dark], .ios .popup-buttons button[dark], .ios [dark].searchbar-cancel, .md .popup-buttons button[dark],
 [button][clear][dark] {
   border-color: transparent;
   background: transparent;
-  color: #4b4b4b; }
+  color: #343434; }
   button[clear][dark]:hover:not(.disable-hover), .ios .popup-buttons button[dark]:hover:not(.disable-hover), .ios [dark].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[dark]:hover:not(.disable-hover),
   [button][clear][dark]:hover:not(.disable-hover) {
-    color: #747474; }
+    color: #444444; }
 
 button[clear][energized], .ios .popup-buttons button[energized], .ios [energized].searchbar-cancel, .md .popup-buttons button[energized],
 [button][clear][energized] {
   border-color: transparent;
   background: transparent;
-  color: #fdb900; }
+  color: #ebb524; }
   button[clear][energized]:hover:not(.disable-hover), .ios .popup-buttons button[energized]:hover:not(.disable-hover), .ios [energized].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[energized]:hover:not(.disable-hover),
   [button][clear][energized]:hover:not(.disable-hover) {
-    color: #d49b00; }
+    color: #d8a721; }
 
 button[clear][royal], .ios .popup-buttons button[royal], .ios [royal].searchbar-cancel, .md .popup-buttons button[royal],
 [button][clear][royal] {
   border-color: transparent;
   background: transparent;
-  color: #5d37ff; }
+  color: #7458eb; }
   button[clear][royal]:hover:not(.disable-hover), .ios .popup-buttons button[royal]:hover:not(.disable-hover), .ios [royal].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[royal]:hover:not(.disable-hover),
   [button][clear][royal]:hover:not(.disable-hover) {
-    color: #3c0eff; }
+    color: #6b51d8; }
 
 button[outline],
 [button][outline] {
@@ -1101,63 +1101,63 @@ button[outline],
 
 button[secondary][outline],
 [button][secondary][outline] {
-  border-color: #24cf57;
+  border-color: #30d05f;
   background: transparent;
-  color: #24cf57; }
+  color: #30d05f; }
   button[secondary][outline].activated,
   [button][secondary][outline].activated {
     color: #fff;
-    background-color: #24cf57; }
+    background-color: #30d05f; }
 
 button[danger][outline],
 [button][danger][outline] {
-  border-color: #f42525;
+  border-color: #e93a3a;
   background: transparent;
-  color: #f42525; }
+  color: #e93a3a; }
   button[danger][outline].activated,
   [button][danger][outline].activated {
     color: #fff;
-    background-color: #f42525; }
+    background-color: #e93a3a; }
 
 button[light][outline],
 [button][light][outline] {
-  border-color: #dbdbdb;
+  border-color: #e8e8e8;
   background: transparent;
-  color: #dbdbdb; }
+  color: #e8e8e8; }
   button[light][outline].activated,
   [button][light][outline].activated {
     color: #fff;
-    background-color: #dbdbdb; }
+    background-color: #e8e8e8; }
 
 button[dark][outline],
 [button][dark][outline] {
-  border-color: #3c3c3c;
+  border-color: #2d2d2d;
   background: transparent;
-  color: #3c3c3c; }
+  color: #2d2d2d; }
   button[dark][outline].activated,
   [button][dark][outline].activated {
     color: #fff;
-    background-color: #3c3c3c; }
+    background-color: #2d2d2d; }
 
 button[energized][outline],
 [button][energized][outline] {
-  border-color: #ffbe0d;
+  border-color: #f2bb25;
   background: transparent;
-  color: #ffbe0d; }
+  color: #f2bb25; }
   button[energized][outline].activated,
   [button][energized][outline].activated {
     color: #fff;
-    background-color: #ffbe0d; }
+    background-color: #f2bb25; }
 
 button[royal][outline],
 [button][royal][outline] {
-  border-color: #6947ff;
+  border-color: #785bf2;
   background: transparent;
-  color: #6947ff; }
+  color: #785bf2; }
   button[royal][outline].activated,
   [button][royal][outline].activated {
     color: #fff;
-    background-color: #6947ff; }
+    background-color: #785bf2; }
 
 button[large],
 [button][large] {
@@ -1251,10 +1251,10 @@ ion-checkbox {
   -ms-user-select: none;
   user-select: none; }
 
-ion-checkbox[aria-disabled=true] .item-inner > * {
-  pointer-events: none;
+ion-checkbox[aria-disabled=true] {
   opacity: 0.5;
-  color: #666; }
+  color: #666;
+  pointer-events: none; }
 
 icon {
   display: inline-block;
@@ -1285,6 +1285,10 @@ icon[small] {
   background-color: #fff;
   color: #000;
   box-sizing: border-box; }
+  .item[no-lines] {
+    border: none; }
+    .item[no-lines] .item-inner {
+      border: none; }
 
 .item-inner {
   display: -webkit-box;
@@ -1313,22 +1317,22 @@ icon[small] {
   -ms-flex-item-align: stretch;
   align-self: stretch; }
 
-.item-group {
+ion-item-group {
   display: block; }
 
-.item-group-title {
+ion-item-group-title {
   display: block;
   min-height: 30px;
   font-weight: 500;
   width: 100%;
   z-index: 1000; }
-  .item-group-title.sticky {
+  ion-item-group-title.sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 0px; }
 
 a.item,
-button.item.item {
+button.item {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1437,10 +1441,6 @@ ion-thumbnail {
   ion-thumbnail img {
     display: block; }
 
-/**
- * The hidden right-side buttons that can be exposed under a list item
- * with dragging.
- */
 ion-item-sliding {
   display: block;
   position: relative;
@@ -1455,13 +1455,16 @@ ion-item-options {
   right: 0;
   z-index: 1;
   height: 100%;
-  opacity: 0; }
+  visibility: hidden; }
 
-ion-item-sliding.active-slide .item {
+ion-item-sliding.active-slide .item,
+ion-item-sliding.active-slide .item.item.activated {
   position: relative;
   z-index: 2;
-  -webkit-transition: all 200ms;
-  transition: all 200ms; }
+  opacity: 1;
+  -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  pointer-events: none; }
 
 ion-item-sliding.active-slide ion-item-options {
   display: -webkit-box;
@@ -1470,17 +1473,8 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex; }
 
 ion-item-sliding.active-slide.active-options ion-item-options {
-  opacity: 1; }
+  visibility: visible; }
 
-/**
- * Grid
- * --------------------------------------------------
- * Using flexbox for the grid, inspired by Philip Walton:
- * http://philipwalton.github.io/solved-by-flexbox/demos/grids/
- * By default each .col within a .row will evenly take up
- * available width, and the height of each .col with take
- * up the height of the tallest .col in the same .row.
- */
 ion-row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1493,8 +1487,6 @@ ion-row {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
   ion-row[flush] {
-    padding: 0; }
-  ion-row > .col {
     padding: 0; }
   ion-row[top] {
     -webkit-box-align: start;
@@ -1546,118 +1538,123 @@ ion-col {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center; }
+  ion-col[stretch] {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch; }
+  ion-col[baseline] {
+    -webkit-align-self: baseline;
+    -ms-flex-item-align: baseline;
+    align-self: baseline; }
 
-/* Vertically Align Columns */
-/* .row-* vertically aligns every .col in the .row */
-/* .col-* vertically aligns an individual .col */
 /* Column Offsets */
-.col-offset-10 {
+ion-col[offset-10] {
   margin-left: 10%; }
 
-.col-offset-20 {
+ion-col[offset-20] {
   margin-left: 20%; }
 
-.col-offset-25 {
+ion-col[offset-25] {
   margin-left: 25%; }
 
-.col-offset-33, .col-offset-34 {
+ion-col[offset-33], ion-col[offset-34] {
   margin-left: 33.3333%; }
 
-.col-offset-50 {
+ion-col[offset-50] {
   margin-left: 50%; }
 
-.col-offset-66, .col-offset-67 {
+ion-col[offset-66], ion-col[offset-67] {
   margin-left: 66.6666%; }
 
-.col-offset-75 {
+ion-col[offset-75] {
   margin-left: 75%; }
 
-.col-offset-80 {
+ion-col[offset-80] {
   margin-left: 80%; }
 
-.col-offset-90 {
+ion-col[offset-90] {
   margin-left: 90%; }
 
 /* Explicit Column Percent Sizes */
 /* By default each grid column will evenly distribute */
 /* across the grid. However, you can specify individual */
 /* columns to take up a certain size of the available area */
-.col-10 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 10%;
-  -ms-flex: 0, 0, 10%;
-  flex: 0, 0, 10%;
+ion-col[width-10] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 10%;
+  -ms-flex: 0 0 10%;
+  flex: 0 0 10%;
   max-width: 10%; }
 
-.col-20 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 20%;
-  -ms-flex: 0, 0, 20%;
-  flex: 0, 0, 20%;
+ion-col[width-20] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
   max-width: 20%; }
 
-.col-25 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 25%;
-  -ms-flex: 0, 0, 25%;
-  flex: 0, 0, 25%;
+ion-col[width-25] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
   max-width: 25%; }
 
-.col-33, .col-34 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 33.3333%;
-  -ms-flex: 0, 0, 33.3333%;
-  flex: 0, 0, 33.3333%;
+ion-col[width-33], ion-col[width-34] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.3333%;
+  -ms-flex: 0 0 33.3333%;
+  flex: 0 0 33.3333%;
   max-width: 33.3333%; }
 
-.col-50 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 50%;
-  -ms-flex: 0, 0, 50%;
-  flex: 0, 0, 50%;
+ion-col[width-50] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
   max-width: 50%; }
 
-.col-66, .col-67 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 66.6666%;
-  -ms-flex: 0, 0, 66.6666%;
-  flex: 0, 0, 66.6666%;
+ion-col[width-66], ion-col[width-67] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 66.6666%;
+  -ms-flex: 0 0 66.6666%;
+  flex: 0 0 66.6666%;
   max-width: 66.6666%; }
 
-.col-75 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 75%;
-  -ms-flex: 0, 0, 75%;
-  flex: 0, 0, 75%;
+ion-col[width-75] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 75%;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
   max-width: 75%; }
 
-.col-80 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 80%;
-  -ms-flex: 0, 0, 80%;
-  flex: 0, 0, 80%;
+ion-col[width-80] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80%;
+  -ms-flex: 0 0 80%;
+  flex: 0 0 80%;
   max-width: 80%; }
 
-.col-90 {
-  -webkit-box-flex: 0,;
-  -webkit-flex: 0, 0, 90%;
-  -ms-flex: 0, 0, 90%;
-  flex: 0, 0, 90%;
+ion-col[width-90] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 90%;
+  -ms-flex: 0 0 90%;
+  flex: 0 0 90%;
   max-width: 90%; }
 
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
-/* will trigger the flex-direction to */
+/* will trigger the width-direction to */
 /* change to column and add some margin */
 /* to any columns in the row for clearity */
 @media (max-width: 567px) {
-  .responsive-sm {
+  [responsive-sm] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-sm .col, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90 {
+    [responsive-sm] ion-col[width-10], [responsive-sm] ion-col[width-20], [responsive-sm] ion-col[width-25], [responsive-sm] ion-col[width-33], [responsive-sm] ion-col[width-34], [responsive-sm] ion-col[width-50], [responsive-sm] ion-col[width-66], [responsive-sm] ion-col[width-67], [responsive-sm] ion-col[width-75], [responsive-sm] ion-col[width-80], [responsive-sm] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -1668,13 +1665,13 @@ ion-col {
       width: 100%; } }
 
 @media (max-width: 767px) {
-  .responsive-md {
+  [responsive-md] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-md .col, .responsive-md .col-10, .responsive-md .col-20, .responsive-md .col-25, .responsive-md .col-33, .responsive-md .col-34, .responsive-md .col-50, .responsive-md .col-66, .responsive-md .col-67, .responsive-md .col-75, .responsive-md .col-80, .responsive-md .col-90 {
+    [responsive-md] ion-col[width-10], [responsive-md] ion-col[width-20], [responsive-md] ion-col[width-25], [responsive-md] ion-col[width-33], [responsive-md] ion-col[width-34], [responsive-md] ion-col[width-50], [responsive-md] ion-col[width-66], [responsive-md] ion-col[width-67], [responsive-md] ion-col[width-75], [responsive-md] ion-col[width-80], [responsive-md] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -1685,13 +1682,13 @@ ion-col {
       width: 100%; } }
 
 @media (max-width: 1023px) {
-  .responsive-lg {
+  [responsive-lg] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-lg .col, .responsive-lg .col-10, .responsive-lg .col-20, .responsive-lg .col-25, .responsive-lg .col-33, .responsive-lg .col-34, .responsive-lg .col-50, .responsive-lg .col-66, .responsive-lg .col-67, .responsive-lg .col-75, .responsive-lg .col-80, .responsive-lg .col-90 {
+    [responsive-lg] ion-col[width-10], [responsive-lg] ion-col[width-20], [responsive-lg] ion-col[width-25], [responsive-lg] ion-col[width-33], [responsive-lg] ion-col[width-34], [responsive-lg] ion-col[width-50], [responsive-lg] ion-col[width-66], [responsive-lg] ion-col[width-67], [responsive-lg] ion-col[width-75], [responsive-lg] ion-col[width-80], [responsive-lg] ion-col[width-90] {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -1767,6 +1764,27 @@ textarea::-webkit-input-placeholder {
   color: #999;
   text-indent: 0; }
 
+ion-label[primary] {
+  color: #387ef5 !important; }
+
+ion-label[secondary] {
+  color: #32db64 !important; }
+
+ion-label[danger] {
+  color: #f53d3d !important; }
+
+ion-label[light] {
+  color: #f4f4f4 !important; }
+
+ion-label[dark] {
+  color: #222 !important; }
+
+ion-label[energized] {
+  color: #ffc527 !important; }
+
+ion-label[royal] {
+  color: #7e60ff !important; }
+
 ion-label {
   display: block;
   max-width: 200px;
@@ -1817,11 +1835,18 @@ ion-input[floating-label] {
     white-space: nowrap;
     text-overflow: ellipsis; }
 
-.list[inset] ion-header {
-  background-color: #fff; }
+.list[inset] {
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
+  .list[inset] ion-header {
+    background-color: #fff; }
 
 ion-card {
-  display: block; }
+  display: block;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
 
 ion-card img {
   display: block;
@@ -2508,7 +2533,7 @@ ion-radio {
   -ms-user-select: none;
   user-select: none; }
 
-ion-radio[aria-disabled=true] .item-inner > * {
+ion-radio[aria-disabled=true] {
   opacity: 0.5;
   color: #666;
   pointer-events: none; }
@@ -2764,10 +2789,10 @@ ion-switch media-switch {
   margin: 0;
   cursor: pointer; }
 
-ion-switch[aria-disabled=true] .item-inner > * {
-  pointer-events: none;
+ion-switch[aria-disabled=true] {
   opacity: 0.5;
-  color: #666; }
+  color: #666;
+  pointer-events: none; }
 
 ion-tabs {
   display: -webkit-box;
@@ -2949,58 +2974,58 @@ tab-highlight {
 tabbar[primary] {
   background-color: #387ef5; }
   tabbar[primary] .tab-button {
-    color: #fff; }
+    color: white; }
   tabbar[primary] .tab-button:hover:not(.disable-hover),
   tabbar[primary] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: white; }
 
 tabbar[secondary] {
   background-color: #32db64; }
   tabbar[secondary] .tab-button {
-    color: #fff; }
+    color: white; }
   tabbar[secondary] .tab-button:hover:not(.disable-hover),
   tabbar[secondary] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: white; }
 
 tabbar[danger] {
   background-color: #f53d3d; }
   tabbar[danger] .tab-button {
-    color: #fff; }
+    color: white; }
   tabbar[danger] .tab-button:hover:not(.disable-hover),
   tabbar[danger] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: white; }
 
 tabbar[light] {
   background-color: #f4f4f4; }
   tabbar[light] .tab-button {
-    color: #000; }
+    color: black; }
   tabbar[light] .tab-button:hover:not(.disable-hover),
   tabbar[light] .tab-button[aria-selected=true] {
-    color: #000; }
+    color: black; }
 
 tabbar[dark] {
   background-color: #222; }
   tabbar[dark] .tab-button {
-    color: #fff; }
+    color: white; }
   tabbar[dark] .tab-button:hover:not(.disable-hover),
   tabbar[dark] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: white; }
 
 tabbar[energized] {
   background-color: #ffc527; }
   tabbar[energized] .tab-button {
-    color: #fff; }
+    color: black; }
   tabbar[energized] .tab-button:hover:not(.disable-hover),
   tabbar[energized] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: black; }
 
 tabbar[royal] {
   background-color: #7e60ff; }
   tabbar[royal] .tab-button {
-    color: #fff; }
+    color: black; }
   tabbar[royal] .tab-button:hover:not(.disable-hover),
   tabbar[royal] .tab-button[aria-selected=true] {
-    color: #fff; }
+    color: black; }
 
 @font-face {
   font-family: "Ionicons";
@@ -5618,16 +5643,21 @@ icon,
     height: 0.55px; }
   .ios button[block] {
     display: block; }
-  .ios .item-group-title {
+  .ios ion-item-group ion-item-group-title {
     padding: 12px 16px 13px 16px;
     background-color: #f7f7f7;
     color: #222; }
+  .ios ion-item-group .item:first-child .item-inner {
+    border-top-width: 0; }
+  .ios ion-item-group .item:last-child .item-inner,
+  .ios ion-item-group ion-item-sliding:last-child .item .item-inner {
+    border: none; }
   .ios ion-note {
     color: #aeacb4; }
-  .ios .item-group ion-item-group-title {
-    border-bottom: 1px solid #c8c7cc; }
-  .ios .item-group .item:first-child .item-inner {
-    border-top-width: 0; }
+  .ios .item {
+    border-radius: 0;
+    padding-left: 16px;
+    font-size: 1.6rem; }
   .ios .item.activated,
   .ios a.item.activated,
   .ios button.item.activated {
@@ -5639,6 +5669,72 @@ icon,
   .ios button.item {
     -webkit-transition-duration: 200ms;
     transition-duration: 200ms; }
+  .ios .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid #c8c7cc; }
+  .ios ion-item-content {
+    margin: 12px 8px 13px 0; }
+  .ios [item-left] {
+    margin: 6px 16px 6.5px 0; }
+  .ios [item-right] {
+    margin: 6px 8px 6.5px 8px; }
+  .ios icon[item-left],
+  .ios icon[item-right] {
+    margin-top: 10px;
+    margin-bottom: 9px; }
+  .ios ion-avatar[item-left],
+  .ios ion-thumbnail[item-left] {
+    margin: 8px 16px 8px 0; }
+  .ios ion-avatar[item-right],
+  .ios ion-thumbnail[item-right] {
+    margin: 8px; }
+  .ios button[item-left],
+  .ios button[item-right],
+  .ios [button][item-left],
+  .ios [button][item-right] {
+    padding: 0 0.5em;
+    font-size: 1.3rem;
+    min-height: 25px;
+    margin-top: 9px; }
+  .ios [item-left].icon-only,
+  .ios [item-right].icon-only,
+  .ios [item-left].icon-only icon,
+  .ios [item-right].icon-only icon,
+  .ios [item-left][clear],
+  .ios [item-right][clear] {
+    padding: 0 1px; }
+  .ios [item-left].icon-left icon,
+  .ios [item-right].icon-left icon {
+    margin-left: 0;
+    margin-bottom: 1px;
+    padding-right: 0.3em; }
+  .ios [item-left].icon-right icon,
+  .ios [item-right].icon-right icon {
+    margin-right: 0;
+    margin-bottom: 1px; }
+  .ios ion-avatar {
+    min-width: 3.6rem;
+    min-height: 3.6rem; }
+    .ios ion-avatar img {
+      max-width: 3.6rem;
+      max-height: 3.6rem;
+      border-radius: 1.8rem; }
+  .ios ion-thumbnail {
+    min-width: 5.6rem;
+    min-height: 5.6rem; }
+    .ios ion-thumbnail img {
+      max-width: 5.6rem;
+      max-height: 5.6rem; }
+  .ios button.item:not([detail-none]) .item-inner,
+  .ios a.item:not([detail-none]) .item-inner,
+  .ios .item[detail-push] .item-inner {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px 14px;
+    padding-right: 32px; }
+  .ios.hairlines .item-inner {
+    border-bottom-width: 0.55px; }
   .ios .toolbar {
     min-height: 4.4rem; }
     .ios .toolbar [menu-toggle] {
@@ -5781,20 +5877,18 @@ icon,
     font-size: 1.4rem;
     background: #fff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    overflow: hidden; }
+    border-radius: 4px; }
     .ios ion-card .list {
       margin-bottom: 0; }
       .ios ion-card .list .item {
         padding-right: 0; }
       .ios ion-card .list ion-item-content {
         padding: 0; }
-    .ios ion-card .item {
-      padding-left: 8px;
-      padding-right: 8px;
-      font-size: 1.6rem; }
-    .ios ion-card ion-item-content {
-      padding: 13px 8px 14px 8px; }
+      .ios ion-card .list > .item:last-child,
+      .ios ion-card .list > ion-item-sliding:last-child .item {
+        border-bottom: none; }
+    .ios ion-card .item-inner {
+      border: none; }
     .ios ion-card ion-card-content {
       padding: 13px 16px 14px 16px;
       font-size: 1.4rem;
@@ -5808,26 +5902,15 @@ icon,
     .ios ion-card .item + ion-card-content {
       padding-top: 0; }
     .ios ion-card [actions] {
-      border-radius: inherit; }
+      padding-right: 8px; }
       .ios ion-card [actions] ion-item-content {
         padding: 0; }
       .ios ion-card [actions] button,
       .ios ion-card [actions] [button] {
-        margin: 10px 8px 9px 8px;
+        margin: 0 8px;
         padding: 2px 6px;
         min-height: 26px;
         font-size: 1.3rem; }
-    .ios ion-card [item-left],
-    .ios ion-card [item-right] {
-      margin: 10px 8px 9px 8px; }
-    .ios ion-card button[item-left],
-    .ios ion-card button[item-right],
-    .ios ion-card [button][item-left],
-    .ios ion-card [button][item-right] {
-      margin: 10px 8px 9px 8px;
-      padding: 2px 6px;
-      min-height: 26px;
-      font-size: 1.3rem; }
     .ios ion-card ion-note[item-left],
     .ios ion-card ion-note[item-right] {
       font-size: 1.3rem; }
@@ -5835,17 +5918,6 @@ icon,
       padding: 8px 0 8px 0;
       font-size: 1.8rem;
       color: #222; }
-    .ios ion-card ion-avatar {
-      min-width: 3.6rem; }
-      .ios ion-card ion-avatar img {
-        max-width: 3.6rem;
-        max-height: 3.6rem;
-        border-radius: 1.8rem; }
-    .ios ion-card ion-thumbnail {
-      min-width: 5.6rem; }
-      .ios ion-card ion-thumbnail img {
-        max-width: 5.6rem;
-        max-height: 5.6rem; }
     .ios ion-card h1 {
       margin: 0 0 2px;
       font-size: 2.4rem;
@@ -5881,14 +5953,8 @@ icon,
       font-weight: 500;
       letter-spacing: 0.1rem;
       text-transform: uppercase;
-      color: #333; }
-    .ios .list ion-header,
-    .ios .list ion-item-group-title {
+      color: #333;
       border-bottom: 1px solid #c8c7cc; }
-    .ios .list .item {
-      border-radius: 0;
-      padding-left: 16px;
-      font-size: 1.6rem; }
     .ios .list > .item:first-child {
       border-top: 1px solid #c8c7cc; }
     .ios .list > .item:last-child,
@@ -5897,65 +5963,11 @@ icon,
       .ios .list > .item:last-child .item-inner,
       .ios .list > ion-item-sliding:last-child .item .item-inner {
         border-bottom: none; }
-    .ios .list .item .item-inner {
-      padding-right: 8px;
+    .ios .list .item-inner {
       border-bottom: 1px solid #c8c7cc; }
-    .ios .list .item ion-item-content {
-      margin: 12px 8px 13px 0; }
     .ios .list .item[no-lines],
     .ios .list .item[no-lines] .item-inner {
       border-width: 0; }
-    .ios .list [item-left] {
-      margin: 6px 16px 6.5px 0; }
-    .ios .list [item-right] {
-      margin: 6px 8px 6.5px 8px; }
-    .ios .list icon[item-left],
-    .ios .list icon[item-right] {
-      margin-top: 10px;
-      margin-bottom: 9px; }
-    .ios .list ion-avatar[item-left],
-    .ios .list ion-thumbnail[item-left] {
-      margin: 8px 16px 8px 0; }
-    .ios .list ion-avatar[item-right],
-    .ios .list ion-thumbnail[item-right] {
-      margin: 8px; }
-    .ios .list button[item-left],
-    .ios .list button[item-right],
-    .ios .list [button][item-left],
-    .ios .list [button][item-right] {
-      padding: 0 0.5em;
-      font-size: 1.3rem;
-      min-height: 25px;
-      margin-top: 9px; }
-    .ios .list [item-left].icon-only,
-    .ios .list [item-right].icon-only,
-    .ios .list [item-left].icon-only icon,
-    .ios .list [item-right].icon-only icon,
-    .ios .list [item-left][clear],
-    .ios .list [item-right][clear] {
-      padding: 0 1px; }
-    .ios .list [item-left].icon-left icon,
-    .ios .list [item-right].icon-left icon {
-      margin-left: 0;
-      margin-bottom: 1px;
-      padding-right: 0.3em; }
-    .ios .list [item-left].icon-right icon,
-    .ios .list [item-right].icon-right icon {
-      margin-right: 0;
-      margin-bottom: 1px; }
-    .ios .list ion-avatar {
-      min-width: 3.6rem;
-      min-height: 3.6rem; }
-      .ios .list ion-avatar img {
-        max-width: 3.6rem;
-        max-height: 3.6rem;
-        border-radius: 1.8rem; }
-    .ios .list ion-thumbnail {
-      min-width: 5.6rem;
-      min-height: 5.6rem; }
-      .ios .list ion-thumbnail img {
-        max-width: 5.6rem;
-        max-height: 5.6rem; }
     .ios .list ion-item-options {
       border-bottom: 1px solid #c8c7cc; }
       .ios .list ion-item-options button, .ios .list ion-item-options [button] {
@@ -5975,17 +5987,6 @@ icon,
         box-sizing: border-box; }
         .ios .list ion-item-options button:before, .ios .list ion-item-options [button]:before {
           margin: 0 auto; }
-  .ios .list button.item:not([detail-none]) .item-inner,
-  .ios .list a.item:not([detail-none]) .item-inner,
-  .ios .list .item[detail-push] .item-inner,
-  .ios ion-card button.item:not([detail-none]) .item-inner,
-  .ios ion-card a.item:not([detail-none]) .item-inner,
-  .ios ion-card .item[detail-push] .item-inner {
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 14px 14px;
-    padding-right: 32px; }
   .ios .list + .list {
     margin-top: 42px; }
     .ios .list + .list ion-header {
@@ -5993,8 +5994,7 @@ icon,
       padding-top: 0; }
   .ios.hairlines .list ion-item-options {
     border-width: 0.55px; }
-  .ios.hairlines .list ion-header,
-  .ios.hairlines .list ion-item-group-title {
+  .ios.hairlines .list ion-header {
     border-bottom-width: 0.55px; }
   .ios.hairlines .list .item .item-inner {
     border-width: 0.55px; }
@@ -6007,33 +6007,23 @@ icon,
     margin: 16px 16px 16px 16px;
     border-radius: 4px; }
     .ios .list[inset] .item {
-      margin-top: 0;
       border-bottom: 1px solid #c8c7cc; }
       .ios .list[inset] .item .item-inner {
         border-bottom: none; }
     .ios .list[inset] > .item:first-child,
-    .ios .list[inset] ion-header {
-      margin-top: 0;
-      border-top-right-radius: 4px;
-      border-top-left-radius: 4px; }
-    .ios .list[inset] > .item:first-child {
+    .ios .list[inset] > ion-item-sliding:first-child .item {
       border-top: none; }
     .ios .list[inset] > .item:last-child,
     .ios .list[inset] > ion-item-sliding:last-child .item {
-      margin-bottom: 0;
-      border-bottom-right-radius: 4px;
-      border-bottom-left-radius: 4px;
       border-bottom: none; }
   .ios .list[inset] + .list[inset] {
     margin-top: 0; }
   .ios.hairlines .list[inset] .item {
     border-width: 0.55px; }
   .ios .list[no-lines] ion-header,
-  .ios .list[no-lines] ion-item-group-title,
   .ios .list[no-lines] .item,
   .ios .list[no-lines] .item .item-inner,
   .ios.hairlines .list[no-lines] ion-header,
-  .ios.hairlines .list[no-lines] ion-item-group-title,
   .ios.hairlines .list[no-lines] .item,
   .ios.hairlines .list[no-lines] .item .item-inner {
     border-width: 0; }
@@ -6331,7 +6321,7 @@ icon,
     min-height: 3rem;
     line-height: 3rem;
     background-color: transparent;
-    color: #fff;
+    color: white;
     font-size: 1.3rem; }
     .ios ion-segment button[outline],
     .ios ion-segment [button][outline] {
@@ -6341,7 +6331,7 @@ icon,
       .ios ion-segment button[outline].activated,
       .ios ion-segment [button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: white;
         background-color: #387ef5;
         -webkit-transition: 100ms all linear;
         transition: 100ms all linear; }
@@ -6369,94 +6359,759 @@ icon,
     .ios .toolbar ion-segment button,
     .ios .toolbar ion-segment [button] {
       max-width: 100px; }
+  .ios .toolbar[primary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment ion-segment-button[button][outline] {
+      border-color: white;
+      background: transparent;
+      color: white; }
+      .ios .toolbar[primary] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #387ef5;
+        background-color: white; }
+      .ios .toolbar[primary] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[primary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[primary] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[primary] ion-segment-button[button][outline] {
       border-color: #387ef5;
       background: transparent;
       color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[secondary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline] {
+      border-color: white;
+      background: transparent;
+      color: white; }
+      .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #32db64;
+        background-color: white; }
+      .ios .toolbar[secondary] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[secondary] ion-segment-button[button][outline] {
       border-color: #32db64;
       background: transparent;
       color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[danger] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment ion-segment-button[button][outline] {
+      border-color: white;
+      background: transparent;
+      color: white; }
+      .ios .toolbar[danger] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f53d3d;
+        background-color: white; }
+      .ios .toolbar[danger] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[danger] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[danger] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[danger] ion-segment-button[button][outline] {
       border-color: #f53d3d;
       background: transparent;
       color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[light] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment ion-segment-button[button][outline] {
+      border-color: black;
+      background: transparent;
+      color: black; }
+      .ios .toolbar[light] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #f4f4f4;
+        background-color: black; }
+      .ios .toolbar[light] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(0, 0, 0, 0.16); }
+  .ios .toolbar[light] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[light] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[light] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[light] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[light] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[light] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[light] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[light] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[light] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[light] ion-segment-button[button] {
-    background-color: transparent;
-    color: #000; }
+    background-color: transparent; }
     .ios ion-segment[light] ion-segment-button[button][outline] {
       border-color: #f4f4f4;
       background: transparent;
       color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #000;
+        color: black;
         background-color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[dark] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment ion-segment-button[button][outline] {
+      border-color: white;
+      background: transparent;
+      color: white; }
+      .ios .toolbar[dark] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #222;
+        background-color: white; }
+      .ios .toolbar[dark] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 255, 255, 0.16); }
+  .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[dark] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[dark] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[dark] ion-segment-button[button][outline] {
       border-color: #222;
       background: transparent;
       color: #222; }
       .ios ion-segment[dark] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #222; }
       .ios ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[energized] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment ion-segment-button[button][outline] {
+      border-color: black;
+      background: transparent;
+      color: black; }
+      .ios .toolbar[energized] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #ffc527;
+        background-color: black; }
+      .ios .toolbar[energized] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(0, 0, 0, 0.16); }
+  .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[energized] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[energized] ion-segment-button[button][outline] {
       border-color: #ffc527;
       background: transparent;
       color: #ffc527; }
       .ios ion-segment[energized] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #ffc527; }
       .ios ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[royal] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment ion-segment-button[button][outline] {
+      border-color: black;
+      background: transparent;
+      color: black; }
+      .ios .toolbar[royal] ion-segment ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: #7e60ff;
+        background-color: black; }
+      .ios .toolbar[royal] ion-segment ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(0, 0, 0, 0.16); }
+  .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline] {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #387ef5; }
+      .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(56, 126, 245, 0.16); }
+  .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline] {
+      border-color: #32db64;
+      background: transparent;
+      color: #32db64; }
+      .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #32db64; }
+      .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(50, 219, 100, 0.16); }
+  .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline] {
+      border-color: #f53d3d;
+      background: transparent;
+      color: #f53d3d; }
+      .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #f53d3d; }
+      .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(245, 61, 61, 0.16); }
+  .ios .toolbar[royal] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline] {
+      border-color: #f4f4f4;
+      background: transparent;
+      color: #f4f4f4; }
+      .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #f4f4f4; }
+      .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(244, 244, 244, 0.16); }
+  .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline] {
+      border-color: #222;
+      background: transparent;
+      color: #222; }
+      .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: white;
+        background-color: #222; }
+      .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(34, 34, 34, 0.16); }
+  .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline] {
+      border-color: #ffc527;
+      background: transparent;
+      color: #ffc527; }
+      .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #ffc527; }
+      .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(255, 197, 39, 0.16); }
+  .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline] {
+      border-color: #7e60ff;
+      background: transparent;
+      color: #7e60ff; }
+      .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline].activated {
+        opacity: 1;
+        color: black;
+        background-color: #7e60ff; }
+      .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
+        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .ios ion-segment[royal] ion-segment-button[button][outline] {
       border-color: #7e60ff;
       background: transparent;
       color: #7e60ff; }
       .ios ion-segment[royal] ion-segment-button[button][outline].activated {
         opacity: 1;
-        color: #fff;
+        color: black;
         background-color: #7e60ff; }
       .ios ion-segment[royal] ion-segment-button[button][outline]:hover:not(.activated) {
         background-color: rgba(126, 96, 255, 0.16); }
@@ -6586,20 +7241,24 @@ icon,
     border-color: #f3b200; }
   .ios tabbar[royal] {
     border-color: #552dff; }
-  .ios.platform-cordova.platform-ios ion-navbar-section,
-  .ios.platform-cordova.platform-ios ion-navbar,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
+  .ios.platform-cordova.platform-ios ion-navbar-section {
     min-height: 6.4rem;
     height: 6.4rem; }
-  .ios.platform-cordova.platform-ios ion-navbar,
   .ios.platform-cordova.platform-ios ion-navbar ion-title,
+  .ios.platform-cordova.platform-ios ion-navbar ion-segment {
+    padding-top: 2rem; }
+  .ios.platform-cordova.platform-ios ion-navbar,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-segment,
   .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
   .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-segment,
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title {
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
+  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
+    min-height: 6.4rem;
+    height: 6.4rem;
     padding-top: 2rem; }
 
 .md {
@@ -6707,8 +7366,8 @@ icon,
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-    .md button :hover:not(.disable-hover),
-    .md [button] :hover:not(.disable-hover) {
+    .md button:hover:not(.disable-hover),
+    .md [button]:hover:not(.disable-hover) {
       background-color: rgba(158, 158, 158, 0.1); }
     .md button[full],
     .md [button][full] {
@@ -6845,12 +7504,107 @@ icon,
   .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
-  .md .item-group-title {
+  .md ion-item-group-title {
     padding: 13px 16px 13px 16px;
     background-color: #fff;
     color: #222; }
   .md ion-note {
     color: #c4c4c4; }
+  .md .item {
+    position: relative;
+    padding-right: 0;
+    padding-left: 16px;
+    font-size: 1.6rem;
+    text-transform: none;
+    font-weight: normal;
+    box-shadow: none; }
+    .md .item h1 {
+      margin: 0 0 2px;
+      font-size: 2.4rem;
+      font-weight: normal; }
+    .md .item h2 {
+      margin: 2px 0 2px;
+      font-size: 1.6rem;
+      font-weight: normal; }
+    .md .item h3,
+    .md .item h4,
+    .md .item h5,
+    .md .item h6 {
+      line-height: normal;
+      margin: 2px 0 2px;
+      font-size: 1.4rem;
+      font-weight: normal; }
+    .md .item p {
+      line-height: normal;
+      color: #666;
+      font-size: 1.4rem;
+      margin: 0 0 2px; }
+  .md .item-inner {
+    border-bottom: 1px solid #dedede;
+    padding-right: 8px; }
+  .md ion-item-content {
+    margin: 13px 8px 13px 0; }
+  .md button.item.activated {
+    box-shadow: none; }
+  .md [item-left],
+  .md [item-right] {
+    margin: 9px 8px 9px 0; }
+  .md icon[item-left],
+  .md icon[item-right] {
+    margin-top: 11px;
+    margin-left: 0;
+    margin-bottom: 10px; }
+  .md button[item-left],
+  .md button[item-right],
+  .md [button][item-left],
+  .md [button][item-right] {
+    padding: 0 0.6em;
+    min-height: 26px;
+    font-size: 1.2rem; }
+  .md [item-left].icon-only,
+  .md [item-right].icon-only,
+  .md [item-left].icon-only icon,
+  .md [item-right].icon-only icon {
+    padding: 0 1px; }
+  .md [item-left][clear],
+  .md [item-right][clear] {
+    padding: 0 8px; }
+  .md [item-left].icon-left icon,
+  .md [item-right].icon-left icon {
+    margin-left: 0;
+    margin-bottom: 1px;
+    padding-right: 0.3em; }
+  .md [item-left].icon-right icon,
+  .md [item-right].icon-right icon {
+    margin-right: 0;
+    margin-bottom: 1px; }
+  .md [text-wrap] ion-item-content {
+    font-size: 1.4rem;
+    line-height: 1.5; }
+  .md .item[actions] ion-item-content {
+    margin: 4px; }
+  .md icon[item-left] + .item-inner,
+  .md icon[item-left] + [text-input] {
+    margin-left: 24px; }
+  .md ion-avatar[item-left],
+  .md ion-thumbnail[item-left] {
+    margin: 8px 16px 8px 0; }
+  .md ion-avatar[item-right],
+  .md ion-thumbnail[item-right] {
+    margin: 8px; }
+  .md ion-avatar {
+    min-width: 4rem;
+    min-height: 4rem; }
+    .md ion-avatar img {
+      max-width: 4rem;
+      max-height: 4rem;
+      border-radius: 2rem; }
+  .md ion-thumbnail {
+    min-width: 8rem;
+    min-height: 8rem; }
+    .md ion-thumbnail img {
+      max-width: 8rem;
+      max-height: 8rem; }
   .md .item,
   .md a.item,
   .md button.item {
@@ -6863,133 +7617,48 @@ icon,
     box-shadow: none; }
   .md .item[no-lines] {
     border-width: 0; }
-  .md .list ion-header,
-  .md .list ion-item-group-title {
-    border-bottom: 1px solid #dedede; }
-  .md .list .item {
-    padding-right: 8px;
-    padding-left: 16px;
-    font-size: 1.6rem;
-    text-transform: none; }
-    .md .list .item .item-inner {
-      border-bottom: 1px solid #dedede; }
-  .md .list > .item:first-child {
-    border-top: 1px solid #dedede; }
-  .md .list > .item:last-child,
-  .md .list > ion-item-sliding:last-child .item {
-    border-bottom: 1px solid #dedede; }
-    .md .list > .item:last-child .item-inner,
-    .md .list > ion-item-sliding:last-child .item .item-inner {
-      border-bottom: none; }
-  .md .list .item[no-lines],
-  .md .list .item[no-lines] .item-inner {
-    border-width: 0; }
-  .md .list ion-header,
-  .md .list ion-item-group-title {
-    border-bottom: 1px solid #dedede;
-    margin-left: 0;
-    padding-left: 16px; }
-  .md .list ion-item-content {
-    margin: 13px 8px 13px 0; }
-  .md .list [item-left],
-  .md .list [item-right] {
-    margin: 9px 8px 9px 0; }
-  .md .list icon[item-left],
-  .md .list icon[item-right] {
-    margin-top: 11px;
-    margin-left: 0;
-    margin-bottom: 10px; }
-  .md .list button[item-left],
-  .md .list button[item-right],
-  .md .list [button][item-left],
-  .md .list [button][item-right] {
-    padding: 0 0.6em;
-    min-height: 26px;
-    font-size: 1.2rem; }
-  .md .list [item-left].icon-only,
-  .md .list [item-right].icon-only,
-  .md .list [item-left].icon-only icon,
-  .md .list [item-right].icon-only icon {
-    padding: 0 1px; }
-  .md .list [item-left][clear],
-  .md .list [item-right][clear] {
-    padding: 0 8px; }
-  .md .list [item-left].icon-left icon,
-  .md .list [item-right].icon-left icon {
-    margin-left: 0;
-    margin-bottom: 1px;
-    padding-right: 0.3em; }
-  .md .list [item-left].icon-right icon,
-  .md .list [item-right].icon-right icon {
-    margin-right: 0;
-    margin-bottom: 1px; }
-  .md .list [text-wrap] ion-item-content {
-    font-size: 1.4rem;
-    line-height: 1.5; }
-  .md .list .item[actions] ion-item-content {
-    margin: 4px; }
-  .md .list icon[item-left] + .item-inner,
-  .md .list icon[item-left] + [text-input] {
-    margin-left: 24px; }
-  .md .list ion-avatar {
-    min-width: 4rem;
-    min-height: 4rem; }
-    .md .list ion-avatar img {
-      max-width: 4rem;
-      max-height: 4rem;
-      border-radius: 2rem; }
-  .md .list ion-thumbnail {
-    min-width: 8rem;
-    min-height: 8rem; }
-    .md .list ion-thumbnail img {
-      max-width: 8rem;
-      max-height: 8rem; }
-  .md .list h1 {
-    margin: 0 0 2px;
-    font-size: 2.4rem;
-    font-weight: normal; }
-  .md .list h2 {
-    margin: 2px 0 2px;
-    font-size: 1.6rem;
-    font-weight: normal; }
-  .md .list h3,
-  .md .list h4,
-  .md .list h5,
-  .md .list h6 {
-    line-height: normal;
-    margin: 2px 0 2px;
-    font-size: 1.4rem;
-    font-weight: normal; }
-  .md .list p {
-    line-height: normal;
-    color: #666;
-    font-size: 1.4rem;
-    margin: 0 0 2px; }
-  .md .list button.item.activated {
-    box-shadow: none; }
-  .md .list ion-item-options button, .md .list ion-item-options [button] {
-    height: calc(100% - 2px);
-    margin: 1px 0 1px 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    box-sizing: border-box; }
-    .md .list ion-item-options button:before, .md .list ion-item-options [button]:before {
-      margin: 0 auto; }
   .md .list {
     margin: 0 0 16px 0; }
-    .md .list ion-header {
+    .md .list ion-header,
+    .md .list ion-item-group-title {
+      border-bottom: 1px solid #dedede;
+      margin-left: 0;
       padding: 16px 16px 16px 16px;
       font-size: 1.4rem;
       color: #858585; }
+    .md .list .item-inner {
+      border-bottom: 1px solid #dedede; }
+    .md .list > .item:first-child,
+    .md .list > ion-item-sliding:first-child .item {
+      border-top: 1px solid #dedede; }
+    .md .list > .item:last-child,
+    .md .list > ion-item-sliding:last-child .item {
+      border-bottom: 1px solid #dedede; }
+      .md .list > .item:last-child .item-inner,
+      .md .list > .item:last-child ion-item-content,
+      .md .list > ion-item-sliding:last-child .item .item-inner,
+      .md .list > ion-item-sliding:last-child .item ion-item-content {
+        border-bottom: none; }
+    .md .list ion-item-options button, .md .list ion-item-options [button] {
+      height: calc(100% - 2px);
+      margin: 1px 0 1px 0;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      box-sizing: border-box; }
+      .md .list ion-item-options button:before, .md .list ion-item-options [button]:before {
+        margin: 0 auto; }
+    .md .list .item[no-lines],
+    .md .list .item[no-lines] .item-inner {
+      border-width: 0; }
     .md .list + .list {
       margin-top: 32px; }
       .md .list + .list ion-header {
@@ -7000,16 +7669,12 @@ icon,
     border-radius: 2px; }
     .md .list[inset] .item:first-child {
       border-top-width: 0;
-      margin-top: 0;
       border-top-right-radius: 2px;
       border-top-left-radius: 2px; }
     .md .list[inset] .item:last-child {
       border-bottom-width: 0;
-      margin-bottom: 0;
       border-bottom-right-radius: 2px;
       border-bottom-left-radius: 2px; }
-    .md .list[inset] .item:not(ion-input):last-child:after {
-      border-bottom: none; }
     .md .list[inset] + .list[inset] {
       margin-top: 0; }
   .md .list[no-lines] .item,
@@ -7020,18 +7685,18 @@ icon,
     font-size: 1.4rem;
     background: #fff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border-radius: 2px;
-    overflow: hidden; }
+    border-radius: 2px; }
     .md ion-card .list {
       margin-bottom: 0; }
       .md ion-card .list ion-item-content {
         padding: 0; }
+      .md ion-card .list > .item:last-child,
+      .md ion-card .list > ion-item-sliding:last-child .item {
+        border-bottom: none; }
     .md ion-card .item {
-      padding-right: 8px;
-      padding-left: 8px;
       font-size: 1.6rem; }
-    .md ion-card ion-item-content {
-      padding: 13px 8px 13px 8px; }
+    .md ion-card .item-inner {
+      border: none; }
     .md ion-card ion-card-content {
       padding: 13px 16px 13px 16px;
       font-size: 1.4rem;
@@ -7049,17 +7714,6 @@ icon,
       min-height: 26px;
       font-size: 1.3rem;
       border-color: transparent; }
-    .md ion-card [item-left],
-    .md ion-card [item-right] {
-      margin: 10px 8px 10px 8px; }
-    .md ion-card button[item-left],
-    .md ion-card button[item-right],
-    .md ion-card [button][item-left],
-    .md ion-card [button][item-right] {
-      margin: 0 4px 0 4px;
-      min-height: 26px;
-      font-size: 1.3rem;
-      border-color: transparent; }
     .md ion-card ion-note[item-left],
     .md ion-card ion-note[item-right] {
       font-size: 1.3rem; }
@@ -7067,17 +7721,6 @@ icon,
       padding: 8px 0 8px 0;
       font-size: 2.4rem;
       color: #222; }
-    .md ion-card ion-avatar {
-      min-width: 4rem; }
-      .md ion-card ion-avatar img {
-        max-width: 4rem;
-        max-height: 4rem;
-        border-radius: 2rem; }
-    .md ion-card ion-thumbnail {
-      min-width: 8rem; }
-      .md ion-card ion-thumbnail img {
-        max-width: 8rem;
-        max-height: 8rem; }
     .md ion-card h1 {
       margin: 0 0 2px;
       font-size: 2.4rem;
@@ -7104,6 +7747,13 @@ icon,
       color: #222; }
   .md ion-card + ion-card {
     margin-top: 0; }
+  .md ion-checkbox.item .item-inner {
+    border: none;
+    padding-right: 0; }
+  .md ion-checkbox ion-item-content {
+    border-bottom: 1px solid #dedede;
+    margin: 0;
+    padding: 13px 8px 13px 0; }
   .md ion-checkbox[aria-checked=true] checkbox-icon {
     background-color: #387ef5;
     border-color: #387ef5; }
@@ -7176,6 +7826,11 @@ icon,
   .md ion-card [stacked-label] ion-label {
     font-size: 1.2rem;
     margin-bottom: 0; }
+  .md .list [stacked-label] ion-label,
+  .md .list [floating-label] ion-label,
+  .md ion-card [stacked-label] ion-label,
+  .md ion-card [floating-label] ion-label {
+    margin-left: 0; }
   .md .list [stacked-label].has-focus ion-label,
   .md .list [floating-label].has-focus ion-label,
   .md ion-card [stacked-label].has-focus ion-label,
@@ -7186,7 +7841,8 @@ icon,
   .md ion-card [stacked-label] [text-input],
   .md ion-card [floating-label] [text-input] {
     margin-bottom: 8px;
-    margin-top: 8px; }
+    margin-top: 8px;
+    margin-left: 0; }
   .md .list [floating-label] ion-label,
   .md ion-card [floating-label] ion-label {
     margin-bottom: 0;
@@ -7401,69 +8057,575 @@ icon,
       border-color: #387ef5; }
   .md .toolbar ion-segment {
     margin: 0 auto; }
+    .md .toolbar ion-segment ion-segment-button[button][outline].activated {
+      background-color: transparent; }
+  .md .toolbar[primary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment ion-segment-button[button][outline] {
+      color: white; }
+      .md .toolbar[primary] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[primary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[primary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[primary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[primary] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[primary] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[primary] ion-segment-button[button][outline] {
       color: #387ef5; }
       .md ion-segment[primary] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #387ef5;
-        border-color: #387ef5; }
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment ion-segment-button[button][outline] {
+      color: white; }
+      .md .toolbar[secondary] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[secondary] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[secondary] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[secondary] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[secondary] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[secondary] ion-segment-button[button][outline] {
       color: #32db64; }
       .md ion-segment[secondary] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #32db64;
-        border-color: #32db64; }
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment ion-segment-button[button][outline] {
+      color: white; }
+      .md .toolbar[danger] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[danger] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[danger] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[danger] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[danger] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[danger] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[danger] ion-segment-button[button][outline] {
       color: #f53d3d; }
       .md ion-segment[danger] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #f53d3d;
-        border-color: #f53d3d; }
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment ion-segment-button[button][outline] {
+      color: black; }
+      .md .toolbar[light] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: black;
+        border-color: black;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[light] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[light] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[light] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[light] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[light] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[light] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[light] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[light] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[light] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[light] ion-segment-button[button] {
-    background-color: transparent;
-    color: #000; }
+    background-color: transparent; }
     .md ion-segment[light] ion-segment-button[button][outline] {
       color: #f4f4f4; }
       .md ion-segment[light] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #f4f4f4;
-        border-color: #f4f4f4; }
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment ion-segment-button[button][outline] {
+      color: white; }
+      .md .toolbar[dark] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[dark] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[dark] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[dark] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[dark] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[dark] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[dark] ion-segment-button[button][outline] {
       color: #222; }
       .md ion-segment[dark] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #222;
-        border-color: #222; }
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment ion-segment-button[button][outline] {
+      color: black; }
+      .md .toolbar[energized] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: black;
+        border-color: black;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[energized] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[energized] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[energized] ion-segment-button[button][outline] {
       color: #ffc527; }
       .md ion-segment[energized] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #ffc527;
-        border-color: #ffc527; }
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment ion-segment-button[button][outline] {
+      color: black; }
+      .md .toolbar[royal] ion-segment ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: black;
+        border-color: black;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[primary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline] {
+      color: #387ef5; }
+      .md .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #387ef5;
+        border-color: #387ef5;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline] {
+      color: #32db64; }
+      .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #32db64;
+        border-color: #32db64;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[danger] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline] {
+      color: #f53d3d; }
+      .md .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f53d3d;
+        border-color: #f53d3d;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[light] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[light] ion-segment-button[button][outline] {
+      color: #f4f4f4; }
+      .md .toolbar[royal] ion-segment[light] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #f4f4f4;
+        border-color: #f4f4f4;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[dark] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline] {
+      color: #222; }
+      .md .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[energized] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline] {
+      color: #ffc527; }
+      .md .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #ffc527;
+        border-color: #ffc527;
+        opacity: 1; }
+  .md .toolbar[royal] ion-segment[royal] ion-segment-button[button] {
+    background-color: transparent; }
+    .md .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline] {
+      color: #7e60ff; }
+      .md .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline].activated {
+        background-color: transparent;
+        color: #7e60ff;
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent;
-    color: #fff; }
+    background-color: transparent; }
     .md ion-segment[royal] ion-segment-button[button][outline] {
       color: #7e60ff; }
       .md ion-segment[royal] ion-segment-button[button][outline].activated {
-        opacity: 1;
+        background-color: transparent;
         color: #7e60ff;
-        border-color: #7e60ff; }
+        border-color: #7e60ff;
+        opacity: 1; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
   .md ion-switch switch-icon {
@@ -7527,9 +8689,12 @@ icon,
     min-height: 4.8rem;
     font-size: 1.4rem;
     font-weight: 500;
+    opacity: 0.7;
     box-shadow: none;
     border-radius: 0;
     border-bottom: 2px solid transparent; }
+    .md .tab-button[aria-selected=true] {
+      opacity: 1.0; }
   .md .tab-button-text {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -7566,6 +8731,20 @@ icon,
       transition-duration: 300ms; }
   .md [tabbar-placement=bottom] tab-highlight {
     top: 0; }
+  .md tabbar[primary] tab-highlight {
+    background: white; }
+  .md tabbar[secondary] tab-highlight {
+    background: white; }
+  .md tabbar[danger] tab-highlight {
+    background: white; }
+  .md tabbar[light] tab-highlight {
+    background: black; }
+  .md tabbar[dark] tab-highlight {
+    background: white; }
+  .md tabbar[energized] tab-highlight {
+    background: black; }
+  .md tabbar[royal] tab-highlight {
+    background: black; }
   .md md-ripple {
     position: absolute;
     z-index: 0;
@@ -7626,6 +8805,37 @@ icon,
 .md .action-sheet-cancel icon, .md .action-sheet-destructive icon {
   color: #757575; }
 
+#subtle-footer {
+  background-color: #fff;
+  border-image-source: url(footer-wireframe.png);
+  border-image-repeat: repeat;
+  border-image-width: 100%;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  position: absolute;
+  bottom: 0; }
+
+#demo-fab-bottom {
+  padding-top: 3px;
+  z-index: 100; }
+
+#subtle-footer .toolbar-background {
+  background-color: #fff;
+  border-bottom: 0; }
+
+ion-card ion-card-content.buttons-in-components {
+  background-color: #F4F5F8; }
+
+ion-card ion-card-content.buttons-in-components img {
+  width: auto;
+  height: 44px;
+  display: block;
+  margin: 20px auto; }
+
+ion-card.buttons-in-components {
+  margin-bottom: 2em; }
+
 ion-content ion-card ion-item.advanced-trans p {
   color: #fff; }
 
@@ -7674,6 +8884,12 @@ ion-card p.advanced-background-title-large span {
   height: 74px;
   line-height: 1;
   display: inline-block; }
+
+ion-card.cards-list-demo ion-card-header {
+  color: #387df5; }
+
+ion-card.cards-list-demo a > icon {
+  color: #444444; }
 
 body.ios ion-card .advanced-weather-tabs tabbar {
   height: 88px; }
@@ -7782,6 +8998,15 @@ body.ios ion-card p.advanced-background-title-large span {
 .preview-weather-cards ion-content ion-card ion-item.advanced-trans p {
   color: #fff; }
 
+ion-card .advanced-weather-tabs {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: transparent; }
+
+ion-card.adv-map p {
+  font-size: 0.7em !important; }
+
 p.time-ago {
   color: #bbbbbb !important;
   margin-left: 4px !important;
@@ -7816,6 +9041,13 @@ ion-card .icon-avatar {
 .item-subtle:before {
   padding-right: 5px; }
 
+.grid-page ion-col div {
+  background-color: #F9FAFB;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  text-align: center; }
+
 .preview-icons {
   font-size: 2em;
   text-align: center; }
@@ -7840,6 +9072,39 @@ body.md ion-menu#leftMenu {
 
 .preview-slides #slide-3 {
   background-color: #f53d3d; }
+
+body.md .tabs-basic tabbar {
+  background-color: #387EF5; }
+  body.md .tabs-basic tabbar a {
+    color: #fff !important; }
+
+body.md .tabs-basic tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.md .tabs-icon tabbar {
+  background-color: #f53d3d; }
+  body.md .tabs-icon tabbar a {
+    color: #fff; }
+
+body.md .tabs-icon tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.ios .tabs-icon tabbar a {
+  color: #f53d3d; }
+
+body.md .tabs-icon-text tabbar {
+  background-color: #7e60ff; }
+  body.md .tabs-icon-text tabbar a {
+    color: #fff !important; }
+
+body.md .tabs-icon-text tab-highlight {
+  color: #fff;
+  background-color: #fff; }
+
+body.ios .tabs-icon-text tabbar a {
+  color: #7e60ff; }
 
 body, body:hover, body a, body button, body media-switch {
   cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto; }
@@ -7883,57 +9148,11 @@ section.hidden {
   width: 100%;
   margin-bottom: 2.7em; }
 
-#subtle-footer {
-  background-color: #fff;
-  border-image-source: url(footer-wireframe.png);
-  border-image-repeat: repeat;
-  border-image-width: 100%;
-  border-bottom: 0;
-  border-left: 0;
-  border-right: 0;
-  position: absolute;
-  bottom: 0; }
-
-#demo-fab-bottom {
-  padding-top: 3px;
-  z-index: 100; }
-
-#subtle-footer .toolbar-background {
-  background-color: #fff;
-  border-bottom: 0; }
-
 .demo-card {
   height: 0; }
 
 .demo-card button {
   font-size: 1.3rem; }
-
-ion-card ion-card-content.buttons-in-components {
-  background-color: #F4F5F8; }
-
-ion-card ion-card-content.buttons-in-components img {
-  width: auto;
-  height: 44px;
-  display: block;
-  margin: 20px auto; }
-
-ion-card.buttons-in-components {
-  margin-bottom: 2em; }
-
-ion-card.cards-list-demo ion-card-header {
-  color: #387df5; }
-
-ion-card.cards-list-demo a > icon {
-  color: #444444; }
-
-ion-card .advanced-weather-tabs {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: transparent; }
-
-ion-card.adv-map p {
-  font-size: 0.7em !important; }
 
 .ios ion-content.cards-bg {
   background-color: #f4f4f7; }
@@ -7961,6 +9180,13 @@ body.md img#md-only {
   width: 100%;
   height: auto; }
 
+body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
+  display: none;
+  position: absolute;
+  top: -24px;
+  width: 100%;
+  height: auto; }
+
 body.ios img#ios-only {
   display: block !important;
   position: absolute;
@@ -7969,4 +9195,4 @@ body.ios img#ios-only {
   top: 0px;
   width: 100%;
   height: auto;
-  z-index: 50; }
+  z-index: 9999; }

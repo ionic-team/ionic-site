@@ -7115,7 +7115,7 @@
 	      }
 
 	      // valid surrogate pair
-	      codePoint = leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00 | 0x10000
+	      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
 	    } else if (leadSurrogate) {
 	      // valid bmp char, but last char was a lead
 	      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
@@ -59622,8 +59622,6 @@
 
 	var _get = function get(_x11, _x12, _x13) { var _again = true; _function: while (_again) { var object = _x11, property = _x12, receiver = _x13; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x11 = parent; _x12 = property; _x13 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
@@ -59638,9 +59636,9 @@
 
 	var _swipeBack = __webpack_require__(450);
 
-	var _ionicUtil = __webpack_require__(441);
+	var _utilUtil = __webpack_require__(439);
 
-	var util = _interopRequireWildcard(_ionicUtil);
+	var _utilDom = __webpack_require__(435);
 
 	/**
 	 * _For examples on the basic usage of NavController, check out the [Navigation section](../../../../components/#navigation)
@@ -59818,7 +59816,7 @@
 	            opts.direction = opts.direction || 'forward';
 	            // the active view is going to be the leaving one (if one exists)
 	            var leavingView = this.getActive() || new _viewController.ViewController();
-	            leavingView.shouldCache = util.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true;
+	            leavingView.shouldCache = (0, _utilUtil.isBoolean)(opts.cacheLeavingView) ? opts.cacheLeavingView : true;
 	            leavingView.shouldDestroy = !leavingView.shouldCache;
 	            if (leavingView.shouldDestroy) {
 	                leavingView.willUnload();
@@ -59871,7 +59869,7 @@
 	            // get the active view and set that it is staged to be leaving
 	            // was probably the one popped from the stack
 	            var leavingView = this.getActive() || new _viewController.ViewController();
-	            leavingView.shouldCache = util.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : false;
+	            leavingView.shouldCache = (0, _utilUtil.isBoolean)(opts.cacheLeavingView) ? opts.cacheLeavingView : false;
 	            leavingView.shouldDestroy = !leavingView.shouldCache;
 	            if (leavingView.shouldDestroy) {
 	                leavingView.willUnload();
@@ -60171,9 +60169,7 @@
 	                // already compiled this view
 	                return done();
 	            }
-	            // get the pane the NavController wants to use
-	            // the pane is where all this content will be placed into
-	            this.loadPage(viewCtrl, null, function () {
+	            function loaded() {
 	                // this ViewController instance has finished loading
 	                try {
 	                    viewCtrl.loaded();
@@ -60181,6 +60177,15 @@
 	                    console.error(e);
 	                }
 	                done();
+	            }
+	            // get the pane the NavController wants to use
+	            // the pane is where all this content will be placed into
+	            this.loadPage(viewCtrl, null, function () {
+	                if (viewCtrl.onReady) {
+	                    viewCtrl.onReady(loaded);
+	                } else {
+	                    loaded();
+	                }
 	            });
 	        }
 	    }, {
@@ -60219,9 +60224,9 @@
 	                }
 	                if (_this._views.length === 1) {
 	                    _this._zone.runOutsideAngular(function () {
-	                        setTimeout(function () {
+	                        (0, _utilDom.rafFrames)(38, function () {
 	                            _this.renderer.setElementClass(_this.elementRef, 'has-views', true);
-	                        }, 200);
+	                        });
 	                    });
 	                }
 	                done(viewCtrl);
@@ -60540,7 +60545,7 @@
 	    }, {
 	        key: '_remove',
 	        value: function _remove(viewOrIndex) {
-	            util.array.remove(this._views, viewOrIndex);
+	            _utilUtil.array.remove(this._views, viewOrIndex);
 	        }
 
 	        /**
@@ -68846,18 +68851,15 @@
 	        this._tabs = [];
 	        this._id = ++tabIds;
 	        this._ids = -1;
+	        this._onReady = null;
 	        // Tabs may also be an actual ViewController which was navigated to
 	        // if Tabs is static and not navigated to within a NavController
 	        // then skip this and don't treat it as it's own ViewController
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(elementRef);
-	            // TODO: improve how this works, probably not use promises here
-	            this._readyPromise = new Promise(function (res) {
-	                _this._isReady = res;
-	            });
-	            viewCtrl.onReady = function () {
-	                return _this._readyPromise;
+	            viewCtrl.onReady = function (done) {
+	                _this._onReady = done;
 	            };
 	        }
 	    }
@@ -68928,7 +68930,10 @@
 	                _this3._highlight && _this3._highlight.select(selectedTab);
 	                selectedPage && selectedPage.didEnter();
 	                deselectedPage && deselectedPage.didLeave();
-	                _this3._isReady && _this3._isReady();
+	                if (_this3._onReady) {
+	                    _this3._onReady();
+	                    _this3._onReady = null;
+	                }
 	                console.timeEnd('select tab ' + selectedTab.id);
 	            });
 	        }

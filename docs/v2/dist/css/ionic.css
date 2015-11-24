@@ -5773,16 +5773,6 @@ icon,
     .ios ion-card ion-card-header + ion-card-content,
     .ios ion-card .item + ion-card-content {
       padding-top: 0; }
-    .ios ion-card [actions] {
-      padding-right: 8px; }
-      .ios ion-card [actions] ion-item-content {
-        padding: 0; }
-      .ios ion-card [actions] button,
-      .ios ion-card [actions] [button] {
-        margin: 0 8px;
-        padding: 2px 6px;
-        min-height: 26px;
-        font-size: 1.3rem; }
     .ios ion-card ion-note[item-left],
     .ios ion-card ion-note[item-right] {
       font-size: 1.3rem; }
@@ -7080,8 +7070,6 @@ icon,
   .md [text-wrap] ion-item-content {
     font-size: 1.4rem;
     line-height: 1.5; }
-  .md .item[actions] ion-item-content {
-    margin: 4px; }
   .md icon[item-left] + .item-inner,
   .md icon[item-left] + [text-input] {
     margin-left: 24px; }
@@ -7207,12 +7195,6 @@ icon,
     .md ion-card ion-card-header + ion-card-content,
     .md ion-card .item + ion-card-content {
       padding-top: 0; }
-    .md ion-card [actions] button,
-    .md ion-card [actions] [button] {
-      margin: 0 4px 0 4px;
-      min-height: 26px;
-      font-size: 1.3rem;
-      border-color: transparent; }
     .md ion-card ion-note[item-left],
     .md ion-card ion-note[item-right] {
       font-size: 1.3rem; }

@@ -112,13 +112,13 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1102">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1108">ionic/components/nav/nav-controller.ts (line 11)</a>
 </p>
 ## Members
 
-<div id="push"></div>
+<div id="NavController#push"></div>
 <h2>
-  <code>push(componentType, params, opts)</code>
+  <code>NavController#push(The, params, opts)</code>
 
 </h2>
 
@@ -138,16 +138,16 @@ TODO
     
     <tr>
       <td>
-        componentType
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>name of the component you want to push on the navigation stack</p>
 
         
       </td>
@@ -161,10 +161,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>The name of the component you want to push on the navigation stack, plus additional data you want to pass as parameters</p>
 
         
       </td>
@@ -178,10 +178,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>The name of the component you want to push on the navigation stack, plus additional options for the transition</p>
 
         
       </td>
@@ -196,14 +196,14 @@ TODO
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the transition is completed
 
 
 
 
-<div id="pop"></div>
+<div id="NavController#pop"></div>
 <h2>
-  <code>pop(opts)</code>
+  <code>NavController#pop(opts)</code>
 
 </h2>
 
@@ -229,10 +229,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>Any additional option for the transition</p>
 
         
       </td>
@@ -247,7 +247,7 @@ TODO
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the transition is completed
 
 
 
@@ -302,7 +302,7 @@ Pop to the root view.
 
 <div id="insert"></div>
 <h2>
-  <code>insert(componentType, index)</code>
+  <code>insert(The, The)</code>
 
 </h2>
 
@@ -322,16 +322,16 @@ Inserts a view into the nav stack at the specified index.
     
     <tr>
       <td>
-        componentType
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>name of the component you want to insert into the nav stack</p>
 
         
       </td>
@@ -339,16 +339,16 @@ Inserts a view into the nav stack at the specified index.
     
     <tr>
       <td>
-        index
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Index</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>index where you want to insert the view</p>
 
         
       </td>
@@ -363,14 +363,14 @@ Inserts a view into the nav stack at the specified index.
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack
 
 
 
 
 <div id="remove"></div>
 <h2>
-  <code>remove(index)</code>
+  <code>remove(Remove)</code>
 
 </h2>
 
@@ -390,16 +390,16 @@ Removes a view from the nav stack at the specified index.
     
     <tr>
       <td>
-        index
+        Remove
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Index</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>the view from the nav stack at that index</p>
 
         
       </td>
@@ -414,7 +414,7 @@ Removes a view from the nav stack at the specified index.
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the view has been removed
 
 
 
@@ -489,7 +489,7 @@ Set the view stack to reflect the given component classes.
 
 <div id="setRoot"></div>
 <h2>
-  <code>setRoot(componentType, params, opts)</code>
+  <code>setRoot(The, params, opts)</code>
 
 </h2>
 
@@ -509,16 +509,16 @@ TODO
     
     <tr>
       <td>
-        componentType
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>component you want to make root</p>
 
         
       </td>
@@ -532,10 +532,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>The component you want to make root plus any nav params you want to pass</p>
 
         
       </td>
@@ -549,10 +549,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>The component you want to make root plus any transition params you want to pass</p>
 
         
       </td>
@@ -567,7 +567,7 @@ TODO
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when done
 
 
 
@@ -591,7 +591,7 @@ TODO
 
 <div id="isSwipeBackEnabled"></div>
 <h2>
-  <code>isSwipeBackEnabled(val)</code>
+  <code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
 
 </h2>
 
@@ -611,16 +611,16 @@ TODO
     
     <tr>
       <td>
-        val
+        isSwipeBackEnabled
         
-        
+        <div><em>(optional)</em></div>
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>boolean</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>Set whether or not swipe-to-go-back is enabled</p>
 
         
       </td>
@@ -635,7 +635,7 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>boolean</code> Whether swipe-to-go-back is enabled
 
 
 
@@ -657,7 +657,7 @@ will return true.
 
 
 * Returns: 
-  <code>boolean</code> 
+  <code>boolean</code> Whether you can swipe to go back
 
 
 
@@ -677,7 +677,7 @@ Otherwise returns false.
 
 
 * Returns: 
-  <code>boolean</code> 
+  <code>boolean</code> Whether there is a view to go back to
 
 
 
@@ -689,6 +689,7 @@ Otherwise returns false.
 </h2>
 
 TODO
+Question for ADAM
 
 
 
@@ -766,14 +767,14 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Component</code> TODO
 
 
 
 
 <div id="getByIndex"></div>
 <h2>
-  <code>getByIndex(index)</code>
+  <code>getByIndex(The)</code>
 
 </h2>
 
@@ -793,16 +794,16 @@ TODO
     
     <tr>
       <td>
-        index
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Index</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>index of the view you want to get</p>
 
         
       </td>
@@ -817,14 +818,14 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Component</code> Returns the component that matches the index given
 
 
 
 
 <div id="getByHandle"></div>
 <h2>
-  <code>getByHandle(handle)</code>
+  <code>getByHandle(The)</code>
 
 </h2>
 
@@ -844,16 +845,16 @@ TODO
     
     <tr>
       <td>
-        handle
+        The
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Handle</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>handle of the view you want to get</p>
 
         
       </td>
@@ -868,7 +869,7 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Component</code> Returns the component that matches the handle given
 
 
 
@@ -880,6 +881,7 @@ TODO
 </h2>
 
 TODO
+QUESTIONS FOR ADAM
 
 
 
@@ -990,7 +992,7 @@ not return an view which is about to be destroyed.
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Component</code> Returns the first component view in the current stack
 
 
 
@@ -1010,7 +1012,7 @@ not return an view which is about to be destroyed.
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Component</code> Returns the last component view in the current stack
 
 
 
@@ -1081,7 +1083,7 @@ not include views which are about to be destroyed.
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Number</code> The number of views in stack, including the current view
 
 
 
@@ -1093,6 +1095,7 @@ not include views which are about to be destroyed.
 </h2>
 
 TODO
+IS RETURNING UNDEFIND
 
 
 

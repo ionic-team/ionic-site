@@ -112,7 +112,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1179">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1280">ionic/components/nav/nav-controller.ts (line 11)</a>
 </p>
 ## Members
 
@@ -158,7 +158,66 @@ Boolean if the nav controller is actively transitioning or not.
 
 </h2>
 
-TODO
+Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
+
+```typescript
+class MyClass{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   pushPage(){
+     this.nav.push(SecondView);
+   }
+}
+```
+
+We can also pass along parameters to the next view, such as data that we have on the current view. This is a similar concept to to V1 apps with `$stateParams`.
+
+```typescript
+class MyClass{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   pushPage(user){
+     this.nav.push(SecondView,{
+      // user is an object we have in our view
+      // typically this comes from an ngFor or some array
+      // here we can create an object with a property of
+      // paramUser, and set it's value to the user object we passed in
+      paramUser: user
+     });
+   }
+}
+```
+
+We'll look at how we can access that data in the `SecondView` in the navParam docs
+
+We can also pass any options to the transtion from that same method
+
+```typescript
+class MyClass{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   pushPage(user){
+     this.nav.push(SecondView,{
+      // user is an object we have in our view
+      // typically this comes from an ngFor or some array
+      // here we can create an object with a property of
+      // paramUser, and set it's value to the user object we passed in
+      paramUser: user
+     },{
+      // here we can configure things like the animations direction or
+      // or if the view should animate at all.
+      animate: true,
+      direction: back
+     });
+   }
+}
+```
 
 
 
@@ -197,10 +256,10 @@ TODO
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>The name of the component you want to push on the navigation stack, plus additional data you want to pass as parameters</p>
+        <p>Any nav-params you want to pass along to the next view</p>
 
         
       </td>
@@ -214,10 +273,10 @@ TODO
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>The name of the component you want to push on the navigation stack, plus additional options for the transition</p>
+        <p>Any options you want to use pass to transtion</p>
 
         
       </td>
@@ -243,7 +302,23 @@ TODO
 
 </h2>
 
-TODO
+If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
+Similar to `push()`, you can pass animation options.
+```typescript
+class SecondView{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   goBack(){
+     this.nav.pop({
+      animate: true,
+      direction: back
+     });
+   }
+}
+```
+
 
 
 
@@ -268,7 +343,7 @@ TODO
   <code>Object</code>
       </td>
       <td>
-        <p>Any additional option for the transition</p>
+        <p>Any options you want to use pass to transtion</p>
 
         
       </td>
@@ -294,7 +369,7 @@ TODO
 
 </h2>
 
-Pop to the root view.
+Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
 
 
 
@@ -316,10 +391,10 @@ Pop to the root view.
       </td>
       <td>
         
-  
+  <code>Object</code>
       </td>
       <td>
-        <p>extra animation options</p>
+        <p>Any options you want to use pass to transtion</p>
 
         
       </td>
@@ -343,6 +418,20 @@ Pop to the root view.
 </h2>
 
 Inserts a view into the nav stack at the specified index.
+This is useful if you need to add a view at any point in your navigation stack
+
+```typescript
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   insertView(){
+     this.nav.insert(1,Info)
+   }
+ }
+ ```
+ This will insert the `Info` view into the second slot of our navigation stack
+
 
 
 
@@ -406,11 +495,23 @@ Inserts a view into the nav stack at the specified index.
 
 <div id="remove"></div>
 <h2>
-  <code>remove(Remove)</code>
+  <code>remove(Remove, opts)</code>
 
 </h2>
 
 Removes a view from the nav stack at the specified index.
+
+```typescript
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   removeView(){
+     this.nav.remove(1)
+   }
+ }
+ ```
+
 
 
 
@@ -441,6 +542,23 @@ Removes a view from the nav stack at the specified index.
       </td>
     </tr>
     
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -457,7 +575,7 @@ Removes a view from the nav stack at the specified index.
 
 <div id="setPages"></div>
 <h2>
-  <code>setPages(components, opts)</code>
+  <code>setPages(an, opts)</code>
 
 </h2>
 
@@ -477,16 +595,16 @@ Set the view stack to reflect the given component classes.
     
     <tr>
       <td>
-        components
+        an
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>arry of components to load in the stack</p>
 
         
       </td>
@@ -500,10 +618,10 @@ Set the view stack to reflect the given component classes.
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>Any options you want to use pass</p>
 
         
       </td>
@@ -529,7 +647,7 @@ Set the view stack to reflect the given component classes.
 
 </h2>
 
-TODO
+Set the root for the current navigation stack
 
 
 
@@ -554,7 +672,7 @@ TODO
   <code>Component</code>
       </td>
       <td>
-        <p>component you want to make root</p>
+        <p>name of the component you want to push on the navigation stack</p>
 
         
       </td>
@@ -568,10 +686,10 @@ TODO
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>The component you want to make root plus any nav params you want to pass</p>
+        <p>Any nav-params you want to pass along to the next view</p>
 
         
       </td>
@@ -585,10 +703,10 @@ TODO
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Object</code>
       </td>
       <td>
-        <p>The component you want to make root plus any transition params you want to pass</p>
+        <p>Any options you want to use pass to transtion</p>
 
         
       </td>
@@ -631,7 +749,7 @@ TODO
 
 </h2>
 
-TODO
+Check to see if swipe-to-go-back is enabled
 
 
 
@@ -718,103 +836,13 @@ Otherwise returns false.
 
 
 
-<div id="navbarViewContainer"></div>
-<h2>
-  <code>navbarViewContainer(nbContainer)</code>
-
-</h2>
-
-TODO
-Question for ADAM
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        nbContainer
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="anchorElementRef"></div>
-<h2>
-  <code>anchorElementRef()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="getActive"></div>
-<h2>
-  <code>getActive()</code>
-
-</h2>
-
-TODO
-
-
-
-
-
-
-* Returns: 
-  <code>Component</code> TODO
-
-
-
-
 <div id="getByIndex"></div>
 <h2>
   <code>getByIndex(The)</code>
 
 </h2>
 
-TODO
+
 
 
 
@@ -859,160 +887,6 @@ TODO
 
 
 
-<div id="getByHandle"></div>
-<h2>
-  <code>getByHandle(The)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        The
-        
-        
-      </td>
-      <td>
-        
-  <code>Handle</code>
-      </td>
-      <td>
-        <p>handle of the view you want to get</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>Component</code> Returns the component that matches the handle given
-
-
-
-
-<div id="getByType"></div>
-<h2>
-  <code>getByType(pageType)</code>
-
-</h2>
-
-TODO
-QUESTIONS FOR ADAM
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        pageType
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="getPrevious"></div>
-<h2>
-  <code>getPrevious(view)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
 <div id="first"></div>
 <h2>
   <code>first()</code>
@@ -1053,57 +927,6 @@ not return an view which is about to be destroyed.
 
 
 
-<div id="indexOf"></div>
-<h2>
-  <code>indexOf(view)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
 <div id="length"></div>
 <h2>
   <code>length()</code>
@@ -1120,106 +943,6 @@ not include views which are about to be destroyed.
 
 * Returns: 
   <code>Number</code> The number of views in stack, including the current view
-
-
-
-
-<div id="isActive"></div>
-<h2>
-  <code>isActive(view)</code>
-
-</h2>
-
-TODO
-IS RETURNING UNDEFIND
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="registerRouter"></div>
-<h2>
-  <code>registerRouter(router)</code>
-
-</h2>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        router
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
 
 
 

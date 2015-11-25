@@ -59776,11 +59776,70 @@
 	        }
 
 	        /**
-	         * TODO
+	         * Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
+	         *
+	         * ```typescript
+	         * class MyClass{
+	         *    constructor(nav:NavController){
+	         *      this.nav = nav;
+	         *    }
+	         *
+	         *    pushPage(){
+	         *      this.nav.push(SecondView);
+	         *    }
+	         * }
+	         * ```
+	         *
+	         * We can also pass along parameters to the next view, such as data that we have on the current view. This is a similar concept to to V1 apps with `$stateParams`.
+	         *
+	         * ```typescript
+	         * class MyClass{
+	         *    constructor(nav:NavController){
+	         *      this.nav = nav;
+	         *    }
+	         *
+	         *    pushPage(user){
+	         *      this.nav.push(SecondView,{
+	         *       // user is an object we have in our view
+	         *       // typically this comes from an ngFor or some array
+	         *       // here we can create an object with a property of
+	         *       // paramUser, and set it's value to the user object we passed in
+	         *       paramUser: user
+	         *      });
+	         *    }
+	         * }
+	         * ```
+	         *
+	         * We'll look at how we can access that data in the `SecondView` in the navParam docs
+	         *
+	         * We can also pass any options to the transtion from that same method
+	         *
+	         * ```typescript
+	         * class MyClass{
+	         *    constructor(nav:NavController){
+	         *      this.nav = nav;
+	         *    }
+	         *
+	         *    pushPage(user){
+	         *      this.nav.push(SecondView,{
+	         *       // user is an object we have in our view
+	         *       // typically this comes from an ngFor or some array
+	         *       // here we can create an object with a property of
+	         *       // paramUser, and set it's value to the user object we passed in
+	         *       paramUser: user
+	         *      },{
+	         *       // here we can configure things like the animations direction or
+	         *       // or if the view should animate at all.
+	         *       animate: true,
+	         *       direction: back
+	         *      });
+	         *    }
+	         * }
+	         * ```
 	         * @name NavController#push
 	         * @param {Component} The name of the component you want to push on the navigation stack
-	         * @param {Component} [params={}] The name of the component you want to push on the navigation stack, plus additional data you want to pass as parameters
-	         * @param {Component} [opts={}]  The name of the component you want to push on the navigation stack, plus additional options for the transition
+	         * @param {Object} [params={}] Any nav-params you want to pass along to the next view
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         * @returns {Promise} Returns a promise when the transition is completed
 	         */
 	    }, {
@@ -59837,9 +59896,25 @@
 	        }
 
 	        /**
-	         * TODO
+	         * If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
+	         * Similar to `push()`, you can pass animation options.
+	         * ```typescript
+	         * class SecondView{
+	         *    constructor(nav:NavController){
+	         *      this.nav = nav;
+	         *    }
+	         *
+	         *    goBack(){
+	         *      this.nav.pop({
+	         *       animate: true,
+	         *       direction: back
+	         *      });
+	         *    }
+	         * }
+	         * ```
+	         *
 	         * @name NavController#pop
-	         * @param {Object} [opts={}] Any additional option for the transition
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         * @returns {Promise} Returns a promise when the transition is completed
 	         */
 	    }, {
@@ -59885,9 +59960,8 @@
 	        /**
 	         * @private
 	         * Pop to a specific view in the history stack
-	         *
 	         * @param view {ViewController} to pop to
-	         * @param opts {object} pop options
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         */
 	    }, {
 	        key: 'popTo',
@@ -59931,8 +60005,8 @@
 	        }
 
 	        /**
-	         * Pop to the root view.
-	         * @param opts extra animation options
+	         * Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         */
 	    }, {
 	        key: 'popToRoot',
@@ -59944,6 +60018,20 @@
 
 	        /**
 	         * Inserts a view into the nav stack at the specified index.
+	         * This is useful if you need to add a view at any point in your navigation stack
+	         *
+	         * ```typescript
+	         * export class Detail {
+	         *    constructor(nav: NavController) {
+	         *      this.nav = nav;
+	         *    }
+	         *    insertView(){
+	         *      this.nav.insert(1,Info)
+	         *    }
+	         *  }
+	         *  ```
+	         *  This will insert the `Info` view into the second slot of our navigation stack
+	         *
 	         * @param {Index} The index where you want to insert the view
 	         * @param {Component} The name of the component you want to insert into the nav stack
 	         * @returns {Promise} Returns a promise when the view has been inserted into the navigation stack
@@ -59974,7 +60062,20 @@
 
 	        /**
 	         * Removes a view from the nav stack at the specified index.
+	         *
+	         * ```typescript
+	         * export class Detail {
+	         *    constructor(nav: NavController) {
+	         *      this.nav = nav;
+	         *    }
+	         *    removeView(){
+	         *      this.nav.remove(1)
+	         *    }
+	         *  }
+	         *  ```
+	         *
 	         * @param {Index} Remove the view from the nav stack at that index
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         * @returns {Promise} Returns a promise when the view has been removed
 	         */
 	    }, {
@@ -60008,8 +60109,8 @@
 
 	        /**
 	         * Set the view stack to reflect the given component classes.
-	         * @param {TODO} components  TODO
-	         * @param {TODO} [opts={}]  TODO
+	         * @param {Component} an arry of components to load in the stack
+	         * @param {Object} [opts={}] Any options you want to use pass
 	         * @returns {Promise} TODO
 	         */
 	    }, {
@@ -60071,10 +60172,10 @@
 	        }
 
 	        /**
-	         * TODO
-	         * @param {Component} The component you want to make root
-	         * @param {Component} [params={}] The component you want to make root plus any nav params you want to pass
-	         * @param {Component} [opts={}]  The component you want to make root plus any transition params you want to pass
+	         * Set the root for the current navigation stack
+	         * @param {Component} The name of the component you want to push on the navigation stack
+	         * @param {Object} [params={}] Any nav-params you want to pass along to the next view
+	         * @param {Object} [opts={}] Any options you want to use pass to transtion
 	         * @returns {Promise} Returns a promise when done
 	         */
 	    }, {
@@ -60439,7 +60540,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * Check to see if swipe-to-go-back is enabled
 	         * @param {boolean=} isSwipeBackEnabled Set whether or not swipe-to-go-back is enabled
 	         * @returns {boolean} Whether swipe-to-go-back is enabled
 	         */
@@ -60502,6 +60603,10 @@
 	            this._sbComplete();
 	            this._cleanup();
 	        }
+
+	        /**
+	         * @private
+	         */
 	    }, {
 	        key: '_cleanup',
 	        value: function _cleanup(activeView) {
@@ -60531,8 +60636,7 @@
 	        }
 
 	        /**
-	         * TODO
-	         * Question for ADAM
+	         * @private
 	         * @param {TODO} nbContainer  TODO
 	         * @returns {TODO} TODO
 	         */
@@ -60551,7 +60655,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @returns {TODO} TODO
 	         */
 	    }, {
@@ -60620,7 +60724,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @returns {Component} TODO
 	         */
 	    }, {
@@ -60635,7 +60739,6 @@
 	        }
 
 	        /**
-	         * TODO
 	         * @param {Index} The index of the view you want to get
 	         * @returns {Component} Returns the component that matches the index given
 	         */
@@ -60649,7 +60752,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @param {Handle} The handle of the view you want to get
 	         * @returns {Component} Returns the component that matches the handle given
 	         */
@@ -60665,8 +60768,7 @@
 	        }
 
 	        /**
-	         * TODO
-	         * QUESTIONS FOR ADAM
+	         * @private
 	         * @param {TODO} pageType  TODO
 	         * @returns {TODO} TODO
 	         */
@@ -60682,7 +60784,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @param {TODO} view  TODO
 	         * @returns {TODO} TODO
 	         */
@@ -60733,7 +60835,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @param {TODO} view  TODO
 	         * @returns {TODO} TODO
 	         */
@@ -60761,7 +60863,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * IS RETURNING UNDEFIND
 	         * @param {TODO} view  TODO
 	         * @returns {TODO} TODO
@@ -60773,7 +60875,7 @@
 	        }
 
 	        /**
-	         * TODO
+	         * @private
 	         * @param {TODO} router  TODO
 	         */
 	    }, {

@@ -5162,7 +5162,7 @@ System.register('ionic/platform/platform', ['../util/util', '../util/dom'], func
                     key: 'navigatorPlatform',
                     value: function navigatorPlatform(val) {
                         if (arguments.length) {
-                            this._bPlt = val;
+                            this._bPlt = (val || '').toLowerCase();
                         }
                         return this._bPlt || '';
                     }
@@ -5578,7 +5578,7 @@ System.register('ionic/platform/registry', ['./platform', '../util/dom'], functi
                 subsets: ['phablet', 'tablet'],
                 settings: {
                     activator: function activator(p) {
-                        return p.version().major >= 5 ? 'ripple' : 'none';
+                        return p.version().major < 5 && p.navigatorPlatform().indexOf('linux') > -1 ? 'none' : 'ripple';
                     },
                     hoverCSS: false,
                     keyboardHeight: 300,

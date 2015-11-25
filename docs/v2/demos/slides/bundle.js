@@ -71760,11 +71760,12 @@
 	        _get(Object.getPrototypeOf(RadioGroup.prototype), "constructor", this).call(this, elementRef, config);
 	        this.headerQuery = headerQuery;
 	        this.radios = [];
+	        this.ngControl = ngControl;
 	        this.id = ++radioGroupIds;
 	        this.radioIds = -1;
 	        this.onChange = function (_) {};
 	        this.onTouched = function (_) {};
-	        if (ngControl) ngControl.valueAccessor = this;
+	        if (ngControl) this.ngControl.valueAccessor = this;
 	    }
 
 	    /**
@@ -71793,8 +71794,12 @@
 	        value: function registerRadio(radio) {
 	            radio.id = radio.id || 'radio-' + this.id + '-' + ++this.radioIds;
 	            this.radios.push(radio);
+	            if (this.value == radio.value) {
+	                radio.check(this.value);
+	            }
 	            if (radio.checked) {
 	                this.value = radio.value;
+	                this.onChange(this.value);
 	                this.activeId = radio.id;
 	            }
 	        }
@@ -71953,9 +71958,9 @@
 	         */
 	    }, {
 	        key: "click",
-	        value: function click(ev) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
+	        value: function click(event) {
+	            event.preventDefault();
+	            event.stopPropagation();
 	            this.check();
 	        }
 
@@ -77784,6 +77789,8 @@
 
 	var _ionicIonic = __webpack_require__(43);
 
+	var _angular2Http = __webpack_require__(418);
+
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
 	    switch (arguments.length) {
@@ -77806,12 +77813,13 @@
 	};
 
 	var MyApp = (function () {
-	    function MyApp(app) {
+	    function MyApp(app, http) {
 	        var _this = this;
 
 	        _classCallCheck(this, MyApp);
 
 	        this.app = app;
+	        this.http = http;
 	        this.extraOptions = {
 	            loop: true
 	        };
@@ -77819,17 +77827,16 @@
 	        var tags = "amsterdam";
 	        var FLICKR_API_KEY = '504fd7414f6275eb5b657ddbfba80a2c';
 	        var baseUrl = 'https://api.flickr.com/services/rest/';
-	        // TODO: update to use angular2's HTTP Service
-	        Http.get(baseUrl + '?method=flickr.groups.pools.getPhotos&group_id=1463451@N25&safe_search=1&api_key=' + FLICKR_API_KEY + '&jsoncallback=JSON_CALLBACK&format=json&tags=' + tags, {
-	            method: 'jsonp'
-	        }).then(function (val) {
+	        this.http.get(baseUrl + '?method=flickr.groups.pools.getPhotos&group_id=1463451@N25&safe_search=1&api_key=' + FLICKR_API_KEY + '&format=json&nojsoncallback=1&tags=' + tags).subscribe(function (data) {
+	            var val = data.json();
 	            _this.images = val.photos.photo.slice(0, 20);
 	            setTimeout(function () {
 	                _this.slider.update();
 	            });
 	        }, function (err) {
-	            alert('Unable to load images');
-	            console.error(err);
+	            return console.log(err);
+	        }, function () {
+	            return console.log('complete');
 	        });
 	    }
 
@@ -77859,8 +77866,8 @@
 	})();
 	MyApp = __decorate([(0, _ionicIonic.App)({
 	    templateUrl: 'main.html'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object])], MyApp);
-	var _a;
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _angular2Http.Http !== 'undefined' && _angular2Http.Http) === 'function' && _b || Object])], MyApp);
+	var _a, _b;
 
 /***/ }
 /******/ ]);

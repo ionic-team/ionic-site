@@ -71760,11 +71760,12 @@
 	        _get(Object.getPrototypeOf(RadioGroup.prototype), "constructor", this).call(this, elementRef, config);
 	        this.headerQuery = headerQuery;
 	        this.radios = [];
+	        this.ngControl = ngControl;
 	        this.id = ++radioGroupIds;
 	        this.radioIds = -1;
 	        this.onChange = function (_) {};
 	        this.onTouched = function (_) {};
-	        if (ngControl) ngControl.valueAccessor = this;
+	        if (ngControl) this.ngControl.valueAccessor = this;
 	    }
 
 	    /**
@@ -71793,8 +71794,12 @@
 	        value: function registerRadio(radio) {
 	            radio.id = radio.id || 'radio-' + this.id + '-' + ++this.radioIds;
 	            this.radios.push(radio);
+	            if (this.value == radio.value) {
+	                radio.check(this.value);
+	            }
 	            if (radio.checked) {
 	                this.value = radio.value;
+	                this.onChange(this.value);
 	                this.activeId = radio.id;
 	            }
 	        }
@@ -71953,9 +71958,9 @@
 	         */
 	    }, {
 	        key: "click",
-	        value: function click(ev) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
+	        value: function click(event) {
+	            event.preventDefault();
+	            event.stopPropagation();
 	            this.check();
 	        }
 

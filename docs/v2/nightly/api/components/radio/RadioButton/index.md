@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L144'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L149'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L144'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L149'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ docType: "class"
 
 <h1 class="class export">RadioButton <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L145-L231">ionic/components/radio/radio.ts (line 145)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150-L236">ionic/components/radio/radio.ts (line 150)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-radio</span>

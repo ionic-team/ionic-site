@@ -53262,7 +53262,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             return this.push(componentType, params, opts);
                         }
                         // create new ViewController, but don't render yet
-                        var viewCtrl = new ViewController(this, componentType);
+                        var viewCtrl = new ViewController(this, componentType, params);
                         viewCtrl.state = CACHED_STATE;
                         viewCtrl.shouldDestroy = false;
                         viewCtrl.shouldCache = false;

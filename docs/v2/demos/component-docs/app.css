@@ -2273,9 +2273,6 @@ button.swiper-pagination-bullet {
 .swiper-container-3d .swiper-slide-shadow-right,
 .swiper-container-3d .swiper-slide-shadow-top,
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -2378,9 +2375,6 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden; }
 
 .swiper-container-cube .swiper-cube-shadow {
-  position: absolute;
-  left: 0;
-  bottom: 0px;
   width: 100%;
   height: 100%;
   background: #000;
@@ -2472,9 +2466,6 @@ ion-slides {
   text-align: center; }
 
 .swiper-container {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -2485,9 +2476,6 @@ ion-slides {
   overflow: hidden; }
 
 .swiper-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   padding: 0;

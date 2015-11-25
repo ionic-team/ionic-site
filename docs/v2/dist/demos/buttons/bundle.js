@@ -59962,7 +59962,7 @@
 	                return this.push(componentType, params, opts);
 	            }
 	            // create new ViewController, but don't render yet
-	            var viewCtrl = new _viewController.ViewController(this, componentType);
+	            var viewCtrl = new _viewController.ViewController(this, componentType, params);
 	            viewCtrl.state = CACHED_STATE;
 	            viewCtrl.shouldDestroy = false;
 	            viewCtrl.shouldCache = false;

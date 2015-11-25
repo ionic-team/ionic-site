@@ -77801,7 +77801,7 @@
 	    return ContactModal;
 	})();
 	exports.ContactModal = ContactModal;
-	exports.ContactModal = ContactModal = __decorate([(0, _ionicIonic.IonicView)({
+	exports.ContactModal = ContactModal = __decorate([(0, _ionicIonic.Page)({
 	    template: '<ion-nav [root]="rootView"></ion-nav>'
 	}), __metadata('design:paramtypes', [])], ContactModal);
 	var ModalFirstPage = (function () {
@@ -77825,8 +77825,9 @@
 	            modal.close();
 	        }
 	    }, {
-	        key: "closeByHandeModal",
-	        value: function closeByHandeModal() {
+	        key: "closeByHandleModal",
+	        value: function closeByHandleModal() {
+	            debugger;
 	            var modal = this.modal.get('my-awesome-modal');
 	            modal.close();
 	        }
@@ -77862,8 +77863,8 @@
 	    return ModalFirstPage;
 	})();
 	exports.ModalFirstPage = ModalFirstPage;
-	exports.ModalFirstPage = ModalFirstPage = __decorate([(0, _ionicIonic.IonicView)({
-	    template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content padding>\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionSheet()\">Open Action Sheet</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandeModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
+	exports.ModalFirstPage = ModalFirstPage = __decorate([(0, _ionicIonic.Page)({
+	    template: "\n    <ion-navbar *navbar><ion-title>First Page Header</ion-title><ion-nav-items primary><button (click)=\"closeModal()\">Close</button></ion-nav-items></ion-navbar>\n    <ion-content padding>\n      <p>\n        <button (click)=\"push()\">Push (Go to 2nd)</button>\n      </p>\n      <p>\n        <button (click)=\"openActionSheet()\">Open Action Sheet</button>\n      </p>\n      <p>\n        <button (click)=\"closeByHandleModal()\">Close By Handle</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
 	}), __metadata('design:paramtypes', [typeof (_e = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _e || Object, typeof (_f = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _f || Object, typeof (_g = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _g || Object])], ModalFirstPage);
 	var ModalSecondPage = function ModalSecondPage(nav, params) {
 	    _classCallCheck(this, ModalSecondPage);
@@ -77873,7 +77874,7 @@
 	    console.log('Second page params:', params);
 	};
 	exports.ModalSecondPage = ModalSecondPage;
-	exports.ModalSecondPage = ModalSecondPage = __decorate([(0, _ionicIonic.IonicView)({
+	exports.ModalSecondPage = ModalSecondPage = __decorate([(0, _ionicIonic.Page)({
 	    template: "\n    <ion-navbar *navbar><ion-title>Second Page Header</ion-title></ion-navbar>\n    <ion-content padding>\n      <p>\n        <button (click)=\"nav.pop()\">Pop (Go back to 1st)</button>\n      </p>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n      <f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f><f></f>\n    </ion-content>\n  "
 	}), __metadata('design:paramtypes', [typeof (_h = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _h || Object, typeof (_j = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _j || Object])], ModalSecondPage);
 

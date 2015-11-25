@@ -37,8 +37,9 @@ docType: "class"
 
 
 
-<p><em>For examples on the basic usage of NavController, check out the <a href="../../../../components/#navigation">Navigation section</a>
-of the Component docs.</em></p>
+<p><em>For examples on the basic usage of NavController, check out the
+<a href="../../../../components/#navigation">Navigation section</a> of the Component
+docs.</em></p>
 <p>NavController is the base class for navigation controller components like
 <a href="../Nav/"><code>Nav</code></a> and <a href="../../Tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
 to navigate to <a href="#creating_pages">pages</a> in your app. At a basic level, a
@@ -60,11 +61,6 @@ NavController, regardless of whether it is a Tab or a Nav.</p>
 injector with NavController bound to that instance (usually either a Nav or
 Tab) and adds the injector to its own providers.  For more information on
 providers and dependency injection, see <a href="">Providers and DI</a>.</p>
-<pre><code class="lang-ts">// class NavController
-this.providers = Injector.resolve([
-  provide(NavController, {useValue: this})
-]);
-</code></pre>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
 <a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
@@ -79,10 +75,8 @@ navigation controller for most situations (for more advanced situations, see
 reference</a>.</em></p>
 <p>Pages are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
-decorated with @Page as its first argument.  The NavController then
-<a href="">compiles</a> that component, adds it to the DOM in a similar fashion to
-Angular&#39;s <a href="https://angular.io/docs/js/latest/api/core/DynamicComponentLoader-interface.html">DynamicComponentLoader</a>,
-and animates it into view.</p>
+decorated with <code>@Page</code> as its first argument.  The NavController then
+compiles that component, adds it to the app and animates it into view.</p>
 <p>By default, pages are cached and left in the DOM if they are navigated away
 from but still in the navigation stack (the exiting page on a <code>push()</code> for
 example).  They are destroyed when removed from the navigation stack (on
@@ -96,6 +90,9 @@ defined in any <code>@Page</code> decorated component class.</p>
 class HelloWorld {
   onPageLoaded() {
     console.log(&quot;I&#39;m alive!&quot;);
+  }
+  onPageWillLeave() {
+    console.log(&quot;Looks like I&#39;m about to leave :(&quot;);
   }
 }
 </code></pre>
@@ -112,7 +109,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1280">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1275">ionic/components/nav/nav-controller.ts (line 11)</a>
 </p>
 ## Members
 

@@ -9036,10 +9036,7 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
 
             _export("List", List = __decorate([Directive({
                 selector: 'ion-list',
-                inputs: ['items', 'virtual', 'content'],
-                host: {
-                    'class': 'list'
-                }
+                inputs: ['items', 'virtual', 'content']
             }), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgZone !== 'undefined' && NgZone) === 'function' && _c || Object])], List));
 
             ListHeader = function ListHeader() {
@@ -13590,7 +13587,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
      *
      * @usage
      * ```html
-     * <ion-radio-group ng-control="clientside">
+     * <ion-list radio-group ng-control="clientside">
      *
      *   <ion-list-header>
      *     Clientside
@@ -13612,7 +13609,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
      *     React
      *   </ion-radio>
      *
-     * </ion-radio-group>
+     * </ion-list>
      * ```
     */
     "use strict";
@@ -13832,12 +13829,11 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
             _export("RadioGroup", RadioGroup);
 
             _export("RadioGroup", RadioGroup = __decorate([Directive({
-                selector: 'ion-radio-group',
+                selector: '[radio-group]',
                 host: {
                     'role': 'radiogroup',
                     '[attr.aria-activedescendant]': 'activeId',
-                    '[attr.aria-describedby]': 'describedById',
-                    'class': 'list'
+                    '[attr.aria-describedby]': 'describedById'
                 }
             }), __param(2, Optional()), __param(3, Query(ListHeader)), __metadata('design:paramtypes', [typeof (_a = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _a || Object, typeof (_b = typeof Config !== 'undefined' && Config) === 'function' && _b || Object, typeof (_c = typeof NgControl !== 'undefined' && NgControl) === 'function' && _c || Object, typeof (_d = typeof QueryList !== 'undefined' && QueryList) === 'function' && _d || Object])], RadioGroup));
             /**

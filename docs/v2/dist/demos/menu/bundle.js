@@ -69767,10 +69767,7 @@
 	exports.List = List;
 	exports.List = List = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'ion-list',
-	    inputs: ['items', 'virtual', 'content'],
-	    host: {
-	        'class': 'list'
-	    }
+	    inputs: ['items', 'virtual', 'content']
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _c || Object])], List);
 	var ListHeader = function ListHeader() {
 	    _classCallCheck(this, ListHeader);
@@ -71701,7 +71698,7 @@
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-radio-group ng-control="clientside">
+	 * <ion-list radio-group ng-control="clientside">
 	 *
 	 *   <ion-list-header>
 	 *     Clientside
@@ -71723,7 +71720,7 @@
 	 *     React
 	 *   </ion-radio>
 	 *
-	 * </ion-radio-group>
+	 * </ion-list>
 	 * ```
 	*/
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -71908,12 +71905,11 @@
 	})(_ion.Ion);
 	exports.RadioGroup = RadioGroup;
 	exports.RadioGroup = RadioGroup = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'ion-radio-group',
+	    selector: '[radio-group]',
 	    host: {
 	        'role': 'radiogroup',
 	        '[attr.aria-activedescendant]': 'activeId',
-	        '[attr.aria-describedby]': 'describedById',
-	        'class': 'list'
+	        '[attr.aria-describedby]': 'describedById'
 	    }
 	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Query)(_listList.ListHeader)), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _a || Object, typeof (_b = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _c || Object, typeof (_d = typeof _angular2Angular2.QueryList !== 'undefined' && _angular2Angular2.QueryList) === 'function' && _d || Object])], RadioGroup);
 	/**

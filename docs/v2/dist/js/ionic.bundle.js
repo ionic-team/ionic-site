@@ -53816,7 +53816,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             if (view) {
                                 if (view.shouldDestroy) {
                                     destroys.push(view);
-                                } else {
+                                } else if (view.isLoaded()) {
                                     var shouldShow = view === activeView || view === previousView;
                                     _this4._renderView(view, shouldShow);
                                 }

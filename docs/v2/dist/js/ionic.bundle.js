@@ -43804,7 +43804,7 @@ System.register('ionic/animations/ios-transition', ['./animation'], function (_e
                             enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
                             if (enteringView.enableBack()) {
                                 // back direction, entering page has a back button
-                                enteringBackButton.fadeIn();
+                                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS).fadeIn();
                             }
                         } else {
                             // entering navbar, forward direction
@@ -53155,7 +53155,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             return Promise.reject();
                         }
                         this.setTransitioning(true, 500);
-                        var resolve = undefined;
+                        var resolve = null;
                         var promise = new Promise(function (res) {
                             resolve = res;
                         });
@@ -53268,6 +53268,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         viewCtrl.shouldCache = false;
                         this._incrementId(viewCtrl);
                         this._views.splice(index, 0, viewCtrl);
+                        this._cleanup();
                         return Promise.resolve();
                     }
 
